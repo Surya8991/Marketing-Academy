@@ -75,26 +75,28 @@ Each MDX lesson MUST include real research:
 - Review A (`wxlfdlb61`) - STOPPED after completing: fundamentals (16), seo (20), paid-ads (18). Committed + pushed.
 - Review B (`wfc2celzk`) - STOPPED after completing: email (6), analytics (7), psychology (4), tools (15 new). Committed + pushed.
 
-**Active workflows (Session 9 relaunch 2026-06-14):**
-- Review C (`wf_efe43d89-e5a`) - research-backed review: growth (19), social (18), content (19) = 56 lessons
-- Review D (`wf_9e38f788-a70`) - research-backed review: copywriting (19), cro (18), brand-strategy (19), product-marketing (16), ai-marketing (17) = 89 lessons
+**Active workflows (Session 9):**
+- Review Remaining A (`wf_e1c122d9-480`) - research-backed review: growth (18), social (18), content (19), copywriting (19), cro (18) = 92 lessons. Partial batch committed (27 files) + pushed.
+- Readability pass (`wf_d2841960-658`) - paragraph splitting, bullet conversion, whitespace for 71 already-reviewed lessons: fundamentals (16), seo (20), paid-ads (18), psychology (4), email (6), analytics (7).
+
+**TypeScript status:** npx tsc --noEmit passes with 0 errors (verified 2026-06-14).
 
 **Review status by category:**
-- fundamentals (done)
-- seo (done)
-- paid-ads (done)
-- growth - Review C running
-- social - Review C running
-- content - Review C running
-- email (partially reviewed + 9 new lessons)
-- analytics (partially reviewed + 9 new lessons)
-- tools (15 deep-dive lessons written)
-- psychology (partially reviewed)
-- copywriting - Review D running
-- cro - Review D running
-- brand-strategy - Review D running
-- product-marketing - Review D running
-- ai-marketing - Review D running
+- fundamentals - REVIEWED + pushed + readability pass running
+- seo - REVIEWED + pushed + readability pass running
+- paid-ads - REVIEWED + pushed + readability pass running
+- growth - REVIEW IN PROGRESS (wf_e1c122d9-480), partial batch pushed
+- social - REVIEW IN PROGRESS (wf_e1c122d9-480), partial batch pushed
+- content - REVIEW IN PROGRESS (wf_e1c122d9-480)
+- email - 6 reviewed + pushed + readability pass running; 8 more need review
+- analytics - 7 reviewed + pushed + readability pass running; 9 more need review
+- tools - 15 new lessons written + pushed; needs review pass
+- psychology - 4 reviewed + pushed + readability pass running; 13 more need review
+- copywriting - REVIEW IN PROGRESS (wf_e1c122d9-480), partial batch pushed
+- cro - REVIEW IN PROGRESS (wf_e1c122d9-480), partial batch pushed
+- brand-strategy - needs review workflow
+- product-marketing - needs review workflow
+- ai-marketing - needs review workflow
 
 **Review improvements per lesson:**
 - Live WebSearch + WebFetch for 2024/2025 stats
@@ -120,10 +122,9 @@ for f in glob.glob('src/content/**/*.mdx', recursive=True):
         print(f'Fixed: {f}')
 ```
 
-### PHASE 4 - Type Check & Build 🔴 NOT STARTED
-After all 241 MDX files exist:
-- `npx tsc --noEmit` - 0 errors expected
-- Vercel auto-deploys on every push
+### PHASE 4 - Type Check & Build ✅ PASSING
+- `npx tsc --noEmit` - 0 errors (verified 2026-06-14)
+- Vercel auto-deploys on every push to main
 
 ### PHASE 5 - Vercel Deploy ✅ LIVE
 Live URL: **https://marketing-academy-roan.vercel.app**
@@ -150,7 +151,7 @@ Every push auto-deploys within ~60 seconds.
 | 6.9 | Learning tracks (B2B / E-commerce / Solo / AI-first) | ✅ /tracks overview + /tracks/[slug] detail pages, TrackCard on homepage |
 | 6.10 | Newsletter signup | ✅ NewsletterSignup.tsx in Footer + /api/newsletter route (TODO: connect email service) |
 | 6.11 | Multilingual resources (Hindi/Tamil/Telugu) | ✅ Added in all lessons via review workflows |
-| 6.12 | Content readability pass | 🔴 After review workflows done - max 3 sentences per paragraph, break long sections into smaller chunks, replace walls of text with bullets/numbered lists, add whitespace. Goal: user reads one section, feels progress, wants to continue. |
+| 6.12 | Content readability pass | 🔄 RUNNING (`wf_d2841960-658`) - 71 already-reviewed lessons (fundamentals, seo, paid-ads, psychology, email, analytics). Remaining categories after review workflows complete. |
 
 ---
 
