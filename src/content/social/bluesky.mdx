@@ -1,0 +1,63 @@
+export const lessonMeta = {
+  title: "Bluesky and the Open Social Web",
+  level: "Advanced",
+  summary: "Decentralized social — what AT Protocol means for marketers.",
+};
+
+# Bluesky and the Open Social Web
+
+Bluesky is the first decentralized social network to cross 40 million users, and the AT Protocol underneath it changes the rules marketers have lived by for a decade. If you run brand or growth at a company that depends on social distribution, you need to understand what happens when the algorithm, the identity layer, and the moderation stack are no longer owned by one company.
+
+## What It Actually Is
+
+Bluesky is a microblogging app (think Twitter circa 2012) built on the AT Protocol — an open standard where your identity, your follow graph, and your posts live in a Personal Data Server you can move between providers. The closest analogy: email. Your address can move from Gmail to Fastmail without losing your contacts. On Bluesky, your handle and followers can move from bsky.social to a self-hosted server without anyone's permission.
+
+The marketer-relevant consequence: there is no single algorithm. Users subscribe to "custom feeds" — third-party-built algorithms — and pick which one runs their timeline.
+
+## Why It Matters (with data)
+
+The platform grew nearly 60% in 2025, from 25.94M to 41.41M users, and users posted 1.41 billion times that year — 61% of all posts ever made on the network ([Bluesky 2025 Transparency Report](https://bsky.social/about/blog/01-29-2026-transparency-report-2025)). Daily active users sit around 4.1 million as of mid-2025 ([Sprout Social](https://sproutsocial.com/insights/bluesky-statistics/)).
+
+Three numbers matter more than the headline growth:
+
+- **50,000+ custom algorithmic feeds** are live, built by users and third parties via SkyFeed and similar tools ([Mindgruve](https://mindgruve.com/blog/strategy/bluesky-a-strategic-guide-for-brands-in-2025)).
+- **62% of users are under 35**, with the largest cohorts being tech, finance, and creative professionals — a high-LTV audience that left X.
+- **Daily anti-social behavior reports dropped ~79%** after the platform shipped reply toxicity detection, materially improving brand safety.
+
+The US accounts for 50.13% of users, with Japan and Brazil as the next two growth markets.
+
+## How It Works / The Playbook
+
+Bluesky has no paid ads as of 2026. Distribution is earned. The mental model is closer to a podcast network than a paid social platform.
+
+1. **Claim a verified domain handle.** Set your handle to `@yourbrand.com` via DNS — it is free, instant, and acts as built-in verification.
+2. **Submit to relevant custom feeds.** Identify the 5–10 feeds your audience subscribes to (e.g., "Marketing Pros", "Science", regional feeds) and post content that matches their curation rules. Getting into a 50K-subscriber niche feed beats shouting into the For You algorithm.
+3. **Build or sponsor a feed.** Brands with engineering can publish their own custom feed — a permanent, opt-in distribution channel users actively choose. There is no equivalent on Meta or TikTok.
+4. **Use starter packs.** A starter pack is a one-tap follow list. Brands that ship a useful starter pack ("30 climate scientists worth following") get bulk follows in return.
+5. **Optimize for replies, not reposts.** The default "Following" algorithm surfaces conversation. Posts that spark threads outperform link-drops 10:1 anecdotally — plan for staff to engage in replies for 30 minutes after posting.
+
+<Callout type="example">
+Eco-cleaning brand **Blueland** partnered with 211 micro-influencers across Bluesky and adjacent networks to seed its Amazon product line in early 2025, leaning on the platform's high concentration of sustainability-focused micro-communities rather than buying ads ([Sprinklr](https://www.sprinklr.com/blog/bluesky-marketing/)). The campaign worked because Bluesky users self-select into topical feeds — Blueland could reach gardeners, low-waste advocates, and climate journalists through three different custom feeds with one content set.
+</Callout>
+
+## Common Mistakes
+
+- **Cross-posting from X verbatim.** Bluesky's culture punishes link-bait headlines and engagement-farming threads. Posts that hit 1M on X regularly die at 50 likes here.
+- **Ignoring the protocol layer.** Treating Bluesky as just an app means you miss the real moat: building on AT Proto (custom feeds, labelers, moderation services) creates owned distribution no algorithm change can take away.
+- **Buying followers or running giveaway loops.** No paid amplification exists, and follower-graph spam is heavily down-ranked by community-run labelers.
+- **Skipping domain verification.** Unverified handles get reported as impersonation; DNS verification takes 10 minutes and prevents brand-protection headaches.
+
+## Key Takeaways
+
+- Bluesky is not a Twitter clone — it is a protocol with an app on top. Marketers who learn AT Proto get a structural advantage over those who do not.
+- Distribution lives in custom feeds, not a single algorithm. Mapping feeds is the new keyword research.
+- The audience is small (4M DAU) but high-value: under-35, professional, and actively choosing the platform over X. Treat it like a B2B channel, not a mass-reach one.
+
+<ResourceList resources={[
+  { title: "Bluesky 2025 Transparency Report", url: "https://bsky.social/about/blog/01-29-2026-transparency-report-2025", type: "article", free: true },
+  { title: "AT Protocol Documentation", url: "https://atproto.com/", type: "docs", free: true },
+  { title: "Sprout Social — Bluesky Growth Statistics", url: "https://sproutsocial.com/insights/bluesky-statistics/", type: "article", free: true },
+  { title: "Mindgruve — Bluesky Strategic Guide for Brands", url: "https://mindgruve.com/blog/strategy/bluesky-a-strategic-guide-for-brands-in-2025", type: "article", free: true },
+  { title: "Sprinklr — Bluesky Marketing Strategies", url: "https://www.sprinklr.com/blog/bluesky-marketing/", type: "article", free: true },
+  { title: "SkyFeed Custom Feed Builder", url: "https://skyfeed.app/", type: "tool", free: true },
+]} />

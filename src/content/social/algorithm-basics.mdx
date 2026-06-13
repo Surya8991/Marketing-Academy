@@ -1,0 +1,61 @@
+export const lessonMeta = {
+  title: "How Social Algorithms Work",
+  level: "Advanced",
+  summary: "The signals every major platform optimizes for.",
+};
+
+# How Social Algorithms Work
+
+If your content strategy still leans on follower count, you are playing a 2018 game on a 2025 board. Every major platform has shifted from a follow-graph to an interest-graph model, which means each post has to earn distribution on its own. This lesson is for marketers who want to stop guessing and start optimizing for the signals platforms actually rank on.
+
+## What It Actually Is
+
+A social algorithm is a ranking system that scores every candidate post for every user session, then sorts the feed by predicted value. "Value" is usually a weighted sum of predicted actions — watch time, comment probability, save probability, share probability — multiplied by a quality and safety score. Example: when you open TikTok, the For You Page is not a list of posts from people you follow. It is a fresh ranking of thousands of candidates, scored against your last few hours of behavior.
+
+## Why It Matters (with data)
+
+The signals have consolidated, but the weights differ sharply by platform. On LinkedIn, dwell time is now the dominant ranking factor — the company's engineering team published peer-reviewed work in late 2024 describing a "Long Dwell" classifier that feeds directly into feed ranking, and comments now carry roughly 15x the weight of likes according to [Meet-Lea's algorithm breakdown](https://meet-lea.com/en/blog/linkedin-algorithm-explained). LinkedIn also deployed [360Brew](https://meet-lea.com/en/blog/linkedin-algorithm-explained), a 150-billion-parameter decoder-only foundation model, in late 2024 to replace thousands of legacy recommendation models.
+
+On TikTok, completion rate sits above everything else, with saves and shares outweighing simple likes by a significant margin per [Sprout Social's 2025-2026 analysis](https://sproutsocial.com/insights/tiktok-algorithm/). Instagram's [stated ranking systems](https://blog.hootsuite.com/social-media-algorithm/) split Feed, Reels, Stories, and Explore into separate models — sends-per-reach has become Adam Mosseri's most-quoted Reels metric.
+
+## How It Works / The Playbook
+
+Every modern feed algorithm runs the same four-stage pipeline:
+
+1. **Candidate generation** — pull a few thousand posts the user might see (recent follows, interest clusters, trending).
+2. **Light ranking** — a cheap model trims to a few hundred.
+3. **Heavy ranking** — a large neural net (LinkedIn's 360Brew, Meta's predictions stack) predicts the probability of each valuable action.
+4. **Re-ranking** — diversity, freshness, safety, and creator-quality filters reorder the final list.
+
+What you can actually control sits in stage 3. Optimize for the platform's dominant signal:
+
+- **TikTok**: hook in the first 1–2 seconds, design loops to push completion above 100 percent, give viewers a reason to save (a tip, a list, a screenshot-worthy frame).
+- **Instagram Reels**: optimize for sends — make content someone wants to DM to a friend.
+- **LinkedIn**: write for dwell. Long posts with line breaks, native carousels (PDF documents), and a question that pulls comments in the first 60 minutes.
+- **YouTube**: click-through rate plus average view duration. Thumbnails and the first 30 seconds carry most of the weight.
+- **X**: replies and bookmarks now outrank likes; the For You tab leans heavily on Community Notes and creator-verification signals.
+
+<Callout type="example">
+Duolingo's social team is the canonical case study. By leaning into completion-rate-friendly formats (short, looping, audio-on jokes featuring the mascot), the brand pushed its TikTok following past 15 million by 2025 — from roughly 50,000 in mid-2021 — without a traditional paid push, per [Sprout Social's case write-ups](https://sproutsocial.com/insights/tiktok-algorithm/). The lesson is not "be funny." It is that they engineered every post around the one signal TikTok ranks hardest on.
+</Callout>
+
+## Common Mistakes
+
+- Treating every platform the same. A LinkedIn post optimized for dwell will flop on TikTok, where the same length kills completion rate.
+- Chasing likes. Likes are the cheapest, lowest-signal action on every major platform. Saves, shares, sends, and comments are what move ranking.
+- Posting and ghosting. On LinkedIn the first 60 minutes determine network-wide amplification; if you do not reply to early comments, you cap your own reach.
+- Ignoring the first 1–3 seconds. On short-video platforms, drop-off in the opening seconds is the single biggest predictor of poor distribution.
+- Buying followers or running pod-style engagement. Modern models detect coordinated behavior and down-rank the account, not just the post.
+
+## Key Takeaways
+
+- Every major feed is now an interest graph. Follower count is a weak input; predicted value is the real currency.
+- Each platform has one dominant signal: completion rate (TikTok), sends (Reels), dwell time (LinkedIn), AVD plus CTR (YouTube).
+- Optimize content format around that one signal, not around vanity metrics.
+
+<ResourceList resources={[
+  { title: "How the TikTok Algorithm Works in 2025-2026 (Sprout Social)", url: "https://sproutsocial.com/insights/tiktok-algorithm/", type: "article", free: true },
+  { title: "Social Media Algorithms Guide (Hootsuite)", url: "https://blog.hootsuite.com/social-media-algorithm/", type: "article", free: true },
+  { title: "LinkedIn Algorithm Explained: Dwell Time and Comments (Meet-Lea)", url: "https://meet-lea.com/en/blog/linkedin-algorithm-explained", type: "article", free: true },
+  { title: "LinkedIn Dwell Time Deep Dive", url: "https://meet-lea.com/en/blog/linkedin-dwell-time-hidden-metric", type: "docs", free: true },
+]} />
