@@ -1,0 +1,223 @@
+export const lessonMeta = {
+  title: "Canva vs Figma for Marketers",
+  level: "Beginner",
+  summary: "When to use Canva, when to use Figma, and how to run both without chaos.",
+};
+
+# Canva vs Figma for Marketers
+
+Every marketer needs to produce visuals. Social posts, ads, email headers, landing page mockups - the list never ends. Two tools dominate: Canva and Figma. They look similar at first glance (both run in the browser, both let you drag and drop shapes), but they solve completely different problems. Picking the wrong one for a task costs you hours every week.
+
+## Quick Summary
+
+- Canva is built for speed: non-designers can ship a social post in under 5 minutes using templates.
+- Figma is built for precision: designers and developers use it to build and hand off production-ready web assets.
+- By end of 2025, Canva had 265 million monthly active users and $4 billion in annual recurring revenue.
+- Salesforce used Canva Enterprise and cut cost-per-design by 66% while producing 63% more assets.
+- Most marketing teams run both: Canva for daily content, Figma for anything touching engineering.
+
+<Callout type="info">
+This lesson focuses on practical marketing workflows - not graphic design theory. You will walk away knowing exactly which tool to open for each task on your to-do list.
+</Callout>
+
+## Why This Matters (The Numbers)
+
+These are not niche tools. They define how marketing content gets made in 2025.
+
+**Canva** reached 265 million monthly active users by end of 2025, with 31 million paying subscribers and $4 billion in annual recurring revenue (ARR). Its B2B segment doubled year-over-year to $500 million ARR. That growth is driven by marketing teams, not hobbyists.
+
+**Figma** holds a 40.65% market share among UI/UX tools and is the primary tool for 83% of professional product designers. In 2025, Figma launched Figma Buzz specifically to enter the marketing-asset workflow that Canva had owned - a clear signal that the line between product design and marketing design has collapsed.
+
+Canva's AI feature suite, Magic Studio, has been used over 16 billion times. That figure alone tells you how much AI has changed the speed of visual content creation.
+
+## What Each Tool Actually Does
+
+### Canva - The Marketer's Workhorse
+
+Canva is a template-first design tool. You pick a size (Instagram post, LinkedIn banner, presentation slide), browse templates, swap in your text and images, apply your brand colors, and export. Done.
+
+Key features for marketers:
+- **Brand Kit** - upload your logo, fonts, and color hex codes once. Every new design pulls them in automatically.
+- **Magic Resize** - take one Instagram post and resize it to a Facebook ad, LinkedIn banner, and Twitter card in one click.
+- **Magic Write** - AI copywriting built into the editor. Generate captions, headlines, or slide bullets without leaving the canvas.
+- **Magic Studio** - the umbrella AI suite covering image generation, background removal, and translation.
+- Over 3.6 million templates on paid plans, 1.6 million on the free tier. 141 million stock photos, graphics, and videos.
+
+**Best for:** social media graphics, email headers, pitch decks, one-pagers, blog thumbnails, short-form video, print flyers.
+
+### Figma - The Designer-Developer Bridge
+
+Figma is a vector design tool with a heavy focus on components (reusable design pieces), prototyping (clickable mockups), and developer handoff (sharing design specs with engineers). It has about 1,800 plugins and integrates with tools like Webflow and Shopify.
+
+Key features for marketers who collaborate with developers:
+- **Components** - design a button once, use it everywhere. Change it once and it updates in every file.
+- **Prototypes** - link frames together to build a clickable walkthrough of a landing page or app flow. Show stakeholders how a page actually behaves before a developer writes one line of code.
+- **Dev Mode** - developers open the same file and see exact pixel measurements, CSS values, and exportable assets. Zero guesswork, fewer revision rounds.
+- **Figma Buzz (2025)** - a new product inside Figma designed for marketing teams. Lets marketers create ads, social posts, and banners using a company's existing Figma design system, keeping brand consistency with the product team.
+
+**Best for:** landing page mockups, web banner sets, ad creative requiring dev handoff, UI copy reviews, design system management.
+
+## The Two-Tool Workflow
+
+The smartest marketing teams do not choose one or the other. They use both with clear rules about which job goes where.
+
+<Mermaid chart={`flowchart TD
+    A[New Marketing Task] --> B{Does it go to a developer?}
+    B -- Yes --> C[Use Figma]
+    B -- No --> D{Is it time-sensitive or template-driven?}
+    D -- Yes --> E[Use Canva]
+    D -- No --> F{Is brand precision critical?}
+    F -- Yes --> C
+    F -- No --> E
+    C --> G[Export specs or Figma link to dev team]
+    E --> H[Export PNG/MP4 and publish directly]
+`} />
+
+The rule is simple: if a developer needs to build it, use Figma. If you are publishing it yourself, use Canva.
+
+## Real Company Examples
+
+**Salesforce (2024):** Salesforce had 37,000 employees across global marketing teams. Different regions were producing off-brand assets because there was no central design process. They deployed Canva Enterprise with Brand Kit and Magic Resize. Result: 66% reduction in cost-per-design and 63% increase in total design production. Source: Canva case studies.
+
+**Skyscanner (2024):** After a major rebrand, Skyscanner needed to roll out new visual guidelines across 1,000 employees in multiple countries. They used Canva Teams with Brand Kit and Brand Controls. They completed the full rebrand rollout across all regions within six months - a timeline that would have taken a dedicated in-house design team considerably longer. Source: Canva case studies.
+
+**Flagship Facility Services:** The company had geographically dispersed teams producing reports with stretched logos and wrong fonts - a classic brand consistency failure. After switching to Canva, they cut report editing time by 50% and saved over 520 hours per year. Source: Canva case studies.
+
+## Head-to-Head: Which Tool for Which Task
+
+| Task | Best Tool | Why |
+|---|---|---|
+| Instagram post | Canva | Templates, direct publish |
+| LinkedIn carousel | Canva | Magic Resize, slide format |
+| Email header | Canva | Exact pixel control, export |
+| Pitch deck | Canva | Presenter mode, templates |
+| Landing page mockup | Figma | Dev handoff, components |
+| Web banner set | Figma or Canva | Figma if dev builds it; Canva if you export it |
+| Ad creative (for dev) | Figma | Specs, measurements, assets |
+| Ad creative (self-serve) | Canva | Speed, templates |
+| Brand guidelines doc | Figma | Living component library |
+| Short-form video | Canva | Built-in editor, auto-resize |
+
+## Setting Up Your Brand Kit (Canva)
+
+A Brand Kit is the single most valuable 15-minute investment you can make in Canva. Once set up, every design pulls your brand identity in automatically.
+
+1. Go to Brand Hub in Canva (top nav, gear icon).
+2. Upload your logo in PNG with transparent background.
+3. Add your primary, secondary, and accent hex color codes.
+4. Upload your brand fonts (or select the closest match from Canva's library).
+5. Set a brand voice for Magic Write (formal, casual, bold, etc.).
+
+From that point on, when you open any template, Canva surfaces your brand colors and fonts first. You stop spending five minutes hunting for your hex code on every new asset.
+
+<Callout type="example">
+A two-person marketing team at a Series A SaaS startup set up their Canva Brand Kit on day one with three colors, two fonts, and a logo. Six months later they had produced over 400 social assets, two investor decks, and a full email sequence - all on-brand, zero design agency invoices. The Brand Kit was the only reason this was possible without a full-time designer.
+</Callout>
+
+## Setting Up a Figma Component Library (For Teams)
+
+If your company has a Figma account, a shared component library removes the "what button style do we use?" question forever.
+
+1. Create a new Figma file named "Brand Design System."
+2. Build your core components: primary button, secondary button, heading styles, card layout, navigation bar.
+3. Publish the library (Assets panel > Libraries > Publish).
+4. Every team member's Figma file can now use these components via the Assets panel.
+5. When a brand color changes, update it in the library and every file updates automatically.
+
+This matters for marketers because it means the landing page mockup you send to engineering already uses the exact same button, font size, and spacing that is live in production. Revision rounds drop significantly.
+
+## AI Features Worth Knowing in 2025
+
+Both tools have gone heavy on AI. Here is what is actually useful:
+
+**Canva Magic Studio:**
+- Magic Eraser - remove objects from photos without Photoshop.
+- Magic Expand - extend an image beyond its original borders (useful for repurposing portrait images for landscape formats).
+- Magic Write - generates copy inside the canvas. Works best with a short prompt like "5 LinkedIn post hooks for a B2B SaaS company launching a new reporting feature."
+- Magic Animate - adds entrance animations to presentation slides in one click.
+
+**Figma AI (2025):**
+- Figma Make - converts a text prompt into a working prototype. Type "a pricing page with three tiers and a toggle for annual/monthly" and Figma builds a rough version.
+- AI search across components - find the right component by describing it instead of scrolling through a list.
+- Auto layout suggestions - Figma now suggests responsive layout rules as you design.
+
+<Callout type="warning">
+AI-generated designs are starting points, not finished assets. Magic Write copy needs a human edit for tone and accuracy. Figma Make prototypes have structural flaws that a developer will flag immediately. Use AI to reduce blank-page paralysis and rough out ideas - then refine before publishing or sharing.
+</Callout>
+
+## Common Mistakes Marketers Make
+
+1. **Using Figma for social posts.** Figma has no template library for Instagram or LinkedIn formats. You will spend 20 minutes setting up a canvas that Canva has ready in 10 seconds.
+
+2. **Using Canva for developer handoff.** Canva does not output CSS values or component specs. If you hand a Canva export to a developer, they will rebuild the design from scratch. Use Figma.
+
+3. **Skipping the Brand Kit entirely.** Without a Brand Kit, every designer and marketer picks slightly different shades of blue. Brand drift is invisible until you print a brochure and it does not match your website.
+
+4. **Maintaining separate brand kits in both tools.** If your hex codes change, you must update both. Designate one source of truth (Figma for product design, Canva for marketing) and make updates in both on the same day.
+
+5. **Paying for Canva Pro without using Brand Kit, Magic Resize, or background removal.** If you are only using free templates, you are on the wrong plan.
+
+## The Pricing Reality (2025)
+
+**Canva:**
+- Free tier: 1.6 million templates, 5GB cloud storage, basic AI tools.
+- Pro: $15/month per person. Adds Brand Kit, Magic Resize, 100GB storage, premium templates, full Magic Studio.
+- Teams: $10/month per person (minimum 3 people). Adds Brand Controls (lock colors/fonts for team members).
+- Enterprise: custom pricing. Adds SSO, advanced approval workflows, Salesforce and Slack integrations.
+
+**Figma:**
+- Free tier: 3 files, 3 projects, unlimited collaborators (view only).
+- Professional: $12/month per editor. Unlimited files, shared libraries, version history.
+- Organization: $45/month per editor. Adds centralized design systems, SSO, advanced analytics.
+- Dev Mode: $25/month per developer. Gives developers read-only access with CSS specs.
+
+For most early-stage marketing teams: Canva Pro is the first paid tool to buy. Figma Professional comes next when you have a developer to hand off to.
+
+## The Workflow in Practice: A Realistic Week
+
+Here is how a growth marketer at a mid-stage startup might use both tools in one week:
+
+- **Monday:** New blog post goes live. Open Canva, pick a blog thumbnail template, apply Brand Kit, write headline with Magic Write, export in 8 minutes.
+- **Tuesday:** New paid ad campaign. Creative brief calls for five banner sizes. Open Canva, design the 1200x628 Facebook version, use Magic Resize to generate 300x250, 728x90, and 320x50 formats in two clicks.
+- **Wednesday:** Product team wants marketing input on a new landing page. Open Figma, leave comments directly on the design file, suggest copy changes in the prototype without sending a single email.
+- **Thursday:** Website homepage refresh. Work with designer in Figma to mock up three hero section variants. Share prototype link with CEO for async review.
+- **Friday:** Investor update deck. Open Canva, use a pre-approved deck template from the Brand Kit, pull in charts from Google Sheets with the Canva integration, export as PDF.
+
+Two tools, one week, zero design agency tickets.
+
+<Mermaid chart={`mindmap
+  root((Marketing Design))
+    Canva Daily Use
+      Social posts
+      Email headers
+      Blog thumbnails
+      Decks and slides
+      Short-form video
+    Figma Precision Work
+      Landing page mockups
+      Web banners for dev
+      Prototype reviews
+      Design system updates
+    Shared Workflow
+      Brand Kit sync
+      File naming conventions
+      Export standards
+`} />
+
+## The One-Line Takeaway
+
+**Use Canva to publish and Figma to build - master both and you eliminate the design bottleneck forever.**
+
+<ResourceList resources={[
+  { title: "Canva Official Help Center", url: "https://www.canva.com/help/", type: "docs", free: true, note: "Official Canva documentation for all features including Brand Kit and Magic Studio" },
+  { title: "Figma Official Help Center", url: "https://help.figma.com/", type: "docs", free: true, note: "Official Figma docs covering components, prototyping, and Dev Mode" },
+  { title: "Canva Design School (Free Courses)", url: "https://www.canva.com/designschool/", type: "course", free: true, note: "Free structured courses from Canva on social media design, branding, and presentations" },
+  { title: "Figma Tutorials - Official YouTube", url: "https://www.youtube.com/@Figma", type: "video", free: true, note: "Official Figma channel with tutorials on components, auto layout, and Figma Buzz" },
+  { title: "Canva vs Figma 2025: Full Comparison (Style Factory)", url: "https://www.stylefactoryproductions.com/blog/canva-vs-figma", type: "article", free: true, note: "Detailed head-to-head with pricing, feature breakdowns, and use-case guidance" },
+  { title: "Figma vs Canva: The 2025 Marketing Design Shift (Attention Insight)", url: "https://attentioninsight.com/figma-buzz-vs-canva-vs-adobe-express/", type: "article", free: true, note: "Analysis of Figma Buzz vs Canva vs Adobe Express for marketing teams" },
+  { title: "Canva for Teams - HubSpot Academy", url: "https://academy.hubspot.com/", type: "course", free: true, note: "Free HubSpot marketing courses covering visual content creation workflows" },
+  { title: "Figma for Beginners (freeCodeCamp)", url: "https://www.youtube.com/watch?v=jwCmIBJ8Jtc", type: "video", free: true, note: "4-hour free Figma course covering components, auto layout, and prototyping" },
+  { title: "WsCube Tech - Canva and Figma for Marketing (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - Canva and Figma", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Canva and Figma Tools (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

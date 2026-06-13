@@ -1,0 +1,270 @@
+export const lessonMeta = {
+  title: "Google Analytics 4 (GA4)",
+  level: "Beginner",
+  summary: "Master GA4 to understand who visits your site, what they do, and which marketing channels actually drive results.",
+};
+
+# Google Analytics 4 (GA4)
+
+Google Analytics 4 (GA4) is the free tool from Google that tells you everything about your website visitors: where they came from, what pages they looked at, how long they stayed, and whether they bought something (or signed up, or called you). Every serious marketer uses it. It costs nothing to set up and runs on over 15 million websites worldwide.
+
+## Quick Summary
+
+- GA4 replaced the old Universal Analytics in July 2023. You must use GA4 now.
+- It tracks "events" instead of page views. An event is any action - a click, a scroll, a purchase.
+- Reports show you which marketing channels bring the most valuable visitors, not just the most visitors.
+- The free version covers everything a small-to-medium business needs. No paid upgrade required.
+- You need it connected to your site before you run any paid ads. Without it, you are spending blind.
+
+---
+
+## Why GA4 Matters in 2025
+
+Google Analytics holds a 43% share of the global web analytics market. About 55% of all websites on the internet use it. The nearest competitor is not even close.
+
+That dominance exists for a reason: GA4 answers the questions that matter most to marketers.
+
+- Is my SEO bringing in buyers or just browsers?
+- Which ad campaign gave me the lowest cost per purchase?
+- Are mobile visitors bouncing before they reach the checkout?
+- What did first-time visitors look at before they signed up?
+
+Without analytics, you are guessing at all of these. With GA4, you have actual answers.
+
+<Callout type="info">
+GA4 is free for websites under 10 million hits per month. That covers the vast majority of businesses. The paid version (Google Analytics 360) costs around $150,000 per year and is only relevant for enterprise-level traffic.
+</Callout>
+
+---
+
+## How GA4 Actually Works
+
+GA4 works by placing a small piece of JavaScript code on your website. That code runs silently in the background every time someone visits. It sends data to Google's servers, and Google organizes that data into the reports you see in your GA4 dashboard.
+
+Here is the basic flow:
+
+<Mermaid chart={`flowchart TD
+    A[Visitor arrives on site] --> B[GA4 code runs in browser]
+    B --> C[Events collected: page view, scroll, click]
+    C --> D[Data sent to Google servers]
+    D --> E[GA4 dashboard updated]
+    E --> F[You read the reports]
+    F --> G[Make better marketing decisions]`} />
+
+### Events: The Core Concept
+
+GA4 tracks "events." An event is any interaction. GA4 automatically tracks these events without you doing anything:
+
+- **page_view**: Someone loaded a page
+- **scroll**: Someone scrolled 90% down the page
+- **click**: Someone clicked an outbound link (leaving your site)
+- **session_start**: A new visit began
+- **first_visit**: A brand new visitor arrived
+
+You can also create custom events for things specific to your business: "add_to_cart", "video_watched", "form_submitted". These custom events are where GA4 becomes really powerful.
+
+### Sessions vs Users vs Events
+
+Three terms you will see constantly:
+
+- **User**: A person (actually a browser/device, but close enough)
+- **Session**: One visit. If you leave and come back 31+ minutes later, that is a new session.
+- **Event**: Any action that happened during a session
+
+One user can have many sessions. One session can have many events.
+
+---
+
+## The GA4 Dashboard: What to Look At First
+
+When you log in, you will see the Home screen with overview cards. Ignore most of it at first. Here are the four reports that matter most for beginners.
+
+### 1. Acquisition Report
+
+Go to: Reports > Life cycle > Acquisition > Traffic acquisition
+
+This shows where your visitors are coming from. The "Channel group" column lists sources like:
+
+- **Organic Search**: People found you on Google
+- **Direct**: People typed your URL directly (or came from an unknown source)
+- **Paid Search**: Your Google Ads clicks
+- **Organic Social**: Free clicks from Instagram, LinkedIn, etc.
+- **Email**: Clicks from your email campaigns
+
+Look at "Sessions" to see volume, and "Conversions" to see which channels bring people who actually do something valuable on your site.
+
+### 2. Engagement Report
+
+Go to: Reports > Life cycle > Engagement > Pages and screens
+
+This shows which pages people visit most. It also shows "Average engagement time" - how long they actually interacted with the page (scrolled, clicked, etc.), not just how long the browser tab was open.
+
+### 3. Conversions Report
+
+Go to: Reports > Life cycle > Engagement > Conversions
+
+This shows your most important events - the ones you have marked as "key events" (Google renamed "conversions" to "key events" in GA4 in 2024, but most people still call them conversions). Common key events: purchases, form submissions, phone clicks.
+
+### 4. Realtime Report
+
+Go to: Reports > Realtime
+
+This shows who is on your site right now. Useful for checking that your tracking is working correctly after setup, or for watching traffic during a campaign launch.
+
+<Callout type="example">
+Here is a real scenario using these reports. An online clothing store noticed their Organic Search traffic was up 40% month over month (Acquisition report). But their revenue was flat. In the Engagement report, they saw that the new SEO traffic was landing on blog posts, not product pages. Their blog had a 0% conversion rate. This insight told them to add product links inside their blog posts - a fix that took one afternoon and increased revenue from organic traffic by 18% the following month.
+</Callout>
+
+---
+
+## Setting Up GA4 Correctly
+
+Getting set up takes about 30 minutes. Here is what you must do.
+
+### Step 1: Create a GA4 Property
+
+1. Go to [analytics.google.com](https://analytics.google.com)
+2. Click "Admin" (gear icon, bottom left)
+3. Click "Create" > "Property"
+4. Name it after your business. Select your timezone and currency. Click "Next."
+5. Answer the business questions. Click "Create."
+
+### Step 2: Add the Tracking Code to Your Site
+
+GA4 gives you a "Measurement ID" that looks like G-XXXXXXXXXX. You need to put this on every page of your site.
+
+- **WordPress**: Install the "Site Kit by Google" plugin, or use the "Insert Headers and Footers" plugin to paste the GA4 code snippet.
+- **Shopify**: Go to Online Store > Preferences > Google Analytics and paste your Measurement ID.
+- **Webflow, Squarespace, Wix**: Each has a built-in "Google Analytics" settings field. Paste your Measurement ID there.
+- **Custom HTML site**: Paste the GA4 code snippet between `<head>` and `</head>` on every page.
+
+### Step 3: Mark Your Key Events (Conversions)
+
+By default, GA4 tracks many events automatically. But you need to tell it which ones actually matter to your business.
+
+1. Go to Admin > Events
+2. Find the event you want to mark (like "purchase" or "generate_lead")
+3. Toggle "Mark as key event" to ON
+
+This is the step most beginners skip. Without it, your Conversions report will be empty.
+
+### Step 4: Link Google Search Console and Google Ads
+
+- **Search Console link**: Admin > Property settings > Search Console links. This shows you exactly which Google search queries are bringing visitors.
+- **Google Ads link**: Admin > Property settings > Google Ads links. This connects ad spend data to GA4 so you can see revenue per ad campaign.
+
+<Callout type="warning">
+Do NOT put GA4 tracking code on your site twice. This is the most common setup mistake. If you use a WordPress plugin AND manually add the code to your theme header, every page view gets counted twice, doubling all your numbers. Check by going to Admin > Data streams > your stream > and looking at the Tagging Instructions. Use only one method.
+</Callout>
+
+---
+
+## The Four Most Useful GA4 Reports for Marketers
+
+### Landing Page Report
+
+**Where**: Reports > Life cycle > Engagement > Landing page
+
+A landing page (the first page someone sees when they arrive) sets the tone for the whole visit. This report shows which landing pages have the best engagement time and the most conversions. If your homepage has 10x the traffic but your "/pricing" page converts 3x better, you should be driving more traffic to the pricing page.
+
+### User Explorer
+
+**Where**: Reports > Life cycle > Retention > User explorer (or via Explore)
+
+This lets you watch individual user journeys. You can see: arrived from Google, viewed product page, added to cart, left without buying, came back the next day, purchased. This is gold for understanding why people do (or do not) convert.
+
+### Funnel Exploration
+
+**Where**: Explore > Funnel exploration
+
+You define a multi-step process (visit site > view product > add to cart > purchase) and GA4 shows you where people drop off at each step. If 1,000 people start the checkout process and only 200 complete it, there is something wrong at step 3. Fix that before spending more on ads.
+
+### Path Exploration
+
+**Where**: Explore > Path exploration
+
+This shows you the most common paths users take through your site. What do people do after they land on your homepage? Most go to the About page, then leave. Some go to Products, then contact you. That second path is the one to optimize.
+
+<Mermaid chart={`flowchart LR
+    A[Homepage] --> B[About Page]
+    A --> C[Products Page]
+    B --> D[Exit]
+    C --> E[Contact / Checkout]
+    E --> F[Conversion]
+    style F fill:#22c55e,color:#fff`} />
+
+---
+
+## Real Company Results from GA4-Powered Decisions
+
+### Case 1: Ecommerce Mobile Optimization
+
+A mid-size ecommerce retailer used GA4's device breakdown report (Reports > User > Tech > Overview) and found desktop users converted at 8% while mobile users converted at only 2%. Mobile was 60% of their traffic. That gap meant they were losing thousands of dollars per week. After a complete mobile checkout redesign informed by GA4's funnel reports, they achieved a 40% revenue increase from mobile traffic.
+
+### Case 2: Checkout Drop-Off Fix
+
+One online store's GA4 funnel report showed 68% of mobile users abandoned at the shipping information page. The form had too many fields and required account creation before purchase. After simplifying to a single-page checkout with guest checkout enabled, mobile conversions jumped 23% in two months, generating an additional $47,000 per month in revenue.
+
+These results are consistent with what GA4 reveals across industries: the biggest wins are rarely from more traffic. They come from fixing the leaks in what you already have.
+
+---
+
+## Common GA4 Mistakes (and How to Avoid Them)
+
+**Mistake 1: Looking at sessions instead of conversions**
+Sessions tell you volume. Conversions tell you value. A channel with 100 sessions and 10 conversions beats one with 10,000 sessions and 2 conversions.
+
+**Mistake 2: Ignoring the date range**
+GA4 defaults to "last 28 days." Always compare to the same period last year, not last month, because most businesses have seasonal patterns.
+
+**Mistake 3: Treating "Direct" traffic as mysterious**
+"Direct" in GA4 means GA4 could not figure out the source. This is often email links without UTM parameters (tracking codes), bookmarks, or links in apps. Add UTM parameters to all your email and ad links.
+
+**Mistake 4: Not waiting for data**
+GA4 can take 24-48 hours to process and show data in some reports. Use the Realtime report to confirm tracking is live, then wait for full reports.
+
+**Mistake 5: Comparing GA4 numbers to old Universal Analytics**
+GA4 counts things differently. It is more conservative about sessions (does not inflate them the way UA did). A 30% drop in sessions after migrating to GA4 is often normal, not a traffic problem.
+
+---
+
+## UTM Parameters: Track Everything You Send
+
+A UTM parameter is a tag you add to any link you share. It tells GA4 exactly where that visitor came from.
+
+Example: Instead of sharing `yoursite.com/sale`, you share:
+
+```
+yoursite.com/sale?utm_source=instagram&utm_medium=social&utm_campaign=summer-sale-2025
+```
+
+GA4 reads those tags and reports them under Acquisition. Without UTM parameters, all your social, email, and influencer traffic shows up as "Direct" - untracked and invisible.
+
+Use Google's free [Campaign URL Builder](https://ga.dev/campaignurlbuilder/) to generate these links. The three required fields:
+
+- **utm_source**: Where the link lives (instagram, newsletter, youtube)
+- **utm_medium**: The type of channel (social, email, cpc, video)
+- **utm_campaign**: The specific campaign name (summer-sale-2025, launch-week)
+
+---
+
+## The One-Line Takeaway
+
+## The One-Line Takeaway
+
+**Install GA4, mark your key events, and check the acquisition report weekly - because spending money on marketing without analytics is like driving at night with the headlights off.**
+
+---
+
+<ResourceList resources={[
+  { title: "GA4 Official Documentation - Get Started", url: "https://support.google.com/analytics/answer/10089681", type: "docs", free: true, note: "Official Google setup guide" },
+  { title: "Google Analytics Academy - Free GA4 Course", url: "https://skillshop.withgoogle.com/googleanalytics", type: "course", free: true, note: "Free official Google certification course" },
+  { title: "Analytics Mania - Free GA4 Fundamentals Course", url: "https://www.analyticsmania.com/courses/free-google-analytics-fundamentals-course/", type: "course", free: true, note: "Best free community GA4 course with certificate" },
+  { title: "MeasureSchool - GA4 for Beginners (YouTube)", url: "https://www.youtube.com/@MeasureSchool", type: "video", free: true, note: "Top YouTube channel for GA4 and GTM tutorials" },
+  { title: "Google Campaign URL Builder Tool", url: "https://ga.dev/campaignurlbuilder/", type: "tool", free: true, note: "Build UTM tracking links for all your campaigns" },
+  { title: "Looker Studio - Free GA4 Dashboards", url: "https://lookerstudio.google.com/", type: "tool", free: true, note: "Connect GA4 data to visual reports and dashboards" },
+  { title: "GA4 Statistics and Adoption Data 2025 (Analyzify)", url: "https://analyzify.com/statsup/google-analytics-4", type: "article", free: true, note: "Up-to-date GA4 usage statistics and market data" },
+  { title: "WsCube Tech - Google Analytics (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - Google Analytics", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Google Analytics (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

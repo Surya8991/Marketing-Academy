@@ -1,0 +1,203 @@
+export const lessonMeta = {
+  title: "CRM Basics",
+  level: "Beginner",
+  summary: "What a CRM is, why it pays for itself fast, and how to start using one even if you have zero budget.",
+};
+
+# CRM Basics
+
+A CRM (Customer Relationship Management) system is software that stores every interaction you have ever had with a customer or lead in one place. Think of it as a shared memory for your whole business - every email, phone call, purchase, and support ticket, linked to the person who made it. Without a CRM, that information lives scattered across inboxes, spreadsheets, and people's heads.
+
+## Quick Summary
+
+- A CRM stores customer data, tracks every interaction, and connects your sales, marketing, and support teams.
+- Businesses that use a CRM see an average ROI of $8.71 for every $1 spent.
+- CRM adoption improves customer retention by up to 27% and cuts acquisition costs for 91% of businesses.
+- Free tiers from HubSpot and Zoho give you a full-featured CRM with zero upfront cost.
+- The biggest mistake is buying a CRM before defining what data you actually need to track.
+
+---
+
+## Why a CRM Exists (The Problem It Solves)
+
+Imagine your company has 500 customers. Each one has emailed you, bought things at different times, asked different questions, and has different preferences. Without a system:
+
+- A salesperson leaves and takes all their customer notes with them.
+- Marketing sends a discount email to someone who complained last week.
+- Support has no idea a customer is about to renew - and could have been upsold.
+
+A CRM fixes all three problems. It centralizes data, automates follow-ups, and makes every team member look like they remember everything about every customer.
+
+<Callout type="info">
+The global CRM software market was valued at over $112 billion in 2025 and is projected to reach $262 billion by 2032, growing at roughly 12% per year. It is one of the fastest-growing categories in business software.
+</Callout>
+
+---
+
+## The Three Core Jobs a CRM Does
+
+Most beginners think CRM = address book. That is about 10% of what it does. Here are the three real jobs:
+
+### 1. Contact Management
+
+This is the address book part. But instead of just a name and email, a CRM stores:
+
+- Every email thread, call recording, and chat log linked to that person.
+- Their company size, industry, and role.
+- What they bought, when they bought it, and how much they paid.
+- Notes from every meeting.
+
+### 2. Pipeline Management
+
+A pipeline (also called a sales funnel) is the series of steps a lead goes through before becoming a customer - for example: Lead > Demo Scheduled > Proposal Sent > Deal Won. A CRM shows every deal visually, so you instantly know which deals need attention.
+
+### 3. Automation
+
+CRMs send emails automatically based on triggers. For example: if someone downloads your pricing PDF, the CRM can automatically send them a follow-up email 2 days later. No human needed.
+
+<Mermaid chart={`flowchart TD
+    A[New Lead Enters] --> B[CRM Creates Contact]
+    B --> C[Auto Email: Welcome]
+    C --> D{Lead Responds?}
+    D -->|Yes| E[Sales Rep Gets Alert]
+    D -->|No| F[Auto Follow-up Day 3]
+    F --> G{Responds Now?}
+    G -->|Yes| E
+    G -->|No| H[Moved to Nurture List]
+    E --> I[Demo Booked]
+    I --> J[Deal Won or Lost]
+    J --> K[CRM Logs Outcome]`}
+/>
+
+---
+
+## Real Company Results (With Numbers)
+
+### Casio - 26% More New Customers
+
+Casio, the electronics company, switched from a custom-built CRM to HubSpot in 2023. By connecting their marketing and sales teams on one platform and automating their inbound lead process, they increased new customer sales by 26%. Before the switch, their marketing team and sales team were using different systems and could not see each other's data.
+
+### UGURUS - Sales Reps Doubled Their Output
+
+UGURUS, a digital agency training company, replaced Salesforce with Close CRM. Their sales reps went from making roughly 100 calls per day to 200-250 calls per day using built-in call automation. Management time spent on oversight dropped by 50%. New rep onboarding went from 6 days to 3 days because the system was simpler.
+
+<Callout type="example">
+**Worked Example: A Solo Freelancer Using a Free CRM**
+
+Say you are a freelance social media manager with 12 active clients and 20 leads you are chasing. Here is how HubSpot Free solves your immediate problems:
+
+1. Add all 12 clients as Contacts. Log their monthly budget and contract renewal date.
+2. Create a Pipeline with stages: Proposal Sent, Contract Signed, Active, Renewal Due.
+3. Set a Task reminder 30 days before each renewal.
+4. When a new lead fills out your contact form, HubSpot automatically creates a Contact and adds them to your pipeline.
+
+Result: you stop losing clients to forgotten renewals and stop losing leads to forgotten follow-ups. Total cost: $0.
+</Callout>
+
+---
+
+## The Main Types of CRM
+
+Not all CRMs are built the same. There are three main types:
+
+| Type | Best For | Example Tools |
+|------|----------|---------------|
+| **Operational CRM** | Automating sales, marketing, and support workflows | HubSpot, Salesforce |
+| **Analytical CRM** | Analyzing customer data to find patterns | Zoho Analytics, Salesforce Einstein |
+| **Collaborative CRM** | Sharing customer info across departments | Microsoft Dynamics 365 |
+
+For most beginners, an operational CRM is what they need. Start there.
+
+---
+
+## Popular CRM Options and Who They Are For
+
+### Free/Cheap Options (Best for Beginners)
+
+- **HubSpot CRM** (free forever plan): Best starting point. Unlimited contacts, unlimited users, built-in email. Scales up as you grow.
+- **Zoho CRM** (free up to 3 users): Strong automation on the free tier. Better for small teams.
+- **Notion + a CRM template** (free): Not a real CRM, but works for freelancers managing under 50 contacts.
+
+### Mid-Range Options
+
+- **Pipedrive** (from $14/user/month): Visual pipeline, very easy to learn. Built for salespeople.
+- **ActiveCampaign** (from $15/month): Best when email marketing automation is your main use case.
+
+### Enterprise Options
+
+- **Salesforce** (from $25/user/month): Most powerful, most complex. Used by large companies with dedicated admin staff.
+- **Microsoft Dynamics 365**: Best if your team is already inside the Microsoft ecosystem.
+
+<Callout type="warning">
+**Common Beginner Mistakes**
+
+- **Buying before defining needs.** Salesforce can do everything, but most small businesses need 5% of its features. Start free.
+- **Importing dirty data.** Importing 5,000 contacts with missing emails, duplicate names, and wrong fields makes your CRM useless immediately. Clean the spreadsheet first.
+- **Skipping the pipeline setup.** A CRM without a defined pipeline is just an expensive address book. Map out your sales stages before you import anything.
+- **Treating CRM as a one-time setup.** A CRM only stays useful if your team logs every call, email, and meeting in it. Discipline matters more than features.
+- **Adding too many fields.** Every extra field is a field your team might not fill in. Start with 5 fields maximum.
+</Callout>
+
+---
+
+## How to Set Up Your First CRM in One Day
+
+This is a practical checklist for someone starting from zero:
+
+**Morning (2 hours): Choose and Configure**
+1. Sign up for HubSpot Free (no credit card required).
+2. Set up your pipeline stages (example: New Lead, Contacted, Proposal Sent, Won, Lost).
+3. Add 5 custom properties (fields) you actually care about - for example: Budget, Decision Timeline, How They Found You.
+
+**Afternoon (2 hours): Import and Connect**
+4. Export your existing contacts from Gmail or a spreadsheet as a CSV file (Comma-Separated Values - a format every CRM accepts).
+5. Map the CSV columns to CRM fields (Name maps to Name, Email maps to Email, etc.).
+6. Connect your email inbox so every sent/received email is logged automatically.
+
+**End of Day (1 hour): Automate One Thing**
+7. Create one automation: when a new contact is added, send them a welcome email automatically.
+
+That one automation alone typically saves 30 minutes per day for a small sales team.
+
+<Mermaid chart={`flowchart LR
+    A[Choose CRM] --> B[Set Pipeline Stages]
+    B --> C[Define 5 Key Fields]
+    C --> D[Import CSV Contacts]
+    D --> E[Connect Email Inbox]
+    E --> F[Build 1 Automation]
+    F --> G[CRM is Live]`}
+/>
+
+---
+
+## What the Data Actually Shows
+
+According to research compiled by CRM.org in 2025:
+
+- **65% of salespeople** who use mobile CRM meet their sales quota, versus only 22% who do not use mobile CRM.
+- **34% of businesses** shortened their average sales cycle by 8 to 14 days after implementing a CRM.
+- **75% of organizations** using CRM reported significant improvements in customer satisfaction.
+- **Less than 40%** of companies that buy a CRM actually fully implement it - mostly due to skipping training and importing bad data.
+
+The last stat is the most important one. The CRM does not fail. The implementation does.
+
+---
+
+## The One-Line Takeaway
+
+**A CRM is not about storing data - it is about never letting a customer fall through the cracks again.**
+
+---
+
+<ResourceList resources={[
+  { title: "HubSpot CRM - Free Forever Plan", url: "https://www.hubspot.com/products/crm", type: "tool", free: true, note: "Best free CRM for beginners - unlimited contacts, no credit card" },
+  { title: "HubSpot Academy - CRM Setup Course", url: "https://academy.hubspot.com/courses/set-up-your-hubspot-crm-for-growth", type: "course", free: true, note: "Official free course on setting up HubSpot CRM for growth" },
+  { title: "45 CRM Statistics You Need to Know in 2025 (CRM.org)", url: "https://crm.org/crmland/crm-statistics", type: "article", free: true, note: "Best single source for CRM adoption and ROI data" },
+  { title: "14 CRM Implementation Case Studies (Close.com)", url: "https://close.com/blog/crm-implementation-case-studies", type: "article", free: true, note: "Real results from real companies - great for convincing stakeholders" },
+  { title: "Zoho CRM Free Plan", url: "https://www.zoho.com/crm/lp/crm-software.html", type: "tool", free: true, note: "Strong free CRM for teams up to 3 users" },
+  { title: "What is CRM? - Salesforce Explainer", url: "https://www.salesforce.com/crm/what-is-crm/", type: "article", free: true, note: "Clear, authoritative definition from the market leader" },
+  { title: "HubSpot CRM Tutorial for Beginners 2024 - HubSpot (YouTube)", url: "https://www.youtube.com/watch?v=fZ4HL2YNKoQ", type: "video", free: true, note: "Step-by-step walkthrough of HubSpot CRM setup" },
+  { title: "WsCube Tech - CRM Basics (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - CRM Basics", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - CRM Basics (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />
