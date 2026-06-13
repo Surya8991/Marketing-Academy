@@ -1,0 +1,60 @@
+export const lessonMeta = {
+  title: "AI-Native Marketing Tools",
+  level: "Intermediate",
+  summary: "Cursor, Perplexity, Granola, Cluely - tools built AI-first, not bolted on.",
+};
+
+# AI-Native Marketing Tools
+
+Most 'AI features' you see in 2025 are chatbots glued onto legacy SaaS. AI-native tools are different: the product would not exist without the model. For marketers, the gap between the two is now a productivity multiplier, not a rounding error. This lesson covers the four tools quietly rewiring how modern marketing teams research, write, meet, and ship.
+
+## What It Actually Is
+
+An AI-native tool is one whose core workflow collapses without the LLM. Notion AI is bolted on; you can still use Notion without it. Cursor is AI-native; without Claude or GPT inside, it is just VS Code. The test: rip out the model. If the product still works, it is bolted on. If it dies, it is native.
+
+Concrete example: Perplexity is not 'Google plus a chatbot.' It generates a synthesized, cited answer as the primary unit of output. The ten blue links are gone.
+
+## Why It Matters (with data)
+
+The AI-native category is scaling faster than any SaaS wave on record. Cursor (made by Anysphere) went from zero to $1B ARR in roughly two years and crossed $2B ARR by April 2026, the fastest B2B scaling ever recorded, with 70% of the Fortune 1,000 as customers ([TechCrunch](https://techcrunch.com/2025/06/05/cursors-anysphere-nabs-9-9b-valuation-soars-past-500m-arr/), [The Next Web](https://thenextweb.com/news/cursor-anysphere-2-billion-funding-50-billion-valuation-ai-coding)).
+
+Perplexity hit roughly $200M ARR by late 2025, doubled from $100M in six months, and now serves around 45M active users with 780M queries logged in May 2025 alone ([TechStory](https://techstory.in/perplexity-tops-450m-arr-after-record-breaking-month/), [Business of Apps](https://www.businessofapps.com/data/perplexity-ai-statistics/)). Granola, the meeting notes tool, has become the default for VC and product teams precisely because it does not join calls as a bot; it listens locally and merges your scratch notes with the transcript.
+
+For marketing teams, the implication is simple: the people using these tools are shipping campaigns, briefs, and competitive analyses in hours instead of days.
+
+## How It Works / The Playbook
+
+Build an AI-native stack around four jobs:
+
+1. **Research** - replace Google for any 'what is the current state of X' question with **Perplexity**. Use Pro Search for multi-step queries and Spaces to keep brand-specific context (your ICP, competitors, positioning) persistent across sessions.
+2. **Meetings and discovery** - install **Granola** for customer interviews, sales handoffs, and weekly syncs. Take rough notes during the call; Granola produces a structured summary, action items, and a follow-up email draft within seconds of hangup. No bot in the meeting, no awkward 'is this being recorded' moment.
+3. **Production work** - use **Cursor** for anything code-adjacent: landing pages, A/B test variants, tracking pixel debugging, MDX content, Zapier-style scripts. Cursor's Composer agent can edit across multiple files at once, which is how marketing engineers ship microsites in an afternoon.
+4. **Live calls and presentations** - **Cluely** acts as an always-on assistant during sales demos, webinars, and exec briefings. It listens to the audio in real time and surfaces talking points, objection handlers, or fact lookups in an overlay only you can see.
+
+Sequence matters. Most teams adopt Perplexity first (lowest switching cost), then Granola (slots into existing meetings), then Cursor and Cluely as the team's confidence grows.
+
+<Callout type="example">
+Anysphere itself runs lean on AI-native tooling. The company crossed $500M ARR in June 2025 with fewer than 60 employees, then $1B ARR by November 2025, hitting $2B ARR by April 2026 - growth largely powered by a product their own team uses daily ([TechCrunch](https://techcrunch.com/2025/06/05/cursors-anysphere-nabs-9-9b-valuation-soars-past-500m-arr/)). The marketing team ships product launches, docs, and pricing page experiments through Cursor itself, treating the website as a codebase rather than a CMS.
+</Callout>
+
+## Common Mistakes
+
+- **Treating Perplexity like ChatGPT.** ChatGPT is for generation; Perplexity is for cited, current-day research. Using one for the other wastes both.
+- **Letting Granola replace listening.** The transcript is a backup, not a substitute for paying attention in a discovery call. Reps who stop taking notes lose the synthesis muscle.
+- **Hiring 'a Cursor person' instead of upskilling marketers.** The whole point is that anyone on the marketing team can now ship code-level changes. Gatekeeping it to one engineer recreates the bottleneck.
+- **Ignoring data egress.** Cluely, Granola, and Perplexity all touch customer conversations and proprietary research. Get security sign-off on data retention before rollout, especially in regulated industries.
+
+## Key Takeaways
+
+- AI-native tools collapse without the model; bolted-on AI is a feature, not a product. The distinction predicts which tools will compound for your team.
+- Adoption sequence: Perplexity for research, Granola for meetings, Cursor for production, Cluely for live calls. Start with the lowest-friction tool.
+- The growth numbers (Cursor at $2B ARR in three years, Perplexity at 45M users) reflect a real productivity delta, not hype. Marketers who skip this stack will be outshipped by ones who do not.
+
+<ResourceList resources={[
+  { title: "Cursor hits $2B ARR, talks $50B valuation", url: "https://thenextweb.com/news/cursor-anysphere-2-billion-funding-50-billion-valuation-ai-coding", type: "article", free: true },
+  { title: "Anysphere $9.9B valuation, past $500M ARR (TechCrunch)", url: "https://techcrunch.com/2025/06/05/cursors-anysphere-nabs-9-9b-valuation-soars-past-500m-arr/", type: "article", free: true },
+  { title: "Perplexity tops $450M ARR (TechStory)", url: "https://techstory.in/perplexity-tops-450m-arr-after-record-breaking-month/", type: "article", free: true },
+  { title: "Perplexity revenue and usage statistics", url: "https://www.businessofapps.com/data/perplexity-ai-statistics/", type: "article", free: true },
+  { title: "Cursor docs", url: "https://docs.cursor.com/", type: "docs", free: true },
+  { title: "Granola", url: "https://www.granola.ai/", type: "tool", free: true },
+]} />

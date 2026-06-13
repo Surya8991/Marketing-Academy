@@ -1,0 +1,58 @@
+export const lessonMeta = {
+  title: "The Zero-Dollar Marketing Stack",
+  level: "Beginner",
+  summary: "Run a full marketing operation with zero budget using free tiers.",
+};
+
+# The Zero-Dollar Marketing Stack
+
+You do not need a $5,000/month tool budget to start marketing. Founders, indie hackers, and solo marketers can run the entire funnel (content, email, analytics, social, design, SEO) on free tiers in 2025. The trick is knowing which free tiers are actually generous and which ones quietly cap you at 250 contacts.
+
+## What It Actually Is
+
+A "zero-dollar stack" is a deliberately chosen set of free-tier SaaS tools that cover every layer of a marketing operation: research, creation, distribution, measurement. One concrete example: a freelancer using Google Search Console (SEO data), Brevo (email), Canva Free (design), Buffer Free (social scheduling), and GA4 (analytics) can publish, distribute, and measure content with $0/month in software spend.
+
+## Why It Matters (with data)
+
+Free tiers are getting tighter, so picking the right ones matters more than ever. Mailchimp historically offered 500 contacts and 2,500 monthly sends on its free plan, but [starting in 2026 those limits drop to 250 contacts and just 500 sends per month](https://www.beehiiv.com/blog/navigating-mailchimp-s-new-free-limits-essential-updates-for-newsletter-owners), and automation was fully stripped from the free tier by mid-2025. Meanwhile, [Brevo still allows 300 emails per day on its free plan with automation and CRM included](https://www.emailtooltester.com/en/blog/free-marketing-tools/), and [EmailOctopus offers 2,500 subscribers and 10,000 emails per month free](https://www.emailtooltester.com/en/blog/free-marketing-tools/). The free-tier landscape shifts every quarter; the winners in 2025 are not the winners from 2022.
+
+## How It Works / The Playbook
+
+Build the stack one layer at a time. Here is a working configuration for a sub-1,000-contact operation:
+
+1. **Analytics**: Google Analytics 4 (unlimited free) + Google Search Console (free, official Google ranking data).
+2. **SEO research**: Google Search Console for actual queries, plus the free tier of Ubersuggest (3 searches/day) or Ahrefs Webmaster Tools (free for site owners).
+3. **Email**: Brevo (300 sends/day, automation included) or EmailOctopus (2,500 subscribers free) instead of Mailchimp.
+4. **Design**: Canva Free covers 250,000+ templates and basic brand kit. Figma Free for UI mockups (3 files, unlimited personal drafts).
+5. **Social scheduling**: Buffer Free (3 channels, 10 posts per channel queued) or Metricool Free (1 brand, 50 scheduled posts).
+6. **Content writing**: Google Docs, Hemingway Editor (free web version), Gemini or Claude.ai free tiers for drafting.
+7. **CRM**: HubSpot CRM Free (1M contacts, unlimited users) for pipeline and contact management.
+8. **Local discovery**: Google Business Profile (still free, still the highest-leverage local SEO move).
+9. **Forms and capture**: Tally Free (unlimited forms, unlimited submissions) beats Typeform's 10-response cap.
+10. **Link tracking**: Bitly Free (10 links/month) or Dub.co Free (more generous, modern UI).
+
+<Callout type="example">
+Beehiiv, the newsletter platform now valued at over $150M, launched in 2021 with a small team and famously ran their own go-to-market mostly on free tools plus their own product. In their 2025 guide on marketing tools, they specifically recommend Buffer Free, Google Analytics, and Google Search Console as the baseline stack for early-stage businesses, noting that [paid tools rarely pay back until you have a repeatable channel](https://www.beehiiv.com/blog/marketing-tools-for-small-business). Their lesson: do not buy SEMrush at $139/month until Search Console has told you what is already working.
+</Callout>
+
+## Common Mistakes
+
+- **Defaulting to Mailchimp out of habit.** Its free tier is now one of the worst in the market. Brevo, EmailOctopus, and MailerLite all give you more in 2025.
+- **Stacking 12 free tools when 5 would do.** Every tool is a login, an integration, a place data can leak. Cut ruthlessly.
+- **Ignoring Google's free stack.** GA4, Search Console, Google Business Profile, Google Trends, and Looker Studio together replace four or five paid tools, and nobody integrates with Google like Google.
+- **Forgetting export plans.** Free tiers can change overnight (see Mailchimp). Always know how to export your contacts, content, and analytics history before you depend on a tool.
+- **Skipping the CRM layer.** HubSpot Free CRM is genuinely free for unlimited users and 1M contacts. Not using it is leaving organization on the table.
+
+## Key Takeaways
+
+- A free stack can cover analytics, email, design, social, SEO, CRM, and forms in 2025. You are not missing much by not paying.
+- The right free tier in 2022 is not the right one in 2025. Re-audit annually. Mailchimp is the cautionary tale.
+- Google's free tools (GA4, Search Console, Business Profile, Looker Studio) are the non-negotiable foundation. Build everything else around them.
+
+<ResourceList resources={[
+  { title: "21 Best Free Marketing Tools (EmailToolTester, 2025)", url: "https://www.emailtooltester.com/en/blog/free-marketing-tools/", type: "article", free: true },
+  { title: "Navigating Mailchimp's New Free Limits (beehiiv)", url: "https://www.beehiiv.com/blog/navigating-mailchimp-s-new-free-limits-essential-updates-for-newsletter-owners", type: "article", free: true },
+  { title: "Marketing Tools for Small Business (beehiiv, 2025)", url: "https://www.beehiiv.com/blog/marketing-tools-for-small-business", type: "article", free: true },
+  { title: "Google Search Console", url: "https://search.google.com/search-console/about", type: "tool", free: true },
+  { title: "HubSpot Free CRM", url: "https://www.hubspot.com/products/crm", type: "tool", free: true },
+]} />

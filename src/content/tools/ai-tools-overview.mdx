@@ -1,0 +1,59 @@
+export const lessonMeta = {
+  title: "AI Marketing Tools Overview",
+  level: "Intermediate",
+  summary: "A map of the AI tool landscape: writing, images, video, research, automation.",
+};
+
+# AI Marketing Tools Overview
+
+The AI marketing stack exploded from a handful of writing assistants in 2023 to a sprawling, overlapping ecosystem by 2025. If you are a marketer trying to decide what to actually adopt, the problem is not finding tools, it is mapping them to jobs. This lesson gives you a category map and the criteria for picking inside each category.
+
+## What It Actually Is
+
+"AI marketing tools" is a loose label for software that uses generative models (LLMs, diffusion models, speech models) to do work a marketer used to do manually: drafting an email, producing a hero image, cutting a video, summarizing customer interviews, or routing a lead. Example: instead of briefing a designer for a 30-second product ad, you describe the scene in Runway or LTX Studio and get a draft clip in minutes.
+
+## Why It Matters (with data)
+
+The adoption curve is no longer optional. According to the [CoSchedule 2025 State of AI in Marketing Report](https://coschedule.com/ai-marketing-statistics), 88% of digital marketers now use AI in day-to-day tasks, and 60% use it daily, up from 37% in 2024. 90% of marketers use AI for text-based tasks like idea generation and drafting.
+
+The money is following the behavior. [Statista](https://www.statista.com/topics/5017/ai-use-in-marketing/) projects AI-in-marketing revenue at roughly $47B in 2025, scaling past $107B by 2028. ChatGPT leads tool usage at 90%, Google Gemini at 51%, and Claude at 33%.
+
+The barriers are real too: 40% of marketers cite data privacy as their top blocker, and 38% cite a lack of in-house expertise. Picking tools without a governance plan is the fastest way to end up on a security review.
+
+## How It Works / The Playbook
+
+Think in five categories. Pick one tool per category, learn it deeply, then expand.
+
+1. **Writing and copy.** ChatGPT, Claude, and Gemini for general drafting. Jasper ($49-125/mo) for brand-voice-trained marketing copy at scale. Use these for briefs, ad variants, email sequences, and SEO outlines.
+2. **Images and design.** Midjourney and Adobe Firefly (bundled with Creative Cloud at $55/mo) for production-grade visuals. Canva's Magic Studio ($13/mo Pro) for templated social assets that non-designers can ship.
+3. **Video.** Runway, LTX Studio (free to $100/mo Pro), Synthesia for avatar-led explainers, and Creatify for one-image-to-ad workflows. VEED handles AI subtitles and clean-audio post-production.
+4. **Research and analysis.** Perplexity and Claude for competitive teardowns and SERP research. NotebookLM for synthesizing customer interview transcripts. ChatGPT's Deep Research for multi-source briefs.
+5. **Automation and orchestration.** Zapier AI Actions, Make, and n8n to chain LLM calls into CRM updates, lead scoring, and content workflows. HubSpot Breeze and Salesforce Agentforce embed agents inside the CRM itself.
+
+Rule of thumb: start with one tool in writing plus one in automation. That covers 70% of weekly time savings before you touch image or video.
+
+<Callout type="example">
+Coca-Cola's 2024 "Create Real Magic" campaign used a custom GPT-4 plus DALL-E pipeline that let consumers generate branded holiday artwork. The platform produced over 120,000 user submissions in the first month and was cited by Coca-Cola's CMO as a template for future creative workflows. Source: [Coca-Cola newsroom](https://www.coca-colacompany.com/media-center/coca-cola-invites-digital-artists-to-create-real-magic-using-new-ai-platform).
+</Callout>
+
+## Common Mistakes
+
+- **Buying a tool before defining the job.** Teams subscribe to Jasper, Writer, and Copy.ai simultaneously and use none of them past month two. Pick the job, then the tool.
+- **Ignoring data residency and PII.** Pasting customer lists into a consumer ChatGPT account is the #1 reason 40% of marketers list privacy as a blocker. Use enterprise tiers with zero-retention agreements.
+- **Skipping the human review layer.** Brands that publish unedited AI output get caught (Sports Illustrated's fake-author scandal in 2023 is the cautionary tale). Treat AI as a first-draft engine, not a publisher.
+- **Tool sprawl without integration.** Five disconnected AI tools beat zero, but one tool wired into your CRM beats five disconnected ones. Automation is where ROI compounds.
+
+## Key Takeaways
+
+- AI marketing tools cluster into five jobs: writing, image, video, research, automation. Map tools to jobs, not the other way around.
+- 60% of marketers use AI daily in 2025, and the market is on track to triple by 2028. Falling behind has a real cost.
+- Start with one writing tool and one automation tool. Add image, video, and research as specific campaigns demand them.
+- Privacy, governance, and editorial review are not optional. Build them in before scaling adoption.
+
+<ResourceList resources={[
+  { title: "CoSchedule 2025 State of AI in Marketing", url: "https://coschedule.com/ai-marketing-statistics", type: "article", free: true },
+  { title: "Statista: AI Use in Marketing", url: "https://www.statista.com/topics/5017/ai-use-in-marketing/", type: "article", free: true },
+  { title: "Social Media Examiner 2025 AI Marketing Industry Report", url: "https://www.socialmediaexaminer.com/ai-marketing-industry-report-2025/", type: "article", free: true },
+  { title: "Marketer Milk: 30 Best AI Marketing Tools", url: "https://www.marketermilk.com/blog/ai-marketing-tools", type: "article", free: true },
+  { title: "Synthesia: Best AI Video Generators", url: "https://www.synthesia.io/post/best-ai-video-generators", type: "article", free: true },
+]} />

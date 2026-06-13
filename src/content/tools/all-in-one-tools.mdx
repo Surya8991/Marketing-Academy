@@ -1,0 +1,58 @@
+export const lessonMeta = {
+  title: "All-in-One Marketing Platforms",
+  level: "Advanced",
+  summary: "HubSpot, Salesforce Marketing Cloud, Marketo: when a suite makes sense.",
+};
+
+# All-in-One Marketing Platforms
+
+Every growth team eventually hits the wall: ten point tools, three CRMs of record, attribution that nobody trusts, and a quarterly bill nobody wants to open. That is when leadership starts asking about a suite. This lesson is for the operator deciding whether to consolidate onto HubSpot, Salesforce Marketing Cloud, or Adobe Marketo Engage, or whether to stay best-of-breed.
+
+## What It Actually Is
+
+An all-in-one marketing platform bundles email, landing pages, forms, CRM sync, lead scoring, journey orchestration, analytics, and increasingly AI agents into a single billing relationship and (in theory) a single data model. A concrete example: instead of running Mailchimp + Unbounce + Segment + a separate lead-scoring tool plus a Zapier mesh holding it together, a team standardizes on HubSpot Marketing Hub Enterprise so every form fill, email open, and deal stage lives in one contact record.
+
+## Why It Matters (with data)
+
+The market has consolidated hard around three vendors, but not evenly. As of 2025, HubSpot holds roughly 29.36% of marketing automation market share, dwarfing Adobe Marketo Engage at around 5.46%, per industry tracking summarized by [Monetizely](https://www.getmonetizely.com/articles/hubspot-vs-salesforce-vs-marketo-which-marketing-automation-platform-offers-the-best-value). HubSpot was also named a Leader in [Gartner's 2025 Magic Quadrant for B2B Marketing Automation Platforms](https://lovable.dev/guides/hubspot-vs-marketo), alongside Adobe and Salesforce.
+
+The pricing gap explains a lot of the share shift. Per [etropo's 2025 pricing comparison](https://www.etropo.com/marketing-tool-prices/marketing-automation), HubSpot Marketing Hub Professional runs $890/month for 2,000 contacts with a mandatory $3,000 onboarding fee, while Enterprise is $3,600/month plus a $7,000 onboarding fee. Salesforce Marketing Cloud Engagement starts around $1,250/month and scales steeply once Data Cloud, Personalization, and Account Engagement (formerly Pardot) are layered in. Marketo Engage typically lands between the two but quotes are bespoke.
+
+Ease of setup is the other tell. G2 users rate HubSpot's setup at 8.1/10 vs Marketo's 6.7/10, a gap that compounds across multi-quarter migrations.
+
+## How It Works / The Playbook
+
+Pick the suite that matches your data gravity and team maturity, not the one with the loudest sales rep.
+
+1. **Map the data of record.** If your single source of truth is Salesforce CRM, Marketing Cloud Engagement + Data Cloud will integrate natively. If you have no CRM or a fragmented one, HubSpot's Smart CRM removes a migration project.
+2. **Score your operational maturity.** Marketo rewards teams with a dedicated marketing ops function: tokens, smart campaigns, and Revenue Cycle Analytics are powerful but unforgiving. HubSpot rewards generalists.
+3. **Pressure-test the journey complexity.** Multi-brand, multi-region, multi-language journeys with 1:1 personalization on millions of records is the Marketing Cloud sweet spot. Single-funnel B2B SaaS rarely needs that.
+4. **Model 3-year TCO, not Year 1.** Add seats, contact tier overages, sandbox costs, implementation partner fees (usually 1-2x the platform cost in Year 1), and the dedicated admin headcount.
+5. **Audit the AI roadmap.** HubSpot's Breeze agents, Salesforce's Agentforce, and Adobe's AI Assistant in Marketo all shipped meaningful capabilities in 2025. Ask vendors which agents are GA vs pilot.
+6. **Negotiate the exit.** Insist on data export rights and journey export formats in the MSA. Suites are sticky on purpose.
+
+<Callout type="example">
+A mid-market B2B SaaS running Marketo Engage with Salesforce CRM typically spends $40,000-$80,000/year on Marketo plus a $60,000-$120,000 implementation partner engagement in Year 1, per the [Digital Applied 2026 comparison guide](https://www.digitalapplied.com/blog/marketing-automation-platform-comparison-2026). The same company on HubSpot Marketing Hub Enterprise at $3,600/month lands at roughly $43,200/year in license fees plus a $7,000 onboarding, a Year 1 swing of well over $100,000, which is why so many sub-1,000-employee B2B teams have migrated off Marketo since 2023.
+</Callout>
+
+## Common Mistakes
+
+- Buying Enterprise tiers for features you will not configure in the first 12 months. Most teams use under 40% of the Professional tier feature set.
+- Treating the suite as a CRM replacement when sales already lives in Salesforce. You will end up with two systems of record and zero trust in either.
+- Skipping the data model design. Custom objects, lifecycle stages, and lead-to-account matching should be designed before a single workflow is built.
+- Letting the implementation partner own the build. Knowledge transfer rarely happens and you inherit a black box.
+- Underestimating the headcount. Marketo Engage realistically needs at least one full-time marketing ops admin; Marketing Cloud often needs two plus a developer.
+
+## Key Takeaways
+
+- Suite vs best-of-breed is a question of data gravity and ops maturity, not feature checklists.
+- HubSpot wins on time-to-value and SMB/mid-market economics; Salesforce Marketing Cloud wins on enterprise journey complexity; Marketo wins on B2B demand gen depth when you have the ops team to run it.
+- Year 1 license cost is rarely the real cost: implementation, headcount, and contact-tier overages dominate 3-year TCO.
+
+<ResourceList resources={[
+  { title: "HubSpot vs Salesforce vs Marketo Value Comparison", url: "https://www.getmonetizely.com/articles/hubspot-vs-salesforce-vs-marketo-which-marketing-automation-platform-offers-the-best-value", type: "article", free: true },
+  { title: "Marketing Automation Pricing Comparison (etropo)", url: "https://www.etropo.com/marketing-tool-prices/marketing-automation", type: "article", free: true },
+  { title: "HubSpot vs Marketo 2026 Platform Guide", url: "https://lovable.dev/guides/hubspot-vs-marketo", type: "article", free: true },
+  { title: "Marketing Automation Platform Comparison 2026", url: "https://www.digitalapplied.com/blog/marketing-automation-platform-comparison-2026", type: "article", free: true },
+  { title: "HubSpot Marketing Hub Documentation", url: "https://knowledge.hubspot.com/marketing-hub", type: "docs", free: true },
+]} />
