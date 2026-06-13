@@ -1,7 +1,7 @@
 export const lessonMeta = {
   title: "iOS 14+ & The Attribution Mess",
   level: "Advanced",
-  summary: "SKAdNetwork, CAPI, modeled conversions — and why your dashboard is lying to you.",
+  summary: "SKAdNetwork, CAPI, modeled conversions  -  and why your dashboard is lying to you.",
   category: "paid-ads",
   slug: "ios-attribution",
   relatedConcepts: ["mmm-vs-mta", "retargeting", "meta-ads"],
@@ -9,15 +9,15 @@ export const lessonMeta = {
 
 # iOS 14+ & The Attribution Mess
 
-In April 2021, Apple launched a privacy change that quietly broke mobile advertising. The update — called App Tracking Transparency (ATT) — required every iPhone app to ask users for permission before tracking them across other apps and websites. Most users said no. Advertisers lost the ability to see who clicked their ad and then bought something. The clean data chain snapped.
+In April 2021, Apple launched a privacy change that quietly broke mobile advertising. The update  -  called App Tracking Transparency (ATT)  -  required every iPhone app to ask users for permission before tracking them across other apps and websites. Most users said no. Advertisers lost the ability to see who clicked their ad and then bought something. The clean data chain snapped.
 
 ## Quick Summary
 
 - Apple's ATT update (April 2021) ended user-level tracking for most iOS users, and by Q2 2025, only 35% of users globally allow tracking (Adjust).
 - SKAdNetwork (SKAN) is Apple's privacy-safe replacement: it tells you a campaign drove installs, but with a delay of 24-72 hours and no user-level detail.
 - Meta's Conversions API (CAPI) lets your server send purchase data directly to Meta, bypassing the browser entirely and recovering lost attribution.
-- Modeled conversions are statistical estimates that platforms use to fill in the gaps — they are educated guesses, not real data.
-- The number in your Ads Manager dashboard is a blend of real events, server-matched events, and estimates — you must verify it against your own data.
+- Modeled conversions are statistical estimates that platforms use to fill in the gaps  -  they are educated guesses, not real data.
+- The number in your Ads Manager dashboard is a blend of real events, server-matched events, and estimates  -  you must verify it against your own data.
 
 ---
 
@@ -30,7 +30,7 @@ After iOS 14.5, that tracking pixel is blocked for any iOS user who says "no" to
 What replaced it is three different workarounds running at the same time: SKAdNetwork, Conversions API, and Modeled Conversions.
 
 <Callout type="info">
-**Why this matters to you right now:** As of Q2 2025, only 35% of iOS users globally allow cross-app tracking (Adjust). That means on any iOS-heavy campaign, roughly 65% of your conversions cannot be tracked the old way. If you are running Meta or TikTok ads to a consumer audience in the US, this is not an edge case — it is the default reality.
+**Why this matters to you right now:** As of Q2 2025, only 35% of iOS users globally allow cross-app tracking (Adjust). That means on any iOS-heavy campaign, roughly 65% of your conversions cannot be tracked the old way. If you are running Meta or TikTok ads to a consumer audience in the US, this is not an edge case  -  it is the default reality.
 </Callout>
 
 ---
@@ -45,24 +45,24 @@ SKAdNetwork is Apple's official privacy-safe measurement framework. Here is how 
 2. They tap through and install your app (or visit your site).
 3. Apple's framework logs the install privately on the device.
 4. After a random delay (minimum 24 hours, sometimes up to 72 hours), Apple sends a "postback" (a notification) to the ad network confirming a conversion happened.
-5. The postback includes a "conversion value" — a number from 0 to 63 that you set up in advance to represent different actions (like a $10 purchase vs. a $100 purchase).
+5. The postback includes a "conversion value"  -  a number from 0 to 63 that you set up in advance to represent different actions (like a $10 purchase vs. a $100 purchase).
 6. You never learn which specific user converted. The data arrives in aggregate only.
 
 The current version, SKAdNetwork 4.0 (SKAN 4), is a significant improvement. It allows up to three postbacks across a 35-day window, gives you more granular conversion signals, and supports up to 10,000 campaign IDs (vs. just 100 in older versions). By early 2024, AppsFlyer was tracking over 240 million SKAN 4 postbacks across 2,000+ apps.
 
-**Important threshold:** Campaigns need roughly 100-150 installs per day to unlock meaningful postback data. Campaigns under around 20 daily installs frequently get "null conversion values" — Apple suppresses the data entirely to protect user privacy.
+**Important threshold:** Campaigns need roughly 100-150 installs per day to unlock meaningful postback data. Campaigns under around 20 daily installs frequently get "null conversion values"  -  Apple suppresses the data entirely to protect user privacy.
 
 ### 2. Meta Conversions API (CAPI): Server-to-Server Tracking
 
 Meta's Conversions API works from your side, not the user's device. Instead of relying on a browser pixel (which gets blocked), your own server sends purchase data directly to Meta: "someone with this hashed email address bought $89 worth of product at 2:04 PM." Meta matches that event to one of its users using hashed identifiers like email or phone number.
 
-This completely bypasses ATT because you are using your own first-party data (data you collected directly from the customer). The ATT prompt only restricts cross-app device tracking — it does not stop you from sending your own server data.
+This completely bypasses ATT because you are using your own first-party data (data you collected directly from the customer). The ATT prompt only restricts cross-app device tracking  -  it does not stop you from sending your own server data.
 
 **Key rule:** Always run CAPI alongside your browser pixel, not instead of it. The pixel captures clicks that CAPI might miss; CAPI captures purchases that the pixel misses. Together they recover far more signal than either alone.
 
 ### 3. Modeled Conversions: The Estimates Filling the Gap
 
-Modeled conversions are what platforms like Meta and Google show you when they cannot measure directly. The platform looks at users who did allow tracking, identifies patterns in how they behave before buying, and then estimates how many similar opt-out users probably also converted. It is statistical inference — reasonable at the aggregate level, unreliable at the campaign or ad-set level.
+Modeled conversions are what platforms like Meta and Google show you when they cannot measure directly. The platform looks at users who did allow tracking, identifies patterns in how they behave before buying, and then estimates how many similar opt-out users probably also converted. It is statistical inference  -  reasonable at the aggregate level, unreliable at the campaign or ad-set level.
 
 The critical thing to understand: when you look at your Meta Ads Manager dashboard, the conversion number is a mixture of:
 - Real conversions tracked by CAPI or the pixel
@@ -107,13 +107,13 @@ flowchart LR
 
 ### Airbnb: The Dashboard Lie
 
-After iOS 14.5 launched, Airbnb reported a 30-40% drop in attributed conversions inside Meta Ads Manager within weeks of the rollout — even though actual bookings stayed relatively steady according to their internal data warehouse. The attribution system had collapsed, not the business.
+After iOS 14.5 launched, Airbnb reported a 30-40% drop in attributed conversions inside Meta Ads Manager within weeks of the rollout  -  even though actual bookings stayed relatively steady according to their internal data warehouse. The attribution system had collapsed, not the business.
 
 By adding Meta's Conversions API alongside their existing pixel, Airbnb recovered roughly 15-20% of those "lost" conversion events. The lesson: the platform dashboard showed a crisis that was not fully real, and their own server-side data told a different story.
 
 ### Mobile Gaming Industry: The Volume Problem
 
-A well-documented pattern across mobile gaming publishers in 2023-2024 shows what happens when campaigns fall below SKAN's volume thresholds. Studios running campaigns under 20 daily installs on iOS routinely received null (blank) conversion values from Apple's postbacks — giving them zero actionable data on those campaigns. Publishers who consolidated their iOS spend into fewer, higher-volume campaigns consistently unlocked more postback data. This insight, documented by Aarki and Singular in 2024, drove a shift in how mobile UA (user acquisition) teams structure their iOS budgets: fewer campaigns, bigger budgets per campaign.
+A well-documented pattern across mobile gaming publishers in 2023-2024 shows what happens when campaigns fall below SKAN's volume thresholds. Studios running campaigns under 20 daily installs on iOS routinely received null (blank) conversion values from Apple's postbacks  -  giving them zero actionable data on those campaigns. Publishers who consolidated their iOS spend into fewer, higher-volume campaigns consistently unlocked more postback data. This insight, documented by Aarki and Singular in 2024, drove a shift in how mobile UA (user acquisition) teams structure their iOS budgets: fewer campaigns, bigger budgets per campaign.
 
 <Callout type="example">
 **Worked example: Setting up SKAN conversion values**
@@ -125,7 +125,7 @@ You run a fitness app. A new user's first 24 hours matter most for predicting if
 - Value 31-50: User logged a workout (strong intent)
 - Value 51-63: User started a free trial (high intent)
 
-When Apple sends a postback with value 55, you know that campaign drove high-intent installs — even without knowing which specific user converted. This is how you extract signal from SKAN's limited data. You configure this schema in your Mobile Measurement Partner (MMP) tool like AppsFlyer or Adjust.
+When Apple sends a postback with value 55, you know that campaign drove high-intent installs  -  even without knowing which specific user converted. This is how you extract signal from SKAN's limited data. You configure this schema in your Mobile Measurement Partner (MMP) tool like AppsFlyer or Adjust.
 </Callout>
 
 ---
@@ -134,9 +134,9 @@ When Apple sends a postback with value 55, you know that campaign drove high-int
 
 In 2024, Apple announced AdAttributionKit (AAK) as the long-term replacement for SKAdNetwork. It received major upgrades at WWDC 2025. Key improvements over SKAN:
 
-- **Re-engagement tracking:** AAK can measure campaigns that bring existing (churned) users back to your app — SKAN could only measure new installs.
+- **Re-engagement tracking:** AAK can measure campaigns that bring existing (churned) users back to your app  -  SKAN could only measure new installs.
 - **Configurable attribution windows:** You can adjust the time window for attributing conversions to an ad, rather than using Apple's fixed defaults.
-- **Country codes in postbacks:** You can see which country a conversion came from — a significant improvement for international campaigns.
+- **Country codes in postbacks:** You can see which country a conversion came from  -  a significant improvement for international campaigns.
 - **Better testing tools:** A developer testing mode lets you validate your setup without running a full live campaign.
 
 Both SKAN and AAK are currently active and interoperable. Expect a full migration to AAK in 2026.
@@ -146,11 +146,11 @@ Both SKAN and AAK are currently active and interoperable. Expect a full migratio
 ## Common Mistakes
 
 <Callout type="warning">
-**Mistake 1: Treating Ads Manager ROAS as ground truth.** The return on ad spend (ROAS — revenue divided by ad spend) shown in your platform dashboard mixes real data with estimates. Making large budget decisions solely based on this number can amplify noise. Always cross-check with your own data warehouse or analytics tool (GA4, Shopify reports, etc.).
+**Mistake 1: Treating Ads Manager ROAS as ground truth.** The return on ad spend (ROAS  -  revenue divided by ad spend) shown in your platform dashboard mixes real data with estimates. Making large budget decisions solely based on this number can amplify noise. Always cross-check with your own data warehouse or analytics tool (GA4, Shopify reports, etc.).
 </Callout>
 
 <Callout type="warning">
-**Mistake 2: Installing CAPI without deduplication.** If you run both the browser pixel and CAPI simultaneously (which you should), you WILL send duplicate events unless you implement event deduplication. Meta uses an "event ID" to deduplicate — the same event ID from the pixel and CAPI tells Meta it is the same event, not two separate ones. Skip this step and your conversion counts inflate by 30-60%, corrupting your optimization signals. Check Meta's Events Manager for duplicate event warnings before going live.
+**Mistake 2: Installing CAPI without deduplication.** If you run both the browser pixel and CAPI simultaneously (which you should), you WILL send duplicate events unless you implement event deduplication. Meta uses an "event ID" to deduplicate  -  the same event ID from the pixel and CAPI tells Meta it is the same event, not two separate ones. Skip this step and your conversion counts inflate by 30-60%, corrupting your optimization signals. Check Meta's Events Manager for duplicate event warnings before going live.
 </Callout>
 
 <Callout type="warning">
@@ -177,7 +177,7 @@ Here is what a solid iOS attribution setup looks like in 2025:
 
 ## The One-Line Takeaway
 
-**Your ad platform dashboard shows you a story built from real data, educated guesses, and statistical models — knowing which is which is the skill that separates advanced media buyers from everyone else.**
+**Your ad platform dashboard shows you a story built from real data, educated guesses, and statistical models  -  knowing which is which is the skill that separates advanced media buyers from everyone else.**
 
 ---
 
@@ -259,6 +259,6 @@ Here is what a solid iOS attribution setup looks like in 2025:
 
 ## Related Concepts
 
-- [MMM vs MTA](/learn/paid-ads/mmm-vs-mta) — When pixel-level attribution breaks down, marketing mix modeling becomes a more reliable alternative for budget decisions
-- [Retargeting](/learn/paid-ads/retargeting) — iOS privacy restrictions dramatically shrunk retargeting audiences; understanding attribution loss here explains why retargeting performance dropped post-2021
-- [Meta Ads](/learn/paid-ads/meta-ads) — The platform most affected by iOS 14+; understanding CAPI and SKAN is now prerequisite knowledge for running Meta campaigns effectively
+- [MMM vs MTA](/learn/paid-ads/mmm-vs-mta)  -  When pixel-level attribution breaks down, marketing mix modeling becomes a more reliable alternative for budget decisions
+- [Retargeting](/learn/paid-ads/retargeting)  -  iOS privacy restrictions dramatically shrunk retargeting audiences; understanding attribution loss here explains why retargeting performance dropped post-2021
+- [Meta Ads](/learn/paid-ads/meta-ads)  -  The platform most affected by iOS 14+; understanding CAPI and SKAN is now prerequisite knowledge for running Meta campaigns effectively

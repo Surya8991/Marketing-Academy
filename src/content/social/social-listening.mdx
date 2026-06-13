@@ -6,7 +6,7 @@ export const lessonMeta = {
 
 # Social Listening
 
-Most marketers treat social as a megaphone. The advanced practitioner treats it as a microphone. Social listening is how you turn the open web's chatter into a product backlog, a brand-health dashboard, and an early-warning system — often before your PR team has finished their morning coffee.
+Most marketers treat social as a megaphone. The advanced practitioner treats it as a microphone. Social listening is how you turn the open web's chatter into a product backlog, a brand-health dashboard, and an early-warning system  -  often before your PR team has finished their morning coffee.
 
 ## What It Actually Is
 
@@ -18,17 +18,17 @@ Concrete example: Liquid Death's team didn't invent "death to plastic" by guessi
 
 The social listening market hit roughly $9.62 billion in 2025, and SME adoption of AI-powered listening jumped from 26% in 2024 to 39% in 2025 ([Influencer Marketing Hub](https://influencermarketinghub.com/social-media-listening-report/)). 88% of agencies now call social listening critical to business success, and brands applying social insights report up to 25% higher campaign ROI ([Sprout Social](https://sproutsocial.com/roi/social-listening-roi/)).
 
-On the crisis side, Edelman's 2024 data shows 68% of crises escalate within 24 hours of the first social signal — the practical implication is that you need detection in minutes, not days ([Pulsar Platform](https://www.pulsarplatform.com/guides/social-listening-for-crisis-management)). And on sentiment quality, GPT-4-class models now hit roughly 93% precision on binary sentiment classification, which finally makes large-scale automated tagging trustworthy enough to feed into dashboards.
+On the crisis side, Edelman's 2024 data shows 68% of crises escalate within 24 hours of the first social signal  -  the practical implication is that you need detection in minutes, not days ([Pulsar Platform](https://www.pulsarplatform.com/guides/social-listening-for-crisis-management)). And on sentiment quality, GPT-4-class models now hit roughly 93% precision on binary sentiment classification, which finally makes large-scale automated tagging trustworthy enough to feed into dashboards.
 
 ## How It Works / The Playbook
 
 A working program has five layers:
 
-1. **Query design.** Build Boolean queries per use case: brand health, product feedback, competitor watch, category trends, and crisis. Include misspellings, handles, slang, and emojis. Exclude noise — your own retweets, employee accounts, spam phrases.
+1. **Query design.** Build Boolean queries per use case: brand health, product feedback, competitor watch, category trends, and crisis. Include misspellings, handles, slang, and emojis. Exclude noise  -  your own retweets, employee accounts, spam phrases.
 2. **Source coverage.** Twitter/X and Reddit are table stakes. For B2B, add LinkedIn and YouTube comments. For consumer, add TikTok, Instagram, and review sites (Trustpilot, G2, App Store). Forums and Discord servers are where the deepest product signal lives.
 3. **Enrichment.** Run sentiment, emotion, and topic classification. Tag by product line, persona, and journey stage. Geo-enrich if you sell regionally.
 4. **Routing.** Product feedback goes to PM, sentiment trends to brand, anomalies to comms. Use thresholds (e.g., 3x baseline volume in 60 minutes = page on-call comms).
-5. **Action review.** Weekly insight review with product, monthly with leadership. The output is a decision — a feature backlog item, a message change, a paid-media pivot — not a slide.
+5. **Action review.** Weekly insight review with product, monthly with leadership. The output is a decision  -  a feature backlog item, a message change, a paid-media pivot  -  not a slide.
 
 For tooling, the serious options are Brandwatch, Sprinklr, Talkwalker, Meltwater, Pulsar, and Sprout Social. Lean teams can start with a combination of Brand24, the X API, and the Reddit API piped through a sentiment model.
 
@@ -40,7 +40,7 @@ A counter-example from 2024: when Patiswiss faced a viral LinkedIn post about mo
 
 ## Common Mistakes
 
-- **Tracking brand keywords only.** You miss category conversations where buyers haven't named you yet — that's where new-product signal lives.
+- **Tracking brand keywords only.** You miss category conversations where buyers haven't named you yet  -  that's where new-product signal lives.
 - **Trusting raw sentiment scores.** Sarcasm, code-mixing, and meme language tank accuracy. Always sample 50–100 mentions per week to calibrate the model.
 - **No routing layer.** Insights die in a dashboard nobody opens. Pipe categorized mentions into Slack, Jira, or your CRM with owners attached.
 - **Confusing volume with importance.** One Reddit thread on a niche dev forum can outweigh 10,000 generic tweets when your buyer is a senior engineer.
@@ -48,17 +48,17 @@ A counter-example from 2024: when Patiswiss faced a viral LinkedIn post about mo
 
 ## Key Takeaways
 
-- Listening is a decision engine, not a reporting tool — every insight should map to an owner and an action.
+- Listening is a decision engine, not a reporting tool  -  every insight should map to an owner and an action.
 - Crises move in minutes. Build detection thresholds and a pre-approved response tree before you need them.
 - Modern LLM-based sentiment is finally accurate enough (~93% on binary tasks) to act on, but only if you sample-audit it weekly.
-- The richest product insight lives in forums, Reddit, and review sites — not in branded Twitter mentions.
+- The richest product insight lives in forums, Reddit, and review sites  -  not in branded Twitter mentions.
 
 <ResourceList resources={[
-  { title: "Sprout Social — Social Listening ROI", url: "https://sproutsocial.com/roi/social-listening-roi/", type: "article", free: true },
-  { title: "Influencer Marketing Hub — Social Media Listening Report", url: "https://influencermarketinghub.com/social-media-listening-report/", type: "article", free: true },
-  { title: "Pulsar — Social Listening for Crisis Management", url: "https://www.pulsarplatform.com/guides/social-listening-for-crisis-management", type: "docs", free: true },
-  { title: "Talkwalker — Deutsche Telekom Case Study", url: "https://www.talkwalker.com/case-studies/deutsche-telekom-real-time-crisis-management-using-a-social-listening-powered-situation-room", type: "article", free: true },
-  { title: "Hootsuite — Social Listening Strategy Guide", url: "https://blog.hootsuite.com/social-listening-business/", type: "docs", free: true },
+  { title: "Sprout Social  -  Social Listening ROI", url: "https://sproutsocial.com/roi/social-listening-roi/", type: "article", free: true },
+  { title: "Influencer Marketing Hub  -  Social Media Listening Report", url: "https://influencermarketinghub.com/social-media-listening-report/", type: "article", free: true },
+  { title: "Pulsar  -  Social Listening for Crisis Management", url: "https://www.pulsarplatform.com/guides/social-listening-for-crisis-management", type: "docs", free: true },
+  { title: "Talkwalker  -  Deutsche Telekom Case Study", url: "https://www.talkwalker.com/case-studies/deutsche-telekom-real-time-crisis-management-using-a-social-listening-powered-situation-room", type: "article", free: true },
+  { title: "Hootsuite  -  Social Listening Strategy Guide", url: "https://blog.hootsuite.com/social-listening-business/", type: "docs", free: true },
 
   { title: "WsCube Tech - Social Listening (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
   { title: "Mr Digital Marketing Tamil - Social Listening", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },

@@ -1,7 +1,7 @@
 export const lessonMeta = {
   title: "AARRR: Pirate Metrics",
   level: "Beginner",
-  summary: "Acquisition, Activation, Retention, Referral, Revenue — the canonical funnel.",
+  summary: "Acquisition, Activation, Retention, Referral, Revenue: the five-stage funnel that tells you exactly where your growth is leaking.",
   category: "growth",
   slug: "aarrr",
   relatedConcepts: ["what-is-growth", "north-star-metric", "retention-cohorts"],
@@ -9,75 +9,39 @@ export const lessonMeta = {
 
 # AARRR: Pirate Metrics
 
-AARRR (pronounced like a pirate's growl, which is why it's called "Pirate Metrics") is a five-stage framework for understanding your users' entire journey. Venture capitalist Dave McClure introduced it in 2007, and it has since become the single most popular lens for thinking about growth in startups and digital businesses.
-
-The five stages are: **Acquisition** (how people find you), **Activation** (their first "wow" moment), **Retention** (whether they return), **Referral** (whether they bring others), and **Revenue** (whether they pay). Each stage is a gate - users either pass through or drop off.
+In 2025, the average B2B SaaS product activates fewer than 4 in 10 new signups. The other 6 never experience the product's core value, then disappear forever. AARRR is the framework that makes that leak visible and tells you exactly where to plug it.
 
 ## Quick Summary
 
-- AARRR gives you a clear map of where users are dropping off, so you stop guessing at what to fix.
-- Most teams over-invest in Acquisition while ignoring Activation and Retention - the real growth killers.
-- Fixing a mid-funnel leak (like Activation) compounds through every stage below it, for free.
-- Facebook's activation insight (7 friends in 10 days) and Dropbox's referral loop are textbook examples of optimizing a single stage to explosive effect.
-- The right order to fix stages is: Retention first, then Activation, then Referral, then Revenue, then Acquisition last.
+- AARRR (Acquisition, Activation, Retention, Referral, Revenue) maps the full user journey into five measurable stages.
+- The median activation rate across B2B SaaS is just 37%, meaning most of your ad spend evaporates before users see any value. [Source: Userpilot 2024](https://userpilot.com/blog/user-activation-rate-benchmark-report-2024/)
+- Fixing one mid-funnel stage (like Activation) compounds benefits to every stage below it at zero extra acquisition cost.
+- The correct order to fix stages is: Retention first, then Activation, then Referral, then Revenue, then Acquisition last.
+- 90% of startups fail within five years, and a broken customer lifecycle is the most common root cause. [Source: Purchasely 2025](https://www.purchasely.com/blog/aarrr-framework-pirate-metrics-complete-guide-for-2025)
+
+## What It Actually Is
+
+AARRR is a five-stage growth framework created by Dave McClure (founder of 500 Startups) in 2007 to give startups a single, measurable map of the user lifecycle. Each letter stands for one stage: **A**cquisition, **A**ctivation, **R**etention, **R**eferral, **R**evenue.
+
+Think of it as a series of doors. Every new user starts outside and must walk through each door in sequence. Your job is to measure how many people pass through each door and why others stop. Most products have one door that is dramatically harder to open than the others. That door is your growth bottleneck, and fixing it is worth more than any new marketing campaign.
 
 <Callout type="info">
-**Why the order matters:** Dave McClure's original advice was to work the funnel in reverse. If you fix Retention first, every user you acquire and activate has a reason to stay. If you fix Acquisition first without fixing Retention, you're pouring water into a leaky bucket.
+**Why it is called 'Pirate Metrics':** Say all five letters out loud: AARRR. It sounds like a pirate's growl. The name stuck because it is memorable, and because Dave McClure wanted a framework that felt actionable rather than academic. It worked.
 </Callout>
 
-## The Five Stages in Plain English
+## Why It Matters (with Data)
 
-Think of AARRR as a series of doors. Each door a user walks through means they've committed a little more to your product. Your job is to make each door as easy as possible to open.
+The data on broken funnels is stark:
 
-### Stage 1 - Acquisition: How do people find you?
+- The average user activation rate across 62 B2B companies is **37.5%**, and the median is **37%**. In sectors like FinTech and HR, it collapses to 5-8%. [Userpilot, 2024](https://userpilot.com/blog/user-activation-rate-benchmark-report-2024/)
+- Amplitude's 2025 benchmark data (from 2,600+ companies) found that **over 98% of users who never hit a value milestone churn within two weeks.**
+- B2B SaaS companies report an average annual retention rate of 74%, with top performers achieving net revenue retention above 120%. [SaaS Metrics Benchmarks 2025](https://www.rockingweb.com.au/saas-metrics-benchmark-report-2025/)
+- CB Insights' 2024 analysis of 431 failed VC-backed startups found that **43% failed due to poor product-market fit**, which almost always shows up first as low Activation and Retention, not low Acquisition.
+- Teams that fix Activation before scaling Acquisition see compounding benefits: doubling activation rate from 20% to 40% effectively doubles the throughput of every downstream stage without spending a single extra dollar on ads.
 
-Acquisition is any channel that brings a new user to your product for the first time. This includes Google search (SEO), paid ads, social media, press coverage, word of mouth, or a friend's recommendation.
+The pattern is consistent: most teams invest heavily in Acquisition (ads, SEO, PR) while Activation and Retention quietly drain their returns. AARRR makes that misallocation visible.
 
-The key metric is not just "how many visitors" but **cost per acquisition (CPA) by channel** - meaning, how much did it cost to bring one person in through each specific channel? A blog post that brings in 500 visitors for $200 of writing time has a CPA of $0.40. A paid ad that brings in 500 visitors for $2,000 has a CPA of $4.00. AARRR forces you to compare these honestly.
-
-**What to track:** visitors by channel, CPA by channel, conversion rate from visitor to signup.
-
-### Stage 2 - Activation: Did they have a great first experience?
-
-Activation is the moment a new user first feels the value of your product - their "aha moment." This is not just signing up. It's actually doing the thing that makes the product worth using.
-
-For Facebook, research in the early days showed that users who added 7 friends within their first 10 days were dramatically more likely to stay. That was Facebook's activation event. For Slack, the team discovered that once a team sent 2,000 messages, they considered themselves genuinely activated. For a fitness app like Runna, completing the first workout is the activation milestone.
-
-Activation is often the **highest-leverage stage in the entire funnel.** Here's why: if 20% of your signups activate today, and you improve that to 40%, every stage below it - Retention, Referral, Revenue - doubles in throughput without you spending a single extra dollar on ads.
-
-**What to track:** percentage of new signups who complete the activation event within 24 hours, 3 days, and 7 days.
-
-### Stage 3 - Retention: Do they come back?
-
-Retention measures whether users return after their first session. It is typically tracked as Day 1, Day 7, and Day 30 retention - the percentage of users who open your product one day, one week, and one month after signup.
-
-Low Day 30 retention is the clearest sign of a product problem. If users try your product once and never return, no amount of marketing spend will save you. This is the "leaky bucket" situation: you pour users in at the top, they drain out the bottom.
-
-Calm, the meditation app, measures retention by tracking daily meditation sessions. The goal is habit formation - if users meditate daily for two weeks, they are very likely to keep using Calm. Apple Fitness+ runs programs like "Time to Walk" specifically to create recurring engagement touchpoints rather than one-off sessions.
-
-**What to track:** Day 1, Day 7, Day 30 retention rates; churn rate (for subscription products); session frequency per week.
-
-### Stage 4 - Referral: Do they bring others?
-
-Referral is when your existing users bring in new users. At a referral rate above 1.0 (each user brings in more than one new user), your product grows on its own without any ad spend. This is what people mean by "viral growth."
-
-Referral is the most underused stage. Most teams assume word-of-mouth just happens if the product is good enough. In reality, the best referral loops are engineered deliberately. Dropbox offered 500MB of free storage to both the person who referred and the person who joined - a two-sided incentive that cost Dropbox almost nothing (extra storage) but drove 35% of daily signups at its peak. Uber gave both riders free ride credits for inviting friends during its global expansion phase.
-
-**What to track:** referral rate (new users from referrals / total new users), Net Promoter Score (NPS) as a leading indicator, viral coefficient (K-factor).
-
-### Stage 5 - Revenue: Do they pay?
-
-Revenue measures how you convert user activity into business income. For a SaaS product this includes Monthly Recurring Revenue (MRR), conversion rate from free to paid, and Average Revenue Per User (ARPU). For an e-commerce store it is average order value and purchase frequency.
-
-Strava, the fitness tracking app, is a good example of deliberate revenue design: basic activity tracking is free, but advanced analytics and route planning are locked behind a paid subscription. The free tier creates activation and retention. The premium tier captures revenue from power users who are already deeply engaged.
-
-Revenue should always be evaluated alongside acquisition cost. If you spend $100 to acquire a customer who generates $80 of lifetime revenue, you are shrinking with every new customer.
-
-**What to track:** MRR/ARR, conversion rate from free to paid, ARPU, Lifetime Value (LTV), LTV-to-CAC ratio (ideally 3:1 or higher).
-
----
-
-## AARRR Funnel Visualized
+## How It Works: The Five Stages
 
 <Mermaid chart={`
 flowchart TD
@@ -97,114 +61,189 @@ flowchart TD
   classDef rev fill:#db2777,color:#fff,rx:8
 `} />
 
-## Two Real-World Case Studies
+### Stage 1: Acquisition - How Do People Find You?
 
-<Callout type="example" title="Dropbox: Engineering Every AARRR Stage Deliberately">
-Dropbox grew from 100,000 users in 2008 to nearly 4 million by 2009 - a 3,900% increase in 15 months. They did it by optimizing each AARRR stage in sequence:
+Acquisition covers every channel that delivers a new user to your product for the first time: SEO, paid ads, social media, press, word of mouth, influencer partnerships, or a direct referral.
 
-- **Acquisition:** A waitlist referral program created scarcity and buzz before launch.
-- **Activation:** A 2-minute demo video explaining the product increased signups by 10% overnight.
-- **Retention:** Files synced seamlessly across devices, making Dropbox genuinely indispensable.
-- **Referral:** Both the referrer and the new user received 500MB of free storage - a two-sided incentive that drove 35% of all daily signups at its peak.
-- **Revenue:** A freemium model converted heavy users to paid plans once they hit storage limits.
+The key metric is not total visitors. It is **cost per acquisition (CPA) by channel**. A blog post bringing 500 visitors for $200 of writing time costs $0.40 per visitor. A paid campaign bringing the same 500 for $2,000 costs $4.00. AARRR forces you to compare those numbers honestly and allocate budget to the channels that deliver users who actually activate and retain.
 
-The referral program alone is now taught in business schools as a model of engineered virality.
-</Callout>
+**What to track:** visitors by channel, CPA by channel, visitor-to-signup conversion rate.
 
-<Callout type="example" title="Facebook: Finding the Activation Number That Changed Everything">
-Facebook's early growth team discovered a single data point that transformed their onboarding: users who added **7 friends within their first 10 days** were dramatically more likely to become long-term active users. Below that threshold, most users drifted away.
+### Stage 2: Activation - Did They Experience the Value?
 
-This insight shifted Facebook's entire product focus. Every onboarding screen, every email, every prompt was redesigned around getting new users to that 7-friend milestone as fast as possible. The result was one of the fastest-growing social networks in history.
+Activation is the moment a new user first feels the core value of your product. It is not signing up. It is completing the specific action that makes the product worth using.
 
-The lesson is not the number 7 - it's that there is always a specific activation threshold for your product. Your job is to find it through data, then design everything around hitting it.
-</Callout>
+Every product has a distinct activation event. You have to find yours through data:
+
+- **Facebook (early days):** adding 7 friends within the first 10 days dramatically increased long-term retention.
+- **Slack:** a team that sent 2,000 messages considered itself genuinely activated.
+- **Duolingo:** completing the first lesson and setting a daily streak goal is the activation milestone.
+
+With an industry median of 37%, Activation is almost always the highest-leverage stage to improve. Doubling your activation rate doubles the output of every stage below it with no additional acquisition spend.
+
+**What to track:** percentage of signups who complete the activation event within 24 hours, 3 days, and 7 days.
+
+### Stage 3: Retention - Do They Come Back?
+
+Retention measures whether users return after their first session. It is tracked as Day 1, Day 7, and Day 30 retention. Low Day 30 retention is the clearest early signal of a product-market fit problem.
+
+Apple Fitness+ engineers retention by running recurring programs: "Time to Walk" audio experiences and "Artist Spotlight" workout series create weekly touchpoints that keep users coming back. The goal is habit formation. Once a user has a habit, churn drops sharply.
+
+For subscription products, track churn rate monthly. B2B SaaS benchmarks show average annual retention at 74%, but top performers maintain well above 85% by investing in onboarding and in-app guidance before users drift away.
+
+**What to track:** Day 1, Day 7, Day 30 retention rates; monthly churn rate; average sessions per week.
+
+### Stage 4: Referral - Do They Bring Others?
+
+Referral measures whether existing users bring in new users. A viral coefficient (K-factor) above 1.0 means each user brings in more than one new user, creating self-sustaining growth without ongoing ad spend.
+
+Referral is the most underused and under-engineered stage. Word-of-mouth rarely happens organically at scale. The best referral loops are built deliberately with three components:
+
+1. **Trigger:** when do you ask? (after activation, after a positive outcome, after a milestone)
+2. **Mechanic:** what do users share? (a link, an invite, a creation from inside the product)
+3. **Incentive:** why do they share? (two-sided reward, social currency, status)
+
+**What to track:** referral rate (new users from referrals divided by total new users), K-factor, Net Promoter Score (NPS) as a leading indicator.
+
+### Stage 5: Revenue - Do They Pay?
+
+Revenue measures how you convert user activity into business income. For SaaS: Monthly Recurring Revenue (MRR), free-to-paid conversion rate, and Average Revenue Per User (ARPU). For e-commerce: average order value and purchase frequency.
+
+Revenue must always be evaluated against acquisition cost. If your Customer Acquisition Cost (CAC) is $100 and your Lifetime Value (LTV) is $80, you lose money on every customer. The healthy target is an LTV-to-CAC ratio of 3:1 or higher.
+
+Strava locks advanced analytics and route planning behind a paid tier. The free tier drives Activation and Retention. The paid tier captures Revenue from power users who are already deeply engaged. That sequencing, free value first, paid upgrade second, is the correct order.
+
+**What to track:** MRR/ARR, free-to-paid conversion rate, ARPU, LTV, LTV-to-CAC ratio (target: 3:1 or above).
+
+---
 
 ## Where to Start: Diagnosing Your Funnel
 
-Most teams waste months optimizing the wrong stage. Here is a simple diagnostic process:
+Most teams optimize the wrong stage for months. Use this decision tree to find your real bottleneck:
 
 <Mermaid chart={`
 flowchart LR
   S[Start] --> Q1{Day 30 retention\nbelow 20%?}
   Q1 -- Yes --> FIX1[Fix Retention first]
-  Q1 -- No --> Q2{Less than 40%\nof signups activate?}
+  Q1 -- No --> Q2{Activation rate\nbelow 37%?}
   Q2 -- Yes --> FIX2[Fix Activation next]
-  Q2 -- No --> Q3{Referral rate\nbelow 0.5?}
+  Q2 -- No --> Q3{K-factor\nbelow 0.5?}
   Q3 -- Yes --> FIX3[Build Referral loop]
   Q3 -- No --> Q4{LTV less than\n3x CAC?}
   Q4 -- Yes --> FIX4[Fix Revenue model]
   Q4 -- No --> FIX5[Scale Acquisition]
 `} />
 
-Run this diagnostic every month. Your bottleneck stage will shift as the product matures.
+Run this diagnostic every month. Your bottleneck shifts as the product matures, and a fix in one stage often reveals a new constraint in another.
+
+## Real Company Examples
+
+<Callout type="example">
+**Dropbox: Engineering Every Stage Deliberately (2008-2009)**
+
+Dropbox grew from 100,000 users to nearly 4 million in 15 months, a 3,900% increase, by systematically optimizing each AARRR stage:
+
+- **Acquisition:** A pre-launch waitlist referral program built buzz before the product was publicly available.
+- **Activation:** A 2-minute demo video explaining how file sync worked increased signups by 10% overnight.
+- **Retention:** Seamless cross-device sync made Dropbox indispensable to daily work.
+- **Referral:** Both the referrer and new user received 500MB of free storage. This two-sided incentive drove 35% of all daily signups at its peak.
+- **Revenue:** Freemium converted heavy users to paid plans when they hit storage limits.
+
+The referral program is now a textbook example of engineered virality precisely because it cost Dropbox almost nothing (storage was cheap) while providing high perceived value to both sides.
+</Callout>
+
+<Callout type="example">
+**Duolingo: Activation as a Personalization Problem (2023-2025)**
+
+Duolingo reached 500 million registered users by 2023 and has maintained daily active user rates well above the app industry average. Their activation strategy is deliberately personalized: new users are asked about existing language knowledge and learning goals before the first lesson begins.
+
+Beginners get quick wins through simple vocabulary. Advanced learners jump into grammar and conversation. The result is that the first session feels tailored, not generic, which drives completion and Day 1 retention. Duolingo then uses streak mechanics to lock in Retention: breaking a streak triggers loss-aversion psychology, one of the most effective habit-formation tools in consumer apps.
+
+The lesson: Activation is not a single event. It is a sequence of small wins that lead to a habit. Design for the sequence, not just the signup.
+</Callout>
 
 ## Common Mistakes
 
 <Callout type="warning">
-**Obsessing over Acquisition while the rest of the funnel leaks.** More users into a broken funnel just means more people who churn. Before scaling paid ads, check your Day 7 retention. If it is below 15%, stop buying traffic and fix the product. Research consistently shows that 90% of startups fail - and most of those failures share a common thread: scaling acquisition before proving retention.
+**Scaling Acquisition before fixing Retention.** If Day 7 retention is below 15%, you are filling a leaky bucket. Every dollar you spend on ads accelerates the rate at which users churn out. CB Insights found 43% of failed VC-backed startups cited poor product-market fit, which almost always manifests first as broken Retention, not low Acquisition.
 </Callout>
 
 <Callout type="warning">
-**Skipping the Referral stage entirely.** Most teams treat referral as something that will happen automatically if the product is good enough. It rarely does. Referral is an engineered lever: you need a trigger (when to ask), a mechanic (what users share), and an incentive (why they share). Without deliberately building this, you leave your strongest growth channel untouched.
+**Treating Referral as a 'nice to have.'** Most teams assume good products generate word-of-mouth automatically. They rarely do at scale. Referral requires a deliberate trigger, mechanic, and incentive. Without engineering it, you leave your highest-trust and lowest-cost acquisition channel completely untapped.
+</Callout>
+
+<Callout type="warning">
+**Using a vanity activation metric.** Defining activation as 'signed up' or 'completed onboarding' instead of 'experienced the core value' leads to misleadingly high activation numbers that do not predict retention. Slack's 2,000-message threshold and Facebook's 7-friends benchmark both measure real engagement, not just presence.
+</Callout>
+
+<Callout type="warning">
+**Ignoring LTV-to-CAC at Revenue stage.** Teams celebrate MRR growth without checking whether each new customer is profitable. If LTV is below 3x CAC, scaling acquisition makes the unit economics worse, not better. Fix pricing, packaging, or retention first.
 </Callout>
 
 <Callout type="tip">
-**Instrument first, optimize second.** Before running any growth experiments, make sure you can actually measure each AARRR stage. Many teams discover they cannot accurately measure Activation or Retention because the tracking was never set up. Your first sprint should be analytics infrastructure: event tracking, cohort analysis, and funnel visualization. Every experiment after that will produce real data instead of guesses.
+**Instrument before you optimize.** Many teams discover, mid-experiment, that they cannot actually measure Activation or Retention because the event tracking was never set up. Your first sprint should be analytics infrastructure: funnel tracking, cohort analysis, and event logging. Every optimization after that produces real signal instead of noise.
 </Callout>
 
-## The One-Line Takeaway
+## Key Takeaways
 
-**Fix the leakiest stage in your funnel before spending another dollar bringing more people in.**
+- The industry median activation rate is 37%. If yours is lower, fixing Activation is worth more than any new ad campaign.
+- 98% of users who never hit a value milestone churn within two weeks. Your onboarding sequence is a retention investment, not just a UX detail.
+- Fix stages in this order: Retention, then Activation, then Referral, then Revenue, then Acquisition. Working the funnel in reverse prevents you from scaling a leaky bucket.
+- Every great referral loop has three parts: a trigger, a mechanic, and an incentive. None of the three happens by accident.
+- LTV-to-CAC should be 3:1 or higher. Below that ratio, growth is shrinking your business, not building it.
+- Measure each stage monthly. The bottleneck shifts as the product matures, and last quarter's fix reveals this quarter's constraint.
 
 <ResourceList resources={[
   {
     title: "Startup Metrics for Pirates - Original Dave McClure Slides (2007)",
     url: "https://www.slideshare.net/dmc500hats/startup-metrics-for-pirates-long-version",
     type: "article",
-    note: "The original deck where AARRR was born. Still the clearest explanation from the creator himself.",
+    note: "The original deck where AARRR was born. The clearest explanation from the creator himself.",
     free: true,
   },
   {
     title: "AARRR Framework: Complete Guide for 2025 - Purchasely",
     url: "https://www.purchasely.com/blog/aarrr-framework-pirate-metrics-complete-guide-for-2025",
     type: "article",
-    note: "Comprehensive 2025 guide covering all five stages with modern SaaS and mobile app examples.",
+    note: "Comprehensive 2025 guide covering all five stages with modern SaaS and mobile app examples including Duolingo, Strava, and Uber.",
+    free: true,
+  },
+  {
+    title: "User Activation Rate Benchmark Report 2024 - Userpilot",
+    url: "https://userpilot.com/blog/user-activation-rate-benchmark-report-2024/",
+    type: "article",
+    note: "Data from 62 B2B companies showing industry-wide activation rates by sector and company size. Essential reading before you set activation targets.",
     free: true,
   },
   {
     title: "Pirate Metrics Framework - Amplitude Blog",
     url: "https://amplitude.com/blog/pirate-metrics-framework",
     type: "article",
-    note: "Amplitude's analytics team explains how to instrument and measure each AARRR stage with real product data.",
+    note: "Amplitude's analytics team explains how to instrument and measure each AARRR stage with real product data from 2,600+ companies.",
     free: true,
   },
   {
-    title: "AARRR Pirate Metrics - Blitzllama 2024 Guide",
-    url: "https://www.blitzllama.com/blog/pirate-metrics",
+    title: "Pirate Metrics for Startups - McGaw.io",
+    url: "https://mcgaw.io/blog/aarrr-pirate-metrics-for-startups/",
     type: "article",
-    note: "Practical 2024 guide with metric tracking examples and actionable frameworks for each stage.",
+    note: "Practical deep-dive with actionable KPI recommendations and common implementation mistakes for each AARRR stage.",
     free: true,
   },
   {
     title: "Growth Marketing Course - CXL Institute",
     url: "https://cxl.com/institute/online-course/growth-marketing/",
     type: "course",
-    note: "Deep-dive course covering AARRR, experimentation frameworks, and growth strategy with real case studies.",
+    note: "Deep-dive course covering AARRR, experimentation frameworks, and growth strategy with real case studies from practitioners.",
     free: false,
   },
   {
-    title: "AARRR Pirate Metrics Explained - UserGuiding",
-    url: "https://userguiding.com/blog/pirate-metrics-aaarrr",
+    title: "AARRR Framework for B2B SaaS - Fatgraphs",
+    url: "https://fatgraphs.com/blogs/aarrr-framework/",
     type: "article",
-    note: "Clear breakdown of all stages with KPI recommendations and common pitfalls to avoid.",
+    note: "2025 guide focused on B2B SaaS with specific benchmarks and stage-by-stage diagnostic checklists.",
     free: true,
   },
   { title: "WsCube Tech - AARRR Pirate Metrics (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
   { title: "Mr Digital Marketing Tamil - AARRR Pirate Metrics", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
-  { title: "ODMT Telugu - AARRR Pirate Metrics (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+  { title: "ODMT Telugu - AARRR Pirate Metrics", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
 ]} />
-
-## Related Concepts
-- [What Is Growth Marketing?](/learn/growth/what-is-growth) - AARRR is the core diagnostic framework that growth marketing is built around
-- [North Star Metric](/learn/growth/north-star-metric) - once you understand AARRR, your North Star metric should reflect the stage that most predicts long-term revenue
-- [Retention Cohorts](/learn/growth/retention-cohorts) - the analytical method used to measure the Retention stage of AARRR with precision
