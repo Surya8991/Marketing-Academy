@@ -1,0 +1,88 @@
+export const lessonMeta = {
+  title: "A/B Testing Copy",
+  level: "Advanced",
+  summary: "Test what matters. Headlines first, button labels last.",
+};
+
+# A/B Testing Copy
+
+## What It Is
+
+A/B testing copy means showing two versions of the same text to different groups of users to find out which version drives more of the action you want - clicks, sign-ups, purchases, or replies. Version A goes to one half of your audience, version B goes to the other, and you measure which one wins.
+
+This is not guesswork and it is not opinion. You write a hypothesis, run the test with enough users to get a reliable result (called statistical significance), and let the data decide. The copy that wins stays. The loser gets retired.
+
+A/B testing applies to any text your audience reads before they act: email subject lines, headlines, button labels, hero taglines, ad copy, meta descriptions, and even onboarding messages inside your product.
+
+## Real-World Example
+
+In 2014, the conversion optimization team at Unbounce helped a SaaS client test one small copy change on a sign-up button. The original read "Start your free 30-day trial." The challenger read "Start my free 30-day trial." Switching from "your" to "my" - a single word - increased click-through rate by 90%. The test ran for three weeks across roughly 600 visitors per variant.
+
+<Callout type="example">
+**Unbounce button test, 2014: one word, 90% lift**
+
+The control said "Start your free 30-day trial." The challenger said "Start my free 30-day trial." The only change was the pronoun. Click-through rate rose 90%. This result spread across conversion rate optimization (CRO) communities and became a foundational case study for why even tiny copy changes deserve a test before being dismissed.
+</Callout>
+
+## Why It Matters
+
+Most teams write copy by intuition, internal debate, or whoever has the highest title. That process produces copy that sounds good in a meeting but often underperforms in the real world.
+
+A/B testing removes the politics. It gives you a framework for making copy decisions that your whole team can agree on because the data settles the argument. Over time, each winning variant compounds: a 5% lift in headline click-through plus a 10% lift in button conversion plus a 15% lift in subject line open rate adds up to a much larger revenue impact than any single "big idea" campaign.
+
+According to a 2024 study, 77% of B2B marketers say A/B testing copy is critical to achieving their goals. Yet only about one in eight A/B tests produces a major change - which means you need a clear priority order to avoid wasting tests on low-impact elements.
+
+<Callout type="info">
+**Test high-traffic, high-impact elements first.** The more people see a piece of copy, the faster your test reaches statistical significance and the bigger the payoff from a win. Headlines on your homepage and subject lines in your email list almost always deserve a test before button labels on a low-traffic landing page.
+</Callout>
+
+## How It Works
+
+The A/B testing process has five stages. Skip any of them and your results become unreliable.
+
+**Stage 1 - Prioritize.** Choose what to test based on traffic volume and business impact. Headlines and subject lines come first. Button labels on high-traffic pages come second. Body copy and footer text come last.
+
+**Stage 2 - Hypothesize.** Write a specific hypothesis before you touch any copy. Format: "Changing [X] to [Y] will increase [metric] because [reason]." If you cannot fill in the reason, you do not have a hypothesis - you have a hunch.
+
+**Stage 3 - Write variants.** Change only one element per test. If you change the headline and the button label at the same time, you will never know which change caused the result.
+
+**Stage 4 - Run and wait.** Let the test run until you hit statistical significance (usually 95% confidence) and a minimum of one full business cycle (at least one week). Stopping early is the most common mistake.
+
+**Stage 5 - Decide and document.** Implement the winner. Record what you tested, what you expected, and what happened. This log becomes your copy intelligence library.
+
+<Mermaid chart={`flowchart TD
+    A[Identify high-traffic copy element] --> B[Write hypothesis: change X to Y to lift Z]
+    B --> C[Create variant - change ONE thing only]
+    C --> D[Run test to 95% confidence and min 1 week]
+    D --> E{Did variant beat control?}
+    E -- Yes --> F[Implement winner, document result]
+    E -- No --> G[Document loss, form new hypothesis]
+    F --> H[Move to next test in priority queue]
+    G --> H`} />
+
+## Common Mistakes
+
+<Callout type="warning">
+**The biggest mistake: stopping the test too early.** When a variant shows a 20% lift after two days, it feels like a clear winner. But small samples produce noisy results. A test that looks like a landslide on day two often converges to a statistical tie by day ten. Always define your sample size requirement before the test starts, and do not look at the results until you hit it. Tools like Optimizely and VWO have built-in calculators for this. Use them.
+</Callout>
+
+Two other common errors:
+
+**Testing too many things at once.** If you change the headline, the subheadline, and the button in one test, a win tells you nothing about which element drove it. Keep each test to a single variable.
+
+**Testing on too little traffic.** A landing page with 50 visits per month will take two years to produce a reliable A/B test result. Reserve testing for pages and emails that get enough volume to reach significance in two to four weeks.
+
+## The One-Line Takeaway
+
+**Run one change at a time, wait for significance, and document every result - because a copy test library is the most durable competitive advantage a marketing team can build.**
+
+<ResourceList resources={[
+  { title: "Optimizely: A/B Testing Guide", url: "https://www.optimizely.com/optimization-glossary/ab-testing/", type: "article", free: true, note: "Comprehensive guide to A/B testing methodology from a leading testing platform" },
+  { title: "CXL Institute: A/B Testing Mastery", url: "https://cxl.com/blog/ab-testing-guide/", type: "article", free: true, note: "Deep-dive guide covering statistical significance, test prioritization, and copy testing frameworks" },
+  { title: "Convert.com: A/B Testing Stats Every Optimizer Should Know", url: "https://www.convert.com/blog/a-b-testing/ab-testing-stats/", type: "article", free: true, note: "Data-backed reference for benchmarks and what good testing programs look like" },
+  { title: "Google Optimize Experiments Explained", url: "https://support.google.com/optimize/answer/6211921", type: "docs", free: true, note: "Official documentation on running copy experiments using Google tools" },
+  { title: "Copyhackers: How to Write A/B Test Copy", url: "https://copyhackers.com/2016/05/ab-test-copy/", type: "article", free: true, note: "Practitioner-level guide on writing challenger copy that actually beats controls" },
+  { title: "WsCube Tech - A/B Testing Copy (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - A/B Testing Copy", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - A/B Testing Copy (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

@@ -1,0 +1,84 @@
+export const lessonMeta = {
+  title: "Microcopy: Buttons, Forms, Empty States",
+  level: "Intermediate",
+  summary: "The tiny words that decide whether people finish what they started.",
+};
+
+# Microcopy: Buttons, Forms, Empty States
+
+## What It Is
+
+Microcopy is the small text scattered throughout a product or website: button labels, form field hints, error messages, placeholder text, and the copy that fills an empty screen when there is nothing to show yet. Each piece is short - sometimes just two or three words - but together they guide users through friction points and either keep them moving or lose them.
+
+The term was coined by Joshua Porter in 2009 after he noticed that adding a single sentence near a credit card field cut payment errors dramatically. That observation sparked a discipline: treating every label, tooltip, and confirmation message as copy worth testing and refining.
+
+Microcopy sits at the intersection of UX writing and conversion optimization. Unlike headlines or body copy, microcopy does not sell. It removes doubt, clarifies what happens next, and makes people feel safe taking the next step.
+
+## Real-World Example
+
+Yoast, the WordPress SEO plugin company, ran a series of microcopy tests on their checkout flow. By adding two short phrases - "there will be no additional costs" near the order summary and a "continue shopping" text link below the CTA button - they achieved an 11.30% lift in conversions in 2023. No design change. No price change. Just words.
+
+<Callout type="example">
+**Yoast Checkout Test (2023): +11.30% conversions**
+
+Yoast added the phrase "there will be no additional costs" near their checkout form total. They also added a "continue shopping" link below the primary CTA. Neither change touched the layout or pricing. The result was an 11.3% increase in completed purchases. The words addressed the two fears most buyers have at checkout: hidden fees and commitment anxiety.
+</Callout>
+
+## Why It Matters
+
+Every digital product has moments where users hesitate. The hesitation usually comes from one of three things: they are not sure what a button will do, they do not know what information a form field wants, or they land on a blank screen and feel lost.
+
+At each of these moments, the right microcopy keeps the user moving. The wrong microcopy - or no copy at all - causes abandonment. Cart abandonment rates globally sit around 70%, and a significant portion of that is friction at the form and button level, not a price problem.
+
+Microcopy also builds trust. Phrases like "we will never share your email" or "cancel any time" cost nothing to write and address real objections before they form. For B2B SaaS sign-up forms, a single reassurance line near the email field can increase form completion rates by 20% or more.
+
+## How It Works
+
+Microcopy problems fall into three categories: buttons, forms, and empty states. Each has a distinct fix pattern.
+
+<Mermaid chart={`flowchart TD
+    A[Identify friction point] --> B{What type?}
+    B --> C[Button]
+    B --> D[Form field]
+    B --> E[Empty state]
+    C --> F[Make label outcome-specific\ne.g. 'Get my free report']
+    D --> G[Add inline hint or\nreassurance below field]
+    E --> H[Explain why empty +\noffer a first action]
+    F --> I[Test against generic label]
+    G --> I
+    H --> I
+    I --> J[Measure completion\nor click rate]
+    J --> K[Ship winner - repeat]`} />
+
+**Buttons:** Generic labels like "Submit" or "Click here" tell users nothing about what happens next. Replace them with outcome-specific labels: "Get my free guide," "Start my trial," or "Save and continue." The user should be able to read only the button and know exactly what they will get.
+
+**Forms:** Every field that is not self-explanatory needs a hint. Put the hint below the field label, not inside the input as placeholder text - placeholder text disappears when the user starts typing, which causes errors. Reassurance copy (privacy notes, "no spam," "cancel any time") goes directly below the field it relates to, not buried in the footer.
+
+**Empty states:** An empty state is what users see when they first sign up, when a search returns nothing, or when a list has no items yet. A blank screen with no copy feels like an error. Good empty state copy has three parts: acknowledge the empty state honestly, explain why it is empty, and give the user one clear action to fix it.
+
+<Callout type="tip">
+**The "so that" test for buttons:** after drafting a button label, say it out loud followed by "so that I can ___." If the blank is obvious from the label, you are done. If you have to think, rewrite. "Subscribe" fails the test. "Get weekly marketing tips" passes it.
+</Callout>
+
+## Common Mistakes
+
+<Callout type="warning">
+**The biggest microcopy mistake: writing for the company, not the user.**
+
+"Submit your information" describes what the company receives. "Get your free audit" describes what the user gets. The fix is to shift every button and confirmation message to the user's perspective. Ask: what does the user walk away with? Lead with that. Also avoid placeholder text as the only hint in a form field - when users click into the field the hint disappears, and they forget what was asked. Use a persistent label above the field plus a hint line below it.
+</Callout>
+
+## The One-Line Takeaway
+
+**Microcopy is not decoration - it is the moment-by-moment conversation that either earns the user's next click or loses it.**
+
+<ResourceList resources={[
+  { title: "Microcopy: Tiny Words That Make A Huge Impact On Conversions - CXL", url: "https://cxl.com/blog/microcopy/", type: "article", free: true, note: "Deep dive with real test examples and frameworks" },
+  { title: "Microcopy Matters: How Small Text Boosts Conversions", url: "https://creativesforthecount.org/microcopy-matters-how-small-pieces-of-text-boost-conversions/", type: "article", free: true, note: "Case studies and actionable tips" },
+  { title: "UXPin: Microcopy That Converts", url: "https://www.uxpin.com/studio/blog/microcopy-that-converts/", type: "article", free: true, note: "UX-focused guide with form and button examples" },
+  { title: "Microcopy in UX Design: Small Text, Big Impact", url: "https://innerview.co/blog/microcopy-in-ux-small-text-big-impact-on-user-experience", type: "article", free: true, note: "Covers empty states, error messages, and tooltips" },
+  { title: "Mastering Microcopy for Buttons and Forms", url: "https://www.influencers-time.com/mastering-microcopy-transform-buttons-and-forms-for-success/", type: "article", free: true, note: "Practical patterns for CTAs and form fields" },
+  { title: "WsCube Tech - Microcopy: Buttons, Forms, Empty States (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - Microcopy: Buttons, Forms, Empty States", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Microcopy: Buttons, Forms, Empty States (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />
