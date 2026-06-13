@@ -1,0 +1,56 @@
+export const lessonMeta = {
+  title: "Data Warehouses for Marketers",
+  level: "Advanced",
+  summary: "BigQuery, Snowflake, Databricks - when marketing graduates from GA to SQL.",
+};
+
+# Data Warehouses for Marketers
+
+At some point every serious marketing team hits the ceiling of the GA4 UI: sampled reports, 14-month retention, no joins with CRM or revenue data, and dashboards that refuse to match finance's numbers. The fix is not a better BI tool. It is moving your data into a warehouse and learning enough SQL to own the questions. This lesson is for senior marketers, growth leads, and analytics engineers about to make that jump.
+
+## What It Actually Is
+
+A cloud data warehouse is a managed SQL database built for analytics, not transactions. You load raw events from GA4, ad platforms, your CRM, billing, and product telemetry into one place, then query it with SQL. The three platforms marketers will actually meet are Google BigQuery, Snowflake, and Databricks. Concrete example: instead of trusting GA4's "Sessions by Source," you query the raw `events_*` table BigQuery exports nightly and compute your own session, attribution, and conversion logic that finance and product agree on.
+
+## Why It Matters (with data)
+
+The global cloud data warehouse market hit roughly 26.8 billion dollars in 2024, with marketing called out as one of the fastest-growing use cases for warehouse-native data activation [MEXC News](https://www.mexc.co/news/897474). Snowflake holds about an 18.33 percent share of enterprise warehousing, while Databricks is growing 57 percent year over year on AI and ML workloads [Technology Match](https://technologymatch.com/blog/snowflake-vs-databricks-vs-bigquery-a-guide-for-it-leaders-in-2026). More than 90 percent of enterprises now use some form of data warehousing, most of it cloud.
+
+For marketing specifically, the GA4 to BigQuery export is the entry drug. It streams every raw event row, unsampled, uncapped by the 14-month UI limit, and free for standard properties [OWOX](https://www.owox.com/blog/articles/google-analytics-4-to-bigquery-guide). Google shipped `session_traffic_source_last_click` to the export schema on July 17, 2024 and a `cross_channel_campaign` sub-record on October 9, 2024, finally making warehouse-side attribution match what the UI shows [Digital Applied](https://www.digitalapplied.com/blog/ga4-bigquery-export-2026-marketing-analytics-reference).
+
+## How It Works / The Playbook
+
+1. **Pick the warehouse that matches your stack.** Already on Google Cloud and using GA4? BigQuery, because the native export is one toggle. Heavy CRM and finance data on AWS? Snowflake. Doing real ML on first-party data and event streams? Databricks.
+2. **Turn on the native GA4 to BigQuery export.** Property settings, BigQuery Links, choose daily plus streaming. You get an `events_YYYYMMDD` table per day.
+3. **Land ad platform data with a connector.** Use Fivetran, Airbyte, Supermetrics, or Windsor for Meta, Google Ads, LinkedIn, TikTok. Avoid hand-rolled scripts unless you have engineers on call.
+4. **Model in dbt.** Build `stg_` (raw), `int_` (cleaned), and `mart_` (business-ready) layers. The marketing mart is where `sessions`, `conversions`, and `cac_by_channel` live.
+5. **Reverse ETL the results back into tools.** Use Hightouch or Census to push warehouse audiences into Meta, Klaviyo, HubSpot, or Salesforce. This is "warehouse-native marketing": the warehouse is the source of truth, ad tools are just outputs.
+6. **Govern cost early.** BigQuery charges per TB scanned, Snowflake per warehouse second. Partition tables by date, cluster by `user_pseudo_id`, and never `SELECT *` on raw events.
+
+<Callout type="example">
+Instacart publicly migrated its marketing and growth analytics onto Snowflake and uses reverse ETL to sync warehouse-built audiences into ad platforms. Hightouch case studies and Snowflake's own customer pages describe teams replacing fragmented CDP setups with warehouse-native activation, cutting audience build times from days to hours and consolidating spend across MarTech. See the pattern documented in [Snowflake and BigQuery reshaping MarTech architecture](https://www.mexc.co/news/897474).
+</Callout>
+
+## Common Mistakes
+
+- Treating the warehouse as a dumping ground with no modeling layer. Without dbt or equivalent, every analyst writes their own definition of "active user" and dashboards diverge within a quarter.
+- Running unpartitioned queries on GA4 export tables. One careless `SELECT *` across two years of events can scan multiple TB and produce a four-figure BigQuery bill on a single dashboard refresh.
+- Buying Snowflake or Databricks before you have the data engineering headcount. The platform is the cheap part; the people who model and govern it are not.
+- Ignoring the 2024 schema additions. Teams still hand-build last-click attribution when `session_traffic_source_last_click` already ships it.
+- Skipping reverse ETL. A warehouse no marketer can act on is a very expensive read-only report.
+
+## Key Takeaways
+
+- The warehouse becomes the source of truth; GA4, ad platforms, and CRMs become inputs and outputs around it.
+- Pick BigQuery for GA4-heavy stacks, Snowflake for cross-cloud enterprise data, Databricks for ML-first teams.
+- The real unlock is dbt for modeling plus reverse ETL for activation, not the warehouse alone.
+- Budget for engineers and cost controls before you turn on streaming exports.
+
+<ResourceList resources={[
+  { title: "GA4 to BigQuery: 2025 Step-by-Step Guide (OWOX)", url: "https://www.owox.com/blog/articles/google-analytics-4-to-bigquery-guide", type: "article", free: true },
+  { title: "GA4 BigQuery Export 2026 Marketing Analytics Reference", url: "https://www.digitalapplied.com/blog/ga4-bigquery-export-2026-marketing-analytics-reference", type: "article", free: true },
+  { title: "Snowflake vs Databricks vs BigQuery for IT Leaders 2026", url: "https://technologymatch.com/blog/snowflake-vs-databricks-vs-bigquery-a-guide-for-it-leaders-in-2026", type: "article", free: true },
+  { title: "Data Warehouse-Native Marketing (MEXC News)", url: "https://www.mexc.co/news/897474", type: "article", free: true },
+  { title: "GA4 BigQuery Export Docs (Google)", url: "https://support.google.com/analytics/answer/9358801", type: "docs", free: true },
+  { title: "dbt - Modeling layer for the warehouse", url: "https://www.getdbt.com/", type: "tool", free: true },
+]} />

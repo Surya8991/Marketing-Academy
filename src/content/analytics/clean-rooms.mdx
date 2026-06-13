@@ -1,0 +1,57 @@
+export const lessonMeta = {
+  title: "Data Clean Rooms",
+  level: "Advanced",
+  summary: "Google Ads Data Hub, Amazon AMC, Meta Advanced Analytics - privacy-safe attribution at scale.",
+};
+
+# Data Clean Rooms
+
+Third-party cookies are gone, IDFA opt-in rates sit in the single digits on iOS, and every walled garden has stopped exporting user-level logs. If you still want to answer questions like 'did my YouTube campaign actually drive incremental Amazon sales?', clean rooms are the only legal answer left. This lesson is for senior analysts, measurement leads, and growth marketers who have outgrown last-click in GA4.
+
+## What It Actually Is
+
+A data clean room is a secure environment where two parties (usually you and a walled garden) can join their data sets at the user level, but neither side can export the raw rows. You upload hashed first-party data (CRM emails, purchase events). The platform joins it to its impression and click logs. You get back aggregated answers, typically with a minimum aggregation threshold of around 50 users per row to prevent re-identification.
+
+Concrete example: you hash your last 90 days of purchasers and upload to Amazon Marketing Cloud (AMC). You then run a SQL query asking 'how many of these purchasers were exposed to Sponsored Display in the 14 days before purchase, and what was their average order value vs unexposed?' You never see who. You see the deltas.
+
+## Why It Matters (with data)
+
+The three walled garden clean rooms now have zero licence fees. In September 2025, Amazon made AMC free to every Sponsored Ads advertiser, removing the cost gate that previously kept it inside enterprise agencies ([AdExchanger](https://www.adexchanger.com/measurement/why-2025-marked-the-end-of-the-data-clean-room-era/)). Google Ads Data Hub (ADH) and Meta Advanced Analytics (still in beta as of late 2025) are also free to qualifying advertisers.
+
+The measurement gains are real. At MeasureUp 2025, Meta presented Advanced Analytics results across 120 tests on 20 campaigns: a 14% incremental revenue lift for travel brands using first-party segments, and a 42% increase in lower-funnel effectiveness for beverage brands ([Search Engine Journal](https://www.searchenginejournal.com/data-clean-rooms/417606/)). On the Amazon side, a telcom brand running AMC plus DSP reported a 40% reduction in cost-per-action while activating 80% of its first-party signals ([Amazon Ads](https://advertising.amazon.com/library/case-studies/amazon-marketing-cloud-telcom-iprospect)).
+
+## How It Works / The Playbook
+
+The three platforms differ in skill barrier and scope. Pick based on where your spend sits.
+
+1. **Pick the right room for the question.** ADH answers Google ecosystem questions (Search, YouTube, Display, Shopping). AMC answers Amazon retail and DSP questions, including the rare 5-year purchase window. Meta Advanced Analytics answers Facebook and Instagram questions.
+2. **Get your first-party data clean.** Hash emails with SHA-256, lowercase first. Include a stable user_id. Bad hashing is the most common reason match rates come in below 30%.
+3. **Upload and validate match rate.** Healthy match rates: 40-70% for email-based audiences in AMC and Meta, lower in ADH because Google deprecated user-level joins.
+4. **Write the query (or use the no-code UI).** AMC ships a no-SQL instructional query library with templates for new-to-brand analysis, path-to-conversion, and audience overlap. ADH requires BigQuery SQL with aggregation thresholds. Meta Advanced Analytics is template-driven.
+5. **Activate, do not just measure.** The point is to build a suppression audience of recent buyers, or a lookalike of high-LTV customers, then push it back into the platform for the next campaign.
+
+<Callout type="example">
+Netgear ran an AMC analysis from November 2023 to February 2024 to measure Streaming TV ads against standard Amazon DSP audiences. They found Streaming TV delivered 67% incremental reach, 69% of streaming TV sales came from new-to-brand customers, and purchase rates were 2x higher among households exposed to STV ads. That single query reshaped their upper-funnel budget allocation ([Tinuiti](https://tinuiti.com/blog/amazon/amazon-marketing-cloud/)).
+</Callout>
+
+## Common Mistakes
+
+- Treating clean rooms as a reporting tool. They are an activation tool. If you are not pushing audiences back out, you are leaving 80% of the value on the table.
+- Skipping the aggregation threshold check. ADH will silently drop rows under 50 users. If your segments are too narrow, your report comes back empty and you waste a week debugging SQL.
+- Hashing emails without lowercasing first. AMC, Meta, and Google all expect lowercase-then-SHA256. A trailing space will tank your match rate.
+- Comparing AMC ROAS to GA4 ROAS like-for-like. AMC uses a 14-day post-click and 1-day post-view window by default; your GA4 model probably does not.
+- Running one-off queries instead of scheduled workflows. AMC and ADH both support scheduled runs - use them so insights flow into your weekly business review, not a slide deck once per quarter.
+
+## Key Takeaways
+
+- Clean rooms are now free across the three major walled gardens; the only barriers left are SQL skill (ADH) and first-party data hygiene.
+- Use AMC for Amazon retail attribution, ADH for cross-Google measurement, Meta Advanced Analytics for incrementality testing on Facebook and Instagram.
+- The win is activation: feed lookalikes and suppression audiences back into campaigns, do not just print PDF reports.
+
+<ResourceList resources={[
+  { title: "Why 2025 Marked the End of the Data Clean Room Era - AdExchanger", url: "https://www.adexchanger.com/measurement/why-2025-marked-the-end-of-the-data-clean-room-era/", type: "article", free: true },
+  { title: "Amazon Marketing Cloud - Complete Guide", url: "https://advertising.amazon.com/library/guides/amazon-marketing-cloud", type: "docs", free: true },
+  { title: "Telcom brand case study (AMC + DSP, 40% CPA reduction)", url: "https://advertising.amazon.com/library/case-studies/amazon-marketing-cloud-telcom-iprospect", type: "article", free: true },
+  { title: "How Amazon Marketing Cloud Works - Tinuiti 2024 Update", url: "https://tinuiti.com/blog/amazon/amazon-marketing-cloud/", type: "article", free: true },
+  { title: "Data Clean Rooms guide - Search Engine Journal", url: "https://www.searchenginejournal.com/data-clean-rooms/417606/", type: "article", free: true },
+]} />

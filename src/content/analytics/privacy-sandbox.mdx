@@ -1,0 +1,62 @@
+export const lessonMeta = {
+  title: "Privacy Sandbox and Post-Cookie Web",
+  level: "Advanced",
+  summary: "Topics API, FLEDGE, Attribution Reporting — Chrome's privacy-first replacement.",
+};
+
+# Privacy Sandbox and Post-Cookie Web
+
+For six years, every analytics, ad-ops, and growth team built contingency plans around Chrome killing third-party cookies and replacing them with the Privacy Sandbox APIs. In October 2025 that plan collapsed. If you own measurement, attribution, or audience strategy, you need to understand what Privacy Sandbox actually shipped, why it failed, and what survived the wind-down.
+
+## What It Actually Is
+
+Privacy Sandbox was a Google-led set of browser APIs designed to replicate the jobs third-party cookies do (interest-based ads, remarketing, conversion measurement, anti-fraud) without exposing individual user identifiers across sites. The three headline APIs were:
+
+- **Topics API** — Chrome locally classifies your browsing into coarse interest topics (e.g. "Fitness", "Travel"). When an ad tech calls the API it gets three topics from the last three weeks, not a user ID.
+- **Protected Audience API (formerly FLEDGE)** — on-device remarketing auctions. The browser, not a server, decides which ad to show from interest groups it joined while you visited advertiser sites.
+- **Attribution Reporting API (ARA)** — measures conversions by joining ad clicks and conversions inside the browser, then sending noisy, aggregated reports on a delay so individual users can't be re-identified.
+
+## Why It Matters (with data)
+
+Chrome holds roughly 65 percent of global browser share, so anything it does to identifiers reshapes the entire ad stack. After delaying cookie deprecation from 2022 to 2023 to 2024 to early 2025, Google reversed course in July 2024 and said cookies would stay. In April 2025 they dropped the planned user-choice prompt too, leaving cookies fully in place ([Usercentrics](https://usercentrics.com/knowledge-hub/what-is-google-privacy-sandbox/)).
+
+Then on October 17, 2025, VP Anthony Chavez announced the retirement of ten Privacy Sandbox technologies, including Topics, Protected Audience, and Attribution Reporting on both Chrome and Android ([Google Privacy Sandbox blog](https://privacysandbox.google.com/blog/update-on-plans-for-privacy-sandbox-technologies)). Industry coverage flagged low adoption, weak measurement performance versus cookies, and ongoing UK CMA competition concerns as the drivers ([Seresa](https://seresa.io/blog/data-loss/google-killed-privacy-sandbox-after-6-years-of-industry-preparation)).
+
+What survives matters too. CHIPS (partitioned cookies), FedCM (federated sign-in), Private State Tokens (anti-fraud), and a new interoperable attribution standard continue development.
+
+## How It Works / The Playbook
+
+Even though the APIs are being phased out, the underlying problems Privacy Sandbox tried to solve are still your job. Here is the post-October-2025 playbook:
+
+1. **Stop budgeting for a cookie cliff.** Third-party cookies are not being removed in Chrome. Re-plan media and measurement on the assumption they persist, but treat them as fragile (Safari and Firefox blocked them years ago).
+2. **Invest in server-side tagging and first-party data.** Use Google Tag Manager server-side, a CDP, and consented first-party identifiers (hashed email, login ID) as the spine of measurement.
+3. **Adopt consent-mode and modeled conversions.** Google Ads and GA4 now lean on consent mode v2 plus modeling for unconsented traffic. The EU enforced this since March 2024.
+4. **Pilot the surviving APIs.** CHIPS lets you keep embed/iframe use cases working under partitioning. FedCM is becoming the path for "Sign in with Google" as third-party cookies get blocked by other browsers.
+5. **Watch the interoperable attribution standard.** Google, Apple, Meta, and the W3C PATCG are converging on a cross-browser measurement spec to replace ARA. Track the PATCG work if you own attribution.
+6. **Diversify by browser.** Safari (ITP) and Firefox (Total Cookie Protection) already block third-party cookies. Build measurement that works without them, not just for Chrome's hypothetical future.
+
+<Callout type="example">
+The IAB Tech Lab's 2024 evaluation of Protected Audience found that on-device auctions added latency and reduced ad relevance versus cookie-based retargeting, and that Attribution Reporting delivered conversion counts with material noise and delay. Criteo publicly reported in 2024 that ARA-measured conversions came in roughly 40 percent lower than their cookie baseline in early tests, one of the data points cited by groas.ai and Seresa when explaining the wind-down ([groas.ai](https://groas.ai/post/privacy-sandbox-october-2025-what-advertisers-need-to-know-right-now)).
+</Callout>
+
+## Common Mistakes
+
+- Still telling leadership a "cookiepocalypse" is coming in 2025. It is not. Update the deck.
+- Treating server-side GTM as a privacy fix. It is plumbing, not consent. You still need consent mode and a lawful basis.
+- Ignoring Safari and Firefox because Chrome dominates. Roughly a third of your traffic already has no third-party cookies.
+- Building bespoke pipelines on Topics or Protected Audience after October 2025. They are scheduled to be removed; do not put production budget there.
+- Confusing CHIPS (partitioned third-party cookies, still alive) with the deprecated APIs. CHIPS is a real tool you can use today.
+
+## Key Takeaways
+
+- Privacy Sandbox as a cookie replacement is over. Google retired Topics, Protected Audience, and Attribution Reporting on October 17, 2025.
+- Third-party cookies remain in Chrome, but Safari and Firefox still block them, so first-party data and consent-mode modeling are non-negotiable.
+- CHIPS, FedCM, Private State Tokens, and the W3C interoperable attribution work are the parts of the privacy-web roadmap that will actually ship.
+
+<ResourceList resources={[
+  { title: "Update on Plans for Privacy Sandbox Technologies (Google, Oct 17 2025)", url: "https://privacysandbox.google.com/blog/update-on-plans-for-privacy-sandbox-technologies", type: "article", free: true },
+  { title: "Privacy Sandbox feature status", url: "https://privacysandbox.google.com/overview/status", type: "docs", free: true },
+  { title: "Google Privacy Sandbox officially shuts down (Usercentrics)", url: "https://usercentrics.com/knowledge-hub/what-is-google-privacy-sandbox/", type: "article", free: true },
+  { title: "Privacy Sandbox October 2025: What Advertisers Need to Know (groas.ai)", url: "https://groas.ai/post/privacy-sandbox-october-2025-what-advertisers-need-to-know-right-now", type: "article", free: true },
+  { title: "W3C Private Advertising Technology Community Group (PATCG)", url: "https://www.w3.org/community/patcg/", type: "docs", free: true },
+]} />
