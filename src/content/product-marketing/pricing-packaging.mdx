@@ -1,0 +1,159 @@
+export const lessonMeta = {
+  title: "Pricing and Packaging",
+  level: "Intermediate",
+  summary: "Learn how to structure pricing tiers, choose the right monetization model, and run experiments that lift revenue without losing customers.",
+};
+
+## Why Pricing Is a Growth Lever, Not an Afterthought
+
+Most teams treat pricing as a one-time decision made at launch and rarely revisited. That is a mistake. Pricing is one of the highest-leverage levers in product marketing because even a small improvement in conversion or average contract value compounds across every new customer.
+
+A 2024 Invesp analysis of SaaS companies found that 55% of companies that monetize AI features do so through tiered pricing, and those that A/B test their price tiers see an average 25% lift in conversion to paid plans. The implication is clear: pricing should be treated as a product surface that gets designed, tested, and iterated.
+
+---
+
+## The Three Jobs of Packaging
+
+Before setting prices, you need packaging -- the way you bundle features into tiers. Packaging does three jobs:
+
+1. **Signals value** -- the tier names and feature lists tell prospects what they are buying before they read a word of copy.
+2. **Guides segment self-selection** -- good packaging makes it obvious which tier fits which buyer. Bad packaging forces a sales conversation that should not be necessary.
+3. **Protects margin** -- keeping expensive-to-serve capabilities (API access, advanced analytics, dedicated support) in higher tiers prevents your cheapest customers from consuming disproportionate resources.
+
+---
+
+## Common Packaging Models
+
+| Model | Best for | Watch out for |
+|---|---|---|
+| Free / Pro / Enterprise | B2C and PLG SaaS | Middle tier often under-converts |
+| Usage-based | Infrastructure, AI, APIs | Unpredictable revenue; hard to forecast |
+| Per-seat | Collaboration tools | Discourages adoption inside accounts |
+| Feature-gated tiers | Complex products with clear upgrade paths | Gate on something users actually care about |
+| Outcome-based | Professional services, some fintech | Hard to measure; disputes at billing |
+
+---
+
+## Choosing Your Monetization Axis
+
+The monetization axis is the dimension along which you charge: seats, usage, features, or outcomes. The right axis aligns your growth with your customers' growth.
+
+**Seats** work when value scales with the number of people using the product (project management, communication tools). The risk is that admins minimize seats to cut costs, which limits virality.
+
+**Usage** works when the value delivered is directly proportional to consumption (storage, compute, API calls). The risk is that customers become anxious about runaway bills and self-limit.
+
+**Features** work when different customer segments need materially different capabilities and those needs are predictable at purchase time.
+
+**Outcomes** work in high-touch, high-ACV contexts where you can measure and attribute results. They require significant trust and clear measurement frameworks.
+
+---
+
+## Feature Gating: What to Put Behind the Paywall
+
+Feature gating is one of the most common packaging mistakes. Teams gate on features that feel valuable to the product team but are not valued enough by users to drive an upgrade decision.
+
+<Callout type="warning">
+Never gate on features that make the free product feel broken or frustrating. Friction that blocks core value destroys retention and word-of-mouth. Gate on features that expand value, not features that restore baseline usability.
+</Callout>
+
+The right features to gate are those that:
+
+- Are used heavily by your best (highest-ACV, highest-retention) customers
+- Require meaningfully more infrastructure to deliver
+- Represent a clear step up in sophistication or scale
+- Create a natural 'I need this now' moment as a user grows
+
+<Callout type="example">
+Notion hit 35 million users in 2024 partly by making the free tier genuinely useful for individuals. The key gate on the free plan is version history (capped at 7 days). Solo users rarely need more. But teams doing collaborative editing quickly run into version conflicts and need to recover older states -- so the gate lands exactly at the moment a team user feels the pain and is ready to upgrade. The gate is on a feature that matters to the buyer persona for the next tier, not to the current free user.
+</Callout>
+
+---
+
+## Researching Willingness to Pay
+
+Before setting price points, you need data on what customers will actually pay. Two methods are widely used:
+
+**Van Westendorp Price Sensitivity Meter** asks four questions:
+1. At what price would this product be so cheap that you would question its quality?
+2. At what price would this product start to feel like a bargain?
+3. At what price would this product start to feel expensive but still worth considering?
+4. At what price would this product be too expensive to consider?
+
+Plotting the responses produces four curves. The intersection of 'too cheap' and 'too expensive' gives you the acceptable price range. The intersection of 'bargain' and 'getting expensive' gives you the optimal price point.
+
+<Callout type="tip">
+Van Westendorp is best run with at least 100 respondents from your target segment, not your entire user base. If you sell to both SMBs and enterprise, run separate surveys. Willingness to pay differs significantly by company size and budget authority.
+</Callout>
+
+**Conjoint analysis** asks respondents to choose between product configurations with different feature sets and prices. It reveals which features have the highest value and how price sensitivity shifts when features are added or removed. Conjoint is more expensive to run but produces more actionable packaging insights.
+
+---
+
+## Running Pricing Experiments
+
+Pricing A/B tests are among the most impactful and most feared experiments in product marketing. The fear is justified -- a bad pricing test can erode trust -- but the risk is manageable with the right design.
+
+**Rules for pricing experiments:**
+
+1. **Never show different prices to the same person.** If a user sees a $49/month price and then sees $39/month later (or vice versa), trust collapses. Segment at the user or account level before they enter the pricing page, and keep them in that segment for the duration of the test.
+
+2. **Test anchoring and framing before testing price points.** Showing an annual plan as '$X/month billed annually' versus '$12X/year' changes conversion without changing the price. Test presentation first.
+
+3. **Measure the full funnel, not just conversion.** A lower price that converts more users but attracts lower-quality accounts (higher churn, lower expansion) can be worse for LTV even if it wins on CVR.
+
+4. **Set a minimum detectable effect before you start.** Pricing pages often have lower traffic than other product surfaces. Calculate the sample size needed to detect a meaningful effect (typically 5-10% change in conversion) and commit to running the test long enough.
+
+5. **Honor prices shown during a test.** If a user signed up at a test price, grandfather them at that price or honor it at renewal. Retroactive price changes destroy trust.
+
+---
+
+## The Pricing Page as a Conversion Surface
+
+The pricing page is a product surface, not a brochure. Apply the same rigor you would to any high-stakes UI.
+
+Elements that consistently improve pricing page conversion:
+
+- **Three tiers with a recommended tier highlighted** -- the center option is a cognitive anchor. The recommended badge reduces decision paralysis.
+- **Annual toggle with clear savings callout** -- showing the monthly equivalent of an annual plan ('Save 20% with annual') lifts annual plan adoption, which improves cash flow and reduces churn.
+- **Feature comparison table** -- buyers in evaluation mode want to compare. A table reduces inbound support questions about 'what is included.'
+- **Social proof at the decision point** -- a logo bar or testimonial placed immediately above the CTA buttons, not buried at the bottom, shortens the trust gap at the moment of decision.
+- **FAQ section addressing price objections** -- the most common objections are 'is there a free trial,' 'can I cancel anytime,' and 'do you offer discounts for nonprofits/startups.' Answer them on the page.
+
+---
+
+## Mermaid Diagram: Pricing Strategy Loop
+
+<Mermaid chart={`graph TD
+  A[Define Segments] --> B[Research Willingness to Pay]
+  B --> C[Design Packaging Tiers]
+  C --> D[Set Initial Price Points]
+  D --> E[Launch Pricing Page]
+  E --> F{A/B Test Running?}
+  F -- Yes --> G[Measure CVR and LTV]
+  G --> H[Analyze Results]
+  H --> C
+  F -- No --> I[Monitor Cohort Retention]
+  I --> J{Churn Signal?}
+  J -- Yes --> B
+  J -- No --> K[Hold and Review Quarterly]
+`} />
+
+---
+
+## Key Takeaways
+
+- Pricing is a growth lever, not a launch decision. Revisit it at least annually.
+- Package along an axis that aligns your revenue growth with your customers' success.
+- Gate on features that matter to the next-tier buyer, not features that fix baseline usability.
+- Research willingness to pay before setting price points. Van Westendorp and conjoint analysis are the two primary methods.
+- Run pricing experiments carefully: segment before exposure, measure LTV not just CVR, and honor test prices shown to users.
+
+---
+
+<ResourceList resources={[
+  { title: "Van Westendorp Price Sensitivity Meter Guide", url: "https://www.questionpro.com/blog/van-westendorp/", type: "article", free: true },
+  { title: "Monetizing AI Features in SaaS (Invesp 2024)", url: "https://www.invespcro.com/blog/saas-pricing/", type: "article", free: true },
+  { title: "Pricing Page Teardowns by Kyle Poyar", url: "https://www.openviewpartners.com/blog/", type: "article", free: true },
+  { title: "Conjoint Analysis for Pricing Research", url: "https://conjointly.com/guides/conjoint-analysis/", type: "docs", free: true },
+  { title: "ProfitWell Pricing Strategy Course", url: "https://www.profitwell.com/recur/all/pricing-strategy", type: "course", free: true },
+]} />

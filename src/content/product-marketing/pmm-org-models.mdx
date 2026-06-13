@@ -1,0 +1,179 @@
+export const lessonMeta = {
+  title: "PMM Org Models: Centralized, Embedded, and Hybrid",
+  level: "Intermediate",
+  summary: "How to structure your product marketing team across three proven org models, with a real-world Atlassian case study and a decision framework for choosing the right fit.",
+};
+
+## Why Org Structure Is a Strategic Decision
+
+Product marketing sits at the intersection of product, sales, and marketing. Where you place it on the org chart determines who PMMs report to, which roadmap conversations they join, how fast they can move, and what tradeoffs they accept every quarter.
+
+According to the Product Marketing Alliance State of Product Marketing Leadership 2024, **47.2% of companies now describe themselves as product-first organizations**, up from 38.5% in 2023. That shift is forcing teams to rethink decade-old reporting lines.
+
+Three models dominate:
+
+1. **Centralized** - all PMMs sit inside a central marketing org
+2. **Embedded** - PMMs report directly into individual product lines or squads
+3. **Hybrid** - a small central PMM core with embedded liaisons per product area
+
+Each model solves a different bottleneck. None is universally correct.
+
+---
+
+## Model 1: Centralized PMM
+
+### How It Works
+
+All product marketers report into a single VP or Head of Product Marketing, who in turn reports to the CMO or CPO. Requests from product teams flow through a shared services model.
+
+<Mermaid chart={`graph TD
+  CMO["CMO"]
+  HPMM["Head of PMM"]
+  PMM1["PMM - Core Product"]
+  PMM2["PMM - Platform"]
+  PMM3["PMM - Growth"]
+  CPO["CPO"]
+  PM1["PM Team A"]
+  PM2["PM Team B"]
+
+  CMO --> HPMM
+  HPMM --> PMM1
+  HPMM --> PMM2
+  HPMM --> PMM3
+  CPO --> PM1
+  CPO --> PM2
+  PMM1 -.->|partners with| PM1
+  PMM2 -.->|partners with| PM2
+`} />
+
+### Strengths
+
+- Consistent brand voice and positioning across all product lines
+- Easier to enforce a single messaging framework or launch process
+- PMMs build deep expertise in GTM craft rather than product domain
+
+### Weaknesses
+
+- PMMs are often pulled in multiple directions and context-switch constantly
+- Product teams feel marketing is too slow or too distant from their roadmap
+- Launch prioritization becomes political when one central team serves many product groups
+
+<Callout type="warning">
+Centralized models break down when the product portfolio grows beyond three or four distinct lines. At that scale, every PMM is spread thin and no single person owns any launch end to end.
+</Callout>
+
+### Best Fit
+
+Early-stage companies (under 50 employees), single-product companies, or organizations where brand consistency is the primary GTM risk.
+
+---
+
+## Model 2: Embedded PMM
+
+### How It Works
+
+Each PMM reports into a product group or business unit leader, not a central marketing head. They sit in sprint planning, join roadmap reviews, and align their OKRs with the product squad's goals.
+
+### Strengths
+
+- Deep product context - PMMs know the roadmap months in advance
+- Faster iteration on messaging because feedback loops are tighter
+- Sales teams get product-specific enablement rather than generic decks
+
+### Weaknesses
+
+- Brand drift across product lines when there is no central voice
+- Career development suffers because PMMs have no PMM manager above them
+- Duplication of work: each embedded PMM builds their own templates and processes
+
+<Callout type="info">
+If you embed PMMs, create a PMM guild or community of practice with a weekly sync. This preserves craft standards and prevents siloing without adding a management layer.
+</Callout>
+
+### Best Fit
+
+Multi-product companies at Series B and beyond, enterprise software with distinct buyer personas per product line, or teams where speed to market matters more than brand coherence.
+
+---
+
+## Model 3: Hybrid PMM
+
+### How It Works
+
+A small central team owns positioning standards, competitive intelligence, and the launch playbook. Embedded PMMs in each product area run day-to-day GTM and report to a dotted-line relationship with both the central head and the product leader.
+
+### Strengths
+
+- Central team holds standards, embedded team holds context
+- Scales better than purely centralized as product lines grow
+- Career paths are clearer because there is a PMM management chain
+
+### Weaknesses
+
+- Dotted-line reporting creates ambiguity about priorities and performance reviews
+- Requires strong operational discipline to avoid the central team becoming a bottleneck
+- More headcount needed to sustain both layers
+
+### Best Fit
+
+Growth-stage and enterprise companies with three or more product lines, mature GTM processes, and enough headcount to staff both a center of excellence and product-level PMMs.
+
+---
+
+## Decision Framework
+
+<Mermaid chart={`graph TD
+  Q1{"How many distinct\nproduct lines?"}
+  Q2{"Is brand consistency\nor launch speed\nmore critical?"}
+  Q3{"Do you have 3+\nPMMs on the team?"}
+  C["Centralized"]
+  E["Embedded"]
+  H["Hybrid"]
+
+  Q1 -->|"1 to 2"| C
+  Q1 -->|"3 or more"| Q2
+  Q2 -->|"Brand consistency"| Q3
+  Q2 -->|"Launch speed"| E
+  Q3 -->|"Yes"| H
+  Q3 -->|"No"| C
+`} />
+
+Start with the number of product lines. If you have one or two, centralize. If you have three or more, ask whether brand or speed is the bigger risk. If brand wins and you have enough headcount, hybrid. If speed wins, embed.
+
+---
+
+## Real-World Case: Atlassian
+
+Atlassian runs a hybrid model. Their central PMM team - housed under the CMO - owns the brand positioning framework, competitive intelligence programs, and the global launch process documented in their internal GTM playbook.
+
+Each major product area (Jira, Confluence, Trello, Loom, and the platform team) has at least one dedicated PMM who attends product planning and owns the launch execution for that line. Those embedded PMMs report to product area leads for day-to-day work but hold a dotted-line to the central PMM leadership for career development and craft standards.
+
+The result: Atlassian can launch Jira-specific features with tight product-sales alignment while still maintaining consistent "teamwork" messaging across all products at the brand level.
+
+<Callout type="example">
+At Atlassian, the central PMM team runs a quarterly "messaging sync" where all embedded PMMs present their current positioning. This catches drift early and seeds cross-product opportunities like bundling or cross-sell campaigns.
+</Callout>
+
+---
+
+## Common Mistakes to Avoid
+
+**Choosing the model based on what competitors do.** Your structure should reflect your GTM motion, not your industry's convention.
+
+**Skipping the transition plan.** Moving from centralized to hybrid mid-year disrupts launches already in flight. Plan the structural change to land at the start of a planning cycle.
+
+**Letting reporting lines substitute for clear scope.** No org model removes the need to define what PMM owns versus what product management or demand gen owns. Write a RACI before you restructure.
+
+---
+
+<ResourceList resources={[
+  { title: "State of Product Marketing Leadership 2024", url: "https://www.productmarketingalliance.com/state-of-product-marketing-leadership/", type: "article", free: true },
+  { title: "Product Marketing Alliance - Core Curriculum", url: "https://www.productmarketingalliance.com/courses/", type: "course", free: false },
+  { title: "Atlassian Team Anywhere Blog - GTM Practices", url: "https://www.atlassian.com/blog/teamwork", type: "article", free: true },
+  { title: "Pragmatic Institute - How to Structure a PMM Team", url: "https://www.pragmaticinstitute.com/resources/", type: "docs", free: true },
+  { title: "Lenny's Newsletter - PMM Org Design", url: "https://www.lennysnewsletter.com/", type: "article", free: false },
+  { title: "PMM Camp - Embedded vs Centralized PMM", url: "https://pmmcamp.com/", type: "tool", free: true },
+  { title: "उत्पाद विपणन टीम संरचना - केंद्रीकृत बनाम एम्बेडेड मॉडल", url: "https://www.productmarketingalliance.com/state-of-product-marketing-leadership/", type: "article", free: true },
+  { title: "தயாரிப்பு சந்தைப்படுத்தல் அணி அமைப்பு - மைய மற்றும் உட்பொதிக்கப்பட்ட மாதிரிகள்", url: "https://www.productmarketingalliance.com/courses/", type: "article", free: true },
+  { title: "ఉత్పత్తి మార్కెటింగ్ బృంద నిర్మాణం - కేంద్రీకృత మరియు ఎంబెడెడ్ మోడళ్లు", url: "https://www.pragmaticinstitute.com/resources/", type: "article", free: true },
+]} />

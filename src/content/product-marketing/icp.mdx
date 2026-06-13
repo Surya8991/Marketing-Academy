@@ -1,0 +1,113 @@
+export const lessonMeta = {
+  title: "Defining Your Ideal Customer Profile (ICP)",
+  level: "Beginner",
+  summary: "Learn how to build a data-backed ICP that aligns sales, marketing, and product around the customers most likely to buy, stay, and grow.",
+};
+
+## What Is an Ideal Customer Profile?
+
+An Ideal Customer Profile (ICP) is a precise description of the type of company or person that gets the most value from your product and is most likely to become a long-term, profitable customer. It is a strategic targeting tool, not a wish list.
+
+<Callout type="info">
+ICP vs. Buyer Persona: these are related but distinct. An ICP describes the *account* (company size, industry, tech stack, revenue range). A buyer persona describes the *individual* within that account (job title, goals, objections). Build your ICP first; personas come after.
+</Callout>
+
+According to Sybill's 2024 analysis of B2B sales data, companies that align their go-to-market teams around a clearly defined ICP grow revenue up to 2.5x faster than those that do not (Sybill, 2024). The mechanism is simple: every hour spent on a bad-fit prospect is an hour not spent on a good one.
+
+---
+
+## The Four Dimensions of a Strong ICP
+
+A complete ICP covers four dimensions:
+
+1. **Firmographic** - company size (employees, revenue), industry vertical, geography, and funding stage.
+2. **Technographic** - the tools and platforms the company already runs (CRM, ERP, data stack).
+3. **Behavioral** - how they buy (sales-led vs. product-led), typical deal cycle length, and budget authority structure.
+4. **Outcome-based** - the specific business problem they need solved and the ROI metric they care about most.
+
+---
+
+## How to Build Your ICP: A Four-Step Process
+
+<Mermaid chart={`
+flowchart TD
+  A[Start: Pull closed-won data\nlast 12 months] --> B[Identify top 20% of accounts\nby revenue + retention]
+  B --> C[Interview 5-8 of those customers:\nwhy did they buy, what changed?]
+  C --> D[Find repeating patterns:\nindustry, size, trigger events]
+  D --> E[Draft ICP hypothesis:\nwrite it down in one paragraph]
+  E --> F[Test against pipeline:\nscore 10 recent deals]
+  F --> G{Does the ICP\npredict good deals?}
+  G -- Yes --> H[Publish ICP to sales,\nmarketing, and product]
+  G -- No --> C
+`} />
+
+### Step 1 - Mine your closed-won data
+
+Pull every deal closed in the last 12 months. Sort by: total contract value, time to close, and net revenue retention at 6 months. The top 20% by a combined score are your seed set.
+
+### Step 2 - Interview real customers
+
+Talk to 5-8 customers from that seed set. Ask:
+- What were you trying to fix before you bought?
+- What would you have lost if you had not bought?
+- What almost stopped you from buying?
+
+These interviews surface the *trigger events* and *outcome metrics* that a survey never captures.
+
+### Step 3 - Find the repeating pattern
+
+Look for attributes that appear in at least 70% of your best accounts. Common patterns include: company size band, specific industry vertical, a particular tech stack (e.g., already using Salesforce), or a trigger event (e.g., just raised a Series B).
+
+### Step 4 - Validate and publish
+
+Score 10 recent pipeline deals against your draft ICP. If the ICP predicts which deals closed and which did not, you have signal. If not, return to the interviews and look harder for the distinguishing variable.
+
+<Callout type="example">
+HubSpot's early ICP (2006-2012) was tightly defined: SMBs with 10-200 employees, already spending on outbound sales, and frustrated with cold calls. That focus drove the company to 200,000+ customers by 2024. When HubSpot later expanded upmarket, it did so by deliberately extending the ICP - not by ignoring it.
+</Callout>
+
+---
+
+## Common ICP Mistakes
+
+<Callout type="warning">
+The biggest ICP mistake is building it from aspirations rather than data. 'We want to serve Fortune 500 companies' is not an ICP - it is a wish. Your ICP must be derived from customers who have already paid you, stayed with you, and referred others.
+</Callout>
+
+Other traps to avoid:
+
+- **Too broad:** "any B2B company" is not an ICP. If your ICP does not exclude anyone, it does not help anyone.
+- **Too many segments at once:** start with one primary ICP. Expand only after that segment is saturated or proven wrong.
+- **No trigger event:** the best ICPs specify *when* a prospect becomes a buyer, not just who they are.
+- **Set and forgotten:** your ICP should be reviewed every six months as your product and market evolve.
+
+---
+
+## ICP Template
+
+Use this as a starting point:
+
+```
+Company type:    [industry vertical, business model]
+Company size:    [employee range, revenue range]
+Geography:       [regions or countries]
+Tech stack:      [required or common tools]
+Trigger event:   [what happens right before they buy]
+Key pain:        [the problem they cannot solve without you]
+Success metric:  [how they measure ROI from your product]
+Disqualifiers:   [attributes that predict churn or poor fit]
+```
+
+Fill every field with data from your closed-won analysis, not guesses.
+
+---
+
+## Resources
+
+<ResourceList resources={[
+  { title: "How to Define Your ICP - Sybill 2024 Analysis", url: "https://www.sybill.ai/blog/ideal-customer-profile", type: "article", free: true },
+  { title: "ICP vs Buyer Persona: What Is the Difference? - HubSpot", url: "https://blog.hubspot.com/marketing/ideal-customer-profile", type: "article", free: true },
+  { title: "How to Find Your ICP Using Data - Lenny's Newsletter", url: "https://www.lennysnewsletter.com/p/finding-your-icp", type: "article", free: false },
+  { title: "Category Creation and ICP Focus - April Dunford on Positioning", url: "https://www.youtube.com/watch?v=q1DmjRs2YCk", type: "video", free: true },
+  { title: "ICP Scoring Template - Notion", url: "https://www.notion.so/templates/icp-scoring", type: "tool", free: true },
+]} />

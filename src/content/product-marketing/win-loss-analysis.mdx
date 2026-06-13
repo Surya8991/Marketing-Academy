@@ -1,0 +1,83 @@
+export const lessonMeta = {
+  title: "Win/Loss Analysis",
+  level: "Advanced",
+  summary: "Why you lost is a leading indicator. Find out systematically.",
+};
+
+# Win/Loss Analysis
+
+## What It Is
+
+Win/loss analysis is a structured process for interviewing buyers after a deal closes - win or lose - to find out exactly why they made the decision they did. You talk to the person who chose you, and you talk to the person who chose your competitor. You compare the two. You find the pattern.
+
+The key word is "systematic." Most teams already collect some deal notes - a CRM field, a quick Slack message from the rep. That is not win/loss analysis. Real win/loss analysis uses a consistent interview guide, a neutral interviewer (ideally someone who was not on the sales call), and structured tagging so you can aggregate findings across dozens of deals over time.
+
+There are two main approaches: internal (a dedicated analyst or product marketer runs the interviews) and third-party (an outside firm conducts interviews, which often produces more candid answers). Third-party programs tend to surface harder truths because buyers feel safe being blunt with a stranger.
+
+## Real-World Example
+
+AuditBoard, a cloud-based audit and risk management platform, partnered with Clozd to run a formal win/loss program in 2023. By systematically interviewing buyers after each deal, they identified a specific gap between how their sales team described the product and what enterprise security buyers actually needed to hear. They adjusted their messaging and sales training based on the interview data. The result: a 5% increase in win rate within the first program year - a number that translates to millions in annual recurring revenue at enterprise deal sizes.
+
+<Callout type="example">
+AuditBoard's win/loss interviews revealed that buyers were confused about how the platform handled regulatory change management - a topic the sales team was treating as a secondary feature. Once the team repositioned this capability as a primary value driver (based on direct buyer feedback), close rates with enterprise security buyers improved measurably. The insight came not from internal assumption, but from asking buyers directly.
+</Callout>
+
+## Why It Matters
+
+Sales teams are structurally bad at diagnosing why they lose. Reps report "lost to price" in 40-60% of lost deals, but buyer interviews consistently show that price is the real reason in fewer than 20% of cases. The rest lost to product gaps, weak relationships, poor timing, or messaging that did not match the buyer's actual priorities.
+
+This matters because if you fix the wrong problem, you get worse - not better. If your reps tell you every loss is about price and you respond by cutting price, you erode margin without improving win rate. Win/loss interviews go directly to the buyer to get the real story.
+
+According to Gartner research, organizations with a rigorous, ongoing win/loss program see up to a 50% improvement in win rate over time. Clozd's 2024 State of Win-Loss survey found that 63% of companies running a program report win-rate increases, and that number climbs to 84% for programs that have run longer than two years. The longer you run it, the more patterns you catch, and the more precisely you can act.
+
+<Callout type="info">
+Win/loss analysis is a leading indicator, not a lagging one. Your quarterly revenue numbers tell you what already happened. Win/loss interviews tell you why - and give you time to change something before the next quarter ends. That is why product marketers who own competitive intelligence treat win/loss as their primary input, not an afterthought.
+</Callout>
+
+## How It Works
+
+A win/loss program has four stages: capture, interview, analyze, and activate. Most teams skip "activate" - which is why most programs produce a report that nobody reads.
+
+**Capture:** Define which deals qualify for a win/loss interview. Most programs start with deals above a certain contract value, then expand. Log every qualifying deal as it closes. Aim for a response rate of at least 30% of closed deals.
+
+**Interview:** Conduct 20-30 minute structured interviews with the buyer's primary decision-maker. Use a consistent guide covering: how they discovered you, what criteria they used, who else they evaluated, what tipped the decision, and what they would change. A third-party interviewer typically gets more candid responses than an internal one.
+
+**Analyze:** Tag every interview across a standard set of categories - product, pricing, sales experience, competitive positioning, implementation concern, relationship. Once you have 15-20 tagged interviews, patterns become visible. Look for themes by segment (enterprise vs. mid-market), by competitor, and by sales rep or region.
+
+**Activate:** Route insights to the team that can act on them. Competitive themes go to product marketing. Product gaps go to the roadmap. Sales execution patterns go to sales enablement. Without this routing step, the program produces knowledge that sits in a document.
+
+<Mermaid chart={`flowchart TD
+  A[Deal Closes - Win or Loss] --> B[Flag for Interview]
+  B --> C[Neutral Interviewer Contacts Buyer]
+  C --> D[30-Min Structured Interview]
+  D --> E[Tag by Category: Product / Price / Sales / Competitive]
+  E --> F[Aggregate Across 15+ Deals]
+  F --> G{Patterns Found?}
+  G -- Yes --> H[Route to Responsible Team]
+  G -- No --> I[Collect More Interviews]
+  H --> J[Product: Roadmap Input]
+  H --> K[PMM: Messaging + Competitive]
+  H --> L[Sales: Enablement + Training]
+  J & K & L --> M[Measure Win Rate Change Next Quarter]
+  M --> B`} />
+
+## Common Mistakes
+
+<Callout type="warning">
+The most common failure is letting sales reps run the interviews themselves. Reps have a relationship with the buyer, a quota on the line, and a natural tendency to hear what confirms their existing beliefs. Buyers also soften their feedback when talking to someone they like. This produces data that feels good and is largely useless. Always use a neutral interviewer - internal product marketer, researcher, or third-party firm. The second most common failure is running win/loss as a one-time project. A single cohort of 20 interviews gives you hypotheses. Twelve months of continuous interviews give you proof.
+</Callout>
+
+## The One-Line Takeaway
+
+**Your buyers already know exactly why they chose someone else - win/loss analysis is just the process of asking them and believing the answer.**
+
+<ResourceList resources={[
+  { title: "Clozd: The Ultimate Guide to Win-Loss Analysis (2026)", url: "https://www.clozd.com/guides/win-loss-analysis", type: "article", free: true, note: "Comprehensive reference from the leading win/loss platform" },
+  { title: "Corporate Visions: Win-Loss Done Right - B2B Best Practices", url: "https://corporatevisions.com/blog/win-loss-analysis-best-practices/", type: "article", free: true, note: "Research-backed best practices from Corporate Visions" },
+  { title: "Clozd: Estimating the ROI of Win-Loss Analysis", url: "https://www.clozd.com/blog/estimating-the-roi-of-your-investment-in-win-loss-analysis", type: "article", free: true, note: "Framework for calculating financial return from a win/loss program" },
+  { title: "Elevated Signal: Win/Loss Analysis Methodology", url: "https://elevatedsignal.com/insights/win-loss-analysis/", type: "article", free: true, note: "Detailed methodology and interview guide templates" },
+  { title: "Satrix Solutions: What Is a B2B Win-Loss Analysis?", url: "https://www.satrixsolutions.com/blog/what-is-a-b2b-sales-win-loss-analysis/", type: "article", free: true, note: "Practical breakdown for B2B product marketers" },
+  { title: "WsCube Tech - Win/Loss Analysis (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - Win/Loss Analysis", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Win/Loss Analysis (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

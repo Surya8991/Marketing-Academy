@@ -1,0 +1,118 @@
+export const lessonMeta = {
+  title: "Product Launches",
+  level: "Intermediate",
+  summary: "Tier 1, 2, 3 launches and how to scale launch effort to launch size.",
+};
+
+# Product Launches
+
+## What It Is
+
+A product launch is the coordinated effort to bring a new product, feature, or offering to market. It is not a single event - it is a campaign that spans weeks or months and involves marketing, sales, support, and product teams working toward the same goal.
+
+Not all launches are equal. The product marketing industry uses a tiering system - Tier 1, Tier 2, and Tier 3 - to match the size of the launch effort to the size of the opportunity. A massive new product line deserves a different investment than a small bug-fix release. Mismatching effort to tier is one of the most common and costly mistakes in product marketing.
+
+Understanding launch tiers lets you allocate budget, headcount, and channel strategy proportionally. It also prevents two failure modes: under-investing in a flagship release that could make or break the year, and over-investing in a minor update that drains resources without a meaningful return.
+
+## Real-World Example
+
+<Callout type="example">
+**Apple iPhone 15 Launch (2023): A textbook Tier 1 execution**
+
+Apple's iPhone 15 launch in September 2023 used every lever in the Tier 1 playbook: a live keynote event streamed globally, pre-briefed press who published reviews on launch day, retail store countdowns, coordinated carrier partner promotions, and a multi-week paid media campaign across TV, digital, and out-of-home. The result was $43.8 billion in iPhone revenue in Q4 2023 alone. The launch was treated as a company-wide initiative, not a marketing department task. Every team - engineering, retail, PR, legal, and finance - had a defined launch role months in advance.
+</Callout>
+
+## Why It Matters
+
+According to the Product Development and Management Association, companies with a defined launch process see 10% higher launch success rates and generate three times greater revenue growth than companies with ad-hoc approaches (2024). Yet roughly 95% of newly launched products fail to achieve meaningful commercial success - often because teams invest the same effort in every launch regardless of its strategic importance.
+
+The tiering framework exists to solve this problem. It gives product marketers a repeatable way to answer the question: "How much should we spend on this launch?" The answer is always proportional to the business impact of the product being launched.
+
+## How It Works
+
+### The Three Launch Tiers
+
+**Tier 1 - Major Launch**
+
+This is a flagship product, a new product line, or a fundamental change to the core offering. It requires full company alignment, a large budget, and a multi-channel campaign that runs for weeks or months.
+
+Typical activities: press briefings, analyst relations, a launch event or keynote, paid media across multiple channels, partner co-marketing, sales enablement training, and a dedicated landing page.
+
+Examples: a new SaaS product entering a new market, a major hardware product, an enterprise pricing tier overhaul.
+
+**Tier 2 - Significant Update**
+
+This is a meaningful new feature or a substantial improvement to an existing product. It warrants a campaign but not full company mobilization.
+
+Typical activities: a product blog post, an email to existing customers, social media posts, in-app announcements, and optional paid amplification.
+
+Examples: adding a native integration with a major platform, a redesigned dashboard, a new analytics module.
+
+**Tier 3 - Minor Release**
+
+This is a small improvement, a bug fix, or a behind-the-scenes change. It gets acknowledged but not campaigned.
+
+Typical activities: a changelog entry, a brief in-app notification, a release notes email.
+
+Examples: a performance improvement, a UI polish update, a new export format.
+
+<Mermaid chart={`flowchart TD
+    A[New Product or Feature] --> B{Assess Strategic Impact}
+    B --> C[High Impact - New Market or Flagship Product]
+    B --> D[Medium Impact - Significant Feature or Upgrade]
+    B --> E[Low Impact - Minor Fix or Small Improvement]
+    C --> F[Tier 1: Full Launch Campaign]
+    D --> G[Tier 2: Targeted Update Campaign]
+    E --> H[Tier 3: Changelog and Notification Only]
+    F --> I[Press, Events, Paid Media, Sales Enablement]
+    G --> J[Blog Post, Email, Social, In-App]
+    H --> K[Release Notes, In-App Banner]`} />
+
+### The Launch Checklist by Tier
+
+Before assigning a tier, answer three questions:
+
+1. **Audience size**: How many customers or prospects does this affect?
+2. **Revenue potential**: What is the expected incremental revenue in year one?
+3. **Strategic importance**: Does this product define or redefine the company's market position?
+
+If the answer to all three is "large," it is a Tier 1. If two of three are medium, it is a Tier 2. If most answers are small or narrow, it is a Tier 3.
+
+### Launch Timeline (Tier 1)
+
+A Tier 1 launch typically follows a 12-week runway:
+
+- **Weeks 1-4**: Positioning and messaging, competitive research, press and analyst briefing prep
+- **Weeks 5-8**: Asset creation (landing page, sales decks, demo videos, email sequences), internal enablement
+- **Weeks 9-11**: Embargo briefings with press, beta customer feedback, paid media setup
+- **Week 12**: Launch day, post-launch monitoring, rapid response to coverage and feedback
+
+## Common Mistakes
+
+<Callout type="warning">
+**The most common mistake: treating every launch like a Tier 1.**
+
+When teams apply maximum effort to every release, they burn out, dilute the impact of truly major launches, and train their audience to ignore announcements. The market stops paying attention when everything is announced as "exciting" and "game-changing." Reserve Tier 1 energy for Tier 1 products. A minor feature that gets a blog post and a changelog entry is not being neglected - it is being correctly sized. Save the press briefings and the paid campaigns for the moments that actually move the business.
+</Callout>
+
+<Callout type="tip">
+**Start with positioning, not tactics.**
+
+Many teams jump straight to "which channels should we use?" before answering "what is this product, who is it for, and why should they care?" Positioning comes first. Once you can answer those three questions in two sentences, every downstream decision - copy, channels, targeting, pricing page - becomes easier and faster.
+</Callout>
+
+## The One-Line Takeaway
+
+**Scale your launch effort to your launch tier: save the full campaign for Tier 1 moments, use targeted updates for Tier 2, and keep Tier 3 simple - so that when the big launch arrives, your audience is ready to pay attention.**
+
+<ResourceList resources={[
+  { title: "Product Launch Statistics 2024 - SHNO", url: "https://www.shno.co/marketing-statistics/product-launch-statistics", type: "article", free: true, note: "Comprehensive 2024 stats on launch success rates and benchmarks" },
+  { title: "Product Marketing Alliance - Launch Tiers Explained", url: "https://productmarketingalliance.com/product-launch-tiers/", type: "article", free: true, note: "Industry standard framework for tiering product launches" },
+  { title: "G2 - Product Launch Statistics You Should Know", url: "https://learn.g2.com/product-launch-statistics", type: "article", free: true, note: "Data-driven breakdown of what makes launches succeed or fail" },
+  { title: "Lenny Rachitsky - How to Launch a Product", url: "https://www.lennysnewsletter.com/p/how-to-launch", type: "article", free: false, note: "Practical launch playbook from a former Airbnb PM" },
+  { title: "April Dunford - Obviously Awesome (Positioning)", url: "https://www.aprildunford.com/obviously-awesome", type: "article", free: false, note: "The definitive book on product positioning before a launch" },
+  { title: "Product School - Product Launch Strategy (YouTube)", url: "https://www.youtube.com/c/ProductSchool", type: "video", lang: "en", free: true, note: "English-language product launch walkthroughs from industry practitioners" },
+  { title: "WsCube Tech - Product Launches (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - Product Launches", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Product Launches (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

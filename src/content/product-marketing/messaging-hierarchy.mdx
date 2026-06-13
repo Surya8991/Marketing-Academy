@@ -1,0 +1,143 @@
+﻿export const lessonMeta = {
+  title: "Building a Messaging Hierarchy",
+  level: "Intermediate",
+  summary: "Learn how to structure your product messaging from a single core promise down to proof points, so every channel speaks with one consistent voice.",
+};
+
+# Building a Messaging Hierarchy
+
+A messaging hierarchy is the backbone of product marketing. It answers one question: what do we say, in what order, and why? Without it, sales decks, landing pages, and ads each tell a slightly different story. With it, every touchpoint reinforces the same idea.
+
+## Why Consistency Is a Revenue Driver
+
+Lucidpress (2021) found that brands with consistent presentation across channels see revenue increases of up to **23%**. Inconsistency is not just a brand problem. It is a conversion problem.
+
+Slack is the clearest modern proof. Before Salesforce acquired it for **$27.7 billion in 2021**, Slack had spent years hammering a single message: not "team chat" but "where work happens." Every pillar - productivity, integration, culture - fed back to that one phrase. Salesforce paid a premium for a brand whose message was already doing the selling.
+
+## The Four-Layer Hierarchy
+
+<Mermaid chart={`
+graph TD
+  A["Core Promise: Where work happens"] --> B["Pillar 1: Speed"]
+  A --> C["Pillar 2: Integration"]
+  A --> D["Pillar 3: Culture"]
+  B --> E["Supporting: Threads reduce email by 32%"]
+  B --> F["Supporting: Search across 10 years of history"]
+  C --> G["Supporting: 2,400+ app integrations"]
+  C --> H["Supporting: Works with tools you already use"]
+  D --> I["Supporting: Channels replace closed-door meetings"]
+  D --> J["Supporting: Emoji reactions humanize async work"]
+`} />
+
+### Layer 1 - Core Promise
+
+One sentence. Not a tagline, not a slogan - a factual claim about the single most important thing your product does for the buyer. Everything else descends from this.
+
+**Test:** Can a sales rep say it in under five seconds? Can a new hire repeat it on day two? If not, simplify.
+
+### Layer 2 - Pillars
+
+Three to four themes that explain *how* the core promise is delivered. Each pillar owns a distinct dimension of value. Pillars must not overlap. If two pillars sound like the same idea, merge them.
+
+Slack's pillars circa 2019:
+- **Speed** - async communication that is faster than email
+- **Integration** - your whole stack in one pane
+- **Culture** - a place where teams actually want to work
+
+### Layer 3 - Supporting Messages
+
+Two to three sentences per pillar that unpack the claim. These are what copywriters pull from when writing feature pages or onboarding emails. They should be specific enough to be falsifiable.
+
+Vague: "Slack makes teams more productive."
+Specific: "Slack users report sending 48.6% fewer internal emails within 90 days of adoption."
+
+### Layer 4 - Proof Points
+
+Data, case studies, third-party quotes, and awards that substantiate each supporting message. Proof points are the most granular layer and the most frequently updated. They change as new research lands; the layers above should not.
+
+<Callout type="example">
+**Slack in practice**
+
+Core Promise: "Where work happens"
+
+Pillar: Integration
+Supporting message: "Slack connects with over 2,400 apps so your team never context-switches."
+Proof point: "Atlassian, Zoom, and Salesforce are all native integrations used by more than 500,000 teams."
+
+This chain - promise, pillar, message, proof - is what made every Slack ad, sales deck, and homepage feel like the same conversation.
+</Callout>
+
+## How to Build Your Own Hierarchy
+
+### Step 1 - Interview your best customers
+
+Ask three questions:
+1. What problem existed before you used us?
+2. What is the single most valuable thing we do?
+3. How do you describe us to a colleague?
+
+The language your customers use is almost always sharper than what your team invents internally.
+
+### Step 2 - Audit existing assets
+
+Pull your homepage, three sales decks, and five recent ads. Highlight every claim. Group them. You will likely find six to ten competing "core promises." The audit makes the chaos visible.
+
+### Step 3 - Draft the hierarchy in a single document
+
+One page. Core promise at the top, pillars below, supporting messages nested, proof points at the bottom. Share it with sales, product, and customer success before locking it.
+
+### Step 4 - Lock the top two layers
+
+The core promise and pillars should be stable for at least 12 months. Supporting messages and proof points can be refreshed quarterly as new data arrives.
+
+<Callout type="warning">
+**Common mistake: making the core promise about features**
+
+"AI-powered project management" is a feature description, not a promise. "Ship on time, every time" is a promise. Features get copied in six months. Outcomes are much harder to commoditize.
+</Callout>
+
+## Activating the Hierarchy Across Channels
+
+| Channel | Layer to lead with | Notes |
+|---|---|---|
+| Homepage hero | Core promise | One sentence, no jargon |
+| Feature pages | Pillar + supporting message | Proof point in social proof section |
+| Sales deck | All four layers | Walk from promise to proof sequentially |
+| Paid ads | Supporting message | Short enough to fit a headline |
+| Email subject lines | Proof point | Specificity drives open rates |
+| PR pitches | Core promise + one proof point | Journalists want the claim and the evidence |
+
+## Running a Messaging Audit
+
+Once your hierarchy exists, audit quarterly:
+
+1. Pull 20 recent assets across at least four channels.
+2. Tag each claim against a layer in the hierarchy.
+3. Count how many assets lead with the core promise vs. a pillar vs. a proof point.
+4. Flag any claim that does not map to any layer - these are rogue messages.
+
+A healthy brand sees the core promise or a pillar in the headline of more than 70% of assets. If proof points are doing headline work, your message has drifted to feature-level thinking.
+
+<Callout type="tip">
+**Run the audit before any rebrand or positioning refresh.** Most teams discover they already have the right raw material - it is just scattered across layers. Reorganizing is faster and cheaper than starting from scratch.
+</Callout>
+
+## Key Takeaways
+
+- A messaging hierarchy has four layers: core promise, pillars, supporting messages, and proof points.
+- Consistent messaging drives up to 23% more revenue (Lucidpress, 2021).
+- Lock the top two layers for at least 12 months; refresh the bottom two quarterly.
+- Slack's $27.7B acquisition validated a hierarchy built around a single phrase: "where work happens."
+- Run a messaging audit before any rebrand to avoid discarding usable material.
+
+<ResourceList resources={[
+  { title: "Obviously Awesome - April Dunford", url: "https://www.aprildunford.com/obviously-awesome", type: "article", free: false },
+  { title: "Lucidpress Brand Consistency Report 2021", url: "https://www.marq.com/blog/brand-consistency", type: "article", free: true },
+  { title: "Positioning: The Battle for Your Mind - Ries and Trout", url: "https://www.goodreads.com/book/show/760025.Positioning", type: "article", free: false },
+  { title: "Slack Brand Evolution Case Study - First Round Review", url: "https://review.firstround.com/the-magical-narrative-that-helped-slack-grow", type: "article", free: true },
+  { title: "Messaging Hierarchy Template - Miro", url: "https://miro.com/templates/messaging-hierarchy/", type: "tool", free: true },
+  { title: "Product Marketing Alliance - Messaging Fundamentals", url: "https://productmarketingalliance.com/messaging-and-positioning/", type: "docs", free: true },
+  { title: "Product Marketing in Hindi - Gyaan ki Baat", url: "https://www.youtube.com/@gyaankibaat", type: "video", free: true },
+  { title: "Marketing Strategy in Tamil - TamilThisai", url: "https://www.youtube.com/@tamilthisai", type: "video", free: true },
+  { title: "Digital Marketing in Telugu - Telugu Techworld", url: "https://www.youtube.com/@telugutechworld", type: "video", free: true },
+]} />

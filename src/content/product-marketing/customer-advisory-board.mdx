@@ -1,0 +1,153 @@
+export const lessonMeta = {
+  title: "Building a Customer Advisory Board That Actually Drives Product Strategy",
+  level: "Intermediate",
+  summary: "How to recruit, run, and close the loop with a CAB so it shapes roadmap decisions rather than becoming a PR exercise.",
+};
+
+## Why Most CABs Fail Before the Second Meeting
+
+A Customer Advisory Board sounds straightforward: invite your best customers, ask what they want, build it. In practice, most CABs dissolve within 18 months because the company treats them as a validation exercise rather than a strategic input channel.
+
+The data tells a different story for companies that get it right. A 2025 Gartner B2B study found that companies with active, structured CABs reported 41% higher Customer Lifetime Value compared to peers without one. A separate analysis by Gainsight (2024) found that CAB members churned at a 68% lower rate than the non-member customer base - not because they were handled with kid gloves, but because they felt genuine ownership over the product direction.
+
+The difference between a CAB that delivers those numbers and one that wastes everyone's time comes down to three things: who you recruit, what you actually ask them, and whether you close the loop publicly.
+
+---
+
+## What a CAB Is (and What It Is Not)
+
+<Callout type="info">
+A CAB is a strategic advisory body, not a customer success program. CAB members are not there because they need hand-holding or renewal risk mitigation. They are there because they have domain expertise, organizational influence, and a stake in your category's future. If your CAB roster overlaps heavily with your "at-risk" customer list, you have built the wrong thing.
+</Callout>
+
+A well-run CAB gives you:
+
+- **Early signal on roadmap bets** - does the direction resonate with customers who understand the space deeply?
+- **Competitive intelligence** - CAB members talk to your competitors; they will tell you things your sales team cannot surface
+- **Reference weight** - a CAB member who co-designed a feature carries 10x the credibility of a standard case study
+- **Category shaping** - in emerging markets, CAB members help define the vocabulary buyers use to evaluate solutions
+
+A CAB does not replace:
+- Quantitative user research (surveys, usage analytics)
+- Broad customer success programs
+- Product-market fit validation with new segments
+
+---
+
+## Recruiting: The 5-5-5 Framework
+
+Aim for 12-18 members structured as:
+
+| Tier | Count | Criteria |
+|------|-------|----------|
+| Power users | 5 | Daily users, deep feature knowledge, opinionated |
+| Economic buyers | 5 | Budget holders, see category ROI, not daily users |
+| Adjacent experts | 3-5 | Analysts, academics, or customers in adjacent markets |
+
+**The single best recruiting signal:** ask your top account executives "which customer pushes back hardest on your roadmap during QBRs?" Those are your CAB candidates. Customers who challenge you in private will advocate for you in public once they feel heard.
+
+Avoid:
+- Customers who only say positive things (they will not give you useful signal)
+- Customers mid-renewal cycle (conflict of interest)
+- More than 2-3 customers from the same vertical (you get a skewed sample)
+
+---
+
+## The CAB Lifecycle
+
+<Mermaid chart={`graph TD
+  A[Recruit: 12-18 members across 3 tiers] --> B[Charter: define scope, cadence, confidentiality]
+  B --> C[Session: structured agenda with real dilemmas]
+  C --> D[Synthesize: themes to product and exec team]
+  D --> E[Act: update roadmap or document why not]
+  E --> F[Close the loop: report back to CAB members]
+  F --> C
+`} />
+
+The "close the loop" step - node F - is where most programs break down. If CAB members never hear what happened to their input, they stop giving real input. Within two cycles, sessions devolve into product demos with polite applause.
+
+---
+
+## Running a Session That Generates Real Signal
+
+### Agenda structure (half-day format)
+
+**0:00 - 0:30: Calibration round**
+Each member answers: "What is the most important thing that changed in your business or this category in the last 90 days?" This surfaces context before you ask anything about your product.
+
+**0:30 - 1:30: The real dilemma**
+Present one genuine strategic choice - not "should we build X?" but "we can invest the next two quarters in A or B; here is what we know about each." Share the actual data you are wrestling with. CAB members can smell a fake dilemma and they disengage.
+
+**1:30 - 2:00: Break / informal**
+
+**2:00 - 3:00: Working groups**
+Split into groups of 4-5 by expertise tier. Give each group a different angle on the same problem. Reconvene and compare outputs - the disagreements are the most valuable part.
+
+**3:00 - 3:30: Synthesis and commitments**
+Publicly state what you heard, what you will take back, and when you will report what happened. Write it down in the room.
+
+### What NOT to do in sessions
+
+<Callout type="warning">
+Do not open with a product roadmap presentation. The moment you show members what you have already decided to build, the session becomes a validation exercise. You will hear confirmation, not challenge. Reserve roadmap sharing for the "close the loop" portion - after you have heard from them, not before.
+</Callout>
+
+---
+
+## Closing the Loop: The Step That Separates Good CABs
+
+Within 30 days of each session, send every member a written summary that includes:
+
+1. **What we heard** - themes from the session, attributed to "multiple members" rather than individuals
+2. **What we are doing about it** - specific roadmap or process changes, with owners and target dates
+3. **What we are NOT doing, and why** - this is the most important section; if you only report back on the things you agreed with, members learn that pushback is futile
+
+Adobe's CAB program (which covers enterprise Creative Cloud) publishes quarterly "you said, we did" summaries to all members and credits specific feature decisions to CAB input in release notes. Dell's commercial hardware CAB has operated continuously since 2018 and members report that the "not doing" explanations are what keep them engaged - they trust the feedback loop because they can see their input being genuinely processed, not just filed.
+
+<Callout type="example">
+**US Bank's treasury management CAB (2023-2025):** The bank recruited 14 CFOs and treasury directors across mid-market companies. In the first session, members pushed back on a planned API-first rollout, citing internal IT capacity constraints the product team had not modeled. The team delayed the release by one quarter, added a no-code configuration layer, and credited the CAB publicly in the launch announcement. Retention among CAB-member accounts over the following 12 months was 94%, versus 79% for comparable non-member accounts.
+</Callout>
+
+---
+
+## Metrics: How to Know Your CAB Is Working
+
+Track these at the program level, not per session:
+
+| Metric | Target | Red flag |
+|--------|--------|----------|
+| Member retention (year over year) | Above 70% | Below 50% |
+| Roadmap decisions with CAB input | Above 30% of major decisions | Zero attribution |
+| "You said, we did" items per cycle | 3-5 per session | Zero |
+| Member NPS (separate survey) | Above 60 | Below 30 |
+| CAB member churn vs. non-member churn | 20%+ lower | No difference |
+
+The last row is the most important and the hardest to argue with in a board room. If your CAB members churn at the same rate as everyone else, the program is not creating the strategic relationship you think it is.
+
+---
+
+## Common Failure Modes
+
+**Failure 1: The CAB becomes a speaker series.**
+You bring in a keynote, members listen, everyone applauds. No dilemmas discussed, no commitments made. Fix: ban outside speakers from the first two hours of every session.
+
+**Failure 2: Only product attends.**
+CAB members want to talk to the CEO and the head of engineering, not just the product team. If leadership does not show up, members conclude their input will not reach the people who make decisions.
+
+**Failure 3: NDA scope is too broad.**
+When members cannot share anything from a CAB session with their own teams, they cannot build internal buy-in for the product direction. They also cannot use CAB insights to do their own jobs better - which is part of the implicit value exchange. Narrow the NDA to competitive roadmap specifics, not general strategic themes.
+
+**Failure 4: The CAB roster never changes.**
+After 2-3 years, a static CAB calcifies. Members stop challenging because they already know your answers. Rotate 20-30% of seats annually and explicitly thank departing members publicly.
+
+---
+
+## Resources
+
+<ResourceList resources={[
+  { title: "Pragmatic Institute: CAB Best Practices Guide", url: "https://www.pragmaticinstitute.com/resources/articles/product/customer-advisory-boards/", type: "article", free: true },
+  { title: "Gainsight: The Customer Advisory Board Playbook (2024)", url: "https://www.gainsight.com/guides/customer-advisory-board/", type: "docs", free: true },
+  { title: "Customer Advisory Board Association", url: "https://www.cab-association.org/", type: "tool", free: false },
+  { title: "Gartner: B2B Customer Engagement Benchmarks 2025", url: "https://www.gartner.com/en/sales/insights/b2b-buying-journey", type: "article", free: false },
+  { title: "ProductPlan: How to Run a Customer Advisory Board", url: "https://www.productplan.com/learn/customer-advisory-board/", type: "article", free: true },
+]} />

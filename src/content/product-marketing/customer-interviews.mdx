@@ -1,0 +1,139 @@
+export const lessonMeta = {
+  title: "Customer Interviews for Product Marketers",
+  level: "Intermediate",
+  summary: "Run structured customer interviews that surface real pain points, sharpen your positioning, and feed your messaging with evidence - not assumptions.",
+};
+
+Customer interviews are the fastest way to close the gap between what your team believes about customers and what customers actually experience. According to the Product Marketing Alliance's State of Product Marketing 2024, 50% of product marketers cited tracking changing customer needs as their single biggest challenge. Structured interviews directly address that gap.
+
+---
+
+## What Customer Interviews Are (and Are Not)
+
+<Callout type="info">
+Customer interviews for product marketing are distinct from sales discovery calls and usability tests. Sales discovery is about qualifying a prospect. Usability testing is about evaluating a UI. Product marketing interviews are about understanding the customer's world: their goals, their frustrations, how they make decisions, and what language they use to describe those things. That language becomes your copy.
+</Callout>
+
+---
+
+## The Interview Process
+
+<Mermaid chart={`flowchart TD
+  A[Define research question] --> B[Recruit participants]
+  B --> C[Write interview guide]
+  C --> D[Conduct interviews]
+  D --> E[Synthesize findings]
+  E --> F[Update positioning and messaging]
+`} />
+
+---
+
+## Step 1: Define Your Research Question
+
+Every interview project should start with one clear question you are trying to answer. Vague goals produce vague insights.
+
+Examples of focused research questions:
+- "Why do customers switch away from us after 90 days?"
+- "What triggers someone to start looking for a tool like ours?"
+- "How do our best customers describe the value they get to their managers?"
+
+Without a focused question, you will collect a lot of interesting anecdotes that never get acted on.
+
+---
+
+## Step 2: Recruit the Right Participants
+
+The most common mistake is interviewing only happy customers. You need contrast:
+
+| Segment | What you learn |
+|---|---|
+| Power users | What the product does best; language for top-of-funnel |
+| Churned customers | Where value broke down; objections to pre-empt |
+| Recently onboarded | First-impression friction; activation blockers |
+| Lost deals (never converted) | How competitors are positioned; disqualifying factors |
+
+Aim for 5-8 interviews per segment. Patterns emerge quickly in qualitative research - you rarely need more than 10 per group before reaching saturation.
+
+---
+
+## Step 3: Write an Interview Guide
+
+An interview guide is not a script. It is a list of topics and opening questions to keep you on track, not a questionnaire to read aloud.
+
+**Structure:**
+
+1. **Warm-up (5 min):** Ask about their role, their team, their day-to-day. Get them talking comfortably.
+2. **Context questions (10 min):** Understand their situation before your product entered the picture.
+3. **Core questions (20 min):** Dig into the specific research question you defined in Step 1.
+4. **Jobs-to-Be-Done probe (10 min):** What were they trying to get done? What did they try before?
+5. **Wrap-up (5 min):** Ask what they wish existed. Thank them.
+
+<Callout type="warning">
+Avoid leading questions. "Do you find our onboarding confusing?" is not an interview question - it is a suggestion. Ask "Walk me through what happened the first time you logged in" instead. Leading questions produce answers that confirm your existing beliefs, which is the opposite of what you need.
+</Callout>
+
+---
+
+## Step 4: Conduct the Interview
+
+Practical rules:
+
+- **Record with permission.** You cannot take good notes and listen at the same time. Record, then review.
+- **Use silence.** After a customer finishes answering, wait three seconds before speaking. They often add the most important detail in that pause.
+- **Follow the energy.** If a customer lights up or gets frustrated about something, follow that thread even if it is off your guide.
+- **Ask "what do you mean by that?"** Customers use imprecise language. Probe until you understand what they actually mean.
+- **Never pitch during the interview.** The moment you defend the product, the customer stops being honest.
+
+---
+
+## Step 5: Synthesize Findings
+
+Raw interview notes are not insights. Synthesis is where the value gets created.
+
+A lightweight synthesis process:
+1. Within 24 hours of each interview, write a one-paragraph summary of the most important thing you learned.
+2. After all interviews, list every distinct pain point, outcome, and phrase mentioned.
+3. Group them into themes.
+4. Count which themes appeared across the most interviews.
+5. Flag the exact customer quotes that best illustrate each theme - these become messaging inputs.
+
+---
+
+## Step 6: Update Positioning and Messaging
+
+This is why you ran the interviews. Take your synthesis directly into your positioning document:
+
+- Replace internal jargon with the language customers actually used.
+- Reorder your value propositions to match what customers said they care about most.
+- Add proof points that address the objections you heard from churned customers and lost deals.
+- Flag gaps - pain points customers mentioned that your product does not yet address (these belong in a product feedback report).
+
+---
+
+## Real Example: Intercom and Jobs to Be Done
+
+<Callout type="example">
+Around 2016, Intercom ran structured Jobs to Be Done interviews with churned customers to understand why people left after signing up. What they found was that many customers had hired Intercom to solve a specific job - say, responding to support requests faster - but the onboarding pushed them toward features designed for a different job, like outbound messaging. The interviews directly shaped Intercom's messaging segmentation and onboarding flows, separating the experience by the job the customer came to do. The lesson: your product may be right, but if your messaging and onboarding speak to the wrong job, customers churn before they see the value.
+</Callout>
+
+---
+
+## Interview Cadence
+
+Customer interviews should not be a one-time project. Build a cadence:
+
+- **Monthly:** 2-3 interviews with recently churned customers
+- **Quarterly:** 5-8 interviews tied to a specific research question (new segment, new feature, positioning refresh)
+- **Annually:** A full interview cycle across all key segments to update your core positioning
+
+Consistency matters more than volume. Two interviews a month over a year produces richer institutional knowledge than a single 30-interview sprint.
+
+---
+
+<ResourceList resources={[
+  { title: "The Mom Test - Rob Fitzpatrick", url: "https://www.momtestbook.com/", type: "article", free: false },
+  { title: "Jobs to Be Done: Theory to Practice - Anthony Ulwick", url: "https://jobs-to-be-done.com/", type: "article", free: false },
+  { title: "State of Product Marketing 2024 - Product Marketing Alliance", url: "https://productmarketingalliance.com/state-of-product-marketing/", type: "docs", free: false },
+  { title: "Continuous Discovery Habits - Teresa Torres", url: "https://www.producttalk.org/continuous-discovery-habits/", type: "article", free: false },
+  { title: "How to Run Customer Interviews - Lenny Rachitsky", url: "https://www.lennysnewsletter.com/p/how-to-interview-your-customers", type: "article", free: true },
+]} />
