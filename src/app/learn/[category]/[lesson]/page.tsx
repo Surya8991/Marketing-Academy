@@ -54,6 +54,9 @@ export default async function LessonPage({ params }: Props) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="flex gap-12">
+          {/* Desktop ToC (LEFT) */}
+          <TableOfContentsDesktop />
+
           {/* Main column */}
           <div className="flex-1 min-w-0 max-w-3xl mx-auto xl:mx-0">
             {/* Breadcrumb */}
@@ -151,8 +154,6 @@ export default async function LessonPage({ params }: Props) {
             </div>
           </div>
 
-          {/* Desktop ToC */}
-          <TableOfContentsDesktop />
         </div>
       </div>
     </>
