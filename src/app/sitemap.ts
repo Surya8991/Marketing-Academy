@@ -32,9 +32,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     )
   );
 
-  const lessonRoutes: MetadataRoute.Sitemap = results
-    .filter((r): r is PromiseFulfilledResult<MetadataRoute.Sitemap[number]> => r.status === "fulfilled")
-    .map((r) => r.value);
+  const lessonRoutes: MetadataRoute.Sitemap = results.flatMap((r) =>
+    r.status === "fulfilled" ? [r.value] : []
+  );
 
   return [...staticRoutes, ...categoryRoutes, ...lessonRoutes];
 }
