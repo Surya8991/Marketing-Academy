@@ -1,87 +1,155 @@
 export const lessonMeta = {
   title: "The Positioning Doc",
   level: "Intermediate",
-  summary: "April Dunford framework: the one doc that aligns everyone.",
+  summary: "How to write the one internal document that aligns every team on what your product is, who it is for, and why buyers should choose it.",
 };
 
 # The Positioning Doc
 
-## What It Is
+In 2025, over 30,000 SaaS companies compete for the same buyers, yet only 8% of companies have achieved real alignment between sales and marketing. The positioning doc is the one artifact that fixes that gap before it costs you a deal.
 
-A positioning doc is a single internal document that captures exactly what your product is, who it is for, and why those people should choose it over every alternative. It is not a tagline, a pitch deck, or a landing page headline. It is the source of truth that all of those things are built from.
+## Quick Summary
 
-April Dunford - a positioning expert who has worked hands-on with over 200 companies including Google, IBM, Postman, and Epic Games - defines positioning as "the act of deliberately defining how you are the best at something that a defined market cares a lot about." The positioning doc turns that definition into a structured artifact your whole team can use.
+- A positioning doc is an internal source-of-truth document, not a tagline or landing page headline.
+- It uses April Dunford's five-component framework: competitive alternatives, unique attributes, value, target customer, and market category.
+- Companies with aligned messaging achieve 38% higher sales win rates and 208% higher marketing revenue than misaligned peers.
+- The doc is written once in a cross-functional workshop and updated whenever the market, product, or competitive landscape shifts.
+- Positioning is discovered from evidence, not invented from wishful thinking.
 
-The document typically fits on one page. It is written for internal audiences: product managers, salespeople, marketers, and executives. When everyone reads from the same positioning doc, they stop pulling the message in different directions.
+## What It Actually Is
 
-## Real-World Example
+A positioning doc is a single internal page that answers five questions: what would buyers use if you did not exist, what can only you do, what does that capability actually do for the buyer, who feels that benefit most acutely, and what mental frame helps buyers understand you fastest. Every tagline, ad, sales deck, and onboarding email your team produces is downstream of this document.
 
-A B2B SaaS company implementing Dunford's framework found that articulating a single unique capability - multilingual search accuracy - with a concrete proof point led to a measurable outcome: a 30% reduction in search-related customer service tickets within one quarter of the repositioning. The team had always known the feature existed. The positioning doc forced them to state clearly who cared about it, why it mattered, and what the proof was.
+Think of it like a building's load-bearing wall. Nobody sees it from the outside. Remove it and the whole structure collapses. The positioning doc is invisible to customers but holds up every customer-facing message you produce.
 
-<Callout type="example">
-**How a focused positioning doc changed the sales conversation**
+April Dunford, who has worked with more than 200 companies including Google, IBM, Postman, and Epic Games, defines positioning as "the act of deliberately defining how you are the best at something that a defined market cares a lot about." The doc turns that definition into a structured artifact everyone on the team can reference and test against.
 
-Before the positioning doc, the sales team pitched "powerful search" as one of a dozen features. After the exercise, they led with "the only multilingual search tool that reduces support tickets by 30% - proven with customers in three verticals." Close rates on enterprise deals improved because reps stopped improvising and started repeating a tested message. The doc did not write the pitch - it gave the pitch a foundation.
-</Callout>
+## Why It Matters (with data)
 
-## Why It Matters
+Misalignment is invisible until it is expensive. The numbers in 2024 and 2025 make the cost concrete:
 
-Without a positioning doc, every team member fills the gap with their own version of what the product is. Sales says one thing. Marketing writes another. The CEO says something different on a podcast. Customers get confused and buy from competitors who sound clearer.
+- **40.2% of companies** struggle to position themselves as the obvious choice in their market, according to [TripleDart's SaaS Positioning Guide](https://www.tripledart.com/saas-marketing/saas-positioning).
+- The average B2B sales win rate in 2024 was **21%**. Organizations with aligned sales and marketing operations achieve **38% higher win rates**, per [DOJO AI's alignment research](https://www.dojoai.com/blog/marketing-sales-alignment-the-complete-guide-for-b2b-teams-2026).
+- Companies treating positioning as a performance-only exercise (without a coherent brand narrative) experience **40% higher customer acquisition costs** and longer sales cycles.
+- Role-specific positioning narratives generate **34% higher content engagement rates** than generic value propositions.
+- One B2B founder reported that a focused repositioning exercise brought **15,000 euros in new revenue within two weeks** of implementation.
 
-This is especially painful when a company grows past 10 people, when a new product is launched into an existing market, or when a competitor enters and the team scrambles to differentiate. Those are the moments when a positioning doc pays back its cost immediately.
+In 2025, the cost of positioning confusion grew further. As every SaaS product rushed to add AI features, conflicting positioning signals across web, sales, and support meant AI-powered discovery tools could not confidently classify or recommend products. Companies with a clear positioning doc kept their visibility; those without it lost ground in the fastest-growing discovery channel.
 
-The business problem it solves: misalignment is invisible until it costs you a deal, a hire, or a partnership. The positioning doc makes alignment visible and checkable.
+## How It Works: The Playbook
 
-## How It Works
-
-Dunford's framework has five core components. Each one builds on the one before it.
+Dunford's framework runs in a specific sequence. Each component is defined relative to the one before it. Running them out of order produces a doc that sounds good internally but falls apart in a real sales conversation.
 
 <Mermaid chart={`flowchart TD
-  A["Competitive Alternatives\\nWhat would buyers use if you did not exist?"]
-  B["Unique Attributes\\nWhat features do only you have?"]
-  C["Value - Not Features\\nWhat does each attribute actually do for the buyer?"]
-  D["Target Customer\\nWho cares most about that value?"]
-  E["Market Category\\nWhat frame helps buyers understand you fastest?"]
+  A["1. Competitive Alternatives\\nWhat would buyers use if you did not exist?"]
+  B["2. Unique Attributes\\nWhat features or facts only you have?"]
+  C["3. Value - Not Features\\nWhat does each attribute actually do for the buyer?"]
+  D["4. Target Customer\\nWho feels that value most acutely?"]
+  E["5. Market Category\\nWhat frame lets buyers understand you fastest?"]
   A --> B
   B --> C
   C --> D
   D --> E`} />
 
-**Competitive alternatives** are not just direct competitors. They include spreadsheets, internal tools, doing nothing, or hiring a person. Start here because every other component is defined relative to what you are being compared to.
+### Step 1: Competitive Alternatives
 
-**Unique attributes** are the features or facts that only you have - or that you have in a meaningfully stronger form than anyone else. If your competitor has it too, it does not belong here.
+List what buyers would actually use if your product disappeared tomorrow. This is almost never just your named competitors. It includes:
 
-**Value** translates each attribute into a business outcome. "We process data 10x faster" is an attribute. "Your team ships on Friday instead of waiting until Monday" is value. Buyers pay for value, not attributes.
+- Spreadsheets and manual processes
+- Internal tools or custom builds
+- Hiring a person to do the job
+- Doing nothing and living with the pain
 
-**Target customer** is the segment of buyers who feel the value most acutely. Positioning gets sharper when the target is narrower. "Mid-market SaaS companies with a 5-person RevOps team" is more useful than "B2B companies."
+Every component that follows is only meaningful relative to this list. If a spreadsheet is the real alternative, your uniqueness is measured against a spreadsheet, not against a $20M-funded competitor.
 
-**Market category** is the context you set in the buyer's mind. Calling yourself a "CRM" sets one context. Calling yourself a "revenue workspace" sets another. The category determines your default competitors and your default evaluation criteria.
+### Step 2: Unique Attributes
+
+List the features or facts you have that your alternatives do not. The filter is strict: if a competitor has it too, it does not belong here. This forces honesty. Most teams initially list things every product in the category has. Push past those until you find what is genuinely yours.
+
+### Step 3: Value - Not Features
+
+Translate each unique attribute into a business outcome the buyer actually cares about. This is where most positioning docs fail.
+
+- Attribute: "We process files 10x faster."
+- Value: "Your team ships on Friday instead of waiting until Monday."
+
+Buyers do not purchase attributes. They purchase the outcomes those attributes produce. The value column is what goes into ads, sales pitches, and onboarding emails.
+
+### Step 4: Target Customer
+
+Identify the specific segment that feels the value most acutely. Sharper is better. "Mid-market SaaS companies with a 5-person RevOps team that just hit $5M ARR" is more useful than "B2B companies." The narrower definition feels risky internally but produces copy that resonates with exactly the right buyers.
+
+### Step 5: Market Category
+
+Choose the mental frame you want to set in the buyer's mind. This decision is more consequential than most teams realize. Calling yourself a "CRM" activates an existing set of competitors and evaluation criteria in the buyer's head. Calling yourself a "revenue workspace" or "deal intelligence platform" sets a different frame entirely.
+
+The category you choose determines:
+- Who you are automatically compared to
+- What the buyer's default evaluation checklist looks like
+- What price range feels reasonable
+
+<Callout type="info">
+**Who should be in the room**
+
+Dunford recommends a cross-functional workshop with at least one person from sales, product, marketing, and customer success. Sales knows why deals are won and lost. Product knows what is defensible. Marketing knows what lands in copy. Customer success knows what customers actually use day-to-day. Miss any one of these perspectives and the doc will have a blind spot that shows up in the field.
+</Callout>
+
+## Real Company Examples
+
+### Slack - Repositioning to Win Against Email (2014 to 2019)
+
+When Slack launched, the competitive alternative was not other chat tools. It was email and the habit of forwarding threads to share context. Slack's positioning doc (or functional equivalent) identified that the unique attribute was threaded, searchable, channel-based messaging. The value was not "less email" as a feature: it was "the entire company's institutional knowledge, findable in seconds." The target customers were engineering and product teams at technology companies, not enterprises. The market category Slack chose was not "enterprise messaging" but "team communication" - a softer, less formal frame that made adoption feel lower-risk. By 2019, Slack had 10 million daily active users and a $7.1 billion IPO valuation.
+
+### Notion - Repositioning from "Notes App" to "Connected Workspace" (2020 to 2024)
+
+Notion originally competed in the notes-and-docs category alongside Evernote and Google Docs. The competitive alternatives were those tools plus wikis like Confluence. The pivot was identifying a unique attribute - everything in one place, linked: docs, databases, projects, and wikis - and translating it into a value that resonated: "You stop copying information between six tools and start working in one place." Repositioning to "connected workspace" in 2020 moved Notion out of a commoditized category into one it essentially owned. By 2024, Notion had more than 30 million users and a $10 billion valuation, compared to Evernote which declined sharply in the same period despite launching earlier and having more name recognition.
+
+<Callout type="example">
+**What a completed positioning doc actually changes**
+
+A mid-market SaaS company running Dunford's five-step workshop found their real competitive alternative was not a named competitor but a combination of Excel and a hired data analyst. Once that was clear, their "unique attribute" column changed completely. Instead of listing features that beat other software, they listed the specific capabilities that beat the Excel-plus-analyst workflow. The value column shifted from "faster reporting" to "your analyst focuses on strategy instead of data entry." The target customer narrowed from "operations teams" to "revenue operations managers at companies between 50 and 500 employees." The market category changed from "BI tool" to "RevOps automation." Every single sales deck, ad, and email changed as a result - and sales reps reported that objection handling became dramatically simpler because buyers already understood the product before the demo started.
+</Callout>
 
 ## Common Mistakes
 
-<Callout type="warning">
-**The trap: writing positioning that describes what you want to be, not what you actually are.**
+**1. Writing aspirational positioning instead of evidenced positioning**
 
-Most first drafts of a positioning doc are aspirational. Teams write the market category they wish they were in, the customers they wish they had, and the attributes they are still building. The result is a doc that no salesperson believes and no customer recognizes. The fix is to start from evidence: real win/loss data, actual customer quotes, and features that already ship. Positioning is discovered, not invented.
-</Callout>
+Most first drafts describe the company the team wishes they were, not the company that exists today. The market category is aspirational. The target customer is the dream buyer, not the actual buyer. The unique attributes include features still on the roadmap. The result is a doc that no salesperson believes and no customer recognizes. Start from win/loss data, actual customer quotes, and features that already ship.
 
-<Callout type="info">
-**Who should be in the room when you write it?**
+**2. Treating the five components as independent**
 
-The positioning doc should not be written by one person in isolation. Dunford recommends a cross-functional workshop with at least one person each from sales, product, marketing, and customer success. Sales knows why deals are won and lost. Product knows what is defensible. Marketing knows what lands in copy. Customer success knows what customers actually use. Miss any one of these and the doc will have a blind spot.
-</Callout>
+Teams often jump straight to market category or target customer without completing the prior steps. The components are sequential for a reason. Your unique attributes are only meaningful relative to your competitive alternatives. Your value is only meaningful relative to your unique attributes. Skipping ahead produces positioning that sounds logical but does not hold up under a customer's follow-up question.
 
-## The One-Line Takeaway
+**3. Making the target customer too broad**
 
-**A positioning doc is not a marketing exercise - it is an alignment tool, and the one hour you spend writing it saves ten hours of mixed messages across every team.**
+"SMBs" or "B2B companies" is not a target customer. The rule of thumb is: if your positioning works equally well for two very different buyers, it is not specific enough. Narrowing feels risky. In practice, it increases conversion rates because the right buyers feel the message was written specifically for them.
+
+**4. Confusing market category with product category**
+
+Product category is what you build. Market category is the frame you choose to set in the buyer's mind. They do not have to match. Choosing the wrong market category activates the wrong comparison set and the wrong evaluation criteria, regardless of how good the product actually is.
+
+**5. Writing the doc once and never updating it**
+
+Positioning is not permanent. The competitive landscape shifts. A new entrant redefines the category. Your own product evolves to serve a different customer segment. A positioning doc that was accurate in 2023 may actively mislead buyers in 2025. Schedule a positioning review when a major competitor launches, when you add a significant product capability, or when win rates drop unexpectedly.
+
+## Key Takeaways
+
+- A positioning doc is an internal alignment tool. It is the source of truth that all customer-facing messaging is built from.
+- The five components run in sequence: competitive alternatives first, market category last.
+- Alignment directly moves revenue: companies with aligned teams achieve 38% higher win rates and 208% higher marketing revenue.
+- Positioning is discovered from evidence, not invented from aspiration. Start with real win/loss data and customer quotes.
+- The target customer should be narrow enough that the positioning does not apply to everyone. That specificity is a feature, not a flaw.
+- Review and update the doc whenever the market, competitive landscape, or product changes significantly.
 
 <ResourceList resources={[
-  { title: "Obviously Awesome - April Dunford (Book)", url: "https://www.aprildunford.com/obviously-awesome", type: "article", free: false, note: "The definitive guide to the positioning framework this lesson is built on" },
-  { title: "April Dunford: A Product Positioning Exercise", url: "https://www.aprildunford.com/post/a-product-positioning-exercise", type: "article", free: true, note: "Step-by-step walkthrough of the five-component positioning exercise" },
-  { title: "Lenny's Newsletter: April Dunford on product positioning and segmentation", url: "https://www.lennysnewsletter.com/p/summary-april-dunford-on-product", type: "article", free: true, note: "Summary of key positioning insights with practical examples" },
-  { title: "Gainsight: Product Positioning Strategy from April Dunford", url: "https://www.gainsight.com/blog/product-positioning-strategy-in-economic-volatility-lessons-from-the-obviously-awesome-april-dunford/", type: "article", free: true, note: "Applying Dunford's framework during volatile market conditions" },
-  { title: "April Dunford on B2B Tech Positioning - The Growth Syndicate", url: "https://www.thegrowthsyndicate.com/resources/b2b-tech-positioning-dunford", type: "video", lang: "en", free: true, note: "Deep dive into B2B positioning tactics with concrete examples" },
-  { title: "WsCube Tech - The Positioning Doc (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India top Hindi digital marketing channel" },
+  { title: "Obviously Awesome - April Dunford", url: "https://www.aprildunford.com/obviously-awesome", type: "article", free: false, note: "The definitive book on the five-component positioning framework this lesson is built on" },
+  { title: "April Dunford: A Product Positioning Exercise", url: "https://www.aprildunford.com/post/a-product-positioning-exercise", type: "article", free: true, note: "Step-by-step walkthrough of the positioning exercise with examples" },
+  { title: "Lenny's Newsletter: April Dunford on product positioning and segmentation", url: "https://www.lennysnewsletter.com/p/summary-april-dunford-on-product", type: "article", free: true, note: "Summary of key positioning insights with practical examples from the podcast" },
+  { title: "TripleDart: Complete Guide to SaaS Positioning 2025", url: "https://www.tripledart.com/saas-marketing/saas-positioning", type: "article", free: true, note: "Data-backed positioning guide with statistics on SaaS market trends and misalignment costs" },
+  { title: "DOJO AI: Marketing Sales Alignment Complete Guide 2025", url: "https://www.dojoai.com/blog/marketing-sales-alignment-the-complete-guide-for-b2b-teams-2026", type: "article", free: true, note: "Research on alignment impact including 38% higher win rates and 208% revenue uplift data" },
+  { title: "Miro: Product Positioning Template and Framework Guide", url: "https://miro.com/product-development/product-positioning/", type: "tool", free: true, note: "Interactive positioning template with canvas for running the five-step workshop" },
+  { title: "Gainsight: Product Positioning Strategy from April Dunford", url: "https://www.gainsight.com/blog/product-positioning-strategy-in-economic-volatility-lessons-from-the-obviously-awesome-april-dunford/", type: "article", free: true, note: "Applying Dunford's framework during volatile market conditions in 2024 to 2025" },
+  { title: "WsCube Tech - The Positioning Doc (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
   { title: "Mr Digital Marketing Tamil - The Positioning Doc", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
-  { title: "ODMT Telugu - The Positioning Doc (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+  { title: "ODMT Telugu - The Positioning Doc", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
 ]} />
