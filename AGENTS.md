@@ -122,9 +122,10 @@ LessonContent = mod.default;
 // Dynamic import inside useEffect only — never at module level
 ```
 
-### Rule 9 — lucide-react v1.18 has no `Youtube` icon
+### Rule 9 — lucide-react v1.18 has no `Youtube` or `Github` icon
 ```tsx
-import { Play } from "lucide-react";  // use Play instead
+import { Play } from "lucide-react";         // use Play instead of Youtube
+import { ExternalLink } from "lucide-react"; // use ExternalLink instead of Github
 ```
 
 ### Rule 10 — next.config.ts plugin format — string/tuple, not function
@@ -155,4 +156,23 @@ src/content/seo/keyword-research.mdx
 src/content/growth/ab-testing.mdx
 src/content/ai-marketing/rag-for-marketers.mdx
 ```
-Category slugs: `fundamentals`, `seo`, `paid-ads`, `growth`, `social`, `content`, `email`, `analytics`, `tools`, `ai-marketing`
+Category slugs: `fundamentals`, `seo`, `paid-ads`, `growth`, `social`, `content`, `email`, `analytics`, `tools`, `psychology`, `copywriting`, `cro`, `brand-strategy`, `product-marketing`, `ai-marketing`
+
+### Rule 13 — New global components available in MDX
+In addition to Callout, Mermaid, ResourceList - the Quiz component is registered globally too. Do NOT import it.
+
+### Rule 14 — ResourceList lang field
+```mdx
+{ title: "WsCube Tech (Hindi)", url: "https://...", type: "video", lang: "hi", free: true, note: "..." },
+{ title: "Tamil channel", url: "https://...", type: "video", lang: "ta", free: true },
+```
+Valid lang values: `"en"` | `"hi"` | `"ta"` | `"te"` — renders colored badge in ResourceList.
+
+### Rule 15 — Every lesson must end with 3 multilingual entries
+The last 3 entries of every ResourceList must be:
+```mdx
+{ title: "WsCube Tech - [Topic] (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+{ title: "Mr Digital Marketing Tamil - [Topic]", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+{ title: "ODMT Telugu - [Topic]", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+```
+CRITICAL: every resource object including the last one needs a trailing comma before `]} />`
