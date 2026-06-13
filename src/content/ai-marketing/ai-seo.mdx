@@ -1,0 +1,52 @@
+export const lessonMeta = {
+  title: "AI for SEO",
+  level: "Intermediate",
+  summary: "Keyword clustering, content briefs, internal link mapping with AI.",
+};
+
+# AI for SEO
+
+SEO in 2025 is not about stuffing a page with one keyword anymore. Google's AI Overviews and the shift to semantic search reward sites that cover whole topics, link them tightly, and answer real intent. AI tools let a one-person content team do the keyword clustering, brief writing, and internal link mapping that used to take an agency.
+
+## What It Actually Is
+
+AI for SEO means using large language models and embeddings to do three jobs that used to be manual: group thousands of keywords into intent clusters, turn each cluster into a structured content brief, and map internal links between related pages on your site. Example: paste 2,000 keywords from Google Search Console into a tool like Keyword Insights, and it returns 80 topic clusters, each with a suggested pillar page, supporting articles, and the SERP intent (informational, commercial, transactional).
+
+## Why It Matters (with data)
+
+The adoption curve is steep and the returns are real. According to [SEOmator's 2026 AI SEO statistics roundup](https://seomator.com/blog/ai-seo-statistics), 86% of enterprise SEO professionals have already integrated AI into their workflow and 82% plan to increase that investment. The same body of research shows AI-driven SEO campaigns delivering a 45% lift in organic traffic and a 38% lift in conversion rates for e-commerce sites.
+
+The market backs that up: the AI SEO software category was valued at roughly $1.2 billion in 2024 and is projected to hit $4.5 billion by 2033, a 15.2% CAGR per [The SEO Works AI SEO statistics report](https://www.seoworks.co.uk/downloads/ai-seo-statistics/). Meanwhile, [Semrush's 2026 best-AI-SEO-tools review](https://www.semrush.com/blog/best-ai-seo-tools/) notes that 83% of SEO professionals at companies with 200+ employees report improved performance after adopting AI tooling.
+
+## How It Works / The Playbook
+
+Run this three-stage workflow once a quarter for each content pillar:
+
+1. **Cluster your keywords by intent.** Export 1,000-5,000 keywords from Google Search Console, Ahrefs, or Semrush. Feed them to a clustering tool (Keyword Insights, SEOcluster.ai, or a custom script using OpenAI embeddings + HDBSCAN). The tool groups keywords whose SERPs overlap, which is a stronger signal than semantic similarity alone.
+2. **Generate content briefs per cluster.** For each cluster, prompt an LLM with the top 10 ranking URLs, the People Also Ask questions, and the cluster keywords. Ask for: H2/H3 outline, target word count, entities to mention, FAQ section, and the search intent in one sentence. Frase, Surfer, and Keyword Insights automate this end-to-end.
+3. **Map internal links with embeddings.** Crawl your site, embed each URL's content, then for every new article find the top 5 most semantically similar existing pages and propose anchor text. This is where tools like seo.ai's internal linking tool or a custom Pinecone + GPT pipeline beat manual linking by an order of magnitude.
+
+<Callout type="example">
+NerdWallet rebuilt its internal linking system using ML-driven topic clustering and saw clear topical-authority gains across its money and insurance verticals. Smaller operators have replicated the pattern: per [Semrush's tool review](https://www.semrush.com/blog/best-ai-seo-tools/), agencies using Keyword Insights cut brief production time from 4 hours to 30 minutes per article while increasing published volume 3x without quality loss.
+</Callout>
+
+## Common Mistakes
+
+- Clustering on semantic similarity only, ignoring SERP overlap. Two keywords can mean the same thing but rank different page types, so they need separate articles.
+- Publishing AI-generated briefs as finished articles. The brief is scaffolding, not the building. Human editing, original data, and expert quotes are what beat the 10 pages already ranking.
+- Internal-linking every new article to the same 5 "money pages." Embeddings-based linking spreads equity to deep pages and lifts long-tail rankings, which is where most organic traffic actually comes from.
+- Treating AI Overviews as a threat instead of a format. Pages structured around clear questions, short answers, and entity-rich content get cited inside the Overview block.
+
+## Key Takeaways
+
+- Cluster keywords by SERP overlap, not just meaning, before you write anything.
+- Use AI to produce the brief and the link map, not the final prose. Editorial judgment is still the moat.
+- Internal linking driven by embeddings is the highest-ROI AI SEO play most sites are not yet running.
+
+<ResourceList resources={[
+  { title: "Semrush: 7 Best AI SEO Tools for 2026", url: "https://www.semrush.com/blog/best-ai-seo-tools/", type: "article", free: true },
+  { title: "SEOmator: 30+ AI SEO Statistics for 2026", url: "https://seomator.com/blog/ai-seo-statistics", type: "article", free: true },
+  { title: "The SEO Works: 75 AI SEO Statistics", url: "https://www.seoworks.co.uk/downloads/ai-seo-statistics/", type: "article", free: true },
+  { title: "SEOcluster.ai keyword clustering tool", url: "https://seocluster.ai/", type: "tool", free: false },
+  { title: "seo.ai internal linking tool", url: "https://seo.ai/tools/internal-linking-tool", type: "tool", free: true },
+]} />

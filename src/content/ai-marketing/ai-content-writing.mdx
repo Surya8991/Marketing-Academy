@@ -1,0 +1,63 @@
+export const lessonMeta = {
+  title: "AI for Content Writing",
+  level: "Beginner",
+  summary: "ChatGPT, Claude, Gemini - prompting for blog posts, ads, emails.",
+};
+
+# AI for Content Writing
+
+If you write marketing copy for a living and you're not using a large language model yet, you're competing against people who ship 3 to 10 times more drafts per week than you do. This lesson is for marketers, founders, and content writers who want to stop treating ChatGPT like a magic 8-ball and start using it (plus Claude and Gemini) as a real production tool for blog posts, ads, and emails.
+
+## What It Actually Is
+
+AI content writing means using a large language model (LLM) like OpenAI's ChatGPT, Anthropic's Claude, or Google's Gemini to draft, edit, or restructure marketing copy. You give the model a prompt - instructions plus context - and it returns text. A good prompt for a product email isn't "write me an email." It's something like: "You are a B2B SaaS copywriter. Write a 90-word re-engagement email to trial users who signed up but never logged in. Tone: friendly, specific, no hype. CTA: book a 15-minute setup call."
+
+## Why It Matters (with data)
+
+The shift is already done at the top of the market. As of August 2025, ChatGPT held roughly 60.4% of the generative-AI chatbot market, and 70% of Fortune 100 companies use Claude according to industry trackers ([Electroiq](https://electroiq.com/stats/claude-vs-chatgpt-statistics/)). Among content marketers specifically, ChatGPT is the most trusted tool with an 80% selection rate, with Claude at 55% ([Siege Media, 2026 AI Writing Statistics](https://www.siegemedia.com/strategy/ai-writing-statistics)).
+
+The productivity gains are real, not vibes. ChatGPT reduces blog writing time by 40 to 70%, and writers using it ship 3 to 10 times more content per week. The share of marketers using AI for editing doubled in a single year, from 19% in 2025 to 38% in 2026 ([Siege Media](https://www.siegemedia.com/strategy/ai-writing-statistics)). Teams that built specialized AI marketing workflows on top of general models reported a 37% increase in campaign effectiveness ([Siege Media](https://www.siegemedia.com/strategy/ai-writing-statistics)).
+
+## How It Works / The Playbook
+
+Pick the right model for the job:
+
+- **ChatGPT (GPT-4o / GPT-5)** - best default for structured output, ad variations, and bulk generation. Tends toward a five-paragraph essay shape unless you stop it.
+- **Claude (Sonnet / Opus)** - best default writing voice; reads more naturally and resists generic intros. Strong for long-form blog posts and brand-voice work.
+- **Gemini** - best when you need fresh information pulled from Google Search inside the draft, or when working inside Google Docs and Workspace.
+
+Use a 4-part prompt structure for any marketing copy:
+
+1. **Role** - "You are a direct-response email copywriter for a Series A fintech."
+2. **Task** - "Write 3 subject-line variants and a 110-word body for a webinar invite."
+3. **Context** - audience, product, brand voice, one example of past copy you liked.
+4. **Constraints** - word count, tone, banned words ("don't use 'unlock', 'leverage', or 'in today's fast-paced world'").
+
+For blog posts, don't ask for a full article in one shot. Run it in three passes: outline first, draft section by section, then edit for voice. For ads, generate 10 to 20 variants in one prompt, then have the model rank its own outputs against a specific buying-stage hypothesis. For emails, paste your last 3 high-performing sends as in-context examples; this beats any "tone slider."
+
+<Callout type="example">
+HubSpot reported that its marketing team used AI assistance to scale blog production while keeping editorial review tight, and the AI Writing Statistics 2026 report from Siege Media documents that AI-assisted writers ship 3 to 10 times more drafts per week than peers, with blog writing time cut 40 to 70%. The catch: every draft still goes through a human editor before publish, because raw AI output without fact-checking is where the brand damage happens. ([Siege Media](https://www.siegemedia.com/strategy/ai-writing-statistics))
+</Callout>
+
+## Common Mistakes
+
+- **Single-shot prompting.** Asking for a finished 1,500-word post in one prompt. Output is generic. Break it into outline, sections, edit pass.
+- **No examples in the prompt.** The model has no idea what your brand sounds like unless you paste 2 to 3 samples of past copy directly into the context window.
+- **Trusting stats and quotes the model invents.** LLMs hallucinate numbers and source names confidently. Verify every stat, name, and date before publishing.
+- **Skipping the banned-words list.** Without explicit constraints, you get "delve," "unlock," "in today's rapidly evolving landscape," and other AI-tells that destroy credibility.
+- **Using one model for everything.** Drafting in Claude and polishing in ChatGPT (or vice versa) often beats either model alone.
+
+## Key Takeaways
+
+- The productivity delta is real: 3 to 10x more drafts per week and 40 to 70% less blog writing time, per 2026 industry data.
+- Pick the model to match the job: ChatGPT for structure and bulk, Claude for voice and long-form, Gemini for fresh search-grounded copy.
+- Every prompt needs Role, Task, Context, and Constraints; paste real examples for brand voice.
+- Humans still own fact-checking and final edits. AI without an editor is how brands ship hallucinated stats.
+
+<ResourceList resources={[
+  { title: "51 AI Writing Statistics To Know (Siege Media)", url: "https://www.siegemedia.com/strategy/ai-writing-statistics", type: "article", free: true },
+  { title: "Claude vs ChatGPT Statistics (Electroiq)", url: "https://electroiq.com/stats/claude-vs-chatgpt-statistics/", type: "article", free: true },
+  { title: "Prompt Engineering Principles (PromptHub)", url: "https://www.prompthub.us/blog/prompt-engineering-principles-for-2024", type: "article", free: true },
+  { title: "Anthropic Prompt Engineering Docs", url: "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview", type: "docs", free: true },
+  { title: "OpenAI Prompt Engineering Guide", url: "https://platform.openai.com/docs/guides/prompt-engineering", type: "docs", free: true },
+]} />

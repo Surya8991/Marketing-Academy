@@ -1,0 +1,60 @@
+export const lessonMeta = {
+  title: "AI in Marketing 101",
+  level: "Beginner",
+  summary: "What AI can and cannot do for marketers - no hype, just honest.",
+};
+
+# AI in Marketing 101
+
+Every marketing newsletter in 2025 has a take on AI, and most of them are either utopian or apocalyptic. This lesson is for the marketer who just wants to know what is real, what is hype, and where to start without setting their brand on fire. No predictions, just what the tools can and cannot do today.
+
+## What It Actually Is
+
+When marketers say 'AI' in 2025, they almost always mean generative AI: large language models (LLMs) like GPT-4o, Claude, and Gemini that predict the next likely word, plus image and video models like Midjourney, Veo, and Sora that do the same thing for pixels. These models do not 'understand' your brand. They pattern-match against billions of training examples and produce statistically plausible output.
+
+Concrete example: ask ChatGPT to write five subject lines for an abandoned cart email and it will produce five subject lines that look like the ones it saw in its training data. Useful as a starting point. Not a strategy.
+
+## Why It Matters (with data)
+
+Adoption is no longer optional. In 2025, [87% of marketers reported using generative AI in at least one workflow](https://coschedule.com/ai-marketing-statistics), up from 51% in 2024. [72% named GenAI the most important consumer trend](https://www.marketingprofs.com/articles/2025/53785/generative-ai-marketing-adoption) heading into the second half of 2025, a 15-point jump from late 2024. The AI marketing software category reached roughly [$47.3B in 2025 and is projected to exceed $107B by 2028](https://pixis.ai/blog/ai-marketing-statistics/).
+
+The productivity story is real but narrower than the headlines suggest. Marketers who use AI for content drafting report recovering around 6 hours a week on average, and content teams cite a 68% reduction in time-to-publish for blog posts and social copy. That is the good news.
+
+The bad news: [AI hallucinations cost businesses an estimated $67.4 billion in 2024](https://medium.com/@prohed/ai-hallucinations-in-marketing-how-often-they-happen-why-they-matter-d750b97155e4), and even leading models still hallucinate on 15% to 27% of complex prompts. If you are scaling AI output without a human review step, you are scaling errors at the same rate.
+
+## How It Works / The Playbook
+
+Treat AI like a fast, slightly drunk intern: useful for first drafts, dangerous when left alone. A sensible beginner workflow:
+
+1. **Pick one bounded task.** Subject lines, ad headline variants, meta descriptions, or first-draft outlines. Not 'run our content strategy'.
+2. **Write a real brief, not a one-liner.** Audience, voice, examples of past wins, constraints, banned words. The prompt is the product.
+3. **Generate 5 to 10 variants.** AI is cheap at volume, expensive at perfection. Use it to widen the funnel of ideas.
+4. **Edit ruthlessly.** Cut adjectives, verify every claim, kill any sentence that sounds like a LinkedIn motivational post.
+5. **Fact-check anything specific.** Numbers, dates, names, quotes, citations. Models invent these constantly.
+6. **Measure.** A/B test AI variants against your human baseline. If the AI version does not win or tie, your brief was weak or the task was wrong for AI.
+
+<Callout type="example">
+In February 2024, a British Columbia tribunal ruled that Air Canada had to honor a bereavement fare refund that its support chatbot had invented out of thin air. The bot hallucinated a policy that did not exist; the court held the airline liable for what its AI said. Cost: a refund, legal fees, and a global news cycle about an airline whose chatbot lied. Source: [BBC News coverage of the Moffatt v. Air Canada ruling](https://www.bbc.com/travel/article/20240222-air-canada-chatbot-misinformation-what-travellers-should-know).
+</Callout>
+
+## Common Mistakes
+
+- **Publishing AI output unedited.** Readers spot the cadence ('In today's fast-paced world...'), Google penalizes thin content, and one hallucinated stat can tank your credibility.
+- **Using AI for original research or strategy.** LLMs cannot tell you what your customers want. They can only remix what was written about other customers.
+- **Trusting AI-generated citations.** Models will confidently cite studies, authors, and URLs that do not exist. Always click the link.
+- **Skipping the brand voice step.** Generic AI output reads generic. If you cannot describe your brand voice in a prompt, AI will default to the bland average of the internet.
+- **Treating AI as a cost-cutting tool first.** The teams winning with AI in 2025 are using it to do more and better work, not to fire writers. The cost-cut framing leads to thin, interchangeable content.
+
+## Key Takeaways
+
+- AI is a drafting and ideation tool. It is not a strategist, a fact-checker, or a brand.
+- Adoption is now table-stakes (87% of marketers in 2025), but the gap between good and bad AI use is widening fast.
+- Every AI output needs a human edit, a fact-check, and a brand-voice pass before it ships. The Air Canada ruling is the new floor for liability.
+
+<ResourceList resources={[
+  { title: "State of AI in Marketing Report 2025 (CoSchedule)", url: "https://coschedule.com/ai-marketing-statistics", type: "article", free: true },
+  { title: "Generative AI Gains Speed in Marketing Adoption (MarketingProfs)", url: "https://www.marketingprofs.com/articles/2025/53785/generative-ai-marketing-adoption", type: "article", free: true },
+  { title: "Air Canada chatbot misinformation ruling (BBC)", url: "https://www.bbc.com/travel/article/20240222-air-canada-chatbot-misinformation-what-travellers-should-know", type: "article", free: true },
+  { title: "AI Hallucinations in Marketing: How Often and Why It Matters", url: "https://medium.com/@prohed/ai-hallucinations-in-marketing-how-often-they-happen-why-they-matter-d750b97155e4", type: "article", free: true },
+  { title: "OpenAI Prompt Engineering Guide", url: "https://platform.openai.com/docs/guides/prompt-engineering", type: "docs", free: true },
+]} />

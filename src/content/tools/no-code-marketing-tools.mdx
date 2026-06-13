@@ -1,0 +1,62 @@
+export const lessonMeta = {
+  title: "No-Code and Low-Code for Marketers",
+  level: "Intermediate",
+  summary: "Build landing pages, automations, internal tools — without engineering.",
+};
+
+# No-Code and Low-Code for Marketers
+
+Every marketing team has a backlog of ideas blocked by engineering. A new landing page variant. A lead-routing rule. A campaign tracker. No-code and low-code tools collapse that backlog by letting marketers ship the work themselves, often in hours instead of sprints. This lesson is for marketers who want to stop filing tickets and start shipping.
+
+## What It Actually Is
+
+No-code platforms let you build software using visual interfaces, drag-and-drop components, and configuration instead of writing code. Low-code is the same idea with optional code escape hatches for advanced logic. A concrete example: instead of asking a developer to build a webinar signup flow, you build the landing page in Webflow, store registrations in Airtable, and trigger confirmation emails plus a Slack ping to sales via Zapier — all without touching a Git repo.
+
+## Why It Matters (with data)
+
+The category is no longer fringe. The low-code application development market is estimated at $21.17 billion in 2025 and is projected to reach $81.35 billion by 2030, a 30.9% CAGR according to [Akveo's industry roundup](https://www.akveo.com/low-code-adoption-statistics). Gartner forecasts that 70% of new enterprise applications will be built on no-code or low-code platforms by 2025.
+
+Marketing is the heaviest internal adopter. Per [Zebracat's 2025 statistics report](https://www.zebracat.ai/post/no-code-low-code-statistics), 81% of marketing teams now use no-code or low-code tooling for campaign tracking and automation, and Airtable alone is used by 34% of them. Teams report development time reductions of up to 90% on the projects they take in-house.
+
+## How It Works / The Playbook
+
+Think in three layers. Pick one tool per layer and you have a working marketing stack.
+
+1. **Front end (what users see).** Webflow, Framer, or Carrd for landing pages and microsites. Webflow ships visual CSS controls and a CMS so you can spin up a programmatic SEO template without a developer.
+2. **Data layer (where records live).** Airtable, Notion databases, or Google Sheets. This becomes your campaign tracker, content calendar, lead list, or partner CRM.
+3. **Glue (automations between systems).** Zapier, Make, or n8n. These trigger actions across tools — form submission creates an Airtable row, sends a Slack message, enrolls the lead in HubSpot.
+
+A typical first project, in order:
+
+- Map the workflow on paper first. List every trigger, condition, and action.
+- Build the data schema in Airtable before building the page.
+- Ship the landing page, point the form at your automation tool, and test with three dummy submissions.
+- Add error handling: a fallback email to a shared inbox if the Zap fails.
+- Document the system in a Notion page so the next marketer can edit it.
+
+<Callout type="example">
+User Interviews, the research recruiting platform, rebuilt its marketing site on Webflow and wired it to Airtable, Zapier, and Zendesk. Their Participant Contact Form now collects thousands of submissions per year and triages each one automatically: Zapier creates a Zendesk ticket, fires a Slack alert, and routes the record into Airtable. The growth marketing team runs the entire system in-house with no backend engineers. Webflow and Zapier formalized the pattern with a native integration via the Workflow API in December 2024, per [CMSWire's case study](https://www.cmswire.com/customer-experience/from-manual-to-magical-how-webflow-and-zapier-power-user-interviews-high-performance-website/).
+</Callout>
+
+## Common Mistakes
+
+- Building before mapping. Marketers open Zapier first and discover the logic is broken three steps in. Sketch the workflow on a whiteboard before you click anything.
+- Treating Airtable as a CRM forever. It is great for prototypes and lightweight ops, but once a record has 12 linked tables and 4,000 rows, migrate to HubSpot or Salesforce.
+- Ignoring task volume pricing. Zapier and Make bill per task or operation. A single high-traffic form can burn through a starter plan in a week. Estimate volume before you commit.
+- No version control or change log. When a Zap silently breaks at 2 a.m., nobody knows what changed. Keep a shared doc with every automation, its owner, and its last edit date.
+- Skipping security review. A Zap that posts form data to a public Google Sheet is a GDPR incident waiting to happen. Loop in legal or IT for anything touching PII.
+
+## Key Takeaways
+
+- No-code is the marketing team's leverage: 81% of marketing teams already use it, and the market is on track to nearly quadruple by 2030.
+- Pick one tool per layer — front end, data, glue — and resist stacking redundant platforms.
+- Map workflows before building, document every automation, and plan a migration path off prototypes that outgrow their tools.
+
+<ResourceList resources={[
+  { title: "Akveo: Low-Code Adoption Statistics 2025", url: "https://www.akveo.com/low-code-adoption-statistics", type: "article", free: true },
+  { title: "Zebracat: 50+ No-Code and Low-Code Statistics", url: "https://www.zebracat.ai/post/no-code-low-code-statistics", type: "article", free: true },
+  { title: "CMSWire: How Webflow and Zapier Power User Interviews", url: "https://www.cmswire.com/customer-experience/from-manual-to-magical-how-webflow-and-zapier-power-user-interviews-high-performance-website/", type: "article", free: true },
+  { title: "Zapier University", url: "https://zapier.com/learn", type: "course", free: true },
+  { title: "Webflow University", url: "https://university.webflow.com/", type: "docs", free: true },
+  { title: "Airtable", url: "https://airtable.com/", type: "tool", free: true },
+]} />
