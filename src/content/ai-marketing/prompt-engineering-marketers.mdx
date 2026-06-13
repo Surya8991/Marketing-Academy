@@ -1,0 +1,105 @@
+export const lessonMeta = {
+  title: "Prompt Engineering for Marketers",
+  level: "Intermediate",
+  summary: "The prompting patterns that make AI output actually usable.",
+};
+
+# Prompt Engineering for Marketers
+
+## What It Is
+
+Prompt engineering is the practice of writing structured instructions for AI tools so they produce useful, on-brand output instead of generic filler. Think of a prompt as a creative brief: the more context you give the AI, the less guesswork it does on your behalf.
+
+Every AI tool you use - ChatGPT, Claude, Gemini, Jasper - takes a prompt as its input. The quality of the output depends almost entirely on the quality of that input. A vague prompt gets vague copy. A specific, well-structured prompt gets content you can actually publish.
+
+Prompt engineering is not coding. It is a communication skill. You are learning to speak a language the AI understands, and the vocabulary is role, context, format, and constraints.
+
+## Real-World Example
+
+Bloomreach, a digital commerce platform, used structured AI prompts through Jasper to systematize their content creation process in 2023-2024. By building reusable prompt templates for blog posts, landing pages, and product descriptions, their content team achieved a **113% increase in blog output** and a **40% increase in overall site traffic** without adding headcount (Source: Influencer Marketing Hub, 2024).
+
+<Callout type="example">
+**Bloomreach: 113% More Content, 40% More Traffic**
+
+Bloomreach built a library of branded prompt templates that gave Jasper their tone of voice, target audience, SEO keywords, and content structure in every request. Writers stopped starting from scratch and instead focused on editing and refining AI drafts. The result was more than double the content volume with the same team size. The key was systematic prompting, not just using AI ad hoc.
+</Callout>
+
+## Why It Matters
+
+Most marketers use AI the same way they use a search engine: they type a vague question and hope for the best. "Write me a LinkedIn post about our new product" produces the kind of generic, hollow copy that gets zero engagement.
+
+The business problem is time versus quality. AI can produce a first draft in seconds, but if that draft needs a full rewrite before it is usable, you have not saved time - you have just moved the work. Structured prompting closes that gap. A well-engineered prompt produces output that needs light editing rather than a full rewrite.
+
+According to a September 2024 American Marketing Association survey, **85% of marketers who use AI say it has increased their productivity** - but the gains are not evenly distributed. Teams with reusable prompt systems see dramatically better results than teams that improvise each time.
+
+<Callout type="info">
+**McKinsey estimate:** Applying generative AI in marketing could unlock 5-15% in productivity gains worth $463 billion annually. The difference between realizing that gain and missing it comes down to how systematically teams structure their prompts.
+</Callout>
+
+## How It Works
+
+Every effective marketing prompt has four components: Role, Context, Task, and Format (RCTF). You do not need all four every time, but the more you include, the better the output.
+
+- **Role:** Tell the AI who it is. "You are a B2B SaaS copywriter with 10 years of experience."
+- **Context:** Give it the background. "We are a project management tool targeting engineering leads at mid-size startups. Our tone is direct and data-driven, never fluffy."
+- **Task:** State exactly what you want. "Write a 150-word LinkedIn post announcing our new Gantt chart feature."
+- **Format:** Specify the output structure. "Use one short opening hook, three bullet points, and a call to action. No hashtags."
+
+<Mermaid chart={`flowchart TD
+    A["Start: Define your goal"] --> B["Role: Who is the AI?"]
+    B --> C["Context: Brand, audience, tone"]
+    C --> D["Task: Specific deliverable + scope"]
+    D --> E["Format: Length, structure, constraints"]
+    E --> F["Draft output from AI"]
+    F --> G{Good enough to edit?}
+    G -- Yes --> H["Edit and publish"]
+    G -- No --> I["Add missing context and re-prompt"]
+    I --> F`} />
+
+### Prompt Patterns That Work in Marketing
+
+**The Template Prompt:** Build a reusable skeleton for a content type you produce often. Fill in the variables each time. Example: "Write a [word count] [content type] for [audience] about [topic]. Tone: [brand tone]. Include: [specific elements]. Avoid: [things to omit]."
+
+**The Persona Prompt:** Give the AI a detailed character to play. "You are a skeptical B2B buyer who has seen every vendor pitch. Review this homepage copy and tell me the three objections you would raise immediately."
+
+**The Iteration Prompt:** Use follow-up prompts to refine output. "Make the opening hook more direct. Replace the second paragraph with a customer stat. Shorten the CTA to under 10 words."
+
+**The Constraint Prompt:** Specify what NOT to do. AI defaults to filler phrases like "In today's fast-paced world" or "Unlock your potential." Adding explicit prohibitions cuts these out. "Do not use these phrases: game-changer, revolutionize, seamless, robust, or leverage."
+
+## Common Mistakes
+
+<Callout type="warning">
+**The trap: treating AI like a search engine.** Most marketers type a one-line request and then spend 20 minutes fixing the output. This is backwards. Spend 3 extra minutes building a detailed prompt and you will spend 3 minutes editing instead of 20. The other common trap is starting fresh each time. Build a prompt library - a shared doc or Notion page where your team saves prompts that worked. Reuse and refine them. Institutional prompt knowledge is a competitive advantage.
+</Callout>
+
+<Callout type="tip">
+**Start with your best existing copy.** Paste a piece of content your team is proud of into the prompt and say "Write in this style." The AI will reverse-engineer your tone far more accurately than any written description. This is the fastest way to get on-brand output from day one.
+</Callout>
+
+## Prompt Quality Checklist
+
+Before you run any AI prompt for marketing work, check these boxes:
+
+1. Have you specified the audience by role, industry, or pain point?
+2. Have you stated the content format and approximate length?
+3. Have you described your brand tone in concrete terms (not just "professional")?
+4. Have you listed at least two things to avoid?
+5. Have you given the AI a role to play that matches the task?
+
+If you can check all five, the output will be usable. If you can only check two, expect to rewrite.
+
+## The One-Line Takeaway
+
+**The prompt is the product: a vague brief produces vague copy, and a specific brief produces specific copy - whether you are briefing a human or an AI.**
+
+<ResourceList resources={[
+  { title: "Skai: A Marketer's Guide to Prompt Engineering", url: "https://skai.io/blog/marketers-guide-to-prompt-engineering/", type: "article", free: true, note: "Practical overview of prompt patterns for marketing teams" },
+  { title: "AMA: Generative AI Takes Off with Marketers (2024 Survey)", url: "https://www.ama.org/marketing-news/generative-ai-takes-off-with-marketers/", type: "article", free: true, note: "AMA survey data on how marketers are actually using AI" },
+  { title: "Influencer Marketing Hub: AI in Advertising Case Studies", url: "https://influencermarketinghub.com/ai-in-advertising-examples/", type: "article", free: true, note: "Real brand examples including Bloomreach productivity stats" },
+  { title: "LearnPrompting.org - Prompt Engineering Guide", url: "https://learnprompting.org/docs/intro", type: "docs", free: true, note: "Free structured course on prompt engineering fundamentals" },
+  { title: "OpenAI Prompt Engineering Guide", url: "https://platform.openai.com/docs/guides/prompt-engineering", type: "docs", free: true, note: "Official tactics from OpenAI for getting better results" },
+  { title: "Dave Birss - How to Write Better AI Prompts", url: "https://www.youtube.com/watch?v=wbGKfAPlZVA", type: "video", lang: "en", free: true, note: "Clear walkthrough of prompt structure for creative and marketing work" },
+  { title: "WsCube Tech - Prompt Engineering for Marketers (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - Prompt Engineering for Marketers", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Prompt Engineering for Marketers (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

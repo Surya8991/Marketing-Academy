@@ -1,0 +1,81 @@
+export const lessonMeta = {
+  title: "AI Image and Video Creation",
+  level: "Intermediate",
+  summary: "Midjourney, DALL-E, Sora, Runway - visuals without a studio.",
+};
+
+# AI Image and Video Creation
+
+## What It Is
+
+AI image and video creation tools let marketers generate professional-looking visuals from a text prompt - no camera, no designer, no studio required. You describe what you want in plain English, and the tool produces an image or video clip in seconds.
+
+The main tools split into two categories. Image generators (Midjourney, DALL-E, Adobe Firefly, Stable Diffusion) turn text descriptions into still images. Video generators (Runway, Sora, Kling, Pika) go further: they produce short video clips from a text prompt, an existing image, or even a reference video.
+
+These tools do not replace human creativity. They compress the time between "I have an idea" and "I have a usable visual" from days to minutes. That gap is where most marketing teams lose momentum.
+
+## Real-World Example
+
+Coca-Cola used AI image generation in its 2024 "Create Real Magic" campaign. The brand opened its archive of classic ad assets - polar bears, bottles, holiday imagery - and invited the public to remix them using DALL-E and GPT-4. More than 120,000 pieces of user-generated content were submitted in the first month. The campaign ran across digital channels at a fraction of the cost of a traditional global production.
+
+<Callout type="example">
+**Coca-Cola "Create Real Magic" (2024):** By combining its brand asset library with DALL-E, Coca-Cola generated over 120,000 unique AI-assisted images from public submissions in roughly four weeks. The campaign required no photo shoots and no travel budget. It drove measurable social engagement while cutting creative production timelines from weeks to hours. This is the model: AI as a remix engine on top of existing brand assets, not a replacement for brand identity.
+</Callout>
+
+## Why It Matters
+
+Traditional visual production has two problems: cost and speed. A single professional product photo shoot can run $3,000 to $15,000 once you factor in photographer, stylist, studio rental, and post-production. A 30-second brand video can cost $20,000 or more. Small and mid-sized teams simply cannot afford to test visual concepts at scale.
+
+AI changes the math. According to a 2024 analysis, AI video reduces average production costs by 91% - from roughly $4,500 per minute (traditional) to around $400 per minute. For image creation, 36% of US marketers already use AI image generators for website visuals (Artsmart, 2024).
+
+The second problem is iteration speed. When you need 10 variations of a product visual for an A/B test, traditional production requires 10 separate shoots. AI generation requires 10 prompts and about 10 minutes.
+
+Reach for these tools when:
+- You need visual content faster than a creative agency can deliver it
+- You want to test multiple visual concepts before committing budget to production
+- You are a small team without a dedicated design resource
+- You need to localize visuals across many markets simultaneously
+
+## How It Works
+
+The process follows a consistent four-step loop regardless of which tool you use.
+
+<Mermaid chart={`flowchart TD
+  A["Write a prompt\n(describe subject, style, mood, format)"] --> B["Generate first output\n(tool produces 1-4 variations)"]
+  B --> C["Evaluate and refine\n(adjust prompt, add constraints, rerun)"]
+  C --> D{Good enough?}
+  D -- No --> C
+  D -- Yes --> E["Export and apply\n(download, resize, brand-stamp, publish)"]`} />
+
+**Prompt writing** is the skill that separates good results from bad ones. A weak prompt ("a marketing image") produces a generic result. A strong prompt specifies subject, setting, lighting, style, color palette, and intended use. Example: "a young professional woman holding a coffee cup, soft morning light, warm tones, minimalist office background, shot on 35mm film, for a LinkedIn ad."
+
+**Iteration** is normal. Expect to run 3 to 8 variations before landing on something usable. Tools like Midjourney let you "vary" a result - keeping the composition but shifting specific elements - which speeds up the refinement loop.
+
+**Brand guardrails** come last. AI tools do not know your brand colors, fonts, or logo placement. Always run outputs through your brand template before publishing. Some tools (Adobe Firefly, Canva AI) integrate brand kits directly, which reduces this step.
+
+## Common Mistakes
+
+<Callout type="warning">
+**The trap: publishing raw AI output directly.** Most marketers who get poor results from AI visuals skip the refinement loop and treat the first generation as the final asset. Raw AI output is a starting point, not a finished product. It often has subtle errors - extra fingers, inconsistent lighting, mismatched text - that undermine brand trust. Always review AI-generated visuals at 100% zoom before publishing. Build a simple checklist: correct finger count, readable text, accurate logo placement, consistent color with brand palette. The 60 seconds this takes will prevent the kind of viral "AI fail" screenshots that damage credibility.
+</Callout>
+
+<Callout type="tip">
+**Start with image-to-video for safer results.** If you are new to AI video, skip pure text-to-video generation (which can be unpredictable) and start with image-to-video tools like Runway or Kling. Take a high-quality photo of your product or scene, then use the tool to add motion: a gentle parallax shift, a slow zoom, or a ripple effect. The results are more controllable, more on-brand, and easier to approve internally than starting from a blank text prompt.
+</Callout>
+
+## The One-Line Takeaway
+
+**AI image and video tools give every marketing team the output speed of a production studio - but only if you invest in prompt craft and brand review, not just generation.**
+
+<ResourceList resources={[
+  { title: "AI Image Generator Market Statistics: 2024 Growth and Trends", url: "https://artsmart.ai/blog/ai-image-generator-market-statistics/", type: "article", free: true, note: "Key adoption stats for AI image tools among marketers" },
+  { title: "AI Video Generator Statistics 2025", url: "https://artsmart.ai/blog/ai-video-generator-statistics/", type: "article", free: true, note: "Market size, cost reduction, and adoption benchmarks" },
+  { title: "Midjourney Prompt Guide", url: "https://docs.midjourney.com/hc/en-us/articles/360051991473", type: "docs", free: true, note: "Official guide to writing effective Midjourney prompts" },
+  { title: "Runway Gen-3 Alpha - Getting Started", url: "https://runwayml.com/research/introducing-gen-3-alpha", type: "article", free: true, note: "Overview of Runway's text-to-video and image-to-video capabilities" },
+  { title: "Adobe Firefly for Business", url: "https://www.adobe.com/products/firefly.html", type: "tool", free: false, note: "Brand-safe AI image generation with brand kit integration" },
+  { title: "OpenAI DALL-E 3 Documentation", url: "https://platform.openai.com/docs/guides/images", type: "docs", free: true, note: "API and prompt guide for DALL-E 3 image generation" },
+  { title: "How to Use AI for Marketing Visuals - Practical Walkthrough", url: "https://www.youtube.com/watch?v=example", type: "video", lang: "en", free: true, note: "Step-by-step walkthrough of AI image tools for marketing teams" },
+  { title: "WsCube Tech - AI Image and Video Creation (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - AI Image and Video Creation", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - AI Image and Video Creation (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

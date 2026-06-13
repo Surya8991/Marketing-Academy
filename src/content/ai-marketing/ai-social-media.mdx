@@ -1,0 +1,161 @@
+export const lessonMeta = {
+  title: "AI for Social Media Marketing",
+  level: "Intermediate",
+  summary: "Use AI tools to ideate, create, schedule, and analyse social media content at scale - without losing your brand voice.",
+};
+
+# AI for Social Media Marketing
+
+Social media teams face a relentless content treadmill. AI changes the economics: the same output that once required a five-person team is now achievable by one strategist who knows how to direct the right tools.
+
+## Why AI Social Media Tools Matter Now
+
+A 2024 survey found that **55% of businesses** now use AI to help create social media posts, up from under 20% in 2022. The shift is not about replacing creativity - it is about removing the low-value labour that crowds out strategic thinking.
+
+<Callout type="example">
+**Coca-Cola (2024):** The brand reported a **27% increase in customer engagement** after deploying AI-driven personalisation and audience segmentation across its social channels. Their approach: AI generated tailored caption variants per demographic segment, then human editors selected and refined the best options before publishing.
+</Callout>
+
+## The AI Social Media Loop
+
+Every high-performing AI-assisted workflow follows the same four stages:
+
+<Mermaid chart={`graph TD
+  A[Audience Research] --> B[Content Ideation]
+  B --> C[Draft Creation]
+  C --> D[Human Review and Brand Check]
+  D --> E[Schedule and Publish]
+  E --> F[Performance Analytics]
+  F --> G[Insight Feed-back into Research]
+  G --> A`} />
+
+### Stage 1 - Audience Research
+
+AI tools like Brandwatch, Sprout Social Listening, and ChatGPT with browsing can surface:
+
+- Trending topics in your niche (past 7-30 days)
+- Sentiment shifts around competitor brands
+- Questions your audience asks repeatedly (great for educational content)
+
+**Prompt template:**
+```
+"List the top 10 questions people in [industry] ask on Reddit and Quora in 2024. Group them by intent: awareness, consideration, and decision."
+```
+
+### Stage 2 - Content Ideation
+
+Feed your audience research into an LLM to generate a content calendar. A strong prompt specifies:
+
+- Platform (LinkedIn vs Instagram vs X vs YouTube Shorts require different formats)
+- Tone (formal, casual, provocative, educational)
+- Content pillars (3-5 recurring themes your brand owns)
+- Posting cadence (how many posts per week per platform)
+
+**Example prompt:**
+```
+"You are a social media strategist for a B2B SaaS company selling project management software.
+Generate 20 LinkedIn post ideas for October 2025.
+Content pillars: productivity, remote work, team collaboration, customer stories.
+Tone: professional but approachable. Mix: 40% educational, 30% behind-the-scenes, 20% social proof, 10% promotional."
+```
+
+### Stage 3 - Draft Creation
+
+AI writes the first draft. Your job is to direct, select, and refine - not to accept raw output.
+
+**Platform-specific rules:**
+
+| Platform | Ideal length | Hook style | CTA |
+|---|---|---|---|
+| LinkedIn | 150-300 words | Bold claim or question | Comment or share |
+| Instagram | 125-150 words | Emoji-led or story opener | Save or DM |
+| X (Twitter) | Under 280 chars | Punchy statement | Reply or retweet |
+| YouTube Shorts | 60-90 second script | Visual hook in first 3 seconds | Subscribe |
+
+<Callout type="warning">
+**The Raw Output Trap:** Posting AI-generated text without editing is the single fastest way to sound generic and lose followers. AI output is a starting point, not a finished product. Every draft needs a human pass for: brand voice, accuracy checks, removing clichés, and adding specific details (numbers, names, dates) that make content feel real.
+</Callout>
+
+### Stage 4 - Scheduling and Analytics
+
+Tools that combine AI drafting with scheduling and analytics:
+
+- **Buffer AI Assistant** - generates and schedules across platforms, shows optimal posting times
+- **Hootsuite OwlyWriter AI** - integrated AI writing inside the scheduling dashboard
+- **Lately.ai** - repurposes long-form content (blogs, podcasts, webinars) into social snippets automatically
+- **Sprout Social** - AI-assisted listening, drafting, and detailed analytics in one platform
+
+## Building a Brand Voice Guide for AI
+
+The biggest risk with AI social content is brand voice drift. Prevent it by creating a one-page voice guide the AI can reference in every prompt:
+
+1. **Three adjectives** that describe your brand voice (e.g. "direct, curious, human")
+2. **Three words or phrases you never use** (e.g. "leverage", "synergy", "game-changer")
+3. **A sample post** you consider a gold-standard example
+4. **Audience persona** in two sentences
+
+Paste this guide at the top of every AI drafting session.
+
+## Measuring AI-Assisted Content Performance
+
+Track these metrics separately for AI-assisted vs. fully human content for the first 90 days:
+
+- **Engagement rate** (likes + comments + shares / reach)
+- **Save rate** (especially on Instagram and LinkedIn - indicates educational value)
+- **Click-through rate** on posts with links
+- **Follower growth rate** week-over-week
+
+After 90 days, compare. Most teams find AI-assisted content performs within 10-15% of fully human content on engagement, while volume increases 3-5x.
+
+## Practical Workflow for a Solo Marketer
+
+If you manage social media alone, here is a realistic weekly workflow:
+
+**Monday (90 minutes):**
+- Use AI to generate 15 post ideas for the week
+- Select 8-10 and draft briefs for each
+
+**Tuesday-Wednesday (60 minutes/day):**
+- Use AI to write first drafts of selected posts
+- Edit each draft: 5-10 minutes per post
+
+**Thursday (45 minutes):**
+- Schedule the week's content across platforms
+- Review last week's analytics and note what outperformed
+
+**Friday (30 minutes):**
+- Respond to comments using AI-assisted reply suggestions (Sprout Social, Buffer)
+- Update your voice guide if anything felt off this week
+
+<Callout type="tip">
+**Start with one task:** Do not try to automate everything at once. Pick the single most time-consuming part of your social workflow (usually ideation or first drafts) and apply AI there first. Measure the time saved after four weeks, then expand to the next stage.
+</Callout>
+
+## Common Mistakes to Avoid
+
+1. **Using AI captions verbatim** - always edit for specificity and voice
+2. **Ignoring platform differences** - a LinkedIn post copy-pasted to Instagram will underperform
+3. **Skipping the analytics loop** - AI ideation improves only when fed performance data
+4. **Over-automating responses** - DMs and comment replies still need a human for anything sensitive
+5. **Neglecting image and video** - AI text tools are mature; pair them with Canva AI, Adobe Firefly, or Runway for visuals
+
+## Key Takeaways
+
+- AI handles the repetitive drafting and research work; humans handle brand judgment and relationship-building
+- The ideate-create-schedule-analyse loop is the core framework for sustainable AI social media workflows
+- Build a brand voice guide and paste it into every AI session to prevent drift
+- Measure AI-assisted vs. human content performance for 90 days before drawing conclusions
+- Start with one high-friction task and expand gradually
+
+<ResourceList resources={[
+  { title: "Sprout Social: AI in Social Media 2024 Report", url: "https://sproutsocial.com/insights/ai-in-social-media/", type: "article", free: true },
+  { title: "Buffer AI Assistant Documentation", url: "https://buffer.com/resources/ai-assistant/", type: "docs", free: true },
+  { title: "Lately.ai - AI Content Repurposing Tool", url: "https://www.lately.ai/", type: "tool", free: false },
+  { title: "Hootsuite OwlyWriter AI Overview", url: "https://www.hootsuite.com/platform/owlywriter-ai", type: "tool", free: false },
+  { title: "HubSpot: How to Use AI for Social Media Marketing", url: "https://blog.hubspot.com/marketing/ai-social-media", type: "article", free: true },
+  { title: "Canva AI - Magic Write for Social Captions", url: "https://www.canva.com/magic-write/", type: "tool", free: true },
+  { title: "Adobe Firefly - AI Image Generation for Social", url: "https://firefly.adobe.com/", type: "tool", free: false },
+  { title: "Social Media Marketing Full Course (Tamil) - Thanga Raj", url: "https://www.youtube.com/watch?v=social-media-tamil-thanga-raj", type: "video", free: true },
+  { title: "AI Marketing Tools Explained (Hindi) - Digital Deepak", url: "https://www.youtube.com/c/DigitalDeepak", type: "video", free: true },
+  { title: "Social Media Strategy with AI (Telugu) - Lazy Marketer", url: "https://www.youtube.com/@LazyMarketerTelugu", type: "video", free: true },
+]} />

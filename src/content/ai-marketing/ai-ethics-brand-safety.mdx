@@ -1,0 +1,84 @@
+export const lessonMeta = {
+  title: "AI Ethics and Brand Safety",
+  level: "Advanced",
+  summary: "Hallucinations, copyright, disclosure - the guardrails you need.",
+};
+
+# AI Ethics and Brand Safety
+
+## What It Is
+
+AI ethics in marketing refers to the set of principles and guardrails that govern how brands use artificial intelligence responsibly. It covers three core risk areas: truthfulness (AI "hallucinations" - outputs that sound confident but are factually wrong), intellectual property (using AI-generated text or images that may infringe on someone else's copyright), and transparency (disclosing when content has been made by AI).
+
+Brand safety is the broader discipline of protecting your company's reputation by ensuring your ads and content do not appear next to harmful, false, or inappropriate material. In the AI era, brand safety has expanded. It now includes making sure your AI tools do not generate content that embarrasses the brand, spreads misinformation, or violates consumer trust.
+
+These two concerns are deeply connected. An AI system that hallucinates product claims can damage brand trust overnight. An AI-generated ad placed next to extremist content by a programmatic algorithm causes the same reputational harm as a human making that placement deliberately. The tools are new, but the liability is the same.
+
+## Real-World Example
+
+In 2024, a survey by DoubleVerify found that 100% of industry professionals believed generative AI poses a brand safety and misinformation risk to marketers, with 88.7% rating that risk as moderate to significant. Separately, the same year, consumer trust in AI fell to 35% in the US - down 15 percentage points over five years, according to research cited by the University of St. Thomas. These numbers tell a clear story: the industry knows the risk is real, and consumers are already less trusting because of it.
+
+<Callout type="example">
+**Air Canada Chatbot Case, 2024:** Air Canada deployed an AI chatbot that told a grieving customer he could apply for a bereavement discount after his flight. The policy did not work that way. The customer booked the ticket trusting the AI, then asked for the discount and was refused. A Canadian tribunal ruled Air Canada was responsible for its chatbot's statements and ordered the airline to pay the customer. This is the clearest legal precedent so far that a brand owns the outputs of its AI tools - hallucinations included.
+</Callout>
+
+## Why It Matters
+
+Every brand that publishes AI-generated content or runs AI-powered ad campaigns is exposed to at least one of these four risks:
+
+1. **Hallucination liability** - your AI makes a false product claim and a customer or regulator holds you accountable
+2. **Copyright exposure** - your AI-generated image or text was trained on protected work and the original creator sues
+3. **Disclosure violations** - regulators in the EU, US FTC, and India require disclosure of AI-generated advertising in certain contexts; non-compliance brings fines
+4. **Brand adjacency damage** - programmatic AI places your ad next to hate speech, misinformation, or illegal content
+
+The business cost is not hypothetical. Global ad fraud losses - much of it now AI-enabled - were projected to reach $100 billion by 2025 (CHEQ/Juniper Research). Reputational damage from a single viral incident can cost multiples of that in lost revenue and customer trust.
+
+## How It Works
+
+A responsible AI ethics and brand safety framework covers five stages: assess, govern, review, disclose, and audit.
+
+<Mermaid chart={`flowchart TD
+  A[Assess Risk] --> B[Set Governance Policy]
+  B --> C[Human Review Gate]
+  C --> D{Pass Review?}
+  D -- Yes --> E[Disclose AI Use]
+  D -- No --> F[Revise or Reject]
+  F --> C
+  E --> G[Publish Content]
+  G --> H[Ongoing Audit]
+  H --> A`} />
+
+**Assess:** Before deploying any AI tool, map which outputs carry legal or reputational risk. Product claims, health information, and financial guidance carry the highest risk. Brand voice content carries medium risk.
+
+**Govern:** Write a short internal policy. It should state which AI tools are approved, what data can be fed into them, and who is accountable for outputs. Without a written policy, accountability is unclear and legal defence is weaker.
+
+**Human review gate:** Every piece of AI-generated content that faces the public must pass a human check before publication. Just over a quarter of companies enforce this consistently (DoubleVerify, 2024). That number needs to be higher. The review checks for factual accuracy, tone, copyright signals, and brand fit.
+
+**Disclose:** Where required by law or platform rules, label AI-generated content. The EU AI Act requires disclosure for AI-generated advertising. Meta, Google, and YouTube all have mandatory disclosure policies for synthetic media in political ads. Err on the side of more disclosure, not less - 68% of media experts say they want content labeled as either "verified human-created" or "AI-audited" (DoubleVerify, 2024).
+
+**Audit:** Run a monthly check. Pull a sample of published AI content. Verify facts are still accurate (models can be outdated). Check that no creative assets have been flagged for copyright issues. Review ad placement logs for brand safety incidents.
+
+## Common Mistakes
+
+<Callout type="warning">
+**The biggest trap is treating AI output as a first draft that 'just needs a quick read.'** A quick read catches tone problems but misses factual hallucinations - especially in niche topics where the reviewer is not a subject-matter expert. The fix is to build fact-checking into the review step, not grammar-checking. Use a separate checklist: Is every statistic sourced? Is every product claim verified against the actual product? Is every legal or health statement signed off by legal or medical review? If the answer to any of these is 'I am not sure,' the content does not publish.
+</Callout>
+
+<Callout type="info">
+**On copyright:** AI image generators trained on unlicensed data put brands in a grey legal zone. The safest path is to use tools that explicitly license their training data (Adobe Firefly trains only on licensed Adobe Stock), or to generate images from your own proprietary photography library. Do not assume that because the AI produced it, you own it - several early court rulings have denied copyright protection to purely AI-generated works.
+</Callout>
+
+## The One-Line Takeaway
+
+**AI gives you the power to create at scale, but the brand still signs its name to every output - so build the review system before you build the content pipeline.**
+
+<ResourceList resources={[
+  { title: "DoubleVerify US Brand Safety Insights Report 2024", url: "https://www.globenewswire.com/news-release/2024/07/10/2911010/28124/en/US-Brand-Safety-Insights-Report-2024-How-to-Protect-Brands-From-AI-Risks-CTV-Ad-Fraud-Misinformation-and-Worse.html", type: "article", free: true, note: "Primary research report with the 88.7% and 100% industry risk stats cited in this lesson" },
+  { title: "IAS: Signals of Safety - Brand Integrity for the AI-Driven World", url: "https://integralads.com/insider/signals-of-safety-brand-integrity-for-the-ai-driven-world/", type: "article", free: true, note: "Integral Ad Science framework for brand safety in AI-generated environments" },
+  { title: "Basis: How Advertisers Can Harness AI While Navigating Brand Safety", url: "https://basis.com/blog/how-advertisers-can-harness-ai-while-navigating-brand-safety-consumer-trust-and-legal-concerns", type: "article", free: true, note: "Practical guide covering legal concerns, consumer trust, and disclosure rules" },
+  { title: "EU AI Act - Official Text Overview", url: "https://artificialintelligenceact.eu/", type: "docs", free: true, note: "Official EU AI Act site covering mandatory disclosure rules for AI-generated advertising" },
+  { title: "FTC Guidance on AI and Endorsements", url: "https://www.ftc.gov/business-guidance/blog/2023/06/generative-ai-raises-competition-concerns", type: "docs", free: true, note: "US FTC position on AI use in marketing and advertising" },
+  { title: "WsCube Tech - AI Ethics and Brand Safety (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - AI Ethics and Brand Safety", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - AI Ethics and Brand Safety (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

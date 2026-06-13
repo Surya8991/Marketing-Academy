@@ -1,0 +1,106 @@
+export const lessonMeta = {
+  title: "RAG for Marketers",
+  level: "Advanced",
+  summary: "Retrieval-Augmented Generation - feeding AI your brand voice, data, and product docs.",
+};
+
+# RAG for Marketers
+
+## What It Is
+
+Most AI tools are trained on public internet data up to a cutoff date. That means they know nothing about your brand guidelines, your product catalog, your pricing, or your customer case studies. Ask a generic AI to write a product email and it will hallucinate features, use the wrong tone, and ignore your compliance rules.
+
+Retrieval-Augmented Generation (RAG) fixes this. RAG is a technique where you connect an AI model to your own documents and databases before it generates a response. When you ask the AI a question, it first searches your private knowledge base, pulls out the most relevant chunks of text, and then writes its answer using those retrieved facts as its source of truth.
+
+Think of it this way: a standard AI chatbot is like hiring a writer who has read a lot of books but has never worked at your company. A RAG-powered AI is like that same writer, but now they have your full brand wiki, your latest product specs, and your approved messaging document sitting open on their desk before they type a single word.
+
+## Real-World Example
+
+A mid-sized SaaS company connected their RAG system to their product database, support documentation, and email best practices guide. After the switch, their AI-generated email campaigns saw open rates jump 18% and click-through rates increase 25% compared to emails written with a generic AI prompt. The key difference: every email referenced accurate, current product features rather than fabricated ones.
+
+<Callout type="example">
+**SaaS Email Team: +18% Open Rate, +25% Click-Through**
+
+The team fed their RAG system three data sources: an updated product database, a customer support FAQ, and a brand voice style guide. When the AI drafted emails, it retrieved the exact feature names, current pricing tiers, and approved tone descriptors before writing. Customers received recommendations that matched what they would actually see in the product. Accuracy built trust, and trust drove clicks. This result was reported by QuickCreator in their 2024 analysis of RAG in marketing workflows.
+</Callout>
+
+## Why It Matters
+
+Generic AI content has a consistency problem. If five people on your team prompt ChatGPT to write about your product, you get five different versions of your brand voice, five different descriptions of the same feature, and likely at least one incorrect claim. At scale, this erodes brand trust and creates compliance risk.
+
+RAG solves the consistency problem by making one authoritative source of truth the starting point for every AI output. When the AI can only work from your approved documents, it cannot invent features you do not have or use language your brand guidelines prohibit.
+
+The business case is especially strong in three situations:
+
+- **Regulated industries** (finance, healthcare, legal) where every AI output must cite a policy or compliance document
+- **Product-heavy content** (e-commerce, SaaS) where feature accuracy matters and product specs change frequently
+- **Multi-brand or multi-market teams** where different regions need localized but consistent messaging
+
+According to market research firm Precedence Research, the global RAG market is projected to reach $67.42 billion by 2034, growing at roughly 49% per year. In 2024, content generation was already the largest use case segment, accounting for 34.6% of all RAG deployments.
+
+## How It Works
+
+RAG runs in four steps. Understanding each step helps you know what documents to prepare and where things can go wrong.
+
+**Step 1: Ingest.** You upload your documents - brand guidelines, product docs, past campaign briefs, FAQs, compliance policies - into a vector database. A vector database converts text into numbers (called embeddings) that capture meaning, not just keywords.
+
+**Step 2: Query.** A user (or an automated workflow) asks the AI a question: "Write a subject line for our summer sale targeting enterprise customers."
+
+**Step 3: Retrieve.** The system searches the vector database for the text chunks most relevant to that query. It might pull: your brand voice rules for enterprise tone, your summer sale offer details, and your subject line best practices.
+
+**Step 4: Generate.** The AI receives both the original query AND the retrieved chunks. It writes its response using those retrieved facts as its grounding context.
+
+<Mermaid chart={`flowchart TD
+  A[Ingest\nbrand guides, product docs, FAQs] --> B[Vector DB\ntext converted to embeddings]
+  B --> C{Retrieval\nfinds relevant chunks}
+  D[Query\ne.g. 'write a product email'] --> C
+  C --> E[AI Model\nquery + retrieved context]
+  E --> F[Output\non-brand, accurate, sourced]`} />
+
+<Callout type="info">
+**What is a vector database?** It is a database that stores text as mathematical representations (vectors) based on meaning. When you search it, it finds text that is semantically similar to your query - not just text that shares the same keywords. Popular options for marketers include Pinecone, Weaviate, and Chroma. Most no-code RAG tools handle this layer for you.
+</Callout>
+
+## Setting It Up: A Practical Starting Point
+
+You do not need an engineering team to start with RAG. Several no-code and low-code tools now offer RAG pipelines for marketers.
+
+**What to put in your knowledge base:**
+
+1. Brand voice and tone guide (the most important document)
+2. Product or service descriptions with current pricing
+3. Approved claims and messaging - especially anything legal has reviewed
+4. Past top-performing content (emails, ads, landing pages) as style references
+5. Customer personas and segmentation definitions
+6. Compliance or regulatory rules relevant to your industry
+
+**What NOT to put in:**
+- Outdated documents without version labels (the AI will treat old claims as current)
+- Unreviewed drafts or internal speculation
+- Raw customer data without proper anonymization
+
+Keep your knowledge base lean and accurate. A smaller set of high-quality, current documents outperforms a large dump of mixed-quality files every time.
+
+## Common Mistakes
+
+<Callout type="warning">
+**The 'more is better' trap:** Many teams dump every document they have into their RAG system on day one. The AI retrieves the wrong chunks - an outdated pricing sheet instead of the current one, a deprecated product description instead of the live one. The output looks authoritative but contains stale facts. Start with 5-10 carefully curated, clearly labeled documents. Add more only after you verify the system is retrieving the right content. Also: date-stamp every document and set a review cadence, or your knowledge base becomes a source of confident misinformation.
+</Callout>
+
+A second common mistake is skipping evaluation. RAG systems need regular testing: take 10-15 real queries, check what the system retrieves, and confirm the output is accurate. This is called a retrieval audit. Do it monthly. Without it, you will not know when a document update breaks a retrieval pattern.
+
+## The One-Line Takeaway
+
+**RAG turns a generic AI into your brand's expert writer by giving it your documents first - so every output is grounded in your truth, not the internet's.**
+
+<ResourceList resources={[
+  { title: "RAG for Marketing Explained: Real-Time AI Content for 2025", url: "https://quickcreator.io/blog/rag-for-marketing-explained/", type: "article", free: true },
+  { title: "What is RAG? An Overview for Content Marketers", url: "https://www.airops.com/blog/rag-overview", type: "article", free: true },
+  { title: "Why RAG Matters for Brands - Idomoo", url: "https://www.idomoo.com/blog/the-rise-of-retrieval-augmented-generation-in-ai-what-brands-need-to-know/", type: "article", free: true },
+  { title: "RAG for Marketing: Comprehensive Guide - Dapta AI", url: "https://dapta.ai/blog-posts/rag-for-marketing-guide/", type: "article", free: true },
+  { title: "Enterprise RAG Predictions and Trends 2025 - Vectara", url: "https://www.vectara.com/blog/top-enterprise-rag-predictions", type: "article", free: true },
+  { title: "IBM Technology - What is Retrieval Augmented Generation (RAG)?", url: "https://www.youtube.com/watch?v=T-D1OfcDW1M", type: "video", free: true },
+  { title: "WsCube Tech - RAG for Marketers (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", free: true },
+  { title: "Mr Digital Marketing Tamil - RAG for Marketers", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", free: true },
+  { title: "ODMT Telugu - RAG for Marketers (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", free: true },
+]} />
