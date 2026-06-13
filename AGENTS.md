@@ -176,3 +176,13 @@ The last 3 entries of every ResourceList must be:
 { title: "ODMT Telugu - [Topic]", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
 ```
 CRITICAL: every resource object including the last one needs a trailing comma before `]} />`
+
+### Rule 16 — Lesson tone: encourage, don't overwhelm
+Lessons must feel like a smart friend explaining something, not a textbook.
+- **800-1200 words** of body content. A focused 900-word lesson beats a bloated 2000-word one.
+- **Max 2 sentences per paragraph.** Third sentence? New paragraph or bullet point.
+- **Short bullet lists: 3-6 items max.** If you have 10 bullets, you have 2 sections.
+- **One idea per section.** No "additionally" / "furthermore" dumps.
+- **End each section with momentum** - a short line that makes the reader want to continue.
+- **Define jargon immediately** when introduced. Never use a term before explaining it.
+- Goal: reader feels curious and confident after each section, not exhausted.
