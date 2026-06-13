@@ -116,6 +116,28 @@ export default function Nav() {
           >
             Browse
           </Link>
+          <Link
+            href="/tracks"
+            className={cn(
+              "px-3 py-1.5 rounded-md text-sm font-medium transition-colors",
+              pathname.startsWith("/tracks")
+                ? "bg-[var(--muted)] text-[var(--foreground)]"
+                : "text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)]"
+            )}
+          >
+            Tracks
+          </Link>
+          <Link
+            href="/glossary"
+            className={cn(
+              "px-3 py-1.5 rounded-md text-sm font-medium transition-colors",
+              pathname.startsWith("/glossary")
+                ? "bg-[var(--muted)] text-[var(--foreground)]"
+                : "text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)]"
+            )}
+          >
+            Glossary
+          </Link>
         </nav>
 
         {/* Actions */}
@@ -173,6 +195,30 @@ export default function Nav() {
                 </Link>
               );
             })}
+          </div>
+          <div className="flex flex-col gap-1 mb-4">
+            <Link
+              href="/tracks"
+              className={cn(
+                "px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                pathname.startsWith("/tracks")
+                  ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
+                  : "text-[var(--foreground)] hover:bg-[var(--muted)]"
+              )}
+            >
+              🗺️ Learning Tracks
+            </Link>
+            <Link
+              href="/glossary"
+              className={cn(
+                "px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                pathname.startsWith("/glossary")
+                  ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
+                  : "text-[var(--foreground)] hover:bg-[var(--muted)]"
+              )}
+            >
+              📖 Glossary
+            </Link>
           </div>
           <Link
             href="/learn/fundamentals/what-is-marketing"
