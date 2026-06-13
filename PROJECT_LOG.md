@@ -1,7 +1,7 @@
 # Marketing Academy - Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-06-13 (Session 8).
+> Last audited: 2026-06-14 (Session 9).
 
 ---
 
@@ -69,11 +69,32 @@ Each MDX lesson MUST include real research:
 2. WebFetch best source
 3. Write with real stats, citations, current examples
 
-**Active workflows (Session 8):**
-- Write A (task: running) - writing gap-fill lessons: growth, social, content, email, analytics, tools + copywriting + CRO
-- Write B (task: running) - writing: brand-strategy + product-marketing + ai-marketing
-- Review A (`wxlfdlb61`) - research-backed review of 84 existing lessons: fundamentals, seo, paid-ads, growth, social, content
-- Review B (`wfc2celzk`) - research-backed review of 64 existing lessons: email, analytics, tools, psychology, ai-marketing
+**Completed workflows (Sessions 8-9):**
+- Write A - DONE: wrote all copywriting (19), CRO (18), gap-fills for growth/social/content/email/analytics/tools. Committed + pushed.
+- Write B - DONE: wrote all brand-strategy (19), product-marketing (16), ai-marketing (14). Committed + pushed.
+- Review A (`wxlfdlb61`) - STOPPED after completing: fundamentals (16), seo (20), paid-ads (18). Committed + pushed.
+- Review B (`wfc2celzk`) - STOPPED after completing: email (6), analytics (7), psychology (4), tools (15 new). Committed + pushed.
+
+**Active workflows (Session 9 relaunch 2026-06-14):**
+- Review C (`wf_efe43d89-e5a`) - research-backed review: growth (19), social (18), content (19) = 56 lessons
+- Review D (`wf_9e38f788-a70`) - research-backed review: copywriting (19), cro (18), brand-strategy (19), product-marketing (16), ai-marketing (17) = 89 lessons
+
+**Review status by category:**
+- fundamentals (done)
+- seo (done)
+- paid-ads (done)
+- growth - Review C running
+- social - Review C running
+- content - Review C running
+- email (partially reviewed + 9 new lessons)
+- analytics (partially reviewed + 9 new lessons)
+- tools (15 deep-dive lessons written)
+- psychology (partially reviewed)
+- copywriting - Review D running
+- cro - Review D running
+- brand-strategy - Review D running
+- product-marketing - Review D running
+- ai-marketing - Review D running
 
 **Review improvements per lesson:**
 - Live WebSearch + WebFetch for 2024/2025 stats
@@ -123,11 +144,11 @@ Every push auto-deploys within ~60 seconds.
 | 6.3 | OG images per lesson | ✅ `src/app/api/og/route.tsx` edge runtime, 1200x630 |
 | 6.4 | RSS feed `/feed.xml` | ✅ `src/app/feed.xml/route.ts` with auto-discovery link in layout |
 | 6.5 | Reading time per lesson | ✅ Server-side raw MDX word count, shown next to level badge |
-| 6.6 | Search filter chips | 🔄 Building now (workflow w50789af6) |
-| 6.7 | Glossary route `/glossary/[slug]` | 🔄 Building now - 80+ terms, A-Z page + term detail pages |
-| 6.8 | Lesson quiz/assessment | 🔄 Building now - Quiz.tsx + 3-5 questions for 20 key lessons |
-| 6.9 | Learning tracks (B2B / E-commerce / Solo / AI-first) | 🔄 Building now - /tracks + /tracks/[slug] |
-| 6.10 | Newsletter signup | 🔄 Building now - NewsletterSignup.tsx in Footer + /api/newsletter route |
+| 6.6 | Search filter chips | ✅ Category + level filter chips added to /search (AND logic, result count shown) |
+| 6.7 | Glossary route `/glossary/[slug]` | ✅ 80+ terms, A-Z index, client search, individual term pages |
+| 6.8 | Lesson quiz/assessment | ✅ Quiz.tsx global component, questions for 20 lessons in quizzes.ts, shown on lesson pages |
+| 6.9 | Learning tracks (B2B / E-commerce / Solo / AI-first) | ✅ /tracks overview + /tracks/[slug] detail pages, TrackCard on homepage |
+| 6.10 | Newsletter signup | ✅ NewsletterSignup.tsx in Footer + /api/newsletter route (TODO: connect email service) |
 | 6.11 | Multilingual resources (Hindi/Tamil/Telugu) | ✅ Added in all lessons via review workflows |
 | 6.12 | Content readability pass | 🔴 After review workflows done - max 3 sentences per paragraph, break long sections into smaller chunks, replace walls of text with bullets/numbered lists, add whitespace. Goal: user reads one section, feels progress, wants to continue. |
 
@@ -257,17 +278,28 @@ D:\Coding\marketing-academy\
     │   │       └── [lesson]/
     │   │           └── page.tsx  ✅ LEFT ToC + reading progress + MarkComplete
     │   ├── api/
-    │   │   └── og/
-    │   │       └── route.tsx   ✅ Edge runtime OG image 1200x630 (dark branded card)
+    │   │   ├── og/
+    │   │   │   └── route.tsx   ✅ Edge runtime OG image 1200x630 (dark branded card)
+    │   │   └── newsletter/
+    │   │       └── route.ts    ✅ POST handler with email validation (TODO: connect email service)
     │   ├── feed.xml/
     │   │   └── route.ts        ✅ RSS feed, auto-discovered via <link> in layout
-    │   └── search/
-    │       ├── page.tsx        ✅ Fuse.js
-    │       └── layout.tsx      ✅
+    │   ├── search/
+    │   │   ├── page.tsx        ✅ Fuse.js + category + level filter chips
+    │   │   └── layout.tsx      ✅
+    │   ├── glossary/
+    │   │   ├── page.tsx        ✅ A-Z index with client search
+    │   │   ├── GlossaryClient.tsx ✅ Client component for search/filter
+    │   │   └── [slug]/
+    │   │       └── page.tsx    ✅ Individual term pages + generateStaticParams
+    │   └── tracks/
+    │       ├── page.tsx        ✅ 4 track cards overview
+    │       └── [slug]/
+    │           └── page.tsx    ✅ Track detail with ordered lesson list
     │
     ├── components/
-    │   ├── Nav.tsx             ✅ Topics dropdown + ThemeToggle
-    │   ├── Footer.tsx          ✅
+    │   ├── Nav.tsx             ✅ Topics dropdown + ThemeToggle + Tracks + Glossary links
+    │   ├── Footer.tsx          ✅ + NewsletterSignup above columns
     │   ├── Mermaid.tsx         ✅ Fullscreen button
     │   ├── Callout.tsx         ✅ Dark-mode safe tints
     │   ├── ResourceList.tsx    ✅ + lang badge (en/hi/ta/te)
@@ -276,30 +308,36 @@ D:\Coding\marketing-academy\
     │   ├── CategoryProgress.tsx ✅
     │   ├── ReadingProgress.tsx ✅
     │   ├── TableOfContents.tsx ✅ Desktop (LEFT) + Mobile
-    │   └── ThemeToggle.tsx     ✅ Sun/Moon, localStorage, no-flash inline script
+    │   ├── ThemeToggle.tsx     ✅ Sun/Moon, localStorage, no-flash inline script
+    │   ├── Quiz.tsx            ✅ "use client", one question at a time, score screen
+    │   ├── NewsletterSignup.tsx ✅ "use client", idle/loading/success/error states
+    │   ├── TrackCard.tsx       ✅ Card for homepage track grid
+    │   └── TrackLessonList.tsx ✅ Ordered lesson list for track detail page
     │
     ├── lib/
     │   ├── curriculum.ts       ✅ 241 lessons, 15 categories
     │   ├── utils.ts            ✅ cn()
-    │   └── progress.ts         ✅ localStorage
+    │   ├── progress.ts         ✅ localStorage
+    │   ├── tracks.ts           ✅ 4 learning tracks (b2b-marketer, ecommerce-growth, solo-founder, ai-first-marketer)
+    │   ├── glossary.ts         ✅ 80+ marketing terms with definitions + related terms
+    │   └── quizzes.ts          ✅ 3-5 questions for 20 key lessons
     │
-    └── content/                🔄 225+/241 written. Review workflows improving existing.
-        ├── fundamentals/       19/16 ✅ written (3 extra gap-fills, under review)
-        ├── seo/                20/20 ✅ COMPLETE (under review)
-        ├── paid-ads/           21/18 ✅ written (3 extra, under review)
-        ├── growth/             19/16 ✅ written (3 extra, under review)
-        ├── social/             18/18 ✅ COMPLETE (under review)
-        ├── content/            19/15 ✅ written (4 extra, under review)
-        ├── email/              16/14 ✅ written (2 extra, under review)
-        ├── analytics/          18/16 ✅ written (2 extra, under review)
-        ├── tools/              15/15 ✅ COMPLETE (under review)
-        ├── psychology/         20/16 ✅ written (4 extra, under review)
-        ├── copywriting/        19/16 ✅ written (new category)
-        ├── cro/                18/15 ✅ written (new category)
-        ├── brand-strategy/     19/16 ✅ written (new category, 3 extra)
-        ├── product-marketing/  16/13 ✅ written (new category, 3 extra)
-        └── ai-marketing/       17/17 ✅ written (new category)
-        NOTE: "extra" files exist on disk but are not in curriculum.ts - need slug audit
+    └── content/                🔄 241+ written. Review in progress.
+        ├── fundamentals/       16 ✅ REVIEWED + pushed
+        ├── seo/                20 ✅ REVIEWED + pushed
+        ├── paid-ads/           18 ✅ REVIEWED + pushed
+        ├── growth/             19 🔄 REVIEW IN PROGRESS (wf_e1c122d9-480)
+        ├── social/             18 🔄 REVIEW IN PROGRESS (wf_e1c122d9-480)
+        ├── content/            19 🔄 REVIEW IN PROGRESS (wf_e1c122d9-480)
+        ├── email/              6 ✅ REVIEWED + pushed, 8 more need review
+        ├── analytics/          7 ✅ REVIEWED + pushed, 9 more need review
+        ├── tools/              15 ✅ written (deep dives) + pushed, need review pass
+        ├── psychology/         4 ✅ REVIEWED + pushed, 13 more need review
+        ├── copywriting/        19 🔄 REVIEW IN PROGRESS (wf_e1c122d9-480)
+        ├── cro/                18 🔄 REVIEW IN PROGRESS (wf_e1c122d9-480)
+        ├── brand-strategy/     19 🔴 needs review workflow
+        ├── product-marketing/  16 🔴 needs review workflow
+        └── ai-marketing/       14 🔴 needs review workflow
 ```
 
 ---
@@ -315,7 +353,9 @@ D:\Coding\marketing-academy\
 | 5 | 2026-06-14 | GitHub push (Surya8991/Marketing-Academy). Vercel deploy (live at marketing-academy-roan.vercel.app). Build failed twice (positioning.mdx quotes, sitemap.ts type predicate) - both fixed. AGENTS.md rewritten with 12 rules. |
 | 6 | 2026-06-14 | Added Human Psychology category (16 lessons, 165→181). Launched 116-lesson + 16-psych MDX workflows in parallel. Full design + UX overhaul (Nav redo with Topics dropdown, homepage rebuild w/ Featured Lessons & Learning Paths, lesson reader w/ ToC on LEFT + reading progress + sticky nav, Footer added, prose system rewritten for dark-mode contrast, Mermaid fullscreen, Callout dark-mode fix). Added 4 more categories (Copywriting 16, CRO 15, Brand Strategy 16, Product Marketing 13) - total now **241 lessons across 15 categories**. Saved feedback memories: no em dashes, no Co-Authored-By trailer. |
 | 7 | 2026-06-14 | Fixed Vercel build failure: 49 MDX files had missing comma before multilingual ResourceList entries (acorn SyntaxError). Fixed via Python regex. Added 4 quick wins: dark mode toggle (ThemeToggle.tsx + localStorage + no-flash inline script), OG images per lesson (api/og edge route), RSS feed (feed.xml route with auto-discovery link), reading time estimate (server-side raw MDX word count). Added multilingual resources (Hindi/Tamil/Telugu) to all lessons. Added ResourceList lang field + colored badges. Sitemap BASE URL fixed. |
-| 8 | 2026-06-14 | Launched 4 parallel workflows: Write A (58 lessons - copywriting/CRO/gap fills, pushed), Write B (49 lessons - brand-strategy/product-marketing/ai-marketing, pushed). Review A + B running (research-backed rewrites of all 167 existing lessons). Launched 5-feature workflow: search filters, glossary, quizzes, newsletter, learning tracks. Added Tracks + Glossary links to Nav. curriculum.ts slug audit pending. |: Write A + Write B (new lessons for copywriting/CRO/brand-strategy/product-marketing/ai-marketing/gap fills), Review A + Review B (research-backed rewrite of all 167 existing lessons with live WebSearch, real stats, min 2 company examples, Mermaid diagrams, 3 callout types, 6+ curated resources per lesson). Pushing in batches as each workflow completes. |
+| 8 | 2026-06-14 | Write A + Write B completed (all new lessons for copywriting/CRO/brand-strategy/product-marketing/ai-marketing + gap-fills). Review A + B partial. 5-feature workflow completed: search filters, glossary (80+ terms), quizzes (20 lessons), newsletter signup, learning tracks (4 paths). Nav updated with Tracks + Glossary links. |
+| 9 | 2026-06-14 | Committed + pushed all reviewed content by category (fundamentals 16, seo 20, paid-ads 18, growth 4, email 6+9 new, analytics 7+9 new, psychology 4+1 new, tools 15 new). All 5 new features verified (TypeScript clean). Launched Review Remaining A (`wf_e1c122d9-480`) covering growth/social/content/copywriting/cro (92 lessons). Still pending: brand-strategy, product-marketing, ai-marketing, email remaining 8, analytics remaining 9, psychology remaining 13. |
+| 10 | 2026-06-14 | Relaunched remaining review. Review C (`wf_efe43d89`) covers growth (19)/social (18)/content (19) = 56 lessons. Review D (`wf_9e38f788`) covers copywriting (19)/cro (18)/brand-strategy (19)/product-marketing (16)/ai-marketing (17) = 89 lessons. All 145 remaining un-reviewed lessons now in active research-backed review. Updated PROJECT_LOG with full status tracking. |
 
 ---
 

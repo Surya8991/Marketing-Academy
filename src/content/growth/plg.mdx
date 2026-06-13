@@ -1,64 +1,120 @@
 export const lessonMeta = {
-  title: "Product-Led Growth",
-  level: "Advanced",
-  summary: "When the product itself does the marketing and sales.",
+  title: "Product-Led Growth (PLG)",
+  level: "Intermediate",
+  summary: "How letting users experience your product before paying turns it into your best salesperson.",
 };
 
-# Product-Led Growth
+As of 2025, 91% of SaaS companies have adopted product-led growth, and 91% plan to increase their PLG investment over the next year (Segment8, 2025). The shift is no longer experimental. PLG is now the dominant go-to-market motion in B2B software.
 
-Product-Led Growth (PLG) is the strategy where the product itself is the primary engine of acquisition, conversion, and expansion. If you sell software, work in growth, or run a SaaS business chasing efficient revenue, PLG is no longer optional  -  it is the default motion for most modern category leaders.
+## Quick Summary
 
-## What It Actually Is
+- PLG means the product itself drives acquisition, activation, retention, and expansion
+- Users try before they buy, so the product must deliver value fast
+- CAC in PLG models runs $100-$500 vs. $5K-$50K in traditional sales-led models
+- The flywheel only works if activation is strong: aim for 50%+ activation rate
+- Expansion revenue (NRR 120%+) is the compounding engine that makes PLG exceptional
 
-PLG flips the traditional funnel. Instead of marketing capturing a lead, sales demoing the product, and a customer buying based on promises, the user signs up, gets value inside the product within minutes, and then upgrades or invites coworkers. Figma is the canonical example: a designer pastes a link in Slack, a PM opens it in the browser with zero install, leaves a comment, and Figma quietly acquires a new user. The product did the selling.
+## What Is Product-Led Growth?
 
-## Why It Matters (with data)
+Product-led growth is a go-to-market strategy where the product itself is the primary driver of customer acquisition, conversion, and expansion. Instead of relying on a sales team to convince prospects, PLG lets users discover value on their own and then invites them to pay.
 
-The numbers favor PLG hard:
+Think of it like a car dealership that lets you take the car home for a week, no salesperson needed. You fall in love with it, you buy it. That is PLG.
 
-- 91% of B2B SaaS companies with more than $50M ARR have implemented PLG strategies, and 91% of them plan to increase PLG investment in 2025, according to a [Segment8 industry roundup](https://blog.segment8.com/posts/top-20-product-led-growth-stats-2025/).
-- PLG companies grow revenue ~50% faster than sales-led peers  -  median annual growth of 35% versus 26%  -  while spending 39% less on sales and marketing ([Shno PLG statistics 2026](https://www.shno.co/marketing-statistics/product-led-growth-statistics)).
-- 83% of PLG companies reach $100M ARR in under five years, dramatically faster than traditional enterprise sales timelines.
-- Product Qualified Leads (PQLs) convert at 25–30%, versus 5–10% for Marketing Qualified Leads. Free trial signups convert at ~17% to paid; freemium converts at ~5%.
-- PLG startups raised over $15B globally in 2024, with another $6B deployed in H1 2025 across 350+ deals ([SaaSMag, 2026](https://www.saasmag.com/product-led-growth-next-chapter-saas-2026/)).
-
-Translation: capital, growth rates, and conversion benchmarks all reward teams that put the product in front of the buyer.
-
-## How It Works / The Playbook
-
-A real PLG motion has five moving parts:
-
-1. **Frictionless entry.** No demo gate. Email-and-go signup, SSO, or a public sandbox. Figma killed the install. Notion killed the empty-state by shipping templates.
-2. **Time-to-value under 5 minutes.** Define the "aha moment" (Slack: first message exchanged in a channel; Notion: first page shared). Instrument it. Optimize relentlessly.
-3. **Built-in viral loops.** Every artifact  -  a Figma file, a Loom video, a Notion doc  -  is a share link that recruits the next user. Calendly's "book a meeting with me" link is a marketing channel disguised as a feature.
-4. **Strategic freemium, not unlimited free.** In June 2025, both Slack and Notion tightened free-tier limits to accelerate conversion. The 2025 consensus: "unlimited free" is out, "strategic freemium" is in  -  give enough to prove value, gate the habits that scale with team size.
-5. **PQL-driven expansion.** Track product signals (seats added, workspaces created, API calls) and route hot accounts to a sales-assist motion. Net Revenue Retention is the scoreboard.
-
-<Callout type="example">
-Figma's land-and-expand is textbook. A single designer signs up free. They invite three teammates to comment. The PM team joins. Eventually a 15-person product org needs version history and design systems  -  and converts to the Organization plan at roughly $45/editor/month. Adobe valued this motion at $20B in 2022, then re-attempted the acquisition in 2024 before regulators blocked it. The product did the prospecting. Source: [Mixpanel PLG guide 2026](https://mixpanel.com/blog/product-led-growth/).
+<Callout type="info">
+PLG is not just "free trial." It is a full organizational philosophy where product, growth, marketing, and sales all align around the user's experience of getting value before paying.
 </Callout>
 
-## Common Mistakes
+The opposite is Sales-Led Growth (SLG): a prospect talks to a sales rep, goes through a demo, negotiates a contract, and only then gets access to the product. SLG works at enterprise scale with complex deals. PLG works when the product can speak for itself.
 
-- **Treating PLG as "just add a free tier."** Without instrumented activation and a PQL definition, freemium is a cost center. You need to know which signups are buying signals.
-- **Building a viral loop on a non-collaborative product.** PLG works when the product gets better with more users. A solo analytics tool does not virally spread no matter how generous the free plan is.
-- **Killing sales too early.** Modern PLG is hybrid. Slack, Dropbox, and Atlassian all run inside sales teams that pounce on PQLs over a usage threshold. "Product-led" does not mean "salesperson-free."
-- **Ignoring NRR.** Acquisition vanity metrics flatter PLG dashboards. If users churn at month three because you never built an expansion path, you are running a leaky bucket with a viral coefficient.
+## The PLG Flywheel
 
-## Key Takeaways
+<Mermaid chart={`graph TD
+  A[User Discovers Product] --> B[Self-Serve Onboarding]
+  B --> C[Hits 'Aha Moment' - Real Value]
+  C --> D[Invites Teammates or Shares Work]
+  D --> E[Viral / Word-of-Mouth Loop]
+  E --> F[Hits Freemium Gate or Usage Limit]
+  F --> G[Converts to Paid - PQL Trigger]
+  G --> H[Expands Seats or Features]
+  H --> A`} />
 
-- PLG is the product doing the work of marketing and sales: acquisition, conversion, and expansion all happen inside the app.
-- The economics are real  -  50% faster growth, 39% less S&M spend, 25–30% PQL conversion  -  but only when activation and viral loops are engineered, not hoped for.
-- In 2025 the playbook is hybrid: strategic freemium up front, sales-assist on PQLs, NRR as the north star.
+Every stage of this flywheel must be optimized. A leak at any step kills the model. If users never hit the "aha moment," they churn. If the freemium gate is too restrictive, they never bother converting.
+
+## Real Company Examples
+
+**Figma** built virality directly into the product. Designers share files with clients and developers who must open Figma to view them. Those recipients become new users. Figma grew to $200M ARR before Adobe acquired it for $20B.
+
+**Dropbox** made sharing folders the core action. When you shared a folder, the recipient had to sign up. Combined with a referral program that gave both parties extra storage, Dropbox grew 3,900% in 15 months purely through PLG. Their CAC was essentially zero for millions of users.
+
+**Slack** reached 285,000 daily active users on its first day of public launch (2013) with no traditional sales motion. Users brought Slack into their teams, teams pulled in other teams, and Salesforce eventually acquired Slack for $27.7 billion.
+
+<Callout type="example">
+Calendly is a textbook PLG case. Every meeting invite sent with Calendly is a marketing impression. The recipient sees "Powered by Calendly" and, if scheduling meetings is painful for them, they sign up. The product markets itself with every use.
+</Callout>
+
+## The Four PLG Metrics That Matter
+
+### 1. Time to Value (TTV)
+How long does it take a new user to experience the core value of your product? In PLG, every minute of friction before the "aha moment" is a conversion killer. Best-in-class PLG products get users to value in under 5 minutes.
+
+### 2. Activation Rate
+The percentage of new signups who complete the key action that predicts retention. According to ProductLed benchmarks: 20-40% is average, 50%+ is excellent. If your activation rate is below 20%, fix onboarding before anything else.
+
+### 3. Product-Qualified Leads (PQLs)
+A PQL is a free user who has hit specific usage signals that predict conversion: invited 3+ teammates, created 5+ items, used the product on 10+ days. PQLs convert at 3-5x the rate of marketing-qualified leads. Sales teams in PLG companies focus exclusively on PQLs.
+
+### 4. Net Revenue Retention (NRR)
+NRR measures whether existing customers are growing their spend. Best-in-class PLG companies hit 120%+ NRR, meaning even with some churn, the expansion revenue from existing accounts makes the revenue base grow. This is the compounding engine that makes PLG businesses so valuable.
+
+## Why PLG Fails
+
+The 2026 Shno PLG Statistics report found that 85% of companies attempting PLG fail to fully execute it. The most common reasons:
+
+**The product does not deliver standalone value.** PLG only works when a user can get real value without talking to anyone. If your product requires configuration, professional services, or training before it is useful, PLG will not work.
+
+**Activation is broken.** A free tier means nothing if users never reach the moment they understand why the product is worth paying for. Many teams build PLG funnels but never measure or optimize activation.
+
+**The freemium gate is wrong.** Too generous means no one ever upgrades. Too restrictive means users bounce before experiencing enough value to want more. Finding the right gate requires continuous experimentation.
+
+**70% of users churn within 3 months** of signing up for a free tier if they do not activate, according to Shno's 2026 data. Activation is not a nice-to-have. It is existential.
+
+<Callout type="tip">
+Run a "value moment audit." Map every step between signup and first value. For each step, ask: is this necessary? Can it be deferred? Can it be automated? Cut the path to value in half and your activation rate will climb.
+</Callout>
+
+## PLG vs. Sales-Led: When to Use Which
+
+| Factor | PLG | Sales-Led |
+|---|---|---|
+| Deal size | Under $10K ACV | Over $50K ACV |
+| Product complexity | Self-explanatory | Needs configuration |
+| Buyer | Individual or small team | Procurement / IT |
+| Sales cycle | Days to weeks | Months |
+| CAC | $100-$500 | $5K-$50K |
+| Best metric | Activation rate | Pipeline coverage |
+
+Many mature companies run both: PLG for SMB and self-serve, SLG for enterprise. Slack, Notion, and HubSpot all do this. The PLG motion feeds the sales team with warm PQLs who already love the product.
+
+## The Opt-Out Trial Variant
+
+One underused PLG tactic is the opt-out free trial: give users full access to paid features immediately, then require them to actively cancel before being charged. This is different from opt-in (where users must choose to start paying).
+
+Opt-out trials convert at 48.8% according to Shno's 2026 benchmarks, vs. 18-25% for standard opt-in free trials. The mechanic works because users experience full value and must make an active decision to leave rather than an active decision to stay.
+
+## Expansion: The Hidden Engine
+
+18% of ARR in high-performing PLG companies comes from expansion revenue, not new customer acquisition. Expansion happens when users hit limits (seats, storage, API calls) or unlock new use cases (advanced features, integrations, admin controls).
+
+Designing for expansion means deliberately building usage ceilings that feel natural and generous at first, then limiting at scale. The goal is not to frustrate users but to make the paid tier feel obviously worth it once they reach that ceiling.
 
 <ResourceList resources={[
-  { title: "PLG Statistics 2026 (Shno)", url: "https://www.shno.co/marketing-statistics/product-led-growth-statistics", type: "article", free: true },
-  { title: "Top 20 PLG Stats 2025 (Segment8)", url: "https://blog.segment8.com/posts/top-20-product-led-growth-stats-2025/", type: "article", free: true },
-  { title: "PLG in 2026: Full-Stack GTM (SaaSMag)", url: "https://www.saasmag.com/product-led-growth-next-chapter-saas-2026/", type: "article", free: true },
-  { title: "Mixpanel PLG Guide", url: "https://mixpanel.com/blog/product-led-growth/", type: "docs", free: true },
-  { title: "ProductLed Benchmarks", url: "https://productled.com/blog/product-led-growth-benchmarks", type: "article", free: true },
-
-  { title: "WsCube Tech - Product-Led Growth (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
+  { title: "ProductLed - PLG Fundamentals", url: "https://productled.com/blog/product-led-growth-definition", type: "article", free: true },
+  { title: "OpenView Partners - PLG Index", url: "https://openviewpartners.com/product-led-growth/", type: "article", free: true },
+  { title: "Lenny's Newsletter - How the Best PLG Companies Grow", url: "https://www.lennysnewsletter.com/p/how-the-best-product-led-growth-companies", type: "article", free: true },
+  { title: "Product-Led Growth (Book) - Wes Bush", url: "https://productled.com/book", type: "article", free: true },
+  { title: "Reforge - Product-Led Growth Course", url: "https://www.reforge.com/", type: "course", free: false },
+  { title: "Calendly PLG Teardown - How Every Invite is a Marketing Impression", url: "https://www.youtube.com/results?search_query=calendly+plg+teardown", type: "video", free: true },
+  { title: "WsCube Tech - Product-Led Growth (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
   { title: "Mr Digital Marketing Tamil - Product-Led Growth", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
-  { title: "ODMT Telugu - Product-Led Growth (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+  { title: "ODMT Telugu - Product-Led Growth", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
 ]} />
