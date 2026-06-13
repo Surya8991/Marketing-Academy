@@ -1,0 +1,160 @@
+export const lessonMeta = {
+  title: "Re-engagement Email Campaigns",
+  level: "Intermediate",
+  summary: "Turn silent subscribers back into active buyers with a proven re-engagement sequence.",
+  category: "email",
+  slug: "reengagement",
+};
+
+# Re-engagement Email Campaigns
+
+Re-engagement campaigns - also called win-back flows or revival sequences - are targeted email series sent to subscribers who have stopped opening, clicking, or buying. The goal is simple: get a real signal of interest again, or cleanly remove the contact before they drag down your deliverability (how reliably your emails land in inboxes instead of spam folders).
+
+## Quick Summary
+
+- A subscriber who has not clicked or bought in 60 to 180 days needs a dedicated re-engagement sequence, not another regular promo email.
+- A 3 to 5 email series spaced 7 days apart consistently outperforms a single "we miss you" blast.
+- Lead with value first, add an incentive in email 2 or 3, then end with a clear "stay or leave" choice.
+- Removing non-responders after the sequence protects inbox placement for your active subscribers.
+- Do not rely on opens alone - Apple Mail Privacy Protection inflates open rates by pre-loading tracking pixels for millions of users.
+
+## Why Inactive Subscribers Are a Real Problem
+
+Email list decay runs at roughly 22 to 30% per year from disengagement, job changes, and abandoned addresses (Mailmend, 2024). At any given moment, 30 to 40% of a typical email list is dormant.
+
+These inactive contacts are not neutral. Inbox providers like Gmail and Outlook score your engagement rate continuously. A list bloated with unresponsive addresses pushes your emails into spam - even for your most loyal customers.
+
+Here is the math that makes re-engagement worthwhile: reactivating an existing subscriber costs roughly 5 times less than acquiring a new one. Yet 73% of companies still ignore dormant customers entirely (Mailmend, 2024).
+
+<Callout type="info">
+Behavior-triggered emails - ones that fire automatically when a subscriber crosses an inactivity threshold - produce 1.8x higher re-engagement rates than manually scheduled batch sends. This means the sequence should be automated in your email platform (Klaviyo, Mailchimp, ActiveCampaign), not run as a one-off campaign.
+</Callout>
+
+## How the Sequence Works
+
+The core structure is a 4-email escalation that builds toward a clean decision point. Each email has a single job.
+
+<Mermaid chart={`flowchart TD
+    A[Subscriber hits inactivity\nthreshold - 60 to 180 days] --> B[Enter re-engagement sequence]
+    B --> C[Email 1 - Day 0\nValue reminder]
+    C --> D{Opened or clicked?}
+    D -- Yes --> E[Exit sequence\nReturn to active list]
+    D -- No --> F[Email 2 - Day 7\nSoft incentive]
+    F --> G{Opened or clicked?}
+    G -- Yes --> E
+    G -- No --> H[Email 3 - Day 14\nPreference center]
+    H --> I{Opened or clicked?}
+    I -- Yes --> E
+    I -- No --> J[Email 4 - Day 21\nSunset - stay or leave]
+    J --> K{Clicked to stay?}
+    K -- Yes --> E
+    K -- No --> L[Move to suppression list\nStop all marketing sends]`} />
+
+**Email 1 - Value reminder (Day 0).** Acknowledge the gap and show what they have missed. No offer yet. Subject lines like "Here is what happened while you were away" outperform generic "we miss you" copy because they promise something specific.
+
+**Email 2 - Soft incentive (Day 7).** Introduce a reward: a discount, free shipping, early access, or exclusive content. Keep the offer time-limited to create urgency. Free shipping drives 12% higher conversion than percentage-off discounts for most e-commerce senders.
+
+**Email 3 - Preference center (Day 14).** Some dormant subscribers are not gone - they are over-mailed. Offer them fewer emails, a different category, or a weekly digest instead of daily sends. This saves relationships that would otherwise be lost.
+
+**Email 4 - Sunset email (Day 21).** Tell the subscriber you are removing them unless they click to stay. This is the most counterintuitive step, and it consistently produces the highest click rates of the entire sequence. Use a real person's name in the "From" field for this email: "Sarah from Acme" instead of "Acme Marketing."
+
+<Callout type="warning">
+Do NOT lead with a discount on email 1. This trains subscribers to ignore your regular emails and wait for the win-back deal. Brands that front-load discounts in re-engagement sequences see higher unsubscribe rates on their standard promotional emails over time. Reserve incentives for email 2 or 3, after a value-led first touch.
+</Callout>
+
+## Real Company Results
+
+These are not hypothetical numbers. Here is what real brands measured when they fixed their re-engagement approach:
+
+**Dr. Squatch** (men's personal care) overhauled their email deliverability and re-engagement targeting. The results, verified in 2024: 42% increase in open rates, 67% increase in click-through rate (CTR), and 112% increase in email revenue. The key change was fixing inbox placement so re-engagement emails actually landed in the primary inbox rather than the promotions tab.
+
+**Ministry of Supply** (performance clothing) applied behavior-triggered segmentation to their re-engagement flows. They saw a 27% increase in open rates and a 30% increase in CTR - with results visible within one business day of deploying the new automation logic.
+
+**Blue Apron** (meal kit subscriptions) runs win-back campaigns using a subject line that reads "Come on back - we made dinner easier" paired with a $30 credit. The conversational tone and specific dollar amount outperform vague "special offer" language in their A/B tests.
+
+<Callout type="example">
+Imagine you run an e-commerce store selling running gear. A customer bought trail shoes 120 days ago and has not clicked an email since. Here is how each email in the sequence works:
+
+Email 1 (Day 0): "Your trail shoes have a few new companions" - show 3 new products in their category. No discount. Click rate goal: 2 to 4%.
+
+Email 2 (Day 7): "15% off, just for coming back" - time-limited offer, single CTA button. Click rate goal: 3 to 6%.
+
+Email 3 (Day 14): "Too many emails? Let us fix that" - link to preference center with options for weekly digest, category-only emails, or sale alerts only.
+
+Email 4 (Day 21): "This is our last email - unless you want to stay" - a single bold CTA: "Yes, keep me on the list." Send rate goal: deliver 100% to inbox. Unsubscribes here are wins: they clean your list.
+</Callout>
+
+## Setting Your Inactivity Threshold
+
+There is no universal rule, but these benchmarks work for most senders:
+
+- Daily newsletter: 45 to 60 days of no clicks
+- E-commerce brand: 90 to 120 days of no purchase or click
+- SaaS product: 60 to 90 days of no login or click
+- B2B list: 90 to 180 days of no engagement
+
+**Do not use opens as your primary signal.** Apple Mail Privacy Protection pre-loads tracking pixels for roughly half of all iOS users. An "open" in Apple Mail may be a bot, not a human. Use clicks, purchases, and website visits instead.
+
+## Segmenting Before You Send
+
+Split your dormant contacts into tiers before launching the sequence:
+
+- **Recently lapsed (60 to 90 days):** Highest re-engagement probability. Start here. Value reminders alone often work.
+- **Mid-dormant (90 to 180 days):** Need a stronger incentive and softer frequency. Lead with your best offer by email 2.
+- **Deep sleepers (180 days or more):** Pull rate drops sharply. Consider a single re-permission email before running the full 4-email sequence.
+
+<Callout type="tip">
+Throttle your sends when re-engaging a large dormant cohort. Do not send to all dormant subscribers on the same day. Spam complaint rates spike when you blast a large unresponsive group at once, and inbox providers track this. Start with the most recently lapsed 20% of your dormant list, wait one week, then expand.
+</Callout>
+
+## Multi-Channel Re-engagement
+
+Email alone leaves revenue on the table. Research from Omnisend (2024) shows that combining SMS with email lifts conversion by 54% compared to email alone, and automated SMS generates 18% of orders from just 9% of sends.
+
+For e-commerce brands, a practical multi-channel approach looks like this:
+
+<Mermaid chart={`flowchart LR
+    A[Dormant customer\ndetected] --> B[Email sequence\n4 emails over 21 days]
+    A --> C[SMS - Day 10\nif no email click]
+    A --> D[Retargeting ad\nFacebook or Google\nDay 7 to 21]
+    B --> E{Any engagement?}
+    C --> E
+    D --> E
+    E -- Yes --> F[Reactivated\nReturn to active flows]
+    E -- No --> G[Suppress across\nall channels]`} />
+
+Mac Duggal (an apparel retailer) combined email with Shopify Audiences retargeting ads for dormant customers in 2024. The multi-channel approach delivered 2x return on ad spend and a 3.6x lower cost per purchase compared to running ads to cold audiences.
+
+## What to Measure
+
+- **Re-engagement rate:** The share of dormant subscribers who click or buy during the sequence. A healthy sequence achieves 5 to 15%.
+- **Suppression rate:** The share you remove after the sequence. A high suppression rate is not failure - it is list hygiene working correctly.
+- **Post-sequence deliverability:** Monitor your inbox placement rate (the share of emails landing in the primary inbox) 30 days after suppression. It should improve measurably.
+- **Revenue per reactivated subscriber:** Compare against your average new subscriber value to calculate true ROI.
+
+Across e-commerce benchmarks, reactivated subscribers generate 18% of total email revenue while representing a fraction of total list size (Mailmend, 2024).
+
+## Common Mistakes
+
+**Running re-engagement as a one-off quarterly blast instead of an always-on automated trigger.** Dormancy is continuous. A subscriber who crossed your 90-day threshold in March needs to hear from you in March, not in the next batch run. Automate the trigger in your email platform so it fires the moment a subscriber crosses the threshold.
+
+**Skipping the suppression step.** Most teams run the sequence and then keep sending to non-responders anyway. This erases the deliverability benefit entirely. Anyone who completes the sequence without engaging must move to a suppression list and be excluded from all future marketing sends.
+
+**Using the same sender name and subject line style as regular campaigns.** Re-engagement emails need to feel different. Reference the subscriber's specific inactivity signal - last purchase, last product viewed, last course completed - rather than sending a generic "come back" message. Personalized subject lines increase opens from 18% to 31% in re-engagement contexts.
+
+## The One-Line Takeaway
+
+**Letting dormant subscribers sit on your list is not free - it actively destroys deliverability for everyone else, and a 4-email sequence fixes both problems at once.**
+
+<ResourceList resources={[
+  { title: "Re-engagement Email Statistics (Mailmend, 2024)", url: "https://mailmend.io/blogs/reengagement-email-statistics", type: "article", free: true, note: "35+ real statistics on open rates, conversion, and ROI with sources cited" },
+  { title: "Win-Back Campaigns: 7 Strategies to Re-Engage Lapsed Customers (Shopify, 2025)", url: "https://www.shopify.com/enterprise/blog/running-winback-campaigns", type: "article", free: true, note: "Real brand examples including Mac Duggal and Blue Apron with measured results" },
+  { title: "Re-engagement Campaigns Guide (beehiiv Blog)", url: "https://www.beehiiv.com/blog/re-engagement-campaigns", type: "article", free: true, note: "Practical walkthrough covering segmentation, sequencing, and sunset policies" },
+  { title: "HubSpot Academy - Email Marketing Certification", url: "https://academy.hubspot.com/courses/email-marketing", type: "course", free: true, note: "Industry-recognized free certification covering full email strategy including reengagement" },
+  { title: "Improving Email Engagement Rates in 2025 (Emarsys / SAP)", url: "https://emarsys.com/learn/blog/improving-email-engagement-rates/", type: "article", free: true, note: "Current benchmarks and tactics for boosting engagement with data from 2024-2025" },
+  { title: "8 Strategies for Re-Engaging Inactive Subscribers in 2025 (Emercury)", url: "https://www.emercury.net/blog/email-marketing-tips/8-strategies-for-re-engaging-inactive-subscribers-in-2025/", type: "article", free: true, note: "Tactical breakdown of segmentation, timing, and message types for dormant subscribers" },
+  { title: "Email Marketing Free Course (Great Learning Academy)", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/email-marketing", type: "course", free: true, note: "Free self-paced course covering campaigns, automation, and hands-on Mailchimp practice" },
+  { title: "WsCube Tech - Re-engagement Email Marketing (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - Re-engagement Email Campaigns", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Re-engagement Email Marketing (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

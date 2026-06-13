@@ -10,130 +10,190 @@ export const lessonMeta = {
 
 ## What It Is
 
-Email deliverability is the measure of how reliably your emails reach the recipient's inbox -- not just their server. An email can be accepted by a mail server and still end up in spam, the promotions tab, or quietly discarded. The global average inbox placement rate in 2024 was 83.5%, down from 84.8% the year before, meaning roughly one in six legitimate marketing emails never reaches the inbox (Validity / DMARC Report, 2024). The gap between "sent" and "seen" is where revenue disappears.
+Email deliverability is the measure of how reliably your emails reach the recipient's inbox - not just their server. An email can be "sent" successfully and still end up in spam, the Promotions tab, or quietly deleted before anyone sees it. According to Validity's 2024 Email Deliverability Benchmark, roughly one in six legitimate marketing emails never reaches the inbox. The gap between "sent" and "seen" is where revenue quietly disappears.
 
-The primary technical mechanism separating inbox from spam is **email authentication** -- a trio of DNS-based protocols that prove to receiving mail servers that your email is genuinely from your domain and has not been tampered with in transit. These three protocols are SPF, DKIM, and DMARC. Together they form a chain of trust. Individually, each one closes a specific attack vector. Domains with all three properly configured and enforced consistently achieve 85-95% inbox placement versus the 83.5% global average, a measurable lift that directly affects revenue.
+## Quick Summary
 
-The stakes rose sharply in 2024 and 2025. Google mandated SPF, DKIM, and DMARC for all bulk senders dispatching more than 5,000 emails per day to Gmail accounts, effective February 2024. Yahoo and AOL aligned with the same requirements. By November 2025, Gmail escalated to actively rejecting non-compliant emails at the SMTP level -- meaning the message bounces entirely, not just lands in spam. Microsoft followed with identical enforcement for Outlook.com, Hotmail.com, and Live.com in May 2025. Authentication is no longer optional for any serious sender.
-
-## Real-World Example
-
-<Callout type="example">
-**UK HMRC -- DMARC Enforcement Lifts Inbox Rate from 18% to 98%**
-
-Before implementing DMARC, HMRC (Her Majesty's Revenue and Customs, the UK tax authority) had an inbox placement rate of just 18%. Fraudsters were spoofing the hmrc.gov.uk domain to run phishing campaigns, and receiving mail servers had no way to distinguish real HMRC emails from fakes, so they filtered everything cautiously.
-
-After deploying DMARC with a `p=reject` policy, inbox placement climbed from 18% to 98%. In the first year, DMARC blocked over 500 million phishing emails impersonating HMRC. The improvement came entirely from authentication -- not from changing email content, send times, or list quality.
-
-At commercial scale, Valimail customers reported up to a 10% deliverability lift after moving to DMARC enforcement. For a company generating $500,000 annually from email marketing, a 5-point deliverability decline equals roughly $28,500 in lost revenue. A 5-10% improvement from DMARC enforcement recovers $25,000 to $50,000 per year. Authentication is a revenue lever, not just an IT checkbox.
-</Callout>
+- Email authentication uses three DNS-based protocols: SPF, DKIM, and DMARC. Together they prove your emails are real and untampered.
+- Gmail and Microsoft now actively reject (not just filter) bulk emails that fail all three checks, effective since early 2024 for Gmail and mid-2025 for Microsoft.
+- SPF checks whether the sending IP address is authorized. DKIM checks whether the message body was modified. DMARC ties both checks to the visible From address your recipient sees.
+- Fully authenticated senders are 2.7x more likely to reach the inbox than unauthenticated senders (Mailreach, 2025).
+- Start DMARC at `p=none` to monitor traffic safely, then graduate to `p=quarantine` and finally `p=reject` over 60 to 90 days.
 
 ## Why It Matters
 
-- **Provider enforcement is now hard rejection.** Since May 2025, Microsoft and Gmail reject -- not just filter -- bulk emails that fail authentication. Bounce rates spike, sender reputation tanks, and future emails suffer even after you fix the issue.
-- **Domain spoofing destroys customer trust.** Without DMARC, anyone can send email "from" your domain. Phishing campaigns using your brand damage customer relationships even though you did nothing wrong.
-- **Adoption gaps create competitive advantage.** As of 2024, only 33.4% of the top 1 million domains have a valid DMARC record, and only 7.6% enforce it at `p=quarantine` or `p=reject`. Senders with full authentication stand out positively to inbox placement algorithms.
-- **Authentication multiplies open rate value.** Achieving an 85-95% inbox placement rate means your subject line optimizations, send-time testing, and segmentation work actually reach people. At 80% deliverability, 20% of your effort on those variables is wasted from the start.
-- **BIMI requires DMARC enforcement.** Brand Indicators for Message Identification -- the standard that displays your logo in Gmail and Apple Mail -- only works if you have DMARC at `p=quarantine` or `p=reject`. It is a downstream reward for doing authentication correctly, and tested deployments report 10% open rate lifts from logo visibility.
+<Callout type="info">
+**The scale of the problem is bigger than most marketers realize.**
 
-## How It Works
+The global inbox placement rate in 2024 was approximately 83.5% (Validity). That sounds decent until you break it down: Gmail places 87.2% of emails in inboxes, but only 57.8% of those land in the Primary tab - the rest go to Promotions. Microsoft Outlook has a 75.6% inbox rate with a 14.6% spam rate. Organizations sending over 1 million emails per month face inbox placement below 28% on average - meaning more than 7 in 10 of their emails are filtered or rejected (Landbase, 2025). Authentication is your first and most impactful lever to fix this.
+</Callout>
+
+Here is why every email marketer needs to understand authentication:
+
+- **Provider enforcement is hard rejection now.** Since May 2025, Microsoft and Gmail reject (not just filter) bulk emails that fail authentication. Bounce rates spike, sender reputation tanks, and future emails suffer even after you fix the issue.
+- **Domain spoofing destroys customer trust.** Without DMARC, anyone can send email "from" your domain. Phishing campaigns using your brand damage customer relationships even though you did nothing wrong.
+- **Adoption gaps create a competitive advantage.** As of 2024, only 7.6% of internet domains enforce DMARC at `p=quarantine` or `p=reject`. Senders with full authentication stand out positively to inbox placement algorithms.
+- **Authentication multiplies the value of every other optimization.** At 80% deliverability, 20% of your work on subject lines, send-time testing, and segmentation is wasted before it even starts.
+- **BIMI requires DMARC enforcement.** BIMI (Brand Indicators for Message Identification) is the standard that displays your logo in Gmail and Apple Mail inboxes. It only works at `p=quarantine` or `p=reject`. Early deployers report up to 10% open rate lifts from logo visibility alone.
+
+## Real-World Examples
+
+<Callout type="example">
+**Heal Your Nervous System - Open Rates Up 84%, Enrollments Up 216% (2022)**
+
+Dr. Linnea Passaler, founder of the mental health brand Heal Your Nervous System (HYNS), watched her email open rates collapse from 30% to under 10% after launching new campaigns in early 2022. The problem was a deliverability failure, not content quality.
+
+Her team ran inbox placement testing through GlockApps (a diagnostic tool), segmented her subscriber list by engagement level, and implemented proper authentication alongside ongoing deliverability monitoring via InboxAlly. The results: inbox placement climbed to over 90%, open rates recovered to a range of 39% to 84%, and enrollment in her new membership program increased by 216%. Her subscriber list also grew by 139% as a result of restored sender reputation.
+
+The fix was almost entirely technical. The content was already good. Authentication and list health unlocked the audience that was already there.
+
+**UK HMRC - Inbox Rate Jumps from 18% to 98% After DMARC Enforcement**
+
+Before implementing DMARC, the UK tax authority HMRC had an inbox placement rate of just 18%. Fraudsters were spoofing the hmrc.gov.uk domain to run phishing campaigns. Receiving mail servers had no way to tell real HMRC emails from fakes, so they filtered everything cautiously.
+
+After deploying DMARC with a `p=reject` policy, inbox placement climbed from 18% to 98%. In the first year, DMARC blocked over 500 million phishing emails impersonating HMRC. The improvement came entirely from authentication - no content changes, no new send times, no list cleanup required. For a commercial sender generating $500,000 annually from email, a 5-point deliverability lift from DMARC enforcement recovers roughly $25,000 to $50,000 per year in lost revenue.
+</Callout>
+
+## How the Three Protocols Work Together
+
+Think of it like airport security with three layers of checks. SPF is the passport check (is this sender on the approved list?). DKIM is the baggage seal (has anything been tampered with?). DMARC is the officer who verifies that the passport and the face on it actually match.
 
 ### SPF (Sender Policy Framework)
 
-SPF is a DNS TXT record on your domain listing every IP address and mail server authorized to send email on your behalf. When a receiving server gets an email claiming to be from `yourcompany.com`, it checks your DNS for an SPF record and verifies the sending IP is on the approved list.
+SPF is a text record (called a DNS TXT record) published in your domain's settings. It lists every IP address and mail service authorized to send email on your behalf. When a receiving server gets an email claiming to be from `yourcompany.com`, it checks your DNS for the SPF record and verifies the sending IP is on the approved list.
 
 Example SPF record:
 ```
 v=spf1 include:mailchimp.com include:sendgrid.net ip4:203.0.113.5 ~all
 ```
 
-The `-all` at the end means "reject everything not on this list." `~all` means soft-fail (mark as suspicious but deliver). Use `~all` during setup and graduate to `-all` after testing.
+The `~all` at the end means "soft-fail anything not on this list" (mark as suspicious but deliver). The stricter `-all` means "reject anything not on this list." Use `~all` during setup, then graduate to `-all` after testing.
 
-**SPF limitation:** SPF checks the envelope sender (the `Return-Path` address used during SMTP handshake), not the `From:` header the recipient sees. A spoofer can pass SPF while showing a different From address. This is why SPF alone is insufficient.
+**SPF's blind spot:** SPF checks the envelope sender (a technical `Return-Path` address used during sending), not the `From:` address your recipient actually sees. A spoofer can pass SPF while showing a completely different From address. This is why SPF alone is not enough.
 
 ### DKIM (DomainKeys Identified Mail)
 
-DKIM adds a cryptographic signature to every outgoing email. Your sending mail server signs the message with a private key. A corresponding public key is published in your DNS. The receiving server fetches that public key and verifies the signature, confirming two things: the email came from an authorized sender, and the message body was not modified in transit.
+DKIM adds a cryptographic signature (think of it as a tamper-proof digital wax seal) to every outgoing email. Your sending mail server signs the message with a private key. A matching public key is published in your DNS. The receiving server fetches that public key and checks the signature, confirming two things: the email came from an authorized sender, and the message body was not changed in transit.
 
-DKIM is more resilient than SPF for forwarded email. When someone forwards your newsletter, SPF fails (new sending IP), but DKIM survives if the message body is unchanged.
+DKIM handles forwarded email better than SPF. When someone forwards your newsletter, SPF fails (different sending IP), but DKIM survives as long as the message body is unchanged.
 
-**DKIM limitation:** DKIM also checks a technical domain (the `d=` tag in the signature), which can differ from the visible `From:` header. A sophisticated spoofer can exploit this gap, which is why DMARC is needed to close it.
+**DKIM's blind spot:** DKIM validates a technical domain tag inside the email headers, which can differ from the visible `From:` address your recipient sees. A sophisticated spoofer can exploit this gap. DMARC closes it.
 
 ### DMARC (Domain-based Message Authentication, Reporting, and Conformance)
 
-DMARC closes the gap left by SPF and DKIM by adding **alignment** -- it requires that the domain in the `From:` header (the address your recipient sees) matches the domain authenticated by SPF or DKIM. It then gives the receiving server a policy to follow when alignment fails.
+DMARC closes the gap left by SPF and DKIM by adding "alignment." Alignment means the domain in the `From:` header (the address your recipient sees) must match the domain authenticated by SPF or DKIM. DMARC then gives the receiving server a policy telling it what to do when alignment fails.
 
 A DMARC record looks like this:
 ```
 v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@yourcompany.com; pct=100
 ```
 
-- `p=none` -- monitor only, take no action (use during initial rollout)
-- `p=quarantine` -- send failing emails to spam
-- `p=reject` -- block failing emails entirely (the target end state)
-- `rua=` -- where aggregate XML reports go (use a DMARC report processor, not your personal inbox)
-- `pct=` -- percentage of emails the policy applies to (ramp from 10% to 100% over several weeks)
+Here is what each part means:
+- `p=none`: monitor only, take no action (use this during initial rollout)
+- `p=quarantine`: send failing emails to spam
+- `p=reject`: block failing emails entirely (the end goal)
+- `rua=`: where aggregate XML reports go (use a DMARC report processor tool, not your personal inbox)
+- `pct=`: the percentage of emails the policy applies to (ramp from 10% up to 100% over several weeks)
 
-DMARC also mandates **reporting**: receiving mail servers send XML reports showing how much mail is passing or failing authentication, and from which IP addresses. This visibility reveals shadow IT, rogue ESP configurations, and active spoofing campaigns against your domain.
+DMARC also mandates reporting. Receiving mail servers send you XML reports showing how much mail is passing or failing authentication, and from which IP addresses. This visibility reveals forgotten tools, rogue ESP (Email Service Provider) configurations, and active spoofing attacks against your domain.
 
 ### The Full Authentication Flow
 
 <Mermaid chart={`flowchart TD
-    A[You send email from yourcompany.com] --> B[Receiving mail server gets the message]
+    A[You send email from yourcompany.com] --> B[Receiving server gets the message]
     B --> C{SPF Check}
-    C -->|Sending IP in SPF record| D{DKIM Check}
+    C -->|Sending IP is authorized| D{DKIM Check}
     C -->|IP not authorized| E[SPF FAIL]
-    D -->|Valid signature and body intact| F{DMARC Alignment}
+    D -->|Valid signature, body intact| F{DMARC Alignment}
     D -->|Signature invalid or missing| G[DKIM FAIL]
-    F -->|From domain matches SPF or DKIM domain| H[Authentication PASS]
+    F -->|From domain matches SPF or DKIM| H[Auth PASS]
     F -->|Domains do not align| I[DMARC FAIL]
     E --> I
     G --> I
     I --> J{DMARC Policy?}
     J -->|p=none| K[Deliver and send report]
-    J -->|p=quarantine| L[Spam folder and report]
-    J -->|p=reject| M[Block email and report]
-    H --> N[Inbox placement factors]
-    N --> O[Content, engagement, list hygiene]
+    J -->|p=quarantine| L[Spam folder + report]
+    J -->|p=reject| M[Block email + report]
+    H --> N[Other inbox factors]
+    N --> O[Content, engagement, list health]
     O --> P[Inbox or Promotions tab]`} />
 
-### Implementation Sequence
+## Beyond Authentication: The Other Deliverability Pillars
 
-1. **Audit every sending source.** List every service sending mail from your domain: your ESP, transactional tool, CRM, helpdesk, calendar invites, billing platform. Missing one sending source is the single most common cause of broken SPF.
-2. **Publish SPF** with `~all` (soft fail) to start. Verify with MXToolbox or `nslookup -type=TXT yourdomain.com`. Stay under the 10 DNS lookup limit -- use an SPF flattening service if you exceed it.
-3. **Enable DKIM in every ESP.** Each platform generates a keypair; you publish their public key as a DNS TXT record. Use 2048-bit keys and rotate annually.
+Authentication gets your emails through the door. These factors determine where they land once inside.
+
+### Sender Reputation
+
+Your sender reputation is a score that mail providers assign to your sending domain and IP address. It is built on your history of engagement and complaint rates. Key signals:
+
+- **Spam complaint rate:** Keep this below 0.1%. Gmail's Postmaster Tools lets you monitor it directly. ActiveCampaign leads all major ESPs (Email Service Providers) at 94.2% inbox placement in 2025, partly because their platform enforces low complaint thresholds.
+- **Bounce rate:** Keep hard bounces (permanent failures like invalid addresses) below 1.5%. Exceeding this can trigger provider-level filtering on your entire domain.
+- **Engagement history:** Providers watch open rates, clicks, and whether recipients move your emails out of spam or delete without opening. Low engagement signals unwanted mail.
+
+### List Hygiene
+
+List hygiene means regularly cleaning your subscriber list to remove addresses that do not engage or cannot receive email. Nearly 60% of email senders now practice regular list cleaning (Mailreach, 2025), but only 23.6% verify lists before each campaign.
+
+- Remove hard bounces immediately after each campaign.
+- Suppress subscribers who have not opened any email in 90 to 180 days. Send a re-engagement sequence first, then remove non-responders.
+- Use double opt-in (where subscribers confirm their address by clicking a link) for new sign-ups. It reduces list size but dramatically improves quality.
+- Validate email addresses at the point of collection using a tool like NeverBounce or ZeroBounce.
+
+### Domain Warm-Up
+
+If you switch to a new sending domain or IP address, you cannot immediately send thousands of emails. Mail providers have no reputation history for the new domain and will treat it with suspicion. Domain warm-up means gradually increasing send volume over 4 to 8 weeks, starting with your most engaged subscribers. Research shows domain warm-up increases inbox placement by approximately 20% (Mailreach, 2025).
+
+<Mermaid chart={`flowchart LR
+    A[Week 1: 50 to 200 emails/day] --> B[Week 2: 500 to 1000 emails/day]
+    B --> C[Week 3 to 4: 2000 to 5000 emails/day]
+    C --> D[Week 5 to 8: Scale to full volume]
+    D --> E[Full sending volume unlocked]`} />
+
+## Step-by-Step Implementation
+
+1. **Audit every sending source.** List every service that sends email from your domain: your ESP, your transactional email tool, your CRM, your helpdesk, your billing platform, calendar invites. Missing even one is the most common cause of broken SPF.
+2. **Publish SPF** using `~all` (soft fail) to start. Verify it with MXToolbox or by running `nslookup -type=TXT yourdomain.com`. Stay under the 10 DNS lookup limit. If you use more than 4 or 5 email services, use an SPF flattening service (dmarcian or EasyDMARC) to combine lookups into flat IP ranges.
+3. **Enable DKIM in every ESP.** Each platform generates a key pair. You publish their public key as a DNS TXT record. Use 2048-bit keys minimum and rotate them annually.
 4. **Publish DMARC at `p=none`** with a `rua=` address pointing to a DMARC report processor (Postmark's free analyzer, Valimail Monitor, or dmarcian).
-5. **Read the reports for 2-4 weeks.** Identify every source of mail that fails alignment. Fix each one before moving forward.
-6. **Ramp to `p=quarantine`** starting at `pct=10`, then 25, 50, 100 over several weeks.
-7. **Ramp to `p=reject`** using the same graduated approach. Most teams complete this in 60 to 90 days.
+5. **Read the reports for 2 to 4 weeks.** Identify every source of mail that fails alignment. Fix each one before moving to the next step.
+6. **Ramp to `p=quarantine`** starting at `pct=10`, then increase to 25, 50, and 100 over several weeks.
+7. **Ramp to `p=reject`** using the same gradual approach. Most teams complete the full rollout in 60 to 90 days.
 
 ## Common Mistakes
 
 <Callout type="warning">
-**Mistake 1: Going straight to `p=reject` without auditing senders first.**
+**Mistake 1: Going straight to `p=reject` without auditing your senders first.**
 
-If any legitimate email service (your helpdesk, a billing tool, a partner integration) is missing from your SPF record or lacks DKIM, those emails are immediately blocked. Transactional receipts, password resets, and invoice emails vanish before customers see them. Always start at `p=none`, read the reports, fix every sending source, then ramp gradually. Skipping this step is how companies accidentally block their own critical transactional mail.
+If any legitimate email service (helpdesk, billing tool, partner integration) is missing from your SPF record or lacks DKIM setup, those emails are immediately blocked when you enforce `p=reject`. Transactional receipts, password resets, and invoice emails vanish before customers see them. Always start at `p=none`, read the reports, fix every sending source, then ramp gradually.
 
-**Mistake 2: Exceeding the SPF 10-DNS-lookup limit.**
+**Mistake 2: Exceeding the SPF 10 DNS lookup limit.**
 
-SPF allows a maximum of 10 DNS lookups during evaluation. Every `include:` statement counts as one lookup, and some includes chain to further lookups internally. Senders using 5+ ESPs routinely exceed this limit, causing SPF to return `permerror` (permanent error), which DMARC treats identically to a fail. Use an SPF flattening service (dmarcian, Easydmarc, or Postmark) to resolve all includes into flat IP ranges and stay under the limit.
+SPF allows a maximum of 10 DNS lookups during evaluation. Every `include:` statement counts as one lookup, and some includes chain to further lookups internally. Senders using 5 or more ESPs routinely exceed this limit, causing SPF to return a permanent error (`permerror`), which DMARC treats the same as a failure. Use an SPF flattening service to resolve all includes into flat IP ranges.
+
+**Mistake 3: Pointing `rua=` at a human inbox.**
+
+DMARC aggregate reports are XML files sent by every major mail provider that processes your email. A domain at moderate send volume receives dozens per day, each containing hundreds of rows of data. These files are unreadable without a parsing tool. Use Postmark's free DMARC analyzer, Valimail Monitor (free tier), or dmarcian. The reports are how you discover a forgotten marketing tool from three years ago that is quietly failing authentication every day.
 </Callout>
 
 <Callout type="tip">
-**Use a dedicated DMARC report processor -- never point `rua=` at a human inbox.**
+**Set up Google Postmaster Tools and monitor it weekly.**
 
-DMARC aggregate reports are XML files sent by every major mail provider that processes your email. A domain at moderate volume receives dozens per day, each containing hundreds of data rows. Tools like Postmark's free DMARC analyzer, Valimail Monitor (free tier), or dmarcian parse these into readable dashboards. The reports are how you discover a forgotten marketing automation tool from three years ago still failing authentication, or that a threat actor has been spoofing your domain for months without your knowledge.
+Google Postmaster Tools is a free dashboard from Google that shows your domain reputation, IP reputation, spam rate, and authentication pass rate specifically for Gmail (which holds roughly 35% of global email market share). It is the clearest signal available for how Google's filters view your sending practices. Connect it at postmaster.google.com using the domain you send from. If your domain reputation drops below "High," investigate immediately before it cascades into widespread filtering.
 </Callout>
 
 ## The One-Line Takeaway
 
-**SPF proves your IP is authorized, DKIM proves your message is untampered, and DMARC ties both to your visible From address -- all three at `p=reject` enforcement are now required by Gmail and Microsoft, and together they are the single highest-leverage technical action you can take for inbox placement.**
+**Without SPF, DKIM, and DMARC at `p=reject`, Gmail and Microsoft do not filter your emails - they delete them before anyone has a chance to open them.**
 
 <ResourceList resources={[
-  { title: "Gmail Bulk Sender Requirements (official Google documentation)", url: "https://support.google.com/a/answer/81126", type: "docs", free: true, note: "The official source for Gmail's SPF, DKIM, and DMARC requirements for bulk senders." },
-  { title: "Postmark DMARC Setup Guide", url: "https://postmarkapp.com/guides/dmarc", type: "article", lang: "en", free: true, note: "Step-by-step implementation guide from the team that built one of the best free DMARC report analyzers." },
-  { title: "DMARC Report: Authentication Impact on Inbox Placement (2024)", url: "https://dmarcreport.com/blog/email-authentication-impact-on-deliverability-spf-dkim-dmarc-inbox-placement", type: "article", free: true, note: "Data-heavy breakdown with provider-by-provider inbox placement rates and DMARC enforcement impact stats." },
-  { title: "WsCube Tech -- Deliverability: SPF, DKIM, DMARC (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel (4M+ subscribers) -- search for the lesson topic here." },
-  { title: "Mr Digital Marketing Tamil -- Deliverability: SPF, DKIM, DMARC", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials -- search for the lesson topic." },
-  { title: "ODMT Telugu -- Deliverability: SPF, DKIM, DMARC (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam." },
+  { title: "Gmail Bulk Sender Requirements (official Google documentation)", url: "https://support.google.com/a/answer/81126", type: "docs", free: true, note: "The official source for Gmail's SPF, DKIM, and DMARC requirements for bulk senders. Start here before anything else." },
+  { title: "Postmark DMARC Setup Guide", url: "https://postmarkapp.com/guides/dmarc", type: "article", lang: "en", free: true, note: "Step-by-step implementation guide from the team behind one of the best free DMARC report analyzers." },
+  { title: "Mailgun Deliverability Academy", url: "https://www.mailgun.com/resources/deliverability-academy/", type: "course", free: true, note: "Comprehensive free course covering authentication, reputation, list hygiene, and inbox placement from Mailgun engineers." },
+  { title: "Selzy Free Email Deliverability Course", url: "https://selzy.com/en/courses/email-deliverability-course/", type: "course", free: true, note: "Short, focused free course covering the core deliverability concepts for beginners." },
+  { title: "MXToolbox SPF and DMARC Checker", url: "https://mxtoolbox.com/SuperTool.aspx", type: "tool", free: true, note: "Free diagnostic tool to check SPF, DKIM, DMARC, and blacklist status for any domain. Use after every DNS change." },
+  { title: "Validity 2024 Email Deliverability Benchmark Report", url: "https://www.validity.com/resource-center/2025-email-deliverability-benchmark-report/", type: "article", free: true, note: "The most cited industry benchmark. Real data on inbox placement rates by provider, region, and authentication status." },
+  { title: "Mailreach Email Deliverability Statistics 2025", url: "https://www.mailreach.co/blog/email-deliverability-statistics", type: "article", free: true, note: "Data-heavy breakdown with ISP-specific inbox rates, authentication impact stats, and regional benchmarks." },
+  { title: "WsCube Tech - Email Deliverability (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - Email Deliverability", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Email Deliverability (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
 ]} />
