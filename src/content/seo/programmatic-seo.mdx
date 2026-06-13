@@ -9,7 +9,9 @@ export const lessonMeta = {
 
 # Programmatic SEO
 
-Programmatic SEO is building hundreds or thousands of web pages automatically from a database, instead of writing each one by hand. You find a search pattern that repeats - like "best restaurants in [City]" or "connect [App A] to [App B]" - then fill in the blanks using a spreadsheet or database. One template plus one thousand rows of data becomes one thousand pages, each targeting a slightly different search query.
+Programmatic SEO is building hundreds or thousands of web pages automatically from a database, instead of writing each one by hand. You find a search pattern that repeats - like "best restaurants in [City]" or "connect [App A] to [App B]" - then fill in the blanks using a spreadsheet or database.
+
+One template plus one thousand rows of data becomes one thousand pages, each targeting a slightly different search query.
 
 ## Quick Summary
 
@@ -25,7 +27,14 @@ Programmatic SEO is building hundreds or thousands of web pages automatically fr
 
 Nobody just searches "project management software" once. They search "Asana vs Trello," "Asana vs ClickUp," "Asana vs Monday," and dozens more. A human content team might write two of those per week. A programmatic system can publish all of them in one afternoon.
 
-This works because search intent follows a pattern: one "head" keyword (e.g., "CRM software") splits into dozens of modifier variations (by city, by price, by competitor, by use case). Each variation is its own long-tail query with lower competition and higher purchase intent.
+This works because search intent follows a pattern: one "head" keyword (e.g., "CRM software") splits into dozens of modifier variations. Common modifier types include:
+
+- By city or location
+- By price tier
+- By competitor comparison
+- By use case
+
+Each variation is its own long-tail query with lower competition and higher purchase intent.
 
 <Callout type="info">
 **What is a long-tail keyword?** A long-tail keyword is a specific, multi-word search phrase like "best CRM for freelance designers under $50/month." These get fewer searches than broad terms, but the people searching them are much closer to making a decision - which means they convert better.
@@ -51,7 +60,9 @@ The pages worked because each one matched a specific tool use-case query and led
 
 ### Case Study 2: Zapier's Integration Pages
 
-Zapier built a programmatic page for every app it supports and every two-app combination - patterns like "Connect Notion to Slack" and "Gmail to Google Sheets." Each page pulls real triggers, actions, and workflow templates from Zapier's own product database. As of 2025, Zapier ranks for roughly 1.3 million keywords and pulls around 16.2 million monthly organic visitors. Salt Agency's case study documents how this approach quadrupled Zapier's organic growth over the program's lifetime.
+Zapier built a programmatic page for every app it supports and every two-app combination - patterns like "Connect Notion to Slack" and "Gmail to Google Sheets." Each page pulls real triggers, actions, and workflow templates from Zapier's own product database.
+
+As of 2025, Zapier ranks for roughly 1.3 million keywords and pulls around 16.2 million monthly organic visitors. Salt Agency's case study documents how this approach quadrupled Zapier's organic growth over the program's lifetime.
 
 <Callout type="example">
 **Why Zapier's pages work:** Each "Connect [App A] to [App B]" page is genuinely unique - the triggers, actions, step-by-step instructions, and template screenshots all come from real product data. Google sees 1.3 million distinct, useful pages, not 1.3 million copies of the same text with names swapped.
@@ -80,7 +91,11 @@ Look for search templates that Google fills in over and over. Good sources:
 - "People Also Ask" boxes in search results
 - Ahrefs or Semrush keyword explorer filtering for "modifier + entity" queries
 
-Strong patterns have three things: (1) consistent structure, (2) real search volume across many variations, and (3) a dataset you can actually build or buy.
+Strong patterns need all three of the following:
+
+- Consistent structure across many variations
+- Real search volume across those variations
+- A dataset you can actually build or buy
 
 ### Step 2: Build Your Dataset
 
@@ -138,7 +153,9 @@ A quality gate is a check built into your template that counts how many unique d
 
 For example: if your dataset has 8 unique fields per city (reviews, address, hours, photos, price range, category, rating count, last-updated date), set your quality gate at 5. Any row with fewer than 5 populated fields gets a `noindex` tag or returns a 404.
 
-SEO consultant Aleyda Solis calls this the "minimum viable page" filter. Sites that implement it consistently tend to survive Google core updates. Sites that skip it tend to see sudden traffic cliffs - a loss of 30-60% of programmatic traffic that happens within days of a Google update.
+SEO consultant Aleyda Solis calls this the "minimum viable page" filter. Sites that implement it consistently tend to survive Google core updates.
+
+Sites that skip it tend to see sudden traffic cliffs - a loss of 30-60% of programmatic traffic that happens within days of a Google update.
 
 <Callout type="tip">
 **Pro tip - add "freshness signals" to your template.** Include a "Last updated" date that reflects when your data was actually refreshed. Pages with stale data (price data from 2021 on a 2025 page) get flagged as low-quality. If your data source updates, your pages should re-render automatically.

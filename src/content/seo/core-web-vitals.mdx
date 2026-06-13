@@ -11,7 +11,9 @@ export const lessonMeta = {
 
 ## What They Are
 
-Core Web Vitals are three specific numbers Google uses to judge how it actually feels to use a webpage. Not what your page says, but how fast it loads, how quickly it responds to taps and clicks, and whether things jump around while you're trying to read. Google made these metrics an official ranking signal in 2021 - meaning they now influence where your pages appear in search results.
+Core Web Vitals are three specific numbers Google uses to judge how it actually feels to use a webpage. Not what your page says, but how fast it loads, how quickly it responds to taps and clicks, and whether things jump around while you're trying to read.
+
+Google made these metrics an official ranking signal in 2021, meaning they now influence where your pages appear in search results.
 
 The three metrics are Largest Contentful Paint (LCP), Interaction to Next Paint (INP), and Cumulative Layout Shift (CLS). Each one measures a different kind of frustration a visitor can experience.
 
@@ -43,7 +45,7 @@ Think of it this way: a visitor opens your page and stares at a blank or half-lo
 
 INP replaced First Input Delay (FID) as Google's interactivity metric in March 2024. It measures the delay between a user clicking or tapping something and the page visually responding. Under 200 milliseconds is "Good." Over 500 milliseconds is "Poor."
 
-The difference from the old metric: FID only measured the first click on a page. INP tracks every interaction throughout the session - every button, every dropdown, every form field. It paints a much more accurate picture of whether your site feels sluggish.
+The difference from the old metric: FID only measured the first click on a page. INP tracks every interaction throughout the session, covering every button, every dropdown, every form field. It paints a much more accurate picture of whether your site feels sluggish.
 
 **What causes poor INP:**
 - Heavy JavaScript running on the main thread (the browser's single-tasking lane)
@@ -74,15 +76,19 @@ You have experienced bad CLS: you are about to tap a button and an ad appears ab
 
 ### Vodafone Italy - 8% sales increase from fixing LCP
 
-Vodafone Italy improved their Largest Contentful Paint score by 31%. The business result: 8% more sales. This was not a small experimental test - it was a company-wide performance push across their commercial pages. The lesson: a faster-loading product page converts at a higher rate, even when the product, price, and copy stay exactly the same.
+Vodafone Italy improved their Largest Contentful Paint score by 31%. The business result: 8% more sales.
+
+This was not a small experimental test - it was a company-wide performance push across their commercial pages. The lesson: a faster-loading product page converts at a higher rate, even when the product, price, and copy stay exactly the same.
 
 ### Redbus - 80-100% mobile conversion increase
 
-Redbus, the Indian online bus ticketing platform, fixed their CLS and reduced their Total Blocking Time (the amount of time JavaScript blocks the browser from responding). Their mobile conversion rate doubled. They also saw a 192% improvement in domain ranking in Colombia. One technical change, two business outcomes.
+Redbus, the Indian online bus ticketing platform, fixed their CLS and reduced their Total Blocking Time (the amount of time JavaScript blocks the browser from responding). Their mobile conversion rate doubled.
+
+They also saw a 192% improvement in domain ranking in Colombia. One technical change, two business outcomes.
 
 ### Nykaa - 28% more organic traffic from LCP improvement
 
-Nykaa, India's largest beauty e-commerce platform, improved their LCP by 40%. Organic traffic grew by 28%. This is a direct line between a technical metric and top-of-funnel marketing results - more visibility in Google search, more clicks, more potential customers.
+Nykaa, India's largest beauty e-commerce platform, improved their LCP by 40%. Organic traffic grew by 28%. This is a direct line between a technical metric and top-of-funnel marketing results: more visibility in Google search, more clicks, more potential customers.
 
 <Callout type="example">
 **Worked example: diagnosing a slow product page**
@@ -103,7 +109,7 @@ This is a realistic sequence. Steps 3 and 4 alone cover the majority of LCP issu
 
 ## How Google Actually Measures This
 
-Google collects Core Web Vitals data from real Chrome users visiting your site. This is called "field data" or "CrUX data" (Chrome User Experience Report). It is completely separate from the scores you generate yourself in PageSpeed Insights or Lighthouse - those are "lab data."
+Google collects Core Web Vitals data from real Chrome users visiting your site. This is called "field data" or "CrUX data" (Chrome User Experience Report). It is completely separate from the scores you generate yourself in PageSpeed Insights or Lighthouse, which are "lab data."
 
 This distinction is critical: your ranking is determined by field data, not lab data. A site can score 95 in Lighthouse and still show "Poor" in Search Console if the CDN is slow, if users are on slower devices, or if traffic is mostly from regions far from your server.
 
@@ -140,7 +146,9 @@ Most marketing teams hand Core Web Vitals over to the dev team and never think a
 
 **Conversion rate:** Pages with poor LCP see 20-40% lower conversions on average according to 2024 industry research. If your checkout page loads in 5 seconds on mobile, you are losing sales regardless of how good the offer is.
 
-**Mobile traffic:** Mobile devices account for more than 60% of most sites' traffic. Core Web Vitals scores on mobile are almost always worse than on desktop - more weight, slower connections, less processing power. The mobile scores in Search Console are what matter most.
+### The Mobile and Competitive Picture
+
+**Mobile traffic:** Mobile devices account for more than 60% of most sites' traffic. Core Web Vitals scores on mobile are almost always worse than on desktop, due to more weight, slower connections, and less processing power. The mobile scores in Search Console are what matter most.
 
 **Competitive window:** Only 39% of websites pass all three Core Web Vitals thresholds. If your competitors are in the failing 61%, fixing your own metrics gives you a ranking edge with zero content changes needed.
 

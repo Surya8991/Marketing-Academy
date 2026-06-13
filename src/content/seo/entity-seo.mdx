@@ -103,7 +103,14 @@ Wikidata accepts any company with verifiable third-party sources. You do not nee
 
 ### Step 3: Build Person entities for founders and executives
 
-Founder and executive Person entities feed directly back into the parent Organization through `founder` and `employee` schema properties. A CEO with their own Knowledge Panel measurably increases the company's entity confidence score. This is why YC-backed founders increasingly publish a Person schema on their bio page with `sameAs` linking to LinkedIn, GitHub, Crunchbase, and conference talk URLs.
+Founder and executive Person entities feed directly back into the parent Organization through `founder` and `employee` schema properties. A CEO with their own Knowledge Panel measurably increases the company's entity confidence score.
+
+This is why YC-backed founders increasingly publish a Person schema on their bio page with `sameAs` linking to:
+
+- LinkedIn
+- GitHub
+- Crunchbase
+- Conference talk URLs
 
 ### Step 4: Earn third-party co-citations
 
@@ -116,7 +123,9 @@ Co-citations are mentions of your brand alongside other known entities in your s
 
 ### Step 5: Align content clusters to a single semantic identity
 
-Every content cluster on your site should reinforce exactly one entity relationship. If you are "the company that builds email marketing software for ecommerce," every cluster should orbit that identity. Competing signals (a blog post about "SEO tips" on an email marketing platform) dilute the entity signal. Pick your semantic territory and own it completely.
+Every content cluster on your site should reinforce exactly one entity relationship. If you are "the company that builds email marketing software for ecommerce," every cluster should orbit that identity.
+
+Competing signals (a blog post about "SEO tips" on an email marketing platform) dilute the entity signal. Pick your semantic territory and own it completely.
 
 <Callout type="warning">
 **Common mistake: redefining Organization schema on every page.** Many sites place a full Organization JSON-LD block on the homepage, blog posts, and product pages. This creates duplicate entity signals that confuse Google's merging algorithm. Define the Organization entity with its `@id` exactly once, on your entity home. On every other page, reference it with `"mainEntityOfPage": {"@id": "https://yourbrand.com/#organization"}` rather than redefining the whole object.

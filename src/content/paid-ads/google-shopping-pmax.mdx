@@ -9,9 +9,13 @@ export const lessonMeta = {
 
 # Google Shopping & Performance Max
 
-Google Shopping lets retailers show product listings - complete with a photo, price, and store name - directly in Google search results. You do not write ad copy. Instead, you upload a product feed (a structured file that describes your inventory), and Google decides which products to show for which searches. If someone types "women's trail running shoes under $80," Google scans your feed and surfaces the best-matching products automatically.
+Google Shopping lets retailers show product listings - complete with a photo, price, and store name - directly in Google search results. You do not write ad copy. Instead, you upload a product feed (a structured file that describes your inventory), and Google decides which products to show for which searches.
 
-Performance Max (PMax) is Google's next step beyond Shopping. It takes your product feed and adds creative assets - headlines, images, and videos - then distributes ads across every Google surface at once: Search, Shopping, YouTube, Display, Discover, Gmail, and Maps. One campaign can reach a shopper who is researching on Google in the morning, watching YouTube at lunch, and browsing a news site in the evening.
+If someone types "women's trail running shoes under $80," Google scans your feed and surfaces the best-matching products automatically.
+
+Performance Max (PMax) is Google's next step beyond Shopping. It takes your product feed and adds creative assets - headlines, images, and videos - then distributes ads across every Google surface at once: Search, Shopping, YouTube, Display, Discover, Gmail, and Maps.
+
+One campaign can reach a shopper who is researching on Google in the morning, watching YouTube at lunch, and browsing a news site in the evening.
 
 ## Quick Summary
 
@@ -23,7 +27,7 @@ Performance Max (PMax) is Google's next step beyond Shopping. It takes your prod
 
 ## Why It Matters
 
-Paid search used to mean picking keywords and writing ads manually. Shopping and PMax represent a structural shift - the algorithm now handles placement, bidding, and creative combinations. Marketers who understand this system can scale to thousands of products without writing a single ad.
+Paid search used to mean picking keywords and writing ads manually. Shopping and PMax represent a structural shift: the algorithm now handles placement, bidding, and creative combinations. Marketers who understand this system can scale to thousands of products without writing a single ad.
 
 <Callout type="info">
 **The scale advantage is enormous.** An e-commerce store with 5,000 products would need thousands of ad groups to manage them manually. With a well-structured product feed, one PMax campaign covers all 5,000 SKUs, automatically showing the right product for every relevant search query.
@@ -40,7 +44,9 @@ Shopping campaigns start inside Google Merchant Center - a separate free account
 - `google_product_category` - Google's taxonomy code for your product type
 - `gtin` or `mpn` - the barcode or manufacturer part number (boosts eligibility)
 
-Google ingests this feed, validates it, and makes those products eligible to appear in Shopping results. Feed quality is everything. A title like "Blue Shoe Men" will barely match anything. A title like "Nike Air Zoom Pegasus 41 Men's Running Shoe Blue Size 10" matches dozens of relevant search queries because it mirrors how real shoppers search.
+Google ingests this feed, validates it, and makes those products eligible to appear in Shopping results. Feed quality is everything.
+
+A title like "Blue Shoe Men" will barely match anything. A title like "Nike Air Zoom Pegasus 41 Men's Running Shoe Blue Size 10" matches dozens of relevant search queries because it mirrors how real shoppers search.
 
 ## How Performance Max Works
 
@@ -53,7 +59,9 @@ PMax builds on your Merchant Center feed but adds an asset layer. You supply:
 
 Google's AI assembles thousands of creative combinations from these assets and tests them across every channel. You also provide **audience signals** - these are hints, not restrictions. You might upload your customer email list and say "find more people like these." The algorithm uses that as a starting point, then expands beyond it once it finds higher-converting patterns.
 
-**Smart Bidding** drives the whole system. Target ROAS (return on ad spend - how many dollars you earn per dollar spent) tells Google to maximize revenue while hitting your revenue goal. Target CPA (cost per acquisition - what you pay to get one customer) tells it to maximize conversions within a cost ceiling. The AI adjusts bids on every single auction, factoring in device type, location, time of day, user intent signals, and hundreds of other inputs simultaneously.
+**Smart Bidding** drives the whole system. Target ROAS (return on ad spend - how many dollars you earn per dollar spent) tells Google to maximize revenue while hitting your revenue goal. Target CPA (cost per acquisition - what you pay to get one customer) tells it to maximize conversions within a cost ceiling.
+
+The AI adjusts bids on every single auction, factoring in device type, location, time of day, user intent signals, and hundreds of other inputs simultaneously.
 
 <Mermaid chart={`
 flowchart TD
@@ -90,6 +98,7 @@ What makes it worse: every significant change (new budget, new bid target, major
 KEH Camera is a US-based online retailer of secondhand camera equipment. Before PMax, they were running over 70 separate Smart Shopping campaigns. In 2022, they migrated to Performance Max using a structured five-step approach: pausing auto-generated PMax campaigns first, consolidating their best-performing Smart Shopping campaigns, then gradually shifting budget to PMax.
 
 The results over Q1 2022 versus Q1 2023:
+
 - Revenue from ads increased 76.3%
 - Transactions increased 44.1%
 - Average monthly ROAS over six months: 9.93x (that means $9.93 earned for every $1 spent)
@@ -117,7 +126,11 @@ In traditional search ads, your competitive advantage is your ad copy. In Shoppi
 
 **GTINs and MPNs:** If your product has a barcode (GTIN) or manufacturer part number (MPN), include it. Google uses these to match your products to structured catalog data, which improves eligibility and quality scores.
 
-**Custom Labels:** These are fields you can populate with your own data to help you segment campaigns. Common uses: margin tier (high-margin vs. low-margin products), inventory level (overstocked items to push), or seasonality (summer vs. winter products).
+**Custom Labels:** These are fields you can populate with your own data to help you segment campaigns. Common uses:
+
+- Margin tier (high-margin vs. low-margin products)
+- Inventory level (overstocked items to push)
+- Seasonality (summer vs. winter products)
 
 <Mermaid chart={`
 flowchart LR
@@ -149,7 +162,7 @@ Here is what the algorithm controls:
 - Which channels to prioritize for each user
 - How to expand beyond your audience signals
 
-The mistake most beginners make is trying to control too much - micromanaging bids, changing targets every few days, or running too many campaigns that cannibalize each other. The mistake at the other extreme is giving the algorithm too little guidance - no audience signals, poor creative assets, weak feed data. The skill is finding the right balance.
+The mistake most beginners make is trying to control too much: micromanaging bids, changing targets every few days, or running too many campaigns that cannibalize each other. The mistake at the other extreme is giving the algorithm too little guidance - no audience signals, poor creative assets, weak feed data. The skill is finding the right balance.
 
 <Callout type="tip">
 **PMax will spend budget on branded searches (people searching your company name directly) that would have converted anyway.** This inflates ROAS numbers but does not represent real incremental growth. Use the Search Terms Insights tab inside PMax to spot this. Many practitioners add a separate branded Search campaign with a higher priority so branded traffic routes there instead, keeping PMax focused on finding new customers.
