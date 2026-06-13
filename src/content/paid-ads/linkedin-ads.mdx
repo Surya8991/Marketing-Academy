@@ -9,100 +9,282 @@ export const lessonMeta = {
 
 # LinkedIn Ads
 
-## What It Is
+LinkedIn Ads is the only ad platform that lets you target people by their job title, company size, industry, and seniority level. If you need to reach a VP of Finance at a 200-person fintech company, you can do that here. You cannot do it anywhere else with that precision.
 
-LinkedIn Ads is a paid advertising platform built on the world's largest professional network. Unlike most ad platforms that target people based on what they browse or buy, LinkedIn lets you target people based on their job title, company size, industry, seniority level, and skills. If you need to reach a VP of Engineering at a 500-person SaaS company, LinkedIn is the only place you can do that with precision.
+The trade-off is cost. LinkedIn's average CPC (cost per click) is around $10 and can hit $15 in competitive quarters (HockeyStack, 2025, from $28M in analyzed spend). That is 5-10x more expensive than Meta. Every click needs to earn its keep.
 
-The trade-off is cost. LinkedIn's CPCs (cost per click) routinely run $8–15, compared to $1–3 on Meta and Google's display network. You are paying a premium to reach people in a professional mindset — actively thinking about work problems, career moves, and business decisions. That premium pays off for high-value B2B products where a single closed deal can be worth tens of thousands of dollars. It rarely pays off for consumer goods or low-ticket products.
+## Quick Summary
 
-LinkedIn supports several ad formats: Sponsored Content (native posts in the feed), Message Ads (direct messages to inboxes), Dynamic Ads (personalized banners using profile data), and Lead Gen Forms (native forms that pre-fill with LinkedIn profile data). The Lead Gen Form product is particularly powerful for B2B because it removes the friction of landing pages — prospects submit contact info without leaving LinkedIn, and conversion rates on these typically run 2-3x higher than external landing pages.
+- LinkedIn is the only platform where you can target by job title, seniority, company size, and industry at scale
+- Average CPC runs $10-15, so it only makes financial sense for products where one closed deal is worth thousands of dollars
+- Lead Gen Forms (native sign-up forms inside LinkedIn) convert at roughly 13%, versus 2-3% for external landing pages
+- The best B2B advertisers use tight audience targeting (50,000-300,000 people), not broad reach
+- Q2 is the most cost-efficient quarter for LinkedIn Ads, delivering the best cost-per-MQL (marketing qualified lead) ratio
 
-## Real-World Example
-
-HubSpot has run LinkedIn campaigns consistently to reach marketing directors and sales leaders at mid-market companies — exactly the persona that buys CRM and marketing software.
-
-<Callout type="example" title="Real Example">
-HubSpot used LinkedIn Lead Gen Form campaigns targeting Marketing Directors and VPs at companies with 50–500 employees. By offering gated research reports (not product demos), they achieved cost-per-lead of around $65 — high by consumer standards, but well within acceptable range when a closed deal is worth $15,000+ annually. Their form completion rates ran approximately 13%, compared to 6% on equivalent landing-page campaigns driving the same traffic. The professional context of LinkedIn meant leads were higher-intent and closer to the buying decision.
+<Callout type="info">
+**Who this platform is for:** B2B (business-to-business) companies selling software, services, or high-ticket products to working professionals. If your average customer pays you more than $5,000 per year, LinkedIn is worth testing. If you sell to consumers or your product costs under $500, the economics almost never work.
 </Callout>
 
-## Why It Matters
+---
 
-LinkedIn Ads belongs in your toolkit in specific situations, not as a default:
+## Why LinkedIn Ads Exist
 
-- When your product targets professionals by role or seniority (HR software, sales tools, developer platforms, financial services)
-- When your average contract value is high enough to absorb $50–150 cost-per-lead without breaking your acquisition economics
-- When you need to reach decision-makers who are hard to find through search intent (not everyone Googles "enterprise payroll software" — but you can find all the Heads of Finance on LinkedIn)
-- When you want to run account-based marketing (ABM) and need to upload a list of target company names and serve ads specifically to employees at those companies
+Most ad platforms know what you do in your personal life. Facebook knows you like hiking. Google knows you searched for running shoes. LinkedIn knows where you work, what your job title is, how many years of experience you have, and what skills you listed.
 
-## How It Works
+That professional data is rare and valuable. A software company selling enterprise HR tools does not care if its target buyer likes cooking videos. It cares that the buyer is a Head of People at a company with 200-1,000 employees. LinkedIn is the only platform that can make that match.
 
-LinkedIn's Campaign Manager organizes work into three levels: Campaign Groups (budget containers), Campaigns (targeting and format), and Ads (creatives). You start by choosing an objective — Awareness, Consideration, or Conversion — which determines which bidding options and ad formats are available to you.
+This is why 4 out of 5 LinkedIn members drive business decisions at their companies (LinkedIn internal data). The mindset on LinkedIn is also different from social platforms. People show up here thinking about their careers and their work problems - which means a relevant ad lands differently than it does on a platform built for entertainment.
 
-Targeting is where LinkedIn earns its premium. You can layer filters: choose an industry, then narrow to company size, then filter by job function, then filter by seniority. You can also upload a list of email addresses or company names and match them to LinkedIn profiles (Matched Audiences), or retarget people who visited your website using the LinkedIn Insight Tag. Audience sizes tend to be small — 50,000 to 300,000 is typical for a well-defined B2B segment — which is actually fine, because you are paying for precision, not scale.
+---
 
-Bidding works on a CPM (cost per thousand impressions), CPC (cost per click), or CPL (cost per lead) basis. LinkedIn's algorithm optimizes delivery within those parameters. Most B2B advertisers use CPC or CPL bidding on Sponsored Content, and CPM for brand awareness plays. Lead Gen Forms use their own cost-per-lead metric tracked natively in Campaign Manager.
+## The Four Main Ad Formats
+
+LinkedIn offers four formats. Each works differently and suits a different goal.
+
+**Sponsored Content** - These look like regular posts in the LinkedIn feed. They can be single images, carousels (multiple swipeable images), or videos. This is the most common format and works best for driving traffic and generating leads.
+
+**Lead Gen Forms** - These attach directly to a Sponsored Content ad. Instead of clicking through to a website, the user sees a form that pre-fills with their LinkedIn profile data. They submit in two taps. This is the single most powerful format for B2B lead generation because it removes friction. Conversion rates on Lead Gen Forms average 13%, versus 2-3% for an equivalent external landing page.
+
+**Message Ads (formerly InMail)** - These land directly in a user's LinkedIn inbox. They feel personal and get high open rates. VistaVu Solutions used Message Ads and achieved a 23.8% conversion rate, cutting their ad spend by 75% while generating 5x more leads than any other platform they had tested (HubSpot case study compilation).
+
+**Dynamic Ads** - These personalize banner ads using the viewer's own LinkedIn profile photo or name. ESCP Europe used Dynamic Spotlight Ads and hit a 14% conversion rate, nearly 14x their original 1% goal, while generating more than 40 leads above target (HubSpot case study compilation).
+
+---
+
+## How the Campaign Structure Works
+
+LinkedIn's Campaign Manager (the tool where you build and manage campaigns) has three layers:
+
+1. **Campaign Groups** - Think of these as budget buckets. One group might hold your awareness campaigns; another holds your lead generation campaigns.
+2. **Campaigns** - Each campaign has its own targeting settings, ad format, and bidding strategy. This is where you define who sees your ads.
+3. **Ads** - The individual creatives (images, copy, videos) that run inside a campaign.
+
+When you set up a campaign, you choose an objective first: Awareness, Consideration, or Conversion. The objective controls which ad formats and bidding options LinkedIn shows you.
 
 <Mermaid chart={`
-flowchart LR
-  A[Define ICP\nJob Title + Industry\n+ Company Size] --> B[Build Audience\nin Campaign Manager]
-  B --> C{Audience\nSize Check}
-  C -->|Too small < 10k| D[Broaden Targeting\nor Add Lookalikes]
-  C -->|Good 50k–500k| E[Choose Ad Format\nSponsored Content\nor Lead Gen Form]
-  E --> F[Set Bid + Budget\nCPC or CPL]
-  F --> G[Launch Campaign]
-  G --> H[Monitor CTR\nand CPL Weekly]
-  H -->|CPL too high| I[Test New Creative\nor Narrow Audience]
-  H -->|CPL on target| J[Scale Budget\nor Expand Audience]
-`} caption="LinkedIn Ads campaign flow: from audience definition through optimization decisions" />
+flowchart TD
+  A[Define Your ICP\nJob title + seniority\n+ company size] --> B[Build Audience\nin Campaign Manager]
+  B --> C{Audience\nSize?}
+  C -->|Under 10k - too narrow| D[Broaden filters\nor add lookalikes]
+  C -->|50k to 500k - ideal| E[Pick Ad Format]
+  D --> B
+  E --> F[Sponsored Content\nor Lead Gen Form]
+  E --> G[Message Ads\nor Dynamic Ads]
+  F --> H[Set Bid + Budget\nCPC or CPL]
+  G --> H
+  H --> I[Launch Campaign]
+  I --> J{Weekly Review}
+  J -->|CPL too high| K[Test new creative\nor narrow audience]
+  J -->|CPL on target| L[Scale budget\nor expand audience]
+  K --> I
+  L --> I
+`} caption="LinkedIn Ads campaign flow from audience definition through launch and optimization" />
+
+---
+
+## Targeting: Where LinkedIn Earns Its Premium
+
+LinkedIn targeting works by layering filters. Here is a typical targeting stack for a SaaS company selling sales tools:
+
+- **Industry:** Software, Financial Services, Professional Services
+- **Company size:** 200-2,000 employees
+- **Job function:** Sales, Business Development
+- **Seniority:** Manager, Director, VP, C-Suite
+- **Skills (optional):** Salesforce, HubSpot, CRM
+
+That combination might produce an audience of 80,000-150,000 people globally. That sounds small compared to Meta's millions, but it is right for LinkedIn. You are paying for precision. A tightly defined audience of 100,000 buyers converts better than a broad audience of 2 million people who include many who will never buy your product.
+
+**Matched Audiences** is LinkedIn's retargeting feature. You can upload a CSV list of email addresses or company names, and LinkedIn matches them to profiles. This lets you run account-based marketing (ABM) - serving ads specifically to employees at the 200 companies in your target list. You can also retarget people who visited your website by installing the LinkedIn Insight Tag (a small piece of tracking code, similar to the Meta Pixel).
+
+<Callout type="info">
+**Bidding options:** LinkedIn offers CPC (you pay per click), CPM (you pay per 1,000 impressions), and CPL (you pay per lead, for Lead Gen Form campaigns). Most B2B advertisers start with CPC for Sponsored Content campaigns and shift to CPL bidding once they have enough data for LinkedIn's algorithm to optimize toward lead quality. The median CPC across industries in 2025 is $3.94, but SaaS companies pay closer to $8 (Closely HQ, 2025 benchmarks).
+</Callout>
+
+---
+
+## Real Company Results
+
+### Corporate Visions
+
+Corporate Visions, a B2B sales training and consulting firm, optimized their LinkedIn carousel ad campaigns to reach specific decision-makers at target companies. The result: a **116% increase in qualified leads year-over-year** and a **doubled ROI** after tightening their targeting and creative strategy (LinkedIn Marketing case studies).
+
+### VistaVu Solutions
+
+VistaVu Solutions, an ERP (enterprise resource planning) software company, switched from broad display advertising to LinkedIn Message Ads targeted at operations leaders in the oil and gas industry. Compared to their previous campaigns on other platforms, they achieved a **23.8% conversion rate**, **5x more leads**, and **cut their total ad spend by 75%** (HubSpot LinkedIn Ads case studies).
+
+### Design Pickle
+
+Design Pickle, a subscription graphic design service, used LinkedIn Message Ads to reach marketing managers and agency owners. The campaign generated **463 new signups** (including 64 premium subscribers) and **$1.8 million in attributable revenue**, with a 19% lower cost per signup compared to other ad platforms they tested (HubSpot LinkedIn Ads case studies).
+
+<Callout type="example">
+**How a B2B SaaS company runs a Lead Gen Form campaign:**
+
+A project management software company (similar to Monday.com or Asana) wants to generate trial signups from operations managers at mid-market companies.
+
+- **Targeting:** Operations, Project Management job functions | Manager and Director seniority | 100-1,000 employee companies | Technology and Professional Services industries
+- **Audience size:** ~95,000 people
+- **Ad format:** Sponsored Content with Lead Gen Form
+- **Offer:** Free 30-day trial + setup guide PDF
+- **Budget:** $5,000/month
+- **Expected CPL:** $80-130 based on 2025 SaaS benchmarks
+- **Expected leads/month:** 38-62 leads
+- **Key metric to watch:** Lead-to-demo conversion rate (tells you if lead quality is good)
+
+At a 5% lead-to-close rate and $12,000 ACV (annual contract value), even 40 leads per month at $130 CPL produces positive ROI.
+</Callout>
+
+---
+
+## Seasonal Patterns: Timing Matters
+
+HockeyStack's 2025 benchmark report analyzed $28 million in LinkedIn ad spend across 70+ B2B SaaS companies and found clear seasonal patterns:
+
+- **Q2 (April-June):** Best cost-per-MQL efficiency at 161.9% ratio. Spend less, get more leads.
+- **Q3 (July-September):** Best pipeline ROI at 6.01x spend. September alone delivers the highest CTR of the year (1.05%).
+- **Q4 (October-December):** Highest budget share (31% of annual spend) but the worst MQL efficiency. Companies are competing hard, prices rise, and buyers are distracted by end-of-year priorities.
+- **Q1 (January-March):** Lowest CPCs ($10.48 average) and fastest sales cycles (leads convert in 24 days on average, versus 68 days in Q4).
+
+If you have a limited budget, Q1 and Q2 give you the most bang for your spend. Save the heavy Q4 push for brand awareness, not lead generation.
+
+---
 
 ## Common Mistakes
 
 <Callout type="warning">
-**Targeting too broad to save on CPM.** New advertisers often open up targeting to keep audience size large and CPMs lower. But LinkedIn's value is specificity. A campaign targeting "all marketing professionals" will get clicks from interns and coordinators who will never buy your $50k product. Narrow to seniority levels (Manager and above) and the specific job functions that actually make purchasing decisions. A smaller, more expensive audience that converts is better than a cheap broad audience that doesn't.
+**Targeting too broad.** New advertisers open up targeting to keep audience sizes large and CPMs lower. This is backwards. LinkedIn's value is specificity. A campaign targeting "all marketing professionals" will reach interns, freelancers, and people who will never buy your $30,000 product. Narrow to specific seniority levels (Manager and above) and the job functions that actually control purchasing budgets. A 60,000-person precise audience almost always outperforms a 400,000-person vague one.
 </Callout>
 
 <Callout type="warning">
-**Sending traffic to generic homepage or product pages.** LinkedIn traffic is expensive — $10+ per click. Sending that traffic to a homepage that isn't built to convert a professional who just saw a work-relevant ad wastes the spend. Every LinkedIn campaign needs a dedicated landing page or Lead Gen Form that matches the ad's specific offer and speaks to the persona you targeted. If your ad promises a guide to enterprise security compliance, the landing page must deliver exactly that.
+**Sending expensive clicks to a generic homepage.** LinkedIn's median CPC is $3.94 but SaaS advertisers routinely pay $8-15 per click. Every click that lands on a homepage that does not match the ad's specific promise is money wasted. Every LinkedIn campaign needs a dedicated landing page or Lead Gen Form matched to the exact offer in the ad. If your ad says "Free security compliance checklist," the landing page delivers that checklist, nothing else.
 </Callout>
 
-<Callout type="tip">
-**Use the "Exclude converted leads" audience to avoid wasting budget.** Connect your CRM or use LinkedIn's Matched Audiences feature to upload a list of existing customers and active pipeline contacts. Exclude them from your campaigns. You are paying $10+ per click — every impression served to someone already in your sales cycle is money wasted. The best LinkedIn advertisers run tight exclusion lists and refresh them monthly.
-</Callout>
+**Forgetting to exclude existing customers and pipeline contacts.** Upload your CRM contact list to LinkedIn's Matched Audiences and exclude them from campaigns. You are paying $10+ per click. Showing ads to people already in your sales process wastes budget and can annoy active prospects. Refresh exclusion lists monthly.
+
+**Testing too many variables at once.** Change one thing per test: either the audience, the creative, or the offer. If you change all three and performance improves, you will not know which change caused the improvement. LinkedIn campaigns need at least 2 weeks and 40+ conversions before data is statistically useful.
+
+**Giving up too early.** LinkedIn's algorithm needs time and volume to optimize. Campaigns with less than $1,000 in spend rarely show true performance. Most LinkedIn advertisers see CPL drop 20-40% after the first 3-4 weeks as the algorithm learns which members in your audience are most likely to convert.
+
+---
+
+## The LinkedIn Ads Funnel
+
+Not every campaign should ask for a sale on first contact. B2B buying cycles are long. A structured funnel approach works better:
+
+<Mermaid chart={`
+flowchart LR
+  A[Awareness\nThought leadership\nVideo ads] --> B[Consideration\nCase studies\nWebinar invites]
+  B --> C[Decision\nLead Gen Form\nFree trial offer]
+  C --> D[CRM + Sales\nFollow-up sequence]
+  D --> E[Closed Deal]
+  F[Retargeting\nInsight Tag visitors] --> B
+  G[Matched Audiences\nTarget account list] --> A
+`} caption="A three-stage LinkedIn Ads funnel from awareness through closed deal" />
+
+**Top of funnel (Awareness):** Video ads and thought leadership posts. Goal is impressions and brand recall, not clicks. Use CPM bidding. Keep the ask light (no forms).
+
+**Middle of funnel (Consideration):** Retarget people who watched your video or visited your website. Offer case studies, webinars, or research reports. This is where Sponsored Content with Lead Gen Forms starts to work well.
+
+**Bottom of funnel (Decision):** Retarget people who downloaded your content or visited your pricing page. Offer a free trial, demo, or consultation. Message Ads work particularly well here because they feel direct and personal.
+
+---
+
+## Is LinkedIn Worth the Cost?
+
+Run this quick math before launching:
+
+- **ACV** (annual contract value, what a customer pays per year): $____
+- **Lead-to-close rate** (percentage of leads that become customers): ____%
+- **Maximum acceptable CPL** = ACV x Lead-to-close rate x 0.2 (using 20% of first-year revenue as the limit)
+
+Example: ACV is $20,000, lead-to-close rate is 3%.
+Maximum CPL = $20,000 x 0.03 x 0.2 = **$120**
+
+If LinkedIn's CPL for your industry is below $120, the channel can be profitable. If it is above, either your ACV needs to be higher, your sales team needs to close more leads, or LinkedIn is not the right channel yet.
+
+---
 
 ## The One-Line Takeaway
 
-**LinkedIn Ads is the right tool when you need to reach specific professionals by role and the lifetime value of a customer justifies a $50–150 cost per lead.**
+**LinkedIn Ads pays for itself only when your product is expensive enough that one closed deal covers dozens of $100+ clicks.**
 
 <ResourceList resources={[
   {
-    title: "LinkedIn Marketing Solutions Help Center",
+    title: "LinkedIn Marketing Solutions Official Docs",
     url: "https://www.linkedin.com/help/lms",
     type: "docs",
-    note: "Official LinkedIn documentation covering Campaign Manager setup, ad formats, targeting options, and billing — the ground truth for how the platform actually works",
-    free: true
+    note: "Official Campaign Manager documentation covering every ad format, targeting option, bidding strategy, and billing detail - the authoritative reference for how the platform actually works",
+    free: true,
   },
   {
-    title: "LinkedIn Marketing Labs (Free Courses)",
-    url: "https://www.linkedin.com/learning/topics/linkedin-marketing-labs",
+    title: "LinkedIn Marketing Labs - Free Certification Courses",
+    url: "https://business.linkedin.com/marketing-solutions/linkedin-marketing-labs",
     type: "course",
-    note: "LinkedIn's own free certification courses covering Sponsored Content, Lead Gen Forms, and campaign measurement — directly from the platform team",
-    free: true
+    note: "Free self-paced courses built by LinkedIn's own team. Covers Sponsored Content, Lead Gen Forms, campaign measurement, and targeting strategy. Includes a certification badge.",
+    free: true,
   },
   {
-    title: "WordStream: LinkedIn Ads Benchmarks",
-    url: "https://www.wordstream.com/blog/ws/2021/02/08/linkedin-ads-benchmarks",
+    title: "HockeyStack 2025 LinkedIn Ads Benchmark Report",
+    url: "https://www.hockeystack.com/lab-blog-posts/linkedin-ads-benchmarks",
     type: "article",
-    note: "Industry benchmark data for LinkedIn CTR, CPC, and conversion rates by industry — essential for knowing whether your campaign numbers are good or broken",
-    free: true
+    note: "Data-driven benchmark report based on $28M in real LinkedIn ad spend across 70+ B2B SaaS companies. Includes CTR, CPL, pipeline ROI, and seasonal performance patterns by quarter.",
+    free: true,
   },
-
-  { title: "WsCube Tech - LinkedIn Ads (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
-  { title: "Mr Digital Marketing Tamil - LinkedIn Ads", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
-  { title: "ODMT Telugu - LinkedIn Ads (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+  {
+    title: "HubSpot - LinkedIn Ad Case Studies",
+    url: "https://blog.hubspot.com/marketing/linkedin-ad-case-studies",
+    type: "article",
+    note: "Real case studies from companies like VistaVu, Design Pickle, Corporate Visions, and others with specific metrics. Essential for understanding what good LinkedIn results actually look like.",
+    free: true,
+  },
+  {
+    title: "Closely HQ - LinkedIn Ad Benchmarks 2025 by Industry",
+    url: "https://blog.closelyhq.com/linkedin-ad-benchmarks-cpc-cpm-and-ctr-by-industry/",
+    type: "article",
+    note: "Breakdown of CPC, CPM, and CTR benchmarks by industry including SaaS, finance, education, and healthcare. Useful for setting realistic targets before launching your first campaign.",
+    free: true,
+  },
+  {
+    title: "B2Linked - LinkedIn Ads YouTube Channel",
+    url: "https://www.youtube.com/@b2linked",
+    type: "video",
+    note: "Run by AJ Wilcox, one of the world's most cited LinkedIn Ads specialists. Covers bidding strategy, ad copy, targeting, and campaign structure with real account walkthroughs.",
+    free: true,
+  },
+  {
+    title: "Coursera - LinkedIn Ads Certification Course",
+    url: "https://www.coursera.org/learn/linkedin-ads-certification-course",
+    type: "course",
+    note: "Structured 3-module course covering account setup, targeting, campaign management, and measurement. Good for beginners who want a guided learning path with exercises.",
+    free: true,
+  },
+  {
+    title: "WsCube Tech - LinkedIn Ads (Hindi)",
+    url: "https://www.youtube.com/@WsCubeTech",
+    type: "video",
+    lang: "hi",
+    free: true,
+    note: "Top Hindi digital marketing channel",
+  },
+  {
+    title: "Mr Digital Marketing Tamil - LinkedIn Ads",
+    url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw",
+    type: "video",
+    lang: "ta",
+    free: true,
+    note: "Tamil digital marketing tutorials",
+  },
+  {
+    title: "ODMT Telugu - LinkedIn Ads (Telugu)",
+    url: "https://www.youtube.com/@ODMTtelugu",
+    type: "video",
+    lang: "te",
+    free: true,
+    note: "Telugu digital marketing training",
+  },
 ]} />
 
 ## Related Concepts
 
-- [Meta Ads](/learn/paid-ads/meta-ads) — the lower-cost alternative for B2C and consumer-facing B2B; understanding both lets you allocate budget between platforms based on your audience
-- [Retargeting](/learn/paid-ads/retargeting) — LinkedIn's Matched Audiences and website retargeting layers are where the platform gets especially powerful for warming up cold B2B prospects
-- [iOS Attribution](/learn/paid-ads/ios-attribution) — LinkedIn campaigns that drive mobile traffic face the same attribution challenges as Meta; understanding how LinkedIn's Insight Tag handles post-iOS14 measurement is critical for accurate reporting
+- [Meta Ads](/learn/paid-ads/meta-ads) - the lower-cost alternative for B2C and consumer-facing B2B; understanding both lets you allocate budget between platforms based on your audience
+- [Retargeting](/learn/paid-ads/retargeting) - LinkedIn's Matched Audiences and website retargeting layers are where the platform becomes especially powerful for warming up cold B2B prospects
+- [iOS Attribution](/learn/paid-ads/ios-attribution) - LinkedIn campaigns that drive mobile traffic face the same attribution challenges as Meta; understanding how LinkedIn's Insight Tag handles post-iOS14 measurement is critical for accurate reporting

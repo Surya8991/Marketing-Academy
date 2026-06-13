@@ -9,95 +9,214 @@ export const lessonMeta = {
 
 # Google Search Ads
 
-## What It Is
+Google Search Ads are the paid text results that appear at the top (and sometimes bottom) of a Google search page. They carry a small "Sponsored" label. When someone types a query, advertisers who have bid on related keywords can show up at that exact moment.
 
-Google Search Ads are the paid results that appear at the top (and sometimes bottom) of a Google search results page. When someone types a query into Google, advertisers who have bid on related keywords can show a text ad to that person — right at the moment they're looking for something. You've seen these your whole life: the listings with a small "Sponsored" label above the organic results.
+What makes this channel special is one word: **intent**. The person is not passively scrolling. They typed something into a search box. A search for "best accounting software for freelancers" means they want accounting software for freelancers, right now. That is an extraordinarily valuable moment to appear in front of them.
 
-What makes search ads different from almost every other form of advertising is intent. The person isn't scrolling through their feed when an ad interrupts them. They typed something into a search box, which means they're actively looking. A search for "best project management software" signals that someone is probably comparing options and close to making a decision. That's an extraordinarily valuable moment to show up as an advertiser.
+## Quick Summary
 
-The way it works financially is through an auction. Every time someone searches, Google runs a real-time auction among advertisers who have bid on that keyword. You don't pay a flat rate — you pay per click (CPC, or cost-per-click). You set a maximum bid, Google weighs it against your ad quality and relevance, and the winners get shown. You only pay when someone actually clicks your ad.
+- Google shows your text ad when someone searches a keyword you have bid on.
+- You pay per click (CPC), not per impression, so budget goes toward real interest.
+- Ad Rank, not just bid price, decides your position: relevance and quality matter as much as money.
+- The average Google Search Ads conversion rate across all industries in 2025 is 7.52% (WordStream).
+- Tight account structure (campaign > ad group > matching landing page) is the single biggest factor in keeping costs low.
 
-## Real-World Example
+## How the Auction Works
 
-Slack ran aggressive Google Search Ads campaigns targeting searches like "team communication tool," "Slack alternative," and "replace email at work." During their growth phase, they used search ads to capture high-intent buyers who were actively evaluating collaboration software.
+Every Google search triggers a real-time auction in milliseconds. You do not buy a fixed ad slot. Google ranks every eligible advertiser using a formula called **Ad Rank**.
 
-<Callout type="example" title="Real Example">
-Slack used Google Search Ads to target bottom-of-funnel searches like "team messaging app" and "Hipchat alternative." By pairing tightly themed ad groups with landing pages that matched the search intent exactly, they reported cost-per-acquisition (CPA) rates well below industry benchmarks for SaaS — in the range of $30–$60 per trial signup — while scaling to over 10 million daily active users by 2019. The key was matching ad copy to the exact language searchers used, so click-through rates stayed high and Quality Scores stayed low-cost.
+Ad Rank = Bid x Quality Score x expected impact of ad extensions
+
+**Quality Score** (scored 1-10) is Google's estimate of how relevant your ad and landing page are to the person searching. A higher Quality Score means you pay less per click and rank higher. This is the most counterintuitive thing beginners discover: a well-written, highly relevant ad from a lower bidder beats a lazy ad from someone spending twice as much.
+
+<Callout type="info">
+Ad Rank is recalculated fresh for every single search. There is no fixed position you can "own." Your position changes based on who else is bidding at that moment, what device the user is on, and what time of day it is.
 </Callout>
-
-## Why It Matters
-
-Google Search Ads are often the first paid channel a marketer reaches for because they intercept demand that already exists. Consider using them when:
-
-- **You're selling something people search for.** If someone Googles your category, you want to show up before competitors do.
-- **You need fast traffic.** Unlike SEO, search ads can drive clicks within hours of going live — useful for launches, promotions, or testing new offers.
-- **You're targeting high-intent buyers.** People who search "buy noise-canceling headphones" are much closer to purchasing than someone who just saw a banner ad.
-- **You want measurable, scalable results.** Every click, impression, and conversion is tracked, making it straightforward to calculate ROI and decide where to invest more.
-
-## How It Works
-
-When you set up a Google Search campaign, you choose keywords — the search terms you want to trigger your ads. You write ad copy (headlines and descriptions) that Google assembles into a text ad. You set bids and a daily budget. Then the auction does the rest.
-
-The auction isn't purely about who bids the most. Google uses a score called Ad Rank to decide who shows up and in what position. Ad Rank is calculated from your bid multiplied by your Quality Score — a rating of how relevant and useful your ad and landing page are. This means a well-crafted, highly relevant ad from a lower bidder can outrank a sloppy ad from someone paying more. Good ads are cheaper to run than bad ones, which is one of the most counterintuitive things beginners discover.
-
-Your account is organized in layers: Campaigns sit at the top (budget and targeting), Ad Groups sit inside campaigns (clusters of related keywords), and Ads sit inside ad groups. Keeping this structure tight — where every keyword in an ad group closely matches the ad copy and the landing page — is the foundation of a well-run search account.
 
 <Mermaid chart={`
 flowchart LR
-  A[User types search query] --> B[Google runs real-time auction]
-  B --> C{Ad Rank calculated}
+  A[User types query] --> B[Google runs auction]
+  B --> C[Calculate Ad Rank]
   C --> D[Bid amount]
   C --> E[Quality Score]
-  D & E --> F[Ad shown in results]
-  F --> G[User clicks ad]
-  G --> H[Advertiser pays CPC]
-  H --> I[User lands on page]
-`} caption="How a Google Search Ad auction works — from search query to click and charge" />
+  C --> F[Extension impact]
+  D & E & F --> G[Winner shown in results]
+  G --> H[User clicks]
+  H --> I[Advertiser pays CPC]
+`} />
 
-## Common Mistakes
+## Account Structure: The Foundation
+
+Your Google Ads account is organized in three layers. Getting this right is more important than any individual optimization.
+
+**Campaign** - Sets the budget, location targeting, and network. One campaign per product line or goal.
+
+**Ad Group** - A cluster of closely related keywords inside a campaign. Each ad group has its own ads. Keep ad groups tight: 5-20 keywords maximum per group.
+
+**Ads** - The actual text shown to users. Each ad group should have 3-5 ads (Google recommends Responsive Search Ads, or RSAs, where you supply up to 15 headlines and 4 descriptions and Google tests combinations).
+
+The rule: every keyword in an ad group should closely relate to the ad copy, and the ad copy should match the landing page. This chain is what drives up Quality Score and drives down cost.
+
+<Mermaid chart={`
+flowchart TD
+  A[Campaign: Budget + Location] --> B[Ad Group 1: Running Shoes]
+  A --> C[Ad Group 2: Trail Shoes]
+  B --> D[Keywords: buy running shoes, best running shoes]
+  B --> E[Ads: Running Shoes headline]
+  E --> F[Landing Page: /running-shoes]
+  C --> G[Keywords: trail running shoes, off-road shoes]
+  C --> H[Ads: Trail Shoes headline]
+  H --> I[Landing Page: /trail-shoes]
+`} />
+
+## Keyword Match Types
+
+Match types control which searches can trigger your ad. This is the most commonly misunderstood setting in Google Ads.
+
+**Exact match** `[keyword]` - Your ad only shows when someone searches that precise phrase (or very close variants). Most controlled, usually most efficient.
+
+**Phrase match** `"keyword"` - Your ad shows when the search contains your keyword phrase in order, with other words around it. Good middle ground.
+
+**Broad match** `keyword` - Google can show your ad for any search it considers related. Can reach more people but often wastes budget on irrelevant searches. Use with caution and a strong negative keyword list.
+
+**Negative keywords** - Words that tell Google never to show your ad. If you sell new running shoes, add "repair" and "used" and "vintage" as negatives so you do not pay for those clicks.
 
 <Callout type="warning">
-**Sending all traffic to your homepage.** A search for "affordable accounting software for freelancers" deserves a landing page that speaks directly to freelancers and affordable pricing — not your generic homepage. Mismatched landing pages hurt your Quality Score, raise your costs, and kill conversion rates.
+The most common beginner mistake: launching a campaign on broad match with zero negative keywords. Google will happily spend your budget on searches that have nothing to do with your business. Always start with exact and phrase match, then check the Search Terms report weekly to find irrelevant queries and add them as negatives.
 </Callout>
 
-<Callout type="warning">
-**Using broad match keywords without negative keywords.** Broad match tells Google to show your ad for loosely related searches. Without a solid negative keyword list, you end up paying for clicks from people searching completely unrelated things. A campaign for "running shoes" on broad match might trigger for "running a business" or "shoe repair" — wasted budget with no chance of conversion.
+## Ad Copy: What Makes People Click
+
+A Google text ad has three parts:
+
+- **Headlines** - Up to 15, each max 30 characters. Three are shown at a time. Google tests which combinations perform best.
+- **Descriptions** - Up to 4, each max 90 characters. Two are shown at a time.
+- **Display URL** - Your domain plus two optional path fields (e.g., yourdomain.com/running/shoes).
+
+What makes a headline perform:
+1. Include the keyword the person searched. This creates "relevance echo" and text goes bold.
+2. Include a specific benefit or number: "Ships in 24 Hours," "Save 40%," "Rated 4.9 Stars."
+3. Include a call to action: "Get a Free Quote," "Start Your Trial," "Book Online Today."
+
+**Ad extensions** (now called "assets") are extra lines of information you can attach to ads: site links, callouts, phone numbers, prices, reviews. They increase the physical size of your ad and improve click-through rate at zero extra cost per click.
+
+## Real-World Results: What Good Looks Like
+
+**Stride Creative Group (2024-2025):** A digital agency took over an underperforming Google Search Ads account. By tightening keyword match types, rewriting ad copy, aligning landing pages to search intent, and optimizing bids, they achieved a 290% increase in conversions, a 386% improvement in conversion rate, and reduced total ad spend by 49% - all within four months. The biggest lever was landing page alignment, not bidding.
+
+**Industry benchmarks (WordStream, 2025):** Across all industries, the average Google Search Ads click-through rate is 6.66%, the average conversion rate is 7.52%, and the average cost per lead is $70.11. However, these vary enormously by industry. Automotive repair converts at 14.67% with a $28.50 cost per lead. Legal services converts at lower rates with a $131.63 cost per lead. Knowing your industry benchmark is essential before judging your own numbers.
+
+<Callout type="example">
+Worked example: You sell project management software. You create a campaign with a $50/day budget. You create three ad groups: "project management software" (for broad comparison searches), "Asana alternative" (for competitor searches), and "team task tracking tool" (for feature-based searches). Each ad group has its own ads that match those exact phrases, and each links to a dedicated landing page. After two weeks, the Search Terms report shows your "project management software" broad match ad is triggering for "project management certification" - irrelevant. You add "certification" as a negative keyword. Your cost per trial signup drops from $85 to $54 within a month.
 </Callout>
+
+## Bidding Strategies
+
+You can tell Google how to bid on your behalf. The main strategies:
+
+**Manual CPC** - You set every keyword bid yourself. Full control, but time-intensive. Good for small budgets or when you are first learning.
+
+**Target CPA (cost per acquisition)** - You tell Google what you want to pay per conversion. Google's algorithm adjusts bids to hit that target. Requires at least 30-50 conversions per month to work well.
+
+**Target ROAS (return on ad spend)** - You tell Google the revenue you want for every dollar spent. Requires conversion value tracking (typically for e-commerce).
+
+**Maximize Conversions** - Google spends your full daily budget to get as many conversions as possible. Simple to set up, but watch your CPA carefully.
 
 <Callout type="tip">
-**Pro tip.** Start with exact match and phrase match keywords only. Build your negative keyword list from the Search Terms report (found in Google Ads under Keywords) — it shows you the actual queries that triggered your ads. The Search Terms report is one of the most valuable tools in Google Ads, and most beginners never look at it. Review it weekly for the first month of any new campaign.
+Do not switch to automated bidding strategies too soon. Google's algorithm needs conversion data to optimize. If you have fewer than 30 conversions in the past 30 days, manual CPC or Maximize Clicks (to build traffic first) is more predictable. Switch to Target CPA once you have enough data.
 </Callout>
+
+## Conversion Tracking: Non-Negotiable
+
+Conversion tracking tells Google what happens after someone clicks your ad. Without it, you are flying blind. You cannot know which keywords drive sales, which ads waste money, or whether automated bidding is working.
+
+What to track:
+- **Purchase / form submission** - The most important event. Set this up before spending a dollar.
+- **Phone calls** - If your business gets calls, use Google's call tracking numbers.
+- **Micro-conversions** - Email signups, video plays, page scroll depth. Useful data, but do not optimize for these unless purchases are scarce.
+
+Set up conversion tracking via Google Ads > Tools > Conversions, or use Google Tag Manager (a tag management system that makes it easier to add tracking code to your site without developer help).
+
+## Common Mistakes Summary
+
+- Sending all traffic to your homepage instead of a specific landing page
+- Using broad match with no negative keywords
+- Not setting up conversion tracking before launching
+- Bidding on competitor brand names without understanding the cost (usually high CPC, low conversion)
+- Running too few keywords in too few ad groups, making it impossible to test what works
+- Ignoring the Search Terms report
 
 ## The One-Line Takeaway
 
-**Google Search Ads let you pay to show up at the exact moment someone is searching for what you sell — making them the highest-intent advertising channel available.**
+**Google Search Ads are the only ad channel where you pay to interrupt someone who has already decided they want what you sell.**
 
 <ResourceList resources={[
   {
-    title: "Google Ads Help Center — About search campaigns",
+    title: "Google Ads Help Center — Search Campaigns",
     url: "https://support.google.com/google-ads/answer/6325053",
     type: "docs",
-    note: "Official Google documentation covering search campaign setup, ad formats, bidding, and targeting options. The authoritative starting point.",
-    free: true
+    note: "Official Google documentation for search campaign setup, ad formats, bidding, and targeting. The authoritative starting point for any question.",
+    free: true,
   },
   {
     title: "Google Skillshop — Google Ads Search Certification",
     url: "https://skillshop.withgoogle.com/googleads",
     type: "course",
-    note: "Free certification course from Google covering search ads fundamentals through advanced strategy. Includes practice assessments and a shareable certificate.",
-    free: true
+    note: "Free certification course from Google. Covers fundamentals through advanced strategy. Earn a shareable certificate after a 75-minute exam (80% pass mark).",
+    free: true,
   },
   {
-    title: "WordStream Blog — Google Ads Benchmarks by Industry",
-    url: "https://www.wordstream.com/blog/ws/2016/02/29/google-adwords-industry-benchmarks",
+    title: "WordStream — Google Ads Benchmarks 2025",
+    url: "https://www.wordstream.com/blog/2025-google-ads-benchmarks",
     type: "article",
-    note: "Industry-by-industry breakdown of average CTR, CPC, conversion rate, and CPA for Google Search Ads. Essential for knowing whether your numbers are good or bad.",
-    free: true
+    note: "The most cited benchmark report in PPC. Shows average CTR, CPC, conversion rate, and cost per lead for every major industry. Essential for knowing if your numbers are good.",
+    free: true,
   },
-
-  { title: "WsCube Tech - Google Search Ads (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
-  { title: "Mr Digital Marketing Tamil - Google Search Ads", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
-  { title: "ODMT Telugu - Google Search Ads (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+  {
+    title: "HubSpot Academy — Google Ads Training Course",
+    url: "https://academy.hubspot.com/courses/google-ads",
+    type: "course",
+    note: "Free structured course covering campaign setup, ad copy, Quality Score, and reporting. Good complement to Skillshop for a second perspective.",
+    free: true,
+  },
+  {
+    title: "Neil Patel — Google Ads Tutorial for Beginners (YouTube)",
+    url: "https://www.youtube.com/watch?v=lD2P8k5PCWA",
+    type: "video",
+    note: "Step-by-step walkthrough of setting up a search campaign from scratch. Neil Patel is one of the most-watched digital marketing educators in English.",
+    free: true,
+  },
+  {
+    title: "Ahrefs Blog — Google Ads Guide",
+    url: "https://ahrefs.com/blog/google-ads/",
+    type: "article",
+    note: "Comprehensive written guide from one of the most trusted SEO and PPC publications. Covers keyword research, match types, Quality Score, and bidding with clear examples.",
+    free: true,
+  },
+  {
+    title: "WsCube Tech - Google Search Ads (Hindi)",
+    url: "https://www.youtube.com/@WsCubeTech",
+    type: "video",
+    lang: "hi",
+    free: true,
+    note: "Top Hindi digital marketing channel",
+  },
+  {
+    title: "Mr Digital Marketing Tamil - Google Search Ads",
+    url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw",
+    type: "video",
+    lang: "ta",
+    free: true,
+    note: "Tamil digital marketing tutorials",
+  },
+  {
+    title: "ODMT Telugu - Google Search Ads (Telugu)",
+    url: "https://www.youtube.com/@ODMTtelugu",
+    type: "video",
+    lang: "te",
+    free: true,
+    note: "Telugu digital marketing training",
+  },
 ]} />
 
 ## Related Concepts

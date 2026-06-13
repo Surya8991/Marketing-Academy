@@ -8,62 +8,206 @@ export const lessonMeta = {
 
 For two decades, TV advertising meant Nielsen panels, upfront commitments, and a media buyer with a steakhouse expense account. That world is over. In 2025, streaming surpassed cable plus broadcast combined, and you can now buy a 30-second spot on Netflix, Hulu, or YouTube CTV with the same precision targeting you use on Meta. This lesson is for performance marketers who want to move incremental spend off saturated social channels and onto the biggest screen in the house.
 
+## Quick Summary
+
+- CTV (Connected TV) means ads on internet-connected televisions. OTT is the broader term that includes phones and laptops. Most marketers focus on CTV because ads run full-screen and unskippable.
+- Streaming hit 44.8% of all US TV viewing in 2025, beating cable and broadcast combined. YouTube alone commands 12.5% of all TV time.
+- CTV ad completion rates average 95%, far higher than social video. Viewers cannot easily skip these ads.
+- You can start a CTV campaign for as little as $50 on self-serve platforms like Roku Ads Manager or MNTN.
+- The biggest mistake is using last-click attribution. CTV is an awareness and consideration channel. Measure it with lift studies, not last-click.
+
 ## What It Actually Is
 
-Connected TV (CTV) advertising means buying video inventory that runs on an internet-connected television — a Roku, Fire TV, Apple TV, smart TV, or game console. OTT ("over-the-top") is the broader term for streaming delivered around traditional cable bundles, and includes phone and laptop viewing. In practice, CTV is the slice marketers care about because the ad plays full-screen, unskippable, on the living-room TV, while still being addressable down to the household level via IP targeting, ACR (automatic content recognition) data, and platform first-party signals.
+Connected TV (CTV) advertising means buying video inventory that runs on an internet-connected television. This includes Roku, Fire TV, Apple TV, smart TVs, and game consoles. OTT ("over-the-top") is the broader term for streaming delivered outside traditional cable bundles. OTT includes phone and laptop viewing too.
 
-Concrete example: a DTC mattress brand can serve a 15-second spot only to households in 12 ZIP codes, who have visited the brand's website in the last 30 days, watching "Love is Blind" on Netflix on a Samsung TV — and then suppress that household from the same ad on Hulu the next night.
+In practice, CTV is the slice marketers care about most. The ad plays full-screen and unskippable on the living-room TV. But it still targets precisely, down to the household level, using IP targeting, ACR data (explained below), and platform first-party signals.
 
-## Why It Matters (with data)
+**ACR (Automatic Content Recognition):** Software built into smart TVs that detects what a household is watching, even from a cable box or DVD. It lets advertisers know which households saw a competitor's TV ad, then target those same households with a counter-message.
 
-CTV is no longer a test budget — it is the dominant form of TV. According to [Nielsen's Gauge report](https://www.nielsen.com/news-center/2025/youtube-maintains-largest-share-of-tv-viewing-among-media-companies-for-third-consecutive-month/), YouTube alone reached 12.7% of all US TV viewing in December 2025, with Netflix at 9.0%. Streaming overall hit 47.5% of total TV time, exceeding broadcast (21.4%) and cable (20.2%) combined.
+**Concrete example:** A DTC mattress brand can serve a 15-second spot only to households in 12 ZIP codes, who have visited the brand's website in the last 30 days, watching "Love is Blind" on Netflix on a Samsung TV. It can then suppress that household from seeing the same ad on Hulu the next night.
 
-The money is following the eyeballs. US CTV ad spend is projected at [$33.35 billion in 2025, rising to $46.89 billion by 2028](https://research.mountain.com/trends/ctv-ad-spend-will-grow-to-46-89-billion-by-2028/). In a March 2025 survey, [nearly 70% of US marketers called CTV a must-buy](https://www.statista.com/topics/8075/ctv-advertising-in-the-us/) for their media plans.
-
-The two newest inventory pools are massive. Netflix's ad tier reached [190 million monthly active viewers worldwide by November 2025](https://mountain.com/blog/netflix-advertising/) and accounts for 55% of new sign-ups in countries where it is offered. Disney folded Hulu into Disney+ in 2026, creating a combined ad-supported audience that eMarketer projects will exceed $3 billion in annual US ad revenue.
-
-## How It Works / The Playbook
-
-There are three buying lanes. Pick based on budget and goal:
-
-1. **Self-serve managed platforms (Roku Ads Manager, Netflix Ads Suite, Disney DRAX, Amazon DSP, YouTube via Google Ads).** Best for $10k–$250k/month. You upload a 15s/30s creative, set audience, set frequency cap, and bid CPM.
-2. **Programmatic DSPs (The Trade Desk, DV360, MNTN).** Best when you want one buy across Netflix, Hulu, Paramount+, Tubi, Pluto, and 80+ other apps with a single frequency cap and unified measurement.
-3. **Direct upfront / scatter buys.** Six-figure minimums, but unlocks premium pods (NFL on Peacock, Thursday Night Football on Prime).
-
-A working playbook:
-
-- **Creative:** Shoot for 15s and 30s. The first 3 seconds must work without sound — 40% of CTV viewers have a second screen in hand.
-- **Targeting layers:** Start with a 1st-party CRM match (lookalike off your best customers), then layer ACR data (households that watched a competitor's ad), then add household income or geo.
-- **Frequency cap:** 3 impressions per household per week. CTV frequency abuse is the #1 reason in-housed teams burn budget.
-- **Measurement:** Use incremental lift studies (LiveRamp, MNTN Matched), not last-click. Tag the landing page with a "saw CTV ad → visited site" pixel for view-through attribution within a 7-day window.
-
-<Callout type="example">
-Tatari client and DTC eyewear brand Warby Parker shifted 30% of its linear TV budget to CTV across Hulu, Roku, and Samsung TV Plus in 2024. Using ACR-based competitive conquest audiences and a 3-per-week frequency cap, they reported a 22% lower cost per incremental visit versus linear, while reaching households that had cut the cable cord entirely. See [Tatari's 2025 CTV benchmarks](https://www.tatari.tv/insights/what-is-ctv-understanding-connected-tv-advertising-in-2026) for category CPM ranges (typically $25–$45 on premium streamers, $12–$20 on FAST channels like Tubi and Pluto).
+<Callout type="info">
+CTV is not the same as YouTube ads run on a laptop. True CTV inventory means the ad is running on a television screen through a streaming app. Most DSPs let you filter by device type so you pay only for living-room impressions.
 </Callout>
 
-## Common Mistakes
+## Why CTV Has Taken Over TV
 
-- **Treating CTV as a direct-response channel with last-click attribution.** It is not a search ad. You will undercount its impact by 60–80%. Use MMM or geo-lift tests.
-- **Running a 30-second linear spot unchanged.** Linear creative has a logo reveal at second 25. CTV viewers leave the room. Front-load the brand and the call to action.
-- **No frequency cap across DSPs.** Buying Netflix direct AND The Trade Desk AND Amazon DSP without a unified cap means the same household sees your ad 14 times in a week. They will hate you.
-- **Ignoring FAST channels.** Tubi, Pluto, Freevee, and the Roku Channel deliver 40–60% lower CPMs than Netflix with surprisingly high completion rates.
+### The Audience Is Already There
 
-## Key Takeaways
+According to Nielsen's 2025 Gauge data, streaming commands 44.8% of all US TV viewing, the highest share ever recorded. Broadcast sits at 20.1%. Cable sits at 24.1%. Streaming beat them both.
 
-- CTV is now the largest form of TV viewing in the US — YouTube and Netflix alone are bigger than any broadcast network.
-- The 2023–2025 launch of Netflix and Disney+ ad tiers added ~250M global monthly viewers of premium, brand-safe ad inventory, and pricing has come down as supply has scaled.
-- Win by combining 1st-party CRM audiences, ACR competitive conquest, a strict 3/week frequency cap, and incremental lift measurement — not last-click.
-- For budgets under $50k/month, start with The Trade Desk or MNTN to access multiple streamers under one frequency cap; go direct only at six-figure scale.
+YouTube alone captures 12.5% of all television viewing, the highest of any single streaming platform. Netflix, Hulu, Disney+, Peacock, Tubi, and Pluto fill out the rest.
+
+CTV device penetration has hit 90% of US households. That means almost every American home has at least one internet-connected TV. There are no more "cord-cutters" to acquire; this is just where TV is now.
+
+### The Money Is Following the Eyeballs
+
+US CTV ad spend reached $33.35 billion in 2025, up from roughly $25 billion in 2024, a 16% year-over-year increase. That number is projected to exceed $46.89 billion by 2029, according to eMarketer. For context, CTV ad spend was under $10 billion in 2019.
+
+In a 2025 survey, nearly 70% of US marketers called CTV a "must-buy" for their media plans. 56% globally said they planned to increase their OTT/CTV budget. Advertisers are not experimenting here anymore. They are committing.
+
+### Performance Numbers Are Genuinely Strong
+
+This is the stat that surprises most social media marketers: CTV ads average a 95% completion rate. Thirty-second ads land at around 92% completion. Fifteen-second ads hit 94.5%. Compare that to social video, where even a 6-second bumper gets skipped as fast as possible.
+
+Why? On a TV, there is no easy skip button. Viewers are leaned back, not leaned forward scrolling. The environment forces attention.
+
+CTV campaigns also deliver measurable brand results: roughly a 20% lift in brand awareness on average, a 15% lift in brand consideration, and a 10% lift in purchase intent, according to 2025 industry benchmarks.
+
+<Mermaid chart={`flowchart TD
+    A[Advertiser] --> B{Buying Method}
+    B --> C[Self-Serve Platform]
+    B --> D[Programmatic DSP]
+    B --> E[Direct Upfront Buy]
+    C --> F[Roku / Netflix / Amazon]
+    D --> G[The Trade Desk / MNTN / DV360]
+    E --> H[Premium Sports / Events]
+    F --> I[Household Targeting]
+    G --> I
+    H --> I
+    I --> J[CTV Ad on Living Room TV]
+    J --> K[95% Completion Rate]
+    K --> L[Lift Study Measurement]`} />
+
+## How the Buying System Works
+
+There are three lanes for buying CTV inventory. The right choice depends on your budget and your goal.
+
+### Lane 1: Self-Serve Managed Platforms
+
+Best for budgets of $1,000 to $250,000 per month. You upload your creative (15s or 30s video), set your audience parameters, set a frequency cap, and bid a CPM (cost per thousand impressions).
+
+The main platforms:
+- **Roku Ads Manager** - Access to Roku's 80+ million active accounts, plus The Roku Channel, ESPN, and 400+ other FAST channels running on Roku devices.
+- **Netflix Ads Suite** - Netflix's ad tier reached 190 million monthly active viewers worldwide by late 2025 and accounts for 55% of new Netflix sign-ups in markets where it is offered.
+- **Amazon DSP** - Combines Fire TV inventory with Amazon's purchase behavior data. Strong for retail brands.
+- **YouTube via Google Ads** - Not traditional CTV, but YouTube on TV screens is growing fast. YouTube represents 12.5% of all TV viewing.
+- **MNTN** - Popular with mid-market DTC brands. Offers a managed self-serve experience with built-in lift measurement.
+
+Minimum spend varies: some platforms start at $50 per campaign. MNTN and Roku typically require $5,000 to $10,000 to get meaningful reach.
+
+### Lane 2: Programmatic DSPs
+
+Best when you want to buy across Netflix, Hulu, Paramount+, Tubi, Pluto, Disney+, and 80+ other apps in one single buy. A DSP (Demand-Side Platform) manages the bidding and frequency capping across all of them simultaneously.
+
+Main players:
+- **The Trade Desk** - The market leader for open-web CTV. Strong data marketplace and measurement partners.
+- **DV360 (Google Display and Video 360)** - Best if you are already deep in the Google ecosystem.
+- **MNTN** - Sits between self-serve and full DSP. Good for teams without a dedicated trading desk.
+
+The advantage: one unified frequency cap across all streamers. Without this, the same household can see your ad 14 times in a week across different DSPs. That burns budget and damages brand perception.
+
+### Lane 3: Direct Upfront or Scatter Buys
+
+Six-figure minimums, but unlocks premium pods: NFL on Peacock, Thursday Night Football on Prime Video, tentpole content on Hulu. This is for brands spending $500k+ per month on TV.
+
+<Callout type="example">
+**Real Case: Warby Parker + CTV (2024)**
+
+DTC eyewear brand Warby Parker (working through Tatari, a CTV analytics and buying platform) shifted 30% of its linear TV budget to CTV across Hulu, Roku, and Samsung TV Plus in 2024. They used ACR-based competitive conquest targeting to reach households that had recently seen a competitor's TV ad. With a 3-impressions-per-week frequency cap, Warby Parker reported a 22% lower cost per incremental site visit versus linear TV, while reaching cord-cutter households they could not reach via cable at all. CPMs on premium streamers ran $25-$45. On FAST channels like Tubi and Pluto, CPMs fell to $12-$20.
+</Callout>
+
+## A Practical Playbook: How to Run Your First CTV Campaign
+
+### Step 1: Build Your Creative
+
+CTV creative lives or dies in the first 3 seconds. About 40% of CTV viewers have a second screen (phone) in hand. If your opening frame does not visually communicate the brand and the offer, you lose them.
+
+Rules for CTV creative:
+- Shoot a 15-second and a 30-second version of every ad. Platforms favor 15s for performance buys; 30s for awareness.
+- Put your brand logo on screen within the first 3 seconds.
+- Design so the ad works without sound. Many CTV viewers watch with low or muted TV audio while using a phone.
+- End with a clear call-to-action and either a URL or a QR code on the end card.
+- Do not repurpose your linear TV spot unchanged. Linear creative often hides the logo reveal until second 20-25. CTV viewers walk to the kitchen before that.
+
+### Step 2: Set Up Targeting Layers
+
+Build your audience in layers, from most specific to broader:
+
+1. **First-party CRM match** - Upload your customer email list and create a lookalike audience. These are your highest-intent viewers.
+2. **ACR competitive conquest** - Target households that watched a specific competitor's ad in the last 30 days. This is TV-native data that digital channels cannot replicate.
+3. **Behavioral or purchase intent data** - Layer on third-party data: households actively researching your product category, or that bought from a related category.
+4. **Geo layer** - Add ZIP code, DMA (Designated Market Area), or state targeting to control delivery geography.
+
+### Step 3: Set Frequency Caps
+
+This is the step most beginners skip. Set a maximum of 3 impressions per household per week. More than that and you damage brand sentiment without any additional conversion benefit.
+
+If you are buying across multiple platforms, ensure the cap is set at the DSP level, not per-platform. A 3-per-week cap per DSP becomes a 9-per-week cap if you are running three DSPs simultaneously.
+
+### Step 4: Measure the Right Way
+
+Last-click attribution will make CTV look worthless. A viewer sees your ad on Netflix on Tuesday evening. They do not click anything because CTV ads do not have clickable links. They search for your brand on Google on Thursday. Google gets the credit. CTV gets nothing.
+
+The right measurement methods:
+- **Incrementality lift studies** - Platforms like LiveRamp, MNTN's Matched technology, and iSpot run controlled experiments: show ads to one group, not the other, compare outcomes. This is the gold standard.
+- **View-through attribution** - Tag your landing page with a pixel that captures "saw CTV ad, visited site within 7 days." Not as rigorous as a lift study but gives directional signal.
+- **Media mix modeling (MMM)** - For larger budgets, a statistical model that separates the contribution of each channel to overall business results.
+- **Geo-lift tests** - Run in some markets but not others, then compare sales trends.
+
+<Mermaid chart={`sequenceDiagram
+    participant V as Viewer
+    participant S as Streaming App
+    participant D as DSP/Platform
+    participant B as Brand
+    V->>S: Watches Netflix
+    S->>D: Ad opportunity available
+    D->>B: Bid request matches audience
+    B->>D: Win bid at CPM
+    D->>S: Deliver 15s or 30s ad
+    S->>V: Full-screen unskippable ad
+    V->>B: Searches brand on Google (days later)
+    B->>B: Measure via lift study`} />
+
+## Common Mistakes That Waste Budget
+
+<Callout type="warning">
+**The 5 Most Expensive CTV Mistakes:**
+
+1. **Last-click attribution.** You will undercount CTV's impact by 60-80%. Use incrementality lift tests or MMM instead.
+2. **Repurposing linear TV creative unchanged.** Linear ads hide the brand until the end. CTV viewers look away before that point.
+3. **No unified frequency cap.** Buying across 3 DSPs without a shared cap means the same household sees 15 ads per week. They will develop negative brand sentiment.
+4. **Ignoring FAST channels.** Free Ad-Supported Streaming TV channels like Tubi, Pluto, and The Roku Channel deliver CPMs of $12-20 versus $25-65 on premium streamers, often with comparable completion rates.
+5. **Skipping the audience build.** Running broad demographic targeting on CTV wastes the biggest advantage: addressability. Even a basic CRM lookalike dramatically improves efficiency.
+</Callout>
+
+## FAST Channels: The Underrated Entry Point
+
+FAST stands for Free Ad-Supported Streaming TV. These are channels (think of them as digital cable) that are entirely free to viewers, funded entirely by ads.
+
+The biggest FAST platforms: Tubi (owned by Fox), Pluto TV (owned by Paramount), The Roku Channel, Amazon Freevee, and Peacock's free tier.
+
+Why FAST matters for mid-size advertisers:
+- CPMs run $12-20 versus $25-65 on paid streamers like Netflix
+- Completion rates are surprisingly comparable: 88-94%
+- No subscriber fee barrier means broader reach
+- Roku's FAST network alone had over 80 million active accounts in 2025
+
+For brands with budgets under $20,000 per month, FAST channels often deliver better reach efficiency than premium streamers.
+
+## Real Company Examples with Numbers
+
+**Warby Parker (2024):** Shifted 30% of linear TV budget to CTV across Hulu, Roku, and Samsung TV Plus. Using ACR competitive conquest targeting and a 3-per-week frequency cap, they saw a 22% lower cost per incremental site visit versus linear TV. Reached cord-cutter households that were invisible to cable buys. (Source: Tatari 2025 CTV Benchmarks)
+
+**Market-Level Data Point (2025):** Interactive CTV ads, which include shoppable overlays, QR codes, and pause ads, deliver 3 to 5 times higher engagement than standard CTV video ads, according to industry benchmarks. Fubo became the first streaming platform to offer real-time programmatic pause ads in 2024, allowing advertisers to bid for ad slots when viewers pause content.
+
+**Netflix Ad Tier Milestone:** Netflix's ad-supported tier crossed 190 million monthly active viewers globally by November 2025, which is larger than the total US population. It accounts for 55% of new Netflix sign-ups in markets where it is offered. This makes Netflix a legitimate mass-reach vehicle, not just a premium niche play.
+
+## The One-Line Takeaway
+
+**CTV gives you broadcast reach with search-ad precision, but you must measure it with lift studies, not last-click, or you will cancel your best-performing channel.**
 
 <ResourceList resources={[
-  { title: "Nielsen Gauge — YouTube #1 in TV Viewing", url: "https://www.nielsen.com/news-center/2025/youtube-maintains-largest-share-of-tv-viewing-among-media-companies-for-third-consecutive-month/", type: "article", free: true },
-  { title: "MNTN Research — CTV Ad Spend Forecast", url: "https://research.mountain.com/trends/ctv-ad-spend-will-grow-to-46-89-billion-by-2028/", type: "article", free: true },
-  { title: "Tatari — Understanding CTV Advertising", url: "https://www.tatari.tv/insights/what-is-ctv-understanding-connected-tv-advertising-in-2026", type: "article", free: true },
-  { title: "Netflix Advertising Complete Guide (MNTN)", url: "https://mountain.com/blog/netflix-advertising/", type: "article", free: true },
-  { title: "Statista — CTV Advertising in the US", url: "https://www.statista.com/topics/8075/ctv-advertising-in-the-us/", type: "docs", free: true },
-  { title: "The Trade Desk", url: "https://www.thetradedesk.com/", type: "tool", free: false },
-
-  { title: "WsCube Tech - Connected TV and Streaming Ads (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
+  { title: "Nielsen Gauge - Streaming vs. Linear TV Viewing Shares 2025", url: "https://www.nielsen.com/insights/2025/connected-tv-transforming-advertising-trends/", type: "article", free: true },
+  { title: "MNTN Research - CTV Ad Spend Forecast to $46.89B by 2029", url: "https://mountain.com/blog/connected-tv-statistics/", type: "article", free: true },
+  { title: "The Trade Desk - Programmatic CTV Advertising Platform", url: "https://www.thetradedesk.com/our-demand-side-platform/omnichannel-advertising/connected-tv", type: "tool", free: false },
+  { title: "Tatari - Understanding CTV Advertising and 2025 Benchmarks", url: "https://www.tatari.tv/insights/what-is-ctv-understanding-connected-tv-advertising-in-2026", type: "article", free: true },
+  { title: "Strategus - CTV Advertising Best Practices and Examples 2025", url: "https://www.strategus.com/blog/ctv-examples", type: "article", free: true },
+  { title: "Setupad - OTT vs CTV in Programmatic: The Differences Explained", url: "https://setupad.com/blog/ott-vs-ctv/", type: "article", free: true },
+  { title: "MNTN - Netflix Advertising Complete Guide", url: "https://mountain.com/blog/netflix-advertising/", type: "article", free: true },
+  { title: "Statista - CTV Advertising in the US: Statistics and Facts", url: "https://www.statista.com/topics/8075/ctv-advertising-in-the-us/", type: "docs", free: false },
+  { title: "Strategus - 10 OTT Trends Shaping CTV Advertising in 2025", url: "https://www.strategus.com/blog/ott-advertising-trends", type: "article", free: true },
+  { title: "WsCube Tech - Connected TV and Streaming Ads (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
   { title: "Mr Digital Marketing Tamil - Connected TV and Streaming Ads", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
-  { title: "ODMT Telugu - Connected TV and Streaming Ads (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+  { title: "ODMT Telugu - Connected TV and Streaming Ads (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
 ]} />

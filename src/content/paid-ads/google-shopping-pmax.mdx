@@ -9,102 +9,260 @@ export const lessonMeta = {
 
 # Google Shopping & Performance Max
 
-## What It Is
+Google Shopping lets retailers show product listings - complete with a photo, price, and store name - directly in Google search results. You do not write ad copy. Instead, you upload a product feed (a structured file that describes your inventory), and Google decides which products to show for which searches. If someone types "women's trail running shoes under $80," Google scans your feed and surfaces the best-matching products automatically.
 
-Google Shopping lets retailers show product listings — complete with an image, price, and store name — directly in Google search results. Instead of writing ad copy around a keyword, you upload a product feed: a structured data file that tells Google everything about what you sell. Google then decides when and where to show your products based on that data. If someone searches "women's running shoes under $100," Google scans your feed and surfaces your best-matching products automatically.
+Performance Max (PMax) is Google's next step beyond Shopping. It takes your product feed and adds creative assets - headlines, images, and videos - then distributes ads across every Google surface at once: Search, Shopping, YouTube, Display, Discover, Gmail, and Maps. One campaign can reach a shopper who is researching on Google in the morning, watching YouTube at lunch, and browsing a news site in the evening.
 
-Performance Max (PMax) is Google's next evolution beyond Shopping. Launched widely in 2021 and made mandatory for Smart Shopping replacements in 2022, it combines a product feed with creative assets — headlines, descriptions, images, and videos — and then distributes ads across every Google surface at once: Search, Shopping, YouTube, Display, Discover, Gmail, and Maps. A single PMax campaign can reach a user researching on Google, watching YouTube, and browsing a news site, all within the same hour.
+## Quick Summary
 
-The fundamental difference from traditional campaigns is that you hand significant control to Google's machine learning. You define goals (typically a target ROAS or target CPA), supply creative assets, and let the algorithm determine placements, bids, and creative combinations. This is powerful when the system has enough conversion data to learn from — and risky when it doesn't. Understanding what to give the algorithm and what to hold back is what separates expert practitioners from those burning budget on autopilot.
-
-## Real-World Example
-
-<Callout type="example" title="Real Example">
-Nike runs Google Shopping and Performance Max campaigns across dozens of product categories globally. In disclosed case study data shared by Google, a comparable footwear retailer using PMax with a well-structured asset group and audience signals achieved a 35% increase in conversion value at the same ROAS target versus their previous Smart Shopping setup, while also capturing 18% more impression share on branded queries. Nike-style catalog depth — thousands of SKUs organized by category, gender, and sport — gives PMax the product signal density it needs to outperform single-keyword campaigns.
-</Callout>
+- Google Shopping uses a product feed, not keywords, to match your products to search queries
+- Performance Max (PMax) extends Shopping to run across all Google channels from a single campaign
+- Both campaign types rely on Smart Bidding (Target ROAS or Target CPA) powered by Google's AI
+- Feed quality is your biggest lever - better product data beats bigger budgets
+- PMax needs at least 30-50 monthly conversions to learn effectively; launch without this and you waste budget
 
 ## Why It Matters
 
-Paid search used to mean writing ads and picking keywords. Shopping and PMax represent a structural shift toward feed-driven, AI-mediated advertising. Marketers who understand this system unlock scale that keyword-level campaigns can't match.
+Paid search used to mean picking keywords and writing ads manually. Shopping and PMax represent a structural shift - the algorithm now handles placement, bidding, and creative combinations. Marketers who understand this system can scale to thousands of products without writing a single ad.
 
-- When you run an e-commerce store and want your products visible the moment someone searches a relevant query, Shopping is often the highest-intent channel available.
-- When you want a single campaign to handle Search, YouTube, Display, and Discovery simultaneously — without managing separate campaigns — PMax consolidates that reach.
-- When you have solid conversion tracking and enough monthly conversions (Google recommends at least 30–50 per month per campaign) to feed the learning algorithm, PMax's Smart Bidding can outperform manual approaches.
-- When you're scaling a catalog business and can't write individual ad groups for thousands of SKUs, feed automation is the only practical path.
+<Callout type="info">
+**The scale advantage is enormous.** An e-commerce store with 5,000 products would need thousands of ad groups to manage them manually. With a well-structured product feed, one PMax campaign covers all 5,000 SKUs, automatically showing the right product for every relevant search query.
+</Callout>
 
-## How It Works
+## How Google Shopping Works
 
-A Shopping campaign starts with the Google Merchant Center, a separate account where you upload and maintain your product feed. The feed is typically a spreadsheet or automated data export containing fields like `id`, `title`, `description`, `price`, `availability`, `image_link`, `google_product_category`, and `condition`. Google ingests this feed, validates it, and makes those products eligible for Shopping ads. Feed quality is everything — a product title like "Blue Shoe Men Size 10" performs far worse than "Nike Air Zoom Pegasus 41 Men's Running Shoe, Blue, Size 10" because the latter matches more specific queries.
+Shopping campaigns start inside Google Merchant Center - a separate free account where you upload and maintain your product feed. The feed is typically a spreadsheet or automated export with fields like:
 
-Performance Max builds on the Merchant Center feed but adds an asset layer. You supply up to 15 headlines, 5 descriptions, up to 20 images, and optionally videos. Google's AI assembles these into thousands of creative combinations and tests them across channels. You also provide audience signals — first-party customer lists, website visitors, custom segments — which the algorithm uses as starting hints, not hard restrictions. The system expands beyond those audiences once it identifies higher-converting patterns.
+- `title` - the product name (most important field for matching queries)
+- `description` - supporting detail and keywords
+- `price` and `availability` - must stay accurate or ads get disapproved
+- `image_link` - the photo shown in the listing
+- `google_product_category` - Google's taxonomy code for your product type
+- `gtin` or `mpn` - the barcode or manufacturer part number (boosts eligibility)
 
-Smart Bidding drives both campaign types. Target ROAS (return on ad spend) tells Google to maximize conversion value while hitting your revenue-per-dollar goal. Target CPA tells it to maximize conversions within a cost-per-acquisition ceiling. The algorithm adjusts bids auction-by-auction, factoring in device, location, time of day, audience membership, and hundreds of other signals simultaneously. The learning period — typically 1–2 weeks after launch or a major change — is when budget efficiency is lowest; avoid making large adjustments during this window.
+Google ingests this feed, validates it, and makes those products eligible to appear in Shopping results. Feed quality is everything. A title like "Blue Shoe Men" will barely match anything. A title like "Nike Air Zoom Pegasus 41 Men's Running Shoe Blue Size 10" matches dozens of relevant search queries because it mirrors how real shoppers search.
+
+## How Performance Max Works
+
+PMax builds on your Merchant Center feed but adds an asset layer. You supply:
+
+- Up to 15 headlines
+- Up to 5 descriptions
+- Up to 20 images (multiple aspect ratios)
+- At least 1 video (Google auto-generates one if you skip this, but it is usually low quality)
+
+Google's AI assembles thousands of creative combinations from these assets and tests them across every channel. You also provide **audience signals** - these are hints, not restrictions. You might upload your customer email list and say "find more people like these." The algorithm uses that as a starting point, then expands beyond it once it finds higher-converting patterns.
+
+**Smart Bidding** drives the whole system. Target ROAS (return on ad spend - how many dollars you earn per dollar spent) tells Google to maximize revenue while hitting your revenue goal. Target CPA (cost per acquisition - what you pay to get one customer) tells it to maximize conversions within a cost ceiling. The AI adjusts bids on every single auction, factoring in device type, location, time of day, user intent signals, and hundreds of other inputs simultaneously.
+
+<Mermaid chart={`
+flowchart TD
+  A[Product Feed\nin Merchant Center] --> B[Google validates\nand indexes feed]
+  B --> C[Shopping Campaign]
+  B --> D[Performance Max Campaign]
+  C --> E[Search & Shopping Tab]
+  D --> F[Asset Groups\n+ Audience Signals]
+  F --> G[Search]
+  F --> H[YouTube]
+  F --> I[Display / Discover\nGmail / Maps]
+  E --> J[Smart Bidding\nTarget ROAS or CPA]
+  G --> J
+  H --> J
+  I --> J
+  J --> K[Conversion data\nfeeds back to AI]
+  K --> J
+`} caption="How a product feed flows through both Shopping and Performance Max, converging at Smart Bidding's continuous learning loop" />
+
+## The Learning Period
+
+After you launch PMax or make any major change to it, the campaign enters a **learning period** that typically lasts 1-2 weeks. During this time, the AI is running experiments and its efficiency is lower than normal. You will likely see higher CPAs and inconsistent results. This is normal.
+
+What makes it worse: every significant change (new budget, new bid target, major feed changes, adding or removing asset groups) restarts the clock. This is why experienced practitioners plan changes carefully rather than tweaking campaigns daily.
+
+<Callout type="warning">
+**Do not launch PMax without sufficient conversion history.** Google's own recommendation is at least 30-50 conversions per month per campaign before switching. Launch with less data and the algorithm guesses broadly, burning budget while it learns. The fix: run a Standard Shopping campaign first, build up conversion volume over 2-3 months, then migrate to PMax once the data is there.
+</Callout>
+
+## Real Case Studies
+
+### KEH Camera: 76.3% Revenue Increase (2023)
+
+KEH Camera is a US-based online retailer of secondhand camera equipment. Before PMax, they were running over 70 separate Smart Shopping campaigns. In 2022, they migrated to Performance Max using a structured five-step approach: pausing auto-generated PMax campaigns first, consolidating their best-performing Smart Shopping campaigns, then gradually shifting budget to PMax.
+
+The results over Q1 2022 versus Q1 2023:
+- Revenue from ads increased 76.3%
+- Transactions increased 44.1%
+- Average monthly ROAS over six months: 9.93x (that means $9.93 earned for every $1 spent)
+- Their New Year's sale alone drove 16.1% of monthly PMax revenue at a 12.1x ROAS
+
+The key: KEH did not dump all 70 campaigns into PMax at once. They tested with their best performers, measured, then expanded. Consolidation + patience was the strategy.
+
+### MoneyMe: 22% More Conversions, 20% Lower CPA (2024)
+
+MoneyMe is an Australian fintech (financial technology) company offering personal loans. They ran Performance Max campaigns targeting users across Search, Display, and YouTube simultaneously. The result: 22% more conversions compared to their previous campaign setup, with a 20% reduction in cost per acquisition.
+
+This matters because fintech is a high-competition, high-CPA category. Getting 20% cheaper conversions in that environment is a significant efficiency gain.
+
+<Callout type="example">
+**How asset groups work in practice.** Imagine you sell running shoes and hiking boots. You would create two separate asset groups inside one PMax campaign - one with running-focused headlines, images of runners, and descriptions about speed and cushioning; the other with trail-themed headlines, outdoor imagery, and descriptions about grip and durability. Google then shows the most relevant asset group to each user based on their intent signals. This is the closest thing PMax has to ad group segmentation.
+</Callout>
+
+## The Product Feed Is Your Real Creative
+
+In traditional search ads, your competitive advantage is your ad copy. In Shopping and PMax, your advantage is your product data. Here is what separates high-performing feeds from mediocre ones:
+
+**Product Titles (most important):** Mirror the exact language your customers use. Include: brand + product name + key variant details (color, size, material, model number). Google reads titles to match your products to search queries.
+
+**Product Images:** Shopping is visual. Clean, white-background images perform best for most categories. For apparel and lifestyle products, on-model images can lift CTR (click-through rate - the percentage of people who click after seeing your ad).
+
+**GTINs and MPNs:** If your product has a barcode (GTIN) or manufacturer part number (MPN), include it. Google uses these to match your products to structured catalog data, which improves eligibility and quality scores.
+
+**Custom Labels:** These are fields you can populate with your own data to help you segment campaigns. Common uses: margin tier (high-margin vs. low-margin products), inventory level (overstocked items to push), or seasonality (summer vs. winter products).
 
 <Mermaid chart={`
 flowchart LR
-  A[Product Feed\nMerchant Center] --> B[Google Reviews\n& Validates Feed]
-  B --> C{Campaign Type}
-  C -->|Shopping| D[Search &\nShopping Tab]
-  C -->|Performance Max| E[Asset Groups\n+ Audience Signals]
-  E --> F[Search]
-  E --> G[YouTube]
-  E --> H[Display\nDiscover\nGmail\nMaps]
-  D --> I[Smart Bidding\nTarget ROAS / CPA]
-  F --> I
-  G --> I
-  H --> I
-  I --> J[Conversion\nData Feedback Loop]
-  J --> I
-`} caption="How product feed data flows through Shopping and Performance Max campaigns into Smart Bidding's continuous learning loop" />
+  A[Raw Product Data] --> B[Optimized Feed]
+  B --> C[Strong Title:\nBrand + Model + Details]
+  B --> D[Accurate Price\n& Availability]
+  B --> E[GTIN / MPN\nfor catalog match]
+  B --> F[Custom Labels\nfor segmentation]
+  C --> G[More query\nmatches]
+  D --> H[Fewer\ndisapprovals]
+  E --> I[Higher ad\neligibility]
+  F --> J[Better campaign\nstructure]
+`} caption="The four feed quality levers that most directly drive Shopping and PMax performance" />
+
+## Smart Bidding: What You Control vs. What the Algorithm Controls
+
+Understanding this boundary is critical. Here is what you control:
+
+- The conversion goal (ROAS target or CPA target)
+- The daily budget
+- The product feed and creative assets you provide
+- Audience signals (who to use as a starting point)
+- What to exclude (negative keywords at campaign level, brand exclusions)
+
+Here is what the algorithm controls:
+
+- Which auction to enter and at what bid price
+- Which creative combination to show each user
+- Which channels to prioritize for each user
+- How to expand beyond your audience signals
+
+The mistake most beginners make is trying to control too much - micromanaging bids, changing targets every few days, or running too many campaigns that cannibalize each other. The mistake at the other extreme is giving the algorithm too little guidance - no audience signals, poor creative assets, weak feed data. The skill is finding the right balance.
+
+<Callout type="tip">
+**PMax will spend budget on branded searches (people searching your company name directly) that would have converted anyway.** This inflates ROAS numbers but does not represent real incremental growth. Use the Search Terms Insights tab inside PMax to spot this. Many practitioners add a separate branded Search campaign with a higher priority so branded traffic routes there instead, keeping PMax focused on finding new customers.
+</Callout>
+
+## 2025 Updates That Change How You Work with PMax
+
+Google has added features in 2024-2025 that give advertisers more visibility and control:
+
+- **Asset-level performance data:** You can now see which individual headlines, images, and descriptions are performing best - previously all assets were reported as a group
+- **Campaign-level negative keywords:** You can now exclude specific search terms from PMax at the campaign level (not just account level), which was a major advertiser complaint for years
+- **Channel reporting:** Breakdown of where your PMax budget is actually going across Search, Shopping, YouTube, Display, and other placements
+- **Search term insights:** A cleaner view of the actual queries triggering your PMax ads
+
+These updates matter because they address the biggest criticism of PMax: it was a black box. Advertisers are now getting more transparency into what the algorithm is actually doing.
 
 ## Common Mistakes
 
 <Callout type="warning">
-**Launching PMax without sufficient conversion history.** Performance Max requires conversion data to optimize. Launching with fewer than 30 conversions per month per campaign starves the algorithm — it will spend budget broadly and inefficiently while it learns. Run a standard Shopping campaign or Search campaign first, build conversion volume, then graduate to PMax once the data is there.
+**Neglecting feed maintenance after launch.** The product feed is not a one-time setup - it is a living document. Prices change, products go out of stock, new items launch. A feed that is 90 days stale will have disapproved products, wrong prices, and missing inventory. Set up automated feed refreshes (daily is ideal for active catalogs). Monitor the Merchant Center diagnostics tab weekly for disapprovals.
 </Callout>
 
-<Callout type="warning">
-**Neglecting feed quality and treating it as a one-time setup.** The product feed is the creative and targeting engine of Shopping campaigns. Poor titles, missing attributes, out-of-stock mismatches, and bad category mappings directly tank performance. Feeds go stale — prices change, products sell out, new items launch. Without a feed management process (automated refreshes, disapproval monitoring in Merchant Center), campaigns degrade quietly while spend continues.
-</Callout>
+## Campaign Structure Principles
 
-<Callout type="tip">
-**Use audience signals and brand exclusions strategically in PMax.** PMax will happily spend budget on branded search terms that would have converted anyway at near-zero cost. Experienced practitioners use Search Impression Share reports and the campaign's Search Terms Insights tab to identify branded query cannibalization, then either exclude brand terms from PMax or set up a separate branded Search campaign with higher priority. Adding your CRM customer list as an audience signal — not to retarget only, but to tell the algorithm "find more people like these" — is one of the highest-leverage inputs you can give the system.
-</Callout>
+Keep these rules when structuring Shopping and PMax campaigns:
+
+1. **One PMax campaign per distinct goal** - if you have products with a 60% margin and products with a 10% margin, they should not share a campaign or a ROAS target
+2. **Segment asset groups by product category and audience** - do not mix running shoes and hiking boots into one asset group; the algorithm cannot serve relevant creatives for both
+3. **Provide at least one video asset** - if you skip this, Google auto-generates a video from your images that is often visually weak; a simple 15-second product video you record yourself beats it
+4. **Set realistic ROAS targets** - if your current Smart Shopping achieves 400% ROAS, do not launch PMax at a 700% target; start at a match or slightly below and tighten as the algorithm learns
 
 ## The One-Line Takeaway
 
-**Google Shopping and Performance Max are feed-first, AI-mediated systems — your competitive advantage lives in data quality, conversion volume, and knowing exactly what to control versus what to hand to the algorithm.**
+**Your product feed is your ad copy - invest in its quality first, then let the algorithm handle the rest.**
 
 <ResourceList resources={[
   {
-    title: "Google Merchant Center Help: About Product Data Specifications",
+    title: "Google Merchant Center: Product Data Specifications",
     url: "https://support.google.com/merchants/answer/7052112",
     type: "docs",
-    note: "Official spec for every required and optional feed attribute — the canonical reference for feed setup and troubleshooting",
-    free: true
+    note: "Official reference for every required and optional feed attribute - start here before building any feed",
+    free: true,
   },
   {
     title: "Google Skillshop: Performance Max Certification",
     url: "https://skillshop.withgoogle.com/performancemax",
     type: "course",
-    note: "Google's official structured course on PMax campaign setup, asset groups, audience signals, and measurement — includes a certification exam",
-    free: true
+    note: "Google's official structured course covering PMax setup, asset groups, audience signals, and measurement - includes a free certification exam",
+    free: true,
   },
   {
-    title: "WordStream: Performance Max Campaigns Guide",
-    url: "https://www.wordstream.com/blog/ws/2022/01/19/performance-max-campaigns",
-    type: "article",
-    note: "Practitioner-level breakdown of PMax structure, what's new versus Smart Shopping, and actionable setup recommendations",
-    free: true
+    title: "Performance Max: AI-Enhanced Google Ads (Official Overview)",
+    url: "https://business.google.com/us/ad-solutions/performance-max/",
+    type: "docs",
+    note: "Google's official product page with current feature list, channel breakdown, and how-it-works explainer",
+    free: true,
   },
-
-  { title: "WsCube Tech - Google Shopping & Performance Max (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
-  { title: "Mr Digital Marketing Tamil - Google Shopping & Performance Max", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
-  { title: "ODMT Telugu - Google Shopping & Performance Max (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+  {
+    title: "Inflow: KEH Camera PMax Case Study - 76.3% Revenue Increase",
+    url: "https://www.goinflow.com/blog/performance-max-case-study/",
+    type: "article",
+    note: "Detailed real case study with exact methodology, timeline, and results - the best public PMax case study available",
+    free: true,
+  },
+  {
+    title: "DataSlayer: Google Ads Performance Max Complete Guide 2025",
+    url: "https://www.dataslayer.ai/blog/google-ads-performance-max-complete-guide-2025",
+    type: "article",
+    note: "Covers 2025 feature updates including campaign-level negatives, asset-level reporting, and channel performance breakdowns",
+    free: true,
+  },
+  {
+    title: "Channable: The Complete Guide to Google Shopping Ads",
+    url: "https://www.channable.com/blog/google-shopping-ads",
+    type: "article",
+    note: "Comprehensive walkthrough of feed setup, Merchant Center configuration, and Shopping campaign structure",
+    free: true,
+  },
+  {
+    title: "Go Fish Digital: 2025 PMax Priorities Checklist",
+    url: "https://gofishdigital.com/blog/performance-max-priorities-2025/",
+    type: "article",
+    note: "Practitioner checklist of the highest-impact PMax optimizations for 2025 - good for auditing existing campaigns",
+    free: true,
+  },
+  {
+    title: "WsCube Tech - Google Shopping & Performance Max (Hindi)",
+    url: "https://www.youtube.com/@WsCubeTech",
+    type: "video",
+    lang: "hi",
+    free: true,
+    note: "Top Hindi digital marketing channel",
+  },
+  {
+    title: "Mr Digital Marketing Tamil - Google Shopping & Performance Max",
+    url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw",
+    type: "video",
+    lang: "ta",
+    free: true,
+    note: "Tamil digital marketing tutorials",
+  },
+  {
+    title: "ODMT Telugu - Google Shopping & Performance Max (Telugu)",
+    url: "https://www.youtube.com/@ODMTtelugu",
+    type: "video",
+    lang: "te",
+    free: true,
+    note: "Telugu digital marketing training",
+  },
 ]} />
 
 ## Related Concepts
 
-- [Bidding Strategies](/learn/paid-ads/bidding-strategies) — Smart Bidding (Target ROAS, Target CPA) is the engine inside every PMax campaign; understanding how the auction works explains why feed quality and conversion volume are prerequisites
-- [Google Search Ads](/learn/paid-ads/google-search-ads) — Shopping replaces keyword-level control with feed-level control; knowing traditional Search campaigns helps you recognize what PMax handles automatically versus what you still need to manage manually
-- [MMM vs MTA](/learn/analytics/mmm-vs-mta) — PMax's cross-channel reach across Search, YouTube, and Display creates attribution complexity that last-click models misread; MMM and MTA frameworks help you measure its true incremental contribution
+- [Bidding Strategies](/learn/paid-ads/bidding-strategies) - Smart Bidding (Target ROAS, Target CPA) is the engine inside every PMax campaign; understanding how the auction works explains why feed quality and conversion volume are prerequisites
+- [Google Search Ads](/learn/paid-ads/google-search-ads) - Shopping replaces keyword-level control with feed-level control; knowing traditional Search campaigns helps you recognize what PMax handles automatically versus what you still need to manage manually
+- [MMM vs MTA](/learn/analytics/mmm-vs-mta) - PMax runs across Search, YouTube, and Display simultaneously, which creates attribution complexity that last-click models misread; understanding measurement frameworks helps you evaluate its true incremental contribution
