@@ -1,0 +1,60 @@
+export const lessonMeta = {
+  title: "Apple Search Ads",
+  level: "Advanced",
+  summary: "App Store ads — the only place to buy intent on iOS, plus the privacy advantages.",
+};
+
+# Apple Search Ads
+
+If you ship an iOS app, Apple Search Ads (rebranded simply "Apple Ads" in 2024) is the closest thing you get to Google search advertising on iPhone. It is the only major channel where you can bid on raw, expressed intent — a user typing your competitor's name into the App Store — and it sits inside Apple's privacy walls, which makes it disproportionately valuable post-ATT.
+
+## What It Actually Is
+
+Apple Search Ads places sponsored results inside the App Store across four surfaces: Today tab, Search tab (suggestions), Search results, and Product pages ("You might also like"). The flagship placement is Search Results — a single sponsored slot at the top of every query. If a user searches "calm" and you sell a meditation app, you can bid on that exact keyword and appear above the organic #1.
+
+It runs as a second-price auction on cost-per-tap (CPT). There are two products: Search Ads Basic (a simple CPI model, capped at $10k/month per app) and Search Ads Advanced (full keyword/audience control, no cap, what every serious advertiser uses).
+
+## Why It Matters (with data)
+
+The benchmarks make the case better than any sales pitch. According to [SplitMetrics' Apple Ads Search Results Benchmarks Report 2025](https://splitmetrics.com/apple-ads-search-results-benchmarks-2025/), the average **tap-to-install conversion rate hit 67.2% in 2024**, up from 65.37% the year before. That is not a typo — roughly seven of every ten taps become an installed app. No other paid channel comes close.
+
+The trade-off is rising cost. Average **CPT climbed to $2.50 in 2024 from $1.59 in 2023**, and average **CPA reached $2.90**, per the same [App Developer Magazine summary](https://appdevelopermagazine.com/apple-ads-search-results-benchmarks-report-2025/). Category spreads are wide: Sports apps now average over **$14.40 CPT and $19.71 CPA** according to [AppTweak's 2025 benchmarks](https://www.apptweak.com/en/aso-blog/apple-ads-benchmarks), while utilities and games sit well under $2.
+
+The privacy story is the second reason to care. Since iOS 14.5's ATT prompt gutted IDFA-based attribution on Meta and TikTok, Apple Ads has been the one iOS channel with deterministic, user-level attribution out of the box — no opt-in needed. On April 10, 2025, Apple Ads also [registered with AdAttributionKit](https://splitmetrics.com/apple-ads-search-results-benchmarks-2025/), letting advertisers measure post-install events alongside SKAdNetwork 4.0 postbacks.
+
+## How It Works / The Playbook
+
+Run Advanced, not Basic. Then structure campaigns by intent type — this is the single biggest lever.
+
+1. **Brand campaign** — bid on your own app name and variants. Cheap, high CVR, defensive against competitors squatting on your term.
+2. **Competitor campaign** — bid on rival app names ("Notion", "Headspace"). Highest CPT, but it is the only place on iOS where you can systematically steal demand.
+3. **Generic / category campaign** — bid on what your app does ("habit tracker", "expense splitter"). Wider funnel, lower CVR.
+4. **Discovery campaign** — broad match + Search Match ON, with all your other keywords added as negatives. This is your keyword-mining machine; harvest winners into exact-match campaigns weekly.
+
+Use Custom Product Pages (CPPs) to tailor the creative shown to each keyword group — Apple lets you run up to 35 CPPs per app. A "meditation for sleep" keyword should send to a CPP whose first screenshot shows the sleep feature, not your generic home screen.
+
+<Callout type="example">
+Duolingo's growth team has publicly credited Apple Search Ads as a top-three iOS acquisition channel. According to [AppTweak's 2025 benchmarks](https://www.apptweak.com/en/aso-blog/apple-ads-benchmarks), Education apps run at roughly a $1.80 CPT and 70%+ tap-to-install rate — meaning a $3 CPA on a user whose first action was literally typing "learn Spanish" into the App Store. That is intent you cannot replicate on Meta.
+</Callout>
+
+## Common Mistakes
+
+- **Letting Search Match run forever on every campaign.** It is meant for discovery only. Once a query converts twice, move it to an exact-match keyword in a dedicated ad group and add it as a negative on the discovery campaign.
+- **Ignoring negative keywords.** Without aggressive negatives, your generic campaign will burn budget on competitor terms at competitor CPTs (often 3–5x higher).
+- **One CPP for everything.** If your keyword promises "budget planner" and your default product page leads with "investing", your 67% benchmark CVR collapses to 30%.
+- **Optimizing to CPA instead of post-install value.** Apple's MMP integrations and AdAttributionKit now expose subscription and retention events — bid on the LTV cohort, not the install.
+- **Skipping the brand campaign because "we already rank #1 organically".** Competitors will bid on your name. The $0.20 CPT to defend is the highest-ROI spend in the account.
+
+## Key Takeaways
+
+- Apple Ads is the only iOS channel where you can buy expressed search intent, and post-ATT it is also the cleanest attribution path.
+- Plan for a ~67% tap-to-install rate but a $2.50+ CPT — model unit economics on CPA, not CPI alone.
+- Structure by intent (brand / competitor / generic / discovery) and pair each ad group with a matching Custom Product Page.
+
+<ResourceList resources={[
+  { title: "SplitMetrics Apple Ads Benchmarks Report 2025", url: "https://splitmetrics.com/apple-ads-search-results-benchmarks-2025/", type: "article", free: true },
+  { title: "AppTweak Apple Ads Benchmarks 2025", url: "https://www.apptweak.com/en/aso-blog/apple-ads-benchmarks", type: "article", free: true },
+  { title: "Apple Ads Official Help — Search Results Placement", url: "https://ads.apple.com/app-store/help/ad-placements/0082-search-results", type: "docs", free: true },
+  { title: "Measuring Ad Performance on the App Store", url: "https://ads.apple.com/app-store/help/attribution/0028-measuring-ad-performance", type: "docs", free: true },
+  { title: "Apple Search Ads Costs Tracker — Business of Apps", url: "https://www.businessofapps.com/marketplace/apple-search-ads/research/apple-search-ads-costs/", type: "article", free: true },
+]} />

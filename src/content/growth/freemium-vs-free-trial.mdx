@@ -1,0 +1,75 @@
+export const lessonMeta = {
+  title: "Freemium vs. Free Trial",
+  level: "Intermediate",
+  summary: "Two ways to let people try before they buy — and the math behind which to pick.",
+};
+
+# Freemium vs. Free Trial
+
+Every SaaS team eventually asks the same question: do we give people a permanently free version, or a time-boxed taste of the full product? The answer reshapes your funnel, your CAC payback, and the kind of customer you attract. This lesson is for growth, product, and marketing leads picking (or rethinking) a self-serve motion.
+
+## What It Actually Is
+
+**Freemium** is a permanently free tier with feature, usage, or seat limits. Users can stay forever; you convert them by hitting a ceiling that hurts. Slack, Notion, Dropbox, Canva, and Spotify all run this model.
+
+**Free trial** is full (or near-full) access for a fixed window — typically 7, 14, or 30 days — after which the user either pays or loses access. Trials split into **opt-in** (no card required upfront) and **opt-out** (card required, auto-billed unless cancelled). HubSpot, Ahrefs, and most B2B tools default to trials.
+
+One concrete example: Notion's free plan gives unlimited blocks for personal use forever — that's freemium. Ahrefs gives you 7 days of Starter for $7 — that's a paid trial. Same category, opposite philosophies.
+
+## Why It Matters (with data)
+
+The conversion math diverges sharply by model. According to [1Capture's 2025 benchmark study of 10,000+ SaaS companies](https://www.1capture.io/blog/free-trial-conversion-benchmarks-2025), median B2B trial-to-paid conversion is **18.5%**, with the top quartile at 35–45%. But the trial type matters more than the median:
+
+- **Opt-in trials** (no card): ~18.2% convert
+- **Opt-out trials** (card required): ~48.8% convert
+
+Opt-out models produce nearly 3x more paying customers from the same traffic, but at the cost of fewer signups overall.
+
+Freemium plays a different game. A [Userpilot analysis of 80+ SaaS companies](https://userpilot.com/blog/saas-average-conversion-rate/) pegs typical freemium-to-paid conversion at **2–5%**, with 8–12% considered great. Outliers like Spotify and Slack reportedly exceed 30%, while [Dropbox sits near 4%](https://recurly.com/blog/what-is-freemium-a-guide-for-subscription-businesses/) — closer to the industry norm.
+
+The headline: trials convert a higher *percentage*, freemium converts a higher *absolute number* because the top of the funnel is 10–50x larger.
+
+## How It Works / The Playbook
+
+**Pick freemium when:**
+
+1. Your product has strong network effects or viral loops (Slack, Figma, Calendly).
+2. Time-to-value is genuinely instant — under 10 minutes.
+3. You can build a "painful but fair" limit: seats, storage, history, automations.
+4. Marginal cost per free user is near zero.
+5. Your TAM is huge and you need word-of-mouth distribution.
+
+**Pick free trial when:**
+
+1. Your product is complex but valuable fast once configured (analytics, CRMs, SEO tools).
+2. Cost-to-serve per user is non-trivial (LLM inference, infrastructure).
+3. You sell into mid-market or enterprise where credit-card friction filters for intent.
+4. You can guarantee an "aha moment" within the trial window.
+
+**Operational priorities either way:** the 1Capture data shows top-quartile companies activate trial users within 24 hours at 60%+ rates, vs. under 20% for the bottom quartile. Whichever model you pick, the activation curve is the real lever — not the headline conversion rate.
+
+<Callout type="example">
+Slack rode freemium to a $27.7B Salesforce acquisition. Its free tier capped message history (originally at 10,000 messages, later restructured in 2022 to a 90-day window). That ceiling created predictable upgrade pressure once a team became reliant. Reported free-to-paid conversion sits above 30% — roughly 10x the industry median — because the limit hits exactly when the product has become mission-critical. Source: [Userpilot 2024 freemium analysis](https://userpilot.com/blog/saas-average-conversion-rate/).
+</Callout>
+
+## Common Mistakes
+
+- **Giving away the "aha" moment for free.** If users get full value on the free tier, they never upgrade. The free plan should be useful but incomplete.
+- **Picking freemium without the unit economics.** If each free user costs you $0.50/month in infrastructure and you convert at 3%, your effective CAC just exploded. LLM-powered tools learned this the hard way in 2024.
+- **Trials longer than the activation window.** A 30-day trial for a product people figure out in 20 minutes just delays the buying decision. Shorten it.
+- **No credit card capture when you should.** Opt-in trials sound friendlier but cut paid conversion roughly in half versus opt-out.
+- **Treating the choice as permanent.** Canva, Loom, and Webflow all run hybrid models — short trial of premium features layered on top of a freemium base.
+
+## Key Takeaways
+
+- Free trial is a *qualifier* (filters for intent, short feedback loop). Freemium is a *distribution channel* (massive top of funnel, slow monetization).
+- Benchmark targets: 15–20% trial-to-paid for opt-in, 40%+ for opt-out, 2–5% freemium-to-paid (8%+ is great).
+- Activation in the first 24 hours predicts paid conversion more than any other input — invest there before tweaking pricing pages.
+- Hybrid models (free tier + paid trial of premium) are increasingly the default — you don't have to choose forever.
+
+<ResourceList resources={[
+  { title: "Free Trial Conversion Benchmarks 2025 (1Capture)", url: "https://www.1capture.io/blog/free-trial-conversion-benchmarks-2025", type: "article", free: true },
+  { title: "SaaS Average Conversion Rate Benchmarks (Userpilot)", url: "https://userpilot.com/blog/saas-average-conversion-rate/", type: "article", free: true },
+  { title: "Freemium Business Model Guide (Recurly)", url: "https://recurly.com/blog/what-is-freemium-a-guide-for-subscription-businesses/", type: "article", free: true },
+  { title: "ChartMogul SaaS Conversion Report", url: "https://chartmogul.com/reports/saas-conversion-report/", type: "article", free: true },
+]} />

@@ -1,0 +1,58 @@
+export const lessonMeta = {
+  title: "A/B Testing and Statistical Significance",
+  level: "Intermediate",
+  summary: "Run tests that tell you the truth, not what you want to hear.",
+};
+
+# A/B Testing and Statistical Significance
+
+Most A/B tests lie. Not because the math is broken, but because marketers stop the test the moment the dashboard turns green, declare a winner on 200 conversions, and ship a change that quietly does nothing. This lesson is for growth marketers and PMs who want their experiments to actually move the business.
+
+## What It Actually Is
+
+An A/B test (or split test) randomly assigns visitors to two versions of an experience — control (A) and variant (B) — then compares a primary metric like conversion rate. Statistical significance is the probability that the difference you see is real, not random noise. The industry standard is a 95% confidence level (alpha = 0.05) with 80% statistical power.
+
+Concrete example: you change a CTA from 'Sign up free' to 'Start my free trial'. Control converts at 4.0%, variant at 4.4%. Is that a real 10% lift, or did Tuesday's traffic just happen to convert better? Significance testing answers that question.
+
+## Why It Matters (with data)
+
+Most tests do not win. Booking.com runs roughly 25,000 experiments per year and only about 10% produce a positive result — meaning 9 out of 10 tests fail or are flat ([VWO](https://vwo.com/blog/how-to-run-25000-a-b-tests/)). Microsoft has publicly reported a similar split: roughly one-third of experiments are positive, one-third neutral, and one-third negative ([Microsoft Research](https://www.microsoft.com/en-us/research/wp-content/uploads/2023/05/SEAA21-Flywheel_CR_Preprint.pdf)). A meta-analysis of 20,000 Optimizely experiments found the same ~10% win rate.
+
+The cost of getting this wrong is high. Stopping a test early — known as 'peeking' — can inflate your false positive rate from the assumed 5% all the way to 30% or more ([AB Tasty](https://www.abtasty.com/blog/sample-size-calculation/)). That means roughly 1 in 3 of your declared winners is noise, and the 'lift' you celebrated in the deck will evaporate in production.
+
+## How It Works / The Playbook
+
+1. **Form a hypothesis first.** Write it as: 'Because we observed [data], we expect [change] will cause [metric] to move by [amount] for [audience].' If you cannot fill in the blanks, you do not have a test — you have a guess.
+2. **Calculate sample size before you launch.** Use a calculator (Evan Miller, AB Tasty, Optimizely). Inputs: baseline conversion rate, minimum detectable effect (MDE), 95% confidence, 80% power. For a 4% baseline detecting a 10% relative lift, you typically need ~30,000 visitors per variant.
+3. **Pick one primary metric.** Track guardrails (revenue per session, bounce rate) but commit to a single decision metric in advance.
+4. **Run for full business cycles.** Minimum two weeks — even with sample size hit — so weekday/weekend behavior and the novelty effect average out. Cap at 6–8 weeks; longer than that and cookie deletion and seasonality distort results.
+5. **Do not peek.** Set the end date and the sample size before launch. Check guardrails for breakage, not for early wins.
+6. **Separate statistical from practical significance.** A 0.3% lift on a checkout page may be statistically significant at huge sample sizes and still not worth the engineering cost.
+
+<Callout type="example">
+Booking.com institutionalized this discipline across an organization running tens of thousands of experiments a year. Despite a ~10% win rate, the company credits compounding small wins from rigorous testing as a core driver of growth toward its $170B+ market cap. Their rule: every product change ships behind an experiment, and 'we think it is better' is never enough to merit a launch ([Read Trung](https://www.readtrung.com/p/booking-the-170b-ab-testing-machine)).
+</Callout>
+
+## Common Mistakes
+
+- **Peeking and early stopping.** Declaring victory at day 3 because the p-value dipped below 0.05. False positive rate balloons from 5% to ~30%.
+- **Testing too many variants without correction.** Running A/B/C/D/E without a Bonferroni or similar correction guarantees a 'winner' from pure chance.
+- **Ignoring the minimum detectable effect.** If your traffic can only detect a 20% lift but you are hunting for a 2% lift, the test is dead on arrival.
+- **Changing the test mid-flight.** Tweaking the variant, audience, or weighting after launch invalidates the result.
+- **Confusing statistical and business significance.** A 0.1% lift at p < 0.05 on a low-value flow is noise dressed in math.
+- **No guardrail metrics.** A signup test that lifts conversions 8% but tanks 30-day retention is a loss, not a win.
+
+## Key Takeaways
+
+- Expect to lose. 80–90% of well-designed tests at mature companies fail or are flat — that is the baseline, not a personal failing.
+- Pre-register everything: hypothesis, primary metric, sample size, duration. No mid-test changes.
+- Use 95% confidence and 80% power as defaults. Calculate sample size before launch, never after.
+- Run at least two full weeks, never peek, and judge wins on both statistical and business significance.
+
+<ResourceList resources={[
+  { title: "How Booking.com runs 25,000 A/B tests per year", url: "https://vwo.com/blog/how-to-run-25000-a-b-tests/", type: "article", free: true },
+  { title: "Microsoft Research — Kickstarting A/B Testing at Scale", url: "https://www.microsoft.com/en-us/research/wp-content/uploads/2023/05/SEAA21-Flywheel_CR_Preprint.pdf", type: "docs", free: true },
+  { title: "AB Tasty — Sample Size Calculation Best Practices", url: "https://www.abtasty.com/blog/sample-size-calculation/", type: "article", free: true },
+  { title: "Evan Miller's Sample Size Calculator", url: "https://www.evanmiller.org/ab-testing/sample-size.html", type: "tool", free: true },
+  { title: "Booking: The $170B A/B Testing Machine", url: "https://www.readtrung.com/p/booking-the-170b-ab-testing-machine", type: "article", free: true },
+]} />

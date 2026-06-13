@@ -1,0 +1,55 @@
+export const lessonMeta = {
+  title: "Pricing Psychology",
+  level: "Intermediate",
+  summary: "Anchoring, decoy effect, charm pricing — the levers that move conversion without changing the product.",
+};
+
+# Pricing Psychology
+
+Two SaaS companies sell the same feature set. One converts 2x better. The product is identical — the pricing page is not. This lesson is for founders, growth marketers, and PMs who own a pricing page and want to move the needle without rebuilding anything.
+
+## What It Actually Is
+
+Pricing psychology is the practice of structuring numbers, tiers, and visual hierarchy so buyers reach the decision you want them to reach. The product cost stays the same; the framing changes. A classic example: a coffee shop lists drip coffee at $3, pour-over at $6.50, and a "barista flight" at $7. Almost nobody buys the flight — it exists to make $6.50 look reasonable. That is the decoy effect doing the work of a salesperson.
+
+## Why It Matters (with data)
+
+The research on pricing framing is unusually robust, and the lift is large enough that ignoring it costs real revenue.
+
+- Charm pricing (prices ending in 9, 99, or 95) lifts sales by roughly 24% on average, and in some categories as much as 60%, per a synthesis of decades of pricing studies in [Capital One Shopping's 2025 pricing psychology report](https://capitaloneshopping.com/research/pricing-psychology-statistics/).
+- In Dan Ariely's famous Economist subscription test, adding a print-only "decoy" at the same price as the print+web bundle shifted 84% of buyers to the higher-priced bundle, up from 32% without the decoy — covered in [Neil Patel's review of pricing studies](https://neilpatel.com/blog/5-psychological-studies/).
+- Price anchoring on SaaS pricing pages can raise conversion by up to 40% versus single-price offers, per Journal of Marketing Research data summarized by [Monetizely](https://www.getmonetizely.com/articles/the-anchoring-effect-in-saas-pricing-using-high-prices-to-drive-sales). 98% of SaaS companies now use multi-tier pricing, and three tiers is the dominant pattern.
+
+## How It Works / The Playbook
+
+Three levers do most of the work. Use them together.
+
+1. **Anchor high, then descend.** The first number a visitor sees becomes the reference point for everything else. List the Enterprise or top tier first (left to right on desktop, top on mobile) so your target plan feels like the reasonable middle. A $499 anchor makes $79 feel like a deal; a $79 anchor makes $79 feel expensive.
+2. **Plant a decoy.** Add a tier that is deliberately worse value than your target tier on one dimension. The classic move: make the middle plan only slightly cheaper than the top plan but missing the one feature buyers actually want. Buyers compare A vs B, see B dominates, and pick B — exactly what you wanted.
+3. **Charm-price the entry point, round the top.** Use $29 or $49 for low-end plans where price sensitivity is highest. For enterprise tiers, use round numbers ($500, $2,000) — round prices read as premium and signal quality, while $.99 endings can cheapen a high-ticket offer.
+4. **Highlight the target plan visually.** A border, a "Most Popular" badge, or a different background on the middle tier raises selection of that plan by roughly 60% in tested SaaS layouts.
+5. **Bundle the comparison.** Show annual savings as a dollar amount ("Save $240/year"), not just a percentage. Absolute numbers anchor harder than percentages on small bases.
+
+<Callout type="example">
+When Stock Alarm moved from a single $10/month plan to three tiers ($5, $10, $20), about half of new users picked the top $20 plan — the high anchor pulled buyers up, not down. HubSpot reported a 35% conversion lift after restructuring tiers around a clear value ladder, and Mixpanel saw a 35% jump in new account signups within one quarter of repricing around a usage-based value metric. Sources compiled by [Monetizely](https://www.getmonetizely.com/articles/the-anchoring-effect-in-saas-pricing-using-high-prices-to-drive-sales).
+</Callout>
+
+## Common Mistakes
+
+- **Anchoring on a tier nobody will buy** — if your $999 Enterprise tier has no real customers, you have a fake anchor and a confused sales team. The anchor must be sellable, even if rarely sold.
+- **Discounting the charm price** — running "$29.99, was $39.99" on an already charm-priced plan stacks two psychological cues poorly. Pick one frame and stick with it.
+- **Five tiers instead of three** — every extra option increases choice paralysis. Buyers default to "I'll think about it" (which means never). Three is the tested sweet spot.
+- **Hiding the price** — "Contact sales" on every tier kills self-serve conversion. Make at least one plan transparently priced so visitors can anchor on something concrete.
+
+## Key Takeaways
+
+- Pricing pages are interfaces, not spreadsheets — structure changes behavior more than the dollar amount does.
+- Three tiers, a visible anchor on top, a highlighted target in the middle, and a charm-priced floor is the default starting layout for a reason.
+- Test framing before you test price. A new layout costs nothing; a price cut is permanent in the customer's memory.
+
+<ResourceList resources={[
+  { title: "Pricing Psychology Statistics 2025 — Capital One Shopping", url: "https://capitaloneshopping.com/research/pricing-psychology-statistics/", type: "article", free: true },
+  { title: "Anchoring Effect in SaaS Pricing — Monetizely", url: "https://www.getmonetizely.com/articles/the-anchoring-effect-in-saas-pricing-using-high-prices-to-drive-sales", type: "article", free: true },
+  { title: "5 Pricing Psychology Studies — Neil Patel", url: "https://neilpatel.com/blog/5-psychological-studies/", type: "article", free: true },
+  { title: "Psychological Pricing — Wikipedia", url: "https://en.wikipedia.org/wiki/Psychological_pricing", type: "docs", free: true },
+]} />

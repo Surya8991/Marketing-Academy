@@ -1,0 +1,62 @@
+export const lessonMeta = {
+  title: "The North Star Metric",
+  level: "Beginner",
+  summary: "The one number that captures the value your product delivers.",
+};
+
+# The North Star Metric
+
+Most marketing teams drown in dashboards: signups, sessions, CTR, MQLs, NPS, ARPU. The North Star Metric (NSM) is the antidote — a single number that captures the core value your product delivers to customers, and that the whole company can rally behind. If your team can't name its NSM in one sentence, this lesson is for you.
+
+## What It Actually Is
+
+The North Star Metric is the one metric that best predicts long-term, sustainable growth because it measures the value customers actually get from your product. It is not revenue (a result) and not vanity (signups). It sits between the two.
+
+Concrete example: Spotify's NSM is "time spent listening." It is not paid subscribers — that's a downstream result. People who listen more, churn less and upgrade more. Move listening time up, and revenue follows.
+
+## Why It Matters (with data)
+
+The term was coined by [Sean Ellis](https://huryn.medium.com/the-north-star-framework-101-bff5a3cd8ac7) around 2010 and turned into a full operating framework by [Amplitude's North Star Playbook](https://amplitude.com/books/north-star/about-north-star-framework) in 2017. The reason teams adopt it is simple: alignment is expensive when missing. A 2024 [CXL guide](https://cxl.com/blog/north-star-metric/) on the framework notes that companies without a single shared metric routinely ship features that move department KPIs (e.g., MQLs for marketing, DAUs for product) while the customer outcome — value delivered — flatlines.
+
+Amplitude's own framework states an NSM must be three things at once: it expresses value, it is a leading indicator of revenue, and it is actionable by the team. Lagging metrics like quarterly revenue fail the third test — by the time the number moves, the work is months old.
+
+## How It Works / The Playbook
+
+Use this four-step process to find yours:
+
+1. **Write the value statement.** Finish the sentence: "Our product is valuable when a customer ______." For Airbnb that's "books and stays in a place." For Slack it's "sends messages inside a team."
+2. **Turn the verb into a metric.** Airbnb → "nights booked." Slack → famously, "teams that have sent 2,000+ messages" (their activation threshold).
+3. **Test it against three criteria.** Does it (a) reflect customer value, (b) lead revenue, and (c) move when your team ships work? If any answer is no, keep iterating.
+4. **Decompose into inputs.** An NSM is useless if only the CEO can move it. Break it into 3–5 input metrics that individual teams own. For "weekly active listeners," inputs might be new-user activation rate, session frequency, and playlist saves.
+
+Common NSM patterns by business model:
+
+- **Marketplaces** (Uber, Airbnb, eBay): completed transactions
+- **Social / content** (Meta, Netflix, Spotify): time spent or sessions
+- **SaaS / collaboration** (Slack, Notion, Figma): weekly active teams performing the core action
+- **Storage / utility** (Dropbox): files uploaded or actions completed
+
+<Callout type="example">
+Facebook's early NSM was Monthly Active Users, but the team realized MAU hid churn risk. They switched their internal growth metric to a more specific activation event — getting a new user to 7 friends in 10 days — which predicted long-term retention far better than raw signups. Airbnb similarly moved from "signups" to "nights booked" as its NSM; in its S-1 filing for the 2020 IPO, nights and experiences booked was the headline operating metric, totaling 251 million in 2019. Source: [Amplitude North Star Playbook](https://amplitude.com/books/north-star/defining-your-North-Star).
+</Callout>
+
+## Common Mistakes
+
+- **Picking revenue as your NSM.** Revenue is a lagging result, not a leading indicator. You can goose it short-term with discounts and ruin retention.
+- **Picking a vanity metric.** Signups, pageviews, app downloads, and MAU often grow while the actual product experience degrades. If your NSM goes up and churn also goes up, your NSM is wrong.
+- **Never revisiting it.** Your NSM is not permanent. LinkedIn's early NSM ("endorsements given") made sense in the connection-building era but would be a poor metric for today's content-feed era. Reassess yearly.
+- **Letting every team have its own.** The whole point is alignment. If marketing tracks one number and product tracks another, you don't have a North Star — you have two compasses.
+
+## Key Takeaways
+
+- A North Star Metric is one number that captures customer value and predicts revenue — pick exactly one.
+- It must be a leading indicator (not revenue), reflect real value (not vanity), and be actionable by your teams.
+- Decompose it into 3–5 input metrics so individual teams have something concrete to move every week.
+- Revisit it annually; the right NSM at $1M ARR is rarely the right one at $100M.
+
+<ResourceList resources={[
+  { title: "Amplitude — The North Star Playbook", url: "https://amplitude.com/books/north-star/about-north-star-framework", type: "docs", free: true },
+  { title: "CXL — Finding Your North Star Metric (With Examples)", url: "https://cxl.com/blog/north-star-metric/", type: "article", free: true },
+  { title: "The North Star Framework 101 — Paweł Huryn", url: "https://huryn.medium.com/the-north-star-framework-101-bff5a3cd8ac7", type: "article", free: true },
+  { title: "Finmark — 80+ North Star Metric Examples", url: "https://finmark.com/north-star-metric/", type: "article", free: true },
+]} />

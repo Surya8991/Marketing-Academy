@@ -1,0 +1,59 @@
+export const lessonMeta = {
+  title: "Onboarding That Converts",
+  level: "Advanced",
+  summary: "Get new users to value as fast as possible.",
+};
+
+# Onboarding That Converts
+
+Most products lose more than half their signups before anyone ever experiences the thing that makes the product worth paying for. This lesson is for growth and product marketers who own activation — the moment a user becomes a user. We'll cover how to compress time-to-value, what 2024–2025 benchmarks actually look like, and the specific patterns that high-performers use to convert curious signups into retained accounts.
+
+## What It Actually Is
+
+Onboarding is the flow from first touch (signup, app install, account creation) to the user's first meaningful outcome — the 'aha moment'. For Calendly, it's a booked meeting. For Figma, it's the first shared design link. For Duolingo, it's understanding and answering a question in a new language. Everything between signup and that moment is friction you are choosing to keep.
+
+## Why It Matters (with data)
+
+The math is brutal. The average activation rate for SaaS and AI tools in 2025 is just 37.5%, with FinTech trailing at 5% and AI/ML leading at 54.8%, according to [Agile Growth Labs' 2025 benchmark report](https://www.agilegrowthlabs.com/blog/user-activation-rate-benchmarks-2025/). Free trial conversions typically sit between 10% and 20% — anything above 20% signals a healthy onboarding flow per [Userpilot's 2025 benchmarks](https://userpilot.com/blog/saas-average-conversion-rate/).
+
+Speed compounds. A 2024 Amplitude study cited by [Digital Applied](https://www.digitalapplied.com/blog/customer-onboarding-time-to-value-2026-saas-metrics-framework) found that cutting time-to-value by 20% lifted ARR growth by 18% for mid-market SaaS. Every additional minute in the onboarding flow drops conversion by roughly 3%, and a 500ms page-load delay cuts activation by 8% in Asian markets.
+
+Then there's the checklist problem. Across 188 companies in [Userpilot's 2025 benchmark report](https://userpilot.com/blog/saas-average-conversion-rate/), the median onboarding-checklist completion rate is just 10.1%, with an average of 19.2%. If your activation strategy is 'show them a checklist', 9 out of 10 users will ignore it.
+
+## How It Works / The Playbook
+
+The high-performers don't add more onboarding — they remove it. Here's the operating playbook:
+
+1. **Define one activation event, not five.** Pick the single behaviour most correlated with week-4 retention. Slack's was 2,000 messages sent in a team. Figma's was a second collaborator invited. Write yours on a sticky note.
+2. **Measure TTFV in minutes, not days.** Best-in-class SaaS products deliver first value in under 15 minutes; the industry average is 1 day 12 hours. Instrument the gap between signup timestamp and activation timestamp.
+3. **Defer everything that isn't value.** Account creation, billing, profile completion, team invites — all of it goes *after* the aha moment if possible. Duolingo doesn't even ask for an email until after the first lesson.
+4. **Personalize the first run.** A two-question 'what brings you here' picker lets you route a solo founder and an enterprise admin to completely different first screens.
+5. **Use empty-state seeding.** Pre-fill workspaces with sample data so the user sees the product working, not a blank canvas demanding work.
+6. **Run a weekly activation funnel review.** Treat the signup-to-activation funnel like an ad funnel: one step per week gets a test.
+
+<Callout type="example">
+After Duolingo redesigned its onboarding to let users start a lesson before creating an account — deferring sign-up until users wanted to save their progress — the team observed a 47% reduction in first-week churn, per a 2024 UX [case study compiled by UserGuiding](https://userguiding.com/blog/duolingo-onboarding-ux). The change didn't add tutorials; it removed a single blocking screen.
+</Callout>
+
+## Common Mistakes
+
+- **Treating onboarding as a tour.** Product tours have 10% median completion. Users want to use the product, not watch it.
+- **Asking for credit cards before value.** Every required field before the aha moment costs roughly 10% of remaining signups.
+- **Optimizing the wrong metric.** Tracking 'signups' instead of 'activated users' hides the real leak. A 60% bump in signups means nothing if activation stays at 5%.
+- **One flow for everyone.** A first-time founder and an enterprise IT admin do not need the same first three screens.
+- **Shipping checklists as a strategy.** With 10.1% median completion, a checklist is a reporting tool, not a growth lever.
+
+## Key Takeaways
+
+- Activation, not signup, is the metric that maps to revenue — and the 2025 SaaS median is just 37.5%.
+- Compress time-to-first-value below 15 minutes; a 20% TTV cut correlated with 18% ARR lift in Amplitude's 2024 study.
+- Defer friction (account, billing, profile) past the aha moment. Duolingo cut first-week churn 47% doing exactly this.
+- Pick one activation event, instrument it, and review the funnel weekly. Everything else is noise.
+
+<ResourceList resources={[
+  { title: "User Activation Rate Benchmarks 2025 — Agile Growth Labs", url: "https://www.agilegrowthlabs.com/blog/user-activation-rate-benchmarks-2025/", type: "article", free: true },
+  { title: "SaaS Average Conversion Rate Benchmarks — Userpilot", url: "https://userpilot.com/blog/saas-average-conversion-rate/", type: "article", free: true },
+  { title: "Time to Value: 2026 SaaS Onboarding Framework — Digital Applied", url: "https://www.digitalapplied.com/blog/customer-onboarding-time-to-value-2026-saas-metrics-framework", type: "article", free: true },
+  { title: "Duolingo Onboarding UX Breakdown — UserGuiding", url: "https://userguiding.com/blog/duolingo-onboarding-ux", type: "article", free: true },
+  { title: "SaaS Onboarding Statistics 2026 — shno.co", url: "https://www.shno.co/marketing-statistics/saas-onboarding-statistics", type: "docs", free: true },
+]} />

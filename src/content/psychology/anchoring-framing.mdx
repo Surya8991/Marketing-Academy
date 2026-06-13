@@ -1,0 +1,63 @@
+export const lessonMeta = {
+  title: "Anchoring and Framing",
+  level: "Intermediate",
+  summary: "The first number and the first words shape every comparison that follows.",
+};
+
+# Anchoring and Framing
+
+The first number a customer sees becomes the gravitational center of every price they evaluate after it. The first words they read become the lens through which they judge every benefit. Anchoring and framing are not optional flourishes on a pricing page — they are the silent referee deciding whether your offer feels generous or greedy.
+
+## The Origin (Real Research)
+
+Amos Tversky and Daniel Kahneman introduced anchoring in their landmark 1974 paper, ['Judgment Under Uncertainty: Heuristics and Biases'](https://www.science.org/doi/10.1126/science.185.4157.1124), published in *Science*. In their most famous demonstration, they spun a wheel of fortune that produced a random number between 0 and 100, then asked participants what percentage of African countries were in the United Nations. Participants whose wheel landed on 10 guessed 25% on average; those who saw 65 guessed 45%. A number everyone knew was random still bent their judgment.
+
+A companion experiment had subjects estimate, in five seconds, the product of either 1 x 2 x 3 x 4 x 5 x 6 x 7 x 8 or 8 x 7 x 6 x 5 x 4 x 3 x 2 x 1. The ascending group's median guess was 512. The descending group's was 2,250. Same numbers, different starting anchor, four-fold gap in estimation.
+
+Framing came a few years later. Tversky and Kahneman's 1981 paper on the 'Asian disease problem' showed that describing the same outcome as '200 lives saved' versus '400 lives lost' flipped majority preference, even though the math was identical.
+
+## How It Actually Works
+
+Anchoring works because the brain is lazy with comparisons. When you see $999 next to $499, you do not independently evaluate whether $499 is fair — you evaluate whether it is a good deal relative to $999. The anchor short-circuits absolute judgment.
+
+<Mermaid chart={`graph LR; A[See first number $999] --> B[Brain sets reference point]; B --> C[See second number $499]; C --> D[Judge as 50% off, feels generous]; A2[See $499 alone] --> D2[Judge against budget, feels expensive]`} />
+
+Framing works on the same machinery but with words. '95% fat free' and '5% fat' describe the same yogurt. The first frame triggers a positive evaluation pathway; the second triggers a risk-avoidance pathway.
+
+## Why Marketers Care (2024/2025 examples)
+
+[Apple's Vision Pro launch at $3,499](https://medium.com/the-psychology-of-marketing/apples-pricing-strategy-price-anchoring-and-consumer-psychology-6424ed190269) was not just a product release — it was a recalibration of the anchor for every other Apple product. A $1,599 iPhone 15 Pro Max suddenly reads as 'reasonable premium' rather than 'extravagant phone'. Steve Jobs ran the same play in 2010 when he displayed a $999 placeholder on stage before revealing the iPad's real $499 price.
+
+[Amazon stacks anchors inside a single product page](https://metricscart.com/insights/what-is-price-anchoring/) using 'List Price', 'Was', 'Other Sellers from', and 'Newer Version Available' rows. Each line gives the brain another reference point that makes the current price feel like a discovery.
+
+Booking.com frames availability instead of price: 'Only 2 left at this price' and '17 people are looking right now' anchor scarcity rather than cost. The Shopify enterprise team [documents three-tier SaaS pricing](https://www.shopify.com/enterprise/blog/44331971-6-scientific-principles-of-persuasion-all-smart-ecommerce-founders-know) where the highest tier exists primarily to make the middle tier feel sensible — a structure popularized by The Economist's famous print/web/combo subscription test.
+
+<Callout type="example">
+When The Economist removed its $125 print-only option, sales of the $125 print-plus-web combo dropped from 84% to 32% of subscribers. The 'useless' print-only anchor was generating tens of thousands of extra revenue per cohort by making the combo feel like a free upgrade. Dan Ariely replicated this in his MIT classroom — same effect, same magnitude.
+</Callout>
+
+## How to Apply It Ethically
+
+- Lead with your highest legitimate price first — a real enterprise tier, a real premium SKU — not a fake crossed-out number you have never charged.
+- Frame outcomes in the direction your product genuinely produces. 'Save 6 hours a week' and 'Cut admin time by 30%' both work; pick the one your data supports.
+- On comparison tables, place your target plan in the middle column and let the cheaper and more expensive tiers do the anchoring work.
+- When quoting custom deals, state the full annual figure before the monthly equivalent. '$24,000/year, billed at $2,000/month' lands very differently from the reverse.
+
+## Where It Backfires / Ethical Limits
+
+The line gets crossed when the anchor is fictional. Made-up 'original prices' that never existed are illegal in the EU under the [Omnibus Directive](https://commission.europa.eu/law/law-topic/consumer-protection-law/consumer-contract-law/consumer-rights-directive_en) and have triggered class-action settlements against US retailers including Kohl's and JCPenney. 'Drip pricing' — anchoring on a low headline number and revealing fees at checkout — is now a target of FTC enforcement under the 2024 'Junk Fees' rule.
+
+Framing crosses the line when it hides material information. '95% fat free' on a product that is 90% sugar is technically true and ethically bankrupt. If the frame would collapse the moment the customer read the small print, you have built a refund engine, not a marketing strategy.
+
+## Key Takeaways
+
+- The first number a customer sees calibrates their judgment of every number after it — choose it deliberately.
+- Real anchors, not fake ones: a genuine premium tier beats a phantom 'was' price both ethically and legally.
+- Framing changes the decision pathway without changing the facts; pick the frame that matches what your product actually delivers.
+
+<ResourceList resources={[
+  { title: "Judgment Under Uncertainty: Heuristics and Biases (Tversky and Kahneman, 1974)", url: "https://www.science.org/doi/10.1126/science.185.4157.1124", type: "article", free: true },
+  { title: "Apple's Pricing Strategy: A Masterclass in Price Anchoring", url: "https://medium.com/the-psychology-of-marketing/apples-pricing-strategy-price-anchoring-and-consumer-psychology-6424ed190269", type: "article", free: true },
+  { title: "Price Anchoring: What It Is, How It Works (Shopify, 2025)", url: "https://www.shopify.com/enterprise/blog/44331971-6-scientific-principles-of-persuasion-all-smart-ecommerce-founders-know", type: "article", free: true },
+  { title: "Anchoring Effect (Wikipedia overview with citations)", url: "https://en.wikipedia.org/wiki/Anchoring_effect", type: "article", free: true },
+]} />

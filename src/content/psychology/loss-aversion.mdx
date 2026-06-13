@@ -1,0 +1,65 @@
+export const lessonMeta = {
+  title: "Loss Aversion",
+  level: "Intermediate",
+  summary: "Losses hurt twice as much as gains feel good — Kahneman's most actionable finding.",
+};
+
+# Loss Aversion
+
+People do not weigh gains and losses on the same scale. Losing $100 feels roughly twice as painful as winning $100 feels good — and that asymmetry quietly drives most of the high-converting copy you see today. If you understand loss aversion, you stop writing 'get' headlines and start writing 'keep' headlines.
+
+## The Origin (Real Research)
+
+Loss aversion was coined by Daniel Kahneman and Amos Tversky in their 1979 paper '[Prospect Theory: An Analysis of Decision under Risk](https://www.econometricsociety.org/publications/econometrica/1979/03/01/prospect-theory-analysis-decision-under-risk)', published in *Econometrica*. They ran a series of gambles with student participants (the canonical experiment showed that most people refuse a coin-flip for +$100 / -$100, and typically demand a gain of around $200 before accepting a $100 downside risk) and concluded that 'the response to losses is stronger than the response to corresponding gains.'
+
+The work earned Kahneman the 2002 Nobel Memorial Prize in Economics (Tversky had died in 1996 and was ineligible). A 2020 cross-cultural replication across 19 countries and 4,098 participants, summarized by [Columbia Mailman School of Public Health](https://www.publichealth.columbia.edu/news/global-study-confirms-influential-theory-behind-loss-aversion), reconfirmed the effect at roughly a 2:1 loss-to-gain ratio across cultures.
+
+## How It Actually Works
+
+The brain treats a current state — what you already own, what you almost had, what you signed up for — as a reference point. Anything that pulls you below that point registers as a loss, and losses are processed with more emotional intensity than equivalent gains above it.
+
+<Mermaid chart={`graph LR; A[Reference Point: what I have now] --> B[Gain of $100: +1 unit of utility]; A --> C[Loss of $100: -2 units of utility]; C --> D[Action to avoid the loss]`} />
+
+The implication for marketers is concrete: framing the same offer as 'avoid losing X' produces stronger action than framing it as 'gain X' — even when the math is identical.
+
+## Why Marketers Care (2024/2025 examples)
+
+**Free trials that auto-enroll you in the product.** Once Spotify, Netflix, or Notion hands you premium features for 30 days, the reference point shifts. Cancelling no longer feels like 'not buying' — it feels like *losing* features you already use. This is loss aversion engineered into onboarding.
+
+**Booking.com scarcity timers.** '[Only 1 room left at this price](https://www.nngroup.com/articles/prospect-theory/)' and 'In high demand — booked 14 times in the last 24 hours' weaponize the fear of losing the deal, not the appeal of getting it. Nielsen Norman Group documents this as one of the clearest applied uses of prospect theory in modern UX.
+
+**HubSpot and SaaS expiry framing.** As [Wiser Notify's 2025 roundup](https://wisernotify.com/blog/loss-aversion-marketing/) documents, software companies now send '*Your premium features expire in 3 days*' instead of '*Upgrade to keep premium*.' The first frames the status quo as loss; the second frames it as gain. Conversion deltas in the 15-25% range are commonly reported in e-commerce A/B tests of scarcity messaging.
+
+**Samsung Care+ and NordVPN money-back guarantees.** Both flip the buyer's reference point: once you 'own' the protection or the subscription, returning it feels like surrendering something. The 30-day window is calibrated to the endowment effect — a close cousin of loss aversion.
+
+<Callout type="example">
+A/B tests aggregated by [AB Tasty](https://www.abtasty.com/blog/loss-aversion/) and others show that swapping 'Save £50' for 'Get £50 off' — identical offer, different frame — lifts conversion by double-digit percentages in many e-commerce categories. Jumia's 'Only X left in stock' badge is cited as producing 15-25% conversion gains in tests across African e-commerce.
+</Callout>
+
+## How to Apply It Ethically
+
+- **Reframe gains as avoided losses.** 'Stop wasting 4 hours a week on reporting' beats 'Save 4 hours a week.' Same outcome, sharper teeth.
+- **Give before you ask.** Drop the credit, badge, or feature into the user's account first, then ask for the sign-up to 'keep' it. The endowment effect does the closing for you.
+- **Anchor the reference point on the trial state.** When a free trial ends, remind users specifically which features they will lose, by name. Vague 'downgrade' warnings under-perform specific loss lists.
+- **Use deadlines that are real.** A 24-hour timer that resets every time the page reloads is a dark pattern and users now spot it.
+
+## Where It Backfires / Ethical Limits
+
+Loss aversion crosses into manipulation when the 'loss' is manufactured: countdown timers that never expire, fake scarcity ('1 left!' when stock is unlimited), or guilt-trip unsubscribe flows ('Are you sure you want to *lose* all your progress?'). [ActiveCampaign's review](https://www.activecampaign.com/blog/loss-aversion-marketing) notes that overuse erodes trust quickly — once a user catches one fake scarcity badge, every future claim is discounted. The FTC's 2023-2025 crackdown on 'dark pattern' subscription flows targets exactly this kind of misuse.
+
+A second failure mode: loss framing on low-stakes decisions feels hysterical. 'Don't lose your spot on our newsletter' for a free email list reads as parody, not persuasion. Match the intensity of the frame to the actual stakes of the decision.
+
+## Key Takeaways
+
+- Kahneman and Tversky's 1979 prospect theory established that losses feel roughly 2x as intense as equivalent gains — and the 2020 cross-cultural replication confirms it holds globally.
+- The most powerful marketing application is not scarcity timers — it is shifting the user's reference point so that *not buying* feels like losing something they already have.
+- Reframe every value prop test: write the 'avoid losing X' version alongside the 'get X' version and let the data choose.
+- Fake scarcity and manufactured losses work once, then permanently damage trust. Use real constraints or none at all.
+
+<ResourceList resources={[
+  { title: "Prospect Theory: An Analysis of Decision under Risk (Kahneman & Tversky, 1979)", url: "https://www.econometricsociety.org/publications/econometrica/1979/03/01/prospect-theory-analysis-decision-under-risk", type: "article", free: true },
+  { title: "Prospect Theory and Loss Aversion: How Users Make Decisions (NN/G)", url: "https://www.nngroup.com/articles/prospect-theory/", type: "article", free: true },
+  { title: "Global Study Confirms Influential Theory Behind Loss Aversion (Columbia, 2020)", url: "https://www.publichealth.columbia.edu/news/global-study-confirms-influential-theory-behind-loss-aversion", type: "article", free: true },
+  { title: "Loss Aversion Marketing: Driving More Sales in 2025 (Wiser Notify)", url: "https://wisernotify.com/blog/loss-aversion-marketing/", type: "article", free: true },
+  { title: "Loss Aversion Marketing for Ecommerce (AB Tasty)", url: "https://www.abtasty.com/blog/loss-aversion/", type: "article", free: true },
+]} />

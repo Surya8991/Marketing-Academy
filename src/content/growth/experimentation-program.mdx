@@ -1,0 +1,55 @@
+export const lessonMeta = {
+  title: "Building an Experimentation Program",
+  level: "Advanced",
+  summary: "From ad-hoc tests to a repeatable engine.",
+};
+
+# Building an Experimentation Program
+
+Most teams treat A/B testing like a side project: one landing-page test per quarter, a vague "winner," and no follow-through. A real experimentation program is the opposite — a repeatable engine that converts opinions into evidence, week after week. This lesson is for growth, product, and marketing leads who want to move from sporadic tests to compounding learning.
+
+## What It Actually Is
+
+An experimentation program is the people, process, and platform that lets a company run controlled tests at a predictable cadence, with consistent statistical rigor and shared learnings. Concretely: a backlog of hypotheses, a prioritization framework, a testing tool (Optimizely, VWO, Statsig, GrowthBook, or an in-house stack), a peer-review step, and a learning repository everyone can search. It is the difference between "we tried a new hero image" and "we ran 312 tests this year, 41 of them won, and we know exactly which surfaces compound."
+
+## Why It Matters (with data)
+
+The gap between leaders and laggards is enormous. According to [Forrester research cited by Convert](https://www.convert.com/blog/optimization/conversion-rate-optimization-maturity/), only 24% of digital business leaders report running more than 10 A/B tests annually — meaning most companies test less than once a month. Meanwhile, Booking.com collectively runs more than [25,000 A/B tests a year — roughly 70 every single day](https://vwo.com/blog/how-to-run-25000-a-b-tests/).
+
+Win rates are humbling once you start measuring honestly. Microsoft's reported failure rate across experiments is roughly 66% (a ~34% win rate), and at Bing the failure rate is closer to 85%. Booking.com reports failure rates of [80–90%](https://www.awa-digital.com/blog/truth-about-amazon-booking-experimentation-culture/). The lesson: any single test is likely to lose. The program wins because volume turns rare successes into reliable compounding gains.
+
+## How It Works / The Playbook
+
+A mature program runs on five gears:
+
+1. **Idea intake.** Maintain a single backlog (Notion, Linear, or Airtable). Anyone can submit; every idea needs a hypothesis in the form *"If we change X for users Y, metric Z will move because rationale R."*
+2. **Prioritization.** Score with ICE or PXL. PXL (used at ConversionXL) is stricter — it forces evidence like "is the change above the fold?" and "is it backed by user research?" before a test gets queued.
+3. **Design and power.** Before launching, calculate the minimum detectable effect (MDE) and required sample size. If you cannot reach significance in 4 weeks at your traffic level, kill the test or move it to a higher-traffic surface.
+4. **Review and ship.** A weekly experimentation council (PM, eng, analyst, designer) reviews proposals, catches sample-ratio mismatches, and approves the test plan. This single ritual is what separates "5 tests a year" teams from "5 tests a week" teams.
+5. **Read out and codify.** Every test gets a written readout — winner, loser, or inconclusive — stored in a searchable wiki. Booking.com famously archives every test so a PM can ask "has anyone tried this CTA color on the property page?" before re-running it.
+
+<Callout type="example">
+Booking.com runs ~25,000 experiments per year on an [in-house platform reported by VWO](https://vwo.com/blog/cro-best-practices-booking/) and HBR. Even with a win rate of only 10–20%, the sheer volume — combined with a strict rule that every product team must justify decisions with experiments — has compounded into one of the most optimized booking funnels on the web. The point is not the tooling, it is the cultural rule: no surface ships without a test.
+</Callout>
+
+## Common Mistakes
+
+- **Calling tests early.** Peeking at results and stopping when p < 0.05 inflates false positives dramatically. Pre-register your duration and MDE; do not peek.
+- **Optimizing micro-metrics.** A button-color test that lifts CTR but drops downstream revenue is a loss. Always pair a primary metric with a guardrail (revenue, retention, refund rate).
+- **No idea pipeline.** Teams that run 1 test per month almost always lack a backlog. Without 20+ ranked hypotheses ready, velocity collapses the moment one test ends.
+- **Ignoring sample-ratio mismatch (SRM).** If your 50/50 split arrives as 48/52, the experiment is broken — not just unlucky. Automate an SRM check in your readout template.
+- **No archive.** Re-running tests you already ran is the silent killer. If readouts are not searchable, you do not have a program.
+
+## Key Takeaways
+
+- Volume beats brilliance: 70% of your tests will lose, so you need a steady pipeline of 4+ per month per surface to compound wins.
+- Invest in the ritual (intake → prioritize → review → readout → archive) before investing in fancy tooling.
+- Pair every primary metric with a guardrail, pre-register duration, and never peek.
+
+<ResourceList resources={[
+  { title: "How Booking.com runs 25,000 A/B tests a year (VWO)", url: "https://vwo.com/blog/how-to-run-25000-a-b-tests/", type: "article", free: true },
+  { title: "The Truth About Amazon and Booking.com Experimentation Culture (AWA Digital)", url: "https://www.awa-digital.com/blog/truth-about-amazon-booking-experimentation-culture/", type: "article", free: true },
+  { title: "CRO Maturity and Test Velocity (Convert)", url: "https://www.convert.com/blog/optimization/conversion-rate-optimization-maturity/", type: "article", free: true },
+  { title: "Accelerating Growth Through Experiment Velocity (Optimizely)", url: "https://www.optimizely.com/insights/blog/accelerating-growth-through-experiment-velocity/", type: "article", free: true },
+  { title: "How Booking.com Sustains a Culture of Innovation (HBR)", url: "https://hbr.org/podcast/2024/06/how-booking-com-sustains-a-culture-of-innovation", type: "article", free: true },
+]} />

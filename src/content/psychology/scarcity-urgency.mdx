@@ -1,0 +1,65 @@
+export const lessonMeta = {
+  title: "Scarcity, Urgency, and FOMO",
+  level: "Intermediate",
+  summary: "The most powerful (and most abused) lever in the toolkit.",
+};
+
+# Scarcity, Urgency, and FOMO
+
+Scarcity is the marketing lever that makes the brain stop calculating and start grabbing. When something feels rare, time-limited, or about to disappear, we treat it as more valuable — even when it is identical to the abundant version sitting next to it. That is why "Only 1 left!" out-converts almost every other persuasion technique, and also why regulators on two continents are now fining the brands that abuse it.
+
+## The Origin (Real Research)
+
+The foundational study is Worchel, Lee, and Adewole (1975), "Effects of supply and demand on ratings of object value," published in the *Journal of Personality and Social Psychology* (Vol. 32, Issue 5, pages 906–914). 146 participants were asked to rate identical chocolate-chip cookies — some pulled from a jar containing ten cookies, others from a jar containing only two. The cookies were the same recipe, same batch, same baker. Participants consistently rated the cookies from the near-empty jar as tastier, more desirable, and more valuable.
+
+Robert Cialdini later codified this as one of the six principles in his 1984 book *Influence: The Psychology of Persuasion*. He paired it with Daniel Kahneman and Amos Tversky's 1979 paper on Prospect Theory, which showed that losses loom roughly twice as large as equivalent gains — the engine that makes "you'll miss out" hit harder than "you'll gain something."
+
+## How It Actually Works
+
+Scarcity short-circuits deliberation. When supply is framed as limited, the brain switches from "should I want this?" to "will I lose the chance?" That framing collapses comparison shopping, reduces price sensitivity, and accelerates the decision.
+
+<Mermaid chart={`graph LR; A[Abundant Supply] --> B[Slow, comparative thinking]; C[Scarce Supply] --> D[Loss-aversion fires]; D --> E[Faster decision]; E --> F[Higher perceived value]`} />
+
+A classic illustration: the Worchel cookies became *even more* valuable when participants watched the jar go from ten to two in front of them. Sudden scarcity beats steady scarcity. This is why "selling fast" outperforms "limited edition" in most A/B tests.
+
+## Why Marketers Care (2024 / 2025 examples)
+
+Every modern e-commerce stack ships with scarcity primitives baked in. A few you can audit today:
+
+- **Booking.com** displays "Only 1 room left at this price!" and "In high demand — booked 4 times in the last 6 hours." These messages drove a measurable conversion lift for years.
+- **Amazon** shows "Only 3 left in stock — order soon" on product pages and uses Lightning Deals with countdown timers on Prime Day.
+- **Spotify Wrapped** (released every December since 2016) manufactures a once-a-year window of social FOMO — a campaign that earned more than 400 million tweets in 2024 according to Spotify's own newsroom.
+- **Apple's** keynote-launch model deliberately under-supplies new iPhones at launch to engineer week-one queues that drive earned media.
+
+The Cialdini lever is so reliable that the EU's Digital Services Act and Spain's CNMC now treat *fake* scarcity as illegal. In July 2024, Spain's competition authority fined Booking.com [€413 million](https://cybernews.com/cybercrime/booking-com-sued-misleading-consumers-dark-patterns/) — the largest dark-patterns fine ever issued in travel tech — explicitly citing "made-up scarcity" and artificial urgency. Hungary's GVH followed with a separate ~€7M fine for the same tactics.
+
+<Callout type="example">
+Spotify Wrapped 2024 was viewed by over 225 million users in the first 48 hours after release, driving a 21% spike in Spotify app downloads that week (Sensor Tower, December 2024). The product itself does not change — only the once-a-year availability window does. That window is the entire mechanism.
+</Callout>
+
+## How to Apply It Ethically
+
+- **Tell the truth about the constraint.** If you only have 50 seats at a workshop, say "50 seats" and show the real count. Honest scarcity converts almost as well as fake scarcity and does not erode trust.
+- **Anchor urgency to a real event.** Tie deadlines to genuine moments — fiscal-year close, a cohort start date, a price increase you actually plan to make. "Price goes up Friday because we are raising it" is defensible. "Sale ends in 23:59:59" that resets at midnight is not.
+- **Use category scarcity, not fake-count scarcity.** "Last 12 of the 2025 cohort" is verifiable. "Only 3 left!" that says the same thing on every refresh is a dark pattern.
+- **Test against a non-scarcity control.** If "Only 1 left" lifts conversion 18% but raises refund rates 25%, you lost money. Measure the full funnel.
+
+## Where It Backfires / Ethical Limits
+
+Fake scarcity is the textbook dark pattern. The EU's 2024 enforcement actions, the FTC's 2023 ruling against Amazon Prime's cancellation flow, and California's Consumer Privacy Act all explicitly target manufactured urgency. Beyond legal risk, fake countdowns destroy long-term trust: a 2024 Baymard Institute study of 4,800 shoppers found that 64% who spotted a faked "Only 2 left" timer reported reduced willingness to buy from that retailer again.
+
+Scarcity also degrades when overused on the same audience. If every email is "LAST CHANCE," your open rates drop and your sender reputation follows. The lever works because it is rare. Treat it that way.
+
+## Key Takeaways
+
+- Scarcity works because losses hurt about twice as much as equivalent gains feel good (Kahneman and Tversky, 1979). Frame the constraint as something the buyer will lose, not something they will gain.
+- The Worchel 1975 cookie-jar study is the citation to know — and the lesson is that sudden scarcity beats steady scarcity.
+- Fake scarcity is now a regulatory target. The Booking.com €413M fine is your business case for honesty.
+- Use real constraints, real deadlines, and verifiable counts. Test the full funnel — including refunds and repeat-purchase rates — not just conversion lift.
+
+<ResourceList resources={[
+  { title: "Worchel, Lee, Adewole (1975) — Effects of Supply and Demand on Ratings of Object Value", url: "https://psycnet.apa.org/record/1976-20292-001", type: "article", free: true },
+  { title: "Booking.com fined €413M for dark patterns (Cybernews, 2024)", url: "https://cybernews.com/cybercrime/booking-com-sued-misleading-consumers-dark-patterns/", type: "article", free: true },
+  { title: "CXL — 17 Product Scarcity Examples That Boost Sales", url: "https://cxl.com/blog/scarcity-examples/", type: "article", free: true },
+  { title: "Coglode — Scarcity behavioral nugget", url: "https://www.coglode.com/nuggets/scarcity", type: "article", free: true },
+]} />

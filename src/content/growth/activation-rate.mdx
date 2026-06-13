@@ -1,0 +1,62 @@
+export const lessonMeta = {
+  title: "Activation Rate (the metric)",
+  level: "Intermediate",
+  summary: "The one number that predicts retention better than any other early signal.",
+};
+
+# Activation Rate (the metric)
+
+If you only get to track one growth metric in your first 90 days post-launch, track activation rate. It predicts retention, expansion, and LTV better than signups, MAUs, or even week-1 churn. This lesson is for PMMs, growth leads, and founders who keep hearing "improve onboarding" and want a measurable target instead of a vibe.
+
+## What It Actually Is
+
+Activation rate is the percentage of new users who complete a specific, value-revealing action within a defined time window.
+
+Concrete example: at Figma, activation might be "created a file and invited 1 collaborator within 7 days." It is not "signed up," not "logged in twice," and not "viewed the dashboard." It is the smallest behavior that correlates with users sticking around 30+ days later.
+
+Formula:
+
+`Activation Rate = (Users who hit the milestone in window X / Total new users in window X) × 100`
+
+## Why It Matters (with data)
+
+Activation is the hinge between acquisition spend and revenue retention. According to Userpilot's [2024 B2B activation benchmark](https://userpilot.com/blog/user-activation-rate-benchmark-report-2024/) covering 62 SaaS companies, the median activation rate is 37% and the average is 37.5%. That means roughly two out of every three signups never get to the value moment — they are pure CAC burn.
+
+The downstream impact is brutal. Per [Ever-Help's 2026 SaaS retention benchmarks](https://www.ever-help.com/blog/saas-retention-rate-benchmarks), best-run B2B SaaS holds 88-90% annual retention and 110-120% NRR — and the single biggest lever between app-level retention and account-level NRR is whether users hit their aha moment fast enough.
+
+The canonical case study is Slack. As documented across multiple product-led growth teardowns including [IdeaPlan's Slack case study](https://www.ideaplan.io/case-studies/slack-product-led-growth), teams that crossed 2,000 messages sent retained at 93%. Slack reverse-engineered its entire free tier and onboarding around pushing teams to that single threshold.
+
+## How It Works / The Playbook
+
+1. **Find the aha behavior.** Pull a cohort that retained past day 30 and a cohort that churned. Look for the earliest behavior that diverges between them. Common candidates: number of invites sent, files created, messages, API calls, second session within 48 hours.
+2. **Set the time box.** Pick the shortest window that still captures the behavior for 80% of eventual retainers. For most B2B SaaS this is 7 days; for consumer apps it can be 24 hours.
+3. **Write the definition down and freeze it.** Every team — growth, product, marketing — measures against the exact same event. If marketing optimizes for signups while product optimizes for "weekly active," you will spend a quarter arguing in dashboards.
+4. **Instrument it.** Fire one event named `activated` the moment the threshold is hit. Do not derive it on the fly from five other events — analysts will reinterpret it differently every quarter.
+5. **Segment by acquisition channel.** Paid social activation will be 30-60% lower than organic referral. Average activation rate hides the channels that should be cut.
+6. **Run weekly experiments on the gap.** Every cohort has a drop-off step. Fix the biggest one first: empty states, friction in invite flow, time-to-first-value.
+
+<Callout type="example">
+Notion's activation event is widely reported to be "added 2 blocks on day 1 across 2+ sessions." Once they identified that signal, they redesigned onboarding around templated pages, removed the empty workspace, and grew to a $10B+ valuation by 2021 — driven primarily by self-serve activation lifts, not paid acquisition. The lesson is not the specific number; it is that a single, sharp definition let every team row in the same direction.
+</Callout>
+
+## Common Mistakes
+
+- **Picking a vanity threshold.** "Logged in 3 times" is not activation. It is an attendance count. Activation must correlate with retention in your data — prove it before you ship it.
+- **Measuring "activated users" instead of "activation rate."** Absolute numbers go up with marketing spend even when the product is getting worse. Always use the ratio.
+- **Defining it once and never reopening it.** As your ICP shifts, the aha behavior shifts. Re-validate the correlation with day-30 retention every 2 quarters.
+- **Using a 30-day window.** If you cannot tell whether a user activated until 30 days in, you cannot run weekly experiments. Shorten it.
+- **Optimizing activation while ignoring upstream signup quality.** Paid traffic with bad intent will tank activation. Fix the channel mix before blaming onboarding.
+
+## Key Takeaways
+
+- Activation rate is the share of new users who hit a specific, retention-correlated behavior within a tight time window — median is around 37% for B2B SaaS in 2024.
+- The metric is only as good as its definition. Derive the threshold from cohort analysis, not opinion.
+- Every percentage point of activation lift compounds into retention, NRR, and CAC payback — which is why Slack, Notion, and Figma obsess over a single number.
+
+<ResourceList resources={[
+  { title: "Userpilot 2024 User Activation Benchmark Report", url: "https://userpilot.com/blog/user-activation-rate-benchmark-report-2024/", type: "article", free: true },
+  { title: "Lenny Rachitsky — How to determine your activation metric", url: "https://www.lennysnewsletter.com/p/how-to-determine-your-activation", type: "article", free: true },
+  { title: "IdeaPlan — Slack's Product-Led Growth Case Study", url: "https://www.ideaplan.io/case-studies/slack-product-led-growth", type: "article", free: true },
+  { title: "Appcues — Finding your product activation metric", url: "https://www.appcues.com/blog/product-activation-metric", type: "docs", free: true },
+  { title: "Ever-Help — 2026 SaaS Retention Benchmarks", url: "https://www.ever-help.com/blog/saas-retention-rate-benchmarks", type: "article", free: true },
+]} />

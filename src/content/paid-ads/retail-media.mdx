@@ -1,0 +1,64 @@
+export const lessonMeta = {
+  title: "Retail Media Networks",
+  level: "Advanced",
+  summary: "Amazon Ads, Walmart Connect, Instacart Ads — selling where people already buy.",
+};
+
+# Retail Media Networks
+
+Retail media is the fastest-growing slice of digital advertising because it shows ads to shoppers at the exact moment of purchase intent — inside the store search bar. If you sell physical or consumable goods through Amazon, Walmart, Target, Kroger, or Instacart, retail media is no longer optional. It is the bottom of your funnel.
+
+## What It Actually Is
+
+A retail media network (RMN) is an ad platform owned by a retailer that lets brands buy placements on the retailer's owned properties (search results, product pages, app home screens) and increasingly its off-site inventory (connected TV, display, social). The retailer monetizes its first-party purchase data; the brand pays to influence the shelf.
+
+Concrete example: you sell coffee pods. You bid on the keyword "coffee pods" inside Amazon. When a shopper searches it, your Sponsored Product appears above organic results. They click, they buy. Amazon attributes the sale, you pay a CPC, you measure ROAS on actual purchases — not modeled conversions.
+
+## Why It Matters (with data)
+
+US retail media ad spend hit roughly $60.32 billion in 2025 and is forecast at $71.09 billion in 2026, according to eMarketer figures cited by [Improvado](https://improvado.io/blog/top-retail-media-networks). Amazon Advertising alone reported $56.2 billion in ad revenue in 2024, growing 20% year-over-year, per [Marketing Dive](https://www.marketingdive.com/news/walmart-global-advertising-grew-vizio-integration/740609/).
+
+Walmart Connect is the fastest-growing challenger. Walmart's global ad business grew 27% in 2024 to $4.4 billion, with the Vizio acquisition added on top to push it into connected TV. Amazon and Walmart together absorb roughly 84% of US retail media spend.
+
+Instacart Ads crossed $1 billion in trailing twelve-month ad revenue as of Q3 2025, reaching 95% of North American households across more than 100,000 store locations — the only RMN with true grocery breadth. CPG brands like PepsiCo and Unilever use it as their primary grocery-shopper acquisition channel.
+
+## How It Works / The Playbook
+
+The three platforms use the same core ad units with different names:
+
+1. **Sponsored Products** — keyword-targeted listings inside search results. Best ROAS, mandatory baseline. On Amazon this is run from Amazon Ads Console; on Walmart it is Walmart Connect; on Instacart it is "Featured Products."
+2. **Sponsored Brands / Brand Boost** — headline banners with logo and 2–3 SKUs. Use for brand defense (when competitors bid on your branded terms) and new product launches.
+3. **Sponsored Display / Off-site** — retarget shoppers who viewed your product page across the open web and connected TV. Higher funnel, lower ROAS, useful for new SKU velocity.
+
+Operating playbook:
+
+- Start with a **harvest campaign**: auto-targeting for 14 days to discover converting search terms, then graduate winners into a manual exact-match campaign at a higher bid.
+- Separate **branded** from **non-branded** campaigns. Branded ROAS is misleadingly high (you would have won the sale anyway). Measure incrementality on non-branded.
+- Optimize on **TACoS** (Total Advertising Cost of Sales), not ROAS. TACoS includes organic sales lift and is a cleaner profitability signal.
+- Win the **share of voice** on your top 5 SKUs first. Spreading thin across 50 SKUs at low bids loses to focused dominance on the products that actually convert.
+
+<Callout type="example">
+Liquid Death used Amazon Sponsored Products and Sponsored Brands to grow from a niche DTC novelty to Amazon's #1 still-water brand by 2024, hitting $263 million in retail sales that year per [Forbes](https://www.forbes.com/). Their playbook: aggressive bids on competitor branded terms (Fiji, Smartwater) plus video Sponsored Brands placements at the top of category searches, funded by an industry-leading 30%+ ad intensity in the launch phase before throttling back as organic rank stabilized.
+</Callout>
+
+## Common Mistakes
+
+- **Treating it like Google Ads.** Retail media converts on the platform — the goal is not site traffic, it is unit velocity that lifts your organic rank. Optimize the product detail page (title, bullets, A+ content, review count) before scaling spend.
+- **Ignoring the flywheel.** Higher ad-driven sales velocity raises your organic search rank, which lowers your blended CAC. Brands that pause ads during a margin squeeze often watch organic rank collapse within 30 days.
+- **Single-platform thinking.** Amazon-only brands miss the 40% of US households that shop primarily at Walmart, plus the grocery-trip share that only Instacart reaches.
+- **Bidding on every keyword.** Long-tail discovery terms with no purchase intent burn budget. Use the search-term report weekly to negative-match junk.
+
+## Key Takeaways
+
+- Retail media is closed-loop: the same platform that shows the ad records the sale, so attribution is cleaner than any other paid channel.
+- Amazon dominates (~75% share), but Walmart Connect and Instacart are growing faster and reach different shopper missions — diversify deliberately.
+- Measure TACoS and incrementality, not raw ROAS. Branded-search ROAS lies.
+- Your product detail page is the landing page. Fix conversion rate before you scale spend.
+
+<ResourceList resources={[
+  { title: "Improvado — Retail Media Networks Guide", url: "https://improvado.io/blog/top-retail-media-networks", type: "article", free: true },
+  { title: "Marketing Dive — Walmart global ad growth 27% in 2024", url: "https://www.marketingdive.com/news/walmart-global-advertising-grew-vizio-integration/740609/", type: "article", free: true },
+  { title: "Amazon Ads Learning Console", url: "https://advertising.amazon.com/learn", type: "docs", free: true },
+  { title: "Walmart Connect Advertiser Help", url: "https://advertising.walmart.com/", type: "docs", free: true },
+  { title: "Instacart Ads Platform", url: "https://www.instacart.com/ads", type: "tool", free: true },
+]} />

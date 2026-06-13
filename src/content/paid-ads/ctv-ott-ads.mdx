@@ -1,0 +1,65 @@
+export const lessonMeta = {
+  title: "Connected TV and Streaming Ads",
+  level: "Advanced",
+  summary: "Netflix, Hulu, YouTube CTV — buying TV at the price of digital.",
+};
+
+# Connected TV and Streaming Ads
+
+For two decades, TV advertising meant Nielsen panels, upfront commitments, and a media buyer with a steakhouse expense account. That world is over. In 2025, streaming surpassed cable plus broadcast combined, and you can now buy a 30-second spot on Netflix, Hulu, or YouTube CTV with the same precision targeting you use on Meta. This lesson is for performance marketers who want to move incremental spend off saturated social channels and onto the biggest screen in the house.
+
+## What It Actually Is
+
+Connected TV (CTV) advertising means buying video inventory that runs on an internet-connected television — a Roku, Fire TV, Apple TV, smart TV, or game console. OTT ("over-the-top") is the broader term for streaming delivered around traditional cable bundles, and includes phone and laptop viewing. In practice, CTV is the slice marketers care about because the ad plays full-screen, unskippable, on the living-room TV, while still being addressable down to the household level via IP targeting, ACR (automatic content recognition) data, and platform first-party signals.
+
+Concrete example: a DTC mattress brand can serve a 15-second spot only to households in 12 ZIP codes, who have visited the brand's website in the last 30 days, watching "Love is Blind" on Netflix on a Samsung TV — and then suppress that household from the same ad on Hulu the next night.
+
+## Why It Matters (with data)
+
+CTV is no longer a test budget — it is the dominant form of TV. According to [Nielsen's Gauge report](https://www.nielsen.com/news-center/2025/youtube-maintains-largest-share-of-tv-viewing-among-media-companies-for-third-consecutive-month/), YouTube alone reached 12.7% of all US TV viewing in December 2025, with Netflix at 9.0%. Streaming overall hit 47.5% of total TV time, exceeding broadcast (21.4%) and cable (20.2%) combined.
+
+The money is following the eyeballs. US CTV ad spend is projected at [$33.35 billion in 2025, rising to $46.89 billion by 2028](https://research.mountain.com/trends/ctv-ad-spend-will-grow-to-46-89-billion-by-2028/). In a March 2025 survey, [nearly 70% of US marketers called CTV a must-buy](https://www.statista.com/topics/8075/ctv-advertising-in-the-us/) for their media plans.
+
+The two newest inventory pools are massive. Netflix's ad tier reached [190 million monthly active viewers worldwide by November 2025](https://mountain.com/blog/netflix-advertising/) and accounts for 55% of new sign-ups in countries where it is offered. Disney folded Hulu into Disney+ in 2026, creating a combined ad-supported audience that eMarketer projects will exceed $3 billion in annual US ad revenue.
+
+## How It Works / The Playbook
+
+There are three buying lanes. Pick based on budget and goal:
+
+1. **Self-serve managed platforms (Roku Ads Manager, Netflix Ads Suite, Disney DRAX, Amazon DSP, YouTube via Google Ads).** Best for $10k–$250k/month. You upload a 15s/30s creative, set audience, set frequency cap, and bid CPM.
+2. **Programmatic DSPs (The Trade Desk, DV360, MNTN).** Best when you want one buy across Netflix, Hulu, Paramount+, Tubi, Pluto, and 80+ other apps with a single frequency cap and unified measurement.
+3. **Direct upfront / scatter buys.** Six-figure minimums, but unlocks premium pods (NFL on Peacock, Thursday Night Football on Prime).
+
+A working playbook:
+
+- **Creative:** Shoot for 15s and 30s. The first 3 seconds must work without sound — 40% of CTV viewers have a second screen in hand.
+- **Targeting layers:** Start with a 1st-party CRM match (lookalike off your best customers), then layer ACR data (households that watched a competitor's ad), then add household income or geo.
+- **Frequency cap:** 3 impressions per household per week. CTV frequency abuse is the #1 reason in-housed teams burn budget.
+- **Measurement:** Use incremental lift studies (LiveRamp, MNTN Matched), not last-click. Tag the landing page with a "saw CTV ad → visited site" pixel for view-through attribution within a 7-day window.
+
+<Callout type="example">
+Tatari client and DTC eyewear brand Warby Parker shifted 30% of its linear TV budget to CTV across Hulu, Roku, and Samsung TV Plus in 2024. Using ACR-based competitive conquest audiences and a 3-per-week frequency cap, they reported a 22% lower cost per incremental visit versus linear, while reaching households that had cut the cable cord entirely. See [Tatari's 2025 CTV benchmarks](https://www.tatari.tv/insights/what-is-ctv-understanding-connected-tv-advertising-in-2026) for category CPM ranges (typically $25–$45 on premium streamers, $12–$20 on FAST channels like Tubi and Pluto).
+</Callout>
+
+## Common Mistakes
+
+- **Treating CTV as a direct-response channel with last-click attribution.** It is not a search ad. You will undercount its impact by 60–80%. Use MMM or geo-lift tests.
+- **Running a 30-second linear spot unchanged.** Linear creative has a logo reveal at second 25. CTV viewers leave the room. Front-load the brand and the call to action.
+- **No frequency cap across DSPs.** Buying Netflix direct AND The Trade Desk AND Amazon DSP without a unified cap means the same household sees your ad 14 times in a week. They will hate you.
+- **Ignoring FAST channels.** Tubi, Pluto, Freevee, and the Roku Channel deliver 40–60% lower CPMs than Netflix with surprisingly high completion rates.
+
+## Key Takeaways
+
+- CTV is now the largest form of TV viewing in the US — YouTube and Netflix alone are bigger than any broadcast network.
+- The 2023–2025 launch of Netflix and Disney+ ad tiers added ~250M global monthly viewers of premium, brand-safe ad inventory, and pricing has come down as supply has scaled.
+- Win by combining 1st-party CRM audiences, ACR competitive conquest, a strict 3/week frequency cap, and incremental lift measurement — not last-click.
+- For budgets under $50k/month, start with The Trade Desk or MNTN to access multiple streamers under one frequency cap; go direct only at six-figure scale.
+
+<ResourceList resources={[
+  { title: "Nielsen Gauge — YouTube #1 in TV Viewing", url: "https://www.nielsen.com/news-center/2025/youtube-maintains-largest-share-of-tv-viewing-among-media-companies-for-third-consecutive-month/", type: "article", free: true },
+  { title: "MNTN Research — CTV Ad Spend Forecast", url: "https://research.mountain.com/trends/ctv-ad-spend-will-grow-to-46-89-billion-by-2028/", type: "article", free: true },
+  { title: "Tatari — Understanding CTV Advertising", url: "https://www.tatari.tv/insights/what-is-ctv-understanding-connected-tv-advertising-in-2026", type: "article", free: true },
+  { title: "Netflix Advertising Complete Guide (MNTN)", url: "https://mountain.com/blog/netflix-advertising/", type: "article", free: true },
+  { title: "Statista — CTV Advertising in the US", url: "https://www.statista.com/topics/8075/ctv-advertising-in-the-us/", type: "docs", free: true },
+  { title: "The Trade Desk", url: "https://www.thetradedesk.com/", type: "tool", free: false },
+]} />

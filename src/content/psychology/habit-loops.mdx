@@ -1,0 +1,59 @@
+export const lessonMeta = {
+  title: "Habit Loops: Cue, Routine, Reward",
+  level: "Intermediate",
+  summary: "Charles Duhigg framework — how products become habits.",
+};
+
+# Habit Loops: Cue, Routine, Reward
+
+The most valuable customer is not the one who buys once — it is the one who does not think before opening your app. Habit-forming products bypass deliberation entirely, riding on a three-step neurological loop that fires hundreds of times a day. If you understand the loop, you can design for it. If you do not, you are paying for acquisition over and over again.
+
+## The Origin (Real Research)
+
+In 1999, MIT neuroscientist Ann Graybiel and her team at the McGovern Institute ran a now-famous experiment on rats navigating a T-shaped maze for chocolate. They discovered that as the behavior became habitual, activity in the basal ganglia spiked at the start (the cue — a click) and the end (the reward — the chocolate), but went quiet in the middle. The brain had "chunked" the routine into automatic motor memory.
+
+Journalist Charles Duhigg synthesized that research, along with work from Wolfram Schultz on dopamine prediction error and Wendy Wood on habit context, into a popular three-part framework in his 2012 book [The Power of Habit](https://charlesduhigg.com/the-power-of-habit/) (Random House). He called it the **habit loop**: cue → routine → reward. Nir Eyal later extended it into a product-design version called the [Hook Model](https://www.nirandfar.com/how-to-manufacture-desire/) in his 2014 book *Hooked*, adding a fourth step — "investment" — that compounds switching costs.
+
+## How It Actually Works
+
+A cue is any trigger: a time of day, a location, an emotion, a notification, a preceding action. The routine is the behavior — opening the app, scrolling, buying. The reward is whatever neurochemical payoff makes the brain log this sequence as worth repeating. Over time, the cue alone produces a *craving* for the reward, and the routine runs without conscious choice.
+
+<Mermaid chart={`graph LR; A[Cue: notification ping] --> B[Routine: open app, scroll]; B --> C[Reward: novelty, social validation]; C -->|craving| A`} />
+
+The vivid example Duhigg uses is Pepsodent toothpaste in the 1920s. Claude Hopkins paired a clear cue (tongue running over teeth, feeling the film) with a sensory reward (the tingle of mint and citric acid — pharmacologically pointless, but it *felt* like clean). Within ten years, half of all Americans brushed daily. The reward did not need to be the actual benefit; it just had to be reliable and felt.
+
+## Why Marketers Care (2024/2025 examples)
+
+**Duolingo** is the textbook case. The streak counter is the cue (loss aversion every evening at 8pm), the lesson is the routine, and the XP, gem chest, and league promotion are variable rewards. According to [a 2025 Young Urban Project case study](https://www.youngurbanproject.com/duolingo-case-study/), streak-active users are 3x more likely to return daily, and the company reported a 36% year-over-year increase in daily active users heading into 2025. The push notification "Don't let Duo down!" alone reportedly lifts engagement by roughly 25%.
+
+**Spotify** leans on the investment step. Every playlist you build, song you like, and artist you follow personalizes Discover Weekly — which then becomes its own Monday-morning cue. The more you invest, the higher the switching cost.
+
+**TikTok** compresses the entire loop to under a second: app icon (cue) → swipe (routine) → unpredictable next video (variable reward). Variable rewards, per [B.F. Skinner's 1957 schedule-of-reinforcement research](https://en.wikipedia.org/wiki/Reinforcement), are the most addictive form.
+
+<Callout type="example">
+After Duolingo introduced its Leagues feature in 2018 and refined it through 2024, the company saw daily active users grow from ~12M to over 40M by Q1 2025, with average session length staying under 10 minutes — a textbook habit, not entertainment. The streak freeze item exists specifically to prevent loop-breaking when users miss a day.
+</Callout>
+
+## How to Apply It Ethically
+
+- **Engineer one reliable cue, not five noisy ones.** A single, predictable trigger (a daily email at 7am, a streak counter) beats blasting notifications. Multiple cues compete and train users to mute you.
+- **Make the routine smaller than the user expects.** Duolingo's minimum lesson is one minute. The lower the activation energy, the more reliably the routine fires. Shrink the first action until refusing it feels silly.
+- **Reward immediately and with variability.** Confetti, a streak number going up, an unexpected discount — give the dopamine hit *before* the user closes the app. Mix predictable rewards (XP) with surprise rewards (random gem chest) to keep the loop fresh.
+
+## Where It Backfires / Ethical Limits
+
+The same loop that builds a daily journaling habit also builds compulsive slot-machine scrolling. In 2023, internal Meta documents revealed in a [multistate attorneys general lawsuit](https://www.npr.org/2023/10/24/1208256392/meta-lawsuit-states-attorneys-general-instagram-facebook-children) accused the company of knowingly designing variable-reward loops to maximize teen engagement at the cost of mental health. The ethical line is roughly this: if the user, in a reflective moment, would endorse the habit you are building, you are designing. If they would not, you are exploiting.
+
+A simple test: would your habit survive being framed honestly in your onboarding? "We will ping you every evening so you don't lose your 47-day streak" is fine. "We will engineer anxiety to override your bedtime" is not.
+
+## Key Takeaways
+
+- Habits are three-part neurological loops — cue, routine, reward — chunked into the basal ganglia, identified by Graybiel at MIT and popularized by Duhigg in 2012.
+- The cue produces a craving for the reward; the routine runs on autopilot. Marketers design the cue and the reward, not the willpower in between.
+- Variable rewards are the strongest, but also the most ethically loaded. Use them to reinforce behaviors users would endorse on reflection — not to override their judgment.
+
+<ResourceList resources={[
+  { title: "The Power of Habit — Charles Duhigg (official book page)", url: "https://charlesduhigg.com/the-power-of-habit/", type: "article", free: true },
+  { title: "Nir Eyal — How to Manufacture Desire (Hook Model)", url: "https://www.nirandfar.com/how-to-manufacture-desire/", type: "article", free: true },
+  { title: "Duolingo Case Study 2025 — Young Urban Project", url: "https://www.youngurbanproject.com/duolingo-case-study/", type: "article", free: true },
+]} />

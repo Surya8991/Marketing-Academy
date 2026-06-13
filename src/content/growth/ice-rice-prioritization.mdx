@@ -1,0 +1,60 @@
+export const lessonMeta = {
+  title: "ICE and RICE Prioritization",
+  level: "Intermediate",
+  summary: "Pick the experiments most likely to move the needle.",
+};
+
+# ICE and RICE Prioritization
+
+Every growth team has a backlog longer than its sprint capacity. The teams that compound learnings fastest are not the ones with the best ideas — they are the ones who choose the right ideas to test next. ICE and RICE are the two scoring frameworks that have become the default operating system for that decision.
+
+## What It Actually Is
+
+ICE and RICE are simple scoring formulas that turn fuzzy gut-feel debates into a single comparable number per idea.
+
+- **ICE** (popularized by Sean Ellis at GrowthHackers) = Impact x Confidence x Ease. Three numbers, usually scored 1–10.
+- **RICE** (created by Intercom's product team in 2017) = (Reach x Impact x Confidence) / Effort. Reach is the count of users affected in a fixed window — usually a quarter.
+
+Example: an idea to add social proof to the pricing page. Impact 8, Confidence 7, Ease 9 gives an ICE of 504. The same idea in RICE — Reach 12,000 visitors per quarter, Impact 1.5, Confidence 80%, Effort 1 person-week — scores 14,400.
+
+## Why It Matters (with data)
+
+The frameworks exist because intuition is unreliable at scale. Sean Ellis built ICE after watching teams burn cycles arguing over ideas none of them could rank objectively, and Intercom's product team created RICE specifically because ICE pushed them toward features that "excited a small group of users while overlooking opportunities that serve thousands" ([ProductLift: RICE vs ICE](https://www.productlift.dev/blog/rice-vs-ice/)).
+
+A common pattern across modern product orgs is a hybrid stack: Kano for discovery, RICE for roadmap, and ICE for fast experiments and quick wins ([Fygurs: Prioritization Frameworks Compared](https://www.fygurs.com/blog/product-prioritization-frameworks-compared)). The reason teams keep both: RICE is defensible in a leadership review because Reach is grounded in real analytics; ICE is fast enough to triage 30 CRO ideas in a 45-minute meeting.
+
+The variable most teams underuse is Confidence. A low confidence score is not a reason to kill an idea — it is a signal the team needs cheaper research before committing engineering time ([Tempo: RICE Score Guide](https://www.tempo.io/guides/rice-score-prioritization-framework-product-management)).
+
+## How It Works / The Playbook
+
+1. **Pick the right framework for the decision.** Use ICE for landing-page tests, ad creative, email subject lines, and any experiment you can ship in under a week. Use RICE for anything competing for engineering quarters.
+2. **Define your scales before scoring.** Impact 1 = barely measurable lift, 3 = noticeable, 10 = transformative. Confidence is a percentage: 100% = launched A/B test with significant result, 80% = strong precedent, 50% = guess. Effort is person-weeks.
+3. **Score Reach with real numbers.** Pull it from GA4 or Mixpanel, not a vibe. "How many users will hit this surface in the next 90 days?"
+4. **Score independently, then reconcile.** Have PM, designer, and engineer score in private, then discuss only the rows where you disagree by more than 2 points. This is where the real product conversation lives.
+5. **Re-score after every shipped test.** A winning test raises Confidence on adjacent ideas; a flat test should pull it down.
+
+<Callout type="example">
+Intercom's product team published the original RICE post in 2017 after their PMs were spending hours debating roadmap trade-offs. They reported the framework cut prioritization meetings roughly in half and gave them a "common language" across squads. The blog post is still the most-cited source for RICE and the formula has been adopted across Atlassian, Asana, and Productboard's templates ([Whatfix: RICE Scoring Model](https://whatfix.com/blog/rice-scoring-model/)).
+</Callout>
+
+## Common Mistakes
+
+- **Treating the score as the decision.** The number ranks ideas — it does not make the call. A 9,000-point RICE idea that conflicts with strategy still loses to a 4,000-point idea that compounds.
+- **Inflating Confidence to win an argument.** If you cannot point to a past test, a benchmark, or qualitative evidence, your Confidence is below 60%. Be honest or the entire backlog rots.
+- **Using ICE for big-bet roadmap items.** Without Reach, ICE will happily rank a power-user feature above onboarding fixes that touch 50x more users.
+- **Scoring Effort in days instead of person-weeks.** It flattens the denominator and makes everything look cheap. Use the same unit across the backlog.
+- **Never recalibrating.** A scoring system you never audit becomes theater. Review your last 10 scores against actual outcomes once a quarter.
+
+## Key Takeaways
+
+- Use ICE for fast, reversible growth experiments; use RICE when engineering effort is meaningful or leadership needs a defensible rank.
+- Reach is what separates RICE from ICE, and it is the variable that protects you from shipping features only power users will see.
+- Score independently, debate the disagreements, and treat Confidence as a research signal — not a popularity vote.
+
+<ResourceList resources={[
+  { title: "RICE vs ICE: Which Prioritization Framework Should You Use?", url: "https://www.productlift.dev/blog/rice-vs-ice/", type: "article", free: true },
+  { title: "RICE Score: A Prioritization Framework for PMs (Tempo)", url: "https://www.tempo.io/guides/rice-score-prioritization-framework-product-management", type: "article", free: true },
+  { title: "RICE Scoring Model of Prioritization (Whatfix)", url: "https://whatfix.com/blog/rice-scoring-model/", type: "article", free: true },
+  { title: "Product Prioritization Frameworks Compared (Fygurs)", url: "https://www.fygurs.com/blog/product-prioritization-frameworks-compared", type: "article", free: true },
+  { title: "ICE Prioritization Method", url: "https://www.productlift.dev/blog/prioritizing-with-ice-model/", type: "docs", free: true },
+]} />
