@@ -1,0 +1,71 @@
+export const lessonMeta = {
+  title: "RFM Segmentation",
+  level: "Advanced",
+  summary: "Recency, Frequency, Monetary - segment by behavior, not demographics.",
+};
+
+# RFM Segmentation
+
+Demographic segments lie. A 34-year-old woman in Austin who bought twice last week behaves nothing like a 34-year-old woman in Austin who last bought in 2022. RFM segments by what people actually do with their wallet, which is why it has been the email marketer's sharpest tool for forty years and is still the backbone of modern lifecycle programs at Klaviyo, Bloomreach, and Marigold.
+
+## What It Actually Is
+
+RFM scores every customer on three behavioral axes pulled straight from order history:
+
+- **Recency** - days since last order
+- **Frequency** - total orders in a rolling window (usually 12 to 24 months)
+- **Monetary** - total revenue (or average order value) in the same window
+
+Each axis is split into quintiles, giving every customer a three-digit code from 111 (worst) to 555 (best). A customer scored 5-5-5 just bought, buys often, and spends big. A 1-5-5 used to be a champion but has gone quiet. The codes collapse into named segments like Champions, Loyal, At Risk, About to Sleep, and Hibernating.
+
+## Why It Matters (with data)
+
+Segmentation is the single biggest ROI lever in email. Campaign Monitor's benchmark found segmented campaigns drive a [760% increase in revenue](https://www.sender.net/blog/email-marketing-statistics/) versus one-to-all sends. DMA data shows segmented sends generate 30% more opens and 50% more click-throughs than non-segmented blasts, and segmented emails hit a 7.04% average conversion rate, roughly double broadcasts.
+
+The Pareto skew makes RFM especially valuable: as [Omniconvert documents](https://www.omniconvert.com/blog/rfm-model/), roughly 80% of revenue comes from 20% of customers, and RFM is the cheapest way to find that 20% without a data science team. Most ESPs (Klaviyo, Bloomreach, Listrak, Marigold) now ship RFM scoring as a native feature - if you are not using it, you are leaving the easiest revenue on the table.
+
+## How It Works / The Playbook
+
+1. **Pull the data.** Pull every order from the last 12 to 24 months: customer ID, order date, order value. Skip refunds.
+2. **Score on quintiles.** Rank customers by recency (ascending), frequency (descending), monetary (descending). Split each into 5 equal buckets. Assign 1 to 5.
+3. **Concatenate the code.** Stitch the three scores into one number: 555, 145, 311.
+4. **Map codes to named segments.** Use a standard grid:
+   - **Champions** (R 4-5, F 4-5, M 4-5) - your top 5 to 10%. Reward, do not discount.
+   - **Loyal Customers** (R 3-5, F 4-5) - send VIP perks, referral asks, early access.
+   - **Potential Loyalists** (R 4-5, F 2-3) - nudge second and third orders with cross-sells.
+   - **New Customers** (R 5, F 1) - onboarding flow, brand story, social proof.
+   - **At Risk** (R 1-2, F 3-5, M 3-5) - high-value lapsers. Win-back with a stronger offer.
+   - **About to Sleep** (R 2-3, F 1-2) - light reactivation, content not discount.
+   - **Hibernating** (R 1, F 1-2) - cheap channels only; suppress from paid retargeting.
+5. **Wire it into flows.** Suppress Hibernating from your daily blast (it hurts deliverability). Route Champions to a VIP stream. Drop At Risk into a 3-touch win-back with escalating offers.
+6. **Recalculate monthly.** Quintile boundaries drift as your customer base grows.
+
+<Callout type="example">
+PersonaClick documented a fashion retailer that segmented its list using RFM and saw open rates on win-back sends climb from 12% to 28% while reducing total send volume by 40% - because Hibernating customers were finally excluded from the daily blast, sender reputation recovered and the remaining segments performed better. The same playbook is the default in Klaviyo's "Predicted CLV" and Bloomreach's "Customer Lifecycle" modules in 2024. ([Source](https://personaclick.com/how-rfm-segmentation-makes-email-marketing-blog/))
+</Callout>
+
+## Common Mistakes
+
+- **Treating Monetary like Recency.** A whale who has not bought in 18 months is At Risk, not a Champion. Recency outweighs Monetary for most ecommerce categories.
+- **Static quintile cutoffs.** If you set "F5 = 10+ orders" once and never update it, your Champions segment will balloon or shrink as the business changes. Recompute quintiles at every run.
+- **Discounting your Champions.** A 555 customer would have bought anyway. Sending them a 20% code trains them to wait for promos and torches margin. Reserve discounts for At Risk and Win-back.
+- **Ignoring product category.** A mattress brand's "frequent" customer buys every 7 years; a coffee brand's buys every 3 weeks. Calibrate the recency window to your repurchase cycle.
+- **Scoring on lifetime data.** A customer who spent $5,000 in 2019 and nothing since is not a VIP. Cap the window at 24 months max.
+
+## Key Takeaways
+
+- RFM scores behavior, not identity - it works without any demographic data and is GDPR-safe.
+- The biggest revenue unlock is usually suppression: stop emailing Hibernating customers so your engaged segments hit the inbox.
+- Recalculate quintiles monthly and wire each segment into a different lifecycle flow. The segments are the input; the flows are where revenue compounds.
+
+<ResourceList resources={[
+  { title: "RFM Model: Recency, Frequency & Monetary Value (Omniconvert)", url: "https://www.omniconvert.com/blog/rfm-model/", type: "article", free: true },
+  { title: "How RFM Segmentation Makes Email Marketing More Effective (PersonaClick)", url: "https://personaclick.com/how-rfm-segmentation-makes-email-marketing-blog/", type: "article", free: true },
+  { title: "Email Marketing Statistics 2024-2025 (Sender)", url: "https://www.sender.net/blog/email-marketing-statistics/", type: "article", free: true },
+  { title: "RFM Analysis for Customer Segmentation (Tresl)", url: "https://www.tresl.co/blog/rfm-analysis", type: "docs", free: true },
+  { title: "What is RFM Analysis (Netcore Cloud, 2025)", url: "https://netcorecloud.com/blog/rfm-analysis-customer-segmentation/", type: "article", free: true },
+
+  { title: "WsCube Tech - RFM Segmentation (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
+  { title: "Mr Digital Marketing Tamil - RFM Segmentation", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - RFM Segmentation (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+]} />

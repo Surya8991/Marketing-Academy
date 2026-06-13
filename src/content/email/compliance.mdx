@@ -1,0 +1,73 @@
+export const lessonMeta = {
+  title: "CAN-SPAM, GDPR, CASL",
+  level: "Advanced",
+  summary: "The legal floor - and why it matters more than ever.",
+};
+
+# CAN-SPAM, GDPR, CASL
+
+Most marketers treat email compliance like a Terms of Service checkbox: skim, agree, move on. That instinct now costs real money. In 2025, regulators on three continents tightened enforcement, raised penalty ceilings, and started targeting email programs specifically. This lesson is for marketers, lifecycle leads, and ops folks who send to global lists and want to stop guessing where the floor is.
+
+## What It Actually Is
+
+Three laws cover most of the English-speaking commercial email world:
+
+- **CAN-SPAM (US, 2003)** - an opt-out regime. You may email without prior permission, but you must identify yourself, provide a physical postal address, label ads honestly, and honor unsubscribes within 10 business days.
+- **CASL (Canada, 2014)** - an express opt-in regime. You generally need documented consent *before* the first message, with narrow "implied consent" carve-outs (existing customers within 2 years, inquirers within 6 months).
+- **GDPR (EU/EEA, 2018)** - a consent-and-purpose regime. Marketing email to individuals requires a freely-given, specific, informed, unambiguous opt-in, plus a lawful basis, data minimization, and the right to erasure.
+
+Concrete example: a US SaaS company scrapes 50,000 LinkedIn emails and blasts a launch announcement. Legal in the US if formatted correctly. An automatic CASL violation for every Canadian on the list. An automatic GDPR violation for every EU resident.
+
+## Why It Matters (with data)
+
+Penalty ceilings climbed sharply through 2025:
+
+- CAN-SPAM penalties were adjusted for inflation to **$53,088 per non-compliant email** as of January 17, 2025 ([FTC inflation adjustment](https://complydog.com/blog/gdpr-fines-penalties-2025-enforcement-guide)).
+- CASL violations can reach **CA$10 million per corporate violation** under the CRTC ([4Thought Marketing](https://4thoughtmarketing.com/articles/can-spam-casl-gdpr-email-compliance/)).
+- GDPR caps at **€20 million or 4% of global annual turnover**, whichever is higher. Cumulative GDPR fines crossed **€5.88 billion across 2,245 enforcement actions** by early 2025 ([ComplyDog 2025 Enforcement Guide](https://complydog.com/blog/gdpr-fines-penalties-2025-enforcement-guide)).
+
+The single most relevant enforcement action for email marketers: France's CNIL fined **Google €200 million** for inserting ads disguised as emails into Gmail inboxes without valid consent. Criteo's earlier **€40 million** fine established that pre-ticked boxes, "continued site use implies consent", and consent bundled into Terms of Service all fail the GDPR validity test ([ComplyDog 2025 Fines](https://complydog.com/blog/biggest-gdpr-fines-of-2025)).
+
+On top of that, **eight new US state privacy laws took effect in 2025** (Delaware, Iowa, Nebraska, New Hampshire, New Jersey, Tennessee, Minnesota, Maryland), each with its own consent and retention rules layered over CAN-SPAM.
+
+## How It Works / The Playbook
+
+Build to the strictest standard you touch, then strip down by region only if the savings are real.
+
+1. **Segment your list by jurisdiction at capture time.** Store country, IP at signup, and the exact consent string shown. You cannot retroactively prove GDPR consent.
+2. **Use unbundled, specific opt-ins.** One checkbox per purpose: product updates, marketing, partner offers. No pre-checks. No "by signing up you agree to receive..." buried in ToS.
+3. **Log the consent receipt.** Timestamp, IP, form version, exact wording. This is the artifact regulators ask for.
+4. **Honor unsubscribes immediately for new sends, within 10 business days for CAN-SPAM minimum.** Best practice is under 24 hours, list-wide.
+5. **Include a real physical postal address in every commercial email.** PO boxes registered to your business count. Virtual mailboxes do not, per FTC guidance.
+6. **For CASL, set a 2-year clock on implied consent from purchases, 6 months from inquiries.** Re-permission before the clock runs out or stop sending.
+7. **Honor erasure requests under GDPR within 30 days**, including suppression list retention (keep the email hash so you do not re-import them).
+
+<Callout type="example">
+In 2022 CNIL fined **Google LLC €200 million** for placing advertisements in the "Promotions" and "Social" tabs of Gmail that looked like regular emails, without obtaining valid user consent under the ePrivacy Directive. The decision applied to every EU Gmail user shown the ads, not a sample. It set the template regulators now use against ESP and adtech players: if it lands in an inbox and looks like email, it needs email-grade consent ([ComplyDog](https://complydog.com/blog/biggest-gdpr-fines-of-2025)).
+</Callout>
+
+## Common Mistakes
+
+- **Treating CAN-SPAM as global default.** Sending a US-style "you can opt out" cold email to a French prospect is an instant GDPR violation, regardless of B2B.
+- **Pre-checked consent boxes or bundled consent.** Criteo's €40M fine made this category-defining. If consent is not freely given and specific, it is not consent.
+- **Soft opt-in from a tradeshow scan.** Badge scans rarely meet CASL's express-consent standard and almost never meet GDPR's. Add a confirmed opt-in email before marketing.
+- **Reusing old lists after an acquisition.** Consent does not automatically transfer with a CRM. Re-permission the EU and Canadian segments first.
+- **No physical postal address in transactional-but-promotional emails.** The moment a receipt contains a cross-sell, it is commercial under CAN-SPAM.
+
+## Key Takeaways
+
+- Build email programs to GDPR + CASL standard, not CAN-SPAM. The delta in cost is small; the delta in legal exposure is enormous.
+- Per-message penalties (CAN-SPAM's $53,088) and percentage-of-revenue caps (GDPR's 4%) mean a single bad campaign can dwarf a year of program revenue.
+- Consent is an artifact, not a state. If you cannot produce the timestamp, IP, and exact wording, you do not have it.
+
+<ResourceList resources={[
+  { title: "GDPR Fines and Penalties: 2025 Enforcement Guide", url: "https://complydog.com/blog/gdpr-fines-penalties-2025-enforcement-guide", type: "article", free: true },
+  { title: "Biggest GDPR Fines of 2025", url: "https://complydog.com/blog/biggest-gdpr-fines-of-2025", type: "article", free: true },
+  { title: "CAN-SPAM, CASL, GDPR Compliance Differences", url: "https://4thoughtmarketing.com/articles/can-spam-casl-gdpr-email-compliance/", type: "article", free: true },
+  { title: "FTC CAN-SPAM Act Compliance Guide", url: "https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business", type: "docs", free: true },
+  { title: "CRTC CASL Guidance for Businesses", url: "https://crtc.gc.ca/eng/internet/anti.htm", type: "docs", free: true },
+
+  { title: "WsCube Tech - CAN-SPAM, GDPR, CASL (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
+  { title: "Mr Digital Marketing Tamil - CAN-SPAM, GDPR, CASL", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - CAN-SPAM, GDPR, CASL (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+]} />

@@ -1,0 +1,71 @@
+export const lessonMeta = {
+  title: "Segmentation",
+  level: "Intermediate",
+  summary: "Send less mail to more relevant people. ROI follows.",
+};
+
+# Segmentation
+
+Most email programs plateau for the same boring reason: one list, one message, one send time. Segmentation is the cheapest unlock in marketing because it costs nothing extra to ship and compounds every send after. This lesson is for marketers running an existing list who want more revenue without buying more subscribers.
+
+## What It Actually Is
+
+Segmentation is splitting your subscriber list into groups based on shared traits, then sending each group a message that fits them. A concrete example: a Shopify skincare brand splits its list into "bought in last 30 days", "browsed but never bought", and "bought 6+ months ago, gone quiet". The active buyers get a refill nudge, the browsers get a first-purchase discount, the lapsed get a "we miss you" win-back. Same product catalog, three messages, three open rates.
+
+## Why It Matters (with data)
+
+The numbers are not subtle. The DMA reports marketers see a 760% increase in email revenue from segmented campaigns, and roughly 25% of revenue can be traced to segmented sends specifically ([Mailmodo, 2025](https://www.mailmodo.com/guides/email-segmentation-statistics/)).
+
+Mailchimp's benchmark data shows segmented campaigns generate 30% more opens and 50% more click-throughs than non-segmented blasts ([Mailmodo, 2025](https://www.mailmodo.com/guides/email-segmentation-statistics/)). HubSpot's 2025 State of Marketing Report has 78% of marketers naming segmentation their most effective email tactic, above personalization (72%) and automation (71%) ([Amra & Elma, 2025](https://www.amraandelma.com/email-segmentation-statistics/)).
+
+Email already pulls $36 to $42 in ROI per $1 spent, more than paid social or SEO ([Mailmodo, 2025](https://www.mailmodo.com/guides/email-segmentation-statistics/)). Segmentation is the multiplier on top.
+
+## How It Works / The Playbook
+
+Start simple. Most teams over-engineer segmentation before they have the data to support it.
+
+1. **Pick a segmentation axis that maps to revenue.** Good first axes: lifecycle stage (new, active, lapsed), purchase frequency, product category, or engagement (opened in last 30 days vs not).
+2. **Define 3 to 5 segments, not 30.** A "Gold/Silver/Bronze/Lead/Cold" split covers 80% of the value. Hyper-granular segments dilute send volume and break your statistical signal.
+3. **Write a different subject line and first paragraph for each segment.** The body can overlap. Subject line and opening are what change open and click rates.
+4. **Suppress, don't just target.** If you have nothing relevant for a segment this week, exclude them from the send. Deliverability rewards quiet lists.
+5. **Layer behavior on top of attributes.** Demographics ("women, 25-34") predict less than behavior ("clicked the running shoes category twice in the last 14 days"). Behavioral segments outperform.
+6. **Re-segment quarterly.** Lifecycle stages shift. A "new buyer" from January is a "repeat customer" or "lapsed" by April.
+
+Common axes that pay off:
+
+- Recency, Frequency, Monetary value (RFM)
+- Source of acquisition (paid social subscribers behave differently from referrals)
+- Product or content category preference
+- Engagement recency (opened in 30/60/90 days)
+- Geography and timezone for send-time optimization
+
+<Callout type="example">
+Brevo (formerly Sendinblue) documented a campaign where segmenting by purchase history and engagement lifted click-through rates by 100.95% versus a non-segmented control. The same audience, the same offer, just split into matched buckets ([FluentCRM, 2025](https://fluentcrm.com/email-segmentation-statistics/)). Personalized content layered onto segments has been shown to drive up to 6x higher transaction rates than non-personalized sends.
+</Callout>
+
+## Common Mistakes
+
+- **Building segments you can't actually populate.** If you don't capture industry at signup, you can't segment by it. Audit your data before designing rules.
+- **Segmenting on demographics instead of behavior.** "Women 25-34" is a worse predictor than "clicked twice in last 14 days". Behavior wins almost every test.
+- **Never suppressing the unengaged.** Sending to people who haven't opened in 180 days tanks your sender reputation and drags every other segment's inbox placement down with it.
+- **Treating segmentation as a one-time setup.** Lifecycle stages shift weekly. If your "new subscriber" segment hasn't been refreshed since launch, it's now your "ghost" segment.
+- **Over-segmenting too early.** Twenty micro-segments with 200 people each give you no statistical signal and a maintenance nightmare. Start with 3 to 5.
+
+## Key Takeaways
+
+- Segmentation lifts email revenue by up to 760% and click-throughs by 50%+ versus batch-and-blast, with no extra acquisition spend.
+- Start with 3 to 5 segments along one axis (lifecycle, RFM, or engagement), not thirty along five axes.
+- Behavior beats demographics. Recent clicks and purchases predict the next action better than age or gender ever will.
+- Suppression is segmentation. Excluding the unengaged from a send protects deliverability for everyone else.
+
+<ResourceList resources={[
+  { title: "Mailmodo: Email Segmentation Statistics 2025", url: "https://www.mailmodo.com/guides/email-segmentation-statistics/", type: "article", free: true },
+  { title: "Amra & Elma: Best Email Segmentation Statistics 2025", url: "https://www.amraandelma.com/email-segmentation-statistics/", type: "article", free: true },
+  { title: "FluentCRM: 121 Email Segmentation Statistics & Examples", url: "https://fluentcrm.com/email-segmentation-statistics/", type: "article", free: true },
+  { title: "Mailchimp: Email Marketing Benchmarks", url: "https://mailchimp.com/resources/email-marketing-benchmarks/", type: "docs", free: true },
+  { title: "HubSpot Academy: Email Marketing Course", url: "https://academy.hubspot.com/courses/email-marketing", type: "course", free: true },
+
+  { title: "WsCube Tech - Segmentation (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
+  { title: "Mr Digital Marketing Tamil - Segmentation", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Segmentation (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+]} />

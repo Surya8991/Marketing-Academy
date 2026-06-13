@@ -1,0 +1,61 @@
+export const lessonMeta = {
+  title: "Customer Lifetime Value",
+  level: "Advanced",
+  summary: "The number that decides what every other number is allowed to be.",
+};
+
+# Customer Lifetime Value
+
+Customer Lifetime Value (CLV) is the ceiling on what you can spend to acquire a customer and still survive. Every other marketing metric, your CAC target, your payback window, your email send frequency, your discount strategy, lives or dies inside the box CLV draws. If you do not know yours, you are guessing with real money.
+
+## What It Actually Is
+
+CLV is the total gross profit you expect from a customer across their entire relationship with you, discounted back to today's dollars. The simplest working formula:
+
+`CLV = Average Order Value x Purchase Frequency x Gross Margin x Average Customer Lifespan`
+
+Example: a skincare brand sells a $60 serum at 70% margin. The average buyer reorders 2.4 times per year and stays for 2.5 years. CLV = $60 x 2.4 x 0.70 x 2.5 = $252. That $252 is the absolute cap on blended acquisition spend before you start subsidizing customers with investor money.
+
+## Why It Matters (with data)
+
+Average ecommerce CLV sits between $100 and $300, with luxury categories pushing $1,500 to $2,500, according to benchmark data compiled by [Rivo](https://www.rivo.io/blog/ecommerce-calculation-benchmark-statistics). The economic case for obsessing over it is older but still holds: a 5% lift in retention can grow profits 25% to 95%, and existing customers spend 67% more per transaction than new ones.
+
+The squeeze is real. [Factors.ai](https://www.factors.ai/blog/customer-acquisition-cost) reports CAC has climbed roughly 222% over the last eight years across digital channels. When CAC rises and CLV stays flat, the unit economics quietly invert. By 2025, the consensus healthy CLV:CAC ratio is 3:1 for ecommerce and SaaS, per [Prefinery's benchmark guide](https://www.prefinery.com/blog/clv-to-cac-ratio-guide-and-benchmarks-2024/). Above 5:1 you are underinvesting in growth. Below 1:1 you are paying customers to take your product.
+
+## How It Works / The Playbook
+
+1. **Pick a model that matches your business.** Historical (averages from past cohorts) for stable, repeat-purchase businesses. Predictive (BG/NBD plus Gamma-Gamma) for variable behavior. Cohort-based for anything seasonal or post-launch.
+2. **Segment before you average.** A blended CLV hides the truth. Split by acquisition channel, first-product purchased, and discount cohort. The averages almost always lie.
+3. **Anchor it to CAC by channel.** Meta-acquired customers often have lower CLV than organic or referral. If you are not measuring this, you are spending blind.
+4. **Use it to set spend caps.** Target CAC = CLV / 3. Anything above that needs a payback story.
+5. **Engineer CLV upward** with the three levers you actually control: increase order frequency (email and lifecycle), raise AOV (bundles, subscriptions), and extend lifespan (onboarding and retention).
+6. **Recompute quarterly.** CLV drifts with pricing changes, channel mix, and product launches.
+
+<Callout type="example">
+Dollar Shave Club's pre-acquisition pitch leaned heavily on subscription CLV. Public reporting around the 2016 Unilever acquisition pegged DSC's average subscriber at roughly $100 per year in revenue with multi-year retention, which is what justified Unilever's $1 billion all-cash deal against a business doing about $240 million in revenue. The lesson is not the multiple, it is that a credible subscription CLV model lets a buyer underwrite acquisition costs that would look insane on a single-purchase basis.
+</Callout>
+
+## Common Mistakes
+
+- **Using revenue instead of gross profit.** A $200 revenue CLV at 20% margin is a $40 CLV. Spend accordingly.
+- **Treating CLV as one number for the whole business.** Channel, cohort, and SKU-level CLV diverge fast. The blended average is a vanity metric.
+- **Ignoring discount drag.** Customers acquired on a 40% off coupon often have lower repeat rates and lower CLV. Tag them and track them separately.
+- **Forgetting the discount rate.** A dollar in year three is not worth a dollar today. Use 10% to 15% for early-stage businesses.
+- **Optimizing CLV in isolation.** Pushing lifespan up by 6 months is meaningless if CAC payback is 14 months and you run out of cash at month 12.
+
+## Key Takeaways
+
+- CLV sets the legal speed limit for CAC. Build the ratio first, then plan campaigns.
+- Use gross profit, segment by cohort, and rebuild the model every quarter.
+- A 3:1 CLV:CAC ratio is the working benchmark across ecommerce and SaaS in 2025. Below 3:1, fix retention before you scale spend.
+
+<ResourceList resources={[
+  { title: "Rivo: 25 Ecommerce CLV Benchmark Statistics", url: "https://www.rivo.io/blog/ecommerce-calculation-benchmark-statistics", type: "article", free: true },
+  { title: "Prefinery: CLV to CAC Ratio Guide and Benchmarks 2024", url: "https://www.prefinery.com/blog/clv-to-cac-ratio-guide-and-benchmarks-2024/", type: "article", free: true },
+  { title: "Factors.ai: Customer Acquisition Cost Formula and Benchmarks", url: "https://www.factors.ai/blog/customer-acquisition-cost", type: "article", free: true },
+  { title: "Wall Street Prep: LTV/CAC Ratio Formula", url: "https://www.wallstreetprep.com/knowledge/ltv-cac-ratio/", type: "docs", free: true },
+
+  { title: "WsCube Tech - Customer Lifetime Value (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
+  { title: "Mr Digital Marketing Tamil - Customer Lifetime Value", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Customer Lifetime Value (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+]} />

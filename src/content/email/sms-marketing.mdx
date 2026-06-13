@@ -1,0 +1,55 @@
+export const lessonMeta = {
+  title: "SMS Marketing",
+  level: "Intermediate",
+  summary: "98 percent open rates, brutal opt-out costs — how to do SMS without burning the list.",
+};
+
+# SMS Marketing
+
+SMS is the most intimate channel in your stack. You are sitting inside someone's lock screen next to messages from their mother, and they granted that access in exchange for something specific. Treat it like email and you will hemorrhage subscribers in a week. Treat it like a paid concierge channel and it becomes the highest-ROI line on your dashboard.
+
+## What It Actually Is
+
+SMS marketing is sending promotional or transactional text messages to a list of customers who have explicitly opted in. The classic example: a shopper enters their phone number at checkout to get 15 percent off, then receives a short text two weeks later announcing a flash sale with a one-click link to the product page. Unlike email, there is no inbox to triage, no preview pane, and no spam folder. The message is read or ignored within minutes.
+
+## Why It Matters (with data)
+
+The headline numbers explain the gold rush. SMS messages hit a roughly 98 percent open rate, and 90 percent of recipients open a text within three minutes of delivery, according to industry benchmarks compiled by [Omnisend](https://www.omnisend.com/blog/sms-marketing-statistics/). Conversion rates sit between 21 and 40 percent depending on the offer, and automated flows like abandoned cart texts earn between 3.07 and 10.78 dollars per message sent.
+
+The U.S. SMS marketing market is on track to hit 12.6 billion dollars by 2025, growing at a 20.3 percent CAGR per Grand View Research. But the same channel that prints money also prints lawsuits. The FCC's updated TCPA consent revocation rules took effect on April 11, 2025, requiring senders to honor opt-out requests within 10 business days, down from 30, and to accept revocation through any reasonable method, not just the keyword STOP. As of January 2026, consent cannot be shared across brands or sold to third parties: each sender entity needs its own documented consent per consumer, as outlined by [Infobip's 2026 TCPA guide](https://www.infobip.com/blog/tcpa-compliance-sms).
+
+Statutory damages run 500 to 1,500 dollars per non-compliant message with no cap on total liability. Recent settlements include Clover Network at 15 million dollars in 2024 and Cash App at 12.5 million dollars in 2025. One sloppy bulk send can end a company.
+
+## How It Works / The Playbook
+
+1. **Capture consent properly.** Use a double opt-in: a checkbox at signup plus a confirmation reply. Store timestamp, IP, and the exact disclosure text shown. Include rate frequency ('up to 4 msgs/month'), 'msg and data rates may apply', and a STOP/HELP instruction in the welcome message.
+2. **Segment by intent, not demographics.** A VIP who spent 800 dollars last quarter should not get the same blast as a list-grower who entered a sweepstakes. Build segments around purchase recency, AOV, and product category.
+3. **Cap frequency hard.** Four to six messages per month is the upper bound for most ecommerce lists. Beyond that, opt-outs spike and reach degrades.
+4. **Write for the lock screen.** 160 characters or fewer. Brand name first so it is recognizable. One link. One CTA. Conversational tone, not corporate.
+5. **Trigger on behavior.** Abandoned cart at 30 minutes, browse abandonment at 4 hours, post-purchase review request at day 7. Automated flows beat broadcasts on revenue per recipient by 3 to 10 times.
+6. **A/B test the offer, not the punctuation.** Test discount depth, urgency framing, and product featured. Subject-line-level optimization does not exist here.
+
+<Callout type="example">
+Skincare brand Bushbalm reported via Klaviyo case study that their SMS program drove 23 percent of total revenue from 9 percent of contacts, with abandoned cart texts converting at 24 percent. They kept frequency to 4 messages monthly and segmented heavy buyers into a VIP-only early-access list, which had a sub-1 percent opt-out rate compared to the 3.5 percent industry average reported by [Optimonk's 2026 SMS statistics roundup](https://www.optimonk.com/sms-marketing-statistics).
+</Callout>
+
+## Common Mistakes
+
+- **Buying or scraping numbers.** Every message is a 500 to 1,500 dollar TCPA liability. There is no gray area in 2026.
+- **Treating SMS like email.** Long copy, multiple links, daily sends. The unsubscribe rate will tell you within a week.
+- **Sending at 7 am or 11 pm.** Local time matters. Stick to 10 am to 8 pm in the recipient's timezone or get reported as spam.
+- **Skipping the brand prefix.** A message that opens with 'Flash sale!' instead of 'Bushbalm: Flash sale!' gets flagged as a scam and opted out.
+- **No HELP keyword handler.** Required by carriers. Missing it gets your sender ID blocked by T-Mobile and Verizon, not just regulators.
+
+## Key Takeaways
+
+- SMS rewards restraint. Four high-quality sends per month beat fifteen mediocre ones every time.
+- Compliance is now a 10-business-day clock with cross-brand consent banned: build your stack assuming an auditor will read your logs.
+- Automated flows (cart, browse, post-purchase) are where the money lives. Broadcasts are the seasoning, not the meal.
+
+<ResourceList resources={[
+  { title: "Omnisend 2025 SMS Marketing Statistics", url: "https://www.omnisend.com/blog/sms-marketing-statistics/", type: "article", free: true },
+  { title: "Infobip 2026 Guide to TCPA Compliance for SMS", url: "https://www.infobip.com/blog/tcpa-compliance-sms", type: "docs", free: true },
+  { title: "Optimonk SMS Marketing Statistics", url: "https://www.optimonk.com/sms-marketing-statistics", type: "article", free: true },
+  { title: "Bloomreach TCPA and CTIA Compliance Guide", url: "https://www.bloomreach.com/en/blog/understanding-tcpa-and-ctia-compliance-for-sms-marketing-in-the-us", type: "docs", free: true },
+]} />

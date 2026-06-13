@@ -1,0 +1,60 @@
+export const lessonMeta = {
+  title: "Win-back Campaigns",
+  level: "Intermediate",
+  summary: "Resurrecting dormant subscribers without burning your list.",
+};
+
+# Win-back Campaigns
+
+Roughly a quarter of your email list goes stale every year through unopens, role changes, and quiet abandonment. A win-back campaign is the structured attempt to revive those dormant contacts before you stop mailing them, and it is one of the highest-ROI sequences in your entire program when it is built well, and one of the fastest ways to torch your sender reputation when it is built badly.
+
+## What It Actually Is
+
+A win-back campaign is a triggered series, usually 2 to 5 emails, sent to subscribers who have not opened, clicked, or purchased within a defined inactivity window (commonly 60 to 180 days). The goal is binary: get a measurable engagement signal, or remove the contact from your active sending pool. Example: a DTC coffee brand notices a customer has not opened an email in 120 days. It triggers a three-step sequence ("We miss you" reminder, a 20% off offer, then a final "is this goodbye?" with a one-click resubscribe). Whoever does not click gets suppressed.
+
+## Why It Matters (with data)
+
+The math is brutal. Email lists degrade by about [22.5% per year](https://mailmend.io/blogs/win-back-campaign-statistics) through disengagement and bounces, and only [11% of dormant subscribers re-engage](https://mailmend.io/blogs/win-back-campaign-statistics) on their own without a proactive nudge. Retaining a customer costs 5 to 7 times less than acquiring a new one, and a 5% retention lift can raise profits by 25 to 95%.
+
+The upside is real when you actually try. Automated win-back sequences pull a [42.5% open rate](https://mailmend.io/blogs/win-back-campaign-statistics) on average, with top performers hitting 57%, well above the [20.7% benchmark for standard campaigns](https://www.brevo.com/blog/email-marketing-benchmarks/) reported by Brevo in 2025. Reactivated subscribers also generate roughly a [7:1 ROI](https://mailmend.io/blogs/win-back-campaign-statistics), and 45% of recipients who engage with a win-back go on to engage with future brand messages.
+
+The cost of ignoring this is just as concrete. Mailbox providers (Gmail, especially after its [February 2024 bulk sender rules](https://blog.google/products/gmail/gmail-security-authentication-spam-protection/)) penalize senders whose recipients consistently ignore them. Keep mailing dormant contacts and your inbox placement for active subscribers drops too.
+
+## How It Works / The Playbook
+
+1. **Define dormancy precisely.** Pick an inactivity window that matches your purchase cycle. SaaS or media: 60 to 90 days no opens. DTC: 90 to 180 days no purchase. B2B: 120 to 180 days no clicks.
+2. **Segment before you send.** Split dormant contacts into "recently lapsed" vs. "deep sleepers." One Litmus study found that targeting only the [top decile of lapsed engagers lifted open rates to 22% and clicks to 1.2%](https://www.mediapost.com/publications/article/271648/re-engage-dormant-subscribers.html), versus much weaker results when blasting everyone.
+3. **Sequence the asks.** Email 1: reminder of value, no offer ("Here is what you have missed"). Email 2: incentive (discount, free shipping, content unlock). Email 3: preference center ("Want fewer emails?"). Email 4: final goodbye with a single resubscribe button.
+4. **Use a deliverability-safe sending pattern.** Throttle the win-back over 2 to 3 weeks. Do not blast the entire dormant cohort in one day; spam complaints will spike.
+5. **Suppress non-responders ruthlessly.** Anyone who ignores the full sequence moves to a suppression list. This is the part most teams skip, and it is the part that protects everyone else.
+
+<Callout type="example">
+Dr. Squatch ran a segmented win-back through Klaviyo and saw a [42% lift in open rate and a 67% lift in click-through rate](https://mailmend.io/blogs/win-back-campaign-statistics) versus their baseline broadcasts. Larsson and Jennings pushed open rates 82% higher on their reactivation flow by personalizing the subject line with the product category the subscriber had previously browsed.
+</Callout>
+
+## Common Mistakes
+
+- **Treating "no opens" as the only dormancy signal.** Apple Mail Privacy Protection inflates opens for roughly half your list. Use clicks, site visits, and purchase recency together.
+- **Offering a discount on email 1.** You train your best customers to wait for the discount. Lead with value, escalate to the offer only if silence continues.
+- **Never suppressing.** A win-back that does not end with suppression is just a regular campaign with a sentimental subject line. Mediapost found re-permission asks to long-dormant contacts pulled only a 1.8% read rate, meaning the rest are dead weight hurting your deliverability.
+- **Skipping the preference center.** Many "dormant" subscribers are not gone, just over-mailed. A frequency downgrade saves the relationship.
+- **Running it once a year.** Win-back should be an always-on triggered flow, not a quarterly project.
+
+## Key Takeaways
+
+- Define dormancy by behavior plus recency, not opens alone, and run the flow continuously.
+- A 3 to 4 email sequence beats a single "we miss you" send; escalate from value to incentive to goodbye.
+- Suppress everyone who fails the sequence. Protecting deliverability for your active list is the entire point.
+- Expect to reactivate 5 to 15% of dormant contacts. The rest leaving cleanly is also a win.
+
+<ResourceList resources={[
+  { title: "35 Win-Back Campaign Statistics (Mailmend, 2025)", url: "https://mailmend.io/blogs/win-back-campaign-statistics", type: "article", free: true },
+  { title: "Re-Engage Dormant Subscribers Research (MediaPost)", url: "https://www.mediapost.com/publications/article/271648/re-engage-dormant-subscribers.html", type: "article", free: true },
+  { title: "Email Marketing Benchmarks 2025 (Brevo)", url: "https://www.brevo.com/blog/email-marketing-benchmarks/", type: "article", free: true },
+  { title: "Re-Engage Inactive Subscribers (Mailchimp Docs)", url: "https://mailchimp.com/help/re-engage-inactive-subscribers/", type: "docs", free: true },
+  { title: "Gmail Bulk Sender Guidelines (Google, 2024)", url: "https://blog.google/products/gmail/gmail-security-authentication-spam-protection/", type: "docs", free: true },
+
+  { title: "WsCube Tech - Win-back Campaigns (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
+  { title: "Mr Digital Marketing Tamil - Win-back Campaigns", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Win-back Campaigns (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+]} />

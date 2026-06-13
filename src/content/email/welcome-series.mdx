@@ -1,0 +1,88 @@
+export const lessonMeta = {
+  title: "The Welcome Series",
+  level: "Beginner",
+  summary: "The highest-engagement emails you will ever send.",
+  category: "email",
+  slug: "welcome-series",
+};
+
+# The Welcome Series
+
+## What It Is
+
+A welcome series is an automated sequence of emails sent to new subscribers in the days immediately after they join your list. Unlike a single welcome email, a series uses multiple touchpoints to introduce your brand, build trust, set expectations, and nudge the subscriber toward a first purchase or meaningful action. The word "automated" is key: once you set it up, every new subscriber receives the same carefully crafted journey without any manual effort from your team.
+
+Welcome emails are the highest-engagement category in all of email marketing. According to Klaviyo's 2025 benchmark report, welcome emails average a 51% open rate, with top performers hitting click rates of 15% and placed-order rates of nearly 10%. GetResponse's 2024 benchmark data puts the welcome email open rate at 41.8% - the highest of any email type they track. By comparison, the overall average email open rate across all campaign types sits around 43% in 2025 (MailerLite). Your subscribers are never more interested in you than the moment they sign up.
+
+The term "welcome series" is sometimes used interchangeably with "welcome flow" (Klaviyo's vocabulary) or "onboarding sequence." The underlying logic is the same regardless of platform: a trigger event (signup) kicks off a timed sequence of emails, each with a distinct purpose. Research from Omnisend shows that sending a multi-email welcome series instead of a single welcome message can increase revenue by up to 51%. The series format works because it respects the subscriber's attention - spreading information across several short emails rather than dumping everything into one overwhelming message.
+
+## Real-World Example
+
+<Callout type="example">
+Casper, the mattress brand, built a welcome series that became a reference point for direct-to-consumer email. After a visitor signed up, Casper sent a three-email sequence over seven days. Email 1 (immediate) introduced the brand story and the 100-night trial. Email 2 (day 3) featured customer reviews addressing the top objection - "how do I know a mattress will feel right without trying it in person?" Email 3 (day 7) offered a time-limited discount code with a countdown. Casper reported their welcome flow consistently drove conversion rates more than 9x higher than their standard promotional campaigns, aligning with Omnisend's 2024 industry finding that welcome emails generate 320% more revenue per email than bulk promotional sends.
+</Callout>
+
+## Why It Matters
+
+A subscriber's attention is at its peak the moment they sign up. They just handed you their email address, which means your brand is top of mind. Waiting days to send your first email - or sending only one generic message - squanders that window.
+
+Welcome series matter for several concrete reasons:
+
+- **Deliverability**: A subscriber who opens and clicks your first email signals to Gmail, Outlook, and other inbox providers that your mail is wanted. This sets a positive sender reputation for all future sends to that person.
+- **Revenue**: Sending multiple welcome messages rather than a single one increases revenue per new subscriber by up to 51% (Omnisend, 2024).
+- **List hygiene**: Subscribers who never open your welcome series are unlikely to engage with anything else. Identifying them early lets you suppress or re-engage them before they hurt your sender score.
+- **First impressions**: Brand perceptions formed in the first interaction are sticky. A clear, warm, well-timed welcome series shapes how a subscriber thinks about you for months.
+- **Automation ROI**: Unlike a campaign you have to write and schedule manually, a welcome series works every day, around the clock, for every new signup - making it one of the highest-ROI automations you can build in email marketing.
+
+## How It Works
+
+The standard welcome series structure recommended by Klaviyo - based on analysis of thousands of ecommerce accounts - is three emails delivered over seven days. For B2B or content-driven brands, a four-to-six email series spaced two-to-three days apart is common. Here is the framework most high-performing brands follow:
+
+**Email 1 - Immediate (within 5 minutes of signup)**
+Confirm the subscription, deliver any promised incentive (discount code, lead magnet, free guide), and introduce your brand in one or two sentences. Keep it short. This is not the email to sell - it is the email to say "you are in the right place."
+
+**Email 2 - Day 2 or 3**
+Tell your brand story or address the subscriber's core problem. This is the "why we exist" email. Include social proof - reviews, press mentions, customer numbers - to build credibility. A good Email 2 answers the unspoken question every new subscriber has: "Can I trust these people?"
+
+**Email 3 - Day 5 to 7**
+Convert. Restate the offer (if there is one), add urgency, and make the call to action unmissable. Klaviyo recommends using single-use, personalized discount codes generated per subscriber rather than a shared code that can leak onto coupon sites.
+
+<Mermaid chart={`flowchart LR
+  A([Subscriber signs up]) --> B[Email 1: Welcome + Incentive\nSend immediately]
+  B --> C{Opened?}
+  C -- Yes --> D[Email 2: Brand Story + Proof\nDay 2-3]
+  C -- No --> E[Email 2: Resend with new subject\nDay 2-3]
+  D --> F[Email 3: Offer + Urgency\nDay 5-7]
+  E --> F
+  F --> G{Converted?}
+  G -- Yes --> H[Exit series\nMove to customer flow]
+  G -- No --> I[Exit series\nAdd to re-engagement segment]`} />
+
+Most email platforms (Klaviyo, Mailchimp, ActiveCampaign, ConvertKit) let you add conditional splits inside the flow. The most useful split is "has the subscriber already made a purchase?" - if yes, skip the promotional Email 3 and send a thank-you or post-purchase onboarding email instead. This prevents the awkward experience of receiving a discount code for a product you already bought at full price.
+
+Subject lines for welcome emails should be direct and expectation-setting. Avoid clickbait. The subscriber already opted in; they do not need to be tricked into opening. High-performing subject line patterns from 2024 analysis include: "Here's what to expect from us," "Your [X]% off code is inside," and "Welcome - here's where to start."
+
+## Common Mistakes
+
+<Callout type="warning">
+**Sending only one email.** Many brands treat the welcome series as a single message and wonder why new subscribers never engage. The data is clear: a series of three emails outperforms a single welcome email on every metric - opens, clicks, and revenue. One email is a hello; three emails are a relationship.
+
+**Putting the discount in Email 1 and stopping there.** If your entire welcome strategy is "give them 10% off immediately," you are training subscribers to wait for discounts rather than building genuine brand affinity. Worse, deal-hunters who subscribe only for the code will take it and unsubscribe, hurting your list quality without delivering long-term value. Reserve the discount for Email 3 after you have had a chance to tell your story.
+</Callout>
+
+<Callout type="tip">
+Add a conditional split after Email 1 that checks whether the subscriber opened it. For those who did not open, send a resend of Email 1 with a different subject line 24 hours later before continuing the sequence. This one tactic alone can recover 20 to 30% of subscribers who missed the first email due to inbox clutter, and it is a built-in feature on every major email platform.
+</Callout>
+
+## The One-Line Takeaway
+
+**A three-email welcome series is the single highest-ROI automation any email marketer can build - set it up once and it works for every subscriber, forever.**
+
+<ResourceList resources={[
+  { title: "Klaviyo: Welcome Email Examples and Best Practices", url: "https://www.klaviyo.com/blog/welcome-email-examples", type: "article", free: true, note: "Data-backed guide from Klaviyo's analysis of thousands of ecommerce welcome flows" },
+  { title: "Omnisend: Email Marketing Benchmarks 2025", url: "https://www.omnisend.com/blog/email-marketing-benchmarks/", type: "article", free: true, note: "Industry benchmark report with welcome email revenue and conversion data" },
+  { title: "InboxArmy: Welcome Email Series Best Practices (2025 Guide)", url: "https://www.inboxarmy.com/blog/welcome-email-series/", type: "article", free: true, note: "Practical breakdown of welcome series structure with real brand examples" },
+  { title: "WsCube Tech - Welcome Email Series (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel (4M+ subscribers) — search for the lesson topic here" },
+  { title: "Mr Digital Marketing Tamil - Welcome Email Series", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials — search for the lesson topic" },
+  { title: "ODMT Telugu - Welcome Email Series (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+]} />

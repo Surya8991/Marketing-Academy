@@ -1,0 +1,65 @@
+export const lessonMeta = {
+  title: "Analytics 101",
+  level: "Beginner",
+  summary: "Sessions, users, events — the vocabulary you need.",
+};
+
+# Analytics 101
+
+If you cannot define a 'session' or a 'user', you cannot trust a single number in your dashboard. This lesson gives you the working vocabulary of modern web analytics, so when a stakeholder asks 'why did traffic drop?' you can actually answer. It is written for marketers, founders, and PMs who inherited a Google Analytics 4 (GA4) property and feel like everyone else is speaking a different language.
+
+## What It Actually Is
+
+Web analytics is the practice of measuring how people interact with your site or app, then using those measurements to make decisions. In GA4, every interaction is recorded as an **event**. Events are grouped into **sessions**, and sessions are tied to **users**. That is the entire data model in one sentence.
+
+Concrete example: a visitor lands on your pricing page (event: `page_view`), scrolls 75% (event: `scroll`), clicks 'Start trial' (event: `click`), and signs up (event: `sign_up`). Those four events belong to one session, attributed to one user.
+
+## Why It Matters (with data)
+
+Analytics is no longer optional. [88% of marketers use analytics and measurement tools in their daily work](https://sqmagazine.co.uk/google-analytics-statistics/), and GA4 is now implemented on 33.65% of the top 1 million websites by traffic. The global web analytics market was valued at [$6.26 billion in 2025 and is projected to reach $25.7 billion by 2034](https://www.businessresearchinsights.com/market-reports/web-analytics-market-121557).
+
+The pressure is not just on adoption, it is on spend. Companies are projected to put [over 30% of their marketing budgets into customer-experience analytics in 2025](https://www.designveloper.com/guide/data-driven-marketing/), and 94% of small businesses plan to increase marketing spend this year. If you cannot read the dashboard, you cannot defend the budget.
+
+One more shift worth knowing: in 2024 Google renamed 'conversions' to 'key events' inside GA4, which broke a lot of muscle memory. Reports built before the change still reference the old label in screenshots, so do not panic when terms drift.
+
+## How It Works / The Playbook
+
+Learn these five terms in this order. They build on each other.
+
+1. **Event** — any tracked interaction. GA4 ships with automatic events (`page_view`, `session_start`, `first_visit`, `scroll`, `click`) and lets you define custom ones. Each event can carry up to 25 parameters for context (page title, button label, value).
+2. **Session** — a group of events from one user. A session starts on the first event and ends after 30 minutes of inactivity. Unlike Universal Analytics, GA4 does NOT start a new session when the user clicks a fresh campaign link mid-visit.
+3. **Engaged session** — a session that lasts longer than 10 seconds, fires a key event, or has at least 2 page views. This is the quality bar.
+4. **User** — a unique visitor, identified by a client ID stored in a cookie (or User ID if you set one). **Active Users** is GA4's headline user metric and only counts users who had an engaged session.
+5. **Key event** — formerly 'conversion'. An event you have flagged as a business outcome: `purchase`, `sign_up`, `lead_submit`.
+
+Once you have those, daily reporting collapses into three questions:
+
+- How many active users came? (reach)
+- How engaged were their sessions? (quality)
+- How many key events did they fire? (outcome)
+
+<Callout type="example">
+When Avocode migrated from Universal Analytics to GA4, their reported 'sessions' dropped by roughly 10–20% overnight, not because traffic fell but because GA4 no longer splits a visit into multiple sessions when a UTM-tagged link is reopened. Teams who did not understand the definition change spent weeks chasing a phantom traffic loss. The fix was reading the spec, not the dashboard. ([Source: Ruler Analytics](https://www.ruleranalytics.com/blog/analytics/google-analytics-sessions/))
+</Callout>
+
+## Common Mistakes
+
+- **Confusing Users with Active Users.** The big number on the GA4 home card is Active Users, which excludes anyone who bounced in under 10 seconds. Comparing it to a Universal Analytics 'Users' total is apples to oranges.
+- **Treating every event as a conversion.** If everything is a key event, nothing is. Pick 1–3 outcomes per funnel stage and mark only those.
+- **Ignoring the 25-parameter limit per event.** Stuff too much into one event name (`button_click_pricing_page_hero_v2`) instead of using parameters (`event: click, location: hero, page: pricing`). The parameter approach is queryable, the string-mash approach is not.
+- **Reading session counts without engagement rate.** A 40% jump in sessions with a 50% drop in engagement rate is a bot attack, not a win.
+
+## Key Takeaways
+
+- Events are the atom. Sessions group events. Users own sessions. Key events are the events that pay the bills.
+- GA4's default 'Users' card is Active Users, which requires an engaged session. Know which number you are quoting.
+- A session lasts until 30 minutes of inactivity, and a mid-visit campaign click no longer resets it. Definition changes from Universal Analytics broke a lot of old benchmarks.
+- Use event parameters, not long event names. Future-you running a custom report will thank you.
+
+<ResourceList resources={[
+  { title: "GA4 Definitions Guide (US Dept. of Energy)", url: "https://www.energy.gov/cmei/communicationstandards/google-analytics-4-definitions-guide", type: "docs", free: true },
+  { title: "Everything You Need to Know About Sessions in GA4 (Ruler Analytics)", url: "https://www.ruleranalytics.com/blog/analytics/google-analytics-sessions/", type: "article", free: true },
+  { title: "Google Analytics Statistics 2025 (SQ Magazine)", url: "https://sqmagazine.co.uk/google-analytics-statistics/", type: "article", free: true },
+  { title: "Mastering GA4: User, Session, Event, and Item Scopes (Semetis)", url: "https://www.semetis.com/en/resources/articles/mastering-ga4-understanding-user-session-event-and-item-scopes", type: "article", free: true },
+  { title: "Web Analytics Market 2025-2034 (Business Research Insights)", url: "https://www.businessresearchinsights.com/market-reports/web-analytics-market-121557", type: "article", free: true },
+]} />

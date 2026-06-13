@@ -1,0 +1,65 @@
+export const lessonMeta = {
+  title: "List Building",
+  level: "Beginner",
+  summary: "Get permission, not just addresses.",
+};
+
+# List Building
+
+Email is still the highest-ROI channel in marketing, but only if the people on your list actually want to hear from you. This lesson is for beginners who want to grow an email list that converts, stays deliverable, and does not get flagged as spam.
+
+## What It Actually Is
+
+List building is the practice of collecting email addresses from people who explicitly agree to receive messages from you. Note the word 'explicitly'. A scraped list of 50,000 emails is not a list, it is a deliverability problem. A list of 800 people who traded their address for your free guide on Tuesday is an asset.
+
+Concrete example: a SaaS analytics startup offers a free 'SQL cheat sheet' PDF. A visitor enters their email, clicks a confirmation link in their inbox (double opt-in), and lands on a welcome page. That confirmed subscriber is worth roughly 10x a cold scraped contact in long-term revenue.
+
+## Why It Matters (with data)
+
+The economics are unusually good when you do it right:
+
+- Email marketing returns between 36 and 40 dollars for every dollar spent, a 3,600 to 4,000 percent ROI. Omnisend reported US merchants averaging 76 dollars per dollar spent in their 2024 data ([Omnisend Email Marketing Statistics](https://www.omnisend.com/blog/email-marketing-statistics/)).
+- Email campaign click-to-conversion rates grew 27.6 percent in 2024 ([Omnisend](https://www.omnisend.com/blog/email-marketing-statistics/)).
+- Automated welcome emails in e-commerce convert at nearly 3 percent, vs roughly 2 percent for cart abandonment ([Omnisend](https://www.omnisend.com/blog/email-marketing-statistics/)).
+- Lists naturally decay 20 to 30 percent per year as people change jobs and abandon inboxes, so you have to keep adding net-new subscribers just to stay flat ([Moosend](https://moosend.com/blog/email-opt-in-best-practices/)).
+- 47 percent of marketers said text and video lead magnets were their top opt-in performers in 2024, and short-form video paired with a downloadable cheat sheet hit a 38.9 percent combined opt-in rate ([Amra and Elma](https://www.amraandelma.com/lead-magnet-conversion-statistics/)).
+
+Permission is not just a legal nicety under GDPR and CAN-SPAM, it is the signal Gmail and Outlook use to decide whether you land in the inbox or the promotions tab.
+
+## How It Works / The Playbook
+
+1. **Pick a single high-value lead magnet.** A checklist, template, mini-course, or short video that solves one specific problem for one specific person. Generic 'subscribe to our newsletter' boxes convert under 1 percent. Targeted lead magnets routinely hit 10 to 40 percent on the right page.
+2. **Use double opt-in.** New subscriber enters email, gets a confirmation message, clicks the link. You lose maybe 20 percent of signups to unconfirmed addresses, and you keep the 20 percent who were going to mark you as spam anyway. Open rates on double opt-in lists run noticeably higher.
+3. **Place forms where intent is high.** Exit-intent popups on blog posts, inline forms after the third paragraph, a dedicated landing page for each lead magnet. Sidebar widgets are mostly dead weight in 2025.
+4. **Send a welcome sequence within 60 seconds.** Welcome emails have the highest open rates of any automated message. Deliver the lead magnet, set expectations on cadence, and ask one question to start a reply loop.
+5. **Segment from day one.** Tag by source, lead magnet, and any preferences they self-select. Tailored sends out-convert blast sends by a wide margin.
+6. **Clean quarterly.** Sunset subscribers who have not opened anything in 90 to 180 days. A smaller engaged list beats a bloated cold one for deliverability.
+
+<Callout type="example">
+Morning Brew grew from zero to over 4 million subscribers largely through a referral program: existing readers got branded mugs, hoodies, and exclusive content for getting friends to subscribe with double opt-in. The referral channel reportedly drove around 30 percent of new signups at peak, and the business sold to Insider in 2020 for a reported 75 million dollars. The whole moat was a permissioned email list.
+</Callout>
+
+## Common Mistakes
+
+- Buying or scraping lists. You will torch your sender reputation, and most ESPs (Mailchimp, ConvertKit, Klaviyo) will ban your account.
+- Using a vague 'Subscribe to updates' CTA instead of a specific promise of value.
+- Adding people who bought from you or downloaded a whitepaper without a separate opt-in for marketing email. That is legally shaky under GDPR and practically bad for engagement.
+- Skipping the welcome email. You lose the highest-attention moment a subscriber will ever give you.
+- Never cleaning the list. Inactive subscribers drag open rates down, which drags inbox placement down for everyone else.
+
+## Key Takeaways
+
+- Permission is the product. A small confirmed list out-earns a big scraped one every time.
+- One specific lead magnet plus a dedicated landing page beats a generic newsletter signup by 10x or more.
+- Send a welcome email immediately, segment at signup, and prune dead weight every quarter.
+
+<ResourceList resources={[
+  { title: "Omnisend Email Marketing Statistics 2026", url: "https://www.omnisend.com/blog/email-marketing-statistics/", type: "article", free: true },
+  { title: "Moosend Email Opt-In Best Practices", url: "https://moosend.com/blog/email-opt-in-best-practices/", type: "article", free: true },
+  { title: "Lead Magnet Conversion Statistics", url: "https://www.amraandelma.com/lead-magnet-conversion-statistics/", type: "article", free: true },
+  { title: "Email Marketing Best Practices 2025", url: "https://atlasstudios.com/email-marketing-best-practices-for-2025-and-beyond/", type: "article", free: true },
+
+  { title: "WsCube Tech - List Building (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
+  { title: "Mr Digital Marketing Tamil - List Building", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - List Building (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+]} />
