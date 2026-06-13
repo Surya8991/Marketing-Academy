@@ -11,97 +11,252 @@ export const lessonMeta = {
 
 ## What It Is
 
-On-page SEO is everything you do directly on a webpage to help it rank higher in search results. Unlike getting other websites to link to you (which you have to earn), on-page SEO is entirely within your control. You decide the page title, the headings, what the content says, how long it is, and how it links to other pages on your site. These are your levers.
+On-page SEO is everything you do directly on a webpage to help it rank higher in search results. Unlike getting other websites to link to you, on-page SEO is entirely within your control. You decide the title, the headings, what the content says, and how it links to other pages on your site. These are your levers.
 
-At its core, on-page SEO is about making a page genuinely useful for a specific topic — and then making sure search engines can clearly understand what that topic is. Google's job is to match searchers with the best possible answer. Your job is to make it obvious that your page is that answer. When those two goals align, rankings follow.
+At its core, on-page SEO is about making a page genuinely useful for a specific topic, then making sure search engines can clearly understand what that topic is. Google's job is to match searchers with the best possible answer. Your job is to make it obvious your page is that answer.
 
-The key signals search engines look at on a page include: the title tag (what appears in the browser tab and as the blue headline in search results), the H1 heading (the main headline on the page itself), subheadings that organize the content, the body text and how thoroughly it covers the topic, image alt text, and links to other relevant pages on your site. Getting these right consistently is the foundation of SEO that compounds over time.
+## Quick Summary
 
-## Real-World Example
+- The title tag is your single most powerful on-page signal. It appears as the blue headline in search results.
+- Your H1 heading (the main headline on the page) should clearly mirror your target keyword and search intent.
+- Content depth beats keyword repetition. Cover the topic fully, not repeatedly.
+- Internal links connect your pages and help Google understand your site structure.
+- On-page SEO is the foundation. Without it, great content and backlinks still underperform.
 
-Canva built much of its organic traffic by systematically optimizing landing pages around high-intent, specific keyword phrases. Rather than creating one generic "design tool" page, they built hundreds of dedicated pages for searches like "Instagram story template," "resume template," and "presentation maker" — each with titles, headings, and content depth precisely matched to the search intent behind each phrase.
+## Why It Matters: The Numbers
 
-<Callout type="example" title="Real Example">
-Canva's template pages rank for over 2 million organic keywords globally. A single category page like their "resume templates" page drives an estimated 1.4 million monthly organic visits by leading with an H1 that matches the search query, featuring clear H2 subheadings for each template type, and linking internally to related design categories. Their title tags follow a consistent formula: "[Specific Thing] | Free Online [Tool] — Canva" — hitting the keyword, the value proposition, and brand in under 60 characters.
+On-page SEO is not optional. Here is what the data shows:
+
+- The top search result gets an average click-through rate (CTR, the percentage of people who click your link) of **27.6%**. Position 2 gets about 15%. Moving from position 2 to position 1 can yield **74.5% more clicks** (Backlinko, 2022).
+- The top 3 results capture **54.4% of all organic clicks** on a page (Backlinko, 2022).
+- Title tags longer than 60 characters are **57% more likely to be rewritten by Google** to something shorter, which means you lose control of your first impression (Ahrefs, 2021).
+- **90.63% of webpages receive zero organic traffic from Google** (Ahrefs, 2020). Most of those pages lack basic on-page optimization.
+- URLs that include the target keyword earn **45% higher CTR** than those that do not.
+
+<Callout type="info">
+**What "search intent" means:** Search intent is the reason someone typed a query. Are they trying to learn something (informational)? Buy something (transactional)? Find a specific site (navigational)? On-page SEO fails when your content does not match the intent behind the keyword, even if you use the keyword correctly everywhere.
 </Callout>
 
-## Why It Matters
+## Real-World Examples
 
-On-page SEO is the baseline. Without it, even great content and strong backlinks underperform. Marketers reach for on-page optimization:
+### Canva: 2 million keyword rankings through systematic page optimization
 
-- When a page is getting traffic but not ranking as high as competitors — the content or signals need strengthening
-- When launching a new page and you want to give it the best possible starting position
-- When you've done keyword research and need to translate those findings into actual page structure
-- When a high-priority page has stagnated in rankings and needs a refresh to stay competitive
+Canva did not try to rank for "design tool." Instead, they built hundreds of dedicated landing pages, each targeting one specific search like "Instagram story template," "resume template," or "presentation maker." Each page had:
 
-## How It Works
+- A title tag matching the exact search phrase
+- An H1 heading that mirrors the search query
+- Content depth specific to that use case
+- Internal links connecting template categories to each other
 
-Start with the title tag. This is the single most important on-page SEO element. It should include your primary keyword, ideally near the beginning, and stay under 60 characters so it doesn't get cut off in search results. A good title also gives a reason to click — think of it as a headline that has to earn the tap.
+The result: Canva's template pages rank for over **2 million organic keywords globally**. A single page like "resume templates" drives an estimated **1.4 million monthly organic visits**. Their title tag formula is consistent: "[Specific Thing] | Free Online [Tool] - Canva" - keyword, value prop, brand, all under 60 characters.
 
-Next, your H1 heading (the main visible headline on the page) should match or closely mirror the title tag. It doesn't need to be identical, but it should clearly signal the same topic. From there, use H2 and H3 subheadings to organize your content into sections that each address a related subtopic or question. These headers help readers skim and help search engines understand the full scope of what your page covers.
+### Ahrefs: A single word change, 7 position jump
 
-The body content is where depth matters. Google evaluates whether a page comprehensively covers a topic. That doesn't mean writing as many words as possible — it means answering the questions a real person searching for your keyword would actually have. Cover the topic fully, use natural variations of your keyword (not repetitive stuffing), and include any related terms that an expert would naturally include when writing about the subject.
+The Ahrefs blog team tracked one of their own posts climbing **7 places in search results after changing a single word in the title tag**. No new content. No new backlinks. Just a more intent-matched title. This illustrates exactly how much weight that one on-page element carries.
+
+<Callout type="example">
+**Worked example - rewriting a bad title tag:**
+
+Bad title: "Our Guide to Running Shoes and Everything About Running Footwear for All Runners" (too long, no clear keyword, stuffed)
+
+Good title: "Best Running Shoes for Beginners (2025 Guide)" (under 60 chars, clear keyword near the start, reason to click with the year)
+
+The good version tells Google: the page is about running shoes for beginners. It tells the reader: this is current and relevant to me. Both signals matter.
+</Callout>
+
+## How On-Page SEO Works: The Signal Stack
+
+Every page sends Google a set of layered signals. Here is the full sequence from top to bottom:
 
 <Mermaid chart={`
 flowchart TD
-  A[Target Keyword] --> B[Title Tag\n≤60 chars, keyword near start]
-  B --> C[H1 Heading\nMatches search intent]
-  C --> D[H2/H3 Subheadings\nCover subtopics & questions]
-  D --> E[Body Content\nDepth, natural keyword use]
-  E --> F[Internal Links\nConnect to related pages]
-  F --> G[Image Alt Text\nDescribe visuals for search]
-  G --> H[Page Ranks for Target Keyword]
+  A[Target Keyword] --> B[Title Tag\nKeyword near start, under 60 chars]
+  B --> C[URL Slug\nShort, keyword-included]
+  C --> D[H1 Heading\nMatches search intent]
+  D --> E[H2 and H3 Subheadings\nCover subtopics and questions]
+  E --> F[Body Content\nDepth, natural keyword use, EEAT]
+  F --> G[Image Alt Text\nDescribe visuals, include keyword if natural]
+  G --> H[Internal Links\nConnect to 2-5 related pages]
+  H --> I[Meta Description\nNot a ranking factor, but drives CTR]
+  I --> J[Page Ranks and Earns Clicks]
 `} caption="The on-page SEO signal stack: each layer reinforces the page's relevance for the target keyword" />
 
-Beyond the text, make sure every image has descriptive alt text — a short phrase describing what the image shows, naturally including a keyword if it fits. Finally, link out to 2–5 other relevant pages on your own site. Internal links help search engines discover and understand the relationship between your pages, and they keep readers moving deeper into your content.
+### 1. Title Tag
+
+This is the most important on-page element. It appears as the blue clickable headline in Google search results. Rules:
+
+- Include your primary keyword, ideally in the first 3-4 words
+- Keep it under 60 characters (Google truncates longer ones and may rewrite them)
+- Give a reason to click: a year, a number, a promise, a benefit
+- Write it for a human first, not just for the algorithm
+
+### 2. URL Slug
+
+The URL (the web address of the page) should be short, readable, and include the keyword. Example: `/blog/on-page-seo` not `/blog/p=1284?cat=seo&ref=post`. Clean URLs earn 45% higher CTR and help Google understand page topic at a glance.
+
+### 3. H1 Heading
+
+The H1 is the main headline visible on the page itself. It does not need to be identical to the title tag, but it must clearly signal the same topic. Use the target keyword. Use it once. Write it as a human headline, not a keyword string.
+
+### 4. H2 and H3 Subheadings
+
+Subheadings break content into scannable sections. Each H2 should address a subtopic or real question a reader would have. Use variations of your keyword and related terms - not the exact keyword repeated every time. A useful signal: look at Google's "People Also Ask" box for your keyword. Those questions make ideal H2s.
+
+### 5. Body Content: Depth Over Density
+
+Google does not reward the most keyword mentions. It rewards the most complete answer. That means:
+
+- Cover the topic from multiple angles (what it is, how it works, why it matters, examples, mistakes)
+- Use related terms an expert would naturally use (called "semantic keywords" or "LSI keywords" - terms that signal topical authority)
+- Format for skimmability: short paragraphs, bullet lists, bolded key points
+- Pages in the top 10 today have a **50% lower keyword density** than top pages from a few years ago (Ahrefs data). Stuffing is penalized.
+
+### 6. Image Alt Text
+
+Alt text (short for "alternative text") is a description you add to images. It helps visually impaired users and tells search engines what the image shows. Keep it descriptive and natural. Include a keyword only if it genuinely fits. Do not write "keyword keyword keyword image."
+
+### 7. Internal Links
+
+Internal links (links from one page on your site to another page on your site) do two things: they help Google discover your content and they pass "link equity" (ranking power) between pages. Add 2-5 internal links per page, pointing to related content. Use descriptive anchor text (the clickable words), not "click here."
+
+### 8. Meta Description
+
+The meta description is the short paragraph below your title in search results. It is **not a direct ranking factor**, but it directly affects CTR. Write it like ad copy: one or two sentences, include the keyword, state the benefit of clicking. Keep it under 155 characters. Note: Google rewrites meta descriptions **63% of the time** (Ahrefs, 2020), but your original still influences what they choose to show.
+
+<Mermaid chart={`
+flowchart LR
+  A[Search Intent] --> B{Does your page\nmatch intent?}
+  B -- Yes --> C[Google ranks it]
+  B -- No --> D[Google ignores it\neven with good keywords]
+  C --> E{Is your title\ncompelling?}
+  E -- Yes --> F[User clicks]
+  E -- No --> G[User scrolls past]
+  F --> H{Does content\ndeliver the answer?}
+  H -- Yes --> I[User stays, ranks improve]
+  H -- No --> J[User bounces, ranks drop]
+`} caption="The intent-to-click-to-rank loop: on-page SEO only works when intent, title, and content all align" />
+
+## EEAT: The Modern Layer on Top of All This
+
+Since 2022, Google has put increasing weight on EEAT (Experience, Expertise, Authoritativeness, Trustworthiness). These are signals that help Google decide whether a page is written by someone who actually knows the subject, not just someone who stuffed keywords. Practical ways to demonstrate EEAT on-page:
+
+- Add an author bio with credentials
+- Cite real data and sources (with links)
+- Include first-hand examples or original data
+- Keep content updated with a visible "last updated" date
+- Link to authoritative external sources where relevant
 
 ## Common Mistakes
 
 <Callout type="warning">
-**Keyword stuffing the title and H1.** Jamming your keyword in five times doesn't help — it actively hurts. Google can detect unnatural repetition, and readers will bounce from a headline that reads like "Best Running Shoes Running Shoes for Runners 2024." Use the keyword once, clearly, and write the rest for a human.
+**Keyword stuffing the title and H1.** Jamming your keyword in five times does not help. It actively hurts. Google detects unnatural repetition and readers will immediately bounce from a headline that reads like "Best Running Shoes Running Shoes for Runners 2025." Use the keyword once, clearly, then write the rest for a human.
 </Callout>
 
 <Callout type="warning">
-**Writing for the keyword instead of the intent.** Ranking for "project management tips" by publishing a thin 300-word list won't work when the top results are detailed 2,000-word guides with templates. Match the format, depth, and angle that searchers at this query actually want — not just the keyword.
+**Optimizing for the keyword but ignoring intent.** Ranking for "project management tips" by publishing a thin 300-word list will not work when the top results are detailed 2,000-word guides with templates. Match the format, depth, and angle that searchers actually want at this query, not just the keyword.
+</Callout>
+
+<Callout type="warning">
+**Writing a title over 60 characters.** Titles longer than 60 characters are 57% more likely to be rewritten by Google (Ahrefs, 2021). When Google rewrites your title, it often uses your H1 instead (about 51% of the time). You lose control of your most visible on-page signal.
 </Callout>
 
 <Callout type="tip">
-**Pro tip.** Check Google's "People Also Ask" box and the "Related Searches" section at the bottom of results for your target keyword. These surface the exact sub-questions and angles real searchers care about. Build your H2 subheadings around these, and you'll naturally cover the topic breadth that earns top rankings.
+**Pro tip - mine "People Also Ask" for H2 ideas.** Open Google and search your target keyword. Look at the "People Also Ask" dropdown box and the "Related Searches" section at the bottom. These show you the exact sub-questions real searchers have. Build your H2 subheadings around those questions and you will naturally cover the topic breadth that earns top rankings.
 </Callout>
+
+## On-Page SEO vs. Technical SEO vs. Off-Page SEO
+
+These three categories work together but fix different problems:
+
+| Layer | What it covers | You control it? |
+|---|---|---|
+| On-page SEO | Titles, headings, content, links within a page | Fully |
+| Technical SEO | Site speed, crawlability, mobile-friendliness, site structure | Mostly |
+| Off-page SEO | Backlinks, brand mentions, external signals | Partially |
+
+On-page is always the starting point because it is 100% in your hands. Technical and off-page layer on top.
 
 ## The One-Line Takeaway
 
-**On-page SEO is how you make a page undeniably relevant — tell search engines exactly what the page is about, then make the content thorough enough that they have no reason to rank anything else first.**
+**On-page SEO is how you make a page undeniably relevant: match the title and content to exactly what the searcher wants, then go deep enough that Google has no reason to rank anything else first.**
 
 <ResourceList resources={[
-  {
-    title: "On-Page SEO: The Beginner's Guide",
-    url: "https://moz.com/beginners-guide-to-seo/on-page-seo",
-    type: "article",
-    note: "Moz's canonical introduction covering title tags, meta descriptions, headers, and content best practices — the go-to reference for beginners",
-    free: true
-  },
   {
     title: "On-Page SEO: What It Is and How to Do It",
     url: "https://ahrefs.com/blog/on-page-seo/",
     type: "article",
-    note: "Ahrefs walks through every on-page factor with real examples and actionable checklists — good for moving from theory to implementation",
-    free: true
+    note: "Ahrefs walks through every on-page factor with real data and actionable checklists. The most practical deep-dive available for free.",
+    free: true,
   },
   {
-    title: "Google Search Central Documentation",
+    title: "Google SEO Starter Guide (Official)",
     url: "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
     type: "docs",
-    note: "Google's own SEO starter guide — the authoritative source for how Google actually reads and interprets on-page signals",
-    free: true
+    note: "Google's own documentation on how they read on-page signals. Read this before anything else to understand the rules from the source.",
+    free: true,
   },
-
-  { title: "WsCube Tech - On-Page SEO (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
-  { title: "Mr Digital Marketing Tamil - On-Page SEO", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
-  { title: "ODMT Telugu - On-Page SEO (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+  {
+    title: "On-Page SEO Checklist 2025",
+    url: "https://www.semrush.com/blog/on-page-seo-checklist/",
+    type: "article",
+    note: "Semrush's comprehensive checklist covers every on-page element in order of priority. Use this as a repeatable audit template.",
+    free: true,
+  },
+  {
+    title: "On-Page SEO: The Beginner's Guide",
+    url: "https://moz.com/beginners-guide-to-seo/on-page-seo",
+    type: "article",
+    note: "Moz's canonical introduction covering title tags, meta descriptions, headers, and content best practices. The go-to reference for beginners.",
+    free: true,
+  },
+  {
+    title: "Semrush Academy - SEO Fundamentals Course",
+    url: "https://www.semrush.com/academy/courses/semrush-seo-fundamentals-course-with-greg-gifford/",
+    type: "course",
+    note: "Free expert-led course by Greg Gifford covering on-page SEO, technical SEO, and link building. Includes a free certificate on completion.",
+    free: true,
+  },
+  {
+    title: "On-Page SEO Tutorial - Ahrefs YouTube",
+    url: "https://www.youtube.com/watch?v=4fiCpRtT3oE",
+    type: "video",
+    note: "Sam Oh from Ahrefs explains on-page SEO in plain English with real examples. One of the most watched SEO tutorials on YouTube.",
+    free: true,
+  },
+  {
+    title: "Google Search Console (Free Tool)",
+    url: "https://search.google.com/search-console/",
+    type: "tool",
+    note: "Google's free tool to see which queries your pages rank for, identify pages with low CTR (fix the title), and monitor indexing status.",
+    free: true,
+  },
+  {
+    title: "WsCube Tech - On-Page SEO (Hindi)",
+    url: "https://www.youtube.com/@WsCubeTech",
+    type: "video",
+    lang: "hi",
+    free: true,
+    note: "Top Hindi digital marketing channel",
+  },
+  {
+    title: "Mr Digital Marketing Tamil - On-Page SEO",
+    url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw",
+    type: "video",
+    lang: "ta",
+    free: true,
+    note: "Tamil digital marketing tutorials",
+  },
+  {
+    title: "ODMT Telugu - On-Page SEO (Telugu)",
+    url: "https://www.youtube.com/@ODMTtelugu",
+    type: "video",
+    lang: "te",
+    free: true,
+    note: "Telugu digital marketing training",
+  },
 ]} />
 
 ## Related Concepts
-- [Keyword Research](/learn/seo/keyword-research) — on-page SEO starts here; you need to know which terms to target before you can optimize titles, headings, and content around them
-- [Technical SEO](/learn/seo/technical-seo) — the infrastructure layer beneath on-page; even perfect on-page signals can't overcome crawling or indexing problems
-- [Internal Linking](/learn/seo/internal-linking) — on-page SEO's close partner; internal links distribute authority across your site and reinforce what each page is about
+- [Keyword Research](/learn/seo/keyword-research) - on-page SEO starts here; you need to know which terms to target before you can optimize titles, headings, and content around them
+- [Technical SEO](/learn/seo/technical-seo) - the infrastructure layer beneath on-page; even perfect on-page signals cannot overcome crawling or indexing problems
+- [Internal Linking](/learn/seo/internal-linking) - on-page SEO's close partner; internal links distribute authority across your site and reinforce what each page is about

@@ -9,66 +9,150 @@ export const lessonMeta = {
 
 # Entity SEO & Knowledge Graph
 
-## What It Is
+When you search for "Tim Cook," Google doesn't look for pages that contain those two words. It pulls up a panel on the right side of the screen showing his photo, job title, birthday, and companies he's run. That panel is powered by Google's Knowledge Graph: a giant database of real-world *things* (people, brands, products, places) and the relationships between them.
 
-When you search for "Tim Cook," Google doesn't just look for pages containing those two words. It pulls up a panel on the right side of the screen showing his photo, job title, birthday, and the companies he's run. That panel is powered by Google's Knowledge Graph — a giant database of real-world *things* (people, companies, products, places, songs) and the relationships between them. Entity SEO is the practice of getting Google to recognize your brand, your founders, and your products as distinct, verified *things* inside that database — not just as strings of text on a web page.
+Entity SEO is the practice of getting Google to recognize your brand, your founders, and your products as distinct, verified *things* inside that database. Not just as strings of text on a web page.
 
-The shift from keywords to entities started in 2012 when Google launched the Knowledge Graph with 500 million entities. By 2020 that number had crossed 500 billion facts about 5 billion entities, and in early 2025 Google began rolling out Knowledge Panels to a much wider range of mid-market companies and their executives — not just the Fortune 500. The practical effect: Google now ranks based on *which entity a page is about* and *how authoritative that entity is*, then uses keywords to match the query.
+## Quick Summary
 
-For an advanced SEO, this changes the unit of work. You're no longer optimizing pages around target queries; you're building an "entity home" (usually your About page), establishing verifiable identity through structured data and sameAs links, and earning third-party corroboration so Google's algorithms can confidently merge the signals into a stable entity record.
+- Google's Knowledge Graph launched in 2012 with 500 million entities and has since grown to over 5 billion entities and 500 billion facts.
+- Entity SEO shifts your goal from "rank this page for this keyword" to "become the recognized, trusted object that Google associates with this topic."
+- A 2025 BrightEdge study found that 74% of AI Overview citations went to brands with an established Knowledge Graph presence, even when smaller publishers had better on-page SEO.
+- Your "entity home" (almost always your `/about` page) is the single URL where you declare your identity using structured data (JSON-LD) and links to third-party records like Wikidata.
+- Building personal entities for founders and executives reinforces the parent company entity, which is why CEOs with their own Knowledge Panels measurably lift their company's entity authority.
 
-## Real-World Example
+## Why Google Moved Away From Pure Keywords
 
-<Callout type="example" title="HubSpot — turning a category into an entity moat">
-HubSpot didn't just rank for "inbound marketing" — they *became* the entity. By 2024 the brand had its own Knowledge Panel, a Wikidata entry (Q5928322), a Wikipedia page, and over 12,000 sameAs-style citations across authoritative domains. Their About page carries a complete Organization JSON-LD block linking founders Brian Halligan and Dharmesh Shah as named Person entities, each with their own knowledge panels. Result: HubSpot ranks #1 for the head term "inbound marketing" (1.2M+ monthly US searches per Ahrefs, 2024), captures the AI Overview citation for the term, and according to SparkToro's 2024 brand-strength index sits in the top 0.1% of B2B SaaS for unlinked brand mentions — a primary entity-corroboration signal.
+Traditional SEO (before 2012) matched words. You typed "best running shoes," and Google looked for pages with those exact words. The problem: words are ambiguous. "Apple" could mean the fruit, the tech company, or a New York City nickname.
+
+Google solved this with the Knowledge Graph in 2012. Instead of matching strings of characters, Google now recognizes *entities*: real-world things that exist independently of how you spell them. "Apple Inc." and "AAPL" and "the company Steve Jobs founded" all resolve to the same entity.
+
+The practical effect: Google now ranks based on *which entity a page is about* and *how authoritative that entity is*. Keywords are used to match the query to the right entity, not the other way around.
+
+<Callout type="info">
+**What is an entity?** In Google's system, an entity is any real-world thing that can be uniquely identified: a company, a person, a product, a place, an event, or a concept. Each entity gets an internal machine ID (called an MID) inside Google's systems. Once your brand has an MID, it "exists" in Google's world as a known, trusted object.
 </Callout>
 
-## Why It Matters
+## Why This Matters Right Now
 
-- **AI Overviews and ChatGPT Search cite entities, not URLs.** A 2025 BrightEdge study found that 74% of AI Overview citations went to brands with an established Knowledge Graph presence, even when smaller publishers had better on-page SEO.
-- **Knowledge Panels compress the SERP.** When Google shows a panel for your brand, branded search CTR to your homepage typically rises 30–50%, and competitors lose the ability to bid against your brand identity.
-- **Entity authority compounds across queries.** Once Google trusts that "HubSpot = CRM platform," every page on hubspot.com inherits topical relevance — you stop fighting for individual keywords and start ranking for whole topic neighborhoods.
-- **It's the only durable defense against LLM hallucination.** If your brand isn't an entity, AI assistants will guess — often wrongly — about what you do, who founded you, and what you sell.
+The stakes for entity SEO have jumped in 2024-2025 for three reasons.
 
-## How It Works
+**AI Overviews and AI chat cite entities, not URLs.** When Google's AI Overview answers a question, it doesn't scan pages, it retrieves trusted entities. A 2025 BrightEdge study found that 74% of AI Overview citations went to brands with Knowledge Graph presence. If your brand isn't in the graph, AI search effectively doesn't know you exist.
 
-Google builds an entity record by triangulating signals from three sources: structured data you publish (JSON-LD), authoritative third-party databases (Wikipedia, Wikidata, Crunchbase, LinkedIn, government registries), and unstructured corroboration (press mentions, citations, co-occurrence in trusted content). When enough signals agree, Google assigns a stable internal MID (machine ID) — at which point your brand "exists" in the graph.
+**Knowledge Panels compress the entire SERP.** When Google shows a Knowledge Panel for your brand name, branded search click-through rates typically rise 30-50%. Competitors lose the ability to insert themselves into searches for your brand.
 
-The entity home is the anchor. Pick one canonical URL (almost always `/about`), publish a complete Organization or Person schema with `@id`, `sameAs` pointing to your Wikidata, Wikipedia, LinkedIn, Crunchbase, and official social profiles, and reference that same `@id` from every other page using `mainEntityOfPage`. This tells Google: "all roads on our site lead back to this one entity." Then you work outward — claim or create a Wikidata Q-number, get cited in topical authority sources, and align your content clusters so each pillar reinforces a single semantic identity.
+**Google ran a "Clarity Cleanup" in June 2025.** Google removed approximately 3 billion low-quality entity entries from the Knowledge Graph in a single purge. This shows that entity authority now requires genuine third-party corroboration, not just adding a schema tag to your homepage.
 
-<Mermaid chart={`flowchart LR
-  A[Entity Home: /about] -->|JSON-LD @id + sameAs| B[Wikidata + Wikipedia]
-  A -->|Organization schema| C[Google Knowledge Graph]
+**It defends you against AI hallucination.** If your brand is not a recognized entity, AI assistants will guess about who you are, what you do, and who founded you, and they often guess wrong. Being in the Knowledge Graph is the closest thing to fact-checking your own brand across the internet.
+
+## Real-World Example: HubSpot's Entity Moat
+
+<Callout type="example">
+HubSpot didn't just rank for "inbound marketing" - they *became* the entity that Google associates with the concept. By 2024, HubSpot had a Wikidata entry (Q5928322), a Wikipedia page, a full Knowledge Panel, and over 12,000 co-citation mentions across authoritative domains. Their `/about` page carries a complete Organization JSON-LD block linking founders Brian Halligan and Dharmesh Shah as named Person entities, each with their own Knowledge Panels.
+
+Result: HubSpot ranks number 1 for the head term "inbound marketing" (1.2M+ monthly US searches per Ahrefs, 2024), captures the AI Overview citation for that term, and sits in the top 0.1% of B2B SaaS companies for unlinked brand mentions according to SparkToro's 2024 brand-strength index. Unlinked mentions are a primary signal Google uses to verify entity authority.
+</Callout>
+
+## The Omnisend vs. Klaviyo Entity Test
+
+Backlinko ran a 2025 co-citation study to test how entity authority affects AI search presence. They ran 15 variations of email marketing queries through Google AI Mode.
+
+- Omnisend appeared in 12 of 15 total queries (80% presence).
+- Klaviyo dominated 5 of 5 ecommerce-specific queries.
+- In deliverability-focused searches, Omnisend maintained presence while Klaviyo completely disappeared.
+
+The takeaway: Klaviyo had stronger Organization schema with multiple declared software products, while Omnisend had stronger unstructured co-citation across general email marketing discussions. Each brand "owned" the entity space that matched its third-party corroboration. Entity authority is specific, not general.
+
+## How Google Builds an Entity Record
+
+Google triangulates signals from three sources:
+
+1. **Structured data you publish.** JSON-LD schema on your own website declares who you are.
+2. **Authoritative third-party databases.** Wikipedia, Wikidata, Crunchbase, LinkedIn, government registries, and industry databases corroborate your identity.
+3. **Unstructured corroboration.** Press mentions, podcast appearances, co-citations, and forum discussions where your brand appears alongside other known entities in your space.
+
+When enough signals agree, Google merges them into a stable entity record with a unique MID. You now "exist" in the graph.
+
+<Mermaid chart={`flowchart TD
+  A[Entity Home: /about page] -->|JSON-LD + sameAs| B[Wikidata Q-number]
+  A -->|Organization schema| C[Google Knowledge Graph MID]
   B --> C
-  D[Press & Citations] -->|Unlinked mentions| C
-  E[Content Clusters] -->|mainEntityOfPage| A
-  C --> F[Knowledge Panel + AI Overview Citations]`} caption="How structured data, third-party corroboration, and on-site clusters consolidate into a single Knowledge Graph entity." />
+  D[Press + Podcast Mentions] -->|Unlinked co-citations| C
+  E[Content Clusters] -->|mainEntityOfPage links| A
+  F[Founder Person Entities] -->|founder property| A
+  C --> G[Knowledge Panel]
+  C --> H[AI Overview Citations]`} />
 
-The 2024–2025 update worth knowing: Google's `sameAs` weighting now rewards *verified* identifiers (Wikidata Q-IDs, ISNI, LEI codes, government business numbers) far more heavily than social profile URLs. Adding your LEI or D-U-N-S number to Organization schema is now one of the highest-leverage moves for B2B brands trying to enter the graph.
+## Step-by-Step: How to Build Your Entity
 
-## Common Mistakes
+### Step 1: Create your entity home
 
-<Callout type="warning">**Mistake 1: Treating every page as its own entity.** Sprinkling Organization schema on the homepage, blog posts, and product pages creates duplicate entity signals that Google ignores. Pick one canonical entity home, give it a stable `@id` (e.g. `https://yourbrand.com/#organization`), and *reference* that `@id` from other pages — don't redefine it.</Callout>
+Pick one canonical URL, almost always `/about`, as the single place where your brand identity lives. This page should:
 
-<Callout type="warning">**Mistake 2: Skipping Wikidata because "we're not famous enough."** Wikidata accepts entries for any company with verifiable third-party sources — you don't need a Wikipedia page first. A clean Wikidata Q-number with cited references is often the single fastest path into the Knowledge Graph for sub-$50M brands, yet 90%+ of mid-market SaaS companies still don't have one.</Callout>
+- Carry a complete `Organization` JSON-LD block with `@id`, `name`, `url`, `logo`, `foundingDate`, `founder`, and `sameAs`.
+- The `@id` should be a stable, permanent URL fragment like `https://yourbrand.com/#organization`.
+- The `sameAs` array should link to your Wikidata Q-number, Wikipedia page, LinkedIn company page, Crunchbase profile, and official social profiles.
 
-<Callout type="tip">**Pro tip: Build entities for your *executives*, not just your brand.** Founder and CEO Person entities feed back into the parent Organization entity through `founder` and `employee` properties. A CEO with a Knowledge Panel boosts the company's entity confidence score measurably — which is why every YC-stage founder now publishes a personal Person schema on their bio page with `sameAs` linking to their LinkedIn, GitHub, Crunchbase, and any conference talks.</Callout>
+All other pages on your site should reference this `@id` using `mainEntityOfPage`, not redefine a new Organization entity. One entity home, many references.
+
+### Step 2: Claim a Wikidata Q-number
+
+Wikidata is Google's most heavily weighted third-party entity source. A 2024 update made verified identifiers (Wikidata Q-IDs, ISNI numbers, LEI codes, government business registration numbers) worth far more than social profile URLs inside `sameAs`.
+
+Wikidata accepts any company with verifiable third-party sources. You do not need a Wikipedia page first. A clean Wikidata record with cited references is often the fastest path into the Knowledge Graph for companies under $50M in revenue, yet over 90% of mid-market companies still do not have one.
+
+### Step 3: Build Person entities for founders and executives
+
+Founder and executive Person entities feed directly back into the parent Organization through `founder` and `employee` schema properties. A CEO with their own Knowledge Panel measurably increases the company's entity confidence score. This is why YC-backed founders increasingly publish a Person schema on their bio page with `sameAs` linking to LinkedIn, GitHub, Crunchbase, and conference talk URLs.
+
+### Step 4: Earn third-party co-citations
+
+Co-citations are mentions of your brand alongside other known entities in your space, even without a link. An appearance on a respected industry podcast mentioning you alongside your main competitors is worth more to entity authority than 20 low-quality backlinks. Target:
+
+- Industry publication roundups ("10 best tools for X").
+- Podcast mentions on shows that cover your topic.
+- Reddit and forum threads comparing you to competitors.
+- Wikipedia references (even as a citation, not the subject).
+
+### Step 5: Align content clusters to a single semantic identity
+
+Every content cluster on your site should reinforce exactly one entity relationship. If you are "the company that builds email marketing software for ecommerce," every cluster should orbit that identity. Competing signals (a blog post about "SEO tips" on an email marketing platform) dilute the entity signal. Pick your semantic territory and own it completely.
+
+<Callout type="warning">
+**Common mistake: redefining Organization schema on every page.** Many sites place a full Organization JSON-LD block on the homepage, blog posts, and product pages. This creates duplicate entity signals that confuse Google's merging algorithm. Define the Organization entity with its `@id` exactly once, on your entity home. On every other page, reference it with `"mainEntityOfPage": {"@id": "https://yourbrand.com/#organization"}` rather than redefining the whole object.
+</Callout>
+
+<Callout type="warning">
+**Common mistake: thinking "we're not famous enough for Wikidata."** Wikidata is not Wikipedia. It accepts entries for any company with at least two verifiable third-party sources (a news article, a Crunchbase listing, a government registration record). Most mid-market companies qualify right now and simply have not filed. A Wikidata Q-number is one of the highest-leverage single actions available to a growing brand.
+</Callout>
+
+## Measuring Entity Authority
+
+Entity SEO is harder to measure than keyword rankings, but these signals tell you whether it's working:
+
+- **Knowledge Panel appearance:** Search your brand name. A panel means you have an entity record.
+- **AI Overview inclusion:** Search your core topic queries. Are you cited in the AI-generated answer at the top?
+- **Unlinked brand mentions:** Tools like Ahrefs Content Explorer and Brand24 track how often your brand name appears on the web without a link pointing to you. Growing unlinked mentions signal growing entity authority.
+- **Wikidata completeness score:** Log into Wikidata and check your Q-number's property completeness. More cited properties mean a stronger entity record.
 
 ## The One-Line Takeaway
 
-**Stop optimizing pages for keywords; start building a verifiable, well-connected entity that Google's Knowledge Graph can trust and cite.**
+**Stop optimizing pages for keywords; build a verifiable, well-connected entity that Google's Knowledge Graph can trust, cite, and recommend in an AI-first world.**
 
 <ResourceList resources={[
-  { title: "Schema.org: Organization", url: "https://schema.org/Organization", type: "docs", note: "Canonical reference for Organization properties — start with name, url, logo, sameAs, founder, and @id.", free: true },
-  { title: "Knowledge Graphs and Entities for SEO: When and How", url: "https://searchengineland.com/knowledge-graphs-entities-seo-when-how-452584", type: "article", note: "Search Engine Land's 2024 strategic guide on aligning content with entities vs. keywords.", free: true },
-  { title: "Google Search Central: Introduction to Structured Data", url: "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data", type: "docs", note: "Google's official guide to JSON-LD, eligibility for rich results and Knowledge Panel features.", free: true },
-
-  { title: "WsCube Tech - Entity SEO & Knowledge Graph (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
+  { title: "Backlinko: Entity SEO - How to Build Digital Brand Visibility in AI Search", url: "https://backlinko.com/entity-seo", type: "article", note: "Comprehensive 2025 guide with real co-citation experiments and case studies from Backlinko.", free: true },
+  { title: "Google Search Central: Introduction to Structured Data", url: "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data", type: "docs", note: "Official Google documentation on JSON-LD structured data and how it feeds the Knowledge Graph.", free: true },
+  { title: "Schema.org: Organization", url: "https://schema.org/Organization", type: "docs", note: "The canonical reference for all Organization schema properties including sameAs, founder, and @id.", free: true },
+  { title: "InLinks: Entity-Based SEO Guide", url: "https://inlinks.com/help/entity-based-seo/", type: "article", note: "Clear primer on what entities are, how Google uses them, and how to structure your content around them.", free: true },
+  { title: "Google Rich Results Test", url: "https://search.google.com/test/rich-results", type: "tool", note: "Validate your JSON-LD schema markup and confirm Google can read your entity declarations correctly.", free: true },
+  { title: "Wikidata: How to create a new item", url: "https://www.wikidata.org/wiki/Help:Items", type: "docs", note: "Official guide to creating a Wikidata Q-number for your brand. One of the highest-leverage entity SEO actions.", free: true },
+  { title: "Single Grain: Best Entity SEO Tools in 2025", url: "https://www.singlegrain.com/artificial-intelligence/best-entity-seo-tools-in-2026/", type: "article", note: "Curated list of tools for entity analysis, schema validation, and Knowledge Graph monitoring.", free: true },
+  { title: "WsCube Tech - Entity SEO & Knowledge Graph (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
   { title: "Mr Digital Marketing Tamil - Entity SEO & Knowledge Graph", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
-  { title: "ODMT Telugu - Entity SEO & Knowledge Graph (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+  { title: "ODMT Telugu - Entity SEO & Knowledge Graph (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
 ]} />
 
 ## Related Concepts
-- [Schema & Structured Data](/learn/seo/schema-structured-data) — the JSON-LD vocabulary you'll use to declare your entity home and sameAs links.
-- [E-E-A-T](/learn/seo/eeat) — entity authority and E-E-A-T are two sides of the same trust signal Google uses to rank.
-- [Content Clusters](/learn/seo/content-clusters) — clusters reinforce a single semantic identity, which is exactly what entity SEO requires at the content layer.
+- [Schema & Structured Data](/learn/seo/schema-structured-data) - the JSON-LD vocabulary you will use to declare your entity home and sameAs links.
+- [E-E-A-T](/learn/seo/eeat) - entity authority and E-E-A-T are two sides of the same trust signal Google uses to rank.
+- [Content Clusters](/learn/seo/content-clusters) - clusters reinforce a single semantic identity, which is exactly what entity SEO requires at the content layer.

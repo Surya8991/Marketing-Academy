@@ -9,39 +9,104 @@ export const lessonMeta = {
 
 # Technical SEO
 
-## What It Is
+Technical SEO is the work you do so search engines can actually find, read, and store your pages - before any content writing or link-building even starts. Think of it as the plumbing of your website. Even if you have the best content in your industry, Google cannot rank a page it cannot access. Technical SEO removes the invisible barriers that stop search engines from doing their job.
 
-Technical SEO is the work you do to make sure search engines can actually find, read, and store your pages — before any writing or link-building happens. Think of it as the plumbing of your website. Even if you have the best content in your industry, Google can't rank a page it can't access. Technical SEO fixes the invisible barriers that stop search engines from doing their job.
+## Quick Summary
 
-Most of this work happens in places users never see: server configuration files, XML documents, HTML tags, and the JavaScript code that assembles your pages. That might sound intimidating, but the concepts are straightforward once you understand what search engines are actually trying to do. They send out automated programs called crawlers that follow links, download pages, and send that content back to be stored in an index. Technical SEO removes every obstacle in that journey.
+- Google sends automated programs called "crawlers" to visit your site. If they hit a wall, your pages never get indexed - and you never rank.
+- Six pillars cover most of technical SEO: crawlability, indexability, sitemaps, robots.txt, canonical tags, and JavaScript rendering.
+- Only 33% of websites pass Google's Core Web Vitals assessment (Chrome UX Report, 2025). Speed is a ranking factor and a conversion factor.
+- 53% of mobile users abandon a page that takes longer than 3 seconds to load (Think with Google). Technical problems cost you traffic before anyone reads a word.
+- Schema markup (structured data) can increase click-through rates by up to 40%. It is now used by 72% of first-page Google results.
 
-The six pillars of technical SEO are crawlability (can bots reach your pages?), indexability (should Google store them?), sitemaps (a roadmap for crawlers), robots.txt (a rulebook for bots), canonical tags (telling Google which version of a page is the "real" one), and JavaScript rendering (making sure dynamically built pages are readable). Get these right and every other SEO effort you make becomes more effective.
+## Why Technical SEO Is the Foundation
 
-## Real-World Example
+Every other SEO effort - writing great content, earning backlinks, optimizing titles - only works if Google can crawl and index your pages in the first place.
 
-<Callout type="example" title="Real Example">
-Airbnb discovered in 2017 that roughly 30% of their listing pages were not being indexed by Google — crawlers were hitting JavaScript-rendered content they couldn't parse. After migrating critical listing pages to server-side rendering and submitting a structured XML sitemap covering over 1 million URLs, Airbnb saw organic search traffic to listing pages increase by approximately 25% within six months. The fix was entirely technical — no new content, no new links.
+Here is the chain: if Googlebot cannot reach a page, it is never crawled. If it is crawled but blocked from indexing, it never appears in search results. If it appears in search results but loads slowly on mobile, users bounce before they read anything.
+
+Technical SEO fixes problems at each stage of that chain.
+
+<Callout type="info">
+**Crawl budget matters more on large sites.** Google does not crawl every page of every website every day. It allocates a "crawl budget" per site - roughly the number of pages it will visit in a given period. On a site with thousands of pages, wasting crawl budget on duplicate URLs, broken links, or blocked resources means important pages get crawled less often. Smaller sites rarely need to worry about this, but any site with 10,000+ URLs should track it in Google Search Console.
 </Callout>
 
-## Why It Matters
+## The Six Pillars Explained
 
-Technical SEO is the foundation everything else rests on. You need it when:
+### 1. Crawlability
 
-- You launch or redesign a site and need to confirm Google can crawl all the right pages (and none of the wrong ones).
-- Your pages aren't showing up in search results even though they have good content and backlinks.
-- You have a large site (thousands of pages) where crawl budget — the number of pages Google will crawl in a given period — is limited and needs to be spent wisely.
-- You're running a JavaScript-heavy site (React, Vue, Angular) where content is assembled in the browser rather than delivered ready-made from the server.
-- You have duplicate content across multiple URLs and need to tell Google which version to rank.
+Googlebot follows links to discover pages. If a page has no links pointing to it from anywhere else on your site, it may never be found. If the server returns an error (like a 500 status code), the crawler gives up and moves on.
 
-## How It Works
+Crawlability problems include: broken internal links, redirect chains that are too long (more than 3-4 hops), pages buried too deep in the site structure (more than 4 clicks from the homepage), and server errors that make pages temporarily or permanently unavailable.
 
-When Google's crawler (Googlebot) visits your site, the first thing it checks is your **robots.txt** file, found at `yourdomain.com/robots.txt`. This plain-text file tells crawlers which sections of your site to visit and which to skip. A misconfigured robots.txt — accidentally blocking `Disallow: /` — is one of the fastest ways to disappear from Google entirely.
+### 2. Indexability
 
-Next, Googlebot follows links to discover pages. Your **XML sitemap** (submitted via Google Search Console) gives crawlers a direct list of every URL you want indexed, along with metadata like last-modified dates. This is especially valuable for large sites or pages that are hard to reach through internal links alone. Sitemaps don't guarantee indexing, but they dramatically speed up discovery.
+A page can be crawled but still excluded from Google's index. Common causes:
 
-Once a page is crawled, **canonical tags** determine whether it gets indexed. A canonical tag in the HTML `<head>` tells Google: "This is the authoritative version of this content." Without them, Google might index `yoursite.com/page`, `yoursite.com/page?ref=email`, and `yoursite.com/page/` as three separate duplicate pages, splitting ranking signals across all three. Canonical tags consolidate that signal into one URL.
+- A `noindex` meta tag in the page's HTML tells Google: "crawl this, but do not store it"
+- A `noindex` directive in the HTTP response header does the same thing
+- A canonical tag pointing to a different URL tells Google to index the other URL instead
+- The page is blocked by robots.txt (though Google may still index it if other sites link to it)
 
-Finally, **JavaScript rendering** is the biggest modern challenge. When pages are built in the browser using JavaScript frameworks, Googlebot may only see a blank HTML shell on first crawl. It processes JS in a second wave, but this introduces delays and uncertainty. Server-side rendering (SSR) or static site generation (SSG) delivers the full HTML upfront, making content immediately accessible to crawlers.
+### 3. Sitemaps
+
+An XML sitemap is a file that lists every URL you want Google to index. It is submitted through Google Search Console. Think of it as handing Google a map of your entire site rather than making it navigate from the front door.
+
+Sitemaps do not guarantee indexing - Google still decides what to index - but they speed up discovery, especially for new pages or deep pages with few internal links.
+
+A basic sitemap entry looks like this:
+
+```xml
+<url>
+  <loc>https://yoursite.com/blog/technical-seo-guide</loc>
+  <lastmod>2025-03-15</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+```
+
+### 4. robots.txt
+
+The robots.txt file lives at `yourdomain.com/robots.txt`. It is a plain-text file that tells crawlers which parts of your site to visit and which to skip.
+
+```
+User-agent: *
+Disallow: /admin/
+Disallow: /checkout/
+Allow: /
+```
+
+This example lets all crawlers access everything except `/admin/` and `/checkout/`. A single typo - like `Disallow: /` (with a trailing slash and nothing else) - can block Google from your entire site overnight.
+
+<Callout type="warning">
+**robots.txt mistakes can wipe your rankings.** A misconfigured robots.txt is one of the most common and most damaging technical SEO errors. After any site migration, CMS update, or new deployment, always check `yourdomain.com/robots.txt` immediately and verify it with the robots.txt tester in Google Search Console. Many site relaunches have accidentally blocked Googlebot for days or weeks before anyone noticed.
+</Callout>
+
+### 5. Canonical Tags
+
+URLs can have many variations that all show the same content:
+
+- `yoursite.com/page`
+- `yoursite.com/page/`
+- `yoursite.com/page?ref=newsletter`
+- `yoursite.com/page?sort=price`
+
+Without guidance, Google might index all four as separate pages, splitting your ranking signals four ways. A canonical tag in the HTML `<head>` tells Google which version is the "official" one:
+
+```html
+<link rel="canonical" href="https://yoursite.com/page" />
+```
+
+All ranking signals - links, engagement, authority - get consolidated to that one URL.
+
+### 6. JavaScript Rendering
+
+Modern websites built with React, Vue, or Angular often assemble page content inside the user's browser using JavaScript. The problem: when Googlebot first visits, it may only see a blank HTML shell. The actual content - product listings, article text, links - is generated later by JavaScript code.
+
+Google does process JavaScript eventually, but in a "second wave" that can be delayed by days. During that delay, your pages may appear empty to Google.
+
+The fix: use server-side rendering (SSR) or static site generation (SSG) for any content that needs to rank. This delivers the full HTML to Google immediately, with no waiting.
+
+## How Googlebot Actually Moves Through Your Site
 
 <Mermaid chart={`
 flowchart TD
@@ -49,64 +114,168 @@ flowchart TD
   B -- No --> Z[Page skipped]
   B -- Yes --> C[Page crawled]
   C --> D{JavaScript page?}
-  D -- Yes --> E[Second-wave JS rendering]
+  D -- Yes --> E[Second-wave JS render]
   D -- No --> F[HTML parsed immediately]
   E --> F
-  F --> G{Canonical tag present?}
-  G -- Points elsewhere --> H[Signals sent to canonical URL]
-  G -- Self-referencing or absent --> I[Page sent to index]
-  H --> I
-  I --> J[Page eligible to rank]
-`} caption="How Googlebot crawls, renders, and indexes a page — each step is a potential failure point." />
+  F --> G{noindex tag?}
+  G -- Yes --> Y[Crawled but not indexed]
+  G -- No --> H{Canonical present?}
+  H -- Points elsewhere --> I[Signals sent to canonical URL]
+  H -- Self or absent --> J[Page added to index]
+  I --> J
+  J --> K[Page eligible to rank]
+`} />
 
-## Common Mistakes
+## Core Web Vitals: Speed as a Ranking Factor
 
-<Callout type="warning">
-**Blocking important pages in robots.txt.** It's common to block staging or admin directories, but a copy-paste error or a CMS default setting can accidentally block your entire site or key sections. Always verify your robots.txt using Google Search Console's robots.txt tester after any site migration or major update.
+Since 2021, Google has used Core Web Vitals (CWV) as a direct ranking signal. These three metrics measure real-world user experience:
+
+- **LCP (Largest Contentful Paint):** How long until the main content loads. Target: under 2.5 seconds.
+- **INP (Interaction to Next Paint):** How quickly the page responds to clicks and taps. Target: under 200ms. (INP replaced FID in March 2024.)
+- **CLS (Cumulative Layout Shift):** How much the page layout jumps around during load. Target: under 0.1.
+
+Only 33% of websites currently pass all three CWV thresholds (Chrome UX Report, 2025). That means passing them puts you ahead of two-thirds of the web.
+
+A one-second delay in mobile load time drops conversion rates by 20% (SOASTA). This is not just an SEO problem - it is a revenue problem.
+
+## Schema Markup: Helping Google Understand Your Content
+
+Schema markup (also called structured data) is code you add to your pages in a format called JSON-LD. It tells Google what your content means, not just what it says.
+
+For example, a recipe page with schema markup tells Google: "This page contains a recipe. It takes 30 minutes. It has 4.5 stars from 200 reviews." Google can then show that information directly in search results as a "rich result" - with star ratings, prep time, and images displayed before anyone clicks.
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Technical SEO Complete Guide",
+  "datePublished": "2025-01-15",
+  "author": { "@type": "Person", "name": "Your Name" }
+}
+```
+
+Sites with schema markup see up to 40% higher click-through rates. 72% of first-page Google results already use it.
+
+## Real Company Case Studies
+
+<Callout type="example">
+**Airbnb - JavaScript rendering fix, 2017.** Airbnb discovered roughly 30% of their listing pages were not being indexed because Googlebot could not parse their JavaScript-rendered content. After migrating critical listing pages to server-side rendering and submitting an XML sitemap covering over 1 million URLs, organic search traffic to listing pages increased by approximately 25% within six months. No new content, no new links - purely a technical fix.
 </Callout>
 
-<Callout type="warning">
-**Using canonical tags incorrectly — or not at all.** Many sites let URL parameters (for filters, tracking, session IDs) create hundreds of near-duplicate pages without any canonicalization. Google then crawls all of them, wastes crawl budget, and dilutes ranking signals. Audit your URL structure and ensure every parameter-generated URL either has a canonical pointing to the clean URL, or is blocked from indexing entirely.
-</Callout>
+**Wix - structured data and technical overhaul, 2023-2024.** Wix invested heavily in technical SEO improvements including structured data implementation, crawl optimization, and Core Web Vitals improvements. Their organic traffic doubled within 12 months. The lesson: even a platform known primarily for its design templates competes and wins on technical fundamentals.
 
-<Callout type="tip">
-**Render pages server-side for your most important content.** Rather than waiting to see if Google renders your JavaScript correctly, use server-side rendering or static generation for product pages, blog posts, and landing pages. Reserve client-side rendering for features that don't need to rank — dashboards, user account areas, and app functionality. This is the single highest-leverage technical SEO decision you can make for a JavaScript-heavy site.
-</Callout>
+**HubSpot - a cautionary tale, 2024.** HubSpot's monthly organic visits dropped from approximately 13.5 million to under 7 million between November and December 2024 - a 70-80% decline. Google's March 2024 core update devalued content that was loosely related to a site's core expertise. While this was partly a content issue, it illustrates how technical site architecture (how pages are categorized, linked, and signaled to Google) directly affects what Google thinks your site is "about."
+
+## HTTPS: The Baseline Requirement
+
+HTTPS encrypts data between your server and your visitors' browsers. Google confirmed it as a ranking factor in 2014. As of 2025, 88% of websites use HTTPS (W3Techs). If your site still uses HTTP, that is the single most important technical fix to make today.
+
+Beyond rankings, browsers now actively warn users when they visit non-HTTPS sites. That warning alone kills trust and conversions.
+
+## Practical Technical SEO Checklist
+
+Work through these in order - the earlier items have more leverage:
+
+1. Confirm robots.txt is not blocking important pages
+2. Submit an XML sitemap to Google Search Console
+3. Check that no important pages have `noindex` tags accidentally
+4. Add canonical tags to all pages, especially filtered or parameter-based URLs
+5. Migrate to HTTPS if not already done
+6. Fix broken links (4xx errors) found in Google Search Console
+7. Resolve excessive redirect chains (more than 2-3 hops)
+8. Check Core Web Vitals in PageSpeed Insights for your top 10 pages
+9. Add schema markup to key page types (articles, products, FAQs)
+10. Test JavaScript rendering with Google's URL Inspection tool
+
+<Mermaid chart={`
+mindmap
+  root((Technical SEO))
+    Crawlability
+      Internal links
+      Server errors
+      Crawl budget
+    Indexability
+      noindex tags
+      robots.txt
+      Canonical tags
+    Performance
+      Core Web Vitals
+      LCP under 2.5s
+      INP under 200ms
+    JavaScript
+      Server-side render
+      Static generation
+      JS audits
+    Structured Data
+      Schema markup
+      Rich results
+      JSON-LD format
+    Security
+      HTTPS
+      Secure headers
+`} />
 
 ## The One-Line Takeaway
 
-**Technical SEO ensures search engines can reach, read, and trust your pages — without it, everything else you do for SEO is built on sand.**
+**Technical SEO is the permission slip that lets all your other SEO work actually count - Google cannot rank what it cannot reach.**
 
 <ResourceList resources={[
   {
-    title: "Google Search Central: Technical SEO Documentation",
+    title: "Google Search Central: Crawling and Indexing Documentation",
     url: "https://developers.google.com/search/docs/crawling-indexing",
     type: "docs",
-    note: "The authoritative reference for crawling, indexing, sitemaps, robots.txt, and canonicals — straight from Google. Free and regularly updated.",
-    free: true
+    note: "The primary reference for robots.txt, sitemaps, canonicals, and JavaScript rendering - straight from Google. Free and updated regularly.",
+    free: true,
   },
   {
-    title: "Ahrefs: Technical SEO Guide",
+    title: "Ahrefs: Complete Technical SEO Guide",
     url: "https://ahrefs.com/blog/technical-seo",
     type: "article",
-    note: "A comprehensive walkthrough of every major technical SEO area with practical examples, covering site architecture, crawlability, and JavaScript SEO.",
-    free: true
+    note: "One of the most thorough written guides available. Covers every major technical SEO area with practical examples and screenshots.",
+    free: true,
   },
   {
-    title: "Moz: Technical SEO Basics",
+    title: "Google PageSpeed Insights",
+    url: "https://pagespeed.web.dev",
+    type: "tool",
+    note: "Free tool from Google. Paste any URL to get your Core Web Vitals scores and a prioritized list of performance fixes.",
+    free: true,
+  },
+  {
+    title: "Screaming Frog SEO Spider (Free version)",
+    url: "https://www.screamingfrog.co.uk/seo-spider/",
+    type: "tool",
+    note: "Desktop crawler that audits up to 500 URLs for free. Finds broken links, missing tags, redirect chains, and duplicate content in minutes.",
+    free: true,
+  },
+  {
+    title: "Moz: Technical SEO Beginner's Guide",
     url: "https://moz.com/beginners-guide-to-seo/technical-seo",
     type: "article",
-    note: "Part of Moz's Beginner's Guide, this section explains the core technical concepts clearly and is a solid starting point before moving to advanced topics.",
-    free: true
+    note: "Clear, jargon-free introduction to core technical SEO concepts. A solid starting point before moving to more advanced topics.",
+    free: true,
   },
-
-  { title: "WsCube Tech - Technical SEO (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
+  {
+    title: "Backlinko: Technical SEO - The Definitive Guide",
+    url: "https://backlinko.com/technical-seo",
+    type: "article",
+    note: "Brian Dean's comprehensive guide covering crawlability, page speed, schema, and mobile SEO with real examples and action steps.",
+    free: true,
+  },
+  {
+    title: "Google Search Console (official tool)",
+    url: "https://search.google.com/search-console",
+    type: "tool",
+    note: "Free tool from Google showing which pages are indexed, crawl errors, Core Web Vitals data, and manual penalties. Essential for any site owner.",
+    free: true,
+  },
+  { title: "WsCube Tech - Technical SEO (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
   { title: "Mr Digital Marketing Tamil - Technical SEO", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
-  { title: "ODMT Telugu - Technical SEO (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+  { title: "ODMT Telugu - Technical SEO (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
 ]} />
 
 ## Related Concepts
 
-- [How Search Works](/learn/seo/how-search-works) — Understanding crawling and indexing at a conceptual level makes every technical SEO decision clearer.
-- [Core Web Vitals](/learn/seo/core-web-vitals) — Google's performance metrics are a direct extension of technical SEO; page speed and stability are ranking factors.
-- [On-Page SEO](/learn/seo/on-page-seo) — Once technical SEO ensures your pages are crawlable and indexed, on-page SEO optimizes what those pages say to rank for the right queries.
+- [How Search Works](/learn/seo/how-search-works) - Understanding crawling and indexing at a conceptual level makes every technical SEO decision clearer.
+- [Core Web Vitals](/learn/seo/core-web-vitals) - Google's performance metrics are a direct extension of technical SEO; page speed and stability are ranking factors.
+- [On-Page SEO](/learn/seo/on-page-seo) - Once technical SEO ensures your pages are crawlable and indexed, on-page SEO optimizes what those pages say to rank for the right queries.

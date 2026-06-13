@@ -11,97 +11,195 @@ export const lessonMeta = {
 
 ## What It Is
 
-When you type something into Google and hit enter, results appear in under a second. It feels instant and magical, but behind it is a massive machine that has been quietly doing three distinct jobs around the clock: crawling the web, storing what it finds, and deciding what order to show it to you. Understanding these three stages is the foundation of everything in SEO.
+When you type something into Google and hit Enter, results appear in under a second. It feels instant and magical. But behind it is a massive machine that has been doing three distinct jobs around the clock: crawling the web, storing what it finds, and deciding what order to show it to you. Understanding these three stages is the foundation of everything in SEO.
 
-Crawling is how search engines discover content. Google runs automated programs called crawlers (also known as spiders or bots) that follow links from page to page across the entire internet. Think of it like a postal worker who reads every sign on every street, then follows any new street they spot. When the crawler visits your page, it reads the text, notes the links, and moves on. If no pages link to yours, the crawler may never find it at all.
+## Quick Summary
 
-Once a page is crawled, Google decides whether to add it to its index — a massive database of hundreds of billions of web pages. Indexing is essentially filing the page so it can be retrieved later. Not every crawled page gets indexed; Google skips duplicate content, thin pages, pages blocked by technical settings, and pages it deems low-quality. Only indexed pages can appear in search results. After indexing comes ranking: when someone searches, Google's algorithm evaluates all the relevant indexed pages and sorts them by estimated usefulness, relevance, and trustworthiness. Hundreds of signals go into that ranking, but crawling and indexing must happen first — no page skips the queue.
-
-## Real-World Example
-
-Airbnb's SEO team noticed in 2014 that millions of people were searching for location-specific terms like "apartments in Paris" or "houses near Central Park" — but Airbnb's pages weren't ranking for them. The problem wasn't content quality; it was that the pages weren't structured in a way Googlebot could easily crawl and understand. By rebuilding their URL structure, adding city and neighborhood landing pages, and fixing crawl-blocking JavaScript rendering issues, Airbnb made their inventory visible to Google's index for the first time at scale.
-
-<Callout type="example" title="Real Example">
-Airbnb restructured over 100,000 location landing pages between 2014 and 2016 to be crawlable and properly indexed. The result was a reported 2-3x increase in organic search traffic to those destination pages, with some city pages reaching position 1–3 for high-intent travel queries — traffic that had previously been invisible to Google entirely.
-</Callout>
+- Google discovers pages by following links with automated programs called crawlers (also called spiders or bots)
+- Only pages that pass Google's quality filters get stored in its index - a database of hundreds of billions of pages
+- Ranking happens in real time when you search - Google scores every relevant indexed page against 200+ signals in milliseconds
+- A page that no other page links to is called an "orphan page" and crawlers rarely find it
+- As of 2023, 96.55% of published pages on the internet get zero organic traffic from Google (Ahrefs study of 1 billion+ pages)
 
 ## Why It Matters
 
-Understanding the crawl-index-rank pipeline tells you exactly where things can go wrong and where to focus your effort.
+Understanding the crawl-index-rank pipeline tells you exactly where things can go wrong.
 
-- When your new page isn't showing up in Google after weeks, it's likely a crawl or indexing problem — not a ranking problem.
-- When you're doing a site audit, knowing which pages are indexed (versus just published) tells you whether Google is even seeing your work.
-- When you're planning a content strategy, understanding that Google ranks indexed pages by relevance and authority shapes how you write and structure everything.
-- When you redesign your site, poor crawl setup can accidentally block Google from re-indexing your pages, wiping out rankings overnight.
+- When your new page does not show up in Google after weeks, it is likely a crawl or indexing problem, not a ranking problem
+- When you audit a site, knowing which pages are indexed (versus just published) tells you whether Google is even seeing your work
+- When you plan a content strategy, knowing that Google ranks by relevance and authority shapes how you write and structure everything
+- When you redesign your site, a poor crawl setup can accidentally block Google from re-indexing pages and wipe out rankings overnight
+
+<Callout type="info">
+Google holds approximately 91.43% of the global search engine market as of 2024 (Statcounter). If you learn how Google works, you understand how most of the search market works.
+</Callout>
 
 ## How It Works
 
-The process starts before you even publish. Googlebot discovers URLs from sitemaps you submit, from links on other sites, and from internal links within your own site. It follows a crawl budget — a rough limit on how many pages it will crawl on your site per day — so sprawling sites with thousands of thin pages can find that important pages are being crawled infrequently or skipped.
+### Stage 1: Crawling
 
-After crawling, Google's systems render the page (executing any JavaScript needed to display content), extract the text and metadata, and assess signals like content freshness, the quality of inbound links, and mobile-friendliness. This processed information gets stored in the index with a fingerprint of what the page is about. Pages that are near-duplicates of others may be clustered, with Google picking one "canonical" version to represent the group in search results.
+Crawling is how search engines discover content. Google runs automated programs called **crawlers** (also known as spiders or bots) that follow links from page to page across the internet. Think of it like a postal worker who reads every sign on every street, then follows any new street they spot.
 
-Ranking happens in real time when a user searches. Google's algorithm matches the query to indexed content, evaluates hundreds of ranking signals — including keyword relevance, page experience, backlink authority, and freshness — and assembles the results page. The top result for a competitive query has typically earned that position through a combination of excellent on-page relevance, strong links from trusted sites, and a track record of satisfying searchers.
+When Googlebot (Google's main crawler) visits your page, it reads the text, notes the links, and moves on. If no other pages link to yours, the crawler may never find it at all.
+
+Google also allocates a **crawl budget** to each site: a rough limit on how many pages Googlebot will crawl per day. Sites with thousands of low-quality or duplicate pages can find that important pages get crawled infrequently, or skipped entirely. This is why keeping your site lean and well-linked matters.
+
+Key facts about crawling:
+- Googlebot has a 15 MB page size limit - content beyond that is ignored
+- Google switched to **mobile-first indexing** in 2019, meaning it crawls and indexes the mobile version of your page by default
+- Googlebot now uses HTTP/2, which lets it fetch multiple resources more efficiently
+
+### Stage 2: Indexing
+
+Once a page is crawled, Google decides whether to add it to its **index**: a massive database of hundreds of billions of web pages. Indexing is essentially filing the page so it can be retrieved later.
+
+Not every crawled page gets indexed. Google skips:
+- Duplicate or near-duplicate content
+- Thin pages with little useful information
+- Pages blocked by `robots.txt` or a `noindex` tag
+- Pages it deems low-quality or spammy
+
+Only indexed pages can appear in search results. Publishing a page does not mean Google will index it.
+
+### Stage 3: Ranking
+
+Ranking happens in real time when someone searches. Google's algorithm evaluates all relevant indexed pages and sorts them by estimated usefulness, relevance, and trustworthiness. Google weighs pages against 200+ ranking signals before displaying results.
+
+Key ranking signals include:
+- **Keyword relevance**: Does the page match what the searcher typed?
+- **Backlink authority**: Do trusted sites link to this page?
+- **Page experience**: Is the page fast, mobile-friendly, and secure (HTTPS)?
+- **Content quality**: Is the content accurate, in-depth, and up to date?
+- **Search intent match**: Does the page give the user what they actually wanted?
 
 <Mermaid chart={`
 flowchart LR
-  A[Your Page Published] --> B[Googlebot Discovers URL]
+  A[Page Published] --> B[Googlebot Discovers URL]
   B --> C{Crawl Allowed?}
-  C -- No --> D[Page Invisible to Google]
+  C -- No --> D[Invisible to Google]
   C -- Yes --> E[Page Crawled & Rendered]
   E --> F{Worth Indexing?}
   F -- No --> G[Excluded from Index]
-  F -- Yes --> H[Added to Google Index]
-  H --> I[Ranked When Query Matches]
-  I --> J[Appears in Search Results]
-`} caption="The three-stage pipeline every page must pass through: crawl, index, then rank." />
+  F -- Yes --> H[Added to Index]
+  H --> I[Ranked for Matching Queries]
+  I --> J[Appears in Results]
+`} caption="Every page must survive all three stages: crawl, index, then rank." />
+
+## Real-World Examples
+
+### Airbnb: From Invisible to #1
+
+Airbnb's SEO team discovered in 2014 that millions of people searched for location-specific terms like "apartments in Paris" or "houses near Central Park" - but Airbnb's pages were not ranking. The problem was not content quality. The pages were not structured in a way Googlebot could crawl and understand.
+
+By rebuilding their URL structure, creating crawlable city and neighborhood landing pages, and fixing JavaScript rendering issues that blocked Googlebot, Airbnb made their entire inventory visible to Google's index for the first time at scale. Between 2014 and 2016, they restructured over 100,000 location landing pages. The result was a reported 2-3x increase in organic search traffic to those destination pages, with some city pages reaching positions 1-3 for high-intent travel queries.
+
+<Callout type="example">
+**The lesson from Airbnb:** You can have excellent content that nobody sees because crawlers cannot access it. Fixing crawlability is often the highest-leverage SEO action a growing site can take - before writing a single new word.
+</Callout>
+
+### HubSpot: The Compound Effect of Indexing Discipline
+
+HubSpot publishes thousands of blog posts and pillar pages. In 2019, they ran an experiment: they audited all their low-traffic posts and either updated, merged, or removed them. By consolidating thin and outdated content, they reduced the number of indexed pages but dramatically improved the average quality of what remained. The result was a 106% increase in organic traffic to their blog within a year. Quality of indexed pages mattered far more than quantity.
 
 ## Common Mistakes
 
 <Callout type="warning">
-**Blocking Google while building your site.** Many developers add a "noindex" tag or block crawlers in `robots.txt` during staging, then forget to remove it at launch. Google won't index a page that tells it to stay out — and the tag is easy to overlook post-launch. Always check your live site with Google Search Console's URL Inspection tool after launch.
+**Blocking Google while building your site.** Many developers add a `noindex` tag or block crawlers in `robots.txt` during staging, then forget to remove it at launch. Google will not index a page that tells it to stay out. Always check your live site with Google Search Console's URL Inspection tool after launch.
 </Callout>
 
 <Callout type="warning">
-**Assuming published means indexed.** Publishing a page does not guarantee Google will crawl or index it, especially on new sites or pages with no internal links pointing to them. A page that no other page links to is called an "orphan page" — crawlers rarely find them. Always link to new content from somewhere already indexed on your site.
+**Assuming published means indexed.** Publishing a page does not guarantee Google will crawl or index it. A page that no other page links to is called an "orphan page" - crawlers rarely find them. Always link to new content from somewhere already indexed on your site.
 </Callout>
 
 <Callout type="tip">
-**Submit a sitemap and request indexing proactively.** Experts don't wait for Googlebot to wander in. They submit an XML sitemap via Google Search Console and use the URL Inspection tool to request indexing for important new pages immediately. For large sites, they also audit crawl budget by checking which pages Googlebot visits most — and whether it's wasting time on low-value URLs like faceted navigation or thin tag pages.
+**Submit a sitemap and request indexing proactively.** Do not wait for Googlebot to wander in. Submit an XML sitemap via Google Search Console and use the URL Inspection tool to request indexing for important new pages immediately. For large sites, audit your crawl budget by checking which pages Googlebot visits most - and whether it is wasting time on low-value URLs like faceted navigation or thin tag pages.
 </Callout>
+
+## How Search Has Changed in 2024-2025
+
+Search results are no longer just ten blue links. Google now shows:
+
+- **AI Overviews**: AI-generated summaries that appear above all other results for many queries
+- **People Also Ask**: Expandable question-and-answer boxes pulled from indexed content
+- **Knowledge Panels**: Fact boxes about brands, people, and places
+- **Featured Snippets**: A single answer box taken from a specific page
+
+This means ranking #1 no longer guarantees the most clicks. For many queries, users get answers directly on the results page without clicking through. Understanding this helps you target the right kinds of queries and structure content so Google can extract and feature it.
+
+<Mermaid chart={`
+flowchart TD
+  Q[User Types a Query] --> A[AI Overviews]
+  Q --> B[Featured Snippet]
+  Q --> C[Knowledge Panel]
+  Q --> D[Top 10 Blue Links]
+  Q --> E[People Also Ask]
+  A --> F[User May Not Click Through]
+  B --> F
+  C --> F
+  D --> G[User Clicks to Your Site]
+  E --> G
+`} caption="Modern search results include multiple answer formats before the traditional blue links." />
 
 ## The One-Line Takeaway
 
-**Before Google can rank your page, it must first find it and file it — and either step can silently fail without you knowing.**
+**Before Google can rank your page, it must first find it and file it - and either step can silently fail without you ever knowing.**
 
 <ResourceList resources={[
   {
-    title: "How Search Works — Google Search Central",
+    title: "How Search Works - Google Search Central",
     url: "https://developers.google.com/search/docs/fundamentals/how-search-works",
     type: "docs",
-    note: "Google's own explanation of crawling, indexing, and ranking — the most authoritative source available, free.",
-    free: true
+    note: "Google's own explanation of crawling, indexing, and ranking. The most authoritative source available, completely free.",
+    free: true,
   },
   {
-    title: "Beginner's Guide to SEO — Moz",
-    url: "https://moz.com/beginners-guide-to-seo",
-    type: "course",
-    note: "Chapter 2 covers how search engines work in depth, with clear diagrams. A classic reference for building foundational knowledge.",
-    free: true
-  },
-  {
-    title: "How Do Search Engines Work? — Ahrefs Blog",
+    title: "How Do Search Engines Work? - Ahrefs Blog",
     url: "https://ahrefs.com/blog/how-do-search-engines-work",
     type: "article",
-    note: "Practical breakdown of crawling, indexing, and ranking signals with actionable takeaways for each stage.",
-    free: true
+    note: "Practical breakdown of all three stages with actionable takeaways. Part of Ahrefs' free 10-part SEO learning series.",
+    free: true,
   },
-
-  { title: "WsCube Tech - How Search Engines Actually Work (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
+  {
+    title: "Beginner's Guide to SEO - Moz",
+    url: "https://moz.com/beginners-guide-to-seo",
+    type: "course",
+    note: "Chapter 2 covers how search engines work with clear diagrams. A classic reference for building foundational knowledge.",
+    free: true,
+  },
+  {
+    title: "How Search Engines Work (Interactive) - Google",
+    url: "https://www.google.com/search/howsearchworks/",
+    type: "article",
+    note: "Google's public-facing interactive guide. Great visual introduction to the crawl-index-rank process for total beginners.",
+    free: true,
+  },
+  {
+    title: "Crawl Budget Management - Google Search Central",
+    url: "https://developers.google.com/search/docs/crawling-indexing/large-site-managing-crawl-budget",
+    type: "docs",
+    note: "Official Google documentation on how crawl budget works and how to optimize it for larger sites.",
+    free: true,
+  },
+  {
+    title: "SEO Fundamentals Course - Ahrefs Academy",
+    url: "https://ahrefs.com/academy/seo-training-course",
+    type: "course",
+    note: "Free video course covering how search engines work, keyword research, and on-page SEO. No account required to watch.",
+    free: true,
+  },
+  {
+    title: "Google Search Console - URL Inspection Tool",
+    url: "https://search.google.com/search-console/",
+    type: "tool",
+    note: "Free tool from Google. Use it to check whether any page on your site is crawled, indexed, and eligible to rank.",
+    free: true,
+  },
+  { title: "WsCube Tech - How Search Engines Actually Work (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
   { title: "Mr Digital Marketing Tamil - How Search Engines Actually Work", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
-  { title: "ODMT Telugu - How Search Engines Actually Work (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+  { title: "ODMT Telugu - How Search Engines Actually Work (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
 ]} />
 
 ## Related Concepts
-- [Keyword Research](/learn/seo/keyword-research) — Ranking starts with knowing which queries to target; crawling and indexing only pay off if your pages match what searchers actually type.
-- [Technical SEO](/learn/seo/technical-seo) — The discipline dedicated to making sure crawlers can find, access, and understand every page on your site.
-- [On-Page SEO](/learn/seo/on-page-seo) — Once Google indexes your page, on-page signals are the primary lever for improving where it ranks.
+- [Keyword Research](/learn/seo/keyword-research) - Ranking starts with knowing which queries to target; crawling and indexing only pay off if your pages match what searchers actually type.
+- [Technical SEO](/learn/seo/technical-seo) - The discipline dedicated to making sure crawlers can find, access, and understand every page on your site.
+- [On-Page SEO](/learn/seo/on-page-seo) - Once Google indexes your page, on-page signals are the primary lever for improving where it ranks.
