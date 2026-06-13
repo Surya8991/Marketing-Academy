@@ -1,0 +1,112 @@
+export const lessonMeta = {
+  title: "Default Bias: How Pre-Selected Options Drive Decisions",
+  level: "Intermediate",
+  summary: "Learn how default options shape behaviour at scale, and how marketers use this cognitive shortcut to increase opt-ins, reduce friction, and lift conversions.",
+};
+
+# Default Bias: How Pre-Selected Options Drive Decisions
+
+People tend to accept whatever option is pre-selected for them. This is default bias - the well-documented tendency to stick with the status quo rather than make an active choice. For marketers, defaults are one of the highest-leverage levers available.
+
+## What the Research Shows
+
+A landmark NBER 2024 study on automatic 401(k) enrollment found that switching from opt-in to opt-out raised employee participation from **37% to 86%** - a 49-point lift with no change in benefits or incentives.
+
+The company-level numbers are even more striking:
+
+- **HP**: participation climbed from under 50% to **98%** after automatic enrollment
+- **McDonald's**: reached **95%** participation, up from a much lower baseline
+
+Nothing changed about the plan itself. The only variable was which option required action. When saving became the default, almost everyone saved.
+
+## Why Defaults Work
+
+Default bias operates through three overlapping mechanisms:
+
+1. **Status quo preference** - changing the default requires effort; inaction feels safe
+2. **Implied endorsement** - people assume whoever set the default had a reason, so the pre-selected option feels trustworthy
+3. **Cognitive load reduction** - under uncertainty, accepting the default is the easiest decision
+
+These forces combine to make defaults disproportionately sticky. Even users who notice a pre-ticked checkbox often leave it alone.
+
+## The Default Decision Flow
+
+<Mermaid chart={`graph TD
+    A[User encounters choice] --> B{Is a default set?}
+    B -- No --> C[User must evaluate all options actively]
+    B -- Yes --> D[Default option is highlighted]
+    D --> E{Does user notice?}
+    E -- No --> F[Default accepted automatically]
+    E -- Yes --> G{Does user have strong preference?}
+    G -- No --> H[Default accepted - effort avoided]
+    G -- Yes --> I[User actively changes option]
+    C --> J[Higher drop-off or abandonment]
+    F --> K[Conversion complete]
+    H --> K
+    I --> K
+`} />
+
+## Marketing Applications
+
+### Email and Notification Opt-ins
+
+Pre-ticking the newsletter checkbox or pre-enabling push notifications significantly raises opt-in rates. This is widely used in e-commerce checkout flows.
+
+One important note: GDPR and CASL explicitly prohibit pre-ticked consent boxes for marketing emails in covered jurisdictions. The default must be unchecked where consent laws apply.
+
+### Pricing and Plan Selection
+
+SaaS products routinely highlight a mid-tier plan as "recommended" or pre-select it in the plan picker. Users who see the $49/month plan already selected are more likely to purchase it than users who land on the $29/month plan. The default creates an anchor.
+
+### Product Configuration
+
+When users build or configure a product - a laptop, a meal kit box, an insurance policy - defaults for add-ons and upgrades determine what ends up in the cart. Thoughtful defaults can increase average order value without aggressive upselling.
+
+### Subscription Renewal
+
+Auto-renewal is the default in most subscription models. Cancellation requires deliberate action. This is default bias applied directly to retention.
+
+<Callout type="example">
+**HP and McDonald's: From 50% to 98%**
+
+When HP and McDonald's switched their 401(k) plans to automatic enrollment, participation did not nudge up a few points - it nearly doubled or more. HP went from under 50% to 98%. McDonald's reached 95%. These are not soft improvements; they are structural shifts driven entirely by which option required action. The employees, the plan terms, and the company match all stayed the same. Only the default changed.
+</Callout>
+
+<Callout type="warning">
+**Common mistake: Setting self-serving defaults that erode trust**
+
+Defaults work because users assume they reflect a reasonable recommendation. When a default is obviously designed to extract money or data rather than serve the user - burying an opt-out for third-party data sharing, pre-selecting the most expensive plan with no rationale - users who notice feel manipulated. The short-term conversion lift is real; so is the long-term damage to trust and brand perception. Set defaults that you could defend publicly.
+</Callout>
+
+<Callout type="tip">
+Test your defaults. Run an A/B experiment comparing your current default against the next-most-logical option. Default effects are highly context-dependent: the "right" default for a B2B SaaS plan picker may be wrong for a consumer checkout flow.
+</Callout>
+
+## How to Apply This in Your Work
+
+1. **Audit every choice point in your funnel** - identify which options are currently defaulted and whether they align with user intent and your business goal
+2. **Set defaults to the most common desired outcome** - if 70% of users who complete onboarding choose weekly emails, make weekly the default
+3. **Reduce friction for the path you want** - the default should require zero extra clicks; the alternative should require one
+4. **Document your defaults as a team decision** - avoids drift where individual developers quietly change defaults without anyone noticing
+5. **Pair defaults with transparency** - label the default clearly ("Recommended" or "Most popular") so users who want to customise can see what they are changing
+
+## Related Concepts
+
+Default bias is one application of **status quo bias**, which itself sits within the broader category of **choice architecture** - the design of environments in which people make decisions. Richard Thaler and Cass Sunstein's work on "nudge theory" formalised how defaults can be used to guide behaviour without restricting options.
+
+Other cognitive biases that interact with defaults:
+- **Anchoring** - the default sets a reference point that influences evaluation of alternatives
+- **Loss aversion** - changing the default feels like giving something up
+- **Decision fatigue** - later in a session, users are more likely to accept defaults
+
+<ResourceList resources={[
+  { title: "Nudge: Improving Decisions About Health, Wealth, and Happiness - Thaler and Sunstein", url: "https://www.amazon.com/Nudge-Improving-Decisions-Health-Happiness/dp/014311526X", type: "article", free: false },
+  { title: "NBER Working Paper: Automatic Enrollment and 401(k) Participation", url: "https://www.nber.org/papers/w10132", type: "article", free: true },
+  { title: "Choice Architecture - The Decision Lab", url: "https://thedecisionlab.com/reference-guide/psychology/choice-architecture", type: "article", free: true },
+  { title: "Default Effects and the Opt-in/Opt-out Decision - BehavioralEconomics.com", url: "https://www.behavioraleconomics.com/resources/mini-encyclopedia-of-be/default-effect/", type: "article", free: true },
+  { title: "How Defaults Shape Behaviour - Coursera Behavioural Finance", url: "https://www.coursera.org/learn/behavioral-finance", type: "course", free: false },
+  { title: "CXL: How to Use Default Bias to Increase Conversions", url: "https://cxl.com/blog/default-effect/", type: "article", free: true },
+  { title: "Marketers Mind (Hindi) - Cognitive Biases in Marketing", url: "https://www.youtube.com/@MarketersMind", type: "video", free: true },
+  { title: "Digital Marketing Tamil - Consumer Psychology Series", url: "https://www.youtube.com/@digitalmarketingtamil", type: "video", free: true },
+  { title: "Marketing Fundas Telugu - Behavioural Marketing", url: "https://www.youtube.com/@MarketingFundasTelugu", type: "video", free: true },
+]} />

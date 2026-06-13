@@ -1,0 +1,83 @@
+export const lessonMeta = {
+  title: "Two-Sided Marketplaces",
+  level: "Advanced",
+  summary: "The chicken-and-egg problem - and how Uber, Airbnb, and Etsy solved it.",
+};
+
+# Two-Sided Marketplaces
+
+## What It Is
+
+A two-sided marketplace is a platform that connects two distinct groups of users - typically buyers and sellers - and creates value by letting them interact. The platform itself does not own the product or service being exchanged. Instead, it facilitates the transaction and earns a fee, subscription, or commission for doing so.
+
+Examples include Uber (riders and drivers), Airbnb (guests and hosts), Etsy (shoppers and artisans), and Upwork (clients and freelancers). Each platform has two very different user groups with very different needs, and the platform has to serve both simultaneously.
+
+The defining challenge is called the chicken-and-egg problem: buyers won't join if there are no sellers, and sellers won't join if there are no buyers. Cracking this problem is the hardest part of building a marketplace - and the reason most fail in the first year.
+
+## Real-World Example
+
+Airbnb launched in 2008 during the Democratic National Convention in Denver, Colorado. The founding team had three air mattresses and a website. They targeted a specific moment - a city with no hotel rooms available - to attract their first hosts. By 2024, Airbnb had over 7 million active listings across 220 countries, and the global sharing economy it helped pioneer was valued at $366 billion (PlatformExecutive, 2024).
+
+<Callout type="example">
+**Airbnb: Solving the Chicken-and-Egg Problem**
+
+Airbnb did not try to launch everywhere at once. They focused on specific cities where demand was guaranteed - large events with hotel shortages. They also went door-to-door in New York in 2009 to help hosts improve their listings with professional photography. This supply-side investment paid off: better listings attracted more guests, which attracted more hosts. They cracked the loop by starting small and going deep.
+</Callout>
+
+## Why It Matters
+
+Two-sided marketplaces are one of the most defensible business models in tech. Once network effects kick in - where each new user makes the platform more valuable for everyone else - it becomes very hard for a competitor to displace you.
+
+As of 2024, over 60% of Amazon's retail sales come from third-party sellers. That is not a retailer - that is a marketplace. The distinction matters because marketplace revenues scale without proportional cost increases. You do not need to buy more inventory when you add more sellers.
+
+For marketers, understanding marketplace dynamics is critical for two reasons. First, if you are building a marketplace, you need a growth strategy that sequences supply and demand correctly. Second, if you are selling through a marketplace (Amazon, Etsy, Upwork), you are operating inside someone else's two-sided system - and understanding the rules of that system changes how you compete.
+
+## How It Works
+
+The core framework for launching a two-sided marketplace has four stages: seed one side, attract the other side, create a feedback loop, and enforce quality to sustain it.
+
+<Mermaid chart={`flowchart TD
+  A[Seed Supply Side - Recruit sellers, hosts, or providers first] --> B[Attract Demand Side - Bring in buyers or consumers]
+  B --> C[First Transactions - Value is exchanged on platform]
+  C --> D[Network Effect Kicks In - More supply attracts more demand]
+  D --> E[Feedback Loop - More demand attracts more supply]
+  E --> F[Quality Enforcement - Reviews, trust signals, moderation]
+  F --> D`} />
+
+**Stage 1 - Seed the supply side.** Most successful marketplaces start by manually recruiting one side. Uber hired drivers directly before the app launched publicly. Etsy targeted craft fairs to sign up sellers before buyers arrived.
+
+**Stage 2 - Attract the demand side.** Once supply exists, you can credibly promise buyers that the platform has something for them. An empty marketplace converts no one.
+
+**Stage 3 - Trigger the first transactions.** The first successful exchange is everything. It validates the platform for both sides and generates reviews or social proof.
+
+**Stage 4 - Enforce quality.** As the marketplace grows, quality control becomes the moat. Platforms that allow bad actors or poor quality listings lose trust on both sides. Etsy's seller review system and Airbnb's host ratings both serve this function.
+
+## Common Mistakes
+
+<Callout type="warning">
+**The most common mistake: trying to grow both sides at the same time.**
+
+New marketplace founders often run campaigns targeting buyers and sellers simultaneously. This produces a thin, unconvincing supply that cannot convert buyers, and wasted ad spend on sellers who see no traffic. Instead, pick one side - usually supply - and nail it first. Do not open demand-side marketing until the supply side can actually deliver. Uber did this city by city. Airbnb did it event by event. Spreading too thin too early is how most marketplaces stall and die.
+</Callout>
+
+<Callout type="tip">
+**Subsidize the harder side to break the deadlock.**
+
+Often one side of the market is harder to recruit than the other. Uber subsidized drivers with guaranteed hourly minimums in new cities. Airbnb offered free professional photography to hosts. Identify which side of your market has higher friction and reduce that friction directly - through cash, tools, or hands-on support. This subsidy is a temporary cost to unlock a permanent network effect.
+</Callout>
+
+## The One-Line Takeaway
+
+**Build one side of the marketplace first, make it so good the other side has no reason to look elsewhere, then ignite the loop.**
+
+<ResourceList resources={[
+  { title: "Sharetribe: The Complete Guide to Building a Two-Sided Marketplace", url: "https://www.sharetribe.com/how-to-build/two-sided-marketplace/", type: "article", free: true, note: "Comprehensive practical guide covering all stages of marketplace growth" },
+  { title: "FourWeekMBA: The Framework to Build a Successful Two-Sided Marketplace", url: "https://fourweekmba.com/two-sided-marketplace/", type: "article", free: true, note: "Business model deep-dive with framework diagrams" },
+  { title: "PlatformExecutive: Two-Sided Online Marketplace Ecosystem Dynamics 2025-2030", url: "https://www.platformexecutive.com/insight/technology-research/two-sided-online-marketplace-ecosystem-dynamics-2025-2030/", type: "article", free: true, note: "Research report with market size data and trends" },
+  { title: "a16z: All About Network Effects", url: "https://a16z.com/network-effects-book/", type: "article", free: true, note: "Andreessen Horowitz deep-dive on the network effects that power marketplace growth" },
+  { title: "How Airbnb and Uber Solved the Chicken-and-Egg Problem", url: "https://www.journeyh.io/blog/marketing-marketplace-strategy", type: "article", free: true, note: "Case study on seeding supply and demand in two-sided markets" },
+  { title: "Y Combinator: How to Build a Marketplace", url: "https://www.youtube.com/watch?v=qAOa0N_IG9Q", type: "video", lang: "en", free: true, note: "YC partners on launching and scaling marketplace startups" },
+  { title: "WsCube Tech - Two-Sided Marketplaces (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - Two-Sided Marketplaces", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Two-Sided Marketplaces (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

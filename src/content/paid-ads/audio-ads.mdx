@@ -1,0 +1,83 @@
+export const lessonMeta = {
+  title: "Audio Advertising",
+  level: "Advanced",
+  summary: "Podcast ads, Spotify, streaming audio - buying ears in the audio-first era.",
+};
+
+# Audio Advertising
+
+## What It Is
+
+Audio advertising is paid promotion delivered through sound: podcast sponsorships, streaming music ads on Spotify or Pandora, digital radio spots, and smart speaker placements. Unlike display or video ads, audio ads reach people when their eyes are occupied - commuting, working out, cooking, or driving.
+
+The audio ad market has grown sharply. Digital audio ad revenues hit $7.6 billion in 2024, up 8.5% year over year (IAB / PwC Internet Advertising Revenue Report, 2024). Podcast advertising alone grew 26.4% in the same period, making it one of the fastest-growing ad formats in digital marketing.
+
+There are two main formats. Host-read ads are recorded by the podcast host in their own voice and style - they feel like a personal recommendation. Programmatic audio ads are served dynamically by ad platforms, similar to how display ads work, and can be targeted by location, device, or behavior in real time.
+
+## Real-World Example
+
+In 2023, Squarespace ran a multi-year podcast sponsorship strategy across hundreds of shows. Their host-read mid-roll ads consistently appeared on tech, design, and business podcasts. By 2024, Squarespace ranked among the top five podcast advertisers by spend in the US, and the company attributed a measurable lift in brand recall among the 25-44 age group directly to the audio channel. Their approach relied on giving hosts a creative brief but letting them speak naturally, which drove higher conversion than pre-produced spots.
+
+<Callout type="example">
+Squarespace invested heavily in host-read podcast ads from 2020 through 2024, sponsoring shows across comedy, business, and design categories. They provided hosts with a short creative brief and a discount code, then let each host deliver the ad in their own words. This approach produced brand recall rates roughly 4-5 times higher than standard display ads, according to Nielsen Audio brand lift studies cited in their investor materials.
+</Callout>
+
+## Why It Matters
+
+Audio advertising solves a specific problem: reaching high-intent, attentive audiences who are impossible to reach via screens. A commuter wearing headphones cannot see a banner ad. A runner cannot click a Facebook post. But both can hear a 60-second ad.
+
+Podcasts especially deliver a deeply loyal audience. Listeners choose specific shows on purpose and often listen to the full episode - unlike social video, where 70% of viewers skip ads in the first five seconds. That attention gap makes audio disproportionately valuable for:
+
+- B2B brands targeting professionals who listen to industry podcasts
+- D2C brands selling products that benefit from storytelling (health, finance, home goods)
+- Brands building awareness in new markets where visual channels are already saturated
+
+Spotify's programmatic audio network adds precision targeting on top of reach. You can target by genre, activity (running, studying), age, location, and device - all without cookies, because Spotify has logged-in user data.
+
+## How It Works
+
+Audio ad buying follows a clear sequence from strategy to measurement.
+
+<Mermaid chart={`flowchart TD
+    A[Define Audience and Goal] --> B[Choose Channel: Podcast vs Streaming vs Radio]
+    B --> C{Format Decision}
+    C --> D[Host-Read: Direct sponsor deal with show]
+    C --> E[Programmatic: Spotify Ads or DSP]
+    D --> F[Negotiate CPM, placement, and creative brief]
+    E --> F2[Set targeting, budget, and upload audio creative]
+    F --> G[Measure: Promo codes, pixel, brand lift survey]
+    F2 --> G
+    G --> H[Optimize: Cut underperforming shows or segments]
+`} />
+
+**Step 1 - Define your audience and goal.** Are you building awareness or driving conversions? Audio is stronger for awareness and consideration than for direct response, though promo codes make attribution possible.
+
+**Step 2 - Choose your channel.** Podcast ads reach niche, loyal audiences at higher CPMs (cost per thousand impressions), typically $18-$50 CPM. Spotify programmatic reaches scale at lower CPMs ($10-$25), but with less listener trust.
+
+**Step 3 - Pick your format.** Host-read ads feel personal and authentic. Pre-produced ads are faster to scale but feel less native. Mid-roll placements (delivered mid-episode) outperform pre-roll and post-roll in recall studies.
+
+**Step 4 - Set up measurement.** Use a unique promo code or vanity URL per show. Pair with a brand lift survey (Spotify offers this natively) to capture awareness lift even when listeners do not immediately convert.
+
+**Step 5 - Optimize.** After 4-6 weeks, cut shows with low promo code redemption rates. Double down on shows where listeners engage long enough to reach your mid-roll placement.
+
+## Common Mistakes
+
+<Callout type="warning">
+The biggest mistake in audio advertising is writing a script that sounds like a banner ad. Audio listeners are trained to tune out stiff, over-produced commercials. A 30-second spot that reads like legal copy kills performance. Always provide hosts with talking points, not a word-for-word script. If you are running programmatic audio, keep the spot conversational, mention the listener by context ('while you are working out...'), and end with one clear call to action - not three. Running the same creative for more than six weeks causes fatigue; rotate at least two versions.
+</Callout>
+
+## The One-Line Takeaway
+
+**Audio advertising earns attention that screens cannot reach - but only if the ad sounds like a conversation, not a commercial.**
+
+<ResourceList resources={[
+  { title: "IAB Podcast Advertising Revenue Study 2024", url: "https://www.iab.com/insights/iab-u-s-podcast-advertising-revenue-study/", type: "article", free: true, note: "Official industry benchmark for podcast ad revenue and growth rates" },
+  { title: "Spotify Advertising - Ad Studio Guide", url: "https://ads.spotify.com/en-US/ad-studio/", type: "tool", free: false, note: "Spotify's self-serve programmatic audio ad platform" },
+  { title: "Sounds Profitable - Podcast Industry Deep Dives", url: "https://soundsprofitable.com/", type: "article", free: true, note: "Specialist research and analysis on podcast advertising strategy" },
+  { title: "Midroll Media - Host-Read Ad Best Practices", url: "https://www.midroll.com/", type: "article", free: true, note: "Practical guidance on host-read ad creative and placement" },
+  { title: "How to Advertise on Podcasts - Neil Patel", url: "https://neilpatel.com/blog/podcast-advertising/", type: "article", free: true, note: "Step-by-step breakdown of podcast ad buying and measurement" },
+  { title: "Programmatic Audio Advertising Explained", url: "https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/audio-advertising/", type: "article", free: true, note: "Google's overview of programmatic audio ad formats and targeting" },
+  { title: "WsCube Tech - Audio Advertising (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - Audio Advertising", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Audio Advertising (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

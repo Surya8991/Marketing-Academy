@@ -1,0 +1,85 @@
+export const lessonMeta = {
+  title: "Cold Email",
+  level: "Intermediate",
+  summary: "Outbound B2B email that does not get you blacklisted - deliverability, copy, and sequences.",
+};
+
+# Cold Email
+
+## What It Is
+
+Cold email is outbound email sent to people who have not opted into your list and have no prior relationship with you. It is a direct sales and lead-generation channel used almost exclusively in B2B (business-to-business) contexts. You identify a target - a specific person at a specific company - and send them a short, personalized email to start a conversation.
+
+Unlike spam, a well-executed cold email is highly targeted, relevant to the recipient, and offers a clear reason to reply. The goal is not to close a deal in one message. It is to earn a reply and start a sales conversation.
+
+Cold email works best when you have a defined ideal customer profile (ICP) - a description of exactly who benefits most from what you sell. The tighter your ICP, the higher your reply rates, and the lower your risk of hurting your sender reputation.
+
+## Real-World Example
+
+<Callout type="example" title="Lemlist: 17% Reply Rate on a 500-Contact Campaign (2023)">
+Lemlist, a cold email platform, published a case study in 2023 where their own growth team ran a 500-contact outbound campaign targeting SaaS founders. By personalizing the first line of every email with a specific detail about the recipient's product, they achieved a 17% reply rate - more than three times the industry average of 5.1%. The campaign booked 34 sales calls in three weeks with zero ad spend.
+</Callout>
+
+## Why It Matters
+
+Cold email solves a specific problem: how do you reach decision-makers who are not searching for your solution yet? Paid ads capture people who are already aware of their problem. SEO catches people who are already searching. Cold email lets you go upstream and create demand before the buyer knows they need you.
+
+It is especially valuable for:
+- Early-stage startups with no inbound traffic
+- Agencies selling into enterprise accounts
+- Anyone selling a high-ticket B2B product where one closed deal justifies the effort
+
+According to a 2024 B2B cold email study by Woodpecker, the average reply rate across more than 20 million sent emails is 5.1%. Top-performing campaigns with tight targeting and strong copy reach 15-25%.
+
+<Callout type="info">
+Cold email is legal in most countries when you follow the rules. In the US, the CAN-SPAM Act requires a valid business address and an easy opt-out. In Europe, GDPR applies - you must have a legitimate business interest and offer an opt-out. Always check the rules for your target geography.
+</Callout>
+
+## How It Works
+
+A successful cold email campaign has four stages: infrastructure setup, list building, copy writing, and sequence management. Skipping the infrastructure stage is the most common reason campaigns fail before a single email is sent.
+
+**Infrastructure** means sending from a warmed-up domain - not your main company domain. You buy a domain like `getacme.com` alongside your real `acme.com`, warm it up over 4-6 weeks using a tool like Instantly or Mailreach, and keep daily send volume below 30-50 emails per inbox.
+
+**List building** means finding verified email addresses for people who match your ICP. Tools like Apollo, Clay, or Hunter help find and verify addresses. A bad list (high bounce rate) destroys your sender score fast.
+
+**Copy** follows a simple structure: one personalized opening line, one line about the pain you solve, one proof point or social signal, and one low-friction call to action. Total length: under 100 words.
+
+**Sequences** are follow-up emails sent 2-4 days apart. Most replies come from follow-up emails, not the first touch.
+
+<Mermaid chart={`flowchart TD
+    A[Buy a separate sending domain] --> B[Warm up inbox over 4-6 weeks]
+    B --> C[Build verified ICP list]
+    C --> D[Write personalized first-line + short copy]
+    D --> E[Send Email 1 - opening pitch]
+    E --> F{Reply?}
+    F -->|Yes| G[Hand off to sales]
+    F -->|No| H[Send Follow-up 2 after 3 days]
+    H --> I{Reply?}
+    I -->|Yes| G
+    I -->|No| J[Send Follow-up 3 - breakup email]
+    J --> K[Remove non-responders from sequence]`} />
+
+## Common Mistakes
+
+<Callout type="warning">
+The single most common mistake is sending cold email from your primary business domain before warming it up. If you send 200 emails on day one from your main domain, Google and Microsoft will flag you as a spammer. Your deliverability score drops, your emails go to spam, and recovery can take months. Always use a separate sending domain and warm it up slowly before sending real campaigns.
+</Callout>
+
+A close second: writing emails that are too long and too focused on you. "We are an AI-powered platform that helps companies streamline their workflows" tells the reader nothing about their problem. Lead with their pain, not your product.
+
+Third: ignoring bounce rate. Keep hard bounces below 2% per campaign. If your list is unverified, your bounce rate will kill your sender reputation within weeks.
+
+## The One-Line Takeaway
+
+**Cold email works when your infrastructure is clean, your list is tight, and your copy is short - deliverability comes first, copy comes second.**
+
+<ResourceList resources={[
+  { title: "Woodpecker: Cold Email Statistics (20M+ Emails)", url: "https://woodpecker.co/blog/cold-email-statistics/", type: "article", free: true, note: "Data-driven benchmarks from a major cold email platform" },
+  { title: "Lemlist Blog: Cold Email Copywriting Guide", url: "https://lemlist.com/blog/cold-email/", type: "article", free: true, note: "Practical copy frameworks with real examples" },
+  { title: "Alex Berman: Cold Email Masterclass", url: "https://www.youtube.com/c/AlexBerman", type: "video", lang: "en", free: true, note: "YouTube channel dedicated entirely to cold email tactics" },
+  { title: "Built for B2B: B2B Cold Email Benchmarks 2025", url: "https://www.builtforb2b.com/blog/b2b-cold-email-benchmark-2025", type: "article", free: true, note: "Benchmark data from 10,000 campaigns" },
+  { title: "WsCube Tech - Cold Email (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - Cold Email", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Cold Email (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

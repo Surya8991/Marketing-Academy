@@ -1,0 +1,94 @@
+export const lessonMeta = {
+  title: "Marketing KPIs and OKRs",
+  level: "Intermediate",
+  summary: "The 8 numbers a CMO reports to the board - and how to set OKRs that actually align teams.",
+};
+
+# Marketing KPIs and OKRs
+
+## What It Is
+
+A KPI (Key Performance Indicator) is a number you watch continuously to know if your marketing engine is healthy. Think of it like a dashboard in a car - speed, fuel level, engine temperature. These numbers tell you what is happening right now.
+
+An OKR (Objectives and Key Results) is a goal-setting framework. You set an inspiring objective - a direction you want to move - and then attach 2 to 4 measurable key results that prove you got there. OKRs are usually set quarterly. KPIs run all year.
+
+The difference matters because they answer different questions. KPIs answer: "Is the machine working?" OKRs answer: "Are we moving the business in the right direction this quarter?" You need both. Without KPIs you fly blind. Without OKRs your KPIs point at the wrong things.
+
+## Real-World Example
+
+Google adopted OKRs in 1999, when the company had fewer than 50 employees. Investor John Doerr introduced the framework, which he had learned at Intel. Google still uses OKRs today across every team, including marketing. Their OKRs cascade from company level down to individual teams, so every campaign a marketer runs connects directly to a company-level objective. According to a 2024 study referenced by Mooncamp, consistent use of OKRs increases the probability of high performance by 11.5%.
+
+<Callout type="example" title="Google: OKRs Since 1999">
+Google introduced OKRs in its first year and never dropped them. The key insight was that each team's key results became the next level down's objectives. A company objective like 'grow search to 1 billion users' cascades into a marketing objective like 'increase brand awareness in India by 40%.' The number is the chain link. Every marketer knows exactly which company goal their work feeds.
+</Callout>
+
+## Why It Matters
+
+Without a shared measurement system, marketing teams pull in different directions. The content team optimizes for traffic. The paid team optimizes for clicks. The brand team optimizes for reach. None of these are wrong - but they can all be growing while revenue stays flat.
+
+OKRs fix this by forcing a conversation: what do we actually need to move this quarter? Once the answer is clear - say, reduce customer acquisition cost by 20% - every team can ask: "Does my work help with that?" If yes, it stays. If no, it either gets cut or deprioritized.
+
+KPIs then become the early warning system. If CAC (customer acquisition cost) starts creeping up in week 3, you catch it before the quarter ends. No surprises in the board meeting.
+
+## How It Works
+
+### The 8 KPIs a CMO Typically Reports
+
+1. **CAC** - Customer Acquisition Cost: total marketing spend divided by new customers
+2. **CLTV** - Customer Lifetime Value: average revenue per customer over their full relationship
+3. **CLTV:CAC ratio** - should be 3:1 or higher for a healthy business
+4. **MQL to SQL rate** - what percentage of marketing-qualified leads become sales-qualified
+5. **Revenue influenced** - total closed revenue where marketing touched the deal
+6. **Organic traffic** - non-paid visits, signals brand and SEO health
+7. **Email list health** - open rates, unsubscribe rate, deliverability score
+8. **Brand search volume** - how often people search your company name; a proxy for brand awareness
+
+### How to Build an OKR
+
+Start with the objective. It should be qualitative, inspiring, and directional. "Become the go-to brand for freelance designers in India" is an objective. "Increase traffic by 20%" is not - that is a key result.
+
+Then write 2 to 4 key results. Each one must be a number with a deadline. "Reach 50,000 monthly organic sessions from India by September 30" is a key result. "Do more SEO" is not.
+
+<Mermaid chart={`flowchart TD
+  A[Company OKR: Grow revenue 40% this year] --> B[Marketing OKR: Reduce CAC from 80 to 55 USD]
+  B --> C[KR1: Launch 3 lower-cost acquisition channels by Q2]
+  B --> D[KR2: Increase MQL-to-SQL rate from 18% to 28%]
+  B --> E[KR3: Grow organic traffic by 60% to reduce paid dependency]
+  C --> F[Weekly KPI review: CAC, CPC, CVR by channel]
+  D --> F
+  E --> F
+  F --> G[Monthly board KPI report]`} />
+
+### The Cascade Rule
+
+Company OKRs come first. Marketing OKRs derive from them. Channel OKRs derive from marketing OKRs. Each level's key results become the next level's objectives. If anything in your marketing OKR cannot be traced back to a company-level goal, question why it exists.
+
+<Callout type="info">
+A good rule of thumb: no marketing team should have more than 3 OKRs per quarter. More than 3 means nothing is truly a priority. Pick the 3 that most directly move the company needle and ignore the rest until next quarter.
+</Callout>
+
+## Common Mistakes
+
+<Callout type="warning">
+The most common mistake is turning OKRs into task lists. 'Launch a new blog' is a task. 'Grow organic blog traffic from 10,000 to 40,000 monthly visits' is a key result. If your key results do not have numbers and deadlines, they are not key results - they are a to-do list dressed up in OKR clothing. Every key result must answer: how will we know, with a number, that we succeeded?
+</Callout>
+
+A second common mistake is setting KPIs and OKRs at the same level. KPIs are ongoing health checks - they do not expire. OKRs are time-boxed bets - they reset every quarter. Confusing the two means you either track everything forever (KPI overload) or you abandon metrics as soon as the quarter ends (losing continuity). Keep them in separate documents and review them on different cadences: KPIs weekly, OKRs monthly.
+
+A third mistake: vanity metrics in key results. Follower count, page views, and impressions look impressive but rarely connect to revenue. Replace them with metrics that have a clear path to business outcomes: conversion rate, pipeline value, qualified leads, and retention rate.
+
+## The One-Line Takeaway
+
+**KPIs keep the engine running; OKRs make sure you are driving toward the right destination - and you need both on every dashboard.**
+
+<ResourceList resources={[
+  { title: "Measure What Matters by John Doerr - OKR Book", url: "https://www.whatmatters.com/", type: "article", free: true, note: "The definitive book on OKRs, based on how Google uses them" },
+  { title: "Synergita - 20 Marketing OKR Examples", url: "https://www.synergita.com/blog/effective-marketing-okrs-examples-guidance/", type: "article", free: true, note: "Practical OKR templates for marketing teams" },
+  { title: "Mooncamp - OKR Statistics 2024", url: "https://mooncamp.com/blog/okr-statistics", type: "article", free: true, note: "Data on OKR adoption and performance outcomes" },
+  { title: "Marstudio - CMO OKRs Guide", url: "https://www.marstudio.com/blog/2024/02/cmo-okrs/", type: "article", free: true, note: "How CMOs set OKRs that align with board-level goals" },
+  { title: "Agile Sherpas - Marketing OKRs for Agile Teams", url: "https://www.agilesherpas.com/blog/okrs-for-agile-marketing-teams", type: "article", free: true, note: "OKR implementation for marketing teams that work in sprints" },
+  { title: "Google - How Google Sets Goals with OKRs", url: "https://rework.withgoogle.com/guides/set-goals-with-okrs/steps/introduction/", type: "article", free: true, note: "Google's own explanation of how they use OKRs across teams" },
+  { title: "WsCube Tech - Marketing KPIs and OKRs (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - Marketing KPIs and OKRs", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Marketing KPIs and OKRs (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

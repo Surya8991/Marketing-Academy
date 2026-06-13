@@ -1,0 +1,87 @@
+Good stats found. Now I'll write the complete MDX file.
+
+export const lessonMeta = {
+  title: "The Sunk Cost Fallacy",
+  level: "Intermediate",
+  summary: "Why people throw good money after bad - and how loyalty programs exploit this wiring.",
+};
+
+# The Sunk Cost Fallacy
+
+## What It Is
+
+A sunk cost is money, time, or effort you have already spent and cannot get back. The sunk cost fallacy is the mistake of letting those past, unrecoverable investments drive your future decisions - even when continuing makes no logical sense.
+
+The rational move is always to ask: "Given where I am right now, what is the best next step?" But most people ask a different question: "How much have I already put in?" That backward-looking question leads to bad choices.
+
+Research published in 2024 found that 90% of consumers continue using products or services because of a previous investment, even when the product no longer serves them well. A separate finding showed that 55% of respondents rate a product as more valuable simply because they have already invested in it. These are not fringe cases - they are the default human response.
+
+## Real-World Example
+
+Costco built its entire loyalty model around this bias. Customers pay an annual membership fee - $65 for the basic tier in 2024. Once that fee is paid, members feel compelled to shop at Costco frequently to "get their money's worth." The sunk cost is the membership fee. The behavior it drives is repeat visits and higher basket sizes.
+
+In 2023, Costco reported a membership renewal rate of 92.7% in the US and Canada. That number is not explained by product quality alone. It is heavily influenced by the psychological discomfort of letting a paid membership go unused.
+
+<Callout type="example">
+Costco membership renewal rate hit 92.7% in 2023. Members who have paid the annual fee visit more often and spend more per trip than non-members at comparable retailers. The sunk cost of the membership fee creates a pull toward the store that pure discounts cannot replicate. The company earns roughly $4.6 billion per year in membership fees alone.
+</Callout>
+
+## Why It Matters
+
+For marketers and product designers, the sunk cost fallacy is a retention engine. Instead of fighting churn every month, you can design a product so that customers feel invested in it - and naturally want to stay.
+
+This matters most in three situations:
+
+1. **Subscription businesses** where renewal rates determine long-term revenue
+2. **Loyalty programs** where accumulated points or status feel too valuable to abandon
+3. **Onboarding flows** where early investment (setup time, data import, customization) makes switching feel costly
+
+If a customer has spent 3 hours setting up their profile, imported 5 years of data, and earned Gold status, they are not comparing you to a competitor on features alone. They are weighing all of that prior investment against the cost of starting over.
+
+## How It Works
+
+The fallacy operates through a simple psychological loop. A person invests resources, feels committed to justify the investment, keeps investing to avoid feeling that the original spend was wasted, and the cycle repeats.
+
+<Mermaid chart={`flowchart TD
+    A[Customer makes initial investment\nfee, time, or effort] --> B[Investment creates psychological ownership]
+    B --> C[Customer seeks to justify the investment\nby continuing to use the product]
+    C --> D{Product delivers\nenough value?}
+    D -- Yes --> E[Positive experience reinforces loyalty]
+    D -- No --> F[Sunk cost fallacy kicks in\n'I have already paid, I may as well keep going']
+    E --> C
+    F --> C`} />
+
+The loop on the left is healthy retention - the customer stays because the product is good. The loop on the right is sunk cost retention - the customer stays because leaving feels like admitting defeat. Both loops keep the customer, but only one is sustainable long-term.
+
+## How to Apply It in Marketing
+
+**Design for early investment.** Onboarding flows that ask users to customize, upload, or configure something create a sense of ownership before the first bill arrives. Duolingo's streak mechanic is a textbook example: once you have a 30-day streak, losing it feels costly even though it cost nothing to build.
+
+**Use tiered loyalty programs.** Airlines and hotels have known this for decades. Achieving Silver status makes Gold feel within reach. Achieving Gold makes Platinum feel essential. Each tier adds to the sunk cost of leaving the program entirely. Research from 2024 found that brand-loyal consumers are 85% more likely to persist with a purchase because of prior commitments.
+
+**Communicate accumulated value.** Spotify Wrapped works because it shows users exactly how much they have invested in the platform - their listening history, top artists, total minutes. That data feels personal and irreplaceable, which makes switching to a competitor feel like losing something real.
+
+## Common Mistakes
+
+<Callout type="warning">
+The biggest mistake is using sunk cost tactics as a substitute for actual product value. If your retention strategy relies entirely on making it hard to leave, you will face a loyalty cliff when a competitor makes switching easy or free. Customers who stay only because of sunk costs are not fans - they are hostages. They will leave and warn others the moment the switching cost disappears. Use sunk cost design to buy time to deliver real value, not to avoid delivering it.
+</Callout>
+
+<Callout type="info">
+There is also an internal trap here. Marketing teams fall into the sunk cost fallacy themselves when they keep running a campaign that is not working because "we have already spent so much on it." Evaluate every campaign on its future expected return, not on how much has already been spent. Past spend is gone either way.
+</Callout>
+
+## The One-Line Takeaway
+
+**Design your product so customers feel invested early, then make sure the product is actually worth staying for - because sunk cost buys you time, not loyalty.**
+
+<ResourceList resources={[
+  { title: "The Sunk Cost Fallacy - The Decision Lab", url: "https://thedecisionlab.com/biases/the-sunk-cost-fallacy", type: "article", free: true, note: "Clear academic overview with behavioral research citations" },
+  { title: "Cognitive Bias: Sunk Cost in Marketing (2024)", url: "https://cognitioncommerce.ca/2024/10/16/cognitive-bias-sunk-cost-in-marketing/", type: "article", free: true, note: "2024 research on how sunk cost shapes consumer purchase decisions" },
+  { title: "How Costco Uses the Sunk Cost Effect to Drive Repeat Purchase", url: "https://theconsumerbehaviorlab.com/costco_loyalty_cards_ski_trips_and_the_sunk_cost_effect.php", type: "article", free: true, note: "Deep dive into real-world loyalty program mechanics" },
+  { title: "Sunk Cost Fallacy in Customer Experience - Renascence", url: "https://www.renascence.io/journal/sunk-cost-fallacy-navigating-customer-decisions-and-enhancing-experience", type: "article", free: true, note: "Practical CX applications for marketers and product teams" },
+  { title: "Veritasium - The Sunk Cost Fallacy Explained", url: "https://www.youtube.com/watch?v=vpnxd31y0Fo", type: "video", lang: "en", free: true, note: "Popular science explainer with clear real-world examples" },
+  { title: "WsCube Tech - The Sunk Cost Fallacy (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - The Sunk Cost Fallacy", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - The Sunk Cost Fallacy (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />
