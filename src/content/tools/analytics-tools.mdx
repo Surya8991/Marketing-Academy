@@ -1,0 +1,66 @@
+export const lessonMeta = {
+  title: "Top 10 Analytics Tools",
+  level: "Intermediate",
+  summary: "GA4, Mixpanel, Amplitude, Hotjar, Looker - what each is built for.",
+};
+
+# Top 10 Analytics Tools
+
+Every marketer eventually hits the same wall: GA4 tells you traffic is up but not why a feature flopped, and a product analytics tool tells you about funnels but nothing about paid attribution. Picking the right tool for the right question saves weeks of dashboard-building and tens of thousands of dollars in licenses. This lesson maps the ten tools that matter in 2025 to the job each one was built for.
+
+## What It Actually Is
+
+A marketing analytics stack is a layered set of tools: collection (GA4, Segment), product behavior (Mixpanel, Amplitude), qualitative (Hotjar), and visualization (Looker Studio, Tableau). One concrete example: a SaaS team might pipe GA4 for acquisition channels, Mixpanel for in-app funnels, Hotjar for friction on the pricing page, and Looker Studio to roll all three into a single CMO dashboard.
+
+## Why It Matters (with data)
+
+Google Analytics still dominates raw install share at roughly 85.3% of sites that use any analytics, but spend on specialized tools (Amplitude, Mixpanel, PostHog, Plausible) is growing about 28% year over year. The total product analytics market is projected to reach $25.4 billion by 2026 at an 18.3% CAGR per [Monetizely's 2025 analysis](https://www.getmonetizely.com/articles/mixpanel-vs-amplitude-vs-google-analytics-which-product-analytics-tool-offers-best-value-for-saas-in-2025). The split matters: GA4 is session-based and tuned for marketing attribution, while Mixpanel and Amplitude are event-based and built for behavioral product questions, per [Amplitude's 2026 product analytics roundup](https://amplitude.com/compare/best-product-analytics-tools).
+
+## How It Works / The Playbook
+
+The ten tools worth knowing, grouped by job-to-be-done:
+
+1. **Google Analytics 4 (GA4)** - free, session-and-event hybrid, best for channel attribution and SEO/paid traffic reporting. Default for almost every site.
+2. **Mixpanel** - event-based product analytics. Free up to 20M events/month in 2025; Growth plan starts at $20/month. Best for funnels, cohorts, and retention on SaaS or apps.
+3. **Amplitude** - event-based with strong experimentation and behavioral cohorts. Free Starter covers 50,000 MTUs and 10M events/month; Plus starts at $49/month; Growth/Enterprise commonly $30K to $100K+/year.
+4. **Hotjar** - qualitative: heatmaps, session recordings, on-page surveys. Free tier captures up to 35 sessions/day. Use it to explain the why behind a GA4 drop.
+5. **Looker Studio** (formerly Google Data Studio) - free drag-and-drop dashboards that connect to GA4, BigQuery, Sheets, and most ad platforms.
+6. **Looker** (the enterprise BI platform inside Google Cloud) - LookML-based semantic modeling for company-wide data governance. Different product from Looker Studio.
+7. **Adobe Analytics** - enterprise web/app analytics with deep segmentation, common in Fortune 500 marketing teams.
+8. **Segment** - customer data platform (CDP) that collects events once and forwards them to GA4, Mixpanel, Amplitude, and your warehouse.
+9. **PostHog** - open-source product analytics with feature flags, session replay, and A/B testing in one tool. Self-hostable.
+10. **Tableau** - heavyweight BI for blended data sources, common when finance and marketing share dashboards.
+
+Pick by question, not by brand:
+
+- "Where is traffic coming from?" - GA4
+- "Where are users dropping off in onboarding?" - Mixpanel or Amplitude
+- "Why are they dropping off?" - Hotjar
+- "Can a non-analyst build the weekly report?" - Looker Studio
+- "Can we govern 200 dashboards across the company?" - Looker or Tableau
+
+<Callout type="example">
+Postman publicly described moving from GA to Amplitude to track activation across a 30-million-user developer base, then used cohorts to find that users who created a collection in week one retained at roughly 3x the rate of those who did not. The insight reshaped their onboarding emails and in-app prompts. See [Amplitude's customer stories](https://amplitude.com/customers) for the writeups.
+</Callout>
+
+## Common Mistakes
+
+- Using GA4 to answer product questions. Session-based sampling and 14-month data retention defaults make funnel and cohort analysis painful.
+- Buying Amplitude or Mixpanel before you have a tagged event schema. Both tools are only as good as the events you send.
+- Treating Hotjar as a metrics tool. It is qualitative, not statistical, and 35 sessions/day on the free tier is not a sample size for decisions.
+- Confusing Looker Studio (free dashboards) with Looker (enterprise BI starting in the five figures annually).
+- Skipping a CDP like Segment and instead instrumenting each tool separately, which guarantees three tools will disagree on the same number within a quarter.
+
+## Key Takeaways
+
+- GA4 owns acquisition, Mixpanel and Amplitude own behavior, Hotjar owns the why, Looker Studio owns the dashboard layer.
+- Free tiers (GA4, Mixpanel 20M events, Amplitude 50K MTUs, Hotjar 35 sessions/day, Looker Studio, PostHog) cover most early-stage stacks at zero cost.
+- Define the question first, then choose the tool. Buying a $60K Amplitude contract before you have an event schema is the most expensive mistake on this list.
+
+<ResourceList resources={[
+  { title: "Mixpanel vs Amplitude vs GA: SaaS Value 2025", url: "https://www.getmonetizely.com/articles/mixpanel-vs-amplitude-vs-google-analytics-which-product-analytics-tool-offers-best-value-for-saas-in-2025", type: "article", free: true },
+  { title: "10 Best Product Analytics Tools (Amplitude, 2026)", url: "https://amplitude.com/compare/best-product-analytics-tools", type: "article", free: true },
+  { title: "GA4 Official Documentation", url: "https://support.google.com/analytics/answer/10089681", type: "docs", free: true },
+  { title: "Looker Studio", url: "https://lookerstudio.google.com/", type: "tool", free: true },
+  { title: "PostHog (open-source product analytics)", url: "https://posthog.com/", type: "tool", free: true },
+]} />

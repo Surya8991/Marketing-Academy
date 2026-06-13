@@ -5,8 +5,10 @@ import LevelBadge from "@/components/LevelBadge";
 import MarkComplete from "@/components/MarkComplete";
 import ReadingProgress from "@/components/ReadingProgress";
 import { TableOfContentsDesktop, TableOfContentsMobile } from "@/components/TableOfContents";
-import { ChevronLeft, ChevronRight, ArrowLeft } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowLeft, Clock } from "lucide-react";
 import type { Metadata } from "next";
+import fs from "fs";
+import path from "path";
 
 type Props = { params: Promise<{ category: string; lesson: string }> };
 
@@ -18,13 +20,32 @@ export async function generateStaticParams() {
   );
 }
 
+const BASE = "https://marketing-academy-roan.vercel.app";
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category, lesson } = await params;
   try {
     const mod = await import(`@/content/${category}/${lesson}.mdx`);
+    const cat = getCategory(category);
+    const title = mod.lessonMeta?.title ?? lesson;
+    const description = mod.lessonMeta?.summary;
+    const level = mod.lessonMeta?.level ?? "";
+    const ogUrl = `${BASE}/api/og?title=${encodeURIComponent(title)}&category=${encodeURIComponent(cat?.title ?? "")}&level=${encodeURIComponent(level)}`;
     return {
-      title: mod.lessonMeta?.title ?? lesson,
-      description: mod.lessonMeta?.summary,
+      title,
+      description,
+      openGraph: {
+        title,
+        description,
+        images: [{ url: ogUrl, width: 1200, height: 630, alt: title }],
+        type: "article",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: [ogUrl],
+      },
     };
   } catch {
     return {};
@@ -44,6 +65,23 @@ export default async function LessonPage({ params }: Props) {
     lessonMeta = mod.lessonMeta;
   } catch {
     notFound();
+  }
+
+  // Estimate reading time from raw MDX source
+  let readTime = 5;
+  try {
+    const raw = fs.readFileSync(
+      path.join(process.cwd(), "src", "content", category, `${lesson}.mdx`),
+      "utf-8"
+    );
+    const text = raw
+      .replace(/```[\s\S]*?```/g, "")
+      .replace(/export const \w+ = \{[\s\S]*?\};/g, "")
+      .replace(/<[^>]+>/g, " ");
+    const words = text.split(/\s+/).filter(Boolean).length;
+    readTime = Math.max(1, Math.ceil(words / 200));
+  } catch {
+    // fallback to default
   }
 
   const { prev, next } = getLessonNav(category, lesson);
@@ -78,15 +116,17 @@ export default async function LessonPage({ params }: Props) {
 
             {/* Title block */}
             <header className="mb-8 pb-6 border-b border-[var(--border)]">
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-3 mb-4 flex-wrap">
                 {lessonMeta?.level && (
                   <LevelBadge
                     level={lessonMeta.level as "Beginner" | "Intermediate" | "Advanced"}
                   />
                 )}
-                <span className="text-xs text-[var(--muted-foreground)]">
-                  {cat.title}
+                <span className="flex items-center gap-1 text-xs text-[var(--muted-foreground)]">
+                  <Clock size={12} />
+                  {readTime} min read
                 </span>
+                <span className="text-xs text-[var(--muted-foreground)]">{cat.title}</span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] mb-4">
                 {lessonMeta?.title}

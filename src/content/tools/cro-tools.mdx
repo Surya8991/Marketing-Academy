@@ -1,0 +1,64 @@
+export const lessonMeta = {
+  title: "Top 10 CRO and Testing Tools",
+  level: "Intermediate",
+  summary: "A/B testing, heatmaps, session recordings, form analytics.",
+};
+
+# Top 10 CRO and Testing Tools
+
+Conversion rate optimization (CRO) lives or dies by the quality of the data you collect and the speed of the tests you ship. The right stack tells you what users actually do, not what they say, and lets you validate ideas before betting traffic on them. This lesson is for marketers and product managers building a 2025-era CRO toolkit on a real budget.
+
+## What It Actually Is
+
+CRO tooling falls into four buckets: experimentation platforms (A/B and multivariate tests), behavioral analytics (heatmaps, scroll maps, session replays), voice-of-customer (surveys, polls, form analytics), and feature flagging for product-led experiments. A complete program usually combines one tool from each bucket. For example, you might run a checkout A/B test in VWO, watch failed sessions in Microsoft Clarity, and ask exit-intent visitors why they bounced via a Hotjar survey.
+
+## Why It Matters (with data)
+
+VWO advertises a free plan covering up to 50,000 monthly users with paid tiers starting around $228/month, while Optimizely typically lands in the enterprise bracket aimed at sites doing 1M+ monthly visitors. Hotjar's Growth plan starts at $49/month and Crazy Egg at $29/month, per [Wisepops' 2026 CRO tools roundup](https://wisepops.com/blog/best-cro-tools). Microsoft Clarity remains free with unlimited sessions and heatmaps, which is why it has become the default entry point for teams without budget, as covered in [FullSession's Hotjar vs Clarity comparison](https://www.fullsession.io/blog/hotjar-vs-microsoft-clarity/). On the qualitative side, Capterra ratings put Hotjar at 9.6/10 for quality with 98% user satisfaction, ahead of VWO's 8.8/10.
+
+## The 10 Tools Worth Knowing
+
+1. **VWO** - all-in-one A/B testing, heatmaps, session recordings, and a Bayesian stats engine. Best for mid-market teams that want one bill instead of four.
+2. **Optimizely** - the enterprise standard for server-side experimentation and feature flagging. Used by IBM, Microsoft, and StubHub.
+3. **Hotjar** - heatmaps, recordings, surveys, and feedback widgets. Strong free tier, easy install.
+4. **Microsoft Clarity** - genuinely free. Unlimited recordings, rage-click and dead-click detection, native GA4 integration.
+5. **Crazy Egg** - snapshots, scrollmaps, confetti reports, and a built-in A/B test editor starting at $29/month.
+6. **FullStory** - session replay plus event auto-capture; popular for SaaS funnels. Heavier but powerful.
+7. **Smartlook** - heatmaps, recordings, and funnel analysis from $55/month; covers web plus mobile apps.
+8. **Mouseflow** - form analytics that show field drop-off, friction scores, and time-to-fill per field.
+9. **AB Tasty** - feature experimentation and personalization aimed at e-commerce, with EU data residency.
+10. **GrowthBook** - open-source experimentation platform with feature flags; popular with engineering-led teams using Snowflake or BigQuery.
+
+## How It Works / The Playbook
+
+1. **Instrument first, test second.** Install Clarity or Hotjar and watch 20 to 30 recordings before forming a hypothesis.
+2. **Write a hypothesis with a metric.** Format: "Because we saw X, we believe changing Y for Z users will lift conversion by N%."
+3. **Calculate sample size up front.** Use VWO or Optimizely's built-in calculator. Stop peeking.
+4. **Run for full business cycles.** Minimum 2 weeks; never end on a weekend.
+5. **Triangulate.** Pair the quantitative result with replays and survey responses before shipping.
+
+<Callout type="example">
+HubSpot's growth team has publicly shared that they ran more than 200 A/B tests in a single year using VWO and Optimizely on their pricing and signup pages. One winning variant on the signup form cut required fields from 7 to 3 and lifted free-trial signups by roughly 11%, according to HubSpot's own [conversion optimization case studies](https://blog.hubspot.com/marketing/conversion-rate-optimization-examples).
+</Callout>
+
+## Common Mistakes
+
+- Calling tests at 95% confidence after 3 days. Statistical significance without sample size is theater.
+- Running heatmap tools on every page. Sample the top 10 templates instead and rotate.
+- Treating Clarity and Hotjar as redundant. Clarity is free and great for volume; Hotjar's surveys and NPS widgets remain stronger for VOC.
+- Ignoring mobile. Roughly 60% of e-commerce traffic is mobile; test the mobile variant separately.
+- Skipping a CRO research repo. Every recording, survey, and test result should live in one searchable place (Notion, Airtable, or EvidenceHub).
+
+## Key Takeaways
+
+- A modern CRO stack blends one experimentation tool, one behavior tool, and one VOC tool; you rarely need all 10.
+- Start free with Microsoft Clarity plus Google Optimize's successor (GA4 experiments or GrowthBook) before paying for VWO or Optimizely.
+- Tools do not generate insights; structured research, sample-size discipline, and a shared repo do.
+
+<ResourceList resources={[
+  { title: "8 Best CRO Tools (Wisepops, 2026)", url: "https://wisepops.com/blog/best-cro-tools", type: "article", free: true },
+  { title: "Hotjar vs Microsoft Clarity (FullSession)", url: "https://www.fullsession.io/blog/hotjar-vs-microsoft-clarity/", type: "article", free: true },
+  { title: "Microsoft Clarity", url: "https://clarity.microsoft.com/", type: "tool", free: true },
+  { title: "VWO Knowledge Base", url: "https://help.vwo.com/", type: "docs", free: true },
+  { title: "GrowthBook (open-source)", url: "https://www.growthbook.io/", type: "tool", free: true },
+]} />

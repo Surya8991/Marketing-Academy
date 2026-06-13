@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { CATEGORIES } from "@/lib/curriculum";
 
-const BASE = "https://marketing-academy.vercel.app";
+const BASE = "https://marketing-academy-roan.vercel.app";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [

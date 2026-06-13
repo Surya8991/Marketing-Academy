@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { Menu, X, Search, BookOpen, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CATEGORIES } from "@/lib/curriculum";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -119,6 +120,7 @@ export default function Nav() {
 
         {/* Actions */}
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <Link
             href="/search"
             className="p-2 rounded-md text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors"
