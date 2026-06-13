@@ -151,7 +151,7 @@ Every push auto-deploys within ~60 seconds.
 | 6.9 | Learning tracks (B2B / E-commerce / Solo / AI-first) | ✅ /tracks overview + /tracks/[slug] detail pages, TrackCard on homepage |
 | 6.10 | Newsletter signup | ✅ NewsletterSignup.tsx in Footer + /api/newsletter route (TODO: connect email service) |
 | 6.11 | Multilingual resources (Hindi/Tamil/Telugu) | ✅ Added in all lessons via review workflows |
-| 6.12 | Content readability pass | 🔄 RUNNING (`wf_d2841960-658`) - 71 already-reviewed lessons (fundamentals, seo, paid-ads, psychology, email, analytics). Remaining categories after review workflows complete. |
+| 6.12 | Content readability pass | 🔄 PARTIAL - batch 1 DONE + pushed: fundamentals (16), seo (20), paid-ads (18), psychology (4), email (6), analytics (7), cro (partial), content (partial), social (partial). Remaining: growth, copywriting, brand-strategy, product-marketing, ai-marketing (after review workflows finish). |
 
 ---
 
