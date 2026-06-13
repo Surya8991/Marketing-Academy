@@ -129,7 +129,7 @@ Every push auto-deploys within ~60 seconds.
 | 6.9 | Learning tracks (B2B / E-commerce / Solo / AI-first) | 🔄 Building now - /tracks + /tracks/[slug] |
 | 6.10 | Newsletter signup | 🔄 Building now - NewsletterSignup.tsx in Footer + /api/newsletter route |
 | 6.11 | Multilingual resources (Hindi/Tamil/Telugu) | ✅ Added in all lessons via review workflows |
-| 6.12 | Content readability pass | 🔴 After all workflows done - shorten paragraphs (max 3 sentences each), break long sections into smaller chunks, add more whitespace/bullet points, replace walls of text with scannable formats. Goal: user reads one section and feels progress, not overwhelmed. |
+| 6.12 | Content readability pass | 🔴 After review workflows done - max 3 sentences per paragraph, break long sections into smaller chunks, replace walls of text with bullets/numbered lists, add whitespace. Goal: user reads one section, feels progress, wants to continue. |
 
 ---
 
