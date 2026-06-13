@@ -5,6 +5,8 @@ import LevelBadge from "@/components/LevelBadge";
 import MarkComplete from "@/components/MarkComplete";
 import ReadingProgress from "@/components/ReadingProgress";
 import { TableOfContentsDesktop, TableOfContentsMobile } from "@/components/TableOfContents";
+import Quiz from "@/components/Quiz";
+import { QUIZZES } from "@/lib/quizzes";
 import { ChevronLeft, ChevronRight, ArrowLeft, Clock } from "lucide-react";
 import type { Metadata } from "next";
 import fs from "fs";
@@ -148,6 +150,18 @@ export default async function LessonPage({ params }: Props) {
             <article className="prose prose-slate max-w-none">
               <LessonContent />
             </article>
+
+            {/* Quiz */}
+            {(() => {
+              const questions = QUIZZES[`${category}/${lesson}`];
+              if (!questions || questions.length === 0) return null;
+              return (
+                <div className="mt-12 pt-8 border-t border-[var(--border)]">
+                  <h2 className="text-xl font-bold mb-4">Test Your Knowledge</h2>
+                  <Quiz questions={questions} />
+                </div>
+              );
+            })()}
 
             {/* Prev / Next nav */}
             <nav className="mt-16 pt-8 border-t border-[var(--border)] grid grid-cols-2 gap-3">

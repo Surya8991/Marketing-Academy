@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { CATEGORIES, flatLessons } from "@/lib/curriculum";
+import { TRACKS } from "@/lib/tracks";
+import TrackCard from "@/components/TrackCard";
 import {
   ArrowRight,
   BookOpen,
@@ -201,6 +203,31 @@ export default function HomePage() {
               </div>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* Learning Tracks */}
+      <section className="py-16 border-t border-[var(--border)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-end justify-between mb-8">
+            <div>
+              <h2 className="text-2xl font-bold mb-2">Structured Learning Tracks</h2>
+              <p className="text-[var(--muted-foreground)]">
+                Follow a curated path built for your role.
+              </p>
+            </div>
+            <Link
+              href="/tracks"
+              className="hidden sm:flex items-center gap-1 text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+            >
+              All tracks <ArrowRight size={14} />
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {TRACKS.map((track) => (
+              <TrackCard key={track.slug} track={track} />
+            ))}
+          </div>
         </div>
       </section>
 
