@@ -1,0 +1,86 @@
+export const lessonMeta = {
+  title: "The Science of Buttons",
+  level: "Intermediate",
+  summary: "Color, copy, size, position. Decades of testing distilled.",
+};
+
+# The Science of Buttons
+
+## What It Is
+
+A call-to-action (CTA) button is the single most important element on most marketing pages. It is the moment a visitor decides to act or leave. Despite being a small piece of UI (user interface), the button is where psychology, design, and copywriting collide.
+
+Button science is the discipline of systematically testing and optimizing every variable on a CTA: the color, the copy, the size, the placement, and the surrounding whitespace. Small changes to any one of these variables can produce double-digit lifts in conversion without changing the product, the price, or the offer.
+
+The research base here is unusually strong. Hundreds of A/B tests (split tests where two versions are shown to different groups of visitors) have been run on buttons over the past two decades. The patterns are consistent enough to treat as principles, not guesses.
+
+## Real-World Example
+
+HubSpot analyzed 330,000 CTAs across its customer base and found that personalized CTAs convert 202% better than generic default CTAs. A button that says "Start My Free Trial" in first-person language outperforms "Start Your Free Trial" by up to 90% on click-through rate. The copy change takes about 30 seconds to make. The lift is not marginal.
+
+<Callout type="example" title="HubSpot: 202% Lift From Personalized CTAs">
+HubSpot's analysis of over 330,000 calls-to-action found that smart, personalized CTAs convert 202% better than static defaults. First-person phrasing ("Start My Trial") increased click-through rates by 90% compared to second-person phrasing ("Start Your Trial"). These findings were published in HubSpot's conversion research and have been replicated across industries. The lesson: the button speaks to a person, so write it from their perspective.
+</Callout>
+
+## Why It Matters
+
+Every page with a button has a goal: sign up, buy, download, book, or request. If the button underperforms, none of the traffic you drive to that page converts. You pay for the ads, the SEO, the content - and the button leaks the return.
+
+This matters most when you are:
+
+- Running paid campaigns where every click costs money
+- Launching a new product or landing page
+- Trying to grow an email list or free trial base
+- Diagnosing why traffic is not converting
+
+Improving a button is also one of the fastest wins in CRO (conversion rate optimization). It requires no developer sprint, no brand refresh, no new content. A copy tweak or color change can ship in hours.
+
+## How It Works
+
+Button optimization breaks into four variables. Work through them in order, because copy has the highest leverage, followed by color, then size, then placement.
+
+<Mermaid chart={`flowchart TD
+    A[Start: Define the Goal] --> B[Write Benefit-Led Copy]
+    B --> C[Choose a High-Contrast Color]
+    C --> D[Set the Right Size and Padding]
+    D --> E[Place It Where Attention Lands]
+    E --> F[A/B Test One Variable at a Time]
+    F --> G{Did Conversion Improve?}
+    G -- Yes --> H[Lock In the Winner, Test Next Variable]
+    G -- No --> B
+`} />
+
+**Copy:** Lead with the benefit, not the action. "Get My Free Report" beats "Submit." First-person phrasing beats second-person. Keep it under five words where possible.
+
+**Color:** The button must contrast sharply with the background. WCAG 2.1 AA compliance requires a 4.5:1 contrast ratio. Color psychology matters less than contrast - a bright orange on white will outperform a beautiful but low-contrast green.
+
+**Size and touch targets:** On mobile, the minimum tap target is 44x44 pixels (Apple and Google both specify this). Buttons that are too small create friction. Buttons that are too large look desperate. Match the visual weight to the importance of the action.
+
+**Placement:** Above the fold (visible without scrolling) works for simple offers. For complex offers where the visitor needs context first, a button at the bottom of the explanation outperforms one at the top. One test showed bottom placement improved conversions by 304% for a long-form page.
+
+<Callout type="info">
+The fold is not fixed. Different devices, screen sizes, and browsers all create different fold lines. Test placement with real device data from your analytics tool, not assumptions based on your own screen.
+</Callout>
+
+## Common Mistakes
+
+<Callout type="warning">
+The most common mistake is testing color before copy. Color is visible, so it feels like the obvious thing to change - but copy drives intent. A red button that says "Get My Free Guide" will almost always beat a green button that says "Submit." Fix the copy first, then optimize color. Running both tests at once contaminates results and makes it impossible to know what caused the lift.
+</Callout>
+
+## The One-Line Takeaway
+
+**Write the button from the visitor's perspective, contrast it against the background, and test one variable at a time - the copy first, everything else after.**
+
+<ResourceList resources={[
+  { title: "HubSpot: Personalized CTAs Convert 202% Better", url: "https://blog.hubspot.com/marketing/personalized-calls-to-action-convert-better-data", type: "article", free: true, note: "Original HubSpot research on CTA personalization across 330,000 CTAs" },
+  { title: "VWO: High-Converting CTA Button Examples and Case Studies", url: "https://vwo.com/blog/high-converting-call-to-action-button-examples/", type: "article", free: true, note: "Practical examples with test results from real campaigns" },
+  { title: "Unbounce: How to Build CTA Buttons That Convert", url: "https://unbounce.com/conversion-rate-optimization/cta-buttons-that-convert/", type: "article", free: true, note: "Unbounce's conversion research on landing page button best practices" },
+  { title: "WiserNotify: 25 CTA Statistics for 2024-2026", url: "https://wisernotify.com/blog/call-to-action-stats/", type: "article", free: true, note: "Curated stat roundup with sourced data on button and CTA performance" },
+  { title: "CRO Button Design Best Practices - DesignStudio UI/UX", url: "https://www.designstudiouiux.com/blog/cta-button-design-best-practices/", type: "article", free: true, note: "Visual guide covering contrast, sizing, and mobile tap targets" },
+  { title: "Google: Material Design Button Guidelines", url: "https://m3.material.io/components/buttons/overview", type: "docs", free: true, note: "Google's official size, padding, and accessibility specs for buttons" },
+  { title: "CXL Institute - CRO Minidegree", url: "https://cxl.com/institute/", type: "course", free: false, note: "Industry-standard CRO training covering button testing methodology in depth" },
+  { title: "WsCube Tech - The Science of Buttons (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - The Science of Buttons", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - The Science of Buttons (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

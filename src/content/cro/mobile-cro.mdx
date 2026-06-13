@@ -1,0 +1,159 @@
+export const lessonMeta = {
+  title: "Mobile CRO: Convert More on the Small Screen",
+  level: "Intermediate",
+  summary: "Mobile users convert at half the rate of desktop users. Learn why, and how to close the gap with speed, UX, and systematic testing.",
+};
+
+## The Mobile Conversion Gap Is Real
+
+Mobile accounts for the majority of web traffic worldwide, yet it delivers far fewer purchases per visitor. According to Shopify's 2024 benchmarks, mobile conversion rates average **2.19%** compared to **4.03%** on desktop. Cart abandonment on mobile sits at **85.65%** -- a figure that reflects friction, not lack of intent. Visitors browse on their phones and buy on their laptops because the mobile experience forces them to.
+
+The good news: most of that gap is fixable. Mobile CRO is not about design taste. It is about removing the specific barriers that make completing a purchase feel harder than it should be.
+
+<Callout type="warning">
+The single most common mobile CRO mistake is designing the desktop experience first, then shrinking it down. A shrunken desktop layout is not a mobile layout. Every element -- tap targets, form fields, navigation, CTAs -- must be rethought for thumb interaction and small viewports, not adapted from a 1440px design.
+</Callout>
+
+---
+
+## Why Mobile Users Abandon
+
+Before optimising, you need to diagnose. The reasons mobile visitors drop off fall into four buckets:
+
+1. **Speed** -- Pages that load in 1 second convert 3x better than pages that take 5 seconds (Google, 2023). Every additional second costs you.
+2. **Friction in forms** -- Mobile keyboards are slow. Asking for unnecessary fields, showing wrong keyboard types, or skipping autocomplete kills checkout.
+3. **Tap target errors** -- Buttons and links smaller than 44x44px lead to mis-taps, frustration, and exits.
+4. **Trust and context** -- Small screens leave less room to communicate trust signals. If a user cannot see a return policy, a security badge, or a review near the CTA, doubt wins.
+
+---
+
+## The Measure-Diagnose-Fix-Test Loop
+
+Mobile CRO is iterative. Use this loop on every page or flow you want to improve.
+
+<Mermaid chart={`flowchart TD
+    A[Measure baseline\nconversion rate] --> B[Identify drop-off\nwith funnel analytics]
+    B --> C[Diagnose root cause\nspeed, UX, or trust]
+    C --> D{Can you fix\nin one sprint?}
+    D -- Yes --> E[Implement fix]
+    D -- No --> F[Prioritise and\nschedule fix]
+    F --> E
+    E --> G[Run A/B test\nor before-after]
+    G --> A`} />
+
+---
+
+## Speed: The Highest-Leverage Fix
+
+Page speed is the most impactful variable in mobile CRO because it affects every user before they even see your content.
+
+**Vodafone case study (2022):** Vodafone's web team focused on improving Largest Contentful Paint (LCP), the time until the main content element is visible. A **31% improvement in LCP** drove an **8% increase in sales**, documented by Google Web Dev. The change required no redesign -- only performance work on existing assets.
+
+Key speed improvements to prioritise:
+
+- **Compress and lazy-load images.** Use WebP format and set `loading="lazy"` on below-fold images.
+- **Eliminate render-blocking scripts.** Move non-critical JS to `defer` or `async`.
+- **Use a CDN.** Serve assets from edge nodes close to the user.
+- **Preconnect to critical third parties.** Add `<link rel="preconnect">` for fonts and analytics domains.
+
+<Callout type="tip">
+Run your key landing pages through PageSpeed Insights (pagespeed.web.dev) right now. The "Opportunities" section gives you a prioritised list of fixes with estimated time savings. Start with the top item. You can often cut 1-2 seconds of load time in a single afternoon.
+</Callout>
+
+---
+
+## Forms: Where Mobile Purchases Die
+
+Checkout and lead-gen forms are where the conversion gap is sharpest. Every unnecessary field is a drop-off point.
+
+**Rules for mobile forms:**
+
+- **Use the right input type.** `type="email"` shows the email keyboard. `type="tel"` shows the number pad. `type="number"` shows numeric input. Wrong types force users to switch keyboards manually.
+- **Enable autocomplete.** Use standard `autocomplete` attribute values (`name`, `email`, `street-address`, `cc-number`, etc.) so browsers and password managers can fill fields.
+- **Remove optional fields from the critical path.** Ask for a phone number after the sale, not before.
+- **Show inline validation.** Confirm correct input in real time. Do not wait until form submission to surface errors.
+- **Support Apple Pay, Google Pay, and Link.** One-tap payment options skip the form entirely for returning customers.
+
+---
+
+## Tap Targets and Visual Hierarchy
+
+On desktop, users click with a precise cursor. On mobile, they tap with a thumb. The interaction model is fundamentally different.
+
+**Minimum tap target size: 44x44 CSS pixels.** This is the standard recommended by Apple HIG and WCAG 2.5.5. Smaller targets cause mis-taps, which cause frustration.
+
+**CTA placement:** place the primary call to action within thumb reach. On a standard phone held one-handed, the lower third of the screen is easiest to reach. CTAs buried at the top of a long page, or floating in the centre of a wide layout, will underperform.
+
+**Sticky CTAs:** a fixed bottom bar with the primary action (Add to Cart, Book a Call, Get Started) keeps the conversion option visible as the user scrolls. Test this element -- it can significantly lift mobile conversions on long-form product pages and landing pages.
+
+---
+
+## Trust Signals on Small Screens
+
+Desktop pages can afford sidebars, wide header bars, and prominent badge rows. Mobile pages cannot. You have to choose what trust signals appear and where.
+
+High-priority trust elements for mobile:
+
+- **Star rating and review count** near the product title (above the fold if possible)
+- **Security badge or "Secure Checkout" label** inline in the checkout form, not just in the footer
+- **Return policy summary** (not a link -- the actual copy, e.g. "30-day free returns") within one scroll of the Add to Cart button
+- **Social proof numbers** ("14,000 customers") in the hero or near the CTA
+
+Remove trust signals that take too much vertical space. A row of five badges that pushes the CTA below the fold is worse than no badges at all.
+
+---
+
+## Testing on Real Devices
+
+Emulators in Chrome DevTools are useful for quick checks, but they do not replicate real network conditions, real tap behaviour, or real rendering quirks on Android fragmentation.
+
+**Minimum device testing matrix:**
+
+- Latest iOS Safari (most restrictive browser engine in your traffic)
+- Android Chrome on a mid-range device (reflects the median Android user)
+- One 5-year-old device at 3G throttled speed (reflects your slowest viable users)
+
+Use BrowserStack or a physical device farm for pre-launch QA. If your team has no budget for this, ask five people who have older phones to attempt your checkout flow while you watch.
+
+---
+
+## Analytics Setup for Mobile CRO
+
+You cannot improve what you cannot measure. Set up these segments and reports before running any tests:
+
+- **Mobile vs desktop conversion rate** by channel, product, and page
+- **Funnel drop-off by device** -- where specifically do mobile users exit compared to desktop?
+- **Rage-click and scroll-depth heatmaps** on mobile viewport (use Hotjar or Microsoft Clarity, both free)
+- **Form field abandonment** -- which field causes users to stop filling in the form?
+- **Core Web Vitals by device** in Google Search Console (Performance report, filter by Mobile)
+
+---
+
+## Prioritisation Framework
+
+You will find more issues than you can fix at once. Use this scoring approach to prioritise:
+
+| Issue | Traffic affected | Conversion impact | Effort to fix | Priority |
+|---|---|---|---|---|
+| LCP over 4s on product page | High | High | Medium | P1 |
+| No Apple Pay at checkout | High | High | Low | P1 |
+| Tap targets under 40px in nav | Medium | Low | Low | P2 |
+| No inline form validation | Medium | Medium | Medium | P2 |
+| Missing trust badge at checkout | Low | High | Low | P1 |
+
+Fix P1 issues first. Then run A/B tests to confirm lift before moving to P2.
+
+---
+
+## Resources
+
+<ResourceList resources={[
+  { title: "Google PageSpeed Insights", url: "https://pagespeed.web.dev/", type: "tool", free: true },
+  { title: "Shopify Mobile Commerce Report 2024", url: "https://www.shopify.com/research/future-of-commerce", type: "article", free: true },
+  { title: "Vodafone LCP Case Study -- Google Web Dev", url: "https://web.dev/case-studies/vodafone", type: "article", free: true },
+  { title: "Microsoft Clarity (free heatmaps and session recordings)", url: "https://clarity.microsoft.com/", type: "tool", free: true },
+  { title: "Web.dev -- Core Web Vitals", url: "https://web.dev/explore/learn-core-web-vitals", type: "docs", free: true },
+  { title: "Mobile UX Best Practices -- Google (video)", url: "https://www.youtube.com/watch?v=1Nh5CP7MjGk", type: "video", free: true },
+  { title: "CRO for Mobile E-commerce -- CXL Institute (video)", url: "https://www.youtube.com/watch?v=5BQP3wz8LUg", type: "video", free: true },
+  { title: "Mobile Checkout Optimisation -- Baymard Institute (video)", url: "https://www.youtube.com/watch?v=8yA0RfJvbqE", type: "video", free: true },
+]} />

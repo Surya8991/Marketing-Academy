@@ -1,0 +1,88 @@
+export const lessonMeta = {
+  title: "Exit Intent and Recovery",
+  level: "Intermediate",
+  summary: "The cheapest visitor you will ever buy is the one already leaving.",
+};
+
+# Exit Intent and Recovery
+
+## What It Is
+
+Exit intent is a technique that detects when a visitor is about to leave your website and triggers a last-chance message before they go. The most common signal is fast upward mouse movement toward the browser tab or address bar - a clear sign someone is about to close the page or navigate away.
+
+When that signal fires, you show a popup, slide-in, or full-screen overlay. The goal is to give the visitor one more reason to stay, subscribe, or buy. This could be a discount code, a free resource, a reminder of what is in their cart, or simply a way to collect their email before they disappear.
+
+Exit intent is part of a broader practice called conversion rate optimization (CRO) - the work of turning more of your existing traffic into customers without spending more on ads.
+
+## Real-World Example
+
+Crossrope, a jump rope fitness brand, used exit intent popups to offer a discount to visitors leaving their product pages without buying. In 2023, they reported recovering a measurable share of abandoning visitors and attributed a significant lift in email list growth to the tactic. Their popups converted at roughly 4-6% of all exit-intent triggers, which is consistent with the industry average of 2-4% reported across thousands of campaigns (Popupsmart Benchmark Report, 2025).
+
+<Callout type="example">
+**Crossrope: Email List Growth Through Exit Recovery**
+
+Crossrope added a 10% discount offer to their exit intent popup on product pages. Visitors who were about to leave were prompted to enter their email to claim the discount. The popup converted around 4-6% of abandoning visitors into email subscribers, who then received a follow-up sequence that drove a portion back to purchase. This turned a lost visit into a warm lead at near-zero extra cost.
+</Callout>
+
+## Why It Matters
+
+More than 70% of online shoppers leave a website without buying anything (Popupsmart, 2025). That means for every 10 visitors you pay to acquire, 7 or more walk out the door. Paid ads, SEO, and influencer campaigns cost real money to bring those visitors in - letting them all leave without a single recovery attempt is a straightforward loss.
+
+Exit intent solves a specific problem: re-engaging a visitor at the exact moment they have decided to leave. At that point, you have nothing to lose. The visit is already over unless you act. A well-timed offer or message costs you almost nothing to show, and even a 2% conversion rate on abandoning visitors adds up quickly at scale.
+
+It works especially well for:
+- E-commerce stores with cart abandonment
+- SaaS products where free trial sign-ups are the goal
+- Content sites that want to grow email lists
+- Lead generation pages where the visitor came from paid traffic
+
+## How It Works
+
+The process follows a simple detect-trigger-convert loop. Here is the full flow from visitor behavior to recovery outcome:
+
+<Mermaid chart={`flowchart TD
+    A[Visitor browses page] --> B{Exit signal detected}
+    B -->|Mouse moves toward tab bar| C[Popup triggers]
+    B -->|No signal| D[Normal session continues]
+    C --> E{Visitor responds?}
+    E -->|Yes - enters email or clicks offer| F[Lead captured or sale recovered]
+    E -->|No - closes popup| G[Visitor leaves]
+    F --> H[Follow-up sequence begins]
+    H --> I[Email nurture or retargeting]
+`} />
+
+The key steps in plain terms:
+
+1. **Detection** - JavaScript tracks mouse position, scroll speed, or time on page. When the cursor moves sharply upward past a threshold, the exit intent fires.
+2. **Trigger** - A popup, banner, or overlay appears with your recovery message.
+3. **Offer** - The message gives the visitor a reason to act: a discount, a free guide, a reminder of their cart, or a simple "wait, here is what you are missing."
+4. **Capture** - If they respond, you collect an email or close a sale directly.
+5. **Follow-up** - Captured emails enter a sequence: a confirmation, the promised offer, and then a nurture series to convert them later.
+
+## Common Mistakes
+
+<Callout type="warning">
+**The biggest mistake is showing the same popup to every visitor on every page.**
+
+A first-time reader landing on a blog post does not need a 20% cart discount - they have not even browsed your products yet. Showing an irrelevant offer trains visitors to dismiss your popups on reflex. Segment your exit intent triggers by page type: cart abandoners get a discount, blog readers get a content upgrade or email opt-in, pricing page visitors get a free trial or demo offer. Match the message to where the visitor actually is in the funnel.
+</Callout>
+
+<Callout type="tip">
+**Test your copy before you test your design.** Research from Popupsmart (2025) shows that small copy changes shift results by 20 to 50%. Start by A/B testing your headline and offer before changing colors or layouts. The words do more work than the visuals in most exit popups.
+</Callout>
+
+## The One-Line Takeaway
+
+**Exit intent turns your biggest source of waste - departing visitors you already paid for - into a second chance to build a relationship or close a sale.**
+
+<ResourceList resources={[
+  { title: "OptinMonster: 40 Exit-Intent Popup Strategies", url: "https://optinmonster.com/40-exit-popup-hacks-that-will-grow-your-subscribers-and-revenue/", type: "article", free: true, note: "Comprehensive tactics list with real examples" },
+  { title: "Popupsmart Popup Conversion Benchmark Report 2025", url: "https://popupsmart.com/blog/popup-conversion-benchmark-report", type: "article", free: true, note: "Data from 10,000+ campaigns on what actually converts" },
+  { title: "Campaign Monitor: 60 Exit Intent Popup Examples", url: "https://www.campaignmonitor.com/blog/email-marketing/60-exit-intent-pop-up-examples-that-convert-plus-bonus-tactics/", type: "article", free: true, note: "Real examples across industries with commentary" },
+  { title: "WiserNotify: Exit Intent Popup Examples That Convert in 2026", url: "https://wisernotify.com/blog/exit-intent-popup-examples/", type: "article", free: true, note: "Tested examples with conversion context" },
+  { title: "Growth-onomics: Exit Rate Analysis Ultimate Guide 2025", url: "https://growth-onomics.com/exit-rate-analysis-ultimate-guide-2025/", type: "article", free: true, note: "Deep dive into measuring and reducing exit rates" },
+  { title: "VentureHarbour: Do Exit-Intent Popups Actually Increase Conversions?", url: "https://ventureharbour.com/do-exit-intent-popups-actually-increase-conversions-in-2017/", type: "article", free: true, note: "Critical analysis of when popups help vs hurt" },
+  { title: "WsCube Tech - Exit Intent and Recovery (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - Exit Intent and Recovery", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Exit Intent and Recovery (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

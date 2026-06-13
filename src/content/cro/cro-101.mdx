@@ -1,0 +1,85 @@
+Good, I have real stats. Now I'll write the complete MDX file.
+
+export const lessonMeta = {
+  title: "CRO 101",
+  level: "Beginner",
+  summary: "Conversion rate optimization is not a quick win. It is a system.",
+};
+
+# CRO 101
+
+## What It Is
+
+Conversion rate optimization (CRO) is the practice of increasing the percentage of visitors who take a desired action on your website. That action could be making a purchase, signing up for a newsletter, booking a demo, or filling out a form. The "conversion rate" is simply: conversions divided by total visitors, multiplied by 100.
+
+The average website converts just 2.35% of its visitors (Invesp, 2024). That means roughly 97 out of every 100 people who visit a site leave without doing anything. CRO is the discipline of shrinking that gap - not by spending more on ads, but by making what you already have work better.
+
+CRO is not guessing. It is a repeatable process: observe, hypothesize, test, learn, repeat. Every change is validated with data before it becomes permanent. This is what separates CRO from "let's make the button bigger and hope."
+
+## Real-World Example
+
+In 2012, Booking.com was already a large travel site. Their engineering team began running hundreds of A/B tests simultaneously - testing headlines, button colors, urgency messages, and page layouts. By 2015, they were running over 1,000 concurrent experiments. The result: their conversion rate climbed consistently while competitors were making decisions based on opinion. By 2023, Booking.com reported over 28 million listings and attributed their growth engine directly to their culture of continuous experimentation.
+
+<Callout type="example" title="Booking.com: 1,000 Concurrent A/B Tests">
+Booking.com treats every page element as a hypothesis, not a design decision. They test button copy, image placement, social proof placement, and pricing display simultaneously. This culture of experimentation is credited as a core reason they dominate the online travel market. The lesson: CRO is not a project, it is an operating mode.
+</Callout>
+
+## Why It Matters
+
+If you are running paid ads, improving your conversion rate directly multiplies your return on ad spend (ROAS). Doubling your conversion rate from 1% to 2% is mathematically identical to doubling your traffic - but without paying for more clicks.
+
+CRO also compounds. A 10% improvement in conversion rate this month stays in place next month. Unlike a campaign that ends, a better-designed checkout flow keeps converting.
+
+This matters most when:
+- Your cost per acquisition (CPA) is too high to scale
+- You have steady traffic but flat revenue
+- You are launching a new product and want to validate messaging before spending on ads
+
+## How It Works
+
+The CRO process follows a clear cycle. Every step feeds the next.
+
+<Mermaid chart={`flowchart TD
+  A[Analyze - Find where users drop off] --> B[Hypothesize - Form a testable idea]
+  B --> C[Test - Run A/B or multivariate test]
+  C --> D[Measure - Check statistical significance]
+  D --> E{Did it win?}
+  E -->|Yes| F[Implement winner permanently]
+  E -->|No| G[Document learnings]
+  F --> A
+  G --> B`} />
+
+**Step 1 - Analyze:** Use tools like Google Analytics, Hotjar, or Microsoft Clarity to find where users leave your site. High exit rates on a checkout page signal friction. Low scroll depth on a landing page signals weak headlines.
+
+**Step 2 - Hypothesize:** Form a specific, testable statement. Not "let's change the button" but "changing the CTA from 'Submit' to 'Get My Free Guide' will increase clicks by 15% because it communicates value."
+
+**Step 3 - Test:** Run an A/B test - show version A to half your traffic and version B to the other half. Tools like VWO, Optimizely, or Google Optimize handle the split automatically.
+
+**Step 4 - Measure:** Wait until you reach statistical significance - typically 95% confidence. Ending a test early because it "looks like it's winning" is one of the most common mistakes in CRO.
+
+**Step 5 - Implement or learn:** Winners get shipped. Losers still teach you something. Both feed the next cycle.
+
+## Common Mistakes
+
+<Callout type="warning">
+The single biggest CRO mistake is testing too many things at once without a structured process. When you change the headline, the image, the button color, and the layout all at the same time, you cannot know what caused the result. Run one clear test at a time. Form a hypothesis before you touch anything. And never, ever end a test before it reaches statistical significance - a test that runs for two days with 50 visitors is noise, not data.
+</Callout>
+
+<Callout type="tip">
+Start your CRO work where the money is: your checkout flow, your main landing page, or your highest-traffic entry point. Optimizing a page that gets 10 visits a month will take months to gather enough data. Focus on high-traffic, high-stakes pages first.
+</Callout>
+
+## The One-Line Takeaway
+
+**CRO is the practice of turning your existing traffic into more revenue by testing one hypothesis at a time, reading the data honestly, and building on every result.**
+
+<ResourceList resources={[
+  { title: "Invesp: 40 Most Important Conversion Rate Statistics for 2024", url: "https://www.invespcro.com/cro/statistics/", type: "article", free: true, note: "Comprehensive benchmark data for conversion rates by industry and channel" },
+  { title: "CXL: CRO Guide for Beginners", url: "https://cxl.com/conversion-rate-optimization/", type: "article", free: true, note: "One of the most thorough beginner-to-advanced CRO resources available" },
+  { title: "Google Optimize Alternatives and A/B Testing Tools Overview", url: "https://vwo.com/ab-testing/", type: "tool", free: false, note: "VWO is a leading A/B testing platform used by enterprise CRO teams" },
+  { title: "Hotjar: Understand Your Users with Heatmaps", url: "https://www.hotjar.com", type: "tool", free: true, note: "Free tier available - great for seeing where users click, scroll, and drop off" },
+  { title: "Single Grain: 75+ CRO Statistics 2025", url: "https://www.singlegrain.com/conversion-rate/cro-statistics/", type: "article", free: true, note: "Up-to-date stats on conversion rates, mobile vs desktop, and CRO ROI" },
+  { title: "WsCube Tech - CRO 101 (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - CRO 101", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - CRO 101 (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

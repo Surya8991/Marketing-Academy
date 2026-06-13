@@ -1,0 +1,155 @@
+﻿export const lessonMeta = {
+  title: "Sample Size Math for A/B Tests",
+  level: "Intermediate",
+  summary: "Learn how to calculate the right sample size before you run an A/B test, so you avoid false positives and wasted spend.",
+};
+
+# Sample Size Math for A/B Tests
+
+Most A/B tests fail not because the idea was bad, but because the test was under-powered. You peeked too early, called it significant, and shipped a change that was just random noise.
+
+Microsoft runs more than 10,000 A/B tests per year on its ExP (Experimentation Platform). Their research shows that only about one-third of those tests produce a measurable positive effect. The other two-thirds either show no difference or actually hurt metrics. That ratio holds even at a company with some of the most sophisticated experimentation infrastructure on the planet. Getting your sample size right is the foundation that makes the other two-thirds safe to dismiss.
+
+## Why Sample Size Matters
+
+A test with too few visitors is like flipping a coin three times and concluding it is biased. You might see two heads in a row, but that tells you almost nothing about the true probability.
+
+Running with too small a sample causes two distinct problems:
+
+1. **False positives (Type I error):** You declare a winner when the difference was just noise.
+2. **False negatives (Type II error):** You miss a real improvement because your test lacked the sensitivity to detect it.
+
+Both errors cost money - false positives ship bad changes, false negatives bury good ones.
+
+## The Core Formula
+
+The practical formula for a two-sample proportions test (the most common CRO scenario) is:
+
+```
+n = (Z_alpha/2 + Z_beta)^2 * (p1*(1-p1) + p2*(1-p2)) / (p1 - p2)^2
+```
+
+Where:
+- `n` = required visitors per variant
+- `Z_alpha/2` = 1.96 for 95% confidence (two-tailed)
+- `Z_beta` = 0.84 for 80% power
+- `p1` = baseline conversion rate
+- `p2` = expected conversion rate after change (baseline + MDE)
+- `MDE` = minimum detectable effect (the smallest lift you care about)
+
+**A practical shortcut:** For a 95% confidence / 80% power test detecting a 20% relative lift on a 5% baseline:
+
+```
+n per variant = 16 * 0.05 * 0.95 / (0.05 * 0.20)^2
+              = 16 * 0.0475 / 0.0001
+              ≈ 7,600 visitors per variant
+```
+
+So you need roughly 15,200 total visitors split evenly between control and treatment before you can call results.
+
+## Pre-Test Planning Process
+
+<Mermaid chart={`flowchart TD
+    A[Define success metric] --> B[Measure baseline rate]
+    B --> C[Set MDE - minimum detectable effect]
+    C --> D[Choose confidence level - default 95pct]
+    D --> E[Choose statistical power - default 80pct]
+    E --> F[Calculate n per variant]
+    F --> G{Enough traffic available?}
+    G -->|Yes - run time under 4 weeks| H[Launch test]
+    G -->|No - run time over 4 weeks| I[Raise MDE or change metric]
+    I --> C
+    H --> J[Wait for full sample - do not peek]
+`} />
+
+## The Three Inputs You Must Lock Before Launch
+
+### 1. Baseline Conversion Rate
+
+Pull this from your analytics for the exact page and audience segment you are testing. Do not use sitewide averages - a checkout page converting at 3% and a homepage converting at 12% need very different sample sizes.
+
+### 2. Minimum Detectable Effect (MDE)
+
+This is the smallest lift that would actually change a business decision. If you would only ship a change that moves conversion rate by at least 5% relative, set MDE to 5%. Chasing smaller effects requires exponentially more traffic.
+
+Common MDEs by traffic tier:
+
+| Monthly Visitors | Realistic MDE |
+|-----------------|--------------|
+| Under 10,000    | 20-30%       |
+| 10,000-100,000  | 10-20%       |
+| 100,000+        | 5-10%        |
+| 1M+             | 1-5%         |
+
+### 3. Run Duration
+
+Calculate expected run time:
+
+```
+Days needed = (n per variant * 2) / (daily visitors * traffic allocation)
+```
+
+Cap tests at four weeks maximum. After four weeks, external factors (seasonality, news events, changing user mix) start to confound results even if you hit your sample size.
+
+<Callout type="warning">
+**Peeking kills your test.** Checking results before you hit your planned sample size and stopping early when you see significance is the single most common and damaging mistake in A/B testing. It inflates your false positive rate from 5% to as high as 26% (Johari et al., 2017). Commit to your sample size in writing before the test starts, and do not look at conversion rates until you hit it.
+</Callout>
+
+## Segmentation and Multiple Metrics
+
+Every additional segment you analyze (mobile vs. desktop, new vs. returning, country) multiplies your false positive risk. Use Bonferroni correction: divide your alpha by the number of tests.
+
+If you run your primary metric plus three segments at p < 0.05, you need p < 0.0125 in each sub-test to maintain an experiment-wide false positive rate of 5%.
+
+Pick one primary metric before the test starts. Secondary metrics are exploratory, not confirmatory.
+
+## Sequential Testing: An Alternative Approach
+
+If you genuinely cannot wait for a fixed sample, sequential testing (also called always-valid p-values or anytime-valid inference) lets you peek without inflating error rates. Tools like Statsig and Optimizely use this approach. The tradeoff: you need about 30% more total sample to achieve the same power as a fixed-horizon test.
+
+<Callout type="info">
+**Free tools to do the math:** Evan Miller's Sample Size Calculator (evolver.io/tools/sample-size) handles the proportion test. For more complex designs (revenue metrics with high variance, ratio metrics), use the R package `pwr` or Python's `statsmodels.stats.power`.
+</Callout>
+
+## A Worked Example
+
+**Scenario:** You want to test a new CTA button on a product page.
+
+- Baseline conversion rate: 4.2%
+- MDE: 15% relative lift (you want to detect a change from 4.2% to 4.83%)
+- Confidence: 95%, Power: 80%
+- Daily visitors to the page: 800
+
+**Step 1 - Calculate n:**
+
+Using an online calculator with p1 = 0.042, p2 = 0.0483:
+- n per variant = 9,100 visitors
+
+**Step 2 - Calculate run time:**
+
+- Total visitors needed: 18,200
+- Daily visitors: 800
+- Days: 18,200 / 800 = 22.75 days
+
+**Conclusion:** Run the test for 23 days. Do not check results until day 23. Ship or kill based on that single read.
+
+## What to Do When You Have Low Traffic
+
+Low-traffic sites have two honest options:
+
+1. **Focus on macro conversions with large MDEs.** Test things bold enough that even a 25% relative lift is plausible - major layout changes, entirely new flows, radical headline rewrites.
+2. **Use qualitative methods first.** UserTesting, session recordings, and heatmaps tell you what to fix. Run the A/B test only to confirm the fix worked, with a large expected effect size.
+
+Avoid the trap of running 20% traffic to a variant on a site with 500 monthly visitors. You will never reach significance, and the test will just confuse you.
+
+<ResourceList resources={[
+  { title: "Evan Miller Sample Size Calculator", url: "https://www.evanmiller.org/ab-testing/sample-size.html", type: "tool", free: true },
+  { title: "Microsoft ExP: Trustworthy Online Controlled Experiments (Kohavi et al.)", url: "https://exp-platform.com/Documents/2017-08%20KDDMetricInterpretationPitfalls.pdf", type: "article", free: true },
+  { title: "Peeking at A/B Tests: Why It Matters and What to Do About It (Johari et al., 2017)", url: "https://www.optimizely.com/insights/blog/why-you-shouldnt-peek-at-your-data/", type: "article", free: true },
+  { title: "statsmodels power analysis documentation", url: "https://www.statsmodels.org/stable/stats.html#power-and-sample-size-calculations", type: "docs", free: true },
+  { title: "Trustworthy Online Controlled Experiments - Book (Kohavi, Tang, Xu)", url: "https://www.cambridge.org/core/books/trustworthy-online-controlled-experiments/D97B26382EB0EB2DC2019A7A7B518F59", type: "course", free: false },
+  { title: "Optimizely Stats Engine - Sequential Testing Explained", url: "https://www.optimizely.com/insights/blog/statistics-for-the-internet-age-the-story-behind-optimizelys-new-stats-engine/", type: "article", free: true },
+  { title: "A/B Testing ke liye Sample Size kaise Calculate kare (Hindi)", url: "https://www.youtube.com/results?search_query=ab+testing+sample+size+hindi", type: "video", free: true },
+  { title: "A/B Testing Sample Size - Tamil Tutorial", url: "https://www.youtube.com/results?search_query=ab+testing+sample+size+tamil", type: "video", free: true },
+  { title: "A/B Testing Sample Size - Telugu Guide", url: "https://www.youtube.com/results?search_query=ab+testing+sample+size+telugu", type: "video", free: true },
+]} />

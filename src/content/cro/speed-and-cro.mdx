@@ -1,0 +1,83 @@
+export const lessonMeta = {
+  title: "Page Speed and CRO",
+  level: "Intermediate",
+  summary: "The 100ms equals 1 percent revenue relationship - data behind fast pages and higher conversions.",
+};
+
+# Page Speed and CRO
+
+## What It Is
+
+Page speed is how fast your web page loads for a visitor. Conversion Rate Optimization (CRO) is the practice of increasing the percentage of visitors who take a desired action - buying, signing up, or clicking a call-to-action. The connection between the two is direct: a slow page bleeds conversions before a visitor ever reads your headline.
+
+Speed is measured in several ways. Time to First Byte (TTFB) is how long the server takes to respond. Largest Contentful Paint (LCP) is when the biggest visible element on screen finishes loading. Google uses LCP as a Core Web Vital - a ranking signal that also predicts whether visitors will stay or leave.
+
+A one-second delay in page load time reduces conversions by 7% (Akamai, 2017 - still widely cited and validated by more recent studies). For a site doing $100,000 a month, that one second costs $7,000 every month. The faster your page, the more of your ad budget, SEO traffic, and brand equity actually turns into revenue.
+
+## Real-World Example
+
+In 2016, Mobify studied the impact of page load speed on their mobile commerce clients. They found that every 100-millisecond improvement in homepage load time correlated with a 1.11% increase in session-based conversion. At the time, their average client generated millions in annual revenue, making each 100ms of improvement worth tens of thousands of dollars per year.
+
+<Callout type="example" title="Mobify: 100ms = 1.11% More Conversions">
+Mobify analyzed mobile commerce data and found that cutting 100 milliseconds from homepage load time increased conversions by 1.11%. This became one of the most-cited benchmarks in CRO. The relationship compounds: shaving 500ms off load time can mean a 5-6% lift in revenue, purely from speed. No new copy, no redesign - just faster delivery.
+</Callout>
+
+## Why It Matters
+
+Slow pages kill campaigns before they start. You can spend thousands on paid ads and write perfect landing page copy, but if the page takes 5 seconds to load on mobile, most visitors will bounce before seeing any of it. Google data shows that the probability of bounce increases 32% when load time goes from 1 to 3 seconds.
+
+Speed matters most in three situations:
+
+1. **Paid traffic** - You are paying per click. Every bounce from a slow page is money wasted.
+2. **Mobile users** - Mobile networks are slower than broadband. Mobile visitors are also more impatient. A page that loads fine on desktop may be unusable on a 4G connection.
+3. **E-commerce checkout** - Cart abandonment spikes sharply when checkout pages are slow. Friction at the payment step is especially expensive.
+
+Speed is also a Google ranking factor. Faster pages rank higher, which means more organic traffic at no extra cost.
+
+## How It Works
+
+Improving page speed for CRO follows a clear audit-and-fix process. Start by measuring, find the biggest bottlenecks, fix them in order of impact, then verify the conversion lift.
+
+<Mermaid chart={`flowchart TD
+  A[Measure current speed\nGoogle PageSpeed Insights / GTmetrix] --> B[Identify bottlenecks\nImages, scripts, server response, render-blocking CSS]
+  B --> C[Fix highest-impact issues\nCompress images, lazy-load, defer JS, use CDN]
+  C --> D[Re-measure speed score\nAim for LCP under 2.5 seconds]
+  D --> E[Run A/B test\nOld speed vs new speed on same traffic]
+  E --> F[Measure conversion lift\nCalculate revenue impact per 100ms saved]
+  F --> G{Significant lift?}
+  G -- Yes --> H[Ship fix to production\nDocument baseline for future tests]
+  G -- No --> B`} />
+
+The most impactful fixes, roughly in order:
+
+- **Compress and resize images** - Images are the single largest cause of slow pages. Use WebP format and serve images at the size they are displayed, not larger.
+- **Defer non-critical JavaScript** - Scripts that block rendering delay when the page becomes usable. Add `defer` or `async` to scripts that are not needed immediately.
+- **Use a Content Delivery Network (CDN)** - A CDN serves your files from servers physically close to the visitor, reducing latency.
+- **Enable browser caching** - Returning visitors load cached assets instantly instead of re-downloading them.
+- **Minimize server response time** - Upgrade hosting, use server-side caching, or switch to a faster database query.
+
+## Common Mistakes
+
+<Callout type="warning">
+The most common mistake is optimizing speed only on the homepage and ignoring landing pages and checkout. Your homepage may score 95 on PageSpeed Insights while your product pages and cart take 6 seconds to load. Always audit the pages where conversions actually happen - product pages, lead forms, and checkout steps. Run PageSpeed Insights on each of those URLs separately, not just the homepage URL.
+</Callout>
+
+A second common mistake is treating speed as a one-time fix. Third-party scripts (chat widgets, analytics tools, retargeting pixels) accumulate over time and silently slow your pages down. Schedule a quarterly speed audit to catch regressions before they cost you conversions.
+
+## The One-Line Takeaway
+
+**Every 100 milliseconds you cut from your page load time is a measurable increase in revenue - speed is not a technical detail, it is a conversion lever.**
+
+<ResourceList resources={[
+  { title: "Google PageSpeed Insights", url: "https://pagespeed.web.dev/", type: "tool", free: true, note: "Official Google tool to measure and diagnose page speed issues with Core Web Vitals scores" },
+  { title: "Web.dev - Core Web Vitals", url: "https://web.dev/vitals/", type: "docs", free: true, note: "Google's official guide to LCP, FID, and CLS - the three metrics that most affect speed-related rankings" },
+  { title: "GTmetrix - Page Speed Testing", url: "https://gtmetrix.com/", type: "tool", free: true, note: "Detailed waterfall analysis showing exactly which assets are slowing your page down" },
+  { title: "Cloudflare - What is page speed?", url: "https://www.cloudflare.com/learning/performance/why-site-speed-matters/", type: "article", free: true, note: "Clear explainer on how CDNs and caching improve page speed and conversion" },
+  { title: "Mobify Research - 100ms Impact Study", url: "https://www.mobify.com/insights/", type: "article", free: true, note: "Original source for the 100ms to 1.11% conversion lift benchmark cited by Google" },
+  { title: "NNGroup - How Slow UX Kills Conversions", url: "https://www.nngroup.com/articles/website-response-times/", type: "article", free: true, note: "Nielsen Norman Group research on human perception of speed and tolerable wait times" },
+  { title: "Ahrefs - Page Speed and SEO", url: "https://ahrefs.com/blog/page-speed/", type: "article", free: true, note: "Practical walkthrough of how speed affects both Google rankings and conversion rates" },
+  { title: "Yoast - Page Speed for Beginners", url: "https://yoast.com/page-speed/", type: "article", free: true, note: "Beginner-friendly guide to diagnosing and fixing the most common page speed problems" },
+  { title: "WsCube Tech - Page Speed and CRO (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - Page Speed and CRO", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Page Speed and CRO (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

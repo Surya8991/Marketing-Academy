@@ -1,0 +1,85 @@
+export const lessonMeta = {
+  title: "Friction Audit",
+  level: "Intermediate",
+  summary: "Find every moment that makes the user hesitate.",
+};
+
+# Friction Audit
+
+## What It Is
+
+A friction audit is a systematic review of every step a user takes on their way to completing a goal - signing up, buying, booking, or downloading. The goal is to find the moments where people slow down, get confused, or give up entirely. "Friction" is any unnecessary effort: too many form fields, a confusing page layout, slow load times, hidden costs revealed at checkout, or a call-to-action button that is hard to find.
+
+The audit treats your funnel like a leaky pipe. Every drop that falls out before the end is a lost conversion. Before you can fix the leak, you need to find exactly where the water is escaping. That is what a friction audit does: it maps the holes.
+
+The output is a prioritized list of friction points ranked by severity and ease of fixing. You then run tests - A/B tests or simple edits - to remove each point and measure whether conversions improve.
+
+## Real-World Example
+
+Expedia discovered in 2010 that a single optional form field - "Company Name" - was causing users to enter their billing address under a company name instead of their personal name, which caused payment failures. Removing that one field saved the company an estimated $12 million per year. The friction was invisible until someone ran a systematic audit of the checkout form.
+
+<Callout type="example" title="Expedia: $12 Million From One Deleted Field">
+Expedia ran a friction audit on their hotel booking checkout and found an optional "Company Name" field that confused users into entering wrong billing details. Payment failures spiked because of this single field. Removing it recovered roughly $12 million in annual revenue - no redesign, no new traffic, just less friction.
+</Callout>
+
+## Why It Matters
+
+Cart abandonment averages 70% globally, and mobile abandonment exceeds 80% (Baymard Institute, 2024). That means most people who intend to buy never finish. Some of that is natural browsing behavior. But a large share is caused by friction you put in their way without realizing it.
+
+A friction audit is most useful when:
+- Your traffic is growing but conversions are flat
+- A funnel step has an unusually high drop-off rate
+- You are about to run paid ads and want to make sure the landing page converts before spending budget
+- Users are completing sign-up but not activating - the friction may be post-signup
+
+It solves a specific business problem: you are spending money to bring people in, but losing them before they convert. Finding and removing friction is almost always cheaper than buying more traffic.
+
+## How It Works
+
+A friction audit follows five steps. Start with data to find where people drop off, then use qualitative tools to understand why, then fix and test.
+
+<Mermaid chart={`flowchart TD
+    A[Step 1: Map the Funnel] --> B[Step 2: Pull Drop-off Data]
+    B --> C[Step 3: Watch Session Recordings]
+    C --> D[Step 4: Run User Surveys]
+    D --> E[Step 5: Prioritize and Fix]
+    E --> F{Did conversions improve?}
+    F -- Yes --> G[Document and move to next friction point]
+    F -- No --> C
+`} />
+
+**Step 1 - Map the funnel.** Write out every step a user takes from first touch to goal completion. Include the pages, the forms, the emails, and the confirmation screen.
+
+**Step 2 - Pull drop-off data.** Use Google Analytics or any analytics tool to find which steps lose the most users. A step with 60% drop-off is your first target.
+
+**Step 3 - Watch session recordings.** Tools like Hotjar or Microsoft Clarity record real user sessions. Watch people who dropped off. You will see where they paused, scrolled back, or rage-clicked.
+
+**Step 4 - Run user surveys.** A simple one-question exit survey - "What stopped you from completing your purchase today?" - gives you the language users use to describe the friction. That language is gold.
+
+**Step 5 - Prioritize and fix.** Rank friction points by two factors: how many users are affected, and how hard the fix is. High impact, easy fix goes first. Then test each change individually so you know what actually moved the number.
+
+<Callout type="tip">
+Start with the step that has the highest drop-off rate, not the step that looks the most broken to you. Your instincts about what is confusing are often wrong. The data tells you where the real problem is.
+</Callout>
+
+## Common Mistakes
+
+<Callout type="warning">
+The most common mistake is running a friction audit on the landing page while ignoring the steps after it. Many companies obsess over above-the-fold design but never look at the checkout flow, the sign-up confirmation email, or the onboarding sequence. Friction anywhere in the funnel costs you conversions. Audit the whole path, not just the front door.
+</Callout>
+
+## The One-Line Takeaway
+
+**Every form field, every extra click, and every confusing label is a reason for your user to leave - a friction audit finds them before they cost you another sale.**
+
+<ResourceList resources={[
+  { title: "Baymard Institute - Cart Abandonment Rate Statistics", url: "https://baymard.com/lists/cart-abandonment-rate", type: "article", free: true, note: "The most cited source for ecommerce abandonment data" },
+  { title: "CXL - How to Run a Conversion Audit", url: "https://cxl.com/blog/conversion-audit/", type: "article", free: true, note: "Practical step-by-step guide from a leading CRO training site" },
+  { title: "Hotjar - Finding Friction Points With Heatmaps", url: "https://www.hotjar.com/conversion-rate-optimization/friction/", type: "article", free: true, note: "Covers heatmaps, session recordings, and surveys for friction audits" },
+  { title: "VWO - Conversion Rate Optimization Statistics 2024", url: "https://vwo.com/conversion-rate-optimization/conversion-rate-optimization-statistics/", type: "article", free: true, note: "Broad CRO stats useful for benchmarking your funnel" },
+  { title: "Google - How to Use GA4 Funnel Exploration", url: "https://support.google.com/analytics/answer/9327974", type: "docs", free: true, note: "Official guide to building funnel reports in Google Analytics 4" },
+  { title: "Conversion Rate Optimization Full Course - CRO Explained", url: "https://www.youtube.com/watch?v=8BHZJP0VAKY", type: "video", lang: "en", free: true, note: "English walkthrough of CRO and friction reduction techniques" },
+  { title: "WsCube Tech - Friction Audit (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - Friction Audit", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Friction Audit (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

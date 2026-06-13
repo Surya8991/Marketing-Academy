@@ -1,0 +1,95 @@
+export const lessonMeta = {
+  title: "Conversion Rate Math",
+  level: "Beginner",
+  summary: "Why a 1 percent lift can be worth millions, and how to compute it.",
+};
+
+# Conversion Rate Math
+
+## What It Is
+
+A conversion rate is the percentage of visitors who complete a desired action. That action could be a purchase, a sign-up, a download, or a phone call. The formula is simple: divide the number of conversions by the number of visitors, then multiply by 100.
+
+**Conversion Rate = (Conversions / Visitors) x 100**
+
+So if 200 people visit your landing page and 4 of them buy something, your conversion rate is 2%. That single number connects your traffic to your revenue, which makes it one of the most important metrics in all of digital marketing.
+
+The global average website conversion rate sits around 3.68% across industries (Invespcro, 2024). E-commerce specifically averages closer to 2%. The top 10% of landing pages convert at 11.45% or above - which shows how much room there is to grow once you understand the math.
+
+## Real-World Example
+
+In 2023, Booking.com ran over 25,000 A/B tests across its platform. One recurring finding was that small copy and layout changes - things that took hours to implement - lifted conversion rates by 0.5% to 2%. At Booking.com's scale of roughly 1.5 million room nights booked per day, a 1% lift on a single page flow translated to tens of millions of dollars in additional annual revenue. The math is the same at any scale: a small percentage gain on a large number produces a very large absolute gain.
+
+<Callout type="example">
+**Booking.com: Small Lifts, Massive Revenue**
+
+Booking.com runs more A/B tests per year than almost any company on earth - over 25,000 in 2023. A single 1% conversion improvement at their traffic volume can add tens of millions in annual revenue. The underlying math is the same for a startup with 10,000 monthly visitors: going from 2% to 3% conversion on a $50 product adds $5,000 per month without spending a cent more on ads.
+</Callout>
+
+## Why It Matters
+
+Most marketing teams focus on getting more traffic. Buy more ads, publish more content, rank for more keywords. But traffic costs money. Conversion rate optimization (CRO) - the practice of improving your conversion rate - generates more revenue from traffic you already have.
+
+Here is the business problem it solves: your cost per acquisition (CPA) drops every time your conversion rate rises. If you spend $10,000 on ads and convert 100 visitors, each customer cost you $100. Double your conversion rate to 4% and suddenly each customer costs $50 - with no increase in ad spend. That is why even a 1% lift can be worth millions at scale.
+
+CRO also surfaces product and UX problems. A low conversion rate is a signal: something is stopping people from acting. The math forces you to ask why.
+
+## How It Works
+
+There are four numbers you need to track and one ratio to watch:
+
+1. **Visitors** - how many people reached the page
+2. **Conversions** - how many completed the goal
+3. **Conversion Rate** - conversions divided by visitors, times 100
+4. **Revenue per Visitor (RPV)** - average order value multiplied by conversion rate
+
+RPV is especially useful because it tells you the dollar value of every single visitor who lands on your page. If your average order is $80 and your conversion rate is 2.5%, each visitor is worth $2.00 on average. Lift the rate to 3.5% and each visitor is worth $2.80 - a 40% revenue increase with zero extra traffic.
+
+<Mermaid chart={`flowchart TD
+    A[Visitors Land on Page] --> B[Track Total Visitors]
+    B --> C{Did They Convert?}
+    C -- Yes --> D[Count as Conversion]
+    C -- No --> E[Count as Bounce or Exit]
+    D --> F[Conversion Rate = Conversions / Visitors x 100]
+    F --> G[Revenue per Visitor = AOV x Conversion Rate]
+    G --> H[Project Annual Revenue Impact]`} />
+
+### How to Calculate a Revenue Lift
+
+Use this three-step process whenever you want to size the value of a conversion rate improvement:
+
+1. **Start with current state** - monthly visitors x current conversion rate x average order value
+2. **Model the new state** - same visitors x new (higher) conversion rate x same order value
+3. **Find the difference** - new monthly revenue minus current monthly revenue, times 12
+
+Example: 50,000 monthly visitors, 2% conversion rate, $60 average order value.
+- Current monthly revenue: 50,000 x 0.02 x $60 = $60,000
+- At 3% conversion rate: 50,000 x 0.03 x $60 = $90,000
+- Annual lift: ($90,000 - $60,000) x 12 = **$360,000 per year**
+
+That is the value of one percentage point.
+
+## Common Mistakes
+
+<Callout type="warning">
+**Do not optimize conversion rate in isolation.** A high conversion rate on low-quality traffic is not a win. If you target bargain hunters to boost sign-ups, your churn rate will spike and lifetime value will drop. Always look at conversion rate alongside revenue per visitor, customer lifetime value (LTV), and refund rates. Optimizing one number while ignoring the others leads to decisions that hurt the business overall.
+</Callout>
+
+<Callout type="info">
+**Statistical significance matters.** If you run an A/B test for two days with 300 visitors and declare a winner, you are probably reading noise as signal. Use a sample size calculator before you start any test. A common rule of thumb: aim for at least 1,000 conversions per variant before calling a result. Most underpowered tests lead to false positives that do not hold up when rolled out fully.
+</Callout>
+
+## The One-Line Takeaway
+
+**A 1% lift in conversion rate is never just 1% more revenue - at scale, it compounds into the single highest-ROI lever in your entire marketing stack.**
+
+<ResourceList resources={[
+  { title: "Conversion Rate Optimization Statistics 2024 - Invespcro", url: "https://www.invespcro.com/cro/statistics/", type: "article", free: true, note: "Comprehensive CRO benchmark data by industry and channel" },
+  { title: "CRO Statistics: Top Key Numbers - Shopify Blog", url: "https://www.shopify.com/blog/cro-statistics", type: "article", free: true, note: "Ecommerce-focused CRO stats with practical context" },
+  { title: "Average Website Conversion Rate by Industry - Invespcro", url: "https://www.invespcro.com/cro/conversion-rate-by-industry/", type: "article", free: true, note: "Industry benchmark data to compare your own rate against" },
+  { title: "Conversion Rate Optimization Explained - WordStream", url: "https://www.wordstream.com/blog/conversion-rate-optimization-statistics", type: "article", free: true, note: "Accessible explainer with paid search CRO benchmarks" },
+  { title: "CRO Full Course for Beginners - Google Digital Garage", url: "https://learndigital.withgoogle.com/digitalgarage", type: "course", free: true, lang: "en", note: "Free Google course covering conversion fundamentals" },
+  { title: "WsCube Tech - Conversion Rate Math (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - Conversion Rate Math", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Conversion Rate Math (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

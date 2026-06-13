@@ -1,0 +1,89 @@
+export const lessonMeta = {
+  title: "Customer Research for CRO",
+  level: "Advanced",
+  summary: "Heatmaps, recordings, surveys. The qualitative side of a quantitative discipline.",
+};
+
+# Customer Research for CRO
+
+## What It Is
+
+CRO - conversion rate optimization - is the practice of getting more of your existing visitors to take a desired action. Most people think of it as an A/B testing discipline. It is. But testing without research is guessing with a spreadsheet attached.
+
+Customer research for CRO means gathering direct evidence about why people do or do not convert on your site. It covers qualitative methods - heatmaps, session recordings, on-site surveys, customer interviews, and user testing - alongside the quantitative analytics you already track. The goal is to generate hypotheses grounded in real user behavior, not assumptions.
+
+The ratio of spend tells the story: for every $92 companies spend acquiring a visitor, only $1 is spent on converting them (Invesp, 2024). Research is how you close that gap without buying more traffic.
+
+## Real-World Example
+
+Booking.com runs one of the best-documented CRO research programs in the industry. In 2023, their experimentation team reported running over 1,000 concurrent A/B tests at any given time - but every test begins with a qualitative research phase. Teams use session recordings and exit surveys to identify friction points before writing a single line of test code. This research-first approach helped the company maintain a conversion rate well above the industry average for travel (approximately 3.4% versus an industry norm closer to 2%).
+
+<Callout type="example">
+**Booking.com: Research Before Testing**
+
+Booking.com's experimentation culture is built on a research layer that precedes every A/B test. Exit surveys identify why visitors leave without booking. Session recordings show where users hesitate or re-read price information. Heatmaps reveal which trust signals get attention and which are ignored. The company credits this qualitative foundation as the reason their test win rate is consistently higher than teams that jump straight to testing.
+</Callout>
+
+## Why It Matters
+
+Without customer research, your A/B tests are based on opinions. Someone on the team thinks the button color is wrong. Someone else thinks the headline is too long. You end up testing the highest-paid person's hypothesis first.
+
+Research replaces opinion with evidence. It answers three questions that analytics alone cannot:
+
+- **What** are users doing on the page? (heatmaps, recordings)
+- **Where** in the funnel are they dropping off? (funnel analysis, scroll maps)
+- **Why** are they leaving without converting? (surveys, interviews)
+
+The "why" is what analytics can never tell you. A page with 80% bounce rate has a problem. Analytics tells you that. Only a user interview or an exit survey tells you what the problem actually is.
+
+## How It Works
+
+A CRO research cycle has four stages: discover, diagnose, hypothesize, and test. Research lives in the first two stages.
+
+<Mermaid chart={`flowchart TD
+  A[Discover: Analytics audit - find drop-off pages] --> B[Diagnose: Qualitative research - heatmaps, recordings, surveys]
+  B --> C[Hypothesize: Write a prioritized test backlog]
+  C --> D[Test: Run A/B or multivariate experiments]
+  D --> E{Result}
+  E -->|Win - implement| A
+  E -->|Loss - learn| B`} />
+
+**Stage 1 - Discover:** Pull your analytics. Find pages with high traffic and low conversion, or pages with high exit rates. These are your research targets. Do not research everything - focus on pages where a conversion lift will actually move revenue.
+
+**Stage 2 - Diagnose:** Apply your qualitative tools in sequence.
+
+- **Heatmaps** show click patterns and scroll depth. Install Hotjar, Microsoft Clarity (free), or Crazy Egg. Look for clicks on non-clickable elements (frustration clicks) and check whether your main CTA is above the average scroll fold.
+- **Session recordings** let you watch real users navigate. Watch 20-30 recordings on your worst-performing page. Look for hesitation, back-and-forth scrolling, and rage-clicks.
+- **On-site surveys** ask visitors a single question at the right moment. An exit-intent survey asking "What stopped you from completing your purchase today?" yields direct, actionable answers. Keep surveys to one question.
+- **Post-purchase surveys** ask new customers what nearly stopped them from buying. This is the most underused research method in CRO. The people who converted can tell you what almost made them leave.
+- **User testing** puts 5-8 people from your target audience on your site with a specific task. Watching someone try to complete checkout for the first time is humbling and invaluable.
+
+**Stage 3 - Hypothesize:** Synthesize your research into a prioritized list of test ideas. Each hypothesis should follow this format: "Because [research finding], we believe [change] will [expected outcome] for [user segment]."
+
+**Stage 4 - Test:** Run your highest-priority hypothesis as a controlled experiment. The research cycle restarts after each test.
+
+## Common Mistakes
+
+<Callout type="warning">
+**The most common mistake is treating research as optional.** Teams skip directly to testing because research feels slow. They run tests based on best practices copied from case studies at other companies. The result is a low win rate and a backlog full of ideas no one believes in. Research is not a phase you do once at the start of a program - it is a continuous input into every test cycle. Run at least one qualitative research session per quarter per key page, even when your testing program is mature.
+</Callout>
+
+A second common mistake is over-indexing on heatmaps and ignoring surveys. Heatmaps show behavior. Surveys show motivation. You need both. A heatmap showing users clicking your FAQ section repeatedly tells you they have questions. Only a survey or recording tells you what the question is and whether your answer satisfies it.
+
+A third mistake is surveying the wrong people. Exit surveys catch visitors who did not convert - useful, but skewed toward people who were never going to buy. Balance them with post-purchase surveys targeting people who did convert. The contrast between the two groups reveals what tips people from hesitation to action.
+
+## The One-Line Takeaway
+
+**Customer research is what turns A/B testing from expensive guessing into a systematic process for finding and fixing the real reasons people do not convert.**
+
+<ResourceList resources={[
+  { title: "Invesp: 40 Most Important Conversion Rate Statistics for 2024", url: "https://www.invespcro.com/cro/statistics/", type: "article", free: true, note: "Benchmark data and research-backed CRO stats" },
+  { title: "Contentsquare: Conversion Rate Optimization Guide", url: "https://contentsquare.com/guides/conversion-rate-optimization/", type: "article", free: true, note: "Covers heatmaps, session replays, and the full CRO research stack" },
+  { title: "Microsoft Clarity - Free Heatmap and Recording Tool", url: "https://clarity.microsoft.com/", type: "tool", free: true, note: "Free heatmaps and session recordings - no traffic limits" },
+  { title: "Hotjar: How to Use Heatmaps to Improve Conversions", url: "https://www.hotjar.com/heatmaps/", type: "article", free: true, note: "Official Hotjar guide to reading and acting on heatmap data" },
+  { title: "CXL Institute: Customer Research for CRO", url: "https://cxl.com/blog/customer-research/", type: "article", free: true, note: "Deep-dive into qualitative research methods for conversion optimization" },
+  { title: "Crazy Egg: CRO Statistics and Research Methods", url: "https://www.crazyegg.com/blog/cro-statistics/", type: "article", free: true, note: "Data-backed overview of CRO research tools and their impact" },
+  { title: "WsCube Tech - Customer Research for CRO (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - Customer Research for CRO", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Customer Research for CRO (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

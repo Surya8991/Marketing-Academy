@@ -1,0 +1,121 @@
+export const lessonMeta = {
+  title: "Multivariate Testing vs A/B Testing: When to Use Each",
+  level: "Advanced",
+  summary: "Learn when to run a simple A/B test versus a full multivariate experiment, and avoid the traffic mistake that wastes months of data.",
+};
+
+# Multivariate Testing vs A/B Testing: When to Use Each
+
+Picking the wrong test type is one of the most common CRO mistakes. Run a multivariate test on low-traffic pages and you will wait months for significance. Run an A/B test when you have multiple interacting elements and you will miss the combination that actually wins.
+
+## What Is A/B Testing?
+
+An A/B test (also called a split test) compares two versions of a single page or element. Visitors are split randomly: half see the control (A), half see the challenger (B). You change one thing - a headline, a button colour, a form layout - and measure which version drives more of your target action.
+
+**Best for:**
+- Single-element changes (headline, CTA, hero image)
+- Low-to-medium traffic pages (under ~50,000 monthly visitors)
+- Quick iteration cycles where speed matters more than depth
+
+## What Is Multivariate Testing?
+
+Multivariate testing (MVT) changes multiple elements simultaneously and measures every combination. If you test 2 headlines and 3 button colours, you get 6 combinations (2 x 3). The traffic is split across all 6 variants.
+
+**Best for:**
+- Redesigns where several elements change together
+- High-traffic pages (100,000+ monthly visitors recommended)
+- Understanding which element contributes most to the lift
+
+## The Traffic Requirement: The Mistake Everyone Makes
+
+<Callout type="warning">
+Multivariate tests multiply your traffic needs. A test with 3 elements and 2 variants each creates 8 combinations. If your page needs 1,000 conversions per variant to reach significance, you now need 8,000 total conversions - not 2,000. Running MVT on a low-traffic page is how teams spend 6 months collecting inconclusive data.
+</Callout>
+
+To estimate required traffic, use this rough formula:
+
+```
+Required visitors = (variants count) x (baseline conversions needed for significance)
+```
+
+For most e-commerce goals, you need at least 200-300 conversions per variant. A 6-variant MVT needs 1,200-1,800 total conversions minimum.
+
+## Real-World Scale: Booking.com
+
+<Callout type="example">
+Booking.com runs more than 1,000 concurrent A/B tests at any given time - a figure the company has documented publicly since at least 2017. The majority are simple A/B tests, not multivariate, because most pages are testing one hypothesis at a time. MVT is reserved for their highest-traffic flows (search results, checkout) where the volume supports it. The A/B testing software market exceeded $850M in 2024, reflecting how central systematic experimentation has become in digital product teams.
+</Callout>
+
+## Statistical Significance Explained Simply
+
+<Callout type="info">
+Statistical significance answers one question: how likely is it that the difference you see is real rather than random chance? The industry standard is 95% confidence - meaning there is only a 5% probability the result occurred by luck. Do not call a test early just because one variant is leading. Peeking at results and stopping as soon as you see a win inflates your false-positive rate dramatically.
+</Callout>
+
+## Decision Flowchart: Which Test Should You Run?
+
+<Mermaid chart={`graph TD
+  A[Start: You have a hypothesis] --> B{How many elements are changing?}
+  B -->|One element| C[A/B Test]
+  B -->|Two or more elements| D{Monthly page visitors?}
+  D -->|Under 100k| E[Run sequential A/B tests instead]
+  D -->|Over 100k| F{Do the elements interact?}
+  F -->|No - they are independent| G[Run separate A/B tests in parallel]
+  F -->|Yes - combinations matter| H[Multivariate Test]
+`} />
+
+## Choosing Your Test: A Quick Reference
+
+| Factor | A/B Test | Multivariate Test |
+|---|---|---|
+| Elements changing | 1 | 2 or more |
+| Monthly visitors needed | 10,000+ | 100,000+ |
+| Time to significance | Days to weeks | Weeks to months |
+| Insight depth | Which version wins | Which element drives the win |
+| Tooling complexity | Simple | Moderate to high |
+
+## Step-by-Step: Running an A/B Test
+
+1. **Define one hypothesis** - "Changing the CTA from 'Submit' to 'Get My Free Guide' will increase clicks by 15%."
+2. **Set your success metric** - click-through rate, form completions, revenue per visitor.
+3. **Calculate sample size** - use a sample size calculator (Evan Miller's is free and accurate).
+4. **Build variants** - control (A) and challenger (B) only.
+5. **Set the test duration** - run for at least one full business cycle (usually two weeks minimum).
+6. **Do not peek** - check results only at your pre-defined end date.
+7. **Ship or learn** - if B wins at 95%+ confidence, ship it. If not, document what you learned and iterate.
+
+## Step-by-Step: Running a Multivariate Test
+
+1. **Identify interacting elements** - headline, subheadline, hero image, primary CTA.
+2. **Limit combinations** - aim for under 16 total combinations to keep traffic requirements manageable.
+3. **Confirm traffic** - verify you have enough monthly visitors to reach significance in under 8 weeks.
+4. **Use a full-factorial or fractional-factorial design** - most MVT tools handle this automatically.
+5. **Analyse main effects and interactions** - look for which element drives the most variance, and whether any combination outperforms its individual parts.
+6. **Implement the winning combination** - not just the best headline or best button in isolation.
+
+## Common MVT Pitfalls
+
+- **Too many variants**: 4 elements with 3 variants each = 81 combinations. You will never reach significance.
+- **Ignoring interaction effects**: sometimes headline A + button B outperforms any other combination even if neither wins individually.
+- **Stopping at the wrong time**: MVT results stabilise later than A/B results. Give them time.
+- **Testing unrelated pages simultaneously**: traffic from different pages should not be mixed into the same experiment pool.
+
+## Tools That Support Both Test Types
+
+- **Google Optimize (sunset 2023)**: its replacement is VWO or Optimizely for full MVT support.
+- **VWO**: supports A/B, split URL, multivariate, and personalisation.
+- **Optimizely**: enterprise-grade, strong MVT reporting with element contribution analysis.
+- **AB Tasty**: good mid-market option with visual editor for both test types.
+- **Convert.com**: privacy-focused, strong for agencies running tests across multiple clients.
+
+<ResourceList resources={[
+  { title: "Evan Miller Sample Size Calculator", url: "https://www.evanmiller.org/ab-testing/sample-size.html", type: "tool", free: true },
+  { title: "VWO: A/B Testing vs Multivariate Testing", url: "https://vwo.com/multivariate-testing/", type: "article", free: true },
+  { title: "Optimizely: Multivariate Testing Guide", url: "https://www.optimizely.com/optimization-glossary/multivariate-testing/", type: "docs", free: true },
+  { title: "CXL Institute: Statistics for A/B Testing", url: "https://cxl.com/blog/ab-testing-statistics/", type: "article", free: true },
+  { title: "Booking.com: A Culture of Experimentation (Harvard Business Review)", url: "https://hbr.org/2020/03/building-a-culture-of-experimentation", type: "article", free: false },
+  { title: "Convert.com: Multivariate Test Planning", url: "https://www.convert.com/blog/a-b-testing/multivariate-testing-guide/", type: "article", free: true },
+  { title: "CRO Basics - Hindi", url: "https://www.youtube.com/results?search_query=CRO+basics+hindi", type: "video", free: true },
+  { title: "A/B Testing Tamil Tutorial", url: "https://www.youtube.com/results?search_query=AB+testing+tamil", type: "video", free: true },
+  { title: "Conversion Optimisation Telugu", url: "https://www.youtube.com/results?search_query=conversion+rate+optimisation+telugu", type: "video", free: true },
+]} />

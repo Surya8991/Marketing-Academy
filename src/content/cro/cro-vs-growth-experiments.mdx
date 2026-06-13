@@ -1,0 +1,83 @@
+export const lessonMeta = {
+  title: "CRO vs Growth Experimentation",
+  level: "Advanced",
+  summary: "Same toolkit, different mandates.",
+};
+
+# CRO vs Growth Experimentation
+
+## What It Is
+
+Conversion Rate Optimization (CRO) and Growth Experimentation both rely on the same core toolkit: hypotheses, A/B tests, and data. But they serve different mandates, and mixing them up leads to wasted effort and misaligned teams.
+
+CRO is narrow by design. Its job is to squeeze more value out of existing traffic on an existing funnel. You pick a page, identify friction, run a test, and lift the conversion rate. The scope stays inside the funnel. The metric is almost always conversion rate or revenue per visitor.
+
+Growth Experimentation is broader. It treats the entire business model as a hypothesis. Teams ask questions like: Should we charge monthly or annually? Should we add a freemium tier? Should we enter a new channel? A/B tests are just one tool here. The outputs might be new product features, new pricing models, or entirely new acquisition loops. The metric changes with each experiment.
+
+<Callout type="info">
+CRO optimizes what exists. Growth Experimentation questions whether what exists is the right thing at all.
+</Callout>
+
+## Real-World Example
+
+Booking.com is the most cited case in the experimentation literature for good reason. By 2018, the company was running more than 1,000 concurrent A/B tests across its product at any given time. Their experimentation culture covered both CRO-style work (button copy, hero images, urgency signals on hotel pages) and growth-style bets (new market entry, loyalty program design, mobile app monetization). The result: their conversion rate across core markets consistently outpaced competitors by 2 to 3 percentage points, a gap that translated into hundreds of millions in annual revenue. The key distinction internally was that CRO tests were owned by product teams and had a 2-week cycle, while growth experiments were owned by strategy teams and ran for quarters.
+
+<Callout type="example">
+Booking.com ran over 1,000 simultaneous experiments by 2018. CRO tests had a 2-week cycle and focused on page-level friction. Growth experiments ran for quarters and evaluated whole business models. Two mandates, one infrastructure.
+</Callout>
+
+## Why It Matters
+
+Knowing which mode you are in changes every decision you make.
+
+If you are in CRO mode, you need statistical significance fast, you need a clear baseline conversion rate, and your success metric is fixed before the test starts. The business problem is efficiency: more revenue from the same traffic.
+
+If you are in Growth Experimentation mode, you need longer runways, executive buy-in for inconclusive results, and a portfolio mindset. Some experiments will fail and that is the point. The business problem is direction: figuring out where to invest resources before you scale them.
+
+Misidentifying the mode causes real damage. Teams that run growth bets on 2-week CRO timelines declare tests inconclusive and kill ideas that needed more time. Teams that run CRO tests with quarterly growth-experiment budgets waste money iterating on a funnel that should be replaced entirely.
+
+According to a 2024 industry benchmark from Shno, companies that invest in structured experimentation systems achieve conversion rate lifts of 15% to 30% and time-to-decision reductions of 40% to 60%. The lift is real, but only when the mandate is clear.
+
+## How It Works
+
+The framework below separates the two modes at the decision point where most teams go wrong: choosing the scope before choosing the method.
+
+<Mermaid chart={`flowchart TD
+    A[Business Question] --> B{Scope Check}
+    B -->|Improve existing funnel| C[CRO Mode]
+    B -->|Question the model or channel| D[Growth Experiment Mode]
+    C --> E[Pick one page or step]
+    E --> F[Form hypothesis on friction]
+    F --> G[Run A/B test - 2 to 4 weeks]
+    G --> H[Ship winner, document learner]
+    D --> I[Define the bet and the metric]
+    I --> J[Set a runway - 4 to 12 weeks]
+    J --> K[Run MVP or test variant]
+    K --> L{Result}
+    L -->|Signal found| M[Scale or build]
+    L -->|No signal| N[Kill and rotate budget]`} />
+
+The decision point at the top (scope check) is the most important step. Most teams skip it and default to A/B testing everything, which is CRO mode even when the question is a growth mode question.
+
+## Common Mistakes
+
+<Callout type="warning">
+The most common mistake is running a growth experiment on a CRO timeline. A team bets on a new pricing model, gives it two weeks, sees no significant result, and kills it. But pricing model changes take time to propagate through word-of-mouth, sales cycles, and usage patterns. Applying a 2-week CRO cadence to a 12-week growth question guarantees false negatives. Before you start any test, write down which mode you are in and set the timeline accordingly.
+</Callout>
+
+A second common mistake is using the same success metric for both modes. CRO almost always optimizes for conversion rate. Growth experiments might optimize for 90-day retention, annual contract value, or payback period. Using conversion rate as the metric for a growth experiment often produces a local maximum that looks good short-term and destroys long-term unit economics.
+
+## The One-Line Takeaway
+
+**CRO and Growth Experimentation use the same tools but answer different questions - CRO asks 'how do we convert more people?' while Growth Experimentation asks 'are we converting the right people in the right way?'**
+
+<ResourceList resources={[
+  { title: "Growth Experimentation Statistics 2024 - Shno", url: "https://www.shno.co/marketing-statistics/growth-experimentation-statistics", type: "article", free: true, note: "Benchmark data on win rates, test velocity, and experimentation ROI" },
+  { title: "Booking.com Experimentation Culture - HBR", url: "https://hbr.org/2020/03/building-a-culture-of-experimentation", type: "article", free: true, note: "Harvard Business Review case study on running 1000+ concurrent tests" },
+  { title: "CRO vs Growth Hacking - CXL Institute", url: "https://cxl.com/blog/growth-hacking/", type: "article", free: true, note: "CXL breakdown of where CRO ends and growth begins" },
+  { title: "Experimentation Works - Stefan Thomke", url: "https://www.amazon.com/Experimentation-Works-Surprising-Power-Business/dp/1633697053", type: "article", free: false, note: "The definitive book on building experimentation cultures at scale" },
+  { title: "A/B Testing Mastery - CXL Course", url: "https://cxl.com/institute/online-course/ab-testing/", type: "course", free: false, note: "Advanced course covering both CRO and growth experiment design" },
+  { title: "WsCube Tech - CRO vs Growth Experimentation (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - CRO vs Growth Experimentation", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - CRO vs Growth Experimentation (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />
