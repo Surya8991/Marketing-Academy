@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { CATEGORIES } from "@/lib/curriculum";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 export default function Footer() {
   const colA = CATEGORIES.slice(0, 5);
@@ -8,7 +9,16 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-[var(--border)] bg-[var(--muted)]/40 mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid gap-10 md:grid-cols-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+        <div className="border-b border-[var(--border)] pb-8 mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <h3 className="font-semibold text-[var(--foreground)]">Stay sharp</h3>
+            <p className="text-sm text-[var(--muted-foreground)]">New lessons and marketing insights, weekly.</p>
+          </div>
+          <NewsletterSignup />
+        </div>
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 grid gap-10 md:grid-cols-4">
         <div className="md:col-span-2">
           <Link href="/" className="flex items-center gap-2 font-semibold text-lg">
             <span className="text-2xl">📈</span>
