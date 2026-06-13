@@ -1,0 +1,66 @@
+export const lessonMeta = {
+  title: "Incrementality Testing",
+  level: "Advanced",
+  summary: "Did the ad actually cause the conversion? The only question that matters.",
+};
+
+# Incrementality Testing
+
+Last-click attribution tells you which channel got credit. Incrementality testing tells you which channel actually caused the sale. If you spend more than a few thousand dollars a month on paid media and you have never run a holdout, you are almost certainly paying to reach people who would have converted anyway. This lesson is for analytics leads, growth marketers, and media buyers who want to stop arguing about attribution models and start measuring causal lift.
+
+## What It Actually Is
+
+Incrementality testing is a controlled experiment that compares a group exposed to your marketing against a statistically similar group that was not. The difference in conversions between the two groups is the incremental lift, the only number that answers the question 'would this revenue have happened anyway?' Example: you turn off Meta ads in Phoenix for four weeks while leaving them on in a matched city like Austin. If Austin sells 1,000 units and Phoenix sells 850, the incremental contribution of Meta in that market is roughly 15 percent, regardless of what the in-platform dashboard claims.
+
+## Why It Matters (with data)
+
+The industry has finally caught on. A July 2025 EMARKETER and TransUnion report found that 52 percent of brands and agencies now use incrementality testing as a core measurement method, up sharply from prior years ([EMARKETER via Stella](https://www.stellaheystella.com/blog/incrementality-testing-platforms-the-complete-guide-to-measuring-true-marketing-impact-2025)).
+
+The gap between reported and real performance is enormous. In one widely cited 2025 SaaS case, display ads showed a 62 percent lower ROAS under incrementality testing than in the platform reports, prompting a full budget reallocation ([Growth-onomics case studies](https://growth-onomics.com/3-case-studies-on-incrementality-testing-in-marketing/)). On the opposite end, Shinola discovered that Meta was under-reporting by 413 percent after iOS 14, with a true 14.3 percent lift in online conversions.
+
+Methodology has matured. Since late 2024 Meta has shipped automated conversion lift studies that use machine learning to assign holdouts, and Google has cut its minimum geo experiment spend from around $100,000 to roughly $5,000 using Bayesian synthetic controls ([Haus on Meta lift](https://www.haus.io/article/meta-incrementality-testing)). Across 225 geo tests on Stella's platform between August 2024 and December 2025, the median incremental ROAS was 2.31x and 88.4 percent reached statistical significance.
+
+## How It Works / The Playbook
+
+There are three test designs you need to know.
+
+1. **User-level holdout (ghost ads).** The ad platform randomly assigns a control group that is eligible for your ads but never sees them. Best for Meta, YouTube, and large display buys. Requires enough volume for a 10 to 20 percent holdout.
+2. **Geo holdout.** Split markets into test and control groups, turn the channel off in control geos for 4 to 6 weeks, compare sales. Best for TV, podcasts, out-of-home, and any channel without user-level tracking. Synthetic control matching gives up to 4x better precision than naive matched-market tests.
+3. **Time-based switchback.** Alternate on and off weeks across the same audience. Cheap and fast, but contaminated by seasonality and carryover effects. Use only when geo splits are impossible.
+
+A defensible test follows this sequence:
+
+- **Pre-register the hypothesis.** Write down expected lift, minimum detectable effect, test duration, and success criteria before launch. No moving the goalposts later.
+- **Power the test.** Use a sample size calculator. If you cannot detect less than a 30 percent lift, the test is not worth running.
+- **Hold the holdout sacred.** No re-targeting, no email overrides, no exceptions. Contamination kills the read.
+- **Run for full purchase cycles.** Four weeks minimum for ecommerce, eight to twelve for considered purchases.
+- **Report incremental ROAS, not platform ROAS.** iROAS = (test revenue minus control revenue) divided by ad spend in the test cell.
+
+<Callout type="example">
+Mondelez ran always-on Search Incrementality tests inside Walmart Connect through 2024 and 2025 to optimize ad frequency caps and seasonal creative rotation. The program lifted conversions 53 percent year over year and incremental ROI 29 percent, numbers the team would never have surfaced through last-click reporting ([Dataslayer on Walmart Connect](https://www.dataslayer.ai/blog/incrementality-becomes-the-primary-kpi-for-retail-media-advertisers)).
+</Callout>
+
+## Common Mistakes
+
+- **Trusting platform-reported lift studies as gospel.** Meta and Google design their own tests. Run an independent geo experiment annually to keep them honest.
+- **Killing a test early because numbers look good.** Stopping at 80 percent significance to chase a win inflates false positives. Wait for the pre-registered end date.
+- **Ignoring spillover.** Phoenix viewers see Austin TV ads. Pick geos that are media-isolated and far apart.
+- **Confusing 'no statistically significant lift' with 'no lift.' ** Underpowered tests fail to detect real effects. Either spend more or pool tests.
+- **Running one test and calling the channel dead.** Lift varies by creative, season, and audience. Re-test after major creative refreshes.
+
+## Key Takeaways
+
+- Incrementality answers causation. Attribution only assigns credit. They are not the same question.
+- Geo holdouts are now the default for channels without user-level tracking, and synthetic controls have made them cheap enough for mid-market brands.
+- iROAS of 2 to 3x is a realistic median across paid social and search. Anything claiming 10x in-platform deserves a holdout before you scale it.
+
+<ResourceList resources={[
+  { title: "Incrementality Testing Platforms Guide 2025 (Stella)", url: "https://www.stellaheystella.com/blog/incrementality-testing-platforms-the-complete-guide-to-measuring-true-marketing-impact-2025", type: "article", free: true },
+  { title: "Meta Incrementality Testing Explained (Haus)", url: "https://www.haus.io/article/meta-incrementality-testing", type: "docs", free: true },
+  { title: "Google Ads Incrementality Testing (Haus)", url: "https://www.haus.io/article/google-ads-incrementality-testing", type: "docs", free: true },
+  { title: "Geo Holdout Experiments Methodology (SegmentStream)", url: "https://segmentstream.com/measurement-engine/incrementality", type: "article", free: true },
+  { title: "Incrementality Case Studies (Growth-onomics)", url: "https://growth-onomics.com/3-case-studies-on-incrementality-testing-in-marketing/", type: "article", free: true },
+  { title: "WsCube Tech - Incrementality Testing (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
+  { title: "Mr Digital Marketing Tamil - Incrementality Testing", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Incrementality Testing (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+]} />

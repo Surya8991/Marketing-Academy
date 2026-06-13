@@ -43,6 +43,9 @@ export const CATEGORIES: Category[] = [
       { slug: "flywheel", title: "The Marketing Flywheel", level: "Intermediate", summary: "Why HubSpot retired the funnel — and what replaced it." },
       { slug: "category-design", title: "Category Design", level: "Advanced", summary: "Stop competing. Create the category and win by default — the Salesforce, Drift, Gong playbook." },
       { slug: "pricing-psychology", title: "Pricing Psychology", level: "Intermediate", summary: "Anchoring, decoy effect, charm pricing — the levers that move conversion without changing the product." },
+      { slug: "mission-vision-values", title: "Mission, Vision, Values", level: "Beginner", summary: "The foundational doc most companies fake their way through — and why it matters when it's real." },
+      { slug: "strategy-vs-tactics", title: "Strategy vs. Tactics", level: "Beginner", summary: "The most common confusion in marketing planning — and how to tell them apart instantly." },
+      { slug: "5cs-framework", title: "The 5 Cs Framework", level: "Intermediate", summary: "Customer, Company, Competitors, Collaborators, Context — the situational analysis every strategy starts with." },
     ],
   },
   {
@@ -103,6 +106,9 @@ export const CATEGORIES: Category[] = [
       { slug: "ctv-ott-ads", title: "Connected TV & Streaming Ads", level: "Advanced", summary: "Netflix, Hulu, YouTube CTV — buying TV at the price of digital." },
       { slug: "reddit-ads", title: "Reddit Ads", level: "Advanced", summary: "The most contextual, niche-targeted ad platform — when it works and when it doesn't." },
       { slug: "retail-media", title: "Retail Media Networks", level: "Advanced", summary: "Amazon Ads, Walmart Connect, Instacart Ads — selling where people already buy." },
+      { slug: "programmatic-advertising", title: "Programmatic Advertising", level: "Intermediate", summary: "DSPs, SSPs, RTB — the automated auction system behind most display advertising." },
+      { slug: "native-advertising", title: "Native Advertising", level: "Intermediate", summary: "Outbrain, Taboola, sponsored content — ads that match the look and feel of the platform." },
+      { slug: "audio-ads", title: "Audio Advertising", level: "Advanced", summary: "Podcast ads, Spotify, streaming audio — buying ears in the audio-first era." },
     ],
   },
   {
@@ -130,6 +136,9 @@ export const CATEGORIES: Category[] = [
       { slug: "reverse-trials", title: "Reverse Trials", level: "Advanced", summary: "Start users on paid — downgrade to free. The Notion, Loom, Slack monetization shift." },
       { slug: "activation-rate", title: "Activation Rate (the metric)", level: "Intermediate", summary: "The one number that predicts retention better than any other early signal." },
       { slug: "freemium-vs-free-trial", title: "Freemium vs. Free Trial", level: "Intermediate", summary: "Two ways to let people try before they buy — and the math behind which to pick." },
+      { slug: "network-effects", title: "Network Effects", level: "Advanced", summary: "The compounding mechanism Metcalfe identified — and why it creates winner-take-most markets." },
+      { slug: "two-sided-marketplaces", title: "Two-Sided Marketplaces", level: "Advanced", summary: "The chicken-and-egg problem — and how Uber, Airbnb, and Etsy solved it." },
+      { slug: "engagement-loops", title: "Engagement Loops", level: "Intermediate", summary: "Different from growth loops — the retention compounding mechanism that keeps users coming back daily." },
     ],
   },
   {
@@ -185,6 +194,10 @@ export const CATEGORIES: Category[] = [
       { slug: "newsletter-strategy", title: "Newsletter Strategy", level: "Intermediate", summary: "Substack, Beehiiv, ConvertKit — building an audience you own forever." },
       { slug: "content-moats", title: "Content Moats", level: "Advanced", summary: "Proprietary data, original research, surveys — content competitors literally can't copy." },
       { slug: "ai-content-detection", title: "AI Content & Google's Stance", level: "Intermediate", summary: "What Google actually rewards in 2025: useful content, not the tool that wrote it." },
+      { slug: "case-studies", title: "Case Studies", level: "Intermediate", summary: "The highest-converting B2B content format — how to write one that actually sells." },
+      { slug: "webinars", title: "Webinars and Live Content", level: "Intermediate", summary: "The format that refuses to die in B2B — how to run webinars that generate pipeline." },
+      { slug: "ebooks-whitepapers", title: "Ebooks and Whitepapers", level: "Intermediate", summary: "When the long-form gated asset still earns the email — and what makes them worth downloading." },
+      { slug: "interactive-content", title: "Interactive Content", level: "Advanced", summary: "Calculators, quizzes, configurators — the highest-engagement format most companies never invest in." },
     ],
   },
   {
@@ -210,6 +223,8 @@ export const CATEGORIES: Category[] = [
       { slug: "sms-marketing", title: "SMS Marketing", level: "Intermediate", summary: "98% open rates, brutal opt-out costs — how to do SMS without burning the list." },
       { slug: "push-notifications", title: "Push Notifications", level: "Intermediate", summary: "Web push, mobile push, and the 1-minute average attention window." },
       { slug: "whatsapp-marketing", title: "WhatsApp Business Marketing", level: "Advanced", summary: "The dominant marketing channel outside North America — templates, opt-in, and Meta's ecosystem." },
+      { slug: "cold-email", title: "Cold Email", level: "Intermediate", summary: "Outbound B2B email that does not get you blacklisted — deliverability, copy, and sequences." },
+      { slug: "behavioral-triggers", title: "Behavioral Email Triggers", level: "Advanced", summary: "Send because they did X, not because it is Tuesday — the most relevant email you can send." },
     ],
   },
   {
@@ -237,6 +252,8 @@ export const CATEGORIES: Category[] = [
       { slug: "data-warehouses", title: "Data Warehouses for Marketers", level: "Advanced", summary: "BigQuery, Snowflake, Databricks — when marketing graduates from GA to SQL." },
       { slug: "clean-rooms", title: "Data Clean Rooms", level: "Advanced", summary: "Google Ads Data Hub, Amazon AMC, Meta Advanced Analytics — privacy-safe attribution at scale." },
       { slug: "privacy-sandbox", title: "Privacy Sandbox & Post-Cookie Web", level: "Advanced", summary: "Topics API, FLEDGE, Attribution Reporting — Chrome's privacy-first replacement." },
+      { slug: "marketing-kpis-okrs", title: "Marketing KPIs and OKRs", level: "Intermediate", summary: "The 8 numbers a CMO reports to the board — and how to set OKRs that actually align teams." },
+      { slug: "reverse-etl", title: "Reverse ETL", level: "Advanced", summary: "Warehouse-to-tool sync (Hightouch, Census) — the new layer in the modern marketing stack." },
     ],
   },
   {
@@ -290,6 +307,10 @@ export const CATEGORIES: Category[] = [
       { slug: "choice-architecture", title: "Choice Architecture and Nudges", level: "Advanced", summary: "Defaults, ordering, friction — designing the path you want people to take." },
       { slug: "peak-end-rule", title: "The Peak-End Rule", level: "Advanced", summary: "People remember the peak emotion and the end — design experiences accordingly." },
       { slug: "status-belonging-identity", title: "Status, Belonging, and Identity", level: "Advanced", summary: "The deepest motivators in B2C and luxury — why brands become tribes." },
+      { slug: "ikea-effect", title: "The IKEA Effect", level: "Intermediate", summary: "Why people overvalue what they helped create — and how to use co-creation in product and marketing." },
+      { slug: "mere-exposure-effect", title: "The Mere Exposure Effect", level: "Intermediate", summary: "Familiarity breeds preference — Zajonc's finding and what it means for brand frequency and reach." },
+      { slug: "sunk-cost-fallacy", title: "The Sunk Cost Fallacy", level: "Intermediate", summary: "Why people throw good money after bad — and how retention and loyalty programs exploit this wiring." },
+      { slug: "default-bias", title: "Default Bias and Status Quo", level: "Advanced", summary: "The most powerful nudge: doing nothing. How defaults shape behavior at scale." },
     ],
   },
   {
@@ -317,6 +338,9 @@ export const CATEGORIES: Category[] = [
       { slug: "ab-testing-copy", title: "A/B Testing Copy", level: "Advanced", summary: "Test what matters. Headlines first, button labels last." },
       { slug: "b2b-copy", title: "B2B Copy: Pain, Proof, Process", level: "Advanced", summary: "How B2B copy differs from B2C, and the three pillars that drive enterprise pages." },
       { slug: "storytelling-copy", title: "Storytelling in Copy", level: "Advanced", summary: "Why narrative beats argument every time." },
+      { slug: "power-words", title: "Power Words", level: "Intermediate", summary: "Sensory and emotional words that move conversion — the proven vocabulary of influence." },
+      { slug: "storybrand", title: "StoryBrand Framework", level: "Advanced", summary: "Donald Miller's 7-part framework — make the customer the hero, not your brand." },
+      { slug: "direct-vs-brand-copy", title: "Direct Response vs. Brand Copy", level: "Advanced", summary: "The two camps of copywriting and when each style wins." },
     ],
   },
   {
@@ -343,6 +367,9 @@ export const CATEGORIES: Category[] = [
       { slug: "cro-vs-growth-experiments", title: "CRO vs Growth Experimentation", level: "Advanced", summary: "Same toolkit, different mandates." },
       { slug: "personalization-cro", title: "Personalization for CRO", level: "Advanced", summary: "Segment-specific pages, dynamic copy, and when it actually moves the needle." },
       { slug: "cro-research", title: "Customer Research for CRO", level: "Advanced", summary: "Heatmaps, recordings, surveys. The qualitative side of a quantitative discipline." },
+      { slug: "checkout-optimization", title: "Checkout Optimization", level: "Advanced", summary: "The highest-revenue square foot on the internet — fields, friction, payment options, and trust." },
+      { slug: "trust-signals", title: "Trust Signals That Convert", level: "Intermediate", summary: "Badges, reviews, guarantees — what actually moves trust and what does not." },
+      { slug: "speed-and-cro", title: "Page Speed and CRO", level: "Intermediate", summary: "The 100ms = 1 percent revenue relationship — the data behind fast pages and higher conversions." },
     ],
   },
   {
@@ -370,6 +397,9 @@ export const CATEGORIES: Category[] = [
       { slug: "brand-equity", title: "Brand Equity Measurement", level: "Advanced", summary: "Putting a dollar value on brand." },
       { slug: "b2b-brand", title: "B2B Branding", level: "Advanced", summary: "Why B2B brand is now table stakes, not optional." },
       { slug: "founder-brand", title: "Founder Brand as Distribution", level: "Advanced", summary: "Why founders go viral on LinkedIn while their company accounts struggle." },
+      { slug: "brand-crisis", title: "Brand Crisis Management", level: "Advanced", summary: "The 24-hour playbook every brand needs — and will not use until it is too late." },
+      { slug: "co-branding", title: "Co-Branding", level: "Advanced", summary: "Lego x Adidas, Spotify x Starbucks — the partnership math and what makes co-brands work." },
+      { slug: "employer-brand", title: "Employer Brand", level: "Intermediate", summary: "The under-taught discipline that decides who you can hire — and how to build it deliberately." },
     ],
   },
   {
@@ -394,6 +424,9 @@ export const CATEGORIES: Category[] = [
       { slug: "pricing-packaging", title: "Pricing and Packaging", level: "Advanced", summary: "Plan tiers, feature gates, and the math behind a price page." },
       { slug: "category-creation", title: "Category Creation", level: "Advanced", summary: "When to invent a category vs play in an existing one." },
       { slug: "pmm-org-models", title: "PMM Org Models", level: "Advanced", summary: "Centralized, product-aligned, segment-aligned. The tradeoffs." },
+      { slug: "analyst-relations", title: "Analyst Relations", level: "Advanced", summary: "Gartner Magic Quadrant, Forrester Wave — the B2B credibility loop and how to win it." },
+      { slug: "customer-advisory-board", title: "Customer Advisory Boards", level: "Advanced", summary: "The 8-customer council that aligns product and marketing — and how to run one that works." },
+      { slug: "beta-programs", title: "Beta Programs", level: "Intermediate", summary: "Early access as a marketing channel — how to structure a beta that creates advocates." },
     ],
   },
   {

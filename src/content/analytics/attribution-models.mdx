@@ -1,0 +1,63 @@
+export const lessonMeta = {
+  title: "Attribution Models",
+  level: "Advanced",
+  summary: "First, last, linear, time-decay, data-driven, and what each lies about.",
+};
+
+# Attribution Models
+
+Every attribution model is wrong. Some are useful. This lesson is for analysts, growth leads, and CMOs who have to defend a channel mix to a CFO and need to know exactly what each model exaggerates, hides, and silently kills in the budget.
+
+## What It Actually Is
+
+An attribution model is a rule for splitting credit for a conversion across the touchpoints that preceded it. If a user sees a TikTok ad, clicks a Google search ad three days later, opens a retention email a week after that, then buys, the model decides who gets paid in the dashboard. Change the model and the same revenue moves between channels without a single dollar of real performance changing.
+
+## Why It Matters (with data)
+
+Modern buying journeys are long and noisy. Analysis cited across attribution vendors shows a typical retail consumer touches a brand roughly 56 times before purchase, so any single-touch model ignores about 55 of them ([Cometly](https://www.cometly.com/post/first-touch-vs-last-touch-attribution-426e5)).
+
+The tracking layer underneath is also leaking. Privacy features, ITP, ad blockers, and consent banners commonly hide 30 to 40 percent of touchpoints, which means even a sophisticated model is reasoning from a Swiss-cheese dataset ([MarketingMary](https://www.marketingmary.ai/blog/marketing-attribution-models-guide)).
+
+Google made this concrete in 2023 by deleting all rules-based models in GA4 except last-click, then in 2025 leaned harder into Data-Driven Attribution (DDA) as the default and shipped a beta conversion attribution analysis report on January 16, 2026 ([MarTech](https://martech.org/a-guide-to-attribution-models-in-ga4/), [PPC Land](https://ppc.land/google-analytics-drops-three-major-features-that-will-reshape-how-marketers-track-campaigns/)).
+
+## How It Works: The Five Models and What Each Lies About
+
+1. **First-touch.** 100 percent credit to the first known interaction. Lies about: retention, retargeting, brand campaigns, and any channel that closes deals. Useful for: pure top-of-funnel demand questions, never for budget allocation.
+2. **Last-touch (last-click).** 100 percent to the final touch. Lies about: every channel that created demand. It systematically overpays branded search and retargeting, because those are almost always the last click. Still the GA4 default for non-DDA properties.
+3. **Linear.** Equal credit to every touch. Lies about: importance. A throwaway display impression gets the same weight as a 20-minute webinar. Honest only when touches really are interchangeable, which is almost never.
+4. **Time-decay.** Exponentially more credit to touches closer to conversion. Lies about: long sales cycles. In a 90-day B2B deal, the demo-request form gets crushed by the closing-week retargeting ad. Good for short cycles, dangerous for considered purchases.
+5. **Data-driven (DDA).** Uses a Shapley-value or counterfactual model to estimate marginal contribution per channel. Lies about: confidence. DDA needs volume (GA4 historically required around 600 conversions and 400 non-converting paths in 30 days per property), and it is a black box that quietly redistributes credit when Google updates the algorithm.
+
+The playbook:
+
+- Pick the model that matches the decision. Channel kill-or-scale calls need multi-touch or DDA. Creative testing inside one channel only needs last-click.
+- Run two models in parallel and look at the delta. If linear and last-click disagree by more than 25 percent on a channel, that channel is either a discovery engine or a closer, and you treat it differently.
+- Pair attribution with incrementality. Geo holdouts, ghost bids, and PSA tests tell you what would have happened anyway. Attribution alone cannot.
+
+<Callout type="example">
+Airbnb publicly shut down most of its brand search and paid budget in 2020 and again pressure-tested it in 2022. Last-click attribution had been crediting paid channels with conversions that were happening anyway. After the cut, direct and organic absorbed the demand and Airbnb reported it kept marketing spend roughly 50 percent below 2019 levels while traffic stayed strong, with brand-led traffic above 90 percent of total. The number on the dashboard was a lie the entire time. Source: [Airbnb Q4 2022 shareholder letter](https://news.airbnb.com/airbnb-q4-2022-and-full-year-financial-results/).
+</Callout>
+
+## Common Mistakes
+
+- Treating DDA as ground truth. It is a model trained on your leaky tracking data, not a measurement of reality.
+- Comparing channel ROAS across models without recalculating CAC payback. Switching from last-click to time-decay can move a channel from profitable to unprofitable on paper overnight.
+- Ignoring view-through and offline touches. If you do not feed CRM closed-won data back into the model, B2B attribution is fiction.
+- Letting the agency pick the model. Agencies optimize for the model that makes their channel look best.
+
+## Key Takeaways
+
+- Every model is wrong; pick the one whose lies you can live with for the decision in front of you.
+- Run at least two models side by side and treat the disagreement as the real signal.
+- Pair attribution with incrementality testing, otherwise you are grading homework with the same pen the student used.
+
+<ResourceList resources={[
+  { title: "MarTech: A guide to attribution models in GA4", url: "https://martech.org/a-guide-to-attribution-models-in-ga4/", type: "article", free: true },
+  { title: "Google: About Data-Driven Attribution", url: "https://support.google.com/analytics/answer/10596866", type: "docs", free: true },
+  { title: "PPC Land: Google Analytics drops three major features", url: "https://ppc.land/google-analytics-drops-three-major-features-that-will-reshape-how-marketers-track-campaigns/", type: "article", free: true },
+  { title: "Cometly: First Touch vs Last Touch Attribution", url: "https://www.cometly.com/post/first-touch-vs-last-touch-attribution-426e5", type: "article", free: true },
+  { title: "Airbnb Q4 2022 Shareholder Letter", url: "https://news.airbnb.com/airbnb-q4-2022-and-full-year-financial-results/", type: "article", free: true },
+  { title: "WsCube Tech - Attribution Models (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
+  { title: "Mr Digital Marketing Tamil - Attribution Models", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Attribution Models (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+]} />

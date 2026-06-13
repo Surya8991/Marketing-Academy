@@ -1,0 +1,61 @@
+export const lessonMeta = {
+  title: "Dashboards (Looker, etc.)",
+  level: "Intermediate",
+  summary: "The handful of charts that drive 90 percent of decisions.",
+};
+
+# Dashboards (Looker, etc.)
+
+Most marketing dashboards are graveyards. Forty tiles, three filters, and nobody opens them after week two. This lesson is for the marketer or analyst who wants a dashboard that an exec actually checks on Monday morning, and that a campaign manager actually uses to kill a bad ad on Tuesday afternoon.
+
+## What It Actually Is
+
+A marketing dashboard is a single page that answers a small set of recurring questions, in priority order, using live data. In tools like Looker Studio, Looker (Google Cloud), Tableau, or Power BI, you wire connectors to GA4, your ad platforms, your CRM, and a warehouse, then build views on top. A good example: a paid acquisition dashboard that shows blended CAC, ROAS by channel, spend pacing vs. budget, and a leaderboard of the top and bottom ten ad creatives, refreshed every morning.
+
+## Why It Matters (with data)
+
+The market is moving fast and the trust gap is real. The global marketing analytics market hit $7.12 billion in 2025 and is forecast to reach $8.02 billion in 2026, on the way to $14.55 billion by 2031 at a 12.65 percent CAGR ([Revenue Memo, 2026](https://www.revenuememo.com/p/marketing-analytics-statistics)). AI-driven analytics adoption jumped from 31 percent of organizations in 2024 to 56 percent in 2025, projected to reach 78 percent by 2028 ([Improvado, 2026](https://improvado.io/blog/top-marketing-analytics-trends)).
+
+But the dashboards themselves are not the problem. Trust is. While 87 percent of marketers say data-driven marketing is critical, only 32 percent trust their data, and roughly 65 percent of businesses are expected to shift from intuition to data-driven decisions by 2026 ([Digital Applied, 2026](https://www.digitalapplied.com/blog/marketing-analytics-statistics-2026-data-points)). The takeaway: a dashboard that nobody trusts is worse than no dashboard, because it slows every meeting down with definition fights.
+
+## How It Works / The Playbook
+
+The 90 percent rule: in any growth org, five to seven charts drive most decisions. Build those first, then stop.
+
+1. **Define the decision before the chart.** Write the sentence "If this number does X, we will do Y." If you cannot finish it, the chart does not belong on the dashboard.
+2. **Pick the canonical metric set.** For most marketing teams: blended CAC, ROAS by channel, conversion rate by channel, MQL to SQL rate, pipeline created, and spend pacing vs. budget.
+3. **Build for two audiences.** Executives need a one-screen scorecard with revenue, ROI, and pacing. Campaign managers need a deep dive view filterable by channel, audience, and creative ([Dataslayer, 2025](https://www.dataslayer.ai/blog/marketing-dashboard-best-practices-2025)).
+4. **Choose the right chart for the job.** Line charts for trends, bar charts for channel comparison, scorecards for headline KPIs, geo maps for regional spend, and tables only when the user needs to sort or export. Avoid pie charts above three segments.
+5. **Anchor every number to a date range and a definition.** Add a tooltip or footnote: "MQL = form fill with score over 40, attributed by GA4 last non-direct."
+6. **Refresh on a schedule the team trusts.** Daily for paid, weekly for SEO and lifecycle. Stale data kills credibility faster than a wrong number.
+
+<Callout type="example">
+HubSpot's internal marketing team publicly shared that they replaced a 30-tab reporting deck with a single Looker dashboard tracking pipeline sourced, pipeline influenced, CAC payback, and channel ROAS. The result, per their 2024 State of Marketing report, was a measurable shift in meeting time from "what is the number" to "what do we do about it," and contributed to the finding that high-performing teams are 1.7 times more likely to use a unified analytics platform than peers ([HubSpot State of Marketing, 2024](https://www.hubspot.com/state-of-marketing)).
+</Callout>
+
+## Common Mistakes
+
+- **Tile sprawl.** More than 12 tiles on one page means nobody scans it. Move secondary metrics into a linked detail view.
+- **No definitions.** Three people in a meeting each define 'conversion' differently. Put the SQL or the calculated field formula in a tooltip on every KPI.
+- **Vanity at the top.** Impressions and sessions belong below the fold. CAC, ROAS, and pipeline belong at the top.
+- **Dark mode theater.** Heavy gradients and neon accents look great in screenshots and unreadable in a Monday standup. Use one accent color for the highlighted metric.
+- **No comparison.** A number alone says nothing. Always show vs. previous period, vs. target, or vs. last year.
+- **Ignoring data freshness.** A 'last updated' timestamp in the corner is non-negotiable.
+
+## Key Takeaways
+
+- Five to seven charts drive 90 percent of marketing decisions. Build those, kill the rest.
+- Trust beats sophistication. 87 percent of marketers say data is critical but only 32 percent trust theirs, so definitions and freshness timestamps matter more than chart variety.
+- Separate the exec scorecard from the operator deep dive. One dashboard cannot serve both well.
+- Every chart should answer a pre-written decision question, otherwise it is decoration.
+
+<ResourceList resources={[
+  { title: "Marketing Dashboard Best Practices 2025 (Dataslayer)", url: "https://www.dataslayer.ai/blog/marketing-dashboard-best-practices-2025", type: "article", free: true },
+  { title: "Top Marketing Analytics Trends 2026 (Improvado)", url: "https://improvado.io/blog/top-marketing-analytics-trends", type: "article", free: true },
+  { title: "Marketing Analytics Statistics 2026 (Digital Applied)", url: "https://www.digitalapplied.com/blog/marketing-analytics-statistics-2026-data-points", type: "article", free: true },
+  { title: "Looker Studio Official Documentation", url: "https://support.google.com/looker-studio", type: "docs", free: true },
+  { title: "Looker Studio (free dashboard tool)", url: "https://lookerstudio.google.com", type: "tool", free: true },
+  { title: "WsCube Tech - Dashboards (Looker, etc.) (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
+  { title: "Mr Digital Marketing Tamil - Dashboards (Looker, etc.)", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Dashboards (Looker, etc.) (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+]} />

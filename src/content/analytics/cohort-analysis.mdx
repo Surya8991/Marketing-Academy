@@ -1,0 +1,58 @@
+export const lessonMeta = {
+  title: "Cohort Analysis",
+  level: "Intermediate",
+  summary: "The only way to see if your product is actually getting better.",
+};
+
+# Cohort Analysis
+
+Average retention numbers lie. They blend last year's loyal users with this week's new signups, smooth out the cracks, and hide the fact that your product may be silently rotting. Cohort analysis is the antidote: it groups users by when they joined and tracks how each group behaves over time, so you can see whether the changes you ship are actually moving the needle.
+
+## What It Actually Is
+
+A cohort is a group of users who share a starting event in the same time window, usually the week or month they signed up. You then measure a single behavior (logins, purchases, paid renewals) across weeks 1, 2, 3 and so on for every cohort. The output is a triangular table where each row is a cohort and each column is a time period since they joined.
+
+Example: of 1,000 users who signed up in January, maybe 480 came back in week 1, 310 in week 4, and 220 in week 12. The February cohort might show 510, 340, 245. That improvement is signal. A blended "retention rate" of 30 percent would have hidden it completely.
+
+## Why It Matters (with data)
+
+Retention has gotten harder, not easier. The average SaaS product retains roughly 46.9 percent of users after one month and about 35 percent after eight weeks, according to 2025 benchmarks compiled in the [Quantledger cohort retention report](https://www.quantledger.app/blog/cohort-retention-benchmarks-by-industry). Net revenue retention tells the same story: the [2025 median NRR sits at 101 percent](https://www.fiscallion.io/blog/net-revenue-retention-benchmark-saas-what-the-numbers-actually-mean-for-your-stage), barely above flat, and companies above 100 percent NRR are growing 48 percent year over year, more than double the pace of those below.
+
+Enterprise B2B SaaS leaders hit 90 to 95 percent gross retention and 110 to 130 percent net retention. Vertical SaaS typically beats horizontal SaaS by 5 to 10 percentage points because switching costs are higher. None of these numbers are visible in a single blended chart. You only see them in a cohort table.
+
+## How It Works / The Playbook
+
+1. **Pick one north-star action.** For a media app it might be "watched 3 plus videos". For SaaS, "logged in and completed a key action". Vanity events like "opened the app" will mislead you.
+2. **Choose your cohort window.** Weekly cohorts for fast-moving consumer products, monthly for SaaS, quarterly for enterprise.
+3. **Build the triangle.** Rows = signup week, columns = weeks since signup, cells = percent of the cohort that performed the action.
+4. **Look for the shape, not the number.** A healthy curve drops sharply, then flattens. A curve that keeps sloping down means you have no product-market fit yet.
+5. **Segment before you celebrate.** Slice cohorts by acquisition channel, plan tier, or onboarding variant. A blended cohort table is the worst-case scenario because it averages segments that behave nothing alike.
+6. **Compare cohorts vertically.** If the cohort that onboarded after your new welcome flow shows 40 percent week-4 retention versus 28 percent the month before, the flow worked.
+
+<Callout type="example">
+Spotify ran cohort analysis on acquisition channels and found that users acquired through social media campaigns had 25 percent lower six-month retention than users from search advertising. They reallocated budget toward search and away from social. Netflix used the same technique on content launches and found that subscribers who joined during the "Stranger Things" launch had 18 percent higher year-one retention than other cohorts, which reshaped how they sequenced tentpole releases. Both examples are documented in [FasterCapital's retention modeling overview](https://fastercapital.com/topics/what-is-cohort-analysis-and-why-is-it-important-for-retention-modeling.html).
+</Callout>
+
+## Common Mistakes
+
+- **Looking at one cohort in isolation.** A single retention curve tells you nothing. You need at least three or four cohorts side by side to see if things are improving, stagnating, or decaying.
+- **Blending segments.** Free trial users, self-serve paid, and sales-led enterprise have totally different retention shapes. Averaging them produces a chart that describes no real user.
+- **Choosing the wrong action.** "Opened the app" inflates everything. Pick the action that correlates with paying you next quarter.
+- **Ignoring seasonality.** A November cohort in e-commerce will always look stronger than a February cohort. Compare like with like or normalize.
+- **Quitting too early.** Cohort curves need 8 to 12 periods before the flattening point is visible. If you call a winner at week 2, you are reading noise.
+
+## Key Takeaways
+
+- Cohort analysis is the only honest way to know if your product is improving, because it isolates the impact of changes from the noise of new traffic.
+- Aim for a retention curve that flattens, not one that keeps falling. A flat tail is the visual signature of product-market fit.
+- Always segment by acquisition source and plan tier. The blended view hides the only insights worth acting on.
+
+<ResourceList resources={[
+  { title: "Cohort Retention Benchmarks 2025 (Quantledger)", url: "https://www.quantledger.app/blog/cohort-retention-benchmarks-by-industry", type: "article", free: true },
+  { title: "Net Revenue Retention Benchmarks 2025 (Fiscallion)", url: "https://www.fiscallion.io/blog/net-revenue-retention-benchmark-saas-what-the-numbers-actually-mean-for-your-stage", type: "article", free: true },
+  { title: "Cohorts to Improve Retention (Amplitude)", url: "https://amplitude.com/blog/cohorts-to-improve-your-retention", type: "docs", free: true },
+  { title: "Retention Cohort Analysis: Four Simple Ways (Churnkey)", url: "https://churnkey.co/blog/cohort-retention-analysis/", type: "article", free: true },
+  { title: "WsCube Tech - Cohort Analysis (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
+  { title: "Mr Digital Marketing Tamil - Cohort Analysis", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Cohort Analysis (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+]} />

@@ -1,0 +1,75 @@
+export const lessonMeta = {
+  title: "Consent Mode and Privacy",
+  level: "Advanced",
+  summary: "Modeling conversions when users say no to cookies.",
+};
+
+# Consent Mode and Privacy
+
+Since the EU Digital Markets Act (DMA) kicked in on March 6, 2024, marketers running Google Ads or GA4 in the EEA and UK have had to deal with a strange new reality: a large chunk of their conversions are invisible by default. Consent Mode v2 is Google's answer, and conversion modeling is how you get those numbers back. This lesson is for analytics leads, paid media managers, and growth engineers responsible for measurement in privacy-regulated markets.
+
+## What It Actually Is
+
+Consent Mode v2 is a Google API that lets your tags fire in two states: granted or denied. When a user accepts cookies, tags behave normally. When a user declines, tags still send "cookieless pings" containing non-identifying signals (timestamp, page, device class, ad click ID if present). Google then uses machine learning to model what the denied users probably did, and writes those modeled numbers into Google Ads and GA4 reports.
+
+Concrete example: a shopper clicks a Google Ad, rejects cookies, buys a sweater. Without Consent Mode, that sale is unattributed. With advanced Consent Mode, a cookieless ping fires on the thank-you page, and Google's model estimates the conversion back to the campaign that drove it.
+
+## Why It Matters (with data)
+
+The numbers are not small. Google says advanced Consent Mode recovers around 65% of ad-click-to-conversion journeys lost to consent choices, and advertisers typically see a 15-25% uplift in reported conversions from modeling alone. Some accounts recover 70% or more of previously lost conversions ([Axept.io](https://www.axept.io/blog/consent-mode-v2-data-modeling-adtech)).
+
+Air France implemented Consent Mode across European markets and reported a 9% uplift in measured conversions, revenue that was previously invisible to Smart Bidding ([Axept.io](https://www.axept.io/blog/consent-mode-v2-data-modeling-adtech)).
+
+Enforcement also has teeth. From July 21, 2025, Google began turning off remarketing, conversion tracking, and demographic reports for EEA/UK accounts that had not implemented Consent Mode v2 ([PPC Land](https://ppc.land/consent-mode-v2-enforcement-is-silently-breaking-google-ads-conversions/)). DMA fines start at 10% of global revenue and reach 20% for repeat violations.
+
+## How It Works / The Playbook
+
+There are two flavors. Pick advanced if you can.
+
+1. **Basic Consent Mode**: tags are blocked entirely until consent is granted. No pings, no modeling. Simpler, but you lose the biggest benefit.
+2. **Advanced Consent Mode**: tags always load and send cookieless pings on denial. This unlocks conversion modeling.
+
+To turn modeling on, you need to clear Google's thresholds:
+
+- A Consent Management Platform (CMP) certified by Google (Cookiebot, OneTrust, Iubenda, Complianz, CookieScript, and others)
+- Both `ad_user_data` and `ad_personalization` consent signals wired up (these are the v2 additions on top of v1)
+- At least **700 ad clicks over 7 days** per country/domain pair
+- **Seven full days** of data collection
+- A consent acceptance rate that is high enough for the model to learn from (Google generally wants 20%+)
+
+Implementation steps:
+
+1. Pick a Google-certified CMP and deploy it via Google Tag Manager.
+2. Set default consent state to `denied` for EEA/UK traffic in a "Consent Initialization" tag that fires before everything else.
+3. Confirm your CMP fires `gtag('consent', 'update', {...})` with all four signals (`ad_storage`, `analytics_storage`, `ad_user_data`, `ad_personalization`) when the user makes a choice.
+4. Verify in GTM Preview that cookieless pings fire when consent is denied (look for `gcs=G100` in the network tab).
+5. Wait 7-14 days, then check Google Ads for the "Modeled conversions" column and GA4 for "Behavioural modeling" status under Reporting Identity.
+
+<Callout type="example">
+A Google Ads account documented in April 2026 lost 90% of measured conversions overnight after a misconfigured consent banner collected user preferences but failed to transmit signals to Google's tag. After fixing the wiring, the account recovered roughly 40% of its attribution data through modeling within two weeks ([Axept.io](https://www.axept.io/blog/consent-mode-v2-data-modeling-adtech)).
+</Callout>
+
+## Common Mistakes
+
+- **Treating Consent Mode as a CMP replacement.** It is not. You still need a CMP to collect and store the user's choice. Consent Mode is the pipe that tells Google about it.
+- **Forgetting the two new v2 signals.** Many v1 implementations still pass only `ad_storage` and `analytics_storage`. Without `ad_user_data` and `ad_personalization`, Google treats you as non-compliant and disables modeling.
+- **Skipping the default-denied state.** If your tags fire with implicit consent before the banner loads, you leak data and violate the DMA. Set defaults to `denied` and update on user choice.
+- **Comparing modeled numbers to raw GA4.** Modeled conversions appear in Google Ads but not always in GA4 acquisition reports. Expect the two to disagree, and reconcile via the Data API.
+- **Ignoring the 700-click threshold.** Smaller accounts may never qualify for modeling. Consider server-side tagging and Enhanced Conversions as a backstop.
+
+## Key Takeaways
+
+- Consent Mode v2 is mandatory in the EEA and UK as of March 2024, with active enforcement since July 2025.
+- Advanced mode recovers 15-25% of lost conversions on average, and up to 65-70% of ad-click journeys per Google.
+- You need a certified CMP, all four consent signals, 700+ clicks per country/domain in 7 days, and patience for the model to warm up.
+
+<ResourceList resources={[
+  { title: "Consent Mode v2 enforcement is breaking Google Ads conversions (PPC Land)", url: "https://ppc.land/consent-mode-v2-enforcement-is-silently-breaking-google-ads-conversions/", type: "article", free: true },
+  { title: "Consent Mode v2, One Year Later (Axept.io)", url: "https://www.axept.io/blog/consent-mode-v2-data-modeling-adtech", type: "article", free: true },
+  { title: "Google Consent Mode developer docs", url: "https://developers.google.com/tag-platform/security/guides/consent", type: "docs", free: true },
+  { title: "Cookiebot CMP (Google-certified)", url: "https://www.cookiebot.com/", type: "tool", free: false },
+  { title: "Simplified Guide to Google Consent Mode v2 (Complianz)", url: "https://complianz.io/simplified-guide-to-google-consent-mode-v2/", type: "article", free: true },
+  { title: "WsCube Tech - Consent Mode and Privacy (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
+  { title: "Mr Digital Marketing Tamil - Consent Mode and Privacy", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Consent Mode and Privacy (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+]} />

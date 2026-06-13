@@ -1,0 +1,75 @@
+export const lessonMeta = {
+  title: "UTM Tagging",
+  level: "Beginner",
+  summary: "The five parameters that decide whether your data makes sense.",
+};
+
+# UTM Tagging
+
+Every marketing report you read starts with someone deciding what to call a link. If that someone is sloppy, your dashboard becomes fiction. UTM parameters are the five tags you bolt onto a URL so analytics tools know where a click came from, and this lesson is the difference between trusted attribution and a quarterly review full of "Unassigned" traffic.
+
+## What It Actually Is
+
+A UTM parameter is a key-value pair appended to a URL via the query string. Google Analytics, HubSpot, Mixpanel, and almost every modern analytics tool read these tags and use them to populate source, medium, and campaign reports.
+
+A tagged link looks like this:
+
+`https://example.com/pricing?utm_source=linkedin&utm_medium=social&utm_campaign=q2-launch&utm_content=carousel-v2&utm_term=marketing-ops`
+
+The five parameters:
+
+1. `utm_source` — the specific platform: `linkedin`, `google`, `mailchimp`
+2. `utm_medium` — the channel category: `social`, `cpc`, `email`, `referral`
+3. `utm_campaign` — the named initiative: `q2-launch`, `black-friday-2025`
+4. `utm_content` — variant or creative: `carousel-v2`, `header-cta`
+5. `utm_term` — paid keyword (mostly used for paid search)
+
+## Why It Matters (with data)
+
+GA4 treats UTM values as case-sensitive strings. `utm_source=Google` and `utm_source=google` show up as two separate sources in your reports, which is one of the top reasons attribution silently breaks ([CRO Benchmark, 2024](https://www.crobenchmark.com/blog/ga4-utm-parameter-mistakes)).
+
+Teams that standardize a UTM naming convention see roughly a 29% improvement in campaign attribution accuracy, and 67% of marketers said they increased their reliance on first-party data in 2025, where UTMs are the most accessible form of campaign-level first-party data ([UTM.io 2025 Tagging Guide](https://web.utm.io/blog/the-2025-utm-tagging-guide/)).
+
+GA4 also enforces an all-or-nothing rule on the core three parameters: if you ship a link with only `utm_campaign` and skip `utm_source` and `utm_medium`, GA4 will refuse to populate the other dimensions and the visit lands in Unassigned ([CampaignTrackly](https://www.campaigntrackly.com/why-are-my-utm-parameters-not-showing-in-ga4-7-silent-failure-points/)).
+
+## How It Works / The Playbook
+
+Use this five-step workflow before any campaign goes live:
+
+1. **Lowercase everything.** No capitals, no spaces. Use hyphens between words: `spring-sale-2025`, not `Spring Sale 2025`.
+2. **Pick the source before the medium.** Source is the named platform (`facebook`). Medium is the category (`social` or `paid-social`). Confusing the two is the single most common reporting bug.
+3. **Standardize a vocabulary.** Maintain one shared spreadsheet of approved values for source and medium. New values require a PR-style review.
+4. **Never tag internal links.** A UTM on your own homepage banner overwrites the user's original session attribution in GA4, so a visitor who arrived from Google ends up credited to your nav bar.
+5. **Use a builder, not memory.** Google's [Campaign URL Builder](https://ga-dev-tools.google/campaign-url-builder/), HubSpot's tracking URL tool, or an in-house template enforces the convention automatically.
+
+For paid media, most ad platforms can auto-populate UTM values. Google Ads supports `{campaignid}`, `{adgroupid}`, and `{keyword}` ValueTrack parameters. LinkedIn and Meta have similar dynamic tokens, so set them once at the account level instead of per-link.
+
+<Callout type="example">
+Northbeam analyzed UTM hygiene across DTC brands and found one supplements brand was splitting a single Meta campaign across 14 different `utm_source` values (`fb`, `Facebook`, `facebook`, `FB-ads`, `meta`, and more). After consolidating to a single lowercase value, their reported Meta-attributed revenue jumped 38% in week one, not because sales changed, but because the data finally added up in one row instead of fourteen ([Northbeam, 2024](https://www.northbeam.io/blog/utm-tracking-parameters-for-ad-campaigns)).
+</Callout>
+
+## Common Mistakes
+
+- **Capitalizing values.** `utm_source=Facebook` and `utm_source=facebook` are two different rows in GA4. Pick lowercase and never deviate.
+- **Tagging internal site links.** A tagged "Pricing" button in your nav resets the original campaign attribution every time someone clicks it.
+- **Skipping source or medium.** GA4 needs all three of source, medium, and campaign together. Miss one and the visit goes to Unassigned.
+- **Using spaces or special characters.** Spaces turn into `+` or `%20`, and characters like `&`, `=`, and `#` break the query string. Use hyphens.
+- **Confusing source and medium.** Source is specific (`mailchimp`), medium is categorical (`email`). Swapping them poisons every channel report.
+- **Re-using the same `utm_campaign` value across years.** Always date or version the campaign: `black-friday-2025`, not `black-friday`.
+
+## Key Takeaways
+
+- The five parameters source, medium, campaign, content, and term answer the question "where did this click come from" in a way every analytics tool can read.
+- Lowercase, hyphenated, consistent values are the entire game. Inconsistency, not missing tags, is what destroys most attribution reports.
+- Never tag internal links, and never ship a link with only one or two of the core three parameters set.
+
+<ResourceList resources={[
+  { title: "Google Campaign URL Builder", url: "https://ga-dev-tools.google/campaign-url-builder/", type: "tool", free: true },
+  { title: "2025 UTM Tagging Guide (UTM.io)", url: "https://web.utm.io/blog/the-2025-utm-tagging-guide/", type: "article", free: true },
+  { title: "7 GA4 UTM Parameter Mistakes (CRO Benchmark)", url: "https://www.crobenchmark.com/blog/ga4-utm-parameter-mistakes", type: "article", free: true },
+  { title: "UTM Tracking 101 (Northbeam)", url: "https://www.northbeam.io/blog/utm-tracking-parameters-for-ad-campaigns", type: "article", free: true },
+  { title: "GA4 Campaign Reporting Reference", url: "https://support.google.com/analytics/answer/10917952", type: "docs", free: true },
+  { title: "WsCube Tech - UTM Tagging (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
+  { title: "Mr Digital Marketing Tamil - UTM Tagging", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - UTM Tagging (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+]} />

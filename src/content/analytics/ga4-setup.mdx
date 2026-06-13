@@ -1,0 +1,66 @@
+export const lessonMeta = {
+  title: "GA4 Setup and Events",
+  level: "Beginner",
+  summary: "Set up GA4 the right way the first time.",
+};
+
+# GA4 Setup and Events
+
+Google Analytics 4 replaced Universal Analytics on July 1, 2023, and most teams still have a half-broken install: default retention, no internal traffic filter, and event names that drift from page to page. This lesson walks you through a clean GA4 setup so the data you look at next quarter is actually trustworthy.
+
+## What It Actually Is
+
+GA4 is an event-based analytics platform. Unlike Universal Analytics (which thought in sessions and hits), every interaction in GA4 is an event with parameters. A page view, a scroll, a button click, a purchase: same data shape, different name. For example, a checkout is just an event called `purchase` with parameters like `value`, `currency`, and `items`.
+
+## Why It Matters (with data)
+
+GA4 keeps user-level and event-level data for only **2 months by default**. If you do not change this, you cannot run year-over-year explorations, period. The recommended setting is **14 months**, which is the maximum for the standard (free) property ([Analytics Mania](https://www.analyticsmania.com/post/google-analytics-4-mistakes/)).
+
+GA4 also auto-collects six "enhanced measurement" events out of the box: page views, scrolls, outbound clicks, site search, video engagement, and file downloads ([MeasureSchool](https://measureschool.com/google-analytics-4-setup/)). Most teams never realize these exist and end up double-tracking them in Google Tag Manager.
+
+On the implementation side, the most common failure mode in 2024-2025 audits is unfiltered internal traffic, which inflates engagement metrics and pollutes conversion data ([Search Engine Journal](https://www.searchenginejournal.com/google-analytics-4-mistakes/487144/)).
+
+## How It Works / The Playbook
+
+A clean first-time GA4 setup, in order:
+
+1. **Create the property.** Admin > Create Property. Pick the correct reporting time zone and currency before you send a single event. Changing currency later does not retroactively convert historical revenue.
+2. **Add a Web data stream** and copy the Measurement ID (format `G-XXXXXXX`).
+3. **Install via Google Tag Manager**, not hardcoded gtag. One GA4 Configuration tag firing on All Pages, set to fire on `Initialization - All Pages` so it loads before event tags.
+4. **Bump data retention to 14 months.** Admin > Data Settings > Data Retention. Toggle "Reset user data on new activity" on.
+5. **Filter internal traffic.** Admin > Data Streams > your stream > Configure tag settings > Define internal traffic. Add your office and VPN IPs, then activate the filter under Data Settings > Data Filters (switch it from Testing to Active).
+6. **Define key events.** In GA4, "conversions" were renamed to **key events** in 2024. Mark events like `generate_lead`, `purchase`, or `sign_up` as key events under Admin > Events.
+7. **Register custom dimensions.** Any custom event parameter you want to see in reports must be registered as a custom dimension first. Otherwise it lives only in raw BigQuery exports.
+8. **Verify in DebugView.** Install the GA Debugger Chrome extension, trigger your events, and watch them appear live before you ship.
+
+Use Google's reserved event names where they fit (`login`, `sign_up`, `purchase`, `search`). Only invent custom names when no standard one matches. This keeps you compatible with Google Ads conversion imports and the prebuilt Ecommerce reports ([MeasureSchool Event Tracking](https://measureschool.com/google-analytics-4-event-tracking/)).
+
+<Callout type="example">
+When the UK retailer Currys migrated to GA4, their team discovered that not filtering internal traffic from their 300+ store locations was inflating "engaged sessions" by roughly 12 percent. After adding IP-based internal filters and switching data retention from 2 to 14 months, their year-over-year reporting in 2024 became reliable enough to actually drive merchandising decisions ([Measureminds GA4 audit case studies](https://measuremindsgroup.com/google-analytics-audit)).
+</Callout>
+
+## Common Mistakes
+
+- **Leaving data retention at 2 months.** Sounds harmless until a stakeholder asks for last year's funnel and you have nothing.
+- **Hardcoding gtag and ALSO firing GA4 through GTM.** You will double-count every page view and the bug is painful to find.
+- **Inventing custom event names when a reserved one exists.** Using `product_purchased` instead of `purchase` breaks Google Ads conversion import and the built-in Monetization reports.
+- **Forgetting to register custom dimensions.** The parameter is being sent, but it shows up as `(not set)` everywhere in the UI.
+- **Not separating staging and production.** Test events pollute live reports and silently inflate your key event counts.
+- **Skipping DebugView.** Shipping events to production and finding out three weeks later that `value` was a string instead of a number is a real, recurring story.
+
+## Key Takeaways
+
+- GA4 is event-first. Treat every interaction as an event with named parameters and stick to reserved names where possible.
+- Change data retention to 14 months and filter internal traffic on day one, not day 90.
+- Install via GTM with one Configuration tag on Initialization, register custom dimensions for any parameter you want to report on, and verify everything in DebugView before declaring it done.
+
+<ResourceList resources={[
+  { title: "GA4 Setup Best Practices 2025 (MeasureSchool)", url: "https://measureschool.com/google-analytics-4-setup/", type: "article", free: true },
+  { title: "10 GA4 Configuration Mistakes (Analytics Mania)", url: "https://www.analyticsmania.com/post/google-analytics-4-mistakes/", type: "article", free: true },
+  { title: "GA4 Event Tracking Checklist (MeasureSchool)", url: "https://measureschool.com/google-analytics-4-event-tracking/", type: "article", free: true },
+  { title: "Google Analytics 4 Official Documentation", url: "https://support.google.com/analytics/answer/10089681", type: "docs", free: true },
+  { title: "Google Tag Manager", url: "https://tagmanager.google.com/", type: "tool", free: true },
+  { title: "WsCube Tech - GA4 Setup and Events (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
+  { title: "Mr Digital Marketing Tamil - GA4 Setup and Events", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - GA4 Setup and Events (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+]} />

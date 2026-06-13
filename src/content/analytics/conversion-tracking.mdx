@@ -1,0 +1,56 @@
+export const lessonMeta = {
+  title: "Conversion Tracking",
+  level: "Intermediate",
+  summary: "Defining and capturing the events that actually matter.",
+};
+
+# Conversion Tracking
+
+Every dashboard in your stack is downstream of one decision: what counts as a conversion. Get the event definitions wrong and every cost-per-acquisition number, every attribution report, and every smart-bidding signal is wrong with them. This lesson is for marketers who already have GA4 or a pixel installed and need to make the data trustworthy.
+
+## What It Actually Is
+
+Conversion tracking is the practice of capturing the specific user actions that move your business forward, sending those actions to the tools that need them, and connecting them back to the marketing source that drove them. A "conversion" is not a pageview. It is a purchase, a qualified lead form submission, a trial activation, a 30-second video watch, a paid plan upgrade, a meeting booked. One event, one definition, one source of truth.
+
+## Why It Matters (with data)
+
+The measurement environment has gotten meaningfully harder. According to industry analysis, advertisers with significant iOS traffic now lose between 30 and 60 percent of iOS conversions to browser-side tracking alone, and the worst-hit accounts see 50 to 70 percent total data loss across stacked tracking layers ([Cometly](https://www.cometly.com/post/conversion-tracking-ios-update)). Safari's Intelligent Tracking Prevention caps first-party cookies at seven days, and iOS 17 extended link tracking protection across Mail, Messages, and Private Browsing, stripping known click identifiers from URLs ([Collective Measures](https://www.collectivemeasures.com/insights/are-you-ready-for-ios17)).
+
+The fix the major platforms now recommend is server-side tracking. Sending events from your server to GA4 or Meta bypasses ad blockers and ITP, and Google's own guidance is to make the server container the single source of truth rather than firing the same event from both browser and server ([Tracklution](https://www.tracklution.com/learn/server-side-tracking/ga4-guide/)). A reasonable accuracy target for a modern stack is 85 percent or higher matched conversions.
+
+## How It Works / The Playbook
+
+1. **Write a conversion inventory.** List every event that matters, in plain English, before you touch a tag manager. For a SaaS: signup_started, signup_completed, trial_activated, plan_upgraded. For ecommerce: view_item, add_to_cart, begin_checkout, purchase. Assign each a monetary value, even if estimated.
+2. **Use GA4's recommended event names.** Stick to snake_case and the standard names (purchase, generate_lead, sign_up) wherever they fit. Google's automated reports, audiences, and Ads integrations only light up when you do.
+3. **Mark only the real ones as key events.** In GA4, flag the bottom-of-funnel events as key events. Upstream signals stay as regular events so smart bidding does not optimize toward newsletter signups.
+4. **Implement server-side.** Set up a GTM server container, or send events directly via the GA4 Measurement Protocol and Meta's Conversions API. Pass a hashed email or phone for enhanced conversions and CAPI matching.
+5. **Deduplicate.** If you must run a browser tag alongside the server tag during migration, send a shared event_id on both so the platform collapses them. Otherwise you double-count.
+6. **QA with the DebugView and the Events report.** Fire each conversion in a real session, confirm it lands once, with the right value, currency, and source/medium.
+
+<Callout type="example">
+Pearmill's analysis of Meta accounts running for two years after the iOS 14.5 privacy changes found that advertisers who moved to the Conversions API with proper event matching recovered a large share of the attribution Meta had been missing, and that accounts running CAPI plus enhanced matching consistently outperformed pixel-only setups on reported ROAS ([Pearmill](https://pearmill.com/blog/tracking-meta-conversions-2-years-after-ios-privacy-changes-what-we-know)).
+</Callout>
+
+## Common Mistakes
+
+- Marking every micro-event as a key event. Smart bidding then optimizes toward whichever fires most, usually the cheapest and least valuable.
+- Firing the same purchase event from the browser pixel and the server container without a shared event_id, inflating revenue by up to 2x.
+- Forgetting to pass a currency parameter on purchase events. GA4 silently drops the revenue from monetization reports.
+- Treating form submissions as conversions before lead qualification. You end up optimizing for bots and tire-kickers.
+- Letting consent mode block events without configuring Consent Mode v2 modeling, which loses you the modeled conversions Google would otherwise return.
+
+## Key Takeaways
+
+- The conversion list is a business decision, not a tracking decision. Write it before opening Tag Manager.
+- Server-side is now the default, not the upgrade. Browser-only tracking loses 30 to 60 percent of iOS conversions.
+- One event, one source of truth, deduplicated by event_id. Audit your stack for double-fires quarterly.
+
+<ResourceList resources={[
+  { title: "GA4 Server-Side Tracking Guide", url: "https://www.tracklution.com/learn/server-side-tracking/ga4-guide/", type: "article", free: true },
+  { title: "iOS 17 Tracking Impact Analysis", url: "https://www.collectivemeasures.com/insights/are-you-ready-for-ios17", type: "article", free: true },
+  { title: "Meta Conversions API Two Years In", url: "https://pearmill.com/blog/tracking-meta-conversions-2-years-after-ios-privacy-changes-what-we-know", type: "article", free: true },
+  { title: "Google Analytics 4 Recommended Events", url: "https://support.google.com/analytics/answer/9267735", type: "docs", free: true },
+  { title: "WsCube Tech - Conversion Tracking (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
+  { title: "Mr Digital Marketing Tamil - Conversion Tracking", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Conversion Tracking (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+]} />

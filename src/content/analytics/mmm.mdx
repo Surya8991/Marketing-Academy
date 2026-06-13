@@ -1,0 +1,62 @@
+export const lessonMeta = {
+  title: "Marketing Mix Modeling",
+  level: "Advanced",
+  summary: "Top-down measurement when bottom-up tracking breaks.",
+};
+
+# Marketing Mix Modeling
+
+When iOS 14.5 nuked IDFA and third-party cookies started crumbling, the reported ROAS in every ad platform became fiction. Marketing Mix Modeling (MMM) is how serious teams answer "did this channel actually drive sales?" without relying on user-level tracking. This lesson is for analytics leads, growth heads, and finance partners who own media allocation decisions north of a few million dollars a year.
+
+## What It Actually Is
+
+MMM is a statistical technique, typically Bayesian regression these days, that uses aggregate, time-series data (weekly spend per channel, sales, price, promotions, weather, macro factors) to estimate each channel's incremental contribution to a KPI. It needs no personal data, which is why it has roared back into fashion.
+
+Concrete example: you feed the model 156 weeks of spend by channel (Meta, Google Search, YouTube, TV, podcasts) plus weekly revenue. The model outputs a response curve per channel, an adstock (carryover) parameter, a saturation point, and a recommended reallocation. You learn that podcasts have a 6-week carryover, Meta saturates above 800k per week, and TV is 23% under-invested.
+
+## Why It Matters (with data)
+
+Apple's App Tracking Transparency, live since April 2021, drove opt-in rates below 25%, breaking deterministic mobile attribution and pushing the entire industry toward privacy-durable measurement ([Improvado, 2026](https://improvado.io/blog/what-is-marketing-mix-modeling-complete-guide)).
+
+Google Trends data shows search interest in MMM spiking from August 2025 onward as marketers planned 2026 budgets without reliable last-click data ([Sellforte, 2025](https://sellforte.com/blog/demand-for-marketing-mix-modeling-mmm-accelerating)).
+
+The open-source tooling that made this accessible to mid-market brands matured fast. As of late 2025, Meta's Robyn had 1,200+ GitHub stars and 32 contributors, Google's Meridian had 1,200 stars and 209 forks, and PyMC-Marketing had 987 stars across 83 contributors ([Eliya, 2025](https://www.eliya.io/blog/media-mix-modeling/Meridian-vs-Robyn)). Three years ago, an MMM project meant a six-figure Nielsen engagement; today a competent data scientist can ship a first model in a quarter.
+
+## How It Works / The Playbook
+
+1. **Define the KPI and time grain.** Weekly revenue is the default. Daily works for short-cycle e-commerce; monthly only if you have 5+ years of history.
+2. **Collect 2-3 years of data.** You need at least 104 weeks to fit seasonality and decay. Pull spend by channel, impressions, sales, price, promo flags, distribution, competitor activity, and macro signals (Google Trends, CPI).
+3. **Transform the media variables.** Apply adstock (geometric or Weibull decay) for carryover, then a saturation curve (Hill or log) for diminishing returns. These two transforms are the heart of MMM.
+4. **Fit a Bayesian regression.** Use priors informed by past experiments. Meridian, Robyn, and PyMC-Marketing all give you this out of the box.
+5. **Calibrate against experiments.** This is the step amateurs skip. Run geo-lift or conversion-lift tests on your two biggest channels and use the measured lifts as priors in the model. Uncalibrated MMM is astrology.
+6. **Optimize and reallocate.** Use the fitted response curves to solve for the spend mix that maximizes revenue at the current budget, then stress-test at plus/minus 20% budget.
+7. **Refresh quarterly.** Response curves drift as creative, competition, and audiences change.
+
+<Callout type="example">
+A direct-to-consumer brand saw Meta's reported ROAS collapse after iOS 14.5 and nearly cut spend by 40%. After implementing a Bayesian MMM with adstock, saturation, and offline conversion data calibrated against a geo-lift test, the team discovered Meta's true incremental contribution was roughly double what the platform's last-click attribution reported once view-through and halo effects were included. They held spend flat and redirected planned cuts into a podcast test instead ([ResearchGate, 2026](https://www.researchgate.net/publication/389619662_Measuring_digital_advertising_in_a_post-cookie_era_A_study_of_marketing-mix_models_attribution_and_incrementality)).
+</Callout>
+
+## Common Mistakes
+
+- **Skipping experimental calibration.** Without geo-lift or holdout tests as priors, the model will happily attribute revenue to whatever channel has the most spend variance. Garbage in, confident garbage out.
+- **Ignoring base sales.** If you do not include price, distribution, promos, and seasonality as control variables, paid media will absorb their effects and look heroic.
+- **Overfitting with 18 channels and 80 weeks of data.** Rule of thumb: at least 10 observations per parameter. Aggregate small channels into 'other paid' until you have the history.
+- **Treating the output as truth, not a range.** Bayesian MMM gives you posterior distributions for a reason. Report the 80% credible interval, not the point estimate, to finance.
+- **Refreshing once a year.** Creative fatigue, auction dynamics, and competitor entry shift response curves within a quarter.
+
+## Key Takeaways
+
+- MMM is the privacy-durable backbone of modern measurement; attribution and incrementality testing are the other two legs of the stool, not replacements.
+- Open-source tooling (Meridian, Robyn, PyMC-Marketing) has collapsed the cost of entry from six figures to a single quarter of data-science time.
+- The single highest-leverage step is calibrating the model against real geo-lift or conversion-lift experiments. Skip it and the model is decoration.
+
+<ResourceList resources={[
+  { title: "Google Meridian: The future of MMM", url: "https://business.google.com/us/think/measurement/meridian-marketing-mix-model/", type: "docs", free: true },
+  { title: "Meridian vs Robyn comparison (Eliya, 2025)", url: "https://www.eliya.io/blog/media-mix-modeling/Meridian-vs-Robyn", type: "article", free: true },
+  { title: "PyMC-Labs MMM Complete Guide", url: "https://www.pymc-labs.com/blog-posts/marketing-mix-modeling-a-complete-guide", type: "article", free: true },
+  { title: "Measuring digital advertising in a post-cookie era (2026 study)", url: "https://www.researchgate.net/publication/389619662_Measuring_digital_advertising_in_a_post-cookie_era_A_study_of_marketing-mix_models_attribution_and_incrementality", type: "article", free: true },
+  { title: "MTA vs MMM (Haus)", url: "https://www.haus.io/blog/mta-vs-mmm-choosing-between-multi-touch-attribution-and-marketing-mix-modeling", type: "article", free: true },
+  { title: "WsCube Tech - Marketing Mix Modeling (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "India's top Hindi digital marketing channel - search for this lesson topic" },
+  { title: "Mr Digital Marketing Tamil - Marketing Mix Modeling", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Marketing Mix Modeling (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training by Subhash Mangalam" },
+]} />
