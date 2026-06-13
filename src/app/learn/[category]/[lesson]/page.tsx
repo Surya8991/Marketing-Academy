@@ -3,7 +3,9 @@ import Link from "next/link";
 import { CATEGORIES, getCategory, getLessonNav } from "@/lib/curriculum";
 import LevelBadge from "@/components/LevelBadge";
 import MarkComplete from "@/components/MarkComplete";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import ReadingProgress from "@/components/ReadingProgress";
+import { TableOfContentsDesktop, TableOfContentsMobile } from "@/components/TableOfContents";
+import { ChevronLeft, ChevronRight, ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 
 type Props = { params: Promise<{ category: string; lesson: string }> };
@@ -20,7 +22,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category, lesson } = await params;
   try {
     const mod = await import(`@/content/${category}/${lesson}.mdx`);
-    return { title: mod.lessonMeta?.title ?? lesson };
+    return {
+      title: mod.lessonMeta?.title ?? lesson,
+      description: mod.lessonMeta?.summary,
+    };
   } catch {
     return {};
   }
@@ -44,48 +49,112 @@ export default async function LessonPage({ params }: Props) {
   const { prev, next } = getLessonNav(category, lesson);
 
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-sm text-[var(--muted-foreground)] mb-8">
-        <Link href="/learn" className="hover:text-[var(--foreground)]">All Topics</Link>
-        <ChevronRight size={14} />
-        <Link href={`/learn/${category}`} className="hover:text-[var(--foreground)]">{cat.title}</Link>
-        <ChevronRight size={14} />
-        <span className="text-[var(--foreground)]">{lessonMeta?.title}</span>
-      </nav>
+    <>
+      <ReadingProgress />
 
-      {/* Level badge + complete button */}
-      <div className="flex items-center justify-between mb-4">
-        {lessonMeta?.level && (
-          <LevelBadge level={lessonMeta.level as "Beginner" | "Intermediate" | "Advanced"} />
-        )}
-        <MarkComplete category={category} slug={lesson} />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="flex gap-12">
+          {/* Main column */}
+          <div className="flex-1 min-w-0 max-w-3xl mx-auto xl:mx-0">
+            {/* Breadcrumb */}
+            <nav className="flex items-center gap-2 text-sm text-[var(--muted-foreground)] mb-6 flex-wrap">
+              <Link href="/learn" className="hover:text-[var(--foreground)] transition-colors">
+                All Topics
+              </Link>
+              <ChevronRight size={14} />
+              <Link
+                href={`/learn/${category}`}
+                className="hover:text-[var(--foreground)] transition-colors"
+              >
+                <span className="mr-1">{cat.emoji}</span>
+                {cat.title}
+              </Link>
+              <ChevronRight size={14} />
+              <span className="text-[var(--foreground)] truncate">{lessonMeta?.title}</span>
+            </nav>
+
+            {/* Title block */}
+            <header className="mb-8 pb-6 border-b border-[var(--border)]">
+              <div className="flex items-center gap-3 mb-4">
+                {lessonMeta?.level && (
+                  <LevelBadge
+                    level={lessonMeta.level as "Beginner" | "Intermediate" | "Advanced"}
+                  />
+                )}
+                <span className="text-xs text-[var(--muted-foreground)]">
+                  {cat.title}
+                </span>
+              </div>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] mb-4">
+                {lessonMeta?.title}
+              </h1>
+              {lessonMeta?.summary && (
+                <p className="text-lg text-[var(--muted-foreground)] leading-relaxed">
+                  {lessonMeta.summary}
+                </p>
+              )}
+              <div className="mt-5">
+                <MarkComplete category={category} slug={lesson} />
+              </div>
+            </header>
+
+            {/* Mobile ToC */}
+            <TableOfContentsMobile />
+
+            {/* MDX content */}
+            <article className="prose prose-slate max-w-none">
+              <LessonContent />
+            </article>
+
+            {/* Prev / Next nav */}
+            <nav className="mt-16 pt-8 border-t border-[var(--border)] grid sm:grid-cols-2 gap-4">
+              {prev ? (
+                <Link
+                  href={`/learn/${prev.categorySlug}/${prev.slug}`}
+                  className="group flex flex-col p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)]/50 transition-all"
+                >
+                  <span className="flex items-center gap-1 text-xs text-[var(--muted-foreground)] mb-1">
+                    <ChevronLeft size={12} /> Previous
+                  </span>
+                  <span className="font-medium group-hover:text-[var(--accent)] transition-colors">
+                    {prev.title}
+                  </span>
+                </Link>
+              ) : (
+                <div />
+              )}
+              {next ? (
+                <Link
+                  href={`/learn/${next.categorySlug}/${next.slug}`}
+                  className="group flex flex-col p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)]/50 transition-all sm:text-right"
+                >
+                  <span className="flex items-center gap-1 text-xs text-[var(--muted-foreground)] mb-1 sm:justify-end">
+                    Next <ChevronRight size={12} />
+                  </span>
+                  <span className="font-medium group-hover:text-[var(--accent)] transition-colors">
+                    {next.title}
+                  </span>
+                </Link>
+              ) : (
+                <div />
+              )}
+            </nav>
+
+            <div className="mt-10">
+              <Link
+                href={`/learn/${category}`}
+                className="inline-flex items-center gap-1 text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+              >
+                <ArrowLeft size={14} />
+                Back to {cat.title}
+              </Link>
+            </div>
+          </div>
+
+          {/* Desktop ToC */}
+          <TableOfContentsDesktop />
+        </div>
       </div>
-
-      {/* MDX content */}
-      <article className="prose prose-slate max-w-none">
-        <LessonContent />
-      </article>
-
-      {/* Prev / Next nav */}
-      <nav className="mt-12 pt-6 border-t border-[var(--border)] flex justify-between gap-4">
-        {prev ? (
-          <Link
-            href={`/learn/${prev.categorySlug}/${prev.slug}`}
-            className="flex items-center gap-2 text-sm text-[var(--muted-foreground)] hover:text-[var(--accent)]"
-          >
-            <ChevronLeft size={16} /> {prev.title}
-          </Link>
-        ) : <div />}
-        {next ? (
-          <Link
-            href={`/learn/${next.categorySlug}/${next.slug}`}
-            className="flex items-center gap-2 text-sm text-[var(--muted-foreground)] hover:text-[var(--accent)]"
-          >
-            {next.title} <ChevronRight size={16} />
-          </Link>
-        ) : <div />}
-      </nav>
-    </div>
+    </>
   );
 }
