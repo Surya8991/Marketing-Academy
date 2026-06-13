@@ -61,20 +61,20 @@ export default function HomePage() {
             {totalLessons} lessons · {CATEGORIES.length} categories · 100% free
           </div>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.05]">
+          <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
             Learn marketing
             <span className="block bg-gradient-to-r from-[var(--accent)] via-fuchsia-500 to-rose-500 bg-clip-text text-transparent">
               the way it&apos;s actually done.
             </span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-[var(--muted-foreground)] mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-xl text-[var(--muted-foreground)] mb-10 max-w-2xl mx-auto leading-relaxed">
             SEO, paid ads, growth, social, email, analytics, AI — every discipline
             explained in plain English with real examples, diagrams, and the
             current 2025 playbook.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
             <Link
               href="/learn/fundamentals/what-is-marketing"
               className="flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] font-medium hover:opacity-90 transition-opacity shadow-lg shadow-[var(--accent)]/20"

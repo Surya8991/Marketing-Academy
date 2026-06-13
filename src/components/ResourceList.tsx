@@ -1,6 +1,7 @@
 import { ExternalLink, Play, FileText, BookOpen, Globe } from "lucide-react";
 
 type ResourceType = "video" | "article" | "course" | "docs" | "tool";
+type Lang = "en" | "ta" | "te" | "hi";
 
 const ICONS: Record<ResourceType, React.ReactNode> = {
   video:   <Play size={16} className="text-red-500" />,
@@ -10,12 +11,20 @@ const ICONS: Record<ResourceType, React.ReactNode> = {
   tool:    <Globe size={16} className="text-orange-500" />,
 };
 
+const LANG_BADGES: Record<Lang, { label: string; cls: string }> = {
+  en: { label: "EN",     cls: "bg-blue-500/10 text-blue-600" },
+  ta: { label: "Tamil",  cls: "bg-amber-500/10 text-amber-600" },
+  te: { label: "Telugu", cls: "bg-orange-500/10 text-orange-600" },
+  hi: { label: "Hindi",  cls: "bg-green-500/10 text-green-600" },
+};
+
 type Resource = {
   title: string;
   url: string;
   type: ResourceType;
   note?: string;
   free?: boolean;
+  lang?: Lang;
 };
 
 interface ResourceListProps {
@@ -39,15 +48,22 @@ export default function ResourceList({ resources }: ResourceListProps) {
             >
               <span className="mt-0.5 shrink-0">{ICONS[r.type]}</span>
               <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2">
-                  <span className="text-sm font-medium group-hover:text-[var(--accent)] transition-colors truncate">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-sm font-medium group-hover:text-[var(--accent)] transition-colors">
                     {r.title}
                   </span>
-                  {r.free !== false && (
-                    <span className="shrink-0 text-xs px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700 font-medium">
-                      Free
-                    </span>
-                  )}
+                  <div className="flex items-center gap-1.5 shrink-0">
+                    {r.lang && (
+                      <span className={`text-xs px-1.5 py-0.5 rounded font-medium ${LANG_BADGES[r.lang].cls}`}>
+                        {LANG_BADGES[r.lang].label}
+                      </span>
+                    )}
+                    {r.free !== false && (
+                      <span className="text-xs px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-600 font-medium">
+                        Free
+                      </span>
+                    )}
+                  </div>
                 </div>
                 {r.note && <p className="text-xs text-[var(--muted-foreground)] mt-0.5">{r.note}</p>}
               </div>

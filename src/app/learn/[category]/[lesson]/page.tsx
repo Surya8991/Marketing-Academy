@@ -110,16 +110,16 @@ export default async function LessonPage({ params }: Props) {
             </article>
 
             {/* Prev / Next nav */}
-            <nav className="mt-16 pt-8 border-t border-[var(--border)] grid sm:grid-cols-2 gap-4">
+            <nav className="mt-16 pt-8 border-t border-[var(--border)] grid grid-cols-2 gap-3">
               {prev ? (
                 <Link
                   href={`/learn/${prev.categorySlug}/${prev.slug}`}
-                  className="group flex flex-col p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)]/50 transition-all"
+                  className="lesson-nav-card group flex flex-col p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)]/50 transition-all col-span-1"
                 >
                   <span className="flex items-center gap-1 text-xs text-[var(--muted-foreground)] mb-1">
                     <ChevronLeft size={12} /> Previous
                   </span>
-                  <span className="font-medium group-hover:text-[var(--accent)] transition-colors">
+                  <span className="font-medium text-sm group-hover:text-[var(--accent)] transition-colors line-clamp-2">
                     {prev.title}
                   </span>
                 </Link>
@@ -129,12 +129,12 @@ export default async function LessonPage({ params }: Props) {
               {next ? (
                 <Link
                   href={`/learn/${next.categorySlug}/${next.slug}`}
-                  className="group flex flex-col p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)]/50 transition-all sm:text-right"
+                  className="lesson-nav-card group flex flex-col p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)]/50 transition-all col-span-1 text-right"
                 >
-                  <span className="flex items-center gap-1 text-xs text-[var(--muted-foreground)] mb-1 sm:justify-end">
+                  <span className="flex items-center justify-end gap-1 text-xs text-[var(--muted-foreground)] mb-1">
                     Next <ChevronRight size={12} />
                   </span>
-                  <span className="font-medium group-hover:text-[var(--accent)] transition-colors">
+                  <span className="font-medium text-sm group-hover:text-[var(--accent)] transition-colors line-clamp-2">
                     {next.title}
                   </span>
                 </Link>

@@ -118,10 +118,12 @@ export default async function CategoryPage({ params }: Props) {
       <div className="mt-16 text-center">
         <Link
           href={`/learn/${cat.slug}/${cat.lessons[0].slug}`}
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] font-medium hover:opacity-90 transition-opacity shadow-lg shadow-[var(--accent)]/20"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] font-medium hover:opacity-90 transition-opacity shadow-lg shadow-[var(--accent)]/20 max-w-full"
         >
-          Start Lesson 1: {cat.lessons[0].title}
-          <ArrowRight size={16} />
+          <span className="truncate max-w-[16rem] sm:max-w-none">
+            Start Lesson 1: {cat.lessons[0].title}
+          </span>
+          <ArrowRight size={16} className="shrink-0" />
         </Link>
       </div>
     </div>

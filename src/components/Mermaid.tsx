@@ -116,7 +116,7 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
             type="button"
             onClick={() => setFullscreen(true)}
             aria-label="Open diagram fullscreen"
-            className="absolute top-3 right-3 p-2 rounded-md bg-[var(--background)]/80 border border-[var(--border)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--background)] opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity backdrop-blur-sm"
+            className="absolute top-3 right-3 p-2 rounded-md bg-[var(--background)]/80 border border-[var(--border)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--background)] opacity-100 sm:opacity-0 sm:group-hover:opacity-100 focus:opacity-100 transition-opacity backdrop-blur-sm"
           >
             <Maximize2 size={16} />
           </button>

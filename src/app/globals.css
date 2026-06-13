@@ -270,3 +270,47 @@ body {
   z-index: 40;
   transition: transform 80ms linear;
 }
+
+/* ---------- Mobile typography ---------- */
+@media (max-width: 640px) {
+  .prose :where(h1):not(:where([class~="not-prose"] *)) {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+  .prose :where(h2):not(:where([class~="not-prose"] *)) {
+    font-size: 1.35rem;
+  }
+  .prose :where(h3):not(:where([class~="not-prose"] *)) {
+    font-size: 1.1rem;
+  }
+  /* Show heading anchor on mobile tap via focus */
+  .prose :where(h2, h3, h4) a:focus:not(:where([class~="not-prose"] *))::before {
+    opacity: 0.7;
+  }
+}
+
+/* ---------- Mobile table wrapper ---------- */
+/* Prevent tables from overflowing viewport */
+.prose :where(table):not(:where([class~="not-prose"] *)) {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+
+/* ---------- Code block mobile ---------- */
+.prose :where(pre):not(:where([class~="not-prose"] *)) {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ---------- Safe area (iPhone notch etc.) ---------- */
+.site-footer {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* ---------- Touch-friendly lesson nav links ---------- */
+@media (max-width: 640px) {
+  .lesson-nav-card {
+    min-height: 3.5rem;
+  }
+}
