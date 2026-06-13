@@ -1,0 +1,142 @@
+export const lessonMeta = {
+  title: "Build a Brand Voice System",
+  level: "Intermediate",
+  summary: "Learn how to define, document, and operationalize a brand voice so every piece of content sounds like it came from one organization.",
+};
+
+## Why Brand Voice Is a Revenue Problem, Not a Style Problem
+
+Most marketers treat brand voice as a polish step - something you sort out after the real work is done. The data says otherwise.
+
+A 2019 Lucidpress study found that consistent brand presentation across all channels increases revenue by up to 33%. Yet a 2024 Envive report found that while 95% of organizations have brand guidelines, only 25-30% of employees actually use them consistently. The gap between having a voice and deploying it is where brands lose money.
+
+Brand voice is not about sounding nice. It is about recognition - making every touchpoint feel like it came from the same organization, so trust compounds over time instead of starting from zero with each new audience.
+
+---
+
+## What Brand Voice Actually Means
+
+Brand voice is the consistent expression of your brand's personality through language. It covers:
+
+- **Word choice** - formal or casual, technical or plain, industry jargon or everyday terms
+- **Sentence structure** - short and punchy, or long and considered
+- **Tone range** - how you shift register across contexts (a complaint response versus a product launch)
+- **What you never say** - the phrases, postures, and topics that are off-brand
+
+Voice stays constant. Tone shifts. Your brand is always direct and human - but direct-and-human sounds different in a legal disclaimer than in a welcome email. Conflating voice with tone is one of the most common system failures.
+
+---
+
+## The Adjective Trap
+
+<Callout type="warning">
+  The most common mistake in brand voice documentation is listing adjectives without defining them. "We are bold, human, and innovative" describes almost every brand that has ever existed. Adjectives are useless without contrast statements and behavioral examples.
+</Callout>
+
+Every voice attribute needs three things to be actionable:
+
+1. **The attribute** - what you are
+2. **The contrast** - what you are NOT (this is where the real differentiation lives)
+3. **An example** - a before/after sentence pair that shows the difference
+
+Without contrast and examples, your voice guide is decoration. Writers will ignore it because it gives them no way to make a decision.
+
+---
+
+## Real-World Case: Mailchimp (2015-2024)
+
+Mailchimp is the most cited example of disciplined brand voice execution - for good reason. When they launched their Content Style Guide in 2015, they had around 450,000 users. By 2024, they had grown to over 13 million users across 175 countries.
+
+Their voice is defined by four traits: plain, genuine, translatable, and dry humor. The key is that each trait has explicit anti-examples. "Plain" is contrasted against "dumbed down" - they do not talk down to users, they remove unnecessary complexity. "Dry humor" comes with a clear rule: it is never used when a customer is in distress.
+
+The guide is public. It has been used as a template by hundreds of companies. What made it work was not the writing - it was the decision to treat voice documentation as a product, with the same rigor as a feature spec.
+
+Source: Mailchimp Content Style Guide (mailchimp.com/content-style-guide), updated through 2024.
+
+---
+
+## The 5-Stage Brand Voice System
+
+<Mermaid chart={`graph TD
+  A[1. Audit] --> B[2. Define]
+  B --> C[3. Document]
+  C --> D[4. Train]
+  D --> E[5. Maintain]
+  E --> A
+`} />
+
+### Stage 1 - Audit
+
+Pull 20-30 pieces of existing content across channels: homepage, emails, social posts, support docs, sales decks. Read them aloud. Note where the writing feels inconsistent, stiff, or off. You are looking for the delta between how you actually sound and how you want to sound.
+
+Ask: if you removed the logo, would a reader know this came from your organization?
+
+### Stage 2 - Define
+
+Define 3-5 voice attributes. No more. Each attribute needs:
+- A one-sentence definition
+- A contrast statement ("we are X, not Y")
+- Two example sentences: one off-voice, one on-voice
+
+Run this past people who were not involved in writing it. If they cannot use the attributes to make a real editing decision in under 60 seconds, the definition needs work.
+
+### Stage 3 - Document
+
+Build a voice guide that lives where writers actually work - not a PDF that gets emailed once and forgotten. Options: a Notion page, a Google Doc pinned in Slack, a section of your internal wiki.
+
+The guide must include:
+- Voice attributes with contrast statements and examples
+- A tone matrix: 3-4 common content scenarios and how voice shifts in each
+- A word list: terms you prefer, terms you avoid, terms you never use
+- Templates for the highest-volume content types (subject lines, push notifications, error messages)
+
+### Stage 4 - Train
+
+A guide nobody reads is useless. Two minimum viable training activities:
+
+1. **Voice calibration exercise**: give new writers 10 sample sentences and ask them to mark each as on-voice or off-voice, then discuss the answers as a group
+2. **Red-line review**: have one senior writer or editor review new content against the guide for the first 90 days, with written notes on what was changed and why
+
+Training is not a one-time event. It is a practice that compounds.
+
+### Stage 5 - Maintain
+
+Voice guides decay. Product changes, audience shifts, and new channels all create drift. Schedule a quarterly review: pull 10 recent pieces of content, check them against the guide, note what has changed, update the guide if needed.
+
+The loop back to audit is intentional. A voice system is not a document you finish - it is a practice you sustain.
+
+---
+
+## Where to Start If You Have Nothing
+
+<Callout type="tip">
+  If you are starting from zero, do not try to build the full system at once. Write one contrast statement for your most important channel. Ship it. See if it helps writers make better decisions. Build from there.
+</Callout>
+
+The minimum viable brand voice artifact is a single page with:
+- 3 voice attributes, each with a contrast statement
+- 1 example sentence pair per attribute
+- A short word list (10-15 terms)
+
+That is enough to make a measurable difference in consistency. The full system can come later.
+
+---
+
+## Key Takeaways
+
+- Brand voice is a revenue lever, not a style preference - consistent presentation drives up to 33% more revenue (Lucidpress, 2019)
+- Voice stays constant; tone shifts by context
+- Adjectives without contrast statements and examples are useless
+- Mailchimp's public style guide is the gold standard template - study it
+- The 5-stage system is a loop: Audit, Define, Document, Train, Maintain
+- Start with the minimum viable artifact: 3 attributes, contrast statements, example pairs
+
+---
+
+<ResourceList resources={[
+  { title: "Mailchimp Content Style Guide", url: "https://styleguide.mailchimp.com/", type: "docs", free: true },
+  { title: "Lucidpress Brand Consistency Report", url: "https://www.lucidpress.com/pages/resources/report/the-impact-of-brand-consistency", type: "article", free: true },
+  { title: "Voice and Tone - 18F Content Guide", url: "https://content-guide.18f.gov/our-style/voice-and-tone/", type: "docs", free: true },
+  { title: "Building a Brand Voice - Nielsen Norman Group", url: "https://www.nngroup.com/articles/brand-voice/", type: "article", free: true },
+  { title: "Hemingway App - Clarity checker for voice consistency", url: "https://hemingwayapp.com/", type: "tool", free: true },
+]} />
