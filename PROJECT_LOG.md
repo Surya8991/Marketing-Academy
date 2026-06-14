@@ -1,7 +1,7 @@
 # Marketing Academy - Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-06-14 (Session 14).
+> Last audited: 2026-06-14 (Session 15).
 
 ---
 
@@ -418,6 +418,7 @@ D:\Coding\marketing-academy\
 | 12 | 2026-06-14 | 5 parallel workflows: Tone-down A+B, QnA A+B+C. Interview Q&A added to all 308 lessons. |
 | 13 | 2026-06-14 | Phase 7 workflow: ShareButtons, BookmarkButton, RelatedLessons, /interview-prep, /cheat-sheets, /certificates, /bookmarks, PWA (manifest.json + sw.js), /interview-questions, /digital-marketing-cheat-sheet. Glossary expanded to 148 terms, tracks expanded to 7. |
 | 14 | 2026-06-14 | Em dash fix: 127 instances across curriculum.ts + 6 files. Build fix: cheat-sheets/[category] split into server page.tsx + client PrintButton.tsx (Vercel build error). /tools directory: 85+ tools, 11 categories, search + pricing + category filters. All pushed. |
+| 15 | 2026-06-14 | 7:25am wrap-up. Added Tools nav link (desktop + mobile) to Nav.tsx wiring up the /tools directory page. Comma-fix + em dash sweep ran clean (0 MDX files needed changes). All committed + pushed. |
 
 ---
 
