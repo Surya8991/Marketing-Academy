@@ -182,7 +182,9 @@ export default async function InterviewCategoryPage({ params }: Props) {
                     fontSize: "0.9375rem",
                   }}
                 >
-                  {qa.a}
+                  {qa.a.split("\n\n").map((para, pi) => (
+                    <p key={pi} style={{ margin: pi === 0 ? 0 : "0.75rem 0 0" }}>{para}</p>
+                  ))}
                 </div>
               </details>
             ))}
@@ -265,7 +267,9 @@ export default async function InterviewCategoryPage({ params }: Props) {
                     fontSize: "0.9375rem",
                   }}
                 >
-                  {qa.a}
+                  {qa.a.split("\n\n").map((para, pi) => (
+                    <p key={pi} style={{ margin: pi === 0 ? 0 : "0.75rem 0 0" }}>{para}</p>
+                  ))}
                 </div>
               </details>
             ))}

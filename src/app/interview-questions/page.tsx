@@ -5,10 +5,12 @@ import { INTERVIEW_SECTIONS } from "@/lib/interview-questions";
 export const metadata: Metadata = {
   title: "Digital Marketing Interview Questions 2026 | Marketing Academy",
   description:
-    "Ace your next marketing job interview with 100+ real digital marketing interview questions and answers across all 15 categories - SEO, paid ads, content, analytics, email, growth, AI marketing, social, copywriting, CRO, brand strategy, product marketing, psychology, and tools.",
+    "Ace your next marketing job interview with 150+ real digital marketing interview questions and answers across 16 categories - behavioral, SEO, paid ads, content, analytics, email, growth, AI marketing, social, copywriting, CRO, brand strategy, product marketing, psychology, and tools.",
   keywords: [
     "digital marketing interview questions 2026",
     "marketing interview questions and answers 2026",
+    "behavioral interview questions marketing",
+    "tell me about yourself marketing interview",
     "SEO interview questions 2026",
     "paid advertising interview questions",
     "content marketing interview questions",

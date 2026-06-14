@@ -12,6 +12,7 @@
 2. Count MDX files: (Get-ChildItem src/content -Recurse -Filter *.mdx).Count   [PowerShell]
 3. Current: 308 MDX files across 15 categories - all written + reviewed
 4. Quiz expansion DONE: 257 lessons now have 4 quiz questions each (was 20). src/lib/quizzes.ts = 12,085 lines.
+5. Interview expansion DONE: 16 sections (added Behavioral), 134 Q&As, answers split into 2-4 paragraphs.
 ```
 
 **Do NOT:**
@@ -55,7 +56,7 @@
 
 ## Order of Execution
 
-> Status: Phase 1 ✅ → Phase 2 ✅ → Phase 3 ✅ → Phase 4 ✅ → Phase 5 ✅ live → Phase 6 ✅ → Phase 7 ✅ → Phase 8 ✅ → Phase 9 ✅ → Phase 10 🔴 next
+> Status: Phase 1 ✅ → Phase 2 ✅ → Phase 3 ✅ → Phase 4 ✅ → Phase 5 ✅ live → Phase 6 ✅ → Phase 7 ✅ → Phase 8 ✅ → Phase 9 ✅ → Phase 10 ✅ → Phase 11 ✅ → Phase 12 🔴 next (backlog)
 
 ### PHASE 1 - Infrastructure ✅ COMPLETE
 Next.js 16.2.9 App Router + Tailwind v4 + @next/mdx + Mermaid + fuse.js. All deps installed.
@@ -178,6 +179,31 @@ Every push auto-deploys within ~60 seconds.
 - No em dashes, no hardcoded colors, no "use client" directive
 - ~700 lines, TypeScript compiles clean
 
+### PHASE 11 - Interview Prep Expansion ✅ COMPLETE (Session 28, 2026-06-14)
+
+**Goal:** Import, improve, and restructure 140+ interview Q&As from an external Q&A document; add readability formatting to all answers.
+
+**New section added:**
+- `behavioral` - Behavioral & General Interview Questions (🎙️) - 5 conceptual + 3 scenario Q&As covering: structuring "tell me about yourself", communicating strengths, handling the weakness question, pre-interview research, STAR method, influencing without authority, owning a campaign failure, pushing back on a senior leader
+
+**Existing sections expanded (+2 conceptual QAs each):**
+- SEO: link building quality signals + local SEO / Google local pack optimization
+- Analytics: four types of analytics (descriptive/diagnostic/predictive/prescriptive) + communicating data insights to non-technical executives
+- Social: social media crisis management (first 4 hours) + UGC strategy and FTC disclosure rules
+
+**Renderer updated:**
+- `src/app/interview-questions/[category]/page.tsx` - answers now split on `\n\n` and rendered as `<p>` tags instead of a flat string
+- All 134 answers reformatted with 2-4 paragraph breaks for readability (via parallel workflow, 16 agents)
+
+**Metadata updated:**
+- `/interview-questions` page description updated: 16 categories, 150+ questions
+- Added behavioral interview keywords to metadata
+
+**Stats:**
+- INTERVIEW_SECTIONS: 15 sections -> 16 sections
+- Total Q&As: ~120 -> ~134 (conceptual + scenario combined)
+- TypeScript: 0 errors
+
 ### PHASE 10 - Quiz Expansion ✅ COMPLETE (Session 22, 2026-06-14) — Update via Antigravity
 
 **Goal achieved:** All 257 accessible lessons now have 4 high-quality quiz questions each.
@@ -292,7 +318,7 @@ Prioritized by user value and effort. Items are independent - pick any in any or
 - `src/lib/glossary.ts` - 148 marketing terms
 - `src/lib/quizzes.ts` - 4 questions for 257 lessons across all 15 categories (12,085 lines, TypeScript clean, Phase 10 complete 2026-06-14)
 - `src/lib/tools-directory.ts` - 85+ real marketing tools across 11 categories
-- `src/lib/interview-questions.ts` - 120+ interview Q&As across all 15 categories (InterviewSection type, INTERVIEW_SECTIONS export)
+- `src/lib/interview-questions.ts` - 134 interview Q&As across 16 categories (InterviewSection type, INTERVIEW_SECTIONS export, answers paragraph-formatted with `\n\n`)
 - `src/lib/bookmarks.ts` - shared bookmark storage (BOOKMARK_KEY, getBookmarks, saveBookmarks)
 
 ### Pages
