@@ -1097,12 +1097,9 @@ Added quiz questions for all remaining lessons so that every single lesson has a
 
 ### Detailed Pending Tasks & Roadmap
 
-The following tasks are currently pending and scheduled for future sessions:
+With the completion of the comparison slug normalization, curriculum expansions, and interactive quizzes, all core roadmap items, bug fixes, and P1–P4 backlog features are **100% complete**. 
 
-#### 1. On Hold / Future Integrations
-* **Newsletter Integration**:
-  - **Goal**: Wire `/api/newsletter/route.ts` to a live email service provider instead of logging signups to the console.
-  - **Target Providers**: Resend, ConvertKit, or Mailchimp (depending on API keys and service selection).
+There are currently **no active pending tasks** remaining.
 
 ---
 
