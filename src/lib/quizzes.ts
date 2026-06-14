@@ -1,4 +1,4 @@
-export type Quiz = {
+﻿export type Quiz = {
   question: string;
   options: string[];
   correct: number;
@@ -43,7 +43,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Chatbots require paid API tokens, whereas agents operate with free open-source software",
       ],
       correct: 1,
-      explanation: "A chatbot is reactive—it responds to a prompt, holds limited session memory, and stops. An AI agent is proactive—it uses an LLM as a reasoning engine, connects to external tools (browsers, ad managers, CRMs), and executes a continuous loop (perceive, plan, act, observe) to complete complex goals without human intervention at every step.",
+      explanation: "A chatbot is reactiveâ€”it responds to a prompt, holds limited session memory, and stops. An AI agent is proactiveâ€”it uses an LLM as a reasoning engine, connects to external tools (browsers, ad managers, CRMs), and executes a continuous loop (perceive, plan, act, observe) to complete complex goals without human intervention at every step.",
     },
     {
       question: "In Coca-Cola's Saudi Arabian promotional campaign, how did they utilize an autonomous AI agent?",
@@ -101,7 +101,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "To form the physical API connection that integrates Salesforce with BigQuery",
       ],
       correct: 2,
-      explanation: "A semantic layer maps the database's structural tables and fields onto business definitions. Without it, the AI must guess what fields mean—which can lead to confident but incorrect reports (e.g., using 'Revenue' fields that represent forecasts rather than closed sales).",
+      explanation: "A semantic layer maps the database's structural tables and fields onto business definitions. Without it, the AI must guess what fields meanâ€”which can lead to confident but incorrect reports (e.g., using 'Revenue' fields that represent forecasts rather than closed sales).",
     },
     {
       question: "According to the JPMorgan Chase case study, what was the business result of implementing a natural language interface for data analysis?",
@@ -560,7 +560,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Capitalize every noun to signal proper emphasis to the audio engine",
       ],
       correct: 1,
-      explanation: "AI voice models read text literally and handle abbreviations or symbols (like '$5M ARR' or '%') inconsistently. For the best output, write scripts exactly as you want them spoken—spelling out symbols (e.g. 'percent', 'five million dollars in annual recurring revenue') and keeping sentences under 20 words.",
+      explanation: "AI voice models read text literally and handle abbreviations or symbols (like '$5M ARR' or '%') inconsistently. For the best output, write scripts exactly as you want them spokenâ€”spelling out symbols (e.g. 'percent', 'five million dollars in annual recurring revenue') and keeping sentences under 20 words.",
     },
     {
       question: "According to the ElevenLabs growth data, what milestone did the company hit by April 2026?",
@@ -6811,7 +6811,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "CTV refers to television screens connected via satellite, while OTT refers to traditional cable bundles.",
       ],
       correct: 0,
-      explanation: "Connected TV (CTV) is a subset of OTT. It refers specifically to the device—an internet-connected television screen. OTT (Over-the-Top) refers to the method of content delivery (bypassing traditional broadcast/cable via the internet) which can be consumed on TVs, laptops, mobile phones, or tablets.",
+      explanation: "Connected TV (CTV) is a subset of OTT. It refers specifically to the deviceâ€”an internet-connected television screen. OTT (Over-the-Top) refers to the method of content delivery (bypassing traditional broadcast/cable via the internet) which can be consumed on TVs, laptops, mobile phones, or tablets.",
     },
     {
       question: "Why do Connected TV (CTV) ads have exceptionally high completion rates (averaging around 95%) compared to social media video ads?",
@@ -7140,7 +7140,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "DSP stands for Direct Sales Page, while SSP stands for Social Sponsor Program.",
       ],
       correct: 0,
-      explanation: "DSP stands for Demand-Side Platform (used by the demand side—advertisers—to buy inventory across ad exchanges). SSP stands for Supply-Side Platform (used by the supply side—publishers—to list, manage, and sell their ad slots).",
+      explanation: "DSP stands for Demand-Side Platform (used by the demand sideâ€”advertisersâ€”to buy inventory across ad exchanges). SSP stands for Supply-Side Platform (used by the supply sideâ€”publishersâ€”to list, manage, and sell their ad slots).",
     },
     {
       question: "How fast does the Real-Time Bidding (RTB) auction process typically execute when a user loads a programmatic-enabled webpage?",
@@ -8282,7 +8282,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
       explanation: "The study showed that defaults are incredibly powerful. Flipping the default from opt-in to opt-out raised participation rates by 75 percentage points, showing that choice architecture shapes even high-stakes, deeply personal decisions.",
     },
     {
-      question: "The UK's Behavioural Insights Team ('Nudge Unit') added a single sentence to tax-reminder letters that accelerated £210 million in collections. What did that sentence leverage?",
+      question: "The UK's Behavioural Insights Team ('Nudge Unit') added a single sentence to tax-reminder letters that accelerated Â£210 million in collections. What did that sentence leverage?",
       options: [
         "Authority, by threat of immediate arrest.",
         "Reciprocity, by offering a small tax rebate.",
@@ -8613,10 +8613,10 @@ export const QUIZZES: Record<string, Quiz[]> = {
     {
       question: "Which of the following outlines the correct sequence of stages in the IKEA Effect lifecycle?",
       options: [
-        "Invitation → Effort → Completion → Ownership",
-        "Acquisition → Discount → Transaction → Return",
-        "Effort → Frustration → Abandonment → Refund",
-        "Customization → Pricing → Checkout → Shipping",
+        "Invitation â†’ Effort â†’ Completion â†’ Ownership",
+        "Acquisition â†’ Discount â†’ Transaction â†’ Return",
+        "Effort â†’ Frustration â†’ Abandonment â†’ Refund",
+        "Customization â†’ Pricing â†’ Checkout â†’ Shipping",
       ],
       correct: 0,
       explanation: "The lifecycle begins with an invitation to participate, followed by the user's effort (decisions or labor). Upon completion of the task, the user experiences psychological ownership, resulting in higher perceived value.",
@@ -12111,6 +12111,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
       explanation: "Since APIs and app authentications can expire or fail, Zaps can stop working. If you don't enable error alerts (or route errors to email/Slack), you won't realize the system is down, causing leads to drop.",
     },
   ],
+
   "email/zero-party-data": [
     {
       question: "What is the primary conceptual distinction between first-party and zero-party data?",
@@ -12138,7 +12139,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
       question: "In the context of zero-party data collection, what does a 'value exchange' mean?",
       options: [
         "Selling customer preference records to advertising platforms to offset acquisition costs",
-        "Providing the consumer with immediate, tangible benefits—such as a personalized product routine or discount—in return for their shared data",
+        "Providing the consumer with immediate, tangible benefitsâ€”such as a personalized product routine or discountâ€”in return for their shared data",
         "Requiring the user to purchase a product before they can access a custom recommendation",
         "Exchanging newsletter subscriptions for free access to third-party tools",
       ],
@@ -12389,7 +12390,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "It automatically flags videos that do not contain external links"
       ],
       correct: 1,
-      explanation: "Social platforms now act as search engines. The algorithm crawls metadata—on-screen text, captions, and verbal transcripts (speech-to-text)—to categorize videos and surface them for relevant user queries."
+      explanation: "Social platforms now act as search engines. The algorithm crawls metadataâ€”on-screen text, captions, and verbal transcripts (speech-to-text)â€”to categorize videos and surface them for relevant user queries."
     }
   ],
 
@@ -12508,7 +12509,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "A lead scored using demographic data purchased from external data brokers",
       ],
       correct: 1,
-      explanation: "A Product Qualified Lead (PQL) is a user who has experienced the core value of your product (referred to as the 'aha moment') through active usage—such as inviting team members or setting up integrations—making them highly likely to convert to a paid subscription.",
+      explanation: "A Product Qualified Lead (PQL) is a user who has experienced the core value of your product (referred to as the 'aha moment') through active usageâ€”such as inviting team members or setting up integrationsâ€”making them highly likely to convert to a paid subscription.",
     },
     {
       question: "In Calendly's 2024 optimization campaign, how did they leverage product analytics to boost conversions?",
@@ -12863,4 +12864,1841 @@ export const QUIZZES: Record<string, Quiz[]> = {
     },
   ],
 
+  "fundamentals/what-is-marketing": [
+    {
+      question: "A company discovers that customers abandon their product not because of price, but because they don't understand its value. Which marketing function does this most directly represent a failure of?",
+      options: ["Distribution", "Communication", "Production", "Pricing"],
+      correct: 1,
+      explanation: "Marketing's communication function is responsible for conveying product value to the target audience. If customers don't understand the value, the message - not the product - has failed.",
+    },
+    {
+      question: "Which of the following best distinguishes marketing from mere selling?",
+      options: ["Marketing focuses on closing individual transactions, while selling focuses on long-term relationships", "Marketing starts before a product exists and continues after the sale, while selling focuses on the transaction itself", "Selling uses data and research, while marketing relies on intuition", "Marketing only applies to consumer goods, while selling applies to all industries"],
+      correct: 1,
+      explanation: "Marketing encompasses identifying customer needs, shaping the product, and nurturing post-sale relationships - selling is just one step within that larger process.",
+    },
+    {
+      question: "A brand shifts from pushing products at customers to deeply understanding unmet customer needs before building anything. This shift best reflects which marketing philosophy?",
+      options: ["The production concept", "The selling concept", "The marketing concept", "The societal concept"],
+      correct: 2,
+      explanation: "The marketing concept holds that business success comes from understanding and satisfying customer needs better than competitors, rather than just producing or aggressively selling.",
+    },
+    {
+      question: "Which outcome is the most accurate measure of effective marketing?",
+      options: ["Maximum advertising spend", "High brand awareness alone", "Profitable customer relationships sustained over time", "The largest possible sales team"],
+      correct: 2,
+      explanation: "Effective marketing creates and sustains profitable customer relationships - awareness and spend are inputs, not outcomes in themselves.",
+    },
+  ],
+
+  "fundamentals/4ps-7ps": [
+    {
+      question: "A SaaS company offers the same software at different prices for individuals, small businesses, and enterprises. Which element of the marketing mix does this best illustrate?",
+      options: ["Product", "Place", "Price", "Promotion"],
+      correct: 2,
+      explanation: "Tiered pricing based on customer segment is a pricing strategy - it reflects how the company captures value differently across markets.",
+    },
+    {
+      question: "The 7Ps expanded the original 4Ps specifically to address the needs of which type of business?",
+      options: ["Manufacturing businesses", "Export-oriented businesses", "Service businesses", "Non-profit organisations"],
+      correct: 2,
+      explanation: "Services are intangible and involve human delivery, so People, Process, and Physical Evidence were added to the 4Ps to account for service-specific challenges.",
+    },
+    {
+      question: "A coffee chain standardises its store layout, ordering process, and staff training worldwide. Which of the 7Ps does this primarily relate to?",
+      options: ["People", "Physical Evidence", "Process", "Promotion"],
+      correct: 2,
+      explanation: "Process refers to the systems and procedures through which a service is delivered. Standardising the ordering and operational flow is a process decision.",
+    },
+    {
+      question: "A gym uses branded towels, award certificates on the wall, and a clean modern interior to reassure prospective members. This strategy targets which element of the 7Ps?",
+      options: ["People", "Physical Evidence", "Place", "Product"],
+      correct: 1,
+      explanation: "Physical Evidence refers to the tangible cues that help customers evaluate an intangible service. Branded items and a well-designed space reduce uncertainty for prospects.",
+    },
+  ],
+
+  "fundamentals/positioning": [
+    {
+      question: "Which of the following best defines a brand's 'positioning'?",
+      options: ["The physical location of a product on a retail shelf", "The place a brand occupies in the target customer's mind relative to competitors", "The total marketing budget allocated to a product", "The stage a product occupies in the product lifecycle"],
+      correct: 1,
+      explanation: "Positioning is a mental concept - it describes how a brand is perceived in relation to alternatives in the minds of the specific customers it targets.",
+    },
+    {
+      question: "A brand claims to be 'the most affordable AND the highest quality' in its market. What positioning risk does this create?",
+      options: ["Repositioning", "Confused positioning", "Underpositioning", "Overextension"],
+      correct: 1,
+      explanation: "Claiming contradictory benefits (low cost AND premium quality) leads to confused positioning - customers can't form a clear mental image of what the brand stands for.",
+    },
+    {
+      question: "A challenger brand intentionally targets a segment that the market leader has neglected. This is best described as which positioning strategy?",
+      options: ["Head-to-head positioning", "Repositioning", "Niche positioning", "Benefit positioning"],
+      correct: 2,
+      explanation: "Niche positioning involves deliberately focusing on an underserved segment, avoiding direct confrontation with dominant players while owning a specific space.",
+    },
+    {
+      question: "The statement 'For [target customer] who [need], [brand] is the [category] that [key benefit] because [reason to believe]' is an example of what strategic tool?",
+      options: ["A brand manifesto", "A value proposition canvas", "A positioning statement", "A customer journey map"],
+      correct: 2,
+      explanation: "This is the classic positioning statement template. It forces clarity on target customer, category frame, single benefit, and proof - the building blocks of a defensible position.",
+    },
+  ],
+
+  "growth/aarrr": [
+    {
+      question: "A mobile app sees strong Acquisition and Activation numbers but almost no Revenue. Using the AARRR framework, where should the growth team focus first?",
+      options: ["Increasing paid acquisition spend", "Improving the onboarding Activation flow", "Diagnosing the Retention stage to understand if users see long-term value", "Launching a referral programme immediately"],
+      correct: 2,
+      explanation: "Low revenue despite good acquisition and activation often signals a retention problem - users aren't returning enough to convert to paid. Fix the leaky bucket before pouring more in.",
+    },
+    {
+      question: "In the AARRR funnel, 'Activation' is best described as:",
+      options: ["A user signing up for an account", "A user experiencing the product's core value for the first time", "A user making their first purchase", "A user sharing the product with a friend"],
+      correct: 1,
+      explanation: "Activation is the 'aha moment' - the point at which a new user first experiences the value that makes the product worth continuing to use. Sign-up alone is Acquisition.",
+    },
+    {
+      question: "A product has a viral coefficient (K) greater than 1. What does this mean for growth?",
+      options: ["The product is growing through paid ads efficiently", "Each user acquires more than one new user on average, enabling self-sustaining exponential growth", "The referral programme is break-even", "The retention rate exceeds the churn rate"],
+      correct: 1,
+      explanation: "A K-factor above 1 means each cohort of users generates a larger cohort behind it - this is the definition of viral, compounding growth without proportional spend increases.",
+    },
+    {
+      question: "Which AARRR metric directly measures whether users find enough value to keep coming back?",
+      options: ["Acquisition", "Activation", "Retention", "Referral"],
+      correct: 2,
+      explanation: "Retention tracks whether users return after their initial visit or use. It is the most direct measure of ongoing perceived value and is often called the most important AARRR metric.",
+    },
+  ],
+
+  "growth/ab-testing": [
+    {
+      question: "An A/B test runs for 3 days and reaches statistical significance. A growth manager wants to call it a win immediately. What is the main risk with this approach?",
+      options: ["The sample size may be too large", "The test may be capturing a novelty effect rather than a genuine improvement", "Statistical significance guarantees the result is a true effect", "Ending a test early always inflates the p-value"],
+      correct: 1,
+      explanation: "Short tests can capture novelty effects where users interact more simply because something is new. Running tests for at least one full business cycle prevents premature, misleading conclusions.",
+    },
+    {
+      question: "What does a p-value of 0.05 actually mean in an A/B test?",
+      options: ["There is a 95% chance the variant is better than the control", "There is a 5% probability of observing this result if there were truly no difference", "The test has 95% statistical power", "The improvement will deliver a 5% revenue lift"],
+      correct: 1,
+      explanation: "A p-value of 0.05 means: if the null hypothesis (no difference) were true, there is a 5% chance of seeing data this extreme by chance. It does not tell you the probability that the variant is better.",
+    },
+    {
+      question: "A company runs 20 simultaneous A/B tests at a 95% confidence threshold. Statistically, how many 'winners' would they expect even if none of the changes have any real effect?",
+      options: ["0", "1", "5", "10"],
+      correct: 1,
+      explanation: "With a 5% false positive rate and 20 tests, you expect 20 x 0.05 = 1 false winner even when nothing works. This is the multiple comparisons problem - a major risk in mass testing.",
+    },
+    {
+      question: "Which of the following is the correct order of operations for a rigorous A/B test?",
+      options: ["Run test, form hypothesis, calculate sample size, analyse results", "Form hypothesis, calculate required sample size, run test for full duration, analyse results", "Calculate sample size, run test, adjust hypothesis based on early data, finalise", "Form hypothesis, run test, stop when significant, document learnings"],
+      correct: 1,
+      explanation: "Hypothesis and sample size must be defined before the test starts. Peeking and stopping early, or changing the hypothesis mid-test, introduces bias and inflates false positive rates.",
+    },
+  ],
+
+  "growth/north-star-metric": [
+    {
+      question: "What is the primary purpose of a North Star Metric (NSM)?",
+      options: ["To replace all other KPIs with a single revenue figure", "To align the entire organisation around the single metric that best captures delivered customer value", "To benchmark performance against competitors", "To measure marketing attribution across channels"],
+      correct: 1,
+      explanation: "An NSM unifies teams around the metric most correlated with long-term value delivery - it acts as an internal compass, not just a financial target.",
+    },
+    {
+      question: "Spotify's North Star Metric is reportedly 'time spent listening'. Why is this a stronger NSM than 'number of subscribers'?",
+      options: ["It is easier to measure", "It more directly reflects whether users are getting genuine value from the product", "It is a revenue metric", "Subscriber counts are not useful for growth teams"],
+      correct: 1,
+      explanation: "Listening time captures actual engagement and value delivery. Subscriber count can grow while the product stagnates - NSMs should reflect depth of value, not just acquisition.",
+    },
+    {
+      question: "A team notices their NSM is trending up, but revenue is declining. What does this most likely indicate?",
+      options: ["The NSM was measured incorrectly", "The NSM chosen is a vanity metric not truly connected to business value", "Competitors are outperforming them", "The product needs more features"],
+      correct: 1,
+      explanation: "If the NSM and business health diverge, the metric was likely chosen poorly. A good NSM should be a leading indicator of revenue and retention - not decorrelated from them.",
+    },
+    {
+      question: "Which of the following would make the weakest North Star Metric for a B2B SaaS product?",
+      options: ["Weekly active teams using the core feature", "Number of tasks completed per user per week", "Total page views per month", "Number of integrations activated per account"],
+      correct: 2,
+      explanation: "Page views are a vanity metric that doesn't indicate value delivery or engagement depth. A strong NSM must reflect the core action that signals users are getting the product's primary benefit.",
+    },
+  ],
+
+  "email/email-101": [
+    {
+      question: "Why does email marketing consistently deliver a higher ROI than most other digital channels?",
+      options: ["Email lists are free to build and require no ongoing cost", "Email reaches a self-selected audience that has explicitly opted in, and marginal send costs are near zero", "Email has no spam filters to navigate", "Email open rates are higher than social media engagement rates universally"],
+      correct: 1,
+      explanation: "Opted-in audiences are pre-qualified, and sending to an existing list costs almost nothing per email - these two factors combine to give email its industry-leading average ROI.",
+    },
+    {
+      question: "A subscriber opens an email but doesn't click anything. What does this tell you?",
+      options: ["The subject line failed - the subscriber wasn't interested", "The subject line worked but the email body or CTA failed to motivate action", "The email was caught in spam and the open was a bot read", "The subscriber is likely to unsubscribe next"],
+      correct: 1,
+      explanation: "An open means the subject line succeeded in earning attention. The absence of a click points to a problem with the body content, offer relevance, or call-to-action clarity.",
+    },
+    {
+      question: "What is the single most important factor in achieving high email open rates?",
+      options: ["Sending frequency", "Email design and layout", "Subject line relevance and intrigue", "List size"],
+      correct: 2,
+      explanation: "The subject line is the gatekeeper - subscribers decide whether to open almost entirely based on it. Design and content only matter once the email is already opened.",
+    },
+    {
+      question: "A marketer adds a 'PS:' line at the very bottom of a long sales email. Why is this a recognised best practice?",
+      options: ["It satisfies email compliance requirements", "Readers who skim often jump to the PS, making it prime real estate for a key CTA or hook", "It increases the email's spam score positively", "It is required by most ESPs"],
+      correct: 1,
+      explanation: "Eye-tracking research shows many readers jump from the headline directly to the PS. A strong PS reinforces the offer or CTA and captures skimmers who don't read the full body.",
+    },
+  ],
+
+  "email/email-marketing-101": [
+    {
+      question: "Which metric best indicates whether your email list is genuinely engaged over time?",
+      options: ["List size", "Click-to-open rate (CTOR)", "Total emails sent", "Unsubscribe rate on individual campaigns"],
+      correct: 1,
+      explanation: "CTOR (clicks divided by opens) isolates how compelling the content is for those who actually read it - stripping out deliverability noise and measuring true content engagement.",
+    },
+    {
+      question: "What does 'list hygiene' mean in email marketing?",
+      options: ["Writing clean, spam-free copy", "Regularly removing invalid, inactive, or bounced addresses from your list", "Ensuring your emails have a plain-text version", "Authenticating your sending domain"],
+      correct: 1,
+      explanation: "List hygiene involves pruning unengaged and invalid contacts. A clean list improves deliverability, reduces costs, and ensures your metrics reflect real audience behaviour.",
+    },
+    {
+      question: "A marketer is choosing between a plain-text email and an HTML-designed email for a cold outreach sequence. Which is generally more effective for cold outreach and why?",
+      options: ["HTML emails, because they look more professional and branded", "Plain-text emails, because they feel more personal and are less likely to trigger spam filters", "Emails with video embeds, because they have higher engagement", "Both perform identically - format doesn't matter for cold outreach"],
+      correct: 1,
+      explanation: "Plain-text emails mimic personal messages, which builds trust in cold contexts. Heavy HTML signals 'mass email' to both spam filters and recipients, reducing open and reply rates.",
+    },
+    {
+      question: "What is a 'soft bounce' in email marketing?",
+      options: ["A subscriber who opens but doesn't click", "A temporary delivery failure due to issues like a full inbox or server downtime", "An email flagged as spam by the recipient", "A deliberate unsubscribe"],
+      correct: 1,
+      explanation: "A soft bounce is a temporary failure - the address is valid but delivery couldn't complete right now. Hard bounces are permanent failures (invalid address) and require immediate removal.",
+    },
+  ],
+
+  "email/automation-drips": [
+    {
+      question: "What is the core advantage of a drip email sequence over a single broadcast email?",
+      options: ["Drip emails are cheaper to send", "Drips deliver the right message at the right moment based on where someone is in their journey, rather than sending everyone the same message at once", "Drip emails bypass spam filters more effectively", "Drip emails have higher unsubscribe rates, which cleans the list"],
+      correct: 1,
+      explanation: "Drips are triggered by subscriber behaviour or timeline, making them contextually relevant. This relevance - not timing alone - is why automated sequences consistently outperform broadcasts.",
+    },
+    {
+      question: "A user signs up for a free trial but doesn't activate the core feature within 48 hours. Which drip email should be triggered?",
+      options: ["A promotional discount email", "A re-engagement email asking if they want to unsubscribe", "A behaviour-triggered 'activation nudge' showing them how to complete the key action", "A monthly newsletter"],
+      correct: 2,
+      explanation: "Activation-focused drips target users who signed up but haven't reached the 'aha moment'. Helping them complete the key action reduces churn before it starts.",
+    },
+    {
+      question: "In a lead nurture drip sequence, what should the primary goal of the early emails be?",
+      options: ["Closing the sale as quickly as possible", "Building trust and educating the prospect before making a commercial ask", "Collecting more data about the subscriber", "Encouraging referrals"],
+      correct: 1,
+      explanation: "Early nurture emails should deliver value and build credibility. Selling too early in a sequence breaks trust - leads need to understand and believe in the solution first.",
+    },
+    {
+      question: "What does it mean to 'suppress' a contact in a drip sequence?",
+      options: ["Block them from ever receiving email again", "Remove them from a specific automated sequence without unsubscribing them from all communications", "Mark them as a hard bounce", "Downgrade their lead score"],
+      correct: 1,
+      explanation: "Suppression is sequence-specific exclusion - for example, removing a lead from a trial conversion drip once they become a paying customer, while keeping them on other lists.",
+    },
+  ],
+
+  "email/deliverability": [
+    {
+      question: "Which technical authentication record is primarily responsible for allowing receiving servers to verify that an email was sent from an authorised IP?",
+      options: ["DKIM", "SPF", "DMARC", "MX"],
+      correct: 1,
+      explanation: "SPF (Sender Policy Framework) specifies which IP addresses are authorised to send email on behalf of a domain. Receiving servers check SPF to detect spoofed senders.",
+    },
+    {
+      question: "A sender's open rates suddenly drop from 40% to 12% with no change in content or list. What is the most likely cause?",
+      options: ["The subject lines became less interesting", "The sender has been placed in the spam folder due to a deliverability issue", "List growth has slowed", "The ESP changed their pricing"],
+      correct: 1,
+      explanation: "A sudden, sharp drop in open rates (not a gradual slide) almost always signals inbox placement has degraded - the emails are landing in spam rather than the primary inbox.",
+    },
+    {
+      question: "Why does sending to a large number of inactive subscribers hurt deliverability?",
+      options: ["ISPs count inactive subscribers as unsubscribes", "Low engagement signals to inbox providers that recipients don't want the emails, leading to lower inbox placement scores", "Inactive subscribers generate more hard bounces", "ESPs charge more for large lists"],
+      correct: 1,
+      explanation: "Gmail, Outlook, and other inbox providers use engagement signals (opens, clicks, moves to inbox) as quality signals. Consistently low engagement trains their algorithms to route your mail to spam.",
+    },
+    {
+      question: "What is a 'spam trap' and why is hitting one damaging?",
+      options: ["A filter that blocks promotional emails automatically", "An email address set up specifically to identify senders with poor list hygiene - hitting one signals you are mailing unverified or purchased lists", "A type of phishing email targeting marketers", "An automated unsubscribe mechanism"],
+      correct: 1,
+      explanation: "Spam traps are addresses that should never receive legitimate email. If you hit one, it proves your list contains addresses that were never opted in or haven't been cleaned - severely damaging your sender reputation.",
+    },
+  ],
+
+  "email/compliance": [
+    {
+      question: "Under CAN-SPAM (US), how quickly must a sender honour an unsubscribe request?",
+      options: ["Immediately, within 24 hours", "Within 10 business days", "Within 30 days", "Within 3 business days"],
+      correct: 1,
+      explanation: "CAN-SPAM requires senders to process opt-out requests within 10 business days. GDPR is stricter - requiring prompt action - but CAN-SPAM's legal standard is 10 business days.",
+    },
+    {
+      question: "Under GDPR, which of the following is the most legally robust basis for sending marketing emails to EU subscribers?",
+      options: ["Assumed consent because the subscriber didn't opt out", "Freely given, specific, informed, and unambiguous opt-in consent", "A pre-ticked checkbox during registration", "Purchasing a list from a data broker"],
+      correct: 1,
+      explanation: "GDPR requires affirmative, explicit consent - pre-ticked boxes, inferred consent, and purchased lists all fail to meet the standard and can result in significant fines.",
+    },
+    {
+      question: "A SaaS company wants to email users in Canada about a product update. Under CASL, what must be true before they can legally do so?",
+      options: ["The user must have made a purchase in the last 2 years only", "The company must have either express or implied consent from the recipient before sending", "No restrictions apply as long as an unsubscribe link is included", "CASL only applies to promotional emails, not product updates"],
+      correct: 1,
+      explanation: "CASL (Canada's Anti-Spam Legislation) is opt-in by default - senders need consent (express or implied) before sending commercial electronic messages. It applies to all CEMs, including product updates.",
+    },
+    {
+      question: "Which of the following is a required element in every commercial email under CAN-SPAM?",
+      options: ["The sender's social media handles", "A physical mailing address for the sending organisation", "The subscriber's opt-in date and source", "An unsubscribe link that works for 60 days"],
+      correct: 1,
+      explanation: "CAN-SPAM mandates a valid physical postal address in every commercial email. This, along with a clear unsubscribe mechanism and honest subject lines, are core compliance requirements.",
+    },
+  ],
+
+  "email/welcome-series": [
+    {
+      question: "Why do welcome emails consistently achieve significantly higher open rates than standard broadcast emails?",
+      options: ["They are sent from a different IP with better reputation", "They arrive when subscriber interest is at its peak - immediately after a voluntary opt-in action", "They are shorter and easier to read", "ESP algorithms prioritise welcome emails"],
+      correct: 1,
+      explanation: "Subscriber intent and interest are highest at the moment of sign-up. Welcome emails capitalise on this peak engagement window, which is why they average 4x the open rate of regular campaigns.",
+    },
+    {
+      question: "A welcome series has three emails. What should be the primary focus of Email 1?",
+      options: ["Presenting the full product catalogue", "Delivering the promised incentive and confirming the value of subscribing", "Asking the subscriber to refer friends", "Requesting a product review"],
+      correct: 1,
+      explanation: "Email 1 must immediately fulfil the implicit or explicit promise that drove the sign-up - delivering value first builds trust and sets the tone for the relationship.",
+    },
+    {
+      question: "A subscriber joins a welcome series but purchases on Day 2 before the sequence ends. What is best practice?",
+      options: ["Continue the welcome series as planned regardless of purchase", "Remove them from the welcome series and enrol them in a post-purchase sequence", "Pause the series for 7 days then resume", "Send all remaining emails at once to avoid gaps"],
+      correct: 1,
+      explanation: "Sending pre-purchase nurture content to someone who already bought is irrelevant and can damage trust. Behaviour-triggered suppression and re-routing is a core automation best practice.",
+    },
+    {
+      question: "Which metric is most useful for evaluating the effectiveness of a welcome series overall?",
+      options: ["Average open rate of Email 1 alone", "Conversion to first purchase or key activation event within 30 days of sign-up", "Total unsubscribes across the series", "Number of emails in the series"],
+      correct: 1,
+      explanation: "The welcome series exists to move subscribers toward a goal - purchase, activation, or engagement. Conversion to that goal within a defined window is the north star metric for series performance.",
+    },
+  ],
+
+  "email/winback": [
+    {
+      question: "At what point should a subscriber typically be entered into a win-back sequence?",
+      options: ["After one missed open", "After a defined period of inactivity appropriate to your sending frequency - commonly 90-180 days of no engagement", "After they click unsubscribe", "After a hard bounce"],
+      correct: 1,
+      explanation: "Win-back timing should be calibrated to your typical email frequency. A subscriber inactive for 90-180 days (for weekly senders) signals genuine disengagement worth addressing.",
+    },
+    {
+      question: "A win-back email's subject line reads 'We miss you - here's 20% off.' What risk does this approach carry?",
+      options: ["It is too long for a subject line", "Training subscribers to disengage intentionally in order to receive discounts", "Discounts are not allowed in win-back emails", "The emotional tone is too formal"],
+      correct: 1,
+      explanation: "Leading win-back sequences with discounts can incentivise deliberate disengagement. A better approach is to re-establish value first, with discounts as a last resort for the most disengaged segment.",
+    },
+    {
+      question: "A subscriber receives a 3-email win-back series and does not re-engage with any of them. What is the recommended next step?",
+      options: ["Continue sending regular campaigns and hope they re-engage naturally", "Remove or suppress them from active marketing to protect sender reputation and list health", "Increase send frequency to get their attention", "Send a final aggressive discount offer"],
+      correct: 1,
+      explanation: "Continuing to mail unresponsive contacts harms deliverability. Removing or suppressing them protects inbox placement and ensures metrics reflect genuinely engaged subscribers.",
+    },
+    {
+      question: "Which of the following is the most effective hook for the first email in a win-back series?",
+      options: ["A reminder that their account will be deleted", "An acknowledgement of the lapse paired with a specific value reminder or something new they've missed", "A legal notice about data retention", "A full catalogue of new products"],
+      correct: 1,
+      explanation: "Acknowledging the gap honestly and quickly re-establishing relevance ('here's what you missed') is more likely to rekindle interest than a threat or an overwhelming product dump.",
+    },
+  ],
+
+  "email/clv": [
+    {
+      question: "A customer makes 3 purchases per year, spends $50 each time, and stays a customer for 4 years. What is their Customer Lifetime Value (CLV)?",
+      options: ["$150", "$200", "$600", "$650"],
+      correct: 2,
+      explanation: "CLV = Average Purchase Value x Purchase Frequency x Customer Lifespan = $50 x 3 x 4 = $600. This basic formula gives the gross revenue value before costs.",
+    },
+    {
+      question: "Why should CLV - not just first-purchase revenue - guide how much a company spends to acquire a customer?",
+      options: ["Because first-purchase revenue is hard to measure accurately", "Because a customer's total future value justifies higher acquisition investment than the initial transaction alone suggests", "Because CLV is easier to calculate than CPA", "Because regulators require CLV-based budgeting"],
+      correct: 1,
+      explanation: "If you only value customers by their first purchase, you chronically underinvest in acquisition. CLV reveals that spending more to acquire high-retention customers is often the correct economic decision.",
+    },
+    {
+      question: "Which email strategy has the most direct positive impact on increasing CLV?",
+      options: ["Increasing send frequency to all subscribers", "Reducing the unsubscribe rate by hiding the unsubscribe link", "Personalised post-purchase sequences that drive repeat purchases and reduce churn", "Maximising list growth through co-registration"],
+      correct: 2,
+      explanation: "CLV grows by increasing purchase frequency and extending the customer relationship. Targeted post-purchase emails that add value and prompt re-purchase directly address both levers.",
+    },
+    {
+      question: "A business has high CLV for a segment but a very high CAC (Customer Acquisition Cost) for that same segment. What does this mean strategically?",
+      options: ["The business should immediately cut acquisition spend for that segment", "The business must assess whether the CLV:CAC ratio is healthy - typically CLV should be at least 3x CAC", "High CAC always means the segment is not worth targeting", "CLV and CAC are unrelated metrics"],
+      correct: 1,
+      explanation: "The CLV:CAC ratio is the key health indicator - most SaaS and e-commerce benchmarks target 3:1 or higher. High CLV can justify high CAC, but the ratio must remain positive.",
+    },
+  ],
+
+  "cro/cro-101": [
+    {
+      question: "What is the most accurate definition of Conversion Rate Optimisation (CRO)?",
+      options: ["Increasing website traffic through SEO and paid ads", "The systematic process of increasing the percentage of visitors who take a desired action, using research and experimentation", "Redesigning a website to make it look more modern", "Optimising ad creative to improve click-through rates"],
+      correct: 1,
+      explanation: "CRO is about doing more with existing traffic - using structured research and testing to find and remove friction, not about driving more visitors.",
+    },
+    {
+      question: "A page converts at 3%. After a CRO test, it converts at 4%. Traffic stays at 10,000 visitors/month. How many additional conversions does this represent per month?",
+      options: ["10", "100", "300", "400"],
+      correct: 1,
+      explanation: "Before: 10,000 x 3% = 300. After: 10,000 x 4% = 400. Difference = 100 additional conversions per month - without spending more on traffic.",
+    },
+    {
+      question: "Why is CRO often described as a 'multiplier' for other marketing channels?",
+      options: ["It replaces the need for paid advertising", "Improving conversion rate amplifies the return from every other channel simultaneously - more value from the same traffic", "It multiplies the number of pages on a website", "CRO and paid media share a single budget"],
+      correct: 1,
+      explanation: "A higher conversion rate means every SEO visit, paid click, and email referral converts better. CRO improvements compound across all acquisition channels at once.",
+    },
+    {
+      question: "Which of the following is the correct starting point for a CRO programme?",
+      options: ["Immediately running A/B tests on the homepage", "Research - understanding why current visitors aren't converting before testing changes", "Redesigning the site based on best practices", "Copying the layouts of competitor websites"],
+      correct: 1,
+      explanation: "Testing without research leads to random changes. CRO starts with qualitative and quantitative research to identify the specific friction points that are most worth solving.",
+    },
+  ],
+
+  "cro/cro-research": [
+    {
+      question: "A CRO team wants to understand WHY users are dropping off the checkout page. Which research method would provide the most direct insight?",
+      options: ["Google Analytics traffic source data", "Session recordings and on-page exit surveys", "A/B testing two different page layouts", "Competitor checkout analysis"],
+      correct: 1,
+      explanation: "Session recordings reveal exactly where users hesitate or abandon, and exit surveys capture their stated reasons. These qualitative methods answer 'why' - which analytics alone cannot.",
+    },
+    {
+      question: "What is the primary purpose of a heuristic evaluation in CRO?",
+      options: ["To measure conversion rates before a test", "To identify obvious usability and persuasion issues on a page using established principles, without user testing", "To calculate required sample sizes for A/B tests", "To benchmark against industry conversion rates"],
+      correct: 1,
+      explanation: "A heuristic evaluation applies frameworks (like Nielsen's usability heuristics or conversion principles) to systematically spot likely friction points quickly, before investing in testing.",
+    },
+    {
+      question: "A heatmap shows that 70% of users never scroll below the fold on a landing page. What is the most actionable CRO implication?",
+      options: ["Add more content below the fold", "Move the primary CTA and key value proposition above the fold where most users actually look", "Reduce the page length by removing all below-fold content", "The data is normal and no action is needed"],
+      correct: 1,
+      explanation: "If most users don't scroll, the critical elements - CTA, offer, proof - must be visible without scrolling. Hiding them below the fold wastes the majority of your traffic.",
+    },
+    {
+      question: "Which combination of research methods gives the most complete picture of conversion barriers on a website?",
+      options: ["Heatmaps alone", "Only user interviews", "Quantitative data (analytics, funnels) combined with qualitative data (recordings, surveys, interviews)", "Competitor audits only"],
+      correct: 2,
+      explanation: "Quant data tells you WHERE users drop off; qual data tells you WHY. Combining both surfaces the full picture needed to prioritise high-impact experiments.",
+    },
+  ],
+
+  "cro/checkout-optimization": [
+    {
+      question: "Research shows that requiring account creation before purchase is one of the top causes of checkout abandonment. What is the recommended CRO fix?",
+      options: ["Add a compelling headline to the account creation screen", "Offer a guest checkout option and allow account creation post-purchase", "Reduce the number of required account fields", "Use social login only"],
+      correct: 1,
+      explanation: "Forcing registration creates immediate friction for purchase-ready visitors. Guest checkout removes the barrier, and post-purchase account creation captures data from motivated customers.",
+    },
+    {
+      question: "A user adds items to their cart, reaches the payment page, and abandons when they see shipping costs for the first time. Which CRO principle does this violation relate to?",
+      options: ["Social proof", "Scarcity", "Transparency and expectation management", "Reciprocity"],
+      correct: 2,
+      explanation: "Unexpected costs at checkout are the leading cause of abandonment. Displaying shipping costs early - or on the product page - manages expectations and prevents late-stage drop-off.",
+    },
+    {
+      question: "Which trust signal has been shown to have the greatest impact on checkout conversion rates?",
+      options: ["A large logo banner at the top of the page", "Security badges, payment logos, and clear return policy near the payment fields", "A live chat widget on the homepage", "Testimonials on the about page"],
+      correct: 1,
+      explanation: "At the payment stage, anxiety about security peaks. Trust signals (SSL badges, recognised payment icons, return policy) placed proximally to payment fields directly address this anxiety at the critical moment.",
+    },
+    {
+      question: "Reducing checkout from 5 steps to 2 steps improves completion rates. What psychological principle best explains this?",
+      options: ["Social proof", "The Zeigarnik effect", "Cognitive load reduction", "Loss aversion"],
+      correct: 2,
+      explanation: "Every additional step requires mental effort and introduces another opportunity to abandon. Reducing steps lowers cognitive load - the mental cost of completing the task - making completion more likely.",
+    },
+  ],
+
+  "cro/cro-vs-growth-experiments": [
+    {
+      question: "What is the key distinction between a CRO experiment and a growth experiment?",
+      options: ["CRO experiments always require more traffic", "CRO focuses on improving the conversion rate of existing flows, while growth experiments may test entirely new channels, products, or business model changes", "Growth experiments are always larger in scope and require more budget", "There is no meaningful difference between the two"],
+      correct: 1,
+      explanation: "CRO optimises within existing funnels (make this page convert better), while growth experiments may challenge the funnel itself - testing new acquisition channels, pricing models, or product pivots.",
+    },
+    {
+      question: "A team runs an experiment that tests whether adding a free trial to their pricing page increases sign-ups. Is this a CRO or a growth experiment?",
+      options: ["CRO, because it involves the pricing page", "Growth experiment, because it tests a fundamental change to the business model or offer, not just a page element", "Neither - this is a product decision", "Both equally - there is no distinction here"],
+      correct: 1,
+      explanation: "Introducing a free trial changes the offer structure and business model, not just a page element. This is a growth experiment - it tests something beyond layout, copy, or UX optimisation.",
+    },
+    {
+      question: "Which framework is most useful for deciding whether to run a CRO test vs. a broader growth experiment?",
+      options: ["The AIDA model", "ICE scoring (Impact, Confidence, Ease) applied to the hypothesis", "The 4Ps marketing mix", "The AARRR funnel used in isolation"],
+      correct: 1,
+      explanation: "ICE scoring helps teams prioritise any experiment by estimated impact, confidence in the hypothesis, and ease of execution - it is method-agnostic and applicable to both CRO and growth tests.",
+    },
+    {
+      question: "A CRO team improves checkout conversion by 15% but overall revenue stays flat. What does this suggest from a growth perspective?",
+      options: ["The CRO test results were invalid", "A growth constraint exists elsewhere in the funnel - such as traffic volume or upstream acquisition - that is capping total revenue", "CRO can never impact revenue directly", "The 15% lift is too small to matter"],
+      correct: 1,
+      explanation: "CRO addresses one part of the system. If conversion improves but revenue doesn't, the bottleneck has moved - likely to acquisition volume, offer-market fit, or retention. Growth thinking requires a systems view.",
+    },
+  ],
+
+  "cro/multivariate-vs-ab": [
+    {
+      question: "What is the main advantage of an A/B test over a multivariate test (MVT)?",
+      options: ["A/B tests can test more variables simultaneously", "A/B tests require less traffic to reach statistical significance", "A/B tests reveal interaction effects between elements", "A/B tests are always more accurate than MVT"],
+      correct: 1,
+      explanation: "A/B tests compare two full page variants with the entire traffic pool, reaching significance faster. MVT splits traffic across many combinations, requiring significantly more traffic and time.",
+    },
+    {
+      question: "A team wants to understand whether changing the headline AND the hero image TOGETHER produces a different result than either change alone. Which test type is appropriate?",
+      options: ["A/B test", "Split URL test", "Multivariate test", "User interview"],
+      correct: 2,
+      explanation: "Multivariate testing is specifically designed to identify interaction effects - whether the combination of two or more element changes produces a different result than each element independently.",
+    },
+    {
+      question: "A landing page receives 2,000 visitors per month. A team wants to test 3 headlines x 2 CTAs using a full factorial MVT. Why is this likely a poor choice?",
+      options: ["MVT is only for mobile pages", "With 6 variants needing statistical significance, 2,000 monthly visitors won't provide enough traffic per variant to reach reliable results in a reasonable timeframe", "MVT cannot test both headlines and CTAs simultaneously", "Full factorial design is banned by major testing tools"],
+      correct: 1,
+      explanation: "Full factorial MVT traffic requirements multiply with each variant combination. 6 variants on 2,000 visitors/month means roughly 333 visitors per variant - far too few for timely statistical confidence.",
+    },
+    {
+      question: "When should a team favour MVT over a standard A/B test?",
+      options: ["When traffic is low and time is short", "When the team wants to isolate the effect of one specific change", "When traffic is high and they need to understand the relative contribution and interactions of multiple page elements", "When running the test on a mobile app"],
+      correct: 2,
+      explanation: "MVT is justified only when you have ample traffic AND need to understand how multiple elements interact - the insights are richer but the traffic cost is substantially higher than A/B.",
+    },
+  ],
+
+  "cro/personalization-cro": [
+    {
+      question: "What is the fundamental difference between personalisation and A/B testing in CRO?",
+      options: ["A/B testing is used for apps and personalisation for websites only", "A/B testing finds one winning experience for all users, while personalisation delivers different experiences to different segments simultaneously", "Personalisation always requires more traffic than A/B testing", "A/B testing produces more statistically reliable results than personalisation"],
+      correct: 1,
+      explanation: "A/B testing converges on a single best experience for the average visitor. Personalisation accepts that different segments have different needs and serves each a tailored experience permanently.",
+    },
+    {
+      question: "A first-time visitor and a returning customer land on the same homepage. Which personalisation rule would most likely improve conversion for both?",
+      options: ["Show both the same content - consistency builds trust", "Show the returning customer their previous browsing history and a loyalty reward; show the first-time visitor social proof and a clear value proposition", "Only personalise for the returning customer - new visitors are not yet valuable", "Personalise the footer content based on visitor type"],
+      correct: 1,
+      explanation: "First-time visitors need trust-building and orientation; returning customers need continuity and recognition. Serving context-appropriate content to each dramatically improves relevance and conversion for both.",
+    },
+    {
+      question: "What is 'segment-of-one' personalisation, and what is its primary challenge?",
+      options: ["Personalising for your largest customer segment; the challenge is data volume", "Delivering a unique experience to each individual user based on their specific behaviour and attributes; the challenge is requiring significant data and technical infrastructure", "Personalising email subject lines only; the challenge is ESP limitations", "Targeting users by geography alone; the challenge is GDPR compliance"],
+      correct: 1,
+      explanation: "Segment-of-one is the ideal of true 1:1 personalisation. It requires large volumes of behavioural data, ML models, and robust tech stacks - making it viable only for high-traffic businesses.",
+    },
+    {
+      question: "A CRO team rolls out personalised homepage banners for 5 customer segments without running any test. What is the key risk of this approach?",
+      options: ["The banners will not display correctly on mobile", "Without a control, there is no way to know if the personalisation is actually improving or harming conversion for each segment", "Personalisation always reduces conversion rate", "ESP deliverability will be affected"],
+      correct: 1,
+      explanation: "Personalisation without a test or control group is an untested change. Without measurement, you can't know if segmented experiences outperform the baseline - or if resources were wasted.",
+    },
+  ],
+
+  "cro/sample-size-math": [
+    {
+      question: "Why is it critical to calculate the required sample size BEFORE starting an A/B test?",
+      options: ["To satisfy legal requirements for digital testing", "To avoid 'peeking' - stopping early when results look significant, which inflates false positive rates", "Because ESPs require sample size disclosure", "To ensure both variants receive equal design quality"],
+      correct: 1,
+      explanation: "Pre-calculating sample size commits you to a test duration. Stopping when results first look significant ('peeking') exploits random fluctuation and massively increases the chance of a false positive.",
+    },
+    {
+      question: "Which of the following inputs is NOT typically needed to calculate the required sample size for an A/B test?",
+      options: ["Baseline conversion rate", "Minimum detectable effect (MDE)", "Statistical significance level (alpha)", "The number of competing A/B tests running simultaneously"],
+      correct: 3,
+      explanation: "Sample size calculations use baseline rate, MDE, significance threshold (alpha), and statistical power (beta). The number of other concurrent tests is a business concern, not a statistical input for sample size.",
+    },
+    {
+      question: "A test is designed to detect a 2% absolute improvement in a 10% baseline conversion rate. How does this compare to designing the same test to detect a 5% absolute improvement?",
+      options: ["Detecting a 2% lift requires less traffic", "Detecting a 2% lift requires more traffic because smaller effects need larger samples to distinguish from random noise", "Both require the same sample size", "Detecting a 5% lift is always impossible"],
+      correct: 1,
+      explanation: "Minimum Detectable Effect (MDE) is inversely related to required sample size. Smaller MDE = you need to detect a subtler signal = you need more data to do so reliably.",
+    },
+    {
+      question: "An A/B test reaches 95% statistical significance after 500 visitors. The required sample size was 5,000. Should you stop the test?",
+      options: ["Yes - 95% confidence is the industry standard and the result is valid", "No - reaching significance on a fraction of the planned sample is almost certainly a false positive due to random fluctuation", "Yes - if significance is reached, running longer wastes budget", "It depends on whether the variant is winning or losing"],
+      correct: 1,
+      explanation: "Early significance on a fraction of the required sample is a classic false positive. The pre-planned sample size exists precisely to protect against random fluctuations that temporarily look significant.",
+    },
+  ],
+
+  "cro/speed-and-cro": [
+    {
+      question: "Google's research found that as page load time increases from 1 second to 3 seconds, the probability of a mobile visitor bouncing increases by approximately how much?",
+      options: ["10%", "22%", "32%", "50%"],
+      correct: 2,
+      explanation: "Google's analysis of mobile sessions found a 32% increase in bounce probability as load time goes from 1s to 3s. Page speed is directly correlated with bounce rate and, consequently, conversion rate.",
+    },
+    {
+      question: "What is 'Largest Contentful Paint' (LCP) and why does it matter for CRO?",
+      options: ["A metric measuring total page file size - larger files lower LCP", "A Core Web Vital measuring how long it takes for the largest visible content element to render, directly affecting user experience and perceived load speed", "A Google Ads quality score factor only", "A metric measuring how many images are on a page"],
+      correct: 1,
+      explanation: "LCP measures perceived load speed - when does the user see the main content? Poor LCP (above 2.5s) signals a slow user experience, increasing abandonment before the page even becomes interactive.",
+    },
+    {
+      question: "Which of the following page optimisations would most directly improve load speed for an image-heavy landing page?",
+      options: ["Adding more internal links", "Compressing images, serving them in WebP format, and implementing lazy loading", "Increasing font size for readability", "Adding a sticky navigation bar"],
+      correct: 1,
+      explanation: "Images are typically the largest contributors to page weight. Compression, modern formats (WebP), and lazy loading (only loading images as they enter the viewport) directly reduce load time.",
+    },
+    {
+      question: "A site improves its page load time from 5 seconds to 2 seconds. Beyond conversion rate, what additional benefit does this deliver for CRO traffic?",
+      options: ["It increases the ad budget automatically", "Faster pages receive better organic search rankings, improving the volume and quality of traffic available to convert", "It reduces the cost of A/B testing tools", "It removes the need for trust signals"],
+      correct: 1,
+      explanation: "Page speed is a confirmed Google ranking factor. Faster pages rank higher in organic search, driving more traffic - so speed improvements compound by both increasing traffic and improving conversion of that traffic.",
+    },
+  ],
+
+  "cro/trust-signals": [
+    {
+      question: "Why are third-party review badges (like Trustpilot or G2) more persuasive than company-written testimonials on a conversion page?",
+      options: ["They are visually more attractive", "Third-party validation is harder to fabricate and carries greater credibility because the source is independent of the brand", "They load faster than custom testimonials", "Third-party badges are required for GDPR compliance"],
+      correct: 1,
+      explanation: "Social proof is strongest when it comes from an independent, unbiased source. Third-party review platforms are perceived as neutral, making their ratings far more credible than self-published testimonials.",
+    },
+    {
+      question: "A B2B SaaS landing page shows logos of recognisable enterprise customers. What psychological principle does this employ?",
+      options: ["Scarcity", "Reciprocity", "Authority and social proof combined", "The mere exposure effect"],
+      correct: 2,
+      explanation: "Customer logos from known brands simultaneously signal authority (credible buyers chose us) and social proof (others like you trust us) - two of Cialdini's six influence principles working together.",
+    },
+    {
+      question: "Which placement of security trust badges has the greatest impact on checkout conversion?",
+      options: ["In the website footer only", "At the top of the homepage hero section", "Adjacent to the payment form fields and the 'Complete Purchase' button", "On the About Us page"],
+      correct: 2,
+      explanation: "Security anxiety peaks at the moment of entering payment details. Trust badges placed nearest to the payment fields and purchase CTA address this anxiety precisely when it is highest and most decision-relevant.",
+    },
+    {
+      question: "A company adds a money-back guarantee to their product page. Which conversion barrier does this most directly address?",
+      options: ["Price sensitivity", "Perceived risk of loss - the fear that the product won't deliver on its promise", "Brand awareness", "Technical usability friction"],
+      correct: 1,
+      explanation: "Guarantees reduce perceived risk. Loss aversion (Kahneman) means the fear of a bad purchase outweighs the desire for a good one - a guarantee transfers that risk from buyer to seller, removing the barrier.",
+    },
+  ],
+
+  "paid-ads/google-search-ads": [
+    {
+      question: "What does Google's Quality Score measure, and why does it affect your ad costs?",
+      options: ["The visual quality of display ad creative", "The relevance and expected performance of your ad, keyword, and landing page - which Google uses to reward high-quality ads with better positions at lower CPCs", "The total budget spent on a campaign", "The number of ad extensions added to a campaign"],
+      correct: 1,
+      explanation: "Quality Score (1-10) reflects relevance of keyword-ad-landing page alignment. A higher score reduces your cost-per-click and improves ad rank - Google incentivises relevance because it improves user experience.",
+    },
+    {
+      question: "A search marketer targets the broad match keyword 'running shoes'. A searcher types 'comfortable shoes for walking'. Could this ad be triggered?",
+      options: ["No - broad match only triggers for exact keyword matches", "Yes - broad match can trigger ads for semantically related searches, not just the exact keyword phrase", "Only if a phrase match version of the keyword also exists in the ad group", "Only on mobile devices"],
+      correct: 1,
+      explanation: "Broad match is Google's widest targeting setting. It uses AI to match ads to related queries, meaning 'running shoes' could trigger for 'walking footwear' or similar terms - increasing reach but also irrelevant spend.",
+    },
+    {
+      question: "What is the function of a negative keyword in a Google Search campaign?",
+      options: ["To reduce the Quality Score of competitor keywords", "To prevent ads from showing for specific irrelevant search queries, improving relevance and reducing wasted spend", "To lower the bid on low-converting keywords automatically", "To exclude certain geographic locations from targeting"],
+      correct: 1,
+      explanation: "Negative keywords block your ads from showing for queries you've identified as irrelevant. For example, a premium brand might add 'free' or 'cheap' as negatives to avoid low-intent traffic.",
+    },
+    {
+      question: "A Google Search ad has a high CTR but a very low conversion rate on the landing page. Where does the optimisation opportunity primarily lie?",
+      options: ["Increase the CPC bid to attract better traffic", "Improve the landing page - the ad is already compelling but the page fails to convert the interest it's generating", "Add more keywords to the ad group", "Switch from exact match to broad match"],
+      correct: 1,
+      explanation: "High CTR means the ad is working - it generates clicks. Low conversion means the landing page doesn't fulfil the promise of the ad. The fix is post-click experience, not the ad itself.",
+    },
+  ],
+
+  "paid-ads/meta-ads": [
+    {
+      question: "What is the primary targeting advantage Meta Ads has over Google Search Ads?",
+      options: ["Meta Ads only shows to people already searching for your product", "Meta Ads can target based on detailed interest, demographic, and behavioural data - reaching people before they actively search, based on who they are", "Meta Ads always deliver a lower CPC than Google", "Meta Ads allow longer ad copy"],
+      correct: 1,
+      explanation: "Google Search captures existing demand (people searching). Meta creates demand by targeting people based on psychographic and behavioural profiles - reaching audiences before they know they want your product.",
+    },
+    {
+      question: "What does a Lookalike Audience in Meta Ads do?",
+      options: ["It retargets people who visited your website in the last 30 days", "It finds new users who share similar characteristics to your existing best customers, expanding reach to likely high-value prospects", "It shows ads to people who follow your Meta page", "It targets a broad audience with no demographic filters"],
+      correct: 1,
+      explanation: "Lookalike Audiences use Meta's data to find users statistically similar to a seed audience (e.g., your purchasers). This allows scalable prospecting with a higher probability of relevance and conversion.",
+    },
+    {
+      question: "After iOS 14.5, Meta's ad performance reporting was significantly impacted. What was the core reason?",
+      options: ["Meta increased its advertising prices after iOS 14.5", "Apple's App Tracking Transparency (ATT) framework required user opt-in for cross-app tracking, severely limiting Meta's ability to track conversions outside its platform", "iOS 14.5 blocked all third-party advertising on iPhones", "Meta lost its Facebook Pixel certification after iOS 14.5"],
+      correct: 1,
+      explanation: "ATT's opt-in requirement meant that most iOS users weren't tracked across apps and websites. This broke Meta's conversion attribution pipeline, causing reporting gaps and reduced targeting precision.",
+    },
+    {
+      question: "A Meta ad campaign for an e-commerce brand shows high reach and low CPM but very few purchases. What is the most likely diagnosis?",
+      options: ["The campaign budget is too low", "The creative or offer is not resonating with the audience being reached - strong reach without conversion indicates a relevance or offer problem", "The campaign should switch to CPC bidding", "The audience size is too large"],
+      correct: 1,
+      explanation: "Low CPM + high reach means the ads are being shown cheaply and widely. The conversion failure points to the message, offer, or audience-offer match - not the media buying. This is a creative or positioning problem.",
+    },
+  ],
+
+  "paid-ads/bidding-strategies": [
+    {
+      question: "What is the key difference between Manual CPC and Target CPA bidding in Google Ads?",
+      options: ["Manual CPC uses Google's AI and Target CPA is set by the advertiser", "Manual CPC gives the advertiser direct control over each keyword bid, while Target CPA lets Google's machine learning optimise bids automatically to hit a target cost per acquisition", "Target CPA always results in lower costs than Manual CPC", "Manual CPC is only available for display campaigns"],
+      correct: 1,
+      explanation: "Manual CPC gives full human control at the keyword level. Target CPA delegates bid decisions to Google's ML, which adjusts bids in real-time based on signals - suitable when sufficient conversion data exists.",
+    },
+    {
+      question: "A campaign has been running on Target CPA but has fewer than 30 conversions per month. What issue does this create?",
+      options: ["Google will pause the campaign automatically", "The algorithm lacks sufficient conversion data to optimise effectively, leading to poor performance or high cost variability", "Target CPA requires a minimum $10,000 monthly budget", "The campaign will switch automatically to Manual CPC"],
+      correct: 1,
+      explanation: "Smart bidding strategies like Target CPA require a minimum volume of conversions (Google recommends at least 30-50 per month) to learn patterns. Below this threshold, the algorithm lacks data and performs unreliably.",
+    },
+    {
+      question: "A brand wants to maximise visibility at all costs for a competitive product launch. Which bidding strategy best serves this goal?",
+      options: ["Target CPA", "Maximize Conversions", "Target Impression Share set to 100% on absolute top of page", "Enhanced CPC"],
+      correct: 2,
+      explanation: "Target Impression Share lets advertisers set a specific impression share goal and placement preference. Setting it to 100% absolute top forces maximum visibility - at the expense of efficiency.",
+    },
+    {
+      question: "What is 'bid shading' in programmatic advertising?",
+      options: ["Reducing bids on keywords that haven't converted", "A technique used in first-price auctions where the buyer's platform submits a bid below the maximum to reduce overpaying, while still likely winning", "Hiding the true bidding strategy from competitors", "A Google Ads feature for reducing CPC on branded keywords"],
+      correct: 1,
+      explanation: "In first-price auctions (now standard in programmatic), the winner pays exactly what they bid. Bid shading algorithms predict the optimal bid below the maximum to avoid overpaying while maintaining win probability.",
+    },
+  ],
+
+  "seo/keyword-research": [
+    {
+      question: "A marketer finds a keyword with 50,000 monthly searches but a Keyword Difficulty score of 85. A second keyword has 3,000 monthly searches and a difficulty of 20. Which is likely the better choice for a new website?",
+      options: ["The 50,000-search keyword - volume always wins", "The 3,000-search keyword - lower difficulty means a realistic chance of ranking and generating actual traffic", "Both are equally valid - choose based on content preference", "Neither - new websites should not target keywords with any competition"],
+      correct: 1,
+      explanation: "For new sites with low domain authority, targeting high-difficulty keywords is futile. A lower-competition keyword with meaningful volume will generate real traffic; a high-difficulty keyword will deliver page 5 rankings and zero clicks.",
+    },
+    {
+      question: "What does 'search intent' mean in keyword research, and why does it matter?",
+      options: ["The number of times a keyword is searched per month", "The underlying goal or motivation behind a search query - informational, navigational, commercial, or transactional - which must match the content type to rank and convert", "Whether a keyword is a question or a statement", "The geographic location of the searcher"],
+      correct: 1,
+      explanation: "Content that doesn't match intent won't rank - Google prioritises pages that best fulfil what searchers actually want. A product page targeting an informational query will lose to a how-to guide.",
+    },
+    {
+      question: "What is a 'long-tail keyword' and what is its primary advantage over head terms?",
+      options: ["A keyword that is more than 10 words long and always has lower competition", "A more specific, lower-volume keyword phrase that typically has lower competition and higher purchase intent, making it easier to rank and convert", "A keyword used exclusively in email marketing", "A broad keyword targeting a large demographic"],
+      correct: 1,
+      explanation: "Long-tail keywords are specific phrases (e.g., 'best budget espresso machine under $200'). Their specificity means lower competition and clearer intent - visitors from long-tail searches are often closer to converting.",
+    },
+    {
+      question: "A keyword tool shows a keyword has high monthly search volume but the 'clicks' metric is very low. What most likely explains this discrepancy?",
+      options: ["The keyword tool is inaccurate", "Google is showing a featured snippet or SERP feature that answers the query directly, reducing the need to click through to any result", "The keyword is banned from indexing", "All search results for the keyword are paywalled"],
+      correct: 1,
+      explanation: "High search volume with low clicks indicates a 'zero-click search' - Google's SERP features (featured snippets, knowledge panels, calculators) answer the query without requiring a website visit.",
+    },
+  ],
+
+  "seo/link-building": [
+    {
+      question: "Why do backlinks from high-authority, relevant websites carry more SEO value than links from low-authority or unrelated sites?",
+      options: ["High-authority sites have more traffic, which drives direct referral clicks", "Search engines interpret links as votes of confidence - a link from a credible, topically relevant source signals higher trust and passes more ranking power (PageRank) to the linked page", "Google counts all backlinks equally regardless of source quality", "Low-authority links actively penalise the linked site"],
+      correct: 1,
+      explanation: "Link equity (PageRank) flows from the linking page's authority. A link from a trusted, relevant domain is a strong signal that the content is credible - Google weights these links far more than links from obscure or unrelated sites.",
+    },
+    {
+      question: "What is 'digital PR' as a link-building strategy, and what makes it effective?",
+      options: ["Paying journalists to write about your brand", "Creating genuinely newsworthy content or data that earns editorial coverage and natural backlinks from press outlets and authoritative publications", "Distributing press releases to paid wire services", "Building links through sponsored posts only"],
+      correct: 1,
+      explanation: "Digital PR earns links by being link-worthy - original research, compelling data studies, or creative campaigns that journalists and bloggers reference naturally. These editorial links are among the highest-quality signals.",
+    },
+    {
+      question: "A website has 500 backlinks from 5 unique referring domains. A competitor has 200 backlinks from 180 unique referring domains. Who likely has the stronger link profile?",
+      options: ["The site with 500 links - higher quantity always wins", "The competitor with 180 referring domains - diversity of linking domains is a stronger signal than total link volume", "Both are equivalent in SEO value", "It depends entirely on the content quality of each site"],
+      correct: 1,
+      explanation: "Referring domain diversity is more valuable than raw link count. 500 links from 5 domains may indicate manipulation or a single source. 180 unique domains represent independent endorsement from many sources.",
+    },
+    {
+      question: "Which link-building tactic carries the highest risk of a Google manual penalty?",
+      options: ["Guest posting on relevant industry blogs with contextual links", "Creating a free tool that earns natural backlinks", "Buying links from a private blog network (PBN) or link farm", "Conducting original research that gets cited by press"],
+      correct: 2,
+      explanation: "Private Blog Networks and link farms are explicitly against Google's Webmaster Guidelines. Google has become adept at identifying and discounting or penalising these link schemes, risking significant ranking drops.",
+    },
+  ],
+
+  "seo/on-page-seo": [
+    {
+      question: "A page ranks on page 2 for its target keyword. The title tag currently reads 'Home | Acme Corp'. What on-page change is most likely to improve click-through rate and rankings?",
+      options: [
+        "Add more internal links pointing to the page",
+        "Rewrite the title tag to include the target keyword near the front",
+        "Increase the word count of the page body",
+        "Submit the URL manually to Google Search Console",
+      ],
+      correct: 1,
+      explanation: "Title tags are a confirmed on-page ranking signal and the headline users see in search results. Placing the target keyword near the front maximises both relevance signals and CTR.",
+    },
+    {
+      question: "Which heading structure best follows on-page SEO best practice for a single article?",
+      options: [
+        "Multiple H1 tags for each major section, with H2s for sub-points",
+        "One H1 for the page title, H2s for main sections, H3s for sub-sections",
+        "Skip H1 entirely and use H2s as the primary headings to avoid duplication with the title tag",
+        "Use H1 for every paragraph to signal importance to crawlers",
+      ],
+      correct: 1,
+      explanation: "A single H1 establishes the page topic; H2s and H3s create a logical hierarchy that helps both crawlers and readers understand content structure.",
+    },
+    {
+      question: "What is the primary purpose of an SEO-optimised meta description?",
+      options: [
+        "It directly boosts the page's position in organic results",
+        "It tells Google how to index the page's images",
+        "It influences click-through rate by giving searchers a preview of the page's value",
+        "It prevents duplicate content penalties by summarising unique content",
+      ],
+      correct: 2,
+      explanation: "Meta descriptions are not a direct ranking factor, but a compelling description raises CTR, which can indirectly benefit rankings and drives more qualified traffic.",
+    },
+    {
+      question: "A blog post about 'best running shoes' keeps keyword-stuffing the phrase every other sentence. What is the most likely consequence?",
+      options: [
+        "Higher rankings because keyword frequency signals strong relevance",
+        "Google may apply a quality penalty and the content will feel unnatural to readers, harming engagement",
+        "The page will be deindexed immediately for spam",
+        "No effect - Google ignores keyword density entirely",
+      ],
+      correct: 1,
+      explanation: "Keyword stuffing violates Google's quality guidelines and degrades user experience. Modern algorithms prefer natural language and topical depth over raw keyword repetition.",
+    },
+  ],
+
+  "analytics/attribution": [
+    {
+      question: "A customer sees a Facebook ad, clicks a Google search ad three days later, then converts via a direct visit. Which touchpoint gets credit in a 'last-click' attribution model?",
+      options: [
+        "The Facebook ad, because it initiated awareness",
+        "The Google search ad, because it showed intent",
+        "The direct visit, because it was the final touchpoint before conversion",
+        "All three touchpoints equally",
+      ],
+      correct: 2,
+      explanation: "Last-click attribution assigns 100% of conversion credit to the final touchpoint before conversion - in this case the direct visit - ignoring the awareness and consideration stages.",
+    },
+    {
+      question: "Why is attribution described as fundamentally a 'data problem' rather than just a tracking problem?",
+      options: [
+        "Because analytics platforms are too expensive for most teams",
+        "Because user journeys span multiple devices, sessions, and channels that are technically difficult to stitch together into one path",
+        "Because marketers do not agree on what a conversion is",
+        "Because social media platforms refuse to share data with advertisers",
+      ],
+      correct: 1,
+      explanation: "Users switch devices, clear cookies, and interact across walled gardens (Google, Meta, email). Stitching these touchpoints into one coherent journey requires identity resolution - a genuine technical and data challenge.",
+    },
+    {
+      question: "What problem does marketing attribution primarily help solve for a business?",
+      options: [
+        "Reducing the total number of marketing channels in use",
+        "Deciding how to allocate budget by understanding which channels drive conversions",
+        "Automating campaign creative production",
+        "Complying with data privacy regulations",
+      ],
+      correct: 1,
+      explanation: "Attribution answers 'which channels are producing results?' so budget can be shifted toward high-performing channels and away from low-performing ones.",
+    },
+    {
+      question: "A company uses last-click attribution and concludes that paid search drives 80% of conversions. A brand awareness campaign is then cut. What is the likely hidden risk?",
+      options: [
+        "Paid search costs will decrease",
+        "Brand awareness campaigns will become more expensive",
+        "Future search volume may decline because top-of-funnel activity that originally drove branded searches has been removed",
+        "Nothing - last-click attribution is the industry gold standard",
+      ],
+      correct: 2,
+      explanation: "Last-click overvalues bottom-funnel channels. Cutting awareness spend reduces the pool of people who ever search for your brand, eventually hurting the paid search numbers that seemed so strong.",
+    },
+  ],
+
+  "analytics/attribution-models": [
+    {
+      question: "In a linear attribution model, how is conversion credit distributed across touchpoints?",
+      options: [
+        "The first and last touchpoints each receive 40%, with middle touchpoints sharing 20%",
+        "Credit is distributed equally across every touchpoint in the journey",
+        "Only touchpoints in the last 7 days receive credit",
+        "Credit is weighted by the cost of each channel",
+      ],
+      correct: 1,
+      explanation: "Linear attribution divides credit equally among all touchpoints. If there are 4 touchpoints, each gets 25%. It acknowledges every interaction but does not reflect real-world influence differences.",
+    },
+    {
+      question: "Which attribution model is best suited for a brand that wants to understand and reward both the channel that created awareness AND the channel that closed the deal?",
+      options: [
+        "Last-click model",
+        "Linear model",
+        "Position-based (U-shaped) model",
+        "Time-decay model",
+      ],
+      correct: 2,
+      explanation: "The U-shaped (position-based) model gives 40% credit to the first touchpoint and 40% to the last, splitting the remaining 20% among middle touchpoints - explicitly valuing acquisition and conversion channels.",
+    },
+    {
+      question: "A SaaS company runs long, complex sales cycles. Which attribution model most accurately reflects how modern marketers should think about late-stage nurture content?",
+      options: [
+        "First-click, because the first impression determines everything",
+        "Time-decay, because touchpoints closer to conversion had the greatest influence",
+        "Last-click, because only the demo request matters",
+        "U-shaped, because only first and last interactions are relevant in B2B",
+      ],
+      correct: 1,
+      explanation: "Time-decay assigns progressively more credit to touchpoints closer to conversion. For long sales cycles with heavy late-stage nurture (case studies, demos), this model reflects the recency of influence more realistically.",
+    },
+    {
+      question: "What is data-driven attribution, and what is its main limitation?",
+      options: [
+        "It uses first-click logic backed by a large dataset; its limitation is cost",
+        "It uses machine learning to assign credit based on actual conversion patterns; its limitation is that it requires significant conversion volume to train the model",
+        "It imports CRM data into the attribution model; its limitation is CRM data quality",
+        "It is the same as linear attribution but calculated server-side; its limitation is latency",
+      ],
+      correct: 1,
+      explanation: "Data-driven attribution (used in GA4 and Google Ads) uses algorithmic modelling on your actual data. The catch: Google requires hundreds or thousands of conversions per month before the model is statistically reliable.",
+    },
+  ],
+
+  "analytics/funnel-analytics": [
+    {
+      question: "An e-commerce funnel shows: 10,000 visits â†’ 3,000 product views â†’ 800 add-to-carts â†’ 200 purchases. At which stage is drop-off most severe in absolute terms?",
+      options: [
+        "Visit to product view (7,000 drop-off)",
+        "Product view to add-to-cart (2,200 drop-off)",
+        "Add-to-cart to purchase (600 drop-off)",
+        "All stages are equal in severity",
+      ],
+      correct: 0,
+      explanation: "The largest absolute drop-off (7,000 users) happens between visits and product views. Even though cart abandonment may be more strategically important, the biggest numeric leak is at the top of the funnel.",
+    },
+    {
+      question: "What is the primary purpose of a 'micro-conversion' in funnel analytics?",
+      options: [
+        "To reduce the cost-per-acquisition on paid channels",
+        "To track small steps that indicate progress toward a macro-conversion, helping identify where users stall",
+        "To measure social media engagement separately from website data",
+        "To comply with cookie consent requirements",
+      ],
+      correct: 1,
+      explanation: "Micro-conversions (e.g., newsletter sign-up, video play, wishlist add) signal intent and progress. Tracking them reveals which intermediate steps correlate with eventual purchase, guiding optimisation priorities.",
+    },
+    {
+      question: "A checkout funnel has a 65% drop-off on the payment page. Which analytical step should come FIRST before making any changes?",
+      options: [
+        "Immediately redesign the payment page based on best practices",
+        "Qualify the problem - use session recordings and heatmaps to understand what users are doing before they leave",
+        "Add more payment options, as this is always the cause of checkout abandonment",
+        "Reduce the product price to lower purchase resistance",
+      ],
+      correct: 1,
+      explanation: "Analytics shows WHAT is happening; qualitative tools (heatmaps, recordings, surveys) reveal WHY. Jumping to solutions before diagnosing the cause wastes resources and may not address the real friction.",
+    },
+    {
+      question: "Why is it a mistake to optimise only the bottom of the funnel (e.g., checkout page) while ignoring the top?",
+      options: [
+        "Bottom-funnel optimisation always costs more money",
+        "A leaky top of funnel means you are feeding fewer and lower-quality prospects into the stages below, limiting how much bottom-funnel gains can achieve",
+        "Google Analytics does not track bottom-funnel events accurately",
+        "Checkout optimisation violates PCI compliance standards",
+      ],
+      correct: 1,
+      explanation: "Funnel stages are multiplicative. If only 1% of visitors reach the checkout, even a 50% improvement in checkout conversion yields modest gains. Fixing top-of-funnel leaks amplifies every downstream improvement.",
+    },
+  ],
+
+  "analytics/ga4-setup": [
+    {
+      question: "What is the fundamental architectural difference between GA4 and Universal Analytics (UA)?",
+      options: [
+        "GA4 uses cookies; UA did not",
+        "GA4 is session-based; UA is event-based",
+        "GA4 is event-based; UA was session-and-pageview-based",
+        "GA4 only works with Google Tag Manager; UA worked without it",
+      ],
+      correct: 2,
+      explanation: "GA4 treats every user interaction as an event (including page views), enabling flexible, custom tracking. UA relied on a rigid session/hit model where pageviews and events were separate hit types.",
+    },
+    {
+      question: "In GA4, what is a 'data stream', and why must you configure at least one?",
+      options: [
+        "A data stream is a paid add-on that unlocks BigQuery export",
+        "A data stream is the connection between your website or app and your GA4 property - without one, no data flows into GA4",
+        "A data stream is Google's term for a UTM-tagged campaign",
+        "A data stream is an API endpoint used only by developers",
+      ],
+      correct: 1,
+      explanation: "A GA4 property collects no data until you create a data stream (web, iOS, or Android). The stream provides the Measurement ID (G-XXXXXXXX) you embed in your site to send hits to GA4.",
+    },
+    {
+      question: "Which GA4 feature replaces UA's 'Goals' for measuring conversions?",
+      options: [
+        "Custom dimensions",
+        "Audiences",
+        "Key events (previously called conversions)",
+        "Explorations",
+      ],
+      correct: 2,
+      explanation: "In GA4, you mark any event as a 'key event' (the renamed 'conversion') to flag it as business-critical. This replaces UA Goals and is more flexible because any event can be promoted to a key event.",
+    },
+    {
+      question: "You want to track when users click a specific 'Download PDF' button on your site without writing custom code. Which GA4 feature should you explore first?",
+      options: [
+        "Measurement Protocol",
+        "Enhanced Measurement - specifically file download tracking",
+        "BigQuery export",
+        "Custom channel groupings",
+      ],
+      correct: 1,
+      explanation: "GA4's Enhanced Measurement automatically tracks file downloads (among other events like scrolls and outbound clicks) when the feature is enabled in the data stream settings - no custom code required.",
+    },
+  ],
+
+  "brand-strategy/b2b-brand": [
+    {
+      question: "Why is building a strong brand considered MORE important in B2B than in B2C, according to research by the IPA and LinkedIn B2B Institute?",
+      options: [
+        "B2B purchase cycles are shorter, so brand recall matters more in the moment",
+        "Most B2B buyers are not actively in-market at any given time, so brand building ensures you are remembered when they eventually need to buy",
+        "B2B products are commodities, so brand is the only differentiator",
+        "B2B companies have larger advertising budgets and can afford brand campaigns",
+      ],
+      correct: 1,
+      explanation: "Research shows only 5% of B2B buyers are in-market at any time. Brand building reaches the other 95% so that when they do enter the buying cycle, your brand is already in their mental shortlist.",
+    },
+    {
+      question: "A B2B software company creates highly technical whitepapers aimed only at current customers. From a brand strategy perspective, what is missing?",
+      options: [
+        "The whitepapers should be shorter",
+        "There is no emotional storytelling or reach to future buyers who are not yet in the market",
+        "The company should use video instead of written content",
+        "Whitepapers should be gated behind paid subscriptions",
+      ],
+      correct: 1,
+      explanation: "Effective B2B brand strategy requires both short-term demand generation (for in-market buyers) and long-term brand building (awareness and emotional connection with future buyers). Serving only current customers ignores future pipeline.",
+    },
+    {
+      question: "What does 'share of voice' mean in a B2B brand context, and why does it matter?",
+      options: [
+        "The percentage of your sales team that speaks at industry events",
+        "The proportion of category-level brand advertising spend or mentions your brand captures relative to competitors - which correlates with future market share",
+        "The number of customer testimonials on your website",
+        "Your Net Promoter Score relative to direct competitors",
+      ],
+      correct: 1,
+      explanation: "Share of voice (SOV) tracks how prominent your brand is in category conversations. Research by Binet and Field shows brands with SOV exceeding market share tend to grow - making it a leading indicator of future revenue.",
+    },
+    {
+      question: "A B2B brand wants to build emotional resonance despite selling enterprise software. What approach is most effective?",
+      options: [
+        "Focus exclusively on ROI calculators and feature comparison charts",
+        "Use human storytelling - customer success stories, founder narratives, and team culture - to create trust and relatability alongside rational proof points",
+        "Avoid emotional messaging because B2B buyers make purely rational decisions",
+        "Outsource brand building to a PR agency and focus the internal team only on product",
+      ],
+      correct: 1,
+      explanation: "B2B decisions are made by humans who feel risk, ambition, and pressure. LinkedIn research shows emotionally resonant B2B ads outperform purely rational ones. Rational proof points validate a decision already made emotionally.",
+    },
+  ],
+
+  "brand-strategy/brand-crisis": [
+    {
+      question: "In the first hours of a brand crisis, what is the single most important action a brand should take?",
+      options: [
+        "Launch a social media campaign to control the narrative",
+        "Acknowledge the issue quickly and commit to transparency, even before all facts are known",
+        "Stay silent until the legal team approves every word",
+        "Offer immediate discounts to affected customers to prevent churn",
+      ],
+      correct: 1,
+      explanation: "Silence or delay signals cover-up. Acknowledging the issue early - even with an 'we are investigating and will update you' statement - builds goodwill and prevents the vacuum from being filled by speculation.",
+    },
+    {
+      question: "Johnson & Johnson's Tylenol crisis in 1982 is taught as a model response. What made their approach exemplary?",
+      options: [
+        "They denied responsibility and blamed supply chain partners",
+        "They recalled 31 million bottles at enormous cost, putting consumer safety first and communicating openly throughout",
+        "They stayed silent for 30 days, then issued a written apology",
+        "They rebranded the product under a new name immediately after the crisis",
+      ],
+      correct: 1,
+      explanation: "J&J's voluntary national recall - at a cost of over $100 million - demonstrated that they valued customer safety above profit. This decisive transparency rebuilt trust so effectively the brand regained market leadership within a year.",
+    },
+    {
+      question: "A brand's social media manager posts an offensive tweet. The brand deletes it within minutes. What critical mistake does deleting alone represent?",
+      options: [
+        "Deleting content is technically difficult and risks data loss",
+        "Screenshots spread faster than deletions; without a public apology and explanation, deletion appears like an attempt to hide the mistake",
+        "Twitter's algorithm penalises brands that delete posts",
+        "Deleting is always the right first step and requires no further action",
+      ],
+      correct: 1,
+      explanation: "In the internet era, nothing disappears. Screenshots are taken almost instantly. Deleting without acknowledging the mistake makes the brand appear dishonest, often intensifying the crisis rather than resolving it.",
+    },
+    {
+      question: "After a brand crisis is resolved, what long-term step is most important for brand recovery?",
+      options: [
+        "Change the brand logo to signal a fresh start",
+        "Conduct a post-mortem, implement systemic fixes, and communicate the changes made - demonstrating that the brand learned and improved",
+        "Increase the advertising budget to rebuild share of voice quickly",
+        "Avoid any further public communication about the incident to let it fade from memory",
+      ],
+      correct: 1,
+      explanation: "Sustained recovery requires proof that the crisis changed internal behaviour - not just messaging. Publishing systemic improvements rebuilds credibility far more durably than reputation spending alone.",
+    },
+  ],
+
+  "brand-strategy/co-branding": [
+    {
+      question: "Nike and Apple partnered to create Nike+ running features integrated into iPods and iPhones. What is the primary strategic benefit both brands gained?",
+      options: [
+        "Cost reduction through shared manufacturing",
+        "Each brand accessed the other's loyal audience while both brands' equity was reinforced by the association",
+        "They merged their legal entities to reduce tax liability",
+        "Nike gained distribution through Apple Stores",
+      ],
+      correct: 1,
+      explanation: "Successful co-branding creates mutual equity transfer - Nike's athletic credibility and Apple's tech prestige reinforced each other. Both brands reached new audiences without the cost of building that relevance from scratch.",
+    },
+    {
+      question: "What is 'brand equity dilution' in the context of co-branding, and when does it occur?",
+      options: [
+        "When a brand spends too much on joint marketing campaigns",
+        "When a co-branding partner's negative associations, scandal, or lower quality perception damages the other brand's image",
+        "When both brands use identical visual identities and consumers cannot distinguish them",
+        "When the co-branded product is priced lower than the brands' individual products",
+      ],
+      correct: 1,
+      explanation: "If a co-brand partner faces a scandal or is perceived as lower quality, that negative association can transfer to your brand. Thorough partner vetting is essential before any co-branding commitment.",
+    },
+    {
+      question: "Supreme x Louis Vuitton produced a limited collection that sold out instantly. Which co-branding strategy does this best illustrate?",
+      options: [
+        "Ingredient co-branding",
+        "Complementary competence co-branding",
+        "Scarcity-driven hype co-branding that leverages both brands' cult status for outsized demand",
+        "Cause-related co-branding for social impact",
+      ],
+      correct: 2,
+      explanation: "Both brands command devoted fan bases with strong scarcity associations. The collaboration amplified exclusivity beyond what either could achieve alone - a classic example of demand creation through cultural co-branding.",
+    },
+    {
+      question: "Before entering a co-branding partnership, which question should a brand strategist prioritise above all others?",
+      options: [
+        "Does the partner have a larger social media following?",
+        "Do both brands share enough audience overlap and value alignment that the partnership feels natural and credible to consumers?",
+        "Is the partner willing to split production costs evenly?",
+        "Has the partner won any industry awards in the last 12 months?",
+      ],
+      correct: 1,
+      explanation: "Co-branding only creates value when consumers intuitively understand why the two brands belong together. Misaligned values or audiences produce confusion rather than combined equity.",
+    },
+  ],
+
+  "brand-strategy/founder-brand": [
+    {
+      question: "Elon Musk's personal brand on social media consistently drives earned media for Tesla and SpaceX. What is the primary mechanism by which founder brand creates business value?",
+      options: [
+        "Founders have verified social media accounts that get algorithmic preference",
+        "Authentic founder storytelling builds trust, creates emotional connection, and generates organic reach that paid advertising cannot replicate at the same cost",
+        "Investors value companies more when the founder is publicly active",
+        "Founder content bypasses advertising regulations that apply to corporate accounts",
+      ],
+      correct: 1,
+      explanation: "People trust people more than logos. A founder's authentic voice creates human connection at scale. This trust transfers to the brand, reducing customer acquisition costs and building loyalty that advertising cannot manufacture.",
+    },
+    {
+      question: "A founder wants to build a personal brand but is concerned about being 'too personal' or oversharing. What is the correct balance?",
+      options: [
+        "Share everything - radical transparency always builds trust",
+        "Share nothing personal - keep all content strictly product-focused",
+        "Share the journey, values, and behind-the-scenes thinking selectively - vulnerability within professional context, not personal oversharing",
+        "Only share content after it has been approved by the PR and legal teams",
+      ],
+      correct: 2,
+      explanation: "Founder brand thrives on authentic, purposeful vulnerability - sharing challenges, lessons, and mission. This differs from oversharing personal life details. The goal is relatability and credibility, not celebrity.",
+    },
+    {
+      question: "What is the greatest long-term risk of a company becoming almost entirely dependent on its founder's personal brand?",
+      options: [
+        "The founder may run out of content ideas",
+        "If the founder departs, faces a scandal, or changes focus, the company brand has no independent equity to stand on",
+        "Customers will expect the founder to personally handle support tickets",
+        "Investors prefer institutional brands and will demand the founder stays off social media",
+      ],
+      correct: 1,
+      explanation: "Founder brand is a powerful accelerator, but company brand must be built in parallel. Over-reliance on one person creates a single point of failure for the entire brand's equity and market position.",
+    },
+    {
+      question: "Which content pillar is most effective for a B2B founder building a personal brand on LinkedIn?",
+      options: [
+        "Daily updates about the founder's personal fitness routine",
+        "Contrarian industry takes, transparent lessons from building the company, and frameworks that help the target audience solve real problems",
+        "Promotional posts about the company's products and pricing",
+        "Reposting competitor content with minimal commentary",
+      ],
+      correct: 1,
+      explanation: "LinkedIn B2B audience responds to expertise, credibility, and genuine insight. Content that teaches and challenges thinking builds authority - which converts followers into prospects more effectively than promotional posts.",
+    },
+  ],
+
+  "copywriting/copywriting-101": [
+    {
+      question: "The classic copywriting formula AIDA stands for Attention, Interest, Desire, Action. Why does this sequence matter?",
+      options: [
+        "It follows the legal requirements for advertising disclosures",
+        "It mirrors the psychological journey a reader takes before making a decision - you must capture attention before interest is even possible",
+        "It is the only formula approved by major advertising agencies",
+        "It was invented by David Ogilvy and is only applicable to print advertising",
+      ],
+      correct: 1,
+      explanation: "AIDA reflects human psychology: a reader who has not noticed you cannot be interested; one who is not interested cannot desire; and desire must precede willingness to act. Skipping steps breaks the persuasion chain.",
+    },
+    {
+      question: "What is the primary function of a headline in direct response copywriting?",
+      options: [
+        "To summarise the entire offer so readers know whether to read on",
+        "To get the reader to read the first sentence - nothing more",
+        "To include the most important keywords for SEO purposes",
+        "To introduce the brand name prominently so it is memorable",
+      ],
+      correct: 1,
+      explanation: "Legendary copywriter John Caples said the headline's only job is to get people to read the next line. Curiosity, a bold promise, or a surprising fact pulls readers in - the body copy does the selling.",
+    },
+    {
+      question: "A copywriter writes: 'Our software has 47 integrations' vs 'Connect every tool your team already uses - in minutes.' Which version is stronger copy, and why?",
+      options: [
+        "The first - specific numbers always outperform vague benefit statements",
+        "They are equal - different audiences will prefer different versions",
+        "The second - it translates a feature into a concrete, emotionally resonant benefit the reader can picture",
+        "The first - technical buyers in B2B always prefer feature-led copy",
+      ],
+      correct: 2,
+      explanation: "Great copy leads with benefits, not features. '47 integrations' is a feature; 'connect every tool your team already uses in minutes' helps the reader imagine the relief and efficiency they will feel - that is what drives action.",
+    },
+    {
+      question: "What makes the PAS (Problem - Agitate - Solution) copywriting framework particularly effective?",
+      options: [
+        "It starts positively, which puts the reader in a good mood",
+        "It exploits loss aversion by first making the reader feel the pain of their problem before presenting a relief, making the solution feel more valuable",
+        "It is the shortest framework, reducing reader fatigue",
+        "It was scientifically validated in peer-reviewed consumer behaviour research",
+      ],
+      correct: 1,
+      explanation: "PAS works because humans are more motivated by pain relief than by gain. Agitating the problem raises the emotional stakes; the solution then arrives as genuine relief - a far more powerful persuasion sequence than leading with benefits.",
+    },
+  ],
+
+  "copywriting/ab-testing-copy": [
+    {
+      question: "You want to A/B test an email subject line. Which testing approach produces the most reliable results?",
+      options: [
+        "Test two variables simultaneously - the subject line and the sender name - to get more data faster",
+        "Test one variable at a time - change only the subject line and keep everything else identical across variants",
+        "Run the test for exactly 24 hours regardless of sample size",
+        "Declare a winner as soon as one variant has even a single conversion lead",
+      ],
+      correct: 1,
+      explanation: "Changing one variable at a time is the golden rule of A/B testing. If you change two things and one variant wins, you cannot know which change caused the improvement.",
+    },
+    {
+      question: "An A/B test on a CTA button runs for 3 days. Variant B has a 12% conversion rate vs Variant A's 10%. A colleague wants to call it immediately. What is the key question to ask?",
+      options: [
+        "What colour is Variant B's button?",
+        "Has the test reached statistical significance and was the sample size large enough to rule out random variation?",
+        "Which variant has been running longer?",
+        "Has the marketing director approved the test methodology?",
+      ],
+      correct: 1,
+      explanation: "A 2-point difference could easily be random noise in a small sample. Statistical significance (typically 95% confidence) ensures the result is real and repeatable - not a product of chance.",
+    },
+    {
+      question: "Why is it a mistake to run A/B copy tests only on your highest-traffic pages?",
+      options: [
+        "High-traffic pages are already optimised and cannot be improved",
+        "You should always test low-traffic pages first to avoid disrupting important revenue-generating pages",
+        "While high-traffic pages reach significance faster, you miss optimisation opportunities on lower-traffic pages that may have greater percentage impact on conversion",
+        "There is no mistake - high-traffic pages should always be prioritised for testing",
+      ],
+      correct: 2,
+      explanation: "High-traffic pages are ideal for speed of results, but a 5% conversion lift on a low-traffic checkout page might move more revenue than the same lift on a blog post. Testing strategy should balance speed with business impact.",
+    },
+    {
+      question: "A test shows that emotionally charged headline copy consistently outperforms rational copy across 6 separate tests. What should a copywriter conclude?",
+      options: [
+        "Rational copy should be abandoned entirely in all future campaigns",
+        "Emotional copy works for this audience and context - apply the insight directionally while continuing to test, as results may differ for different segments or channels",
+        "The testing tool is biased toward emotional copy",
+        "Emotional copy only works temporarily and performance will revert to the mean",
+      ],
+      correct: 1,
+      explanation: "A/B test insights are directional signals, not universal laws. Apply a consistent finding with confidence while staying curious - different channels, offers, or audience segments may respond differently.",
+    },
+  ],
+
+  "copywriting/b2b-copy": [
+    {
+      question: "B2B copy for an enterprise software product must address multiple stakeholders - a CFO, CTO, and end users. What is the most effective approach?",
+      options: [
+        "Write one version of copy that uses the most technical language to appeal to the CTO",
+        "Create persona-specific messaging that addresses the distinct concerns of each stakeholder - ROI for the CFO, integration for the CTO, ease-of-use for end users",
+        "Focus only on the economic buyer (CFO) since they sign the contract",
+        "Use generic copy that avoids specifying any audience to offend no one",
+      ],
+      correct: 1,
+      explanation: "B2B buying committees have diverse motivations. A CFO cares about cost/ROI, a CTO about security/integration, end users about daily usability. Tailored messaging for each stakeholder dramatically improves conversion at every step.",
+    },
+    {
+      question: "What does 'leading with the problem' mean in B2B copywriting, and why is it effective?",
+      options: [
+        "Opening a proposal with a list of your company's past challenges to show authenticity",
+        "Starting copy by naming the specific pain or challenge the prospect faces before introducing your product, creating immediate relevance and showing you understand their world",
+        "Highlighting competitor weaknesses before presenting your solution",
+        "Describing the problem your product solves only in the FAQ section",
+      ],
+      correct: 1,
+      explanation: "When a prospect reads copy that names their exact problem, they feel understood - a prerequisite for trust. Busy B2B buyers decide in seconds whether content is relevant to them; leading with their pain wins those seconds.",
+    },
+    {
+      question: "Which type of social proof is most persuasive in B2B copy and why?",
+      options: [
+        "Celebrity endorsements, because authority transfers regardless of industry",
+        "Number of total customers ('10,000 companies use us'), because volume signals safety",
+        "Specific case studies from recognisable companies in the prospect's industry, showing measurable outcomes they care about",
+        "Press mentions, because media validation is the most objective form of proof",
+      ],
+      correct: 2,
+      explanation: "B2B buyers ask 'has this worked for someone like me?' A case study from a peer company in their industry - showing specific metrics (e.g., '43% reduction in churn') - answers that question directly and reduces perceived risk.",
+    },
+    {
+      question: "Why should B2B copywriters generally avoid jargon, even when writing for technical audiences?",
+      options: [
+        "Technical audiences do not understand industry jargon",
+        "Jargon is legally restricted in B2B advertising",
+        "Jargon creates cognitive load, signals insider posturing over clarity, and often means different things to different readers - clear, concrete language is almost always more persuasive",
+        "Search engines penalise jargon-heavy content",
+      ],
+      correct: 2,
+      explanation: "Even technically sophisticated readers process clear language faster and trust it more. Jargon can signal that a writer does not fully understand what they are saying. Clarity is always a competitive advantage in B2B copy.",
+    },
+  ],
+
+  "copywriting/direct-vs-brand-copy": [
+    {
+      question: "What is the fundamental goal difference between direct response copy and brand copy?",
+      options: [
+        "Direct response copy is for online channels; brand copy is for offline channels",
+        "Direct response copy aims to generate an immediate, measurable action; brand copy aims to build long-term emotional associations and preference",
+        "Direct response copy must be short; brand copy must be long",
+        "Brand copy requires celebrity endorsements; direct response does not",
+      ],
+      correct: 1,
+      explanation: "Direct response optimises for an action right now (click, buy, sign up) and is measured by conversion rate. Brand copy optimises for mental availability and emotional affinity over time - a different time horizon and metric entirely.",
+    },
+    {
+      question: "Nike's 'Just Do It' tagline is a classic example of brand copy. Why would it fail as direct response copy?",
+      options: [
+        "It is too short to include all required product information",
+        "It does not tell the reader what to do next, create urgency, or explain a specific offer - the hallmarks of effective direct response",
+        "It only works in television and would not translate to digital channels",
+        "Nike's brand is too well-known for direct response to be necessary",
+      ],
+      correct: 1,
+      explanation: "Direct response copy must include a specific CTA, reason to act now, and clear benefit. 'Just Do It' does none of these - it creates emotion and identity, which is brand copy's job, not direct response.",
+    },
+    {
+      question: "A startup with limited budget must choose between primarily running brand campaigns or direct response campaigns. Which strategic principle should guide this decision?",
+      options: [
+        "Always start with brand campaigns - awareness must precede conversions",
+        "A startup with limited runway should prioritise direct response to generate measurable revenue, while layering in brand building as budget allows",
+        "Brand campaigns are always cheaper, so budget constraints favour brand",
+        "The choice depends entirely on the social media platform selected",
+      ],
+      correct: 1,
+      explanation: "Brand building takes months or years to show ROI. A capital-constrained startup needs to prove unit economics and survive. Direct response provides measurable feedback loops. Brand investment makes sense once the business model is validated.",
+    },
+    {
+      question: "Binet and Field's research on advertising effectiveness recommends approximately what ratio of brand to activation (direct response) spend for most businesses?",
+      options: [
+        "100% brand spend - activation adds no long-term value",
+        "50/50 split in all cases",
+        "Roughly 60% brand building to 40% activation, though this varies by category and business stage",
+        "100% activation - brand is unmeasurable and therefore unaccountable",
+      ],
+      correct: 2,
+      explanation: "Binet and Field's IPA data showed that the optimal long-term mix for most businesses is approximately 60:40 brand-to-activation. Too much activation erodes long-term equity; too much brand spend reduces short-term efficiency.",
+    },
+  ],
+
+  "copywriting/ogilvy-halbert-sugarman": [
+    {
+      question: "David Ogilvy said 'The customer is not a moron, she is your wife.' What principle does this quotation encode for copywriters?",
+      options: [
+        "Copy should always target female audiences first",
+        "Treat readers as intelligent adults deserving of honest, relevant information - never talk down or be patronising",
+        "Emotional appeals should be avoided in favour of factual information",
+        "Copy should always be written in a conversational style regardless of medium",
+      ],
+      correct: 1,
+      explanation: "Ogilvy believed in respecting the reader's intelligence. Condescending, gimmicky, or hollow copy destroys trust. Writing as if you are informing someone you care about produces more honest - and more persuasive - advertising.",
+    },
+    {
+      question: "Gary Halbert advocated for the 'starving crowd' as the most important marketing element. What does this mean in practice?",
+      options: [
+        "Target impoverished consumers because they are more price-sensitive",
+        "The most powerful advantage is finding a hungry, underserved market with intense desire - a great market beats great copy, a great product, or a great team",
+        "Use scarcity language ('limited offer') in every piece of copy to create urgency",
+        "Publish content more frequently to feed the algorithm",
+      ],
+      correct: 1,
+      explanation: "Halbert's point was that market selection is the single biggest lever in marketing. Even mediocre copy sells to a starving crowd. Great copy cannot save a product nobody wants. Finding the right audience matters more than perfecting the message.",
+    },
+    {
+      question: "Joe Sugarman taught that every element of an ad has one purpose - 'to get the first sentence read'. Which copywriting technique does this principle most directly support?",
+      options: [
+        "Long-form copy always outperforms short-form",
+        "Slippery slope writing - each sentence is designed only to compel reading of the next, creating unstoppable forward momentum",
+        "Bold claims in headlines must be backed by detailed footnotes",
+        "Always open with a question to engage the reader",
+      ],
+      correct: 1,
+      explanation: "Sugarman's 'slippery slide' concept means copy is a sequence of micro-commitments. Short, intriguing sentences create momentum so the reader almost cannot stop - each sentence sells the next one before any product selling happens.",
+    },
+    {
+      question: "All three copywriters - Ogilvy, Halbert, and Sugarman - would agree on which foundational principle?",
+      options: [
+        "Long copy always beats short copy",
+        "Television is the most powerful advertising medium",
+        "Deep understanding of the customer - their desires, fears, and language - is the prerequisite for effective copy",
+        "Humour is the most reliable persuasion tool in advertising",
+      ],
+      correct: 2,
+      explanation: "Despite their stylistic differences, all three masters insisted on obsessive research into the customer's mind. Ogilvy studied research, Halbert wrote 'letters from a friend', Sugarman read everything about his audience. Customer insight is the foundation of all great copy.",
+    },
+  ],
+
+  "copywriting/storybrand": [
+    {
+      question: "In Donald Miller's StoryBrand framework, what critical mistake do most brands make in their marketing?",
+      options: [
+        "They use too many calls to action on a single page",
+        "They position themselves as the hero of the story rather than making the customer the hero",
+        "They focus too heavily on emotional storytelling instead of product features",
+        "They target too broad an audience instead of a niche",
+      ],
+      correct: 1,
+      explanation: "StoryBrand's central insight is that brands talk about themselves (their history, values, awards) when the customer needs to see themselves as the protagonist. When you become the guide helping the hero, messaging becomes immediately more relevant.",
+    },
+    {
+      question: "In the StoryBrand 7-part framework, what role does the brand play?",
+      options: [
+        "The hero who saves the customer from their problem",
+        "The villain causing the customer's problem",
+        "The guide - like Yoda or Gandalf - who has empathy and authority and equips the customer-hero with a plan",
+        "The stakes - the loss the customer faces if they do not act",
+      ],
+      correct: 2,
+      explanation: "The brand is always the guide, never the hero. Guides demonstrate empathy ('I understand your problem') and authority ('I have helped others like you solve it') to earn trust and move the hero toward their transformation.",
+    },
+    {
+      question: "A StoryBrand-aligned website homepage should immediately answer which three questions for a visitor?",
+      options: [
+        "Who are we, how long have we been in business, and what awards have we won?",
+        "What do you offer, how will it make my life better, and what do I need to do to get it?",
+        "What is our mission, who is our team, and what is our refund policy?",
+        "What problem exists in the world, who is to blame, and what is our solution?",
+      ],
+      correct: 1,
+      explanation: "StoryBrand's homepage formula answers the customer's three immediate subconscious questions: What is it? Why should I care? How do I get it? If visitors cannot answer these in 5 seconds, they leave.",
+    },
+    {
+      question: "StoryBrand identifies both 'internal' and 'external' problems. Why does Miller argue that brands must address the internal problem, not just the external one?",
+      options: [
+        "Internal problems are more expensive to solve and thus command higher prices",
+        "Companies sell solutions to external problems, but customers buy solutions to internal problems - the emotional, identity-level frustrations are what truly motivate purchase",
+        "External problems are already solved by competitors, so internal problems are the only remaining differentiator",
+        "Addressing internal problems is required by advertising standards for honesty",
+      ],
+      correct: 1,
+      explanation: "Miller's example: a customer does not just want a financial advisor (external problem: I need investment help). They want to feel competent and secure (internal problem). Copy that speaks to the internal desire is far more persuasive than feature lists.",
+    },
+  ],
+
+  "copywriting/storytelling-copy": [
+    {
+      question: "What neurological effect does story-based copy have that feature-based copy does not, according to cognitive research?",
+      options: [
+        "Stories are processed faster by the brain because they contain fewer words",
+        "Stories trigger neural coupling - the listener's brain activity mirrors the storyteller's, creating empathy and emotional engagement that rational facts cannot produce",
+        "Stories are stored in long-term memory only if they contain conflict",
+        "Stories increase reading speed, which reduces bounce rates",
+      ],
+      correct: 1,
+      explanation: "Neuroscientist Uri Hasson's research shows that a well-told story synchronises the brain of the teller and listener. This neural coupling creates genuine emotional resonance - explaining why stories persuade when data alone does not.",
+    },
+    {
+      question: "In storytelling copy, what is the function of 'conflict' or 'tension'?",
+      options: [
+        "Conflict makes the brand appear relatable by showing it has faced challenges",
+        "Conflict creates the narrative gap between where the character is and where they want to be - this gap is what compels the reader to keep reading to find resolution",
+        "Conflict should be avoided in marketing because it creates negative brand associations",
+        "Conflict is only appropriate in B2C storytelling, not B2B content",
+      ],
+      correct: 1,
+      explanation: "Without conflict, there is no story - only a list of events. The tension between current state and desired state is what creates engagement. Readers are wired to seek resolution, so tension keeps them reading until the solution is presented.",
+    },
+    {
+      question: "A brand uses a customer success story instead of bullet-point feature descriptions on their homepage. What psychological principle does this leverage?",
+      options: [
+        "Social proof through volume - more people relate to one story than to many statistics",
+        "Transportation theory - readers immerse themselves in a narrative, lower psychological defences, and are more open to attitude change than when reading persuasive argumentation",
+        "Availability heuristic - stories are easier to remember than data",
+        "The mere exposure effect - repeated reading increases liking",
+      ],
+      correct: 1,
+      explanation: "Transportation theory (Green & Brock, 2000) shows that narrative immersion lowers scepticism and resistance to persuasion. When we are 'transported' into a story, we process it differently than a sales pitch - which is exactly why stories convert.",
+    },
+    {
+      question: "Which storytelling structure is most effective for short-form copywriting like a social media ad or landing page hero section?",
+      options: [
+        "The hero's journey (17 stages)",
+        "A micro-narrative: character + problem + transformation (before/after), delivered in 2-3 sentences",
+        "In medias res - starting at the climax and working backwards",
+        "The three-act structure with a full setup, confrontation, and resolution",
+      ],
+      correct: 1,
+      explanation: "Short-form copy needs a compressed story arc. The 'before-after-bridge' or character-problem-transformation micro-narrative creates emotional resonance in seconds - the reader sees themselves in the 'before', desires the 'after', and follows the bridge to your offer.",
+    },
+  ],
+
+  "psychology/why-psychology-matters": [
+    {
+      question: "Why is understanding consumer psychology considered a foundational marketing skill, not just a 'nice to have'?",
+      options: [
+        "Psychology is required by law in advertising to prevent manipulation",
+        "All marketing ultimately involves influencing human decision-making - understanding how people think, feel, and choose determines whether campaigns persuade or are ignored",
+        "Psychological knowledge reduces the need for market research",
+        "Psychology skills allow marketers to bypass data analytics",
+      ],
+      correct: 1,
+      explanation: "Marketing's core task is changing beliefs, feelings, or behaviours. Every tactical decision - headline, offer, pricing, visual - either aligns with or works against human cognitive tendencies. Psychology turns intuition into systematic, repeatable persuasion.",
+    },
+    {
+      question: "The 'status quo bias' in consumer psychology means that marketers must work harder in which specific scenario?",
+      options: [
+        "When entering a mature market with established competitors",
+        "When launching a product that requires consumers to change habitual behaviour, because people irrationally prefer their current situation even when an alternative is objectively better",
+        "When targeting younger demographics who are resistant to advertising",
+        "When running campaigns on platforms the audience has used for many years",
+      ],
+      correct: 1,
+      explanation: "Status quo bias explains why superior products fail against entrenched habits. Marketers must overcome inertia with strong switching motivators (loss framing, trials, incentives) and reduce perceived switching costs to shift established behaviour.",
+    },
+    {
+      question: "A marketer frames a promotion as 'Save Rs 500' rather than 'Get Rs 500 back'. Both are economically identical. Why does framing affect response?",
+      options: [
+        "People do not understand cashback mechanics",
+        "Loss aversion (Kahneman & Tversky): the pain of losing money is psychologically more powerful than the pleasure of gaining the same amount, so 'save' framing feels more urgent than 'get back' framing",
+        "The word 'save' is shorter and easier to process than 'get back'",
+        "Framing effects only apply to financial products",
+      ],
+      correct: 1,
+      explanation: "Prospect theory shows that losses loom larger than equivalent gains. 'Save' activates loss aversion - you are preventing a loss - which is more motivating than 'get', which frames the same amount as a gain. Identical economics, different psychological response.",
+    },
+    {
+      question: "Which ethical concern should marketers who apply consumer psychology always keep front of mind?",
+      options: [
+        "Psychology-based marketing is always unethical and should not be used",
+        "There is a meaningful line between persuasion (helping people make decisions they genuinely benefit from) and manipulation (exploiting biases to push decisions against people's interests)",
+        "Only licensed psychologists may apply behavioural principles in marketing",
+        "Psychological techniques are only ethical when used by non-profit organisations",
+      ],
+      correct: 1,
+      explanation: "The distinction between persuasion and manipulation is intent and alignment with the consumer's actual interests. Using psychology to help someone discover a product they genuinely need differs from using it to exploit vulnerable people or obscure material facts.",
+    },
+  ],
+
+  "ai-marketing/ai-search-ranking": [
+    {
+      question: "How does AI-powered search (e.g., Google's AI Overviews, Bing Copilot) fundamentally change the traditional SEO traffic model?",
+      options: [
+        "AI search eliminates all organic traffic, making SEO irrelevant",
+        "AI search synthesises answers at the top of results, potentially reducing clicks to individual pages - shifting the success metric from ranking position to being cited as a source within AI answers",
+        "AI search rewards exact-match keyword targeting more than traditional search",
+        "AI search only affects paid ads, not organic rankings",
+      ],
+      correct: 1,
+      explanation: "AI Overviews answer queries directly on the results page, reducing the need to click through. The new SEO goal is 'answer engine optimisation' - becoming a cited, trusted source within AI-generated summaries, not just a ranked blue link.",
+    },
+    {
+      question: "Which type of content is most likely to be cited by AI search engines in their generated answers?",
+      options: [
+        "Content optimised for exact-match keywords with high keyword density",
+        "Authoritative, well-structured, factually accurate content that directly answers specific questions - especially from sites with strong topical authority and credible backlinks",
+        "Content that is published most frequently, regardless of depth",
+        "Content that contains rich media (images and videos) rather than text",
+      ],
+      correct: 1,
+      explanation: "AI models are trained on and cite content they assess as trustworthy, relevant, and well-organised. E-E-A-T signals (Experience, Expertise, Authoritativeness, Trustworthiness) and clear, direct answer structures increase the probability of citation in AI responses.",
+    },
+    {
+      question: "What is 'zero-click search' and why is it a strategic concern for content marketers in the AI search era?",
+      options: [
+        "A paid search feature where advertisers only pay when users click the ad",
+        "Searches where users get their answer directly from the search results page without visiting any website - reducing organic traffic even when your content is the source",
+        "A technical term for search queries with no matching results",
+        "A Google algorithm update that removed links from search results entirely",
+      ],
+      correct: 1,
+      explanation: "Zero-click has been growing since featured snippets and is accelerating with AI Overviews. For marketers, this means traffic from informational queries may decline even as visibility grows. The implication: build owned audiences (email, community) not just SEO-dependent traffic.",
+    },
+    {
+      question: "To adapt to AI search, a marketer should prioritise which content strategy shift?",
+      options: [
+        "Produce more short, surface-level posts to maximise the number of queries targeted",
+        "Build genuinely helpful, deep, unique content on specific topics that establishes demonstrated expertise - rather than producing SEO-optimised thin content for volume",
+        "Focus exclusively on video content since AI search cannot summarise visual information",
+        "Abandon content marketing entirely and shift all budget to paid search",
+      ],
+      correct: 1,
+      explanation: "AI search rewards expertise and genuine utility. Shallow content that existed purely to rank for keywords is increasingly irrelevant. Deep, original, experience-backed content is both more likely to be cited and more likely to build trust that survives algorithm changes.",
+    },
+  ],
+
+  "ai-marketing/mcp-marketing": [
+    {
+      question: "What does MCP (Model Context Protocol) enable that standard AI API calls cannot do by default?",
+      options: [
+        "MCP allows AI models to generate longer responses without token limits",
+        "MCP provides a standardised way for AI models to securely access external tools, data sources, and systems - enabling agents to take real-world actions, not just generate text",
+        "MCP is a content moderation protocol that filters AI outputs before publishing",
+        "MCP reduces the cost of AI API calls through request batching",
+      ],
+      correct: 1,
+      explanation: "MCP (developed by Anthropic) creates a standardised interface so AI assistants can connect to external tools (CRMs, analytics platforms, content systems) and perform actions. For marketing, this means AI can read data, update records, and execute workflows autonomously.",
+    },
+    {
+      question: "A marketing team builds an MCP-powered AI agent that reads their CRM, drafts personalised follow-up emails, and schedules them via their email platform. What category of AI application does this represent?",
+      options: [
+        "Generative AI for content creation",
+        "An AI agent - an autonomous system that perceives context, makes decisions, and takes actions across multiple tools to complete a multi-step task",
+        "A chatbot for customer support",
+        "Predictive analytics for lead scoring",
+      ],
+      correct: 1,
+      explanation: "This describes an AI agent: it reasons about context (CRM data), generates output (email), and executes an action (scheduling) - all as a connected workflow. MCP makes the tool-connection layer standardised and secure, enabling these multi-step automations.",
+    },
+    {
+      question: "What is the primary governance risk marketers should address before deploying MCP-powered AI agents that can write to production systems?",
+      options: [
+        "The AI agent may generate content that is too long for email clients",
+        "Without human review gates and permission scoping, agents may take unintended actions - such as sending incorrect communications at scale or modifying CRM records incorrectly",
+        "MCP agents violate GDPR by definition because they access personal data",
+        "AI agents are too slow for real-time marketing applications",
+      ],
+      correct: 1,
+      explanation: "Autonomous agents with write access to production systems can cause significant damage if they misinterpret instructions. Implementing human approval workflows for high-stakes actions, strict permission scoping, and audit logging are essential safeguards before deployment.",
+    },
+    {
+      question: "How does MCP differ from traditional marketing automation platforms like HubSpot or Marketo?",
+      options: [
+        "MCP is cheaper and designed specifically for small businesses",
+        "Traditional automation follows pre-defined if/then rules; MCP-powered agents can reason dynamically about context and decide which action is appropriate - handling novel situations rule-based systems cannot anticipate",
+        "MCP works only with open-source AI models, not commercial APIs",
+        "There is no meaningful difference - MCP is just a rebrand of existing automation",
+      ],
+      correct: 1,
+      explanation: "Rule-based automation is powerful but brittle - it breaks when inputs do not match the rules. MCP-powered agents use AI reasoning to interpret context and choose actions dynamically, making them far more flexible for handling the unpredictable variability of real marketing workflows.",
+    },
+  ],
+
+  "ai-marketing/multimodal-ai": [
+    {
+      question: "What does 'multimodal AI' mean, and what marketing capability does it unlock that text-only AI cannot?",
+      options: [
+        "AI that works across multiple marketing channels simultaneously",
+        "AI models that can process and generate multiple types of input/output - text, images, audio, and video - enabling tasks like generating ad visuals from a brief or analysing competitor creative",
+        "AI that switches between multiple language models depending on the task",
+        "AI that supports multiple human languages in a single response",
+      ],
+      correct: 1,
+      explanation: "Multimodal AI processes and generates across modalities. For marketing, this means briefing an AI with text and receiving a visual concept, analysing the emotional content of a competitor's video, or generating social media image variations at scale - tasks impossible for text-only models.",
+    },
+    {
+      question: "A brand wants to use AI-generated images in an advertising campaign. Which concern should the legal and marketing teams address first?",
+      options: [
+        "Whether AI-generated images load fast enough for digital ads",
+        "IP ownership, consent, and potential for the AI to produce images resembling real people or trademarked styles without permission - creating liability",
+        "Whether audiences will notice the images are AI-generated",
+        "The cost of AI image generation versus stock photography",
+      ],
+      correct: 1,
+      explanation: "AI image generators are trained on copyrighted data and can inadvertently reproduce protected styles or likenesses. Copyright ownership of AI outputs is legally unresolved in many jurisdictions. Brands must establish clear legal review processes before using AI visuals in paid campaigns.",
+    },
+    {
+      question: "How can multimodal AI accelerate the creative testing process for a performance marketing team?",
+      options: [
+        "By automatically selecting the winning creative without any A/B testing",
+        "By generating dozens of image, copy, and format variations from a single brief quickly, enabling teams to test far more creative combinations than manual production would allow",
+        "By predicting which creative will perform best before any testing occurs",
+        "By replacing the media buyer's role in selecting audience targeting",
+      ],
+      correct: 1,
+      explanation: "Creative testing is limited by production capacity. Multimodal AI removes this bottleneck: a team that could previously test 3 creative variants can now test 30, dramatically increasing the probability of finding a high-performing combination and improving campaign ROI.",
+    },
+    {
+      question: "Which emerging multimodal AI capability has the most significant implications for video content marketing in 2025?",
+      options: [
+        "AI that can automatically caption existing videos",
+        "AI video generation models (e.g., Sora, Runway Gen-3) that can create short, photorealistic video clips from text or image prompts - reducing production time and cost for short-form social content",
+        "AI that can schedule video uploads across social platforms",
+        "AI that can transcribe video content for repurposing as blog posts",
+      ],
+      correct: 1,
+      explanation: "Text-to-video AI represents a step-change in content production economics. What previously required a production crew, set, and days of shooting can now be approximated from a text prompt in minutes. For social content, brand videos, and ad variants, the speed and cost implications are profound.",
+    },
+  ],
+
+  "ai-marketing/rag-for-marketers": [
+    {
+      question: "What problem does Retrieval-Augmented Generation (RAG) solve that standard LLMs cannot?",
+      options: [
+        "RAG makes AI responses shorter and more concise",
+        "RAG allows AI to retrieve and reason over specific, up-to-date, or proprietary documents at query time - overcoming the knowledge cutoff and generic training data limitations of base LLMs",
+        "RAG reduces the computational cost of running large language models",
+        "RAG translates AI outputs into multiple languages simultaneously",
+      ],
+      correct: 1,
+      explanation: "Base LLMs are frozen at their training cutoff and know nothing about your specific products, customers, or internal data. RAG connects the model to a live knowledge base, allowing it to retrieve relevant documents before generating a response - dramatically improving accuracy and specificity.",
+    },
+    {
+      question: "A marketing team builds a RAG system using their product documentation and customer FAQ database. What use case does this most powerfully enable?",
+      options: [
+        "Generating generic social media captions without human input",
+        "An AI assistant that can accurately answer product-specific customer queries, draft on-brand content using actual product details, and reduce hallucination by grounding responses in real documentation",
+        "Automating media buying decisions across paid channels",
+        "Translating all marketing content into different languages",
+      ],
+      correct: 1,
+      explanation: "RAG's power is grounding. By retrieving actual documentation before generating, the model produces answers that are specific, accurate, and on-brand rather than plausible-sounding generalisations. This is the key to trustworthy AI in content and support applications.",
+    },
+    {
+      question: "What is 'hallucination' in the context of LLMs, and why is RAG an effective mitigation?",
+      options: [
+        "Hallucination is when AI generates content that is too creative and off-brand; RAG constrains creativity with guidelines",
+        "Hallucination is when an LLM confidently generates factually incorrect information; RAG reduces this by grounding responses in retrieved source documents the model can reference",
+        "Hallucination is when AI misunderstands the prompt; RAG improves prompt clarity",
+        "Hallucination is an AI safety term for biased outputs; RAG applies bias filters to responses",
+      ],
+      correct: 1,
+      explanation: "LLMs generate plausible text even when they lack accurate knowledge - producing confident-sounding falsehoods. RAG mitigates this by providing the model with actual source material to reference, anchoring the output in retrievable fact rather than training-data interpolation.",
+    },
+    {
+      question: "Which marketing workflow would benefit LEAST from a RAG implementation?",
+      options: [
+        "A chatbot that answers customer queries about specific product specifications",
+        "An internal tool that generates campaign briefs using past campaign performance reports",
+        "Brainstorming completely new creative concepts with no reliance on existing data or documents",
+        "A compliance checker that references the brand's style guide and regulatory guidelines",
+      ],
+      correct: 2,
+      explanation: "RAG adds value when accurate retrieval of specific information is needed. Pure creative brainstorming - generating novel ideas from scratch - does not benefit from retrieval; here, the LLM's broad generative capacity is the advantage, not access to a knowledge base.",
+    },
+  ],
+
+  "tools/drift-intercom": [
+    {
+      question: "What is the primary marketing function that differentiates conversational marketing tools like Drift and Intercom from traditional lead capture forms?",
+      options: [
+        "They are cheaper than forms and require no developer to implement",
+        "They qualify and engage leads in real time through personalised, contextual conversations - reducing time-to-response from hours to seconds and increasing conversion rates",
+        "They automatically send leads to the sales team via SMS",
+        "They replace the CRM by storing all customer data internally",
+      ],
+      correct: 1,
+      explanation: "Research (Lead Response Management study) shows that responding to a lead within 5 minutes vs 30 minutes increases conversion likelihood by 21x. Conversational tools automate that instant, personalised engagement at scale - collapsing the response gap entirely.",
+    },
+    {
+      question: "Drift's 'playbooks' and Intercom's 'series' both enable which core capability?",
+      options: [
+        "Generating AI-written blog posts and publishing them to your website",
+        "Building automated conversation and messaging workflows that trigger based on visitor behaviour, segment, or lifecycle stage - personalising the experience without manual sales effort",
+        "Running paid advertising campaigns directly from the chat interface",
+        "Replacing the need for a CRM by managing the full customer relationship within the chat tool",
+      ],
+      correct: 1,
+      explanation: "Playbooks and series are the automation layer of conversational marketing. They trigger relevant messages (e.g., a pricing conversation for a visitor on the pricing page) at the right moment for the right segment - personalisation at scale without live agent overhead.",
+    },
+    {
+      question: "A B2B SaaS company uses Drift primarily on its pricing and demo pages. Why is this page-level targeting strategically superior to deploying the chat widget on every page equally?",
+      options: [
+        "It reduces the cost of the Drift subscription by limiting usage",
+        "Visitors on pricing and demo pages have revealed high intent through their navigation behaviour - targeting high-intent pages focuses sales effort where conversion probability is highest",
+        "Drift's algorithm performs better on pages with less traffic",
+        "It avoids annoying top-of-funnel visitors who are not ready to buy",
+      ],
+      correct: 1,
+      explanation: "Behavioural intent signals (which page you visit) are powerful qualifiers. A pricing-page visitor is much closer to a purchase decision than a blog reader. Concentrating conversational engagement at high-intent moments maximises the ROI of sales and chatbot resources.",
+    },
+    {
+      question: "What metric best measures the business impact of a conversational marketing tool like Intercom or Drift, beyond chat volume?",
+      options: [
+        "Number of messages sent per day",
+        "Average chatbot response time",
+        "Pipeline generated and deals influenced - tracking how many qualified conversations converted to sales opportunities or closed revenue",
+        "Number of agents using the platform",
+      ],
+      correct: 2,
+      explanation: "Chat volume is a vanity metric. The real measure of conversational marketing impact is revenue contribution - qualified meetings booked, pipeline created, and deals that involved a chat interaction. This ties the tool directly to business outcomes.",
+    },
+  ],
+
+  "tools/gsc-bing-webmaster": [
+    {
+      question: "Google Search Console's 'Performance' report shows a page with high impressions but very low CTR. What is the most actionable conclusion?",
+      options: [
+        "The page should be deleted because users are not interested in it",
+        "The page ranks for relevant queries but the title tag or meta description is not compelling enough to earn clicks - rewriting these could significantly improve traffic without changing rankings",
+        "The page needs more backlinks to improve its position",
+        "High impressions with low CTR always indicate a technical crawl error",
+      ],
+      correct: 1,
+      explanation: "High impressions confirm the page is visible; low CTR means the snippet is failing to persuade searchers to click. This is a clear brief to optimise the title tag and meta description to better match search intent and stand out in results.",
+    },
+    {
+      question: "A developer submits a sitemap to both Google Search Console and Bing Webmaster Tools. What additional step does Bing Webmaster Tools offer that has no equivalent in GSC?",
+      options: [
+        "Bing allows you to disavow toxic backlinks",
+        "Bing Webmaster Tools offers a free built-in keyword research tool and a site scan SEO analyser not available in GSC",
+        "Bing automatically syndicates your sitemap to Yahoo and DuckDuckGo",
+        "Bing provides real-time indexing notifications via SMS",
+      ],
+      correct: 1,
+      explanation: "Bing Webmaster Tools includes a keyword research tool (with search volume and difficulty data) and an SEO reports/site scan feature that identifies on-page issues - capabilities GSC does not offer natively. This makes Bing WMT a useful supplementary SEO tool even for Google-focused teams.",
+    },
+    {
+      question: "Which GSC report should an SEO analyst check first when organic traffic suddenly drops for a specific page?",
+      options: [
+        "The Links report, to check for lost backlinks",
+        "The Coverage report, to check for indexing errors, and the Performance report filtered to that URL, to see if impressions dropped (ranking loss) or CTR dropped (snippet issue)",
+        "The Core Web Vitals report, because speed issues always cause traffic drops",
+        "The Sitemaps report, to re-submit the sitemap",
+      ],
+      correct: 1,
+      explanation: "Diagnosing a traffic drop requires distinguishing between indexing problems (Coverage), ranking changes (Performance - impressions), and snippet/CTR issues (Performance - CTR). Starting with Coverage + Performance filtered to the affected URL gives the clearest diagnostic picture fastest.",
+    },
+    {
+      question: "What is the 'URL Inspection' tool in Google Search Console primarily used for?",
+      options: [
+        "To check the word count and keyword density of a specific URL",
+        "To see how Google has crawled and indexed a specific URL - including the last crawl date, rendered HTML, and whether the page is eligible to appear in search results",
+        "To submit a URL for paid inclusion in Google's index",
+        "To compare the performance of two URLs against each other",
+      ],
+      correct: 1,
+      explanation: "URL Inspection shows Google's view of a page - the actual HTML Google rendered, coverage status, canonical tag, and indexing eligibility. It is the first tool to use when investigating why a specific page is not appearing in search results as expected.",
+    },
+  ],
 };
+

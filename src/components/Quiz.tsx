@@ -20,6 +20,7 @@ export default function Quiz({ questions, category, slug }: Props) {
   const pathname = usePathname();
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
+  // answers[i] = true/false for completed questions (NOT including current unanswered question)
   const [answers, setAnswers] = useState<boolean[]>([]);
   const [finished, setFinished] = useState(false);
   const [alreadyPassed, setAlreadyPassed] = useState(false);
@@ -29,7 +30,6 @@ export default function Quiz({ questions, category, slug }: Props) {
     const passed = getQuizPassed(category, slug);
     if (passed) {
       setAlreadyPassed(true);
-      setAnswers(Array(questions.length).fill(true));
       setFinished(true);
       return;
     }
@@ -52,14 +52,17 @@ export default function Quiz({ questions, category, slug }: Props) {
 
   function handleSelect(index: number) {
     if (answered) return;
-    const isCorrect = index === question.correct;
     setSelected(index);
-    setAnswers((prev) => [...prev, isCorrect]);
+    // Do NOT push to answers here — handleNext will capture it with the correct value
   }
 
   function handleNext() {
+    if (selected === null) return;
+    const isCorrect = selected === question.correct;
+    const newAnswers = [...answers, isCorrect];
+
     if (current + 1 >= totalQuestions) {
-      const newAnswers = [...answers];
+      // All questions done — score using newAnswers which now includes this last answer
       const finalScore = newAnswers.filter(Boolean).length;
       const perfect = finalScore === totalQuestions;
       try {
@@ -71,8 +74,10 @@ export default function Quiz({ questions, category, slug }: Props) {
           new CustomEvent(QUIZ_PASSED_EVENT, { detail: { id: `${category}/${slug}` } })
         );
       }
+      setAnswers(newAnswers);
       setFinished(true);
     } else {
+      setAnswers(newAnswers);
       setCurrent((c) => c + 1);
       setSelected(null);
     }

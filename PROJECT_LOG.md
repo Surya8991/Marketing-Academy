@@ -1071,3 +1071,25 @@ Implemented the approved quiz gating plan in full. "Mark as Complete" is now loc
 ### Verification
 - TypeScript: **0 errors** via `tsc --noEmit`.
 - Committed: `d95edc8` — pushed to `main`.
+
+---
+
+## Session 32 — 2026-06-14 (Quiz Coverage Completion & Deduplication)
+
+### Summary
+Added quiz questions for all remaining lessons so that every single lesson has a quiz. Fixed duplicate object keys in `src/lib/quizzes.ts` that caused compilation errors, verifying that all 324 lessons have exactly one corresponding 4-question quiz with 0 TypeScript/build errors.
+
+### Changes Made
+
+#### 1. `src/lib/quizzes.ts` — Deduplication and Quiz Completion
+- Appended high-quality, 4-question quizzes for all remaining lessons that were missing them (e.g., fundamentals, seo, paid-ads, growth, content, email, copywriting, brand-strategy, etc.) so that all 324 lessons in the academy are fully covered.
+- Removed duplicate keys that were causing typescript compilation errors.
+- Verified that all 324 quizzes have exactly 4 questions and there are 0 missing quizzes.
+
+#### 2. `src/components/Quiz.tsx` — Bugfix for Last Question Score
+- Fixed state bug where the last selected option was not included in the final score calculation because React state updates asynchronously. Now, the final score uses the newly computed answers array directly, allowing users to successfully score 100% and unlock "Mark as Complete".
+
+### Verification
+- TypeScript type-check: **0 errors** via `tsc --noEmit`.
+- Verified 324 unique lessons and 324 unique quizzes in the system (100% coverage, 0 missing).
+- Verified each quiz has exactly 4 questions.
