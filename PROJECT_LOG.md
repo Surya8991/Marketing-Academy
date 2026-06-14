@@ -948,7 +948,10 @@ type MarketingTool = {
   - Aligned all `social/*` platform playbooks to their canonical curriculum slugs (e.g. `social-media-strategy` -> `social-strategy-basics`, `instagram-marketing` -> `instagram`, `linkedin-marketing` -> `linkedin`, `tiktok-marketing` -> `tiktok`, `youtube-marketing` -> `youtube`, `community-management` -> `community-building`, `social-analytics` -> `social-listening`).
 - **Verified Link Validity**: Automated tests now verify that 100% of the 111 track lesson links are correctly registered in `src/lib/curriculum.ts` and resolve cleanly, eliminating 404 routing errors on the tracks page.
 
-#### 3. Verification & Quality Auditing
+#### 3. Codebase Cleanup
+- **Removed Obsolete Scripts and Data Files**: Deleted all obsolete python and javascript scripts under the `scratch/` directory (`split_answers.py`, `check_missing_mdx.js`, `check_missing_quizzes.js`, `consolidate_quizzes.js`, `extract_existing.js`, `test_quizzes.js`) and removed the `src/lib/quizzes_batches/` folder containing temporary JSON files. This ensures a clean, lightweight repository without any leftover diagnostics.
+
+#### 4. Verification & Quality Auditing
 - Verified TypeScript compilation status: **0 errors** across the codebase via `tsc --noEmit`.
 - Run production build check successfully: generated **543 static pages** in 143s.
 
