@@ -1,7 +1,7 @@
 # Marketing Academy - Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-06-14 (Session 19).
+> Last audited: 2026-06-14 (Session 20).
 
 ---
 
@@ -183,6 +183,52 @@ Every push auto-deploys within ~60 seconds.
 - Approach: one workflow agent per category, reads MDX content, generates relevant questions
 - Output: appended to `src/lib/quizzes.ts`
 - Once done: `/interview-prep` page becomes fully populated
+
+---
+
+### PHASE 12 - Improvement Backlog (Identified 2026-06-14, Session 20)
+
+Prioritized by user value and effort. Items are independent - pick any in any order.
+
+#### P1 - High Value, Low Effort
+
+| # | Area | What | Why |
+|---|------|------|-----|
+| 1 | SEO | Add /glossary, /tools, /tracks, /about, /cheat-sheets/[category], /interview-questions, /digital-marketing-cheat-sheet to sitemap.ts | These high-value pages are completely invisible to Google crawlers right now |
+| 2 | UX | Persist quiz scores to localStorage (key: `ma_quiz_[lessonSlug]`) | Scores vanish on refresh - kills the learning loop |
+| 3 | UX | Add "Show Explanation" reveal per quiz answer (explanation field already exists in Quiz type) | Quiz.tsx renders correct/incorrect but never shows the `explanation` string already stored in quizzes.ts |
+| 4 | Newsletter | Wire /api/newsletter to Resend, ConvertKit, or Mailchimp | Code has a `// TODO` at line 18 of newsletter/route.ts - currently just logs to console and drops signups |
+| 5 | SEO | Add JSON-LD DefinedTerm schema to /glossary/[slug] pages | 148 individual term pages with zero structured data - easy rich result win |
+
+#### P2 - High Value, Medium Effort
+
+| # | Area | What | Why |
+|---|------|------|-----|
+| 6 | Content | Update 5 stale lessons from Phase 11 audit (flywheel, voice-and-tone, value-proposition, core-web-vitals, customer-journey) | Outdated stats erode trust; all 5 have specific replacements already logged in Phase 11 |
+| 7 | UX | Add sticky "Mark Complete" button at bottom of lesson content | Current button is at the top - most users never scroll back up; completion rates suffer |
+| 8 | UX | Show Beginner/Intermediate/Advanced lesson counts on category page header | Users cannot tell if a category is beginner-heavy or advanced before clicking in |
+| 9 | UX | Add "Recommended Next" prompt when a lesson is marked complete | Dead end after completion - no nudge to continue the streak |
+| 10 | SEO | Add FAQPage JSON-LD to /interview-questions | Page has 50+ Q&As in details/summary - ideal candidate for FAQ rich results in Google |
+
+#### P3 - Medium Value, Medium Effort
+
+| # | Area | What | Why |
+|---|------|------|-----|
+| 11 | UX | Visual per-lesson progress indicator inside /tracks/[slug] | Track detail shows overall % complete but no per-lesson tick - unclear which lessons are done |
+| 12 | UX | Improve mobile Table of Contents - add reopen affordance | ToC hides on mobile but leaves no button or indicator that it exists; readers lose navigation |
+| 13 | SEO | Add FAQPage JSON-LD to /interview-prep category cards | Each category links to lessons with Q&A - schema helps surface them in AI Overviews |
+| 14 | Feature | Certificate "Share on LinkedIn" direct link | Certificate page has no share path; LinkedIn accepts miniProgram deep links for certificates |
+| 15 | Feature | "Submit a tool" link on /tools page | 85 tools is a good start but a mailto/form link invites community submissions and adds social proof |
+
+#### P4 - Nice to Have
+
+| # | Area | What | Why |
+|---|------|------|-----|
+| 16 | SEO | /compare pages: "Semrush vs Ahrefs", "GA4 vs Mixpanel", "Mailchimp vs Klaviyo" | High-intent, low-competition long-tail; tools directory already has the data to populate these |
+| 17 | UX | Visual reward on lesson complete (confetti or animation) | Costs almost nothing, increases shareability and streak motivation |
+| 18 | Feature | "Copy all questions" bulk action on /interview-questions | Useful for interview prep sessions and Anki card creation |
+| 19 | Content | New lessons: AI agents for marketing, programmatic SEO, zero-party data strategy, dark social attribution | 2025-2026 topics not yet covered as standalone lessons |
+| 20 | Tech | Add `loading="lazy"` to below-fold images on homepage | Core Web Vitals: large hero sections without lazy loading hurt LCP score |
 
 ---
 
@@ -508,6 +554,7 @@ Full review by 5 personas (CMO, Junior Marketer, SEO Specialist, UX Designer, Fr
 | 17 | 2026-06-14 | Digital Marketing Cheat Sheet 2025 full rewrite: 7 sections (added AI/GEO and Social Media Benchmarks), updated all metrics/benchmarks to 2025 data, added Blended ROAS + NPS + MER metrics, INP replaces FID note, GEO/zero-click section, Performance Max + Advantage+ + incrementality + signal loss paid ads entries, Apple MPP email impact note, 7-platform social media benchmark table. |
 | 18 | 2026-06-14 | Phase 11 fixes: robots.ts sitemap URL mismatch fixed (both now marketing-academy-roan.vercel.app). Lesson pages: JSON-LD Article + BreadcrumbList schema, canonical tags. Prominent "Up Next" CTA card after article content. Reading time on category lesson cards (computed from MDX file at build time). "Mark all complete" button in TrackLessonList. |
 | 19 | 2026-06-14 | Lesson sort: all 14 affected categories reordered Beginner > Intermediate > Advanced (SEO was already correct). Duplicate optimizely-vwo removed from tools. About page built at /about: mission, builder profile (Surya L, Bangalore), stats, tech stack, project links. Footer + README updated with About route. |
+| 20 | 2026-06-14 | Fixed Vercel build failure: Github and Twitter icons do not exist in lucide-react v1.18 (about/page.tsx). Replaced all three with ExternalLink. Phase 12 improvement backlog written to PROJECT_LOG: 20 items across SEO, UX, content, and features - prioritized P1 to P4. |
 
 ---
 
