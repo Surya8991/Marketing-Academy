@@ -959,3 +959,32 @@ type MarketingTool = {
 - Verified TypeScript compilation status: **0 errors** across the codebase via `tsc --noEmit`.
 - Run production build check successfully: generated **543 static pages** in 143s.
 
+---
+
+## Session 29 — 2026-06-14 (Quizzes Hub, Nav Update, Dark Mode Fix)
+
+### Summary
+Addressed user report that quizzes were not visible/accessible. Created a dedicated `/quizzes` hub page, added Quizzes to the main navigation, and fixed the MarkComplete component's dark mode styling.
+
+### Changes Made
+
+#### 1. Quizzes Hub Page (`src/app/quizzes/page.tsx`) [NEW]
+- Created a fully-featured `/quizzes` standalone page listing all quiz-enabled lessons.
+- Hero section with stats: total questions, lessons with quizzes, categories covered.
+- "How quizzes work" explainer (3-step panel: open lesson → read → quiz at bottom).
+- Category grid with lesson cards showing question count and direct links to the lesson.
+- Used `rgba` overlays and CSS variables for full dark-mode compatibility (Rule 19).
+- SEO: proper `<title>`, `<meta description>`, and canonical URL.
+
+#### 2. Navigation Updates (`src/components/Nav.tsx`)
+- Added **Quizzes** link to desktop nav bar (after Compare).
+- Added **🧠 Quizzes** link to mobile dropdown menu.
+
+#### 3. MarkComplete Dark Mode Fix (`src/components/MarkComplete.tsx`)
+- Replaced hardcoded Tailwind classes `bg-emerald-100 text-emerald-700 hover:bg-emerald-200` with `rgba(22,163,74,0.15)` background and `rgb(22 163 74)` text (Rule 19 compliance).
+- Button now renders correctly in both light and dark mode.
+
+#### 4. Verification
+- TypeScript: **0 errors** via `tsc --noEmit`.
+- Committed: `1f50ed7` — pushed to `main`.
+
