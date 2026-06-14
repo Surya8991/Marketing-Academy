@@ -2,6 +2,9 @@ import type { MetadataRoute } from "next";
 import { CATEGORIES } from "@/lib/curriculum";
 import { GLOSSARY_TERMS } from "@/lib/glossary";
 import { TRACKS } from "@/lib/tracks";
+import { INTERVIEW_SECTIONS } from "@/lib/interview-questions";
+import fs from "fs";
+import path from "path";
 
 const BASE = "https://marketing-academy-roan.vercel.app";
 
@@ -18,7 +21,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/interview-prep`, priority: 0.8, changeFrequency: "monthly" },
     { url: `${BASE}/interview-questions`, priority: 0.9, changeFrequency: "monthly" },
     { url: `${BASE}/digital-marketing-cheat-sheet`, priority: 0.9, changeFrequency: "monthly" },
-    { url: `${BASE}/bookmarks`, priority: 0.3, changeFrequency: "never" },
     { url: `${BASE}/certificates`, priority: 0.5, changeFrequency: "monthly" },
   ];
 
@@ -52,25 +54,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: "monthly" as const,
   }));
 
+  const interviewCategoryRoutes: MetadataRoute.Sitemap = INTERVIEW_SECTIONS.map((sec) => ({
+    url: `${BASE}/interview-questions/${sec.id}`,
+    priority: 0.8,
+    changeFrequency: "monthly" as const,
+  }));
+
   // Only include lesson pages that actually have an MDX file.
-  // Use Promise.allSettled to check all lessons in parallel (not sequentially).
-  const allLessons = CATEGORIES.flatMap((cat) =>
-    cat.lessons.map((lesson) => ({ cat, lesson }))
-  );
-
-  const results = await Promise.allSettled(
-    allLessons.map(({ cat, lesson }) =>
-      import(`@/content/${cat.slug}/${lesson.slug}.mdx`).then(() => ({
-        url: `${BASE}/learn/${cat.slug}/${lesson.slug}`,
-        priority: 0.7 as const,
-        changeFrequency: "monthly" as const,
-      }))
-    )
-  );
-
-  const lessonRoutes: MetadataRoute.Sitemap = results.flatMap((r) =>
-    r.status === "fulfilled" ? [r.value] : []
-  );
+  const lessonRoutes: MetadataRoute.Sitemap = [];
+  for (const cat of CATEGORIES) {
+    for (const lesson of cat.lessons) {
+      const filePath = path.join(process.cwd(), "src", "content", cat.slug, `${lesson.slug}.mdx`);
+      if (fs.existsSync(filePath)) {
+        lessonRoutes.push({
+          url: `${BASE}/learn/${cat.slug}/${lesson.slug}`,
+          priority: 0.7,
+          changeFrequency: "monthly" as const,
+        });
+      }
+    }
+  }
 
   return [
     ...staticRoutes,
@@ -79,6 +82,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...cheatSheetRoutes,
     ...certificateRoutes,
     ...glossaryTermRoutes,
+    ...interviewCategoryRoutes,
     ...lessonRoutes,
   ];
 }

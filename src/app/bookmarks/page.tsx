@@ -3,6 +3,10 @@ import BookmarksList from "./BookmarksList";
 
 export const metadata: Metadata = {
   title: "My Bookmarks | Marketing Academy",
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function BookmarksPage() {

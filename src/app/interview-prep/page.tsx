@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CATEGORIES } from "@/lib/curriculum";
 import { QUIZZES } from "@/lib/quizzes";
+import { INTERVIEW_SECTIONS } from "@/lib/interview-questions";
 
 export const metadata: Metadata = {
-  title: "Marketing Interview Questions 2025 | Marketing Academy",
+  title: "Marketing Interview Questions 2026 | Marketing Academy",
   description:
-    "Comprehensive marketing interview questions and answers covering SEO, paid ads, content marketing, analytics, brand strategy, and all 15 marketing disciplines.",
+    "Comprehensive marketing interview questions and answers covering SEO, paid ads, content marketing, analytics, brand strategy, and all 16 marketing disciplines.",
   openGraph: {
-    title: "Marketing Interview Questions 2025 | Marketing Academy",
+    title: "Marketing Interview Questions 2026 | Marketing Academy",
     description:
-      "Comprehensive marketing interview questions and answers covering SEO, paid ads, content marketing, analytics, brand strategy, and all 15 marketing disciplines.",
+      "Comprehensive marketing interview questions and answers covering SEO, paid ads, content marketing, analytics, brand strategy, and all 16 marketing disciplines.",
     type: "website",
   },
 };
@@ -102,7 +103,7 @@ export default function InterviewPrepPage() {
           }}
         >
           Ace your next marketing interview with question-by-question prep across
-          15 disciplines. Each topic links to a full lesson so you can study, not
+          16 disciplines. Each topic links to a full lesson so you can study, not
           just memorize.
         </p>
         <div
@@ -168,59 +169,59 @@ export default function InterviewPrepPage() {
               gap: "1rem",
             }}
           >
-            {CATEGORIES.map((cat) => (
-              <Link
-                key={cat.slug}
-                href={`/learn/${cat.slug}`}
-                style={{ textDecoration: "none" }}
-              >
-                <div
-                  className="interview-cat-card"
-                  style={{
-                    border: "1px solid var(--border)",
-                    borderRadius: "0.75rem",
-                    padding: "1rem",
-                    background: "var(--card)",
-                    textAlign: "center",
-                    transition: "border-color 0.15s, background 0.15s",
-                    cursor: "pointer",
-                  }}
+            {INTERVIEW_SECTIONS.map((section) => {
+              const qCount = section.conceptualQAs.length + section.scenarioQAs.length;
+              return (
+                <Link
+                  key={section.id}
+                  href={`/interview-questions/${section.id}`}
+                  style={{ textDecoration: "none" }}
                 >
-                  <div style={{ fontSize: "1.75rem", marginBottom: "0.5rem" }}>
-                    {cat.emoji}
-                  </div>
                   <div
+                    className="interview-cat-card"
                     style={{
-                      fontWeight: 600,
-                      fontSize: "0.875rem",
-                      color: "var(--foreground)",
-                      marginBottom: "0.25rem",
-                      lineHeight: 1.3,
+                      border: "1px solid var(--border)",
+                      borderRadius: "0.75rem",
+                      padding: "1.25rem 1rem",
+                      background: "var(--card)",
+                      textAlign: "center",
+                      transition: "border-color 0.15s, background 0.15s",
+                      cursor: "pointer",
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: "0.5rem",
                     }}
                   >
-                    {cat.title}
+                    <div style={{ fontSize: "1.75rem", lineHeight: 1 }}>
+                      {section.emoji}
+                    </div>
+                    <div
+                      style={{
+                        fontWeight: 600,
+                        fontSize: "0.875rem",
+                        color: "var(--foreground)",
+                        lineHeight: 1.3,
+                      }}
+                    >
+                      {section.categoryLabel}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: "0.75rem",
+                        color: "var(--accent)",
+                        fontWeight: 500,
+                        marginTop: "auto",
+                      }}
+                    >
+                      {qCount} questions
+                    </div>
                   </div>
-                  <div
-                    style={{
-                      fontSize: "0.75rem",
-                      color: "var(--muted-foreground)",
-                      marginBottom: "0.25rem",
-                    }}
-                  >
-                    {cat.lessons.length} lessons
-                  </div>
-                  <div
-                    style={{
-                      fontSize: "0.75rem",
-                      color: "var(--accent)",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {cat.lessons.length} interview questions
-                  </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              );
+            })}
           </div>
         </section>
 
@@ -317,8 +318,7 @@ export default function InterviewPrepPage() {
               color: "var(--muted-foreground)",
             }}
           >
-            Questions from all 241 lessons will appear here as our quiz library
-            grows.
+            Questions from all 257 lessons with active quizzes will appear here.
           </p>
         </section>
 

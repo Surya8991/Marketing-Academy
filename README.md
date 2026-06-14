@@ -38,7 +38,7 @@ A free, structured marketing education site - from absolute beginner to advanced
 **Learning**
 - **Lesson reader** - Left-side table of contents, reading progress bar, reading time estimate, prev/next navigation
 - **Related lessons** - "You might also like" section at the bottom of every lesson
-- **Lesson quizzes** - 3-5 questions at the bottom of 20 key lessons (expanding to all)
+- **Lesson quizzes** - 4 questions at the bottom of 257 lessons
 - **Progress tracking** - Mark lessons complete, per-category progress bar, bookmarks (all localStorage)
 - **Learning tracks** - 7 curated paths: B2B Marketer, E-commerce Growth, Solo Founder, AI-First Marketer, Content Creator, Social Media Manager, Data-Driven
 - **Progress certificates** - Printable completion certificate per track at `/certificates/[slug]`
@@ -131,7 +131,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/curriculum.ts` | Single source of truth - all lesson slugs, titles, levels |
 | `src/lib/tracks.ts` | 7 learning track definitions |
 | `src/lib/glossary.ts` | 148 marketing term definitions |
-| `src/lib/quizzes.ts` | Quiz questions for 20 key lessons |
+| `src/lib/quizzes.ts` | Quiz questions for 257 lessons |
 | `src/lib/tools-directory.ts` | 85+ marketing tools with category/pricing data |
 | `src/lib/bookmarks.ts` | Shared bookmark storage (BOOKMARK_KEY, getBookmarks, saveBookmarks) |
 | `mdx-components.tsx` | Global MDX component registry (must be at project root, not in src/) |
