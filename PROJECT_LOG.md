@@ -1,7 +1,7 @@
 # Marketing Academy - Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-06-14 (Session 24). Updated via Antigravity.
+> Last audited: 2026-06-14 (Session 26). Updated via Antigravity.
 
 ---
 
@@ -605,6 +605,69 @@ Full review by 5 personas (CMO, Junior Marketer, SEO Specialist, UX Designer, Fr
 | 23 | 2026-06-14 | **Update via Antigravity.** Quality audit of all 1,028 generated quiz questions vs existing gold standard. Found 3 questions with only 3 options (brand-strategy, paid-ads x2) - fixed by adding a 4th plausible wrong option. All 1,028 questions now pass: 4 options, valid correct index (0-3), non-empty explanation. TypeScript 0 errors. Pushed to GitHub. |
 | 24 | 2026-06-14 | **Update via Antigravity.** Phase 12 quick wins executed: (1) Canvas confetti on MarkComplete - pure JS, no npm package; (2) FAQPage JSON-LD on /interview-questions (5 Q&As for Google rich results); (3) CopyQuestionsButton.tsx - copies all 40 interview Q&As to clipboard; (4) FAQPage JSON-LD on /interview-prep; (5) LinkedIn Share button on /certificates/[slug]; (6) Submit a Tool banner on /tools with pre-filled GitHub issue link. TypeScript: 0 errors. |
 | 25 | 2026-06-14 | **Update via Antigravity.** Cheat sheet card redesign: increased min card width from 280px to 340px, padding from 1.1rem to 1.5rem, title font from 0.95rem to 1.05rem, summary font from 0.82rem to 0.88rem. Added prominent 'Read Lesson' CTA button with arrow on every card linking to /learn/[category]/[lesson]. Cards also gain hover border accent. TypeScript: 0 errors. |
+| 26 | 2026-06-14 | **Update via Antigravity.** Full session summary + Antigravity tag block added to PROJECT_LOG. See Antigravity Session Block below. |
+
+---
+
+## 🤖 Antigravity Session Block — 2026-06-14
+
+> **Tag: Antigravity Work**
+> All items below were researched, planned, implemented, tested, and pushed by Antigravity (Google DeepMind agentic AI) in a single session on 2026-06-14. Zero manual code edits by the user.
+
+### What Was Done
+
+#### 1. Quiz Quality Audit (Session 22-23)
+- Ran a full structural audit of all **1,028 generated quiz questions** across 15 categories
+- Checked: 4 options per question, correct index in range (0-3), non-empty explanation, no em dashes or bad chars
+- Found and fixed **3 questions with only 3 options**:
+  - `brand-strategy/brand-archetypes` Q2: added 4th archetype group option
+  - `paid-ads/google-shopping-pmax` Q4: added `availability` as 4th option
+  - `paid-ads/audio-ads` Q3: added `dynamic insertion overlay` as 4th option
+- Re-consolidated `src/lib/quizzes.ts` via `scratch/consolidate_quizzes.js`
+- TypeScript: **0 errors** after fix
+- Verified quality parity with `existing.json` gold standard across psychology, analytics, brand-strategy, growth categories
+
+#### 2. Phase 12 Quick Wins (Session 24)
+6 independent features shipped in one commit:
+
+| Feature | File(s) | Detail |
+|---------|---------|--------|
+| Confetti on lesson complete | `src/components/MarkComplete.tsx` | Pure JS canvas burst (120 coloured pieces, 90-frame fade, auto-cleans DOM). No npm package. |
+| FAQPage JSON-LD | `src/app/interview-questions/page.tsx` | 5 Q&As as schema.org FAQPage for Google rich results |
+| Copy all questions button | `src/app/interview-questions/CopyQuestionsButton.tsx` | New client component. Copies all 40 interview Q&As to clipboard. Green tick on success. |
+| FAQPage JSON-LD | `src/app/interview-prep/page.tsx` | 5 FAQS entries wired to JSON-LD automatically |
+| LinkedIn Share button | `src/app/certificates/[slug]/page.tsx` | Blue button next to Print, pre-filled LinkedIn share URL with track name |
+| Submit a Tool banner | `src/app/tools/page.tsx` | Card with pre-filled GitHub issue link (Tool name / URL / Category / Why) |
+
+#### 3. Cheat Sheet Card Redesign (Session 25)
+File: `src/app/cheat-sheets/[category]/page.tsx`
+
+| Property | Before | After |
+|----------|--------|-------|
+| Card min-width | 280px | 340px |
+| Padding | 1.1rem / 1.25rem | 1.5rem / 1.65rem |
+| Border radius | 10px | 14px |
+| Title font | 0.95rem | 1.05rem |
+| Summary font | 0.82rem | 0.88rem, line-height 1.65 |
+| Level indicator | Plain text | Pill badge with coloured background |
+| Lesson link | Title link only | Title link + `Read lesson ->` CTA button |
+| Hover effect | None | Accent border + glow shadow + 2px lift |
+| Print | Same | CTA button hidden, layout preserved |
+
+### Commits (this session)
+```
+37f6a12  Cheat sheet card redesign: larger cards + Read Lesson CTA button
+3f3a966  PROJECT_LOG: Session 24 quick wins update (Update via Antigravity)
+cb606cd  Quick wins: confetti, FAQ JSON-LD, copy questions, LinkedIn share, submit tool
+56400cd  PROJECT_LOG: Session 23 quality audit entry (Update via Antigravity)
+0df19ab  Quality fix: add 4th option to 3 quiz questions with only 3 options
+```
+
+### Stats
+- **5 commits** pushed to `main` in this session
+- **8 files modified**, **1 new file created** (`CopyQuestionsButton.tsx`)
+- **TypeScript: 0 errors** throughout
+- **Vercel:** auto-deployed on every push
 
 ---
 
