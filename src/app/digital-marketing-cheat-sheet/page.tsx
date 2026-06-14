@@ -140,7 +140,7 @@ export default function CheatSheetPage() {
               {
                 metric: "CAC",
                 name: "Customer Acquisition Cost",
-                formula: "Total Sales + Marketing Spend / New Customers Acquired",
+                formula: "(Total Sales + Marketing Spend) / New Customers Acquired",
                 meaning: "How much it costs to acquire one new customer. Lower is better, but only if quality is maintained.",
               },
               {

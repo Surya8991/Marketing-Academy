@@ -14,8 +14,13 @@ export default function CertificatePage() {
   const [today, setToday] = useState("");
 
   useEffect(() => {
-    const raw = localStorage.getItem("ma_completed");
-    const completed: string[] = raw ? JSON.parse(raw) : [];
+    let completed: string[] = [];
+    try {
+      const raw = localStorage.getItem("ma_completed");
+      if (raw) completed = JSON.parse(raw) as string[];
+    } catch {
+      completed = [];
+    }
 
     if (track) {
       const count = track.lessons.filter((l) =>
