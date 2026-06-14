@@ -612,7 +612,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
     },
   ],
 
-  "email/email-101": [
+  "email/email-marketing-101": [
     {
       question: "What is the fundamental difference between transactional and marketing emails?",
       options: [
@@ -768,7 +768,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
     },
   ],
 
-  "analytics/attribution-models": [
+  "analytics/attribution": [
     {
       question: "A customer sees a Facebook ad on Monday, clicks a Google ad on Wednesday, then converts via a direct visit on Friday. Under last-click attribution, which channel gets credit?",
       options: [
