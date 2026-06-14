@@ -177,6 +177,23 @@ The last 3 entries of every ResourceList must be:
 ```
 CRITICAL: every resource object including the last one needs a trailing comma before `]} />`
 
+### Rule 17 — NO `"use client"` + `generateStaticParams` in the same file
+Next.js App Router forbids combining a Client Component directive with static param generation. This broke the Vercel build on 2026-06-14.
+
+**BROKEN:**
+```tsx
+"use client"   // <-- at top
+// ...
+export function generateStaticParams() { ... }   // <-- in same file - BUILD FAILS
+```
+
+**FIXED - split into two files:**
+```
+page.tsx          // server component: has generateStaticParams + generateMetadata
+ClientPart.tsx    // "use client": has the interactive behavior (print button, etc.)
+```
+The server page imports the client component. generateStaticParams stays in page.tsx only.
+
 ### Rule 16 — Lesson tone: encourage, don't overwhelm
 Lessons must feel like a smart friend explaining something, not a textbook.
 - **800-1200 words** of body content. A focused 900-word lesson beats a bloated 2000-word one.

@@ -10,9 +10,9 @@ A free, structured marketing education site - from absolute beginner to advanced
 
 ## What This Is
 
-270+ lessons across 15 disciplines. No paywalls, no drip sequences, no email required. Every lesson includes real research, company examples with specific numbers, Mermaid diagrams, and curated free resources in English, Hindi, Tamil, and Telugu.
+308 lessons across 15 disciplines. No paywalls, no drip sequences, no email required. Every lesson includes real research, company examples with specific numbers, Mermaid diagrams, interview Q&A, and curated free resources in English, Hindi, Tamil, and Telugu.
 
-| # | Category | Slug | Lessons |
+| # | Category | Slug | MDX Files |
 |---|---|---|---|
 | 1 | Marketing Fundamentals | `fundamentals` | 19 |
 | 2 | SEO | `seo` | 20 |
@@ -20,29 +20,48 @@ A free, structured marketing education site - from absolute beginner to advanced
 | 4 | Growth Marketing | `growth` | 19 |
 | 5 | Social Media | `social` | 18 |
 | 6 | Content Marketing | `content` | 19 |
-| 7 | Email & Lifecycle | `email` | 21 |
-| 8 | Analytics & Attribution | `analytics` | 28 |
-| 9 | Marketing Tools | `tools` | 28 |
-| 10 | Human Psychology | `psychology` | 20 |
+| 7 | Email & Lifecycle | `email` | 25 |
+| 8 | Analytics & Attribution | `analytics` | 27 |
+| 9 | Marketing Tools | `tools` | 30 |
+| 10 | Human Psychology | `psychology` | 21 |
 | 11 | Copywriting | `copywriting` | 19 |
 | 12 | Conversion Rate Optimization | `cro` | 18 |
 | 13 | Brand Strategy | `brand-strategy` | 19 |
 | 14 | Product Marketing | `product-marketing` | 16 |
 | 15 | AI in Marketing | `ai-marketing` | 17 |
+| | **TOTAL** | | **308** |
 
 ---
 
 ## Features
 
+**Learning**
 - **Lesson reader** - Left-side table of contents, reading progress bar, reading time estimate, prev/next navigation
-- **Dark mode** - Manual toggle (Sun/Moon) with localStorage persistence and no flash on load
+- **Related lessons** - "You might also like" section at the bottom of every lesson
+- **Lesson quizzes** - 3-5 questions at the bottom of 20 key lessons (expanding to all)
+- **Progress tracking** - Mark lessons complete, per-category progress bar, bookmarks (all localStorage)
+- **Learning tracks** - 7 curated paths: B2B Marketer, E-commerce Growth, Solo Founder, AI-First Marketer, Content Creator, Social Media Manager, Data-Driven
+- **Progress certificates** - Printable completion certificate per track at `/certificates/[slug]`
+
+**Discovery**
 - **Search** - Client-side fuzzy search (Fuse.js) with category and level filter chips
-- **Learning tracks** - 4 curated paths: B2B Marketer, E-commerce Growth, Solo Founder, AI-First Marketer
-- **Glossary** - 80+ marketing terms with A-Z index and individual term pages
-- **Lesson quizzes** - 3-5 questions at the bottom of 20 key lessons
-- **Progress tracking** - Mark lessons complete, per-category progress bar (localStorage)
+- **Glossary** - 148 marketing terms with A-Z index and individual term pages at `/glossary`
+- **Tools directory** - 85+ marketing tools across 11 categories with search, category, and pricing filters at `/tools`
+- **Cheat sheets** - Printable per-category quick reference cards at `/cheat-sheets/[category]`
+
+**Interview Prep**
+- **Interview prep hub** - `/interview-prep` aggregates all categories with sample Q&A
+- **SEO landing pages** - `/interview-questions` and `/digital-marketing-cheat-sheet` for organic search
+
+**Sharing**
+- **Share buttons** - LinkedIn and Twitter/X share on every lesson
+- **Bookmarks** - Save lessons to `/bookmarks` (localStorage)
 - **RSS feed** - `/feed.xml` with auto-discovery `<link>` in layout
 - **OG images** - Dynamic per-lesson Open Graph images via edge function at `/api/og`
+
+**Technical**
+- **Dark mode** - Manual toggle (Sun/Moon) with localStorage persistence and no flash on load
+- **PWA** - Installable on mobile: `public/manifest.json` + `public/sw.js` service worker
 - **Multilingual resources** - Every lesson links to Hindi (WsCube Tech), Tamil, and Telugu YouTube channels
 - **Newsletter signup** - Footer form with `/api/newsletter` endpoint (connect to your email service)
 - **Sitemap** - Auto-generated, only includes lessons that have MDX files
@@ -83,18 +102,7 @@ npm run build
 
 Each lesson is an MDX file at `src/content/[category-slug]/[lesson-slug].mdx`.
 
-```
-src/content/
-├── fundamentals/
-│   ├── what-is-marketing.mdx
-│   └── 4ps-7ps.mdx
-├── seo/
-│   ├── keyword-research.mdx
-│   └── ...
-└── ...
-```
-
-Lessons use `export const lessonMeta` (not YAML frontmatter) and have access to three global components without any imports:
+Lessons use `export const lessonMeta` (not YAML frontmatter) and have access to four global components without any imports:
 
 ```mdx
 export const lessonMeta = {
@@ -106,6 +114,7 @@ export const lessonMeta = {
 <Callout type="info">Works without importing.</Callout>
 <Mermaid chart={`graph TD; A-->B`} />
 <ResourceList resources={[...]} />
+<Quiz questions={[...]} />
 ```
 
 The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
@@ -119,16 +128,19 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | File | Purpose |
 |---|---|
 | `src/lib/curriculum.ts` | Single source of truth - all lesson slugs, titles, levels |
-| `src/lib/tracks.ts` | 4 learning track definitions |
-| `src/lib/glossary.ts` | 80+ marketing term definitions |
-| `src/lib/quizzes.ts` | Quiz questions for 20 key lessons |
+| `src/lib/tracks.ts` | 7 learning track definitions |
+| `src/lib/glossary.ts` | 148 marketing term definitions |
+| `src/lib/quizzes.ts` | Quiz questions for 20 key lessons (Phase 8 will expand to all) |
+| `src/lib/tools-directory.ts` | 85+ marketing tools with category/pricing data |
 | `mdx-components.tsx` | Global MDX component registry (must be at project root, not in src/) |
 | `src/app/globals.css` | Tailwind v4 + CSS variable design system |
 | `src/components/ThemeToggle.tsx` | Dark/light/system toggle with no-flash inline script |
 | `src/app/api/og/route.tsx` | Edge function for dynamic OG images |
 | `src/app/feed.xml/route.ts` | RSS feed |
-| `AGENTS.md` | Non-negotiable build rules for AI agents |
-| `PROJECT_LOG.md` | Full session history, gotchas, all pending tasks |
+| `public/manifest.json` | PWA Web App Manifest |
+| `public/sw.js` | Service worker (cache-first for assets, network-first for API) |
+| `AGENTS.md` | 14 non-negotiable build rules for AI agents |
+| `PROJECT_LOG.md` | Full session history, gotchas, file inventory, pending tasks |
 
 ---
 
@@ -136,15 +148,24 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 
 | Route | What |
 |---|---|
-| `/` | Homepage with hero, category grid, learning tracks, featured lessons |
+| `/` | Homepage: hero, category grid, 7 learning tracks, featured lessons |
 | `/learn` | All lessons browsable by category |
-| `/learn/[category]` | Category page with Beginner/Intermediate/Advanced grouping |
-| `/learn/[category]/[lesson]` | Lesson reader with ToC, quiz, prev/next |
+| `/learn/[category]` | Category page: Beginner/Intermediate/Advanced grouping + progress |
+| `/learn/[category]/[lesson]` | Lesson reader: ToC, share, bookmark, related lessons, quiz, prev/next |
 | `/search` | Fuzzy search with category + level filters |
-| `/tracks` | Learning tracks overview |
+| `/tracks` | 7 learning tracks overview |
 | `/tracks/[slug]` | Track detail with ordered lesson list |
-| `/glossary` | A-Z marketing glossary |
+| `/glossary` | 148-term A-Z marketing glossary |
 | `/glossary/[slug]` | Individual term page |
+| `/bookmarks` | Saved lessons (localStorage) |
+| `/tools` | 85+ marketing tools with search + category + pricing filters |
+| `/cheat-sheets` | Printable cheat sheet index (15 categories) |
+| `/cheat-sheets/[category]` | Printable per-category cheat sheet |
+| `/interview-prep` | Interview prep hub with category Q&A links |
+| `/interview-questions` | SEO landing: digital marketing interview Q&A |
+| `/digital-marketing-cheat-sheet` | SEO landing: key metrics, frameworks, glossary |
+| `/certificates` | Track completion certificate index |
+| `/certificates/[slug]` | Printable track completion certificate |
 | `/feed.xml` | RSS feed |
 | `/sitemap.xml` | Auto-generated sitemap (lessons with MDX only) |
 | `/api/og` | Dynamic OG image endpoint |
