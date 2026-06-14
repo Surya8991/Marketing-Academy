@@ -197,7 +197,7 @@ Prioritized by user value and effort. Items are independent - pick any in any or
 | 1 | SEO | Add /glossary, /tools, /tracks, /about, /cheat-sheets/[category], /interview-questions, /digital-marketing-cheat-sheet to sitemap.ts | These high-value pages are completely invisible to Google crawlers right now | DONE |
 | 2 | UX | Persist quiz scores to localStorage (key: `ma_quiz_[path]`) | Scores vanish on refresh - kills the learning loop | DONE |
 | 3 | UX | Add "Show Explanation" reveal per quiz answer | Already implemented - explanation renders after each answer | DONE (was already done) |
-| 4 | Newsletter | Wire /api/newsletter to Resend, ConvertKit, or Mailchimp | Code has a `// TODO` at line 18 of newsletter/route.ts - currently just logs to console and drops signups | PENDING (needs API key) |
+| 4 | Newsletter | Wire /api/newsletter to Resend, ConvertKit, or Mailchimp | Code has a `// TODO` at line 18 of newsletter/route.ts - currently just logs to console and drops signups | ON HOLD - see Future section |
 | 5 | SEO | Add JSON-LD DefinedTerm schema to /glossary/[slug] pages | 148 individual term pages with zero structured data - easy rich result win | DONE |
 
 #### P2 - High Value, Medium Effort
@@ -229,6 +229,12 @@ Prioritized by user value and effort. Items are independent - pick any in any or
 | 18 | Feature | "Copy all questions" bulk action on /interview-questions | Useful for interview prep sessions and Anki card creation |
 | 19 | Content | New lessons: AI agents for marketing, programmatic SEO, zero-party data strategy, dark social attribution | 2025-2026 topics not yet covered as standalone lessons |
 | 20 | Tech | Add `loading="lazy"` to below-fold images on homepage | Core Web Vitals: large hero sections without lazy loading hurt LCP score |
+
+#### On Hold - Future Features (no timeline)
+
+| Item | What | Blocker |
+|------|------|---------|
+| Newsletter | Wire /api/newsletter to Resend, ConvertKit, or Mailchimp. Code stub exists at `src/app/api/newsletter/route.ts` with a `// TODO` comment. | Needs a chosen email service and an API key. No urgency until there is an audience to capture. |
 
 ---
 
