@@ -324,7 +324,7 @@ Prioritized by user value and effort. Items are independent - pick any in any or
 | 18 | Feature | "Copy all questions" bulk action on /interview-questions | Useful for interview prep sessions and Anki card creation | DONE |
 | 19 | Content | New lessons: AI agents for marketing, programmatic SEO, zero-party data strategy, dark social attribution | 2025-2026 topics not yet covered as standalone lessons |
 | 20 | Tech | Add `loading="lazy"` to below-fold images on homepage | Core Web Vitals: large hero sections without lazy loading hurt LCP score | N/A - homepage has no img elements (pure CSS/text/emoji layout) |
-| 21 | UX | Cheat sheet card redesign: larger cards + prominent lesson link button | Cards are too small (280px min, tight padding). Lesson title link is present but visually understated. Add a visible 'Read Lesson' CTA button + increase min card size to 340px with more breathing room | IN PROGRESS |
+| 21 | UX | Cheat sheet card redesign: larger cards + prominent lesson link button | Cards are too small (280px min, tight padding). Lesson title link is present but visually understated. Add a visible 'Read Lesson' CTA button + increase min card size to 340px with more breathing room | DONE |
 | 22 | SEO | Remove `/bookmarks` from `sitemap.ts` and add `noindex` tag to `/bookmarks` page | Bookmarked lessons are client-side only (localStorage); search engines will only crawl an empty page | DONE |
 | 23 | Content | Update `README.md` and `/interview-prep` page text referencing "241 lessons" or "20 quizzes" | Synchronizes developer docs and UI copy with actual content stats (257 quizzes, 308 total lessons) | DONE |
 
