@@ -1,7 +1,7 @@
 # Marketing Academy — Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-06-14 (Session 4). Every ✅ item has been verified as correct in this session.
+> Last audited: 2026-06-14 (Session 5). Every ✅ item has been verified as correct in this session.
 
 ---
 
@@ -21,6 +21,7 @@
 - Use YAML frontmatter in MDX — use `export const lessonMeta = {...}` instead
 - Import `useMDXComponents` from `@/mdx-components` — that path does NOT exist (`@/*` maps to `./src/*` but mdx-components.tsx is at the PROJECT ROOT, not in src/)
 - Write `<ComponentName! />` in JSX — use `let x!: Type` declaration instead (definite assignment assertion)
+- Put unescaped double quotes inside lessonMeta strings — use single quotes or `\"escaped\"` (broke first Vercel build)
 
 ---
 
@@ -58,6 +59,9 @@
 | 2.2 | `git remote add origin` | `https://github.com/Surya8991/Marketing-Academy.git` | ✅ |
 | 2.3 | First commit (86 files) | `git add . && git commit -m "Initial commit"` | ✅ |
 | 2.4 | Push to main | `git branch -M main && git push -u origin main` | ✅ |
+| 2.5 | Add Vercel files | not-found.tsx, robots.ts, sitemap.ts, .gitattributes | ✅ |
+| 2.6 | Pre-deploy fixes | mdx-components.tsx signature, sitemap parallelized, engines in package.json | ✅ |
+| 2.7 | Fix Vercel build error | positioning.mdx unescaped quotes in summary → `SyntaxError` | ✅ |
 
 ---
 
@@ -401,7 +405,21 @@ Use `Play` instead:
 import { Play } from "lucide-react";
 ```
 
-### 8. MDX lesson format — always use `export const lessonMeta`, NOT YAML frontmatter
+### 8. CRITICAL — No unescaped double quotes inside lessonMeta strings
+This caused the first Vercel build to fail with `SyntaxError: Unexpected token`.
+```mdx
+// BROKEN — acorn sees "better" as a new token mid-string
+summary: "Why "better" loses to "different".",
+
+// FIXED — use single quotes for inner quotes
+summary: "Why 'better' loses to 'different'.",
+
+// ALSO FINE — escaped double quotes
+summary: "Why \"better\" loses to \"different\".",
+```
+**Rule: if your summary contains quotes, always use single quotes or escape them.**
+
+### 9. MDX lesson format — always use `export const lessonMeta`, NOT YAML frontmatter
 ```mdx
 export const lessonMeta = {
   title: "Lesson Title",
@@ -414,7 +432,7 @@ export const lessonMeta = {
 Content here...
 ```
 
-### 9. Global MDX components — Mermaid, Callout, ResourceList
+### 10. Global MDX components — Mermaid, Callout, ResourceList
 These are registered in `mdx-components.tsx` and available in ALL MDX files without imports:
 ```mdx
 <Callout type="info">This works in any MDX file.</Callout>
@@ -426,7 +444,7 @@ These are registered in `mdx-components.tsx` and available in ALL MDX files with
 ]} />
 ```
 
-### 10. Curriculum — `getLessonNav` returns `categorySlug` on nav items
+### 11. Curriculum — `getLessonNav` returns `categorySlug` on nav items
 ```ts
 const { prev, next } = getLessonNav(category, lesson);
 // prev.categorySlug is available — use it for cross-category nav
@@ -725,3 +743,4 @@ graph TD
 | 2 | 2026-06-14 | Lesson reader page, search page, MarkComplete, CategoryProgress, progress.ts, BACKLOG.md, README.md, content folders, started MDX workflow |
 | 3 | 2026-06-14 | Curriculum expanded 126→165 (39 new lessons: SEO progression AEO/LLMO/entity/programmatic/zero-click/voice, fundamentals additions, AI marketing additions, paid ads additions, growth/social/email/analytics expansions), fundamentals 12 MDX complete, SEO 15 MDX written |
 | 4 | 2026-06-14 | SEO complete (20/20), paid-ads 14/18, fundamentals 13/16, growth 2/16. Total: 49/165. Updated PROJECT_LOG with full current state for account switch. |
+| 5 | 2026-06-14 | GitHub pushed (Surya8991/Marketing-Academy). Added Vercel files (not-found, robots, sitemap, .gitattributes). Fixed 3 pre-deploy issues. First Vercel build failed — positioning.mdx had unescaped `"better"` inside double-quoted string → `SyntaxError`. Fixed and redeployed. AGENTS.md rewritten with all 12 non-negotiable rules. |
