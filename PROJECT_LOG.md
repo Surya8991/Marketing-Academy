@@ -210,7 +210,19 @@ Every push auto-deploys within ~60 seconds.
 | tools | 28 |
 | **TOTAL** | **257** |
 
----
+**Quality audit (Session 23) — Update via Antigravity:**
+| Check | Result |
+|---|---|
+| 4 options per question | 3 questions had only 3 options - fixed |
+| Correct index in range | 0 errors |
+| Explanation present | 0 missing |
+| No em dashes / bad chars | 0 violations |
+| Total questions audited | **1,028** |
+
+Fixed entries:
+- `brand-strategy/brand-archetypes` Q2: added 4th archetype group option
+- `paid-ads/google-shopping-pmax` Q4: added `availability` as 4th option
+- `paid-ads/audio-ads` Q3: added `dynamic insertion overlay` as 4th option
 
 ### PHASE 12 - Improvement Backlog (Identified 2026-06-14, Session 20)
 
@@ -589,6 +601,7 @@ Full review by 5 personas (CMO, Junior Marketer, SEO Specialist, UX Designer, Fr
 | 20 | 2026-06-14 | Fixed Vercel build failure: Github and Twitter icons do not exist in lucide-react v1.18 (about/page.tsx). Replaced all three with ExternalLink. Phase 12 improvement backlog written to PROJECT_LOG: 20 items across SEO, UX, content, and features - prioritized P1 to P4. |
 | 21 | 2026-06-14 | Quick wins from Phase 12 P1: sitemap now covers 13 static routes + glossary terms + tracks + cheat-sheets + certificates (was only 3 static routes before). Quiz scores persist to localStorage via usePathname key. DefinedTerm JSON-LD added to all 148 glossary term pages. |
 | 22 | 2026-06-14 | **Update via Antigravity.** Phase 10 Quiz Expansion complete: 257 lessons now have 4 MCQ questions each. src/lib/quizzes.ts grew from ~200 to 12,085 lines. 15 category batch JSON files in src/lib/quizzes_batches/. One JSON fix (product-marketing.json had 2 missing explanation fields). TypeScript 0 errors. Content freshness: 5 stale lessons updated (flywheel, voice-and-tone, value-proposition, core-web-vitals, customer-journey) with 2024-2025 stats. |
+| 23 | 2026-06-14 | **Update via Antigravity.** Quality audit of all 1,028 generated quiz questions vs existing gold standard. Found 3 questions with only 3 options (brand-strategy, paid-ads x2) - fixed by adding a 4th plausible wrong option. All 1,028 questions now pass: 4 options, valid correct index (0-3), non-empty explanation. TypeScript 0 errors. Pushed to GitHub. |
 
 ---
 
