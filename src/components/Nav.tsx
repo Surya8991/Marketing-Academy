@@ -138,6 +138,28 @@ export default function Nav() {
           >
             Glossary
           </Link>
+          <Link
+            href="/interview-questions"
+            className={cn(
+              "px-3 py-1.5 rounded-md text-sm font-medium transition-colors",
+              pathname.startsWith("/interview-questions")
+                ? "bg-[var(--muted)] text-[var(--foreground)]"
+                : "text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)]"
+            )}
+          >
+            Interview Prep
+          </Link>
+          <Link
+            href="/digital-marketing-cheat-sheet"
+            className={cn(
+              "px-3 py-1.5 rounded-md text-sm font-medium transition-colors",
+              pathname.startsWith("/digital-marketing-cheat-sheet")
+                ? "bg-[var(--muted)] text-[var(--foreground)]"
+                : "text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)]"
+            )}
+          >
+            Cheat Sheets
+          </Link>
         </nav>
 
         {/* Actions */}
@@ -218,6 +240,28 @@ export default function Nav() {
               )}
             >
               📖 Glossary
+            </Link>
+            <Link
+              href="/interview-questions"
+              className={cn(
+                "px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                pathname.startsWith("/interview-questions")
+                  ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
+                  : "text-[var(--foreground)] hover:bg-[var(--muted)]"
+              )}
+            >
+              🎤 Interview Prep
+            </Link>
+            <Link
+              href="/digital-marketing-cheat-sheet"
+              className={cn(
+                "px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                pathname.startsWith("/digital-marketing-cheat-sheet")
+                  ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
+                  : "text-[var(--foreground)] hover:bg-[var(--muted)]"
+              )}
+            >
+              📋 Cheat Sheets
             </Link>
           </div>
           <Link

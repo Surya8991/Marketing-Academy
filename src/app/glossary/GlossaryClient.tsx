@@ -44,8 +44,8 @@ export default function GlossaryClient() {
       <div className="mb-8">
         <h1 className="text-4xl font-bold mb-3">Marketing Glossary</h1>
         <p className="text-[var(--muted-foreground)] text-lg max-w-2xl">
-          Plain-English definitions for 80+ essential marketing terms - from CTR and CAC to viral
-          coefficient and content clusters.
+          Plain-English definitions for 150+ essential marketing terms - from CTR and ROAS to brand
+          salience, copywriting frameworks, and social media strategy.
         </p>
       </div>
 

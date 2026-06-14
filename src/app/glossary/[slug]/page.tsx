@@ -31,6 +31,9 @@ const CATEGORY_COLORS: Record<string, string> = {
   CRO: "from-lime-500/15 to-green-500/10",
   Psychology: "from-purple-500/15 to-pink-500/10",
   Content: "from-sky-500/15 to-blue-500/10",
+  Brand: "from-pink-500/15 to-rose-500/10",
+  Copywriting: "from-orange-500/15 to-amber-500/10",
+  "Social Media": "from-fuchsia-500/15 to-purple-500/10",
 };
 
 export default async function GlossaryTermPage({ params }: Props) {

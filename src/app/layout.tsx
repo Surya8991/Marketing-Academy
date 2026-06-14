@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
@@ -13,8 +13,13 @@ const BASE = "https://marketing-academy-roan.vercel.app";
 export const metadata: Metadata = {
   title: { template: "%s | Marketing Academy", default: "Marketing Academy" },
   description:
-    "Learn marketing from scratch to advanced — SEO, paid ads, growth, social, email, analytics, AI tools and more. Free, humanized lessons with real examples.",
+    "Learn marketing from scratch to advanced - SEO, paid ads, growth, social, email, analytics, AI tools and more. Free, humanized lessons with real examples.",
   metadataBase: new URL(BASE),
+  manifest: "/manifest.json",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#6366f1",
 };
 
 const themeScript = `
@@ -40,6 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="pt-16 flex-1">{children}</main>
         <Footer />
         <ScrollToTop />
+        <script dangerouslySetInnerHTML={{ __html: `if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}` }} />
       </body>
     </html>
   );

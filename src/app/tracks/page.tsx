@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Learning Tracks | Marketing Academy",
   description:
-    "Curated lesson paths built for your role. B2B marketer, e-commerce, solo founder, or AI-first - follow a structured track and learn exactly what you need.",
+    "Curated lesson paths built for your role. B2B marketer, e-commerce, solo founder, AI-first, content creator, social media manager, or data-driven marketer - pick your track and learn exactly what you need.",
 };
 
 export default function TracksPage() {
@@ -14,9 +14,9 @@ export default function TracksPage() {
       <div className="mb-12">
         <h1 className="text-4xl font-bold mb-3">Learning Tracks</h1>
         <p className="text-[var(--muted-foreground)] text-lg max-w-2xl">
-          Follow a curated path built for your role. Each track selects the most
-          relevant lessons from across the curriculum and sequences them to
-          match how you actually work.
+          Pick the path that matches your role. Each track pulls the most relevant
+          lessons from across all 15 categories and sequences them in the order
+          that actually makes sense for how you work.
         </p>
       </div>
 

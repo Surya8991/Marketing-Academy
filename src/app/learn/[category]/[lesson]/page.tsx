@@ -7,6 +7,9 @@ import ReadingProgress from "@/components/ReadingProgress";
 import { TableOfContentsDesktop, TableOfContentsMobile } from "@/components/TableOfContents";
 import Quiz from "@/components/Quiz";
 import { QUIZZES } from "@/lib/quizzes";
+import ShareButtons from "@/components/ShareButtons";
+import BookmarkButton from "@/components/BookmarkButton";
+import RelatedLessons from "@/components/RelatedLessons";
 import { ChevronLeft, ChevronRight, ArrowLeft, Clock } from "lucide-react";
 import type { Metadata } from "next";
 import fs from "fs";
@@ -138,8 +141,12 @@ export default async function LessonPage({ params }: Props) {
                   {lessonMeta.summary}
                 </p>
               )}
-              <div className="mt-5">
+              <div className="mt-5 flex flex-wrap items-center gap-3">
                 <MarkComplete category={category} slug={lesson} />
+                <BookmarkButton category={category} slug={lesson} title={lessonMeta?.title ?? lesson} />
+              </div>
+              <div className="mt-4">
+                <ShareButtons title={lessonMeta?.title ?? lesson} url={`${BASE}/learn/${category}/${lesson}`} />
               </div>
             </header>
 
@@ -162,6 +169,9 @@ export default async function LessonPage({ params }: Props) {
                 </div>
               );
             })()}
+
+            {/* Related Lessons */}
+            <RelatedLessons currentCategory={category} currentSlug={lesson} level={lessonMeta?.level ?? "Beginner"} />
 
             {/* Prev / Next nav */}
             <nav className="mt-16 pt-8 border-t border-[var(--border)] grid grid-cols-2 gap-3">

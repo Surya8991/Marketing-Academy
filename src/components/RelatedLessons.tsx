@@ -13,29 +13,31 @@ const levelColors: Record<string, string> = {
   Advanced: "color: #7c3aed; background: color-mix(in srgb, #7c3aed 12%, transparent);",
 };
 
+type LessonRef = { slug: string; title: string; level: string; categorySlug: string; summary?: string };
+
 export default function RelatedLessons({ currentCategory, currentSlug, level }: Props) {
   const sameCat = CATEGORIES.find((c) => c.slug === currentCategory);
   const sameCatLessons = (sameCat?.lessons ?? [])
     .filter((l) => l.slug !== currentSlug)
     .slice(0, 3);
 
-  let related = sameCatLessons;
+  let related: LessonRef[] = [];
 
-  if (related.length < 3) {
-    const needed = 3 - related.length;
-    const existingSlugs = new Set([currentSlug, ...related.map((l) => l.slug)]);
+  if (sameCatLessons.length < 3) {
+    const needed = 3 - sameCatLessons.length;
+    const existingSlugs = new Set([currentSlug, ...sameCatLessons.map((l) => l.slug)]);
 
-    const fromOtherCats = CATEGORIES.filter((c) => c.slug !== currentCategory)
+    const fromOtherCats: LessonRef[] = CATEGORIES.filter((c) => c.slug !== currentCategory)
       .flatMap((c) => c.lessons.map((l) => ({ ...l, categorySlug: c.slug })))
       .filter((l) => l.level === level && !existingSlugs.has(l.slug))
       .slice(0, needed);
 
     related = [
-      ...related.map((l) => ({ ...l, categorySlug: currentCategory })),
+      ...sameCatLessons.map((l) => ({ ...l, categorySlug: currentCategory })),
       ...fromOtherCats,
     ];
   } else {
-    related = related.map((l) => ({ ...l, categorySlug: currentCategory }));
+    related = sameCatLessons.map((l) => ({ ...l, categorySlug: currentCategory }));
   }
 
   if (related.length === 0) return null;

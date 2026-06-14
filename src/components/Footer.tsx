@@ -3,9 +3,17 @@ import { ExternalLink } from "lucide-react";
 import { CATEGORIES } from "@/lib/curriculum";
 import NewsletterSignup from "@/components/NewsletterSignup";
 
+const QUICK_LINKS = [
+  { href: "/tracks", label: "Learning Tracks" },
+  { href: "/glossary", label: "Marketing Glossary" },
+  { href: "/search", label: "Search Lessons" },
+  { href: "/learn", label: "Browse All Lessons" },
+  { href: "https://github.com/Surya8991/Marketing-Academy", label: "View on GitHub", external: true },
+];
+
 export default function Footer() {
-  const colA = CATEGORIES.slice(0, 5);
-  const colB = CATEGORIES.slice(5);
+  const colA = CATEGORIES.slice(0, 8);
+  const colB = CATEGORIES.slice(8);
 
   return (
     <footer className="border-t border-[var(--border)] bg-[var(--muted)]/40 mt-20">
@@ -19,24 +27,39 @@ export default function Footer() {
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 grid gap-10 md:grid-cols-4">
-        <div className="md:col-span-2">
+        <div>
           <Link href="/" className="flex items-center gap-2 font-semibold text-lg">
             <span className="text-2xl">📈</span>
             Marketing Academy
           </Link>
-          <p className="mt-3 text-sm text-[var(--muted-foreground)] max-w-sm">
-            Free, plain-English marketing lessons. From the fundamentals to AI-era
-            tactics — with diagrams, real numbers, and curated resources.
+          <p className="mt-3 text-sm text-[var(--muted-foreground)] leading-relaxed">
+            Free, plain-English marketing lessons. From fundamentals to AI-era
+            tactics, with real examples and curated resources.
           </p>
-          <a
-            href="https://github.com/Surya8991/Marketing-Academy"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center gap-2 text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
-          >
-            <ExternalLink size={14} />
-            View on GitHub
-          </a>
+          <div className="mt-5 space-y-2">
+            {QUICK_LINKS.map((link) =>
+              link.external ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+                >
+                  <ExternalLink size={13} />
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="block text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
+          </div>
         </div>
 
         <div>
@@ -59,7 +82,7 @@ export default function Footer() {
 
         <div>
           <p className="text-xs uppercase tracking-wider font-semibold text-[var(--foreground)] mb-3">
-            More
+            More Topics
           </p>
           <ul className="space-y-2 text-sm">
             {colB.map((cat) => (
@@ -72,12 +95,47 @@ export default function Footer() {
                 </Link>
               </li>
             ))}
-            <li className="pt-2">
-              <Link
-                href="/search"
-                className="text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
-              >
-                Search
+          </ul>
+        </div>
+
+        <div>
+          <p className="text-xs uppercase tracking-wider font-semibold text-[var(--foreground)] mb-3">
+            Learn by Role
+          </p>
+          <ul className="space-y-2 text-sm">
+            <li>
+              <Link href="/tracks/b2b-marketer" className="text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors">
+                🏢 B2B Marketer
+              </Link>
+            </li>
+            <li>
+              <Link href="/tracks/ecommerce-growth" className="text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors">
+                🛒 E-commerce Growth
+              </Link>
+            </li>
+            <li>
+              <Link href="/tracks/solo-founder" className="text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors">
+                🚀 Solo Founder
+              </Link>
+            </li>
+            <li>
+              <Link href="/tracks/ai-first-marketer" className="text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors">
+                🤖 AI-First Marketer
+              </Link>
+            </li>
+            <li>
+              <Link href="/tracks/content-creator" className="text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors">
+                ✍️ Content Creator
+              </Link>
+            </li>
+            <li>
+              <Link href="/tracks/social-media-manager" className="text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors">
+                📱 Social Media Manager
+              </Link>
+            </li>
+            <li>
+              <Link href="/tracks/data-driven-marketer" className="text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors">
+                📊 Data-Driven Marketer
               </Link>
             </li>
           </ul>
@@ -87,7 +145,7 @@ export default function Footer() {
       <div className="border-t border-[var(--border)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-[var(--muted-foreground)]">
           <p>© {new Date().getFullYear()} Marketing Academy. Free and open source.</p>
-          <p>Made with care for marketers learning in public.</p>
+          <p>Built for marketers who learn by doing.</p>
         </div>
       </div>
     </footer>
