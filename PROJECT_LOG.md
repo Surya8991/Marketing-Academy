@@ -1,7 +1,7 @@
 # Marketing Academy - Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-06-14 (Session 22). Updated via Antigravity.
+> Last audited: 2026-06-14 (Session 24). Updated via Antigravity.
 
 ---
 
@@ -246,7 +246,7 @@ Prioritized by user value and effort. Items are independent - pick any in any or
 | 7 | UX | Add sticky "Mark Complete" button at bottom of lesson content | Current button is at the top - most users never scroll back up; completion rates suffer |
 | 8 | UX | Show Beginner/Intermediate/Advanced lesson counts on category page header | Users cannot tell if a category is beginner-heavy or advanced before clicking in |
 | 9 | UX | Add "Recommended Next" prompt when a lesson is marked complete | Dead end after completion - no nudge to continue the streak |
-| 10 | SEO | Add FAQPage JSON-LD to /interview-questions | Page has 50+ Q&As in details/summary - ideal candidate for FAQ rich results in Google |
+| 10 | SEO | Add FAQPage JSON-LD to /interview-questions | Page has 50+ Q&As in details/summary - ideal candidate for FAQ rich results in Google | DONE |
 
 #### P3 - Medium Value, Medium Effort
 
@@ -254,17 +254,17 @@ Prioritized by user value and effort. Items are independent - pick any in any or
 |---|------|------|-----|
 | 11 | UX | Visual per-lesson progress indicator inside /tracks/[slug] | Track detail shows overall % complete but no per-lesson tick - unclear which lessons are done |
 | 12 | UX | Improve mobile Table of Contents - add reopen affordance | ToC hides on mobile but leaves no button or indicator that it exists; readers lose navigation |
-| 13 | SEO | Add FAQPage JSON-LD to /interview-prep category cards | Each category links to lessons with Q&A - schema helps surface them in AI Overviews |
-| 14 | Feature | Certificate "Share on LinkedIn" direct link | Certificate page has no share path; LinkedIn accepts miniProgram deep links for certificates |
-| 15 | Feature | "Submit a tool" link on /tools page | 85 tools is a good start but a mailto/form link invites community submissions and adds social proof |
+| 13 | SEO | Add FAQPage JSON-LD to /interview-prep category cards | Each category links to lessons with Q&A - schema helps surface them in AI Overviews | DONE |
+| 14 | Feature | Certificate "Share on LinkedIn" direct link | Certificate page has no share path; LinkedIn accepts miniProgram deep links for certificates | DONE |
+| 15 | Feature | "Submit a tool" link on /tools page | 85 tools is a good start but a mailto/form link invites community submissions and adds social proof | DONE |
 
 #### P4 - Nice to Have
 
 | # | Area | What | Why |
 |---|------|------|-----|
 | 16 | SEO | /compare pages: "Semrush vs Ahrefs", "GA4 vs Mixpanel", "Mailchimp vs Klaviyo" | High-intent, low-competition long-tail; tools directory already has the data to populate these |
-| 17 | UX | Visual reward on lesson complete (confetti or animation) | Costs almost nothing, increases shareability and streak motivation |
-| 18 | Feature | "Copy all questions" bulk action on /interview-questions | Useful for interview prep sessions and Anki card creation |
+| 17 | UX | Visual reward on lesson complete (confetti or animation) | Costs almost nothing, increases shareability and streak motivation | DONE |
+| 18 | Feature | "Copy all questions" bulk action on /interview-questions | Useful for interview prep sessions and Anki card creation | DONE |
 | 19 | Content | New lessons: AI agents for marketing, programmatic SEO, zero-party data strategy, dark social attribution | 2025-2026 topics not yet covered as standalone lessons |
 | 20 | Tech | Add `loading="lazy"` to below-fold images on homepage | Core Web Vitals: large hero sections without lazy loading hurt LCP score |
 
@@ -602,6 +602,7 @@ Full review by 5 personas (CMO, Junior Marketer, SEO Specialist, UX Designer, Fr
 | 21 | 2026-06-14 | Quick wins from Phase 12 P1: sitemap now covers 13 static routes + glossary terms + tracks + cheat-sheets + certificates (was only 3 static routes before). Quiz scores persist to localStorage via usePathname key. DefinedTerm JSON-LD added to all 148 glossary term pages. |
 | 22 | 2026-06-14 | **Update via Antigravity.** Phase 10 Quiz Expansion complete: 257 lessons now have 4 MCQ questions each. src/lib/quizzes.ts grew from ~200 to 12,085 lines. 15 category batch JSON files in src/lib/quizzes_batches/. One JSON fix (product-marketing.json had 2 missing explanation fields). TypeScript 0 errors. Content freshness: 5 stale lessons updated (flywheel, voice-and-tone, value-proposition, core-web-vitals, customer-journey) with 2024-2025 stats. |
 | 23 | 2026-06-14 | **Update via Antigravity.** Quality audit of all 1,028 generated quiz questions vs existing gold standard. Found 3 questions with only 3 options (brand-strategy, paid-ads x2) - fixed by adding a 4th plausible wrong option. All 1,028 questions now pass: 4 options, valid correct index (0-3), non-empty explanation. TypeScript 0 errors. Pushed to GitHub. |
+| 24 | 2026-06-14 | **Update via Antigravity.** Phase 12 quick wins executed: (1) Canvas confetti on MarkComplete - pure JS, no npm package; (2) FAQPage JSON-LD on /interview-questions (5 Q&As for Google rich results); (3) CopyQuestionsButton.tsx - copies all 40 interview Q&As to clipboard; (4) FAQPage JSON-LD on /interview-prep; (5) LinkedIn Share button on /certificates/[slug]; (6) Submit a Tool banner on /tools with pre-filled GitHub issue link. TypeScript: 0 errors. |
 
 ---
 
