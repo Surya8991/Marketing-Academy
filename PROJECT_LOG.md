@@ -194,11 +194,11 @@ Prioritized by user value and effort. Items are independent - pick any in any or
 
 | # | Area | What | Why |
 |---|------|------|-----|
-| 1 | SEO | Add /glossary, /tools, /tracks, /about, /cheat-sheets/[category], /interview-questions, /digital-marketing-cheat-sheet to sitemap.ts | These high-value pages are completely invisible to Google crawlers right now |
-| 2 | UX | Persist quiz scores to localStorage (key: `ma_quiz_[lessonSlug]`) | Scores vanish on refresh - kills the learning loop |
-| 3 | UX | Add "Show Explanation" reveal per quiz answer (explanation field already exists in Quiz type) | Quiz.tsx renders correct/incorrect but never shows the `explanation` string already stored in quizzes.ts |
-| 4 | Newsletter | Wire /api/newsletter to Resend, ConvertKit, or Mailchimp | Code has a `// TODO` at line 18 of newsletter/route.ts - currently just logs to console and drops signups |
-| 5 | SEO | Add JSON-LD DefinedTerm schema to /glossary/[slug] pages | 148 individual term pages with zero structured data - easy rich result win |
+| 1 | SEO | Add /glossary, /tools, /tracks, /about, /cheat-sheets/[category], /interview-questions, /digital-marketing-cheat-sheet to sitemap.ts | These high-value pages are completely invisible to Google crawlers right now | DONE |
+| 2 | UX | Persist quiz scores to localStorage (key: `ma_quiz_[path]`) | Scores vanish on refresh - kills the learning loop | DONE |
+| 3 | UX | Add "Show Explanation" reveal per quiz answer | Already implemented - explanation renders after each answer | DONE (was already done) |
+| 4 | Newsletter | Wire /api/newsletter to Resend, ConvertKit, or Mailchimp | Code has a `// TODO` at line 18 of newsletter/route.ts - currently just logs to console and drops signups | PENDING (needs API key) |
+| 5 | SEO | Add JSON-LD DefinedTerm schema to /glossary/[slug] pages | 148 individual term pages with zero structured data - easy rich result win | DONE |
 
 #### P2 - High Value, Medium Effort
 
@@ -555,6 +555,7 @@ Full review by 5 personas (CMO, Junior Marketer, SEO Specialist, UX Designer, Fr
 | 18 | 2026-06-14 | Phase 11 fixes: robots.ts sitemap URL mismatch fixed (both now marketing-academy-roan.vercel.app). Lesson pages: JSON-LD Article + BreadcrumbList schema, canonical tags. Prominent "Up Next" CTA card after article content. Reading time on category lesson cards (computed from MDX file at build time). "Mark all complete" button in TrackLessonList. |
 | 19 | 2026-06-14 | Lesson sort: all 14 affected categories reordered Beginner > Intermediate > Advanced (SEO was already correct). Duplicate optimizely-vwo removed from tools. About page built at /about: mission, builder profile (Surya L, Bangalore), stats, tech stack, project links. Footer + README updated with About route. |
 | 20 | 2026-06-14 | Fixed Vercel build failure: Github and Twitter icons do not exist in lucide-react v1.18 (about/page.tsx). Replaced all three with ExternalLink. Phase 12 improvement backlog written to PROJECT_LOG: 20 items across SEO, UX, content, and features - prioritized P1 to P4. |
+| 21 | 2026-06-14 | Quick wins from Phase 12 P1: sitemap now covers 13 static routes + glossary terms + tracks + cheat-sheets + certificates (was only 3 static routes before). Quiz scores persist to localStorage via usePathname key. DefinedTerm JSON-LD added to all 148 glossary term pages. |
 
 ---
 
