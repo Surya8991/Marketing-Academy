@@ -4,6 +4,7 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { TRACKS } from "@/lib/tracks";
+import { getCompleted } from "@/lib/progress";
 
 export default function CertificatePage() {
   const params = useParams();
@@ -14,17 +15,16 @@ export default function CertificatePage() {
   const [today, setToday] = useState("");
 
   useEffect(() => {
-    let completed: string[] = [];
+    let completed = new Set<string>();
     try {
-      const raw = localStorage.getItem("ma_completed");
-      if (raw) completed = JSON.parse(raw) as string[];
+      completed = getCompleted();
     } catch {
-      completed = [];
+      completed = new Set<string>();
     }
 
     if (track) {
       const count = track.lessons.filter((l) =>
-        completed.includes(`${l.category}/${l.slug}`)
+        completed.has(`${l.category}/${l.slug}`)
       ).length;
       setCompletedCount(count);
     }

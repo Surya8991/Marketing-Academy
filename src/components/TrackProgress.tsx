@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { getCompleted } from "@/lib/progress";
 
 type Props = {
   lessons: { category: string; slug: string }[];
@@ -10,10 +11,9 @@ export default function TrackProgress({ lessons }: Props) {
 
   useEffect(() => {
     try {
-      const raw = localStorage.getItem("ma_completed");
-      const completed: string[] = raw ? JSON.parse(raw) : [];
+      const completed = getCompleted();
       const done = lessons.filter((l) =>
-        completed.includes(`${l.category}/${l.slug}`)
+        completed.has(`${l.category}/${l.slug}`)
       ).length;
       setPct(Math.round((done / lessons.length) * 100));
     } catch {

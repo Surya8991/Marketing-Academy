@@ -289,9 +289,9 @@ Prioritized by user value and effort. Items are independent - pick any in any or
 | 8 | Tech | Add `typeof window === "undefined"` safety guards to `src/lib/bookmarks.ts` | Server-side rendering (SSR) will throw a ReferenceError crash if localStorage is accessed during server pre-rendering | DONE |
 | 9 | Tech | Replace dynamic `import(...)` checks in `sitemap.ts` with lightweight `fs.existsSync` | Dynamically importing and executing all 308 MDX bundles at build time is highly inefficient | DONE |
 | 10 | SEO | Update stale metadata/page titles from "2025" to "2026" in `/tools` and `/interview-prep` | Keeps metadata aligned with the rest of the site's "2026" branding | DONE |
-| 11 | UX | Fix perfect-score crash (RangeError: Invalid array length) in `Quiz.tsx` | Appending a duplicate score on final submit causes the state to exceed total questions, throwing RangeError on subsequent mounts | |
-| 12 | UX | Fix progress key mismatch in `TrackProgress.tsx` and `certificates/[slug]/page.tsx` | Completed lessons write to `ma-completed` (hyphenated), but tracks and certificates query `ma_completed` (underscored), locking progress permanently at 0% | |
-| 13 | SEO/Routing | Fix `email/abandon-cart` 404 error | Mismatch between the curriculum slug (`abandon-cart`) and MDX filename (`abandoned-cart.mdx`) results in 404 routing errors | |
+| 11 | UX | Fix perfect-score crash (RangeError: Invalid array length) in `Quiz.tsx` | Appending a duplicate score on final submit causes the state to exceed total questions, throwing RangeError on subsequent mounts | DONE |
+| 12 | UX | Fix progress key mismatch in `TrackProgress.tsx` and `certificates/[slug]/page.tsx` | Completed lessons write to `ma-completed` (hyphenated), but tracks and certificates query `ma_completed` (underscored), locking progress permanently at 0% | DONE |
+| 13 | SEO/Routing | Fix `email/abandon-cart` 404 error | Mismatch between the curriculum slug (`abandon-cart`) and MDX filename (`abandoned-cart.mdx`) results in 404 routing errors | DONE |
 | 14 | Content | Update stale year reference on Homepage (`src/app/page.tsx`) | Homepage hero text references "2025 playbook"; needs to be updated to "2026 playbook" for brand alignment | DONE |
 | 15 | Content | Update About page (`src/app/about/page.tsx`) metadata and STATS block | Currently hardcoded to stale numbers (308 lessons, 148 glossary terms, 85+ tools). Real counts are 299 lessons (due to `dynamicParams = false` blocking unregistered lessons), 146 glossary terms, and 111 tools | DONE |
 
@@ -846,18 +846,16 @@ type MarketingTool = {
 ## 🤖 Antigravity Session Block — 2026-06-14 (Session 30)
 
 > **Tag: Antigravity Work**
-> All items below were researched, audited, and documented by Antigravity (Google DeepMind agentic AI) in a single session on 2026-06-14. Zero manual code edits by the user.
+> All items below were researched, audited, fixed, and verified by Antigravity (Google DeepMind agentic AI) in a single session on 2026-06-14. Zero manual code edits by the user.
 
 ### What Was Done
 
-#### 1. Homepage & About Page Audit (Session 30)
-- Performed an audit of the Homepage (`src/app/page.tsx`) and About page (`src/app/about/page.tsx`) to check for stale/incorrect info.
-- Identified:
-  - Homepage hero text references "2025 playbook" (outdated, should be "2026 playbook").
-  - About page has hardcoded values in metadata description and `STATS` array that mismatch the actual code:
-    - Lists "308 lessons" but only 299 are canonical and accessible (due to `dynamicParams = false` blocking dynamic routing for unregistered lessons).
-    - Lists "148 glossary terms" but only 146 are defined in `src/lib/glossary.ts`.
-    - Lists "85+ tools" but 111 tools are catalogued in `src/lib/tools-directory.ts`.
-- Logged all recommended fixes to the Phase 12 Backlog.
+#### 1. Backlog Fixes (Session 30)
+- **Resolved Quiz perfect-score crash (Item #11)**: Fixed the `RangeError: Invalid array length` crash in `Quiz.tsx` by using the `answers` array directly without duplicating the final submit answer.
+- **Resolved Track Progress key mismatch (Item #12)**: Aligned `TrackProgress.tsx` and `certificates/[slug]/page.tsx` with the shared progress module (`getCompleted()` helper) to read from the correct `ma-completed` key. Progress now registers correctly (was permanently stuck at 0%).
+- **Resolved Abandon Cart 404 (Item #13)**: Renamed `src/content/email/abandoned-cart.mdx` to `abandon-cart.mdx` and updated its internal `lessonMeta.slug` property to align with curriculum, track, and quiz slug specifications.
+- **Resolved Homepage Outdated Year (Item #14)**: Updated `src/app/page.tsx` hero copy from "2025 playbook" to "2026 playbook".
+- **Resolved About Page Stale Stats (Item #15)**: Updated `src/app/about/page.tsx` metadata description and `STATS` array to use actual codebase statistics: **299** accessible lessons, **146** glossary terms, and **111** tools catalogued.
+
 - Verified TypeScript compilation status: **0 errors** across the codebase.
 ```

@@ -47,8 +47,7 @@ export default function Quiz({ questions }: Props) {
 
   function handleNext() {
     if (current + 1 >= totalQuestions) {
-      const finalAnswers = [...answers, selected === question.correct];
-      const finalScore = finalAnswers.filter(Boolean).length;
+      const finalScore = answers.filter(Boolean).length;
       try {
         localStorage.setItem(quizStorageKey(pathname), JSON.stringify({ score: finalScore, total: totalQuestions }));
       } catch { /* storage full or unavailable */ }
