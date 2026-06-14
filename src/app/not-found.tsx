@@ -13,7 +13,7 @@ export default function NotFound() {
         This lesson doesn&apos;t exist yet
       </h1>
       <p className="text-[var(--muted-foreground)] mb-8 max-w-md mx-auto">
-        We&apos;re still writing it. Check back soon — new lessons are added regularly.
+        We&apos;re still writing it. Check back soon - new lessons are added regularly.
       </p>
       <div className="flex items-center justify-center gap-4">
         <Link

@@ -1,6 +1,6 @@
 "use client" // PrintButton needs window.print; make the whole file a client component
 
-// We handle params manually because this is a client component — no generateStaticParams/generateMetadata here.
+// We handle params manually because this is a client component - no generateStaticParams/generateMetadata here.
 // A thin server wrapper in layout.tsx is unnecessary; we use client-side data instead.
 
 import Link from "next/link";

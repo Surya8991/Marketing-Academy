@@ -133,7 +133,7 @@ export default function SearchPage() {
       {filteredResults.length === 0 ? (
         <div className="text-center py-16">
           <p className="text-[var(--muted-foreground)] text-lg">No lessons found for that search.</p>
-          <p className="text-[var(--muted-foreground)] text-sm mt-2">Try a different term — e.g. "funnel", "email", "TikTok"</p>
+          <p className="text-[var(--muted-foreground)] text-sm mt-2">Try a different term - e.g. "funnel", "email", "TikTok"</p>
         </div>
       ) : (
         <ul className="divide-y divide-[var(--border)]">

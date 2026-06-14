@@ -5,7 +5,7 @@ import { CATEGORIES } from "@/lib/curriculum";
 export const metadata: Metadata = {
   title: "Marketing Cheat Sheets | Marketing Academy",
   description:
-    "Printable quick reference cards for every marketing category. Get the key concepts, frameworks, and tactics for SEO, paid ads, email, analytics, and more — one page per topic.",
+    "Printable quick reference cards for every marketing category. Get the key concepts, frameworks, and tactics for SEO, paid ads, email, analytics, and more - one page per topic.",
 };
 
 export default function CheatSheetsPage() {

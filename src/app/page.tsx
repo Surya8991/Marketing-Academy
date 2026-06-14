@@ -71,7 +71,7 @@ export default function HomePage() {
           </h1>
 
           <p className="text-base sm:text-xl text-[var(--muted-foreground)] mb-10 max-w-2xl mx-auto leading-relaxed">
-            SEO, paid ads, growth, social, email, analytics, AI — every discipline
+            SEO, paid ads, growth, social, email, analytics, AI - every discipline
             explained in plain English with real examples, diagrams, and the
             current 2025 playbook.
           </p>
