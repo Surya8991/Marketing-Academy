@@ -28,7 +28,7 @@
 ## 🗂 ORDER OF EXECUTION — Complete Project Roadmap
 
 > Read this top-to-bottom before doing anything. Every phase must complete before the next starts.
-> Status: **Phase 1 ✅ done → Phase 2 ✅ done → Phase 3 in progress (49/165 lessons)**
+> Status: **Phase 1 ✅ → Phase 2 ✅ → Phase 3 🔴 in progress (49/165 lessons) → Phase 4 🔴 → Phase 5 🟡 Vercel connected, auto-deploys on push**
 
 ---
 
@@ -142,42 +142,41 @@ After the workflow completes: run `(Get-ChildItem src/content -Recurse -Filter *
 
 ---
 
-### PHASE 5 — Deploy to Vercel 🔴 NOT STARTED
-*Run after Phase 4 passes clean.*
+### PHASE 5 — Deploy to Vercel 🟡 IN PROGRESS
 
-**Vercel files already added (✅ committed):**
+**Vercel files added (✅ committed):**
 
 | File | Purpose |
 |---|---|
-| `src/app/not-found.tsx` | Custom 404 page — shown when a lesson MDX doesn't exist yet |
+| `src/app/not-found.tsx` | Custom 404 — shown when a lesson MDX doesn't exist yet |
 | `src/app/robots.ts` | Generates `/robots.txt` — allows all crawlers, points to sitemap |
-| `src/app/sitemap.ts` | Generates `/sitemap.xml` — only includes lessons with actual MDX files |
-| `.gitattributes` | Forces LF line endings on commit — eliminates CRLF warnings |
+| `src/app/sitemap.ts` | Generates `/sitemap.xml` — only includes lessons with real MDX files (parallelized) |
+| `.gitattributes` | Forces LF line endings — eliminates CRLF warnings |
 
 **Deploy steps:**
 
-| Step | What | How | Status |
+| Step | What | Status | Notes |
 |---|---|---|---|
-| 5.1 | Connect repo to Vercel | vercel.com → New Project → Import `Surya8991/Marketing-Academy` | 🔴 |
-| 5.2 | Verify auto-detected settings | Framework: Next.js, Build: `npm run build`, Output: `.next` — no changes needed | 🔴 |
-| 5.3 | No env vars needed | Everything is static — just click Deploy | 🔴 |
-| 5.4 | Verify live URL | Check `https://marketing-academy.vercel.app` (or Vercel-assigned URL) | 🔴 |
-| 5.5 | Update `robots.ts` + `sitemap.ts` | Replace `marketing-academy.vercel.app` with actual Vercel URL if different | 🔴 |
-| 5.6 | Set custom domain (optional) | Vercel Dashboard → Domains | 🔴 |
-| 5.7 | Update README live URL | Replace placeholder with real URL | 🔴 |
+| 5.1 | Connect repo to Vercel | ✅ | `Surya8991/Marketing-Academy` imported |
+| 5.2 | First build | ✅ FAILED then FIXED | `positioning.mdx` SyntaxError — unescaped `"` in summary. Fixed, pushed. |
+| 5.3 | Auto-redeploy after fix | 🟡 | Push `1ee7674` triggered Vercel auto-redeploy — verify in dashboard |
+| 5.4 | Verify live URL | 🔴 | Check Vercel dashboard for the assigned URL |
+| 5.5 | Update `robots.ts` + `sitemap.ts` | 🔴 | Replace `marketing-academy.vercel.app` with actual URL if different |
+| 5.6 | Set custom domain (optional) | 🔴 | Vercel Dashboard → Domains |
+| 5.7 | Update README live URL | 🔴 | Replace placeholder with real URL |
 
-**Every subsequent push auto-deploys:**
+**Every subsequent push auto-deploys — workflow for adding lessons:**
 ```bash
-git add src/content/...      # stage new MDX files
+git add src/content/...
 git commit -m "add: growth + social lessons"
-git push                     # Vercel picks it up automatically
+git push    # Vercel auto-deploys within ~60 seconds
 ```
 
 **What happens on Vercel build with missing MDX:**
 - `generateStaticParams` returns all 165 lesson paths
 - For lessons without MDX, `catch { notFound() }` fires → renders `not-found.tsx`
-- Build does NOT fail — missing lessons become polished 404 pages
-- Sitemap auto-excludes them (only includes pages with real MDX files)
+- Build does NOT fail — missing lessons become 404 pages
+- Sitemap auto-excludes them (parallel import check at build time)
 
 ---
 
@@ -188,18 +187,18 @@ git push                     # Vercel picks it up automatically
 |---|---|---|
 | 6.1 | Dark mode manual toggle | Currently auto via OS — add a sun/moon button in Nav |
 | 6.2 | OG images | `/api/og` with `@vercel/og` — per-lesson social preview cards |
-| 6.3 | Sitemap | `src/app/sitemap.ts` — auto-generates XML sitemap from curriculum |
-| 6.4 | robots.txt | `src/app/robots.ts` — allow all, point to sitemap |
-| 6.5 | Search improvements | Add category filter chips above results |
-| 6.6 | B2B track | BACKLOG.md has the full list — dedicated "B2B Marketing" category |
-| 6.7 | E-commerce track | Product pages, PDPs, marketplace SEO — in BACKLOG |
-| 6.8 | Glossary | `/glossary/[term]` — 200+ marketing term definitions |
-| 6.9 | Quiz/assessment | End-of-lesson quiz, category completion badges |
-| 6.10 | RSS feed | `/feed.xml` for new-lesson notifications |
+| 6.3 | Search improvements | Add category filter chips above results |
+| 6.4 | B2B track | BACKLOG.md has the full list — dedicated "B2B Marketing" category |
+| 6.5 | E-commerce track | Product pages, PDPs, marketplace SEO — in BACKLOG |
+| 6.6 | Glossary | `/glossary/[term]` — 200+ marketing term definitions |
+| 6.7 | Quiz/assessment | End-of-lesson quiz, category completion badges |
+| 6.8 | RSS feed | `/feed.xml` for new-lesson notifications |
+
+> Sitemap and robots.txt are already done (Phase 5).
 
 ---
 
-## 📋 Current Status (Session 4 — 2026-06-14)
+## 📋 Current Status (Session 5 — 2026-06-14)
 
 ### MDX Content Progress: 49 / 165 files written
 
@@ -244,7 +243,7 @@ git push                     # Vercel picks it up automatically
 | 9 | Write all 17 ai-marketing lessons | 🔴 |
 | 10 | Run `npx tsc --noEmit` — should be clean | 🔴 |
 | 11 | Run `npm run build` — should succeed | 🔴 |
-| 12 | Deploy to Vercel (`npx vercel --prod` or push to GitHub) | 🔴 |
+| 12 | Verify Vercel live URL (auto-deploys on every push) | 🟡 — confirm build passed after positioning.mdx fix |
 
 ### How to launch the content workflow (do this first):
 
