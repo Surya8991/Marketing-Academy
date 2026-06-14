@@ -438,6 +438,53 @@ D:\Coding\marketing-academy\
 
 ---
 
+## Phase 11 - Backlog (Identified 2026-06-14, Session 16)
+
+### Content Freshness Audit - Lessons Needing 2026 Updates
+
+The following lessons contain outdated data points (2020-2022). User to update when time permits.
+
+| # | File | Stale Content | Suggested Fix |
+|---|------|---------------|---------------|
+| 1 | `fundamentals/flywheel.mdx` | Notion "$10B valuation in 2021" - 5 years old | Update to 2025 Notion valuation / replace with fresher PLG example |
+| 2 | `copywriting/voice-and-tone.mdx` | Oatly 2021 IPO valuation cited as proof of tone-driven growth | Replace with 2024-2025 brand voice example or Duolingo's growth data |
+| 3 | `fundamentals/value-proposition.mdx` | MarketingSherpa 2020 research stats | Find 2024/2025 MarketingSherpa or equivalent B2B conversion research |
+| 4 | `seo/core-web-vitals.mdx` | Vodafone case study undated (likely 2020-2021) | Replace with 2024 INP-focused case study since INP replaced FID in March 2024 |
+| 5 | `fundamentals/customer-journey.mdx` | Spotify Wrapped 2022 data | Update to Spotify Wrapped 2024 numbers (240M users engaged) |
+
+### 5-Persona Site Review - Improvement Backlog
+
+Full review by 5 personas (CMO, Junior Marketer, SEO Specialist, UX Designer, Freelance Consultant). Logged 2026-06-14.
+
+**Top 10 Cross-Persona Priorities:**
+
+| Priority | Finding | Personas | Effort |
+|----------|---------|---------|--------|
+| 1 | Fix robots.ts sitemap URL mismatch (hardcoded domain vs. env variable) | SEO | Low |
+| 2 | Wire Learning Track cards to actual track/lesson pages (cards currently non-clickable) | UX, Junior | Low |
+| 3 | Add "Next Lesson" CTA at bottom of every lesson page | UX, Junior, CMO | Low |
+| 4 | Add JSON-LD structured data to lesson pages (Article/Course schema) | SEO | Medium |
+| 5 | Add canonical tags to paginated or duplicate-content pages | SEO | Low |
+| 6 | Add open graph image for individual lesson pages (currently only root OG image) | CMO, SEO | Medium |
+| 7 | Add estimated reading time to lesson cards on category pages | UX, Junior | Low |
+| 8 | Make search results show lesson summary/excerpt (currently just title + category) | UX, Freelance | Low |
+| 9 | Add a "Mark All Complete" option in track pages | Junior, Freelance | Low |
+| 10 | Add breadcrumb JSON-LD to lesson pages for Google rich results | SEO | Low |
+
+**Per-Persona Full Notes:**
+
+**CMO Persona:** Homepage above-fold lacks a clear outcome statement. CTA "Start Learning" is generic - should say what the learner achieves. Social proof (308 lessons, 15 topics) is buried below the fold. Missing testimonials or "used by X marketers" credibility signal. OG image per lesson needed for clean social sharing. Certificate page should show a sample certificate image to reduce friction.
+
+**Junior Marketer Persona:** Category pages show lesson count but not difficulty distribution (how many Beginner vs. Advanced). No "Recommended Next" on lesson complete screen. Quiz scores not persistent - disappear on refresh. Tracks need visual progress indicators per lesson inside the track card, not just overall % complete.
+
+**SEO Specialist Persona:** `robots.ts` has hardcoded `https://marketing-academy.vercel.app` - should use `NEXT_PUBLIC_SITE_URL` env var. Lesson pages missing `Article` schema. Category pages missing `BreadcrumbList` schema. Sitemap does not include `/glossary/[term]` individual pages. Core Web Vitals: large hero sections without `loading="lazy"` on below-fold images.
+
+**UX Designer Persona:** Mobile lesson reader is cramped - side ToC hides but leaves no visual affordance for re-opening. "Mark Complete" button is easy to miss at the top; a floating sticky version at the bottom of the content would increase completion rate. Footer link density is high - too many items, needs grouping or progressive disclosure. Quiz component needs a "Show Explanation" per answer, not just correct/incorrect.
+
+**Freelance Consultant Persona:** `/tools` directory has no "Submit a tool" CTA - lost community engagement opportunity. Cheat sheets are not downloadable as PDF from the page itself (Print to PDF works but no obvious button). Certificates have no share-to-LinkedIn direct link. Interview Questions page has no "Copy all questions" bulk action for interview prep sessions.
+
+---
+
 ## Session History
 
 | Session | Date | Key Accomplishments |
@@ -457,6 +504,7 @@ D:\Coding\marketing-academy\
 | 13 | 2026-06-14 | Phase 7 workflow: ShareButtons, BookmarkButton, RelatedLessons, /interview-prep, /cheat-sheets, /certificates, /bookmarks, PWA (manifest.json + sw.js), /interview-questions, /digital-marketing-cheat-sheet. Glossary expanded to 148 terms, tracks expanded to 7. |
 | 14 | 2026-06-14 | Em dash fix: 127 instances across curriculum.ts + 6 files. Build fix: cheat-sheets/[category] split into server page.tsx + client PrintButton.tsx (Vercel build error). /tools directory: 85+ tools, 11 categories, search + pricing + category filters. All pushed. |
 | 15 | 2026-06-14 | 7:25am wrap-up. Added Tools nav link (desktop + mobile) to Nav.tsx wiring up the /tools directory page. Comma-fix + em dash sweep ran clean (0 MDX files needed changes). All committed + pushed. |
+| 16 | 2026-06-14 | Quick wins: SurpriseMeButton, LessonViewTracker + RecentlyViewed, TrackProgress, ShareButtons copy-link, "/" keyboard shortcut. SVG favicon (src/app/icon.svg + public/icon.svg). Nav: SVG logo, Bookmark link, fixed Cheat Sheets href, removed Browse. Footer: restructured to Learn/Resources/Topics columns with SVG logo. Content audit (5 stale lessons) + 5-persona review backlog logged to Phase 11. |
 
 ---
 

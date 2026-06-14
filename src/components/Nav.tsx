@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { Menu, X, Search, BookOpen, ChevronDown } from "lucide-react";
+import { Menu, X, Search, BookOpen, ChevronDown, Bookmark } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CATEGORIES } from "@/lib/curriculum";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -59,9 +59,10 @@ export default function Nav() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 font-semibold text-lg shrink-0">
-          <span className="text-2xl">📈</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/icon.svg" width={28} height={28} alt="" className="rounded-md" />
           <span className="hidden sm:inline">Marketing Academy</span>
-          <span className="sm:hidden">MktAcademy</span>
+          <span className="sm:hidden font-semibold">Mkt Academy</span>
         </Link>
 
         {/* Desktop nav */}
@@ -120,17 +121,6 @@ export default function Nav() {
           </div>
 
           <Link
-            href="/learn"
-            className={cn(
-              "px-3 py-1.5 rounded-md text-sm font-medium transition-colors",
-              pathname === "/learn"
-                ? "bg-[var(--muted)] text-[var(--foreground)]"
-                : "text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)]"
-            )}
-          >
-            Browse
-          </Link>
-          <Link
             href="/tracks"
             className={cn(
               "px-3 py-1.5 rounded-md text-sm font-medium transition-colors",
@@ -164,10 +154,10 @@ export default function Nav() {
             Interview Prep
           </Link>
           <Link
-            href="/digital-marketing-cheat-sheet"
+            href="/cheat-sheets"
             className={cn(
               "px-3 py-1.5 rounded-md text-sm font-medium transition-colors",
-              pathname.startsWith("/digital-marketing-cheat-sheet")
+              pathname.startsWith("/cheat-sheets") || pathname.startsWith("/digital-marketing-cheat-sheet")
                 ? "bg-[var(--muted)] text-[var(--foreground)]"
                 : "text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)]"
             )}
@@ -188,18 +178,32 @@ export default function Nav() {
         </nav>
 
         {/* Actions */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
           <ThemeToggle />
+          <Link
+            href="/bookmarks"
+            className={cn(
+              "p-2 rounded-md transition-colors",
+              pathname.startsWith("/bookmarks")
+                ? "text-[var(--foreground)] bg-[var(--muted)]"
+                : "text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)]"
+            )}
+            aria-label="Bookmarks"
+            title="Bookmarks"
+          >
+            <Bookmark size={18} />
+          </Link>
           <Link
             href="/search"
             className="p-2 rounded-md text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors"
             aria-label="Search"
+            title="Search (press /)"
           >
             <Search size={18} />
           </Link>
           <Link
             href="/learn/fundamentals/what-is-marketing"
-            className="hidden sm:flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] text-sm font-medium hover:opacity-90 transition-opacity"
+            className="hidden sm:flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] text-sm font-medium hover:opacity-90 transition-opacity ml-1"
           >
             <BookOpen size={14} />
             Start Learning
@@ -278,15 +282,26 @@ export default function Nav() {
               🎤 Interview Prep
             </Link>
             <Link
-              href="/digital-marketing-cheat-sheet"
+              href="/cheat-sheets"
               className={cn(
                 "px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
-                pathname.startsWith("/digital-marketing-cheat-sheet")
+                pathname.startsWith("/cheat-sheets") || pathname.startsWith("/digital-marketing-cheat-sheet")
                   ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
                   : "text-[var(--foreground)] hover:bg-[var(--muted)]"
               )}
             >
               📋 Cheat Sheets
+            </Link>
+            <Link
+              href="/bookmarks"
+              className={cn(
+                "px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                pathname.startsWith("/bookmarks")
+                  ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
+                  : "text-[var(--foreground)] hover:bg-[var(--muted)]"
+              )}
+            >
+              🔖 Bookmarks
             </Link>
             <Link
               href="/tools"
