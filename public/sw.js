@@ -1,24 +1,22 @@
-const CACHE_NAME = "ma-v1";
-const START_URL = "/";
+const CACHE_NAME = "ma-v2";
+const STATIC_EXTENSIONS = [".js", ".css", ".woff", ".woff2", ".png", ".jpg", ".jpeg", ".webp", ".svg", ".ico"];
+
+function isStaticAsset(url) {
+  return STATIC_EXTENSIONS.some((ext) => url.pathname.endsWith(ext));
+}
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.add(START_URL);
-    })
+    caches.open(CACHE_NAME).then((cache) => cache.add("/"))
   );
   self.skipWaiting();
 });
 
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames
-          .filter((name) => name !== CACHE_NAME)
-          .map((name) => caches.delete(name))
-      );
-    })
+    caches.keys().then((names) =>
+      Promise.all(names.filter((n) => n !== CACHE_NAME).map((n) => caches.delete(n)))
+    )
   );
   self.clients.claim();
 });
@@ -26,36 +24,34 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   const url = new URL(event.request.url);
 
-  // Network-first for API routes
-  if (url.pathname.startsWith("/api/")) {
+  if (url.pathname.startsWith("/api/")) return;
+
+  if (isStaticAsset(url)) {
+    // Cache-first for hashed static assets (safe - URLs change when content changes)
     event.respondWith(
-      fetch(event.request)
-        .then((response) => {
-          return response;
+      caches.match(event.request).then(
+        (cached) => cached || fetch(event.request).then((res) => {
+          if (res && res.status === 200 && res.type === "basic") {
+            const clone = res.clone();
+            caches.open(CACHE_NAME).then((c) => c.put(event.request, clone));
+          }
+          return res;
         })
-        .catch(() => {
-          return caches.match(event.request);
-        })
+      )
     );
     return;
   }
 
-  // Cache-first for everything else
+  // Network-first for HTML pages - always get fresh content, fall back to cache offline
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      if (cached) {
-        return cached;
-      }
-      return fetch(event.request).then((response) => {
-        if (!response || response.status !== 200 || response.type !== "basic") {
-          return response;
+    fetch(event.request)
+      .then((res) => {
+        if (res && res.status === 200 && res.type === "basic") {
+          const clone = res.clone();
+          caches.open(CACHE_NAME).then((c) => c.put(event.request, clone));
         }
-        const responseToCache = response.clone();
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(event.request, responseToCache);
-        });
-        return response;
-      });
-    })
+        return res;
+      })
+      .catch(() => caches.match(event.request))
   );
 });
