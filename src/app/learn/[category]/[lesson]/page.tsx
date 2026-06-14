@@ -126,7 +126,6 @@ export default async function LessonPage({ params }: Props) {
 
   return (
     <>
-      {/* eslint-disable-next-line @next/next/no-sync-scripts */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <ReadingProgress />

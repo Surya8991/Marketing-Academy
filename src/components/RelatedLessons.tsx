@@ -7,11 +7,6 @@ type Props = {
   level: string;
 };
 
-const levelColors: Record<string, string> = {
-  Beginner: "color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent);",
-  Intermediate: "color: #d97706; background: color-mix(in srgb, #d97706 12%, transparent);",
-  Advanced: "color: #7c3aed; background: color-mix(in srgb, #7c3aed 12%, transparent);",
-};
 
 type LessonRef = { slug: string; title: string; level: string; categorySlug: string; summary?: string };
 
@@ -58,7 +53,6 @@ export default function RelatedLessons({ currentCategory, currentSlug, level }: 
         className="grid grid-cols-1 sm:grid-cols-3 gap-4"
       >
         {related.map((lesson) => {
-          const badgeStyle = levelColors[lesson.level] ?? levelColors.Beginner;
           return (
             <Link
               key={`${lesson.categorySlug}-${lesson.slug}`}

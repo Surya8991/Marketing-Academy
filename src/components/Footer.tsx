@@ -34,8 +34,8 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="lg:col-span-1">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <Link href="/" className="flex items-center gap-2 font-semibold text-lg mb-3">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/icon.svg" width={28} height={28} alt="" className="rounded-md" />
               Marketing Academy
             </Link>

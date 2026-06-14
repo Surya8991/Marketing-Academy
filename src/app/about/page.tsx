@@ -94,7 +94,7 @@ export default function AboutPage() {
           <p>
             Good marketing education is hard to find. Most free content is shallow SEO bait.
             Most paid courses package beginner knowledge in premium wrappers. The gap between
-            "I watched a YouTube video" and "I can actually do this" is huge.
+            &ldquo;I watched a YouTube video&rdquo; and &ldquo;I can actually do this&rdquo; is huge.
           </p>
           <p>
             Marketing Academy is an attempt to close that gap. Every lesson is written from

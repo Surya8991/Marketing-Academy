@@ -51,7 +51,7 @@ A free, structured marketing education site - from absolute beginner to advanced
 
 **Interview Prep**
 - **Interview prep hub** - `/interview-prep` aggregates all categories with sample Q&A
-- **Interview questions (2026)** - `/interview-questions`: 134 Q&As across 16 disciplines with scenario-based questions, updated for 2026. Covers behavioral, SEO, paid ads, content, analytics, email, growth, AI marketing, social, copywriting, CRO, brand strategy, product marketing, psychology, tools, and general/behavioral interview skills
+- **Interview questions (2026)** - `/interview-questions`: 151 Q&As across 16 disciplines with scenario-based questions, updated for 2026. Covers behavioral, SEO, paid ads, content, analytics, email, growth, AI marketing, social, copywriting, CRO, brand strategy, product marketing, psychology, tools, and general/behavioral interview skills
 - **SEO landing pages** - `/interview-questions` and `/digital-marketing-cheat-sheet` for organic search
 
 **Sharing**

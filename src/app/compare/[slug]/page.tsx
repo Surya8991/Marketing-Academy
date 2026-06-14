@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { TOOLS, MarketingTool } from "@/lib/tools-directory";
+import { TOOLS } from "@/lib/tools-directory";
 import { CUSTOM_COMPARISONS } from "@/lib/comparisons-data";
 import { ArrowLeft, ExternalLink, Check, X, Award, BookOpen } from "lucide-react";
 

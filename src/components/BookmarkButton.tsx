@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Bookmark, BookmarkCheck } from "lucide-react";
-import { BookmarkEntry, getBookmarks, saveBookmarks } from "@/lib/bookmarks";
+import { getBookmarks, saveBookmarks } from "@/lib/bookmarks";
 
 export default function BookmarkButton({
   category,
