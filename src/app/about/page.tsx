@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ExternalLink, Github, Twitter, BookOpen, ArrowRight } from "lucide-react";
+import { ExternalLink, BookOpen, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -138,7 +138,7 @@ export default function AboutPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--foreground)] hover:text-[var(--accent)] transition-colors"
               >
-                <Github size={15} />
+                <ExternalLink size={15} />
                 Surya8991
               </a>
               <a
@@ -147,7 +147,7 @@ export default function AboutPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--foreground)] hover:text-[var(--accent)] transition-colors"
               >
-                <Twitter size={15} />
+                <ExternalLink size={15} />
                 @SURYA_L1998
               </a>
               <a
@@ -199,7 +199,7 @@ export default function AboutPage() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-sm text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors mt-1"
           >
-            <Github size={14} />
+            <ExternalLink size={14} />
             All 42 repositories on GitHub
             <ArrowRight size={13} />
           </a>
@@ -240,7 +240,7 @@ export default function AboutPage() {
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-[var(--border)] font-medium hover:border-[var(--accent)] transition-colors text-sm"
         >
-          <Github size={16} />
+          <ExternalLink size={16} />
           View Source on GitHub
         </a>
       </div>
