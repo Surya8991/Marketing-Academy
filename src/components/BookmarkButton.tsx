@@ -1,0 +1,75 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { Bookmark, BookmarkCheck } from "lucide-react";
+
+type BookmarkEntry = {
+  category: string;
+  slug: string;
+  title: string;
+};
+
+const STORAGE_KEY = "ma_bookmarks";
+
+function getBookmarks(): BookmarkEntry[] {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return [];
+    return JSON.parse(raw) as BookmarkEntry[];
+  } catch {
+    return [];
+  }
+}
+
+function saveBookmarks(entries: BookmarkEntry[]): void {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+}
+
+export default function BookmarkButton({
+  category,
+  slug,
+  title,
+}: {
+  category: string;
+  slug: string;
+  title: string;
+}) {
+  const [bookmarked, setBookmarked] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const existing = getBookmarks();
+    setBookmarked(existing.some((b) => b.category === category && b.slug === slug));
+  }, [category, slug]);
+
+  if (!mounted) return null;
+
+  const toggle = () => {
+    const existing = getBookmarks();
+    if (bookmarked) {
+      const updated = existing.filter(
+        (b) => !(b.category === category && b.slug === slug)
+      );
+      saveBookmarks(updated);
+      setBookmarked(false);
+    } else {
+      saveBookmarks([...existing, { category, slug, title }]);
+      setBookmarked(true);
+    }
+  };
+
+  return (
+    <button
+      onClick={toggle}
+      className={`flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-lg transition-colors ${
+        bookmarked
+          ? "bg-blue-100 text-blue-700 hover:bg-blue-200"
+          : "bg-[var(--muted)] text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+      }`}
+    >
+      {bookmarked ? <BookmarkCheck size={16} /> : <Bookmark size={16} />}
+      {bookmarked ? "Bookmarked" : "Bookmark"}
+    </button>
+  );
+}

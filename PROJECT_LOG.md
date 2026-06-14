@@ -52,7 +52,7 @@
 
 ## 🗂 ORDER OF EXECUTION
 
-> Status: Phase 1 ✅ → Phase 2 ✅ → Phase 3 🔄 in progress → Phase 4 🔴 → Phase 5 ✅ live → Phase 6 🔄 partial
+> Status: Phase 1 ✅ → Phase 2 ✅ → Phase 3 🔄 in progress → Phase 4 ✅ → Phase 5 ✅ live → Phase 6 🔄 partial → Phase 7 🔄 in progress
 
 ### PHASE 1 - Infrastructure ✅ COMPLETE
 All code, pages, components built. Next.js 16.2.9 + Tailwind v4 + @next/mdx + Mermaid + fuse.js.
@@ -136,6 +136,20 @@ Vercel files:
 - `.gitattributes` - LF line endings
 
 Every push auto-deploys within ~60 seconds.
+
+### PHASE 7 - New Features 🔄 IN PROGRESS (Session 13)
+| Step | What | Status |
+|---|---|---|
+| 7.1 | Interview-prep landing page `/interview-prep` | 🔄 Building |
+| 7.2 | Share buttons (LinkedIn/Twitter) on each lesson | 🔄 Building |
+| 7.3 | Cheat sheet cards `/cheat-sheets/[category]` - printable per category | 🔄 Building |
+| 7.4 | TypeScript build check `npx tsc --noEmit` | 🔄 Verifying |
+| 7.5 | Related lessons "You might also like" on lesson page | 🔄 Building |
+| 7.6 | More quizzes - extend from 20 to all 241 lessons | 🔴 Separate workflow needed |
+| 7.7 | PWA support - manifest.json + service worker | 🔄 Building |
+| 7.8 | Progress certificates - downloadable PDF per track | 🔄 Building |
+| 7.9 | Lesson bookmarks - save lessons beyond MarkComplete | 🔄 Building |
+| 7.10 | SEO landing pages - `/interview-questions`, `/digital-marketing-cheat-sheet` | 🔄 Building |
 
 ### PHASE 6 - Polish 🔄 PARTIALLY COMPLETE
 | Step | What | Status |
@@ -359,6 +373,7 @@ D:\Coding\marketing-academy\
 | 10 | 2026-06-14 | Relaunched remaining review. Review C (`wf_efe43d89`) covers growth (19)/social (18)/content (19) = 56 lessons. Review D (`wf_9e38f788`) covers copywriting (19)/cro (18)/brand-strategy (19)/product-marketing (16)/ai-marketing (17) = 89 lessons. All 145 remaining un-reviewed lessons now in active research-backed review. Updated PROJECT_LOG with full status tracking. |
 | 11 | 2026-06-14 | Review C complete (growth 19 + social 18 + content 19 = 56 lessons). Review D complete (copywriting 19 + cro 18 + brand-strategy 19 + product-marketing 16 + ai-marketing 17 = 89 lessons). Em dash sweep: 89 files fixed. All 145 remaining lessons committed and pushed. All 15 categories now fully reviewed. |
 | 12 | 2026-06-14 | Launched 5 parallel workflows: Tone-down A (fundamentals/seo/paid-ads 60 lessons), Tone-down B (email/analytics/psychology 73 lessons), QnA A (fundamentals/seo/paid-ads/growth/social 97 lessons), QnA B (content/email/analytics/tools/psychology 110 lessons), QnA C (copywriting/cro/brand-strategy/product-marketing/ai-marketing 89 lessons). Interview Q and A sections being added to all 310 lessons. |
+| 13 | 2026-06-14 | Phase 7 features: interview-prep landing page, share buttons (LinkedIn/Twitter), cheat sheet cards, related lessons, PWA support, progress certificates, lesson bookmarks, SEO landing pages. Quiz generation for all 241 lessons queued as separate workflow. |
 | 13 | 2026-06-14 | 7 AM hard stop: committed all pending changes across all 15 categories, pushed to main. Tone-down pass complete on dense categories. All scheduled tasks have now run. Project fully up to date. |
 
 ---

@@ -764,6 +764,456 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     category: "SEO",
     relatedTerms: ["backlink", "anchor-text", "domain-authority", "content-cluster"],
   },
+
+  // SEO additions
+  {
+    term: "E-E-A-T",
+    slug: "eeat",
+    definition:
+      "Experience, Expertise, Authoritativeness, and Trustworthiness - the four qualities Google uses to evaluate content quality through its Search Quality Rater Guidelines. Added 'Experience' in 2022 to reward first-hand expertise. High E-E-A-T matters most in YMYL (your money or your life) topics like health, finance, and legal.",
+    category: "SEO",
+    relatedTerms: ["domain-authority", "backlink", "serp", "featured-snippet"],
+  },
+  {
+    term: "Canonical Tag",
+    slug: "canonical-tag",
+    definition:
+      "An HTML tag that tells search engines which version of a page is the 'original' when similar or duplicate content exists across multiple URLs. Prevents duplicate content from diluting your rankings. Commonly used on e-commerce sites where the same product appears under multiple filter URLs.",
+    category: "SEO",
+    relatedTerms: ["serp", "domain-authority", "backlink", "internal-linking"],
+  },
+  {
+    term: "Crawl Budget",
+    slug: "crawl-budget",
+    definition:
+      "The number of pages a search engine will crawl on your site within a given timeframe. Crawl budget is finite and can be wasted on low-value pages, pagination, and duplicate URLs. Large sites actively manage crawl budget by using robots.txt, canonical tags, and noindex directives.",
+    category: "SEO",
+    relatedTerms: ["serp", "canonical-tag", "internal-linking", "domain-authority"],
+  },
+  {
+    term: "Schema Markup",
+    slug: "schema-markup",
+    definition:
+      "Structured data added to a page's HTML using vocabulary from Schema.org that helps search engines understand the content's context. Schema can unlock rich results like star ratings, FAQs, recipes, and event listings in SERPs. It does not directly boost rankings but can significantly increase click-through rates.",
+    category: "SEO",
+    relatedTerms: ["serp", "featured-snippet", "ctr", "core-web-vitals"],
+  },
+  {
+    term: "Long-Tail Keywords",
+    slug: "long-tail-keywords",
+    definition:
+      "Search queries that are longer, more specific, and lower in search volume than head terms. For example, 'best email marketing tool for e-commerce under $50/month' is long-tail versus 'email marketing.' Long-tail keywords convert better because searchers have clearer intent, and competition is typically lower.",
+    category: "SEO",
+    relatedTerms: ["serp", "featured-snippet", "content-cluster", "zero-click"],
+  },
+  {
+    term: "PageRank",
+    slug: "pagerank",
+    definition:
+      "Google's original algorithm that scores pages based on the number and quality of links pointing to them, treating each link as a vote of confidence. PageRank still underlies Google's link evaluation but has been layered with hundreds of other signals. Internal links pass PageRank between pages on the same site.",
+    category: "SEO",
+    relatedTerms: ["backlink", "domain-authority", "internal-linking", "anchor-text"],
+  },
+  {
+    term: "LLMO",
+    slug: "llmo",
+    definition:
+      "Large Language Model Optimization - the practice of structuring content so that AI tools like ChatGPT, Claude, and Perplexity cite your brand or content in their responses. LLMO overlaps with traditional SEO but emphasizes concise, factual, quotable writing that AI summarizes well. Also called GEO (Generative Engine Optimization).",
+    category: "SEO",
+    relatedTerms: ["serp", "zero-click", "featured-snippet", "eeat"],
+  },
+
+  // Email additions
+  {
+    term: "CTOR",
+    slug: "ctor",
+    definition:
+      "Click-to-Open Rate - the percentage of people who opened your email and then clicked a link. CTOR = clicks divided by opens. It isolates email body performance from subject line performance, making it a cleaner engagement metric than click rate alone. Average CTOR across industries is around 10-15%.",
+    category: "Email",
+    relatedTerms: ["click-rate", "open-rate", "segmentation", "drip-campaign"],
+  },
+  {
+    term: "Hard Bounce",
+    slug: "hard-bounce",
+    definition:
+      "A permanent delivery failure when an email cannot reach its destination because the address does not exist, the domain is invalid, or the recipient's server has blocked your IP. Hard bounces should be removed from your list immediately. A bounce rate above 2% signals serious list hygiene problems.",
+    category: "Email",
+    relatedTerms: ["deliverability", "list-hygiene", "open-rate", "segmentation"],
+  },
+  {
+    term: "List Hygiene",
+    slug: "list-hygiene",
+    definition:
+      "The ongoing practice of keeping your email list clean by removing invalid addresses, hard bounces, long-term unengaged subscribers, and spam traps. Clean lists have higher deliverability and engagement rates. Re-engagement campaigns are the first step before removing cold subscribers.",
+    category: "Email",
+    relatedTerms: ["deliverability", "hard-bounce", "segmentation", "open-rate"],
+  },
+  {
+    term: "Double Opt-In",
+    slug: "double-opt-in",
+    definition:
+      "A subscription confirmation process where a new subscriber must click a confirmation link in a verification email before being added to your list. Double opt-in lists have lower raw subscriber counts but higher engagement and deliverability because every address is verified and intentional.",
+    category: "Email",
+    relatedTerms: ["list-hygiene", "deliverability", "segmentation", "welcome-series"],
+  },
+  {
+    term: "Send Time Optimization",
+    slug: "send-time-optimization",
+    definition:
+      "The practice of sending emails at the time each individual subscriber is most likely to open them, based on their past behavior. Tools like Klaviyo and Mailchimp offer STO as an automation feature. STO typically lifts open rates 5-10%. It only matters once the fundamentals of subject line and content are solid.",
+    category: "Email",
+    relatedTerms: ["open-rate", "segmentation", "drip-campaign", "ctor"],
+  },
+
+  // Content additions
+  {
+    term: "Pillar Page",
+    slug: "pillar-page",
+    definition:
+      "A long-form page that covers a broad topic comprehensively and links to multiple cluster pages that go deeper on subtopics. The pillar-cluster model builds topical authority with search engines. A well-executed pillar page often ranks for dozens of keyword variations beyond its primary target.",
+    category: "Content",
+    relatedTerms: ["content-cluster", "backlink", "domain-authority", "serp"],
+  },
+  {
+    term: "TOFU / MOFU / BOFU",
+    slug: "tofu-mofu-bofu",
+    definition:
+      "Top of Funnel, Middle of Funnel, Bottom of Funnel - a framework for matching content to buyer intent. TOFU content attracts awareness (blog posts, social). MOFU nurtures consideration (case studies, webinars). BOFU drives decisions (demos, pricing comparisons). Effective content strategies cover all three stages.",
+    category: "Content",
+    relatedTerms: ["funnel", "content-cluster", "lead-magnet", "drip-campaign"],
+  },
+  {
+    term: "UGC",
+    slug: "ugc",
+    definition:
+      "User Generated Content - any content created by customers or users about a brand, including reviews, social posts, unboxing videos, and forum discussions. UGC is highly trusted because it is perceived as unbiased. Brands that encourage and repurpose UGC reduce content costs while increasing social proof.",
+    category: "Content",
+    relatedTerms: ["social-proof", "personalization", "engagement-rate", "viral-coefficient"],
+  },
+  {
+    term: "Evergreen Content",
+    slug: "evergreen-content",
+    definition:
+      "Content that remains relevant and valuable long after publication, unlike news articles or trend pieces that decay quickly. Evergreen content compounds in value over time through continued search traffic and backlinks. Guides, tutorials, and definitional content ('what is X') are typical evergreen formats.",
+    category: "Content",
+    relatedTerms: ["pillar-page", "content-cluster", "backlink", "serp"],
+  },
+  {
+    term: "Content Repurposing",
+    slug: "content-repurposing",
+    definition:
+      "Taking existing content and adapting it for different formats or platforms. A long webinar becomes a blog post, a slide deck, short clips, and a newsletter digest. Repurposing multiplies distribution without proportional creation cost. The best repurposing adapts the format to the platform rather than just copying.",
+    category: "Content",
+    relatedTerms: ["pillar-page", "ugc", "engagement-rate", "content-cluster"],
+  },
+
+  // Paid Ads additions
+  {
+    term: "Performance Max",
+    slug: "performance-max",
+    definition:
+      "Google's campaign type that uses AI to serve ads across all Google channels including Search, Display, YouTube, Gmail, Maps, and Discover from a single campaign. PMAX requires minimal manual setup but needs strong creative assets and clear conversion goals. It replaced Smart Shopping campaigns in 2022.",
+    category: "Paid Ads",
+    relatedTerms: ["roas", "bidding-strategy", "quality-score", "creative-testing"],
+  },
+  {
+    term: "Creative Testing",
+    slug: "creative-testing",
+    definition:
+      "The systematic process of running multiple ad creative variants (different images, headlines, copy, hooks) against the same audience to identify what drives the best performance. At scale, creative is the primary variable that determines ad success. Meta and TikTok both recommend testing at least 3-5 creative variants per audience.",
+    category: "Paid Ads",
+    relatedTerms: ["ab-test", "roas", "ctr", "cpc"],
+  },
+  {
+    term: "Frequency Cap",
+    slug: "frequency-cap",
+    definition:
+      "A limit set on how many times a single user sees the same ad within a defined time period. Frequency caps prevent ad fatigue, which occurs when overexposure causes a user to tune out or develop negative associations with a brand. For brand campaigns, a frequency of 3-7 per week is a common starting point.",
+    category: "Paid Ads",
+    relatedTerms: ["impressions", "reach", "cpm", "remarketing"],
+  },
+  {
+    term: "Cost Per Lead",
+    slug: "cost-per-lead",
+    definition:
+      "The total ad spend divided by the number of leads generated in a campaign. CPL is the primary efficiency metric for B2B campaigns and lead generation businesses. CPL must be evaluated against lead quality: a low CPL with poor lead quality is worse than a high CPL with high-intent prospects.",
+    category: "Paid Ads",
+    relatedTerms: ["cac", "roas", "cpc", "ltv"],
+  },
+  {
+    term: "Audience Segments",
+    slug: "audience-segments",
+    definition:
+      "Groups of users defined by shared attributes used to target ads: demographics, interests, purchase intent, life events, or remarketing lists. Audience signals in Google and Meta campaigns tell the algorithm which users to prioritize. More specific segments improve relevance but reduce scale.",
+    category: "Paid Ads",
+    relatedTerms: ["lookalike-audience", "remarketing", "segmentation", "icp"],
+  },
+
+  // Brand (new category)
+  {
+    term: "Brand Identity",
+    slug: "brand-identity",
+    definition:
+      "The visual and verbal elements a company uses to express itself: logo, color palette, typography, imagery style, and voice. Brand identity is the outward expression of brand strategy. A strong identity is immediately recognizable across all touchpoints, from packaging to social media to job postings.",
+    category: "Brand",
+    relatedTerms: ["brand-equity", "tone-of-voice", "positioning", "visual-identity"],
+  },
+  {
+    term: "Brand Voice",
+    slug: "tone-of-voice",
+    definition:
+      "The consistent personality and style used in all written communication across channels. Brand voice answers: how would this brand speak if it were a person? Mailchimp's voice is friendly and plain-spoken. Apple's is minimal and aspirational. Consistency across writers requires a documented style guide.",
+    category: "Brand",
+    relatedTerms: ["brand-identity", "brand-equity", "copywriting-101", "positioning"],
+  },
+  {
+    term: "Brand Guidelines",
+    slug: "brand-guidelines",
+    definition:
+      "A documented set of rules governing how a brand is represented visually and verbally. Covers logo usage, colors, fonts, photography style, tone of voice, and what not to do. Guidelines exist to maintain consistency when many people create content across many channels. Also called a brand style guide.",
+    category: "Brand",
+    relatedTerms: ["brand-identity", "tone-of-voice", "visual-identity", "brand-equity"],
+  },
+  {
+    term: "Visual Identity",
+    slug: "visual-identity",
+    definition:
+      "The graphic design system that makes a brand recognizable: logo, colors, typography, icons, illustration style, and photography direction. Visual identity is a subset of brand identity. The strongest visual identities work without the logo: think of Coca-Cola's red or Tiffany's blue.",
+    category: "Brand",
+    relatedTerms: ["brand-identity", "brand-guidelines", "brand-equity", "positioning"],
+  },
+  {
+    term: "Rebranding",
+    slug: "rebranding",
+    definition:
+      "The process of changing a brand's visual identity, name, positioning, or all three. Rebrands range from a visual refresh (new logo) to a full repositioning (new name, new market). Most rebrands fail not in design but in communication: customers do not understand why anything changed.",
+    category: "Brand",
+    relatedTerms: ["brand-identity", "brand-equity", "positioning", "brand-guidelines"],
+  },
+  {
+    term: "Distinctive Assets",
+    slug: "distinctive-assets",
+    definition:
+      "The sensory cues - colors, shapes, sounds, characters - that consumers associate with a specific brand without needing to see the brand name. Byron Sharp's research shows distinctive assets drive brand salience and are built through consistent, long-term repetition rather than clever creativity alone.",
+    category: "Brand",
+    relatedTerms: ["brand-identity", "brand-equity", "visual-identity", "share-of-voice"],
+  },
+  {
+    term: "Brand Salience",
+    slug: "brand-salience",
+    definition:
+      "How readily a brand comes to mind when a customer is in a buying situation. Not just awareness but mental availability at the moment of purchase. Byron Sharp's 'How Brands Grow' argues that building broad brand salience through consistent, distinctive communication is the primary driver of long-term market share.",
+    category: "Brand",
+    relatedTerms: ["brand-equity", "distinctive-assets", "share-of-voice", "positioning"],
+  },
+
+  // Copywriting (new category)
+  {
+    term: "AIDA",
+    slug: "aida",
+    definition:
+      "Attention, Interest, Desire, Action - a four-stage copywriting framework describing how effective sales messages move a reader toward a decision. First formalized by E. St. Elmo Lewis in 1898. Still the most widely taught copywriting structure. Nearly every effective ad, email, or landing page follows some version of this arc.",
+    category: "Copywriting",
+    relatedTerms: ["pas", "usp", "headline", "cta"],
+  },
+  {
+    term: "PAS",
+    slug: "pas",
+    definition:
+      "Problem, Agitate, Solution - a copywriting framework that identifies a reader's pain, amplifies the emotional stakes of not solving it, then positions your product as the resolution. PAS works because it meets people where they are emotionally before selling. Used heavily in email, direct response ads, and landing pages.",
+    category: "Copywriting",
+    relatedTerms: ["aida", "usp", "headline", "loss-aversion"],
+  },
+  {
+    term: "USP",
+    slug: "usp",
+    definition:
+      "Unique Selling Proposition - the specific benefit that differentiates your product from all competitors and is compelling enough to make a buyer choose you. Coined by advertising legend Rosser Reeves. A strong USP is specific (not 'best quality'), provable, and impossible for a competitor to easily claim.",
+    category: "Copywriting",
+    relatedTerms: ["positioning", "value-proposition", "aida", "headline"],
+  },
+  {
+    term: "Headline",
+    slug: "headline",
+    definition:
+      "The first line of copy that a reader sees, responsible for determining whether they continue reading. Advertising research from David Ogilvy suggests 80% of readers never get past the headline. A headline must communicate a benefit, trigger curiosity, or target a specific reader. Copywriters often write 20+ headlines before choosing one.",
+    category: "Copywriting",
+    relatedTerms: ["aida", "usp", "hook", "cta"],
+  },
+  {
+    term: "Hook",
+    slug: "hook",
+    definition:
+      "The opening line or visual that stops a reader's scroll and makes them want to consume the rest of the content. Hooks are especially critical in short-form video and social media where competition for attention is highest. A strong hook creates a curiosity gap, makes a bold claim, or identifies a specific audience immediately.",
+    category: "Copywriting",
+    relatedTerms: ["headline", "aida", "ugc", "engagement-rate"],
+  },
+  {
+    term: "Copywriting",
+    slug: "copywriting-101",
+    definition:
+      "The craft of writing words designed to persuade people to take action - buy, sign up, click, share. Distinct from content writing (which primarily educates) in that every line of copy exists to move the reader toward a specific goal. Good copy sounds like a conversation, not a brochure.",
+    category: "Copywriting",
+    relatedTerms: ["aida", "pas", "usp", "cta"],
+  },
+  {
+    term: "FAB",
+    slug: "fab",
+    definition:
+      "Features, Advantages, Benefits - a copywriting framework for translating product capabilities into customer value. Features describe what a product has. Advantages explain what it does better than alternatives. Benefits describe the emotional or practical outcome for the buyer. Customers buy benefits, not features.",
+    category: "Copywriting",
+    relatedTerms: ["usp", "value-proposition", "aida", "landing-page"],
+  },
+  {
+    term: "Objection Handling",
+    slug: "objection-handling",
+    definition:
+      "Proactively addressing the reasons a prospect might not buy, directly in your copy. Common objections: price, trust, urgency, and relevance. Good copywriters surface objections through customer research and neutralize them before they become reasons to leave. FAQ sections and testimonials are classic objection-handling tools.",
+    category: "Copywriting",
+    relatedTerms: ["social-proof", "usp", "landing-page", "cta"],
+  },
+
+  // Social Media (new category)
+  {
+    term: "Algorithm",
+    slug: "algorithm",
+    definition:
+      "The ranking system a social platform uses to decide which content each user sees and in what order. Social algorithms optimize for engagement signals: likes, comments, shares, saves, and watch time. Understanding platform-specific signals is the foundation of organic social strategy. Algorithms change frequently.",
+    category: "Social Media",
+    relatedTerms: ["organic-reach", "engagement-rate", "ugc", "hook"],
+  },
+  {
+    term: "Organic Reach",
+    slug: "organic-reach",
+    definition:
+      "The number of unique people who see your content without paid promotion. Organic reach has declined significantly on most platforms over the past decade as feeds became more competitive and platforms monetized distribution. Instagram organic reach averages 5-20% of followers; Facebook can be under 5%.",
+    category: "Social Media",
+    relatedTerms: ["reach", "algorithm", "engagement-rate", "impressions"],
+  },
+  {
+    term: "Influencer Marketing",
+    slug: "influencer-marketing",
+    definition:
+      "Partnering with people who have established audiences to promote a product or service. Ranges from mega-influencers (millions of followers) to nano-influencers (1,000-10,000 followers). Nano and micro-influencers typically deliver higher engagement rates and more authentic recommendations despite smaller audiences.",
+    category: "Social Media",
+    relatedTerms: ["ugc", "organic-reach", "social-proof", "cac"],
+  },
+  {
+    term: "Content Pillars",
+    slug: "content-pillars",
+    definition:
+      "The 3-5 core themes that anchor all content a brand creates on social media. Content pillars ensure variety while staying on-brand. A SaaS company might use: product education, customer stories, industry insights, team culture, and thought leadership. Pillars prevent the trap of posting randomly with no strategic direction.",
+    category: "Social Media",
+    relatedTerms: ["algorithm", "engagement-rate", "ugc", "brand-identity"],
+  },
+  {
+    term: "Social Listening",
+    slug: "social-listening",
+    definition:
+      "Monitoring social platforms for mentions of your brand, competitors, and relevant keywords to understand what people are saying. Social listening surfaces emerging issues, competitor gaps, product feedback, and content opportunities in real time. Tools include Brandwatch, Sprout Social, and Mention.",
+    category: "Social Media",
+    relatedTerms: ["engagement-rate", "share-of-voice", "brand-equity", "ugc"],
+  },
+  {
+    term: "Creator Economy",
+    slug: "creator-economy",
+    definition:
+      "The ecosystem of independent content creators who monetize their audiences through brand deals, subscriptions, merchandise, and digital products. The creator economy exceeded $250 billion in 2024. Brands increasingly work directly with creators rather than traditional media because creator audiences are more trusted and engaged.",
+    category: "Social Media",
+    relatedTerms: ["influencer-marketing", "ugc", "organic-reach", "content-pillars"],
+  },
+  {
+    term: "Hashtag Strategy",
+    slug: "hashtag-strategy",
+    definition:
+      "The deliberate use of hashtags to increase content discoverability on platforms like Instagram and TikTok. Effective hashtag strategy combines niche-specific tags (high relevance, lower competition) with broader tags for reach. Using only popular hashtags means your content disappears instantly in fast-moving feeds.",
+    category: "Social Media",
+    relatedTerms: ["organic-reach", "algorithm", "engagement-rate", "impressions"],
+  },
+
+  // Growth / Strategy additions
+  {
+    term: "Product-Market Fit",
+    slug: "product-market-fit",
+    definition:
+      "The degree to which a product satisfies strong market demand. Sean Ellis's benchmark: a product has PMF if over 40% of users would be 'very disappointed' if it went away. PMF is not a single moment but a range - you can have PMF in one segment and not in another. Most startup failures are blamed on marketing but caused by missing PMF.",
+    category: "Growth",
+    relatedTerms: ["north-star-metric", "retention", "churn", "activation"],
+  },
+  {
+    term: "Flywheel",
+    slug: "flywheel",
+    definition:
+      "A growth model where each part of the system reinforces the next, building momentum over time. Jim Collins introduced the concept; Amazon popularized it in business strategy. Unlike funnels that run out, flywheels compound - more customers bring more sellers, which improves selection, which attracts more customers.",
+    category: "Growth",
+    relatedTerms: ["growth-loop", "viral-coefficient", "plg", "retention"],
+  },
+  {
+    term: "Jobs to Be Done",
+    slug: "jtbd",
+    definition:
+      "A framework that explains why customers 'hire' a product by focusing on the progress they want to make in a specific situation. Developed by Clayton Christensen. Customers do not buy a drill; they buy a hole. Understanding the job reshapes product development, messaging, and positioning to focus on outcomes rather than features.",
+    category: "Growth",
+    relatedTerms: ["icp", "product-market-fit", "value-proposition", "positioning"],
+  },
+  {
+    term: "Expansion Revenue",
+    slug: "expansion-revenue",
+    definition:
+      "Revenue generated from existing customers through upsells, cross-sells, and seat expansions. Net Revenue Retention (NRR) measures expansion minus churn. Best-in-class SaaS companies have NRR above 120%, meaning they grow revenue from the existing customer base even without new acquisitions.",
+    category: "Growth",
+    relatedTerms: ["mrr", "churn", "ltv", "nps"],
+  },
+  {
+    term: "Go-to-Market Strategy",
+    slug: "gtm",
+    definition:
+      "The plan for how a company will bring a product to market: who the target customer is, what the value proposition is, which channels will reach them, and how sales will close them. A GTM strategy answers the question 'how will we win in this market?' before spending on acquisition.",
+    category: "Strategy",
+    relatedTerms: ["icp", "positioning", "value-proposition", "plg"],
+  },
+  {
+    term: "Category Design",
+    slug: "category-design",
+    definition:
+      "The strategy of creating and dominating a new market category rather than competing in an existing one. Popularized by Al Ramadan and Christopher Lochhead. Category designers define the problem in a way that makes their solution obvious. Salesforce did not compete in 'CRM' - they created 'cloud CRM.'",
+    category: "Strategy",
+    relatedTerms: ["positioning", "brand-equity", "gtm", "value-proposition"],
+  },
+
+  // Analytics additions
+  {
+    term: "Incrementality",
+    slug: "incrementality-testing",
+    definition:
+      "A testing method that measures the true causal lift of a marketing activity by comparing a group exposed to it against a holdout group that was not. Incrementality testing answers: did our ad actually cause this purchase, or would the person have bought anyway? It is the gold standard for measuring ad effectiveness.",
+    category: "Analytics",
+    relatedTerms: ["mmm", "attribution", "ab-test", "roas"],
+  },
+  {
+    term: "First-Party Data",
+    slug: "first-party-data",
+    definition:
+      "Data collected directly from your own customers and users through your website, app, CRM, and email list. Unlike third-party data from brokers, first-party data is accurate, consented, and deprecation-proof. As third-party cookies disappear, first-party data has become the most valuable marketing asset a company owns.",
+    category: "Analytics",
+    relatedTerms: ["cdp", "utm", "attribution", "dark-social"],
+  },
+  {
+    term: "CDP",
+    slug: "cdp",
+    definition:
+      "Customer Data Platform - software that collects, unifies, and activates customer data from all touchpoints into a single customer profile. Unlike a CRM (sales-focused), a CDP serves marketing with behavioral, transactional, and engagement data. Segment and Rudderstack are leading CDP tools.",
+    category: "Analytics",
+    relatedTerms: ["first-party-data", "segmentation", "attribution", "personalization"],
+  },
+  {
+    term: "Cohort Retention",
+    slug: "cohort-retention",
+    definition:
+      "Tracking what percentage of a specific user group continues to be active over time, expressed as a retention curve. A retention curve that flattens is healthy - you are keeping a stable core. A curve that drops to zero means your product has no habit-forming value. Cohort retention is more diagnostic than aggregate retention.",
+    category: "Analytics",
+    relatedTerms: ["cohort", "retention", "churn", "dau"],
+  },
 ];
 
 export function getTermBySlug(slug: string): GlossaryTerm | undefined {

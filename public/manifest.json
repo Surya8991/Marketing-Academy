@@ -1,0 +1,19 @@
+{
+  "name": "Marketing Academy",
+  "short_name": "MktAcademy",
+  "description": "Learn digital marketing with 241 lessons across 15 categories",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#6366f1",
+  "icons": [
+    {
+      "src": "/next.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "business"],
+  "lang": "en"
+}
