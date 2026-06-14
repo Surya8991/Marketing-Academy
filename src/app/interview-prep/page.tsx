@@ -47,8 +47,22 @@ const hoverCSS = `
 export default function InterviewPrepPage() {
   const quizEntries = Object.entries(QUIZZES).slice(0, 12);
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+    />
     <style dangerouslySetInnerHTML={{ __html: hoverCSS }} />
     <main
       style={{

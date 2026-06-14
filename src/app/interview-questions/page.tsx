@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import CopyQuestionsButton from "./CopyQuestionsButton";
 
 export const metadata: Metadata = {
   title: "Digital Marketing Interview Questions 2026 | Marketing Academy",
@@ -360,8 +361,60 @@ const sections = [
 ];
 
 export default function InterviewQuestionsPage() {
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Walk me through the 4Ps framework and explain when it breaks down as a strategic tool.",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "The 4Ps - Product, Price, Place, Promotion - give a structured way to audit how a business delivers value to a market. The framework breaks down for service businesses and SaaS products because Place and Product blur together when delivery is digital and continuous.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is Jobs-to-be-Done theory and how does it change the way you define an Ideal Customer Profile?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Jobs-to-be-Done (JTBD) argues that customers do not buy products - they hire them to make progress in a specific situation. This reframes ICP definition away from demographic attributes and toward the triggering situation and desired outcome.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is Generative Engine Optimization (GEO) and how does it differ from traditional SEO?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "GEO is the practice of structuring content so it gets cited inside AI-generated answers from tools like Google AI Overviews, ChatGPT, and Perplexity. As of 2026, roughly 40-50% of Google searches return an AI Overview before any organic links.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is the difference between first-party and zero-party data, and why does the distinction matter in 2026?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "First-party data is behavioral data you collect by observing what users do on your own properties. Zero-party data is information users proactively share with you. With third-party cookies gone from Chrome as of 2025, both types have replaced behavioral audience targeting.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is keyword cannibalization in SEO and how do you fix it?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Keyword cannibalization occurs when two or more pages on the same site target the same keyword, splitting authority and confusing Google about which page to rank. Fix it by consolidating content into one authoritative page, using 301 redirects, or differentiating intent.",
+        },
+      },
+    ],
+  };
+
   return (
-    <main
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <main
       style={{
         maxWidth: "860px",
         margin: "0 auto",
@@ -396,6 +449,8 @@ export default function InterviewQuestionsPage() {
         questions that senior roles now use to separate strategic thinkers from
         channel operators.
       </p>
+
+      <CopyQuestionsButton />
 
       <nav
         style={{
@@ -700,5 +755,6 @@ export default function InterviewQuestionsPage() {
         </Link>
       </section>
     </main>
+    </>
   );
 }

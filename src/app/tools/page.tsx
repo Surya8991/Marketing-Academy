@@ -92,6 +92,29 @@ export default function ToolsPage() {
         />
       </section>
 
+      {/* Submit a tool */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div
+          className="flex flex-col sm:flex-row items-center justify-between gap-4 rounded-xl border border-[var(--border)] bg-[var(--card)] px-6 py-5"
+        >
+          <div>
+            <p className="font-semibold text-[var(--foreground)]">Know a tool we missed?</p>
+            <p className="text-sm text-[var(--muted-foreground)] mt-0.5">
+              We review every suggestion and add the best ones to the directory.
+            </p>
+          </div>
+          <a
+            id="submit-tool-link"
+            href="https://github.com/Surya8991/Marketing-Academy/issues/new?title=Tool+Suggestion&body=Tool+name:%0AURL:%0ACategory:%0AWhy+it+belongs+here:"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] font-medium text-sm hover:border-[var(--accent)] transition-colors"
+          >
+            + Submit a tool
+          </a>
+        </div>
+      </section>
+
       {/* Learn section */}
       <section className="border-t border-[var(--border)] bg-[var(--card)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 text-center">

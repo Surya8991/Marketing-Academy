@@ -222,6 +222,27 @@ export default function CertificatePage() {
         >
           Print Certificate
         </button>
+        <a
+          id="linkedin-share-cert-btn"
+          href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent("https://marketing-academy-roan.vercel.app/certificates/" + slug)}&title=${encodeURIComponent("I completed the " + track.title + " track on Marketing Academy!")}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            padding: "0.5rem 1.25rem",
+            background: "#0077b5",
+            color: "#fff",
+            border: "none",
+            borderRadius: "6px",
+            fontSize: "0.9rem",
+            fontWeight: 600,
+            textDecoration: "none",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.4rem",
+          }}
+        >
+          Share on LinkedIn
+        </a>
       </div>
 
       {/* Certificate */}
