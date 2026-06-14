@@ -4,28 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Bookmark, X } from "lucide-react";
 import { CATEGORIES } from "@/lib/curriculum";
-
-type BookmarkEntry = {
-  category: string;
-  slug: string;
-  title: string;
-};
-
-const STORAGE_KEY = "ma_bookmarks";
-
-function getBookmarks(): BookmarkEntry[] {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return [];
-    return JSON.parse(raw) as BookmarkEntry[];
-  } catch {
-    return [];
-  }
-}
-
-function saveBookmarks(entries: BookmarkEntry[]): void {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
-}
+import { BookmarkEntry, getBookmarks, saveBookmarks } from "@/lib/bookmarks";
 
 function getCategoryTitle(slug: string): string {
   const cat = CATEGORIES.find((c) => c.slug === slug);
@@ -52,15 +31,12 @@ export default function BookmarksList() {
   if (!mounted) return null;
 
   // Group by category, preserving order of first appearance
-  const grouped: { categorySlug: string; entries: BookmarkEntry[] }[] = [];
-  const seen = new Set<string>();
+  const groupMap = new Map<string, BookmarkEntry[]>();
   for (const b of bookmarks) {
-    if (!seen.has(b.category)) {
-      seen.add(b.category);
-      grouped.push({ categorySlug: b.category, entries: [] });
-    }
-    grouped.find((g) => g.categorySlug === b.category)!.entries.push(b);
+    if (!groupMap.has(b.category)) groupMap.set(b.category, []);
+    groupMap.get(b.category)!.push(b);
   }
+  const grouped = Array.from(groupMap.entries()).map(([categorySlug, entries]) => ({ categorySlug, entries }));
 
   if (bookmarks.length === 0) {
     return (
