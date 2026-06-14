@@ -137,19 +137,19 @@ Vercel files:
 
 Every push auto-deploys within ~60 seconds.
 
-### PHASE 7 - New Features 🔄 IN PROGRESS (Session 13)
+### PHASE 7 - New Features ✅ COMPLETE (Session 13-14)
 | Step | What | Status |
 |---|---|---|
-| 7.1 | Interview-prep landing page `/interview-prep` | 🔄 Building |
-| 7.2 | Share buttons (LinkedIn/Twitter) on each lesson | 🔄 Building |
-| 7.3 | Cheat sheet cards `/cheat-sheets/[category]` - printable per category | 🔄 Building |
-| 7.4 | TypeScript build check `npx tsc --noEmit` | 🔄 Verifying |
-| 7.5 | Related lessons "You might also like" on lesson page | 🔄 Building |
+| 7.1 | Interview prep SEO page `/interview-questions` | ✅ DONE + pushed |
+| 7.2 | Share buttons (LinkedIn/Twitter) on each lesson | ✅ ShareButtons.tsx wired into lesson page |
+| 7.3 | Cheat sheet `/digital-marketing-cheat-sheet` - printable | ✅ DONE + pushed |
+| 7.4 | TypeScript build check `npx tsc --noEmit` | ✅ 0 errors |
+| 7.5 | Related lessons "You might also like" on lesson page | ✅ RelatedLessons.tsx wired in |
 | 7.6 | More quizzes - extend from 20 to all 241 lessons | 🔴 Separate workflow needed |
-| 7.7 | PWA support - manifest.json + service worker | 🔄 Building |
-| 7.8 | Progress certificates - downloadable PDF per track | 🔄 Building |
-| 7.9 | Lesson bookmarks - save lessons beyond MarkComplete | 🔄 Building |
-| 7.10 | SEO landing pages - `/interview-questions`, `/digital-marketing-cheat-sheet` | 🔄 Building |
+| 7.7 | PWA support - manifest.json + service worker | ✅ public/manifest.json + public/sw.js + layout wired |
+| 7.8 | Progress certificates `/certificates/[slug]` | ✅ DONE + pushed |
+| 7.9 | Lesson bookmarks - save lessons beyond MarkComplete | ✅ BookmarkButton.tsx wired into lesson page |
+| 7.10 | Nav links: Interview Prep + Cheat Sheets | ✅ Added to desktop + mobile nav |
 
 ### PHASE 6 - Polish 🔄 PARTIALLY COMPLETE
 | Step | What | Status |
@@ -160,12 +160,13 @@ Every push auto-deploys within ~60 seconds.
 | 6.4 | RSS feed `/feed.xml` | ✅ `src/app/feed.xml/route.ts` with auto-discovery link in layout |
 | 6.5 | Reading time per lesson | ✅ Server-side raw MDX word count, shown next to level badge |
 | 6.6 | Search filter chips | ✅ Category + level filter chips added to /search (AND logic, result count shown) |
-| 6.7 | Glossary route `/glossary/[slug]` | ✅ 80+ terms, A-Z index, client search, individual term pages |
+| 6.7 | Glossary route `/glossary/[slug]` | ✅ 148 terms, 13 categories (Brand/Copywriting/Social added), A-Z index + search |
 | 6.8 | Lesson quiz/assessment | ✅ Quiz.tsx global component, questions for 20 lessons in quizzes.ts, shown on lesson pages |
-| 6.9 | Learning tracks (B2B / E-commerce / Solo / AI-first) | ✅ /tracks overview + /tracks/[slug] detail pages, TrackCard on homepage |
+| 6.9 | Learning tracks | ✅ 7 tracks total: B2B, E-commerce, Solo, AI-First, Content Creator, Social Media Manager, Data-Driven |
 | 6.10 | Newsletter signup | ✅ NewsletterSignup.tsx in Footer + /api/newsletter route (TODO: connect email service) |
 | 6.11 | Multilingual resources (Hindi/Tamil/Telugu) | ✅ Added in all lessons via review workflows |
-| 6.12 | Content readability pass | 🔄 PARTIAL - batch 1 DONE + pushed: fundamentals (16), seo (20), paid-ads (18), psychology (4), email (6), analytics (7), cro (partial), content (partial), social (partial). Remaining: growth, copywriting, brand-strategy, product-marketing, ai-marketing (after review workflows finish). |
+| 6.12 | Content readability pass | 🔄 PARTIAL - batch 1 DONE + pushed: fundamentals (16), seo (20), paid-ads (18), psychology (4), email (6), analytics (7), cro (partial), content (partial), social (partial). Tone-down pass (all 241 lessons) still pending. |
+| 6.13 | Footer restructure | ✅ 4-col layout: brand+quick-links, topics col 1, topics col 2, learn-by-role (all 7 tracks) |
 
 ---
 
