@@ -244,3 +244,13 @@ Lessons must feel like a smart friend explaining something, not a textbook.
 - **End each section with momentum** - a short line that makes the reader want to continue.
 - **Define jargon immediately** when introduced. Never use a term before explaining it.
 - Goal: reader feels curious and confident after each section, not exhausted.
+
+### Rule 21 — Interview answer strings use `\n\n` for paragraph breaks
+Interview Q&A answers in `src/lib/interview-questions.ts` use the literal 4-character escape sequence `\n\n` as a paragraph separator inside the `a:` string field. The renderer in `src/app/interview-questions/[category]/page.tsx` splits on `\n\n` at runtime to render each paragraph as a `<p>` tag.
+
+When adding new Q&As, write multi-paragraph answers as:
+```ts
+a: "First paragraph here.\n\nSecond paragraph here.\n\nThird paragraph if needed.",
+```
+
+Do NOT use actual newline characters inside the string — only the literal `\n\n` escape sequence. Do NOT instruct an LLM agent to insert `\n\n` paragraph breaks into TypeScript source: agents produce real newline characters (JSON `\n`), not the 4-char literal. Use a Python script with `r'\n\n'` as the joiner if bulk-splitting answers.

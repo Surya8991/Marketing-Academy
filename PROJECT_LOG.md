@@ -335,7 +335,7 @@ Prioritized by user value and effort. Items are independent - pick any in any or
 | `/glossary/[slug]` | `src/app/glossary/[slug]/page.tsx` | Individual term pages |
 | `/bookmarks` | `src/app/bookmarks/page.tsx` | Bookmarked lessons (localStorage) |
 | `/interview-prep` | `src/app/interview-prep/page.tsx` | Interview prep hub: categories + sample Q&A |
-| `/interview-questions` | `src/app/interview-questions/page.tsx` | 15-category card grid (redesigned Session 27) |
+| `/interview-questions` | `src/app/interview-questions/page.tsx` | 16-category card grid (redesigned Session 27, expanded Session 28) |
 | `/interview-questions/[category]` | `src/app/interview-questions/[category]/page.tsx` | Per-category accordion Q&A page with prev/next nav (new Session 27) |
 | `/cheat-sheets` | `src/app/cheat-sheets/page.tsx` | Cheat sheet index: all 15 categories |
 | `/cheat-sheets/[category]` | `src/app/cheat-sheets/[category]/page.tsx` | Printable per-category cheat sheet |
