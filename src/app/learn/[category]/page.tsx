@@ -1,10 +1,29 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import fs from "fs";
+import path from "path";
 import { CATEGORIES, getCategory } from "@/lib/curriculum";
 import LevelBadge from "@/components/LevelBadge";
 import CategoryProgress from "@/components/CategoryProgress";
-import { ArrowRight, ChevronLeft } from "lucide-react";
+import { ArrowRight, ChevronLeft, Clock } from "lucide-react";
 import type { Metadata } from "next";
+
+function lessonReadTime(categorySlug: string, lessonSlug: string): number {
+  try {
+    const raw = fs.readFileSync(
+      path.join(process.cwd(), "src", "content", categorySlug, `${lessonSlug}.mdx`),
+      "utf-8"
+    );
+    const text = raw
+      .replace(/```[\s\S]*?```/g, "")
+      .replace(/export const \w+ = \{[\s\S]*?\};/g, "")
+      .replace(/<[^>]+>/g, " ");
+    const words = text.split(/\s+/).filter(Boolean).length;
+    return Math.max(1, Math.ceil(words / 200));
+  } catch {
+    return 5;
+  }
+}
 
 type Props = { params: Promise<{ category: string }> };
 
@@ -99,9 +118,13 @@ export default async function CategoryPage({ params }: Props) {
                     <h3 className="font-semibold text-base mb-1 group-hover:text-[var(--accent)] transition-colors">
                       {lesson.title}
                     </h3>
-                    <p className="text-sm text-[var(--muted-foreground)] line-clamp-2 leading-relaxed">
+                    <p className="text-sm text-[var(--muted-foreground)] line-clamp-2 leading-relaxed mb-2">
                       {lesson.summary}
                     </p>
+                    <span className="inline-flex items-center gap-1 text-xs text-[var(--muted-foreground)]">
+                      <Clock size={11} />
+                      {lessonReadTime(cat.slug, lesson.slug)} min
+                    </span>
                   </div>
                   <ArrowRight
                     size={16}

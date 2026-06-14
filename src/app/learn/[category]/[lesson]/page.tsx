@@ -40,6 +40,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       title,
       description,
+      alternates: {
+        canonical: `${BASE}/learn/${category}/${lesson}`,
+      },
       openGraph: {
         title,
         description,
@@ -92,8 +95,36 @@ export default async function LessonPage({ params }: Props) {
 
   const { prev, next } = getLessonNav(category, lesson);
 
+  const articleLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: lessonMeta?.title ?? lesson,
+    description: lessonMeta?.summary ?? "",
+    url: `${BASE}/learn/${category}/${lesson}`,
+    author: { "@type": "Organization", name: "Marketing Academy", url: BASE },
+    publisher: { "@type": "Organization", name: "Marketing Academy", url: BASE },
+    educationalLevel: lessonMeta?.level ?? "",
+    about: cat.title,
+    inLanguage: "en",
+    isPartOf: { "@type": "Course", name: cat.title, url: `${BASE}/learn/${category}` },
+  };
+
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+      { "@type": "ListItem", position: 2, name: "All Topics", item: `${BASE}/learn` },
+      { "@type": "ListItem", position: 3, name: cat.title, item: `${BASE}/learn/${category}` },
+      { "@type": "ListItem", position: 4, name: lessonMeta?.title ?? lesson, item: `${BASE}/learn/${category}/${lesson}` },
+    ],
+  };
+
   return (
     <>
+      {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <ReadingProgress />
       <LessonViewTracker
         categorySlug={category}
@@ -164,6 +195,24 @@ export default async function LessonPage({ params }: Props) {
             <article className="prose prose-slate max-w-none">
               <LessonContent />
             </article>
+
+            {/* Up Next CTA */}
+            {next && (
+              <div className="mt-10 p-5 rounded-2xl border border-[var(--accent)]/40 bg-[var(--accent)]/5">
+                <p className="text-xs font-semibold text-[var(--accent)] uppercase tracking-wider mb-2">
+                  Up Next
+                </p>
+                <Link
+                  href={`/learn/${next.categorySlug}/${next.slug}`}
+                  className="group flex items-center justify-between gap-4"
+                >
+                  <span className="font-semibold text-base group-hover:text-[var(--accent)] transition-colors">
+                    {next.title}
+                  </span>
+                  <ChevronRight size={20} className="shrink-0 text-[var(--accent)]" />
+                </Link>
+              </div>
+            )}
 
             {/* Quiz */}
             {(() => {

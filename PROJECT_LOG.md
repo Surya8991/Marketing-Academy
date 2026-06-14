@@ -458,18 +458,18 @@ Full review by 5 personas (CMO, Junior Marketer, SEO Specialist, UX Designer, Fr
 
 **Top 10 Cross-Persona Priorities:**
 
-| Priority | Finding | Personas | Effort |
-|----------|---------|---------|--------|
-| 1 | Fix robots.ts sitemap URL mismatch (hardcoded domain vs. env variable) | SEO | Low |
-| 2 | Wire Learning Track cards to actual track/lesson pages (cards currently non-clickable) | UX, Junior | Low |
-| 3 | Add "Next Lesson" CTA at bottom of every lesson page | UX, Junior, CMO | Low |
-| 4 | Add JSON-LD structured data to lesson pages (Article/Course schema) | SEO | Medium |
-| 5 | Add canonical tags to paginated or duplicate-content pages | SEO | Low |
-| 6 | Add open graph image for individual lesson pages (currently only root OG image) | CMO, SEO | Medium |
-| 7 | Add estimated reading time to lesson cards on category pages | UX, Junior | Low |
-| 8 | Make search results show lesson summary/excerpt (currently just title + category) | UX, Freelance | Low |
-| 9 | Add a "Mark All Complete" option in track pages | Junior, Freelance | Low |
-| 10 | Add breadcrumb JSON-LD to lesson pages for Google rich results | SEO | Low |
+| Priority | Finding | Personas | Effort | Status |
+|----------|---------|---------|--------|--------|
+| 1 | Fix robots.ts sitemap URL mismatch (hardcoded domain vs. env variable) | SEO | Low | DONE |
+| 2 | Wire Learning Track cards to actual track/lesson pages (cards currently non-clickable) | UX, Junior | Low | DONE (was already wired) |
+| 3 | Add "Next Lesson" CTA at bottom of every lesson page | UX, Junior, CMO | Low | DONE |
+| 4 | Add JSON-LD structured data to lesson pages (Article/Course schema) | SEO | Medium | DONE |
+| 5 | Add canonical tags to paginated or duplicate-content pages | SEO | Low | DONE |
+| 6 | Add open graph image for individual lesson pages (currently only root OG image) | CMO, SEO | Medium | DONE (OG image API already generates per-lesson image) |
+| 7 | Add estimated reading time to lesson cards on category pages | UX, Junior | Low | DONE |
+| 8 | Make search results show lesson summary/excerpt (currently just title + category) | UX, Freelance | Low | DONE (was already showing summary) |
+| 9 | Add a "Mark All Complete" option in track pages | Junior, Freelance | Low | DONE |
+| 10 | Add breadcrumb JSON-LD to lesson pages for Google rich results | SEO | Low | DONE |
 
 **Per-Persona Full Notes:**
 
@@ -506,6 +506,7 @@ Full review by 5 personas (CMO, Junior Marketer, SEO Specialist, UX Designer, Fr
 | 15 | 2026-06-14 | 7:25am wrap-up. Added Tools nav link (desktop + mobile) to Nav.tsx wiring up the /tools directory page. Comma-fix + em dash sweep ran clean (0 MDX files needed changes). All committed + pushed. |
 | 16 | 2026-06-14 | Quick wins: SurpriseMeButton, LessonViewTracker + RecentlyViewed, TrackProgress, ShareButtons copy-link, "/" keyboard shortcut. SVG favicon (src/app/icon.svg + public/icon.svg). Nav: SVG logo, Bookmark link, fixed Cheat Sheets href, removed Browse. Footer: restructured to Learn/Resources/Topics columns with SVG logo. Content audit (5 stale lessons) + 5-persona review backlog logged to Phase 11. |
 | 17 | 2026-06-14 | Digital Marketing Cheat Sheet 2025 full rewrite: 7 sections (added AI/GEO and Social Media Benchmarks), updated all metrics/benchmarks to 2025 data, added Blended ROAS + NPS + MER metrics, INP replaces FID note, GEO/zero-click section, Performance Max + Advantage+ + incrementality + signal loss paid ads entries, Apple MPP email impact note, 7-platform social media benchmark table. |
+| 18 | 2026-06-14 | Phase 11 fixes: robots.ts sitemap URL mismatch fixed (both now marketing-academy-roan.vercel.app). Lesson pages: JSON-LD Article + BreadcrumbList schema, canonical tags. Prominent "Up Next" CTA card after article content. Reading time on category lesson cards (computed from MDX file at build time). "Mark all complete" button in TrackLessonList. |
 
 ---
 

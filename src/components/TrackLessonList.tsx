@@ -15,6 +15,16 @@ export default function TrackLessonList({ track }: { track: Track }) {
     setCompleted(getCompleted());
   }, []);
 
+  const markAll = () => {
+    const next = new Set(completed);
+    track.lessons.forEach((l) => {
+      const id = lessonId(l.category, l.slug);
+      markComplete(id);
+      next.add(id);
+    });
+    setCompleted(next);
+  };
+
   const toggle = (category: string, slug: string) => {
     const id = lessonId(category, slug);
     const next = new Set(completed);
@@ -50,11 +60,23 @@ export default function TrackLessonList({ track }: { track: Track }) {
             style={{ width: mounted ? `${pct}%` : "0%" }}
           />
         </div>
-        {mounted && pct === 100 && (
-          <p className="text-sm text-emerald-600 font-medium mt-3">
-            Track complete. Well done.
-          </p>
-        )}
+        <div className="flex items-center justify-between mt-3">
+          {mounted && pct === 100 ? (
+            <p className="text-sm font-medium" style={{ color: "rgb(22 163 74)" }}>
+              Track complete. Well done.
+            </p>
+          ) : (
+            <span />
+          )}
+          {mounted && pct < 100 && (
+            <button
+              onClick={markAll}
+              className="text-xs text-[var(--muted-foreground)] hover:text-[var(--foreground)] underline underline-offset-2 transition-colors cursor-pointer"
+            >
+              Mark all complete
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Lesson list */}
