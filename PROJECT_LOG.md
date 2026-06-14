@@ -56,7 +56,7 @@
 
 ## Order of Execution
 
-> Status: Phase 1 ✅ → Phase 2 ✅ → Phase 3 ✅ → Phase 4 ✅ → Phase 5 ✅ live → Phase 6 ✅ → Phase 7 ✅ → Phase 8 ✅ → Phase 9 ✅ → Phase 10 ✅ → Phase 11 ✅ → Phase 12 🔴 next (backlog)
+> Status: Phase 1 ✅ → Phase 2 ✅ → Phase 3 ✅ → Phase 4 ✅ → Phase 5 ✅ live → Phase 6 ✅ → Phase 7 ✅ → Phase 8 ✅ → Phase 9 ✅ → Phase 10 ✅ → Phase 11 ✅ → Phase 12 ✅
 
 ### PHASE 1 - Infrastructure ✅ COMPLETE
 Next.js 16.2.9 App Router + Tailwind v4 + @next/mdx + Mermaid + fuse.js. All deps installed.
@@ -134,7 +134,7 @@ Every push auto-deploys within ~60 seconds.
 | 7.3 | Cheat sheets `/cheat-sheets/[category]` | ✅ printable per-category cards + print CSS |
 | 7.4 | TypeScript build verified | ✅ 0 errors |
 | 7.5 | Related lessons | ✅ RelatedLessons.tsx wired into every lesson page |
-| 7.6 | More quizzes (all 241 lessons) | 🔴 Separate workflow needed - see Phase 8 |
+| 7.6 | More quizzes (all 257 lessons) | ✅ COMPLETE (Phase 10) |
 | 7.7 | PWA support | ✅ manifest.json + sw.js + layout wired (manifest link + SW registration) |
 | 7.8 | Progress certificates `/certificates/[slug]` | ✅ printable certificate per track |
 | 7.9 | Lesson bookmarks | ✅ BookmarkButton.tsx wired into every lesson page + /bookmarks page |
@@ -294,7 +294,7 @@ Prioritized by user value and effort. Items are independent - pick any in any or
 
 | # | Area | What | Why |
 |---|------|------|-----|
-| 6 | Content | Update 5 stale lessons from Phase 11 audit (flywheel, voice-and-tone, value-proposition, core-web-vitals, customer-journey) | Outdated stats erode trust; all 5 have specific replacements already logged in Phase 11 |
+| 6 | Content | Update 5 stale lessons from Phase 11 audit (flywheel, voice-and-tone, value-proposition, core-web-vitals, customer-journey) | Outdated stats erode trust; all 5 have specific replacements already logged in Phase 11 | DONE |
 | 7 | UX | Add sticky "Mark Complete" button at bottom of lesson content | Current button is at the top - most users never scroll back up; completion rates suffer | DONE |
 | 8 | UX | Show Beginner/Intermediate/Advanced lesson counts on category page header | Users cannot tell if a category is beginner-heavy or advanced before clicking in | DONE |
 | 9 | UX | Add "Recommended Next" prompt when a lesson is marked complete | Dead end after completion - no nudge to continue the streak | DONE |
