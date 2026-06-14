@@ -1,0 +1,738 @@
+{
+  "product-marketing/pmm-101": [
+    {
+      "question": "How does the role of a Product Marketing Manager (PMM) primarily differ from that of a Product Manager (PM)?",
+      "options": [
+        "A PM owns the product roadmap and features, whereas a PMM owns the market-facing story, positioning, and go-to-market plan around that roadmap.",
+        "A PM works exclusively with software engineers, whereas a PMM works exclusively with the sales team to build lead generation campaigns.",
+        "A PM is responsible for pricing and packaging, while a PMM is responsible for building the product and writing the code.",
+        "A PM focuses on customer acquisition cost (CAC) and customer success, while a PMM focuses on the release notes and user documentation."
+      ],
+      "correct": 0,
+      "explanation": "The primary distinction is that Product Managers (PMs) focus on what goes on the product roadmap and how it is built, while Product Marketing Managers (PMMs) translate those features into customer value, owning the positioning, messaging, and go-to-market execution."
+    },
+    {
+      "question": "According to April Dunford's framework, which of the following is the correct definition of positioning?",
+      "options": [
+        "An external tagline or landing page headline designed to grab customer attention.",
+        "A product launch campaign timeline that coordinates engineering, PR, and support.",
+        "An internal strategic definition of how a product is the best at something that a defined market cares a lot about.",
+        "A competitive comparison table used on public-facing pricing pages to highlight features."
+      ],
+      "correct": 2,
+      "explanation": "Positioning is an internal strategic foundation, not an external slogan or campaign. It defines how a product uniquely solves problems for a specific target audience relative to the alternatives, serving as the basis for all marketing and sales messaging."
+    },
+    {
+      "question": "During the 5-stage PMM cycle, what is the primary purpose of a 'battle card' created in the Enablement stage?",
+      "options": [
+        "To outline the release tiers and engineering roadmap for the next two quarters.",
+        "To compare your product's strengths and competitor weaknesses for sales reps to reference during live calls.",
+        "To serve as a public-facing comparison sheet for customers evaluating multiple vendors.",
+        "To map out customer support tickets and user onboarding steps after a launch."
+      ],
+      "correct": 1,
+      "explanation": "A battle card is an internal enablement tool for sales reps and SDRs. It equips them with key product strengths, competitor weaknesses, objection handling scripts, and landmines to plant during active sales conversations."
+    },
+    {
+      "question": "Why is writing positioning from an internal product brief without customer research considered a major PMM mistake?",
+      "options": [
+        "It results in 'inside-out' messaging that relies on internal terminology and jargon that customers do not use.",
+        "It prevents the product team from shipping new features on the scheduled launch date.",
+        "It makes it impossible for the sales team to calculate the customer lifetime value (LTV).",
+        "It violates search engine optimization guidelines, leading to a drop in organic traffic."
+      ],
+      "correct": 0,
+      "explanation": "Without customer interviews, positioning is built entirely on the product team's internal perspectives, resulting in technical jargon and feature-heavy language rather than customer-centric benefits and value propositions."
+    }
+  ],
+  "product-marketing/pmm-vs-marketing": [
+    {
+      "question": "Which of the following best contrasts the primary focus of General Marketing with that of Product Marketing?",
+      "options": [
+        "General marketing handles organic search engine optimization, while product marketing focuses exclusively on paid advertising campaigns.",
+        "General marketing focuses on building broad brand awareness and filling the top of the funnel, while product marketing focuses on positioning, conversion, and enabling sales.",
+        "General marketing works only with external agencies and creative teams, while product marketing works only with engineering teams.",
+        "General marketing is measured by customer churn and LTV, while product marketing is measured by impressions and website visitors."
+      ],
+      "correct": 1,
+      "explanation": "General marketing drives awareness and top-of-funnel pipeline (bringing people to the door). Product marketing focuses on positioning, translating product value to buyer segments, and enabling the commercial team (making sure the door is labeled correctly and visitors understand what is inside)."
+    },
+    {
+      "question": "According to Segment8's 2025 research, which of the following areas has seen the fastest growth in ownership by PMM teams?",
+      "options": [
+        "Paid social media ads and search engine marketing (SEM)",
+        "Customer onboarding, pricing packaging, and post-sale expansion messaging",
+        "Front-end engineering, database architecture, and API documentation",
+        "Event management, trade show sponsorships, and PR campaigns"
+      ],
+      "correct": 1,
+      "explanation": "As go-to-market models become more complex, PMM scopes have expanded beyond launch and positioning. PMMs are increasingly owning customer onboarding (rising to 37.5% in 2025), pricing packaging, and post-sale expansion messaging to improve retention and value realization."
+    },
+    {
+      "question": "How does Stripe's Terminal launch illustrate a successful Product Marketing strategy?",
+      "options": [
+        "By using a single generic message for all potential users to simplify ad campaigns.",
+        "By focusing its marketing budget entirely on organic SEO rather than sales outreach.",
+        "By crafting distinct messaging tracks for developers (SDK depth) and business owners (unified reporting), alongside separate competitor battlecards for sales.",
+        "By acquiring physical retail stores to demo the product in person to consumers."
+      ],
+      "correct": 2,
+      "explanation": "Stripe's PMM team segmented their messaging based on the audience. Developers received details on SDK integration and documentation, while business owners received messages about reliability and unified reporting. Sales reps received battlecards targeting legacy POS competitors."
+    },
+    {
+      "question": "What is a key risk of a PMM treating all competitors equally during competitive intelligence mapping?",
+      "options": [
+        "It results in high advertising costs because paid campaigns must target all competitors.",
+        "It violates anti-trust regulations by focusing too much on market share.",
+        "It wastes PMM capacity by failing to tier competitive threats, preventing deep focus on the most critical threats.",
+        "It causes the product team to pause the development of new features."
+      ],
+      "correct": 2,
+      "explanation": "Treating all competitors equally wastes resources. Effective competitive intelligence requires tiering: primary threats receive full battlecards, secondary threats get brief overviews, and emerging threats are simply monitored."
+    }
+  ],
+  "product-marketing/icp": [
+    {
+      "question": "What is the key difference between an Ideal Customer Profile (ICP) and a Buyer Persona?",
+      "options": [
+        "An ICP describes the target organization or account, while a buyer persona describes the individual human buyer inside that organization.",
+        "An ICP is used by the marketing team, while buyer personas are used exclusively by the customer support team.",
+        "An ICP is a temporary hypothesis for early-stage startups, while buyer personas are permanent templates.",
+        "An ICP focuses on consumer demographics, while a buyer persona focuses on commercial business models."
+      ],
+      "correct": 0,
+      "explanation": "The ICP defines the organizational attributes of your target account (firmographics, technographics, behavioral triggers), whereas buyer personas represent the specific roles, titles, and emotional drivers of individuals within that account who make the purchase decision."
+    },
+    {
+      "question": "Which of the following represents a 'technographic' signal in an Ideal Customer Profile?",
+      "options": [
+        "A company having between 100 and 500 employees.",
+        "A company using HubSpot CRM, Segment, and Salesforce.",
+        "A company hiring three senior operations managers in a month.",
+        "A company seeking to reduce reporting manual hours from 20 to 2 hours per week."
+      ],
+      "correct": 1,
+      "explanation": "Technographics refer to the technologies, software, and tools a company uses in its operations. This helps determine if they have the necessary tech stack to integrate with and get value from your product."
+    },
+    {
+      "question": "Why does research suggest B2B companies should refresh their ICP quarterly rather than annually?",
+      "options": [
+        "It satisfies audit requirements for venture capital investors.",
+        "It leads to 20 to 35 percent better conversion rates on outbound campaigns by keeping targeting aligned with product shifts and market dynamics.",
+        "It allows companies to change their pricing model every 90 days.",
+        "It reduces the size of the total addressable market (TAM) to zero."
+      ],
+      "correct": 1,
+      "explanation": "Markets, products, and customer needs shift quickly. Data shows that quarterly refreshes align targeting with these changes, improving conversion rates by preventing outbound campaigns from chasing stale or misaligned accounts."
+    },
+    {
+      "question": "What is the danger of building an Ideal Customer Profile (ICP) using data from your entire customer base instead of just your top customers?",
+      "options": [
+        "It causes the customer acquisition cost (CAC) to drop too quickly.",
+        "It averages out the signal, combining high-value accounts with low-value, high-churn accounts, resulting in a diluted target profile.",
+        "It prevents the sales team from using CRM tools for prospecting.",
+        "It leads to a product roadmap that is focused too much on a single feature."
+      ],
+      "correct": 1,
+      "explanation": "Building an ICP using all customers averages out the data. To capture the characteristics of high-value, high-retaining accounts, companies must focus specifically on their top 20% of accounts by revenue, LTV, or customer health."
+    }
+  ],
+  "product-marketing/positioning-doc": [
+    {
+      "question": "In April Dunford's positioning framework, why is the order of the five steps (Competitive Alternatives first, Market Category last) critical?",
+      "options": [
+        "It ensures that the marketing team writes the taglines before the product features are built.",
+        "Each step depends on the preceding one; you cannot define your unique value or target customer without first knowing what alternatives the customer is comparing you against.",
+        "It is required by industry-standard templates like Miro and Gainsight to pass verification.",
+        "It forces the team to identify their pricing strategy before doing customer interviews."
+      ],
+      "correct": 1,
+      "explanation": "The components are sequential. Your unique attributes are only meaningful relative to the competitive alternatives. Your value is downstream of your unique attributes. Your target customer is who cares most about that value, and the market category is the frame that makes that value self-evident."
+    },
+    {
+      "question": "Which of the following is considered a 'Competitive Alternative' in a positioning exercise?",
+      "options": [
+        "Only direct software competitors that offer the exact same feature set.",
+        "Anything the customer would do if your product did not exist, including manual spreadsheets, hiring a person, or doing nothing.",
+        "A future product roadmap feature that has not been built yet.",
+        "The internal code repository of your software application."
+      ],
+      "correct": 1,
+      "explanation": "Competitive alternatives must reflect reality. A customer might choose to use Excel, hire an intern, or simply live with the pain. Your unique attributes must be measured against what they would actually do, not just direct software rivals."
+    },
+    {
+      "question": "What is the primary difference between a product attribute (feature) and its value in a positioning document?",
+      "options": [
+        "Attributes are written by marketing, while value is written by sales.",
+        "Attributes are external taglines, while value is the internal description.",
+        "An attribute is a technical fact or capability, whereas value is the business outcome or benefit that the customer experiences as a result of that attribute.",
+        "An attribute is only for B2B customers, while value is only for B2C customers."
+      ],
+      "correct": 2,
+      "explanation": "Buyers buy outcomes, not specs. An attribute might be '10x faster file processing,' but the value is 'your team finishes work on Friday instead of waiting until Monday.' Positioning must translate features (attributes) into benefits (value)."
+    },
+    {
+      "question": "What is the distinction between a 'product category' and a 'market category'?",
+      "options": [
+        "Product category is what the engineers build, while market category is the mental frame chosen to guide how the buyer evaluates and understands the product.",
+        "Product category is for hardware, while market category is for software.",
+        "Product category is used by sales, while market category is used by product support.",
+        "Product category has a fixed price, while market category has a dynamic price."
+      ],
+      "correct": 0,
+      "explanation": "Product category describes the physical or technical classification of the tool. Market category is a strategic choice of the context you set for the buyer. The market category determines who you are compared against, what evaluation checklist they use, and what price range is expected."
+    }
+  ],
+  "product-marketing/messaging-hierarchy": [
+    {
+      "question": "In a structured messaging hierarchy, what is Level 1 (the Brand Promise) meant to communicate?",
+      "options": [
+        "A technical specification of the product's core machine learning algorithms.",
+        "A single sentence describing the fundamental transformation the product creates in a customer's life or work.",
+        "A detailed list of direct competitors and how the product's pricing compares to them.",
+        "A breakdown of active customer support channels and SLA response times."
+      ],
+      "correct": 1,
+      "explanation": "The Level 1 Brand Promise sits at the top of the messaging hierarchy. It is a single, clear statement of the ultimate outcome or transformation the product delivers, serving as the foundation for the value pillars and proof points below it."
+    },
+    {
+      "question": "Why is having a structured messaging hierarchy critical for multi-channel product marketing?",
+      "options": [
+        "It prevents search engines from indexing duplicate content across channels.",
+        "It allows different teams (sales, marketing, product) to invent their own unique product terminology independently.",
+        "It ensures that prospects receive consistent, reinforcing messages across all touchpoints, building trust and helping the message stick.",
+        "It automatically generates social media copy using pre-defined templates without human oversight."
+      ],
+      "correct": 2,
+      "explanation": "Research shows that buyers need multiple exposures to the same message before it registers. A messaging hierarchy keeps all channels (ads, email, sales, website) aligned around the same core value pillars, preventing fragmented communication from resetting the prospect's memory."
+    },
+    {
+      "question": "What is the primary role of 'Level 3 - Proof Points' in a messaging hierarchy?",
+      "options": [
+        "To provide specific, verifiable facts, statistics, or customer outcomes that validate the Level 2 Value Pillars.",
+        "To list the target demographics and firmographics of the Ideal Customer Profile.",
+        "To write the actual headlines and taglines used on paid social media ads.",
+        "To document the software release notes and bug fixes for the development team."
+      ],
+      "correct": 0,
+      "explanation": "Proof points are the evidence layer of the hierarchy. They support your value pillars with concrete, quantifiable, and verifiable facts (e.g., 'Users send 32% fewer emails after adopting Slack') to build credibility with the buyer."
+    },
+    {
+      "question": "According to Capital One Shopping's 2024 brand consistency report, what is a key business outcome of consistent messaging?",
+      "options": [
+        "A decrease in the budget required for engineering and product development.",
+        "An increase in organic search engine keyword volume by over 200 percent.",
+        "High customer loyalty and a willingness from 87 percent of consumers to pay a premium for consistent brands.",
+        "An automatic reduction in the tax rate for technology companies."
+      ],
+      "correct": 2,
+      "explanation": "Consistency builds trust, which translates directly to pricing power and customer retention. The report found that 87% of consumers are willing to pay a premium for brands with consistent messaging, and 79% report higher brand loyalty."
+    }
+  ],
+  "product-marketing/competitive-intel": [
+    {
+      "question": "Which of the following is the most accurate definition of Competitive Intelligence (CI)?",
+      "options": [
+        "The legal and ethical process of gathering, processing, and activating public signals about competitors to guide strategic decisions.",
+        "The secret acquisition of competitor source code and internal employee databases.",
+        "A quarterly PDF report containing standard SWOT analyses that is archived for reference.",
+        "A defensive process of copying every feature a competitor launches to maintain parity."
+      ],
+      "correct": 0,
+      "explanation": "Competitive intelligence is a continuous, ethical system that relies entirely on publicly available sources (such as reviews, job postings, website updates, and customer interviews) to deliver actionable insights to GTM and product teams."
+    },
+    {
+      "question": "Based on Crayon's 2025 State of CI Report, what was the impact of delivering competitive battlecard intel to a sales rep within 27 minutes of a competitor mention?",
+      "options": [
+        "It caused the sales cycle length to increase by 50 percent.",
+        "It lifted deal win rates from 32 percent to 67 percent.",
+        "It had no measurable effect on the outcome of the sales deal.",
+        "It led to a drop in customer satisfaction scores (CSAT)."
+      ],
+      "correct": 1,
+      "explanation": "Timing is critical. Providing reps with competitor battlecard insights immediately when a competitor is mentioned in an active deal more than doubled win rates, highlighting the value of real-time intelligence delivery."
+    },
+    {
+      "question": "How can a product marketer use competitor job postings as a high-value 'signal source'?",
+      "options": [
+        "To recruit competitor employees to join their own company's sales department.",
+        "To identify upcoming shifts in the competitor's product roadmap, such as hiring AI specialists indicating a planned AI features launch.",
+        "To calculate the competitor's exact customer acquisition cost (CAC).",
+        "To determine the competitor's average customer renewal rate."
+      ],
+      "correct": 1,
+      "explanation": "Job postings reveal internal investment priorities. If a competitor suddenly posts multiple roles for a specific specialty (like machine learning or infrastructure), it is a reliable leading indicator of their product roadmap focus months before a public launch."
+    },
+    {
+      "question": "What is a common pitfall of a Competitive Intelligence team focusing on building a 'library' rather than a 'system'?",
+      "options": [
+        "The library becomes too large for cloud storage limits.",
+        "The team produces static, one-time reports that quickly become dangerously stale as competitors move.",
+        "Reps ignore the reports because they are not formatted as slideshows.",
+        "It violates public copyright laws by saving competitor pricing pages."
+      ],
+      "correct": 1,
+      "explanation": "A 'library' approach focuses on producing static, periodic reports (like a quarterly PDF). Because competitors update pricing and features continuously, these reports are quickly outdated. CI must be a living system with scheduled update cadences and real-time alerts."
+    }
+  ],
+  "product-marketing/customer-interviews": [
+    {
+      "question": "Why are customer interviews considered essential for product marketers, according to Clozd's 2025 research?",
+      "options": [
+        "CRM closed-lost reasons are inaccurate 85 percent of the time, making direct interviews the only reliable way to uncover why deals are won or lost.",
+        "Interviews can replace the need for the product team to write software code.",
+        "They are the only research method that is legally allowed under GDPR guidelines.",
+        "They allow marketing teams to sell additional add-on products during the call."
+      ],
+      "correct": 0,
+      "explanation": "Relying on CRM dropdown reasons (like 'pricing' or 'missing feature' entered by reps) is highly inaccurate. Customer interviews bypass rep bias and polite excuses, revealing the true drivers behind buying decisions."
+    },
+    {
+      "question": "What is a key difference between a 'Win interview' and a 'Loss interview' in terms of recruiting and setup?",
+      "options": [
+        "Win interviews must be run by sales reps, while loss interviews must be run by the CEO.",
+        "Win interviews can rely on warm introductions and relationship value, while loss interviews should offer small incentives and be run by neutral interviewers.",
+        "Win interviews are conducted 6 months after sale, while loss interviews occur before the sales cycle ends.",
+        "Win interviews focus on pricing, while loss interviews focus on product engineering specs."
+      ],
+      "correct": 1,
+      "explanation": "Prospects who chose a competitor (losses) have no incentive to talk to you and will not share honest objections with the sales rep who lost the deal. Offering a small incentive and using a neutral interviewer (like a PMM or researcher) ensures high response rates and objective feedback."
+    },
+    {
+      "question": "How did Clearbit utilize customer interviews to improve gross retention by 10% in two quarters?",
+      "options": [
+        "By offering discounts to all customers who agreed to participate in a research study.",
+        "By identifying that churned customers prioritized data freshness over breadth of coverage, leading to updated onboarding and messaging.",
+        "By transitioning from a software product to a manual consulting service model.",
+        "By targeting only prospects who had never heard of their brand."
+      ],
+      "correct": 1,
+      "explanation": "Through structured interviews, Clearbit found a mismatch: their positioning promoted breadth of coverage, but churned users left because of data freshness issues. Aligning onboarding and messaging around freshness directly resolved this and increased retention."
+    },
+    {
+      "question": "When conducting win-loss interviews, why should you avoid asking closed or leading questions like 'Did you choose the competitor because their pricing was lower?'",
+      "options": [
+        "Closed questions require too much time for the transcription software to process.",
+        "Leading questions confirm your existing assumptions rather than surfacing the true, unprompted reasons behind the customer's decision.",
+        "They violate standard research agreements and lead to legal liability.",
+        "They cause the participant to request a higher gift card incentive."
+      ],
+      "correct": 1,
+      "explanation": "Leading questions guide the participant toward a pre-determined answer. Open-ended questions (such as 'How did you evaluate pricing across the options?') encourage the buyer to explain their actual decision criteria in their own words."
+    }
+  ],
+  "product-marketing/launches": [
+    {
+      "question": "What is the core principle of the launch tier framework (Tier 0 through Tier 3)?",
+      "options": [
+        "Launch effort and investment must match the engineering complexity of the product feature.",
+        "All product releases must receive the same amount of marketing budget and PR outreach.",
+        "Launch tiers align marketing investment and effort with the strategic and commercial market impact of the release.",
+        "Tiers are determined based on the size of the engineering team that built the feature."
+      ],
+      "correct": 2,
+      "explanation": "The launch tier framework prevents burnout and maximizes impact by matching resources (budget, channels, time) to strategic impact (e.g., changes purchase decisions, opens new markets) rather than engineering hours or ad-hoc requests."
+    },
+    {
+      "question": "Which of the following characteristics best describes a 'Tier 0' release?",
+      "options": [
+        "A company-defining product launch requiring a 12-week runway and CEO alignment.",
+        "Minor updates like bug fixes and UI improvements that ship without a marketing campaign, representing the majority of product changes.",
+        "A mid-level feature launch that requires segment-specific email campaigns and battlecards.",
+        "A product launch that fails to generate any revenue within the first 90 days."
+      ],
+      "correct": 1,
+      "explanation": "Tier 0 releases (or 'Ship and Note') represent 60-80% of all product changes. They include routine improvements, fixes, or tweaks that are documented in release notes or changelogs without requiring active promotional campaigns."
+    },
+    {
+      "question": "Under the launch tier framework, how should a product marketer evaluate whether a new feature qualifies as a Tier 3 (Company-Defining) launch?",
+      "options": [
+        "By checking if the feature took more than six months of engineering time to develop.",
+        "By assessing strategic questions such as whether it shifts competitive positioning, opens new addressable markets, or creates new revenue opportunities.",
+        "By verifying if a competitor has already launched the same feature.",
+        "By measuring if it will generate at least 50 million impressions on social media."
+      ],
+      "correct": 1,
+      "explanation": "Tier assignment is driven by strategic impact. A feature qualifies for a Tier 3 launch if it scores highly on key questions: does it change purchase decisions, expand the market, shift positioning, create new revenue, or require major market education?"
+    },
+    {
+      "question": "Why is treating launch day as the finish line considered a major mistake in go-to-market planning?",
+      "options": [
+        "It prevents the engineering team from starting on the next sprint.",
+        "According to Gartner, 80 percent of launches require significant post-launch changes due to market dynamics, requiring a planned post-launch campaign.",
+        "It violates search engine guidelines and reduces organic traffic immediately after launch.",
+        "It causes the product's price to automatically drop by 25 percent."
+      ],
+      "correct": 1,
+      "explanation": "Launch day is not the end goal -- it is the start of market adoption. Post-launch activities like enabling sales, gathering early user feedback, amplifying PR wins, and running retargeting campaigns are what actually drive adoption and revenue. Stopping at launch leaves the majority of GTM value on the table."
+    }
+  ],
+  "product-marketing/sales-enablement": [
+    {
+      "question": "According to Spekit's 2025 benchmarks, what is the impact of having a formal sales enablement program on forecasted deal win rates?",
+      "options": [
+        "It reduces win rates by 5 percent because reps spend too much time reading materials.",
+        "It achieves a 49 percent win rate compared to 42.5 percent for organizations without one.",
+        "It keeps win rates flat but decreases overall customer acquisition cost.",
+        "It increases win rates to exactly 95 percent across all industries."
+      ],
+      "correct": 1,
+      "explanation": "A formal enablement program provides reps with the right insights and training at the right time, leading to a 6.5-point increase in win rates (49% vs. 42.5%) compared to organizations without structured enablement."
+    },
+    {
+      "question": "What is a key requirement for competitor battlecards in 2025 to ensure they are fully activated in the modern GTM workflow?",
+      "options": [
+        "They must be printed on paper and distributed physically to the sales floor.",
+        "They must contain at least 15 pages of deep product engineering comparisons.",
+        "They must be AI-ready so they can be parsed and surfaced by internal enablement bots during live sales calls.",
+        "They must be made public on the company website to improve SEO."
+      ],
+      "correct": 2,
+      "explanation": "With 90% of organizations adopting AI in their GTM processes, modern battlecards must be designed modularly and made AI-ready. This structure allows AI enablement assistants to pull and surface specific competitor responses instantly during active conversations."
+    },
+    {
+      "question": "Which of the following describes the correct order of the four phases in the sales enablement lifecycle?",
+      "options": [
+        "Create, Deliver, Measure, and Discover",
+        "Discover, Create, Deliver, and Measure",
+        "Deliver, Measure, Create, and Discover",
+        "Discover, Deliver, Measure, and Create"
+      ],
+      "correct": 1,
+      "explanation": "The sales enablement playbook must start with discovery (identifying needs via call reviews/interviews), followed by asset creation (decks, battlecards), delivery (live training, role-play), and measurement (usage, win rates) to create a feedback loop."
+    },
+    {
+      "question": "What is a common delivery mistake product marketers make after creating new sales enablement assets?",
+      "options": [
+        "Only distributing the files via a Slack message link instead of running live walk-throughs and role-play sessions.",
+        "Requiring reps to sign a non-disclosure agreement before reading the guides.",
+        "Running too many onboarding training sessions during active sales hours.",
+        "Allowing reps to customize the templates for their individual deals."
+      ],
+      "correct": 0,
+      "explanation": "Dropping a PDF or doc link in a Slack channel rarely leads to adoption. Effective enablement requires interactive delivery, such as live walk-throughs and role-play sessions, so reps can practice objection handling before using it with buyers."
+    }
+  ],
+  "product-marketing/beta-programs": [
+    {
+      "question": "How does a well-run beta program serve as a marketing engine, rather than just a quality assurance (QA) test?",
+      "options": [
+        "By charging testers double the normal subscription price to create exclusivity.",
+        "By utilizing early access to build a warm, invested community of advocates who provide testimonials, reviews, and social proof before the public launch.",
+        "By automating paid search campaigns to target the email addresses of the testers.",
+        "By hiring external QA firms to write code reviews on the product."
+      ],
+      "correct": 1,
+      "explanation": "While QA focuses on finding bugs, marketing-led beta programs leverage early access to turn testers into brand advocates. This generates essential social proof (testimonials, case studies, reviews) that simplifies customer acquisition at public launch."
+    },
+    {
+      "question": "According to research by Rajiv Gopinath, what is the impact of a strategically designed beta program on product launch adoption?",
+      "options": [
+        "It results in a 28 percent higher adoption rate at launch.",
+        "It leads to a 50 percent reduction in product pricing.",
+        "It has no measurable effect on adoption but increases support tickets.",
+        "It reduces the sales cycle length by exactly 90 days."
+      ],
+      "correct": 0,
+      "explanation": "Seeding the market with early users who help refine the product and spread word-of-mouth recommendations leads to a 28% higher adoption rate at launch and 34% stronger customer retention in the first year."
+    },
+    {
+      "question": "Why is it recommended to recruit beta testers based on ICP fit rather than just general enthusiasm?",
+      "options": [
+        "Enthusiastic testers require higher monetary incentives to participate.",
+        "Testing with users inside your target customer profile yields relevant feedback and creates referenceable case studies that match your future buyers.",
+        "Users outside your ICP are legally barred from signing beta non-disclosure agreements.",
+        "ICP-aligned testers are less likely to report bugs to the engineering team."
+      ],
+      "correct": 1,
+      "explanation": "Recruiting testers who match your Ideal Customer Profile (ICP) ensures that the feedback you collect reflects the needs of your target market, and the resulting testimonials will directly resonate with similar prospects during the launch."
+    },
+    {
+      "question": "What is the primary action a product marketer should take during the final phase (Convert to Advocates) of a beta program?",
+      "options": [
+        "Shut down the beta environment and delete all tester user accounts immediately.",
+        "Collect testimonials, write case studies, request public reviews, and offer exclusive early-adopter conversion rates to testers.",
+        "Launch a paid ad campaign targeting the competitors of the beta participants.",
+        "Ask the engineering team to rewrite the product's codebase based on bug reports."
+      ],
+      "correct": 1,
+      "explanation": "The end of a beta is a high-leverage marketing opportunity. Marketers should capitalize on the testers' positive experiences by collecting quotes, draft case studies, asking for G2/Product Hunt reviews, and offering exclusive pricing to convert them into paying customers."
+    }
+  ],
+  "product-marketing/win-loss-analysis": [
+    {
+      "question": "According to 2025 research from Anova Consulting and Klue, why is relying on CRM dropdown reasons for lost deals a mistake?",
+      "options": [
+        "CRM platforms do not support exporting loss data to spreadsheet formats.",
+        "About 60 percent of sellers are wrong about why they lost, and 85 percent of CRM loss reasons are inaccurate.",
+        "Using CRM data violates privacy compliance guidelines under GDPR.",
+        "Reps do not have access to the dropdown options in standard CRM setups."
+      ],
+      "correct": 1,
+      "explanation": "Sales reps often enter guess-based, polite, or least-embarrassing options (like 'pricing' or 'missing feature') in CRM fields. Direct win-loss buyer interviews bypass this rep bias and uncover the true decision drivers."
+    },
+    {
+      "question": "What is the recommended limit of the 'contact window' for interviewing buyers after a deal closes?",
+      "options": [
+        "Within 90 days, because buyer recall degrades significantly after this period and they begin to reframe the decision story.",
+        "Between 6 and 12 months, to give the customer time to evaluate the competitor's software.",
+        "Only during the active sales cycle before a decision is finalized.",
+        "Exactly one year after the contract start date."
+      ],
+      "correct": 0,
+      "explanation": "Memory accuracy degrades quickly. After 90 days (60 days is ideal), buyers reframe their decision rationale to fit the outcome. Interviewing them within this window ensures you capture the actual decision process rather than a post-hoc rationalization."
+    },
+    {
+      "question": "Why do third-party interviewers or neutral internal team members yield better results than the account executives who worked the deal?",
+      "options": [
+        "They are more familiar with the product's technical roadmap.",
+        "They can offer immediate discounts to win back the customer during the interview.",
+        "Buyers soften feedback or give polite excuses to avoid awkwardness with the rep who sold to them.",
+        "They are cheaper to hire than full-time sales representatives."
+      ],
+      "correct": 2,
+      "explanation": "Buyers are unlikely to share critical feedback or mention sales execution errors to the face of the rep they rejected. A neutral interviewer provides a safe space for the buyer to give honest, candid responses."
+    },
+    {
+      "question": "If a win-loss program is run for two or more years, what is the average win-rate improvement reported by companies according to Clozd?",
+      "options": [
+        "Win rates remain completely flat but customer satisfaction improves.",
+        "Companies see an 84 percent win-rate improvement rate, demonstrating the compounding value of the program.",
+        "Win rates drop by 10 percent due to changes in competitive pricing.",
+        "Win rates double every single quarter."
+      ],
+      "correct": 1,
+      "explanation": "Win-loss programs compound in value. Companies running them for 2+ years reported an 84% win-rate improvement (compared to 63% for first-year programs) because each cohort of interviews adds context that makes strategic and enablement responses more precise."
+    }
+  ],
+  "product-marketing/pricing-packaging": [
+    {
+      "question": "What is a 'value metric' in pricing and packaging design?",
+      "options": [
+        "The total cost of the server infrastructure required to host a customer account.",
+        "The unit of consumption or feature limit that scales directly with the customer's success and usage.",
+        "The discount percentage offered to customers who purchase annual subscriptions.",
+        "The comparison metric used on review websites like G2 to rank products."
+      ],
+      "correct": 1,
+      "explanation": "A value metric aligns the cost of the software to the value the customer receives (e.g., HubSpot charging per marketing contact, Figma per editor). Aligned value metrics drive natural expansion revenue and reduce churn."
+    },
+    {
+      "question": "According to the 2025 Monetizely SaaS Pricing Benchmark Study, which model has become the industry default?",
+      "options": [
+        "Cost-plus pricing, used by 90 percent of software platforms.",
+        "Value-based pricing, used by 78 percent of SaaS companies.",
+        "Flat-rate pricing with no usage or seat limits.",
+        "Free-only pricing models funded by display ads."
+      ],
+      "correct": 1,
+      "explanation": "Value-based pricing bases the product price on the customer's perception of value and willingness to pay rather than internal costs or competitor averages. 78% of SaaS companies now use it as their primary pricing model."
+    },
+    {
+      "question": "What is a potential danger of feature-gating core capabilities in your lowest or free pricing tier?",
+      "options": [
+        "It causes the product's transaction fees to increase automatically.",
+        "It creates high churn risk because customers cannot experience the core value of the product before deciding to upgrade.",
+        "It violates standard open-source software license agreements.",
+        "It causes search engine optimization rankings to drop."
+      ],
+      "correct": 1,
+      "explanation": "Tiers should gate features that amplify success, not features that enable it. Gating core features required for basic value realization frustrates users and leads to high churn before they have the opportunity to upgrade."
+    },
+    {
+      "question": "According to Hotjar's 2025 analysis, how can companies optimize their pricing page presentation to maximize conversions?",
+      "options": [
+        "By listing every single product feature in detail on each plan card to show value.",
+        "By highlighting the recommended plan, defaulting to annual billing, using social proof, and reducing cognitive load.",
+        "By hiding the actual price points and requiring a contact form for all tiers.",
+        "By changing the pricing structure daily based on user behavior."
+      ],
+      "correct": 1,
+      "explanation": "Optimizing a pricing page for conversions means reducing cognitive overload. Highlighting a recommended plan guides users, defaulting to annual billing improves LTV, and social proof (logos, testimonials) reduces hesitation at the decision moment."
+    }
+  ],
+  "product-marketing/category-creation": [
+    {
+      "question": "According to Al Ramadan and the authors of 'Play Bigger', what percentage of total category market value is captured by the category king?",
+      "options": [
+        "Exactly 50 percent, with the rest split evenly among competitors.",
+        "Approximately 76 percent of total market capitalization, leaving 24 percent for all other competitors combined.",
+        "Only 10 to 20 percent, as competition drives high market fragmentation.",
+        "Exactly 100 percent, because category design creates a permanent monopoly."
+      ],
+      "correct": 1,
+      "explanation": "The book 'Play Bigger' analyzed hundreds of technology companies and found that 'category kings' (the company that defines and dominates the category) capture roughly 76% of total market value, highlighting the massive reward of category ownership."
+    },
+    {
+      "question": "Which of the following is a primary diagnostic test for identifying a viable new market category?",
+      "options": [
+        "Determining if you can charge half the price of the closest competitor.",
+        "Checking if the product has at least 50 distinct feature updates on the roadmap.",
+        "Assessing if prospects recognize and nod along to an unnamed problem that existing categories fail to describe or solve.",
+        "Confirming that your competitors are unable to write a tagline."
+      ],
+      "correct": 2,
+      "explanation": "A true category is born from a real, unnamed problem. When you describe the problem and prospects immediately nod and agree they have no internal language to discuss it, you have found a viable category white space."
+    },
+    {
+      "question": "Why should a Point of View (POV) document in category creation be published openly rather than gated behind a lead-generation form?",
+      "options": [
+        "Gated forms increase web page loading speeds and hurt user experience.",
+        "Gating forms is prohibited under standard software copyright laws.",
+        "A POV is an educational manifesto meant to shape the market's vocabulary, and gating it limits its reach and adoption.",
+        "Open documents automatically receive higher paid advertising conversion rates."
+      ],
+      "correct": 2,
+      "explanation": "A Point of View is designed to educate the market and establish your company's vocabulary as the industry standard. Gating it behind a lead-gen form treats it as a sales asset, limiting its ability to travel by word of mouth and shape user perspectives."
+    },
+    {
+      "question": "What is a key difference between measuring category design success versus traditional product marketing success?",
+      "options": [
+        "Category design is measured by share of mind (e.g., category search volume and vocabulary adoption) rather than just traditional share of wallet.",
+        "Category design is measured exclusively by click-through rates on search engine ads.",
+        "Category design does not use any metrics or quantitative tracking.",
+        "Category design is measured by the number of bug fixes shipped by the engineering team."
+      ],
+      "correct": 0,
+      "explanation": "Traditional marketing focuses on capturing share of an existing market (share of wallet). Category design focuses on defining the market itself, meaning success is measured by share of mind: branded search volume for the category term, job posting language, and competitor adoption of your vocabulary."
+    }
+  ],
+  "product-marketing/pmm-org-models": [
+    {
+      "question": "In the centralized product marketing model, what is the primary benefit and risk trade-off?",
+      "options": [
+        "It achieves high launch speed but suffers from high customer acquisition cost (CAC).",
+        "It delivers strong brand and messaging consistency across products but PMMs can become spread thin and disconnected from the product roadmap.",
+        "It requires the highest headcount but is the easiest to implement in multi-product organizations.",
+        "It eliminates the need for product managers but increases engineering timelines."
+      ],
+      "correct": 1,
+      "explanation": "A centralized model keeps reporting under one GTM head, ensuring consistent positioning and single launch processes. However, PMMs must context-switch frequently and can look slow or disconnected to individual product teams."
+    },
+    {
+      "question": "Why does the embedded PMM model often result in higher attrition or slower career growth for product marketers if not properly managed?",
+      "options": [
+        "Embedded PMMs are required to write software code and debug applications.",
+        "Embedded PMMs report to product leaders and lack access to PMM mentorship, craft development, and promotion advocacy.",
+        "It limits PMMs to working only with external creative design agencies.",
+        "It forces PMMs to change their target customer profile every sprint."
+      ],
+      "correct": 1,
+      "explanation": "In a purely embedded model, PMMs sit within product squads and report directly to product managers or business unit leads. Without a central PMM guild or manager, they lose out on marketing-specific mentorship and career progression support."
+    },
+    {
+      "question": "How does Atlassian successfully run its hybrid product marketing organization at scale?",
+      "options": [
+        "By centralizing all marketing personnel under the CEO and removing product-level marketers.",
+        "By utilizing a central team for GTM playbooks and positioning standards, while embedded PMMs manage day-to-day execution for specific product lines.",
+        "By outsourcing all competitive intelligence and sales enablement work to third-party agencies.",
+        "By changing their org model every quarter to match product launch schedules."
+      ],
+      "correct": 1,
+      "explanation": "Atlassian's hybrid model balances brand consistency and product context. A central team sets the standard playbooks and tracks competitive intelligence, while embedded product-line PMMs align closely with product squads, reporting dotted-line back to central PMM leaders."
+    },
+    {
+      "question": "What is a critical first step to take before restructuring your product marketing team's reporting lines?",
+      "options": [
+        "Calculate the exact lifetime value of your customer segments.",
+        "Publish a public press release announcing the reorganization.",
+        "Define role boundaries and document a RACI matrix to clarify what PMM owns versus product management and demand gen.",
+        "Audit the software licenses of your sales enablement platforms."
+      ],
+      "correct": 2,
+      "explanation": "Reorganization without clear scope ownership is just theatre. According to Pragmatic Institute research, unclear role boundaries are the top source of PMM frustration. Clarifying what PMM owns vs. PM or demand gen must happen before changing reporting structures."
+    }
+  ],
+  "product-marketing/analyst-relations": [
+    {
+      "question": "How does Analyst Relations (AR) primarily differ from Public Relations (PR) in product marketing?",
+      "options": [
+        "PR is handled by the product team, while AR is handled exclusively by sales reps.",
+        "PR targets the general public and journalists to build awareness, whereas AR targets a small group of industry researchers whose reports directly influence buyer shortlists.",
+        "PR focuses on paid advertising campaigns, while AR focuses on search engine optimization.",
+        "PR has hard deadlines for submission, while AR operates on a daily ad-hoc basis."
+      ],
+      "correct": 1,
+      "explanation": "PR seeks broad media exposure and public awareness. AR focuses specifically on industry analysts (such as Gartner and Forrester) who advise enterprise buyers, write vendor shortlists, and directly shape procurement decisions."
+    },
+    {
+      "question": "According to Gartner and Forrester data, what percentage of enterprise technology purchase decisions are influenced by industry analysts?",
+      "options": [
+        "Under 10 percent, as buyers rely primarily on word-of-mouth.",
+        "Between 60 and 70 percent, making AR a high-leverage B2B investment.",
+        "Exactly 100 percent, because buyers are contractually obligated to follow analyst recommendations.",
+        "Exactly 25 percent, matching the conversion rate of cold emails."
+      ],
+      "correct": 1,
+      "explanation": "Analysts hold immense influence in enterprise deals, shaping 60% to 70% of purchase decisions. Favorable placement in reports like the Magic Quadrant or Wave is often required to even make a shortlist at large companies."
+    },
+    {
+      "question": "Why is booking regular quarterly briefings with key analysts more effective than only engaging during evaluation windows?",
+      "options": [
+        "Quarterly briefings are free, while evaluation briefings require paid subscriptions.",
+        "It builds a trusted relationship and ensures the analyst has accurate, year-round context about your product momentum before formal evaluations begin.",
+        "It allows companies to change their pricing model every 90 days.",
+        "It automatically secures a 'Leader' placement in the next Magic Quadrant."
+      ],
+      "correct": 1,
+      "explanation": "Relationships built consistently over 12-18 months yield better results. Showing up only during evaluation season looks transactional, whereas quarterly updates ensure the analyst is fully aware of your traction and product updates beforehand."
+    },
+    {
+      "question": "What is a common mistake PMMs make when preparing presentation decks for analyst briefings?",
+      "options": [
+        "Including product roadmaps and customer case studies.",
+        "Sending high-level marketing pitches instead of technical substance, architecture diagrams, and honest customer references.",
+        "Booking briefings without a paid subscription to the analyst firm.",
+        "Limiting the presentation to exactly 20 minutes with time for questions."
+      ],
+      "correct": 1,
+      "explanation": "Analysts are sophisticated researchers who speak with many buyers and vendors. They ignore surface-level marketing fluff. To build credibility, briefings must focus on product architecture, raw data, differentiators, and real customer reference outcomes."
+    }
+  ],
+  "product-marketing/customer-advisory-board": [
+    {
+      "question": "What is the primary role of a Customer Advisory Board (CAB)?",
+      "options": [
+        "To serve as a focus group for testing software user interfaces before release.",
+        "To establish a structured, ongoing conversation with a group of strategic customers to advise on product strategy and roadmap priorities.",
+        "To provide a high-pressure environment for sales reps to upsell existing accounts.",
+        "To automate the customer support ticket resolution process."
+      ],
+      "correct": 1,
+      "explanation": "A CAB is a strategic, advisory group of 8-15 senior customers. They meet periodically to offer feedback on company direction, product roadmap priorities, and market shifts, helping align product decisions with customer value."
+    },
+    {
+      "question": "According to Gartner's 2025 research, what is a key business outcome for companies that run structured CABs?",
+      "options": [
+        "A 41 percent higher Customer Lifetime Value (CLV).",
+        "An automatic 50 percent reduction in engineering budgets.",
+        "An increase in website traffic by over 200 percent.",
+        "A decrease in the time required to onboard new sales hires."
+      ],
+      "correct": 0,
+      "explanation": "By aligning product strategy with the needs of high-value accounts, companies with structured CABs build deeper relationships and see higher CLV (41% increase) and lower churn (68% decrease) among board members."
+    },
+    {
+      "question": "In the 5-5-5 recruitment framework for a CAB, what are the three customer segments you should target?",
+      "options": [
+        "Free users, churned users, and competitive trial users.",
+        "Power Users, Strategic Buyers, and Adjacent Thinkers.",
+        "Sales representatives, product managers, and marketing executives.",
+        "Loud complainers, silent users, and new signups."
+      ],
+      "correct": 1,
+      "explanation": "To get balanced feedback, a CAB should include Power Users (who know daily edge cases), Strategic Buyers (who control budget and decisions), and Adjacent Thinkers (who bring outside roles or industry perspectives)."
+    },
+    {
+      "question": "What is the single most critical step to take within 60 to 90 days after a CAB meeting to prevent member disengagement?",
+      "options": [
+        "Send members a survey asking for feedback on the meeting venue.",
+        "Close the feedback loop by showing members what actions you are taking, and explicitly what you are not taking (and why), in response to their feedback.",
+        "Charge members a membership fee to remain on the board.",
+        "Schedule an emergency product launch event for all members."
+      ],
+      "correct": 1,
+      "explanation": "CAB members are busy executives who want to know their time was valuable. If they do not see their feedback visibly evaluated and acted on (or explained why it wasn't) within 60 days, they will stop attending future meetings."
+    }
+  ]
+}

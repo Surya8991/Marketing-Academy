@@ -1,0 +1,922 @@
+{
+  "psychology/psychology-101": [
+    {
+      "question": "Why does the study of human psychology outlast changes in digital marketing channels like TikTok or Google Ads?",
+      "options": [
+        "Marketing psychology teaches marketers how to manipulate platform algorithms directly.",
+        "While digital channels and platforms shift constantly, the fundamental brain shortcuts and emotional drivers of human behavior remain stable.",
+        "Psychology-based ads are exempt from privacy regulations and tracking limitations.",
+        "Platform algorithms are designed to ignore human psychology and prioritize pure technical optimization."
+      ],
+      "correct": 1,
+      "explanation": "Marketing channels and software algorithms change every year, but the biological wiring behind human decision-making has evolved over millennia. Understanding psychology allows you to adapt to any new medium because the recipient's brain remains the same."
+    },
+    {
+      "question": "Which of the following best describes the relationship between System 1 and System 2 thinking in a typical buying decision?",
+      "options": [
+        "System 2 makes the initial automatic choice, and System 1 reviews it logically.",
+        "System 1 and System 2 work completely independently without ever sharing information.",
+        "System 1 makes a fast, emotional, automatic choice, and System 2 later rationalizes that decision.",
+        "System 2 is responsible for 95% of daily decisions, leaving System 1 to handle complex logic."
+      ],
+      "correct": 2,
+      "explanation": "Daniel Kahneman's research showed that System 1 is the fast, automatic brain that makes the initial choice, while System 2 is the slow, deliberate brain that justifies that choice after the fact. If your marketing fails to appeal to System 1, System 2 never gets the chance to rationalize the purchase."
+    },
+    {
+      "question": "A language learning app encourages users to maintain a daily study streak. If a user quits, they feel like they have lost their progress. Which of Cialdini's principles is this gamification strategy leveraging?",
+      "options": [
+        "Reciprocity",
+        "Commitment and consistency",
+        "Authority",
+        "Liking"
+      ],
+      "correct": 1,
+      "explanation": "Duolingo's streak counter is a classic example of commitment and consistency. Once a user makes a small initial commitment and builds a streak, they feel compelled to continue acting in alignment with that established identity to avoid the psychological friction of quitting."
+    },
+    {
+      "question": "Under modern advertising ethics and regulations (like the EU's Digital Services Act), when does a persuasive psychology lever become an illegal dark pattern?",
+      "options": [
+        "When it attempts to appeal to System 1 emotions rather than System 2 logic.",
+        "When it uses authentic reviews that show negative ratings alongside positive ones.",
+        "When it uses deceptive design elements, like fake countdown timers or hidden fees, to trick the buyer's automatic decision-making system.",
+        "When a brand runs more than one A/B test on a landing page at a time."
+      ],
+      "correct": 2,
+      "explanation": "Persuasion becomes manipulation when the information presented is false or deceptive. Using fake countdown timers that reset on page refresh or hiding fees until the checkout screen deprives the customer's System 2 of a fair choice, which is increasingly regulated and fined."
+    }
+  ],
+  "psychology/system-1-system-2": [
+    {
+      "question": "Why is System 2 thinking referred to as 'lazy' in consumer psychology?",
+      "options": [
+        "It is incapable of performing complex calculations or logical evaluations.",
+        "It only activates when System 1 encounters an unexpected obstacle or friction point, in order to conserve cognitive energy.",
+        "It prefers to make instant, emotional decisions without seeking any validation.",
+        "It automatically rejects any marketing message that contains numbers or data."
+      ],
+      "correct": 1,
+      "explanation": "Because the brain consumes a high amount of metabolic energy, it conserves resources by running on System 1 shortcuts. System 2 remains inactive until it is forced to wake up by a surprise, conflict, or high-risk decision."
+    },
+    {
+      "question": "How should a marketer adjust their strategy when selling a high-priced, high-risk B2B enterprise contract compared to a low-cost impulse buy?",
+      "options": [
+        "Focus entirely on emotional System 1 cues, avoiding any detailed specifications or data.",
+        "Provide detailed ROI calculators, case studies, and comparison tables to satisfy the buyer's System 2 deliberation.",
+        "Use fast-flashing discount banners and countdown timers to force a quick decision.",
+        "Make the checkout process as long and complicated as possible to build suspense."
+      ],
+      "correct": 1,
+      "explanation": "While cheap impulse goods can be sold entirely using System 1 cues (color, convenience, emotion), expensive and high-risk purchases require deliberate justification. Marketers must provide the logical scaffolding (specs, ROI, case studies) that System 2 needs to approve the deal."
+    },
+    {
+      "question": "What psychological mechanism explains why Amazon's 1-Click checkout dramatically increased conversion rates?",
+      "options": [
+        "It forces the user's System 2 to calculate the long-term financial impact of the purchase.",
+        "It builds anticipation by showing multiple confirmation steps before placing the order.",
+        "It removes micro-decisions and transaction friction, keeping the buyer in a state of cognitive ease.",
+        "It utilizes social proof by showing what other buyers purchased in real time."
+      ],
+      "correct": 2,
+      "explanation": "Every form field, password prompt, or shipping calculation is a friction point that wakes up the deliberate System 2. By removing these steps, 1-Click checkout keeps the process effortless and automatic, allowing the purchase to proceed purely on System 1 momentum."
+    },
+    {
+      "question": "Why does a payment widget that splits a $200 purchase into four payments of $50 lift conversion rates, according to dual-process theory?",
+      "options": [
+        "It completely hides the fact that the customer is spending $200.",
+        "System 1 processes the smaller figure ($50) as a low-risk commitment, bypasses immediate financial pain, and allows System 2 to rationalize the split cost later.",
+        "It forces System 2 to calculate complex interest rates before the purchase.",
+        "It appeals to the self-actualization tier of Maslow's hierarchy."
+      ],
+      "correct": 1,
+      "explanation": "Splitting the price allows the automatic System 1 to focus on the smaller, less painful figure ($50) at the point of decision. This lowers the initial barrier to entry, while the logical System 2 rationalizes the decision based on affordability over time."
+    }
+  ],
+  "psychology/maslow-marketing": [
+    {
+      "question": "In marketing strategy, how is Maslow's hierarchy of needs best utilized?",
+      "options": [
+        "To rank customer accounts based on their lifetime value and purchasing power.",
+        "To diagnose the specific psychological job a customer hires a product to do, allowing copy and creative to align with that single tier.",
+        "To ensure every advertisement contains messages addressing all five tiers simultaneously.",
+        "To prove that customers always satisfy their needs in a strict, sequential order without exception."
+      ],
+      "correct": 1,
+      "explanation": "Maslow's hierarchy serves as a diagnostic map. By identifying which tier (e.g., safety, esteem, belonging) your target audience is operating in, you can write copy and select channels that speak directly to that specific motivation, rather than writing confusing, mixed-tier messages."
+    },
+    {
+      "question": "If a company sells a meal-prep kit by advertising it as 'restaurant-quality plating for hosting dinner parties,' which tier of Maslow's hierarchy are they targeting?",
+      "options": [
+        "Physiological needs (basic hunger)",
+        "Safety needs (health and nutrition)",
+        "Esteem needs (status and respect)",
+        "Self-actualization (culinary mastery)"
+      ],
+      "correct": 2,
+      "explanation": "Plating food to impress dinner guests focuses on status, recognition, and social standing, which belongs to the esteem tier. The same product could be pitched as physiological (quick calories) or safety (organic ingredients), but this specific angle targets status and respect."
+    },
+    {
+      "question": "Which marketing channels are typically most effective for higher-tier needs like esteem and self-actualization, and why?",
+      "options": [
+        "Direct-response search ads, because users actively search for self-actualization keywords.",
+        "Brand channels like long-form video, PR, and founder stories, because building identity and status requires deep storytelling over time.",
+        "Retargeting display banners, because they remind users of basic features.",
+        "SMS marketing, because it reaches users when they are on the go."
+      ],
+      "correct": 1,
+      "explanation": "Lower-tier pitches (safety, physiological) solve immediate, functional problems and convert well in transactional, direct-response performance channels. Higher-tier pitches (esteem, identity, self-actualization) require emotional connection and narrative, making brand-building channels more effective over the long run."
+    },
+    {
+      "question": "When does using Maslow's hierarchy cross the line into unethical manipulation?",
+      "options": [
+        "When a luxury brand sells a product based on self-actualization instead of physical utility.",
+        "When a marketer artificially manufactures safety-tier fear or anxiety to force purchase of a product that addresses a higher-tier need.",
+        "When a company changes its messaging to target a different tier for different audience segments.",
+        "When a brand offers a free trial to lower the physiological barrier of entry."
+      ],
+      "correct": 1,
+      "explanation": "Unethical manipulation occurs when marketers manufacture lower-tier anxiety (e.g., exaggerated health threats, financial panic) to exploit safety needs and pressure consumers into buying solutions. Ethical marketing respects the customer's actual state rather than fabricating crises."
+    }
+  ],
+  "psychology/emotion-vs-logic": [
+    {
+      "question": "What did neuroscientist Antonio Damasio's research on patients with ventromedial prefrontal cortex (vmPFC) damage reveal about human decision-making?",
+      "options": [
+        "Patients with high logic and no emotion made faster, more optimal decisions.",
+        "Patients with intact logic but severed emotional connections were unable to make even simple decisions, proving emotion is a prerequisite for choice.",
+        "Decisions are purely logical, and emotions only exist to cause buyer's remorse.",
+        "Memory is the only brain function required to make purchase decisions."
+      ],
+      "correct": 1,
+      "explanation": "Damasio's patients had intact intelligence, logic, and memory, but because their brain damage severed emotional processing, they could not make simple decisions (like picking a meeting date). This somatic marker hypothesis proved that emotion is a biological prerequisite for decision-making, not just a side effect."
+    },
+    {
+      "question": "What did Les Binet and Peter Field's analysis of 996 campaigns in the IPA Databank reveal about emotional vs. rational advertising?",
+      "options": [
+        "Rational campaigns are twice as effective at driving immediate, short-term sales spikes.",
+        "Emotional campaigns were nearly twice as likely to produce large, long-term profit growth compared to purely rational ones.",
+        "Advertisements should avoid emotion entirely because it confuses B2B buyers.",
+        "The effectiveness of emotional and rational campaigns is completely identical over time."
+      ],
+      "correct": 1,
+      "explanation": "Binet and Field's research showed that while rational campaigns can drive short-term activation spikes, emotional campaigns build stronger brand associations that reduce price sensitivity and drive significantly higher long-term profit growth."
+    },
+    {
+      "question": "Why was Cadbury's 'Gorilla' ad (featuring a gorilla drumming to Phil Collins) highly successful despite showing no chocolate and making no logical claims?",
+      "options": [
+        "It explained the detailed sourcing of Cadbury's cocoa beans.",
+        "It bypassed System 2 entirely and created a powerful, memorable emotional connection that built positive brand association for System 1.",
+        "It offered a 50% discount code at the end of the video.",
+        "It targeted the safety tier of Maslow's hierarchy by highlighting packaging security."
+      ],
+      "correct": 1,
+      "explanation": "The Gorilla ad was pure emotion and entertainment. By bypassing the logical, critical System 2 entirely, it created a massive cultural moment and a positive feeling associated with the brand, translating to a 9% sales lift and proving that rational arguments are not always required."
+    },
+    {
+      "question": "Which of the following is a reliable ethical test for emotion-first marketing copy?",
+      "options": [
+        "Does the ad contain at least three logical bullet points in the main headline?",
+        "Would the customer still feel good about the purchase a week later, after their System 2 logic has caught up with their System 1 impulse?",
+        "Does the emotional appeal drive immediate click-through rate, regardless of refund rates?",
+        "Is the emotional feeling completely unrelated to the actual experience of using the product?"
+      ],
+      "correct": 1,
+      "explanation": "Ethical emotional marketing aligns the feeling in the ad with the reality of the product. The ultimate test is whether the customer's System 2 rationalization, once they possess the product, confirms that the initial System 1 emotional impulse was honest and worthwhile."
+    }
+  ],
+  "psychology/cialdini-6-principles": [
+    {
+      "question": "In Robert Cialdini's research, what key factor caused a waiter's tip to increase from 14% to 23% when giving mints to customers?",
+      "options": [
+        "Leaving three mints on the tray instead of two.",
+        "Providing the mints with a personalized, unexpected gesture ('for you nice people, an extra mint').",
+        "Charging the customers a small fee for the mints.",
+        "Explaining the nutritional benefits of the mints to the table."
+      ],
+      "correct": 1,
+      "explanation": "Reciprocity is triggered most powerfully when the gift feels personalized and unexpected. The waiter's phrase made the gesture personal, which dramatically amplified the customer's subconscious urge to return the favor with a higher tip."
+    },
+    {
+      "question": "According to the Northwestern Spiegel Research Center study cited in the lesson, what is the impact of displaying reviews on product pages?",
+      "options": [
+        "Reviews have zero impact on high-priced products.",
+        "Displaying reviews can lift the purchase likelihood of higher-priced products by up to 270%.",
+        "Negative reviews always decrease conversions, regardless of the overall rating.",
+        "Reviews only influence younger buyers on social media platforms."
+      ],
+      "correct": 1,
+      "explanation": "Displaying reviews builds immediate social proof. The Spiegel Research Center study found that showing reviews can lift conversion rates by up to 270%, particularly for high-priced or high-risk items where buyers seek validation from others."
+    },
+    {
+      "question": "Why does Duolingo ask onboarding users to select a daily learning goal before they create an account?",
+      "options": [
+        "To segment users into different database tables based on their learning speed.",
+        "To trigger the commitment and consistency principle, making users more likely to stick with the app because they made a public, active choice.",
+        "To explain how the language translation algorithm operates.",
+        "To collect feedback for product improvement surveys."
+      ],
+      "correct": 1,
+      "explanation": "By prompting users to make a low-friction choice early (their daily goal), Duolingo utilizes the commitment and consistency principle. Once a user establishes this goal, they feel an internal and external pressure to align their behavior with that commitment."
+    },
+    {
+      "question": "What is the 'clean test' suggested in the lesson to verify if your scarcity or urgency message is ethical?",
+      "options": [
+        "Check if the countdown timer resets every time the page refreshes.",
+        "Ask whether you would be comfortable if the customer saw the code and data source behind the scarcity claim.",
+        "Verify if the urgency message increases the click-through rate by at least 15%.",
+        "Ensure that the scarcity claim is hidden in the terms of service."
+      ],
+      "correct": 1,
+      "explanation": "If your scarcity claim is honest (e.g., 'Only 2 tickets left' matches real inventory), you would have no issue showing the customer the backend database query. If the claim is hardcoded or randomized, it is a deceptive dark pattern that destroys brand trust once discovered."
+    }
+  ],
+  "psychology/cognitive-biases": [
+    {
+      "question": "In the famous 'Economist subscription experiment,' how did adding a seemingly useless 'print-only' option at $125 (the same price as the 'print + web' combo) affect customer choice?",
+      "options": [
+        "It caused customers to abandon the page out of confusion over identical prices.",
+        "It served as a decoy that made the 'print + web' option look like an incredible value, shifting preference from 32% to 84% for the combo.",
+        "It forced the company to lower the price of the web-only option to compete.",
+        "It led most customers to purchase the print-only option because it felt more traditional."
+      ],
+      "correct": 1,
+      "explanation": "Adding the 'print-only' option for $125 acted as a decoy. Because it was the same price as the 'print + web' option but offered less value, it anchored the value of print at $125 and made the combo feel like a free upgrade, nearly doubling revenue."
+    },
+    {
+      "question": "Which marketing practice is a direct application of the 'Mere Exposure Effect'?",
+      "options": [
+        "Offering a 30-day money-back guarantee to reduce risk.",
+        "Serving repeated retargeting ads to users who previously visited your website to build subconscious familiarity.",
+        "Showing a high initial price followed by a discounted price.",
+        "Using a celebrity endorsement to build authority."
+      ],
+      "correct": 1,
+      "explanation": "The Mere Exposure Effect states that people develop a preference for things simply because they are familiar with them. Showing retargeting ads or placing logos in multiple sponsorships builds this subconscious familiarity over time, raising preference."
+    },
+    {
+      "question": "What is a 'heuristic' in cognitive psychology, and why is it relevant to marketers?",
+      "options": [
+        "A deliberate logical calculation performed by System 2 to compare products.",
+        "A software tool used to track user scroll depth on landing pages.",
+        "A mental shortcut used by System 1 to make decisions quickly and conserve cognitive energy.",
+        "A pricing strategy where prices decrease over time based on demand."
+      ],
+      "correct": 2,
+      "explanation": "Heuristics are mental shortcuts the brain uses to make fast decisions without using high cognitive energy. Since System 1 handles 95% of daily choices using heuristics, marketers design cues (like social proof or scarcity) to align with these shortcuts."
+    },
+    {
+      "question": "At the 2010 iPad launch, Steve Jobs displayed a price of $999 on screen before revealing the actual price of $499. What bias was he leveraging?",
+      "options": [
+        "Loss Aversion",
+        "Decoy Effect",
+        "Anchoring Bias",
+        "Reciprocity Bias"
+      ],
+      "correct": 2,
+      "explanation": "Jobs set $999 as the initial mental anchor (reference point). Judgment is relative, not absolute, so the audience evaluated the actual price of $499 against the $999 anchor, making $499 feel like an exceptional bargain."
+    }
+  ],
+  "psychology/social-proof-psychology": [
+    {
+      "question": "In Robert Cialdini's hotel towel reuse study, which message was most effective at getting guests to reuse their towels?",
+      "options": [
+        "A moral appeal asking guests to protect the environment.",
+        "A message stating that the hotel would donate a portion of its profits to charity.",
+        "A social proof message stating that 75% of guests who stayed in that specific room reused their towels.",
+        "An incentive offering free drinks at the hotel bar for reusing towels."
+      ],
+      "correct": 2,
+      "explanation": "The social proof norm ('75% of guests in this room reused their towels') outperformed the standard environmental message by 33%. Humans look to the behavior of similar others (in this case, past occupants of the same room) to guide their own actions."
+    },
+    {
+      "question": "Why do products with a perfect 5.0 star rating often convert worse than products in the 4.2 to 4.5 star range, according to the Spiegel Research Center?",
+      "options": [
+        "Search engines penalize perfect 5.0 ratings in organic search.",
+        "Buyers recognize that absolute perfection is statistically unlikely and suspect the reviews are fake or manipulated.",
+        "A 5.0 rating indicates that the product is overpriced.",
+        "Customers prefer products that have resolved complaints over flawless ones."
+      ],
+      "correct": 1,
+      "explanation": "Absolute perfection triggers skepticism in modern consumers. A rating in the 4.2-4.5 range feels more authentic and believable. Letting authentic negative reviews show actually builds trust, provided the overall rating remains strong."
+    },
+    {
+      "question": "Which of the following is an example of the 'negative social proof trap'?",
+      "options": [
+        "Showing a low-stock alert when there are only 2 items left.",
+        "Running a campaign that highlights how many people are currently participating in a bad behavior (e.g., '30% of users don't complete setup').",
+        "Permitting users to post negative reviews on your product pages.",
+        "Failing to show any reviews at all on a newly launched product."
+      ],
+      "correct": 1,
+      "explanation": "The negative social proof trap occurs when you highlight a bad behavior as common. By stating '30% of users don't complete setup,' you normalize the incomplete behavior, which actually increases it. Marketers should frame the positive norm instead."
+    },
+    {
+      "question": "Why is User-Generated Content (UGC), such as customer photos, highly effective at lifting purchase likelihood?",
+      "options": [
+        "It is professionally edited and polished by brand designers.",
+        "Consumers find real customer photos to be significantly more authentic and trustworthy than polished brand imagery.",
+        "It allows the brand to avoid displaying product prices.",
+        "It forces the user's System 2 to evaluate the technical specifications of the product."
+      ],
+      "correct": 1,
+      "explanation": "UGC serves as visual social proof. Consumers rate it as 2.4 times more authentic than brand-created content because it shows real people using the product in real-world environments, reducing uncertainty."
+    }
+  ],
+  "psychology/scarcity-urgency": [
+    {
+      "question": "What was the core finding of the 1975 Worchel, Lee, and Adewole cookie study?",
+      "options": [
+        "Participants preferred chocolate-chip cookies over oatmeal cookies.",
+        "Cookies taken from a near-empty jar (two cookies) were rated as more desirable and valuable than identical cookies from a full jar (ten cookies).",
+        "Scarcity only works when the product is extremely expensive.",
+        "Participants consistently rejected scarce items in favor of plentiful ones to avoid social conflict."
+      ],
+      "correct": 1,
+      "explanation": "The study showed that availability itself acts as a value signal. When identical cookies were presented in a scarce state (2 in a jar), they were rated as more delicious and valuable than when they were plentiful (10 in a jar), proving value is subjective and tied to availability."
+    },
+    {
+      "question": "According to the cookie study, which condition produced the highest perceived value?",
+      "options": [
+        "A jar that was always steady at two cookies.",
+        "A jar that participants watched go from ten cookies down to two cookies in front of them.",
+        "A jar that was always steady at ten cookies.",
+        "A jar where cookies were free."
+      ],
+      "correct": 1,
+      "explanation": "Sudden scarcity (seeing availability drop from plentiful to scarce) triggers a stronger psychological reaction than steady scarcity. This is why live sales updates ('selling out fast' or dynamic stock counts) outperform static 'limited edition' labels."
+    },
+    {
+      "question": "Spain's CNMC fined Booking.com EUR 413 million in 2024. What was the primary reason for this record-breaking penalty?",
+      "options": [
+        "Booking.com charged high interest rates on credit card bookings.",
+        "The platform used fabricated scarcity claims and artificial urgency, which Spanish authorities ruled as illegal dark patterns.",
+        "Booking.com failed to display reviews for hotels in Spain.",
+        "The platform combined quantity and time scarcity on the same listing page."
+      ],
+      "correct": 1,
+      "explanation": "Spain's CNMC and other EU regulators have cracked down on fake scarcity (such as timers that reset on reload or fake 'only 1 room left' badges that do not match inventory). While scarcity is a valid psychological lever, fabricating it is a deceptive dark pattern and subject to massive fines."
+    },
+    {
+      "question": "Which of the following describes the difference between quantity scarcity and time scarcity?",
+      "options": [
+        "Quantity scarcity limits how many units can be purchased per transaction; time scarcity limits when shipping is available.",
+        "Quantity scarcity is based on limited stock or seat count; time scarcity is based on a specific deadline or window of availability.",
+        "Quantity scarcity only appeals to System 2; time scarcity only appeals to System 1.",
+        "Quantity scarcity is unethical; time scarcity is always legal."
+      ],
+      "correct": 1,
+      "explanation": "Quantity scarcity relies on supply constraints ('only 3 left'), while time scarcity relies on temporal constraints ('offer ends Friday'). Combining both honest triggers creates a powerful compound effect on purchase intent."
+    }
+  ],
+  "psychology/anchoring-framing": [
+    {
+      "question": "In Tversky and Kahneman's 1974 anchoring experiment, what did the group asked to estimate the product of 8 x 7 x 6 x 5 x 4 x 3 x 2 x 1 guess compared to the group starting with 1 x 2 x 3...?",
+      "options": [
+        "Both groups guessed the exact same correct mathematical product.",
+        "The group starting with 8 guessed a median of 2,250, while the group starting with 1 guessed a median of 512, due to the higher starting anchor.",
+        "The ascending group guessed much higher because they had more time.",
+        "The descending group gave up because the math was too difficult."
+      ],
+      "correct": 1,
+      "explanation": "Because people started with a higher initial number (8 vs 1) on their rapid estimation, the descending group set a higher mental reference point (anchor). This resulted in a median guess that was more than four times higher than the ascending group, despite multiplying the same set of numbers."
+    },
+    {
+      "question": "Tversky and Kahneman's 1981 'Asian disease problem' experiment demonstrated that majority preference flipped depending on whether outcomes were framed as lives saved vs lives lost. What is this phenomenon called?",
+      "options": [
+        "Anchoring effect",
+        "Framing effect",
+        "Mere exposure effect",
+        "Reciprocity bias"
+      ],
+      "correct": 1,
+      "explanation": "The framing effect shows that people react differently to a choice depending on whether it is presented as a gain (e.g., 'lives saved') or a loss (e.g., 'lives lost'), even when the mathematical outcomes are identical. Framing steers the brain's evaluation pathways."
+    },
+    {
+      "question": "On a SaaS pricing page, why is a very expensive premium tier ($999/month) often displayed even if 95% of customers buy the $49/month tier?",
+      "options": [
+        "To encourage the $49 customers to upgrade to the premium tier immediately.",
+        "To act as a high anchor, making the $49/month plan feel extremely affordable and reasonable by comparison.",
+        "To satisfy tax regulations requiring companies to list a premium service.",
+        "To collect feedback from high-value enterprise users."
+      ],
+      "correct": 1,
+      "explanation": "The expensive tier anchors the customer's price expectation. When the brain compares $49/month to the $999/month anchor, $49 feels like a massive discount and a sensible compromise, whereas $49 shown alone might feel expensive."
+    },
+    {
+      "question": "Under the EU's Omnibus Directive and the US FTC's rules, what pricing practice is strictly banned?",
+      "options": [
+        "Displaying a comparison table with three pricing tiers.",
+        "Offering a discount for annual billing compared to monthly billing.",
+        "Using fictional or inflated 'original' or 'was' prices that the company never actually charged.",
+        "Framing a subscription as 'Save 20%' instead of 'Get 2 months free'."
+      ],
+      "correct": 2,
+      "explanation": "Fabricated reference prices ('was $100' when the price was never $100) are illegal because they deceive System 1 into seeing a false bargain. Real anchors (like a genuine premium tier or a competitor's actual rate) are legally compliant and build long-term trust."
+    }
+  ],
+  "psychology/loss-aversion": [
+    {
+      "question": "According to Kahneman and Tversky's prospect theory, what is the approximate ratio of loss sensitivity to gain sensitivity in humans?",
+      "options": [
+        "1:1 (losses and gains feel identical)",
+        "2:1 to 2.5:1 (losing something hurts roughly twice as much as gaining it feels good)",
+        "10:1 (losses are ten times more painful)",
+        "1:2 (gaining something is twice as powerful as losing it)"
+      ],
+      "correct": 1,
+      "explanation": "Prospect theory established that human emotional sensitivity to loss is roughly 2 to 2.5 times stronger than the pleasure of gaining the same resource. This fundamental asymmetry is replicated globally across cultures."
+    },
+    {
+      "question": "A SaaS company wants to test loss aversion in their headline. Which version is framed around loss aversion?",
+      "options": [
+        "Gain 4 hours of free time every single week.",
+        "Stop losing 4 hours a week to manual reporting.",
+        "Our software saves you 4 hours a week.",
+        "Get started today and save hours on reporting."
+      ],
+      "correct": 1,
+      "explanation": "Framing the benefit as an avoided loss ('Stop losing 4 hours...') directly addresses the pain of a resource the reader is currently losing, which triggers loss aversion and drives action more effectively than gain framing ('Gain 4 hours...')."
+    },
+    {
+      "question": "What psychological phenomenon explains why free trials are highly effective at converting users to paid plans?",
+      "options": [
+        "The reciprocity bias, because users want to pay the company back for the free period.",
+        "The endowment effect, which shifts the user's reference point so they feel ownership over the premium features, making trial expiration feel like a loss.",
+        "System 2 thinking, which calculates the exact value of the software on day one.",
+        "The decoy effect, which makes the free plan look unattractive."
+      ],
+      "correct": 1,
+      "explanation": "During a free trial, the user integrates the features into their workflow, shifting their reference point. The endowment effect makes them feel like they 'own' the features. When the trial ends, losing those features is processed as a loss rather than a non-purchase, increasing conversion rates."
+    },
+    {
+      "question": "When does loss-aversion marketing cross the line into manipulative dark patterns?",
+      "options": [
+        "When you list the specific premium features a trial user will lose upon downgrade.",
+        "When you write a headline focused on avoiding a waste of time or money.",
+        "When you create artificial barriers to unsubscribe or use fake countdown timers to force action.",
+        "When you offer a free month of service to new subscribers."
+      ],
+      "correct": 2,
+      "explanation": "Loss aversion is manipulated when marketers block the user's choices (like complex unsubscribe processes) or invent fake losses (like timers). Ethical loss aversion simply highlights real, existing stakes or consequences of inaction."
+    }
+  ],
+  "psychology/storytelling-psychology": [
+    {
+      "question": "According to Green and Brock's landmark 2000 study, what is 'narrative transportation' and how does it affect persuasion?",
+      "options": [
+        "A physical response where a reader moves to a new location to purchase a product.",
+        "A psychological state where a reader becomes fully immersed in a story, which silences their critical brain and suppresses counter-arguing.",
+        "A method of transporting products across global supply chains using storytelling packaging.",
+        "A logical evaluation pathway where System 2 ranks story points by importance."
+      ],
+      "correct": 1,
+      "explanation": "Narrative transportation is a mental state where a reader is swept up in a narrative. Because their brain simulates the events, they lose cognitive distance and fail to notice logical contradictions or 'false notes,' making them highly receptive to the story's underlying message without counter-arguing."
+    },
+    {
+      "question": "What neurochemical did Paul Zak's research identify as the primary biological driver of empathy and trust during a character-driven story?",
+      "options": [
+        "Melatonin",
+        "Adrenaline",
+        "Oxytocin",
+        "Cortisol"
+      ],
+      "correct": 2,
+      "explanation": "Zak's research showed that character-driven stories with emotional tension release oxytocin, the hormone associated with empathy and social bonding. This neurochemical release is a strong predictor of trust and generous behavior (like donation or purchase)."
+    },
+    {
+      "question": "In Donald Miller's StoryBrand framework, what role should the brand or product play in the narrative, and who is the hero?",
+      "options": [
+        "The brand is the hero (Luke Skywalker) and the customer is the guide (Yoda).",
+        "The competitor is the hero and the brand is the villain.",
+        "The brand is the guide (Yoda) and the customer is the hero (Luke Skywalker).",
+        "The product is the narrator and the brand is the setting."
+      ],
+      "correct": 2,
+      "explanation": "Miller's framework advises brands to position the customer as the hero of the story. The brand plays the role of the helper or guide (Yoda) providing the tool or wisdom the hero needs to solve their problem. Casting the brand as the hero reads as self-promotional and reduces transportation."
+    },
+    {
+      "question": "Why do regulatory bodies like the FTC and FDA actively monitor emotional 'narrative testimonials' in advertising?",
+      "options": [
+        "Stories consume too much bandwidth on digital advertising platforms.",
+        "Narrative transportation makes it easy for brands to bury material facts or exaggerate health claims within emotional arcs, bypassing critical consumer evaluation.",
+        "Stories are prohibited from containing any mention of pricing.",
+        "Testimonials are only legal if they are written in dry bullet points."
+      ],
+      "correct": 1,
+      "explanation": "Because storytelling suppresses logical counter-arguing, consumers are less likely to question claims made within a narrative. Regulators require brands to disclose material connections and keep testimonials honest, rather than using emotional stories to hide side effects or bad statistics."
+    }
+  ],
+  "psychology/habit-loops": [
+    {
+      "question": "What did Ann Graybiel's MIT research on rats navigating a maze show about how habits are formed in the brain?",
+      "options": [
+        "Brain activity remains high and constant throughout the entire habit routine.",
+        "As a behavior becomes habitual, brain activity in the basal ganglia spikes only at the start (cue) and end (reward), going quiet during the routine itself.",
+        "Rats are incapable of forming habits because they lack a basal ganglia.",
+        "A habit loop requires at least ten different cues to activate."
+      ],
+      "correct": 1,
+      "explanation": "Graybiel showed that once a behavior becomes automatic, the brain 'chunks' it. The brain spikes at the trigger (cue) and the payoff (reward), but runs the routine itself on autopilot, saving massive cognitive energy."
+    },
+    {
+      "question": "How did Claude Hopkins successfully build the habit of daily tooth brushing in the 1920s using Pepsodent?",
+      "options": [
+        "He explained the medical science of tooth decay in newspaper ads.",
+        "He pair-programmed a toothpaste subscription model.",
+        "He paired a clear cue (the film felt on teeth) with a sensory reward (the minty tingle of citric acid) that made the mouth feel clean.",
+        "He offered a free toothbrush with every purchase."
+      ],
+      "correct": 2,
+      "explanation": "Hopkins realized that for a habit to stick, there must be a sensory reward. The minty tingle of Pepsodent did not actually clean teeth better, but it provided a physical, immediate reward that users craved when they felt the cue (the tooth film), cementing the habit loop."
+    },
+    {
+      "question": "According to B.F. Skinner's research on schedules of reinforcement, why is TikTok's swipe-feed highly habit-forming?",
+      "options": [
+        "It provides a predictable, identical reward every 15 seconds.",
+        "It utilizes a variable reward system, where the user does not know if the next swipe will deliver a high-value reward (a viral video) or a boring one.",
+        "It requires the user to invest money before they can scroll.",
+        "It forces the user to solve a logical puzzle after every video."
+      ],
+      "correct": 1,
+      "explanation": "Variable rewards (an unpredictable payoff) are the most powerful reinforcers of behavior. Because TikTok users cannot predict what the next video will be, each swipe is a micro-gambble that releases dopamine, driving compulsive scrolling."
+    },
+    {
+      "question": "What is the primary ethical boundary when designing habit loops in consumer products?",
+      "options": [
+        "Whether the loop requires the user to create a password.",
+        "Whether the habit being built is one that the user, in a reflective moment, would consciously endorse rather than a compulsive behavior they regret.",
+        "Whether the product is free or paid.",
+        "Whether the push notifications are sent in the morning or at night."
+      ],
+      "correct": 1,
+      "explanation": "Designing habits is ethical when it aligns with the user's long-term interests (e.g., learning a language on Duolingo). It crosses into exploitation when it uses variable rewards to build addictive behaviors (like slot-machine scrolling) that override the user's conscious judgment and harm their well-being."
+    }
+  ],
+  "psychology/ikea-effect": [
+    {
+      "question": "In the 2011 Harvard Business School study that named the IKEA Effect, how much more were participants willing to pay for furniture they assembled themselves compared to identical pre-assembled pieces?",
+      "options": [
+        "They were only willing to pay the same amount.",
+        "They demanded a discount for the labor they provided.",
+        "They were willing to pay 63% more for the self-assembled furniture.",
+        "They refused to purchase self-assembled furniture due to frustration."
+      ],
+      "correct": 2,
+      "explanation": "Norton, Mochon, and Ariely found that participants valued their own labor. Assembling the furniture created emotional ownership, causing them to value the finished product 63% higher than identical pre-assembled items."
+    },
+    {
+      "question": "For which types of products is the IKEA Effect most valuable as a marketing and product strategy?",
+      "options": [
+        "Low-cost commodity purchases where speed and one-click buying are the priority.",
+        "Subscription software, premium goods, and community memberships where emotional connection, personalization, and loyalty are critical.",
+        "Products that are highly complex and frequently lead to assembly errors.",
+        "Discount clearance items that are sold in bulk."
+      ],
+      "correct": 1,
+      "explanation": "While commodity items benefit from frictionless speed, products requiring long-term loyalty and willingness to pay premium rates benefit from co-creation. Investing effort builds psychological attachment, which differentiates the brand and decreases churn."
+    },
+    {
+      "question": "Which of the following outlines the correct sequence of stages in the IKEA Effect lifecycle?",
+      "options": [
+        "Invitation → Effort → Completion → Ownership",
+        "Acquisition → Discount → Transaction → Return",
+        "Effort → Frustration → Abandonment → Refund",
+        "Customization → Pricing → Checkout → Shipping"
+      ],
+      "correct": 0,
+      "explanation": "The lifecycle begins with an invitation to participate, followed by the user's effort (decisions or labor). Upon completion of the task, the user experiences psychological ownership, resulting in higher perceived value."
+    },
+    {
+      "question": "What is a major risk or failure mode when attempting to apply the IKEA Effect to a product's onboarding flow?",
+      "options": [
+        "Making the customization process so simple that it takes under a second.",
+        "Failing to charge the customer for the setup process.",
+        "Making the task too difficult or complex, causing customers to abandon the process before completion.",
+        "Allowing the user to select their own profile colors."
+      ],
+      "correct": 2,
+      "explanation": "The IKEA Effect requires completion. If the onboarding task is too difficult or confusing, users will quit. Incomplete labor does not build love; it builds frustration and leads to abandonment. Marketers must balance meaningful effort with a high completion rate."
+    }
+  ],
+  "psychology/mere-exposure-effect": [
+    {
+      "question": "In Robert Zajonc's 1968 experiment, what happened when participants were repeatedly exposed to neutral characters and words?",
+      "options": [
+        "They grew bored and rated the familiar characters more negatively.",
+        "The more frequently they saw a character, the more positively they rated it, even when they could not consciously recall seeing it before.",
+        "They only preferred characters that were accompanied by a financial reward.",
+        "They could only recognize characters that were presented in their native language."
+      ],
+      "correct": 1,
+      "explanation": "Zajonc proved that exposure alone generates preference. Repeated contact made the neutral characters feel familiar, driving positive evaluations even when participants had no conscious memory of seeing the characters previously."
+    },
+    {
+      "question": "What is 'processing fluency' and how does it explain the mere exposure effect?",
+      "options": [
+        "The speed at which a customer completes a checkout flow.",
+        "A cognitive shortcut where the brain processes familiar stimuli faster, interpreting this mental ease as a positive, safe signal.",
+        "The ability of a copywriter to write headlines without grammatical errors.",
+        "A metric measuring how many ads a user views per minute."
+      ],
+      "correct": 1,
+      "explanation": "Processing fluency is the ease with which the brain processes information. When a stimulus (like a logo or brand name) is familiar, the brain processes it with less effort. This subconscious ease is interpreted by the brain as safety and liking."
+    },
+    {
+      "question": "If you are running a brand-awareness campaign based on the mere exposure effect, how should you allocate your ad budget?",
+      "options": [
+        "Prioritize maximum reach, showing the ad once to 100,000 unique users.",
+        "Prioritize frequency, showing the ad multiple times to a smaller, targeted audience segment.",
+        "Allocate all budget to high-discount search coupons.",
+        "Change your visual assets weekly to keep the brand looking completely different."
+      ],
+      "correct": 1,
+      "explanation": "Because the exposure effect builds over repeated contact, brand building requires frequency. Showing an ad three times to a smaller, focused segment builds the necessary familiarity equity, whereas a single exposure to a large crowd fades immediately."
+    },
+    {
+      "question": "What is the primary risk of overusing the mere exposure effect in a short period of time?",
+      "options": [
+        "The brand's trademark will expire.",
+        "Ad fatigue (wear-out), where familiarity crosses the line into annoyance, causing negative brand association.",
+        "The logo will become too small to see on mobile devices.",
+        "System 1 will completely shut down and refuse to make decisions."
+      ],
+      "correct": 1,
+      "explanation": "While repeated exposure builds liking, too many exposures in a short window triggers ad fatigue or wear-out. Marketers must monitor frequency caps and rotate ad creatives to keep the exposure positive and avoid irritating the audience."
+    }
+  ],
+  "psychology/sunk-cost-fallacy": [
+    {
+      "question": "Which of the following defines the 'sunk cost fallacy' in consumer behavior?",
+      "options": [
+        "The logical choice to stop using a product when its cost exceeds its benefits.",
+        "The cognitive error of letting past, unrecoverable investments (time, money, or effort) drive future decisions, rather than evaluating future returns.",
+        "The tendency to buy products only when they are on sale.",
+        "The habit of returning items to a store to get a refund."
+      ],
+      "correct": 1,
+      "explanation": "The sunk cost fallacy occurs when people continue investing in a path (like keeping a subscription or shopping at a specific store) simply because they have already spent resources on it. They focus on justifying past spend rather than making the best choice for the future."
+    },
+    {
+      "question": "How does Costco utilize the sunk cost fallacy to maintain a 92.7% renewal rate and drive higher customer spending?",
+      "options": [
+        "By offering the lowest price on every item compared to all competitors.",
+        "By charging an upfront annual membership fee, which makes members feel they must shop frequently to 'get their money's worth'.",
+        "By offering free home delivery for all members.",
+        "By limiting memberships to customers who work in bulk retail."
+      ],
+      "correct": 1,
+      "explanation": "Costco's annual membership fee is a sunk cost. Once paid, consumers feel a psychological urge to justify that unrecoverable cost by visiting Costco frequently and buying more, converting the fee into a powerful repeat-visit driver."
+    },
+    {
+      "question": "In software-as-a-service (SaaS) design, how can you build positive sunk cost into onboarding to improve retention?",
+      "options": [
+        "By charging a high setup fee before the user can see the product.",
+        "By prompting users to customize settings, import their existing data, or set up templates early, making switching to a competitor feel costly.",
+        "By sending daily emails requesting feedback on features.",
+        "By hiding the unsubscribe button inside the settings menu."
+      ],
+      "correct": 1,
+      "explanation": "Early investment of effort (importing data, customizing settings) builds psychological ownership. When a customer considers leaving, they calculate the cost of losing their setup and starting over, which increases retention."
+    },
+    {
+      "question": "What is the danger of relying entirely on high switching costs (sunk costs) to retain customers?",
+      "options": [
+        "It reduces the brand's profit margins on new signups.",
+        "It turns customers into 'hostages' who will immediately leave and warn others the moment a competitor makes switching easy or free.",
+        "It makes it difficult to run A/B tests on your landing pages.",
+        "It is illegal under standard retail tax regulations."
+      ],
+      "correct": 2,
+      "explanation": "Relying strictly on lock-in and switching costs creates resentful customers ('hostages'). Sunk cost design should buy you time to deliver exceptional value. If the actual product experience is poor, customers will escape as soon as a competitor lowers the barrier to switch."
+    }
+  ],
+  "psychology/behavioral-economics": [
+    {
+      "question": "In behavioral economics, what is 'present bias' and how does Amazon's 'Buy Now' button exploit it?",
+      "options": [
+        "The tendency of consumers to only purchase products they plan to give as gifts.",
+        "A preference for immediate gratification over future payoffs, which 'Buy Now' exploits by removing the checkout friction that might cause second thoughts.",
+        "The bias where users only buy products that are currently displayed on the homepage.",
+        "The logical choice to save money for long-term investments rather than spend it immediately."
+      ],
+      "correct": 1,
+      "explanation": "Present bias is the human tendency to overvalue immediate rewards relative to future ones. Checkout friction gives the brain time to reconsider. By collapsing checkout to a single click, 'Buy Now' exploits present bias to secure immediate purchase before deliberating."
+    },
+    {
+      "question": "What did Johnson and Goldstein's 2003 study on organ donation reveal about default options?",
+      "options": [
+        "Organ donation rates are completely determined by religious beliefs.",
+        "Opt-out countries (where donation is the default) had participation rates above 90%, while opt-in countries had around 15%, despite similar cultures.",
+        "Germany and Austria had identical donation rates because of shared language.",
+        "Defaults have zero impact on high-stakes moral decisions."
+      ],
+      "correct": 1,
+      "explanation": "The study showed that defaults are incredibly powerful. Flipping the default from opt-in to opt-out raised participation rates by 75 percentage points, showing that choice architecture shapes even high-stakes, deeply personal decisions."
+    },
+    {
+      "question": "The UK's Behavioural Insights Team ('Nudge Unit') added a single sentence to tax-reminder letters that accelerated £210 million in collections. What did that sentence leverage?",
+      "options": [
+        "Authority, by threat of immediate arrest.",
+        "Reciprocity, by offering a small tax rebate.",
+        "Social proof, by stating that 9 out of 10 people in the recipient's town had already paid on time.",
+        "Scarcity, by stating tax payments were limited to the first 100 people."
+      ],
+      "correct": 2,
+      "explanation": "By adding the social proof line ('9 out of 10 people in your town have already paid'), the letter normalized on-time payment. This nudge increased compliance rates by 5 percentage points without changing the underlying tax law or penalty structure."
+    },
+    {
+      "question": "What is the difference between a 'nudge' and 'sludge' in choice architecture?",
+      "options": [
+        "Nudges are used in B2C marketing; sludge is used in B2B sales.",
+        "A nudge helps users make decisions in their own interest; sludge is choice architecture that benefits the company at the user's expense.",
+        "Nudges require email opt-in; sludge runs automatically.",
+        "Nudges are digital; sludge is used only in physical retail."
+      ],
+      "correct": 1,
+      "explanation": "Coined by Richard Thaler, sludge refers to choice architecture designed to frustrate or exploit the user (like subscription traps that are easy to join but require 7 clicks to cancel). Ethical nudging aligns with the chooser's interests and respects their autonomy."
+    }
+  ],
+  "psychology/choice-architecture": [
+    {
+      "question": "Which of the following is NOT one of the primary reasons why default options are highly sticky for users?",
+      "options": [
+        "Changing the default requires cognitive and physical effort (friction).",
+        "Users assume the default is an implied recommendation from the platform (authority).",
+        "Defaults are legally binding contracts that cannot be changed under most user agreements.",
+        "Loss aversion makes users reluctant to give up a pre-selected option they feel they already have (endowment)."
+      ],
+      "correct": 2,
+      "explanation": "Defaults are not legally binding; users can change them. They are sticky due to friction, the perception of authority (implied recommendation), loss aversion, or simple unawareness that an alternative option exists."
+    },
+    {
+      "question": "What is a 'roach-motel' pattern in subscription design, and how are regulators addressing it?",
+      "options": [
+        "A model where users must pay in cash; it is banned under credit regulations.",
+        "A subscription that is extremely easy to sign up for but deliberately difficult to cancel; addressed by the FTC's 'Click-to-Cancel' rule.",
+        "An email flow that sends too many spam messages; regulated by CASL.",
+        "A software bug that crashes the billing portal; addressed by technical standard audits."
+      ],
+      "correct": 1,
+      "explanation": "Roach-motel patterns allow users to slip in easily but make escaping hard (e.g., calling phone support to cancel a digital subscription). The FTC's 2024 'Click-to-Cancel' rule requires that cancelling a subscription be just as easy as signing up."
+    },
+    {
+      "question": "What is 'confirmshaming' in digital marketing interface design?",
+      "options": [
+        "Asking a user to confirm their password twice during registration.",
+        "Highlighting customer testimonials that criticize competitors.",
+        "Using emotionally manipulative language on opt-out buttons (e.g., 'No thanks, I hate saving money') to induce guilt and prevent opt-out.",
+        "Failing to send an order confirmation email after a transaction."
+      ],
+      "correct": 2,
+      "explanation": "Confirmshaming is a dark pattern that manipulates users by shaming them into selecting the option the business prefers. It exploits emotion to bypass a rational decision and is actively discouraged by consumer trust advocates and modern regulations."
+    },
+    {
+      "question": "What is the general rule of thumb for choice architects when placing friction in a user flow?",
+      "options": [
+        "Add maximum friction to all steps to filter out low-intent users.",
+        "Remove all friction from high-regret actions like auto-renewals, and add it to low-regret actions like search.",
+        "Remove friction from paths you want users to take (guest checkout), and add friction to high-regret actions (one-click upsells or cancellations).",
+        "Keep the level of friction identical across all interactions to ensure balance."
+      ],
+      "correct": 2,
+      "explanation": "Friction is a design tool. Sanding down friction on desirable, low-risk actions (guest checkout, auto-saving) helps conversion. Adding friction to high-risk, high-regret actions (spending money, deleting accounts) protects the user and prevents accidental decisions."
+    }
+  ],
+  "psychology/peak-end-rule": [
+    {
+      "question": "In Kahneman's 1993 cold-pressor experiment, why did participants prefer Trial B (60 seconds of cold water + 30 seconds of slightly warmer water) over Trial A (60 seconds of cold water alone)?",
+      "options": [
+        "Trial B was objectively shorter and contained less total pain.",
+        "Because Trial B ended with a gentler, less painful experience, which dominated their memory of the event despite containing more total pain.",
+        "They were offered a financial reward to choose Trial B.",
+        "The water in Trial B was warmed to a comfortable room temperature."
+      ],
+      "correct": 1,
+      "explanation": "Although Trial B contained more total pain, it ended on a better note (slightly warmer water). According to the peak-end rule, the remembering self evaluates experiences based on the peak intensity and the final moment, completely ignoring duration (duration neglect)."
+    },
+    {
+      "question": "What is the difference between the 'experiencing self' and the 'remembering self' in consumer psychology?",
+      "options": [
+        "The experiencing self makes the purchase; the remembering self registers the account.",
+        "The experiencing self lives through every moment of a service, while the remembering self evaluates and decides whether to repeat the experience based on a mental highlight reel.",
+        "The experiencing self only operates in physical stores; the remembering self operates online.",
+        "There is no difference; the two selves always agree on the value of an experience."
+      ],
+      "correct": 1,
+      "explanation": "The experiencing self is active in the moment (e.g., waiting in a long line). The remembering self reviews the experience later and decides future loyalty. Because memory is selective, the remembering self focuses on the peak and end beats, ignoring the long wait in the middle if those two points were positive."
+    },
+    {
+      "question": "According to peak-end analysis, why does IKEA place a cheap bistro selling cinnamon rolls and hot dogs right at the exit of their stores?",
+      "options": [
+        "To feed customers who did not buy any furniture.",
+        "To ensure the final moment of an exhausting store journey is a positive, cheap, and sensory reward, leaving a favorable lasting memory.",
+        "To use up leftover kitchen inventory from the main restaurant.",
+        "To attract foot traffic from outside the parking lot."
+      ],
+      "correct": 1,
+      "explanation": "Walking through IKEA's maze can be exhausting and stressful (the middle). Placing a cheap, satisfying food stop right at the exit ensures the experience ends on a high note, which rescues the customer's overall memory of their visit."
+    },
+    {
+      "question": "If you must collect 12 fields of customer data during an onboarding flow, how should you structure the sequence based on the peak-end rule?",
+      "options": [
+        "Ask for the 2 easiest fields first, then put the 10 hardest fields at the very end.",
+        "Collect all 12 fields on a single page with a red warning banner.",
+        "Front-load the pain by asking for the hardest or most tedious data first, and end with the easiest, most satisfying steps.",
+        "Scatter the fields randomly across 12 separate screens."
+      ],
+      "correct": 2,
+      "explanation": "Back-loading delight and ending on an easy, successful note ensures the user remembers the onboarding as smooth and achievable. Ending on a frustrating, complex task leaves a negative final impression, even if the beginning was easy."
+    }
+  ],
+  "psychology/status-belonging-identity": [
+    {
+      "question": "In Henri Tajfel's Social Identity Theory experiments, what triggered schoolboys to show favoritism and allocate more rewards to their group?",
+      "options": [
+        "Deep personal friendships formed during long team-building exercises.",
+        "Mere categorization into meaningless, arbitrary groups based on a trivial preference (like a painting).",
+        "A promise of cash payouts for defeating the out-group.",
+        "Having to defend their group from physical threats."
+      ],
+      "correct": 1,
+      "explanation": "Tajfel's 'minimal group' studies showed that simply telling people they belong to a group (even a completely arbitrary one like preferring Klee over Kandinsky) is enough to trigger in-group favoritism and out-group discrimination, demonstrating how easily identity markers influence behavior."
+    },
+    {
+      "question": "What is 'conspicuous consumption,' and which tier of consumer goods does it primarily drive?",
+      "options": [
+        "Buying cheap groceries in bulk to save money.",
+        "Purchasing expensive, visible products primarily to signal wealth, status, or taste to others; drives the luxury and premium market.",
+        "Consuming content on social media without interacting.",
+        "Evaluating product warranties before completing a transaction."
+      ],
+      "correct": 1,
+      "explanation": "Coined by Thorstein Veblen in 1899, conspicuous consumption is the practice of purchasing and displaying luxury items to publicly signal social status. The value of the item comes from its visible costliness and exclusivity, rather than its functional utility."
+    },
+    {
+      "question": "According to Han, Nunes, and Dreze's 2010 research on luxury brand prominence ('quiet luxury'), why do the wealthiest consumers prefer products with small or invisible logos?",
+      "options": [
+        "They cannot afford products with large, prominent logos.",
+        "To signal their status subtly to fellow 'insiders' who can recognize the high-end quality without needing a loud logo, while remaining unrecognized by outsiders.",
+        "Because large logos are illegal under modern trademark laws.",
+        "They want to hide their wealth from tax authorities."
+      ],
+      "correct": 1,
+      "explanation": "Quiet luxury relies on subtle, insider signaling. Insiders value Loro Piana or Brunello Cucinelli because other wealthy peers can recognize it through texture and cut, whereas large logos signal status to a wider, less exclusive audience ('loud luxury')."
+    },
+    {
+      "question": "Which psychological framework explains the blue-bubble vs. green-bubble divide in iMessage, where Android users are displayed in green?",
+      "options": [
+        "Mere Exposure Effect",
+        "Social Identity Theory (in-group vs. out-group dynamics)",
+        "Sunk Cost Fallacy",
+        "Peak-End Rule"
+      ],
+      "correct": 1,
+      "explanation": "By coloring non-iPhone messages green, Apple created a visual minimal group marker. This triggers Social Identity Theory dynamics, establishing iPhone users as the in-group and Android users as the out-group, which exerts powerful social pressure (especially among teens) to buy iPhones."
+    }
+  ],
+  "psychology/default-bias": [
+    {
+      "question": "In the 2024 NBER study on automatic 401(k) enrollment, what happened to employee participation when companies switched from opt-in to opt-out?",
+      "options": [
+        "Participation dropped as employees resented the automatic deduction.",
+        "Participation stayed exactly the same because benefits did not change.",
+        "Participation rose from 37% to 86% because the default option was flipped.",
+        "Participation became 100% because opt-out was made illegal."
+      ],
+      "correct": 2,
+      "explanation": "By making saving the pre-selected default (opt-out), participation surged by 49 percentage points. This illustrates how default bias can override inaction, as employees simply accept the pre-selected option rather than completing forms to opt out."
+    },
+    {
+      "question": "Which of the following is NOT one of the three primary reasons why default bias is so effective?",
+      "options": [
+        "Implied endorsement: people assume the default is the recommended or safest choice.",
+        "Cognitive load reduction: accepting the pre-selected option requires zero mental effort.",
+        "Risk compensation: users assume they will receive a cash refund if the default option fails.",
+        "Status quo preference: changing the default requires deliberate action, and inaction feels safe."
+      ],
+      "correct": 2,
+      "explanation": "Defaults do not offer cash refunds. They work because they utilize the status quo preference, provide an implied endorsement from the provider, and reduce the cognitive energy required to make a decision."
+    },
+    {
+      "question": "On a SaaS pricing page, pre-selecting a mid-tier 'Pro' plan is an application of default bias. How does this influence the buyer?",
+      "options": [
+        "It prevents them from seeing the cheaper plans entirely.",
+        "It anchors their expectations around the mid-tier price and features, making it the path of least resistance.",
+        "It forces them to contact customer support before they can purchase.",
+        "It increases cart abandonment because users prefer unchecked list views."
+      ],
+      "correct": 1,
+      "explanation": "Pre-selecting the mid-tier plan sets it as the default, making it the easiest choice. It also anchors expectation: users compare cheaper or more expensive options to the pre-selected plan, which typically increases average order value."
+    },
+    {
+      "question": "Why must email subscription checkboxes during e-commerce checkout be unchecked by default in jurisdictions covered by GDPR or CASL?",
+      "options": [
+        "To prevent websites from loading too slowly.",
+        "Because consent laws in these regions require active, affirmative opt-in, making pre-ticked defaults for marketing emails illegal.",
+        "Because unchecked boxes are easier to track in web databases.",
+        "To encourage users to buy more physical products."
+      ],
+      "correct": 1,
+      "explanation": "GDPR and CASL require active, freely given, and clear consent. Pre-ticked defaults exploit default bias to secure passive consent, which is ruled as non-compliant. The user must make an active choice to check the box to opt in."
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 # Marketing Academy - Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-06-14 (Session 20).
+> Last audited: 2026-06-14 (Session 22). Updated via Antigravity.
 
 ---
 
@@ -11,7 +11,7 @@
 1. cd D:\Coding\marketing-academy
 2. Count MDX files: (Get-ChildItem src/content -Recurse -Filter *.mdx).Count   [PowerShell]
 3. Current: 308 MDX files across 15 categories - all written + reviewed
-4. Next priority: quiz generation workflow (221 lessons still need quizzes)
+4. Quiz expansion DONE: 257 lessons now have 4 quiz questions each (was 20). src/lib/quizzes.ts = 12,085 lines.
 ```
 
 **Do NOT:**
@@ -178,11 +178,37 @@ Every push auto-deploys within ~60 seconds.
 - No em dashes, no hardcoded colors, no "use client" directive
 - ~700 lines, TypeScript compiles clean
 
-### PHASE 10 - Quiz Expansion 🔴 NOT STARTED
-- Goal: add 3-5 quiz questions to all 221 remaining lessons (currently only 20 have quizzes)
-- Approach: one workflow agent per category, reads MDX content, generates relevant questions
-- Output: appended to `src/lib/quizzes.ts`
-- Once done: `/interview-prep` page becomes fully populated
+### PHASE 10 - Quiz Expansion ✅ COMPLETE (Session 22, 2026-06-14) — Update via Antigravity
+
+**Goal achieved:** All 257 accessible lessons now have 4 high-quality quiz questions each.
+
+- **Before:** 20 lessons had quizzes (src/lib/quizzes.ts: ~200 lines)
+- **After:** 257 lessons have quizzes (src/lib/quizzes.ts: 12,085 lines)
+- **Approach:** 15 parallel subagents (one per category), each reading MDX + generating 4 conceptual MCQ questions matching the existing quality bar
+- **Batch files:** `src/lib/quizzes_batches/[category].json` -- individual validated JSON per category
+- **Consolidation:** `scratch/consolidate_quizzes.js` merges all batch files into final `src/lib/quizzes.ts`
+- **TypeScript:** `tsc --noEmit` passes 0 errors after consolidation
+- **Content freshness bonus:** 5 stale lessons updated (flywheel, voice-and-tone, value-proposition, core-web-vitals, customer-journey) with 2024-2025 stats
+
+**Quiz coverage by category:**
+| Category | Lessons with Quizzes |
+|---|---|
+| ai-marketing | 13 |
+| analytics | 23 |
+| brand-strategy | 15 |
+| content | 19 |
+| copywriting | 12 |
+| cro | 9 |
+| email | 17 |
+| fundamentals | 16 |
+| growth | 16 |
+| paid-ads | 18 |
+| product-marketing | 16 |
+| psychology | 20 |
+| seo | 17 |
+| social | 18 |
+| tools | 28 |
+| **TOTAL** | **257** |
 
 ---
 
@@ -251,7 +277,7 @@ Prioritized by user value and effort. Items are independent - pick any in any or
 - `src/lib/progress.ts` - localStorage progress utilities
 - `src/lib/tracks.ts` - 7 learning tracks (slugs verified against curriculum.ts 2026-06-14)
 - `src/lib/glossary.ts` - 148 marketing terms
-- `src/lib/quizzes.ts` - 3-5 questions for 20 key lessons (keys verified against curriculum.ts 2026-06-14)
+- `src/lib/quizzes.ts` - 4 questions for 257 lessons across all 15 categories (12,085 lines, TypeScript clean, Phase 10 complete 2026-06-14)
 - `src/lib/tools-directory.ts` - 85+ real marketing tools across 11 categories
 - `src/lib/bookmarks.ts` - shared bookmark storage (BOOKMARK_KEY, getBookmarks, saveBookmarks)
 
@@ -562,6 +588,7 @@ Full review by 5 personas (CMO, Junior Marketer, SEO Specialist, UX Designer, Fr
 | 19 | 2026-06-14 | Lesson sort: all 14 affected categories reordered Beginner > Intermediate > Advanced (SEO was already correct). Duplicate optimizely-vwo removed from tools. About page built at /about: mission, builder profile (Surya L, Bangalore), stats, tech stack, project links. Footer + README updated with About route. |
 | 20 | 2026-06-14 | Fixed Vercel build failure: Github and Twitter icons do not exist in lucide-react v1.18 (about/page.tsx). Replaced all three with ExternalLink. Phase 12 improvement backlog written to PROJECT_LOG: 20 items across SEO, UX, content, and features - prioritized P1 to P4. |
 | 21 | 2026-06-14 | Quick wins from Phase 12 P1: sitemap now covers 13 static routes + glossary terms + tracks + cheat-sheets + certificates (was only 3 static routes before). Quiz scores persist to localStorage via usePathname key. DefinedTerm JSON-LD added to all 148 glossary term pages. |
+| 22 | 2026-06-14 | **Update via Antigravity.** Phase 10 Quiz Expansion complete: 257 lessons now have 4 MCQ questions each. src/lib/quizzes.ts grew from ~200 to 12,085 lines. 15 category batch JSON files in src/lib/quizzes_batches/. One JSON fix (product-marketing.json had 2 missing explanation fields). TypeScript 0 errors. Content freshness: 5 stale lessons updated (flywheel, voice-and-tone, value-proposition, core-web-vitals, customer-journey) with 2024-2025 stats. |
 
 ---
 

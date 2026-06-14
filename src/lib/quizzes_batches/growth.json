@@ -1,0 +1,738 @@
+{
+  "growth/what-is-growth": [
+    {
+      "question": "Which of the following best defines the primary difference between traditional marketing and growth marketing?",
+      "options": [
+        "Traditional marketing focuses exclusively on product development, while growth marketing is limited to top-of-funnel paid advertising.",
+        "Traditional marketing is campaign-focused and measures reach, while growth marketing runs controlled experiments across the entire AARRR funnel to measure outcomes.",
+        "Growth marketing relies on quick hacks and loopholes, whereas traditional marketing only uses TV and print media.",
+        "Traditional marketing is purely data-driven, whereas growth marketing relies on intuition and creative brainstorming."
+      ],
+      "correct": 1,
+      "explanation": "Traditional marketing typically runs campaign-driven initiatives focusing on top-of-funnel reach. Growth marketing uses a scientific, experimental approach across all stages of the customer journey (AARRR: Acquisition, Activation, Retention, Referral, Revenue) to find and fix growth bottlenecks."
+    },
+    {
+      "question": "Given that only about 12% of growth experiments yield positive results, why is a structured experimentation system effective?",
+      "options": [
+        "Winners generate enough revenue to subsidize the cost of losing tests, making the average ROI negative but overall revenue positive.",
+        "A 12% win rate is a statistical error that disappears once a growth team expands to more than ten people.",
+        "Growth teams prioritize test velocity and structured learning, allowing the winning tests to compound while failures teach them how to design better future tests.",
+        "Losing experiments are ignored and deleted from the log to maintain high team morale and keep external stakeholder confidence."
+      ],
+      "correct": 2,
+      "explanation": "With only about 1 in 8 experiments succeeding, growth teams win not by guessing correctly, but by running clean tests rapidly. The failures are documented in an experiment log, which serves as a compounding knowledge base that informs and improves future test designs."
+    },
+    {
+      "question": "Which of the following best describes a North Star Metric?",
+      "options": [
+        "The metric that represents the absolute maximum potential lifetime value of a customer segment.",
+        "A vanity metric like total registered users or social media followers that looks impressive in investor decks.",
+        "The single metric that best captures the core value your product delivers to its customers.",
+        "The total amount of venture capital funding raised divided by the customer acquisition cost."
+      ],
+      "correct": 2,
+      "explanation": "The North Star Metric is the key measure that shows whether customers are getting actual value from your product (e.g., Spotify's minutes listened, Slack's messages sent). Evaluating experiments against this metric prevents the team from optimizing for vanity metrics that do not drive real growth."
+    },
+    {
+      "question": "Why is running overlapping experiments on the same audience in the same time window considered a mistake?",
+      "options": [
+        "It violates data privacy laws and can result in significant regulatory fines.",
+        "It makes it impossible to isolate causation, as you cannot tell which experiment or interaction caused the change in user behavior.",
+        "It doubles the loading time of the website or application, leading to a high bounce rate.",
+        "It causes the analytics platform to crash due to duplicate event tracking."
+      ],
+      "correct": 1,
+      "explanation": "Running overlapping tests on the same user segment makes it impossible to isolate which change led to the result. To preserve data integrity, teams must run one clean test per funnel stage at a time or use advanced multivariate setups."
+    }
+  ],
+  "growth/activation": [
+    {
+      "question": "What is the fundamental difference between activation and the aha moment?",
+      "options": [
+        "Activation is an emotional feeling of delight, while the aha moment is the physical act of paying for a subscription.",
+        "Activation is a measurable user behavior that predicts long-term retention, while the aha moment is the user's emotional realization of the product's value.",
+        "Activation happens before signup, while the aha moment occurs only after a user has used the product for six months.",
+        "Activation is measured by page views, while the aha moment is measured by the number of support tickets created."
+      ],
+      "correct": 1,
+      "explanation": "Activation is the structured, analytical milestone (such as syncing a file on two devices in Dropbox), while the aha moment is the cognitive, emotional realization of the value by the user."
+    },
+    {
+      "question": "According to 2025 benchmarks, what is the average SaaS activation rate, and what does this imply for growth teams?",
+      "options": [
+        "The average activation rate is 95%, meaning that almost all growth spend is highly efficient.",
+        "The average activation rate is 37.5%, meaning that nearly two-thirds of acquired users drop off before experiencing core value.",
+        "The average activation rate is 5.0%, meaning that B2B SaaS is generally a non-viable business model.",
+        "The average activation rate is 75%, indicating that onboarding flows are largely optimized across the industry."
+      ],
+      "correct": 1,
+      "explanation": "With a median/average SaaS activation rate of 37.5%, products lose roughly 63% of their new signups. This highlights why improving activation is a high-leverage growth activity: it plugs the leak in the acquisition bucket."
+    },
+    {
+      "question": "If a cohort analysis shows that users who perform a specific action within their first three days are far more likely to retain long-term, how should the growth team act?",
+      "options": [
+        "Force all users to perform that action immediately upon signup using unskippable, multi-step popups.",
+        "Redesign the onboarding experience to guide users naturally toward that high-value action as quickly as possible.",
+        "Send daily email notifications to all users reminding them to perform the action, regardless of their current state.",
+        "Discontinue the feature to simplify the product and reduce maintenance costs."
+      ],
+      "correct": 1,
+      "explanation": "The goal is to accelerate the time-to-value by clearing hurdles so users reach the core value action naturally. Forcing it through aggressive popups can inflate the metric without creating genuine value, which is a common activation pitfall."
+    },
+    {
+      "question": "What is a major pitfall of using time-based drip email sequences (e.g., 'Day 3 tips') to drive activation?",
+      "options": [
+        "They are too expensive to send at scale compared to SMS campaigns.",
+        "They are sent regardless of the user's actual behavior, making them generic and less relevant than behavior-triggered nudges.",
+        "They automatically unsubscribe users if they are opened on a mobile device.",
+        "They require manual approval from the engineering team before each send."
+      ],
+      "correct": 1,
+      "explanation": "Time-based emails are often irrelevant because they do not reflect what the user has or has not done in the product. Behavior-triggered nudges (such as pointing out a specific next step based on the user's actual progress) are far more contextual and effective."
+    }
+  ],
+  "growth/retention-cohorts": [
+    {
+      "question": "Why is cohort analysis superior to tracking aggregate active user metrics (like MAU) for measuring product health?",
+      "options": [
+        "Cohort analysis automatically increases the lifetime value of customers without requiring product changes.",
+        "Aggregate metrics can hide a decay in underlying retention if new user acquisition is growing fast enough to offset the churn.",
+        "Cohort tables are easier to build and require no specialized analytics tools or databases.",
+        "Cohort analysis is the only metric that venture capital firms are legally allowed to inspect."
+      ],
+      "correct": 1,
+      "explanation": "A company can show growing monthly active users (MAU) through aggressive paid acquisition even if 90% of every new group churns immediately. Cohort analysis isolates groups by their start date, revealing whether the product is actually keeping its users over time."
+    },
+    {
+      "question": "In a cohort retention curve, what is 'the floor' and why is it critical?",
+      "options": [
+        "The floor is the lowest possible price point a customer can pay, which dictates the minimum gross margin.",
+        "The floor is the long-term stabilization point of the cohort; a curve that flattens above zero indicates a retained core of loyal users.",
+        "The floor is the absolute drop in retention during the first 24 hours, which should ideally be 100%.",
+        "The floor is the minimum number of features a customer must adopt before they are allowed to cancel their subscription."
+      ],
+      "correct": 1,
+      "explanation": "The long-run stabilization point (the floor) tells you if your product has a cohort that finds permanent value. If the curve never flattens and instead trends to zero, the product is leaky and scaling acquisition will eventually result in complete churn."
+    },
+    {
+      "question": "If a cohort table shows that Week 4 retention is rising across successive rows (moving downwards), what does this indicate?",
+      "options": [
+        "Acquisition costs are rising, meaning fewer high-quality users are entering the funnel.",
+        "The product changes and onboarding improvements made between cohorts are successfully increasing retention.",
+        "The analytics tracking has failed and is double-counting active users.",
+        "The pricing model is causing users to upgrade to annual plans too quickly."
+      ],
+      "correct": 1,
+      "explanation": "Moving down a cohort table compares successive cohorts at the same point in their lifecycle (e.g., Week 4). If the percentage is rising, it means newer cohorts are retaining better than older ones did, validating the product development efforts."
+    },
+    {
+      "question": "What is the main difference between Net Revenue Retention (NRR) and Gross Revenue Retention (GRR)?",
+      "options": [
+        "NRR measures active users, while GRR measures only paid signups.",
+        "GRR is calculated weekly, while NRR is calculated only on an annual basis.",
+        "NRR includes expansion revenue from upsells and cross-sells (allowing it to exceed 100%), while GRR excludes expansion and cannot exceed 100%.",
+        "GRR is used only for B2C mobile apps, while NRR is used exclusively for B2B enterprise software."
+      ],
+      "correct": 2,
+      "explanation": "Net Revenue Retention (NRR) accounts for the net changes in revenue, including expansion, contraction, and churn. Gross Revenue Retention (GRR) only measures the ability to retain the revenue you started with, excluding any expansion, meaning it caps at 100%."
+    }
+  ],
+  "growth/growth-loops": [
+    {
+      "question": "Why do growth experts state that 'growth loops are the new funnels'?",
+      "options": [
+        "Funnels require continuous top-of-funnel investment to sustain acquisition, whereas loops are self-reinforcing systems where inputs generate outputs that reinvest to drive new inputs.",
+        "Loops are simpler to design than funnels and require no knowledge of customer acquisition costs or conversion rates.",
+        "Funnels have been banned by search engines and social media networks due to ad-blocking technology.",
+        "Loops focus exclusively on paid advertising campaigns, while funnels rely entirely on organic search traffic."
+      ],
+      "correct": 0,
+      "explanation": "Funnels are linear and require new traffic and budget to keep working. Loops represent closed systems where the value created in one cycle (such as a user sharing a created design or template) naturally acquires the next user, enabling exponential compounding growth."
+    },
+    {
+      "question": "What is the 'loop factor' and how is it interpreted?",
+      "options": [
+        "The loop factor is the ratio of viral marketing budget to performance marketing budget.",
+        "The loop factor is the product of conversion, yield, and velocity; if it is above 1.0, the loop is self-sustaining and compounding.",
+        "The loop factor is the number of loops a company runs simultaneously, which should ideally be at least five.",
+        "The loop factor is the time it takes for a user to refer their first friend, measured in weeks."
+      ],
+      "correct": 1,
+      "explanation": "The loop factor measures the compounding efficiency of a loop. Calculated by multiplying the conversion rate of inputs to actions, the yield of actions to outputs, and the velocity of outputs to new inputs, a score above 1.0 means the loop is generating more inputs than it consumes, leading to compounding growth."
+    },
+    {
+      "question": "Canva's watermark on shared designs is an example of which type of growth loop?",
+      "options": [
+        "A sales-assisted enterprise loop",
+        "A content or SEO loop",
+        "A viral or UGC artifact loop",
+        "A paid affiliate loop"
+      ],
+      "correct": 2,
+      "explanation": "When a user creates and shares a design (an artifact of using the product) that contains a Canva link or watermark, they naturally expose Canva to a new audience. Some of those viewers click through and sign up, feeding the acquisition stage. This is a classic viral/UGC loop."
+    },
+    {
+      "question": "When building growth loops, why is it a mistake for an early-stage team to build multiple loops simultaneously?",
+      "options": [
+        "It is illegal under standard corporate tax codes to operate more than one growth loop.",
+        "The analytics platform will not be able to track more than one source of traffic.",
+        "It divides limited team resources, preventing any single loop from reaching the critical threshold (loop factor > 1.0) needed to compound.",
+        "It causes customer acquisition cost to drop too quickly, destabilizing the company's valuation."
+      ],
+      "correct": 2,
+      "explanation": "Getting a single growth loop to compound (loop factor > 1.0) is hard and requires focused experimentation at every step. Splitting resources across multiple loops usually results in several incomplete, leaky flywheels that fail to spin."
+    }
+  ],
+  "growth/viral-coefficient": [
+    {
+      "question": "How is the viral coefficient (K-Factor) calculated?",
+      "options": [
+        "K = (total advertising budget) / (customer acquisition cost)",
+        "K = (average invites sent per user) x (conversion rate of those invites)",
+        "K = (monthly active users) / (monthly churned users)",
+        "K = (average customer lifetime value) / (cost of sender referral incentive)"
+      ],
+      "correct": 1,
+      "explanation": "The K-Factor formula is K = i x c, where 'i' is the average number of invites sent per active user, and 'c' is the conversion rate of those invites."
+    },
+    {
+      "question": "What does a K-Factor of 0.2 indicate about a product's growth?",
+      "options": [
+        "Growth is completely stalled, and the user base is actively shrinking by 20% each month.",
+        "Growth is self-sustaining and compounding exponentially without any additional marketing channels.",
+        "Growth is supplemented by referrals, with every five new users bringing in one additional user for free.",
+        "The product is highly viral but suffers from severe backend performance bottlenecks."
+      ],
+      "correct": 2,
+      "explanation": "A K-factor of 0.2 means that for every cohort of users, they will generate 20% more users through referrals (e.g., 5 users bring in 1 free user). While not self-sustaining (which requires K > 1.0), a K-factor of 0.2 provides a highly significant organic boost to overall acquisition."
+    },
+    {
+      "question": "According to 2024 benchmarks, what is the highest-leverage improvement to increase the viral coefficient?",
+      "options": [
+        "Doubling the financial reward or discount given to the sender.",
+        "Redesigning the landing page for the invite recipient, where conversion rates can vary by up to 10x.",
+        "Sending daily automated email reminders to existing users who have not referred anyone.",
+        "Removing all attribution links from shared files or content to preserve user privacy."
+      ],
+      "correct": 1,
+      "explanation": "Industry data shows that the landing page conversion rate (the recipient experience) is the highest-leverage lever, varying by 3-10x, whereas sender participation rates tend to vary by only 1.5-2x across comparable SaaS products."
+    },
+    {
+      "question": "What is a 'two-sided referral incentive'?",
+      "options": [
+        "An incentive program where only the sender gets a reward, while the recipient is charged a sign-up fee.",
+        "A program where both the sender and the recipient receive an incentive or reward, which historically increases participation.",
+        "A referral system that requires users to share on both desktop and mobile platforms.",
+        "An incentive that pays out only after both the referrer and referee have remained active for one full year."
+      ],
+      "correct": 1,
+      "explanation": "A two-sided incentive rewards both the existing user (referrer) and the new user (referee), making it feel like a helpful gift rather than a sales pitch. Research shows two-sided rewards produce 3x higher participation rates than one-sided offers."
+    }
+  ],
+  "growth/ice-rice-prioritization": [
+    {
+      "question": "When is it best to use the ICE framework over the RICE framework?",
+      "options": [
+        "When you are ranking complex features that compete for engineering sprint cycles.",
+        "When you are scoring fast, low-cost experiments like landing page copy or ad creatives that require minimal development.",
+        "When the reach of the backlog items varies by 10x to 100x across different pages or surfaces.",
+        "When you need to present a highly detailed roadmap proposal to executive leadership."
+      ],
+      "correct": 1,
+      "explanation": "ICE (Impact, Confidence, Ease) is a lightweight stopwatch framework best for rapid, low-engineering marketing experiments. RICE is a more thorough GPS framework that handles complex features where Reach varies significantly and engineering Effort is a major bottleneck."
+    },
+    {
+      "question": "In the RICE framework, how is the Effort score defined, and why is this choice of scale important?",
+      "options": [
+        "Effort is measured in days, making all tasks look cheap and easy to fit into a sprint.",
+        "Effort is measured in budget dollars, ensuring the finance team has final say on feature priority.",
+        "Effort is measured in person-weeks, which prevents task scores from being flattened and undervalued.",
+        "Effort is measured by the number of team meetings required to define the feature's requirements."
+      ],
+      "correct": 2,
+      "explanation": "Effort should be measured in person-weeks (one engineer for one week equals 1). Using days flattens the denominator and makes large tasks look deceptively cheap, whereas person-weeks provides a realistic filter for engineering resource constraints."
+    },
+    {
+      "question": "How should a growth team address a high-impact idea that has a low Confidence score (below 50%)?",
+      "options": [
+        "Immediately reject the idea and permanently delete it from the backlog.",
+        "Place the idea in a research queue to run a cheap validation step (like user interviews or a survey) to update the confidence score.",
+        "Force the engineering team to build the feature anyway, assuming impact is the only metric that matters.",
+        "Artificially inflate the confidence score to ensure it passes the roadmap prioritization review."
+      ],
+      "correct": 1,
+      "explanation": "A low confidence score simply means you lack evidence. Rather than killing a potentially great idea, place it in a research queue. A quick user interview, survey, or competitor review can help you update the score before committing engineering sprints."
+    },
+    {
+      "question": "What is the primary drawback of using the ICE framework for major product roadmaps?",
+      "options": [
+        "It does not account for user Reach, which can result in ranking a power-user feature above an onboarding improvement that touches 50x more users.",
+        "It requires complex mathematical formulas that must be calculated by a data scientist.",
+        "It is a proprietary model that requires licensing fees from Sean Ellis.",
+        "It only works for consumer mobile apps and cannot be applied to B2B enterprise SaaS."
+      ],
+      "correct": 0,
+      "explanation": "ICE lacks a 'Reach' variable. Consequently, a high-impact, high-ease feature that only affects 100 power users can easily outscore a lower-impact onboarding change that affects 10,000 new signups. For major roadmaps, RICE is preferred because it accounts for Reach."
+    }
+  ],
+  "growth/activation-rate": [
+    {
+      "question": "How is the Activation Rate calculated?",
+      "options": [
+        "Activation Rate = (Total page views / Total signups) x 100",
+        "Activation Rate = (Users who hit a specific value milestone in window X / Total signups in window X) x 100",
+        "Activation Rate = (Monthly active users / Monthly advertising budget) x 100",
+        "Activation Rate = (Paying subscribers / Total registered users) x 100"
+      ],
+      "correct": 1,
+      "explanation": "Activation Rate is the percentage of new users who complete a specific, value-revealing action (derived from cohort analysis) within a fixed time window (typically 3 to 7 days for B2B SaaS)."
+    },
+    {
+      "question": "According to 2025 benchmarks, which vertical enjoys the highest activation rates, and which trails at the bottom?",
+      "options": [
+        "HR Software leads; LegalTech trails at the bottom.",
+        "FinTech leads; MarTech trails at the bottom.",
+        "AI/Machine Learning leads; FinTech/Insurance trails at the bottom.",
+        "CRM and Sales leads; Healthcare trails at the bottom."
+      ],
+      "correct": 2,
+      "explanation": "AI and Machine Learning products activate at 54.8% due to immediate time-to-value, whereas FinTech and Insurance products sit at just 5.0% due to heavy regulatory compliance, verification steps, and setup friction."
+    },
+    {
+      "question": "Why is a 7-day activation window generally preferred over a 30-day window for growth experimentation?",
+      "options": [
+        "A 30-day window is illegal under international data tracking regulations.",
+        "Shorter windows increase experiment velocity by providing data points weekly rather than making the team wait a month for results.",
+        "A 7-day window automatically increases user retention by 20% compared to a 30-day window.",
+        "Shorter windows reduce the cloud storage costs associated with tracking user actions."
+      ],
+      "correct": 1,
+      "explanation": "A shorter window (like 7 days) allows growth teams to run weekly iterations. Waiting 30 days to see if a cohort activated slows down the feedback loop and makes rapid, iterative experimentation impossible."
+    },
+    {
+      "question": "What does the counterintuitive gap between product-led (PLG) and sales-led activation rates (34.6% vs 41.6%) demonstrate?",
+      "options": [
+        "Self-serve onboarding is always superior and does not require any product guidance.",
+        "Sales-led onboarding walks users to the aha moment directly, highlighting the need for PLG products to build guided experiences into their code.",
+        "B2B buyers prefer reading lengthy PDF manuals over using interactive software.",
+        "Sales reps are more effective at using social media ads to target high-intent prospects."
+      ],
+      "correct": 1,
+      "explanation": "Sales-led activation is higher because sales reps hand-hold the user to the value milestone. PLG products must replicate this high-touch guidance within the product interface (using onboarding, templates, and walkthroughs) to achieve similar activation rates self-serve."
+    }
+  ],
+  "growth/freemium-vs-free-trial": [
+    {
+      "question": "What is the difference between Freemium and Free Trial models?",
+      "options": [
+        "Freemium offers time-limited full access, while Free Trial offers permanent limited access.",
+        "Freemium is a permanently free tier with feature, usage, or seat limits, while Free Trial is full product access for a fixed window.",
+        "Freemium is used only for B2C mobile games, while Free Trial is used exclusively for B2B software.",
+        "Freemium requires credit card entry upfront, while Free Trial never asks for a payment method."
+      ],
+      "correct": 1,
+      "explanation": "Freemium provides a permanently free but limited version of the product, encouraging upgrades when users hit ceilings. Free Trial provides full access to the product for a limited time, demanding a purchase decision at the end of the period."
+    },
+    {
+      "question": "How do opt-in trials (no credit card required) compare to opt-out trials (credit card required) in signup rate and conversion?",
+      "options": [
+        "Opt-in trials have lower signup rates and lower conversion to paid accounts.",
+        "Opt-in trials have higher signup rates and higher conversion to paid accounts.",
+        "Opt-in trials have lower signup rates but higher conversion to paid accounts.",
+        "Opt-in trials have higher signup rates but significantly lower conversion to paid accounts."
+      ],
+      "correct": 3,
+      "explanation": "Opt-in trials have lower friction, yielding a higher visitor-to-signup rate (approx 7.8% vs 2.4%). However, opt-out trials yield a much higher trial-to-paid conversion rate (approx 49.9% vs 8.9%) because they filter for high-intent buyers upfront."
+    },
+    {
+      "question": "In which scenario is a Freemium model most likely to succeed over a Free Trial?",
+      "options": [
+        "When the product is highly complex, requires significant setup, and has high marginal costs per user.",
+        "When the product has strong network effects, a fast time-to-value, and a large total addressable market.",
+        "When the company targets enterprise buyers who require custom security integrations.",
+        "When the product has no viral loops and relies entirely on high-cost paid advertising."
+      ],
+      "correct": 1,
+      "explanation": "Freemium thrives when the product can be understood quickly, has viral loops or network effects (like Slack or Figma), and costs very little to serve. If marginal costs are high or setup is complex, a time-boxed free trial is safer and more effective."
+    },
+    {
+      "question": "What is the main benefit of the hybrid GTM model used by companies like Canva and Loom?",
+      "options": [
+        "It allows companies to avoid paying sales commissions to their account executives.",
+        "It combines a freemium tier for distribution and habit building with a premium trial to create upgrade urgency.",
+        "It doubles the credit card processing fees to improve payment gateway reliability.",
+        "It eliminates the need for onboarding tutorials and support documentation."
+      ],
+      "correct": 1,
+      "explanation": "The hybrid GTM model provides a permanently free base tier to drive massive distribution and habit formation, and offers a time-limited trial of premium/Pro features. This creates conversion urgency without locking users out of the core product when the trial ends."
+    }
+  ],
+  "growth/engagement-loops": [
+    {
+      "question": "What are the four stages of Nir Eyal's Hooked model as applied to product engagement loops?",
+      "options": [
+        "Target, Activation, Revenue, Referral",
+        "Trigger, Action, Variable Reward, Investment",
+        "Traffic, Conversion, Optimization, Churn",
+        "Tension, Relief, Retaliation, Resolution"
+      ],
+      "correct": 1,
+      "explanation": "The engagement loop model consists of: Trigger (prompt to act), Action (simplest behavior), Variable Reward (the unpredictable payoff), and Investment (user adds data/effort, making the next cycle more valuable)."
+    },
+    {
+      "question": "Why are variable rewards critical to sustaining long-term user habits?",
+      "options": [
+        "They reduce the hosting cost of the app by serving randomized cache content.",
+        "They prevent habituation and boredom, leveraging human psychology where unpredictable rewards drive stronger dopamine hits.",
+        "They ensure that no user is ever able to unlock the same feature twice.",
+        "They automatically convert free users into paid customers after three cycles."
+      ],
+      "correct": 1,
+      "explanation": "Fixed, predictable rewards lose their pull quickly because users know exactly what to expect. Variable rewards (like social media feeds, streaks, or community leaderboards) keep users curious and coming back because the payoff is unpredictable."
+    },
+    {
+      "question": "In an engagement loop, what is the role of the 'investment' stage?",
+      "options": [
+        "The point where the user pays a subscription fee to access the product.",
+        "What the user puts into the product (data, streaks, connections) that raises switching costs and makes the next loop more valuable.",
+        "The marketing budget spent on acquiring a new user.",
+        "The time it takes for a user to install the application."
+      ],
+      "correct": 1,
+      "explanation": "The investment stage involves the user adding value back to the product (such as building a streak, syncing data, or following other accounts). This makes the product more personalized and valuable to them, significantly increasing switching costs and prompting future triggers."
+    },
+    {
+      "question": "According to Duolingo's case study, what was the impact of their 'Streak Freeze' feature on at-risk users?",
+      "options": [
+        "It increased daily active users by 80% in the first session.",
+        "It reduced user churn by 21% by allowing them to protect their accumulated product investment (their streak).",
+        "It cost Duolingo an average of $2.50 per user in server maintenance fees.",
+        "It caused users to reset their progress, forcing them to repeat beginner lessons."
+      ],
+      "correct": 1,
+      "explanation": "A streak represents a significant user investment. Duolingo's Streak Freeze allows users to save that investment even if they miss a day, which reduced the discouragement of losing progress and cut churn by 21% for at-risk users."
+    }
+  ],
+  "growth/plg": [
+    {
+      "question": "What is the defining characteristic of a Product-Led Growth (PLG) go-to-market motion?",
+      "options": [
+        "The company relies on massive outbound cold-calling campaigns to close deals.",
+        "The product itself acts as the primary driver of customer acquisition, activation, retention, and expansion by letting users experience value before paying.",
+        "The marketing budget is entirely outsourced to third-party affiliate networks.",
+        "The software is sold exclusively through multi-year enterprise contracts with custom professional services."
+      ],
+      "correct": 1,
+      "explanation": "PLG lets the product speak for itself. Users sign up, experience the core value milestone (the aha moment), and eventually convert or expand their usage self-serve, rather than going through a traditional sales-rep-led demo and negotiation process."
+    },
+    {
+      "question": "What is the main difference in Customer Acquisition Cost (CAC) between PLG and traditional Sales-Led Growth (SLG) models?",
+      "options": [
+        "PLG CAC is typically $5,000 to $50,000, while SLG is under $500.",
+        "PLG CAC is typically $100 to $500, while SLG CAC runs $5,000 to $50,000+ due to sales commissions and long sales cycles.",
+        "There is no difference in CAC; both models cost exactly the same to acquire a customer.",
+        "PLG CAC is zero because self-serve products do not require any marketing spend."
+      ],
+      "correct": 1,
+      "explanation": "Because PLG relies on self-serve onboarding and viral word-of-mouth loops rather than high-touch sales representatives and lengthy negotiations, acquisition costs are orders of magnitude lower ($100-$500 vs. $5K-$50K+)."
+    },
+    {
+      "question": "What is a Product-Qualified Lead (PQL) and why does it convert better than a Marketing-Qualified Lead (MQL)?",
+      "options": [
+        "A PQL is a user who filled out a demo request form on your blog.",
+        "A PQL is an active free-tier user who has hit specific usage milestones that predict conversion, demonstrating real product-market fit.",
+        "A PQL is a contact purchased from an email list provider that matches your target ICP.",
+        "A PQL is a user who has already cancelled their subscription and is in a win-back campaign."
+      ],
+      "correct": 1,
+      "explanation": "An MQL is just someone who showed interest (e.g., downloaded an ebook). A PQL is a free user who has actually used the product and reached high-intent thresholds (e.g., invited colleagues or completed key tasks), making them highly likely to upgrade."
+    },
+    {
+      "question": "What is the 'hidden engine' of high-performing PLG companies that allows them to achieve exceptional Net Revenue Retention (NRR)?",
+      "options": [
+        "Raising subscription prices by 20% every quarter without notifying users.",
+        "Generating significant expansion revenue (e.g., seat expansion, usage limits) from existing customers, often accounting for 18%+ of ARR.",
+        "Offering 24/7 dedicated telephone support only to free-tier users.",
+        "Mandating that users buy hardware accessories to keep using the software."
+      ],
+      "correct": 1,
+      "explanation": "High-performing PLG companies grow their revenue base from existing accounts. As users hit natural ceilings (e.g., seats, storage, API calls), they upgrade their plans, driving expansion revenue and pushing Net Revenue Retention (NRR) above 120%."
+    }
+  ],
+  "growth/onboarding": [
+    {
+      "question": "What is the definition of Time-to-First-Value (TTFV) in customer onboarding?",
+      "options": [
+        "The time between a user clicking an ad and completing the signup form.",
+        "The gap between the signup timestamp and the moment the user first completes a retention-correlated value milestone (the aha moment).",
+        "The time it takes for a sales representative to send a pricing proposal after a demo.",
+        "The length of time a user remains a customer before their first contract renewal."
+      ],
+      "correct": 1,
+      "explanation": "TTFV measures how long it takes for a new user to experience real value. Shorter TTFV is strongly correlated with higher activation and retention."
+    },
+    {
+      "question": "According to user onboarding data, what is a primary drawback of using a full feature dump or showing all features upfront?",
+      "options": [
+        "It increases server compute load by 300%.",
+        "It causes feature overwhelm, which reduces free-to-paid conversion rates by 45%.",
+        "It forces users to complete their billing setup before they can see the dashboard.",
+        "It makes it impossible to track user events in analytics tools."
+      ],
+      "correct": 1,
+      "explanation": "Flooding a user with all features on day one creates overwhelm. Progressive disclosure - showing features only when they are relevant and in context - is far more effective and preserves conversion rates."
+    },
+    {
+      "question": "How did Duolingo achieve a 47% reduction in first-week churn through its onboarding redesign?",
+      "options": [
+        "By introducing an unskippable 10-minute video tutorial on language learning.",
+        "By letting users start their first language lesson immediately and deferring account creation until they wanted to save progress.",
+        "By requiring users to enter credit card details before starting a lesson.",
+        "By sending hourly push notifications reminding them to complete their profile."
+      ],
+      "correct": 1,
+      "explanation": "Duolingo removed friction by deferring account setup. Letting users experience the value first (learning a language) before asking for an email built immediate motivation, resulting in a 47% churn reduction."
+    },
+    {
+      "question": "How does personalization (e.g., using a short two-question intent survey) benefit the onboarding experience?",
+      "options": [
+        "It allows the marketing team to sell user email addresses to advertisers.",
+        "It lets you segment users and route them to personalized flows, relevant templates, and contextual empty states, boosting retention by 40%.",
+        "It eliminates the need for any in-app tools or analytics tracking.",
+        "It automatically charges the user's credit card based on their company size."
+      ],
+      "correct": 1,
+      "explanation": "Personalization avoids a generic experience. By understanding the user's role and goal upfront, you can present pre-filled templates and walkthroughs tailored to their specific use case, which improves activation and long-term retention."
+    }
+  ],
+  "growth/referral-programs": [
+    {
+      "question": "Why do referral programs typically convert at 3-5x the rate of paid advertising channels?",
+      "options": [
+        "Referral links automatically bypass standard browser ad-blockers.",
+        "Referral recommendations carry trust pre-established by a friend, which transfers directly to the brand.",
+        "Referral programs are federally mandated to offer higher conversion guarantees.",
+        "Referral campaigns are only targeted at users who have unlimited financial budgets."
+      ],
+      "correct": 1,
+      "explanation": "Trust is hard to buy. When a user recommends a product to a peer, the recipient relies on that personal recommendation, which significantly lowers skepticism and increases the conversion rate."
+    },
+    {
+      "question": "In referral program design, what is the key difference between one-sided and two-sided reward structures?",
+      "options": [
+        "One-sided programs reward only the new user, while two-sided programs reward the company's internal sales team.",
+        "One-sided rewards are only issued in cash, while two-sided rewards are only issued in stock options.",
+        "One-sided programs reward only the referrer, while two-sided programs reward both the referrer and the referee (new user).",
+        "One-sided rewards are sent via email, while two-sided rewards are sent via physical mail."
+      ],
+      "correct": 2,
+      "explanation": "Two-sided programs reward both the advocate (sender) and the friend (recipient) (e.g., Dropbox's give 500MB, get 500MB). This structure has been shown to produce 3-4x higher participation and gross revenue than one-sided offers."
+    },
+    {
+      "question": "What is a critical technical failure point for mobile referral programs, particularly on iOS devices?",
+      "options": [
+        "The phone battery draining too quickly during the share action.",
+        "Stripping of URL decoration/parameters by mobile browsers (like iOS Safari), which breaks attribution tracking.",
+        "Mobile carriers blocking SMS referral links due to spam regulations.",
+        "The camera failing to scan the referral QR code."
+      ],
+      "correct": 1,
+      "explanation": "Privacy features and link decoration stripping on mobile browsers (like iOS Safari) often wipe out referral tracking parameters. Growth teams must implement robust tracking fallbacks (like first-party cookies or compliant fingerprinting) to ensure advocates are credited."
+    },
+    {
+      "question": "Why did Morning Brew's tiered referral program succeed so effectively with physical merchandise rewards?",
+      "options": [
+        "The merchandise was extremely cheap to manufacture and was shipped for free.",
+        "The Morning Brew brand had genuine affinity, making readers want to wear merchandise to signal their affiliation.",
+        "The newsletter required users to refer 3 friends before they were allowed to read it.",
+        "The merchandise was randomly selected and could be sold on eBay for high prices."
+      ],
+      "correct": 1,
+      "explanation": "Morning Brew readers had high brand affinity. Wearing a Morning Brew t-shirt or using their pint glass was a badge of identity and status. This emotional connection made physical milestones highly effective, converting 30% of readers into referrers."
+    }
+  ],
+  "growth/experimentation-program": [
+    {
+      "question": "Why do Booking.com and Microsoft accept experiment failure rates of 65% to 85%?",
+      "options": [
+        "Their platforms are deliberately designed to generate incorrect statistical data.",
+        "They prioritize testing volume over guessing, recognizing that the 15-35% of winning tests compound into massive commercial value.",
+        "They use automated bots to fake user interactions, causing natural test failures.",
+        "Their engineering teams lack the skills to build functional UI code."
+      ],
+      "correct": 1,
+      "explanation": "In high-performing experimentation cultures, it is understood that most ideas fail. By running high test volumes and documenting failures in a shared log, they find and compound the 15-35% of tests that do win, yielding significant long-term growth."
+    },
+    {
+      "question": "What is the primary purpose of a 'weekly experimentation council' in a growth organization?",
+      "options": [
+        "To approve marketing budget increases for paid ad campaigns.",
+        "To review queued tests, check statistical power, catch implementation errors like sample-ratio mismatch (SRM), and build a shared testing cadence.",
+        "To conduct performance reviews of the engineering team members.",
+        "To select the company's brand voice and color guidelines."
+      ],
+      "correct": 1,
+      "explanation": "The weekly experimentation council is the operational engine of the program. It brings cross-functional stakeholders together to align on upcoming tests, QA implementation details, prevent data corruption (like SRM), and drive testing velocity."
+    },
+    {
+      "question": "What is 'sample-ratio mismatch' (SRM) and why is it a critical QA check?",
+      "options": [
+        "A mismatch between the number of mobile and desktop users in a marketing campaign.",
+        "An imbalance in the actual versus expected split of traffic in an experiment (e.g., 52/48 instead of 50/50), signaling that the test implementation is broken and results are untrustworthy.",
+        "The difference in conversion rates between organic and paid traffic.",
+        "A mismatch between the size of the product design and engineering teams."
+      ],
+      "correct": 1,
+      "explanation": "If a 50/50 traffic split arrives at a statistically significant imbalance (like 52/48), it indicates that user assignment was not truly random or that a technical error occurred. This corrupts the data, making any results unreliable, regardless of the reported p-value."
+    },
+    {
+      "question": "Why is having a searchable wiki or archive of past experiments essential for a growth program?",
+      "options": [
+        "It allows external auditors to verify the company's tax compliance.",
+        "It serves as the company's public-facing marketing blog.",
+        "It builds institutional memory, preventing teams from wasting time and resources re-running tests that have already been conducted.",
+        "It is a legal requirement for public SaaS companies under current SEC guidelines."
+      ],
+      "correct": 2,
+      "explanation": "An archive preserves learnings. Without a searchable repository of past hypotheses, designs, and readouts, teams will inevitably repeat old experiments, losing valuable velocity and wasting engineering resources."
+    }
+  ],
+  "growth/reverse-trials": [
+    {
+      "question": "How does a reverse trial differ from a traditional free trial?",
+      "options": [
+        "A reverse trial charges the user's card upfront and offers a refund only if they cancel within 30 days.",
+        "A reverse trial gives all users premium features upfront and downgrades them to a functional free tier after a set window, rather than cutting off access entirely.",
+        "A reverse trial is used only for B2C mobile apps, while free trials are for B2B.",
+        "A reverse trial requires users to refer 3 friends before they can access the product."
+      ],
+      "correct": 1,
+      "explanation": "Unlike a free trial which is all-or-nothing (pay or be locked out), a reverse trial drops non-converting users to a usable free tier. This removes high-pressure sales gates while keeping users engaged in the product for future conversion opportunities."
+    },
+    {
+      "question": "Which psychological principle is the primary driver behind the high conversion rates (15-30%) of reverse trials?",
+      "options": [
+        "The anchoring bias, which makes users ignore premium prices.",
+        "Loss aversion, which makes the pain of losing already-built workflows and premium features twice as strong as the pleasure of gaining them.",
+        "Social proof, which encourages users to follow their friends' purchasing decisions.",
+        "The decoy effect, which introduces an irrelevant pricing tier to influence choice."
+      ],
+      "correct": 1,
+      "explanation": "After using premium features (such as collaboration or advanced automations) for 14-30 days, users build habits and experience loss aversion when faced with a downgrade, driving them to pay to keep their active workflows intact."
+    },
+    {
+      "question": "In a reverse trial, what is the risk of having a free tier that is too restrictive or painful?",
+      "options": [
+        "It increases customer acquisition cost by 400%.",
+        "It causes users who do not convert immediately to churn completely, losing the second-chance nurture window.",
+        "It automatically triggers credit card charges for all free users.",
+        "It prevents developers from adding new features to the premium plan."
+      ],
+      "correct": 1,
+      "explanation": "A free tier must be useful to sustain long-tail engagement. If the downgrade renders the app useless, users will abandon the product entirely rather than staying on the free tier, killing the opportunity to nurture them toward a future upgrade."
+    },
+    {
+      "question": "In which scenario is a reverse trial LEAST likely to perform effectively?",
+      "options": [
+        "When the premium plan features deliver a highly differentiated and valuable experience compared to the free tier.",
+        "When the sales process is enterprise-led, involving multi-month procurement and legal reviews that exceed the trial window.",
+        "When the product has a fast time-to-value (under 15 minutes) and is self-serve.",
+        "When the product targets individual users or small teams with simple setups."
+      ],
+      "correct": 1,
+      "explanation": "Reverse trials are product-led growth (PLG) tactics that require self-serve value realization within a 14-30 day window. They are ineffective for complex enterprise sales cycles where procurement and IT sign-offs take months."
+    }
+  ],
+  "growth/network-effects": [
+    {
+      "question": "What is a network effect in product growth?",
+      "options": [
+        "A viral marketing campaign that spreads rapidly on social media networks.",
+        "A structural mechanism where the utility of a product increases for all existing users with each new user who joins.",
+        "A discount program that rewards users for connecting their social media profiles.",
+        "The server infrastructure required to support high concurrent user traffic."
+      ],
+      "correct": 1,
+      "explanation": "A network effect means the value of the product is derived from the network of users. As the network grows, the connections increase exponentially (Metcalfe's Law), making the product more valuable to everyone on it (e.g., telephone or WhatsApp)."
+    },
+    {
+      "question": "How does a network effect differ from product virality?",
+      "options": [
+        "Virality is a value mechanism, while network effects are an acquisition mechanism.",
+        "Virality is about how a product distributes itself (new user acquisition), while network effects are about how the product gains utility and defensibility as it scales.",
+        "Virality is only for paid advertisements, while network effects are purely organic.",
+        "Network effects expire after 30 days, while virality compounds permanently."
+      ],
+      "correct": 1,
+      "explanation": "Virality is a loop that gets users to invite other users (a distribution mechanism). A network effect is a value mechanism: if a new user joining does not make the product better for existing users, you do not have a network effect, only virality."
+    },
+    {
+      "question": "What is the 'cold start problem' for networked products?",
+      "options": [
+        "The slow loading speed of an app when it is first launched on a mobile device.",
+        "The challenge where a network-dependent product is useless because it has no users, and it cannot attract users because it has no value.",
+        "The difficulty of writing backend database code to support concurrent socket connections.",
+        "The seasonal drop in user engagement during winter months."
+      ],
+      "correct": 1,
+      "explanation": "Networked products require a critical mass of users to be valuable. Before reaching that critical mass, the product offers little utility, creating a classic chicken-and-egg acquisition dilemma (the cold start problem)."
+    },
+    {
+      "question": "Why is geographic or category concentration (launching in a narrow niche) a proven tactic for escaping the cold start?",
+      "options": [
+        "It allows the company to avoid paying sales taxes in non-launched regions.",
+        "It concentrates user density to cross the critical mass threshold locally, turning on organic network effects before expanding.",
+        "It reduces the amount of source code required to deploy the application.",
+        "It prevents competitors from seeing the product during the early testing phases."
+      ],
+      "correct": 1,
+      "explanation": "Spreading users too thin globally or across too many industries means they will never encounter each other, leaving the network value low. Concentrating on one city (like Uber in SF) or one niche ensures users interact frequently, tipping the local network effect."
+    }
+  ],
+  "growth/two-sided-marketplaces": [
+    {
+      "question": "What defines a two-sided marketplace?",
+      "options": [
+        "A company that sells both physical products and software subscriptions.",
+        "A platform that connects two distinct user groups (supply and demand) who each require the presence of the other to obtain value.",
+        "A business model that operates in both online and brick-and-mortar retail stores.",
+        "A software system that allows developers to write code for iOS and Android simultaneously."
+      ],
+      "correct": 1,
+      "explanation": "A two-sided marketplace (such as Airbnb or Uber) acts as a middleman connecting supply (hosts/drivers) with demand (guests/riders). The platform does not own the inventory but facilitates transactions between both sides."
+    },
+    {
+      "question": "Why are cross-side network effects a powerful competitive moat for marketplaces?",
+      "options": [
+        "They allow the platform to charge both sides listing and processing fees without any user drop-off.",
+        "As one side grows, it increases the value of the platform for the other side, creating a self-reinforcing acquisition loop that is hard for competitors to displace.",
+        "They automatically double the speed of payment processing transactions.",
+        "They eliminate the need for any customer support or dispute resolution teams."
+      ],
+      "correct": 1,
+      "explanation": "Cross-side network effects mean more sellers attract more buyers, and more buyers attract more sellers. This mutual reinforcement creates high liquidity, which makes it extremely difficult for a new competitor to displace the incumbent platform."
+    },
+    {
+      "question": "What is the 'subsidy trap' in early-stage marketplace growth?",
+      "options": [
+        "A regulatory penalty for offering discounts to consumers.",
+        "A scenario where subsidies hide a broken unit economic model, because drivers/sellers and riders/buyers only participate due to artificial cash payouts that cannot be sustained.",
+        "The failure of the platform to secure venture capital funding to support discounts.",
+        "An accounting error that double-counts promotional credits as revenue."
+      ],
+      "correct": 1,
+      "explanation": "Subsidizing one side of the market (e.g., driver guarantees or rider discounts) is common to solve the cold start, but if the core business cannot survive at real price points once subsidies are removed, the model is unsustainable."
+    },
+    {
+      "question": "What is 'disintermediation' and how do marketplaces prevent it?",
+      "options": [
+        "The process of removing third-party ads from the platform interface.",
+        "When buyers and sellers find each other on the platform but transact off-platform to avoid fees; prevented by trust systems, dispute protection, and payment services.",
+        "The seasonal fluctuation of marketplace supply during holidays.",
+        "The translation of the platform interface into multiple languages."
+      ],
+      "correct": 1,
+      "explanation": "Disintermediation bypasses the marketplace's take-rate. To prevent users from going off-platform, marketplaces build features that add ongoing value to the transaction itself (such as Airbnb's insurance, trust ratings, and secure escrow payments)."
+    }
+  ]
+}
