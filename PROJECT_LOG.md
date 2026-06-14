@@ -1,7 +1,7 @@
 # Marketing Academy - Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-06-14 (Session 28). Updated via Antigravity.
+> Last audited: 2026-06-14 (Session 30). Updated via Antigravity.
 
 ---
 
@@ -988,3 +988,38 @@ Addressed user report that quizzes were not visible/accessible. Created a dedica
 - TypeScript: **0 errors** via `tsc --noEmit`.
 - Committed: `1f50ed7` — pushed to `main`.
 
+---
+
+## Session 30 — 2026-06-14 (Nav Overhaul, Footer Overhaul)
+
+### Summary
+User requested nav organization and footer improvement before the quiz gating plan. Fully redesigned both components.
+
+### Nav Changes (`src/components/Nav.tsx`)
+- **Before**: 8 flat text links overflowing the bar (Topics, Tracks, Glossary, Interview Prep, Cheat Sheets, Tools, Compare, Quizzes).
+- **After**: 3 organized dropdown groups:
+  - **Topics** — existing 15-category megamenu (2-col grid) + Browse All Topics link.
+  - **Learn** — Tracks, Quizzes, Certificates, Bookmarks (each with icon + description line).
+  - **Resources** — Glossary, Interview Prep, Cheat Sheets, Tools, Compare Tools, Search.
+  - **About** — standalone flat link.
+- Mobile menu redesigned with 3 labeled sections and a 2-col topics grid.
+- All icons verified against lucide-react v1.18 (Rule 9) — `Github` replaced with `ExternalLink`.
+
+### Footer Changes (`src/components/Footer.tsx`)
+- **Before**: 4-col layout, only 8 of 15 categories listed, NewsletterSignup dependency.
+- **After**: 5-col layout (Brand, Learn, Resources, Topics A, Topics B).
+  - All 15 categories now listed across two topic columns.
+  - Learn column: Browse All, Tracks, Quizzes, Certificates, Bookmarks, Search.
+  - Resources column: Glossary, Interview Questions, Cheat Sheets, Tools, Compare, Quick Reference, About, GitHub.
+  - Brand col: logo, description, GitHub (ExternalLink icon) + RSS icon links.
+  - Richer bottom bar with About + GitHub inline links.
+  - Removed `NewsletterSignup` import (was unused after newsletter skip).
+
+### Pending (Approved Plan — Session 31)
+- Quiz gating: Lock "Mark as Complete" until quiz is passed (100%).
+- "Take Quiz" button in lesson header anchoring to `#quiz-section`.
+- Quizzes hub redesigned to category cards (one per category).
+
+### Verification
+- TypeScript: **0 errors** via `tsc --noEmit`.
+- Committed: `8447e98` — pushed to `main`.
