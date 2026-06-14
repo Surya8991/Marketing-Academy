@@ -175,6 +175,17 @@ export default function Nav() {
           >
             Tools
           </Link>
+          <Link
+            href="/compare"
+            className={cn(
+              "px-3 py-1.5 rounded-md text-sm font-medium transition-colors",
+              pathname.startsWith("/compare")
+                ? "bg-[var(--muted)] text-[var(--foreground)]"
+                : "text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)]"
+            )}
+          >
+            Compare
+          </Link>
         </nav>
 
         {/* Actions */}
@@ -313,6 +324,17 @@ export default function Nav() {
               )}
             >
               🛠️ Tools
+            </Link>
+            <Link
+              href="/compare"
+              className={cn(
+                "px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                pathname.startsWith("/compare")
+                  ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
+                  : "text-[var(--foreground)] hover:bg-[var(--muted)]"
+              )}
+            >
+              ⚖️ Compare
             </Link>
           </div>
           <Link

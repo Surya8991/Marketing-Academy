@@ -951,7 +951,11 @@ type MarketingTool = {
 #### 3. Codebase Cleanup
 - **Removed Obsolete Scripts and Data Files**: Deleted all obsolete python and javascript scripts under the `scratch/` directory (`split_answers.py`, `check_missing_mdx.js`, `check_missing_quizzes.js`, `consolidate_quizzes.js`, `extract_existing.js`, `test_quizzes.js`) and removed the `src/lib/quizzes_batches/` folder containing temporary JSON files. This ensures a clean, lightweight repository without any leftover diagnostics.
 
-#### 4. Verification & Quality Auditing
+#### 4. Tool Comparison Page Navigation (/compare)
+- **Added Compare Link in Navigation (`src/components/Nav.tsx`)**: Placed the link to the interactive Comparison Engine (`/compare`) in both desktop and mobile dropdown navigation menus.
+- **Embedded Tool Comparison Banner in Lessons (`src/app/learn/[category]/[lesson]/page.tsx`)**: Automatically displays a visually cohesive callout box promoting the comparison tool for lessons categorized under `tools`.
+
+#### 5. Verification & Quality Auditing
 - Verified TypeScript compilation status: **0 errors** across the codebase via `tsc --noEmit`.
 - Run production build check successfully: generated **543 static pages** in 143s.
 

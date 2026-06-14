@@ -224,6 +224,24 @@ export default async function LessonPage({ params }: Props) {
               </div>
             )}
 
+            {/* Tool Comparison Callout */}
+            {category === "tools" && (
+              <div className="mt-8 p-5 rounded-2xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] transition-colors">
+                <h3 className="font-semibold text-lg mb-1 flex items-center gap-2">
+                  <span>⚖️</span> Tool Comparison Engine
+                </h3>
+                <p className="text-sm text-[var(--muted-foreground)] mb-4">
+                  Evaluating different platforms for your stack? Compare features, pricing, and pros/cons side-by-side using our interactive comparison tool.
+                </p>
+                <Link
+                  href="/compare"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--accent)] hover:underline"
+                >
+                  Compare Tools <ChevronRight size={14} />
+                </Link>
+              </div>
+            )}
+
             {/* Quiz */}
             {(() => {
               const questions = QUIZZES[`${category}/${lesson}`];
