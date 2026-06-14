@@ -50,6 +50,39 @@ export default function CheatSheetsPage() {
         </p>
       </div>
 
+      {/* Featured: All-in-one cheat sheet */}
+      <Link href="/digital-marketing-cheat-sheet" style={{ textDecoration: "none", display: "block", marginBottom: "2.5rem" }}>
+        <div
+          className="cheat-sheet-link-card"
+          style={{
+            background: "var(--accent)",
+            color: "var(--accent-foreground)",
+            borderRadius: "14px",
+            padding: "1.75rem 2rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "1.5rem",
+            flexWrap: "wrap",
+          }}
+        >
+          <div>
+            <div style={{ fontSize: "0.75rem", fontWeight: 700, opacity: 0.8, marginBottom: "0.4rem", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+              ⭐ All-in-One Quick Reference
+            </div>
+            <div style={{ fontSize: "1.3rem", fontWeight: 800, lineHeight: 1.2, marginBottom: "0.5rem" }}>
+              Digital Marketing Cheat Sheet 2025
+            </div>
+            <p style={{ margin: 0, opacity: 0.85, fontSize: "0.9rem", lineHeight: 1.5, maxWidth: "480px" }}>
+              Every metric, formula, benchmark, SEO rule, paid ads term, email stat, and AI tactic in one printable page.
+            </p>
+          </div>
+          <div style={{ fontSize: "0.9rem", fontWeight: 700, whiteSpace: "nowrap", opacity: 0.9 }}>
+            View &amp; Print →
+          </div>
+        </div>
+      </Link>
+
       {/* Grid */}
       <div
         style={{

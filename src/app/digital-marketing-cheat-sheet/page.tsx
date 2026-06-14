@@ -54,6 +54,29 @@ export default function CheatSheetPage() {
         background: "var(--background)",
       }}
     >
+      {/* Breadcrumb */}
+      <nav
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.4rem",
+          fontSize: "0.875rem",
+          color: "var(--muted-foreground)",
+          marginBottom: "1.5rem",
+          flexWrap: "wrap",
+        }}
+      >
+        <Link href="/" style={{ color: "var(--muted-foreground)", textDecoration: "none" }}>
+          Home
+        </Link>
+        <span style={{ opacity: 0.4 }}>›</span>
+        <Link href="/cheat-sheets" style={{ color: "var(--muted-foreground)", textDecoration: "none" }}>
+          Cheat Sheets
+        </Link>
+        <span style={{ opacity: 0.4 }}>›</span>
+        <span style={{ color: "var(--foreground)" }}>Digital Marketing Cheat Sheet</span>
+      </nav>
+
       <div
         style={{
           display: "flex",
