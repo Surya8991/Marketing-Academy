@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { ExternalLink } from "lucide-react";
 
 export type PricingTier = "Free" | "Freemium" | "Paid" | "Open Source";
@@ -36,11 +36,11 @@ type ToolsClientProps = {
   pricingTiers: PricingTier[];
 };
 
-const pricingColors: Record<PricingTier, string> = {
-  Free: "bg-green-100 text-green-800",
-  Freemium: "bg-blue-100 text-blue-800",
-  Paid: "bg-amber-100 text-amber-800",
-  "Open Source": "bg-purple-100 text-purple-800",
+const pricingStyles: Record<PricingTier, React.CSSProperties> = {
+  Free: { background: "rgba(22, 163, 74, 0.15)", color: "var(--foreground)", border: "1px solid rgba(22, 163, 74, 0.35)" },
+  Freemium: { background: "rgba(59, 130, 246, 0.15)", color: "var(--foreground)", border: "1px solid rgba(59, 130, 246, 0.35)" },
+  Paid: { background: "rgba(217, 119, 6, 0.15)", color: "var(--foreground)", border: "1px solid rgba(217, 119, 6, 0.35)" },
+  "Open Source": { background: "rgba(147, 51, 234, 0.15)", color: "var(--foreground)", border: "1px solid rgba(147, 51, 234, 0.35)" },
 };
 
 export default function ToolsClient({ tools, categories, pricingTiers }: ToolsClientProps) {
@@ -159,7 +159,10 @@ export default function ToolsClient({ tools, categories, pricingTiers }: ToolsCl
                 <span className="text-2xl">{tool.emoji}</span>
                 <span className="font-bold text-[var(--foreground)] leading-tight">{tool.name}</span>
                 {tool.popular && (
-                  <span className="ml-auto px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-800">
+                  <span
+                    className="ml-auto px-2 py-0.5 rounded-full text-xs font-semibold"
+                    style={{ background: "rgba(234, 179, 8, 0.15)", color: "var(--foreground)", border: "1px solid rgba(234, 179, 8, 0.35)" }}
+                  >
                     Popular
                   </span>
                 )}
@@ -168,7 +171,8 @@ export default function ToolsClient({ tools, categories, pricingTiers }: ToolsCl
               {/* Pricing badge + category */}
               <div className="flex items-center gap-2 flex-wrap">
                 <span
-                  className={`px-2 py-0.5 rounded-full text-xs font-semibold ${pricingColors[tool.pricing]}`}
+                  className="px-2 py-0.5 rounded-full text-xs font-semibold"
+                  style={pricingStyles[tool.pricing]}
                 >
                   {tool.pricing}
                 </span>

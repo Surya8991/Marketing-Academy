@@ -2,28 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Bookmark, BookmarkCheck } from "lucide-react";
-
-type BookmarkEntry = {
-  category: string;
-  slug: string;
-  title: string;
-};
-
-const STORAGE_KEY = "ma_bookmarks";
-
-function getBookmarks(): BookmarkEntry[] {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return [];
-    return JSON.parse(raw) as BookmarkEntry[];
-  } catch {
-    return [];
-  }
-}
-
-function saveBookmarks(entries: BookmarkEntry[]): void {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
-}
+import { BookmarkEntry, getBookmarks, saveBookmarks } from "@/lib/bookmarks";
 
 export default function BookmarkButton({
   category,
@@ -64,7 +43,7 @@ export default function BookmarkButton({
       onClick={toggle}
       className={`flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-lg transition-colors ${
         bookmarked
-          ? "bg-blue-100 text-blue-700 hover:bg-blue-200"
+          ? "bg-[var(--accent)] text-[var(--accent-foreground)] hover:opacity-90"
           : "bg-[var(--muted)] text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
       }`}
     >
