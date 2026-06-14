@@ -941,7 +941,14 @@ type MarketingTool = {
 - **Curriculum Registration (`src/lib/curriculum.ts`)**: Registered all 14 remaining new lessons (since `zero-party-data` was already registered).
 - **Interactive Quizzes Integration (`src/lib/quizzes.ts`)**: Integrated 4 detailed, context-rich multiple-choice questions for each of the 15 new lessons.
 
-#### 2. Verification & Quality Auditing
+#### 2. Tracks Page 404 Navigation Fixes
+- **Resolved Tracks Lesson Routing Errors**: Audited all 111 lesson links across all learning tracks in `src/lib/tracks.ts` and resolved all 10 category/slug mismatches:
+  - Corrected `copywriting/storytelling` to `copywriting/storytelling-copy` ("Storytelling in Copy").
+  - Corrected category and slug for `social/content-repurposing` to `content/repurposing` ("Content Repurposing").
+  - Aligned all `social/*` platform playbooks to their canonical curriculum slugs (e.g. `social-media-strategy` -> `social-strategy-basics`, `instagram-marketing` -> `instagram`, `linkedin-marketing` -> `linkedin`, `tiktok-marketing` -> `tiktok`, `youtube-marketing` -> `youtube`, `community-management` -> `community-building`, `social-analytics` -> `social-listening`).
+- **Verified Link Validity**: Automated tests now verify that 100% of the 111 track lesson links are correctly registered in `src/lib/curriculum.ts` and resolve cleanly, eliminating 404 routing errors on the tracks page.
+
+#### 3. Verification & Quality Auditing
 - Verified TypeScript compilation status: **0 errors** across the codebase via `tsc --noEmit`.
 - Run production build check successfully: generated **543 static pages** in 143s.
 
