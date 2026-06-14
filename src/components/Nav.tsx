@@ -160,6 +160,17 @@ export default function Nav() {
           >
             Cheat Sheets
           </Link>
+          <Link
+            href="/tools"
+            className={cn(
+              "px-3 py-1.5 rounded-md text-sm font-medium transition-colors",
+              pathname.startsWith("/tools")
+                ? "bg-[var(--muted)] text-[var(--foreground)]"
+                : "text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)]"
+            )}
+          >
+            Tools
+          </Link>
         </nav>
 
         {/* Actions */}
@@ -262,6 +273,17 @@ export default function Nav() {
               )}
             >
               📋 Cheat Sheets
+            </Link>
+            <Link
+              href="/tools"
+              className={cn(
+                "px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                pathname.startsWith("/tools")
+                  ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
+                  : "text-[var(--foreground)] hover:bg-[var(--muted)]"
+              )}
+            >
+              🛠️ Tools
             </Link>
           </div>
           <Link
