@@ -9,9 +9,9 @@
 
 ```
 1. cd D:\Coding\marketing-academy
-2. Count MDX files: ls src/content/**/*.mdx (PowerShell: (Get-ChildItem src/content -Recurse -Filter *.mdx).Count)
+2. Count MDX files: (Get-ChildItem src/content -Recurse -Filter *.mdx).Count   [PowerShell]
 3. Find first 🔴 row in the "MDX Progress" table below
-4. Launch the workflow to write missing lessons (see "Exact Next Steps" section)
+4. Launch the workflow to write missing lessons (see "Order of Execution" section)
 ```
 
 **Do NOT:**
@@ -21,6 +21,159 @@
 - Use YAML frontmatter in MDX — use `export const lessonMeta = {...}` instead
 - Import `useMDXComponents` from `@/mdx-components` — that path does NOT exist (`@/*` maps to `./src/*` but mdx-components.tsx is at the PROJECT ROOT, not in src/)
 - Write `<ComponentName! />` in JSX — use `let x!: Type` declaration instead (definite assignment assertion)
+
+---
+
+## 🗂 ORDER OF EXECUTION — Complete Project Roadmap
+
+> Read this top-to-bottom before doing anything. Every phase must complete before the next starts.
+> Status: **Phase 1 ✅ done → Phase 2 ✅ done → Phase 3 in progress (49/165 lessons)**
+
+---
+
+### PHASE 1 — Infrastructure ✅ COMPLETE
+*All code, pages, and components. Nothing here needs to be touched again unless there's a bug.*
+
+| Step | What | File | Status |
+|---|---|---|---|
+| 1.1 | Scaffold Next.js 16 project | `npx create-next-app@latest` | ✅ |
+| 1.2 | Install all dependencies | MDX, Mermaid, Tailwind typography, fuse.js, lucide-react, clsx, tailwind-merge | ✅ |
+| 1.3 | Configure MDX | `next.config.ts` — remark-gfm, rehype-slug, rehype-autolink-headings | ✅ |
+| 1.4 | Build CSS variable system | `src/app/globals.css` — Tailwind v4 + full light/dark token set | ✅ |
+| 1.5 | Register global MDX components | `mdx-components.tsx` at PROJECT ROOT — Mermaid, Callout, ResourceList | ✅ |
+| 1.6 | Build lesson registry | `src/lib/curriculum.ts` — 165 lessons, 10 categories, all nav helpers | ✅ |
+| 1.7 | Build utility libs | `src/lib/utils.ts` (cn()), `src/lib/progress.ts` (localStorage) | ✅ |
+| 1.8 | Build all components | Nav, Mermaid, Callout, ResourceList, LevelBadge, MarkComplete, CategoryProgress | ✅ |
+| 1.9 | Build all pages | homepage, /learn, /learn/[category], /learn/[category]/[lesson], /search | ✅ |
+| 1.10 | Write BACKLOG.md | 50+ advanced/emerging topics for future | ✅ |
+| 1.11 | Write README.md | Full project docs with lesson counts | ✅ |
+
+---
+
+### PHASE 2 — GitHub Push ✅ COMPLETE (2026-06-14)
+
+| Step | What | Command | Status |
+|---|---|---|---|
+| 2.1 | `git init` | — | ✅ |
+| 2.2 | `git remote add origin` | `https://github.com/Surya8991/Marketing-Academy.git` | ✅ |
+| 2.3 | First commit (86 files) | `git add . && git commit -m "Initial commit"` | ✅ |
+| 2.4 | Push to main | `git branch -M main && git push -u origin main` | ✅ |
+
+---
+
+### PHASE 3 — MDX Content 🔴 IN PROGRESS (49 / 165 lessons)
+*Write every MDX file. Each lesson MUST include real research (WebSearch + WebFetch) before writing.*
+
+**Research protocol per lesson (mandatory):**
+1. Run 2–3 WebSearch queries — always include "2024" or "2025" in at least one query
+2. WebFetch the best source URL
+3. Write lesson with real stats, citations, current examples
+
+**MDX file format (every lesson must follow this exactly):**
+```mdx
+export const lessonMeta = {
+  title: "Lesson Title",
+  level: "Beginner",   // "Beginner" | "Intermediate" | "Advanced"
+  summary: "One-line description for cards and search.",
+};
+
+# Lesson Title
+
+Intro paragraph...
+
+## Section Heading
+
+Content with real data and examples.
+
+<Callout type="info">Key insight here.</Callout>
+
+## Key Takeaways
+
+- Point 1
+- Point 2
+
+<ResourceList resources={[
+  { title: "Name", url: "https://...", type: "article", free: true },
+]} />
+```
+
+**Content execution order (do categories in this sequence):**
+
+| Order | Category | Slug | Total | Done | Remaining |
+|---|---|---|---|---|---|
+| 3.1 | Marketing Fundamentals | `fundamentals` | 16 | 13 ✅ | flywheel, category-design, pricing-psychology |
+| 3.2 | Paid Ads | `paid-ads` | 18 | 14 ✅ | apple-search-ads, ctv-ott-ads, reddit-ads, retail-media |
+| 3.3 | Growth Marketing | `growth` | 16 | 2 | 14 missing — see full list below |
+| 3.4 | Social Media | `social` | 18 | 0 | ALL 18 |
+| 3.5 | Content Marketing | `content` | 15 | 0 | ALL 15 |
+| 3.6 | Email & Lifecycle | `email` | 14 | 0 | ALL 14 |
+| 3.7 | Analytics | `analytics` | 16 | 0 | ALL 16 |
+| 3.8 | Marketing Tools | `tools` | 15 | 0 | ALL 15 |
+| 3.9 | AI in Marketing | `ai-marketing` | 17 | 0 | ALL 17 |
+| 3.10 | SEO | `seo` | 20 | **20 ✅** | COMPLETE |
+
+*SEO done. Do 3.1 → 3.2 → 3.3 → 3.4 → ... → 3.9 in order.*
+
+**How to launch the content workflow (use this exact approach):**
+
+Run a Workflow that fans out all missing lessons in parallel. Each agent:
+1. Receives: category slug, lesson slug, lesson title, level, summary
+2. Runs WebSearch × 2–3 queries
+3. WebFetches top result
+4. Writes the full MDX file to `src/content/{category}/{slug}.mdx`
+
+After the workflow completes: run `(Get-ChildItem src/content -Recurse -Filter *.mdx).Count` — should match 165.
+
+---
+
+### PHASE 4 — Type Check & Build 🔴 NOT STARTED
+*Run after ALL 165 MDX files are written.*
+
+| Step | Command | Expected result | Status |
+|---|---|---|---|
+| 4.1 | `npx tsc --noEmit` | 0 errors | 🔴 |
+| 4.2 | `npm run build` | Compiled successfully | 🔴 |
+
+**If build fails on missing MDX:** The `catch { notFound() }` in the lesson reader handles this — missing MDX pages become 404s, not build failures. If TypeScript errors appear, check the Gotchas section.
+
+---
+
+### PHASE 5 — Deploy to Vercel 🔴 NOT STARTED
+*Run after Phase 4 passes clean.*
+
+| Step | What | How | Status |
+|---|---|---|---|
+| 5.1 | Connect repo to Vercel | Go to vercel.com → New Project → Import `Surya8991/Marketing-Academy` | 🔴 |
+| 5.2 | Verify auto-detected settings | Framework: Next.js, Build: `npm run build`, Output: `.next` | 🔴 |
+| 5.3 | Deploy | Click Deploy — no env vars needed, everything is static | 🔴 |
+| 5.4 | Set custom domain (optional) | Vercel Dashboard → Domains → add your domain | 🔴 |
+| 5.5 | Update README live URL | Replace placeholder with real Vercel URL | 🔴 |
+
+**Future pushes after deploy:**
+```
+git add src/content/...   # only stage new/changed MDX files
+git commit -m "add: [category] lessons"
+git push
+# Vercel auto-deploys on every push to main
+```
+
+---
+
+### PHASE 6 — Polish (after live) 🔴 FUTURE
+*Nice-to-haves. Don't start until all 165 lessons are live.*
+
+| Step | What | Notes |
+|---|---|---|
+| 6.1 | Dark mode manual toggle | Currently auto via OS — add a sun/moon button in Nav |
+| 6.2 | OG images | `/api/og` with `@vercel/og` — per-lesson social preview cards |
+| 6.3 | Sitemap | `src/app/sitemap.ts` — auto-generates XML sitemap from curriculum |
+| 6.4 | robots.txt | `src/app/robots.ts` — allow all, point to sitemap |
+| 6.5 | Search improvements | Add category filter chips above results |
+| 6.6 | B2B track | BACKLOG.md has the full list — dedicated "B2B Marketing" category |
+| 6.7 | E-commerce track | Product pages, PDPs, marketplace SEO — in BACKLOG |
+| 6.8 | Glossary | `/glossary/[term]` — 200+ marketing term definitions |
+| 6.9 | Quiz/assessment | End-of-lesson quiz, category completion badges |
+| 6.10 | RSS feed | `/feed.xml` for new-lesson notifications |
 
 ---
 
