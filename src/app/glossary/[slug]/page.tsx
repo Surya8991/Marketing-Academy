@@ -36,6 +36,8 @@ const CATEGORY_COLORS: Record<string, string> = {
   "Social Media": "from-fuchsia-500/15 to-purple-500/10",
 };
 
+const BASE = "https://marketing-academy-roan.vercel.app";
+
 export default async function GlossaryTermPage({ params }: Props) {
   const { slug } = await params;
   const term = getTermBySlug(slug);
@@ -50,8 +52,25 @@ export default async function GlossaryTermPage({ params }: Props) {
   const prev = idx > 0 ? sorted[idx - 1] : null;
   const next = idx < sorted.length - 1 ? sorted[idx + 1] : null;
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "DefinedTerm",
+    name: term.term,
+    description: term.definition,
+    url: `${BASE}/glossary/${slug}`,
+    inDefinedTermSet: {
+      "@type": "DefinedTermSet",
+      name: "Marketing Glossary",
+      url: `${BASE}/glossary`,
+    },
+  };
+
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Back link */}
       <Link
         href="/glossary"

@@ -1,17 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import type { Quiz } from "@/lib/quizzes";
 
 type Props = {
   questions: Quiz[];
 };
 
+function quizStorageKey(path: string) {
+  return `ma_quiz_${path.replace(/\//g, "_")}`;
+}
+
 export default function Quiz({ questions }: Props) {
+  const pathname = usePathname();
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [answers, setAnswers] = useState<boolean[]>([]);
   const [finished, setFinished] = useState(false);
+
+  // Restore saved score on mount
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(quizStorageKey(pathname));
+      if (saved) {
+        const { score, total } = JSON.parse(saved) as { score: number; total: number };
+        if (total === questions.length) {
+          setAnswers(Array(score).fill(true).concat(Array(total - score).fill(false)));
+          setFinished(true);
+        }
+      }
+    } catch { /* ignore corrupt storage */ }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const question = questions[current];
   const totalQuestions = questions.length;
@@ -26,6 +47,11 @@ export default function Quiz({ questions }: Props) {
 
   function handleNext() {
     if (current + 1 >= totalQuestions) {
+      const finalAnswers = [...answers, selected === question.correct];
+      const finalScore = finalAnswers.filter(Boolean).length;
+      try {
+        localStorage.setItem(quizStorageKey(pathname), JSON.stringify({ score: finalScore, total: totalQuestions }));
+      } catch { /* storage full or unavailable */ }
       setFinished(true);
     } else {
       setCurrent((c) => c + 1);
@@ -34,6 +60,7 @@ export default function Quiz({ questions }: Props) {
   }
 
   function handleRetry() {
+    try { localStorage.removeItem(quizStorageKey(pathname)); } catch { /* ignore */ }
     setCurrent(0);
     setSelected(null);
     setAnswers([]);
