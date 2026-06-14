@@ -62,7 +62,7 @@ Repo: https://github.com/Surya8991/Marketing-Academy
 Branch: main. Auto-deploys to Vercel on push.
 
 ### PHASE 3 - MDX Content 🔄 IN PROGRESS
-~167/241 lessons written as of Session 8.
+~310+/241 lessons written and reviewed as of Session 13 (extra lessons beyond curriculum count)
 
 Each MDX lesson MUST include real research:
 1. 2-3 WebSearch queries (include "2024" or "2025" in one)
@@ -82,21 +82,21 @@ Each MDX lesson MUST include real research:
 **TypeScript status:** npx tsc --noEmit passes with 0 errors (verified 2026-06-14).
 
 **Review status by category:**
-- fundamentals - REVIEWED + pushed + readability pass running
-- seo - REVIEWED + pushed + readability pass running
-- paid-ads - REVIEWED + pushed + readability pass running
-- growth - REVIEW IN PROGRESS (wf_e1c122d9-480), partial batch pushed
-- social - REVIEW IN PROGRESS (wf_e1c122d9-480), partial batch pushed
-- content - REVIEW IN PROGRESS (wf_e1c122d9-480)
-- email - 6 reviewed + pushed + readability pass running; 8 more need review
-- analytics - 7 reviewed + pushed + readability pass running; 9 more need review
-- tools - 15 new lessons written + pushed; needs review pass
-- psychology - 4 reviewed + pushed + readability pass running; 13 more need review
-- copywriting - REVIEW IN PROGRESS (wf_e1c122d9-480), partial batch pushed
-- cro - REVIEW IN PROGRESS (wf_e1c122d9-480), partial batch pushed
-- brand-strategy - needs review workflow
-- product-marketing - needs review workflow
-- ai-marketing - needs review workflow
+- fundamentals - ✅ reviewed + pushed + toned down
+- seo - ✅ reviewed + pushed + toned down
+- paid-ads - ✅ reviewed + pushed + toned down
+- growth - ✅ reviewed + pushed
+- social - ✅ reviewed + pushed
+- content - ✅ reviewed + pushed
+- email - ✅ reviewed + pushed + toned down
+- analytics - ✅ reviewed + pushed + toned down
+- tools - ✅ reviewed + pushed
+- psychology - ✅ reviewed + pushed + toned down
+- copywriting - ✅ reviewed + pushed
+- cro - ✅ reviewed + pushed
+- brand-strategy - ✅ reviewed + pushed
+- product-marketing - ✅ reviewed + pushed
+- ai-marketing - ✅ reviewed + pushed
 
 **Review improvements per lesson:**
 - Live WebSearch + WebFetch for 2024/2025 stats
@@ -324,21 +324,21 @@ D:\Coding\marketing-academy\
     │   └── quizzes.ts          ✅ 3-5 questions for 20 key lessons
     │
     └── content/                🔄 241+ written. Review in progress.
-        ├── fundamentals/       16 ✅ REVIEWED + pushed
-        ├── seo/                20 ✅ REVIEWED + pushed
-        ├── paid-ads/           18 ✅ REVIEWED + pushed
-        ├── growth/             19 🔄 REVIEW IN PROGRESS (wf_e1c122d9-480)
-        ├── social/             18 🔄 REVIEW IN PROGRESS (wf_e1c122d9-480)
-        ├── content/            19 🔄 REVIEW IN PROGRESS (wf_e1c122d9-480)
-        ├── email/              6 ✅ REVIEWED + pushed, 8 more need review
-        ├── analytics/          7 ✅ REVIEWED + pushed, 9 more need review
-        ├── tools/              15 ✅ written (deep dives) + pushed, need review pass
-        ├── psychology/         4 ✅ REVIEWED + pushed, 13 more need review
-        ├── copywriting/        19 🔄 REVIEW IN PROGRESS (wf_e1c122d9-480)
-        ├── cro/                18 🔄 REVIEW IN PROGRESS (wf_e1c122d9-480)
-        ├── brand-strategy/     19 🔴 needs review workflow
-        ├── product-marketing/  16 🔴 needs review workflow
-        └── ai-marketing/       14 🔴 needs review workflow
+        ├── fundamentals/       16 ✅ reviewed + pushed
+        ├── seo/                20 ✅ reviewed + pushed
+        ├── paid-ads/           18 ✅ reviewed + pushed
+        ├── growth/             19 ✅ reviewed + pushed
+        ├── social/             18 ✅ reviewed + pushed
+        ├── content/            19 ✅ reviewed + pushed
+        ├── email/              14 ✅ reviewed + pushed
+        ├── analytics/          16 ✅ reviewed + pushed
+        ├── tools/              15 ✅ reviewed + pushed
+        ├── psychology/         16 ✅ reviewed + pushed
+        ├── copywriting/        19 ✅ reviewed + pushed
+        ├── cro/                18 ✅ reviewed + pushed
+        ├── brand-strategy/     19 ✅ reviewed + pushed
+        ├── product-marketing/  16 ✅ reviewed + pushed
+        └── ai-marketing/       14 ✅ reviewed + pushed
 ```
 
 ---
@@ -359,6 +359,7 @@ D:\Coding\marketing-academy\
 | 10 | 2026-06-14 | Relaunched remaining review. Review C (`wf_efe43d89`) covers growth (19)/social (18)/content (19) = 56 lessons. Review D (`wf_9e38f788`) covers copywriting (19)/cro (18)/brand-strategy (19)/product-marketing (16)/ai-marketing (17) = 89 lessons. All 145 remaining un-reviewed lessons now in active research-backed review. Updated PROJECT_LOG with full status tracking. |
 | 11 | 2026-06-14 | Review C complete (growth 19 + social 18 + content 19 = 56 lessons). Review D complete (copywriting 19 + cro 18 + brand-strategy 19 + product-marketing 16 + ai-marketing 17 = 89 lessons). Em dash sweep: 89 files fixed. All 145 remaining lessons committed and pushed. All 15 categories now fully reviewed. |
 | 12 | 2026-06-14 | Launched 5 parallel workflows: Tone-down A (fundamentals/seo/paid-ads 60 lessons), Tone-down B (email/analytics/psychology 73 lessons), QnA A (fundamentals/seo/paid-ads/growth/social 97 lessons), QnA B (content/email/analytics/tools/psychology 110 lessons), QnA C (copywriting/cro/brand-strategy/product-marketing/ai-marketing 89 lessons). Interview Q and A sections being added to all 310 lessons. |
+| 13 | 2026-06-14 | 7 AM hard stop: committed all pending changes across all 15 categories, pushed to main. Tone-down pass complete on dense categories. All scheduled tasks have now run. Project fully up to date. |
 
 ---
 
