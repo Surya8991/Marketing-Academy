@@ -10,6 +10,7 @@ import { QUIZZES } from "@/lib/quizzes";
 import ShareButtons from "@/components/ShareButtons";
 import BookmarkButton from "@/components/BookmarkButton";
 import RelatedLessons from "@/components/RelatedLessons";
+import LessonViewTracker from "@/components/LessonViewTracker";
 import { ChevronLeft, ChevronRight, ArrowLeft, Clock } from "lucide-react";
 import type { Metadata } from "next";
 import fs from "fs";
@@ -94,6 +95,12 @@ export default async function LessonPage({ params }: Props) {
   return (
     <>
       <ReadingProgress />
+      <LessonViewTracker
+        categorySlug={category}
+        slug={lesson}
+        title={lessonMeta?.title ?? lesson}
+        categoryTitle={cat.title}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="flex gap-12">

@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Menu, X, Search, BookOpen, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -11,6 +11,7 @@ export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [topicsOpen, setTopicsOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
   const topicsRef = useRef<HTMLDivElement>(null);
 
   // Close on route change
@@ -18,6 +19,19 @@ export default function Nav() {
     setMobileOpen(false);
     setTopicsOpen(false);
   }, [pathname]);
+
+  // Press "/" anywhere to open search
+  useEffect(() => {
+    function onSlash(e: KeyboardEvent) {
+      const tag = (e.target as HTMLElement).tagName;
+      if (e.key === "/" && tag !== "INPUT" && tag !== "TEXTAREA") {
+        e.preventDefault();
+        router.push("/search");
+      }
+    }
+    document.addEventListener("keydown", onSlash);
+    return () => document.removeEventListener("keydown", onSlash);
+  }, [router]);
 
   // Close topics on outside click / escape
   useEffect(() => {

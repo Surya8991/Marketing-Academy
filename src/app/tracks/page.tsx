@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { TRACKS } from "@/lib/tracks";
+import TrackProgress from "@/components/TrackProgress";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -51,6 +52,7 @@ export default function TracksPage() {
                 Start Track
               </span>
             </div>
+            <TrackProgress lessons={track.lessons} />
           </Link>
         ))}
       </div>

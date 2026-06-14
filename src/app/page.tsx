@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CATEGORIES, flatLessons } from "@/lib/curriculum";
 import { TRACKS } from "@/lib/tracks";
 import TrackCard from "@/components/TrackCard";
+import RecentlyViewed from "@/components/RecentlyViewed";
 import {
   ArrowRight,
   BookOpen,
@@ -113,6 +114,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <RecentlyViewed />
 
       {/* Featured / Start Here */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

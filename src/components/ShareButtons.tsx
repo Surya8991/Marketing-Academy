@@ -1,6 +1,7 @@
 "use client";
 
-import { Share2 } from "lucide-react";
+import { useState } from "react";
+import { Share2, Link2, Check } from "lucide-react";
 
 type Props = {
   title: string;
@@ -8,6 +9,14 @@ type Props = {
 };
 
 export default function ShareButtons({ title, url }: Props) {
+  const [copied, setCopied] = useState(false);
+
+  function copyLink() {
+    navigator.clipboard.writeText(url).catch(() => {});
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }
+
   function shareLinkedIn() {
     window.open(
       "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(url),
@@ -114,6 +123,27 @@ export default function ShareButtons({ title, url }: Props) {
       >
         <span style={{ fontWeight: 700, fontSize: "0.875rem" }}>𝕏</span>
         Twitter
+      </button>
+
+      <button
+        onClick={copyLink}
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "0.25rem",
+          padding: "0.25rem 0.625rem",
+          fontSize: "0.8125rem",
+          borderRadius: "9999px",
+          border: "1px solid var(--border)",
+          background: copied ? "var(--muted)" : "transparent",
+          color: copied ? "var(--foreground)" : "var(--muted-foreground)",
+          cursor: "pointer",
+          transition: "background 0.15s, color 0.15s",
+        }}
+        aria-label="Copy link"
+      >
+        {copied ? <Check size={12} /> : <Link2 size={12} />}
+        {copied ? "Copied!" : "Copy link"}
       </button>
     </div>
   );
