@@ -5,6 +5,33 @@ export type Quiz = {
   explanation: string;
 };
 
+/** localStorage key for a quiz pass flag */
+export function quizPassKey(category: string, slug: string): string {
+  return `ma_quiz_pass_${category}_${slug}`;
+}
+
+/** Returns true if the user has passed this lesson's quiz (all correct) */
+export function getQuizPassed(category: string, slug: string): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    return localStorage.getItem(quizPassKey(category, slug)) === "1";
+  } catch {
+    return false;
+  }
+}
+
+/** Persists that the user has passed this lesson's quiz */
+export function setQuizPassed(category: string, slug: string): void {
+  try {
+    localStorage.setItem(quizPassKey(category, slug), "1");
+  } catch {
+    // storage unavailable
+  }
+}
+
+/** CustomEvent name dispatched by Quiz when user passes */
+export const QUIZ_PASSED_EVENT = "quiz-passed";
+
 export const QUIZZES: Record<string, Quiz[]> = {
   "ai-marketing/ai-agents-marketing": [
     {

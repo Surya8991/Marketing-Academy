@@ -95,6 +95,10 @@ export default async function LessonPage({ params }: Props) {
 
   const { prev, next } = getLessonNav(category, lesson);
 
+  // Determine if this lesson has a quiz
+  const quizQuestions = QUIZZES[`${category}/${lesson}`];
+  const hasQuiz = !!(quizQuestions && quizQuestions.length > 0);
+
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -180,8 +184,21 @@ export default async function LessonPage({ params }: Props) {
                 </p>
               )}
               <div className="mt-5 flex flex-wrap items-center gap-3">
-                <MarkComplete category={category} slug={lesson} />
+                <MarkComplete category={category} slug={lesson} hasQuiz={hasQuiz} />
                 <BookmarkButton category={category} slug={lesson} title={lessonMeta?.title ?? lesson} />
+                {hasQuiz && (
+                  <a
+                    href="#quiz-section"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium border transition-colors"
+                    style={{
+                      borderColor: "var(--accent)",
+                      color: "var(--accent)",
+                      background: "rgba(99,102,241,0.06)",
+                    }}
+                  >
+                    🧠 Take Quiz
+                  </a>
+                )}
               </div>
               <div className="mt-4">
                 <ShareButtons title={lessonMeta?.title ?? lesson} url={`${BASE}/learn/${category}/${lesson}`} />
@@ -201,6 +218,7 @@ export default async function LessonPage({ params }: Props) {
               <MarkComplete
                 category={category}
                 slug={lesson}
+                hasQuiz={hasQuiz}
                 nextHref={next ? `/learn/${next.categorySlug}/${next.slug}` : undefined}
                 nextTitle={next?.title}
               />
@@ -243,16 +261,12 @@ export default async function LessonPage({ params }: Props) {
             )}
 
             {/* Quiz */}
-            {(() => {
-              const questions = QUIZZES[`${category}/${lesson}`];
-              if (!questions || questions.length === 0) return null;
-              return (
-                <div className="mt-12 pt-8 border-t border-[var(--border)]">
-                  <h2 className="text-xl font-bold mb-4">Test Your Knowledge</h2>
-                  <Quiz questions={questions} />
-                </div>
-              );
-            })()}
+            {hasQuiz && (
+              <div className="mt-12 pt-8 border-t border-[var(--border)]">
+                <h2 className="text-xl font-bold mb-4">Test Your Knowledge</h2>
+                <Quiz questions={quizQuestions!} category={category} slug={lesson} />
+              </div>
+            )}
 
             {/* Related Lessons */}
             <RelatedLessons currentCategory={category} currentSlug={lesson} level={lessonMeta?.level ?? "Beginner"} />

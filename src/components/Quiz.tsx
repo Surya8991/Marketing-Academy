@@ -3,24 +3,36 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import type { Quiz } from "@/lib/quizzes";
+import { getQuizPassed, setQuizPassed, QUIZ_PASSED_EVENT } from "@/lib/quizzes";
+import { CheckCircle2, XCircle, RotateCcw, Trophy } from "lucide-react";
 
 type Props = {
   questions: Quiz[];
+  category: string;
+  slug: string;
 };
 
 function quizStorageKey(path: string) {
   return `ma_quiz_${path.replace(/\//g, "_")}`;
 }
 
-export default function Quiz({ questions }: Props) {
+export default function Quiz({ questions, category, slug }: Props) {
   const pathname = usePathname();
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [answers, setAnswers] = useState<boolean[]>([]);
   const [finished, setFinished] = useState(false);
+  const [alreadyPassed, setAlreadyPassed] = useState(false);
 
-  // Restore saved score on mount
+  // Restore saved state on mount
   useEffect(() => {
+    const passed = getQuizPassed(category, slug);
+    if (passed) {
+      setAlreadyPassed(true);
+      setAnswers(Array(questions.length).fill(true));
+      setFinished(true);
+      return;
+    }
     try {
       const saved = localStorage.getItem(quizStorageKey(pathname));
       if (saved) {
@@ -47,10 +59,18 @@ export default function Quiz({ questions }: Props) {
 
   function handleNext() {
     if (current + 1 >= totalQuestions) {
-      const finalScore = answers.filter(Boolean).length;
+      const newAnswers = [...answers];
+      const finalScore = newAnswers.filter(Boolean).length;
+      const perfect = finalScore === totalQuestions;
       try {
         localStorage.setItem(quizStorageKey(pathname), JSON.stringify({ score: finalScore, total: totalQuestions }));
       } catch { /* storage full or unavailable */ }
+      if (perfect) {
+        setQuizPassed(category, slug);
+        window.dispatchEvent(
+          new CustomEvent(QUIZ_PASSED_EVENT, { detail: { id: `${category}/${slug}` } })
+        );
+      }
       setFinished(true);
     } else {
       setCurrent((c) => c + 1);
@@ -70,27 +90,77 @@ export default function Quiz({ questions }: Props) {
 
   if (finished) {
     const pct = Math.round((score / totalQuestions) * 100);
-    let message = "Keep practicing - you will get there.";
-    if (pct >= 80) message = "Great job! You know this material well.";
-    else if (pct >= 60) message = "Good effort - review the explanations to fill the gaps.";
+    const perfect = pct === 100;
+
+    if (perfect || alreadyPassed) {
+      return (
+        <div
+          id="quiz-results"
+          className="rounded-2xl border p-6 text-center"
+          style={{
+            borderColor: "rgba(22,163,74,0.4)",
+            background: "rgba(22,163,74,0.06)",
+          }}
+          role="region"
+          aria-label="Quiz passed"
+        >
+          <div className="flex justify-center mb-3">
+            <Trophy size={40} style={{ color: "rgb(22 163 74)" }} />
+          </div>
+          <div className="text-3xl font-bold mb-1" style={{ color: "rgb(22 163 74)" }}>
+            {alreadyPassed ? "Already Passed!" : "Perfect Score!"}
+          </div>
+          <p className="text-sm text-[var(--muted-foreground)] mb-1">
+            {totalQuestions}/{totalQuestions} correct &mdash; 100%
+          </p>
+          <p className="font-medium mb-5 text-[var(--foreground)]">
+            You&apos;ve unlocked &ldquo;Mark as Complete&rdquo; for this lesson.
+          </p>
+          {!alreadyPassed && (
+            <button
+              onClick={handleRetry}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm border border-[var(--border)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+            >
+              <RotateCcw size={14} />
+              Retake quiz
+            </button>
+          )}
+        </div>
+      );
+    }
+
+    // Failed
+    let message = "Keep practicing — review the lesson and try again.";
+    if (pct >= 75) message = "Almost there! Review the explanations and retry.";
+    else if (pct >= 50) message = "Good start. Read through the sections you missed.";
 
     return (
       <div
-        className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 text-center"
+        id="quiz-results"
+        className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 text-center"
         role="region"
         aria-label="Quiz results"
       >
-        <div className="text-4xl font-bold mb-2" aria-live="polite">
+        <div className="flex justify-center mb-3 text-[var(--muted-foreground)]">
+          <XCircle size={36} style={{ color: "rgba(239,68,68,0.8)" }} />
+        </div>
+        <div className="text-3xl font-bold mb-1">
           {score}/{totalQuestions}
         </div>
-        <p className="text-[var(--muted-foreground)] mb-1">
-          {pct}% correct
+        <p className="text-[var(--muted-foreground)] mb-1">{pct}% correct</p>
+        <p className="font-medium mb-2 text-[var(--foreground)]">{message}</p>
+        <p className="text-xs text-[var(--muted-foreground)] mb-5">
+          You need 100% to unlock &ldquo;Mark as Complete&rdquo;.
         </p>
-        <p className="font-medium mb-6">{message}</p>
         <button
           onClick={handleRetry}
-          className="px-5 py-2.5 rounded-lg bg-[var(--accent)] text-[var(--accent-foreground)] text-sm font-medium hover:opacity-90 transition-opacity"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium"
+          style={{
+            background: "var(--accent)",
+            color: "var(--accent-foreground)",
+          }}
         >
+          <RotateCcw size={14} />
           Try Again
         </button>
       </div>
@@ -99,10 +169,12 @@ export default function Quiz({ questions }: Props) {
 
   return (
     <div
+      id="quiz-section"
       className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-6"
       role="region"
       aria-label={`Quiz question ${current + 1} of ${totalQuestions}`}
     >
+      {/* Progress header */}
       <div className="flex items-center justify-between mb-4">
         <span className="text-sm text-[var(--muted-foreground)]">
           Question {current + 1} of {totalQuestions}
@@ -111,7 +183,7 @@ export default function Quiz({ questions }: Props) {
           {questions.map((_, i) => (
             <div
               key={i}
-              className="h-1.5 w-6 rounded-full"
+              className="h-1.5 w-6 rounded-full transition-colors"
               style={{
                 background:
                   i < answers.length
@@ -132,18 +204,19 @@ export default function Quiz({ questions }: Props) {
 
       <div className="flex flex-col gap-2.5 mb-5">
         {question.options.map((option, i) => {
-          let borderClass = "border-[var(--border)] hover:border-[var(--accent)]";
-          let bgClass = "bg-transparent";
+          let borderColor = "var(--border)";
+          let bgColor = "transparent";
+          let opacity = "1";
 
           if (answered) {
             if (i === question.correct) {
-              borderClass = "border-green-500";
-              bgClass = "bg-green-500/10";
+              borderColor = "#22c55e";
+              bgColor = "rgba(34,197,94,0.08)";
             } else if (i === selected) {
-              borderClass = "border-red-500";
-              bgClass = "bg-red-500/10";
+              borderColor = "#ef4444";
+              bgColor = "rgba(239,68,68,0.08)";
             } else {
-              borderClass = "border-[var(--border)] opacity-50";
+              opacity = "0.45";
             }
           }
 
@@ -153,14 +226,25 @@ export default function Quiz({ questions }: Props) {
               onClick={() => handleSelect(i)}
               disabled={answered}
               aria-pressed={selected === i}
-              className={`w-full text-left px-4 py-3 rounded-lg border text-sm transition-all ${borderClass} ${bgClass} ${
-                answered ? "cursor-default" : "cursor-pointer"
-              }`}
+              className="w-full text-left px-4 py-3 rounded-lg border text-sm transition-all"
+              style={{
+                borderColor,
+                background: bgColor,
+                opacity,
+                cursor: answered ? "default" : "pointer",
+              }}
             >
               <span className="font-medium mr-2 text-[var(--muted-foreground)]">
                 {String.fromCharCode(65 + i)}.
               </span>
               {option}
+              {answered && i === question.correct && (
+                <CheckCircle2
+                  size={14}
+                  className="inline ml-2 shrink-0"
+                  style={{ color: "#22c55e" }}
+                />
+              )}
             </button>
           );
         })}
@@ -178,7 +262,11 @@ export default function Quiz({ questions }: Props) {
       {answered && (
         <button
           onClick={handleNext}
-          className="px-5 py-2.5 rounded-lg bg-[var(--accent)] text-[var(--accent-foreground)] text-sm font-medium hover:opacity-90 transition-opacity"
+          className="px-5 py-2.5 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
+          style={{
+            background: "var(--accent)",
+            color: "var(--accent-foreground)",
+          }}
         >
           {current + 1 >= totalQuestions ? "See Results" : "Next Question"}
         </button>
