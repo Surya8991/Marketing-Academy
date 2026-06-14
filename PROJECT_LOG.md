@@ -141,21 +141,39 @@ After the workflow completes: run `(Get-ChildItem src/content -Recurse -Filter *
 ### PHASE 5 — Deploy to Vercel 🔴 NOT STARTED
 *Run after Phase 4 passes clean.*
 
+**Vercel files already added (✅ committed):**
+
+| File | Purpose |
+|---|---|
+| `src/app/not-found.tsx` | Custom 404 page — shown when a lesson MDX doesn't exist yet |
+| `src/app/robots.ts` | Generates `/robots.txt` — allows all crawlers, points to sitemap |
+| `src/app/sitemap.ts` | Generates `/sitemap.xml` — only includes lessons with actual MDX files |
+| `.gitattributes` | Forces LF line endings on commit — eliminates CRLF warnings |
+
+**Deploy steps:**
+
 | Step | What | How | Status |
 |---|---|---|---|
-| 5.1 | Connect repo to Vercel | Go to vercel.com → New Project → Import `Surya8991/Marketing-Academy` | 🔴 |
-| 5.2 | Verify auto-detected settings | Framework: Next.js, Build: `npm run build`, Output: `.next` | 🔴 |
-| 5.3 | Deploy | Click Deploy — no env vars needed, everything is static | 🔴 |
-| 5.4 | Set custom domain (optional) | Vercel Dashboard → Domains → add your domain | 🔴 |
-| 5.5 | Update README live URL | Replace placeholder with real Vercel URL | 🔴 |
+| 5.1 | Connect repo to Vercel | vercel.com → New Project → Import `Surya8991/Marketing-Academy` | 🔴 |
+| 5.2 | Verify auto-detected settings | Framework: Next.js, Build: `npm run build`, Output: `.next` — no changes needed | 🔴 |
+| 5.3 | No env vars needed | Everything is static — just click Deploy | 🔴 |
+| 5.4 | Verify live URL | Check `https://marketing-academy.vercel.app` (or Vercel-assigned URL) | 🔴 |
+| 5.5 | Update `robots.ts` + `sitemap.ts` | Replace `marketing-academy.vercel.app` with actual Vercel URL if different | 🔴 |
+| 5.6 | Set custom domain (optional) | Vercel Dashboard → Domains | 🔴 |
+| 5.7 | Update README live URL | Replace placeholder with real URL | 🔴 |
 
-**Future pushes after deploy:**
+**Every subsequent push auto-deploys:**
+```bash
+git add src/content/...      # stage new MDX files
+git commit -m "add: growth + social lessons"
+git push                     # Vercel picks it up automatically
 ```
-git add src/content/...   # only stage new/changed MDX files
-git commit -m "add: [category] lessons"
-git push
-# Vercel auto-deploys on every push to main
-```
+
+**What happens on Vercel build with missing MDX:**
+- `generateStaticParams` returns all 165 lesson paths
+- For lessons without MDX, `catch { notFound() }` fires → renders `not-found.tsx`
+- Build does NOT fail — missing lessons become polished 404 pages
+- Sitemap auto-excludes them (only includes pages with real MDX files)
 
 ---
 
@@ -427,6 +445,7 @@ D:\Coding\marketing-academy\
 ├── README.md                   ✅ Updated with 165 lesson counts
 ├── AGENTS.md                   ✅ "Read bundled docs first" warning
 ├── CLAUDE.md                   ✅ @AGENTS.md reference
+├── .gitattributes              ✅ Forces LF line endings — no CRLF noise
 ├── next.config.ts              ✅ MDX configured
 ├── mdx-components.tsx          ✅ AT PROJECT ROOT — Mermaid, Callout, ResourceList
 ├── postcss.config.mjs          ✅
@@ -439,6 +458,9 @@ D:\Coding\marketing-academy\
     │   ├── globals.css         ✅ Tailwind v4 + CSS variables
     │   ├── layout.tsx          ✅ Root layout
     │   ├── page.tsx            ✅ Homepage
+    │   ├── not-found.tsx       ✅ Custom 404 — "This lesson doesn't exist yet"
+    │   ├── robots.ts           ✅ /robots.txt — allow all, points to sitemap
+    │   ├── sitemap.ts          ✅ /sitemap.xml — only lessons with real MDX included
     │   ├── learn/
     │   │   ├── page.tsx        ✅ /learn browse
     │   │   └── [category]/
