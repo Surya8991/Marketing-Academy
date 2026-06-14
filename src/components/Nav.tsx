@@ -186,6 +186,17 @@ export default function Nav() {
           >
             Compare
           </Link>
+          <Link
+            href="/quizzes"
+            className={cn(
+              "px-3 py-1.5 rounded-md text-sm font-medium transition-colors",
+              pathname.startsWith("/quizzes")
+                ? "bg-[var(--muted)] text-[var(--foreground)]"
+                : "text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)]"
+            )}
+          >
+            Quizzes
+          </Link>
         </nav>
 
         {/* Actions */}
@@ -335,6 +346,17 @@ export default function Nav() {
               )}
             >
               ⚖️ Compare
+            </Link>
+            <Link
+              href="/quizzes"
+              className={cn(
+                "px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                pathname.startsWith("/quizzes")
+                  ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
+                  : "text-[var(--foreground)] hover:bg-[var(--muted)]"
+              )}
+            >
+              🧠 Quizzes
             </Link>
           </div>
           <Link

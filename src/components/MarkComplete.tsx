@@ -104,11 +104,20 @@ export default function MarkComplete({
     <div className="flex flex-col gap-3">
       <button
         onClick={toggle}
-        className={`flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-lg transition-colors w-fit ${
+        className="flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-lg transition-all w-fit"
+        style={
           done
-            ? "bg-emerald-100 text-emerald-700 hover:bg-emerald-200"
-            : "bg-[var(--muted)] text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
-        }`}
+            ? {
+                background: "rgba(22,163,74,0.15)",
+                color: "rgb(22 163 74)",
+                border: "1px solid rgba(22,163,74,0.3)",
+              }
+            : {
+                background: "var(--muted)",
+                color: "var(--muted-foreground)",
+                border: "1px solid transparent",
+              }
+        }
       >
         {done ? <CheckCircle size={16} /> : <Circle size={16} />}
         {done ? "Completed" : "Mark as complete"}
