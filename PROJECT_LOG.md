@@ -1,7 +1,7 @@
 # Marketing Academy - Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-06-14 (Session 16).
+> Last audited: 2026-06-14 (Session 19).
 
 ---
 
@@ -507,6 +507,7 @@ Full review by 5 personas (CMO, Junior Marketer, SEO Specialist, UX Designer, Fr
 | 16 | 2026-06-14 | Quick wins: SurpriseMeButton, LessonViewTracker + RecentlyViewed, TrackProgress, ShareButtons copy-link, "/" keyboard shortcut. SVG favicon (src/app/icon.svg + public/icon.svg). Nav: SVG logo, Bookmark link, fixed Cheat Sheets href, removed Browse. Footer: restructured to Learn/Resources/Topics columns with SVG logo. Content audit (5 stale lessons) + 5-persona review backlog logged to Phase 11. |
 | 17 | 2026-06-14 | Digital Marketing Cheat Sheet 2025 full rewrite: 7 sections (added AI/GEO and Social Media Benchmarks), updated all metrics/benchmarks to 2025 data, added Blended ROAS + NPS + MER metrics, INP replaces FID note, GEO/zero-click section, Performance Max + Advantage+ + incrementality + signal loss paid ads entries, Apple MPP email impact note, 7-platform social media benchmark table. |
 | 18 | 2026-06-14 | Phase 11 fixes: robots.ts sitemap URL mismatch fixed (both now marketing-academy-roan.vercel.app). Lesson pages: JSON-LD Article + BreadcrumbList schema, canonical tags. Prominent "Up Next" CTA card after article content. Reading time on category lesson cards (computed from MDX file at build time). "Mark all complete" button in TrackLessonList. |
+| 19 | 2026-06-14 | Lesson sort: all 14 affected categories reordered Beginner > Intermediate > Advanced (SEO was already correct). Duplicate optimizely-vwo removed from tools. About page built at /about: mission, builder profile (Surya L, Bangalore), stats, tech stack, project links. Footer + README updated with About route. |
 
 ---
 

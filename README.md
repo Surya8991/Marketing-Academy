@@ -166,6 +166,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/interview-prep` | Interview prep hub with category Q&A links |
 | `/interview-questions` | SEO landing: digital marketing interview Q&A |
 | `/digital-marketing-cheat-sheet` | SEO landing: key metrics, frameworks, glossary |
+| `/about` | About page: mission, builder profile, stats, tech stack, links |
 | `/certificates` | Track completion certificate index |
 | `/certificates/[slug]` | Printable track completion certificate |
 | `/feed.xml` | RSS feed |

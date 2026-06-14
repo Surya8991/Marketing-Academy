@@ -18,6 +18,7 @@ const RESOURCE_LINKS = [
   { href: "/interview-prep", label: "Interview Prep" },
   { href: "/interview-questions", label: "Interview Questions" },
   { href: "/digital-marketing-cheat-sheet", label: "Quick Reference Sheet" },
+  { href: "/about", label: "About" },
   { href: "https://github.com/Surya8991/Marketing-Academy", label: "View on GitHub", external: true },
 ];
 
