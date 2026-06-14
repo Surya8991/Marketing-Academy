@@ -360,7 +360,8 @@
       "options": [
         "image_link - because the main crawler is image-only.",
         "custom_label_0 - because Google uses it to classify product quality.",
-        "title - which should mirror natural customer search phrasing (brand, model, size, color)."
+        "title - which should mirror natural customer search phrasing (brand, model, size, color).",
+        "availability - because Google deprioritizes any product not marked 'in stock'."
       ],
       "correct": 2,
       "explanation": "The title field is the most important element for search matching. An optimized title containing brand, product name, size, color, and model details will match far more user queries than a generic title."
@@ -808,7 +809,8 @@
       "options": [
         "Pre-roll (played before the episode starts).",
         "Post-roll (played after the episode finishes).",
-        "Mid-roll (delivered during the middle of the episode)."
+        "Mid-roll (delivered during the middle of the episode).",
+        "Dynamic insertion overlays (played continuously over the host's voice for the entire duration)."
       ],
       "correct": 2,
       "explanation": "Mid-roll placements perform best because the listener is already fully engaged in the content. Pre-roll ads are often skipped or ignored as listeners queue up episodes, and post-roll ads play when the listener has already finished and is turning off the audio."

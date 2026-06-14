@@ -106,9 +106,10 @@
     {
       "question": "Under which core human drive group do the Everyman, Lover, and Jester archetypes reside?",
       "options": [
-        "Safety and order",
-        "Freedom and discovery",
-        "Belonging and love"
+        "Safety and order (Hero, Caregiver, Ruler)",
+        "Freedom and discovery (Sage, Explorer, Magician)",
+        "Belonging and love (Everyman, Lover, Jester)",
+        "Independence and mastery (Outlaw, Creator, Innocent)"
       ],
       "correct": 2,
       "explanation": "The 12 archetypes are grouped by core human drives. The Everyman (relatable), Lover (passionate/intimate), and Jester (playful/irreverent) all address the human need for belonging and love."
