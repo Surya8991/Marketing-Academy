@@ -204,6 +204,27 @@ Every push auto-deploys within ~60 seconds.
 - Total Q&As: ~120 -> ~134 (conceptual + scenario combined)
 - TypeScript: 0 errors
 
+### PHASE 12 - UX Improvements ✅ COMPLETE (Session 29, 2026-06-14)
+
+**Items completed from backlog:**
+
+- **#7** - Second `MarkComplete` button added at bottom of lesson content (after article, before "Up Next" CTA). Both instances sync in real-time via a `lesson-toggle` CustomEvent on `window`, so toggling one updates the other instantly.
+- **#8** - Category page header now shows per-level counts instead of "Beginner → Advanced". E.g. "20 lessons · 8 Beginner · 7 Intermediate · 5 Advanced". Data from the already-computed `grouped` array.
+- **#9** - "Recommended Next" prompt wired into bottom `MarkComplete`. On first completion, a green "Continue: [title] →" link appears inline below the button. Only shows on the bottom instance (which receives `nextHref`/`nextTitle` props).
+- **#11** - Already done (TrackLessonList.tsx had CheckCircle/Circle per-lesson since Phase 8). Marked DONE in backlog.
+- **#12** - Mobile ToC wrapped in `sticky top-16` div so it stays accessible as user scrolls down the article. Links inside auto-close the `<details>` on click so it doesn't block reading.
+- **#20** - N/A. Homepage has no `<img>` elements (pure CSS/text/emoji layout). Marked N/A in backlog.
+
+**Files changed:**
+- `src/components/MarkComplete.tsx` - cross-instance sync via CustomEvent, `nextHref`/`nextTitle` props, "Continue" prompt
+- `src/app/learn/[category]/[lesson]/page.tsx` - second MarkComplete at bottom with next lesson props
+- `src/app/learn/[category]/page.tsx` - level counts in header
+- `src/components/TableOfContents.tsx` - sticky mobile ToC, auto-close on link click
+
+**TypeScript:** 0 errors
+
+---
+
 ### PHASE 10 - Quiz Expansion ✅ COMPLETE (Session 22, 2026-06-14) — Update via Antigravity
 
 **Goal achieved:** All 257 accessible lessons now have 4 high-quality quiz questions each.
@@ -269,17 +290,17 @@ Prioritized by user value and effort. Items are independent - pick any in any or
 | # | Area | What | Why |
 |---|------|------|-----|
 | 6 | Content | Update 5 stale lessons from Phase 11 audit (flywheel, voice-and-tone, value-proposition, core-web-vitals, customer-journey) | Outdated stats erode trust; all 5 have specific replacements already logged in Phase 11 |
-| 7 | UX | Add sticky "Mark Complete" button at bottom of lesson content | Current button is at the top - most users never scroll back up; completion rates suffer |
-| 8 | UX | Show Beginner/Intermediate/Advanced lesson counts on category page header | Users cannot tell if a category is beginner-heavy or advanced before clicking in |
-| 9 | UX | Add "Recommended Next" prompt when a lesson is marked complete | Dead end after completion - no nudge to continue the streak |
+| 7 | UX | Add sticky "Mark Complete" button at bottom of lesson content | Current button is at the top - most users never scroll back up; completion rates suffer | DONE |
+| 8 | UX | Show Beginner/Intermediate/Advanced lesson counts on category page header | Users cannot tell if a category is beginner-heavy or advanced before clicking in | DONE |
+| 9 | UX | Add "Recommended Next" prompt when a lesson is marked complete | Dead end after completion - no nudge to continue the streak | DONE |
 | 10 | SEO | Add FAQPage JSON-LD to /interview-questions | Page has 50+ Q&As in details/summary - ideal candidate for FAQ rich results in Google | DONE |
 
 #### P3 - Medium Value, Medium Effort
 
 | # | Area | What | Why |
 |---|------|------|-----|
-| 11 | UX | Visual per-lesson progress indicator inside /tracks/[slug] | Track detail shows overall % complete but no per-lesson tick - unclear which lessons are done |
-| 12 | UX | Improve mobile Table of Contents - add reopen affordance | ToC hides on mobile but leaves no button or indicator that it exists; readers lose navigation |
+| 11 | UX | Visual per-lesson progress indicator inside /tracks/[slug] | Track detail shows overall % complete but no per-lesson tick - unclear which lessons are done | DONE (was already implemented - CheckCircle/Circle per row in TrackLessonList) |
+| 12 | UX | Improve mobile Table of Contents - add reopen affordance | ToC hides on mobile but leaves no button or indicator that it exists; readers lose navigation | DONE |
 | 13 | SEO | Add FAQPage JSON-LD to /interview-prep category cards | Each category links to lessons with Q&A - schema helps surface them in AI Overviews | DONE |
 | 14 | Feature | Certificate "Share on LinkedIn" direct link | Certificate page has no share path; LinkedIn accepts miniProgram deep links for certificates | DONE |
 | 15 | Feature | "Submit a tool" link on /tools page | 85 tools is a good start but a mailto/form link invites community submissions and adds social proof | DONE |
@@ -292,7 +313,7 @@ Prioritized by user value and effort. Items are independent - pick any in any or
 | 17 | UX | Visual reward on lesson complete (confetti or animation) | Costs almost nothing, increases shareability and streak motivation | DONE |
 | 18 | Feature | "Copy all questions" bulk action on /interview-questions | Useful for interview prep sessions and Anki card creation | DONE |
 | 19 | Content | New lessons: AI agents for marketing, programmatic SEO, zero-party data strategy, dark social attribution | 2025-2026 topics not yet covered as standalone lessons |
-| 20 | Tech | Add `loading="lazy"` to below-fold images on homepage | Core Web Vitals: large hero sections without lazy loading hurt LCP score |
+| 20 | Tech | Add `loading="lazy"` to below-fold images on homepage | Core Web Vitals: large hero sections without lazy loading hurt LCP score | N/A - homepage has no img elements (pure CSS/text/emoji layout) |
 | 21 | UX | Cheat sheet card redesign: larger cards + prominent lesson link button | Cards are too small (280px min, tight padding). Lesson title link is present but visually understated. Add a visible 'Read Lesson' CTA button + increase min card size to 340px with more breathing room | IN PROGRESS |
 
 #### On Hold - Future Features (no timeline)

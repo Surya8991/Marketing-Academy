@@ -77,10 +77,14 @@ export default async function CategoryPage({ params }: Props) {
         <p className="text-[var(--muted-foreground)] text-base sm:text-lg max-w-2xl leading-relaxed">
           {cat.description}
         </p>
-        <div className="mt-5 flex flex-wrap gap-4 text-sm text-[var(--muted-foreground)]">
+        <div className="mt-5 flex flex-wrap gap-3 text-sm text-[var(--muted-foreground)]">
           <span className="font-medium">{cat.lessons.length} lessons</span>
-          <span>·</span>
-          <span>Beginner → Advanced</span>
+          {grouped.map(({ level, lessons }) => (
+            <span key={level}>
+              <span className="mr-1 opacity-50">·</span>
+              {lessons.length} {level}
+            </span>
+          ))}
         </div>
         <CategoryProgress
           categorySlug={cat.slug}

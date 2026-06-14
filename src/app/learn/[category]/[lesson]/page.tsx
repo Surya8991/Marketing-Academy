@@ -196,6 +196,16 @@ export default async function LessonPage({ params }: Props) {
               <LessonContent />
             </article>
 
+            {/* Bottom Mark Complete */}
+            <div className="mt-10 pt-8 border-t border-[var(--border)]">
+              <MarkComplete
+                category={category}
+                slug={lesson}
+                nextHref={next ? `/learn/${next.categorySlug}/${next.slug}` : undefined}
+                nextTitle={next?.title}
+              />
+            </div>
+
             {/* Up Next CTA */}
             {next && (
               <div className="mt-10 p-5 rounded-2xl border border-[var(--accent)]/40 bg-[var(--accent)]/5">

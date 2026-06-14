@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { getCompleted, markComplete, markIncomplete, lessonId } from "@/lib/progress";
-import { CheckCircle, Circle } from "lucide-react";
+import { CheckCircle, Circle, ArrowRight } from "lucide-react";
 
 function fireConfetti() {
   const canvas = document.createElement("canvas");
@@ -49,20 +50,37 @@ function fireConfetti() {
   requestAnimationFrame(draw);
 }
 
+const SYNC_EVENT = "lesson-toggle";
+
 export default function MarkComplete({
   category,
   slug,
+  nextHref,
+  nextTitle,
 }: {
   category: string;
   slug: string;
+  nextHref?: string;
+  nextTitle?: string;
 }) {
   const id = lessonId(category, slug);
   const [done, setDone] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [justCompleted, setJustCompleted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     setDone(getCompleted().has(id));
+  }, [id]);
+
+  // Keep multiple instances on the same page in sync
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const ce = e as CustomEvent<{ id: string; done: boolean }>;
+      if (ce.detail.id === id) setDone(ce.detail.done);
+    };
+    window.addEventListener(SYNC_EVENT, handler);
+    return () => window.removeEventListener(SYNC_EVENT, handler);
   }, [id]);
 
   if (!mounted) return null;
@@ -71,24 +89,46 @@ export default function MarkComplete({
     if (done) {
       markIncomplete(id);
       setDone(false);
+      setJustCompleted(false);
+      window.dispatchEvent(new CustomEvent(SYNC_EVENT, { detail: { id, done: false } }));
     } else {
       markComplete(id);
       setDone(true);
+      setJustCompleted(true);
       fireConfetti();
+      window.dispatchEvent(new CustomEvent(SYNC_EVENT, { detail: { id, done: true } }));
     }
   };
 
   return (
-    <button
-      onClick={toggle}
-      className={`flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-lg transition-colors ${
-        done
-          ? "bg-emerald-100 text-emerald-700 hover:bg-emerald-200"
-          : "bg-[var(--muted)] text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
-      }`}
-    >
-      {done ? <CheckCircle size={16} /> : <Circle size={16} />}
-      {done ? "Completed" : "Mark as complete"}
-    </button>
+    <div className="flex flex-col gap-3">
+      <button
+        onClick={toggle}
+        className={`flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-lg transition-colors w-fit ${
+          done
+            ? "bg-emerald-100 text-emerald-700 hover:bg-emerald-200"
+            : "bg-[var(--muted)] text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+        }`}
+      >
+        {done ? <CheckCircle size={16} /> : <Circle size={16} />}
+        {done ? "Completed" : "Mark as complete"}
+      </button>
+
+      {justCompleted && nextHref && nextTitle && (
+        <Link
+          href={nextHref}
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold w-fit"
+          style={{
+            background: "rgba(22,163,74,0.12)",
+            color: "rgb(22 163 74)",
+            border: "1px solid rgba(22,163,74,0.25)",
+          }}
+        >
+          <CheckCircle size={15} />
+          Continue: {nextTitle}
+          <ArrowRight size={14} />
+        </Link>
+      )}
+    </div>
   );
 }

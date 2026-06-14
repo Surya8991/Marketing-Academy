@@ -82,33 +82,41 @@ export function TableOfContentsMobile() {
   const [open, setOpen] = useState(false);
   if (headings.length < 2) return null;
 
+  const closeDetails = (e: React.MouseEvent) => {
+    const details = (e.currentTarget as HTMLElement).closest("details");
+    if (details) details.removeAttribute("open");
+  };
+
   return (
-    <details
-      className="xl:hidden mb-8 rounded-lg border border-[var(--border)] bg-[var(--muted)]/50"
-      onToggle={(e) => setOpen((e.target as HTMLDetailsElement).open)}
-    >
-      <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer text-sm font-medium select-none list-none [&::-webkit-details-marker]:hidden">
-        <List size={15} />
-        <span className="flex-1">On this page</span>
-        <ChevronDown
-          size={15}
-          className={cn("transition-transform", open && "rotate-180")}
-        />
-      </summary>
-      <nav className="px-4 pb-3 space-y-1 border-t border-[var(--border)] pt-3">
-        {headings.map((h) => (
-          <a
-            key={h.id}
-            href={`#${h.id}`}
-            className={cn(
-              "block text-sm py-1 text-[var(--muted-foreground)] hover:text-[var(--foreground)]",
-              h.level === 3 && "pl-4"
-            )}
-          >
-            {h.text}
-          </a>
-        ))}
-      </nav>
-    </details>
+    <div className="xl:hidden sticky top-16 z-20 bg-[var(--background)] mb-8">
+      <details
+        className="rounded-lg border border-[var(--border)] bg-[var(--muted)]/50"
+        onToggle={(e) => setOpen((e.target as HTMLDetailsElement).open)}
+      >
+        <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer text-sm font-medium select-none list-none [&::-webkit-details-marker]:hidden">
+          <List size={15} />
+          <span className="flex-1">On this page</span>
+          <ChevronDown
+            size={15}
+            className={cn("transition-transform", open && "rotate-180")}
+          />
+        </summary>
+        <nav className="px-4 pb-3 space-y-1 border-t border-[var(--border)] pt-3">
+          {headings.map((h) => (
+            <a
+              key={h.id}
+              href={`#${h.id}`}
+              onClick={closeDetails}
+              className={cn(
+                "block text-sm py-1 text-[var(--muted-foreground)] hover:text-[var(--foreground)]",
+                h.level === 3 && "pl-4"
+              )}
+            >
+              {h.text}
+            </a>
+          ))}
+        </nav>
+      </details>
+    </div>
   );
 }
