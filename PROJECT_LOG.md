@@ -671,6 +671,7 @@ Full review by 5 personas (CMO, Junior Marketer, SEO Specialist, UX Designer, Fr
 | 28 | 2026-06-14 | **Audit.** Conducted a full codebase audit and code review. Identified 7 critical findings across SEO, performance, metadata consistency, local storage safety, and navigation routing, logging them to the backlog. TypeScript: 0 errors. |
 | 29 | 2026-06-14 | **Done.** Phase 12 UX Improvements: Second MarkComplete button, category header level counts, Recommended Next prompts, mobile ToC improvements. |
 | 30 | 2026-06-14 | **Audit.** Checked for incorrect/stale info in Homepage & About pages. Logged findings and recommended fixes to Phase 12 Backlog. |
+| 31 | 2026-06-14 | **Done.** Created /compare tool comparison engine. Wrote, quiz-mapped, and registered the new Zero-Party Data Strategy lesson in curriculum and sitemap. |
 
 ---
 
@@ -859,3 +860,30 @@ type MarketingTool = {
 
 - Verified TypeScript compilation status: **0 errors** across the codebase.
 ```
+
+---
+
+## 🤖 Antigravity Session Block — 2026-06-14 (Session 31)
+
+> **Tag: Antigravity Work**
+> All items below were researched, implemented, tested, and pushed by Antigravity (Google DeepMind agentic AI) in a single session on 2026-06-14. Zero manual code edits by the user.
+
+### What Was Done
+
+#### 1. Interactive Tool Comparison Engine (/compare)
+- **Created compare hub page (`src/app/compare/page.tsx`)**: Displays an elegant interface with a list of popular curated comparisons.
+- **Created interactive client component (`src/app/compare/CompareSelector.tsx`)**: Handles dropdown selection of two tools from the same category and routes the user to their comparison URL.
+- **Created dynamic comparison page (`src/app/compare/[slug]/page.tsx`)**: 
+  - Parses `[toolA]-vs-[toolB]` dynamic slugs.
+  - Resolves standard popular comparisons using hand-crafted comparison reviews (from `src/lib/comparisons-data.ts`), showing pros & cons, feature matrix tables, recommended lesson paths, and pricing analysis.
+  - Automatically generates dynamic side-by-side comparisons using database fields for arbitrary pairs in the same category.
+- **Updated Sitemap (`src/app/sitemap.ts`)**: Wired up `/compare` and all pre-defined popular comparisons.
+
+#### 2. New Zero-Party Data Strategy Lesson
+- **Registered Lesson in Curriculum (`src/lib/curriculum.ts`)**: Added Zero-Party Data Strategy under the Email & Lifecycle category.
+- **Created MDX Content (`src/content/email/zero-party-data.mdx`)**: Wrote a comprehensive lesson detailing ZPD collection strategies (Preference Centers, Progressive Profiling, Quizzes), 2024/2025 research statistics, and brand case studies (SKOON Skincare and Polysleep).
+- **Added Quiz Questions (`src/lib/quizzes.ts`)**: Wrote 4 multiple-choice questions for the lesson to maintain 100% quiz coverage.
+
+#### 3. Verification & Quality Auditing
+- Verified TypeScript compilation status: **0 errors** across the codebase via `tsc --noEmit`.
+- Run production build check successfully: generated **528 static pages** in 72s.

@@ -230,6 +230,7 @@ export const CATEGORIES: Category[] = [
       { slug: "clv", title: "Customer Lifetime Value", level: "Advanced", summary: "The number that decides what every other number is allowed to be." },
       { slug: "whatsapp-marketing", title: "WhatsApp Business Marketing", level: "Advanced", summary: "The dominant marketing channel outside North America - templates, opt-in, and Meta's ecosystem." },
       { slug: "behavioral-triggers", title: "Behavioral Email Triggers", level: "Advanced", summary: "Send because they did X, not because it is Tuesday - the most relevant email you can send." },
+      { slug: "zero-party-data", title: "Zero-Party Data Strategy", level: "Advanced", summary: "Preference centers, progressive profiling, and consent-first personalization." },
     ],
   },
   {

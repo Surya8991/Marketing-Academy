@@ -12084,4 +12084,50 @@ export const QUIZZES: Record<string, Quiz[]> = {
       explanation: "Since APIs and app authentications can expire or fail, Zaps can stop working. If you don't enable error alerts (or route errors to email/Slack), you won't realize the system is down, causing leads to drop.",
     },
   ],
+  "email/zero-party-data": [
+    {
+      question: "What is the primary conceptual distinction between first-party and zero-party data?",
+      options: [
+        "First-party data is purchased from third-party networks, whereas zero-party data is gathered from direct customer interactions",
+        "First-party data is behaviorally observed from user interactions; zero-party data is proactively and intentionally volunteered by the customer",
+        "First-party data is stored in the browser as cookies, whereas zero-party data is saved only on server-side databases",
+        "First-party data is restricted under GDPR regulations, while zero-party data is exempt from consent requirements",
+      ],
+      correct: 1,
+      explanation: "First-party data is behavior-based (observed passively, like tracking page views or email opens). Zero-party data is intent-based (deliberately shared by the user, like preferences, sizing, or quiz answers), which carries explicit intent and higher accuracy.",
+    },
+    {
+      question: "Which of the following describes a key best practice for the 'friction budget' of an onboarding product quiz?",
+      options: [
+        "Include at least 15 to 20 questions to build an extremely detailed customer profile before showing recommendations",
+        "Limit the quiz to 5 to 7 questions, ensuring every question serves an immediate personalization or segmentation purpose",
+        "Avoid asking for an email address until after the purchase is completed",
+        "Use multi-select checkbox options for every question to maximize data points",
+      ],
+      correct: 1,
+      explanation: "To prevent high drop-off rates, quizzes should keep friction low. A budget of 5 to 7 questions keeps engagement high while providing enough details to make a relevant, personalized product recommendation.",
+    },
+    {
+      question: "In the context of zero-party data collection, what does a 'value exchange' mean?",
+      options: [
+        "Selling customer preference records to advertising platforms to offset acquisition costs",
+        "Providing the consumer with immediate, tangible benefits—such as a personalized product routine or discount—in return for their shared data",
+        "Requiring the user to purchase a product before they can access a custom recommendation",
+        "Exchanging newsletter subscriptions for free access to third-party tools",
+      ],
+      correct: 1,
+      explanation: "Consumers are willing to share personal preferences if there is a clear, immediate benefit. A proper value exchange provides them with personalized insights, product bundles, or rewards in return for their information.",
+    },
+    {
+      question: "How did skincare brand SKOON use zero-party data to boost performance?",
+      options: [
+        "They scraped public social media bios to build lookalike targeting segments",
+        "They implemented a routine finder quiz that captured user preferences, resulting in a 3.5x higher conversion rate and a 68x ROI",
+        "They bought third-party datasets to match demographics with page views",
+        "They automated email blasts to occur twice daily for quiz non-completers",
+      ],
+      correct: 1,
+      explanation: "SKOON implemented a skincare routine quiz that asked users about their skin concerns, age, and lifestyle. This zero-party data allowed them to recommend custom product routines, driving a 3.5x lift in conversions and a 68x ROI.",
+    },
+  ],
 };

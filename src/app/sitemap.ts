@@ -22,6 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/interview-questions`, priority: 0.9, changeFrequency: "monthly" },
     { url: `${BASE}/digital-marketing-cheat-sheet`, priority: 0.9, changeFrequency: "monthly" },
     { url: `${BASE}/certificates`, priority: 0.5, changeFrequency: "monthly" },
+    { url: `${BASE}/compare`, priority: 0.8, changeFrequency: "weekly" },
   ];
 
   const categoryRoutes: MetadataRoute.Sitemap = CATEGORIES.map((cat) => ({
@@ -75,6 +76,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
+  const comparisonRoutes: MetadataRoute.Sitemap = [
+    "semrush-vs-ahrefs",
+    "mailchimp-vs-klaviyo",
+    "google-analytics-4-vs-mixpanel",
+    "chatgpt-vs-claude",
+    "buffer-vs-hootsuite",
+    "optimizely-vs-vwo",
+    "wordpress-vs-ghost",
+  ].map((slug) => ({
+    url: `${BASE}/compare/${slug}`,
+    priority: 0.7,
+    changeFrequency: "monthly" as const,
+  }));
+
   return [
     ...staticRoutes,
     ...categoryRoutes,
@@ -84,5 +99,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...glossaryTermRoutes,
     ...interviewCategoryRoutes,
     ...lessonRoutes,
+    ...comparisonRoutes,
   ];
 }
