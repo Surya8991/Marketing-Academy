@@ -38,10 +38,18 @@ const FAQS = [
   },
 ];
 
+const hoverCSS = `
+.interview-cat-card:hover {
+  border-color: var(--accent) !important;
+}
+`;
+
 export default function InterviewPrepPage() {
   const quizEntries = Object.entries(QUIZZES).slice(0, 12);
 
   return (
+    <>
+    <style dangerouslySetInnerHTML={{ __html: hoverCSS }} />
     <main
       style={{
         background: "var(--background)",
@@ -153,6 +161,7 @@ export default function InterviewPrepPage() {
                 style={{ textDecoration: "none" }}
               >
                 <div
+                  className="interview-cat-card"
                   style={{
                     border: "1px solid var(--border)",
                     borderRadius: "0.75rem",
@@ -161,14 +170,6 @@ export default function InterviewPrepPage() {
                     textAlign: "center",
                     transition: "border-color 0.15s, background 0.15s",
                     cursor: "pointer",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.borderColor =
-                      "var(--accent)";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.borderColor =
-                      "var(--border)";
                   }}
                 >
                   <div style={{ fontSize: "1.75rem", marginBottom: "0.5rem" }}>
@@ -456,5 +457,6 @@ export default function InterviewPrepPage() {
         </section>
       </div>
     </main>
+    </>
   );
 }

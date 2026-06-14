@@ -8,8 +8,20 @@ export const metadata: Metadata = {
     "Printable quick reference cards for every marketing category. Get the key concepts, frameworks, and tactics for SEO, paid ads, email, analytics, and more - one page per topic.",
 };
 
+const hoverCSS = `
+.cheat-sheet-link-card {
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.cheat-sheet-link-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+`;
+
 export default function CheatSheetsPage() {
   return (
+    <>
+    <style dangerouslySetInnerHTML={{ __html: hoverCSS }} />
     <main style={{ maxWidth: "1200px", margin: "0 auto", padding: "2rem 1.5rem" }}>
       {/* Hero */}
       <div style={{ textAlign: "center", marginBottom: "3rem" }}>
@@ -53,27 +65,17 @@ export default function CheatSheetsPage() {
             style={{ textDecoration: "none" }}
           >
             <div
+              className="cheat-sheet-link-card"
               style={{
                 background: "var(--card)",
                 border: "1px solid var(--border)",
                 borderRadius: "12px",
                 padding: "1.5rem",
                 cursor: "pointer",
-                transition: "box-shadow 0.15s ease, transform 0.15s ease",
                 height: "100%",
                 display: "flex",
                 flexDirection: "column",
                 gap: "1rem",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLDivElement).style.boxShadow =
-                  "0 4px 20px rgba(0,0,0,0.1)";
-                (e.currentTarget as HTMLDivElement).style.transform =
-                  "translateY(-2px)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
-                (e.currentTarget as HTMLDivElement).style.transform = "none";
               }}
             >
               {/* Emoji + title row */}
@@ -138,5 +140,6 @@ export default function CheatSheetsPage() {
         ))}
       </div>
     </main>
+    </>
   );
 }
