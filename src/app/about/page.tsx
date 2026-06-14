@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About | Marketing Academy",
   description:
-    "Marketing Academy is a free, structured marketing education site built by Surya L from Bangalore. 308 lessons across 15 disciplines - no paywalls, no email required.",
+    "Marketing Academy is a free, structured marketing education site built by Surya L from Bangalore. 299 lessons across 15 disciplines - no paywalls, no email required.",
 };
 
 const hoverCSS = `
@@ -15,10 +15,10 @@ const hoverCSS = `
 `;
 
 const STATS = [
-  { value: "308", label: "Free lessons" },
+  { value: "299", label: "Free lessons" },
   { value: "15", label: "Disciplines" },
-  { value: "148", label: "Glossary terms" },
-  { value: "85+", label: "Tools catalogued" },
+  { value: "146", label: "Glossary terms" },
+  { value: "111", label: "Tools catalogued" },
   { value: "7", label: "Learning tracks" },
   { value: "$0", label: "Cost forever" },
 ];
