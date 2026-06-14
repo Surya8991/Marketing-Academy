@@ -43,10 +43,24 @@ const pricingStyles: Record<PricingTier, React.CSSProperties> = {
   "Open Source": { background: "rgba(147, 51, 234, 0.15)", color: "var(--foreground)", border: "1px solid rgba(147, 51, 234, 0.35)" },
 };
 
+const ITEMS_PER_PAGE = 12;
+
+const toolCardCss = `
+.tool-card {
+  transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s;
+}
+.tool-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(99,102,241,0.12);
+  border-color: var(--accent) !important;
+}
+`;
+
 export default function ToolsClient({ tools, categories, pricingTiers }: ToolsClientProps) {
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState<ToolCategory | "All">("All");
   const [activePricing, setActivePricing] = useState<PricingTier | "All">("All");
+  const [page, setPage] = useState(1);
 
   const filtered = tools.filter((tool) => {
     const q = search.toLowerCase();
@@ -62,164 +76,334 @@ export default function ToolsClient({ tools, categories, pricingTiers }: ToolsCl
     return matchesSearch && matchesCategory && matchesPricing;
   });
 
+  const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+  const safePage = Math.min(page, Math.max(1, totalPages));
+  const paginated = filtered.slice((safePage - 1) * ITEMS_PER_PAGE, safePage * ITEMS_PER_PAGE);
+
   const hasFilters = activeCategory !== "All" || activePricing !== "All";
 
   function clearAll() {
     setActiveCategory("All");
     setActivePricing("All");
     setSearch("");
+    setPage(1);
+  }
+
+  function handleFilterChange<T>(setter: (v: T) => void, value: T) {
+    setter(value);
+    setPage(1);
   }
 
   return (
-    <div className="flex flex-col gap-6">
-      {/* Search */}
-      <input
-        type="text"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        placeholder="Search tools by name, description, or tag..."
-        className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:outline-none focus:border-[var(--accent)] transition-colors text-sm"
-      />
+    <>
+      <style dangerouslySetInnerHTML={{ __html: toolCardCss }} />
+      <div className="flex flex-col gap-6">
+        {/* Search */}
+        <input
+          type="text"
+          value={search}
+          onChange={(e) => { setSearch(e.target.value); setPage(1); }}
+          placeholder="Search tools by name, description, or tag..."
+          className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:outline-none focus:border-[var(--accent)] transition-colors text-sm"
+        />
 
-      {/* Category filters */}
-      <div className="flex flex-wrap gap-2">
-        {(["All", ...categories] as Array<ToolCategory | "All">).map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setActiveCategory(cat)}
-            className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-colors ${
-              activeCategory === cat
-                ? "bg-[var(--accent)] text-[var(--accent-foreground)] border-[var(--accent)]"
-                : "bg-[var(--card)] text-[var(--muted-foreground)] border-[var(--border)] hover:border-[var(--accent)]"
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
-
-      {/* Pricing filters */}
-      <div className="flex flex-wrap gap-2">
-        {(["All", ...pricingTiers] as Array<PricingTier | "All">).map((tier) => (
-          <button
-            key={tier}
-            onClick={() => setActivePricing(tier)}
-            className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-colors ${
-              activePricing === tier
-                ? "bg-[var(--accent)] text-[var(--accent-foreground)] border-[var(--accent)]"
-                : "bg-[var(--card)] text-[var(--muted-foreground)] border-[var(--border)] hover:border-[var(--accent)]"
-            }`}
-          >
-            {tier}
-          </button>
-        ))}
-      </div>
-
-      {/* Results count + active filter summary */}
-      <div className="flex items-center justify-between flex-wrap gap-2">
-        <p className="text-sm text-[var(--muted-foreground)]">
-          Showing {filtered.length} of {tools.length} tools
-        </p>
-        {hasFilters && (
-          <div className="flex items-center gap-2 text-sm">
-            <span className="text-[var(--muted-foreground)]">
-              Filtered:{" "}
-              {[
-                activeCategory !== "All" ? activeCategory : null,
-                activePricing !== "All" ? activePricing : null,
-              ]
-                .filter(Boolean)
-                .join(" x ")}
-            </span>
+        {/* Category filters */}
+        <div className="flex flex-wrap gap-2">
+          {(["All", ...categories] as Array<ToolCategory | "All">).map((cat) => (
             <button
-              onClick={clearAll}
-              className="text-[var(--accent-foreground)] underline underline-offset-2 hover:opacity-70 transition-opacity"
+              key={cat}
+              onClick={() => handleFilterChange(setActiveCategory, cat)}
+              className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-colors ${
+                activeCategory === cat
+                  ? "bg-[var(--accent)] text-[var(--accent-foreground)] border-[var(--accent)]"
+                  : "bg-[var(--card)] text-[var(--muted-foreground)] border-[var(--border)] hover:border-[var(--accent)]"
+              }`}
             >
-              Clear all
+              {cat}
             </button>
-          </div>
-        )}
-      </div>
-
-      {/* Empty state */}
-      {filtered.length === 0 ? (
-        <div className="text-center py-16 text-[var(--muted-foreground)]">
-          No tools found for your filters. Try adjusting your search.
-        </div>
-      ) : (
-        /* Tool cards grid */
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {filtered.map((tool) => (
-            <div
-              key={tool.name}
-              className="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 hover:border-[var(--accent)] hover:shadow-sm transition-all flex flex-col gap-2"
-            >
-              {/* Top row */}
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-2xl">{tool.emoji}</span>
-                <span className="font-bold text-[var(--foreground)] leading-tight">{tool.name}</span>
-                {tool.popular && (
-                  <span
-                    className="ml-auto px-2 py-0.5 rounded-full text-xs font-semibold"
-                    style={{ background: "rgba(234, 179, 8, 0.15)", color: "var(--foreground)", border: "1px solid rgba(234, 179, 8, 0.35)" }}
-                  >
-                    Popular
-                  </span>
-                )}
-              </div>
-
-              {/* Pricing badge + category */}
-              <div className="flex items-center gap-2 flex-wrap">
-                <span
-                  className="px-2 py-0.5 rounded-full text-xs font-semibold"
-                  style={pricingStyles[tool.pricing]}
-                >
-                  {tool.pricing}
-                </span>
-                <span className="text-xs text-[var(--muted-foreground)]">{tool.category}</span>
-              </div>
-
-              {/* Description */}
-              <p className="text-sm text-[var(--muted-foreground)] line-clamp-2 mt-2">
-                {tool.description}
-              </p>
-
-              {/* Optional note */}
-              {tool.note && (
-                <p className="text-xs italic text-[var(--muted-foreground)]">{tool.note}</p>
-              )}
-
-              {/* Tags */}
-              {tool.tags.length > 0 && (
-                <div className="flex flex-wrap gap-1 mt-1">
-                  {tool.tags.slice(0, 3).map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-0.5 rounded-full text-xs bg-[var(--muted)] text-[var(--muted-foreground)]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-
-              {/* Spacer to push button to bottom */}
-              <div className="flex-1" />
-
-              {/* Visit Tool link */}
-              <a
-                href={tool.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 self-start mt-1 px-3 py-1.5 rounded-lg text-xs font-medium border border-[var(--border)] text-[var(--foreground)] hover:border-[var(--accent)] hover:text-[var(--accent-foreground)] transition-colors"
-              >
-                <ExternalLink size={12} />
-                Visit Tool
-              </a>
-            </div>
           ))}
         </div>
-      )}
-    </div>
+
+        {/* Pricing filters */}
+        <div className="flex flex-wrap gap-2">
+          {(["All", ...pricingTiers] as Array<PricingTier | "All">).map((tier) => (
+            <button
+              key={tier}
+              onClick={() => handleFilterChange(setActivePricing, tier)}
+              className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-colors ${
+                activePricing === tier
+                  ? "bg-[var(--accent)] text-[var(--accent-foreground)] border-[var(--accent)]"
+                  : "bg-[var(--card)] text-[var(--muted-foreground)] border-[var(--border)] hover:border-[var(--accent)]"
+              }`}
+            >
+              {tier}
+            </button>
+          ))}
+        </div>
+
+        {/* Results count + active filter summary */}
+        <div className="flex items-center justify-between flex-wrap gap-2">
+          <p className="text-sm text-[var(--muted-foreground)]">
+            Showing {paginated.length} of {filtered.length} tools
+            {totalPages > 1 && ` (page ${safePage} of ${totalPages})`}
+          </p>
+          {hasFilters && (
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-[var(--muted-foreground)]">
+                Filtered:{" "}
+                {[
+                  activeCategory !== "All" ? activeCategory : null,
+                  activePricing !== "All" ? activePricing : null,
+                ]
+                  .filter(Boolean)
+                  .join(" x ")}
+              </span>
+              <button
+                onClick={clearAll}
+                className="text-[var(--accent-foreground)] underline underline-offset-2 hover:opacity-70 transition-opacity"
+              >
+                Clear all
+              </button>
+            </div>
+          )}
+        </div>
+
+        {/* Empty state */}
+        {filtered.length === 0 ? (
+          <div className="text-center py-16 text-[var(--muted-foreground)]">
+            No tools found for your filters. Try adjusting your search.
+          </div>
+        ) : (
+          <>
+            {/* Tool cards grid */}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+                gap: "1.25rem",
+              }}
+            >
+              {paginated.map((tool) => (
+                <div
+                  key={tool.name}
+                  className="tool-card"
+                  style={{
+                    background: "var(--card)",
+                    border: "1px solid var(--border)",
+                    borderRadius: "14px",
+                    padding: "1.5rem",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "0.6rem",
+                  }}
+                >
+                  {/* Top row */}
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", flexWrap: "wrap" }}>
+                    <span style={{ fontSize: "1.75rem", lineHeight: 1 }}>{tool.emoji}</span>
+                    <span
+                      style={{
+                        fontWeight: 700,
+                        color: "var(--foreground)",
+                        fontSize: "1rem",
+                        lineHeight: 1.3,
+                        flex: 1,
+                      }}
+                    >
+                      {tool.name}
+                    </span>
+                    {tool.popular && (
+                      <span
+                        style={{
+                          padding: "0.2rem 0.55rem",
+                          borderRadius: "999px",
+                          fontSize: "0.68rem",
+                          fontWeight: 700,
+                          background: "rgba(234, 179, 8, 0.15)",
+                          color: "var(--foreground)",
+                          border: "1px solid rgba(234, 179, 8, 0.35)",
+                          letterSpacing: "0.04em",
+                          textTransform: "uppercase",
+                          flexShrink: 0,
+                        }}
+                      >
+                        Popular
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Pricing badge + category */}
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flexWrap: "wrap" }}>
+                    <span
+                      style={{
+                        padding: "0.2rem 0.6rem",
+                        borderRadius: "999px",
+                        fontSize: "0.72rem",
+                        fontWeight: 700,
+                        ...pricingStyles[tool.pricing],
+                      }}
+                    >
+                      {tool.pricing}
+                    </span>
+                    <span style={{ fontSize: "0.78rem", color: "var(--muted-foreground)" }}>{tool.category}</span>
+                  </div>
+
+                  {/* Description */}
+                  <p
+                    style={{
+                      margin: 0,
+                      fontSize: "0.875rem",
+                      color: "var(--muted-foreground)",
+                      lineHeight: 1.65,
+                      display: "-webkit-box",
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                      marginTop: "0.25rem",
+                    }}
+                  >
+                    {tool.description}
+                  </p>
+
+                  {/* Optional note */}
+                  {tool.note && (
+                    <p style={{ margin: 0, fontSize: "0.75rem", fontStyle: "italic", color: "var(--muted-foreground)" }}>
+                      {tool.note}
+                    </p>
+                  )}
+
+                  {/* Tags */}
+                  {tool.tags.length > 0 && (
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: "0.3rem", marginTop: "0.25rem" }}>
+                      {tool.tags.slice(0, 3).map((tag) => (
+                        <span
+                          key={tag}
+                          style={{
+                            padding: "0.18rem 0.55rem",
+                            borderRadius: "999px",
+                            fontSize: "0.7rem",
+                            background: "var(--muted)",
+                            color: "var(--muted-foreground)",
+                          }}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Spacer */}
+                  <div style={{ flex: 1 }} />
+
+                  {/* Visit Tool link */}
+                  <a
+                    href={tool.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.35rem",
+                      alignSelf: "flex-start",
+                      marginTop: "0.25rem",
+                      padding: "0.45rem 0.95rem",
+                      borderRadius: "8px",
+                      fontSize: "0.78rem",
+                      fontWeight: 600,
+                      border: "1px solid var(--border)",
+                      color: "var(--foreground)",
+                      textDecoration: "none",
+                      background: "transparent",
+                      transition: "border-color 0.15s, color 0.15s",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--accent)";
+                      (e.currentTarget as HTMLAnchorElement).style.color = "var(--accent)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--border)";
+                      (e.currentTarget as HTMLAnchorElement).style.color = "var(--foreground)";
+                    }}
+                  >
+                    <ExternalLink size={12} />
+                    Visit Tool
+                  </a>
+                </div>
+              ))}
+            </div>
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "0.5rem",
+                  marginTop: "0.5rem",
+                  flexWrap: "wrap",
+                }}
+              >
+                <button
+                  onClick={() => setPage((p) => Math.max(1, p - 1))}
+                  disabled={safePage === 1}
+                  style={{
+                    padding: "0.5rem 1.1rem",
+                    borderRadius: "8px",
+                    border: "1px solid var(--border)",
+                    background: "var(--card)",
+                    color: safePage === 1 ? "var(--muted-foreground)" : "var(--foreground)",
+                    fontWeight: 600,
+                    fontSize: "0.875rem",
+                    cursor: safePage === 1 ? "not-allowed" : "pointer",
+                    opacity: safePage === 1 ? 0.5 : 1,
+                  }}
+                >
+                  &larr; Prev
+                </button>
+
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+                  <button
+                    key={p}
+                    onClick={() => setPage(p)}
+                    style={{
+                      padding: "0.5rem 0.85rem",
+                      borderRadius: "8px",
+                      border: "1px solid",
+                      borderColor: safePage === p ? "var(--accent)" : "var(--border)",
+                      background: safePage === p ? "var(--accent)" : "var(--card)",
+                      color: safePage === p ? "var(--accent-foreground)" : "var(--foreground)",
+                      fontWeight: 600,
+                      fontSize: "0.875rem",
+                      cursor: "pointer",
+                      minWidth: "2.25rem",
+                    }}
+                  >
+                    {p}
+                  </button>
+                ))}
+
+                <button
+                  onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                  disabled={safePage === totalPages}
+                  style={{
+                    padding: "0.5rem 1.1rem",
+                    borderRadius: "8px",
+                    border: "1px solid var(--border)",
+                    background: "var(--card)",
+                    color: safePage === totalPages ? "var(--muted-foreground)" : "var(--foreground)",
+                    fontWeight: 600,
+                    fontSize: "0.875rem",
+                    cursor: safePage === totalPages ? "not-allowed" : "pointer",
+                    opacity: safePage === totalPages ? 0.5 : 1,
+                  }}
+                >
+                  Next &rarr;
+                </button>
+              </div>
+            )}
+          </>
+        )}
+      </div>
+    </>
   );
 }

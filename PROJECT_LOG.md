@@ -292,6 +292,7 @@ Prioritized by user value and effort. Items are independent - pick any in any or
 - `src/lib/glossary.ts` - 148 marketing terms
 - `src/lib/quizzes.ts` - 4 questions for 257 lessons across all 15 categories (12,085 lines, TypeScript clean, Phase 10 complete 2026-06-14)
 - `src/lib/tools-directory.ts` - 85+ real marketing tools across 11 categories
+- `src/lib/interview-questions.ts` - 120+ interview Q&As across all 15 categories (InterviewSection type, INTERVIEW_SECTIONS export)
 - `src/lib/bookmarks.ts` - shared bookmark storage (BOOKMARK_KEY, getBookmarks, saveBookmarks)
 
 ### Pages
@@ -308,7 +309,8 @@ Prioritized by user value and effort. Items are independent - pick any in any or
 | `/glossary/[slug]` | `src/app/glossary/[slug]/page.tsx` | Individual term pages |
 | `/bookmarks` | `src/app/bookmarks/page.tsx` | Bookmarked lessons (localStorage) |
 | `/interview-prep` | `src/app/interview-prep/page.tsx` | Interview prep hub: categories + sample Q&A |
-| `/interview-questions` | `src/app/interview-questions/page.tsx` | SEO landing: digital marketing interview Q&A |
+| `/interview-questions` | `src/app/interview-questions/page.tsx` | 15-category card grid (redesigned Session 27) |
+| `/interview-questions/[category]` | `src/app/interview-questions/[category]/page.tsx` | Per-category accordion Q&A page with prev/next nav (new Session 27) |
 | `/cheat-sheets` | `src/app/cheat-sheets/page.tsx` | Cheat sheet index: all 15 categories |
 | `/cheat-sheets/[category]` | `src/app/cheat-sheets/[category]/page.tsx` | Printable per-category cheat sheet |
 | `/digital-marketing-cheat-sheet` | `src/app/digital-marketing-cheat-sheet/page.tsx` | SEO landing: cheat sheet with key metrics/tables |
@@ -606,6 +608,7 @@ Full review by 5 personas (CMO, Junior Marketer, SEO Specialist, UX Designer, Fr
 | 24 | 2026-06-14 | **Update via Antigravity.** Phase 12 quick wins executed: (1) Canvas confetti on MarkComplete - pure JS, no npm package; (2) FAQPage JSON-LD on /interview-questions (5 Q&As for Google rich results); (3) CopyQuestionsButton.tsx - copies all 40 interview Q&As to clipboard; (4) FAQPage JSON-LD on /interview-prep; (5) LinkedIn Share button on /certificates/[slug]; (6) Submit a Tool banner on /tools with pre-filled GitHub issue link. TypeScript: 0 errors. |
 | 25 | 2026-06-14 | **Update via Antigravity.** Cheat sheet card redesign: increased min card width from 280px to 340px, padding from 1.1rem to 1.5rem, title font from 0.95rem to 1.05rem, summary font from 0.82rem to 0.88rem. Added prominent 'Read Lesson' CTA button with arrow on every card linking to /learn/[category]/[lesson]. Cards also gain hover border accent. TypeScript: 0 errors. |
 | 26 | 2026-06-14 | **Update via Antigravity.** Full session summary + Antigravity tag block added to PROJECT_LOG. See Antigravity Session Block below. |
+| 27 | 2026-06-14 | **Done.** Interview page redesign (card-based 15-category grid matching Cheat Sheets aesthetic), all 15 category dynamic routes (`/interview-questions/[category]`), full question expansion to 120+ questions across all 15 disciplines (7 new categories added: social, copywriting, cro, brand-strategy, product-marketing, psychology, tools), Tools section card redesign (minmax grid, 1.5rem padding, hover lift + glow) + pagination (12 per page), CopyQuestionsButton updated to import from shared lib. TypeScript: 0 errors. |
 
 ---
 
