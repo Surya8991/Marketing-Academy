@@ -37,6 +37,12 @@ const sectionHeadingStyle: React.CSSProperties = {
   borderBottom: "2px solid var(--border)",
 };
 
+export const metadata = {
+  title: "Digital Marketing Cheat Sheet 2025 - Key Metrics, Formulas & Benchmarks",
+  description:
+    "Quick-reference cheat sheet: marketing metrics, funnel stages, SEO, paid ads, email benchmarks, AI/GEO tactics, and social media stats for 2025.",
+};
+
 export default function CheatSheetPage() {
   return (
     <main
@@ -76,8 +82,8 @@ export default function CheatSheetPage() {
               lineHeight: 1.6,
             }}
           >
-            Key metrics, formulas, funnel stages, and benchmarks - all in one
-            quick-reference page. Bookmark it or print it.
+            Metrics, formulas, benchmarks, AI/GEO tactics, and social stats -
+            every number you need in one page. Updated for 2025.
           </p>
         </div>
         <PrintButton />
@@ -92,14 +98,17 @@ export default function CheatSheetPage() {
           marginBottom: "2rem",
           fontSize: "0.9rem",
           color: "var(--muted-foreground)",
+          lineHeight: 1.8,
         }}
       >
-        <strong>Jump to:</strong>{" "}
+        <strong style={{ color: "var(--foreground)" }}>Jump to:</strong>{" "}
         <a href="#metrics" style={{ color: "var(--foreground)", marginRight: "1rem" }}>Key Metrics</a>
         <a href="#funnel" style={{ color: "var(--foreground)", marginRight: "1rem" }}>Funnel Stages</a>
         <a href="#seo" style={{ color: "var(--foreground)", marginRight: "1rem" }}>SEO Reference</a>
-        <a href="#paid-ads" style={{ color: "var(--foreground)", marginRight: "1rem" }}>Paid Ads Glossary</a>
-        <a href="#email" style={{ color: "var(--foreground)" }}>Email Benchmarks</a>
+        <a href="#paid-ads" style={{ color: "var(--foreground)", marginRight: "1rem" }}>Paid Ads</a>
+        <a href="#email" style={{ color: "var(--foreground)", marginRight: "1rem" }}>Email Benchmarks</a>
+        <a href="#ai" style={{ color: "var(--foreground)", marginRight: "1rem" }}>AI Marketing</a>
+        <a href="#social" style={{ color: "var(--foreground)" }}>Social Media</a>
       </nav>
 
       {/* Section 1 - Key Marketing Metrics */}
@@ -129,46 +138,67 @@ export default function CheatSheetPage() {
                 meaning: "How much revenue a customer generates over their full relationship with your business.",
               },
               {
+                metric: "LTV:CAC",
+                name: "LTV to CAC Ratio",
+                formula: "LTV / CAC",
+                meaning: "Business health benchmark. Under 1x = losing money per customer. 3x+ = healthy. 5x+ = efficient growth engine.",
+              },
+              {
                 metric: "ROAS",
                 name: "Return on Ad Spend",
                 formula: "Revenue from Ads / Ad Spend",
-                meaning: "How much revenue each dollar of ad spend generates. A 4x ROAS means $4 earned per $1 spent.",
+                meaning: "Revenue per dollar of ad spend. A 4x ROAS = $4 earned per $1 spent. Minimum threshold depends on margin.",
+              },
+              {
+                metric: "Blended ROAS",
+                name: "Blended / True ROAS",
+                formula: "Total Revenue / Total Ad Spend (all channels)",
+                meaning:
+                  "The real ROAS across your entire ad portfolio. Use this for business decisions - single-channel ROAS is easily gamed by last-click attribution.",
               },
               {
                 metric: "CTR",
                 name: "Click-Through Rate",
                 formula: "Clicks / Impressions x 100",
-                meaning: "Percentage of people who clicked after seeing your ad or content. Measures creative relevance.",
+                meaning: "Percentage who clicked after seeing your content or ad. Measures creative and copy relevance.",
               },
               {
                 metric: "CVR",
                 name: "Conversion Rate",
                 formula: "Conversions / Total Visitors x 100",
-                meaning: "Percentage of visitors who take the desired action. Core measure of landing page or funnel effectiveness.",
-              },
-              {
-                metric: "LTV:CAC",
-                name: "LTV to CAC Ratio",
-                formula: "LTV / CAC",
-                meaning: "Measures business health. Under 1x = losing money per customer. 3x+ = healthy growth engine.",
+                meaning: "Percentage of visitors who take the desired action. Core measure of landing page effectiveness.",
               },
               {
                 metric: "CPL",
                 name: "Cost Per Lead",
                 formula: "Ad Spend / Number of Leads",
-                meaning: "How much each lead costs. Must be weighed against lead-to-customer conversion rate.",
+                meaning: "Lead cost. Weigh against lead-to-close rate - a cheap lead that never converts is worthless.",
+              },
+              {
+                metric: "NPS",
+                name: "Net Promoter Score",
+                formula: "% Promoters (9-10) minus % Detractors (0-6)",
+                meaning:
+                  "Customer loyalty proxy. Above 50 is excellent. B2B SaaS median is around 36 (Bain 2024). Trend matters more than absolute score.",
               },
               {
                 metric: "MoM Growth",
                 name: "Month-over-Month Growth",
                 formula: "(This Month - Last Month) / Last Month x 100",
-                meaning: "Percentage change from one month to the next. A quick health check for any metric.",
+                meaning: "Percentage change month to month. Quick health check for any metric.",
               },
             ].map((row, i) => (
               <tr key={i} style={i % 2 === 0 ? trEvenStyle : {}}>
                 <td style={{ ...tdStyle, fontWeight: 700, whiteSpace: "nowrap" }}>{row.metric}</td>
                 <td style={tdStyle}>{row.name}</td>
-                <td style={{ ...tdStyle, fontFamily: "monospace", fontSize: "0.88rem", color: "var(--muted-foreground)" }}>
+                <td
+                  style={{
+                    ...tdStyle,
+                    fontFamily: "monospace",
+                    fontSize: "0.88rem",
+                    color: "var(--muted-foreground)",
+                  }}
+                >
                   {row.formula}
                 </td>
                 <td style={tdStyle}>{row.meaning}</td>
@@ -197,29 +227,33 @@ export default function CheatSheetPage() {
                 stage: "TOFU",
                 name: "Top of Funnel",
                 mindset: "Unaware or just becoming aware of a problem",
-                tactics: "Blog posts, social content, YouTube videos, podcasts, display ads, PR",
-                metrics: "Impressions, reach, traffic, brand search volume",
+                tactics:
+                  "Blog posts, social content, YouTube Shorts/Reels, podcasts, display ads, PR, AI-answer-optimized content (GEO)",
+                metrics: "Impressions, reach, organic traffic, branded search volume, share of voice",
               },
               {
                 stage: "MOFU",
                 name: "Middle of Funnel",
                 mindset: "Evaluating options, comparing solutions",
-                tactics: "Email nurture sequences, comparison content, webinars, case studies, retargeting ads, demo videos",
-                metrics: "Leads, email open rate, content downloads, time on site",
+                tactics:
+                  "Email nurture sequences, comparison content, webinars, case studies, retargeting ads, demo videos, interactive tools",
+                metrics: "Leads, email open rate, content downloads, time on site, MQL volume",
               },
               {
                 stage: "BOFU",
                 name: "Bottom of Funnel",
                 mindset: "Ready to decide, needs final reassurance",
-                tactics: "Pricing pages, testimonials, free trials, demos, discount offers, sales outreach",
-                metrics: "Conversion rate, trial-to-paid rate, close rate, CAC",
+                tactics:
+                  "Pricing pages, testimonials, reviews (G2/Trustpilot), free trials, demos, discount offers, personalized outreach",
+                metrics: "CVR, trial-to-paid rate, close rate, CAC, SQL volume",
               },
               {
                 stage: "Post-Purchase",
                 name: "Retention and Advocacy",
                 mindset: "Customer seeks ongoing value; may refer others",
-                tactics: "Onboarding emails, loyalty programs, referral programs, community, customer success",
-                metrics: "Churn rate, NPS, LTV, referral rate",
+                tactics:
+                  "Onboarding emails, loyalty programs, referral programs, community, customer success, expansion upsells",
+                metrics: "Churn rate, NPS, LTV, referral rate, expansion MRR",
               },
             ].map((row, i) => (
               <tr key={i} style={i % 2 === 0 ? trEvenStyle : {}}>
@@ -236,13 +270,13 @@ export default function CheatSheetPage() {
 
       {/* Section 3 - SEO Quick Reference */}
       <section id="seo">
-        <h2 style={sectionHeadingStyle}>3. SEO Quick Reference</h2>
+        <h2 style={sectionHeadingStyle}>3. SEO Quick Reference (2025)</h2>
         <table style={tableStyle}>
           <thead>
             <tr>
               <th style={thStyle}>Category</th>
               <th style={thStyle}>What It Covers</th>
-              <th style={thStyle}>Key Actions</th>
+              <th style={thStyle}>Key Actions (2025)</th>
             </tr>
           </thead>
           <tbody>
@@ -250,32 +284,44 @@ export default function CheatSheetPage() {
               {
                 category: "On-Page SEO",
                 covers: "Elements inside your pages you directly control",
-                actions: "Title tags (60 chars), meta descriptions (155 chars), H1-H3 hierarchy, keyword placement in first 100 words, internal linking, image alt text, URL structure",
+                actions:
+                  "Title tags (60 chars), meta descriptions (155 chars), H1-H3 hierarchy, keyword in first 100 words, internal linking, image alt text, clean URL structure, schema markup",
               },
               {
                 category: "Off-Page SEO",
                 covers: "External signals that build authority",
-                actions: "Earn backlinks from relevant sites, digital PR, brand mentions, disavow toxic links via Google Search Console",
+                actions:
+                  "Earn backlinks from topically relevant sites, digital PR, unlinked brand mentions, disavow toxic links via Google Search Console",
               },
               {
                 category: "Technical SEO",
-                covers: "Crawlability and site infrastructure",
-                actions: "Submit sitemap.xml, check robots.txt, fix crawl errors, use HTTPS, improve Core Web Vitals (LCP under 2.5s, CLS under 0.1), mobile-first design",
+                covers: "Crawlability and infrastructure",
+                actions:
+                  "Submit sitemap.xml, audit robots.txt, fix crawl errors, enforce HTTPS, structured data (JSON-LD), page speed, mobile-first design, Core Web Vitals",
               },
               {
-                category: "Core Web Vitals",
-                covers: "Google's UX-based ranking signals (since 2021)",
-                actions: "LCP under 2.5s (largest element loads fast), INP under 200ms (interactions respond quickly), CLS under 0.1 (no layout shifts)",
-              },
-              {
-                category: "Keyword Research",
-                covers: "Finding what your audience searches for",
-                actions: "Map keywords to funnel stage, target informational queries at TOFU, commercial/transactional at BOFU, group into topic clusters",
+                category: "Core Web Vitals (2025)",
+                covers: "Google's UX ranking signals - INP replaced FID in March 2024",
+                actions:
+                  "LCP under 2.5s (fastest element load), INP under 200ms (interaction response - replaces FID), CLS under 0.1 (no layout shifts). INP is the new metric to watch.",
               },
               {
                 category: "E-E-A-T",
-                covers: "Google's quality rater framework",
-                actions: "Experience, Expertise, Authoritativeness, Trust. Add author bios, cite sources, earn mentions from credible sites, keep content accurate and updated",
+                covers: "Google's quality framework: Experience, Expertise, Authoritativeness, Trust",
+                actions:
+                  "Add author bios with credentials, cite primary sources, earn mentions from credible sites, keep content accurate and dated, show first-hand experience",
+              },
+              {
+                category: "GEO - Generative Engine Optimization",
+                covers: "Optimizing for AI answers (Google AI Overviews, Perplexity, ChatGPT)",
+                actions:
+                  "Write direct, factual answers in the first 2 sentences. Use structured content (tables, lists, headers). Cite stats with sources. Aim to be the source AI tools quote.",
+              },
+              {
+                category: "Zero-Click Search",
+                covers: "~65% of Google searches end without a click (SparkToro 2024)",
+                actions:
+                  "Optimize for featured snippets, knowledge panels, and AI Overviews to capture brand visibility even when clicks go down. Track impressions separately from clicks.",
               },
             ].map((row, i) => (
               <tr key={i} style={i % 2 === 0 ? trEvenStyle : {}}>
@@ -290,13 +336,13 @@ export default function CheatSheetPage() {
 
       {/* Section 4 - Paid Ads Glossary */}
       <section id="paid-ads">
-        <h2 style={sectionHeadingStyle}>4. Paid Ads Glossary</h2>
+        <h2 style={sectionHeadingStyle}>4. Paid Ads Reference (2025)</h2>
         <table style={tableStyle}>
           <thead>
             <tr>
-              <th style={thStyle}>Term</th>
+              <th style={thStyle}>Term / Concept</th>
               <th style={thStyle}>Definition</th>
-              <th style={thStyle}>How to Use It</th>
+              <th style={thStyle}>2025 Context</th>
             </tr>
           </thead>
           <tbody>
@@ -304,42 +350,47 @@ export default function CheatSheetPage() {
               {
                 term: "CPC",
                 def: "Cost Per Click - how much you pay each time someone clicks your ad",
-                use: "Lower CPC is not always better if click quality is low. Compare CPC alongside CVR.",
+                use: "Avg Google Search CPC 2025: $2-$4 (general), $10-$50 (legal/finance). Compare CPC against CVR, not in isolation.",
               },
               {
                 term: "CPM",
-                def: "Cost Per Thousand Impressions - ad pricing model based on views not clicks",
-                use: "Use for awareness campaigns. Good CPM is under $10 for broad audiences, under $25 for tight targeting.",
+                def: "Cost Per Thousand Impressions - pricing based on views not clicks",
+                use: "Meta CPM 2025: $8-$14 avg. TikTok: $6-$10. Good CPM = brand awareness at scale; optimize CTR to control effective CPC.",
               },
               {
-                term: "ROAS",
-                def: "Revenue generated per dollar of ad spend (e.g., 4x = $4 revenue per $1 spent)",
-                use: "Minimum ROAS threshold depends on margins. A 2x ROAS is bad at 20% margins; fine at 60% margins.",
+                term: "ROAS / MER",
+                def: "ROAS = revenue per ad dollar. MER (Marketing Efficiency Ratio) = total revenue / total marketing spend",
+                use: "MER is now preferred over channel ROAS. Single-channel ROAS is distorted by attribution. Track blended MER weekly.",
               },
               {
-                term: "Quality Score",
-                def: "Google's 1-10 score of keyword, ad, and landing page relevance",
-                use: "Higher score = lower CPC and better position. Improve by tightening keyword-ad-landing page alignment.",
+                term: "Performance Max",
+                def: "Google's AI-driven campaign type that runs across all Google channels (Search, Display, YouTube, Gmail, Maps)",
+                use: "2025: Default for most Google campaigns. Feed it high-quality creative assets and audience signals. Check Search Terms report for wasted spend.",
               },
               {
-                term: "Lookalike Audience",
-                def: "Meta/TikTok finds new users who statistically resemble your existing customers",
-                use: "Best built from high-value signals: purchasers, not just page visitors. Start with 1-3% similarity.",
+                term: "Meta Advantage+",
+                def: "Meta's AI campaign automation: automated placements, audiences, and creative testing",
+                use: "Advantage+ Shopping outperforms manual campaigns in ~70% of tests (Meta 2024). Requires strong creative library - AI picks the winner.",
               },
               {
-                term: "Retargeting",
-                def: "Showing ads to people who previously visited your site or engaged with your content",
-                use: "Highest efficiency audience. Segment by action: product viewers, cart abandoners, past purchasers (upsell).",
+                term: "Incrementality Testing",
+                def: "Measuring the true causal lift your ads drive vs. what would have happened without them",
+                use: "Run holdout tests (geo-based or user-split) to validate if your spend actually causes conversions - attribution models often double-count.",
+              },
+              {
+                term: "Signal Loss / Cookieless",
+                def: "Third-party cookies largely gone in Safari/Firefox; Chrome moving to Privacy Sandbox",
+                use: "Invest in first-party data (email lists, CRM), server-side tagging (GTM server), and Meta's Conversions API to restore signal loss.",
               },
               {
                 term: "Ad Frequency",
                 def: "Average times a unique user sees your ad in a given time window",
-                use: "Frequency above 6-7 per week often signals ad fatigue. Refresh creative or expand audiences.",
+                use: "Frequency above 6-7x per week often signals creative fatigue. Refresh creatives regularly. On TikTok, fatigue can hit in 3-5 days.",
               },
               {
-                term: "Conversion Window",
-                def: "How long after an ad click or view a conversion is credited to that ad",
-                use: "Default is 7-day click, 1-day view on Meta. Longer windows inflate reported conversions - set consistently.",
+                term: "Lookalike Audience",
+                def: "Platform finds new users statistically similar to your seed audience",
+                use: "2025: Effectiveness declining as privacy limits data. Build from high-value seeds (purchasers, not visitors). Test broad targeting vs. lookalikes.",
               },
             ].map((row, i) => (
               <tr key={i} style={i % 2 === 0 ? trEvenStyle : {}}>
@@ -354,9 +405,15 @@ export default function CheatSheetPage() {
 
       {/* Section 5 - Email Marketing Benchmarks */}
       <section id="email">
-        <h2 style={sectionHeadingStyle}>5. Email Marketing Benchmarks by Industry (2024-2025)</h2>
-        <p style={{ color: "var(--muted-foreground)", marginBottom: "1rem", fontSize: "0.95rem" }}>
-          Source: Mailchimp, Klaviyo, and Campaign Monitor industry benchmarks (2024). Use these as targets, not guarantees - your list quality matters more than your industry.
+        <h2 style={sectionHeadingStyle}>5. Email Marketing Benchmarks by Industry (2025)</h2>
+        <p
+          style={{
+            color: "var(--muted-foreground)",
+            marginBottom: "1rem",
+            fontSize: "0.95rem",
+          }}
+        >
+          Source: Mailchimp, Klaviyo, Litmus, and Campaign Monitor benchmarks (2024-2025). Note: Apple Mail Privacy Protection (MPP) inflates open rates by ~10-15% for lists with heavy Apple Mail usage. Click rate remains the more reliable engagement signal.
         </p>
         <table style={tableStyle}>
           <thead>
@@ -364,26 +421,77 @@ export default function CheatSheetPage() {
               <th style={thStyle}>Industry</th>
               <th style={thStyle}>Avg Open Rate</th>
               <th style={thStyle}>Avg Click Rate</th>
-              <th style={thStyle}>Avg Unsubscribe Rate</th>
+              <th style={thStyle}>Avg Unsub Rate</th>
               <th style={thStyle}>Notes</th>
             </tr>
           </thead>
           <tbody>
             {[
-              { industry: "E-commerce", open: "17-22%", click: "2-3%", unsub: "0.2%", note: "Promotional emails perform lower; abandon cart emails average 40%+ open rates" },
-              { industry: "SaaS / Tech", open: "21-28%", click: "3-5%", unsub: "0.15%", note: "Transactional and onboarding emails outperform newsletters" },
-              { industry: "Education", open: "25-30%", click: "4-6%", unsub: "0.1%", note: "High engagement when content is genuinely useful to learners" },
-              { industry: "Healthcare", open: "20-25%", click: "2-4%", unsub: "0.2%", note: "Subject line personalization matters more here" },
-              { industry: "Media / Publishing", open: "22-28%", click: "4-7%", unsub: "0.1%", note: "Curated newsletters with a strong editorial voice outperform average significantly" },
-              { industry: "Non-profit", open: "26-32%", click: "3-5%", unsub: "0.1%", note: "Mission-driven messaging boosts engagement" },
-              { industry: "All Industries (avg)", open: "21.5%", click: "2.6%", unsub: "0.26%", note: "Baseline benchmark. If you are below this, prioritize list hygiene and subject line testing." },
+              {
+                industry: "E-commerce",
+                open: "18-23%",
+                click: "2-3%",
+                unsub: "0.2%",
+                note: "Abandon cart emails avg 40%+ open rate. MPP inflates open rates - watch click rate instead.",
+              },
+              {
+                industry: "SaaS / Tech",
+                open: "22-30%",
+                click: "3-5%",
+                unsub: "0.15%",
+                note: "Transactional and onboarding emails outperform newsletters. Behavioral triggers beat time-based sends.",
+              },
+              {
+                industry: "Education",
+                open: "26-32%",
+                click: "4-6%",
+                unsub: "0.1%",
+                note: "Highest engagement when content has clear practical value. Course completion nudges work well.",
+              },
+              {
+                industry: "Healthcare",
+                open: "21-26%",
+                click: "2-4%",
+                unsub: "0.2%",
+                note: "Subject line personalization matters most. Avoid promotional language - focus on health outcomes.",
+              },
+              {
+                industry: "Media / Publishing",
+                open: "23-30%",
+                click: "4-8%",
+                unsub: "0.1%",
+                note: "Curated newsletters with strong editorial voice outperform average significantly. Consistent send day builds habit.",
+              },
+              {
+                industry: "Non-profit",
+                open: "27-34%",
+                click: "3-5%",
+                unsub: "0.1%",
+                note: "Mission-driven storytelling boosts engagement. Avoid over-asking - space donation requests 6+ weeks apart.",
+              },
+              {
+                industry: "B2B / Professional Services",
+                open: "24-28%",
+                click: "3-5%",
+                unsub: "0.12%",
+                note: "Plain-text emails often outperform HTML for personal-feeling B2B outreach.",
+              },
+              {
+                industry: "All Industries (avg)",
+                open: "22.4%",
+                click: "2.8%",
+                unsub: "0.26%",
+                note: "Baseline benchmark (Mailchimp 2025). Below this? Prioritize list hygiene + subject line A/B testing first.",
+              },
             ].map((row, i) => (
               <tr key={i} style={i % 2 === 0 ? trEvenStyle : {}}>
-                <td style={{ ...tdStyle, fontWeight: i === 6 ? 700 : 400 }}>{row.industry}</td>
+                <td style={{ ...tdStyle, fontWeight: i === 7 ? 700 : 400 }}>{row.industry}</td>
                 <td style={tdStyle}>{row.open}</td>
                 <td style={tdStyle}>{row.click}</td>
                 <td style={tdStyle}>{row.unsub}</td>
-                <td style={{ ...tdStyle, color: "var(--muted-foreground)", fontSize: "0.88rem" }}>{row.note}</td>
+                <td style={{ ...tdStyle, color: "var(--muted-foreground)", fontSize: "0.88rem" }}>
+                  {row.note}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -400,8 +508,177 @@ export default function CheatSheetPage() {
             marginTop: "-1rem",
           }}
         >
-          <strong style={{ color: "var(--foreground)" }}>Key levers for email performance:</strong> Subject line (A/B test for open rate), send time (test Tuesday-Thursday, 9-11am local), segmentation (targeted sends outperform blasts), and plain-text vs HTML (plain-text often wins for personal-sounding emails).
+          <strong style={{ color: "var(--foreground)" }}>2025 email levers:</strong> Subject line
+          A/B testing (open rate), send time optimization (Tuesday-Thursday 9-11am local typically
+          wins), segmentation by behavior beats blasts by 3-4x, zero-party data (preference centers)
+          for post-cookie personalization, Apple MPP means click-to-open rate (CTOR) is now more
+          meaningful than raw open rate.
         </div>
+      </section>
+
+      {/* Section 6 - AI Marketing Quick Reference */}
+      <section id="ai">
+        <h2 style={sectionHeadingStyle}>6. AI Marketing Quick Reference (2025)</h2>
+        <p
+          style={{
+            color: "var(--muted-foreground)",
+            marginBottom: "1rem",
+            fontSize: "0.95rem",
+          }}
+        >
+          AI reshaped search, content, and ad buying in 2024-2025. These are the concepts and benchmarks you need to know.
+        </p>
+        <table style={tableStyle}>
+          <thead>
+            <tr>
+              <th style={thStyle}>Concept</th>
+              <th style={thStyle}>What It Is</th>
+              <th style={thStyle}>What to Do in 2025</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              {
+                concept: "AI Overviews (Google AIO)",
+                what: "Google's AI-generated answer box at the top of search results. Appears in ~20% of all searches as of 2025.",
+                action:
+                  "Structure content as Q&A. Put the direct answer in the first 2 sentences. Use headers, lists, and tables. Cite stats. Aim to be quoted, not just ranked.",
+              },
+              {
+                concept: "GEO - Generative Engine Optimization",
+                what: "Optimizing content to appear in AI-generated answers (Perplexity, ChatGPT, Gemini, Google AIO) not just traditional search results.",
+                action:
+                  "Write factual, sourced, current content. Be specific with numbers and dates. AI tools prefer quoting exact data. Brand mentions in trusted sources boost GEO authority.",
+              },
+              {
+                concept: "Zero-Click Search",
+                what: "~65% of Google searches end without a click (SparkToro 2024). AI Overviews are accelerating this.",
+                action:
+                  "Track impressions + brand awareness separately from traffic. Optimize for featured snippets to win visibility even without clicks. Diversify traffic sources.",
+              },
+              {
+                concept: "AI-Generated Creative",
+                what: "Ad creative (images, copy, video) generated or iterated using AI tools (Meta's AI creative, Google's asset generation, Runway, Midjourney)",
+                action:
+                  "Use AI to scale creative testing - run 10-20 variants, let platforms pick the winner. Human art direction + AI iteration outperforms either alone.",
+              },
+              {
+                concept: "First-Party Data",
+                what: "Data you own directly - email lists, CRM records, loyalty program data, survey responses. More valuable as third-party cookies disappear.",
+                action:
+                  "Every campaign should have a first-party data capture goal. Build preference centers and zero-party data flows. Segment by behavior, not just demographics.",
+              },
+              {
+                concept: "AI Content at Scale",
+                what: "Using LLMs (ChatGPT, Claude, Gemini) to produce or assist with marketing content at scale.",
+                action:
+                  "AI drafts, humans edit and add original insight. Google does not penalize AI content - it penalizes low-quality content. E-E-A-T (especially Experience) is your differentiator.",
+              },
+              {
+                concept: "Dark Social / Attribution Gap",
+                what: "Direct traffic and untracked sharing (Slack, WhatsApp, email forwards) that appears as 'Direct' in GA4 but actually came from content.",
+                action:
+                  "Use post-purchase surveys ('how did you hear about us?'), UTM discipline on all shared links, and incrementality tests to understand true channel contribution.",
+              },
+            ].map((row, i) => (
+              <tr key={i} style={i % 2 === 0 ? trEvenStyle : {}}>
+                <td style={{ ...tdStyle, fontWeight: 700 }}>{row.concept}</td>
+                <td style={tdStyle}>{row.what}</td>
+                <td style={tdStyle}>{row.action}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+
+      {/* Section 7 - Social Media Benchmarks */}
+      <section id="social">
+        <h2 style={sectionHeadingStyle}>7. Social Media Benchmarks by Platform (2025)</h2>
+        <p
+          style={{
+            color: "var(--muted-foreground)",
+            marginBottom: "1rem",
+            fontSize: "0.95rem",
+          }}
+        >
+          Source: Hootsuite, Sprout Social, Rival IQ 2024-2025 benchmarks. Engagement rate = (likes + comments + shares) / reach. All figures are median; top-quartile performers are typically 2-4x higher.
+        </p>
+        <table style={tableStyle}>
+          <thead>
+            <tr>
+              <th style={thStyle}>Platform</th>
+              <th style={thStyle}>Avg Engagement Rate</th>
+              <th style={thStyle}>Best Content Format</th>
+              <th style={thStyle}>Peak Posting Times</th>
+              <th style={thStyle}>2025 Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              {
+                platform: "TikTok",
+                eng: "5-9%",
+                format: "Short-form video (15-60s), trending audio, hooks in first 3s",
+                time: "Tue-Fri, 7-9am and 7-9pm local",
+                note: "Highest organic reach of any platform. Algorithm favors watch-through rate and replays. Post 3-5x/week minimum.",
+              },
+              {
+                platform: "Instagram",
+                eng: "1-3%",
+                format: "Reels (2-3x reach vs static posts), carousels (highest saves), Stories (DMs)",
+                time: "Mon-Fri, 9am-12pm and 6-9pm local",
+                note: "Reels now drive discovery; carousels drive saves and shares. Grid posts declining in reach. Use Stories for community/conversion.",
+              },
+              {
+                platform: "LinkedIn",
+                eng: "3-6%",
+                format: "Document carousels, native video, personal perspective posts, polls",
+                time: "Tue-Thu, 8-10am local",
+                note: "Best organic B2B platform in 2025. Employee advocacy posts get 8x more reach than company page posts. Avoid external links in post body.",
+              },
+              {
+                platform: "YouTube",
+                eng: "1-4% (CTR)",
+                format: "Long-form (8-15 min), YouTube Shorts (under 60s), Tutorials",
+                time: "Upload Fri-Sat for weekend views; Tue-Wed for B2B",
+                note: "Shorts now drive channel discovery (can convert to long-form subscribers). Chapters, captions, and keyword-rich descriptions improve search ranking.",
+              },
+              {
+                platform: "X / Twitter",
+                eng: "0.5-1.5%",
+                format: "Threads, real-time commentary, short text with visuals",
+                time: "Mon-Fri, 8am-12pm local",
+                note: "Declining organic reach since 2023. Best for niche communities, real-time brand commentary, and link amplification (link in replies, not posts).",
+              },
+              {
+                platform: "Facebook",
+                eng: "0.5-1.5%",
+                format: "Reels (highest reach), Groups content, video",
+                time: "Wed-Fri, 1-3pm local",
+                note: "Organic reach for pages is very low (1-5%). Best used as a paid retargeting platform and for private community groups. Facebook Reels growing.",
+              },
+              {
+                platform: "Pinterest",
+                eng: "0.3-1% (saves)",
+                format: "Vertical images (2:3), idea pins, step-by-step guides",
+                time: "Sat-Sun, 8-11pm local",
+                note: "Long-tail discovery platform - pins can drive traffic 6-12 months after publishing. E-commerce and DIY niches see the best results.",
+              },
+            ].map((row, i) => (
+              <tr key={i} style={i % 2 === 0 ? trEvenStyle : {}}>
+                <td style={{ ...tdStyle, fontWeight: 700 }}>{row.platform}</td>
+                <td style={tdStyle}>{row.eng}</td>
+                <td style={tdStyle}>{row.format}</td>
+                <td style={{ ...tdStyle, fontSize: "0.88rem", color: "var(--muted-foreground)" }}>
+                  {row.time}
+                </td>
+                <td style={{ ...tdStyle, fontSize: "0.88rem", color: "var(--muted-foreground)" }}>
+                  {row.note}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </section>
 
       {/* CTA */}
@@ -423,9 +700,12 @@ export default function CheatSheetPage() {
           Want a cheat sheet for a specific topic?
         </h2>
         <p style={{ color: "var(--muted-foreground)", margin: 0, lineHeight: 1.6 }}>
-          Marketing Academy has focused cheat sheets for SEO, paid ads, analytics, and more - each paired with full lessons so you can go from reference to real skill.
+          Marketing Academy has focused cheat sheets for SEO, paid ads, analytics, and more - each
+          paired with full lessons so you can go from reference to real skill.
         </p>
-        <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", justifyContent: "center" }}>
+        <div
+          style={{ display: "flex", gap: "1rem", flexWrap: "wrap", justifyContent: "center" }}
+        >
           <Link
             href="/cheat-sheets"
             style={{

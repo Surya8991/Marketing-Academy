@@ -505,6 +505,7 @@ Full review by 5 personas (CMO, Junior Marketer, SEO Specialist, UX Designer, Fr
 | 14 | 2026-06-14 | Em dash fix: 127 instances across curriculum.ts + 6 files. Build fix: cheat-sheets/[category] split into server page.tsx + client PrintButton.tsx (Vercel build error). /tools directory: 85+ tools, 11 categories, search + pricing + category filters. All pushed. |
 | 15 | 2026-06-14 | 7:25am wrap-up. Added Tools nav link (desktop + mobile) to Nav.tsx wiring up the /tools directory page. Comma-fix + em dash sweep ran clean (0 MDX files needed changes). All committed + pushed. |
 | 16 | 2026-06-14 | Quick wins: SurpriseMeButton, LessonViewTracker + RecentlyViewed, TrackProgress, ShareButtons copy-link, "/" keyboard shortcut. SVG favicon (src/app/icon.svg + public/icon.svg). Nav: SVG logo, Bookmark link, fixed Cheat Sheets href, removed Browse. Footer: restructured to Learn/Resources/Topics columns with SVG logo. Content audit (5 stale lessons) + 5-persona review backlog logged to Phase 11. |
+| 17 | 2026-06-14 | Digital Marketing Cheat Sheet 2025 full rewrite: 7 sections (added AI/GEO and Social Media Benchmarks), updated all metrics/benchmarks to 2025 data, added Blended ROAS + NPS + MER metrics, INP replaces FID note, GEO/zero-click section, Performance Max + Advantage+ + incrementality + signal loss paid ads entries, Apple MPP email impact note, 7-platform social media benchmark table. |
 
 ---
 
