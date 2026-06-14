@@ -3,12 +3,11 @@ import Mermaid from "@/components/Mermaid";
 import Callout from "@/components/Callout";
 import ResourceList from "@/components/ResourceList";
 
-const components: MDXComponents = {
-  Mermaid,
-  Callout,
-  ResourceList,
-};
-
-export function useMDXComponents(): MDXComponents {
-  return components;
+export function useMDXComponents(components: MDXComponents): MDXComponents {
+  return {
+    ...components,
+    Mermaid,
+    Callout,
+    ResourceList,
+  };
 }

@@ -17,21 +17,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   // Only include lesson pages that actually have an MDX file.
-  const lessonRoutes: MetadataRoute.Sitemap = [];
-  for (const cat of CATEGORIES) {
-    for (const lesson of cat.lessons) {
-      try {
-        await import(`@/content/${cat.slug}/${lesson.slug}.mdx`);
-        lessonRoutes.push({
-          url: `${BASE}/learn/${cat.slug}/${lesson.slug}`,
-          priority: 0.7,
-          changeFrequency: "monthly" as const,
-        });
-      } catch {
-        // MDX not written yet — skip from sitemap
-      }
-    }
-  }
+  // Use Promise.allSettled to check all lessons in parallel (not sequentially).
+  const allLessons = CATEGORIES.flatMap((cat) =>
+    cat.lessons.map((lesson) => ({ cat, lesson }))
+  );
+
+  const results = await Promise.allSettled(
+    allLessons.map(({ cat, lesson }) =>
+      import(`@/content/${cat.slug}/${lesson.slug}.mdx`).then(() => ({
+        url: `${BASE}/learn/${cat.slug}/${lesson.slug}`,
+        priority: 0.7 as const,
+        changeFrequency: "monthly" as const,
+      }))
+    )
+  );
+
+  const lessonRoutes: MetadataRoute.Sitemap = results
+    .filter((r): r is PromiseFulfilledResult<MetadataRoute.Sitemap[number]> => r.status === "fulfilled")
+    .map((r) => r.value);
 
   return [...staticRoutes, ...categoryRoutes, ...lessonRoutes];
 }
