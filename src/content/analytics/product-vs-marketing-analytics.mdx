@@ -1,0 +1,103 @@
+export const lessonMeta = {
+  title: "Product Analytics vs. Marketing Analytics",
+  level: "Intermediate",
+  summary: "Aligning GA4 acquisition metrics with Mixpanel/Amplitude behavioral user events to score Product Qualified Leads (PQLs).",
+};
+
+# Product Analytics vs. Marketing Analytics
+
+To build a high-performing product-led growth engine, you must bridge the gap between traffic and usage. If your marketing and product teams look at separate data silos, you will waste budget acquiring users who never activate.
+
+## Quick Summary
+
+- Marketing Analytics tracks top-of-funnel acquisition, focusing on traffic sources, campaigns, and conversions.
+- Product Analytics tracks behavioral events inside the application, focusing on activation, retention, and feature usage.
+- Product Qualified Leads (PQLs) are users who experience the core value of your product, making them ready for sales.
+- Integrating Google Analytics 4 (GA4) with Amplitude or Mixpanel allows you to connect an ad click to a product activation event.
+- Modern teams export raw GA4 data to BigQuery to build a unified profile of the customer journey.
+
+## Understanding the Analytic Divide
+
+Marketing analytics tools are built to measure sessions and attribution. They answer where your users come from and which campaign brought them to your page.
+
+Product analytics tools are built to measure users and events. They answer what your users do after they sign up and why they keep coming back.
+
+If you only use marketing tools, you cannot optimize for user value. You might see a campaign with a low Cost Per Lead (CPL) and think it is successful.
+
+However, product data might reveal that none of those leads ever invite a team member. You are paying to acquire users who churn immediately.
+
+Let us map how these two data streams combine in a modern data pipeline.
+
+<Mermaid chart={`graph TD
+    A[Marketing Touch: Google Ads & GA4] --> C[Data Warehouse: BigQuery]
+    B[Product Touch: Signup & Usage Events] --> D[Product Analytics: Amplitude & Mixpanel]
+    D --> C
+    C --> E[Reverse ETL: Hightouch]
+    E --> F[CRM: Salesforce & HubSpot]
+    F --> G[Sales Team: Outreach to PQLs]`} />
+
+This pipeline allows you to trace a user from their first ad impression to their actual product usage. Let us look at how to define and score these leads.
+
+## Scoring Product Qualified Leads (PQLs)
+
+A Product Qualified Lead, or PQL, is a user who has completed specific actions inside your application. These actions show they have reached their 'aha moment' and are getting real value.
+
+For example, a PQL for Slack is an account that has sent 2,000 messages. A PQL for Zoom is a user who hosts their first 45-minute meeting.
+
+You cannot score PQLs using marketing metrics like email opens or page views. You must track product events like integrations connected or files uploaded.
+
+<Callout type="tip">
+To find your PQL triggers, perform a cohort analysis in Amplitude. Look for the behavioral differences between users who churned and users who remained active after 30 days.
+</Callout>
+
+Once you identify these events, assign them a point value. Combine this usage score with firmographic data from your CRM, such as company size and industry.
+
+When a user crosses your scoring threshold, trigger an alert for your sales team. This ensures sales only contacts prospects who are already active.
+
+## Case Study 1: Calendly (2024 Data Unification)
+
+In 2024, Calendly rebuilt its analytics infrastructure to support product-led sales. They integrated GA4 acquisition parameters with Amplitude behavioral tracking.
+
+By doing this, their growth team could see which ad creatives drove users who set up active calendar links. They stopped optimizing campaigns for simple signups and shifted focus to active calendar integrations.
+
+This integration resulted in a 16% increase in account activation rates within their target enterprise segment. It proved that marketing optimization must extend past the signup form.
+
+Aligning acquisition with product behavior changed how they allocated ad spend. Marketing budgets became directly tied to product metrics.
+
+## Case Study 2: Gorgias (2024 PQL Scoring)
+
+During 2024, customer support platform Gorgias implemented a warehouse-centric PQL scoring model. They exported GA4 session data and product usage events into Google BigQuery.
+
+They built a model that identified accounts that connected their Shopify store and resolved 10 support tickets in the first week. These accounts were automatically flagged as PQLs.
+
+Using a reverse ETL pipeline, they synced these lead scores directly to Salesforce. The sales team contacted these users immediately to offer help with team onboarding.
+
+This program drove a 60% lift in customer acquisition and doubled their paid media match rates. It demonstrated the power of real-time behavioral scoring.
+
+## Common Mistakes
+
+- **Optimizing marketing campaigns for signups.** Signups are a vanity metric if users do not activate the product.
+- **Keeping product and marketing data siloed.** When teams use different databases, they cannot trace the full user journey.
+- **Scoring leads on email opens.** Email opens do not correlate with product adoption or long-term retention.
+- **Failing to clean event names.** If your product events have messy naming conventions, your analytics reports will be incorrect.
+- **Contacting users too early.** Reaching out to signups before they experience product value increases sales rejection rates.
+- **Ignoring warehouse latency.** If your data takes 24 hours to sync, your sales team will contact leads after they have already gone cold.
+
+## Key Takeaways
+
+- Marketing analytics tracks the top of the funnel; product analytics tracks retention and behavioral loops.
+- Define your PQL milestones based on user behaviors that correlate with long-term retention.
+- Combine behavioral usage events with CRM firmographics to build your final lead score.
+- Export raw GA4 and product events to a central warehouse like BigQuery to unify the customer profile.
+- Optimize your marketing budgets for active users rather than cheap, low-intent signups.
+- Route PQL alerts to your sales team in real-time to capture prospect intent when it peaks.
+
+<ResourceList resources={[
+  { title: "Amplitude Product Analytics Certification Course", url: "https://academy.amplitude.com", type: "course", free: false },
+  { title: "Mixpanel Guide to Product Led Growth", url: "https://mixpanel.com/blog/guide-to-plg", type: "article", free: true },
+  { title: "BigQuery Export for GA4 Documentation", url: "https://support.google.com/analytics/answer/9358801", type: "docs", free: true },
+  { title: "Gorgias Marketing and Product Analytics Case Study", url: "https://www.gorgias.com/blog/marketing-analytics-warehouse", type: "article", free: true },
+  { title: "WsCube Tech - Product vs Marketing Analytics (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - Product vs Marketing Analytics", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Product vs Marketing Analytics", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

@@ -46,6 +46,7 @@ export const CATEGORIES: Category[] = [
       { slug: "product-market-fit", title: "Product–Market Fit", level: "Advanced", summary: "The only milestone that matters before you scale spend." },
       { slug: "brand-vs-performance", title: "Brand vs. Performance Marketing", level: "Advanced", summary: "Why the 60/40 split exists and when to break it." },
       { slug: "category-design", title: "Category Design", level: "Advanced", summary: "Stop competing. Create the category and win by default - the Salesforce, Drift, Gong playbook." },
+      { slug: "plg-fundamentals", title: "Product-Led Growth (PLG) Fundamentals", level: "Beginner", summary: "How to use product usage as the primary driver of customer acquisition, retention, and expansion." },
     ],
   },
   {
@@ -77,6 +78,7 @@ export const CATEGORIES: Category[] = [
       { slug: "programmatic-seo", title: "Programmatic SEO", level: "Advanced", summary: "Database-driven pages at scale - the Zapier, Webflow, and Zillow playbook." },
       { slug: "zero-click-search", title: "Zero-Click Search", level: "Advanced", summary: "Half of Google searches end without a click. Here's how to still win." },
       { slug: "voice-search-seo", title: "Voice Search SEO", level: "Advanced", summary: "Alexa, Siri, Google Assistant - optimizing for spoken queries." },
+      { slug: "saas-seo-strategy", title: "SaaS Product Comparison Page Strategy", level: "Advanced", summary: "Designing and ranking Alternative to and competitor comparison pages to capture bottom-of-funnel search intent." },
     ],
   },
   {
@@ -109,6 +111,7 @@ export const CATEGORIES: Category[] = [
       { slug: "reddit-ads", title: "Reddit Ads", level: "Advanced", summary: "The most contextual, niche-targeted ad platform - when it works and when it doesn't." },
       { slug: "retail-media", title: "Retail Media Networks", level: "Advanced", summary: "Amazon Ads, Walmart Connect, Instacart Ads - selling where people already buy." },
       { slug: "audio-ads", title: "Audio Advertising", level: "Advanced", summary: "Podcast ads, Spotify, streaming audio - buying ears in the audio-first era." },
+      { slug: "pmax-advantage-plus", title: "Performance Max & Meta Advantage+ Optimization", level: "Intermediate", summary: "Bidding algorithms, signal inputs, and visual creative testing in an era of automated, AI-driven media buying." },
     ],
   },
   {
@@ -139,6 +142,7 @@ export const CATEGORIES: Category[] = [
       { slug: "reverse-trials", title: "Reverse Trials", level: "Advanced", summary: "Start users on paid - downgrade to free. The Notion, Loom, Slack monetization shift." },
       { slug: "network-effects", title: "Network Effects", level: "Advanced", summary: "The compounding mechanism Metcalfe identified - and why it creates winner-take-most markets." },
       { slug: "two-sided-marketplaces", title: "Two-Sided Marketplaces", level: "Advanced", summary: "The chicken-and-egg problem - and how Uber, Airbnb, and Etsy solved it." },
+      { slug: "reverse-trials-monetization", title: "Reverse Trials & Freemium Economics", level: "Advanced", summary: "Managing conversion metrics, activation benchmarks, and paywall psychology for trials vs. freemium tiers." },
     ],
   },
   {
@@ -168,6 +172,7 @@ export const CATEGORIES: Category[] = [
       { slug: "algorithm-basics", title: "How Social Algorithms Work", level: "Advanced", summary: "The signals every major platform optimizes for." },
       { slug: "reddit-marketing", title: "Reddit Marketing", level: "Advanced", summary: "The hardest community to market on - and the highest-trust traffic on the internet." },
       { slug: "bluesky", title: "Bluesky & the Open Social Web", level: "Advanced", summary: "Decentralized social - what AT Protocol means for marketers." },
+      { slug: "short-form-video-algorithms", title: "Short-Form Video Algorithms (TikTok & Reels)", level: "Beginner", summary: "Hook writing, audio retention signals, and metadata tagging for viral organic video distribution." },
     ],
   },
   {
@@ -198,6 +203,7 @@ export const CATEGORIES: Category[] = [
       { slug: "thought-leadership", title: "Thought Leadership", level: "Advanced", summary: "Earning a point of view people actually want to hear." },
       { slug: "content-moats", title: "Content Moats", level: "Advanced", summary: "Proprietary data, original research, surveys - content competitors literally can't copy." },
       { slug: "interactive-content", title: "Interactive Content", level: "Advanced", summary: "Calculators, quizzes, configurators - the highest-engagement format most companies never invest in." },
+      { slug: "ai-contentops-workflows", title: "AI Content Operations & Governance", level: "Intermediate", summary: "Humans-in-the-loop workflows to scale content drafts while maintaining brand voice, editor reviews, and E-E-A-T." },
     ],
   },
   {
@@ -231,6 +237,7 @@ export const CATEGORIES: Category[] = [
       { slug: "whatsapp-marketing", title: "WhatsApp Business Marketing", level: "Advanced", summary: "The dominant marketing channel outside North America - templates, opt-in, and Meta's ecosystem." },
       { slug: "behavioral-triggers", title: "Behavioral Email Triggers", level: "Advanced", summary: "Send because they did X, not because it is Tuesday - the most relevant email you can send." },
       { slug: "zero-party-data", title: "Zero-Party Data Strategy", level: "Advanced", summary: "Preference centers, progressive profiling, and consent-first personalization." },
+      { slug: "abm-email-sequences", title: "Account-Based Marketing (ABM) Email Sequences", level: "Advanced", summary: "Structuring hyper-targeted, multi-touch outbound email cadences for B2B high-value enterprise accounts." },
     ],
   },
   {
@@ -267,6 +274,7 @@ export const CATEGORIES: Category[] = [
       { slug: "clean-rooms", title: "Data Clean Rooms", level: "Advanced", summary: "Google Ads Data Hub, Amazon AMC, Meta Advanced Analytics - privacy-safe attribution at scale." },
       { slug: "privacy-sandbox", title: "Privacy Sandbox & Post-Cookie Web", level: "Advanced", summary: "Topics API, FLEDGE, Attribution Reporting - Chrome's privacy-first replacement." },
       { slug: "reverse-etl", title: "Reverse ETL", level: "Advanced", summary: "Warehouse-to-tool sync (Hightouch, Census) - the new layer in the modern marketing stack." },
+      { slug: "product-vs-marketing-analytics", title: "Product Analytics vs. Marketing Analytics", level: "Intermediate", summary: "Aligning GA4 acquisition metrics with Mixpanel/Amplitude behavioral user events to score Product Qualified Leads (PQLs)." },
     ],
   },
   {
@@ -306,6 +314,7 @@ export const CATEGORIES: Category[] = [
       { slug: "optimizely-vwo", title: "Optimizely & VWO", level: "Intermediate", summary: "Learn how to use Optimizely and VWO to run A/B tests, find what actually converts visitors into customers, and make data-driven decisions instead of guesses." },
       { slug: "all-in-one-tools", title: "All-in-One Marketing Platforms", level: "Advanced", summary: "HubSpot, Salesforce Marketing Cloud, Marketo - when a suite makes sense." },
       { slug: "tools-stack-by-stage", title: "The Right Tool Stack by Company Stage", level: "Advanced", summary: "Solo founder → seed → Series B → enterprise. The stack changes 4 times." },
+      { slug: "marketing-data-stack", title: "The Modern Marketing Data Stack", level: "Advanced", summary: "Integrating data warehouses (BigQuery), CDPs (Segment), and Reverse ETL (Hightouch) for real-time customer data flows." },
     ],
   },
   {
@@ -337,6 +346,7 @@ export const CATEGORIES: Category[] = [
       { slug: "peak-end-rule", title: "The Peak-End Rule", level: "Advanced", summary: "People remember the peak emotion and the end - design experiences accordingly." },
       { slug: "status-belonging-identity", title: "Status, Belonging, and Identity", level: "Advanced", summary: "The deepest motivators in B2C and luxury - why brands become tribes." },
       { slug: "default-bias", title: "Default Bias and Status Quo", level: "Advanced", summary: "The most powerful nudge: doing nothing. How defaults shape behavior at scale." },
+      { slug: "friction-analysis-psychology", title: "Friction Psychology & Obstacle Analysis", level: "Intermediate", summary: "Cognitive load, decision fatigue, and behavioral science tactics to reduce checkout and form drop-offs." },
     ],
   },
   {
@@ -367,6 +377,7 @@ export const CATEGORIES: Category[] = [
       { slug: "storytelling-copy", title: "Storytelling in Copy", level: "Advanced", summary: "Why narrative beats argument every time." },
       { slug: "storybrand", title: "StoryBrand Framework", level: "Advanced", summary: "Donald Miller's 7-part framework - make the customer the hero, not your brand." },
       { slug: "direct-vs-brand-copy", title: "Direct Response vs. Brand Copy", level: "Advanced", summary: "The two camps of copywriting and when each style wins." },
+      { slug: "ux-writing-microcopy", title: "UX Writing & Microcopy Frameworks", level: "Beginner", summary: "Designing micro-interactions: CTA button copies, inline error validation states, and transactional email alerts." },
     ],
   },
   {
@@ -396,6 +407,7 @@ export const CATEGORIES: Category[] = [
       { slug: "personalization-cro", title: "Personalization for CRO", level: "Advanced", summary: "Segment-specific pages, dynamic copy, and when it actually moves the needle." },
       { slug: "cro-research", title: "Customer Research for CRO", level: "Advanced", summary: "Heatmaps, recordings, surveys. The qualitative side of a quantitative discipline." },
       { slug: "checkout-optimization", title: "Checkout Optimization", level: "Advanced", summary: "The highest-revenue square foot on the internet - fields, friction, payment options, and trust." },
+      { slug: "post-purchase-cro", title: "Post-Purchase Conversion Rate Optimization", level: "Intermediate", summary: "One-click upsells, loyalty prompts, referral incentives, and account activation onboarding loops." },
     ],
   },
   {
@@ -426,6 +438,7 @@ export const CATEGORIES: Category[] = [
       { slug: "founder-brand", title: "Founder Brand as Distribution", level: "Advanced", summary: "Why founders go viral on LinkedIn while their company accounts struggle." },
       { slug: "brand-crisis", title: "Brand Crisis Management", level: "Advanced", summary: "The 24-hour playbook every brand needs - and will not use until it is too late." },
       { slug: "co-branding", title: "Co-Branding", level: "Advanced", summary: "Lego x Adidas, Spotify x Starbucks - the partnership math and what makes co-brands work." },
+      { slug: "narrative-transport-branding", title: "Narrative Transport in Brand Storytelling", level: "Advanced", summary: "Cognitive mechanisms of brand storytelling: how narrative frameworks bypass consumer skepticism." },
     ],
   },
   {
@@ -453,6 +466,7 @@ export const CATEGORIES: Category[] = [
       { slug: "pmm-org-models", title: "PMM Org Models", level: "Advanced", summary: "Centralized, product-aligned, segment-aligned. The tradeoffs." },
       { slug: "analyst-relations", title: "Analyst Relations", level: "Advanced", summary: "Gartner Magic Quadrant, Forrester Wave - the B2B credibility loop and how to win it." },
       { slug: "customer-advisory-board", title: "Customer Advisory Boards", level: "Advanced", summary: "The 8-customer council that aligns product and marketing - and how to run one that works." },
+      { slug: "category-creation-gtm", title: "Category Creation GTM Playbook", level: "Advanced", summary: "Stop entering crowded markets. Build a new category: define the problem, name the space, and design the Salesforce/Drift GTM playbook." },
     ],
   },
   {
@@ -481,6 +495,7 @@ export const CATEGORIES: Category[] = [
       { slug: "multimodal-ai", title: "Multimodal AI for Marketers", level: "Advanced", summary: "Text + image + video + audio - the next generation of AI marketing workflows." },
       { slug: "rag-for-marketers", title: "RAG for Marketers", level: "Advanced", summary: "Retrieval-Augmented Generation - feeding AI your brand voice, data, and product docs." },
       { slug: "mcp-marketing", title: "MCP & Connected AI Workflows", level: "Advanced", summary: "Model Context Protocol - connecting Claude/ChatGPT directly to your marketing stack." },
+      { slug: "internal-gpt-knowledge-bases", title: "Custom GPTs & Internal Marketing Knowledge Bases", level: "Advanced", summary: "Building secure RAG systems trained on brand books, customer preferences, and historic ad copy to automate creative drafting." },
     ],
   },
 ];
