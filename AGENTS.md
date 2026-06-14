@@ -194,6 +194,47 @@ ClientPart.tsx    // "use client": has the interactive behavior (print button, e
 ```
 The server page imports the client component. generateStaticParams stays in page.tsx only.
 
+### Rule 18 — Shared storage logic goes in `src/lib/`, not in components
+When two or more components need to read/write the same localStorage key, extract the logic to a shared lib file. This prevents key-name drift and O(n^2) bugs from duplicated grouping logic.
+
+```ts
+// CORRECT — single source of truth
+// src/lib/bookmarks.ts
+export const BOOKMARK_KEY = "ma_bookmarks";
+export function getBookmarks(): BookmarkEntry[] { ... }
+export function saveBookmarks(entries: BookmarkEntry[]): void { ... }
+
+// WRONG — duplicated in BookmarkButton.tsx AND BookmarksList.tsx
+const STORAGE_KEY = "ma_bookmarks"; // in one file
+const key = "bookmarks"; // drifted in another
+```
+
+### Rule 19 — Use rgba semi-transparent overlays for color badges, not Tailwind color classes
+Dark mode requires CSS-variable-aware colors. Tailwind `bg-green-100 text-green-800` ignores the theme.
+
+```ts
+// CORRECT — works in light and dark mode
+const pricingStyles = {
+  Free: { background: "rgba(22, 163, 74, 0.15)", color: "var(--foreground)", border: "1px solid rgba(22, 163, 74, 0.35)" },
+};
+
+// WRONG — hardcoded colors break dark mode
+<span className="bg-green-100 text-green-800">Free</span>
+```
+
+### Rule 20 — Server components with `metadata` export cannot use event handlers
+A page that exports `metadata` is a Server Component. Event handlers (`onClick`, `onMouseEnter`, etc.) are forbidden. Use CSS hover via `<style dangerouslySetInnerHTML={{ __html: css }} />` instead.
+
+```tsx
+// CORRECT — inject CSS class via dangerouslySetInnerHTML
+const hoverCSS = `.card:hover { border-color: var(--accent) !important; }`;
+<style dangerouslySetInnerHTML={{ __html: hoverCSS }} />
+<div className="card" style={{ transition: "border-color 0.15s" }}>...</div>
+
+// WRONG — breaks server component
+<div onMouseEnter={() => setHover(true)}>...</div>
+```
+
 ### Rule 16 — Lesson tone: encourage, don't overwhelm
 Lessons must feel like a smart friend explaining something, not a textbook.
 - **800-1200 words** of body content. A focused 900-word lesson beats a bloated 2000-word one.

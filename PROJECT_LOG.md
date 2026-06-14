@@ -1,7 +1,7 @@
 # Marketing Academy - Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-06-14 (Session 15).
+> Last audited: 2026-06-14 (Session 16).
 
 ---
 
@@ -55,7 +55,7 @@
 
 ## Order of Execution
 
-> Status: Phase 1 ✅ → Phase 2 ✅ → Phase 3 ✅ → Phase 4 ✅ → Phase 5 ✅ live → Phase 6 ✅ → Phase 7 ✅ → Phase 8 🔴 next
+> Status: Phase 1 ✅ → Phase 2 ✅ → Phase 3 ✅ → Phase 4 ✅ → Phase 5 ✅ live → Phase 6 ✅ → Phase 7 ✅ → Phase 8 ✅ → Phase 9 ✅ → Phase 10 🔴 next
 
 ### PHASE 1 - Infrastructure ✅ COMPLETE
 Next.js 16.2.9 App Router + Tailwind v4 + @next/mdx + Mermaid + fuse.js. All deps installed.
@@ -141,7 +141,44 @@ Every push auto-deploys within ~60 seconds.
 | 7.11 | Tools directory `/tools` | ✅ 85+ tools, 11 categories, search + pricing + category filters |
 | 7.12 | Nav updated | ✅ Interview Prep + Cheat Sheets + Tools links in desktop + mobile nav |
 
-### PHASE 8 - Quiz Expansion 🔴 NOT STARTED
+### PHASE 8 - Build Fixes & Code Review ✅ COMPLETE (Session 16, 2026-06-14)
+
+**Vercel build failure fixed:**
+- `src/app/cheat-sheets/page.tsx` - removed `onMouseEnter`/`onMouseLeave`, replaced with CSS hover via `<style dangerouslySetInnerHTML />` and `.cheat-sheet-link-card:hover` class
+- `src/app/interview-prep/page.tsx` - same fix with `.interview-cat-card:hover { border-color: var(--accent) }`
+
+**Full code review - 8 confirmed findings fixed across 10 files:**
+
+| Finding | File | Fix |
+|---|---|---|
+| Slug mismatches break certificate completion | `src/lib/tracks.ts` | Fixed 10 slug instances: email-101, automation-drips, abandoned-cart, winback, funnel-analytics, attribution-models |
+| Quiz keys never match curriculum slugs | `src/lib/quizzes.ts` | Fixed 2 keys: email-101 and attribution-models |
+| SW cache-first for HTML serves stale content forever | `public/sw.js` | Complete rewrite: network-first for HTML, cache-first for hashed assets; bumped to "ma-v2" |
+| JSON.parse crash on corrupt localStorage | `src/app/certificates/[slug]/page.tsx` | Wrapped in try/catch |
+| CAC formula wrong operator precedence | `src/app/digital-marketing-cheat-sheet/page.tsx` | Added parentheses: `(Total Sales + Marketing Spend) / New Customers` |
+| "use client" + generateStaticParams in same file | `src/app/digital-marketing-cheat-sheet/page.tsx` | Extracted `PrintButton.tsx` as client component; page is now a server component |
+| Hardcoded Tailwind color classes ignore dark mode | `src/app/tools/ToolsClient.tsx` | Replaced with rgba inline styles |
+| Bookmark storage logic duplicated in 2 files | `src/components/BookmarkButton.tsx` + `src/app/bookmarks/BookmarksList.tsx` | Extracted to `src/lib/bookmarks.ts`; fixed O(n^2) grouping with Map |
+
+**New files created:**
+- `src/lib/bookmarks.ts` - shared bookmark storage library
+- `src/app/digital-marketing-cheat-sheet/PrintButton.tsx` - extracted client component
+
+**New AGENTS.md rules added:** Rule 18 (shared storage in lib/), Rule 19 (rgba for color badges), Rule 20 (server components cannot use event handlers)
+
+### PHASE 9 - Interview Questions Expansion ✅ COMPLETE (Session 16, 2026-06-14)
+
+**`/interview-questions` page fully rewritten:**
+- Updated from "2025" to "2026" throughout
+- Expanded from 5 sections to 7 sections: General Strategy, SEO, Paid Ads, Content, Analytics, Email, Growth, AI Marketing
+- Each section now has: 5 conceptual Q&As + 3 scenario-based Q&As
+- 2026-specific content added: GEO/AI Overviews, INP replacing FID, Apple MPP, Performance Max, Meta Advantage+, incrementality testing, dark social, data clean rooms, zero-party data, AI marketing workflows
+- Sticky TOC nav with section anchor links
+- Scenario questions visually differentiated with "SCENARIO" pill badge on `var(--muted)` background
+- No em dashes, no hardcoded colors, no "use client" directive
+- ~700 lines, TypeScript compiles clean
+
+### PHASE 10 - Quiz Expansion 🔴 NOT STARTED
 - Goal: add 3-5 quiz questions to all 221 remaining lessons (currently only 20 have quizzes)
 - Approach: one workflow agent per category, reads MDX content, generates relevant questions
 - Output: appended to `src/lib/quizzes.ts`
@@ -160,10 +197,11 @@ Every push auto-deploys within ~60 seconds.
 - `src/lib/curriculum.ts` - 241 canonical lessons, 15 categories, em dashes fixed
 - `src/lib/utils.ts` - cn() utility
 - `src/lib/progress.ts` - localStorage progress utilities
-- `src/lib/tracks.ts` - 7 learning tracks
+- `src/lib/tracks.ts` - 7 learning tracks (slugs verified against curriculum.ts 2026-06-14)
 - `src/lib/glossary.ts` - 148 marketing terms
-- `src/lib/quizzes.ts` - 3-5 questions for 20 key lessons
+- `src/lib/quizzes.ts` - 3-5 questions for 20 key lessons (keys verified against curriculum.ts 2026-06-14)
 - `src/lib/tools-directory.ts` - 85+ real marketing tools across 11 categories
+- `src/lib/bookmarks.ts` - shared bookmark storage (BOOKMARK_KEY, getBookmarks, saveBookmarks)
 
 ### Pages
 | Route | File | Notes |

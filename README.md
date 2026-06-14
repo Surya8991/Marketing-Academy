@@ -51,6 +51,7 @@ A free, structured marketing education site - from absolute beginner to advanced
 
 **Interview Prep**
 - **Interview prep hub** - `/interview-prep` aggregates all categories with sample Q&A
+- **Interview questions (2026)** - `/interview-questions`: 50+ Q&As across 7 disciplines with scenario-based questions, updated for 2026 (GEO, AI Overviews, incrementality, zero-party data)
 - **SEO landing pages** - `/interview-questions` and `/digital-marketing-cheat-sheet` for organic search
 
 **Sharing**
@@ -130,16 +131,17 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/curriculum.ts` | Single source of truth - all lesson slugs, titles, levels |
 | `src/lib/tracks.ts` | 7 learning track definitions |
 | `src/lib/glossary.ts` | 148 marketing term definitions |
-| `src/lib/quizzes.ts` | Quiz questions for 20 key lessons (Phase 8 will expand to all) |
+| `src/lib/quizzes.ts` | Quiz questions for 20 key lessons |
 | `src/lib/tools-directory.ts` | 85+ marketing tools with category/pricing data |
+| `src/lib/bookmarks.ts` | Shared bookmark storage (BOOKMARK_KEY, getBookmarks, saveBookmarks) |
 | `mdx-components.tsx` | Global MDX component registry (must be at project root, not in src/) |
 | `src/app/globals.css` | Tailwind v4 + CSS variable design system |
 | `src/components/ThemeToggle.tsx` | Dark/light/system toggle with no-flash inline script |
 | `src/app/api/og/route.tsx` | Edge function for dynamic OG images |
 | `src/app/feed.xml/route.ts` | RSS feed |
 | `public/manifest.json` | PWA Web App Manifest |
-| `public/sw.js` | Service worker (cache-first for assets, network-first for API) |
-| `AGENTS.md` | 14 non-negotiable build rules for AI agents |
+| `public/sw.js` | Service worker: network-first for HTML, cache-first for hashed static assets |
+| `AGENTS.md` | 20 non-negotiable build rules for AI agents |
 | `PROJECT_LOG.md` | Full session history, gotchas, file inventory, pending tasks |
 
 ---
