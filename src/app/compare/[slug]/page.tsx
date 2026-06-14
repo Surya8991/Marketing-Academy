@@ -14,11 +14,17 @@ function slugify(name: string): string {
     .replace(/(^-|-$)/g, "");
 }
 
+function normalizeSlugPart(part: string): string {
+  const p = part.toLowerCase().trim();
+  if (p === "ga4" || p === "google-analytics") return "google-analytics-4";
+  return p;
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const parts = slug.split("-vs-");
   if (parts.length !== 2) return {};
-  const [slugA, slugB] = parts;
+  const [slugA, slugB] = parts.map(normalizeSlugPart);
 
   const toolA = TOOLS.find((t) => slugify(t.name) === slugA);
   const toolB = TOOLS.find((t) => slugify(t.name) === slugB);
@@ -36,11 +42,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export function generateStaticParams() {
-  // Pre-render our 7 standard comparisons
+  // Pre-render our standard comparisons including ga4 alias
   return [
     { slug: "semrush-vs-ahrefs" },
     { slug: "mailchimp-vs-klaviyo" },
     { slug: "google-analytics-4-vs-mixpanel" },
+    { slug: "ga4-vs-mixpanel" },
     { slug: "chatgpt-vs-claude" },
     { slug: "buffer-vs-hootsuite" },
     { slug: "optimizely-vs-vwo" },
@@ -59,7 +66,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
   const parts = slug.split("-vs-");
   if (parts.length !== 2) notFound();
 
-  const [slugA, slugB] = parts;
+  const [slugA, slugB] = parts.map(normalizeSlugPart);
 
   // Locate the tools
   const toolA = TOOLS.find((t) => slugify(t.name) === slugA);
@@ -68,7 +75,8 @@ export default async function ComparisonDetailPage({ params }: Props) {
   if (!toolA || !toolB) notFound();
 
   const isSameCategory = toolA.category === toolB.category;
-  const customData = CUSTOM_COMPARISONS[slug];
+  const lookupKey = `${slugify(toolA.name)}-vs-${slugify(toolB.name)}`;
+  const customData = CUSTOM_COMPARISONS[lookupKey];
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">

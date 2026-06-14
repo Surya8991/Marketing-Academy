@@ -1099,39 +1099,34 @@ Added quiz questions for all remaining lessons so that every single lesson has a
 
 The following tasks are currently pending and scheduled for future sessions:
 
-#### 1. Nice-to-Have Features & Expansion (P4 Backlog)
-* **Tool Comparison Pages (`/compare/[slug]`)**:
-  - **Goal**: Fully populate/design long-tail comparison pages using the existing tools directory dataset.
-  - **Target Routes**: 
-    - `/compare/semrush-vs-ahrefs` (SEO tools comparison)
-    - `/compare/google-analytics-4-vs-mixpanel` (Analytics tools comparison)
-    - `/compare/mailchimp-vs-klaviyo` (Email tools comparison)
-  - **Details**: Implement comparison tables, pros/cons lists, pricing comparison, and feature checkboxes.
-* **Modern Standalone Lessons**:
-  - **Goal**: Write standalone high-quality MDX lessons for new 2025/2026 marketing trends.
-  - **Target Lessons**:
-    - `email/zero-party-data` (Zero-Party Data Strategy)
-    - `analytics/dark-social` (Dark Social Attribution)
-
-#### 2. On Hold / Future Integrations
+#### 1. On Hold / Future Integrations
 * **Newsletter Integration**:
   - **Goal**: Wire `/api/newsletter/route.ts` to a live email service provider instead of logging signups to the console.
   - **Target Providers**: Resend, ConvertKit, or Mailchimp (depending on API keys and service selection).
 
-#### 3. Phase 13 Curriculum Expansion (15 Proposed Lessons)
-Write and integrate 15 advanced lessons across the 15 curriculum categories:
-1. **fundamentals/plg-fundamentals** — Product-Led Growth (PLG) Fundamentals (Notion/Zoom playbook).
-2. **seo/saas-seo-strategy** — SaaS Product Comparison Page Strategy ("Alternative to" page SEO).
-3. **paid-ads/pmax-advantage-plus** — Performance Max & Meta Advantage+ Optimization (automated media buying).
-4. **growth/reverse-trials-monetization** — Reverse Trials & Freemium Economics.
-5. **social/short-form-video-algorithms** — Short-Form Video Algorithms (TikTok & Reels).
-6. **content/ai-contentops-workflows** — AI Content Operations & Governance.
-7. **email/abm-email-sequences** — Account-Based Marketing (ABM) Email Sequences.
-8. **analytics/product-vs-marketing-analytics** — Product Analytics vs. Marketing Analytics (GA4 vs. Amplitude/Mixpanel).
-9. **tools/marketing-data-stack** — The Modern Marketing Data Stack (Segment, BigQuery, Hightouch).
-10. **psychology/friction-analysis-psychology** — Friction Psychology & Obstacle Analysis.
-11. **copywriting/ux-writing-microcopy** — UX Writing & Microcopy Frameworks.
-12. **cro/post-purchase-cro** — Post-Purchase Conversion Rate Optimization.
-13. **brand-strategy/narrative-transport-branding** — Narrative Transport in Brand Storytelling.
-14. **product-marketing/category-creation-gtm** — Category Creation GTM Playbook.
-15. **ai-marketing/internal-gpt-knowledge-bases** — Custom GPTs & Internal Marketing Knowledge Bases.
+---
+
+## Session 33 — 2026-06-14 (Comparison Slug Normalization & Curriculum Completion)
+
+### Summary
+Addressed the remaining backlog for the P4 block and Phase 13 Curriculum Expansion. Implemented comparison page slug normalization (supporting `ga4-vs-mixpanel` alias) and completed/verified the full curriculum expansion of 15 advanced lessons and 3 modern standalone lessons with 100% quiz coverage.
+
+### Changes Made
+
+#### 1. Tool Comparison Page Slug Normalization (`src/app/compare/[slug]/page.tsx`)
+- Added `normalizeSlugPart` helper function to handle slug aliases (e.g., mapping `ga4` -> `google-analytics-4`).
+- Normalized slugs dynamically in `generateMetadata` and `ComparisonDetailPage` to retrieve correct data from the tools directory.
+- Reconstructed `lookupKey` from resolved tools to fetch matching custom comparison data (`CUSTOM_COMPARISONS`), allowing `/compare/ga4-vs-mixpanel` and `/compare/google-analytics-4-vs-mixpanel` to load the identical rich comparison matrix and expert verdicts.
+- Updated `generateStaticParams()` to pre-render `{ slug: "ga4-vs-mixpanel" }` at build time.
+
+#### 2. Sitemap Update (`src/app/sitemap.ts`)
+- Registered `/compare/ga4-vs-mixpanel` as a static route in the XML sitemap.
+
+#### 3. Curriculum & Lesson Verification
+- Audited the entire curriculum registry: verified all 15 Phase 13 lessons and 3 Modern Standalone Lessons (`programmatic-seo`, `zero-party-data`, `dark-social`) are fully written, active, and registered in `src/lib/curriculum.ts`.
+- Verified 100% quiz coverage: all 315 lessons in the academy have exactly 4 corresponding multiple-choice questions in `src/lib/quizzes.ts` (324 unique quizzes total, including historical redirects/aliases, with 0 missing).
+
+### Verification
+- TypeScript type-check: **0 errors** via `tsc --noEmit`.
+- Next.js production build: **Successful** (545 static pages built in 118 seconds).
+- Validated build outputs: verified HTML generation of all 8 popular comparisons (including `ga4-vs-mixpanel` at 68KB).

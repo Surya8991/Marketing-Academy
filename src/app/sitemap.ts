@@ -80,6 +80,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "semrush-vs-ahrefs",
     "mailchimp-vs-klaviyo",
     "google-analytics-4-vs-mixpanel",
+    "ga4-vs-mixpanel",
     "chatgpt-vs-claude",
     "buffer-vs-hootsuite",
     "optimizely-vs-vwo",
