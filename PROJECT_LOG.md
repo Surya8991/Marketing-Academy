@@ -1023,3 +1023,51 @@ User requested nav organization and footer improvement before the quiz gating pl
 ### Verification
 - TypeScript: **0 errors** via `tsc --noEmit`.
 - Committed: `8447e98` — pushed to `main`.
+
+---
+
+## Session 31 — 2026-06-14 (Quiz Gating + Take Quiz Button + Quizzes Hub Redesign)
+
+### Summary
+Implemented the approved quiz gating plan in full. "Mark as Complete" is now locked on lessons that have a quiz until the user scores 100%. Also added a prominent "Take Quiz" button in lesson headers, and redesigned the /quizzes hub to show category cards instead of per-lesson cards.
+
+### Changes Made
+
+#### 1. `src/lib/quizzes.ts` — New Helpers
+- `quizPassKey(category, slug)` — generates consistent localStorage key `ma_quiz_pass_category_slug`
+- `getQuizPassed(category, slug): boolean` — reads pass flag from localStorage
+- `setQuizPassed(category, slug)` — persists pass flag
+- `QUIZ_PASSED_EVENT = "quiz-passed"` — shared CustomEvent name constant
+
+#### 2. `src/components/Quiz.tsx` — Rewritten
+- Now accepts `category` and `slug` props (required)
+- On finishing quiz with 100%: calls `setQuizPassed`, dispatches `CustomEvent(QUIZ_PASSED_EVENT)` so MarkComplete unlocks immediately without reload
+- Distinct **success screen** (trophy icon, green, "You've unlocked Mark as Complete")
+- Distinct **failure screen** (X icon, shows score, "You need 100%" message, Try Again button)
+- `id="quiz-section"` on wrapper div for smooth anchor scroll from header button
+
+#### 3. `src/components/MarkComplete.tsx` — Rewritten
+- New `hasQuiz?: boolean` prop (default false)
+- **Locked state**: `hasQuiz && !quizPassed && !alreadyCompleted` — shows 🔒 icon + "Complete the quiz first" text
+- Hint text with anchor link to `#quiz-section` when locked
+- Listens for `QUIZ_PASSED_EVENT` to unlock instantly without page reload
+- Existing completions always respected — no regression for previously completed lessons
+- All colors use `rgba` overlays (Rule 19 — dark mode safe)
+
+#### 4. `src/app/learn/[category]/[lesson]/page.tsx` — Updated
+- Computes `hasQuiz` and `quizQuestions` at server level
+- Passes `hasQuiz` to both `<MarkComplete>` instances (top header and bottom)
+- Passes `category` + `slug` to `<Quiz>` component
+- Added **"🧠 Take Quiz"** anchor button in lesson header action row (visible only on lessons with a quiz)
+
+#### 5. `src/app/quizzes/page.tsx` — Redesigned
+- **Before**: grid of per-lesson cards within each category
+- **After**: clean grid of category cards (one per category)
+- Each card: emoji icon, category title, lesson count, total questions badge, estimated time
+- Hover animation: `translateY(-3px)` + accent border + arrow nudge
+- How-it-works section updated to mention 100% pass requirement
+- Stats updated to show current counts
+
+### Verification
+- TypeScript: **0 errors** via `tsc --noEmit`.
+- Committed: `d95edc8` — pushed to `main`.
