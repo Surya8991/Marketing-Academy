@@ -1,0 +1,108 @@
+export const lessonMeta = {
+  title: "Technical SEO",
+  level: "Intermediate",
+  summary: "Crawlability, indexability, sitemaps, robots.txt, canonicals, JS rendering.",
+  category: "seo",
+  slug: "technical-seo",
+  relatedConcepts: ["how-search-works", "core-web-vitals", "on-page-seo"],
+}
+
+# Technical SEO
+
+## What It Is
+
+Technical SEO is the work you do to make sure search engines can actually find, read, and store your pages — before any writing or link-building happens. Think of it as the plumbing of your website. Even if you have the best content in your industry, Google can't rank a page it can't access. Technical SEO fixes the invisible barriers that stop search engines from doing their job.
+
+Most of this work happens in places users never see: server configuration files, XML documents, HTML tags, and the JavaScript code that assembles your pages. That might sound intimidating, but the concepts are straightforward once you understand what search engines are actually trying to do. They send out automated programs called crawlers that follow links, download pages, and send that content back to be stored in an index. Technical SEO removes every obstacle in that journey.
+
+The six pillars of technical SEO are crawlability (can bots reach your pages?), indexability (should Google store them?), sitemaps (a roadmap for crawlers), robots.txt (a rulebook for bots), canonical tags (telling Google which version of a page is the "real" one), and JavaScript rendering (making sure dynamically built pages are readable). Get these right and every other SEO effort you make becomes more effective.
+
+## Real-World Example
+
+<Callout type="example" title="Real Example">
+Airbnb discovered in 2017 that roughly 30% of their listing pages were not being indexed by Google — crawlers were hitting JavaScript-rendered content they couldn't parse. After migrating critical listing pages to server-side rendering and submitting a structured XML sitemap covering over 1 million URLs, Airbnb saw organic search traffic to listing pages increase by approximately 25% within six months. The fix was entirely technical — no new content, no new links.
+</Callout>
+
+## Why It Matters
+
+Technical SEO is the foundation everything else rests on. You need it when:
+
+- You launch or redesign a site and need to confirm Google can crawl all the right pages (and none of the wrong ones).
+- Your pages aren't showing up in search results even though they have good content and backlinks.
+- You have a large site (thousands of pages) where crawl budget — the number of pages Google will crawl in a given period — is limited and needs to be spent wisely.
+- You're running a JavaScript-heavy site (React, Vue, Angular) where content is assembled in the browser rather than delivered ready-made from the server.
+- You have duplicate content across multiple URLs and need to tell Google which version to rank.
+
+## How It Works
+
+When Google's crawler (Googlebot) visits your site, the first thing it checks is your **robots.txt** file, found at `yourdomain.com/robots.txt`. This plain-text file tells crawlers which sections of your site to visit and which to skip. A misconfigured robots.txt — accidentally blocking `Disallow: /` — is one of the fastest ways to disappear from Google entirely.
+
+Next, Googlebot follows links to discover pages. Your **XML sitemap** (submitted via Google Search Console) gives crawlers a direct list of every URL you want indexed, along with metadata like last-modified dates. This is especially valuable for large sites or pages that are hard to reach through internal links alone. Sitemaps don't guarantee indexing, but they dramatically speed up discovery.
+
+Once a page is crawled, **canonical tags** determine whether it gets indexed. A canonical tag in the HTML `<head>` tells Google: "This is the authoritative version of this content." Without them, Google might index `yoursite.com/page`, `yoursite.com/page?ref=email`, and `yoursite.com/page/` as three separate duplicate pages, splitting ranking signals across all three. Canonical tags consolidate that signal into one URL.
+
+Finally, **JavaScript rendering** is the biggest modern challenge. When pages are built in the browser using JavaScript frameworks, Googlebot may only see a blank HTML shell on first crawl. It processes JS in a second wave, but this introduces delays and uncertainty. Server-side rendering (SSR) or static site generation (SSG) delivers the full HTML upfront, making content immediately accessible to crawlers.
+
+<Mermaid chart={`
+flowchart TD
+  A[Googlebot arrives] --> B{robots.txt allows?}
+  B -- No --> Z[Page skipped]
+  B -- Yes --> C[Page crawled]
+  C --> D{JavaScript page?}
+  D -- Yes --> E[Second-wave JS rendering]
+  D -- No --> F[HTML parsed immediately]
+  E --> F
+  F --> G{Canonical tag present?}
+  G -- Points elsewhere --> H[Signals sent to canonical URL]
+  G -- Self-referencing or absent --> I[Page sent to index]
+  H --> I
+  I --> J[Page eligible to rank]
+`} caption="How Googlebot crawls, renders, and indexes a page — each step is a potential failure point." />
+
+## Common Mistakes
+
+<Callout type="warning">
+**Blocking important pages in robots.txt.** It's common to block staging or admin directories, but a copy-paste error or a CMS default setting can accidentally block your entire site or key sections. Always verify your robots.txt using Google Search Console's robots.txt tester after any site migration or major update.
+</Callout>
+
+<Callout type="warning">
+**Using canonical tags incorrectly — or not at all.** Many sites let URL parameters (for filters, tracking, session IDs) create hundreds of near-duplicate pages without any canonicalization. Google then crawls all of them, wastes crawl budget, and dilutes ranking signals. Audit your URL structure and ensure every parameter-generated URL either has a canonical pointing to the clean URL, or is blocked from indexing entirely.
+</Callout>
+
+<Callout type="tip">
+**Render pages server-side for your most important content.** Rather than waiting to see if Google renders your JavaScript correctly, use server-side rendering or static generation for product pages, blog posts, and landing pages. Reserve client-side rendering for features that don't need to rank — dashboards, user account areas, and app functionality. This is the single highest-leverage technical SEO decision you can make for a JavaScript-heavy site.
+</Callout>
+
+## The One-Line Takeaway
+
+**Technical SEO ensures search engines can reach, read, and trust your pages — without it, everything else you do for SEO is built on sand.**
+
+<ResourceList resources={[
+  {
+    title: "Google Search Central: Technical SEO Documentation",
+    url: "https://developers.google.com/search/docs/crawling-indexing",
+    type: "docs",
+    note: "The authoritative reference for crawling, indexing, sitemaps, robots.txt, and canonicals — straight from Google. Free and regularly updated.",
+    free: true
+  },
+  {
+    title: "Ahrefs: Technical SEO Guide",
+    url: "https://ahrefs.com/blog/technical-seo",
+    type: "article",
+    note: "A comprehensive walkthrough of every major technical SEO area with practical examples, covering site architecture, crawlability, and JavaScript SEO.",
+    free: true
+  },
+  {
+    title: "Moz: Technical SEO Basics",
+    url: "https://moz.com/beginners-guide-to-seo/technical-seo",
+    type: "article",
+    note: "Part of Moz's Beginner's Guide, this section explains the core technical concepts clearly and is a solid starting point before moving to advanced topics.",
+    free: true
+  }
+]} />
+
+## Related Concepts
+
+- [How Search Works](/learn/seo/how-search-works) — Understanding crawling and indexing at a conceptual level makes every technical SEO decision clearer.
+- [Core Web Vitals](/learn/seo/core-web-vitals) — Google's performance metrics are a direct extension of technical SEO; page speed and stability are ranking factors.
+- [On-Page SEO](/learn/seo/on-page-seo) — Once technical SEO ensures your pages are crawlable and indexed, on-page SEO optimizes what those pages say to rank for the right queries.

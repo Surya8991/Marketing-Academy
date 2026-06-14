@@ -1,0 +1,103 @@
+export const lessonMeta = {
+  title: "Bidding Strategies",
+  level: "Intermediate",
+  summary: "Manual CPC, tCPA, tROAS, Max Conversions — when each makes sense.",
+  category: "paid-ads",
+  slug: "bidding-strategies",
+  relatedConcepts: ["quality-score", "google-search-ads", "google-shopping-pmax"],
+}
+
+# Bidding Strategies
+
+## What It Is
+
+When you run paid ads, you're entering an auction every time someone searches for a keyword or fits your audience. A bidding strategy is the rule you set that tells the platform how aggressively to bid for each of those auctions — and what goal to optimize toward. Think of it like hiring a buyer at a real estate auction: you can give them a strict maximum price, tell them to win at any cost under a budget, or instruct them to only buy when the numbers make sense for your investment goal.
+
+Google Ads and Meta both offer a spectrum of bidding options. At one end is manual control, where you set the exact amount you're willing to pay per click. At the other end are fully automated, machine-learning-driven strategies where you hand the platform a goal — like a target cost per acquisition or a return on ad spend — and let the algorithm decide how much to bid in every individual auction.
+
+The choice of bidding strategy is one of the highest-leverage decisions in paid media. Get it wrong and you'll either overspend chasing low-value conversions or underbid so cautiously that your ads barely show. The right strategy depends on your campaign's maturity, your conversion data volume, and your business goals at that moment.
+
+## Real-World Example
+
+<Callout type="example" title="Real Example">
+Duolingo scaled its Google Ads campaigns by shifting from Manual CPC to Target CPA bidding once its campaigns had accumulated more than 50 conversions per month. By setting a tCPA of $8 per app install — based on the lifetime value math their growth team had already validated — the algorithm could vary individual bids from $0.30 to $12 depending on predicted install likelihood. The result: a 34% reduction in cost per install while maintaining install volume, because the system stopped spending on low-intent clicks that manual bidding couldn't easily filter out.
+</Callout>
+
+## Why It Matters
+
+Choosing the right bidding strategy determines whether your budget works for you or against you. Marketers reach for this decision at several key moments:
+
+- When launching a new campaign and deciding whether to trust automation or maintain control during the learning phase
+- When conversion volume grows enough to feed a smart bidding algorithm reliably (usually 30–50 conversions per month per campaign)
+- When business goals shift — moving from brand awareness to direct revenue means switching from impression-based to conversion-based bidding
+- When diagnosing underperformance — a campaign bleeding budget with low ROAS often has a mismatched bidding strategy, not just bad creative
+
+## How It Works
+
+The four strategies you'll use most are Manual CPC, Maximize Conversions, Target CPA (tCPA), and Target ROAS (tROAS). Each sits at a different point on the control-versus-automation spectrum.
+
+**Manual CPC** means you set the maximum you'll pay for a click, and the platform bids up to that ceiling. You stay in control, which is valuable when you're testing a new campaign and don't yet have enough conversion data for the algorithm to learn from. The tradeoff is that you're leaving signal on the table — you can't adjust bids in real time based on whether the user is on mobile, what time it is, or how their past browsing behavior predicts their conversion likelihood.
+
+**Maximize Conversions** tells the algorithm to get as many conversions as possible within your total budget, without a cost-per-conversion constraint. This is useful early in a campaign's life when you want to generate conversion data fast, but it can be expensive — the system may pay a high price per conversion to hit volume.
+
+**Target CPA** is the go-to strategy once you have conversion history. You tell the platform your acceptable cost per acquisition — say, $25 per lead — and the algorithm adjusts bids auction by auction to hit that average. Some conversions will cost more, some less, but the average should converge on your target over time. This requires at least 30 conversions in the past 30 days to work reliably.
+
+**Target ROAS** works the same way but optimizes for revenue efficiency rather than conversion volume. Instead of saying "spend no more than $25 per conversion," you say "return $4 for every $1 I spend." This is the right strategy for e-commerce campaigns where conversions have different values — a $20 purchase and a $200 purchase shouldn't be treated the same.
+
+<Mermaid chart={`
+flowchart LR
+  A[New Campaign\nNo conversion data] --> B{Enough\nconversions?}
+  B -- No < 30/mo --> C[Manual CPC\nor Max Clicks]
+  B -- Getting there\n30-50/mo --> D[Maximize\nConversions]
+  D --> E{Goal?}
+  E -- Fixed cost\nper lead --> F[Target CPA]
+  E -- Revenue\nefficiency --> G[Target ROAS]
+`} caption="Bidding strategy progression: start with control, shift to automation as conversion data grows" />
+
+## Common Mistakes
+
+<Callout type="warning">
+**Switching strategies too early.** When advertisers see a new strategy underperforming in the first week, they often panic and switch back. Smart bidding strategies need a learning period — typically 2–4 weeks and at least 50 conversions — before the algorithm has enough signal to optimize properly. Changing the strategy resets the learning phase and you never get accurate performance data.
+</Callout>
+
+<Callout type="warning">
+**Setting a tCPA or tROAS target that's too aggressive.** If your historical cost per acquisition has been $60 and you set a tCPA of $20, the algorithm will constrain bids so tightly that impressions collapse. The system isn't magic — it can't manufacture cheaper conversions than the market will bear. Start your target close to your historical average and tighten it gradually over 2–3 weeks.
+</Callout>
+
+<Callout type="tip">
+**Pro tip.** Before switching to any smart bidding strategy, segment your conversion actions and make sure you're only counting the actions that directly tie to business value — not micro-conversions like page views or PDF downloads. Feeding the algorithm low-value signals trains it to optimize for the wrong behavior, and your CPA will look great on paper while real revenue stays flat.
+</Callout>
+
+## The One-Line Takeaway
+
+**Use manual control when your data is thin, automate when you have 30+ monthly conversions — and always set your target based on what the business can actually afford, not what you wish were true.**
+
+<ResourceList resources={[
+  {
+    title: "About automated bidding — Google Ads Help",
+    url: "https://support.google.com/google-ads/answer/2979071",
+    type: "docs",
+    note: "Official Google documentation covering all smart bidding strategies, eligibility requirements, and the learning period — the authoritative reference",
+    free: true
+  },
+  {
+    title: "Smart Bidding — Google Skillshop",
+    url: "https://skillshop.withgoogle.com/google-ads",
+    type: "course",
+    note: "Google's free certification courses include a full module on smart bidding strategies with practical exercises and assessments",
+    free: true
+  },
+  {
+    title: "PPC Bidding Strategies: The Complete Guide",
+    url: "https://www.wordstream.com/blog/ws/2019/02/11/google-ads-bidding-strategies",
+    type: "article",
+    note: "WordStream's practitioner-written breakdown comparing each bidding strategy with real campaign scenarios and when to switch between them",
+    free: true
+  }
+]} />
+
+## Related Concepts
+
+- [Quality Score](/learn/paid-ads/quality-score) — Your Quality Score directly affects how much you pay per click even with the same bid; a higher score means your money goes further under any bidding strategy
+- [Google Search Ads](/learn/paid-ads/google-search-ads) — Search campaigns are where most bidding strategy decisions play out first; understanding the auction mechanics makes bidding choices clearer
+- [Google Shopping & PMax](/learn/paid-ads/google-shopping-pmax) — Performance Max campaigns use Target ROAS as their native bidding mode, making tROAS mastery essential before running PMax

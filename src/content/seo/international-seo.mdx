@@ -1,0 +1,103 @@
+export const lessonMeta = {
+  title: "International SEO",
+  level: "Advanced",
+  summary: "hreflang, ccTLDs, subfolders — getting global SEO right.",
+  category: "seo",
+  slug: "international-seo",
+  relatedConcepts: ["technical-seo", "content-clusters", "local-seo"],
+}
+
+# International SEO
+
+## What It Is
+
+When a company wants to show up in search results across multiple countries or languages, it needs a strategy built specifically for that goal. International SEO is the practice of structuring your website so that search engines understand which version of your content to show to users in different countries or speaking different languages. Without this, Google might serve your English content to French speakers, or your US pricing page to Australian customers — and none of those people will find what they need.
+
+The core challenge is that Google doesn't automatically know which version of your site is meant for which audience. You have to tell it explicitly, using a combination of technical signals, content choices, and site architecture decisions. Get it right, and you can rank in multiple markets simultaneously. Get it wrong, and your pages compete against each other — a problem called "self-cannibalization" where your own content eats your rankings.
+
+There are three main structural approaches: country-code top-level domains (ccTLDs) like nike.fr or ikea.de, subfolders like example.com/fr/ or example.com/de/, and subdomains like fr.example.com. Each has trade-offs in authority, maintenance cost, and signal clarity to search engines. For most growing companies, subfolders are the sweet spot — they inherit the main domain's authority and are cheaper to maintain than separate domains.
+
+## Real-World Example
+
+Airbnb operates in over 220 countries and regions, and its international SEO architecture is a textbook case of doing this well.
+
+<Callout type="example" title="Real Example">
+Airbnb uses a subfolder structure (airbnb.com/es/, airbnb.com/fr/, airbnb.com/de/) combined with precise hreflang tags across thousands of pages. When they expanded aggressively into non-English markets between 2014 and 2017, organic search became one of their top acquisition channels internationally — contributing to the company growing from 1 million to over 4 million listings globally. Their localized pages don't just translate text; they surface region-specific pricing in local currencies and locally popular listing types, which significantly boosted click-through rates in each market.
+</Callout>
+
+## Why It Matters
+
+Reach for international SEO when:
+
+- Your analytics show meaningful traffic or signups from countries you haven't explicitly targeted yet
+- You're launching a product or service into a new market and want organic visibility from day one
+- Your current site is losing rankings in non-English markets because Google is serving the wrong page version to the wrong audience
+- Competitors in your target markets already dominate local search results and you need a structural advantage to compete
+
+## How It Works
+
+The foundation of international SEO is the `hreflang` attribute — an HTML tag that tells Google which language and country a specific page is written for, and which alternate versions exist. For example, a tag like `hreflang="fr-FR"` tells Google that a page is in French and intended for users in France. You also include `hreflang="x-default"` to specify the fallback page for anyone who doesn't match a specific locale. These tags must be implemented on every alternate version of every page, pointing to each other — a bidirectional relationship that's easy to get wrong at scale.
+
+Your site architecture choice shapes everything downstream. ccTLDs (like booking.com vs booking.fr) send the strongest geographic signals to Google but cost the most to maintain — each domain builds its own authority from scratch. Subfolders (airbnb.com/fr/) let you consolidate link equity under one domain while still targeting specific countries. Subdomains (fr.example.com) sit in between but are increasingly treated by Google more like separate sites, which reduces most of their benefits.
+
+Content localization goes beyond translation. Truly localized pages adapt currency, date formats, culturally relevant examples, and even keyword choices — because searchers in Mexico use different terms than searchers in Spain, even though both speak Spanish. Keyword research must be done natively in each target market, not just translated from English.
+
+<Mermaid chart={`
+flowchart TD
+  A[User searches in France] --> B{Google reads hreflang tags}
+  B --> C[Matches fr-FR page]
+  C --> D[Serves localized French content]
+  D --> E[Higher CTR + rankings in France]
+  B --> F[No hreflang found]
+  F --> G[Google guesses — may serve wrong page]
+  G --> H[Lower CTR, confused users, lost rankings]
+`} caption="How hreflang tags direct Google to serve the right page to the right audience" />
+
+Once your architecture is in place, technical checks become ongoing maintenance: confirming hreflang tags are consistent across all pages, verifying that alternate URLs return 200 status codes, ensuring XML sitemaps include all locale variants, and monitoring Google Search Console for hreflang errors by country.
+
+## Common Mistakes
+
+<Callout type="warning">
+**Incomplete hreflang implementation.** The most common error is adding hreflang tags to only the homepage or a handful of top pages, while leaving thousands of product or blog pages untagged. Google only acts on hreflang when it's implemented consistently across your entire site. A partial rollout can actually create confusion — signaling conflicting information about which pages target which audience.
+</Callout>
+
+<Callout type="warning">
+**Treating translation as localization.** Running your English content through a translation tool and publishing it as "localized" content skips the most important step: native keyword research. The terms people actually type into Google in Germany are not direct translations of US search queries. Skipping this research means your translated pages rank for queries no one searches, while missing the high-volume terms your competitors are capturing.
+</Callout>
+
+<Callout type="tip">
+**Pro tip.** Before building out full localized page trees, validate demand by checking Google Search Console for organic impressions from your target countries on your existing English pages. If you're already getting 5,000+ monthly impressions from France with zero localized content, that's proof of latent demand worth investing in. Start with the markets where you already have organic signals before creating content for markets that may not convert.
+</Callout>
+
+## The One-Line Takeaway
+
+**International SEO is not about translating your content — it's about building a precise system of signals so Google serves the right page, in the right language, to the right person in the right country.**
+
+<ResourceList resources={[
+  {
+    title: "Google's Guide to Managing Multi-Regional and Multilingual Sites",
+    url: "https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites",
+    type: "docs",
+    note: "The authoritative source from Google Search Central — covers hreflang syntax, site structure options, and common pitfalls straight from the source.",
+    free: true
+  },
+  {
+    title: "International SEO: The Definitive Guide",
+    url: "https://backlinko.com/international-seo",
+    type: "article",
+    note: "Backlinko's comprehensive breakdown of hreflang implementation, ccTLD vs subfolder decisions, and step-by-step localization strategy with visual examples.",
+    free: true
+  },
+  {
+    title: "Ahrefs: International SEO — The Complete Guide",
+    url: "https://ahrefs.com/blog/international-seo/",
+    type: "article",
+    note: "Covers site architecture trade-offs, hreflang validation tools, and how to audit an existing international SEO setup for errors.",
+    free: true
+  }
+]} />
+
+## Related Concepts
+- [Technical SEO](/learn/seo/technical-seo) — International SEO is a technical discipline at its core; hreflang tags, site architecture, and crawl configuration all require the same foundational technical skills
+- [Content Clusters](/learn/seo/content-clusters) — Scaling localized content across multiple markets benefits from a cluster strategy, with pillar pages and supporting content built out per locale
+- [Local SEO](/learn/seo/local-seo) — International SEO handles country and language targeting at scale; local SEO zooms into city- or neighborhood-level signals like Google Business Profile

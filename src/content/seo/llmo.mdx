@@ -1,0 +1,71 @@
+export const lessonMeta = {
+  title: "LLM Optimization (LLMO)",
+  level: "Advanced",
+  summary: "Getting cited inside ChatGPT, Claude, Perplexity, and Gemini answers.",
+  category: "seo",
+  slug: "llmo",
+  relatedConcepts: ["ai-overviews-geo", "aeo", "ai-search-ranking"],
+}
+
+# LLM Optimization (LLMO)
+
+## What It Is
+
+LLM Optimization is the practice of getting your brand, product, and content named inside the answers that ChatGPT, Claude, Perplexity, and Gemini hand to users. When someone asks "what's the best email tool for a small SaaS?" the answer is no longer a list of ten blue links — it's a paragraph that names three or four companies. LLMO is the work of becoming one of those named companies.
+
+It overlaps with SEO but isn't the same thing. Classic SEO optimizes a page to rank in a list. LLMO optimizes a brand to be remembered and quoted by a model that has read most of the public web and is now writing prose. Ahrefs' February 2025 analysis of 1.4 million ChatGPT prompts found that 28.3% of the most-cited pages have zero organic Google visibility — meaning the rules that put you in position one on Google don't reliably put you in a ChatGPT answer.
+
+LLMO sits next to two adjacent disciplines. GEO (Generative Engine Optimization), formalized by Princeton/Georgia Tech/Allen AI researchers at KDD 2024, is the page-level tactical layer — what to put in the document. AEO (Answer Engine Optimization) is the question-answer formatting layer. LLMO is the umbrella: brand presence, citation surface area, and machine-readable proof, optimized across every model a buyer might ask.
+
+## Real-World Example
+
+<Callout type="example" title="Notion — engineering a presence inside ChatGPT's productivity answers">
+By 2025, Notion was being named in roughly the top tier of ChatGPT and Perplexity answers for queries like "best note-taking app for teams" and "Notion vs Obsidian." Their playbook was deliberate: a massive template gallery (10,000+ user-submitted templates indexed across the web), heavy Reddit and YouTube presence from creators, a dedicated docs site with clean H2/H3 structure, and comparison pages that match the question-shape models retrieve against. Ahrefs' December 2025 study of 75,000 brands found YouTube mentions correlated 0.737 with appearances in ChatGPT, AI Mode, and AI Overviews — and Notion's creator economy fed exactly that signal. The result: when a buyer asks an LLM for a productivity tool, Notion shows up in the paragraph, not the footnote.
+</Callout>
+
+## Why It Matters
+
+- **Zero-click is the default.** A growing share of high-intent queries now end inside an LLM answer. If you're not in the paragraph, the click never happens.
+- **Citations compound.** Sites with 32K+ referring domains are 3.5x more likely to be cited by ChatGPT than sites with under 200 (Ahrefs, 2025). LLMO rewards brand-building, not just publishing.
+- **Each model is its own channel.** ChatGPT leans on Reddit and Wikipedia, Perplexity does real-time retrieval, Gemini blends Google's index, Claude leans on high-trust editorial. One strategy doesn't cover all four.
+- **The cost of invisibility is asymmetric.** Once a model "knows" a competitor as the default answer, that pattern hardens across millions of conversations before you notice.
+
+## How It Works
+
+There are two stages a brand has to win. First, **training-time presence**: the model has to have seen you, repeatedly and consistently, across the corpus it was trained on — Wikipedia, Reddit, GitHub, YouTube transcripts, major publications, your own docs. Second, **inference-time retrieval**: when the model runs a live search (Perplexity always, ChatGPT and Gemini when grounded), your page has to be crawlable, extractable, and shaped like an answer.
+
+The tactical layer is where the Princeton GEO study lands. Across 10,000 queries and nine optimization strategies, the researchers found that adding **statistics, source citations, and direct quotations** lifted visibility in generative answers by up to 40%. Position matters too: 44.2% of all LLM citations come from the first 30% of a page — the intro, TL;DR, and first H2 do most of the work. Tables are extracted near-verbatim; prose comparisons rarely are.
+
+The third layer is **cross-source agreement**. Models triangulate. If your positioning on your homepage matches what Reddit threads, G2 reviews, YouTube tutorials, and Wikipedia all say about you, confidence rises and you get named. If those sources disagree, the model hedges or picks a competitor.
+
+<Mermaid chart={`flowchart LR
+  A[Brand signals across web] --> B[Training corpus + live retrieval]
+  B --> C[Model picks 3-5 sources]
+  C --> D[Cited in answer]
+  E[On-page: stats, quotes, tables] --> C
+  F[Crawlability: robots, schema] --> B`} caption="Training presence plus on-page extractability plus crawl access — all three have to land for a citation to fire." />
+
+Practically, the 2025 LLMO checklist looks like this. Unblock GPTBot, ClaudeBot, PerplexityBot, and Google-Extended in robots.txt — the single most common reason for zero citations is that the crawler was never allowed in. Add FAQPage and Article schema. Put your one-line answer in the first 100 words. Convert every comparison into an HTML table. Build a Wikipedia presence if you qualify. Seed authentic conversation on Reddit and YouTube where your buyers already ask questions. And run a monthly tracker — tools like Ahrefs Brand Radar, Profound, and Otterly now report which prompts cite you and which cite a competitor.
+
+## Common Mistakes
+
+<Callout type="warning">**Mistake 1: Blocking the bots you want to be cited by.** Plenty of brands quietly disallow GPTBot in robots.txt — sometimes as a knee-jerk "protect our content" decision from 2023 — and then wonder why ChatGPT never names them. Audit robots.txt and the WAF rules first. Nothing else matters if the crawler bounces.</Callout>
+
+<Callout type="warning">**Mistake 2: Optimizing only your own site.** LLMO is a brand graph problem, not a page problem. If your only signal is your domain, you're competing against Reddit threads, Wikipedia entries, and YouTube videos that the model trusts more. The Ahrefs 2025 data is unambiguous — domain authority and off-site mentions correlate with citations far more strongly than on-page tweaks alone.</Callout>
+
+<Callout type="tip">**Pro tip:** Build a "machine-readable answer block" at the top of every commercial page — a 40-80 word direct answer to the buyer's question, followed by a comparison table and 2-3 cited statistics with linked sources. This single pattern lifts citation rate more than any other on-page change, because it matches exactly what the Princeton study identified as the highest-yield format and exactly where the 44% citation density sits.</Callout>
+
+## The One-Line Takeaway
+
+**LLMO wins when the model has seen you everywhere, your page is shaped like the answer, and you let the crawlers in.**
+
+<ResourceList resources={[
+  { title: "GEO: Generative Engine Optimization (Princeton/Georgia Tech, KDD 2024)", url: "https://arxiv.org/abs/2311.09735", type: "article", note: "The foundational paper. Quantifies which on-page tactics actually move the needle — statistics, citations, and quotes lift visibility up to 40%.", free: true },
+  { title: "Why ChatGPT Cites One Page Over Another — Ahrefs study of 1.4M prompts", url: "https://ahrefs.com/blog/why-chatgpt-cites-pages/", type: "article", note: "The single most useful 2025 data set on what correlates with ChatGPT citations. Domain authority, position-on-page, and the YouTube correlation are all here.", free: true },
+  { title: "Ahrefs Brand Radar — Cited Domains & Cited Pages docs", url: "https://ahrefs.com/academy/how-to-use-ahrefs/brand-radar/cited-domains", type: "docs", note: "How to actually measure your LLM visibility. Walkthrough of tracking which prompts cite your brand vs competitors.", free: true }
+]} />
+
+## Related Concepts
+- [AI Overviews & GEO](/learn/seo/ai-overviews-geo) — the Google-specific layer of the same problem; GEO tactics feed directly into LLMO.
+- [Answer Engine Optimization (AEO)](/learn/seo/aeo) — formatting content as direct answers; the question-shape layer underneath LLMO.
+- [AI Search Ranking](/learn/ai-marketing/ai-search-ranking) — the cross-engine ranking signals that decide who gets named in any AI answer surface.

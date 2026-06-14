@@ -1,0 +1,103 @@
+export const lessonMeta = {
+  title: "Product–Market Fit",
+  level: "Advanced",
+  summary: "The only milestone that matters before you scale spend.",
+  category: "fundamentals",
+  slug: "product-market-fit",
+  relatedConcepts: ["jtbd", "brand-vs-performance", "stp"],
+}
+
+# Product–Market Fit
+
+## What It Is
+
+Product–market fit is the moment when what you're selling clicks with the people who need it. Not just a handful of polite early adopters, but a real group of customers who would genuinely miss your product if it disappeared tomorrow. At that point, the product and the audience have found each other, and growth starts to feel less like pushing a boulder uphill and more like steering something that already has momentum.
+
+Before you hit product–market fit, marketing spend mostly creates noise. You can pour budget into ads, content, and campaigns, but if the underlying product isn't resonating, you're accelerating toward a wall. That's why founders and growth leaders treat PMF as the single checkpoint that unlocks permission to scale — not revenue targets, not user counts, but the qualitative and quantitative signal that customers genuinely value what you've built.
+
+The concept was popularized by venture capitalist Marc Andreessen, who defined it simply as "being in a good market with a product that can satisfy that market." In practice, PMF shows up as a cluster of signals: low churn, high retention, unprompted word-of-mouth, and customers who actively pull others into the product. The Sean Ellis test — asking users "How would you feel if you could no longer use this product?" — uses a 40% "very disappointed" threshold as a rough benchmark for PMF. It's not perfect, but it's a useful gut-check when you're trying to decide whether you're ready to press the gas.
+
+## Real-World Example
+
+Slack is one of the clearest documented cases of product–market fit in recent tech history.
+
+<Callout type="example" title="Slack's PMF Signal">
+When Slack launched in August 2013, it signed up 8,000 companies on day one — without any paid advertising. Within 24 hours of public launch, it had 15,000 users. By February 2015, daily active users had grown to 500,000, and the company was adding $1 million in new contracts every 11 days. The giveaway that PMF had been reached wasn't the growth rate itself — it was that teams were refusing to go back to email once they'd tried Slack. Churn was near zero among teams that hit the activation milestone of sending 2,000 messages. Stewart Butterfield later described the experience as "the product selling itself."
+</Callout>
+
+## Why It Matters
+
+Understanding PMF matters because it determines where to focus energy at every stage of building a business.
+
+- When you're deciding whether to scale paid acquisition — if PMF isn't present, you'll pay to acquire customers who churn, destroying unit economics before you've proven them.
+- When you're diagnosing why growth has stalled — often the culprit isn't the marketing channel, it's a PMF gap that no amount of creative or targeting will fix.
+- When you're setting product roadmap priorities — retention data and PMF signals tell you which features to double down on versus which to deprioritize.
+- When you're pitching investors or internal stakeholders — PMF evidence (retention curves, NPS, Sean Ellis scores) is the most credible signal that a market exists and that your product has captured a meaningful slice of it.
+
+## How It Works
+
+Finding product–market fit is an iterative loop, not a single event. You start with a hypothesis about a customer segment and their most painful unsolved problem. You build the smallest version of a solution that can test that hypothesis — not a polished product, but something real enough to reveal whether the pain you're solving actually matters. Then you put it in front of real customers and watch their behavior, not just their words.
+
+The most important data is retention. Acquisition metrics tell you whether people are curious; retention tells you whether the product delivered on the promise. A retention curve that flattens — where a cohort stabilizes at some non-zero percentage of users still active after 30, 60, or 90 days — is a strong signal that something is working. A retention curve that trends toward zero means you're still searching.
+
+Once you have a cluster of retained, enthusiastic customers, the next step is to understand exactly who they are and what job the product is doing for them. This is where PMF and Jobs-to-be-Done thinking intersect: the customers who love your product have hired it to do something specific. Your goal is to make that use case crystal clear, then find more people with the same job to be done and the same context. PMF doesn't scale by adding more features — it scales by finding more of the right customers.
+
+<Mermaid chart={`
+flowchart LR
+  A[Hypothesis:\nSegment + Pain] --> B[Build MVP]
+  B --> C[Ship to Target Users]
+  C --> D{Retention\nSignal?}
+  D -- No --> E[Iterate:\nPivot Segment\nor Product]
+  E --> B
+  D -- Yes --> F[Qualify:\nSean Ellis Test\n≥40% Very Disappointed]
+  F -- Below 40% --> E
+  F -- 40%+ --> G[PMF Achieved:\nScale Acquisition]
+`} caption="The product–market fit discovery loop: build, ship, measure retention, iterate until the signal locks in" />
+
+## Common Mistakes
+
+<Callout type="warning">
+**Mistaking early enthusiasm for product–market fit.** Friends, beta users, and press coverage create a misleading spike that looks like traction. Real PMF shows up in what happens 30–90 days after acquisition — not at signup. If retention curves slope to zero, you're still searching, regardless of how excited launch-week users seemed.
+</Callout>
+
+<Callout type="warning">
+**Scaling marketing spend before retention is proven.** The temptation to "grow our way into PMF" by spending more on ads is one of the most common and expensive mistakes in early-stage marketing. Paid acquisition amplifies whatever is already happening organically — if organic retention is poor, paid spend accelerates the burn rate, not the fit.
+</Callout>
+
+<Callout type="tip">
+**Talk to your churned users, not just your fans.** Most teams obsessively study their happiest customers to understand what's working. The signal that actually tells you why PMF is still out of reach comes from the users who left — specifically, what they were hoping for and where the product fell short. A 30-minute exit interview with churned users is worth more than a dozen NPS surveys from retained ones.
+</Callout>
+
+## The One-Line Takeaway
+
+**Product–market fit is not a feeling — it's a retention signal, and no amount of marketing spend creates it if the product doesn't earn it first.**
+
+<ResourceList resources={[
+  {
+    title: "The Only Thing That Matters — Marc Andreessen",
+    url: "https://pmarchive.com/guide_to_startups_part4.html",
+    type: "article",
+    note: "The original essay that defined product–market fit as the singular goal for early-stage companies. Essential reading for the conceptual foundation.",
+    free: true
+  },
+  {
+    title: "How to Know If You Have Product-Market Fit — HubSpot Blog",
+    url: "https://blog.hubspot.com/marketing/product-market-fit",
+    type: "article",
+    note: "Practical breakdown of the metrics and frameworks — Sean Ellis test, retention curves, NPS — with actionable guidance on how to measure PMF at each stage.",
+    free: true
+  },
+  {
+    title: "Product-Market Fit: A Deep Dive — First Round Review",
+    url: "https://review.firstround.com/how-superhuman-built-an-engine-to-find-product-market-fit",
+    type: "article",
+    note: "Superhuman's Rahul Vohra describes the exact system they used to quantify and improve PMF using the Sean Ellis framework — includes a replicable methodology with real numbers.",
+    free: true
+  }
+]} />
+
+## Related Concepts
+
+- [Jobs to Be Done](/learn/fundamentals/jtbd) — PMF is easier to find when you've clearly defined the job your product is hired to do; JTBD gives you the language for that discovery process.
+- [Brand vs. Performance Marketing](/learn/fundamentals/brand-vs-performance) — The PMF milestone determines which type of marketing to prioritize; performance spend before PMF is rarely efficient.
+- [Segmentation, Targeting & Positioning](/learn/fundamentals/stp) — Finding PMF requires narrowing to a specific segment first; STP is the framework that helps you define and defend that beachhead.

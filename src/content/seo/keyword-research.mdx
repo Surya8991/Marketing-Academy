@@ -1,0 +1,104 @@
+export const lessonMeta = {
+  title: "Keyword Research",
+  level: "Beginner",
+  summary: "Find the questions your customers ask Google before they know you exist.",
+  category: "seo",
+  slug: "keyword-research",
+  relatedConcepts: ["search-intent", "on-page-seo", "content-clusters"],
+}
+
+# Keyword Research
+
+## What It Is
+
+Keyword research is the process of discovering what words and phrases people type into search engines when they want something you offer. Before a potential customer ever lands on your website, they have a conversation with Google — keyword research lets you listen in on that conversation.
+
+Think of it like this: you sell project management software, but your future customers might be searching for "how to stop missing deadlines," "free team task tracker," or "Trello alternative for small teams." They are not searching for you by name — they are searching for their problem. Keyword research bridges that gap by mapping their language to your content.
+
+The practice goes beyond just finding popular search terms. It involves evaluating how competitive each term is, estimating how much traffic it could realistically send your way, and understanding what stage of the buying journey the searcher is in. A beginner keyword researcher asks "what do people search for?" An effective one also asks "what do people mean when they search for this, and are we the right answer?"
+
+## Real-World Example
+
+<Callout type="example" title="Real Example">
+Airbnb built much of its early organic growth by targeting hyper-specific location keywords that established hotel booking sites ignored. Instead of competing head-on for "hotels in New York" (dominated by Booking.com and Expedia with massive domain authority), Airbnb targeted long-tail phrases like "apartment rental Paris Marais" and "private room San Francisco Mission District." By 2015, Airbnb was ranking on page one for over 100,000 location-specific keywords. Their organic search traffic grew by roughly 400% between 2013 and 2016 without proportional increases in paid ad spend — all because they researched what travelers actually typed, not what the travel industry assumed they typed.
+</Callout>
+
+## Why It Matters
+
+Keyword research is the foundation every other SEO decision rests on. Without it, you are writing content and building pages based on guesses.
+
+- **When you are launching a new website or blog** — keyword research tells you which topics deserve pages before you write a single word.
+- **When you are trying to understand your audience** — the exact phrasing people use reveals their pain points, vocabulary, and level of awareness.
+- **When you are prioritizing your content calendar** — search volume and keyword difficulty scores let you focus on opportunities with actual traffic potential.
+- **When you are evaluating a competitor** — looking at the keywords a competitor ranks for shows you where you are missing content and where you have an opening.
+
+## How It Works
+
+Keyword research starts with a seed list — a handful of obvious terms that describe what you do. From there, you feed those seeds into a keyword research tool (Ahrefs, Semrush, or Google's free Keyword Planner) which expands them into hundreds of related phrases, complete with monthly search volume and a difficulty score.
+
+Each keyword gets evaluated on three dimensions: volume (how many people search for it per month), difficulty (how hard it will be to rank, usually based on the authority of pages currently ranking), and relevance (does this search lead to someone who would actually benefit from your product). The sweet spot for most new sites is low-to-medium difficulty keywords with specific, problem-focused intent — these are easier to rank for and attract visitors who are closer to a decision.
+
+Once you have a list of viable keywords, you group them by topic. Keywords that share the same underlying meaning or intent should live on the same page — not spread across separate pages competing with each other. This grouping phase connects keyword research directly to your site architecture and content strategy.
+
+<Mermaid chart={`
+flowchart LR
+  A[Seed Keywords] --> B[Keyword Tool]
+  B --> C[Expanded List]
+  C --> D{Evaluate Each Keyword}
+  D --> E[Volume]
+  D --> F[Difficulty]
+  D --> G[Relevance]
+  E --> H[Shortlist]
+  F --> H
+  G --> H
+  H --> I[Group by Topic]
+  I --> J[Assign to Pages]
+`} caption="The keyword research workflow: from seed terms to page assignments" />
+
+## Common Mistakes
+
+<Callout type="warning">
+**Chasing high-volume keywords before you have authority.** New sites often target terms like "project management software" (110,000 searches/month, KD 85+) and wonder why they never appear on page one. Search engines trust established domains more for competitive terms. Start with specific, lower-volume keywords where the ranking bar is lower — win those first, then climb toward harder targets as your domain earns links and authority.
+</Callout>
+
+<Callout type="warning">
+**Treating search volume as the only metric that matters.** A keyword with 50 monthly searches that perfectly describes a buyer ready to purchase is worth far more than a keyword with 5,000 searches that attracts people who will never convert. Always ask: "If someone searches this and lands on my page, what do they do next?" Volume without intent alignment is vanity traffic.
+</Callout>
+
+<Callout type="tip">
+**Pro tip.** Instead of starting with a keyword tool, start with the "People Also Ask" boxes and autocomplete suggestions directly in Google. These show you real, current language straight from the search engine itself — no tool subscription required. Type your seed keyword, note the autocomplete suggestions, press Enter, then scroll to "People Also Ask" and open several of those nested questions. You will have a dozen highly specific keyword ideas in under five minutes, all confirmed to have enough search volume for Google to surface them.
+</Callout>
+
+## The One-Line Takeaway
+
+**The best keywords are the ones your customers already use — your job is to find them before your competitors do.**
+
+<ResourceList resources={[
+  {
+    title: "Moz Beginner's Guide to SEO: Keyword Research",
+    url: "https://moz.com/beginners-guide-to-seo/keyword-research",
+    type: "article",
+    note: "The definitive free introduction to keyword research concepts, tools, and strategy — covers everything from seed keywords to long-tail targeting.",
+    free: true
+  },
+  {
+    title: "Ahrefs Keyword Research Guide",
+    url: "https://ahrefs.com/blog/keyword-research/",
+    type: "article",
+    note: "Practical, step-by-step walkthrough of keyword research using real tools and data, with examples of how to evaluate difficulty and prioritize terms.",
+    free: true
+  },
+  {
+    title: "Google Search Central: How Search Works",
+    url: "https://developers.google.com/search/docs/fundamentals/how-search-works",
+    type: "docs",
+    note: "Official documentation from Google explaining how queries are understood and matched to content — essential context for why keyword research decisions matter.",
+    free: true
+  }
+]} />
+
+## Related Concepts
+
+- [Search Intent](/learn/seo/search-intent) — Keywords only work when the content you build around them matches what the searcher actually wants; intent is the layer beneath the keyword.
+- [On-Page SEO](/learn/seo/on-page-seo) — Once you have your keywords, on-page SEO is how you weave them into your pages in a way search engines recognize and reward.
+- [Content Clusters](/learn/seo/content-clusters) — Grouping related keywords into pillar pages and supporting articles is how keyword research scales into a full site architecture.

@@ -1,0 +1,106 @@
+export const lessonMeta = {
+  title: "What Growth Marketing Really Is",
+  level: "Beginner",
+  summary: "Not \"hacks\" — a system for compounding learnings across the whole funnel.",
+  category: "growth",
+  slug: "what-is-growth",
+  relatedConcepts: ["aarrr", "north-star-metric", "ab-testing"],
+}
+
+# What Growth Marketing Really Is
+
+## What It Is
+
+Growth marketing is the practice of running structured experiments across every stage of your customer journey — from the moment someone first hears about you to the point where they become a loyal, paying customer who tells their friends. It is not a bag of tricks or a shortcut to virality. It is a repeatable system for learning what works, doubling down on it, and compounding those gains over time.
+
+The word "hacking" gave this discipline a misleading reputation when it became popular in the early 2010s. People heard "growth hacking" and imagined clever one-off stunts that explode a product into the mainstream overnight. The reality is far more methodical. Growth marketers spend most of their time designing tests, measuring results, killing what does not work, and scaling what does. The hacks are rare. The process is constant.
+
+What separates growth marketing from traditional marketing is where it focuses and how it measures success. Traditional marketing campaigns often stop at awareness — did people see the ad? Growth marketing asks what happened after: Did they sign up? Did they come back? Did they invite a friend? Did they pay? This full-funnel perspective means growth teams care as much about retention and referral as they do about acquisition. Every lever across the customer lifecycle is fair game.
+
+## Real-World Example
+
+Dropbox is the canonical case study because the numbers are hard to argue with.
+
+<Callout type="example" title="Dropbox's Referral Loop">
+In 2008, Dropbox launched a two-sided referral program: invite a friend and both of you get 500 MB of free storage. The team ran the program as a controlled experiment, measured the conversion lift, and iterated on the copy and incentive. The result: Dropbox grew from 100,000 registered users to 4,000,000 in 15 months — a 3,900% increase — without meaningful paid advertising spend. The referral program eventually accounted for 35% of all new signups.
+</Callout>
+
+This was not a lucky hack. The team had tested the referral mechanic against alternatives, measured the viral coefficient (how many new users each existing user brought in), and kept tuning the incentive until it hit a threshold where the program became self-sustaining. The insight — that storage was the natural currency for a storage product — came from qualitative user research, not a flash of inspiration.
+
+## Why It Matters
+
+Growth marketing is the right tool to reach for in specific situations:
+
+- When you have a product that works but growth has plateaued and you need a systematic way to diagnose which stage of the funnel is leaking.
+- When your budget is limited and you need every dollar of acquisition spend to compound rather than disappear into brand campaigns with fuzzy ROI.
+- When you are scaling a product and need to move faster than traditional quarterly campaign cycles allow — growth teams typically ship experiments weekly or bi-weekly.
+- When you want to build institutional knowledge about your customers rather than rely on individual intuition — a good growth process leaves a documented record of what was tested and what was learned.
+
+## How It Works
+
+A growth marketing team starts by picking a single metric that best represents whether the business is healthy — often called a North Star Metric. For Spotify it might be time spent listening per user. For Slack it was Daily Active Users sending messages. Everything the team does is evaluated against whether it moves that number.
+
+From there, the team maps the full customer funnel using a framework like AARRR (Acquisition, Activation, Retention, Referral, Revenue). They look at conversion rates at each stage and find the biggest drop-off — the place where the most potential customers are falling out of the funnel. That drop-off becomes the focus for the next sprint of experiments. The team generates hypotheses, ranks them by expected impact and ease of implementation, then runs the highest-priority tests first.
+
+After each experiment, the results go into a shared log. A test that wins gets rolled out and becomes the new baseline. A test that loses is still valuable — it rules out a hypothesis and narrows the search space. Over months, this accumulation of small learnings is what compounds into durable, defensible growth. No single experiment makes the business. The system does.
+
+<Mermaid chart={`
+flowchart LR
+  A[Define North Star Metric] --> B[Map the Funnel]
+  B --> C[Find Biggest Drop-off]
+  C --> D[Generate Hypotheses]
+  D --> E[Prioritize & Run Experiments]
+  E --> F{Did it work?}
+  F -- Yes --> G[Scale the Winner]
+  F -- No --> H[Log the Learning]
+  G --> C
+  H --> D
+`} caption="The growth experimentation loop: each cycle feeds learnings back into the next round of tests" />
+
+## Common Mistakes
+
+<Callout type="warning">
+**Chasing tactics instead of building a system.** The most common mistake beginners make is copying another company's growth tactic without understanding the underlying logic. Referral programs work for Dropbox because storage is intrinsically valuable to both parties. Copying the mechanic without the right product or incentive just wastes engineering time. Always start with your own funnel data before borrowing someone else's playbook.
+</Callout>
+
+<Callout type="warning">
+**Running too many experiments at once.** When multiple tests overlap — same users, same time window, same surface area — you cannot isolate what caused the change. Growth teams that skip proper experiment design end up with a pile of inconclusive data and no actionable learnings. Run one clean test at a time per funnel stage, or use proper multi-variate tooling that accounts for interaction effects.
+</Callout>
+
+<Callout type="tip">
+**Pro tip.** The most effective growth teams spend as much time on experiment design before the test launches as they do analyzing results after. Before you run anything, write down your hypothesis in the form "We believe that [change] will cause [metric] to move by [amount] because [reason]." This forces clarity, makes post-experiment analysis faster, and builds a searchable knowledge base your whole team can learn from.
+</Callout>
+
+## The One-Line Takeaway
+
+**Growth marketing is a compounding system of structured experiments across the full funnel — not a collection of one-off hacks.**
+
+<ResourceList resources={[
+  {
+    title: "What Is Growth Marketing? The Definitive Guide",
+    url: "https://reforge.com/blog/growth-marketing",
+    type: "article",
+    note: "Reforge's foundational overview of growth marketing principles, written by practitioners who have run growth at companies like Twitter and HubSpot.",
+    free: true
+  },
+  {
+    title: "Growth Hacker is the new VP Marketing",
+    url: "https://andrewchen.com/how-to-be-a-growth-hacker-an-airbnbcraigslist-case-study/",
+    type: "article",
+    note: "Andrew Chen's seminal essay on the Airbnb/Craigslist growth story — the post that defined the discipline for a generation of growth practitioners.",
+    free: true
+  },
+  {
+    title: "Reforge Growth Series",
+    url: "https://reforge.com/growth-series",
+    type: "course",
+    note: "The most rigorous structured curriculum on growth marketing available. Covers strategy, experimentation, and retention in depth. Paid, but the free blog content covers a large portion of the frameworks.",
+    free: false
+  }
+]} />
+
+## Related Concepts
+
+- [AARRR Funnel](/learn/growth/aarrr) — the five-stage framework (Acquisition, Activation, Retention, Referral, Revenue) that growth teams use to map where customers are dropping off
+- [North Star Metric](/learn/growth/north-star-metric) — how to choose the single number that best captures whether your product is delivering value, and why picking the wrong one sends a team in the wrong direction
+- [A/B Testing](/learn/growth/ab-testing) — the core experimental method growth marketers use to validate hypotheses and separate real signal from random noise

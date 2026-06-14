@@ -1,0 +1,105 @@
+export const lessonMeta = {
+  title: "YouTube Ads",
+  level: "Advanced",
+  summary: "Video at scale — skippable, non-skippable, bumper, in-feed.",
+  category: "paid-ads",
+  slug: "youtube-ads",
+  relatedConcepts: ["meta-ads", "creative-testing", "mmm-vs-mta"],
+}
+
+# YouTube Ads
+
+## What It Is
+
+YouTube Ads put your video in front of over 2 billion people who are already in a watching mindset. Unlike banner ads people scroll past without registering, video ads capture attention through motion, sound, and storytelling — the same ingredients that made television advertising so powerful for decades. The difference is that YouTube's targeting engine lets you reach a precise audience instead of blasting a general market.
+
+At its core, YouTube advertising is a branch of Google Ads. You create video campaigns inside Google Ads, define who should see them, set a budget, and Google places your content before, during, or alongside relevant YouTube videos. Because Google owns both the ad platform and YouTube, you can combine intent signals from Search (what people typed) with behavioral signals from YouTube (what they've watched) to target with unusual precision.
+
+There are four main ad formats, and choosing the right one is half the battle. Skippable in-stream ads play before or during a video and viewers can skip after 5 seconds — you only pay if someone watches 30 seconds or to the end. Non-skippable in-stream ads are 15 seconds and must be watched in full, making them ideal for brand messages that need to land completely. Bumper ads are 6-second non-skippable clips designed for reach and recall. In-feed ads (formerly called discovery ads) appear in YouTube search results and on the homepage, functioning more like a recommendation than an interruption.
+
+## Real-World Example
+
+Duolingo ran a YouTube skippable in-stream campaign targeting language learners and people who had previously searched for travel destinations. Rather than a polished brand film, they ran short, oddly humorous videos featuring their owl mascot with a simple hook in the first five seconds: "You said you'd learn Spanish this year." The self-aware tone matched the humor of their existing social content.
+
+<Callout type="example" title="Real Example">
+Duolingo's YouTube video campaigns consistently drive a cost-per-install below $1.50 on mobile — competitive against Meta's average of $2–4 for the same app install objective. By front-loading the hook in the first 3 seconds and keeping the call-to-action visible throughout, they achieved a 35% view-through rate on skippable ads, well above the industry average of 15–20%. The campaign's sequential retargeting — serving a bumper reminder to everyone who watched 50%+ of the skippable ad — lifted brand recall an additional 18% in Brand Lift studies.
+</Callout>
+
+## Why It Matters
+
+YouTube Ads become the right tool in specific situations:
+
+- When you need to explain something visual — software demos, product walkthroughs, or anything where seeing beats reading
+- When your audience is too broad or fragmented for Search (nobody types "I might want insurance next year") but you can still define them by interest or viewing behavior
+- When you want to retarget website visitors or existing customers with a message that has more emotional weight than a display banner
+- When you're building brand awareness at scale and need a format that forces at least 5 seconds of attention before viewers can opt out
+- When creative testing is a priority — YouTube's Brand Lift surveys let you measure ad recall and purchase intent directly, not just clicks
+
+## How It Works
+
+A YouTube campaign starts with campaign objective and format selection inside Google Ads. You then build an audience using a combination of demographics (age, gender, parental status), interests (affinity and in-market audiences), custom segments (people who searched specific terms on Google), and your own data (customer lists, website visitors via remarketing). This layering is what separates a precise YouTube buy from a broad television buy.
+
+Your ad is attached to targeting criteria called an "ad group." When a viewer matches your criteria and loads a YouTube video, Google runs a real-time auction. The winning advertiser's ad plays. For skippable and bumper ads, you pay on a CPV (cost-per-view) or CPM (cost per thousand impressions) basis depending on how you set up the campaign. Video Action campaigns — designed to drive clicks and conversions — bid on a target CPA basis, letting Google's algorithm optimize delivery toward viewers most likely to take action.
+
+Creative quality is the dominant variable. Google research shows that 70% of YouTube campaign effectiveness is determined by the creative itself, not the targeting. The first 5 seconds of a skippable ad are non-negotiable — if you don't establish relevance or curiosity before the skip button appears, most viewers are gone. The ABCD framework (Attract, Brand, Connect, Direct) from Google's own research gives a repeatable structure for video ads that perform.
+
+<Mermaid chart={`
+flowchart LR
+  A[Define Objective\nAwareness / Consideration / Action] --> B[Choose Format\nSkippable / Non-Skip / Bumper / In-Feed]
+  B --> C[Build Audience\nDemographics + Interests + Remarketing]
+  C --> D[Upload Creative\nFirst 5s Hook Critical]
+  D --> E[Set Bid Strategy\nCPV / CPM / Target CPA]
+  E --> F[Launch & Measure\nView Rate / Brand Lift / Conversions]
+  F --> G{Optimize}
+  G -->|Weak view rate| D
+  G -->|Strong view rate, weak CVR| C
+  G -->|Strong CVR| H[Scale Budget]
+`} caption="YouTube Ads campaign flow from objective selection through optimization" />
+
+## Common Mistakes
+
+<Callout type="warning">
+**Ignoring the 5-second window.** Most advertisers structure their video ads like television commercials — build-up, reveal, call to action at the end. On YouTube, that structure fails because viewers skip before the payoff. Open with conflict, a surprising visual, or a direct question. The brand and value proposition need to be visible within the first 5 seconds, not saved for a dramatic finish.
+</Callout>
+
+<Callout type="warning">
+**Running one video to all audiences with no sequencing.** A viewer who has never heard of your brand needs a different message than someone who visited your pricing page twice last week. Serving a cold-audience awareness ad to a warm retargeting list wastes spend and feels irrelevant. Use audience exclusions to separate cold, warm, and hot tiers, and build separate creatives — or at minimum, separate ad groups — for each.
+</Callout>
+
+<Callout type="tip">
+**Use Brand Lift surveys before optimizing for clicks.** Novice YouTube advertisers optimize only for view-through rates and clicks, but the format's real value often shows up in brand metrics — ad recall, brand favorability, purchase intent. Google's free Brand Lift measurement (available once you hit minimum spend thresholds, typically $50K–$100K) tells you whether your ads are actually moving the needle for audiences who didn't click. Many campaigns that look weak on direct response metrics are quietly winning the consideration battle.
+</Callout>
+
+## The One-Line Takeaway
+
+**YouTube Ads reward the first 5 seconds above everything else — if you haven't earned attention before the skip button appears, no amount of targeting precision will save the campaign.**
+
+<ResourceList resources={[
+  {
+    title: "Google Ads Help: About video ad formats",
+    url: "https://support.google.com/google-ads/answer/2375464",
+    type: "docs",
+    note: "Official Google documentation covering every YouTube ad format, specs, and when to use each one",
+    free: true
+  },
+  {
+    title: "Google Skillshop: YouTube Ads Certification",
+    url: "https://skillshop.withgoogle.com/youtube",
+    type: "course",
+    note: "Free certification course covering YouTube campaign setup, audience targeting, and measurement — includes Brand Lift fundamentals",
+    free: true
+  },
+  {
+    title: "WordStream: YouTube Advertising — The Ultimate Guide",
+    url: "https://www.wordstream.com/blog/ws/2020/03/02/youtube-advertising",
+    type: "article",
+    note: "Practical breakdown of bidding strategies, audience types, and creative best practices with benchmarks by industry",
+    free: true
+  }
+]} />
+
+## Related Concepts
+
+- [Meta Ads](/learn/paid-ads/meta-ads) — the other major video and awareness platform; understanding both lets you allocate budget between intent-driven (YouTube/Search) and interruption-based (Meta) channels
+- [Creative Testing](/learn/paid-ads/creative-testing) — YouTube's 70% creative-dependency rule makes systematic creative testing essential; the same frameworks apply here
+- [MMM vs MTA](/learn/paid-ads/mmm-vs-mta) — YouTube drives view-through conversions and brand lift that last-click attribution misses entirely; choosing the right measurement model changes how you evaluate YouTube spend

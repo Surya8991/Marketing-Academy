@@ -1,0 +1,67 @@
+export const lessonMeta = {
+  title: "Programmatic SEO",
+  level: "Advanced",
+  summary: "Database-driven pages at scale — the Zapier, Webflow, and Zillow playbook.",
+  category: "seo",
+  slug: "programmatic-seo",
+  relatedConcepts: ["content-clusters", "technical-seo", "keyword-research"],
+}
+
+# Programmatic SEO
+
+## What It Is
+
+Programmatic SEO is the practice of building large numbers of web pages from a database instead of writing each one by hand. You pick a repeating search pattern people type into Google — something like "connect [App A] to [App B]" or "best restaurants in [City]" — then fill in the blanks automatically using a spreadsheet, a CMS collection, or an API. One template plus a thousand rows of data becomes a thousand pages, each one targeting a slightly different long-tail query.
+
+The strategy works because search behavior is fractal. Nobody searches "project management software" once; they search "Asana vs Trello," "Asana vs ClickUp," "Asana vs Monday," and a hundred other comparisons. A traditional content team can write maybe two of those a week. A programmatic system can publish all of them on Tuesday. The pages rank because each one matches a specific query exactly, and because the underlying data — pricing, integrations, reviews, listings — gives Google something real to index.
+
+The catch in 2024 and 2025 is that Google explicitly drew a line between *useful* programmatic pages (Zillow listings, Tripadvisor reviews, Zapier integrations) and what it now calls **scaled content abuse**. The March 2024 spam update and the follow-on January and February 2025 algorithm updates penalized sites that mass-generated thin, near-identical pages with no unique value. Programmatic SEO is still legitimate — it just has to clear a higher bar for usefulness than it did three years ago.
+
+## Real-World Example
+
+<Callout type="example" title="Zapier — turning every app pairing into a landing page">
+Zapier built a programmatic page for every supported app and every two-app combination — patterns like "Connect Notion to Slack" and "Gmail to Google Sheets." As of 2025, Ubersuggest credits Zapier with roughly **16.2 million monthly organic visitors and 1.3 million ranking keywords**, with the integration-pages template responsible for the bulk of that footprint. Salt Agency's case study documents how this approach **quadrupled** organic growth over the program's lifetime. The pages work because each one pulls real triggers, actions, and templates from Zapier's own product database — they're not spun text.
+</Callout>
+
+## Why It Matters
+
+- **Long-tail traffic compounds.** Individual programmatic pages rarely rank for huge head terms, but a thousand pages each pulling 50 visits a month is 50,000 visits — and the marginal cost of page 1,001 is near zero.
+- **It maps to high-intent queries.** Patterns like "[tool] vs [tool]" or "[city] [service]" catch users at the bottom of the funnel, where conversion rates are often 3–5x informational content.
+- **It's a defensible moat.** Once you've indexed 50,000 location or integration pages with real data, competitors need years to catch up — and your internal-link graph becomes a flywheel for any new page you publish.
+- **It compresses the content team.** One engineer, one writer, and one SEO can ship what would otherwise require a 20-person editorial operation, which is why early-stage SaaS companies lean on it hard.
+
+## How It Works
+
+The workflow starts with **keyword pattern discovery**: you find a search template Google fills in over and over, usually by mining autocomplete, People Also Ask, and Ahrefs/Semrush for "modifier + entity" queries with healthy combined volume. Then you build (or buy) the **dataset** — a spreadsheet, a CMS collection, an internal product database, or a third-party API — that has one row per page you want to publish. Each row needs enough unique fields to make the resulting page genuinely different from its siblings.
+
+Next comes the **template**: a single page layout with slots for the dynamic fields, plus enough hand-written framing copy that the page reads like something a human would publish. The template renders through a static site generator (Next.js, Astro, Webflow CMS, WordPress with ACF) and outputs one URL per row. Finally, you wire up **indexing infrastructure** — XML sitemaps split into chunks, internal links from hub pages, and a deliberate `noindex` rule for any row that's too thin to be useful. That last step is the one most teams skip, and it's the one Google's scaled-content-abuse classifier punishes hardest.
+
+<Mermaid chart={`flowchart LR
+  A[Find repeating<br/>search pattern] --> B[Build dataset<br/>one row per page]
+  B --> C[Design template<br/>with unique slots]
+  C --> D[Render at build time]
+  D --> E[Sitemap + internal links]
+  E --> F[Monitor + prune<br/>thin pages]`} caption="The programmatic SEO pipeline — note that pruning is part of the loop, not an afterthought." />
+
+## Common Mistakes
+
+<Callout type="warning">**Publishing thin pages with no unique data.** If your "Best plumbers in [City]" pages are just the city name swapped into identical paragraphs, Google's scaled-content-abuse system (rolled out in March 2024 and tightened in January and February 2025) will deindex the entire directory. Each page needs at least one genuinely unique data point — local reviews, real listings, pricing — not just a find-and-replace.</Callout>
+
+<Callout type="warning">**Indexing everything you generate.** If you publish 50,000 pages and only 8,000 have meaningful content, the 42,000 thin ones drag down the quality signal for the whole domain. Use `noindex` aggressively for rows below your data threshold, and exclude them from your sitemap.</Callout>
+
+<Callout type="tip">**Pro tip.** Build a "quality gate" into the template: a server-side check that counts the unique fields available for each row and skips rendering (or returns 404) if it falls below a threshold. Aleyda Solis calls this the "minimum viable page" filter, and it's the single biggest reason mature programmatic sites survive core updates while their competitors get wiped out.</Callout>
+
+## The One-Line Takeaway
+
+**Programmatic SEO wins when every page is backed by unique data and a real user need — and dies the moment it becomes a find-and-replace exercise.**
+
+<ResourceList resources={[
+  { title: "Zapier: Programmatic SEO Case Study", url: "https://practicalprogrammatic.com/examples/zapier", type: "article", note: "Detailed teardown of Zapier's integration-page template and how the keyword pattern was chosen.", free: true },
+  { title: "Google Search Essentials — Scaled Content Abuse", url: "https://developers.google.com/search/docs/essentials/spam-policies", type: "docs", note: "The official policy text that defines what crosses the line into spam — read this before shipping any template.", free: true },
+  { title: "How Zapier Quadrupled Organic Growth", url: "https://salt.agency/blog/how-zapier-quadrupled-organic-traffic/", type: "article", note: "Salt Agency's growth breakdown with real traffic numbers and internal-link strategy.", free: true }
+]} />
+
+## Related Concepts
+- [Content Clusters](/learn/seo/content-clusters) — programmatic pages need hub pages to link them together; clusters are the architecture that makes the directory crawlable.
+- [Technical SEO](/learn/seo/technical-seo) — sitemap chunking, canonical tags, and crawl-budget management are what keep a 50,000-page site indexable.
+- [Keyword Research](/learn/seo/keyword-research) — the entire strategy lives or dies on finding a repeating search pattern with real volume behind it.

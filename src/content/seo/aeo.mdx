@@ -1,0 +1,70 @@
+export const lessonMeta = {
+  title: "Answer Engine Optimization (AEO)",
+  level: "Advanced",
+  summary: "Featured snippets, People Also Ask, voice answers — the pre-LLM evolution of search.",
+  category: "seo",
+  slug: "aeo",
+  relatedConcepts: ["llmo", "ai-overviews-geo", "schema-structured-data"],
+}
+
+# Answer Engine Optimization (AEO)
+
+## What It Is
+
+Answer Engine Optimization is the practice of writing and structuring content so a search engine can lift a direct answer out of your page and show it to the user — often without them ever clicking through. Instead of trying to win the tenth blue link, you're trying to be the box at the top that quietly summarises your article in 40 words. Featured snippets, People Also Ask accordions, voice assistant replies, and the small text card that appears above the results are all examples of answer-engine surfaces. The job of AEO is to make sure the engine pulls *your* sentence, not a competitor's.
+
+AEO sits historically between classic SEO and the newer LLM-driven world. It emerged around 2014–2016 when Google began aggressively rolling out featured snippets and direct-answer cards, accelerated through the voice-search era of Alexa, Siri and Google Assistant, and now feeds directly into AI Overviews and ChatGPT citations. The mechanics that made content snippet-friendly — clean question headings, tight definitions, structured lists, tables — are the same mechanics that make content LLM-friendly today. AEO is the bridge skill.
+
+The practical mindset shift: you stop optimising the page as a whole and start optimising specific *answer units* inside the page. A 2,000-word article is really a portfolio of 15–30 extractable answers, each of which can rank independently for a different question. Get good at writing those units, and the rest of your SEO program compounds.
+
+## Real-World Example
+
+<Callout type="example" title="HubSpot — engineered for the answer box">
+HubSpot built one of the most-cited blogs on the open web by treating every post as a stack of snippet-ready answer units. Posts open with a one-sentence bolded definition, follow with a tight 40–60 word paragraph, then expand. The result: HubSpot's marketing blog regularly captures featured snippets for tens of thousands of commercial intent queries, and Semrush's 2025 AI Overviews study found HubSpot among the most-cited domains inside Google's AI Overviews — directly inheriting the snippet real estate they spent a decade engineering. According to Semrush's March 2025 data, AI Overviews now trigger on 13.14% of Google searches, and the pages that win citations are overwhelmingly the same ones that won featured snippets in 2022.
+</Callout>
+
+## Why It Matters
+
+- **Zero-click search is the default.** Roughly 60% of Google searches end without a click. If you are not the answer being shown, you are invisible on those queries — even if you rank #1 organically.
+- **PAA is a second front door.** People Also Ask boxes appear on 40–60% of queries and grew 34.7% in US visibility from Feb 2024 to Jan 2025 (Semrush). Unlike featured snippets, you can hold a PAA slot *and* a top-3 organic ranking simultaneously.
+- **It feeds the LLM pipeline.** AI Overviews, Perplexity, and ChatGPT all preferentially extract from content that is already structured as a clean Q→A pair. AEO infrastructure is GEO/LLMO infrastructure.
+- **AI-sourced traffic converts harder.** Semrush reports AI-search visitors convert at roughly 4.4× the rate of traditional organic traffic, so even a small share of citations is disproportionately valuable.
+
+## How It Works
+
+An answer engine, whether Google's snippet system or a voice assistant, runs the same loop: classify the query intent, find candidate pages, extract a passage, and render it in a constrained UI (a 40–60 word paragraph, a numbered list, a 4-column table, a one-sentence voice reply). Your page wins when (a) it ranks well enough to be a candidate — typically top 10 — and (b) it contains a passage that fits the target format almost perfectly with no rewriting needed by the engine.
+
+That means the writing is genuinely different. The first paragraph under each H2 has to stand alone semantically. The question itself should appear as the heading (matching the user's phrasing, not your brand voice). Definitions belong in the first 40–60 words. Processes belong in ordered lists with parallel verb-first phrasing. Comparisons belong in tables with a header row the engine can read. Schema markup (FAQPage, HowTo, Article with `dateModified`) acts as ground truth when the engine is uncertain.
+
+The 2025 layer on top of this: freshness is now a citation signal. AirOps found 95% of ChatGPT citations come from content published or updated within the last 10 months, and pages with a visible "last updated" timestamp earn 1.8× more citations. Update cadence — not just structure — has become part of AEO.
+
+<Mermaid chart={`flowchart LR
+  Q[User query] --> I[Intent classify]
+  I --> R[Rank candidates]
+  R --> E[Extract passage]
+  E --> F{Fits answer format?}
+  F -->|Yes| S[Featured snippet / PAA / voice]
+  F -->|No| L[Standard blue link]`} caption="How an answer engine selects and renders a passage from your page." />
+
+## Common Mistakes
+
+<Callout type="warning">**Burying the answer.** Writing a 300-word warm-up before defining the term is the single most common AEO failure. If the engine has to scroll past your intro to find the answer, it picks a competitor. The definition belongs in the first sentence under the H2 — even if it feels abrupt to a human reader.</Callout>
+
+<Callout type="warning">**Matching the question to your brand voice instead of the user's.** Headings like "Our Take On Content Velocity" never win PAA. Headings like "What is content velocity?" do. Mine Search Console, AlsoAsked, and Backlinko's free PAA tool for the literal phrasing users type, and use that as the H2 verbatim.</Callout>
+
+<Callout type="tip">**Pro tip.** Treat one URL as the canonical "answer page" for each core question and route all internal links and updates through it. Engines reward entity consolidation: one well-maintained URL with `dateModified` schema and a clear FAQ block will out-cite five thin pages that each half-cover the topic. When you refresh, change real content — not just the date — because LLM crawlers fingerprint passages.</Callout>
+
+## The One-Line Takeaway
+
+**Stop writing pages and start writing answer units — the 40-to-60-word passages that engines can lift verbatim are the same passages LLMs cite.**
+
+<ResourceList resources={[
+  { title: "What Is Answer Engine Optimization? And How to Do It", url: "https://www.semrush.com/blog/answer-engine-optimization/", type: "article", note: "Semrush's definitive 2025 AEO guide with original data on AI Overview prevalence and citation patterns.", free: true },
+  { title: "People Also Ask: How to Optimize, Rank and Track", url: "https://searchengineland.com/people-also-ask-seo-optimize-rank-track-462402", type: "article", note: "Search Engine Land's deep dive on PAA mechanics with the 34.7% YoY growth stat and ranking tactics.", free: true },
+  { title: "Free People Also Ask Tool", url: "https://backlinko.com/tools/people-also-ask", type: "docs", note: "Backlinko's free PAA scraper — paste a seed keyword and pull the literal phrasings to use as H2s.", free: true }
+]} />
+
+## Related Concepts
+- [LLM Optimization (LLMO)](/learn/seo/llmo) — AEO's structural disciplines are the foundation LLMO builds on for ChatGPT and Claude citations.
+- [AI Overviews & GEO](/learn/seo/ai-overviews-geo) — Google's AI Overviews preferentially pull from the same passages that historically won featured snippets.
+- [Schema & Structured Data](/learn/seo/schema-structured-data) — FAQPage, HowTo, and Article schema are the machine-readable ground truth answer engines rely on when extraction is ambiguous.

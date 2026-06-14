@@ -1,0 +1,105 @@
+export const lessonMeta = {
+  title: "The Customer Journey",
+  level: "Intermediate",
+  summary: "From unaware to advocate — the stages and the questions they're asking at each.",
+  category: "fundamentals",
+  slug: "customer-journey",
+  relatedConcepts: ["aida-funnel", "buyer-personas", "jtbd"],
+}
+
+# The Customer Journey
+
+## What It Is
+
+The customer journey is the complete story of how someone goes from not knowing your product exists to becoming a loyal customer who tells others about it. Think of it like the stages of any relationship: first you meet, then you get curious, then you spend time together, and eventually you either commit or walk away. Every purchase follows some version of this arc.
+
+Most businesses focus all their energy on the moment of purchase — the transaction itself. But that moment is just one scene in a much longer movie. Before someone buys, they go through a discovery phase where they realize they have a problem. Then a consideration phase where they research options. Then a decision phase where they choose. And after they buy, they either become fans or they quietly drift away. Each stage requires different messages, different content, and a different tone from you as a marketer.
+
+What makes the customer journey so useful is that it forces you to think from your customer's perspective rather than your own. Instead of asking "how do I sell this?" you start asking "what is this person thinking, feeling, and searching for right now?" That shift changes everything about how you market — from the words you use on your homepage to the emails you send three weeks after purchase.
+
+## Real-World Example
+
+Spotify's onboarding and retention journey is one of the most studied in tech. They mapped every stage from first hearing about the app to becoming a paying subscriber, then built specific touchpoints for each.
+
+<Callout type="example" title="How Spotify Maps Its Customer Journey">
+When Spotify entered the US market in 2011, they used an invite-only model to build awareness and create scarcity (Awareness stage). New users got a free tier with ads, which served as a 30-day trial conversion funnel (Consideration stage). At the Decision stage, strategically timed prompts appeared when users tried to skip more than 6 songs in an hour. The result: Spotify converted free users to paid at roughly 26–27% — more than double the industry average for freemium products at the time. Their "Wrapped" campaign, introduced later, addressed the post-purchase Loyalty stage by giving users a shareable recap of their year in music, which generated over 60 million social shares in 2022 alone.
+</Callout>
+
+## Why It Matters
+
+Understanding the customer journey isn't an academic exercise. Marketers reach for this framework when:
+
+- **Campaigns aren't converting.** You're getting traffic but no sales — usually a sign you're sending Awareness-stage people to a Decision-stage page.
+- **Churn is high.** People buy once and disappear, which means your post-purchase journey (onboarding, follow-up, community) needs work.
+- **Your team is misaligned.** Sales thinks marketing sends bad leads; marketing thinks sales doesn't follow up. Mapping the journey shows everyone where their role begins and ends.
+- **You're entering a new market.** When your audience doesn't know you yet, you have to build from the Awareness stage up — skipping straight to "buy now" messages doesn't work.
+
+## How It Works
+
+The customer journey is typically broken into five stages: Awareness, Consideration, Decision, Retention, and Advocacy. At each stage, your customer is asking a different core question, and your job is to answer it better than anyone else.
+
+At the **Awareness** stage, the customer is asking "do I have a problem worth solving?" They're not shopping yet. They might be reading a blog post, watching a YouTube video, or scrolling social media. Your goal here is to show up with content that names their problem and makes them feel understood — not to pitch your product.
+
+At the **Consideration** stage, they're asking "what are my options?" They're actively researching. This is where comparison pages, case studies, and email sequences work well. You want to be the most helpful voice in the room, not the loudest.
+
+At the **Decision** stage, they're asking "why should I pick you?" Now you can talk about pricing, features, guarantees, and social proof. Urgency and trust signals (reviews, testimonials, free trials) close the gap.
+
+**Retention** is where most companies drop the ball. After the purchase, the customer is asking "did I make the right choice?" Onboarding emails, tutorials, and check-in messages answer that question with evidence.
+
+**Advocacy** is the stage that creates compounding returns. A happy customer who tells three friends is worth more than any paid ad. This is where referral programs, communities, and "Wrapped"-style campaigns live.
+
+<Mermaid chart={`
+flowchart LR
+  A[Awareness\n'I have a problem'] --> B[Consideration\n'What are my options?']
+  B --> C[Decision\n'Why you?']
+  C --> D[Retention\n'Did I choose right?']
+  D --> E[Advocacy\n'I'm telling others']
+  E -->|Referrals| A
+`} caption="The five-stage customer journey, showing how advocates loop back to generate new awareness" />
+
+## Common Mistakes
+
+<Callout type="warning">
+**Treating the journey as linear.** Real customers jump around. Someone might see an ad (Awareness), read three reviews (Consideration), get distracted for two months, then buy after seeing a retargeting ad. Don't assume everyone moves through stages in order or at the same speed. Build touchpoints that meet them wherever they are, not just where you expect them to be.
+</Callout>
+
+<Callout type="warning">
+**Ignoring everything after the purchase.** Most marketing budgets are front-loaded toward acquisition. But acquiring a new customer costs 5–7x more than retaining an existing one (Bain & Company research). If your customer journey map ends at "purchase," you're missing the half of the funnel that actually drives profit — repeat purchases, upsells, and referrals.
+</Callout>
+
+<Callout type="tip">
+**Pro tip.** Interview 5–10 recent customers and ask them to walk you through exactly how they found you, what they considered, and what almost made them not buy. Real quotes from real customers will reveal stage-specific objections and questions your marketing isn't answering. This beats any spreadsheet model of the journey.
+</Callout>
+
+## The One-Line Takeaway
+
+**Every marketing decision becomes clearer when you know which stage of the journey you're talking to — match the message to the moment, not to your sales goals.**
+
+<ResourceList resources={[
+  {
+    title: "What Is the Customer Journey? HubSpot's Complete Guide",
+    url: "https://blog.hubspot.com/service/customer-journey-map",
+    type: "article",
+    note: "Covers journey mapping templates, stage definitions, and how to build your first map with real examples.",
+    free: true
+  },
+  {
+    title: "Think With Google: The Messy Middle of the Purchase Journey",
+    url: "https://www.thinkwithgoogle.com/consumer-insights/consumer-journey/navigating-purchase-behavior-and-decision-making/",
+    type: "article",
+    note: "Google's own research on how real buyers loop between exploration and evaluation — challenges the linear model with data from thousands of purchase decisions.",
+    free: true
+  },
+  {
+    title: "HubSpot Academy: Inbound Marketing Certification",
+    url: "https://academy.hubspot.com/courses/inbound-marketing",
+    type: "course",
+    note: "Free certification course that covers the customer journey as the backbone of inbound strategy, with exercises for mapping your own funnel.",
+    free: true
+  }
+]} />
+
+## Related Concepts
+- [The AIDA Funnel](/learn/fundamentals/aida-funnel) — AIDA (Attention, Interest, Desire, Action) is a compressed version of the customer journey focused specifically on the stages that lead to a first purchase
+- [Buyer Personas](/learn/fundamentals/buyer-personas) — Personas tell you who is on the journey; the customer journey map tells you what they need at each stage
+- [Jobs To Be Done](/learn/fundamentals/jtbd) — JTBD explains the underlying motivation driving someone through the journey — the "why" behind each stage

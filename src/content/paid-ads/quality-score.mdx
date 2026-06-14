@@ -1,0 +1,102 @@
+export const lessonMeta = {
+  title: "Quality Score & Ad Rank",
+  level: "Intermediate",
+  summary: "Why a lower bid can win — and how to lower your CPCs by being relevant.",
+  category: "paid-ads",
+  slug: "quality-score",
+  relatedConcepts: ["google-search-ads", "bidding-strategies", "ad-copy-frameworks"],
+}
+
+# Quality Score & Ad Rank
+
+## What It Is
+
+When you run a Google Search ad, you might assume the advertiser who bids the most money always wins the top spot. That's not how it works. Google runs a behind-the-scenes auction every single time someone searches, and the winner isn't always the highest bidder — it's the advertiser who offers the best combination of price and quality. This system keeps ads useful for searchers and rewards advertisers who do their homework.
+
+Quality Score is Google's 1–10 rating of how relevant your ad, keyword, and landing page are to someone's search query. Think of it as Google grading your homework before the auction starts. A score of 1 means your ad is a poor match for the keyword; a 10 means everything lines up perfectly — the keyword, the ad copy, and what the person finds when they click.
+
+Ad Rank is the actual number that determines your position in search results. Google calculates it by multiplying your Quality Score by your maximum bid, then layering in a few other signals like the context of the search and expected impact of extensions. What this means in practice: an advertiser bidding $2 with a Quality Score of 10 can outrank a competitor bidding $5 with a Quality Score of 3. Better relevance doesn't just win placements — it also lowers what you actually pay per click, because Google charges you only enough to beat the advertiser below you.
+
+## Real-World Example
+
+HubSpot runs Google Search campaigns targeting keywords like "CRM software" and "marketing automation tools" — some of the most expensive keywords in B2B SaaS, where CPCs can reach $40–$80.
+
+<Callout type="example" title="Real Example">
+HubSpot optimized their Quality Scores by tightly grouping keywords into small ad groups (e.g., one group exclusively for "free CRM"), writing ad copy that mirrored the exact keyword language, and sending clicks to dedicated landing pages that matched each offer. The result: Quality Scores in the 8–10 range for their core terms, which Google's own benchmarks estimate can reduce CPC by up to 50% compared to a score of 5. On a $50,000/month budget, that efficiency translates to roughly 2x the clicks and leads for the same spend.
+</Callout>
+
+## Why It Matters
+
+Quality Score is one of the highest-leverage levers in paid search. A marketer reaches for this when:
+
+- **CPCs feel too high relative to competitors.** A low Quality Score means you're paying a penalty on every click. Fixing it is often faster than negotiating a bigger budget.
+- **Ads aren't showing up for important keywords.** Google may limit impressions for low-Quality-Score keywords even if your bid is competitive.
+- **Conversion rates from paid search are disappointing.** The landing page component of Quality Score often reveals mismatches that hurt both your score and your conversions at the same time.
+- **You're preparing to scale spend.** Quality Score problems that are manageable at low budgets become expensive at scale. Fixing them before scaling saves money compounding over time.
+
+## How It Works
+
+Google calculates Quality Score from three components, each rated as "Below Average," "Average," or "Above Average": Expected Click-Through Rate (CTR), Ad Relevance, and Landing Page Experience. Expected CTR is the biggest driver — it predicts how likely your ad is to get clicked based on historical performance of that keyword and ad. Ad Relevance measures how closely your ad copy matches the intent behind the search query. Landing Page Experience looks at whether your destination page is useful, transparent, and closely related to what the searcher asked for.
+
+These three inputs combine into the 1–10 Quality Score, which Google then multiplies by your maximum CPC bid to produce your Ad Rank. Ad Rank also factors in auction-time context (device, location, time of day) and the expected impact of ad extensions like sitelinks or callouts. Your actual position on the page is determined by your Ad Rank relative to every other advertiser in that specific auction.
+
+The practical implication is that Quality Score is both a diagnostic tool and a cost multiplier. Google shows you component-level ratings in the Keywords view of your account, so you can pinpoint whether you have a CTR problem, a copy problem, or a landing page problem — and fix the right thing.
+
+<Mermaid chart={`
+flowchart TD
+  A[Search Query Entered] --> B[Google Auction Triggered]
+  B --> C{Quality Score\n1–10}
+  C --> D[Expected CTR]
+  C --> E[Ad Relevance]
+  C --> F[Landing Page\nExperience]
+  D & E & F --> G[Quality Score × Max Bid\n= Ad Rank]
+  G --> H[Ad Position\nDetermined]
+  H --> I[Actual CPC Charged\n= Min needed to beat\nnext advertiser]
+`} caption="How Google combines Quality Score and bid to determine ad position and actual cost per click" />
+
+## Common Mistakes
+
+<Callout type="warning">
+**Dumping all keywords into one ad group.** A single ad group with 50 loosely related keywords forces you to write generic ad copy that matches none of them precisely. This tanks Ad Relevance scores across the board. The fix is tight "single keyword ad groups" (SKAGs) or tightly themed clusters of 3–5 very similar keywords, each with tailored copy.
+</Callout>
+
+<Callout type="warning">
+**Sending all traffic to the homepage.** Google's landing page crawlers evaluate whether the page content matches the keyword and ad. A homepage about your whole company scores poorly for a specific query like "project management software for remote teams." Dedicated landing pages with copy that mirrors the keyword intent consistently earn higher Landing Page Experience ratings and convert better anyway.
+</Callout>
+
+<Callout type="tip">
+**Pro tip.** Quality Score is a lagging indicator — it updates based on accumulated data, so new keywords start with a default score of 6 and take time to reflect real performance. Experienced PPC managers check the three component ratings ("Below Average / Average / Above Average") rather than the composite score, because those labels tell you exactly which lever to pull. Fix "Below Average" CTR with better headlines; fix "Below Average" Ad Relevance by tightening keyword-to-copy alignment; fix "Below Average" Landing Page Experience with page content and load speed improvements.
+</Callout>
+
+## The One-Line Takeaway
+
+**Quality Score rewards relevance with lower CPCs and better positions — making it the single most cost-effective optimization in paid search.**
+
+<ResourceList resources={[
+  {
+    title: "About Quality Score — Google Ads Help",
+    url: "https://support.google.com/google-ads/answer/140351",
+    type: "docs",
+    note: "Google's official explanation of how Quality Score is calculated and how to diagnose each component rating.",
+    free: true
+  },
+  {
+    title: "Quality Score: The Complete 2024 Guide — WordStream",
+    url: "https://www.wordstream.com/quality-score",
+    type: "article",
+    note: "Practical breakdown of how each Quality Score component affects CPCs, with benchmark data by industry.",
+    free: true
+  },
+  {
+    title: "Google Ads Search Certification — Google Skillshop",
+    url: "https://skillshop.withgoogle.com/googleads",
+    type: "course",
+    note: "Free Google-certified course covering Ad Rank, Quality Score, and auction mechanics in depth.",
+    free: true
+  }
+]} />
+
+## Related Concepts
+- [Google Search Ads](/learn/paid-ads/google-search-ads) — Quality Score only exists inside Google Search campaigns; understanding campaign setup is the prerequisite for optimizing it.
+- [Bidding Strategies](/learn/paid-ads/bidding-strategies) — Your bid is the other half of the Ad Rank equation; smart bidding and Quality Score work together to control cost and position.
+- [Ad Copy Frameworks](/learn/paid-ads/ad-copy-frameworks) — Writing headlines that mirror keyword intent is the fastest way to improve Ad Relevance, one of the three Quality Score components.

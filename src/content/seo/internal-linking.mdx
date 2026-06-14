@@ -1,0 +1,105 @@
+export const lessonMeta = {
+  title: "Internal Linking & Site Architecture",
+  level: "Intermediate",
+  summary: "The most underrated lever in SEO.",
+  category: "seo",
+  slug: "internal-linking",
+  relatedConcepts: ["on-page-seo", "content-clusters", "technical-seo"],
+}
+
+# Internal Linking & Site Architecture
+
+## What It Is
+
+Internal linking is simply the practice of connecting one page on your website to another page on the same website. When you read a blog post and click a highlighted phrase that takes you to a different article on the same site, that is an internal link. It sounds basic because it is — but how deliberately you build those connections turns out to matter enormously for how well your site ranks in search engines.
+
+Think of your website as a city. Each page is a building, and internal links are the roads between them. A city with no roads leaves buildings isolated and hard to reach. A city with well-planned roads means people (and delivery trucks) can get anywhere efficiently. Search engines work the same way: they send crawlers to follow links and discover pages. If a page has no links pointing to it from the rest of your site, crawlers may never find it — or may not treat it as important enough to rank.
+
+Beyond discoverability, internal links pass what SEOs call "link equity" or "PageRank" — a signal of authority and importance. When a highly-visited, well-ranked page links to another page, it shares some of its credibility. That means you can deliberately funnel authority toward the pages you most want to rank by linking to them from your strongest content. Site architecture, then, is the intentional structure you design so that authority flows to the right places, crawlers find everything, and users navigate naturally.
+
+## Real-World Example
+
+HubSpot's blog is one of the most cited examples of intentional internal linking done at scale.
+
+<Callout type="example" title="HubSpot's Topic Cluster Strategy">
+HubSpot rebuilt their entire blog architecture around topic clusters in 2017. They identified "pillar pages" — comprehensive guides on broad topics like "email marketing" — and linked every related blog post back to that pillar, while the pillar linked out to each cluster post. Within 8 months of rolling out this structure, HubSpot reported a significant increase in organic traffic, and their blog now drives over 7 million monthly organic visits. The pillar page for "Instagram marketing" alone earned top-3 rankings for dozens of competitive keywords, largely because the internal linking architecture concentrated authority onto a single authoritative page instead of scattering it across dozens of loosely-connected posts.
+</Callout>
+
+## Why It Matters
+
+Internal linking is worth prioritizing because it is entirely within your control — unlike earning backlinks from other sites, you can implement a better internal linking structure today without anyone else's permission.
+
+- **When you have pages that are not ranking despite good content.** The page may simply lack internal links pointing to it, leaving it without the authority signal it needs.
+- **When you are launching a new high-priority page.** Linking to it from existing well-trafficked pages immediately tells search engines it is important.
+- **When your site has grown large and crawl coverage is a concern.** Good architecture ensures crawlers reach deep pages without having to follow a hundred hops.
+- **When you want to reinforce topical authority.** Tight internal linking between related articles signals to Google that your site deeply covers a subject, which helps you rank for competitive terms in that topic area.
+
+## How It Works
+
+When a search engine crawler arrives at your homepage, it reads every link on the page and queues those destination URLs to crawl next. From each of those pages, it follows more links, building a map of your site. Pages that receive many internal links get crawled more frequently and are treated as more authoritative. Pages buried deep with few links pointing inward get crawled rarely and rank poorly even if the content is good.
+
+The practical approach is to build a hub-and-spoke model (often called topic clusters). You create a comprehensive "pillar" page that covers a broad topic thoroughly — say, "A Complete Guide to Email Marketing." Then you write a series of more specific "cluster" posts covering subtopics: deliverability, subject line best practices, segmentation, and so on. Each cluster post links back to the pillar, and the pillar links out to each cluster post. This creates a dense web of internal links in a confined topic area, which concentrates authority and signals deep expertise to search engines.
+
+Anchor text matters too. The clickable text of an internal link is a relevance signal. Linking to your pricing page with the anchor text "click here" tells search engines nothing. Linking with the anchor "marketing software pricing" tells them exactly what the destination page is about. Using descriptive, keyword-relevant anchor text for internal links is a simple, often-overlooked optimization.
+
+<Mermaid chart={`
+flowchart TD
+  A[Pillar Page\nBroad Topic Guide] --> B[Cluster Post\nSubtopic 1]
+  A --> C[Cluster Post\nSubtopic 2]
+  A --> D[Cluster Post\nSubtopic 3]
+  B --> A
+  C --> A
+  D --> A
+  B --> C
+  C --> D
+  E[High-Authority\nHomepage / Top Posts] --> A
+`} caption="Topic cluster architecture: a pillar page links to cluster posts and receives links back, while top-level authority pages funnel PageRank down to the pillar" />
+
+When planning your site architecture, map out the three-click rule as a starting checkpoint: any important page on your site should be reachable within three clicks from the homepage. If a valuable piece of content requires seven clicks to find, both users and search crawlers are unlikely to reach it regularly. Flatten your structure so authority distributes more evenly.
+
+## Common Mistakes
+
+<Callout type="warning">
+**Orphaned pages that live outside the link graph.** Publishing a new page and forgetting to link to it from anywhere else on the site is extremely common. The page exists, but no internal links point to it, so crawlers may never find it and it earns zero internal PageRank. Audit your site periodically for orphaned pages using tools like Ahrefs Site Audit or Screaming Frog, and add contextual links from relevant existing content.
+</Callout>
+
+<Callout type="warning">
+**Using generic anchor text for all internal links.** Phrases like "click here," "read more," or "learn more" waste the relevance signal that anchor text provides. When every link uses the same vague text, search engines cannot infer what the destination page is about from the link itself. Write anchor text that describes the content of the destination page using natural, keyword-relevant language.
+</Callout>
+
+<Callout type="tip">
+**Pro tip: do a "link from existing content" pass every time you publish.** Before a new post goes live, search your own site for pages that mention the topic and add a contextual internal link from those older posts to the new one. Most teams focus only on linking outward from the new post and forget this reverse step — but incoming internal links from established pages are what immediately signal importance to search engines.
+</Callout>
+
+## The One-Line Takeaway
+
+**Internal linking is free PageRank redistribution — the deliberate architecture you build today determines which of your pages Google decides are worth ranking tomorrow.**
+
+<ResourceList resources={[
+  {
+    title: "Internal Links: The Definitive Guide",
+    url: "https://backlinko.com/internal-links",
+    type: "article",
+    note: "Comprehensive walkthrough of internal linking strategy, anchor text optimization, and site architecture principles with real examples",
+    free: true
+  },
+  {
+    title: "Internal Links for SEO: An Actionable Guide",
+    url: "https://ahrefs.com/blog/internal-links-for-seo/",
+    type: "article",
+    note: "Ahrefs covers the mechanics of how internal links pass authority, how to audit your internal link profile, and tactical fixes for common issues",
+    free: true
+  },
+  {
+    title: "Google Search Central: Links Report in Search Console",
+    url: "https://developers.google.com/search/docs/crawling-indexing/links-crawlable",
+    type: "docs",
+    note: "Official Google documentation on how crawlers follow links and what makes links crawlable — the authoritative source for understanding crawl behavior",
+    free: true
+  }
+]} />
+
+## Related Concepts
+- [On-Page SEO](/learn/seo/on-page-seo) — Internal linking is one of the core on-page signals; optimizing anchor text and link placement sits within the broader on-page SEO practice
+- [Content Clusters](/learn/seo/content-clusters) — The topic cluster model is the primary framework for organizing internal linking strategy at scale
+- [Technical SEO](/learn/seo/technical-seo) — Site architecture, crawl depth, and link equity flow are technical SEO concerns that internal linking directly shapes

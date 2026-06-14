@@ -1,0 +1,106 @@
+export const lessonMeta = {
+  title: "Search Intent",
+  level: "Beginner",
+  summary: "Informational, navigational, commercial, transactional — and why mismatching kills rankings.",
+  category: "seo",
+  slug: "search-intent",
+  relatedConcepts: ["keyword-research", "on-page-seo", "content-clusters"],
+}
+
+# Search Intent
+
+## What It Is
+
+When someone types something into Google, they have a goal in mind. Search intent — sometimes called "user intent" — is simply what that person is actually trying to accomplish. Are they trying to learn something? Find a specific website? Compare products before buying? Or pull out their credit card right now? Google's entire business depends on matching the right page to the right goal, and it has gotten remarkably good at it.
+
+There are four main types of search intent. **Informational** searches are pure curiosity — "how does SEO work," "what is a 401k." **Navigational** searches are people trying to find a specific place — "Spotify login," "HubSpot pricing page." **Commercial investigation** searches happen when someone is close to a decision but not there yet — "best project management tools 2024," "Notion vs Asana." **Transactional** searches signal someone ready to act — "buy standing desk," "sign up for Mailchimp free."
+
+Understanding which type of intent sits behind a keyword changes everything about how you write the page. A blog post crammed with affiliate links will not rank for "how to tie a bowline knot" because the person searching that phrase wants a clear tutorial, not a product pitch. Likewise, a 3,000-word essay on the history of email marketing will struggle to rank for "email marketing software" because people searching that phrase want to see pricing, features, and a sign-up button — not a lecture.
+
+## Real-World Example
+
+Airbnb is a textbook case of matching content to intent at scale.
+
+<Callout type="example" title="Real Example">
+Airbnb built tens of thousands of landing pages targeting navigational and transactional intent — pages like "apartments in Paris" or "cabins near Yosemite" — each structured to convert a visitor who already knew they wanted to book, not one who needed convincing. By aligning page format (photos, prices, availability, book button) with transactional intent, Airbnb grew organic search traffic to over 100 million monthly visits without relying on a single hero blog post. Their SEO strategy, widely studied by Ahrefs and Backlinko, attributed a significant portion of that growth to intent-matched programmatic pages rather than generic content.
+</Callout>
+
+## Why It Matters
+
+A marketer reaches for search intent analysis in almost every SEO decision:
+
+- When choosing which keywords to target — intent tells you whether to create a blog post, a product page, a comparison guide, or a free tool.
+- When diagnosing why a page is not ranking despite good backlinks and solid on-page SEO — intent mismatch is often the hidden culprit.
+- When planning a content calendar — mapping intent across the buyer journey ensures you have content for every stage, not just the awareness top.
+- When improving conversion rates — a page optimized for informational intent but sitting on a transactional keyword is leaking revenue every day it stays live.
+
+## How It Works
+
+Start by Googling the keyword you want to rank for and reading the results like a detective. What format do the top-ranking pages use? Are they listicles, step-by-step guides, product pages, or video tutorials? What does the page title promise — an answer, a comparison, a deal? That pattern is Google telling you what intent it has detected for that query.
+
+Next, align your content format to match. Informational intent usually calls for a comprehensive explainer, FAQ, or how-to guide. Commercial investigation intent calls for comparison tables, pros and cons sections, and honest reviews. Transactional intent calls for product pages with pricing, social proof, and a clear call to action. Navigational intent usually means the searcher already knows your brand — so the job is just to be the easiest page to find.
+
+Finally, check your page against the "three Cs" framework popularized by Ahrefs: **Content type** (blog post vs. product page vs. landing page), **Content format** (listicle vs. guide vs. review), and **Content angle** (what unique hook you lead with, like "for beginners" or "in 5 minutes"). All three should match what the top-ranking pages are already doing for that query.
+
+<Mermaid chart={`
+flowchart LR
+  A[Enter keyword into Google] --> B[Read top 10 results]
+  B --> C{What intent does Google show?}
+  C -->|Blog posts / guides| D[Informational — write an explainer]
+  C -->|Comparison pages / reviews| E[Commercial — write a comparison]
+  C -->|Product / category pages| F[Transactional — build a product page]
+  C -->|Brand homepage / login| G[Navigational — optimize branded page]
+  D --> H[Match format, angle, and depth]
+  E --> H
+  F --> H
+  G --> H
+  H --> I[Publish intent-matched content]
+`} caption="How to identify and match search intent before writing a single word" />
+
+## Common Mistakes
+
+<Callout type="warning">
+**Writing a blog post for a transactional keyword.** If someone searches "buy standing desk under $500," they want a product listing — not a 1,500-word article about the health benefits of standing. Publishing an informational post for a transactional query means Google will skip you in favor of pages that give the searcher what they actually came for.
+</Callout>
+
+<Callout type="warning">
+**Assuming intent based on the keyword alone.** The word "best" usually signals commercial investigation, but "best route to the airport" is informational. The word "free" can be transactional ("free trial signup") or informational ("free Excel templates"). Always check the actual SERP before deciding — Google's ranking is the most reliable intent signal you have.
+</Callout>
+
+<Callout type="tip">
+**Pro tip.** When a keyword sits at the boundary between two intent types — say, "email marketing" could be informational or commercial — look at the SERP features, not just the organic results. If Google is showing a "People also ask" box with how-to questions, lean informational. If it is showing ads and product carousels, lean commercial. The SERP layout is Google's clearest statement of what it thinks users want.
+</Callout>
+
+## The One-Line Takeaway
+
+**Before you write a single word, Google the keyword yourself — if your planned content format does not match what is already ranking, no amount of backlinks will save you.**
+
+<ResourceList resources={[
+  {
+    title: "Search Intent in SEO: What It Is and How to Optimize for It",
+    url: "https://ahrefs.com/blog/search-intent/",
+    type: "article",
+    note: "Ahrefs' definitive guide covering all four intent types with real SERP examples and the three Cs framework",
+    free: true
+  },
+  {
+    title: "Google Search Central — How Search Works",
+    url: "https://developers.google.com/search/docs/fundamentals/how-search-works",
+    type: "docs",
+    note: "Official Google documentation explaining how the search algorithm evaluates relevance and user satisfaction — straight from the source",
+    free: true
+  },
+  {
+    title: "Search Intent: The Overlooked 'Ranking Factor' You Should Be Optimizing For",
+    url: "https://backlinko.com/search-intent",
+    type: "article",
+    note: "Backlinko's breakdown of intent signals with case studies on how intent alignment directly affects ranking position",
+    free: true
+  }
+]} />
+
+## Related Concepts
+
+- [Keyword Research](/learn/seo/keyword-research) — Intent analysis is the filter you apply after building a keyword list; knowing intent tells you which keywords are worth pursuing and what type of page to create.
+- [On-Page SEO](/learn/seo/on-page-seo) — Once you know the intent, on-page SEO is how you signal to Google that your page actually delivers on it — through title tags, headers, and content structure.
+- [Content Clusters](/learn/seo/content-clusters) — Building a cluster means creating content for every intent stage around a topic: informational supporting posts, commercial comparison pages, and a transactional pillar page all working together.

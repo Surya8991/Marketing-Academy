@@ -1,0 +1,109 @@
+export const lessonMeta = {
+  title: "AARRR: Pirate Metrics",
+  level: "Beginner",
+  summary: "Acquisition, Activation, Retention, Referral, Revenue — the canonical funnel.",
+  category: "growth",
+  slug: "aarrr",
+  relatedConcepts: ["what-is-growth", "north-star-metric", "retention-cohorts"],
+}
+
+# AARRR: Pirate Metrics
+
+## What It Is
+
+AARRR — pronounced like a pirate, hence "Pirate Metrics" — is a five-stage framework for understanding how people find your product, start using it, come back to it, tell others about it, and eventually pay for it. Venture capitalist Dave McClure coined it in 2007, and it has since become the most widely used lens for thinking about growth in startups and tech companies.
+
+The five stages are Acquisition (how people discover you), Activation (their first meaningful experience with your product), Retention (whether they return), Referral (whether they bring others), and Revenue (whether they pay). Each stage represents a point where users either continue deeper into your product or drop off entirely.
+
+What makes AARRR powerful is that it forces you to measure the right things at each stage rather than chasing a single vanity metric like total signups. A product with a million signups but no retention is a leaky bucket. The framework helps you find that leak before you pour more money into acquiring users who disappear.
+
+## Real-World Example
+
+Dropbox is one of the clearest case studies of a company that optimized every AARRR stage deliberately and systematically.
+
+<Callout type="example" title="How Dropbox Used AARRR to Grow 3900%">
+Dropbox grew from 100,000 users in 2008 to nearly 4 million by 2009 — a 3900% increase in 15 months — by focusing on each funnel stage: Acquisition through a waitlist referral program, Activation through a 2-minute demo video that increased signups by 10%, Retention by making Dropbox indispensable (files synced across devices), Referral by giving both parties free storage space for invites, and Revenue through a freemium model that converted free users to paid plans. Their referral program alone drove 35% of daily signups at its peak.
+</Callout>
+
+## Why It Matters
+
+The AARRR framework is a diagnostic tool. It tells you where your growth problem actually lives, so you stop guessing.
+
+- When you have lots of traffic but few paying customers, AARRR shows you exactly which stage is leaking
+- When you're deciding where to invest engineering or marketing resources, it gives you a prioritized list of what to fix first
+- When you're reporting to stakeholders or investors, it provides a clear structure for discussing growth health
+- When you're building a growth team, it maps naturally to specializations — paid acquisition, onboarding, lifecycle emails, referral programs, monetization
+
+## How It Works
+
+Each letter in AARRR corresponds to a distinct user behavior and a measurable metric. You work through them in order because fixing a later stage when an earlier one is broken is wasteful — there is no point optimizing referrals if users are not activating in the first place.
+
+**Acquisition** is how users first hear about you. This includes paid ads, SEO, social media, press, word of mouth, and any other channel. The key metric is cost per acquisition (CPA) by channel, so you know which channels are worth scaling.
+
+**Activation** is the first "aha moment" — the point where a new user realizes why the product is valuable. For Slack, it famously required a team to send 2,000 messages before they considered themselves genuinely activated. Activation is often the highest-leverage stage because a small improvement compounds through every stage that follows. If 20% of signups activate today and you raise that to 40%, every subsequent stage doubles in throughput without spending another dollar on ads.
+
+**Retention** measures whether users come back. For most products, this is tracked as Day 1, Day 7, and Day 30 retention rates — the percentage of users who return one day, one week, and one month after signup. Low retention is the growth killer. If your Day 30 retention is near zero, you do not have a growth problem; you have a product problem.
+
+**Referral** captures organic sharing. Net Promoter Score (NPS) is one proxy, but actionable referral programs — like Dropbox's free storage model or Uber's invite credits — turn this into a measurable, controllable lever. A referral rate above 1.0 means the product is growing on its own.
+
+**Revenue** is the conversion of user value into business value. Metrics here include average revenue per user (ARPU), conversion rate from free to paid, and lifetime value (LTV). Revenue should be considered alongside acquisition cost to understand whether growth is sustainable.
+
+<Mermaid chart={`
+flowchart LR
+  A[Acquisition\nUsers find you] --> B[Activation\nFirst aha moment]
+  B --> C[Retention\nThey come back]
+  C --> D[Referral\nThey bring others]
+  D --> E[Revenue\nThey pay]
+  style A fill:#6366f1,color:#fff
+  style B fill:#8b5cf6,color:#fff
+  style C fill:#a855f7,color:#fff
+  style D fill:#c026d3,color:#fff
+  style E fill:#db2777,color:#fff
+`} caption="The AARRR funnel: each stage feeds the next, and leaks compound downward" />
+
+## Common Mistakes
+
+<Callout type="warning">
+**Optimizing the wrong stage first.** Most teams default to obsessing over Acquisition because it feels like growth — more users in the door. But if Activation or Retention is broken, you are spending money to fill a bucket with holes. Always diagnose your biggest drop-off stage first before investing in top-of-funnel growth.
+</Callout>
+
+<Callout type="warning">
+**Treating Referral as optional.** Teams often skip the Referral stage entirely, assuming word of mouth just happens naturally. In practice, referral is an engineered lever. Without deliberately building referral mechanics — incentives, share prompts, invite flows — most products leave their strongest growth channel untouched.
+</Callout>
+
+<Callout type="tip">
+**Pro tip: instrument before you optimize.** Before running any growth experiments, make sure you have tracking in place for each AARRR stage. Many teams discover they cannot even measure Activation or Retention accurately. The first sprint should be analytics infrastructure — setting up event tracking, cohort analysis, and funnel visualization — so every subsequent experiment produces real data rather than guesses.
+</Callout>
+
+## The One-Line Takeaway
+
+**Find the leakiest stage in your funnel and fix that before spending another dollar on acquisition.**
+
+<ResourceList resources={[
+  {
+    title: "Startup Metrics for Pirates (Original Dave McClure Slides)",
+    url: "https://www.slideshare.net/dmc500hats/startup-metrics-for-pirates-long-version",
+    type: "article",
+    note: "The original 2007 deck where AARRR was introduced — still the clearest explanation of the framework from its creator",
+    free: true
+  },
+  {
+    title: "The Only Metric That Matters — Reforge Blog",
+    url: "https://www.reforge.com/blog/the-only-metric-that-matters",
+    type: "article",
+    note: "Reforge's take on how to connect AARRR metrics to a North Star metric and build a coherent growth model",
+    free: true
+  },
+  {
+    title: "Growth Marketing Course — CXL Institute",
+    url: "https://cxl.com/institute/online-course/growth-marketing/",
+    type: "course",
+    note: "Comprehensive course covering AARRR, experimentation frameworks, and growth strategy — goes deep on each funnel stage with real case studies",
+    free: false
+  }
+]} />
+
+## Related Concepts
+- [What Is Growth Marketing?](/learn/growth/what-is-growth) — AARRR is the core diagnostic framework that growth marketing is built around
+- [North Star Metric](/learn/growth/north-star-metric) — once you understand AARRR, your North Star metric should reflect the stage that most predicts long-term revenue
+- [Retention Cohorts](/learn/growth/retention-cohorts) — the analytical method used to measure the Retention stage of AARRR with precision

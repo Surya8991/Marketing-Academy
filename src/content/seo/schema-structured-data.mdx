@@ -1,0 +1,103 @@
+export const lessonMeta = {
+  title: "Schema & Structured Data",
+  level: "Intermediate",
+  summary: "Help search engines understand your pages — and earn rich results.",
+  category: "seo",
+  slug: "schema-structured-data",
+  relatedConcepts: ["technical-seo", "eeat", "ai-overviews-geo"],
+}
+
+# Schema & Structured Data
+
+## What It Is
+
+Imagine handing Google a cheat sheet along with your web page. Instead of making the search engine guess what your content means, you spell it out directly: "this is a recipe," "this is a product priced at $49," "this is a review with 4.5 stars." That cheat sheet is structured data — and schema markup is the standardized vocabulary used to write it.
+
+Schema markup is a form of code you add to your HTML that uses a shared dictionary defined at schema.org, a collaboration between Google, Bing, Yahoo, and Yandex. It doesn't change what visitors see on your page. Instead, it adds invisible labels that help search engines categorize and interpret your content with far more precision than they could achieve by reading plain text alone.
+
+The payoff is what Google calls "rich results" — those eye-catching search listings with star ratings, prices, FAQs, recipe thumbnails, event dates, or product availability displayed right on the results page. Rich results earn more clicks, build instant credibility, and increasingly feed the AI-generated answers appearing at the top of search. In a world where ranking on page one is no longer enough, schema is one of the clearest ways to make your listing stand out before anyone even clicks.
+
+## Real-World Example
+
+Airbnb's product listings page is a textbook case. The company implemented structured data across millions of property pages, marking up each listing with `LodgingBusiness`, `AggregateRating`, `Offer`, and `Review` schemas. The result: Airbnb listings frequently appear in Google's rich results with star ratings, price ranges, and availability directly in the SERP.
+
+<Callout type="example" title="Real Example">
+Airbnb applied structured data across their listing pages using schema.org's LodgingBusiness and AggregateRating types. Pages with rich result eligibility saw click-through rates roughly 20–30% higher than equivalent plain-text listings in the same category — a compounding advantage when multiplied across millions of property pages. The markup also fed directly into Google's Knowledge Panel entries for specific properties and destinations.
+</Callout>
+
+## Why It Matters
+
+Reach for schema markup when:
+
+- **You want to stand out in search results.** Rich results — stars, prices, FAQs, images — dramatically increase click-through rate compared to standard blue-link listings.
+- **You're competing in a crowded SERP.** If competitors already have rich results and you don't, you're at a visual disadvantage before anyone reads a word.
+- **You publish content with clear structure.** Recipes, products, events, articles, local businesses, job postings, and courses all have dedicated schema types purpose-built to unlock richer display formats.
+- **You want to be cited in AI overviews.** Google's AI-generated answers increasingly pull from pages that clearly signal content type and authority through structured data — making schema a bridge between classic SEO and the emerging era of AI search.
+
+## How It Works
+
+Structured data is written in one of three formats: JSON-LD, Microdata, or RDFa. Google strongly recommends JSON-LD, and it's by far the most practical choice — it lives in a `<script>` tag in your page's `<head>`, completely separate from your visible HTML, so you can add or update it without touching your design or content.
+
+The JSON-LD block starts with a `@context` pointing to schema.org and a `@type` declaring what kind of thing the page describes. From there, you add properties that match that type: a `Product` gets a `name`, `description`, `image`, `offers` (with `price` and `priceCurrency`), and `aggregateRating`. A `FAQPage` gets an array of `Question` and `Answer` objects. The vocabulary is extensive — schema.org lists hundreds of types — but in practice, marketers focus on a dozen or so types that actually trigger rich results in Google Search.
+
+After you add the markup, you validate it using Google's Rich Results Test (search.google.com/test/rich-results), which shows exactly what rich result types Google can detect and flags any errors. Once your pages are crawled with valid markup, eligible pages begin appearing with enhanced formatting in search results. It's not guaranteed — Google uses structured data as a strong signal, not an override — but valid, accurate markup is the prerequisite.
+
+<Mermaid chart={`
+flowchart LR
+  A[Page Content] --> B[Add JSON-LD Schema]
+  B --> C[Validate with Rich Results Test]
+  C --> D{Errors?}
+  D -- Yes --> B
+  D -- No --> E[Google Crawls Page]
+  E --> F[Rich Result Eligibility]
+  F --> G[Enhanced SERP Listing]
+  G --> H[Higher CTR]
+`} caption="The structured data implementation flow: from adding JSON-LD to earning rich results in Google Search" />
+
+## Common Mistakes
+
+<Callout type="warning">
+**Marking up content that isn't visible on the page.** Google's guidelines explicitly prohibit using structured data to describe content users can't actually see. If your JSON-LD says you have a 4.8-star rating but no reviews appear on the page, that's a violation — and Google can manually penalize the site or remove rich result eligibility. Only mark up what's genuinely there.
+</Callout>
+
+<Callout type="warning">
+**Using the wrong schema type for the content.** A common error is applying `Article` schema to a product page, or using `LocalBusiness` for a page that actually describes a software product. Mismatched types mean Google can't trigger the specific rich result you're hoping for, and in some cases the markup is simply ignored. Match your `@type` to the actual content — check schema.org and Google's supported types list to confirm which properties unlock which rich results.
+</Callout>
+
+<Callout type="tip">
+**Pro tip.** Start with FAQ schema on your highest-traffic pages. It's one of the easiest types to implement correctly, requires no third-party data, and regularly triggers expandable FAQ rich results in the SERP — giving your single listing the visual footprint of three or four results. Pair it with your existing FAQ sections and validate immediately. Most pages can go from zero to eligible in under an hour.
+</Callout>
+
+## The One-Line Takeaway
+
+**Schema markup is the clearest signal you can send to search engines — and the most reliable shortcut to the rich results that drive higher click-through rates.**
+
+<ResourceList resources={[
+  {
+    title: "Google Search Central: Structured Data Documentation",
+    url: "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data",
+    type: "docs",
+    note: "The authoritative reference for every schema type Google supports, with implementation guides, required vs. recommended properties, and the Rich Results Test tool.",
+    free: true
+  },
+  {
+    title: "Ahrefs: Schema Markup — What It Is and How to Implement It",
+    url: "https://ahrefs.com/blog/schema-markup/",
+    type: "article",
+    note: "Practical walkthrough covering the most impactful schema types for SEO, real examples of rich results, and step-by-step implementation without needing a developer.",
+    free: true
+  },
+  {
+    title: "Moz: Schema.org — The Beginner's Guide",
+    url: "https://moz.com/blog/schema-examples",
+    type: "article",
+    note: "Covers the history of schema.org, explains JSON-LD vs. Microdata, and walks through copy-paste examples for the most commonly used schema types in SEO.",
+    free: true
+  }
+]} />
+
+## Related Concepts
+
+- [Technical SEO](/learn/seo/technical-seo) — Schema is one layer of technical SEO; crawlability, site speed, and indexability form the foundation that makes structured data worthwhile.
+- [E-E-A-T](/learn/seo/eeat) — Structured data for authors, organizations, and reviews signals Experience, Expertise, Authoritativeness, and Trustworthiness directly to Google's quality systems.
+- [AI Overviews & GEO](/learn/seo/ai-overviews-geo) — Schema markup helps AI systems identify and cite your content accurately, making it a key tactic for Generative Engine Optimization.

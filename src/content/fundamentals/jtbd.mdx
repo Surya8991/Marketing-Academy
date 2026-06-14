@@ -1,0 +1,102 @@
+export const lessonMeta = {
+  title: "Jobs To Be Done",
+  level: "Advanced",
+  summary: "Don't sell to demographics. Sell to the job the customer \"hires\" your product for.",
+  category: "fundamentals",
+  slug: "jtbd",
+  relatedConcepts: ["buyer-personas", "value-proposition", "product-market-fit"],
+}
+
+# Jobs To Be Done
+
+## What It Is
+
+People don't buy products. They hire them to get something done. A person buying a milkshake at 7am isn't buying a milkshake — they're hiring something to make a boring commute more bearable and keep them full until lunch. That's the core idea behind Jobs To Be Done (JTBD): customers have a recurring struggle or goal in their life, and they "hire" your product or service to handle it. When you understand the job, you stop competing on features and start competing on fit.
+
+The JTBD framework was developed by Clayton Christensen at Harvard Business School, built on research that showed demographic targeting often fails because two people with identical profiles can hire completely different products for completely different jobs. A 35-year-old father and a 35-year-old entrepreneur might both use Slack — but one hired it to replace chaotic group texts with family members planning a home renovation, while the other hired it to coordinate a remote team. Same product, different jobs, different reasons to stay or churn.
+
+What makes JTBD powerful for advanced marketers is the shift it forces: from describing who your customer is to understanding what they're struggling with, what they've already tried, what they almost bought instead, and what would make them fire your product tomorrow. It's a research lens, a messaging framework, and a product strategy tool all at once. Marketers who apply it stop writing copy about features and start writing copy about the specific moment a customer's life gets easier.
+
+## Real-World Example
+
+Intercom, the customer messaging platform, built their entire product strategy and go-to-market motion around JTBD research. Instead of targeting "SaaS companies with 50-500 employees," they interviewed customers to find the actual jobs being hired: "help me answer customer questions without hiring more support agents" and "help me onboard new users without a phone call." That research directly shaped their messaging — away from "live chat software" and toward outcome-driven copy like "the business messenger built for growth."
+
+<Callout type="example" title="Real Example">
+Intercom used JTBD interviews to reposition from a generic live chat tool to a growth platform. After aligning product, sales, and marketing around three core jobs their customers were hiring them for, they grew from $1M to $50M ARR in under four years. Their conversion rates on trial-to-paid improved significantly once messaging matched the job language customers used in interviews — not product-manager language.
+</Callout>
+
+## Why It Matters
+
+JTBD isn't just a theory exercise. Reach for it when:
+
+- Your messaging isn't converting despite strong traffic — a sign that copy is describing features rather than solving a felt need
+- You're losing deals to "no decision" — customers who agree they have a problem but don't hire anyone to fix it, which usually means the job isn't urgent enough or your framing doesn't match their mental model
+- You're building buyer personas that feel hollow — demographic profiles that don't actually help you write better ads or emails
+- You're entering a competitive market and need to find underserved jobs that incumbents are ignoring
+
+## How It Works
+
+Start with interview research, not surveys. JTBD research requires open-ended conversations with recent buyers — people who switched to your product within the last three to six months. The goal is to reconstruct the timeline of their decision: what triggered the search, what they tried first, what almost won, and what finally pushed them to buy. This "Switch Interview" method, popularized by Bob Moesta (one of Christensen's collaborators), surfaces the exact language and emotional context customers use, which becomes your copywriting gold.
+
+From those interviews, you identify the functional job (the practical task — "track my team's project deadlines"), the emotional job (how they want to feel — "in control, not stressed on Sundays"), and the social job (how they want to be perceived — "a manager who has it together"). Strong marketing addresses all three layers. Most teams only address the functional layer and wonder why emotionally resonant competitor ads outperform theirs.
+
+Once you've mapped the job, you align your funnel to the job's context. Ads target the trigger moment (the event that made the job urgent). Landing pages speak to the competing alternatives customers considered. Onboarding removes the anxieties that stall activation. Retention messaging reinforces the progress customers feel. The entire customer journey becomes a response to the job, not a generic feature tour.
+
+<Mermaid chart={`
+flowchart LR
+  A[Trigger Event\n"Something changes"] --> B[Struggling Moment\n"Current solution fails"]
+  B --> C[Passive Looking\n"Noticing alternatives"]
+  C --> D[Active Looking\n"Searching, comparing"]
+  D --> E[Decision\n"Hiring your product"]
+  E --> F[First Use\n"Does it do the job?"]
+  F --> G{Job Done?}
+  G -->|Yes| H[Retained & Loyal]
+  G -->|No| I[Fired — they churn]
+`} caption="The JTBD timeline: from trigger event through hire decision to retention or churn" />
+
+## Common Mistakes
+
+<Callout type="warning">
+**Confusing the job with the feature.** "Help me send better emails" is not a job — it's a feature request. The job is "help me look credible to clients so I can close more deals without hiring a designer." Features describe what the product does; jobs describe what the customer is trying to accomplish in their life. Write your positioning around the job, and the feature becomes the proof point, not the headline.
+</Callout>
+
+<Callout type="warning">
+**Running surveys instead of interviews.** Surveys can confirm a hypothesis, but they can't discover a job you didn't know existed. JTBD research requires the awkward follow-up question — "why did that matter to you?" — which you can't ask a checkbox. Teams that skip real interviews end up with JTBD frameworks built on assumptions, which are just slightly fancier versions of the personas they were trying to replace.
+</Callout>
+
+<Callout type="tip">
+**Pro tip.** Ask customers what they were using before they hired your product — and what almost beat you in the final decision. "What did you almost go with instead?" is the single most valuable interview question in JTBD research. The losing alternative tells you exactly who you're competing with in the customer's mind (often not who you think), and the reason they chose you instead becomes your most credible differentiator.
+</Callout>
+
+## The One-Line Takeaway
+
+**Find the job, and you find the message — because customers hire products for reasons demographics can never tell you.**
+
+<ResourceList resources={[
+  {
+    title: "Know Your Customers' 'Jobs to Be Done'",
+    url: "https://hbr.org/2016/09/know-your-customers-jobs-to-be-done",
+    type: "article",
+    note: "Clayton Christensen's definitive HBR piece on JTBD — the original framework explained with the milkshake research story and real business applications",
+    free: true
+  },
+  {
+    title: "The Demand-Side Sales 101 (Bob Moesta)",
+    url: "https://www.amazon.com/Demand-Side-Sales-101-Customers-Progress/dp/1544509960",
+    type: "course",
+    note: "Bob Moesta's book on Switch Interviews and demand-side sales — the most practical guide to running JTBD customer research and translating it into messaging",
+    free: false
+  },
+  {
+    title: "Jobs to Be Done: A Framework for Customer Needs — HubSpot Blog",
+    url: "https://blog.hubspot.com/marketing/jobs-to-be-done",
+    type: "article",
+    note: "HubSpot's applied guide to JTBD for marketers — covers how to run interviews, map jobs, and connect findings to campaign messaging and persona work",
+    free: true
+  }
+]} />
+
+## Related Concepts
+- [Buyer Personas](/learn/fundamentals/buyer-personas) — JTBD doesn't replace personas; it makes them functional by adding the "why they hire" layer that demographics alone can't provide
+- [Value Proposition](/learn/fundamentals/value-proposition) — once you know the job, your value proposition becomes a direct answer to the struggling moment that triggered the hire decision
+- [Product-Market Fit](/learn/fundamentals/product-market-fit) — PMF is really job-market fit: you have it when your product reliably does the job better than any alternative your customer has tried

@@ -1,0 +1,104 @@
+export const lessonMeta = {
+  title: "TikTok Ads",
+  level: "Advanced",
+  summary: "Creative-first paid social and the rise of the Spark Ad.",
+  category: "paid-ads",
+  slug: "tiktok-ads",
+  relatedConcepts: ["creative-testing", "meta-ads", "ios-attribution"],
+}
+
+# TikTok Ads
+
+## What It Is
+
+TikTok Ads is the platform's paid advertising system that lets brands reach TikTok's massive and highly engaged user base through short-form video content. Unlike most ad platforms where you can repurpose existing creative, TikTok essentially demands that you make content that looks and feels native to the feed — meaning it should look like something a regular person would post, not a polished TV commercial. The moment an ad feels like an ad, users scroll past it within the first second.
+
+The platform operates on a creative-first philosophy. The algorithm rewards content that earns genuine engagement — watches, replays, shares, and comments — not just the highest bidder. This means your targeting and bidding strategy matters far less than the quality and authenticity of your creative. A brand with a modest budget but scroll-stopping creative can outperform a competitor spending ten times as much with generic video content.
+
+TikTok offers several ad formats: In-Feed Ads (which appear in the For You Page like organic posts), TopView (full-screen takeover on app open), Brand Takeover, Branded Hashtag Challenges, and — most importantly for performance advertisers — Spark Ads. Spark Ads allow you to boost existing organic TikTok posts, either from your own account or from creators who have given permission. This is the format that has changed how sophisticated brands approach the platform, because it combines the authenticity of organic content with the reach and targeting of paid media.
+
+## Real-World Example
+
+Duolingo's TikTok strategy is one of the most documented success stories in performance social advertising. Rather than producing traditional ad creative, Duolingo leaned into its mascot — the green owl — behaving chaotically and humorously in native TikTok formats. They then used Spark Ads to amplify the organic posts that were already gaining traction.
+
+<Callout type="example" title="Real Example">
+Duolingo's TikTok account grew from near zero to over 8 million followers in roughly 18 months by posting content that felt completely native to the platform. When they ran Spark Ads on their highest-performing organic videos, their cost-per-install dropped by approximately 37% compared to traditional In-Feed Ad creative. One video featuring the owl reacting to a trending audio clip generated over 20 million organic views before any paid spend was placed behind it — illustrating the "earn before you spend" approach that defines effective TikTok advertising.
+</Callout>
+
+## Why It Matters
+
+TikTok Ads matter when a marketer needs a specific set of outcomes that other platforms struggle to deliver:
+
+- When you are trying to reach Gen Z and younger Millennial audiences at scale, where TikTok's daily active user base is now larger than Twitter/X and Snapchat combined
+- When your product benefits from demonstration — TikTok's video format is uniquely powerful for showing how something works, tastes, feels, or transforms
+- When you want to test creative hypotheses quickly, because TikTok's algorithm distributes content rapidly and you can get statistically meaningful signal on creative performance within 24-48 hours of launch
+- When organic and paid can be unified under one strategy — Spark Ads let you turn UGC (user-generated content) and influencer posts into paid placements, eliminating the traditional gap between creator marketing and performance advertising
+
+## How It Works
+
+TikTok's ad auction works similarly to Meta and Google — you set a campaign objective (awareness, traffic, app installs, conversions, lead generation), define an audience by demographics, interests, and behaviors, set a budget and bid, and the platform's algorithm determines which users see your ads. But the critical difference is how the algorithm weights creative quality. TikTok's system factors in earned engagement signals — if users are watching your ad to completion, sharing it, or clicking to the creator's profile — and rewards high-engagement creative with lower CPMs, effectively giving you more reach per dollar spent.
+
+Spark Ads work by connecting an organic TikTok post to your ad account through a short authorization code. Once connected, you can run that post as a paid placement while it retains all its original likes, comments, and shares — the social proof carries over. This means that a creator post with 50,000 organic likes before you start spending will show those 50,000 likes to every new user who sees the paid version, dramatically increasing perceived credibility. The ad still links to your destination URL, tracks conversions via the TikTok Pixel, and reports inside TikTok Ads Manager like any other placement.
+
+For campaign structure, TikTok recommends a minimum of 3-5 creative variations per ad group and refreshing creative every 7-14 days to combat ad fatigue. The platform's Creative Center (available at ads.tiktok.com/creative) shows trending sounds, hashtags, and top-performing ad examples by industry — this is the single most underused tool in TikTok advertising.
+
+<Mermaid chart={`
+flowchart LR
+  A[Organic Post or\nCreator Video] --> B{High Engagement?}
+  B -- Yes --> C[Authorize as\nSpark Ad]
+  B -- No --> D[Produce New\nNative Creative]
+  C --> E[Set Targeting\n& Budget]
+  D --> E
+  E --> F[TikTok Auction\nAlgorithm]
+  F --> G[Delivery to\nFor You Page]
+  G --> H{Engagement\nSignals}
+  H -- Strong --> I[Lower CPM\nMore Reach]
+  H -- Weak --> J[Creative\nRefresh Needed]
+`} caption="TikTok Ads flow: from creative selection through the auction to delivery and optimization" />
+
+## Common Mistakes
+
+<Callout type="warning">
+**Repurposing Meta or YouTube creative without re-editing for TikTok.** Video that works on Instagram Reels or YouTube Shorts often fails on TikTok because the platform's editing conventions, pacing, text overlay styles, and audio expectations are distinct. Horizontal or square video, polished color grades, and clean voiceovers feel out of place. TikTok creative typically opens with a hook within the first 1-2 seconds, uses native fonts and transitions, incorporates trending audio, and maintains a raw, lo-fi aesthetic even when the production budget is high.
+</Callout>
+
+<Callout type="warning">
+**Over-targeting and restricting the algorithm's learning.** Experienced Meta advertisers often bring their habit of narrow audience layering to TikTok, stacking interest categories, lookalikes, and behavior filters into a tiny audience. TikTok's algorithm is built to find the right people if you give it room — excessively narrow audiences prevent the system from learning and drive up CPMs without improving conversion rates. For most campaigns, broad targeting with strong creative outperforms tight demographic stacks.
+</Callout>
+
+<Callout type="tip">
+**Mine the Creative Center before spending a dollar on production.** TikTok's Creative Center (ads.tiktok.com/creative/topads) lets you filter top-performing ads by industry, region, objective, and time period. Before briefing a creator or producing new content, spend 30 minutes studying the patterns in top ads for your category — hook styles, video length, call-to-action phrasing, and audio choices. The best TikTok advertisers reverse-engineer what's already working rather than starting from a blank creative brief.
+</Callout>
+
+## The One-Line Takeaway
+
+**On TikTok, your creative IS your targeting — if the content earns attention organically, the algorithm will find the buyers for you.**
+
+<ResourceList resources={[
+  {
+    title: "TikTok Ads Help Center",
+    url: "https://ads.tiktok.com/help/",
+    type: "docs",
+    note: "Official documentation covering campaign setup, ad formats, the TikTok Pixel, Spark Ads authorization, and billing — the authoritative reference for anything platform-specific.",
+    free: true
+  },
+  {
+    title: "TikTok Creative Center — Top Ads",
+    url: "https://ads.tiktok.com/business/creativecenter/inspiration/topads/pc/en",
+    type: "tool",
+    note: "Browse real top-performing TikTok ads filtered by industry, region, and objective. Essential for creative research before any campaign launch.",
+    free: true
+  },
+  {
+    title: "WordStream: TikTok Ads Guide",
+    url: "https://www.wordstream.com/blog/ws/2021/09/28/tiktok-ads",
+    type: "article",
+    note: "Comprehensive walkthrough of TikTok ad formats, bidding strategies, and campaign structure from a performance marketing perspective, with benchmarks by industry.",
+    free: true
+  }
+]} />
+
+## Related Concepts
+- [Creative Testing](/learn/paid-ads/creative-testing) — TikTok's fast feedback loop makes it one of the best platforms for rapid creative iteration; pair with a structured testing framework
+- [Meta Ads](/learn/paid-ads/meta-ads) — The two platforms share auction-based buying and conversion objectives but differ sharply on creative requirements and audience behavior
+- [iOS Attribution](/learn/paid-ads/ios-attribution) — Post-ATT attribution challenges affect TikTok campaigns just as much as Meta; understanding modeled conversions and the TikTok Pixel's limitations is essential for accurate reporting

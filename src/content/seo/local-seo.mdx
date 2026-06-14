@@ -1,0 +1,100 @@
+export const lessonMeta = {
+  title: "Local SEO",
+  level: "Advanced",
+  summary: "Win the map pack and \"near me\" searches.",
+  category: "seo",
+  slug: "local-seo",
+  relatedConcepts: ["technical-seo", "schema-structured-data", "link-building"],
+}
+
+# Local SEO
+
+## What It Is
+
+Local SEO is the practice of making your business show up when people nearby search for what you sell. When someone types "coffee shop open now" or "plumber near me" into Google, they are not looking for a global answer — they want something close, and they want it fast. Local SEO is how you make sure your business is the answer Google serves them.
+
+At its core, local SEO is different from regular SEO because Google runs a separate ranking system for location-based queries. That system is built around three signals: relevance (does your business match what was searched?), distance (how close are you to the searcher?), and prominence (how well-known and trusted is your business?). Influence all three and you earn a spot in what Google calls the "local pack" — the map and the three business listings that appear above regular search results for local queries.
+
+For businesses with a physical location or a defined service area, local SEO is one of the highest-leverage marketing activities available. The local pack captures the majority of clicks for searches like "best Italian restaurant downtown" or "emergency HVAC repair." Getting into that pack can be the difference between a phone that rings constantly and a business that relies entirely on foot traffic and word of mouth.
+
+## Real-World Example
+
+<Callout type="example" title="Real Example">
+Airbnb invested heavily in local landing page SEO — creating optimized, city- and neighborhood-level pages (e.g., "Airbnb Paris 10th Arrondissement") with localized content, host reviews, and structured data. This strategy helped Airbnb rank in local and near-me searches across thousands of micro-markets simultaneously. According to Ahrefs data, Airbnb's SEO strategy drives an estimated 45 million organic visits per month, with local landing pages accounting for a significant portion of that volume. By treating each city neighborhood as its own local SEO target, Airbnb effectively scaled a local-search playbook across 220+ countries.
+</Callout>
+
+## Why It Matters
+
+- **When your customers are location-dependent.** Restaurants, clinics, law firms, gyms, salons, retail stores — any business where physical proximity drives purchase decisions needs local SEO.
+- **When you want free, high-intent traffic.** "Near me" searches have exploded over 500% in the past several years (Google data). These searchers are ready to act, not just browse.
+- **When you need to compete with national brands.** Local SEO is one of the few channels where a neighborhood shop can outrank a national chain — because Google prioritizes proximity and local relevance over brand size.
+- **When you're running a service-area business.** Even without a storefront, plumbers, cleaners, and contractors can dominate local searches by optimizing their Google Business Profile for a defined radius.
+
+## How It Works
+
+Local SEO has three main pillars: your Google Business Profile, on-page local signals, and local authority. Google Business Profile (formerly Google My Business) is the single most important asset. It feeds directly into the local pack and Google Maps. You claim your profile, verify ownership, add your business category, service area, photos, hours, and — critically — your NAP (name, address, phone number). That NAP must be letter-for-letter identical everywhere it appears online: your website, Yelp, directories, social profiles. Inconsistencies confuse Google and suppress your ranking.
+
+On-page local signals mean your website needs to speak the local language Google expects. This includes a dedicated location page (or pages, if you serve multiple areas) that mentions your city and neighborhood naturally in the title tag, H1, meta description, and body copy. Embedding a Google Map iframe and marking up your address with LocalBusiness schema (structured data) tells Google exactly who and where you are. Internal links from your homepage to location pages pass authority and signal importance.
+
+Local authority comes from two places: reviews and citations. Reviews on Google are a direct ranking factor — the volume, recency, and star rating of your reviews all matter. A steady stream of genuine reviews from real customers signals to Google that your business is active and trusted. Citations are mentions of your NAP across the web on directory sites like Yelp, TripAdvisor, YellowPages, and industry-specific directories. You do not need hundreds of them, but you need the major ones to be accurate. Local backlinks — links from local news sites, chambers of commerce, and community organizations — carry extra weight because they confirm your geographic relevance.
+
+<Mermaid chart={`
+flowchart TD
+  A[User searches "near me" or city keyword] --> B[Google evaluates local ranking signals]
+  B --> C{Three factors}
+  C --> D[Relevance\nBusiness category + keywords]
+  C --> E[Distance\nProximity to searcher]
+  C --> F[Prominence\nReviews + citations + backlinks]
+  D --> G[Local Pack / Map Results]
+  E --> G
+  F --> G
+  G --> H[User clicks, calls, or gets directions]
+`} caption="How Google ranks local results: relevance, distance, and prominence combine to determine local pack placement." />
+
+## Common Mistakes
+
+<Callout type="warning">
+**Inconsistent NAP across the web.** If your Google Business Profile says "Suite 200" but your Yelp page says "#200" and your website says nothing, Google sees three different businesses. Audit every directory and make your name, address, and phone number identical everywhere — character for character.
+</Callout>
+
+<Callout type="warning">
+**Ignoring review velocity.** Businesses often work hard to get 50 reviews at launch and then stop asking. Google's algorithm weighs recency heavily — a competitor with 20 reviews from the past month can outrank you and your 200 reviews from three years ago. Build a repeatable system for requesting reviews after every transaction.
+</Callout>
+
+<Callout type="tip">
+**Pro tip.** Most businesses optimize their Google Business Profile once and forget it. Experts treat the profile like a social channel — posting weekly updates, adding new photos, responding to every review (positive and negative), and updating the Q&A section with the questions customers actually ask. Google rewards active, frequently updated profiles with higher local pack visibility.
+</Callout>
+
+## The One-Line Takeaway
+
+**Local SEO is not about showing up on the internet — it is about showing up on the block, and the businesses that win the map pack are the ones that give Google the clearest, most consistent, most trusted signal about who they are and where they are.**
+
+<ResourceList resources={[
+  {
+    title: "Google Business Profile Help Center",
+    url: "https://support.google.com/business",
+    type: "docs",
+    note: "Official documentation for setting up and optimizing your Google Business Profile — the single most important local SEO asset.",
+    free: true
+  },
+  {
+    title: "Moz Local SEO Guide",
+    url: "https://moz.com/local-seo-guide",
+    type: "article",
+    note: "Comprehensive guide covering citations, on-page local signals, reviews, and the local pack ranking factors. Regularly updated.",
+    free: true
+  },
+  {
+    title: "Ahrefs Local SEO Checklist",
+    url: "https://ahrefs.com/blog/local-seo",
+    type: "article",
+    note: "Tactical, step-by-step breakdown of every local SEO signal with actionable tasks and prioritization guidance.",
+    free: true
+  }
+]} />
+
+## Related Concepts
+
+- [Technical SEO](/learn/seo/technical-seo) — The site speed, crawlability, and indexing foundations that support every SEO strategy, including local.
+- [Schema & Structured Data](/learn/seo/schema-structured-data) — LocalBusiness schema is one of the highest-impact structured data types for local pack visibility.
+- [Link Building](/learn/seo/link-building) — Local backlinks from community organizations and local press carry outsized authority for local rankings.

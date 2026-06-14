@@ -1,0 +1,102 @@
+export const lessonMeta = {
+  title: "Paid Ads 101",
+  level: "Beginner",
+  summary: "Auctions, bids, impressions, clicks, conversions — the economic primitives.",
+  category: "paid-ads",
+  slug: "paid-ads-101",
+  relatedConcepts: ["google-search-ads", "meta-ads", "quality-score"],
+}
+
+# Paid Ads 101
+
+## What It Is
+
+Paid advertising is the practice of paying a platform — Google, Meta, TikTok, LinkedIn — to show your message to a specific group of people. Unlike a billboard you rent for a fixed price, most digital ads work through an auction that happens in milliseconds every single time a page loads or a search is run. You set a budget, define who you want to reach, write your ad, and the platform's system decides whether to show it — and what you pay.
+
+The core vocabulary is worth learning once and using everywhere. An **impression** is one instance of your ad being displayed, regardless of whether anyone notices it. A **click** is when someone taps or clicks on it. A **conversion** is when that person then does something you care about — buys a product, fills out a form, downloads an app. The ratio of clicks to impressions is your **click-through rate (CTR)**; the ratio of conversions to clicks is your **conversion rate**. These four numbers — impressions, clicks, conversions, and their ratios — are the vocabulary of almost every paid advertising conversation you'll ever have.
+
+What makes paid ads different from every other marketing channel is the speed and control. You can spend $50 tonight, reach five thousand people by morning, and have clear data on what worked before lunch tomorrow. You're renting attention rather than earning it, which means the moment you stop paying, the traffic stops. That tradeoff — fast results, no compounding — is the defining characteristic of the channel.
+
+## Real-World Example
+
+<Callout type="example" title="Real Example">
+Airbnb used Google Search Ads to capture demand during its early growth phase by bidding on high-intent queries like "vacation rental New York" and "short-term apartment Paris." In markets where they ran paid search alongside organic efforts, they reported cost-per-acquisition (CPA) figures 30–40% lower than comparable display campaigns, because the users were already searching for exactly what Airbnb offered. At peak travel seasons, Airbnb scaled daily ad spend into the hundreds of thousands of dollars across markets, using automated bidding to hit a target return on ad spend (ROAS) of 4x — meaning every $1 spent returned $4 in booking revenue.
+</Callout>
+
+## Why It Matters
+
+Paid ads are the tool a marketer reaches for when speed and precision matter more than long-term asset building.
+
+- **When you need results now.** A new product launch, a seasonal promotion, or a fundraising deadline can't wait six months for SEO to kick in.
+- **When you know exactly who your buyer is.** Paid platforms let you target by search intent, job title, income bracket, age, location, interests, and dozens of other signals — far more precisely than most organic channels.
+- **When you're testing a message or offer.** Running two ad variants for 48 hours gives you statistically meaningful data on which headline, image, or offer resonates — faster and cheaper than most alternatives.
+- **When organic reach is declining.** Social platforms have steadily reduced the reach of unpaid posts. Paid ads are the reliable way to guarantee your content gets in front of the right audience on those platforms.
+
+## How It Works
+
+Every time someone runs a Google search or scrolls a Facebook feed, the platform runs an auction in the background — usually completing in under 200 milliseconds. Advertisers who have set up campaigns targeting that person or query compete against each other. The winner isn't simply the highest bidder; platforms weight bids against a quality score that reflects how relevant and useful the ad is likely to be for that user. A highly relevant ad from a $2 bidder can beat a generic ad from a $5 bidder.
+
+Your bid is the maximum amount you're willing to pay per click (in search ads) or per thousand impressions (in display or social ads). You set this at the campaign or ad group level, or you hand control to the platform's automated bidding system, which adjusts your bids in real time based on signals like device, time of day, and user behavior. Most beginners should start with manual bidding to build intuition before switching to automated strategies.
+
+Once someone clicks your ad, they land on a destination you control — usually a landing page designed around a single action. That page, and what happens on it, determines your conversion rate. The auction gets you the click; your offer and page design get you the conversion.
+
+<Mermaid chart={`
+flowchart LR
+  A[User triggers event\ne.g. search query / page load] --> B[Platform runs auction\nin ~200ms]
+  B --> C{Bid × Quality Score\nranking}
+  C --> D[Winning ad shown\nas impression]
+  D --> E{User clicks?}
+  E -- Yes --> F[Landing page visit]
+  E -- No --> G[Impression only\nno charge for CPC]
+  F --> H{Converts?}
+  H -- Yes --> I[Conversion recorded\nROAS calculated]
+  H -- No --> J[Bounce — optimize\npage or targeting]
+`} caption="The paid ad auction cycle: from user event to conversion (or optimization loop)" />
+
+## Common Mistakes
+
+<Callout type="warning">
+**Sending ad traffic to your homepage.** A homepage tries to do too many things at once. When someone clicks an ad for "project management software for remote teams," they expect a page about exactly that — not a generic homepage with ten navigation options. Always send paid traffic to a dedicated landing page that matches the ad's promise. Advertisers who do this typically see conversion rates 2–5x higher than those using a homepage.
+</Callout>
+
+<Callout type="warning">
+**Setting a budget and walking away.** Paid ads are not a set-and-forget channel. In the first two to four weeks, campaigns need active monitoring — pausing keywords or audiences that waste spend, increasing bids on what's working, and testing new ad copy. Beginners often either touch campaigns too frequently (resetting the learning algorithm every two days) or not frequently enough (burning budget on obvious losers for weeks). Check in every 3–5 days and make one deliberate change at a time.
+</Callout>
+
+<Callout type="tip">
+**Start narrower than you think you need to.** New advertisers instinctively try to reach as many people as possible. Experts do the opposite: they start with the tightest possible audience — one geography, one keyword theme, one job title — get the economics working, and then expand. A campaign that converts at 5% on a $500 budget teaches you far more than one that gets 50,000 impressions and zero conversions on a $5,000 budget.
+</Callout>
+
+## The One-Line Takeaway
+
+**Paid ads rent attention at auction prices — master the economics of impressions, clicks, and conversions before you scale any budget.**
+
+<ResourceList resources={[
+  {
+    title: "Google Ads Help Center",
+    url: "https://support.google.com/google-ads",
+    type: "docs",
+    note: "Official documentation covering every Google Ads feature, bidding strategy, and campaign type — the authoritative reference when you need to understand exactly how the platform works.",
+    free: true
+  },
+  {
+    title: "Meta Blueprint: Introduction to Digital Advertising",
+    url: "https://www.facebook.com/business/learn",
+    type: "course",
+    note: "Meta's own free learning platform with structured courses on Facebook and Instagram ads, from account setup through advanced optimization — includes certification paths.",
+    free: true
+  },
+  {
+    title: "WordStream PPC University",
+    url: "https://www.wordstream.com/ppc-university",
+    type: "course",
+    note: "Structured beginner-to-advanced curriculum covering search and display advertising fundamentals, bidding strategies, Quality Score, and landing page optimization across platforms.",
+    free: true
+  }
+]} />
+
+## Related Concepts
+
+- [Google Search Ads](/learn/paid-ads/google-search-ads) — How to apply these auction fundamentals specifically to Google's search network, including keyword match types and ad extensions.
+- [Meta Ads](/learn/paid-ads/meta-ads) — How paid ad economics translate to Facebook and Instagram, where targeting is audience-based rather than intent-based.
+- [Quality Score](/learn/paid-ads/quality-score) — The relevance metric Google uses alongside your bid to determine where your ad ranks — understanding it is how you beat bigger budgets.

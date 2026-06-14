@@ -1,0 +1,104 @@
+export const lessonMeta = {
+  title: "Ad Copy Frameworks",
+  level: "Intermediate",
+  summary: "PAS, AIDA, the 4 Us — copy that earns the click.",
+  category: "paid-ads",
+  slug: "ad-copy-frameworks",
+  relatedConcepts: ["creative-testing", "quality-score", "meta-ads"],
+}
+
+# Ad Copy Frameworks
+
+## What It Is
+
+Ad copy frameworks are structured formulas that help you write persuasive text for paid ads. Instead of staring at a blank screen, you follow a pattern that has been proven to move people from scrolling past your ad to actually clicking it. Think of them like recipe templates: the ingredients and steps are laid out, and you fill in the specifics for your product.
+
+The three most widely used frameworks are PAS (Problem–Agitate–Solution), AIDA (Attention–Interest–Desire–Action), and the 4 Us (Urgent, Unique, Useful, Ultra-specific). Each one works on a slightly different psychological lever. PAS leans into pain. AIDA guides the reader through an emotional journey. The 4 Us act as a checklist to stress-test any headline before you spend money on it.
+
+What makes these frameworks useful at the intermediate level is that they work across platforms — Google Search ads, Meta feed ads, YouTube bumpers, LinkedIn sponsored content — while respecting the unique constraints of each format. A Google headline has 30 characters. A Meta primary text has 125 characters before truncation. Knowing which framework fits which format, and why, is the difference between copy that earns the click and copy that burns the budget.
+
+## Real-World Example
+
+Dollar Shave Club's launch ad copy is a textbook AIDA execution compressed into a single sentence: "Shave Time. Shave Money." The headline grabbed Attention with a double pun, built Interest by implying a better alternative to expensive razor brands, triggered Desire by making frugality feel clever, and drove Action through a dead-simple subscription CTA. Their 2012 video ad drove 12,000 orders in the first 48 hours and generated 25 million views — much of that amplified by paid promotion using the same copy framework across display and social.
+
+<Callout type="example" title="Real Example">
+Dollar Shave Club used AIDA across their paid ad headlines — "Shave Time. Shave Money." — paired with a $1/month offer CTA. The launch campaign drove 12,000 new orders within 48 hours and helped the company grow to $65 million in annual revenue within three years, leading to a $1 billion acquisition by Unilever in 2016.
+</Callout>
+
+## Why It Matters
+
+Ad copy frameworks matter because guessing doesn't scale. When you have $5,000 to spend on a campaign, you can't afford to wing it on messaging.
+
+- **When you're writing for multiple ad sets at once.** Frameworks let you generate 10 headline variants in the time it would take to agonize over one.
+- **When your click-through rates have plateaued.** Switching from a generic benefit headline to a PAS structure can unstick flat CTR without changing your bid or targeting.
+- **When you're handing off copy to a team member or agency.** A framework is a brief in miniature — it communicates the emotional logic of the ad, not just the words.
+- **When you're running creative tests.** Testing PAS against AIDA against a 4 Us headline gives you structured signal, not random noise.
+
+## How It Works
+
+**PAS** starts with the Problem your customer is already feeling ("Your ads are eating budget with nothing to show"). It then Agitates that pain — makes it feel bigger or more urgent ("Every day you run unfocused copy, competitors are taking your conversions"). Then it pivots to your Solution as the obvious fix ("Our ad copy audit shows you exactly what to change"). PAS works especially well in Google Search ads because people searching have already named their problem in the query.
+
+**AIDA** is a funnel inside a sentence. Attention is your hook — a bold claim, a surprising stat, or a direct address ("Still paying $25 a month for razors?"). Interest adds context that makes them want to know more. Desire makes the outcome feel real and personal. Action removes all friction from the next step. AIDA tends to suit longer ad formats: Meta primary text, YouTube pre-roll scripts, or LinkedIn Sponsored Content where you have more room to move someone emotionally.
+
+**The 4 Us** is a quality filter rather than a writing formula. Before you publish any headline, ask: Is it Urgent (does it create a reason to act now)? Is it Unique (does it say something competitors aren't)? Is it Useful (does it promise a real benefit)? Is it Ultra-specific (does it use a number, a name, or a concrete detail rather than vague language)? A headline that scores 3 out of 4 Us is worth testing. One that scores 1 or 2 needs a rewrite.
+
+<Mermaid chart={`
+flowchart LR
+  A[Identify Framework] --> B{Which format?}
+  B -->|Search / short| C[PAS\nProblem → Agitate → Solution]
+  B -->|Social / longer| D[AIDA\nAttention → Interest → Desire → Action]
+  B -->|Any headline| E[4 Us Check\nUrgent · Unique · Useful · Ultra-specific]
+  C --> F[Write Draft]
+  D --> F
+  E --> F
+  F --> G[Score with 4 Us]
+  G -->|3–4 Us| H[Publish & Test]
+  G -->|1–2 Us| F
+`} caption="How to select a framework, write copy, and quality-check it before publishing" />
+
+## Common Mistakes
+
+<Callout type="warning">
+**Writing features, not outcomes.** "AI-powered dashboard with real-time syncing" is a feature. "Know exactly where every marketing dollar went — before your Monday standup" is an outcome. Frameworks only work if you fill them with benefits the reader cares about, not specs your product team is proud of.
+</Callout>
+
+<Callout type="warning">
+**Using the same framework for every placement.** A PAS structure that reads well in a Google Search headline (short, intent-driven) can feel manipulative and long-winded in a Meta feed ad where the audience hasn't expressed a need. Match the framework to the psychological state of the viewer at that moment in their day.
+</Callout>
+
+<Callout type="tip">
+**Pro tip.** The highest-performing ad copywriters don't pick one framework — they use AIDA to draft the full ad, then run the headline through the 4 Us filter before publishing. If the headline fails the 4 Us check, they rewrite just the headline using PAS before testing. This three-layer approach consistently outperforms single-framework copy in head-to-head creative tests.
+</Callout>
+
+## The One-Line Takeaway
+
+**The framework is the scaffold — your job is to fill it with a specific customer pain, a believable outcome, and one frictionless next step.**
+
+<ResourceList resources={[
+  {
+    title: "WordStream: The Best Ad Copy Examples (and Why They Work)",
+    url: "https://www.wordstream.com/blog/ws/2020/03/25/ad-copy-examples",
+    type: "article",
+    note: "Breakdown of real ad copy across Google and Facebook with annotated explanations of which frameworks are in play",
+    free: true
+  },
+  {
+    title: "Google Skillshop: Google Ads Search Certification",
+    url: "https://skillshop.withgoogle.com/googleads",
+    type: "course",
+    note: "Official Google course covering responsive search ads, ad strength, and copy best practices — includes the 4 Us principles in the context of headline scoring",
+    free: true
+  },
+  {
+    title: "PPC Hero: Writing PPC Ad Copy That Converts",
+    url: "https://www.ppchero.com/writing-ppc-ad-copy",
+    type: "article",
+    note: "Practitioner-level guide from a paid search agency covering PAS and AIDA with before/after rewrites and CTR data",
+    free: true
+  }
+]} />
+
+## Related Concepts
+- [Creative Testing](/learn/paid-ads/creative-testing) — frameworks give you structured variants to test; creative testing tells you which variant won and why
+- [Quality Score](/learn/paid-ads/quality-score) — Google rewards ad copy that closely matches searcher intent, making framework-driven copy a direct input to your Quality Score
+- [Meta Ads](/learn/paid-ads/meta-ads) — Meta's primary text and headline fields each suit different frameworks; understanding the platform shapes which formula you reach for first

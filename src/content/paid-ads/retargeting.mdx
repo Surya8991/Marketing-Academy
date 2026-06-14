@@ -1,0 +1,104 @@
+export const lessonMeta = {
+  title: "Retargeting",
+  level: "Intermediate",
+  summary: "Closing the loop on visitors who didn't convert.",
+  category: "paid-ads",
+  slug: "retargeting",
+  relatedConcepts: ["meta-ads", "ios-attribution", "google-shopping-pmax"],
+}
+
+# Retargeting
+
+## What It Is
+
+Most people who visit your website leave without buying anything. That's just the reality of online shopping — people browse, get distracted, compare options, and move on. Retargeting is the practice of showing ads specifically to those people after they've already visited your site. It's a second chance to bring them back when they're closer to making a decision.
+
+The way it works is simple in concept: a small piece of code (called a pixel or tag) sits on your website and drops a cookie in a visitor's browser. When that same person later visits Facebook, Instagram, YouTube, or other sites across the Google Display Network, your ad appears in front of them. From the visitor's perspective, it can feel almost magical — they were just looking at your product, and now it's following them around the internet.
+
+Retargeting sits within the broader paid advertising ecosystem and is one of the highest-ROI tactics available to most marketers. Because you're targeting people who already know your brand and have shown some interest, your audience is far more qualified than a cold audience seeing your brand for the first time. Conversion rates are typically 2–10x higher than cold traffic campaigns, and cost-per-acquisition tends to be significantly lower.
+
+## Real-World Example
+
+Airbnb uses retargeting extensively to recapture users who searched for accommodation but didn't book.
+
+<Callout type="example" title="Real Example">
+Airbnb runs dynamic retargeting ads that show users the exact listings they browsed — complete with dates, pricing, and photos. If you searched for a Paris apartment for a weekend in July, you'll see that Paris apartment in your Facebook feed. Airbnb reported that this personalized retargeting approach drove a 300% increase in click-through rates compared to generic display ads, and their cost per booking for retargeted users dropped by roughly 60% versus cold prospecting campaigns.
+</Callout>
+
+## Why It Matters
+
+Retargeting isn't just a nice-to-have — it's often the campaign type with the best return on ad spend in a marketer's whole account. Knowing when to reach for it makes all the difference.
+
+- When you have traffic but low conversion rates — most sites convert 1–3% of visitors, leaving 97%+ of your ad spend walking out the door
+- When you sell higher-consideration products that require multiple touchpoints before a purchase decision
+- When you want to cross-sell or upsell existing customers by surfacing related products they haven't seen
+- When you need to defend against competitors who might retarget your visitors before you do
+
+## How It Works
+
+The retargeting process starts the moment someone lands on your site. Your pixel (Meta Pixel, Google Tag, or similar) fires and records a visit. That visitor gets added to an audience list, which you can segment however you like — everyone who visited any page, people who viewed a specific product, users who added to cart but didn't purchase, or even past customers.
+
+Once your audience is built, you create campaigns in Meta Ads Manager or Google Ads that target those lists specifically. You can layer on creative that's relevant to where they dropped off — a cart abandoner might see an ad with a discount code, while a product page visitor might see social proof like reviews. The more tailored your message is to what the person actually did on your site, the better your results.
+
+Frequency management is critical in retargeting. Unlike prospecting, where more impressions generally help, retargeting can quickly become annoying if a person sees the same ad too many times. Most practitioners cap frequency at 5–10 impressions per week per user, and rotate creative regularly to avoid ad fatigue. You should also exclude recent purchasers from your retargeting audiences so you're not wasting spend on people who already converted.
+
+<Mermaid chart={`
+flowchart LR
+  A[User visits site] --> B[Pixel fires & user added to audience]
+  B --> C{Action taken?}
+  C -->|Purchased| D[Exclude from retargeting]
+  C -->|Added to cart| E[Cart abandoner audience]
+  C -->|Viewed product| F[Product viewer audience]
+  E --> G[Show discount/urgency ad]
+  F --> H[Show social proof ad]
+  G --> I[User returns & converts]
+  H --> I
+`} caption="How retargeting segments visitors by behavior and serves tailored ads to bring them back" />
+
+## Common Mistakes
+
+<Callout type="warning">
+**Retargeting everyone with the same ad.** Showing a generic brand ad to someone who put three items in their cart and abandoned is a missed opportunity. Segment your audiences by where they dropped off in the funnel — homepage visitors, product page viewers, and cart abandoners each need different messages. Cart abandoners convert best with urgency or a small incentive; product viewers often respond to social proof like reviews or ratings.
+</Callout>
+
+<Callout type="warning">
+**Forgetting to exclude converters.** One of the most common — and most annoying to customers — mistakes is continuing to serve ads to people who already purchased. Not only does this waste budget, it signals poor data hygiene and can frustrate loyal customers. Always create a "recent purchasers" audience and exclude it from your retargeting campaigns. Depending on your product's repurchase cycle, exclude buyers for 30–90 days, then move them to a cross-sell or upsell audience instead.
+</Callout>
+
+<Callout type="tip">
+**Pro tip.** Build a "warm but not hot" prospecting audience using retargeting lookalikes. Take your highest-intent retargeting audience (cart abandoners who didn't convert after 7 days), create a lookalike from it in Meta Ads, and use that as a prospecting audience. You're essentially telling the algorithm "find people who look like my most-interested non-buyers" — these audiences consistently outperform lookalikes built from broad purchase data because the signal is more specific.
+</Callout>
+
+## The One-Line Takeaway
+
+**Retargeting turns wasted traffic into a second chance — and when you segment by behavior and match your message to where someone dropped off, it's almost always the highest-ROI campaign in your account.**
+
+<ResourceList resources={[
+  {
+    title: "About Remarketing — Google Ads Help",
+    url: "https://support.google.com/google-ads/answer/2453998",
+    type: "docs",
+    note: "Official Google documentation covering how remarketing lists work, tag setup, and audience types available in Google Ads",
+    free: true
+  },
+  {
+    title: "Retargeting Ads: A Beginner's Guide to Remarketing",
+    url: "https://www.wordstream.com/blog/ws/2014/06/24/retargeting",
+    type: "article",
+    note: "WordStream's comprehensive breakdown of retargeting mechanics, platform options, and best practices with benchmarks by industry",
+    free: true
+  },
+  {
+    title: "Meta Retargeting: Create a Custom Audience from Your Website",
+    url: "https://www.facebook.com/business/help/449542958510885",
+    type: "docs",
+    note: "Meta's official guide to setting up website custom audiences for retargeting on Facebook and Instagram, including pixel setup and audience rules",
+    free: true
+  }
+]} />
+
+## Related Concepts
+
+- [Meta Ads](/learn/paid-ads/meta-ads) — Meta's ad platform is one of the two primary places to run retargeting campaigns; understanding its auction and pixel setup is essential for effective retargeting
+- [iOS Attribution](/learn/paid-ads/ios-attribution) — iOS 14+ changes dramatically affected retargeting audience sizes and match rates on Meta; this context is required to understand why your audiences may be smaller than expected
+- [Google Shopping & PMax](/learn/paid-ads/google-shopping-pmax) — Performance Max campaigns include dynamic retargeting for product feeds, making it worth understanding how PMax and dedicated retargeting campaigns interact

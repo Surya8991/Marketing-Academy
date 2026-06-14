@@ -1,0 +1,101 @@
+export const lessonMeta = {
+  title: "Buyer Personas (without the fluff)",
+  level: "Beginner",
+  summary: "Personas that drive decisions, not decks.",
+  category: "fundamentals",
+  slug: "buyer-personas",
+  relatedConcepts: ["stp", "jtbd", "customer-journey"],
+}
+
+# Buyer Personas (without the fluff)
+
+## What It Is
+
+A buyer persona is a semi-fictional profile of the type of person most likely to buy your product. It captures who they are, what they care about, and what pushes them toward — or away from — a purchase. Think of it as a shorthand agreement across your team about who you're actually building for and talking to.
+
+The "semi-fictional" part matters. A persona isn't made up. It's built from real interviews, behavioral data, and customer support patterns. You're looking for patterns across real people, then giving those patterns a name and a face so your team can make faster, better decisions. Instead of arguing in a meeting about whether the homepage headline should be "simple" or "powerful," everyone can ask: what would Marcus the Startup Founder actually respond to?
+
+Where personas go wrong is when they become demographic wallpaper — "Sarah, 34, likes yoga and reads HBR" — with no connection to actual buying decisions. Useful personas are built around problems and motivations, not job titles and hobbies. The question that matters isn't what Sarah does on weekends. It's what keeps her up at night that your product can fix.
+
+## Real-World Example
+
+Mailchimp built their growth in the early 2010s almost entirely by obsessing over one persona: the small business owner who is not a marketer. Not a marketing manager at a mid-size company. Not a growth hacker. The specific person who runs a bakery or a photography studio and needs to send a newsletter without hiring anyone.
+
+<Callout type="example" title="Mailchimp's Persona-Driven Growth">
+Mailchimp's free plan wasn't a random acquisition strategy — it was designed specifically for their core persona: small business owners who couldn't justify a paid tool. By 2014 they had grown to 5 million users, with over 3 million on the free tier. Their entire UI, pricing, tone of voice ("Did you really mean to send to all 10,000 people?"), and onboarding was tuned to someone with no email marketing experience. That persona clarity drove a reported $400M in annual revenue by 2017 — without taking a dollar of outside funding until 2021.
+</Callout>
+
+## Why It Matters
+
+A clearly defined persona is a decision-making tool. You reach for it when:
+
+- You're writing copy and need to know what tone, vocabulary, and pain points will actually land
+- You're prioritizing features and need to cut through internal opinion with "but would our core customer care about this?"
+- You're choosing ad channels and need to know where that specific type of person actually spends time
+- You're designing onboarding and need to understand what the person already knows vs. what they'll find confusing
+
+Without a persona, marketing defaults to "everyone" — which means it resonates with no one.
+
+## How It Works
+
+Building a useful persona starts with talking to real customers. Aim for 8 to 15 interviews with people who recently bought your product, recently chose a competitor, or recently decided to do nothing. You're listening for the language they use to describe their problem, what triggered them to start looking for a solution, and what almost made them not buy.
+
+From those interviews, you start to see patterns. Maybe most of your customers were in a specific transition moment — just hired someone new, just moved to a new city, just hit a growth threshold that broke their old system. That trigger is more useful than their age. Layer in quantitative data from your CRM: deal size, job title, company size, which features they use first. The interview gives you the "why," the data gives you the "who."
+
+Then you distill all of this into one or two focused profiles. Each persona should include: the primary problem they're trying to solve, what they've already tried that didn't work, what makes them trust a vendor, and what their biggest objection to buying from you would be. Give it a name, not to be cute, but so that in a meeting you can say "would Marcus care about this?" and everyone knows exactly who you mean.
+
+<Mermaid chart={`
+flowchart LR
+  A[Customer Interviews] --> B[Pattern Recognition]
+  B --> C[Behavioral Data from CRM]
+  C --> D[Draft Persona Profile]
+  D --> E[Validate with Sales & Support]
+  E --> F[Activate: Copy, Product, Channels]
+`} caption="How a persona gets built — from raw interviews to decisions that actually change your marketing" />
+
+## Common Mistakes
+
+<Callout type="warning">
+**Building personas from assumptions, not data.** The most common mistake is skipping the interviews and building a persona from internal brainstorming. This produces a profile that reflects what your team wishes were true about your customers, not what actually is. If you haven't talked to at least five real customers before writing a persona, you don't have a persona — you have a hypothesis.
+</Callout>
+
+<Callout type="warning">
+**Adding demographic detail that doesn't connect to buying behavior.** Knowing that your persona "enjoys hiking and listens to podcasts" is harmless but useless unless those traits actually connect to how they make purchasing decisions. Every detail in a persona should pass the test: does knowing this change what I write, build, or say? If not, cut it. Bloated personas get ignored.
+</Callout>
+
+<Callout type="tip">
+**Pro tip.** The most valuable thing in any persona isn't the job title or the goal — it's the exact words your customer used in an interview to describe their problem. Pull direct quotes and put them in the persona document. When a copywriter sees "I was drowning in spreadsheets and nothing talked to each other," that's more useful than "values efficiency." Use their language, not yours.
+</Callout>
+
+## The One-Line Takeaway
+
+**A buyer persona is only useful if it changes how someone on your team makes a decision tomorrow — if it's living in a slide deck, it's decoration.**
+
+<ResourceList resources={[
+  {
+    title: "How to Create Detailed Buyer Personas for Your Business",
+    url: "https://blog.hubspot.com/marketing/buyer-persona-definition-under-100-sr",
+    type: "article",
+    note: "HubSpot's canonical guide on building personas, includes free templates and a breakdown of what questions to ask in customer interviews",
+    free: true
+  },
+  {
+    title: "Make My Persona — Free Persona Generator",
+    url: "https://www.hubspot.com/make-my-persona",
+    type: "tool",
+    note: "HubSpot's free interactive tool that walks you through building a persona step by step and outputs a shareable document",
+    free: true
+  },
+  {
+    title: "The Buyer Persona Manifesto",
+    url: "https://www.marketingprofs.com/articles/2013/10516/the-buyer-persona-manifesto",
+    type: "article",
+    note: "Adele Revella's foundational piece on what separates real personas from fictional ones — focuses on the 'five rings of buying insight' framework",
+    free: true
+  }
+]} />
+
+## Related Concepts
+- [STP (Segmentation, Targeting, Positioning)](/learn/fundamentals/stp) — Personas are what targeting looks like at the individual level; STP gives you the strategic framework that tells you which segment to build personas for
+- [Jobs to Be Done](/learn/fundamentals/jtbd) — JTBD pushes personas further by asking not who your customer is but what job they're hiring your product to do — a powerful complement to traditional persona work
+- [Customer Journey](/learn/fundamentals/customer-journey) — Once you have a persona, the customer journey maps how that specific person moves from problem to purchase — personas and journeys are most useful when built together

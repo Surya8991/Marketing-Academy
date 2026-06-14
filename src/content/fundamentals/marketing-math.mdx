@@ -1,0 +1,71 @@
+export const lessonMeta = {
+  title: "Marketing Math: CAC, LTV, ROAS, Payback",
+  level: "Beginner",
+  summary: "The four numbers every marketer must know — and how they fit together.",
+  category: "fundamentals",
+  slug: "marketing-math",
+  relatedConcepts: ["clv", "attribution-models", "retention-cohorts"],
+}
+
+# Marketing Math: CAC, LTV, ROAS, Payback
+
+## What It Is
+
+Every marketing decision eventually comes down to four numbers: how much it costs to get a customer, how much that customer is worth over time, how much revenue your ads bring back, and how long until you break even. Master those four, and you can defend any budget in any boardroom. Miss them, and you are guessing with someone else's money.
+
+The four metrics work as a system. **CAC** (Customer Acquisition Cost) is the all-in cost to acquire one paying customer — sales salaries, ad spend, agency fees, tools, divided by new customers won. **LTV** (Lifetime Value, sometimes called CLV) is the total gross profit you expect from that customer across their entire relationship with you. **ROAS** (Return on Ad Spend) is revenue divided by ad spend for a specific campaign or channel — a short-horizon, channel-level efficiency number. **Payback period** is how many months of gross margin it takes to recoup CAC. Together they answer: are we growing efficiently, or are we lighting cash on fire?
+
+In 2025, this math matters more than it has in a decade. Free money is gone, CPMs on Meta and Google have climbed steadily, iOS privacy changes broke last-click attribution, and boards have shifted from "growth at all costs" to "show me the unit economics." The marketers who can speak fluent CAC/LTV/ROAS/payback are the ones still controlling budget.
+
+## Real-World Example
+
+<Callout type="example" title="HubSpot — using LTV:CAC to justify a 40%+ R&D and sales spend">
+HubSpot is the textbook case. In its 2024 annual filings the company reported $2.63B in revenue, $1.27B in sales and marketing spend (roughly 48% of revenue), and a Net Revenue Retention around 102% — meaning the average customer's spend grew slightly each year rather than shrinking. Combined with reported gross margins above 84%, HubSpot's payback period sits in the ~20–24 month range, and its implied LTV:CAC ratio comfortably clears the 3:1 bar David Skok established as the SaaS health threshold. Investors tolerate the heavy S&M line precisely because the math works on the back end — every dollar in goes out as more than three dollars over the customer's life.
+</Callout>
+
+## Why It Matters
+
+- **It decides budget.** When CFOs cut spend, they cut channels with bad payback first. Knowing your numbers is how marketing keeps its seat at the table.
+- **It exposes channel lies.** A campaign with 8x ROAS on a 14-day window can still lose money if refunds, COGS, and churn are honest. The four-metric system catches that.
+- **It aligns marketing with finance.** CAC and payback are the bridge between dashboards your team reads and the P&L your CFO reads.
+- **It informs pricing and packaging.** If LTV is low, the fix is usually retention or price, not more ads. The math tells you which lever to pull.
+
+## How It Works
+
+Start at the campaign level with **ROAS**: revenue generated ÷ ad spend. A 4:1 ROAS means $4 of revenue for every $1 of ad spend. This is a fast read on channel efficiency, but it is gross revenue — not profit — and it ignores everything that happens after the first purchase. Treat ROAS as the speedometer, not the destination.
+
+Zoom out to the customer level with **CAC**: total sales + marketing cost in a period ÷ new customers acquired in that period. Then calculate **LTV**: average revenue per customer × gross margin % × average customer lifetime (or 1 ÷ monthly churn rate, for subscription businesses). The headline ratio is **LTV:CAC**. The widely-cited benchmark from SaaS investor David Skok is 3:1 — under that you are not earning enough per customer to justify the acquisition cost; over 5:1 you are likely under-investing in growth. Median B2B SaaS sits around 3.2:1 based on 2024–2025 data from Optifai's 939-company dataset.
+
+Finally, **CAC Payback Period** = CAC ÷ (monthly gross profit per customer). It tells you how many months of margin you need before that customer is in the black. ScaleXP's 2025 benchmark report shows median SaaS CAC payback has stretched to roughly 20 months, up from the historical 12–18 month band — a direct consequence of higher paid-media costs and longer enterprise sales cycles in the post-ZIRP era.
+
+<Mermaid chart={`flowchart LR
+  A[Ad Spend] --> B[ROAS<br/>Revenue / Spend]
+  B --> C[CAC<br/>S&M / New Customers]
+  C --> D[Payback<br/>CAC / Monthly Margin]
+  D --> E[LTV:CAC<br/>Lifetime Value Ratio]
+  E --> F{Healthy?<br/>3:1 + <br/>&lt;18mo payback}`} caption="From channel-level ROAS up to portfolio-level unit economics." />
+
+A practical rule of thumb for 2025: if your LTV:CAC is below 3:1 **and** payback is over 18 months, you have a unit-economics problem, not a marketing problem — more spend will make it worse, not better.
+
+## Common Mistakes
+
+<Callout type="warning">**Mistake 1. Using revenue instead of gross profit in LTV.** A $100 customer with 20% margins is worth $20 to your business, not $100. Plugging top-line revenue into LTV produces a flattering 8:1 ratio that evaporates the moment the CFO opens a spreadsheet.</Callout>
+
+<Callout type="warning">**Mistake 2. Excluding salaries and tools from CAC.** "Paid CAC" (ad spend ÷ customers) looks great in dashboards but ignores the SDR team, the marketing ops headcount, agency retainers, and the $40K/year martech stack. Fully-loaded CAC is usually 2–3× the paid-only number.</Callout>
+
+<Callout type="tip">**Pro tip.** Track CAC and payback by **cohort and channel**, not as company-wide averages. The aggregate number hides the truth: one efficient channel is usually subsidizing two leaky ones. When you cut the leaky channels, blended CAC drops 30–50% almost overnight — without losing meaningful revenue.</Callout>
+
+## The One-Line Takeaway
+
+**ROAS tells you if a campaign worked this week; LTV:CAC and payback tell you if the business will work this decade.**
+
+<ResourceList resources={[
+  { title: "SaaS Metrics 2.0 — A Guide to Measuring and Improving What Matters", url: "https://www.forentrepreneurs.com/saas-metrics-2/", type: "article", note: "David Skok's foundational guide that popularized the 3:1 LTV:CAC rule and <12 month payback benchmark.", free: true },
+  { title: "2025 SaaS Benchmarks: CAC Payback", url: "https://www.scalexp.com/blog-saas-benchmarks-cac-payback-2025/", type: "article", note: "Current data showing median CAC payback has stretched to ~20 months in 2025.", free: true },
+  { title: "B2B SaaS LTV Benchmarks — 939 Companies", url: "https://optif.ai/learn/questions/b2b-saas-ltv-benchmark/", type: "docs", note: "Segmented LTV:CAC and payback benchmarks by ARR band and GTM model.", free: true }
+]} />
+
+## Related Concepts
+- [Customer Lifetime Value (CLV)](/learn/email/clv) — the deeper dive into the LTV side of the equation, and why email/retention is the cheapest way to grow it.
+- [Attribution Models](/learn/analytics/attribution-models) — your ROAS number is only as honest as the attribution model behind it.
+- [Retention Cohorts](/learn/growth/retention-cohorts) — cohort retention is the input that makes LTV (and therefore payback) believable.

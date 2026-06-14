@@ -1,0 +1,71 @@
+export const lessonMeta = {
+  title: "Voice Search SEO",
+  level: "Advanced",
+  summary: "Alexa, Siri, Google Assistant — optimizing for spoken queries.",
+  category: "seo",
+  slug: "voice-search-seo",
+  relatedConcepts: ["aeo", "local-seo", "schema-structured-data"],
+}
+
+# Voice Search SEO
+
+## What It Is
+
+Voice search SEO is the practice of shaping your website so that smart assistants — Siri on iPhones, Alexa on Echo speakers, Google Assistant in cars, and the voice modes inside ChatGPT and Perplexity — can read your content out loud as the answer to a spoken question. When someone asks "Hey Google, what's the best pizza place near me?" exactly one result usually wins. That single spoken answer is the prize voice SEO is built around.
+
+The mechanics differ from typing into a search box. Spoken queries are longer, more conversational, and almost always phrased as full questions. They tend to be local ("near me"), immediate ("right now"), or task-oriented ("how do I..."). Assistants don't read ten blue links — they pick one short passage, usually 25 to 35 words, and speak it as fact. So instead of optimizing a page to rank tenth on page one, you're optimizing a single paragraph to be the chosen one.
+
+By 2025, voice has stopped being a novelty and become an interface layer. Roughly 27.6% of global internet users aged 16-64 use voice assistants weekly, smart speakers sit in 98 million US households, and the rise of AI voice modes in ChatGPT, Gemini Live, and Perplexity means the same optimization patterns now feed both classical assistants and conversational AI.
+
+## Real-World Example
+
+<Callout type="example" title="HubSpot — turning question-shaped headers into voice answers">
+HubSpot's blog has been a quiet voice-search winner because its editorial template is almost custom-built for it. Posts open with a clear H1 question ("What is a CRM?"), then answer in a 40-to-60-word definition paragraph directly underneath — the exact format Google promotes to a Featured Snippet. Backlinko's voice search study found that **40.7% of voice answers come from Featured Snippets**, and HubSpot's "what is" library ranks for tens of thousands of those snippets. According to the same study, the average spoken answer is just **29 words long** and pages that win voice results load in **4.6 seconds on average** — both numbers HubSpot's templated answer blocks hit consistently. The result: when a user asks Google Assistant "what is inbound marketing?", the assistant frequently reads HubSpot's definition verbatim, including the brand attribution.
+</Callout>
+
+## Why It Matters
+
+- **Position zero is the only position.** A voice assistant reads one answer, not ten. If you're not the snippet, you're invisible.
+- **Local intent is 3x stronger.** Voice queries carry roughly three times more local intent than typed search, per Mary Meeker's Internet Trends report — making voice SEO inseparable from local SEO.
+- **AI assistants reuse the same signals.** ChatGPT voice mode, Perplexity, and Gemini Live pull from the same structured, snippet-ready content. Voice SEO in 2025 is a down payment on Answer Engine Optimization.
+- **The query mix is shifting toward tasks.** Voice users skew toward "do" intents (book, call, navigate, order) where the conversion is closer than typed research queries.
+
+## How It Works
+
+Voice SEO is a pipeline. A spoken query gets transcribed into text, the assistant resolves it against a search index (Google for Assistant, Bing for Alexa and Siri's web fallback), picks one result — almost always from a Featured Snippet, People-Also-Ask block, or a knowledge panel — and reads it back. Your job is to make sure the paragraph the assistant grabs is yours.
+
+Three layers do the heavy lifting. First, **content shape**: write the question as a header, answer it in 25-35 words right underneath, then expand below. Aim for ninth-grade readability — Backlinko's study found that's the sweet spot voice winners hit. Second, **structured data**: mark up FAQs with `FAQPage` schema, local entities with `LocalBusiness`, and how-tos with the assistant-friendly subset of `HowTo`. Third, **technical fundamentals**: voice winners load in around 4.6 seconds and live on high-authority HTTPS domains. None of these alone is enough; together they multiply.
+
+<Mermaid chart={`flowchart LR
+  A[Spoken query] --> B[Assistant transcribes]
+  B --> C{Search index}
+  C --> D[Featured snippet?]
+  D -->|Yes 40.7%| E[Read snippet aloud]
+  D -->|No| F[Top organic answer]
+  F --> E
+  E --> G[Attribute to brand]`} caption="How a voice assistant chooses one answer from the index" />
+
+The 2025 wrinkle is multimodal. Google Assistant on Pixel and Gemini Live now follow up spoken answers with on-screen cards; ChatGPT's voice mode reads sources aloud and links to them on the transcript. That means brand attribution — the assistant saying "according to HubSpot…" — has become a measurable channel of its own. Track it by monitoring referral traffic spikes that correlate with snippet wins and by sampling assistant responses for your priority queries monthly.
+
+## Common Mistakes
+
+<Callout type="warning">**Mistake 1. Optimizing for keywords instead of questions.** Voice queries are full sentences: "how long do I cook salmon at 400" not "salmon cook time 400." If your H2s aren't phrased the way a human would ask out loud, you won't surface. Audit your headers — they should pass the "would I say this to Siri?" test.</Callout>
+
+<Callout type="warning">**Mistake 2. Burying the answer.** Voice assistants extract the first concise, on-topic paragraph that directly answers the header. If you open with a 300-word preamble before defining the term, the snippet goes to a competitor who answered in sentence one. Lead with the answer; teach the context afterward.</Callout>
+
+<Callout type="tip">**Pro tip.** Build a "snippet block" template and enforce it editorially: H2 phrased as a question, a 40-60 word answer paragraph immediately below in plain prose (no bullets, no bold), then deeper content. Pair it with `FAQPage` schema and you'll convert a meaningful share of long-tail questions into voice-eligible answers without rewriting your whole site.</Callout>
+
+## The One-Line Takeaway
+
+**Voice SEO is the discipline of writing the one paragraph an assistant will read aloud — questions as headers, 29-word answers underneath, schema around it, on a fast and trusted domain.**
+
+<ResourceList resources={[
+  { title: "Voice Search: 29 Fascinating Stats", url: "https://backlinko.com/voice-search-stats", type: "article", note: "Backlinko's original study — source of the 40.7% featured-snippet figure and the 29-word answer benchmark.", free: true },
+  { title: "Google Search Central: Structured Data Guide", url: "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data", type: "docs", note: "Official schema documentation — FAQPage, HowTo, and LocalBusiness markup that powers voice eligibility.", free: true },
+  { title: "Voice Search Optimization (HubSpot)", url: "https://blog.hubspot.com/marketing/voice-search-optimization", type: "article", note: "HubSpot's practitioner guide with question-format templates and local-intent playbooks.", free: true }
+]} />
+
+## Related Concepts
+- [Answer Engine Optimization](/learn/seo/aeo) — voice and AI assistants share the same snippet-shaped surface; AEO generalizes the discipline.
+- [Local SEO](/learn/seo/local-seo) — voice queries carry 3x local intent, so Google Business Profile and `LocalBusiness` schema are non-negotiable.
+- [Schema & Structured Data](/learn/seo/schema-structured-data) — FAQPage, HowTo, and Speakable markup are the technical gateway to voice eligibility.

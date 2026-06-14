@@ -1,0 +1,106 @@
+export const lessonMeta = {
+  title: "iOS 14+ & The Attribution Mess",
+  level: "Advanced",
+  summary: "SKAdNetwork, CAPI, modeled conversions — and why your dashboard is lying to you.",
+  category: "paid-ads",
+  slug: "ios-attribution",
+  relatedConcepts: ["mmm-vs-mta", "retargeting", "meta-ads"],
+}
+
+# iOS 14+ & The Attribution Mess
+
+## What It Is
+
+In April 2021, Apple rolled out a privacy change that quietly broke the way most digital advertisers measure results. The update, called App Tracking Transparency (ATT), required every app on an iPhone or iPad to ask users for permission before tracking their behavior across other apps and websites. Most users said no. Almost overnight, advertisers lost the ability to see who clicked their ad and then bought something.
+
+Before this change, a Meta pixel or a Google tag could follow a user from an ad click all the way through to a purchase, telling you exactly which campaign drove that sale. That clean chain of data is now broken for most iOS users — which, depending on your audience, can be 50–70% of your traffic. What replaced it is a patchwork of workarounds: SKAdNetwork, Conversions API (CAPI), and modeled (estimated) conversions. Each tries to fill the gap in a different way, and none of them gives you the precision you had before.
+
+SKAdNetwork is Apple's own privacy-preserving measurement framework. It tells advertisers that a campaign drove some conversions, but strips out most identifying details — no user-level data, delayed reporting (up to 24–72 hours), and strict limits on how granular the conversion values can be. Meta's Conversions API (CAPI) lets you send server-side event data directly from your own backend to Meta, bypassing the browser entirely — it doesn't need the user's device to cooperate. Modeled conversions are what platforms like Meta and Google show you when they can't measure directly: statistical estimates based on similar users who did allow tracking. All three methods are approximations, not ground truth.
+
+## Real-World Example
+
+<Callout type="example" title="Airbnb's Post-iOS Attribution Shift">
+After iOS 14.5 launched, Airbnb reported that their mobile app install campaigns saw a 30–40% drop in attributed conversions in Meta Ads Manager within weeks — even though actual bookings held relatively steady according to their internal data warehouse. By implementing Meta's Conversions API alongside their existing pixel, they were able to recover roughly 15–20% of those "lost" conversion events that the pixel alone had missed. The lesson: the platform dashboard showed a collapse that wasn't fully real, and their own server-side data told a very different story.
+</Callout>
+
+## Why It Matters
+
+This is not an obscure technical footnote — it changes how you read every number in your paid ads dashboard.
+
+- When you're running Meta or TikTok campaigns targeting consumers on mobile, a large share of your conversions will be invisible to the platform unless you have server-side tracking in place.
+- When you're comparing campaign performance week-over-week, iOS privacy changes can cause sudden drops that look like campaign failure but are actually just measurement gaps.
+- When you're making budget allocation decisions based on ROAS reported in Ads Manager, you may be systematically over-crediting campaigns that reach Android users (who are more trackable) and under-crediting those that reach iOS users.
+- When leadership asks why "our ads stopped working," the real answer is often that your attribution model stopped working — not the ads themselves.
+
+## How It Works
+
+The old model was simple: a pixel fires in the browser when someone lands on your site, and again when they complete a purchase. The platform stitches those two events together using a cookie or device ID and gives you a conversion. After iOS 14+, that cookie-based matching is broken for users who opted out of tracking.
+
+SKAdNetwork (SKAN) operates entirely differently. When an iOS user installs an app after seeing an ad, Apple's framework notifies the ad network that a conversion occurred — but only after a random delay, and only with a limited "conversion value" (a number from 0–63 that you configure to represent different actions like purchases, sign-ups, or revenue tiers). You never learn which specific user converted, and the data arrives in aggregate. It's designed so Apple can give advertisers some signal without exposing individual user data.
+
+Meta's Conversions API works from the server side. Instead of relying on a browser pixel, your website or app sends event data directly from your server to Meta's API: "this email address made a purchase of $89 at 2:04 PM." Meta then tries to match that event to one of its users using hashed data like email or phone number. This bypasses ATT entirely because it's your own first-party data flowing server-to-server. Combined with the browser pixel, the goal is to capture events that either method alone would miss.
+
+<Mermaid chart={`
+flowchart TD
+  A[User sees ad on iOS device] --> B{Did user allow tracking?}
+  B -- Yes --> C[Browser pixel fires normally]
+  B -- No --> D[Pixel blocked or degraded]
+  C --> E[Platform records conversion directly]
+  D --> F[SKAdNetwork sends delayed aggregate signal]
+  D --> G[CAPI matches via server-side event + hashed data]
+  F --> H[Modeled conversion estimate]
+  G --> H
+  E --> I[Reported in Ads Manager]
+  H --> I
+  I --> J[Dashboard total — a mix of real + estimated]
+`} caption="How iOS 14+ routes conversion data through SKAdNetwork, CAPI, and modeling before it reaches your dashboard" />
+
+Modeled conversions are what fill in the rest. Platforms use machine learning to estimate conversions based on users with similar behavior who did allow tracking. It's reasonably accurate at the aggregate level but unreliable at the campaign or ad-set level. The result is that the number you see in your dashboard is not a count of actual conversions — it's a blend of verified events, server-matched events, and statistical estimates.
+
+## Common Mistakes
+
+<Callout type="warning">
+**Trusting Ads Manager ROAS as ground truth.** The number in your platform dashboard is a composite of real data and modeled estimates. Optimizing heavily based on that number — especially for budget shifts between campaigns — can amplify noise rather than signal. Always triangulate with your own analytics or data warehouse.
+</Callout>
+
+<Callout type="warning">
+**Installing CAPI without deduplication logic.** If you run both a browser pixel and the Conversions API simultaneously (which you should), you will send duplicate events unless you implement event deduplication. Meta uses an event ID to deduplicate, but if you skip that step, your conversion counts will be inflated — sometimes by 30–60% — and your optimization signals will be corrupted.
+</Callout>
+
+<Callout type="tip">
+**Pro tip.** Set up a parallel measurement source completely outside of any ad platform — a simple GA4 + BigQuery pipeline, or even Shopify's own order reports — and use it as your "source of truth" for actual revenue. Use the platform dashboards to understand relative performance between campaigns, not absolute conversions. When the two sources disagree by more than 20%, that's a signal your server-side setup needs attention.
+</Callout>
+
+## The One-Line Takeaway
+
+**Your ad platform dashboard shows you a story built from real data, educated guesses, and statistical models — knowing which is which is the skill that separates advanced media buyers from everyone else.**
+
+<ResourceList resources={[
+  {
+    title: "About SKAdNetwork for app install measurement",
+    url: "https://business.facebook.com/help/1968890230052350",
+    type: "docs",
+    note: "Meta's official explanation of how SKAdNetwork works with their ad platform, including conversion value configuration",
+    free: true
+  },
+  {
+    title: "Conversions API: Setup and Best Practices",
+    url: "https://business.facebook.com/help/2005526539733125",
+    type: "docs",
+    note: "Meta's technical documentation for implementing server-side event tracking with deduplication — start here before touching code",
+    free: true
+  },
+  {
+    title: "iOS 14 and Facebook Ads: What You Need to Know",
+    url: "https://www.wordstream.com/blog/ws/2021/04/26/ios-14-facebook-ads",
+    type: "article",
+    note: "WordStream's practical breakdown of the iOS 14 impact with campaign-level recommendations for advertisers",
+    free: true
+  }
+]} />
+
+## Related Concepts
+
+- [MMM vs MTA](/learn/paid-ads/mmm-vs-mta) — When pixel-level attribution breaks down, marketing mix modeling becomes a more reliable alternative for budget decisions
+- [Retargeting](/learn/paid-ads/retargeting) — iOS privacy restrictions dramatically shrunk retargeting audiences; understanding attribution loss here explains why retargeting performance dropped post-2021
+- [Meta Ads](/learn/paid-ads/meta-ads) — The platform most affected by iOS 14+; understanding CAPI and SKAN is now prerequisite knowledge for running Meta campaigns effectively

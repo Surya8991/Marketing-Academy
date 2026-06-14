@@ -1,0 +1,100 @@
+export const lessonMeta = {
+  title: "Positioning",
+  level: "Intermediate",
+  summary: "The category you choose, the frame of reference, and why "better" loses to "different".",
+  category: "fundamentals",
+  slug: "positioning",
+  relatedConcepts: ["stp", "branding", "value-proposition"],
+}
+
+# Positioning
+
+## What It Is
+
+Positioning is the decision about what mental space your brand occupies in the minds of your customers. It is not your logo, your tagline, or your product features — it is the answer to one question: when a customer thinks about solving a specific problem, do they think of you first, and what do they believe about you?
+
+The simplest way to understand it: positioning is the category you compete in plus the one thing that makes you the obvious choice within that category. Apple does not just sell computers — it sells tools for creative professionals who think differently. Volvo does not just sell cars — it sells the safest cars on the road. Neither of those claims requires reading a spec sheet. The idea lands in a sentence because the positioning is clear.
+
+What makes positioning tricky is that "better" is almost never a winning position. If you tell the market your product is better than the competition, you are inviting a direct comparison — and comparisons favor whoever already owns the category. Being different, serving a different person, solving a slightly different problem, or owning a different attribute entirely removes you from that fight. Al Ries and Jack Trout coined the phrase "positioning battle" for a reason: you are fighting for a slot in someone's mind, and that slot is almost always already occupied by someone else.
+
+## Real-World Example
+
+Dollar Shave Club launched in 2012 into a market completely dominated by Gillette, which held roughly 70% of the US razor market at the time. Gillette's positioning was premium, masculine, and technology-forward — "The Best a Man Can Get." A direct competitor claiming better razors would have been invisible.
+
+<Callout type="example" title="Dollar Shave Club: Different Beats Better">
+Instead of competing on quality, Dollar Shave Club positioned against the *experience* of buying razors — overpriced, over-engineered blades sold in locked display cases. Their launch video cost roughly $4,500 to produce, went viral with 12,000 orders in the first 48 hours, and has since accumulated over 27 million YouTube views. By the time Unilever acquired the company in 2016 for $1 billion, Dollar Shave Club held approximately 8% of the US razor market — carved entirely from a positioning that said "this whole category is ridiculous, and we're the sane alternative."
+</Callout>
+
+## Why It Matters
+
+A marketer reaches for positioning when:
+
+- You are entering a crowded market and need to carve out a defensible niche before spending money on ads or content
+- Your sales team keeps losing deals and cannot articulate clearly why a customer should choose you over the alternative
+- You are launching a new product line and need to decide whether it reinforces or extends your existing brand territory
+- Your growth has plateaued and you suspect you are trying to be everything to everyone — which means you are the first choice for no one
+
+## How It Works
+
+Positioning starts with choosing your frame of reference — the category your customer will use to evaluate you. This is not always obvious. Slack could have positioned as enterprise software, but they chose to position against email. That frame made "fewer meetings, less email" a natural claim, and it gave them a story that resonated with employees rather than IT buyers.
+
+Once you have a frame of reference, you find your point of difference — the one thing you do better than anything else in that frame. Not a list of features. One thing. Notion's point of difference is not "it has databases and docs" — it is that it replaces four tools with one workspace, which matters to people drowning in app-switching. That point of difference must be relevant to a real customer pain and credible given what your company actually does.
+
+The final step is making sure your positioning is defensible. A position you can hold for five years is worth far more than a clever campaign that a competitor can copy in six months. The best positions are tied to something structural — a business model (Dollar Shave Club's subscription), a founding story (Patagonia's environmental mission), or a distribution advantage (HubSpot's inbound methodology, which they literally invented as a category).
+
+<Mermaid chart={`
+flowchart LR
+  A[Choose Frame\nof Reference] --> B[Identify Point\nof Difference]
+  B --> C[Test Relevance\n& Credibility]
+  C --> D{Defensible\nlong-term?}
+  D -- Yes --> E[Position Statement\n& Messaging]
+  D -- No --> B
+`} caption="Positioning process: frame of reference → point of difference → defensibility check → messaging" />
+
+## Common Mistakes
+
+<Callout type="warning">
+**Positioning to everyone means owning no one.** The most common mistake is writing a position statement so broad it could apply to any company in the industry. "We help businesses grow with innovative solutions" is not positioning — it is a placeholder. Real positioning excludes people. If your position does not make some customers say "that's not for me," it is not specific enough to make the right customers say "that's exactly for me."
+</Callout>
+
+<Callout type="warning">
+**Confusing positioning with messaging.** Positioning is internal strategy — the single truth your entire company aligns around. Messaging is how you express that truth to different audiences in different channels. When teams skip the positioning work and jump straight to taglines and ad copy, the messaging becomes inconsistent, campaigns feel disconnected, and no clear brand impression accumulates over time. Fix the strategy before you write a single word of copy.
+</Callout>
+
+<Callout type="tip">
+**Use the "only" test.** Write a one-sentence position statement starting with: "[Brand] is the only [category] that [point of difference] for [target customer]." If you cannot fill in all four blanks with something specific and true, you do not have a position yet — you have a direction. The "only" forces the specificity that most positioning exercises avoid. Notion: "Notion is the only workspace that replaces your notes, docs, and project tools in one connected system for teams who hate tool sprawl."
+</Callout>
+
+## The One-Line Takeaway
+
+**Positioning is not about being the best — it is about being the only thing that makes sense for a specific person with a specific problem.**
+
+<ResourceList resources={[
+  {
+    title: "Positioning: The Battle for Your Mind — Al Ries & Jack Trout (Summary)",
+    url: "https://blog.hubspot.com/marketing/positioning-statement",
+    type: "article",
+    note: "HubSpot's practical guide to writing a positioning statement, with templates and real brand examples",
+    free: true
+  },
+  {
+    title: "Obviously Awesome: How to Nail Product Positioning — April Dunford",
+    url: "https://www.youtube.com/watch?v=4yWBdO2z_aI",
+    type: "video",
+    note: "April Dunford's talk distilling the core framework from her book — the clearest 30 minutes you will spend on positioning",
+    free: true
+  },
+  {
+    title: "HubSpot Academy: Marketing Fundamentals",
+    url: "https://academy.hubspot.com/courses/marketing",
+    type: "course",
+    note: "Free certification course covering positioning, segmentation, and messaging strategy with practical exercises",
+    free: true
+  }
+]} />
+
+## Related Concepts
+
+- [STP (Segmentation, Targeting, Positioning)](/learn/fundamentals/stp) — positioning is the final step of the STP framework; you cannot position until you know exactly who you are targeting
+- [Branding](/learn/fundamentals/branding) — brand identity is how your positioning is expressed visually and verbally across every customer touchpoint
+- [Value Proposition](/learn/fundamentals/value-proposition) — your value proposition is the customer-facing articulation of your position; the two must be tightly aligned or neither will land

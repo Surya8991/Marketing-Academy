@@ -1,0 +1,103 @@
+export const lessonMeta = {
+  title: "MMM vs. MTA",
+  level: "Advanced",
+  summary: "When to trust marketing mix modeling vs. multi-touch attribution.",
+  category: "paid-ads",
+  slug: "mmm-vs-mta",
+  relatedConcepts: ["ios-attribution", "bidding-strategies", "google-shopping-pmax"],
+}
+
+# MMM vs. MTA
+
+## What It Is
+
+Imagine you ran five different ads last month — a TV spot, a Google search campaign, some Instagram stories, a podcast sponsorship, and a few YouTube pre-rolls. Sales went up 20%. Now your boss asks: which of those drove the growth? The answer you get depends entirely on which measurement method you use, and the two most powerful methods give you very different answers.
+
+Marketing Mix Modeling (MMM) and Multi-Touch Attribution (MTA) are both ways of figuring out which marketing activities are driving revenue. MMM is a statistical approach that looks at historical data across months or years — sales figures, spend, seasonality, even competitor activity — and builds a regression model to estimate how much each channel contributed. It's like a forensic accountant working backward from your business results. MTA, on the other hand, tracks individual users as they move through your funnel, assigning credit to specific touchpoints (a click here, a video view there) along the path to conversion.
+
+Neither method is "right" in every situation. MMM gives you a high-altitude view of channel contribution over time, including channels that are hard to track digitally (like TV, radio, or out-of-home advertising). MTA gives you granular, user-level data that can inform real-time bidding decisions — but it requires cookies or device IDs, meaning it breaks badly in a privacy-first world. Understanding when to trust each model is the difference between budget decisions grounded in reality and ones built on a shaky foundation.
+
+## Real-World Example
+
+<Callout type="example" title="Real Example">
+Airbnb ran a large-scale brand awareness campaign across TV, digital display, and paid social in 2022. Their MTA data showed digital display as a low performer — users who saw display ads rarely clicked, and last-click attribution gave display almost no credit. But when Airbnb's data science team ran an MMM analysis over 18 months of data, display contributed roughly 15% of incremental bookings by building brand recognition that lifted conversion rates on search ads by ~12%. Cutting display based on MTA alone would have cost them millions in downstream bookings.
+</Callout>
+
+## Why It Matters
+
+Understanding the difference between MMM and MTA matters every time you're making a budget call that involves more than one channel. Specifically, reach for this knowledge when:
+
+- You're allocating budget across channels that mix online and offline (search + TV + out-of-home) and need a single view of ROI
+- Your iOS or browser privacy changes have made user-level tracking unreliable and MTA data looks suspiciously off
+- You want to optimize individual campaigns in-flight (where MTA's speed advantage matters more than MMM's accuracy)
+- Your CFO is asking for proof that brand-building spend is working, and click-based reports make it look like waste
+
+## How It Works
+
+MMM works by feeding a statistical regression model years of weekly or monthly data: your spend by channel, your sales or revenue, external factors like seasonality, holidays, economic conditions, and even competitor spend if available. The model then estimates the marginal contribution of each input — how much did an extra dollar of paid social spend actually move the needle, on average, after controlling for everything else? Because MMM uses aggregated data at the business level rather than individual user data, it sidesteps privacy restrictions entirely. The trade-off is that it requires substantial historical data (typically 2+ years), takes weeks to build and validate, and doesn't update fast enough to inform day-to-day bidding.
+
+MTA works at the opposite end of the spectrum. It stitches together a user's journey across touchpoints — a Google search ad click on Monday, a retargeting display impression on Wednesday, a direct visit and purchase on Friday — and distributes credit across those interactions. Different MTA models assign credit differently: last-click gives 100% to that final visit, linear splits evenly across all touches, and data-driven models use machine learning to weight touchpoints by their observed contribution to conversion. MTA is fast, granular, and actionable for in-platform optimization. But it only sees what it can track, which means it systematically undercounts channels like TV, podcasts, organic social, and any touch that happens on a device or browser where the user can't be identified.
+
+The smartest marketing teams use both. MMM informs strategic budget allocation on a quarterly or annual basis — which channels deserve more investment overall. MTA informs tactical optimization within those channels on a daily or weekly basis — which keywords, creatives, or audiences are converting best right now.
+
+<Mermaid chart={`
+flowchart TD
+  A[Business Question] --> B{Time Horizon?}
+  B -->|Strategic / Quarterly| C[Use MMM]
+  B -->|Tactical / Daily| D[Use MTA]
+  C --> E[Aggregate historical data]
+  E --> F[Regression model across all channels]
+  F --> G[Channel budget allocation]
+  D --> H[User-level touchpoint data]
+  H --> I[Attribution model assigns credit]
+  I --> J[In-platform bid optimization]
+  G --> K[Unified measurement view]
+  J --> K
+`} caption="MMM handles strategic budget decisions; MTA handles in-flight optimization. Used together, they give a complete picture." />
+
+## Common Mistakes
+
+<Callout type="warning">
+**Treating MTA as the single source of truth.** When teams rely exclusively on MTA — especially last-click or even data-driven MTA — they systematically defund brand-building channels and upper-funnel spend because those touchpoints are invisible or underweighted. The result is short-term performance metrics that look fine while the brand slowly erodes. If your MTA report says TV and podcast spend contribute nothing, that's a data gap, not a real signal.
+</Callout>
+
+<Callout type="warning">
+**Running MMM on too little data.** MMM needs enough variation in spend over enough time to isolate channel effects. If you ran Google Ads flat at the same budget for 6 months with no changes, the model can't distinguish its contribution from background noise. Teams that build MMM on under a year of data, or data where spend barely moved, get confidence intervals so wide the output is useless for decisions.
+</Callout>
+
+<Callout type="tip">
+**Pro tip.** Use geo-based incrementality experiments to validate both models. Run a spend-up or spend-down test in a subset of regions, measure the actual sales lift, and compare it against what MMM predicted and what MTA predicted. This triangulation reveals which model is closer to ground truth for your business — and gives you the evidence to push back when finance questions your channel mix.
+</Callout>
+
+## The One-Line Takeaway
+
+**Use MMM to decide where to put your budget, and MTA to optimize how you spend it — neither model alone tells you the full story.**
+
+<ResourceList resources={[
+  {
+    title: "Google's Marketing Mix Modeling Guide",
+    url: "https://support.google.com/google-ads/answer/13835531",
+    type: "docs",
+    note: "Google's official introduction to MMM and how it fits with Privacy Sandbox measurement solutions",
+    free: true
+  },
+  {
+    title: "Meta's Conversion Attribution Explainer",
+    url: "https://www.facebook.com/business/help/370704083280490",
+    type: "docs",
+    note: "Meta Business Help Center breakdown of how Meta's attribution windows and MTA models work across its platforms",
+    free: true
+  },
+  {
+    title: "WordStream: Marketing Attribution Models Explained",
+    url: "https://www.wordstream.com/blog/ws/2020/05/05/marketing-attribution",
+    type: "article",
+    note: "Practical comparison of MTA attribution models (last-click, linear, time-decay, data-driven) with real campaign examples",
+    free: true
+  }
+]} />
+
+## Related Concepts
+- [iOS Attribution](/learn/paid-ads/ios-attribution) — Understanding how Apple's ATT framework broke user-level MTA and why MMM became more valuable post-iOS 14
+- [Bidding Strategies](/learn/paid-ads/bidding-strategies) — MTA data feeds directly into smart bidding algorithms; knowing its limits helps you set realistic tROAS and tCPA targets
+- [Google Shopping & PMax](/learn/paid-ads/google-shopping-pmax) — Performance Max campaigns use Google's own attribution model internally, making external MMM validation especially important for understanding true incremental contribution

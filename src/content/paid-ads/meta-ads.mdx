@@ -1,0 +1,103 @@
+export const lessonMeta = {
+  title: "Meta Ads (Facebook & Instagram)",
+  level: "Beginner",
+  summary: "Interest-based reach at scale, plus the world's best lookalike audiences.",
+  category: "paid-ads",
+  slug: "meta-ads",
+  relatedConcepts: ["paid-ads-101", "creative-testing", "retargeting"],
+}
+
+# Meta Ads (Facebook & Instagram)
+
+## What It Is
+
+Meta Ads is the advertising platform that lets you show paid content to people on Facebook, Instagram, Messenger, and the Audience Network. Unlike search ads, where someone has to type a query to see your ad, Meta finds people based on who they are — their age, location, interests, behaviors, and even their similarity to your existing customers. You are not waiting for intent; you are creating it.
+
+The platform is run through Meta Business Suite and Meta Ads Manager. You set a budget, pick an objective (awareness, traffic, leads, purchases, and more), define who you want to reach, upload your creative (images, videos, carousels), and Meta's algorithm does the heavy lifting of deciding exactly when and where to show your ad to get the best result for the least spend.
+
+What makes Meta uniquely powerful is two things. First, its data. Meta has over 3 billion monthly active users sharing detailed information about their lives, which gives advertisers remarkably precise targeting options. Second, its Lookalike Audiences feature. Once you have a list of people who already converted — say, your best 500 customers — Meta can find millions of other users who look statistically similar, dramatically expanding your reach without sacrificing relevance.
+
+## Real-World Example
+
+Airbnb used Meta's Lookalike Audience feature to scale new host acquisition globally. By uploading their list of top-performing hosts, they let Meta find similar people in new markets who had never heard of the platform.
+
+<Callout type="example" title="Real Example">
+Airbnb ran a Meta campaign targeting Lookalike Audiences built from their existing host base. Using video creative that highlighted host earnings, they achieved a 7x return on ad spend (ROAS) in key expansion markets and cut their cost-per-host-signup by 47% compared to broad interest-based targeting alone. The same budget reached far more qualified prospects simply by letting Meta's algorithm match audience patterns.
+</Callout>
+
+## Why It Matters
+
+A marketer reaches for Meta Ads in specific situations where its strengths directly apply:
+
+- When you need to reach a large audience fast and don't want to wait months for organic social or SEO to build up
+- When you have a visually compelling product or story that benefits from photo or video formats rather than text-only search ads
+- When you want to retarget people who visited your website, watched your videos, or engaged with your Instagram profile but didn't convert
+- When you have a customer list and want to find more people just like them through Lookalike Audiences
+- When you are launching a new product and need awareness among a cold audience that has no existing search intent to capture
+
+## How It Works
+
+When you create a campaign in Meta Ads Manager, you start by choosing an objective that matches your business goal — for example, "Sales" if you want purchases or "Leads" if you want form submissions. Meta's system optimizes your entire campaign toward that objective, automatically showing your ads to the people within your target audience who are most likely to take that action.
+
+Next, you define your audience at the Ad Set level. You can layer targeting options: choose a geographic area, set an age range, add interest categories (like "yoga" or "small business owners"), and layer in behavioral signals like "frequent international travelers." Alternatively, you can upload a Custom Audience — your email list, website visitors via the Meta Pixel, or video viewers — and let Meta target those people directly or build a Lookalike Audience from them.
+
+At the Ad level, you upload your creative — a single image, a video, a carousel of multiple images, or a collection format. The Meta Pixel (a small piece of code on your website) tracks what happens after someone clicks, feeding purchase and conversion data back into the system so the algorithm knows which users to show your ads to more often. Over time, as the campaign collects data, Meta's delivery system exits the "learning phase" and becomes increasingly efficient at finding the right people at the right moment.
+
+<Mermaid chart={`
+flowchart LR
+  A[Choose Campaign Objective] --> B[Define Audience\nInterests / Custom / Lookalike]
+  B --> C[Set Budget & Schedule]
+  C --> D[Upload Creative\nImage / Video / Carousel]
+  D --> E[Meta Delivers Ads]
+  E --> F[Pixel Tracks Conversions]
+  F --> G[Algorithm Optimizes\nDelivery]
+  G --> E
+`} caption="How a Meta Ads campaign runs: from setup through the optimization feedback loop" />
+
+## Common Mistakes
+
+<Callout type="warning">
+**Killing campaigns before the learning phase ends.** Meta's algorithm needs roughly 50 conversion events per ad set within a 7-day window to exit the learning phase and optimize properly. Advertisers who pause or heavily edit campaigns at day two or three — because the early cost-per-result looks high — reset the learning phase and never let the system find its stride. Give new campaigns at least 7 days before drawing conclusions.
+</Callout>
+
+<Callout type="warning">
+**Stacking too many targeting layers.** It feels logical to narrow your audience as tightly as possible — "women, 25–34, interested in yoga, who also like organic food, who also follow specific fitness accounts." In practice, audiences that are too small starve the algorithm of data and drive up costs. For most campaigns, an audience of 500,000 to 5 million people gives Meta enough room to find your best buyers without restricting delivery.
+</Callout>
+
+<Callout type="tip">
+**Use Advantage+ Audience instead of manual targeting for conversion campaigns.** Meta's Advantage+ Audience (formerly Broad Targeting) tells the algorithm to find converters across the entire eligible population rather than inside a box you defined. Counterintuitively, removing manual interest filters often lowers cost-per-purchase by 10–30% because Meta's signals are more predictive than manually chosen interest categories. Reserve tight manual targeting for awareness campaigns where you truly need demographic control.
+</Callout>
+
+## The One-Line Takeaway
+
+**Meta Ads is the fastest way to get your product in front of the right strangers at scale — but the algorithm only works as well as the data, budget, and creative you give it.**
+
+<ResourceList resources={[
+  {
+    title: "Meta Blueprint: Meta Ads Fundamentals",
+    url: "https://www.facebook.com/business/learn/courses",
+    type: "course",
+    note: "Meta's official free training program covering campaign setup, audience targeting, and creative best practices from first principles.",
+    free: true
+  },
+  {
+    title: "Meta Business Help Center: Ads Manager Guide",
+    url: "https://www.facebook.com/business/help/200000840044554",
+    type: "docs",
+    note: "The official reference for every setting in Ads Manager — campaign objectives, ad formats, audience options, and billing explained clearly.",
+    free: true
+  },
+  {
+    title: "WordStream: Facebook Ads Guide",
+    url: "https://www.wordstream.com/blog/ws/2017/01/24/facebook-ads",
+    type: "article",
+    note: "Practical breakdown of ad types, targeting strategies, and benchmarks for cost-per-click and conversion rates across industries.",
+    free: true
+  }
+]} />
+
+## Related Concepts
+
+- [Paid Ads 101](/learn/paid-ads/paid-ads-101) — Start here to understand the paid advertising landscape before diving into a specific platform
+- [Creative Testing](/learn/paid-ads/creative-testing) — Meta rewards better creative with lower costs; learn how to systematically test images and videos to find winners
+- [Retargeting](/learn/paid-ads/retargeting) — Meta's Custom Audiences make it one of the best platforms for re-engaging people who already visited your site or engaged with your content

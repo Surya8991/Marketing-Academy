@@ -1,0 +1,103 @@
+export const lessonMeta = {
+  title: "On-Page SEO",
+  level: "Beginner",
+  summary: "Titles, headings, content depth, internal links — the controllable basics.",
+  category: "seo",
+  slug: "on-page-seo",
+  relatedConcepts: ["keyword-research", "technical-seo", "internal-linking"],
+}
+
+# On-Page SEO
+
+## What It Is
+
+On-page SEO is everything you do directly on a webpage to help it rank higher in search results. Unlike getting other websites to link to you (which you have to earn), on-page SEO is entirely within your control. You decide the page title, the headings, what the content says, how long it is, and how it links to other pages on your site. These are your levers.
+
+At its core, on-page SEO is about making a page genuinely useful for a specific topic — and then making sure search engines can clearly understand what that topic is. Google's job is to match searchers with the best possible answer. Your job is to make it obvious that your page is that answer. When those two goals align, rankings follow.
+
+The key signals search engines look at on a page include: the title tag (what appears in the browser tab and as the blue headline in search results), the H1 heading (the main headline on the page itself), subheadings that organize the content, the body text and how thoroughly it covers the topic, image alt text, and links to other relevant pages on your site. Getting these right consistently is the foundation of SEO that compounds over time.
+
+## Real-World Example
+
+Canva built much of its organic traffic by systematically optimizing landing pages around high-intent, specific keyword phrases. Rather than creating one generic "design tool" page, they built hundreds of dedicated pages for searches like "Instagram story template," "resume template," and "presentation maker" — each with titles, headings, and content depth precisely matched to the search intent behind each phrase.
+
+<Callout type="example" title="Real Example">
+Canva's template pages rank for over 2 million organic keywords globally. A single category page like their "resume templates" page drives an estimated 1.4 million monthly organic visits by leading with an H1 that matches the search query, featuring clear H2 subheadings for each template type, and linking internally to related design categories. Their title tags follow a consistent formula: "[Specific Thing] | Free Online [Tool] — Canva" — hitting the keyword, the value proposition, and brand in under 60 characters.
+</Callout>
+
+## Why It Matters
+
+On-page SEO is the baseline. Without it, even great content and strong backlinks underperform. Marketers reach for on-page optimization:
+
+- When a page is getting traffic but not ranking as high as competitors — the content or signals need strengthening
+- When launching a new page and you want to give it the best possible starting position
+- When you've done keyword research and need to translate those findings into actual page structure
+- When a high-priority page has stagnated in rankings and needs a refresh to stay competitive
+
+## How It Works
+
+Start with the title tag. This is the single most important on-page SEO element. It should include your primary keyword, ideally near the beginning, and stay under 60 characters so it doesn't get cut off in search results. A good title also gives a reason to click — think of it as a headline that has to earn the tap.
+
+Next, your H1 heading (the main visible headline on the page) should match or closely mirror the title tag. It doesn't need to be identical, but it should clearly signal the same topic. From there, use H2 and H3 subheadings to organize your content into sections that each address a related subtopic or question. These headers help readers skim and help search engines understand the full scope of what your page covers.
+
+The body content is where depth matters. Google evaluates whether a page comprehensively covers a topic. That doesn't mean writing as many words as possible — it means answering the questions a real person searching for your keyword would actually have. Cover the topic fully, use natural variations of your keyword (not repetitive stuffing), and include any related terms that an expert would naturally include when writing about the subject.
+
+<Mermaid chart={`
+flowchart TD
+  A[Target Keyword] --> B[Title Tag\n≤60 chars, keyword near start]
+  B --> C[H1 Heading\nMatches search intent]
+  C --> D[H2/H3 Subheadings\nCover subtopics & questions]
+  D --> E[Body Content\nDepth, natural keyword use]
+  E --> F[Internal Links\nConnect to related pages]
+  F --> G[Image Alt Text\nDescribe visuals for search]
+  G --> H[Page Ranks for Target Keyword]
+`} caption="The on-page SEO signal stack: each layer reinforces the page's relevance for the target keyword" />
+
+Beyond the text, make sure every image has descriptive alt text — a short phrase describing what the image shows, naturally including a keyword if it fits. Finally, link out to 2–5 other relevant pages on your own site. Internal links help search engines discover and understand the relationship between your pages, and they keep readers moving deeper into your content.
+
+## Common Mistakes
+
+<Callout type="warning">
+**Keyword stuffing the title and H1.** Jamming your keyword in five times doesn't help — it actively hurts. Google can detect unnatural repetition, and readers will bounce from a headline that reads like "Best Running Shoes Running Shoes for Runners 2024." Use the keyword once, clearly, and write the rest for a human.
+</Callout>
+
+<Callout type="warning">
+**Writing for the keyword instead of the intent.** Ranking for "project management tips" by publishing a thin 300-word list won't work when the top results are detailed 2,000-word guides with templates. Match the format, depth, and angle that searchers at this query actually want — not just the keyword.
+</Callout>
+
+<Callout type="tip">
+**Pro tip.** Check Google's "People Also Ask" box and the "Related Searches" section at the bottom of results for your target keyword. These surface the exact sub-questions and angles real searchers care about. Build your H2 subheadings around these, and you'll naturally cover the topic breadth that earns top rankings.
+</Callout>
+
+## The One-Line Takeaway
+
+**On-page SEO is how you make a page undeniably relevant — tell search engines exactly what the page is about, then make the content thorough enough that they have no reason to rank anything else first.**
+
+<ResourceList resources={[
+  {
+    title: "On-Page SEO: The Beginner's Guide",
+    url: "https://moz.com/beginners-guide-to-seo/on-page-seo",
+    type: "article",
+    note: "Moz's canonical introduction covering title tags, meta descriptions, headers, and content best practices — the go-to reference for beginners",
+    free: true
+  },
+  {
+    title: "On-Page SEO: What It Is and How to Do It",
+    url: "https://ahrefs.com/blog/on-page-seo/",
+    type: "article",
+    note: "Ahrefs walks through every on-page factor with real examples and actionable checklists — good for moving from theory to implementation",
+    free: true
+  },
+  {
+    title: "Google Search Central Documentation",
+    url: "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+    type: "docs",
+    note: "Google's own SEO starter guide — the authoritative source for how Google actually reads and interprets on-page signals",
+    free: true
+  }
+]} />
+
+## Related Concepts
+- [Keyword Research](/learn/seo/keyword-research) — on-page SEO starts here; you need to know which terms to target before you can optimize titles, headings, and content around them
+- [Technical SEO](/learn/seo/technical-seo) — the infrastructure layer beneath on-page; even perfect on-page signals can't overcome crawling or indexing problems
+- [Internal Linking](/learn/seo/internal-linking) — on-page SEO's close partner; internal links distribute authority across your site and reinforce what each page is about
