@@ -62,7 +62,7 @@
 Next.js 16.2.9 App Router + Tailwind v4 + @next/mdx + Mermaid + fuse.js. All deps installed.
 
 ### PHASE 2 - GitHub Push ✅ COMPLETE
-Repo: https://github.com/Layruss98266/Marketing-Academy
+Repo: https://github.com/Surya8991/Marketing-Academy
 Branch: main. Auto-deploys to Vercel on push.
 
 ### PHASE 3 - MDX Content ✅ COMPLETE

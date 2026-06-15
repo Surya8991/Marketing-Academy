@@ -3,7 +3,7 @@
 A free, structured marketing education site - from absolute beginner to advanced practitioner across every major discipline.
 
 **Live:** [marketing-academy-roan.vercel.app](https://marketing-academy-roan.vercel.app)
-**Repo:** [github.com/Layruss98266/Marketing-Academy](https://github.com/Layruss98266/Marketing-Academy)
+**Repo:** [github.com/Surya8991/Marketing-Academy](https://github.com/Surya8991/Marketing-Academy)
 **Dev:** `npm run dev` then open http://localhost:3000
 
 ---
