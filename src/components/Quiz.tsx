@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import type { Quiz } from "@/lib/quizzes";
 import { getQuizPassed, setQuizPassed, QUIZ_PASSED_EVENT } from "@/lib/quizzes";
+import { addXP, ENGAGEMENT_EVENT } from "@/lib/engagement";
+import { checkAchievements } from "@/lib/achievements";
 import { CheckCircle2, XCircle, RotateCcw, Trophy } from "lucide-react";
 
 type Props = {
@@ -73,6 +75,9 @@ export default function Quiz({ questions, category, slug }: Props) {
         window.dispatchEvent(
           new CustomEvent(QUIZ_PASSED_EVENT, { detail: { id: `${category}/${slug}` } })
         );
+        const newState = addXP("quiz", `${category}/${slug}`);
+        const unlocked = checkAchievements(newState);
+        window.dispatchEvent(new CustomEvent(ENGAGEMENT_EVENT, { detail: { state: newState, unlocked } }));
       }
       setAnswers(newAnswers);
       setFinished(true);

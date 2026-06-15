@@ -11,6 +11,7 @@ import {
 import { cn } from "@/lib/utils";
 import { CATEGORIES } from "@/lib/curriculum";
 import ThemeToggle from "@/components/ThemeToggle";
+import StreakBadge, { COMMAND_PALETTE_EVENT } from "@/components/StreakBadge";
 
 const LEARN_ITEMS = [
   { href: "/tracks",           label: "Learning Tracks",   icon: Map,          desc: "Structured paths by goal" },
@@ -43,17 +44,21 @@ export default function Nav() {
     setOpenDrop(null);
   }, [pathname]);
 
-  // Press "/" to open search
+  // Press "/" to open search; Cmd/Ctrl+K to open command palette
   useEffect(() => {
-    function onSlash(e: KeyboardEvent) {
+    function onKey(e: KeyboardEvent) {
       const tag = (e.target as HTMLElement).tagName;
       if (e.key === "/" && tag !== "INPUT" && tag !== "TEXTAREA") {
         e.preventDefault();
         router.push("/search");
       }
+      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        window.dispatchEvent(new CustomEvent(COMMAND_PALETTE_EVENT));
+      }
     }
-    document.addEventListener("keydown", onSlash);
-    return () => document.removeEventListener("keydown", onSlash);
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
   }, [router]);
 
   // Close dropdowns on outside click / escape
@@ -162,10 +167,17 @@ export default function Nav() {
                 })}
                 <Link
                   href="/learn"
-                  className="col-span-2 mt-1 flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-[var(--border)] text-sm font-medium hover:bg-[var(--muted)] transition-colors"
+                  className="mt-1 flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-[var(--border)] text-sm font-medium hover:bg-[var(--muted)] transition-colors"
                 >
                   <LayoutGrid size={14} />
                   Browse all topics
+                </Link>
+                <Link
+                  href="/skill-map"
+                  className="flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-[var(--border)] text-sm font-medium hover:bg-[var(--muted)] transition-colors"
+                >
+                  <Map size={14} />
+                  Find my path
                 </Link>
               </div>
             )}
@@ -252,6 +264,16 @@ export default function Nav() {
 
         {/* Actions */}
         <div className="flex items-center gap-1">
+          <StreakBadge />
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent(COMMAND_PALETTE_EVENT))}
+            className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors border border-[var(--border)]"
+            aria-label="Open command palette"
+            title="Command palette (⌘K)"
+          >
+            <Search size={13} />
+            <kbd className="font-sans">⌘K</kbd>
+          </button>
           <ThemeToggle />
           <Link
             href="/bookmarks"

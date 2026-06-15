@@ -1664,3 +1664,42 @@ Full curriculum inventory (323 MDX files across 15 categories) cross-referenced 
 | Marketing tools | 108 |
 | Learning tracks | 7 |
 | Build status | ✅ 618/618 pages |
+
+---
+
+## Session 41 — 2026-06-15 (Planned / In Progress)
+
+**8 engagement + discovery features (Polymath-inspired, MA-adapted)**
+
+### Features being built
+
+1. **Vercel security headers** — `vercel.json` at root: CSP, HSTS preload, X-Frame-Options DENY, X-Content-Type-Options, Permissions-Policy
+2. **SVG Diagram Library** — `DiagramBlock` global MDX component (funnel/bars/timeline/cycle/quadrant/flow), CSS-variable themed, registered in mdx-components.tsx
+3. **Command Palette** — Cmd/Ctrl+K global search across lessons + 216 glossary terms + 108 tools + nav links. Uses existing Fuse.js dep. `src/lib/commandIndex.ts` + `src/components/CommandPalette.tsx`
+4. **Streak + XP system** — `src/lib/engagement.ts`: lesson complete = 30 XP, quiz passed = 20 XP, bookmark = 5 XP. Daily streak on first action per day. StreakBadge in Nav.
+5. **Progress Export/Import** — `/settings` page: download all state as JSON, re-import/merge
+6. **Achievements** — `src/lib/achievements.ts`: 10 declarative achievements checked on every addXP() call. Toast on unlock. `/achievements` page.
+7. **Skill Map** — `/skill-map` page: 15 category cards with completion %, sorted by progress descending
+8. **Onboarding goal selector** — First-visit modal (gated on `ma_onboarded`): 6 goals → recommended track. "Find my path" in Nav.
+
+### New files
+- `vercel.json`
+- `src/lib/engagement.ts`
+- `src/lib/achievements.ts`
+- `src/lib/commandIndex.ts`
+- `src/components/CommandPalette.tsx`
+- `src/components/StreakBadge.tsx`
+- `src/components/AchievementToast.tsx`
+- `src/components/DiagramBlock.tsx`
+- `src/components/OnboardingModal.tsx`
+- `src/app/achievements/page.tsx`
+- `src/app/skill-map/page.tsx`
+- `src/app/settings/page.tsx`
+
+### Modified files
+- `mdx-components.tsx` — register DiagramBlock
+- `src/components/MarkComplete.tsx` — call addXP('complete')
+- `src/components/Quiz.tsx` — call addXP('quiz')
+- `src/components/BookmarkButton.tsx` — call addXP('bookmark')
+- `src/components/Nav.tsx` — add StreakBadge + Cmd+K button + "Find my path"
+- `src/app/layout.tsx` — mount AchievementToast + OnboardingModal

@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { getCompleted, markComplete, markIncomplete, lessonId } from "@/lib/progress";
 import { getQuizPassed, QUIZ_PASSED_EVENT } from "@/lib/quizzes";
+import { addXP, ENGAGEMENT_EVENT } from "@/lib/engagement";
+import { checkAchievements } from "@/lib/achievements";
 import { CheckCircle, Circle, ArrowRight, Lock } from "lucide-react";
 
 function fireConfetti() {
@@ -119,6 +121,9 @@ export default function MarkComplete({
       setJustCompleted(true);
       fireConfetti();
       window.dispatchEvent(new CustomEvent(SYNC_EVENT, { detail: { id, done: true } }));
+      const newState = addXP("complete", id);
+      const unlocked = checkAchievements(newState);
+      window.dispatchEvent(new CustomEvent(ENGAGEMENT_EVENT, { detail: { state: newState, unlocked } }));
     }
   };
 
