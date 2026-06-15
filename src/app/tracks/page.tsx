@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { TRACKS } from "@/lib/tracks";
+import { CATEGORIES } from "@/lib/curriculum";
 import TrackProgress from "@/components/TrackProgress";
 import type { Metadata } from "next";
 
@@ -16,7 +17,7 @@ export default function TracksPage() {
         <h1 className="text-4xl font-bold mb-3">Learning Tracks</h1>
         <p className="text-[var(--muted-foreground)] text-lg max-w-2xl">
           Pick the path that matches your role. Each track pulls the most relevant
-          lessons from across all 15 categories and sequences them in the order
+          lessons from across all {CATEGORIES.length} categories and sequences them in the order
           that actually makes sense for how you work.
         </p>
       </div>

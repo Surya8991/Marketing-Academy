@@ -85,15 +85,21 @@ PLS does not replace outbound — it makes outbound surgically precise. You stil
 </Callout>
 
 <Quiz
-  question="Which of these is the strongest single indicator that an account has reached PQL status?"
-  options={[
-    "The user clicked an upgrade button and bounced",
-    "A team admin invited 5+ members and triggered a seat-limit warning",
-    "The account signed up 3 months ago",
-    "The user opened a product email",
+  questions={[
+    {
+      question: "Which of these is the strongest single indicator that an account has reached PQL status?",
+      options: [
+        "The user clicked an upgrade button and bounced",
+        "A team admin invited 5+ members and triggered a seat-limit warning",
+        "The account signed up 3 months ago",
+        "The user opened a product email",
+      ],
+      correct: 1,
+      explanation: "Seat-limit warnings on an admin account combine high engagement, multi-user fit, and explicit intent signals — the three pillars of a strong PQL. Clicks and signups alone lack intent.",
+    },
   ]}
-  correctIndex={1}
-  explanation="Seat-limit warnings on an admin account combine high engagement, multi-user fit, and explicit intent signals — the three pillars of a strong PQL. Clicks and signups alone lack intent."
+  category="growth"
+  slug="product-led-sales"
 />
 
 <ResourceList resources={[

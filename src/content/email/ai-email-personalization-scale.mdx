@@ -96,39 +96,41 @@ Never ask the LLM to 'remember' product prices or availability. Always inject li
 <Quiz
   questions={[
     {
-      q: "What is the primary difference between merge-tag personalization and AI-driven 1:1 email?",
+      question: "What is the primary difference between merge-tag personalization and AI-driven 1:1 email?",
       options: [
         "Merge tags are cheaper to implement",
         "AI generates unique body copy per subscriber based on individual data profiles",
         "Merge tags only work for subject lines",
         "AI personalization requires no data inputs",
       ],
-      answer: 1,
+      correct: 1,
       explanation: "Merge tags swap variables in an otherwise identical message. AI-driven personalization generates unique content per subscriber based on their behavioral and CRM data profile.",
     },
     {
-      q: "Which data signal is described as most powerful for forward-looking personalization?",
+      question: "Which data signal is described as most powerful for forward-looking personalization?",
       options: [
         "Purchase history",
         "Survey responses",
         "Predictive scores (predicted LTV, churn probability)",
         "Email open history",
       ],
-      answer: 2,
+      correct: 2,
       explanation: "Predictive scores let you personalize based on where a subscriber is heading — not just where they've been — enabling proactive rather than reactive messaging.",
     },
     {
-      q: "What is the recommended first tier in the AI email personalization implementation roadmap?",
+      question: "What is the recommended first tier in the AI email personalization implementation roadmap?",
       options: [
         "Full body AI with dynamic content blocks",
         "Subject line AI generation",
         "Send-time optimization",
         "Product recommendation blocks",
       ],
-      answer: 2,
+      correct: 2,
       explanation: "Send-time optimization is lowest risk, requires no prompt engineering, and delivers 5–15% open rate improvement within 60 days — making it the right starting point.",
     },
   ]}
+  category="email"
+  slug="ai-email-personalization-scale"
 />
 
 <ResourceList resources={[

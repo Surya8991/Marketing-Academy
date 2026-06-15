@@ -75,15 +75,21 @@ Never act on an AI-generated anomaly alert without checking data quality first. 
 ## Quiz
 
 <Quiz
-  question="What is the primary limitation of traditional dashboards that AI insight engines address?"
-  options={[
-    "They are too expensive to maintain",
-    "They only show data you know to look for, missing unknown anomalies",
-    "They cannot display real-time data",
-    "They require SQL knowledge to build"
+  questions={[
+    {
+      question: "What is the primary limitation of traditional dashboards that AI insight engines address?",
+      options: [
+        "They are too expensive to maintain",
+        "They only show data you know to look for, missing unknown anomalies",
+        "They cannot display real-time data",
+        "They require SQL knowledge to build",
+      ],
+      correct: 1,
+      explanation: "Traditional dashboards surface the metrics you already thought to track. AI insight engines monitor all metrics continuously and surface anomalies you would not have checked — solving the attention problem, not the data problem.",
+    },
   ]}
-  correctIndex={1}
-  explanation="Traditional dashboards surface the metrics you already thought to track. AI insight engines monitor all metrics continuously and surface anomalies you would not have checked — solving the attention problem, not the data problem."
+  category="analytics"
+  slug="ai-powered-insights"
 />
 
 <ResourceList resources={[

@@ -1,11 +1,15 @@
 import Link from "next/link";
 import { ExternalLink, BookOpen, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
+import { flatLessons, CATEGORIES } from "@/lib/curriculum";
+import { GLOSSARY_TERMS } from "@/lib/glossary";
+import { TOOLS } from "@/lib/tools-directory";
+import { TRACKS } from "@/lib/tracks";
 
 export const metadata: Metadata = {
   title: "About | Marketing Academy",
   description:
-    "Marketing Academy is a free, structured marketing education site built by Surya L from Bangalore. 315 lessons across 15 disciplines - no paywalls, no email required.",
+    `Marketing Academy is a free, structured marketing education site built by Surya L from Bangalore. ${flatLessons().length} lessons across ${CATEGORIES.length} disciplines - no paywalls, no email required.`,
 };
 
 const hoverCSS = `
@@ -13,15 +17,6 @@ const hoverCSS = `
   .project-card:hover { border-color: var(--accent); background: var(--muted); }
   .tech-pill:hover { border-color: var(--accent); color: var(--foreground); }
 `;
-
-const STATS = [
-  { value: "315", label: "Free lessons" },
-  { value: "15", label: "Disciplines" },
-  { value: "148", label: "Glossary terms" },
-  { value: "112", label: "Tools catalogued" },
-  { value: "7", label: "Learning tracks" },
-  { value: "$0", label: "Cost forever" },
-];
 
 const TECH = [
   "Next.js 16 (App Router)",
@@ -56,6 +51,15 @@ const PROJECTS = [
 ];
 
 export default function AboutPage() {
+  const STATS = [
+    { value: String(flatLessons().length), label: "Free lessons" },
+    { value: String(CATEGORIES.length), label: "Disciplines" },
+    { value: String(GLOSSARY_TERMS.length), label: "Glossary terms" },
+    { value: String(TOOLS.length), label: "Tools catalogued" },
+    { value: String(TRACKS.length), label: "Learning tracks" },
+    { value: "$0", label: "Cost forever" },
+  ];
+
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
       <style dangerouslySetInnerHTML={{ __html: hoverCSS }} />
