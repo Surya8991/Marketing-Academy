@@ -126,6 +126,7 @@ export default async function LessonPage({ params }: Props) {
 
   return (
     <>
+      {/* Safe: articleLd and breadcrumbLd are built from internal curriculum data only, never user input. */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <ReadingProgress />

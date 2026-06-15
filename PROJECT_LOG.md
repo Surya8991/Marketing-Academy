@@ -661,6 +661,44 @@ Full review by 5 personas (CMO, Junior Marketer, SEO Specialist, UX Designer, Fr
 
 ---
 
+## Session 35 — 2026-06-15 (Code Review Fixes)
+
+### Summary
+Ran a full code review. Fixed 3 confirmed issues. Newsletter integration left on hold (no email service chosen yet). No test framework exists — adding tests requires jest/vitest setup, deferred.
+
+### Changes Made
+
+#### 1. `src/components/LevelBadge.tsx` — Dark mode fix
+- Replaced hardcoded Tailwind color classes (`bg-emerald-100 text-emerald-700`, `bg-amber-100 text-amber-700`, `bg-rose-100 text-rose-700`) with inline rgba CSS styles matching Rule 19.
+- Removed unused `cn` import.
+- Badges now render correctly in both light and dark mode.
+
+#### 2. `src/app/learn/[category]/[lesson]/error.tsx` — New error boundary
+- Created client-side error boundary for lesson pages.
+- Displays a friendly error UI with a "Back to All Topics" link if MDX rendering throws.
+- Prevents full crash on broken/malformed lesson content.
+
+#### 3. `src/components/Mermaid.tsx` — Safety comment
+- Added inline comment on `dangerouslySetInnerHTML` in the diagram render explaining why it is safe (internal MDX content only) and what to do if user-supplied chart code is ever introduced (DOMPurify).
+
+#### 4. `src/app/learn/[category]/[lesson]/page.tsx` — JSON-LD safety comment
+- Added comment on JSON-LD `dangerouslySetInnerHTML` blocks documenting the internal-data-only constraint.
+
+### Issues NOT fixed (with reason)
+| Issue | Reason |
+|---|---|
+| Newsletter hardcoded green (`NewsletterSignup.tsx:69`) | Newsletter feature on hold per user |
+| Quiz.tsx `array.join` | Pattern not present in actual file — code review false positive |
+| ToolsClient rgba colors | Already correctly implemented per Rule 19 — not an issue |
+| No test coverage | No jest/vitest installed; adding test infrastructure is a separate task |
+| Interview questions pagination | ~8 Q&As per section currently — not needed yet |
+
+### Verification
+- TypeScript: **0 errors** via `tsc --noEmit`.
+- Pushed to: https://github.com/Layruss98266/Marketing-Academy
+
+---
+
 ## Session History
 
 | Session | Date | Key Accomplishments |
