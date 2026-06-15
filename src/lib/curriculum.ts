@@ -84,6 +84,7 @@ export const CATEGORIES: Category[] = [
       { slug: "zero-click-search", title: "Zero-Click Search", level: "Advanced", summary: "Half of Google searches end without a click. Here's how to still win." },
       { slug: "voice-search-seo", title: "Voice Search SEO", level: "Advanced", summary: "Alexa, Siri, Google Assistant - optimizing for spoken queries." },
       { slug: "saas-seo-strategy", title: "SaaS Product Comparison Page Strategy", level: "Advanced", summary: "Designing and ranking Alternative to and competitor comparison pages to capture bottom-of-funnel search intent." },
+      { slug: "reddit-forum-seo", title: "Reddit and Forum SEO: Why Google Loves Communities in 2026", level: "Advanced", summary: "Reddit visibility jumped 1,328% in Google SERPs — how to build legitimate presence in forums that now outrank your own site." },
     ],
   },
   {
@@ -119,6 +120,7 @@ export const CATEGORIES: Category[] = [
       { slug: "pmax-advantage-plus", title: "Performance Max & Meta Advantage+ Optimization", level: "Intermediate", summary: "Bidding algorithms, signal inputs, and visual creative testing in an era of automated, AI-driven media buying." },
       { slug: "demand-gen-campaigns", title: "Google Demand Gen Campaigns: The Mid-Funnel Performance Play", level: "Intermediate", summary: "The successor to Discovery Ads — YouTube, Gmail, Discover placements for mid-funnel intent targeting." },
       { slug: "amazon-advertising", title: "Amazon Advertising: The Third Giant in Paid Ads", level: "Intermediate", summary: "Sponsored Products, Sponsored Brands, DSP — the #3 ad platform with the highest purchase intent traffic on earth." },
+      { slug: "first-party-data-activation", title: "First-Party Data Activation: Customer Match, CAPI, and Enhanced Conversions", level: "Advanced", summary: "Use your own data to improve paid ad targeting and recover signal lost to iOS and cookie deprecation." },
     ],
   },
   {
@@ -150,6 +152,7 @@ export const CATEGORIES: Category[] = [
       { slug: "network-effects", title: "Network Effects", level: "Advanced", summary: "The compounding mechanism Metcalfe identified - and why it creates winner-take-most markets." },
       { slug: "two-sided-marketplaces", title: "Two-Sided Marketplaces", level: "Advanced", summary: "The chicken-and-egg problem - and how Uber, Airbnb, and Etsy solved it." },
       { slug: "community-led-growth", title: "Community-Led Growth Mechanics: Flywheels, Champions, and CQLs", level: "Advanced", summary: "CLG flywheels, champion programs, community-qualified leads, and how to measure community-sourced pipeline." },
+      { slug: "product-led-sales", title: "Product-Led Sales: When PLG Meets Enterprise", level: "Advanced", summary: "PQL scoring, hybrid PLG+SLG motion, in-product sales triggers — how Notion, Figma, and Slack convert free users to enterprise." },
       { slug: "reverse-trials-monetization", title: "Reverse Trials & Freemium Economics", level: "Advanced", summary: "Managing conversion metrics, activation benchmarks, and paywall psychology for trials vs. freemium tiers." },
     ],
   },
@@ -454,6 +457,7 @@ export const CATEGORIES: Category[] = [
       { slug: "founder-brand", title: "Founder Brand as Distribution", level: "Advanced", summary: "Why founders go viral on LinkedIn while their company accounts struggle." },
       { slug: "brand-crisis", title: "Brand Crisis Management", level: "Advanced", summary: "The 24-hour playbook every brand needs - and will not use until it is too late." },
       { slug: "co-branding", title: "Co-Branding", level: "Advanced", summary: "Lego x Adidas, Spotify x Starbucks - the partnership math and what makes co-brands work." },
+      { slug: "brand-in-ai-era", title: "Brand Building in the AI Era: Visibility When AI Answers Replace Search", level: "Advanced", summary: "How to build brand equity when discovery happens inside ChatGPT and Perplexity — not Google." },
       { slug: "narrative-transport-branding", title: "Narrative Transport in Brand Storytelling", level: "Advanced", summary: "Cognitive mechanisms of brand storytelling: how narrative frameworks bypass consumer skepticism." },
     ],
   },
@@ -484,6 +488,7 @@ export const CATEGORIES: Category[] = [
       { slug: "customer-advisory-board", title: "Customer Advisory Boards", level: "Advanced", summary: "The 8-customer council that aligns product and marketing - and how to run one that works." },
       { slug: "category-creation-gtm", title: "Category Creation GTM Playbook", level: "Advanced", summary: "Stop entering crowded markets. Build a new category: define the problem, name the space, and design the Salesforce/Drift GTM playbook." },
       { slug: "gtm-engineering", title: "GTM Engineering: Automating the Revenue Stack", level: "Advanced", summary: "Clay, Apollo, n8n — the technical discipline of automating outbound, enrichment, and lead routing at scale." },
+      { slug: "developer-marketing", title: "Developer Marketing and DevRel: Reaching Technical Buyers", level: "Advanced", summary: "Docs, SDKs, sandboxes, GitHub presence — why developers hate marketing and how Stripe, Twilio, and Vercel won them anyway." },
     ],
   },
   {

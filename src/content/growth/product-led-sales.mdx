@@ -1,0 +1,110 @@
+export const lessonMeta = {
+  title: "Product-Led Sales: When PLG Meets Enterprise",
+  level: "Advanced",
+  summary: "Learn how to layer a sales motion on top of product-led growth using Product Qualified Leads, PQL scoring, and CRM-integrated triggers to convert power users into enterprise customers.",
+};
+
+## The Ceiling PLG Always Hits
+
+Pure product-led growth (PLG) is a beautiful thing until it isn't. Self-serve works brilliantly for individual users and small teams — but when a 500-person company wants custom security controls, a BAA, SSO provisioning, and a negotiated contract, no freemium flow closes that deal.
+
+That's the ceiling. And it's why Product-Led Sales (PLS) exists.
+
+PLS is the hybrid motion where self-serve and sales work in the same funnel instead of separate ones. Product usage generates the pipeline signals, and a lean sales layer acts on them at exactly the right moment.
+
+## Why Not Just Keep Sales and PLG Separate?
+
+Traditional Sales-Led Growth (SLG) is expensive. You burn budget on outbound SDRs chasing cold leads with low intent. Pure PLG is cheap but leaky — enterprise prospects stall at complexity, never convert, and eventually churn back to free.
+
+PLS solves both problems. The product qualifies interest at zero cost, and sales only engages when usage data says a prospect is ready. According to OpenView's 2025 SaaS benchmarks, 67% of hybrid PLG+SLG companies hit their net revenue retention targets versus 58% of pure-PLG companies.
+
+The business case is straightforward: the product does the early-stage convincing, sales closes what the product already started.
+
+## The Product Qualified Lead (PQL)
+
+A PQL is a user or account whose product behavior signals they are ready to pay — or need a sales conversation to get there. This is different from a Marketing Qualified Lead (MQL), which is based on clicks and form fills, not actual usage.
+
+PQLs convert to paid customers at 25–30%. MQLs convert at 5–10%. That 3–5x difference is why Notion, Figma, Slack, Calendly, and Linear have all built explicit PQL programs into their go-to-market stacks.
+
+The tricky part is defining what 'ready' looks like for your product. Common PQL trigger criteria include: three or more team members invited to a shared workspace, a power feature used five or more times in two weeks, a free seat count approaching the plan limit, or API usage that suggests internal integration work has already started.
+
+## Building a PQL Scoring Model
+
+A scoring rubric converts raw usage signals into a routable number. You don't need a machine learning model to start — a weighted spreadsheet works fine in year one.
+
+Break your signals into three buckets: **engagement** (are they using the product deeply?), **fit** (does the account match your ICP by size, industry, and tech stack?), and **intent** (are they hitting limits or exploring paid features?). Assign point values to each signal and set thresholds that map to sales tier routing.
+
+A simple three-tier routing model might look like this:
+
+- **0–40 points** — nurture only, no sales touch, let in-product email sequences run
+- **41–70 points** — SDR-touch, short personalized outreach referencing specific product usage
+- **71–100 points** — AE-touch, full discovery call, proposal, and procurement support
+
+The routing threshold should be calibrated against your actual win rate data every quarter. What worked at Series A usually needs recalibration by Series B.
+
+## The Inside Sales Role in PLS
+
+PLS sales reps are not traditional outbound SDRs. Cold callers succeed by volume and script. PLS reps succeed by context — they read a prospect's usage dashboard before dialing, reference actual behavior in their opener, and know which feature gap is blocking upgrade.
+
+The job title is often 'Product Sales Specialist' or 'Sales Development Rep (Inbound)'. The core skill is translating product data into a conversation that feels helpful, not pushy. A PLS rep calling a Figma admin who just hit 10 editor seats doesn't pitch features — they open with 'I saw your team just crossed 10 editors, wanted to walk you through what the org plan unlocks for admin controls.'
+
+That specificity is only possible because usage data is in the CRM before the call happens.
+
+## In-Product Sales Triggers
+
+The most effective PLS moment is contextual — it appears inside the product at the exact friction point. A seat-limit warning banner visible only to account admins, a usage dashboard showing 90% of plan capacity, an upgrade modal that appears when a user tries to access a locked feature — these are designed to create urgency without feeling like advertising.
+
+The design principle is role targeting. End users get feature discovery nudges. Admins get limit warnings and ROI summaries. Billing contacts get renewal reminders and tier comparison tables. One-size-fits-all upgrade prompts convert poorly because most users are not decision-makers.
+
+Calendly executes this well — every meeting invite sent by a free user doubles as a passive product demonstration to the recipient, and admin-facing dashboards show meeting volume trends that naturally prompt plan conversations.
+
+## CRM Integration: Feeding Context Into Reps
+
+The PQL model only delivers ROI if sales reps actually see the data before engaging. That means a two-way sync between your product analytics layer and your CRM.
+
+The integration pattern is: product events (Mixpanel, Amplitude, Segment) → PQL scoring engine → CRM enrichment (HubSpot or Salesforce custom fields). Reps should see a contact record that shows last active date, top features used, seat count, plan tier, and calculated PQL score — all updated in near real-time.
+
+Linear does this cleanly: their sales team sees workspace health scores built from issue throughput, integrations connected, and active team member count. A workspace scoring 80+ with five or more engineers and zero enterprise features is a textbook AE-touch PQL.
+
+Notion updated their freemium limits in 2025 specifically to surface more upgrade-intent signals, acknowledging that unlimited free features suppress PQL clarity.
+
+## What the Numbers Say in 2026
+
+Sales-assisted PQLs close at 25–35% with a 3–6 month CAC payback. Traditional sales-led motions average 12–18 months payback. That compresses the time-to-ROI on every sales hire significantly.
+
+Free trial accounts that hit PQL thresholds convert at roughly 25% versus 9% for unqualified free users. Enterprise segments (accounts above $30K ACV) show net revenue retention of 115–125% when properly converted through PLS versus 90–105% for self-serve-only SMB cohorts.
+
+91% of B2B SaaS companies are increasing PLG investment in 2025. The ones seeing the best returns are not choosing between product and sales — they're wiring them together.
+
+<Callout type="tip">
+Start your PQL program with three signals maximum. More signals = more debate, less action. Lock in your first routing threshold, run it for 90 days, then tune.
+</Callout>
+
+<Callout type="info">
+PLS does not replace outbound — it makes outbound surgically precise. You still need reps. You just give them a reason to call that prospects actually care about.
+</Callout>
+
+<Quiz
+  question="Which of these is the strongest single indicator that an account has reached PQL status?"
+  options={[
+    "The user clicked an upgrade button and bounced",
+    "A team admin invited 5+ members and triggered a seat-limit warning",
+    "The account signed up 3 months ago",
+    "The user opened a product email",
+  ]}
+  correctIndex={1}
+  explanation="Seat-limit warnings on an admin account combine high engagement, multi-user fit, and explicit intent signals — the three pillars of a strong PQL. Clicks and signups alone lack intent."
+/>
+
+<ResourceList resources={[
+  { title: "OpenView PLG Benchmarks 2025", url: "https://openviewpartners.com/blog/product-led-growth-benchmarks/", type: "article", free: true, note: "Annual benchmark report — PQL conversion and NRR data" },
+  { title: "ProductLed — PQL Playbook", url: "https://productled.com/blog/product-led-growth-benchmarks", type: "article", free: true, note: "Practitioner-level breakdown of PQL scoring models" },
+  { title: "Inflection.io — MQL vs PQL", url: "https://www.inflection.io/post/mql-vs-pql-pros-cons-and-why-product-led-saas-needs-both-in-2025", type: "article", free: true, note: "Why hybrid scoring outperforms either alone" },
+  { title: "Mixpanel — PLG Complete Guide 2026", url: "https://mixpanel.com/blog/product-led-growth/", type: "article", free: true, note: "Covers the metrics that actually drive PLS decisions" },
+  { title: "GrowthSpree — Hybrid PLG+SLG for B2B SaaS", url: "https://www.growthspreeofficial.com/blogs/plg-product-led-growth-b2b-saas-hybrid-2026", type: "article", free: true, note: "Practical 2026 hybrid motion design" },
+  { title: "Optifai — PQL to Paid Conversion Playbook", url: "https://optif.ai/guides/product-led-growth/", type: "article", free: true, note: "Step-by-step PQL funnel design" },
+  { title: "PLG vs Sales-Led GTM Decision Framework 2026", url: "https://www.digitalapplied.com/blog/plg-vs-sales-led-gtm-motion-2026-saas-decision-framework", type: "article", free: true, note: "When to run PLS vs pure PLG or pure SLG" },
+  { title: "WsCube Tech - Product Led Sales (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - PLS Strategy", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Product Led Sales", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />
