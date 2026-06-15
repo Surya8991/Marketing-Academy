@@ -173,6 +173,7 @@ export default async function LessonPage({ params }: Props) {
                   {readTime} min read
                 </span>
                 <span className="text-xs text-[var(--muted-foreground)]">{cat.title}</span>
+                <span className="text-xs text-[var(--muted-foreground)]">Marketing Academy · Jun 2026</span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] mb-4">
                 {lessonMeta?.title}

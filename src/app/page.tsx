@@ -16,30 +16,63 @@ import {
 
 const FEATURED = [
   { category: "fundamentals", slug: "what-is-marketing", emoji: "🎯", reason: "Start here" },
-  { category: "fundamentals", slug: "marketing-math", emoji: "🧮", reason: "Most useful" },
   { category: "seo", slug: "keyword-research", emoji: "🔎", reason: "Quick win" },
+  { category: "fundamentals", slug: "brand-vs-performance", emoji: "⚡", reason: "Advanced" },
   { category: "ai-marketing", slug: "ai-marketing-101", emoji: "🤖", reason: "New & hot" },
 ];
 
 const PATHS = [
   {
     title: "For B2B marketers",
+    href: "/tracks/b2b-marketer",
     icon: <Briefcase size={18} />,
     desc: "Pipeline, ABM, demand gen, LinkedIn ads, attribution.",
     topics: ["fundamentals", "paid-ads", "analytics", "content"],
   },
   {
     title: "For solo founders",
+    href: "/tracks/solo-founder",
     icon: <Rocket size={18} />,
     desc: "Learn just enough to ship growth with no team.",
     topics: ["fundamentals", "seo", "growth", "ai-marketing"],
   },
   {
     title: "For agencies & freelancers",
+    href: "/tracks",
     icon: <Compass size={18} />,
     desc: "Master every channel you'll be asked to deliver.",
     topics: ["seo", "paid-ads", "social", "email"],
   },
+];
+
+const BASE = "https://marketing-academy-roan.vercel.app";
+
+const organizationLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Marketing Academy",
+  url: BASE,
+  logo: `${BASE}/favicon.ico`,
+  description: "Free marketing education — SEO, paid ads, growth, social, email, analytics, and AI in plain English.",
+};
+
+const websiteLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Marketing Academy",
+  url: BASE,
+  potentialAction: {
+    "@type": "SearchAction",
+    target: { "@type": "EntryPoint", urlTemplate: `${BASE}/search?q={search_term_string}` },
+    "query-input": "required name=search_term_string",
+  },
+};
+
+const RECENT_LESSONS = [
+  { category: "fundamentals", slug: "plg-fundamentals", emoji: "🚀", label: "New" },
+  { category: "social", slug: "short-form-video-algorithms", emoji: "🎬", label: "New" },
+  { category: "analytics", slug: "product-vs-marketing-analytics", emoji: "📊", label: "New" },
+  { category: "email", slug: "abm-email-sequences", emoji: "📧", label: "New" },
 ];
 
 export default function HomePage() {
@@ -51,7 +84,16 @@ export default function HomePage() {
     return { ...f, cat, lesson };
   });
 
+  const recentLessons = RECENT_LESSONS.map((r) => {
+    const cat = CATEGORIES.find((c) => c.slug === r.category)!;
+    const lesson = cat.lessons.find((l) => l.slug === r.slug)!;
+    return { ...r, cat, lesson };
+  });
+
   return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }} />
     <div>
       {/* Hero */}
       <section className="relative overflow-hidden">
@@ -80,17 +122,17 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
             <Link
               href="/learn/fundamentals/what-is-marketing"
-              className="flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] font-medium hover:opacity-90 transition-opacity shadow-lg shadow-[var(--accent)]/20"
+              className="flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] font-semibold hover:opacity-90 transition-opacity shadow-lg shadow-[var(--accent)]/20 text-base"
             >
-              <BookOpen size={16} />
+              <BookOpen size={18} />
               Start from the basics
-              <ArrowRight size={16} />
+              <ArrowRight size={18} />
             </Link>
             <Link
               href="/learn"
-              className="flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--muted)] transition-colors font-medium"
+              className="flex items-center justify-center gap-2 px-6 py-3 rounded-full text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors font-medium text-sm"
             >
-              <Layers size={16} />
+              <Layers size={15} />
               Browse all topics
             </Link>
           </div>
@@ -109,9 +151,27 @@ export default function HomePage() {
             <p className="text-sm text-[var(--muted-foreground)]">Categories</p>
           </div>
           <div className="px-4">
-            <p className="text-2xl sm:text-3xl font-bold">Free</p>
-            <p className="text-sm text-[var(--muted-foreground)]">Always</p>
+            <p className="text-2xl sm:text-3xl font-bold">0</p>
+            <p className="text-sm text-[var(--muted-foreground)]">Paywalls</p>
           </div>
+        </div>
+      </section>
+
+      {/* Credibility strip */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          {[
+            { icon: "📚", title: "Real research", desc: "Every lesson cites actual stats and company examples." },
+            { icon: "📅", title: "Updated 2026", desc: "Current playbooks, not outdated theory." },
+            { icon: "🌏", title: "Multilingual", desc: "English, Hindi, Tamil & Telugu video resources." },
+            { icon: "🔓", title: "No account needed", desc: "Progress, bookmarks, quizzes — all work instantly." },
+          ].map((item) => (
+            <div key={item.title} className="flex flex-col gap-1 p-4 rounded-xl border border-[var(--border)] bg-[var(--card)]">
+              <span className="text-xl mb-1">{item.icon}</span>
+              <p className="text-sm font-semibold">{item.title}</p>
+              <p className="text-xs text-[var(--muted-foreground)]">{item.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -163,6 +223,52 @@ export default function HomePage() {
                   size={14}
                   className="group-hover:translate-x-1 transition-transform"
                 />
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* What's New */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div className="flex items-end justify-between mb-6">
+          <div>
+            <div className="flex items-center gap-2 mb-1 text-[var(--accent)] text-sm font-medium">
+              <Zap size={14} />
+              Recently added
+            </div>
+            <h2 className="text-2xl font-bold">What&apos;s New</h2>
+          </div>
+          <Link
+            href="/learn"
+            className="hidden sm:flex items-center gap-1 text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+          >
+            All lessons <ArrowRight size={14} />
+          </Link>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {recentLessons.map((r) => (
+            <Link
+              key={r.slug}
+              href={`/learn/${r.category}/${r.slug}`}
+              className="group flex flex-col p-5 rounded-2xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] hover:shadow-lg transition-all"
+            >
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-2xl">{r.emoji}</span>
+                <span className="text-xs px-2 py-0.5 rounded-full bg-[var(--accent)]/10 text-[var(--accent)] font-medium">
+                  {r.label}
+                </span>
+              </div>
+              <p className="text-xs text-[var(--muted-foreground)] mb-1">{r.cat.title}</p>
+              <h3 className="font-semibold mb-2 group-hover:text-[var(--accent)] transition-colors">
+                {r.lesson.title}
+              </h3>
+              <p className="text-sm text-[var(--muted-foreground)] line-clamp-2 flex-1">
+                {r.lesson.summary}
+              </p>
+              <div className="flex items-center gap-1 mt-4 text-sm text-[var(--accent)] font-medium">
+                Read lesson
+                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </div>
             </Link>
           ))}
@@ -252,7 +358,7 @@ export default function HomePage() {
             {PATHS.map((p) => (
               <Link
                 key={p.title}
-                href="/learn"
+                href={p.href}
                 className="group flex flex-col p-6 rounded-2xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] hover:shadow-lg transition-all"
               >
                 <div className="flex items-center gap-2 mb-3 text-[var(--accent)]">
@@ -347,5 +453,6 @@ export default function HomePage() {
         </div>
       </section>
     </div>
+    </>
   );
 }

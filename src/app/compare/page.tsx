@@ -89,7 +89,10 @@ export default function ComparePage() {
       </div>
 
       {/* Interactive Form */}
-      <div className="mb-16">
+      <div className="mb-16 rounded-2xl border-2 border-[var(--accent)]/30 bg-[var(--accent)]/5 p-6 sm:p-8">
+        <p className="text-xs font-semibold text-[var(--accent)] uppercase tracking-wider mb-1">Custom Comparison</p>
+        <h2 className="text-xl font-bold mb-1">Compare any two tools</h2>
+        <p className="text-sm text-[var(--muted-foreground)] mb-6">Pick any two tools from our directory and get a side-by-side breakdown instantly.</p>
         <CompareSelector />
       </div>
 

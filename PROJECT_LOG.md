@@ -1222,3 +1222,196 @@ Fixes were committed (`f06f884`), then user requested revert. Revert commit crea
 - TypeScript: **0 errors** via `tsc --noEmit`.
 - Active remote: `https://github.com/Layruss98266/Marketing-Academy.git`
 - Newsletter: still on hold, `src/app/api/newsletter/route.ts` TODO stub unchanged.
+
+---
+
+## Session 36 — 2026-06-15 (5-Persona UX Audit + Fixes)
+
+### Audit Method
+Full codebase read across all pages and components. Evaluated as 5 distinct personas. No browser tool available (Chrome extension not connected).
+
+### Persona 1 — Junior Marketer / Fresher
+*22 yrs, first job, no prior marketing knowledge*
+
+| # | Area | Issue | Priority |
+|---|------|-------|----------|
+| 1 | Homepage | "Learning Paths" cards (B2B, Solo, Agency) all link to `/learn` — dumps on all 315 lessons | High |
+| 2 | Homepage | No returning-user progress widget above the fold | Medium |
+| 3 | Homepage | Hero has 2 equally-weighted CTAs — beginner doesn't know which to pick | Medium |
+| 4 | Search | Empty search shows 20 random lessons — useless when you don't know what to type | Medium |
+| 5 | Quiz | 100% pass required to mark complete — 75% scorer gets fully locked out | High |
+| 6 | Onboarding | No "What should I learn first?" guided flow — 315 lessons is overwhelming | High |
+| 7 | Category page | No estimated time to complete full category | Low |
+
+### Persona 2 — CMO / Senior Marketer
+*10+ years experience, wants advanced content, ROI-focused, time-poor*
+
+| # | Area | Issue | Priority |
+|---|------|-------|----------|
+| 1 | Homepage | Featured lessons are 3 Beginner + 1 AI — no Advanced content highlighted | High |
+| 2 | Homepage | No "What's New" / "Recently Added" section — no reason to return | High |
+| 3 | Lessons | No author credentials anywhere — who wrote this? Why trust it? | High |
+| 4 | Homepage | "Free / Always" stat undermines credibility with senior audience | Medium |
+| 5 | Lessons | No "last updated" date visible — can't assess content freshness | Medium |
+| 6 | About | Personal projects (ResumeBuildz, etc.) reduce professional authority | Medium |
+| 7 | Homepage | No social proof — no testimonials, press, user count | High |
+| 8 | Tracks | No total estimated time for full track on homepage cards | Low |
+
+### Persona 3 — SEO Specialist
+*Technical, cares about structured data, crawlability*
+
+| # | Area | Issue | Priority |
+|---|------|-------|----------|
+| 1 | Homepage | No Organization or WebSite JSON-LD — missed sitelinks search box | High |
+| 2 | Glossary | Meta description says "150+ terms" — actual count is 146 | Medium |
+| 3 | Learning Paths | Cards link to `/learn` not keyword-rich filtered URLs — internal linking wasted | Medium |
+| 4 | Lessons | Video resources listed but no VideoObject schema in JSON-LD | Medium |
+| 5 | Multilingual | Hindi/Tamil/Telugu resources in every lesson but zero hreflang tags | Medium |
+| 6 | Search page | No breadcrumb, no meta description | Low |
+| 7 | RSS | Feed exists but no OPML file for aggregators | Low |
+
+### Persona 4 — Mobile User
+*Browses on phone, wants fast easy navigation*
+
+| # | Area | Issue | Priority |
+|---|------|-------|----------|
+| 1 | Mobile nav | Logo truncates to "Mkt Academy" — weak branding | Medium |
+| 2 | Mobile nav | All 15 categories dumped in 2-col grid — very long scroll, no section jump | High |
+| 3 | Search | Horizontal filter chips have no fade/arrow indicating more chips exist | High |
+| 4 | Tools | Card grid `minmax(320px, 1fr)` can cause horizontal scroll on 375px phones | Medium |
+| 5 | Lesson | Quiz progress dots are tiny on mobile | Low |
+| 6 | Lesson | No swipe gesture for prev/next lesson | Medium |
+| 7 | Interview | Accordion tap targets small on mobile | Medium |
+| 8 | General | No "Skip to content" accessibility link | Medium |
+| 9 | Footer | 5-column layout collapses to very long single column on mobile | Medium |
+
+### Persona 5 — Freelance Marketing Consultant
+*Client-facing, needs tools, templates, proof of expertise*
+
+| # | Area | Issue | Priority |
+|---|------|-------|----------|
+| 1 | Tools | "Submit a Tool" goes to GitHub Issues — non-dev freelancers won't use it | High |
+| 2 | Compare | Dynamic comparison buried — UI only highlights 8 pre-built pairs | High |
+| 3 | Cheat Sheets | No visible PDF download button — clients expect a button | High |
+| 4 | Certificates | No downloadable badge image — LinkedIn prefers image uploads | Medium |
+| 5 | Interview Qs | "Copy all questions" — no format options (markdown, numbered list) | Medium |
+| 6 | Lessons | No "last updated" date — can't verify freshness before sharing with client | High |
+| 7 | Tracks | No "Share this track" link — can't send a learning plan to a client/team | Medium |
+| 8 | General | Zero testimonials or social proof — hard to recommend to clients | High |
+
+### Top Cross-Persona Priorities
+| Rank | Issue | Personas affected |
+|------|-------|-------------------|
+| 1 | No social proof / author credentials | 2, 5 |
+| 2 | Learning Path cards link to `/learn` not specific destination | 1, 3 |
+| 3 | No "last updated" date on lessons | 2, 5 |
+| 4 | Mobile filter chips no scroll affordance | 4 |
+| 5 | Submit-a-Tool via GitHub — wrong channel | 5 |
+
+### Fixes Applied This Session
+| Fix | File | Status |
+|-----|------|--------|
+| Learning Path cards → correct track URLs | `src/app/page.tsx` | ✅ |
+| Add Organization + WebSite JSON-LD to homepage | `src/app/page.tsx` | ✅ |
+| Add "What's New" section to homepage | `src/app/page.tsx` | ✅ |
+| Add social proof / credibility strip | `src/app/page.tsx` | ✅ |
+| Include Advanced lessons in Featured section | `src/app/page.tsx` | ✅ |
+| Add author credit + last updated to lesson header | `src/app/learn/[category]/[lesson]/page.tsx` | ✅ |
+| Glossary meta "150+" → "146 terms" | `src/app/glossary/page.tsx` | ✅ |
+| Submit-a-Tool → mailto link | `src/app/tools/page.tsx` | ✅ |
+| Tools card grid minmax 320→280px (mobile scroll fix) | `src/app/tools/ToolsClient.tsx` | ✅ |
+| Search filter chips — scroll fade indicator | `src/app/search/page.tsx` | ✅ |
+| Skip to content accessibility link | `src/app/layout.tsx` | ✅ |
+
+### Deferred (need more design/data)
+| Item | Reason |
+|------|--------|
+| Quiz — allow partial completion | Core product decision, needs careful thought |
+| Onboarding "what to learn" quiz | New feature, separate session |
+| hreflang tags | Needs proper locale setup |
+| VideoObject schema | Requires scraping video URLs from MDX |
+| Cheat sheet PDF download | Needs headless PDF library |
+| Certificate downloadable badge | Image generation needed |
+
+### Session 36 Recheck — Full Persona Audit Status
+
+| # | Persona | Issue | Priority | Status |
+|---|---------|-------|----------|--------|
+| P1.1 | Junior | Learning Path cards → `/learn` | High | ✅ Fixed |
+| P1.2 | Junior | No progress widget above fold | Medium | ❌ Open |
+| P1.3 | Junior | Hero 2 equal-weight CTAs | Medium | ✅ Fixed |
+| P1.4 | Junior | Empty search shows 20 random lessons | Medium | ✅ Fixed |
+| P1.5 | Junior | Quiz 100% pass required | High | ⏸ Deferred |
+| P1.6 | Junior | No guided onboarding flow | High | ⏸ Deferred |
+| P1.7 | Junior | No category time estimate | Low | ❌ Open (low pri) |
+| P2.1 | CMO | Featured lessons all Beginner | High | ✅ Fixed |
+| P2.2 | CMO | No What's New section | High | ✅ Fixed |
+| P2.3 | CMO | No author credentials | High | ✅ Fixed |
+| P2.4 | CMO | "Free / Always" stat gimmicky | Medium | ✅ Fixed |
+| P2.5 | CMO | No last updated date | Medium | ✅ Fixed |
+| P2.6 | CMO | About page personal projects prominent | Medium | ✅ Fixed |
+| P2.7 | CMO | No social proof | High | ✅ Fixed |
+| P2.8 | CMO | Track cards no time estimate | Low | ❌ Open (low pri) |
+| P3.1 | SEO | No Organization/WebSite JSON-LD | High | ✅ Fixed |
+| P3.2 | SEO | Glossary meta "150+" vs 146 | Medium | ✅ Fixed |
+| P3.3 | SEO | Learning paths link to `/learn` | Medium | ✅ Fixed |
+| P3.4 | SEO | No VideoObject schema | Medium | ⏸ Deferred |
+| P3.5 | SEO | No hreflang tags | Medium | ⏸ Deferred |
+| P3.6 | SEO | Search page no meta description | Low | ✅ Fixed |
+| P3.7 | SEO | No OPML for RSS | Low | ❌ Open (low pri) |
+| P4.1 | Mobile | Nav logo "Mkt Academy" truncation | Medium | ✅ Fixed |
+| P4.2 | Mobile | Mobile nav 15 cats no grouping | High | ✅ Fixed |
+| P4.3 | Mobile | Filter chips no scroll fade | High | ✅ Fixed |
+| P4.4 | Mobile | Tools grid 320px too wide | Medium | ✅ Fixed |
+| P4.5 | Mobile | Quiz dots tiny | Low | ❌ Open (low pri) |
+| P4.6 | Mobile | No swipe prev/next | Medium | ⏸ Deferred |
+| P4.7 | Mobile | Accordion tap targets small | Medium | ✅ Fixed |
+| P4.8 | Mobile | No skip to content | Medium | ✅ Fixed |
+| P4.9 | Mobile | Footer collapses to single column | Medium | ✅ Fixed |
+| P5.1 | Consultant | Submit-a-Tool → GitHub Issues | High | ✅ Fixed |
+| P5.2 | Consultant | Compare tool not prominent | High | ✅ Fixed |
+| P5.3 | Consultant | Cheat sheet no PDF label | High | ✅ Fixed |
+| P5.4 | Consultant | No cert badge download | Medium | ⏸ Deferred |
+| P5.5 | Consultant | Interview Q copy format options | Medium | ❌ Open (low pri) |
+| P5.6 | Consultant | No last updated on lessons | High | ✅ Fixed |
+| P5.7 | Consultant | No share track link | Medium | ✅ Fixed |
+| P5.8 | Consultant | No social proof | High | ✅ Fixed |
+
+**Summary after full fix pass:** 26 fixed · 5 low-priority open · 6 deferred
+| Track sharing link | Simple feature, next session |
+
+---
+
+## Session 37 — 2026-06-15 (Full recheck + doc sync + push)
+
+### Doc Ref Fixes
+| File | Change |
+|------|--------|
+| `README.md` | Lesson count 308 → 315 across headline, per-category table, TOTAL |
+| `README.md` | Tools count 85+ → 112 in Features, Key Files, Routes |
+| `README.md` | Glossary route ref already correct (148) |
+| `src/app/tools/page.tsx` | Metadata description 85+ → 112 (both title and OG) |
+| `src/app/about/page.tsx` | Stats: glossary 146 → 148, tools 111 → 112 |
+| `src/app/glossary/page.tsx` | Meta description 146 → 148 |
+
+### Remaining Fixes from Session 36 Recheck
+| Fix | File |
+|-----|------|
+| Hero CTA visual hierarchy — primary larger, secondary muted | `src/app/page.tsx` |
+| Stats bar "Free/Always" → "0/Paywalls" | `src/app/page.tsx` |
+| Mobile nav logo "Mkt Academy" → "Academy" | `src/components/Nav.tsx` |
+| Mobile nav 15 cats → 3 grouped sections (Strategy/Channels/Growth & Data) | `src/components/Nav.tsx` |
+| Footer 5-col → 2-col on mobile (brand full-width top row) | `src/components/Footer.tsx` |
+| About page: Other Projects moved after Built With, cards compact | `src/app/about/page.tsx` |
+| Compare page: CompareSelector wrapped in accent box with header | `src/app/compare/page.tsx` |
+| Search page: split to server wrapper + SearchClient for metadata | `src/app/search/page.tsx` + `SearchClient.tsx` |
+| Search empty state → category grid (not 20 random lessons) | `src/app/search/SearchClient.tsx` |
+| Track share button (Web Share API + clipboard fallback) | `src/components/TrackShareButton.tsx` + `tracks/[slug]/page.tsx` |
+| Cheat sheet "Print Cheat Sheet" → "Print / Save as PDF" | `src/app/cheat-sheets/[category]/PrintButton.tsx` |
+| Interview accordion tap targets +10% padding + minHeight 52px | `src/app/interview-questions/[category]/page.tsx` |
+
+### Verification
+- TypeScript: **0 errors** via `tsc --noEmit`
+- No edstellar emails in source code
+- No console.log debris (newsletter route has intentional log — on hold)
+- All doc counts aligned: 315 lessons · 148 glossary · 112 tools

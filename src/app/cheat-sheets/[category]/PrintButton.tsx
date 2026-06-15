@@ -18,7 +18,7 @@ export default function PrintButton() {
         cursor: "pointer",
       }}
     >
-      Print Cheat Sheet
+      Print / Save as PDF
     </button>
   );
 }

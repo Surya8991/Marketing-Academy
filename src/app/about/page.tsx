@@ -17,8 +17,8 @@ const hoverCSS = `
 const STATS = [
   { value: "315", label: "Free lessons" },
   { value: "15", label: "Disciplines" },
-  { value: "146", label: "Glossary terms" },
-  { value: "111", label: "Tools catalogued" },
+  { value: "148", label: "Glossary terms" },
+  { value: "112", label: "Tools catalogued" },
   { value: "7", label: "Learning tracks" },
   { value: "$0", label: "Cost forever" },
 ];
@@ -164,48 +164,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Other projects */}
-      <section className="mb-14">
-        <h2 className="text-2xl font-bold mb-2">Other Projects</h2>
-        <p className="text-[var(--muted-foreground)] text-sm mb-5">
-          A few other things built along the way.
-        </p>
-        <div className="space-y-3">
-          {PROJECTS.map((p) => (
-            <a
-              key={p.name}
-              href={p.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="project-card flex items-start justify-between gap-4 p-4 rounded-xl border border-[var(--border)] bg-[var(--card)] transition-all"
-            >
-              <div className="min-w-0">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="font-semibold text-sm">{p.name}</span>
-                  <span className="text-xs px-2 py-0.5 rounded-full bg-[var(--muted)] text-[var(--muted-foreground)]">
-                    {p.lang}
-                  </span>
-                </div>
-                <p className="text-xs text-[var(--muted-foreground)] leading-relaxed">
-                  {p.description}
-                </p>
-              </div>
-              <ExternalLink size={14} className="shrink-0 mt-0.5 text-[var(--muted-foreground)]" />
-            </a>
-          ))}
-          <a
-            href="https://github.com/Surya8991?tab=repositories"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors mt-1"
-          >
-            <ExternalLink size={14} />
-            All 42 repositories on GitHub
-            <ArrowRight size={13} />
-          </a>
-        </div>
-      </section>
-
       {/* Tech stack */}
       <section className="mb-14">
         <h2 className="text-2xl font-bold mb-4">Built With</h2>
@@ -223,6 +181,44 @@ export default function AboutPage() {
           All content is written in MDX and lives in the repo alongside the code.
           The full source is open - read the lessons, copy the patterns, fork it if you want.
         </p>
+      </section>
+
+      {/* Other projects */}
+      <section className="mb-14">
+        <h2 className="text-lg font-semibold mb-1 text-[var(--muted-foreground)]">Other Projects</h2>
+        <p className="text-[var(--muted-foreground)] text-sm mb-4">
+          A few other things built along the way.
+        </p>
+        <div className="space-y-2">
+          {PROJECTS.map((p) => (
+            <a
+              key={p.name}
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-card flex items-center justify-between gap-4 px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--card)] transition-all"
+            >
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="font-medium text-sm">{p.name}</span>
+                <span className="text-xs px-2 py-0.5 rounded-full bg-[var(--muted)] text-[var(--muted-foreground)] shrink-0">
+                  {p.lang}
+                </span>
+                <span className="text-xs text-[var(--muted-foreground)] truncate hidden sm:block">{p.description}</span>
+              </div>
+              <ExternalLink size={13} className="shrink-0 text-[var(--muted-foreground)]" />
+            </a>
+          ))}
+          <a
+            href="https://github.com/Surya8991?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors mt-1"
+          >
+            <ExternalLink size={12} />
+            All repositories on GitHub
+            <ArrowRight size={11} />
+          </a>
+        </div>
       </section>
 
       {/* CTA */}

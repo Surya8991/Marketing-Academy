@@ -136,7 +136,8 @@ export default async function InterviewCategoryPage({ params }: Props) {
               >
                 <summary
                   style={{
-                    padding: "1rem 1.25rem",
+                    padding: "1.1rem 1.25rem",
+                    minHeight: "52px",
                     fontWeight: 600,
                     fontSize: "0.975rem",
                     cursor: "pointer",
@@ -222,7 +223,8 @@ export default async function InterviewCategoryPage({ params }: Props) {
               >
                 <summary
                   style={{
-                    padding: "1rem 1.25rem",
+                    padding: "1.1rem 1.25rem",
+                    minHeight: "52px",
                     fontWeight: 600,
                     fontSize: "0.975rem",
                     cursor: "pointer",
