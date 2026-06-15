@@ -1,0 +1,106 @@
+export const lessonMeta = {
+  title: "Clay: The GTM Data Enrichment Platform",
+  level: "Advanced",
+  summary: "Master Clay's waterfall enrichment, AI columns, and signal-based outbound to build a modern GTM data engine that fills your CRM with accurate, personalised prospect records.",
+};
+
+## What Clay Actually Is
+
+Clay is a spreadsheet-meets-automation platform where every row is a person or company, and every column can run a different enrichment, AI prompt, or web scrape. It pulls data from 150+ integrated providers, writes AI-generated copy directly inside the table, and then pushes the finished records to your CRM or email sequencer.
+
+Since raising a $100M Series C at a $3.1B valuation in August 2025, Clay has become the default GTM data layer for B2B revenue teams. If someone on your go-to-market team mentions 'enrichment,' they almost certainly mean Clay.
+
+<Callout type="info">
+Clay does not send emails itself. It builds the enriched, personalised row — then hands that row to Instantly, Smartlead, Apollo Sequences, or HubSpot to do the sending.
+</Callout>
+
+## The Waterfall Enrichment Concept
+
+The single biggest unlock in Clay is the **waterfall**: a chain of data providers that fire in sequence, where each source only runs if the previous one missed. A typical email waterfall might look like: Apollo → Hunter → LeadMagic → Findymail → Clearbit.
+
+When properly configured, a 4-5 provider waterfall discovers emails for 85–95% of B2B prospects — a dramatic improvement over using any single provider at 40–60% coverage. Each provider only charges a credit when it actually returns a result, so you are not paying for five lookups per row — only for the one that succeeds.
+
+The waterfall logic extends beyond email. You can chain company revenue data (Clearbit → Crunchbase → web scrape), LinkedIn data, tech stack detection, and funding signals in the same table. The result is a fully enriched record assembled from the best available source for each field.
+
+## AI Columns: The Second Power Layer
+
+Clay lets you add an AI column that calls Claude, GPT-4o, or Gemini directly inside the spreadsheet. Each row gets its own prompt with the enriched fields as variables.
+
+Common AI column patterns:
+
+- **Personalised first lines** — 'Write a one-sentence opener referencing {company_name}\'s recent {funding_round} and their focus on {primary_product}.'
+- **Lead scoring** — score 1–10 based on headcount, tech stack, and job title seniority
+- **Company classification** — is this a PLG company, enterprise, or SMB? Output a single label
+- **Job description summarisation** — paste a raw JD, get back the 3 pain points the role is solving
+
+Clay's own AI research agent, Claygent, goes further — it visits a company website, reads the 'About' page, checks recent press, and synthesises insights that no structured database contains. You get context that sounds like a sales rep did manual research, at the cost of a single credit per row.
+
+<Callout type="tip">
+Keep AI column prompts to one output per column. Asking for 'a first line AND a subject line AND a company summary' in one prompt produces messy, hard-to-map output. One column, one thing.
+</Callout>
+
+## Core Use Cases
+
+**1. Building an ICP list from scratch.** Pull a company list from Apollo or LinkedIn Sales Navigator, import it as a Clay table, and waterfall-enrich every field — revenue, headcount, tech stack, decision-maker emails, direct dials. What used to take a researcher two days takes Clay thirty minutes.
+
+**2. Enriching inbound leads.** Connect a webhook to your 'Contact Us' form so that every submission fires into a Clay table automatically. Clay looks up the lead's LinkedIn, their company's funding stage, the tools they use, and their job title seniority — then pushes the enriched record to HubSpot before your SDR even sees it.
+
+**3. Signal-based outbound.** This is Clay's highest-leverage use case in 2025–2026. Set up tables that monitor: job change alerts (a champion who just moved to a new company), funding announcements, new job postings in the engineering or marketing department (a hiring signal), and tech stack changes (a competitor tool just installed). These signals trigger enrichment and outreach automatically — you reach prospects at the moment they are most receptive.
+
+**4. Account scoring for ABM.** Build a master account table with every firmographic and intent signal you can find, run an AI scoring column against your ICP criteria, and pipe the top-scoring accounts directly into your ABM platform. Marketing and sales align on the same ranked list, sourced from the same data.
+
+<Callout type="example">
+A SaaS company using Clay for signal-based outbound found that reaching out within 48 hours of a contact's job change produced 3× the reply rate of cold outreach to the same person a month later. Timing is the variable Clay makes easy to control.
+</Callout>
+
+## Clay + CRM + Sequencer: The Full Stack
+
+The standard Clay data flow has three stages: **build → enrich → activate**.
+
+Clay handles build and enrich. Activation means pushing clean, validated records downstream. Clay has native integrations with HubSpot and Salesforce — you map Clay columns to CRM fields and the sync runs automatically when a row completes enrichment.
+
+From the CRM, your sequencer (Instantly, Smartlead, or Outreach) pulls the contact and uses the AI-generated first line and personalisation fields that Clay wrote. The SDR's job shifts from manual research to reviewing what the system already built and hitting send.
+
+## Pricing: How Credits Work
+
+Every enrichment action costs credits. Finding an email costs one credit. A successful waterfall stop costs one credit — not one per provider attempted. AI column calls (external LLM) cost separate credits based on token usage.
+
+Plans range from a free tier (100 credits/month, limited to basic features) up to Pro at $800+/month for high-volume teams. The Starter plan at roughly $134/month gives 2,000 credits/month — enough for a small SDR team running targeted campaigns.
+
+<Callout type="warning">
+The free tier is for learning the UI — not for real prospecting. Budget for at least the Starter plan before committing Clay to any production workflow.
+</Callout>
+
+Credits do roll over month-to-month, and you only burn credits on successful results. Waterfall providers that miss do not charge. This makes Clay significantly more cost-efficient than paying for multiple single-provider subscriptions separately.
+
+## The 3 Tables Every Beginner Should Build First
+
+Start with these before attempting anything complex:
+
+1. **ICP enrichment table** — import a flat CSV of company domains, waterfall-enrich to decision-maker emails and job titles, export to your sequencer. Simple, high-value, teaches you the waterfall logic.
+
+2. **Inbound webhook table** — connect one form submission webhook, enrich the contact, and push to HubSpot. Teaches you the real-time trigger pattern.
+
+3. **Job change signal table** — pull a list of past customers or warm contacts, set up a recurring run to detect job changes, fire a personalised 'congrats on the new role' sequence. Teaches you signal-based automation.
+
+Each table builds a skill. The complexity compounds fast — but these three give you a working GTM engine within your first week.
+
+## Realistic Expectations
+
+Clay is powerful, not magic. The learning curve is real — plan two to four weeks before your first production workflow runs cleanly. The UI rewards users who think in data pipelines: inputs, transformations, outputs.
+
+The payoff is a repeatable, scalable outbound engine that most teams previously needed a full-time data team to run. Once the tables are built, they run themselves. That is the actual value proposition.
+
+<ResourceList resources={[
+  { title: "Clay Official Docs", url: "https://docs.clay.com", type: "docs", free: true, note: "Start here — covers waterfall setup, AI columns, and integrations" },
+  { title: "Clay YouTube Channel", url: "https://www.youtube.com/@clay_hq", type: "video", free: true, note: "Official tutorials including waterfall and Claygent walkthroughs" },
+  { title: "Clay GTM Bible: Waterfall Enrichment 2026", url: "https://vanderbuild.co/blog/the-gtm-architects-bible-mastering-waterfall-enrichment-in-clay", type: "article", free: true, note: "Deep-dive on sequencing providers for maximum email coverage" },
+  { title: "Clay Lead Enrichment Guide 2026 (Miniloop)", url: "https://www.miniloop.ai/blog/clay-lead-enrichment-workflow-b2b-2026", type: "article", free: true, note: "Step-by-step B2B workflow guide" },
+  { title: "Clay Pricing Breakdown 2026 (Warmly)", url: "https://www.warmly.ai/p/blog/clay-pricing", type: "article", free: true, note: "Honest breakdown of credit costs vs listed plan prices" },
+  { title: "Clay AI Signal Prospecting 2026", url: "https://automationbyexperts.com/blog/clay-ai-lead-enrichment-signal-based-prospecting-2026", type: "article", free: true, note: "Job change, funding, and tech-stack signal workflows" },
+  { title: "Clay Review 2026 (LeadHaste)", url: "https://leadhaste.com/blog/clay-review-2026", type: "article", free: true, note: "Tested review covering strengths, limits, and pricing reality" },
+  { title: "Clay Use Cases — Official Site", url: "https://www.clay.com/use-cases/outbound", type: "docs", free: true, note: "Official use case breakdowns including inbound and ABM" },
+  { title: "WsCube Tech - Marketing Automation Tools (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - Clay Tool", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - GTM Tools", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />
