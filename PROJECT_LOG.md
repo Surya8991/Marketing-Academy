@@ -1,19 +1,20 @@
 # Marketing Academy - Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-06-14 (Session 30). Updated via Antigravity.
+> Last audited: 2026-06-15 (Session 40). Updated via Antigravity.
 
 ---
 
 ## 60-Second Resume
 
 ```
-1. cd D:\Coding\marketing-academy
-12: 2. Count MDX files: (Get-ChildItem src/content -Recurse -Filter *.mdx).Count   [PowerShell]
-13: 3. Current: 324 MDX files across 15 categories - all written + reviewed
-14: 4. Quiz expansion DONE: 315 lessons now have 4 quiz questions each. src/lib/quizzes.ts = 12,500+ lines.
-15: 5. Interview expansion DONE: 16 sections (added Behavioral), 151 Q&As, answers split into 2-4 paragraphs.
-16: ```
+1. cd C:\Users\Surya L\Desktop\AI Agents\Marketing-Academy
+2. Count MDX files: (Get-ChildItem src/content -Recurse -Filter *.mdx).Count   [PowerShell]
+3. Current: 387 lessons across 15 categories - all written + reviewed
+4. Quiz component FIXED: registered in mdx-components.tsx, all 5 MDX Quiz usages corrected to questions[] API.
+5. Interview expansion DONE: 16 sections (added Behavioral), 151 Q&As, answers split into 2-4 paragraphs.
+6. Stats are now dynamic: flatLessons().length, CATEGORIES.length, GLOSSARY_TERMS.length, TOOLS.length used everywhere.
+```
 17: 
 18: **Do NOT:**
 19: - Run `npm install` again - everything is installed
@@ -1618,4 +1619,48 @@ Full curriculum inventory (323 MDX files across 15 categories) cross-referenced 
 | tools | 31 | +5 | 36 |
 | **TOTAL** | **323** | **+70** | **393** |
 
-**Status: Awaiting approval to begin lesson creation.**
+**Status: Session 39 COMPLETE — 387 total lessons live.**
+
+---
+
+## Session 40 — 2026-06-15
+
+**Quality audit, ordering fix, dynamic counts, and build repair**
+
+### What was done
+
+**Lesson quality audit (72 recent lessons):**
+- Word-counted all 72 most-recently-modified lessons
+- Found 2 thin lessons (< 800 words body): social-media-tools.mdx (832 total) and tools-stack-by-stage.mdx (974 total)
+- Both rewrote to full quality standard: 900-1100 word body, real 2025 data citations, stage-appropriate frameworks, 3 multilingual ResourceList entries added
+
+**Curriculum ordering fix:**
+- Brand Strategy category had `micro-community-branding` (Intermediate) and `personal-brand-vs-company-brand` (Intermediate) appearing after 8 Advanced lessons
+- Moved both to correct position: after `employer-brand`, before `brand-vs-demand`
+- Ordering is now Beginner (4) → Intermediate (13) → Advanced (7) within brand-strategy
+
+**Hardcoded stat counts → dynamic:**
+- `about/page.tsx` STATS array now computed from live data sources (was hardcoded 315/15/148/112/7)
+- Actual counts corrected: glossary was showing 148 but actual is 216; tools was showing 112 but actual is 108
+- `page.tsx` tracks CTAs use `{TRACKS.length}` instead of hardcoded "7"
+- `glossary/page.tsx`, `tools/page.tsx`, `search/page.tsx`, `tracks/page.tsx` all use dynamic `.length` values in metadata
+
+**Pre-existing build errors fixed (bonus):**
+- Quiz component was missing from `mdx-components.tsx` — registered it
+- All 5 MDX lessons using `<Quiz>` had wrong prop format (question/choices/correctIndex vs the actual API): fixed all to `questions[]` array with `correct`/`options` + `category`/`slug`
+- MDX syntax errors fixed: apostrophes in single-quoted strings in `revops-for-marketers.mdx` and `demand-gen-vs-lead-gen.mdx`; `<$10M` JSX collision in `micro-community-branding.mdx`; bare `{template_vars}` in `clay-for-marketers.mdx`
+- Build now passes 618/618 static pages with zero errors
+
+**Docs updated:**
+- README.md: lesson counts, per-category table (387 total), glossary (216), tools (108), route table
+- PROJECT_LOG.md: 60-second resume updated, session entry added
+
+### Final state
+| Metric | Value |
+|--------|-------|
+| Total lessons | 387 |
+| Categories | 15 |
+| Glossary terms | 216 |
+| Marketing tools | 108 |
+| Learning tracks | 7 |
+| Build status | ✅ 618/618 pages |
