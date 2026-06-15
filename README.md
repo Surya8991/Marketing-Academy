@@ -153,7 +153,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `public/manifest.json` | PWA Web App Manifest |
 | `public/sw.js` | Service worker: network-first for HTML, cache-first for hashed static assets |
 | `vercel.json` | Security headers (CSP, HSTS, X-Frame-Options, etc.) |
-| `AGENTS.md` | 21 non-negotiable build rules for AI agents |
+| `AGENTS.md` | 23 non-negotiable build rules for AI agents (incl. Rule 23: pre-push doc checklist) |
 | `PROJECT_LOG.md` | Full session history, gotchas, file inventory, pending tasks |
 
 ---

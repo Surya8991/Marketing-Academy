@@ -283,3 +283,38 @@ Never export event constants from component files. Components re-export from `@/
 **XP values:** complete=30, quiz=20, bookmark=5. 24h deduplication per lessonId per action type.
 
 **Levels (7 total):** Marketing Newcomer (0) → Certified Polymath (last). `nextAt: Infinity` at max level — always guard `if (nextAt !== Infinity)` before rendering XP progress bar.
+
+---
+
+## Pre-Push Checklist
+
+### Rule 23 — Update docs before every push
+Before any `git push`, update ALL of the following that are affected by the changes:
+
+**`PROJECT_LOG.md`**
+- "Last audited" session number at the top
+- 60-Second Resume counts (lesson total, any changed stat)
+- "Current State" table — per-category lesson counts if curriculum.ts changed
+- Session History — add a row for the current session describing what was done
+- Component/file descriptions in "What's Built & Verified" if a component changed significantly
+- File inventory tree if new files were added or deleted
+
+**`README.md`**
+- Lesson count in the hero paragraph and the category table if curriculum.ts changed
+- Features list if a new user-facing feature shipped
+- Key Files table if a new lib/component/config file was added
+- Routes table if a new page route was added
+
+**`AGENTS.md`**
+- Add a new numbered Rule for any non-obvious gotcha discovered during the session
+- Update existing rules if their scope changed
+- Never let a build failure or bug go undocumented
+
+**What counts as "affected":**
+- New route added → README Routes table + PROJECT_LOG session entry
+- New component/lib file → README Key Files + PROJECT_LOG file inventory
+- curriculum.ts lesson count changed → README table + PROJECT_LOG Current State table + 60-sec resume
+- Bug found and fixed → AGENTS.md rule if non-obvious, PROJECT_LOG session entry
+- Nav/Footer changed → PROJECT_LOG component description row
+
+**Enforcement:** The commit message must reference what docs were updated. If no docs were changed in a code commit, state explicitly why none needed updating.

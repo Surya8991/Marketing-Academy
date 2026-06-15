@@ -413,7 +413,7 @@ This roadmap details the proposed 2025/2026 curriculum expansions across all 15 
 ### Components
 | File | What it does |
 |---|---|
-| `Nav.tsx` | Logo + Topics dropdown (15 categories) + Browse + Tracks + Glossary + Interview Prep + Cheat Sheets + Tools + Search + mobile menu |
+| `Nav.tsx` | Logo + Topics dropdown (15 categories) + Learn dropdown (Tracks, Quizzes, Skill Map, Achievements, Certificates, Bookmarks, Settings) + Resources dropdown + About + Cmd+K button + Bookmark icon + mobile menu |
 | `Footer.tsx` | 4-col layout: brand + quick links, topics col 1, topics col 2, all 7 tracks |
 | `Mermaid.tsx` | Client, dynamic import, dark-mode aware, fullscreen button (Maximize2 icon, Esc to close) |
 | `Callout.tsx` | 5 variants: info/warning/success/tip/example, semitransparent tints, readable in both modes |
@@ -568,7 +568,7 @@ D:\Coding\marketing-academy\
     │       └── [slug]/page.tsx     ✅ Printable certificate (localStorage progress check)
     │
     ├── components/
-    │   ├── Nav.tsx                 ✅ Topics dropdown + Tracks + Glossary + Interview Prep + Cheat Sheets + Tools
+    │   ├── Nav.tsx                 ✅ Topics, Learn (incl. Skill Map/Achievements/Settings), Resources dropdowns + Cmd+K
     │   ├── Footer.tsx              ✅ 4-col + NewsletterSignup + all 7 tracks
     │   ├── Mermaid.tsx             ✅ Fullscreen button
     │   ├── Callout.tsx             ✅ 5 variants, dark-mode safe
@@ -703,6 +703,7 @@ Full review by 5 personas (CMO, Junior Marketer, SEO Specialist, UX Designer, Fr
 | 41 | 2026-06-15 | 8 Polymath-inspired features shipped: XP/streak system, achievements (10 badges), skill map, command palette (Cmd+K), DiagramBlock SVG component, onboarding modal, settings page (export/import/reset), Vercel security headers. New libs: engagement.ts, achievements.ts, commandIndex.ts, events.ts. New routes: /achievements, /skill-map, /settings. |
 | 42 | 2026-06-15 | Code review pass on Session 41 features: 6 bugs fixed (engagement dead branch, AchievementToast timer leak, CommandPalette crash on empty results, unused React import, COMPLETED_KEY coupling, event constant coupling). AGENTS.md Rule 22 added. README + PROJECT_LOG updated. |
 | 43 | 2026-06-15 | Orphan fix: 6 MDX lessons existed on disk but unregistered in curriculum.ts. Added to curriculum: analytics/attribution-models (Advanced), analytics/funnel-analytics (Intermediate), email/email-101 (Beginner), email/automation-drips (Intermediate), email/winback (Intermediate), email/compliance (Advanced). Total: 387 -> 393 registered lessons. All orphans resolved. |
+| 44 | 2026-06-15 | Nav + Footer improvements. Nav: added Skill Map, Achievements, Settings to Learn dropdown and mobile menu; removed redundant Search icon (Cmd+K covers it); learnActive updated for new routes. Footer: fixed GitHub URLs (Surya8991 -> Layruss98266 in all 3 places, extracted to GITHUB_URL const); removed em dash from copyright (Rule 1); added Skill Map/Achievements/Settings to Learn column; moved Search to Resources column; removed duplicate GitHub link from Resources; "Browse all 15 topics" made dynamic via CATEGORIES.length. |
 
 ---
 
