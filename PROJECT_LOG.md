@@ -696,6 +696,7 @@ Full review by 5 personas (CMO, Junior Marketer, SEO Specialist, UX Designer, Fr
 | 29 | 2026-06-14 | **Done.** Phase 12 UX Improvements: Second MarkComplete button, category header level counts, Recommended Next prompts, mobile ToC improvements. |
 | 30 | 2026-06-14 | **Audit.** Checked for incorrect/stale info in Homepage & About pages. Logged findings and recommended fixes to Phase 12 Backlog. |
 | 31 | 2026-06-14 | **Done.** Created /compare tool comparison engine. Wrote, quiz-mapped, and registered the new Zero-Party Data Strategy lesson in curriculum and sitemap. |
+| 35 | 2026-06-15 | Full code review (0 critical, 0 high, 1 medium on hold, 9 low). Fixes applied then reverted on user request. Repo migrated to Layruss98266 account. Git identity updated. Source author (Surya8991) preserved in docs. |
 
 ---
 
@@ -1161,3 +1162,63 @@ Expanded the interview questions database by integrating and re-writing new ques
 - ESLint checks: **100% clean** (0 errors, 0 warnings) via `npm run lint`.
 - Next.js production build: **Successful** (545 static pages built successfully).
 - Deployment check: Committed and pushed to `main` branch on GitHub.
+
+---
+
+## Session 35 — 2026-06-15 (Full Code Review + Repo Migration)
+
+### Summary
+Cloned repo to new machine, ran a full code review across all source files, applied fixes, then reverted them on user request. Migrated active push target to Layruss98266 GitHub account. Standardised git identity for all future commits.
+
+### Part 1 — Full Code Review
+
+Reviewed every file under `src/`, plus all root config files. Results:
+
+| Severity | Count |
+|---|---|
+| Critical | 0 |
+| High | 0 |
+| Medium | 1 (newsletter API stub — on hold) |
+| Low | 9 |
+
+**All low findings:**
+| # | Issue | File | Decision |
+|---|---|---|---|
+| 1 | Newsletter API always returns success without sending emails | `src/app/api/newsletter/route.ts` | **ON HOLD** — no email service chosen |
+| 2 | LevelBadge uses hardcoded Tailwind color classes — breaks dark mode | `src/components/LevelBadge.tsx` | Fixed then reverted |
+| 3 | NewsletterSignup hardcodes `text-green-600` | `src/components/NewsletterSignup.tsx` | Skipped (newsletter on hold) |
+| 4 | No error.tsx boundary for lesson pages | `src/app/learn/[category]/[lesson]/` | Fixed then reverted |
+| 5 | Quiz.tsx array.join for classNames | `src/components/Quiz.tsx` | Not present in actual file — false positive |
+| 6 | Mermaid dangerouslySetInnerHTML — safe but fragile if user input added | `src/components/Mermaid.tsx` | Fixed (comment) then reverted |
+| 7 | ToolsClient hardcoded rgba colors | `src/app/tools/ToolsClient.tsx` | Already correctly done per Rule 19 — not an issue |
+| 8 | No test coverage on interactive components | entire `src/` | No jest/vitest installed — deferred |
+| 9 | JSON-LD dangerouslySetInnerHTML — safe with internal data | `src/app/learn/[category]/[lesson]/page.tsx` | Fixed (comment) then reverted |
+| 10 | No pagination on interview question pages | `src/app/interview-questions/[category]/page.tsx` | ~8 Q&As per section — not needed yet |
+
+### Part 2 — Fixes Applied & Reverted
+
+Fixes were committed (`f06f884`), then user requested revert. Revert commit created (`3efafb4`). All files restored to pre-fix state.
+
+**Fixes that were applied (now reverted):**
+- `LevelBadge.tsx` — rgba inline styles replacing Tailwind color classes
+- `src/app/learn/[category]/[lesson]/error.tsx` — new client error boundary (file deleted on revert)
+- `Mermaid.tsx` — DOMPurify safety comment on `dangerouslySetInnerHTML`
+- `lesson/page.tsx` — JSON-LD safety comment
+
+### Part 3 — Repo & Git Account Migration
+
+| Change | Detail |
+|---|---|
+| Active push remote | Changed from `Surya8991/Marketing-Academy` → `Layruss98266/Marketing-Academy` |
+| Local git identity | Set to `Layruss98266 <surya.l@edstellar.com>` for this repo |
+| History rewrite | All 3 commits with `marketing@edstellar.com` author rewritten to `Layruss98266` via `git filter-branch` |
+| Source author in docs | `README.md` + `PROJECT_LOG.md` repo URL kept as `Surya8991/Marketing-Academy` — source attribution preserved |
+
+**Do NOT change:**
+- Source author credit in README/PROJECT_LOG — stays as Surya8991
+- Older commit authors (`suryaraj8147@gmail.com`) — untouched, belong to source repo
+
+### Verification
+- TypeScript: **0 errors** via `tsc --noEmit`.
+- Active remote: `https://github.com/Layruss98266/Marketing-Academy.git`
+- Newsletter: still on hold, `src/app/api/newsletter/route.ts` TODO stub unchanged.
