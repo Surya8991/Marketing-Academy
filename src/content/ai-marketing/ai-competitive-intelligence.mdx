@@ -1,0 +1,114 @@
+export const lessonMeta = {
+  title: "AI-Powered Competitive Intelligence at Scale",
+  level: "Advanced",
+  summary: "Stop manually tracking competitors — use LLMs, automation pipelines, and AI monitoring tools to build a real-time intelligence system that turns competitor data into sales weapons.",
+};
+
+## Why Manual Competitor Tracking Breaks at Scale
+
+Most teams track competitors the same way they did in 2015: a shared Google Doc, monthly screenshot tours, and Slack messages that say 'did you see what [Competitor] just launched?'. This works when you have two competitors and one analyst. It fails badly when you have ten competitors, five product lines, and a sales team asking for battlecards every week.
+
+The problem is not effort — it is signal volume. A single mid-size competitor changes their pricing page, job postings, G2 reviews, ad copy, blog output, and LinkedIn messaging dozens of times per month. No human catches all of it. An AI system does.
+
+<Callout type="info">
+Companies using structured competitive intelligence programs see 28% higher win rates, according to Klue's 2025 benchmark data. The gap between teams using AI-assisted CI and those still working manually is widening fast.
+</Callout>
+
+## The AI Monitoring Stack: Crayon, Klue, Kompyte, Brandwatch
+
+The fastest way to get coverage is a dedicated CI platform. Three dominate the B2B market in 2026.
+
+**Crayon** is the enterprise choice. It auto-tracks competitor websites, pricing pages, job postings, press releases, and review sites, then surfaces changes in a feed your team actually reads. Pricing starts around $20K/year — worth it for companies where a single lost deal costs more than that.
+
+**Klue** focuses on turning raw signals into usable battlecards. It integrates with Salesforce, HubSpot, Gong, and Slack, pulling win/loss context directly from your CRM and call recordings. Its AI scores battlecard quality and flags when a card goes stale — a feature Crayon lacks.
+
+**Kompyte** (now part of Semrush) targets mid-market teams. It tracks websites, ads, content, and job postings, then auto-generates battlecards from the changes. Entry pricing starts around $300/year, making it the accessible option for teams not ready for enterprise spend.
+
+**Brandwatch** adds social listening and sentiment to the mix. Where Crayon and Klue focus on owned competitor content, Brandwatch catches what people are *saying* about competitors across social platforms, forums, and news — useful for reputation signals and crisis detection.
+
+<Callout type="tip">
+No single tool covers everything. The best stacks combine a dedicated CI platform (Crayon/Klue) for structured monitoring with a social listening layer (Brandwatch) for unstructured sentiment.
+</Callout>
+
+## Using LLMs to Summarise Scraped Competitor Data
+
+Platforms like Crayon handle collection, but the real leverage is in summarisation. Raw competitor data — a hundred website changes, fifty new job postings, twenty new G2 reviews — is noise. An LLM turns it into signal.
+
+The workflow is straightforward: scrape the target pages on a schedule, diff the content to extract what changed, then pass the diff to Claude or GPT-4o with a prompt like: 'You are a competitive analyst. Summarise these changes and flag any pricing, positioning, or feature shifts that our sales team needs to know about.' The output is a two-paragraph brief, not a spreadsheet of raw HTML.
+
+This approach works especially well for pricing pages. Competitors rarely announce price changes — they just update the page. A daily scrape + LLM summary catches the shift within 24 hours and pushes a formatted alert to Slack before your sales team walks into a call with the old number.
+
+## Building a Competitor Alert System with n8n + Perplexity
+
+You do not need a $30K platform to build a functioning alert system. n8n (open-source workflow automation) plus Perplexity's API is a fully capable stack for teams with a developer on hand.
+
+The architecture has four stages. First, a scheduled n8n trigger fires daily for each competitor. Second, an HTTP node fetches the competitor's key pages (pricing, features, about, recent blog posts). Third, the scraped text goes to Perplexity's `sonar` model with a structured prompt asking for a JSON summary of changes in pricing, positioning, and product claims. Fourth, n8n routes the output to Slack, a Google Sheet log, and a weekly digest email to the sales team.
+
+<Callout type="example">
+An automated competitor analysis workflow built with n8n + Perplexity Pro API generates SWOT insights, consolidates data in Google Sheets, and delivers AI-powered reports via email — the full implementation is documented in the GitHub repo linked in resources below.
+</Callout>
+
+Total cost: Perplexity API at roughly $5 per million tokens, plus n8n self-hosted (free) or cloud ($20/month). For most teams this replaces a full day of analyst work per week.
+
+## Win/Loss Pattern Detection from CRM Notes
+
+Your CRM holds the most valuable competitive intel you own — and almost no one mines it. Every lost deal note that says 'went with [Competitor] because of pricing' or 'liked their onboarding flow' is a data point. Hundreds of those notes form a pattern.
+
+The technique: export your CRM's closed-lost notes for the past 12 months. Run them through a classification prompt that extracts competitor name, loss reason category (price, feature gap, relationship, timing, trust), and any specific product features mentioned. Aggregate the categories and you have a statistically grounded view of why you lose to each competitor — not based on gut feel, but on every deal your reps wrote notes on.
+
+Klue's platform does this natively if you are already in that ecosystem. For teams on vanilla Salesforce or HubSpot, a Python script plus Claude's API handles the same job in an afternoon.
+
+## Tracking Competitor Share of Voice in AI Answers
+
+Here is the metric most CI programs are not tracking yet: how often do ChatGPT, Perplexity, and Gemini mention your competitors when users ask category questions?
+
+AI search visits grew an estimated 42.8% year over year between Q1 2025 and Q1 2026, climbing from 15.6 billion to 27.4 billion global visits. If a prospect asks Perplexity 'what is the best [your category] tool', your competitor's share of that answer is a new kind of competitive position — and it is measurable.
+
+Tools like Nightwatch and the HubSpot AEO Grader now track AI share of voice across ChatGPT, Perplexity, Google AI Mode, and Claude. The benchmark data shows wide variation: the same brand might appear in 28–38% of Perplexity answers but only 10–16% of ChatGPT answers for the same query set. That difference tells you where to focus your content and citation strategy.
+
+<Callout type="warning">
+AI share of voice is not the same as SEO rank. A competitor can rank #1 in Google but barely appear in AI answers because their content lacks the structured authority signals LLMs prefer. Track both, but treat them as separate battlefields.
+</Callout>
+
+## Competitor Content Gap Analysis with AI
+
+Content gap analysis used to mean downloading two sitemaps and manually comparing categories. AI makes this granular enough to be genuinely useful.
+
+The workflow: collect your competitor's last 90 days of published content (blog posts, whitepapers, YouTube video titles). Feed the full list to an LLM with your own content inventory and ask it to identify: topics they cover that you do not, angles they take on shared topics that you have not covered, and format gaps (they publish case studies, you publish how-tos). The output is a prioritised content brief backlog, not a vague observation that 'they write about X more than us'.
+
+Combine this with AI SOV data and you can see which content types are actually getting cited in LLM answers — then prioritise closing those specific gaps first.
+
+## Turning Competitor Intel into Sales Battlecards Automatically
+
+The last mile of competitive intelligence is the hardest: getting the right information to a sales rep 10 minutes before a call, not buried in a Notion page they will never open.
+
+The automation pattern: when Crayon or your n8n pipeline detects a significant competitor change (pricing update, new feature launch, repositioning shift), trigger a Claude prompt that generates a structured battlecard section using a template your sales team already knows. The template includes: what changed, why it matters, how to position against it, and three objection-handling lines. Push the generated card to your CRM as a note on the relevant competitor account.
+
+Klue does this natively for teams already on the platform. For custom stacks, the Claude API's structured output mode (JSON schema enforcement) ensures every generated card follows the same format — no freeform text that sales reps have to interpret.
+
+<Callout type="success">
+The goal is not more data. It is faster, more actionable insight. A two-paragraph battlecard delivered in Slack 20 minutes before a demo is worth more than a 40-page CI report published quarterly. Build for the moment of use, not for the moment of creation.
+</Callout>
+
+## Putting It Together: A Practical Rollout Order
+
+Start with what gives you the fastest ROI. First week: set up the n8n + Perplexity alert pipeline for your top three competitors' pricing and features pages. Second week: run the CRM win/loss extraction on the last 12 months of closed-lost notes and brief your sales team on the patterns. Third week: run an AI SOV audit using Nightwatch or the HubSpot AEO Grader to establish your baseline. Fourth week: build your first automated battlecard template and connect it to your CRM.
+
+By week four you have a live monitoring system, a data-driven win/loss view, an AI visibility baseline, and automated battlecard generation — the full stack. The tools exist. The question is whether your team builds the habit of using them.
+
+<ResourceList resources={[
+  { title: "Top Competitive Intelligence Tools for B2B Tech Teams in 2026 (Klue)", url: "https://klue.com/topics/competitive-intelligence-tools-b2b-software", type: "article", free: true, note: "Comprehensive platform comparison with scoring" },
+  { title: "How to Use AI to Conduct Competitor Analysis (Klue)", url: "https://klue.com/blog/how-to-do-competitive-analysis-with-ai", type: "article", free: true, note: "ChatGPT, Perplexity, and Claude workflows" },
+  { title: "AI Share of Voice: Track Brand Visibility in LLM Answers (Nightwatch)", url: "https://nightwatch.io/blog/ai-share-of-voice/", type: "article", free: true, note: "How to measure and grow AI citation share" },
+  { title: "Measure Brand Share of Voice in ChatGPT and AI Overviews 2026 (Siftly)", url: "https://siftly.ai/blog/measure-brand-share-voice-chatgpt-google-ai-overviews-2026", type: "article", free: true, note: "Practical measurement guide with tool recommendations" },
+  { title: "n8n Competitor Analysis Workflow (GitHub — josepino)", url: "https://github.com/josepino/n8n-competitor-analysis", type: "tool", free: true, note: "Open-source n8n + Perplexity SWOT automation workflow" },
+  { title: "n8n AI Competitor Monitoring + Dynamic Pricing Template", url: "https://n8n.io/workflows/6448-automated-dynamic-pricing-with-ai-competitor-monitoring-and-revenue-optimization/", type: "tool", free: true, note: "Pre-built n8n workflow for competitor price tracking" },
+  { title: "AI-Powered Win/Loss Analysis Prompts (Momentum.io)", url: "https://www.momentum.io/prompts/ai-powered-win-loss-analysis-report", type: "article", free: true, note: "Prompt templates for CRM win/loss pattern extraction" },
+  { title: "Competitive Intelligence at Scale with AI Tools (Plashal)", url: "https://andres.plashal.com/blog/competitive-intelligence-ai-tools/", type: "article", free: true, note: "Practical guide to building custom CI stacks" },
+  { title: "Klue — Competitive Enablement Platform", url: "https://klue.com", type: "tool", free: false, note: "Best-in-class battlecard generation and win/loss integration; from ~$20K/yr" },
+  { title: "Crayon — Enterprise Competitor Monitoring", url: "https://www.crayon.co", type: "tool", free: false, note: "Broadest competitor signal coverage for enterprise CI programs" },
+  { title: "Brandwatch — Social Listening and Competitor Sentiment", url: "https://www.brandwatch.com", type: "tool", free: false, note: "Best for unstructured social + news competitor signals" },
+  { title: "WsCube Tech - AI Competitive Intelligence (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - AI Competitor Research", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - AI Competitive Analysis", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

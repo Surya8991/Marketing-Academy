@@ -329,7 +329,7 @@ export default function HomePage() {
               href="/tracks"
               className="hidden sm:flex items-center gap-1 text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
             >
-              All 7 tracks <ArrowRight size={14} />
+              All {TRACKS.length} tracks <ArrowRight size={14} />
             </Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -339,7 +339,7 @@ export default function HomePage() {
           </div>
           <div className="mt-4 text-center sm:hidden">
             <Link href="/tracks" className="text-sm text-[var(--accent)] font-medium">
-              See all 7 tracks
+              See all {TRACKS.length} tracks
             </Link>
           </div>
         </div>

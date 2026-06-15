@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { Bookmark, BookmarkCheck } from "lucide-react";
 import { getBookmarks, saveBookmarks } from "@/lib/bookmarks";
+import { addXP, ENGAGEMENT_EVENT } from "@/lib/engagement";
+import { checkAchievements } from "@/lib/achievements";
 
 export default function BookmarkButton({
   category,
@@ -35,6 +37,9 @@ export default function BookmarkButton({
     } else {
       saveBookmarks([...existing, { category, slug, title }]);
       setBookmarked(true);
+      const newState = addXP("bookmark", `${category}/${slug}`);
+      const unlocked = checkAchievements(newState);
+      window.dispatchEvent(new CustomEvent(ENGAGEMENT_EVENT, { detail: { state: newState, unlocked } }));
     }
   };
 

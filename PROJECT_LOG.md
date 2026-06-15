@@ -1,19 +1,22 @@
 # Marketing Academy - Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-06-14 (Session 30). Updated via Antigravity.
+> Last audited: 2026-06-15 (Session 43).
 
 ---
 
 ## 60-Second Resume
 
 ```
-1. cd D:\Coding\marketing-academy
-12: 2. Count MDX files: (Get-ChildItem src/content -Recurse -Filter *.mdx).Count   [PowerShell]
-13: 3. Current: 324 MDX files across 15 categories - all written + reviewed
-14: 4. Quiz expansion DONE: 315 lessons now have 4 quiz questions each. src/lib/quizzes.ts = 12,500+ lines.
-15: 5. Interview expansion DONE: 16 sections (added Behavioral), 151 Q&As, answers split into 2-4 paragraphs.
-16: ```
+1. cd C:\Users\Surya L\Desktop\AI Agents\Marketing-Academy
+2. Count MDX files: (Get-ChildItem src/content -Recurse -Filter *.mdx).Count   [PowerShell]
+3. Current: 393 lessons · 216 glossary terms · 108 tools · 7 tracks · 15 categories
+4. XP/Streak/Achievements system LIVE (Session 41). Cmd+K palette, skill-map, onboarding, settings page all shipped.
+5. Stats are dynamic everywhere: flatLessons().length, CATEGORIES.length, GLOSSARY_TERMS.length, TOOLS.length.
+6. Key constants: COMPLETED_KEY exported from progress.ts, COMMAND_PALETTE_EVENT from src/lib/events.ts.
+7. localStorage keys: ma-completed (lessons), ma_bookmarks (bookmarks), ma_engagement (XP/streak), ma_onboarded (shown onboarding).
+8. Build remote: https://github.com/Layruss98266/Marketing-Academy.git (Layruss98266 account)
+```
 17: 
 18: **Do NOT:**
 19: - Run `npm install` again - everything is installed
@@ -29,28 +32,28 @@
 29: 
 30: ---
 31: 
-32: ## Current State: 324 MDX lessons across 15 categories
-33: 
-34: > Note: curriculum.ts lists 315 canonical lessons. 324 MDX files exist (9 bonus lessons written during workflows). All are accessible via direct URL but only all canonical appear in navigation.
-35: 
-36: | # | Emoji | Category | Slug | In curriculum.ts | MDX files on disk |
-37: |---|---|---|---|---|---|
-38: | 1 | 🎯 | Marketing Fundamentals | `fundamentals` | 20 | 20 |
-39: | 2 | 🔎 | SEO | `seo` | 21 | 21 |
-40: | 3 | 💰 | Paid Ads | `paid-ads` | 22 | 22 |
-41: | 4 | 🚀 | Growth Marketing | `growth` | 20 | 20 |
-42: | 5 | 📱 | Social Media | `social` | 19 | 19 |
-43: | 6 | ✍️ | Content Marketing | `content` | 20 | 20 |
-44: | 7 | 📧 | Email & Lifecycle | `email` | 23 | 27 |
-45: | 8 | 📊 | Analytics & Attribution | `analytics` | 26 | 28 |
-46: | 9 | 🛠️ | Marketing Tools | `tools` | 29 | 31 |
-47: | 10 | 🧠 | Human Psychology | `psychology` | 21 | 22 |
-48: | 11 | ✍️ | Copywriting | `copywriting` | 20 | 20 |
-49: | 12 | 🎯 | CRO | `cro` | 19 | 19 |
-50: | 13 | 🎨 | Brand Strategy | `brand-strategy` | 20 | 20 |
-51: | 14 | 📦 | Product Marketing | `product-marketing` | 17 | 17 |
-52: | 15 | 🤖 | AI in Marketing | `ai-marketing` | 18 | 18 |
-53: | | | **TOTAL** | | **315 canonical** | **324 on disk** |
+32: ## Current State: 393 lessons across 15 categories
+
+> All orphaned MDX files linked in Session 43. curriculum.ts and MDX disk counts are now fully in sync.
+
+| # | Category | Slug | Lessons |
+|---|---|---|---|
+| 1 | Marketing Fundamentals | `fundamentals` | 25 |
+| 2 | SEO | `seo` | 26 |
+| 3 | Paid Ads | `paid-ads` | 28 |
+| 4 | Growth Marketing | `growth` | 24 |
+| 5 | Social Media | `social` | 24 |
+| 6 | Content Marketing | `content` | 25 |
+| 7 | Email & Lifecycle | `email` | 31 |
+| 8 | Analytics & Attribution | `analytics` | 33 |
+| 9 | Marketing Tools | `tools` | 36 |
+| 10 | Human Psychology | `psychology` | 26 |
+| 11 | Copywriting | `copywriting` | 24 |
+| 12 | CRO | `cro` | 22 |
+| 13 | Brand Strategy | `brand-strategy` | 24 |
+| 14 | Product Marketing | `product-marketing` | 22 |
+| 15 | AI in Marketing | `ai-marketing` | 23 |
+| | **TOTAL** | | **393** |
 
 ---
 
@@ -697,6 +700,9 @@ Full review by 5 personas (CMO, Junior Marketer, SEO Specialist, UX Designer, Fr
 | 30 | 2026-06-14 | **Audit.** Checked for incorrect/stale info in Homepage & About pages. Logged findings and recommended fixes to Phase 12 Backlog. |
 | 31 | 2026-06-14 | **Done.** Created /compare tool comparison engine. Wrote, quiz-mapped, and registered the new Zero-Party Data Strategy lesson in curriculum and sitemap. |
 | 35 | 2026-06-15 | Full code review (0 critical, 0 high, 1 medium on hold, 9 low). Fixes applied then reverted on user request. Repo migrated to Layruss98266 account. Git identity updated. Source author (Surya8991) preserved in docs. |
+| 41 | 2026-06-15 | 8 Polymath-inspired features shipped: XP/streak system, achievements (10 badges), skill map, command palette (Cmd+K), DiagramBlock SVG component, onboarding modal, settings page (export/import/reset), Vercel security headers. New libs: engagement.ts, achievements.ts, commandIndex.ts, events.ts. New routes: /achievements, /skill-map, /settings. |
+| 42 | 2026-06-15 | Code review pass on Session 41 features: 6 bugs fixed (engagement dead branch, AchievementToast timer leak, CommandPalette crash on empty results, unused React import, COMPLETED_KEY coupling, event constant coupling). AGENTS.md Rule 22 added. README + PROJECT_LOG updated. |
+| 43 | 2026-06-15 | Orphan fix: 6 MDX lessons existed on disk but unregistered in curriculum.ts. Added to curriculum: analytics/attribution-models (Advanced), analytics/funnel-analytics (Intermediate), email/email-101 (Beginner), email/automation-drips (Intermediate), email/winback (Intermediate), email/compliance (Advanced). Total: 387 -> 393 registered lessons. All orphans resolved. |
 
 ---
 
@@ -1433,3 +1439,302 @@ Full codebase read across all pages and components. Evaluated as 5 distinct pers
 - TypeScript: **0 errors** via `tsc --noEmit`
 - Build: clean — all 315 lesson pages + `/opml.xml` route rendered successfully
 - All 38 persona audit issues resolved (31 fixed · 6 deferred · 1 open P1.2 progress widget)
+
+---
+
+## Session 39 — 2026-06-15 (New Lesson Gap Analysis — 2026 Curriculum Expansion)
+
+### Method
+Full curriculum inventory (323 MDX files across 15 categories) cross-referenced against:
+- Deep research workflow: 5 parallel web searches → 15 sources fetched → adversarial claim verification
+- 2026 practitioner skills gap data (Sprout Social, HubSpot State of Marketing 2026, Search Engine Land)
+- Research-confirmed signals: 76% of marketers now use AI for content; 58.5% of Google searches end with zero clicks; short-form video ROI at 31% (highest of any format); programmatic = 84.9% of digital ad revenue by 2030
+
+**Current state:** 323 MDX files · ~315 unique lessons · 15 categories
+
+---
+
+### Proposed New Lessons by Category
+
+#### 1. `ai-marketing` (18 existing → +5 proposed)
+
+| Slug | Title | Why 2026 |
+|------|--------|-----------|
+| `agentic-marketing-workflows` | Agentic AI: Autonomous Marketing Campaigns | AI agents that browse, write, post, and optimize without human intervention — the defining shift of 2026; practitioners have no mental model for it yet |
+| `ai-competitive-intelligence` | AI-Powered Competitive Intelligence | Using LLMs + web scraping to monitor competitors, pricing, and messaging changes in near-real-time; replaces manual quarterly reviews |
+| `llm-fine-tuning-brand-voice` | Fine-Tuning LLMs on Your Brand Voice | How to create brand-specific model adapters so AI output sounds like you, not ChatGPT; critical as brand dilution from generic AI copy accelerates |
+| `ai-measurement-attribution` | AI-Powered Attribution Modeling | Probabilistic and ML-based attribution beyond rules-based models; Northbeam, Triple Whale, and similar tools explained |
+| `synthetic-audience-testing` | Synthetic Audiences: Testing Without Real Users | Using AI to simulate audience segments for messaging and creative tests; reduces cost and time-to-insight dramatically |
+
+#### 2. `analytics` (27 existing → +5 proposed)
+
+| Slug | Title | Why 2026 |
+|------|--------|-----------|
+| `composable-cdp` | Composable CDP vs Packaged CDP | Hightouch, Census, Rudderstack — the warehouse-native CDP model vs Segment/Salesforce; foundational for modern data teams |
+| `signal-based-measurement` | Signal-Based Measurement in a Cookieless World | Beyond cookies: using first-party signals, server-side events, and probabilistic identity to measure the full funnel |
+| `ai-powered-insights` | Automated Insight Generation | Moving from dashboards you read to AI that tells you what changed and why; Amplitude, Mixpanel, Looker AI features |
+| `marketing-data-governance` | Data Quality and Governance for Marketers | Lineage, freshness, schema contracts — why bad data kills campaigns and how to build guardrails without a data engineering team |
+| `experimentation-platforms` | Building a Marketing Experimentation Platform | Beyond Google Optimize (deprecated): Statsig, LaunchDarkly, Eppo — how to pick and wire up an experiment stack |
+
+#### 3. `brand-strategy` (20 existing → +4 proposed)
+
+| Slug | Title | Why 2026 |
+|------|--------|-----------|
+| `brand-in-ai-era` | Brand Building in the AI Era | AI answers replace branded searches; how to build brand equity when discovery happens inside ChatGPT and Perplexity, not Google |
+| `micro-community-branding` | Micro-Community Brand Strategy | Discord servers, Slack groups, Reddit niches — owning a community instead of renting an audience; distinct from mass social strategy |
+| `global-vs-local-brand` | Glocalization: Global Brand, Local Voice | How global brands adapt messaging, imagery, and tone for local markets without fragmenting brand equity |
+| `personal-brand-vs-company-brand` | Personal Brand vs Company Brand: Which Wins? | Founder brands driving company growth (Duolingo CEO, Linear founder) vs institutional brand — when to lean into each |
+
+#### 4. `content` (20 existing → +5 proposed)
+
+| Slug | Title | Why 2026 |
+|------|--------|-----------|
+| `original-research-content` | Original Research as Content: Surveys, Data Studies | First-party data studies that earn thousands of backlinks; methodology, survey tools, and distribution playbook |
+| `community-driven-content` | Community-Driven Content Creation | Co-creating content with your audience: AMAs, co-authored pieces, reader-submitted case studies |
+| `content-velocity-with-ai` | Scaling Content Velocity with AI | How to 10x output without sacrificing quality: human-AI workflows, review loops, and quality gates |
+| `video-first-content-strategy` | Video-First Content Strategy | Building content operations around video as the primary unit, then repurposing down — not the other way around |
+| `content-localization` | Content Localization at Scale | Translating and culturally adapting content for global markets using AI translation + local reviewers |
+
+#### 5. `copywriting` (20 existing → +4 proposed)
+
+| Slug | Title | Why 2026 |
+|------|--------|-----------|
+| `ai-human-copy-collaboration` | AI + Human Copywriting Collaboration | Not prompt-to-publish: the pro workflow for using AI as a drafting partner while maintaining voice, accuracy, and persuasion |
+| `video-script-writing` | Video Script Writing for Short-Form and Long-Form | YouTube scripts, TikTok hooks, reel voiceovers — the specific structural patterns that drive watch time and action |
+| `conversational-copy` | Conversational Copy: Chatbots, AI Assistants, Voice | Writing for chat interfaces, voice search responses, and AI assistant answers — the new frontier of copy |
+| `copy-for-ai-search` | Copywriting for AI-Generated Search Results | How to write content that gets cited in AI Overviews, Perplexity answers, and ChatGPT responses |
+
+#### 6. `cro` (19 existing → +4 proposed)
+
+| Slug | Title | Why 2026 |
+|------|--------|-----------|
+| `saas-cro` | SaaS-Specific Conversion Rate Optimization | Trial-to-paid, upgrade flows, seat expansion — CRO patterns unique to SaaS that don't apply to e-commerce |
+| `ai-driven-personalization-cro` | AI-Driven CRO: Beyond A/B Testing | Bandit algorithms, multi-armed testing, and AI personalization engines (Optimizely Web, VWO AI) for continuous optimization |
+| `behavioral-design-patterns` | Behavioral Design Patterns in UX | Fogg Behavior Model applied to signup flows, checkout, and onboarding — specific UI patterns backed by behavioral science |
+| `social-proof-engineering` | Engineering Social Proof Systems | Systematic design and testing of review widgets, case study placement, trust badges, and live activity notifications |
+
+#### 7. `email` (27 existing → +4 proposed)
+
+| Slug | Title | Why 2026 |
+|------|--------|-----------|
+| `amp-for-email` | AMP for Email: Interactive Emails That Convert | Forms, carousels, accordions, and real-time data inside emails; Gmail and Yahoo support it — almost no marketers use it yet |
+| `inbox-placement-science` | Inbox Placement Science: Beyond Deliverability | DMARC, BIMI, DKIM deep-dive; reputation scoring; how to audit and fix poor placement before it kills a list |
+| `ai-email-personalization-scale` | AI Personalization at Email Scale | Generating truly individual subject lines, body copy, and offers for each subscriber — tools, data requirements, and pitfalls |
+| `email-plus-sms-orchestration` | Unified Email + SMS Campaign Orchestration | Multi-channel sequencing: when email, when SMS, how to coordinate across channels without over-communicating |
+
+#### 8. `fundamentals` (20 existing → +5 proposed)
+
+| Slug | Title | Why 2026 |
+|------|--------|-----------|
+| `go-to-market-strategy` | Go-To-Market Strategy: The Full Playbook | GTM motion selection (PLG, SLG, channel-led), launch sequencing, and cross-functional alignment — the most-searched marketing fundamentals topic |
+| `demand-gen-vs-lead-gen` | Demand Generation vs Lead Generation | The philosophical and tactical split that divides marketing teams; why demand gen won and what it actually means in practice |
+| `revops-for-marketers` | Revenue Operations for Marketers | What RevOps is, how it relates to marketing ops, and why marketers need to understand pipeline, handoffs, and attribution across the funnel |
+| `abm-fundamentals` | Account-Based Marketing Fundamentals | Target account selection, tiered ABM (1:1, 1:few, 1:many), and the full ABM motion for B2B marketers |
+| `community-led-growth-intro` | Community-Led Growth: The Third Motion | Community as a distribution, retention, and revenue channel — not just Discord for support; case studies from Notion, Figma, Linear |
+
+#### 9. `growth` (20 existing → +4 proposed)
+
+| Slug | Title | Why 2026 |
+|------|--------|-----------|
+| `community-led-growth` | Community-Led Growth Mechanics | Building flywheel loops where community members drive acquisition, activation, and retention — playbooks from Slack, Figma, Duolingo |
+| `b2b-growth-loops` | B2B Growth Loop Design | Enterprise-specific loops: collaboration invites, team expansion, integration adoption — how B2B compounds differently from B2C |
+| `ai-experiment-design` | Using AI to Design and Analyze Experiments | Generating hypotheses, selecting metrics, calculating sample sizes, and interpreting results with AI assistance |
+| `product-led-sales` | Product-Led Sales (PLS): When PLG Meets Enterprise | The hybrid motion: free users become pipeline signals; how sales and product work together to convert PQL to enterprise |
+
+#### 10. `paid-ads` (22 existing → +6 proposed)
+
+| Slug | Title | Why 2026 |
+|------|--------|-----------|
+| `demand-gen-campaigns` | Google Demand Gen Campaigns | The replacement for Discovery ads; visual, mid-funnel intent targeting across YouTube, Gmail, Discover — huge ad spend shift in 2025-2026 |
+| `amazon-advertising` | Amazon Advertising: The Third Giant | Sponsored Products, Sponsored Brands, DSP — Amazon Ads is now the #3 ad platform globally with 75%+ purchase intent traffic |
+| `first-party-data-activation` | First-Party Data Activation for Paid Ads | Customer match, enhanced conversions, CAPI — how to use your own data to improve targeting and measurement post-cookie |
+| `creator-ugc-ads` | Creator-Led Ads and UGC Ad Creative | Why creator-shot ads outperform studio creative; sourcing, briefing, and testing UGC at scale via platforms like Billo and Insense |
+| `ai-max-broad-match` | Google AI Max and the New Broad Match | AI Max campaigns, keyword-less search, and how modern Google Ads works in 2026 — everything changed from exact match era |
+| `snapchat-pinterest-ads` | Snapchat and Pinterest Ads for Niche Audiences | Underused platforms with Gen Z and female-skewing audiences; specific creative formats and targeting that work |
+
+#### 11. `product-marketing` (17 existing → +5 proposed)
+
+| Slug | Title | Why 2026 |
+|------|--------|-----------|
+| `gtm-engineering` | GTM Engineering: Automating the Revenue Stack | Clay, Apollo, Phantom Buster, n8n — how technical PMMs and growth marketers automate outbound, enrichment, and lead routing |
+| `partner-ecosystem-marketing` | Partner and Ecosystem Marketing | Channel partners, integration partners, ISV relationships — how to build and activate a partner ecosystem as a GTM motion |
+| `ai-product-positioning` | Positioning AI-Powered Products | How to avoid "AI-powered" fatigue and position AI features as real value; frameworks for when to lead with AI vs hide it |
+| `product-led-sales-pmm` | PMM's Role in Product-Led Sales | How PMMs bridge self-serve and enterprise motions: sales content, enterprise-tier messaging, and PQL scoring |
+| `developer-marketing` | Developer Marketing and DevRel | Reaching technical buyers: docs, SDKs, sandbox environments, GitHub presence, developer community — increasingly the default GTM for SaaS |
+
+#### 12. `psychology` (22 existing → +4 proposed)
+
+| Slug | Title | Why 2026 |
+|------|--------|-----------|
+| `attention-neuroscience` | The Neuroscience of Digital Attention | How the brain processes information in 3-second scroll environments; pre-attentive attributes, pattern interrupts, and hook design backed by neuroscience |
+| `parasocial-relationships-marketing` | Parasocial Relationships in the Creator Economy | Why audiences feel they know creators personally — and how brands can ethically leverage parasocial trust through partnerships |
+| `digital-dopamine-design` | Digital Dopamine: Reward Loops in Marketing | Variable reward schedules, streak mechanics, notifications — why they work and how to apply them without manipulating users |
+| `trust-and-credibility-signals` | The Psychology of Trust and Credibility | Expertise signals, social proof stacking, vulnerability marketing — what actually builds trust vs what just looks professional |
+
+#### 13. `seo` (21 existing → +5 proposed)
+
+| Slug | Title | Why 2026 |
+|------|--------|-----------|
+| `ai-mode-search-optimization` | Optimizing for Google AI Mode | Google's AI Mode (launched mid-2025) shows AI answers for almost all queries — how it cites sources, what content gets pulled in, and how to rank inside it |
+| `reddit-forum-seo` | Reddit and Forum SEO Strategy | Google's SGE and AI Overviews heavily cite Reddit and forums; how to build brand presence in communities that now rank above your own site |
+| `brand-serp-control` | Brand SERP Optimization | Controlling what people see when they Google your brand: knowledge panels, reviews, news, images, secondary search terms |
+| `video-seo` | Video SEO: YouTube and TikTok Search | YouTube as the world's #2 search engine; TikTok search growing among Gen Z — titles, descriptions, chapters, and closed captions that rank |
+| `seo-for-ai-platforms` | SEO for AI Platforms: Perplexity, ChatGPT, Claude | Citations in AI answers are the new backlinks; how to get your content cited in Perplexity, ChatGPT Browse, and Claude |
+
+#### 14. `social` (19 existing → +5 proposed)
+
+| Slug | Title | Why 2026 |
+|------|--------|-----------|
+| `social-commerce` | Social Commerce: Selling on TikTok, Instagram, Pinterest | TikTok Shop, Instagram Checkout, Pinterest Shopping — the full purchase funnel inside social apps; set to hit $1.2T by 2027 |
+| `creator-economy-strategy` | Creator Economy Strategy for Brands | Beyond influencer marketing: building a creator roster, affiliate programs, co-created products, and creator-as-employee models |
+| `linkedin-thought-leadership` | LinkedIn Thought Leadership at Scale | Newsletter strategy, document posts, video, and the LinkedIn algorithm in 2026 — the #1 B2B organic channel with highest conversion rate |
+| `dark-social-strategy` | Dark Social Strategy | Measuring and driving shares in Slack, WhatsApp, DMs, email forwards — the dark matter of referral traffic that attribution misses |
+| `social-listening-advanced` | Advanced Social Listening: Beyond Mentions | Sentiment trend prediction, emerging narrative detection, competitor share-of-voice — turning social data into strategic intelligence |
+
+#### 15. `tools` (31 existing → +5 proposed)
+
+| Slug | Title | Why 2026 |
+|------|--------|-----------|
+| `clay-for-marketers` | Clay: The GTM Data Enrichment Platform | Clay as the central enrichment layer for outbound and ABM — waterfalls, AI columns, CRM sync; the most-adopted GTM tool of 2025-2026 |
+| `n8n-make-marketing-automation` | n8n and Make: Advanced Marketing Automation | Open-source and mid-market workflow automation beyond Zapier; AI node integration, webhook chains, multi-step campaign automation |
+| `revenue-intelligence-tools` | Revenue Intelligence Tools: Gong, Chorus, Clari | Call recording, deal risk scoring, pipeline forecasting — why marketers need to understand what sales intelligence reveals about messaging gaps |
+| `ai-native-martech` | AI-Native MarTech: The New Stack | Tools built AI-first vs AI-bolted-on: Copy.ai, Jasper, Persado, Writer — how to evaluate and pick an AI content platform |
+| `marketing-data-stack-2026` | The Modern Marketing Data Stack in 2026 | Source → warehouse → transform → activate: BigQuery/Snowflake, dbt, Hightouch/Census — the full composable stack mapped for marketers |
+
+---
+
+### Summary
+
+| Category | Existing | Proposed New | Total |
+|----------|----------|--------------|-------|
+| ai-marketing | 18 | +5 | 23 |
+| analytics | 27 | +5 | 32 |
+| brand-strategy | 20 | +4 | 24 |
+| content | 20 | +5 | 25 |
+| copywriting | 20 | +4 | 24 |
+| cro | 19 | +4 | 23 |
+| email | 27 | +4 | 31 |
+| fundamentals | 20 | +5 | 25 |
+| growth | 20 | +4 | 24 |
+| paid-ads | 22 | +6 | 28 |
+| product-marketing | 17 | +5 | 22 |
+| psychology | 22 | +4 | 26 |
+| seo | 21 | +5 | 26 |
+| social | 19 | +5 | 24 |
+| tools | 31 | +5 | 36 |
+| **TOTAL** | **323** | **+70** | **393** |
+
+**Status: Session 39 COMPLETE — 387 total lessons live.**
+
+---
+
+## Session 40 — 2026-06-15
+
+**Quality audit, ordering fix, dynamic counts, and build repair**
+
+### What was done
+
+**Lesson quality audit (72 recent lessons):**
+- Word-counted all 72 most-recently-modified lessons
+- Found 2 thin lessons (< 800 words body): social-media-tools.mdx (832 total) and tools-stack-by-stage.mdx (974 total)
+- Both rewrote to full quality standard: 900-1100 word body, real 2025 data citations, stage-appropriate frameworks, 3 multilingual ResourceList entries added
+
+**Curriculum ordering fix:**
+- Brand Strategy category had `micro-community-branding` (Intermediate) and `personal-brand-vs-company-brand` (Intermediate) appearing after 8 Advanced lessons
+- Moved both to correct position: after `employer-brand`, before `brand-vs-demand`
+- Ordering is now Beginner (4) → Intermediate (13) → Advanced (7) within brand-strategy
+
+**Hardcoded stat counts → dynamic:**
+- `about/page.tsx` STATS array now computed from live data sources (was hardcoded 315/15/148/112/7)
+- Actual counts corrected: glossary was showing 148 but actual is 216; tools was showing 112 but actual is 108
+- `page.tsx` tracks CTAs use `{TRACKS.length}` instead of hardcoded "7"
+- `glossary/page.tsx`, `tools/page.tsx`, `search/page.tsx`, `tracks/page.tsx` all use dynamic `.length` values in metadata
+
+**Pre-existing build errors fixed (bonus):**
+- Quiz component was missing from `mdx-components.tsx` — registered it
+- All 5 MDX lessons using `<Quiz>` had wrong prop format (question/choices/correctIndex vs the actual API): fixed all to `questions[]` array with `correct`/`options` + `category`/`slug`
+- MDX syntax errors fixed: apostrophes in single-quoted strings in `revops-for-marketers.mdx` and `demand-gen-vs-lead-gen.mdx`; `<$10M` JSX collision in `micro-community-branding.mdx`; bare `{template_vars}` in `clay-for-marketers.mdx`
+- Build now passes 618/618 static pages with zero errors
+
+**Docs updated:**
+- README.md: lesson counts, per-category table (387 total), glossary (216), tools (108), route table
+- PROJECT_LOG.md: 60-second resume updated, session entry added
+
+### Final state
+| Metric | Value |
+|--------|-------|
+| Total lessons | 387 |
+| Categories | 15 |
+| Glossary terms | 216 |
+| Marketing tools | 108 |
+| Learning tracks | 7 |
+| Build status | ✅ 618/618 pages |
+
+---
+
+## Session 41 — 2026-06-15 (8 engagement + discovery features)
+
+**Polymath-inspired features adapted for Marketing Academy. All shipped, reviewed, and pushed.**
+
+### Features shipped
+
+| # | Feature | Key files |
+|---|---------|-----------|
+| 1 | **Vercel security headers** | `vercel.json` — CSP, HSTS preload, X-Frame-Options DENY, X-Content-Type-Options, Permissions-Policy |
+| 2 | **Streak + XP system** | `src/lib/engagement.ts` — complete=30XP, quiz=20XP, bookmark=5XP, daily streak, 7 levels, 24h dedup |
+| 3 | **Achievements** | `src/lib/achievements.ts` — 10 declarative achievements, `checkAchievements()`, dispatches ENGAGEMENT_EVENT |
+| 4 | **XP wired into components** | `MarkComplete.tsx`, `Quiz.tsx`, `BookmarkButton.tsx` all call `addXP()` + `checkAchievements()` |
+| 5 | **StreakBadge in Nav** | `src/components/StreakBadge.tsx` — 🔥N / LvN / N XP, links to /achievements |
+| 6 | **Command Palette (Cmd+K)** | `src/lib/commandIndex.ts` + `src/components/CommandPalette.tsx` — Fuse.js across lessons+glossary+tools+nav |
+| 7 | **AchievementToast** | `src/components/AchievementToast.tsx` — bottom-right toast on achievement unlock |
+| 8 | **DiagramBlock MDX component** | `src/components/DiagramBlock.tsx` — funnel/bars/timeline/cycle/flow, registered globally |
+| 9 | **OnboardingModal** | `src/components/OnboardingModal.tsx` — first-visit, 6 goals → track redirect, gated by `ma_onboarded` |
+| 10 | **/achievements page** | `src/app/achievements/` — XP bar, level, badge grid (earned vs locked) |
+| 11 | **/skill-map page** | `src/app/skill-map/` — 15 category cards sorted by % complete, animated progress bars |
+| 12 | **/settings page** | `src/app/settings/` — export/import/reset all progress as JSON |
+
+### New lib constants (single source of truth)
+- `src/lib/events.ts` — `COMMAND_PALETTE_EVENT = "ma_cmd_palette"`
+- `src/lib/progress.ts` — `COMPLETED_KEY = "ma-completed"` (exported, was private)
+
+### localStorage key map
+| Key | Set by | Read by |
+|-----|--------|---------|
+| `ma-completed` | `progress.ts` | MarkComplete, SkillMap, Achievements, Settings |
+| `ma_bookmarks` | `bookmarks.ts` | BookmarkButton, Bookmarks page, Settings |
+| `ma_engagement` | `engagement.ts` | StreakBadge, Achievements, Settings |
+| `ma_onboarded` | `OnboardingModal` | OnboardingModal (gate) |
+| `ma_quiz_pass_*` | `quizzes.ts` | Quiz, MarkComplete (lock) |
+
+### Build result
+- 621/621 static pages ✅ — includes /achievements, /skill-map, /settings as new routes
+
+---
+
+## Session 42 — 2026-06-15 (Code review + cleanup)
+
+**Full code review of all Session 41 output. 6 bugs/smells fixed. 3 workspace dirs deleted.**
+
+### Code review fixes
+
+| # | Severity | File | Fix |
+|---|----------|------|-----|
+| 1 | Medium | `SettingsClient.tsx` | Imported `COMPLETED_KEY` from `@/lib/progress` instead of hardcoding `"ma-completed"` |
+| 2 | Low | `AchievementToast.tsx` | `setTimeout` IDs stored in `useRef`, cleared on unmount — eliminates stale-closure setState after unmount |
+| 3 | Low | `engagement.ts` | Dead `else if (lastActiveDay !== t)` inside `if (lastActiveDay !== t)` replaced with plain `else` |
+| 4 | Low | `CommandPalette.tsx` | Guard ArrowDown when `results.length === 0` to prevent `activeIndex` going to −1 |
+| 5 | Info | `DiagramBlock.tsx` | Removed unused `import React from "react"` (JSX transform handles it) |
+| 6 | Info | `events.ts` (new) | `COMMAND_PALETTE_EVENT` extracted to `src/lib/events.ts`; `StreakBadge` re-exports it, `CommandPalette` and `Nav` import directly from lib |
+
+### Workspace cleanup (deletions approved by user)
+| Deleted | What it was |
+|---------|-------------|
+| `polymath-analysis/` | Full separate Next.js POLYMATH app (own `.git`), used for feature analysis — never committed to MA repo |
+| `polymath-repo/` | Duplicate copy of POLYMATH project — also has own `.git`, never committed |
+| `.git-rewrite/` | Working state left by one-time `git filter-repo` run — no longer needed |
+
+### tsconfig.json
+- Added `"polymath-analysis"` and `"polymath-repo"` to `exclude` array — prevents TypeScript from picking up unrelated project files via `**/*.tsx` glob
+
+### Build result after review fixes
+- 621/621 static pages ✅ — zero type errors, zero new warnings

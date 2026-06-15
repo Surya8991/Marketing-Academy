@@ -1,4 +1,5 @@
-const KEY = "ma-completed";
+export const COMPLETED_KEY = "ma-completed";
+const KEY = COMPLETED_KEY;
 
 export function lessonId(category: string, slug: string): string {
   return `${category}/${slug}`;

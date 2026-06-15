@@ -10,26 +10,26 @@ A free, structured marketing education site - from absolute beginner to advanced
 
 ## What This Is
 
-315 lessons across 15 disciplines. No paywalls, no drip sequences, no email required. Every lesson includes real research, company examples with specific numbers, Mermaid diagrams, interview Q&A, and curated free resources in English, Hindi, Tamil, and Telugu.
+393 lessons across 15 disciplines. No paywalls, no drip sequences, no email required. Every lesson includes real research, company examples with specific numbers, Mermaid diagrams, interview Q&A, and curated free resources in English, Hindi, Tamil, and Telugu.
 
 | # | Category | Slug | MDX Files |
 |---|---|---|---|
-| 1 | Marketing Fundamentals | `fundamentals` | 20 |
-| 2 | SEO | `seo` | 21 |
-| 3 | Paid Ads | `paid-ads` | 22 |
-| 4 | Growth Marketing | `growth` | 20 |
-| 5 | Social Media | `social` | 19 |
-| 6 | Content Marketing | `content` | 20 |
-| 7 | Email & Lifecycle | `email` | 27 |
-| 8 | Analytics & Attribution | `analytics` | 28 |
-| 9 | Marketing Tools | `tools` | 31 |
-| 10 | Human Psychology | `psychology` | 22 |
-| 11 | Copywriting | `copywriting` | 20 |
-| 12 | Conversion Rate Optimization | `cro` | 19 |
-| 13 | Brand Strategy | `brand-strategy` | 20 |
-| 14 | Product Marketing | `product-marketing` | 17 |
-| 15 | AI in Marketing | `ai-marketing` | 18 |
-| | **TOTAL** | | **315** |
+| 1 | Marketing Fundamentals | `fundamentals` | 25 |
+| 2 | SEO | `seo` | 26 |
+| 3 | Paid Ads | `paid-ads` | 28 |
+| 4 | Growth Marketing | `growth` | 24 |
+| 5 | Social Media | `social` | 24 |
+| 6 | Content Marketing | `content` | 25 |
+| 7 | Email & Lifecycle | `email` | 31 |
+| 8 | Analytics & Attribution | `analytics` | 33 |
+| 9 | Marketing Tools | `tools` | 36 |
+| 10 | Human Psychology | `psychology` | 26 |
+| 11 | Copywriting | `copywriting` | 24 |
+| 12 | Conversion Rate Optimization | `cro` | 22 |
+| 13 | Brand Strategy | `brand-strategy` | 24 |
+| 14 | Product Marketing | `product-marketing` | 22 |
+| 15 | AI in Marketing | `ai-marketing` | 23 |
+| | **TOTAL** | | **393** |
 
 ---
 
@@ -38,15 +38,20 @@ A free, structured marketing education site - from absolute beginner to advanced
 **Learning**
 - **Lesson reader** - Left-side table of contents, reading progress bar, reading time estimate, prev/next navigation
 - **Related lessons** - "You might also like" section at the bottom of every lesson
-- **Lesson quizzes** - 4 questions at the bottom of 257 lessons
+- **Lesson quizzes** - 4 questions at the bottom of 257 lessons; quiz must be passed (100%) to unlock Mark Complete
 - **Progress tracking** - Mark lessons complete, per-category progress bar, bookmarks (all localStorage)
 - **Learning tracks** - 7 curated paths: B2B Marketer, E-commerce Growth, Solo Founder, AI-First Marketer, Content Creator, Social Media Manager, Data-Driven
 - **Progress certificates** - Printable completion certificate per track at `/certificates/[slug]`
+- **XP + Streak system** - Earn XP for completing lessons (30), passing quizzes (20), bookmarking (5). Daily streak. 7 levels (Marketing Newcomer → Certified Polymath). Live badge in nav.
+- **Achievements** - 10 unlockable badges with toast notification on unlock. Full gallery at `/achievements`
+- **Skill Map** - `/skill-map`: 15 category cards sorted by your % complete with animated progress bars
+- **Onboarding** - First-visit goal selector: pick a goal, get routed to the right learning track
 
 **Discovery**
+- **Command Palette** - Cmd/Ctrl+K fuzzy search across all 393 lessons, 216 glossary terms, 108 tools, and nav pages
 - **Search** - Client-side fuzzy search (Fuse.js) with category and level filter chips
-- **Glossary** - 148 marketing terms with A-Z index and individual term pages at `/glossary`
-- **Tools directory** - 112 marketing tools across 11 categories with search, category, and pricing filters at `/tools`
+- **Glossary** - 216 marketing terms with A-Z index and individual term pages at `/glossary`
+- **Tools directory** - 108 marketing tools across 11 categories with search, category, and pricing filters at `/tools`
 - **Cheat sheets** - Printable per-category quick reference cards at `/cheat-sheets/[category]`
 
 **Interview Prep**
@@ -103,7 +108,7 @@ npm run build
 
 Each lesson is an MDX file at `src/content/[category-slug]/[lesson-slug].mdx`.
 
-Lessons use `export const lessonMeta` (not YAML frontmatter) and have access to four global components without any imports:
+Lessons use `export const lessonMeta` (not YAML frontmatter) and have access to five global components without any imports:
 
 ```mdx
 export const lessonMeta = {
@@ -115,7 +120,8 @@ export const lessonMeta = {
 <Callout type="info">Works without importing.</Callout>
 <Mermaid chart={`graph TD; A-->B`} />
 <ResourceList resources={[...]} />
-<Quiz questions={[...]} />
+<Quiz questions={[...]} category="seo" slug="keyword-research" />
+<DiagramBlock type="funnel" title="AIDA Model" items={["Awareness","Interest","Desire","Action"]} />
 ```
 
 The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
@@ -128,19 +134,25 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 
 | File | Purpose |
 |---|---|
-| `src/lib/curriculum.ts` | Single source of truth - all lesson slugs, titles, levels |
+| `src/lib/curriculum.ts` | Single source of truth — all lesson slugs, titles, levels |
 | `src/lib/tracks.ts` | 7 learning track definitions |
-| `src/lib/glossary.ts` | 148 marketing term definitions |
-| `src/lib/quizzes.ts` | Quiz questions for 257 lessons |
-| `src/lib/tools-directory.ts` | 112 marketing tools with category/pricing data |
+| `src/lib/glossary.ts` | 216 marketing term definitions |
+| `src/lib/quizzes.ts` | Quiz questions (4 per lesson, 257 lessons covered) |
+| `src/lib/tools-directory.ts` | 108 marketing tools with category/pricing data |
 | `src/lib/bookmarks.ts` | Shared bookmark storage (BOOKMARK_KEY, getBookmarks, saveBookmarks) |
-| `mdx-components.tsx` | Global MDX component registry (must be at project root, not in src/) |
+| `src/lib/progress.ts` | Lesson completion helpers (COMPLETED_KEY exported, getCompleted, markComplete) |
+| `src/lib/engagement.ts` | XP/streak system (addXP, getEngagement, getCurrentLevel, ENGAGEMENT_EVENT) |
+| `src/lib/achievements.ts` | 10 declarative badges (ACHIEVEMENTS array, checkAchievements) |
+| `src/lib/commandIndex.ts` | Fuse.js index builder for Cmd+K palette |
+| `src/lib/events.ts` | Shared CustomEvent name constants (COMMAND_PALETTE_EVENT) |
+| `mdx-components.tsx` | Global MDX component registry at project root: Callout, Mermaid, ResourceList, Quiz, DiagramBlock |
 | `src/app/globals.css` | Tailwind v4 + CSS variable design system |
 | `src/components/ThemeToggle.tsx` | Dark/light/system toggle with no-flash inline script |
 | `src/app/api/og/route.tsx` | Edge function for dynamic OG images |
 | `src/app/feed.xml/route.ts` | RSS feed |
 | `public/manifest.json` | PWA Web App Manifest |
 | `public/sw.js` | Service worker: network-first for HTML, cache-first for hashed static assets |
+| `vercel.json` | Security headers (CSP, HSTS, X-Frame-Options, etc.) |
 | `AGENTS.md` | 21 non-negotiable build rules for AI agents |
 | `PROJECT_LOG.md` | Full session history, gotchas, file inventory, pending tasks |
 
@@ -157,15 +169,18 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/search` | Fuzzy search with category + level filters |
 | `/tracks` | 7 learning tracks overview |
 | `/tracks/[slug]` | Track detail with ordered lesson list |
-| `/glossary` | 148-term A-Z marketing glossary |
+| `/glossary` | 216-term A-Z marketing glossary |
 | `/glossary/[slug]` | Individual term page |
 | `/bookmarks` | Saved lessons (localStorage) |
-| `/tools` | 112 marketing tools with search + category + pricing filters |
+| `/tools` | 108 marketing tools with search + category + pricing filters |
 | `/cheat-sheets` | Printable cheat sheet index (15 categories) |
 | `/cheat-sheets/[category]` | Printable per-category cheat sheet |
 | `/interview-prep` | Interview prep hub with category Q&A links |
 | `/interview-questions` | SEO landing: digital marketing interview Q&A |
 | `/digital-marketing-cheat-sheet` | SEO landing: key metrics, frameworks, glossary |
+| `/skill-map` | 15 category cards sorted by your % complete — progress overview |
+| `/achievements` | XP level, streak, and 10 unlockable achievement badges |
+| `/settings` | Export / import / reset all learning progress as JSON |
 | `/about` | About page: mission, builder profile, stats, tech stack, links |
 | `/certificates` | Track completion certificate index |
 | `/certificates/[slug]` | Printable track completion certificate |

@@ -6,11 +6,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Marketing Tools Directory 2026 | Marketing Academy",
   description:
-    "Browse 112 marketing tools for SEO, paid ads, email, analytics, AI, social media and more. Filter by category and pricing to find the right tool for your stack.",
+    `Browse ${TOOLS.length} marketing tools for SEO, paid ads, email, analytics, AI, social media and more. Filter by category and pricing to find the right tool for your stack.`,
   openGraph: {
     title: "Marketing Tools Directory 2026 | Marketing Academy",
     description:
-      "Browse 112 marketing tools for SEO, paid ads, email, analytics, AI, social media and more. Filter by category and pricing to find the right tool for your stack.",
+      `Browse ${TOOLS.length} marketing tools for SEO, paid ads, email, analytics, AI, social media and more. Filter by category and pricing to find the right tool for your stack.`,
     type: "website",
   },
 };

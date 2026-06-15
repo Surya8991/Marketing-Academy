@@ -1,0 +1,148 @@
+export const lessonMeta = {
+  title: "AMP for Email: Interactive Emails That Convert Inside the Inbox",
+  level: "Advanced",
+  summary: "Turn emails into micro-apps — learn how AMP for Email enables live forms, carousels, and real-time data without ever leaving the inbox.",
+};
+
+## What Is AMP for Email?
+
+AMP for Email is a subset of Google's Accelerated Mobile Pages framework — ported into the inbox. Instead of a static HTML message that redirects users to a landing page, AMP lets you embed fully interactive components: forms, carousels, accordions, and live data feeds that update every time the email is opened.
+
+Think of it as turning a flyer into a kiosk. The recipient never needs to click out.
+
+## Why Barely Anyone Uses It (And Why That Matters)
+
+Despite Gmail enabling AMP email support in 2019, adoption in 2026 remains extremely low — well under 1% of commercial email volume uses it. Three barriers explain this: technical complexity, mandatory sender registration, and fragmented ESP support.
+
+That gap is your opportunity. Early adopters consistently report outsized results — Razorpay achieved a 257% improvement in survey response rates after switching from redirect-based surveys to in-email AMP forms.
+
+## Which Inboxes Actually Support It
+
+In 2026, AMP emails render in Gmail (web and Android), Yahoo Mail, and Mail.ru. Together these cover roughly 35–40% of global inboxes depending on your audience mix.
+
+The remaining 60% — Apple Mail, Outlook, and everything else — see a clean HTML fallback. Nobody gets a broken email. They just don't see the interactive version.
+
+<Callout type="info">
+Apple Mail has 58% global market share as of 2025. If your list is Apple-heavy, AMP lift will be smaller. Audit your email client split in your ESP before investing heavily.
+</Callout>
+
+## The Triple MIME Structure
+
+Every AMP email is actually three emails bundled into one message. The sending server attaches three MIME parts: `text/plain` (the plain text fallback), `text/html` (your standard HTML email), and `text/x-amp-html` (the AMP version).
+
+The receiving client renders the best version it can support. Gmail renders AMP. Outlook renders HTML. An old POP client reads plain text. You write once, everyone gets something usable.
+
+```
+MIME multipart/alternative
+├── text/plain         ← universal fallback
+├── text/html          ← standard HTML email
+└── text/x-amp-html    ← interactive AMP version (rendered if supported)
+```
+
+This architecture means AMP is a progressive enhancement, not a gamble. Your baseline email always works.
+
+## Sender Registration: The Step Most Marketers Skip
+
+Google requires whitelist approval before AMP emails are delivered as dynamic. Without registration, Gmail silently strips the AMP MIME part and falls back to HTML — no errors, no warnings, just a static email.
+
+The registration process has four steps:
+
+1. Build a production-ready AMP email (not a test, not a blank — a real campaign)
+2. Send it from your production server with SPF, DKIM, and DMARC properly configured
+3. Email the AMP MIME part to `ampforemail.whitelisting@gmail.com`
+4. Wait — Google typically responds within 5 business days
+
+Registration is per sender address. If you send from `hello@brand.com` and `offers@brand.com`, each needs its own approval. Yahoo and Mail.ru have separate registration flows with similar requirements.
+
+<Callout type="warning">
+You must send a production-quality email in the registration request — not a sandbox test. Google will reject blank emails or emails missing the AMP MIME part. Get your first real AMP email production-ready before applying.
+</Callout>
+
+## ESP Support in 2026: Where Things Stand
+
+Not all ESPs can send the triple MIME structure. Here is the current state:
+
+| ESP | AMP Support |
+|---|---|
+| Mailchimp | No |
+| Klaviyo | Limited (via workarounds, no native builder) |
+| Brevo | Yes (native AMP support) |
+| Amazon SES | Yes (pass-through, you assemble MIME) |
+| SendGrid | Yes (pass-through, you assemble MIME) |
+| Mailmodo | Yes (built specifically around AMP) |
+
+Brevo and Mailmodo are the strongest out-of-the-box options for teams without dedicated email engineers. SES and SendGrid work but require you to construct the MIME payload yourself.
+
+## The Four Use Cases with the Highest ROI
+
+Not every AMP component is worth the setup cost. These four consistently deliver outsized returns:
+
+**In-email NPS and surveys.** Asking for feedback via a redirect link loses 60–70% of potential respondents at the click. An AMP form embedded directly in the email removes the friction entirely — one tap, one response, done. This is the easiest first AMP use case.
+
+**Cart recovery with live inventory.** A cart abandonment email can show real-time stock levels and current price. If the item dropped in price or is nearly sold out, the email surface that urgency without a single extra click from the user.
+
+**Product carousels with live availability.** Static product recommendation emails go stale. An AMP carousel can pull live product data at open time, showing only in-stock items and their current prices. No more emails promoting sold-out products.
+
+**Subscription preference centers.** Let users manage their email frequency and topic preferences without leaving the inbox. Fewer unsubscribes, more control handed to the reader.
+
+<Callout type="tip">
+Start with NPS or a one-question survey. It is the simplest AMP component, requires minimal backend work, and gives you a clean A/B test against your HTML version. Once you have lift data, the internal pitch for more AMP investment writes itself.
+</Callout>
+
+## How to Build Your First AMP Email
+
+The AMP Playground at `playground.amp.dev/email` is the fastest way to start without an ESP. Paste the AMP HTML, preview it in a simulated Gmail view, and send a test to your own Gmail inbox directly from the tool.
+
+A minimal `amp-form` for an NPS survey looks like this:
+
+```html
+<!DOCTYPE html>
+<html ⚡4email>
+<head>
+  <meta charset="utf-8" />
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <script async custom-element="amp-form"
+    src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+  <style amp4email-boilerplate>body{visibility:hidden}</style>
+</head>
+<body>
+  <form method="post" action-xhr="https://yourapi.com/nps">
+    <p>How likely are you to recommend us? (0–10)</p>
+    <input type="number" name="score" min="0" max="10" required />
+    <button type="submit">Submit</button>
+    <div submit-success>Thanks — response recorded.</div>
+  </form>
+</body>
+</html>
+```
+
+The `action-xhr` attribute points to your endpoint. On submit, the form POSTs silently inside the email. The user sees the success state without any page load.
+
+## Measuring the Lift
+
+Run a clean A/B test: half your list gets the AMP version, half gets your existing HTML email. Measure form completion rate (not just click rate) as your primary metric — that is where AMP earns its keep.
+
+Secondary metrics worth tracking: time-to-response (AMP responses come faster), unsubscribe rate on survey sends (typically lower when friction is lower), and reply-to-send ratio. Track these for 4–6 weeks before declaring a winner.
+
+<Callout type="success">
+Interactive emails with AMP components are achieving click-through rates above 8% in advanced personalization programs — compared to a 2–3% industry average for standard HTML campaigns. The gap narrows the more AMP-unsupported clients are in your mix, but the directional lift is consistent across reported case studies.
+</Callout>
+
+## The Compounding Advantage
+
+Most brands will not go through AMP sender registration in 2026. The barrier feels high and the payoff is not immediately obvious. That inertia is your moat.
+
+Getting registered, building one working AMP template, and proving lift with data puts you ahead of 99% of email senders — and the investment compounds as AMP client support continues to expand.
+
+<ResourceList resources={[
+  { title: "AMP for Email Official Docs", url: "https://amp.dev/documentation/guides-and-tutorials/learn/email-spec/amp-email-format/", type: "docs", free: true, note: "Official AMP email spec and component reference" },
+  { title: "Google AMP Email Sender Registration", url: "https://developers.google.com/workspace/gmail/ampemail/register", type: "docs", free: true, note: "Step-by-step Google whitelist registration process" },
+  { title: "AMP Playground (Email)", url: "https://playground.amp.dev/email", type: "tool", free: true, note: "Build and preview AMP emails in browser, send test to Gmail" },
+  { title: "Mailmodo AMP Email Guide", url: "https://www.mailmodo.com/guides/register-amp-email/", type: "article", free: true, note: "How to register with Gmail, Yahoo, and Mail.ru" },
+  { title: "Stripo AMP Whitelisting Experience", url: "https://stripo.email/blog/how-to-get-whitelisted-with-google-to-send-amp-emails-our-personal-experience/", type: "article", free: true, note: "Real-world walkthrough of the Google registration process" },
+  { title: "Ultimate Guide to AMP Email 2025", url: "https://sendigram.com/blog/the-ultimate-guide-to-amp-email/", type: "article", free: true, note: "Comprehensive overview of components, use cases, and setup" },
+  { title: "Dyspatch Email Marketing Statistics 2026", url: "https://www.dyspatch.io/blog/the-highest-quality-list-of-email-marketing-statistics/", type: "article", free: true, note: "Benchmark data including interactive email engagement rates" },
+  { title: "WsCube Tech - Email Marketing Advanced (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - AMP Email", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Interactive Email", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />
