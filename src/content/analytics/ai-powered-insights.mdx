@@ -1,0 +1,101 @@
+export const lessonMeta = {
+  title: "Automated Insight Generation: AI That Tells You What Changed and Why",
+  level: "Advanced",
+  summary: "Move beyond dashboards you have to read — learn how AI insight engines detect anomalies, explain root causes, and deliver findings in plain language before you even know to look.",
+};
+
+## The Dashboard Problem Nobody Talks About
+
+A dashboard is only useful if you know what question to ask. You open Google Analytics, see 47 metrics, and decide to check the ones you always check. Whatever you did not check stays invisible until a stakeholder forwards you a screenshot and asks 'did you see this?'
+
+This is not a data problem — it is an attention problem. There is more signal in your analytics stack than any human can scan daily, and the important signal almost never shows up in the widget you are watching.
+
+## What AI Insight Engines Actually Do
+
+AI analytics systems flip the model: instead of you reading the data, the system reads it and tells you what matters. Three capabilities make this work.
+
+**Anomaly detection** runs statistical baselines on every metric — not just revenue, but micro-metrics like step-level funnel drop-off, session length by device, and click-through rate on secondary CTAs. When a metric moves outside its expected range, the system flags it automatically. According to a 2025 Gartner report on agentic AI, 40% of enterprise applications are expected to include embedded AI agents by 2026, and automated anomaly detection is one of the most commonly deployed patterns.
+
+**Root-cause analysis** goes one layer deeper. Knowing that conversions dropped 18% on Tuesday is useful. Knowing they dropped because iOS 18.4 users on mobile saw a payment form timeout — while desktop users were unaffected — is actionable. AI systems correlate the anomaly against dimensions (device, browser, geography, traffic source, cohort) and surface the slice that explains the most variance.
+
+**Natural language explanation** turns the statistical output into a sentence a non-analyst can act on. The system does not output a table — it outputs a paragraph: 'Checkout completions dropped 18% on Tuesday. The drop is isolated to mobile Safari users on the payment step. Desktop and Android were flat. This pattern matches a similar incident in February linked to a form rendering bug.'
+
+## The Tools Leading This Shift
+
+**Amplitude AI** (formerly Ask Amplitude) lets you type questions in plain English — 'What is our conversion rate from signup to first purchase this month?' — and returns a visualization with the answer. Its AI-Generated Insights layer runs continuously in the background, flagging anomalies and correlating them with product changes or traffic shifts without being prompted.
+
+**Mixpanel Spark** takes a similar approach for product analytics. Ask 'Which features do retained users engage with most in their first 14 days?' and Spark translates that into a query, runs it, and explains the result. Mixpanel expanded Spark in June 2025 to include metric trees and automated anomaly detection that surfaces key patterns and suggests next steps, reducing analysis time significantly.
+
+**Looker Studio Conversational Analytics**, powered by Google Gemini, lets users type questions directly inside dashboards and receive AI-generated charts. As of 2025, the feature is available to all Looker Studio Pro users and includes an experimental Code Interpreter that translates natural language into Python for forecasting and advanced anomaly detection — no SQL or code required.
+
+**ThoughtSpot** has offered natural language search ('ask your data') longer than most competitors. Its Sage layer adds generative explanations to search results, and its SpotIQ engine proactively surfaces insights it calculates you have not looked at yet.
+
+## 'Ask Your Data' vs Pre-Built Dashboards
+
+Pre-built dashboards answer the questions you had when you built them. Ask-your-data interfaces answer the questions you have right now. Both have a place, but the distinction matters for team design.
+
+Dashboards are best for recurring operational checks — daily active users, weekly revenue, monthly churn. Ask-your-data is best for investigation: you see an anomaly in the dashboard, and you need to drill in without waiting for a data analyst to build a new query. The most effective teams use dashboards as the front door and conversational AI as the investigation layer behind it.
+
+## Automated Alerts That Find You First
+
+Rather than querying for problems, modern insight engines push alerts to Slack, email, or PagerDuty the moment something breaks threshold. Traffic drop alerts, conversion spike notifications, and funnel break warnings are the three most valuable.
+
+A funnel break alert is particularly powerful: if step 3 of your checkout suddenly has a 60% drop-off when the baseline is 12%, the system pings the team before the support queue fills up with complaints. The alert includes the affected segment, the time window, and a confidence score — not just a raw percentage change that could be explained by low sample size.
+
+## AI-Generated Weekly Insight Reports
+
+Several platforms now auto-generate weekly summaries in plain language: what moved, what drove it, what to investigate next. Amplitude, Mixpanel, and third-party tools like Improvado produce these reports on a schedule and deliver them via email or Slack.
+
+The reports are not replacements for analyst work — they are pre-work. Instead of an analyst spending Monday morning figuring out what changed last week, they receive a structured briefing and spend that time deciding what to do about it. The leverage is significant: teams report reclaiming 4-6 hours per analyst per week by automating the 'what happened' layer.
+
+## Data Quality Is the Hidden Prerequisite
+
+AI insight engines are powerful exactly to the degree that your underlying data is clean. A system detecting anomalies in mislabeled events will produce confident-sounding nonsense. Garbage in, hallucinated insight out.
+
+Before deploying any AI analytics layer, audit your event taxonomy for duplicate events, missing properties, and inconsistent naming conventions. Tools like Trackingplan and RudderStack's data quality layer run continuous validation checks — flagging when an event that fired 10,000 times per day suddenly fires 200 times, which usually means a tracking implementation broke rather than traffic dropped.
+
+The rule of thumb: AI insights should be trusted only when your data validation layer shows green. A weekly data quality check is not optional once you start acting on automated alerts.
+
+## The Analyst-AI Collaboration Model
+
+The worst version of AI analytics is replacing analyst judgment with algorithm output. The best version is using AI to eliminate the grunt work so analysts focus on interpretation, strategy, and stakeholder communication.
+
+In practice, this means the AI handles: anomaly detection, initial root-cause slicing, report generation, and alert routing. The analyst handles: validating whether the AI's hypothesis makes sense, connecting the finding to product or business context, deciding what action to take, and communicating clearly to non-technical stakeholders.
+
+Analysts who adopt this model consistently outperform those who resist it — not because the AI is smarter, but because the AI is tireless. It checks every metric, every slice, every hour. The analyst's job is to be the judgment layer on top of that coverage.
+
+<Callout type="info">
+Amplitude, Mixpanel, and Looker Studio all offer free tiers or trials. Run a parallel test: turn on AI insights for two weeks while keeping your existing dashboard workflow. Compare what the AI surfaced vs. what you would have found on your own.
+</Callout>
+
+<Callout type="warning">
+Never act on an AI-generated anomaly alert without checking data quality first. Confirm the tracking implementation is intact before escalating a 'traffic drop' that might be a broken analytics tag.
+</Callout>
+
+## Quiz
+
+<Quiz
+  question="What is the primary limitation of traditional dashboards that AI insight engines address?"
+  options={[
+    "They are too expensive to maintain",
+    "They only show data you know to look for, missing unknown anomalies",
+    "They cannot display real-time data",
+    "They require SQL knowledge to build"
+  ]}
+  correctIndex={1}
+  explanation="Traditional dashboards surface the metrics you already thought to track. AI insight engines monitor all metrics continuously and surface anomalies you would not have checked — solving the attention problem, not the data problem."
+/>
+
+<ResourceList resources={[
+  { title: "Amplitude AI Agents: Smarter Product Decisions in 2025", url: "https://www.adasight.com/blog/how-to-use-amplitude-ai-agents-in-2025-smarter-product-decisions-powered-by-adasight", type: "article", free: true, note: "Practical walkthrough of Amplitude AI features" },
+  { title: "Mixpanel Expands with AI Insights and Metric Trees (2025)", url: "https://siliconangle.com/2025/06/18/mixpanel-expands-analytics-platform-metric-trees-ai-insights-experimentation-tools/", type: "article", free: true, note: "Coverage of Spark AI expansion" },
+  { title: "Looker Conversational Analytics: AI-Powered Data Exploration", url: "https://lookerstudiomasterclass.com/blog/looker-studio-conversational-analytics-with-ai", type: "article", free: true, note: "How to use Looker Studio natural language features" },
+  { title: "Autonomous Data Analytics with AI: 2026 Guide", url: "https://www.ovaledge.com/blog/autonomous-data-analytics-with-ai", type: "article", free: true, note: "Overview of agentic AI in analytics pipelines" },
+  { title: "AI-Powered Analytics Tools List for 2026", url: "https://www.trackingplan.com/blog/ai-powered-analytics-tools-list-for-2026-en", type: "article", free: true, note: "Comprehensive tool comparison including ThoughtSpot, Amplitude, Mixpanel" },
+  { title: "Top AI Reporting Tools 2026", url: "https://improvado.io/blog/top-ai-reporting-tools", type: "article", free: true, note: "Covers automated weekly report generation tools" },
+  { title: "ThoughtSpot — AI-Powered Analytics Platform", url: "https://www.thoughtspot.com/", type: "tool", free: false, note: "Natural language search and SpotIQ proactive insights" },
+  { title: "Amplitude — AI Analytics Platform", url: "https://amplitude.com/", type: "tool", free: true, note: "Free tier available; Ask Amplitude and AI-Generated Insights" },
+  { title: "WsCube Tech - AI Analytics Insights (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - AI Insights", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - AI Marketing Analytics", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />
