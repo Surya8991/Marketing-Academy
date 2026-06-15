@@ -1,7 +1,7 @@
 # Marketing Academy - Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-06-15 (Session 42).
+> Last audited: 2026-06-15 (Session 43).
 
 ---
 
@@ -10,7 +10,7 @@
 ```
 1. cd C:\Users\Surya L\Desktop\AI Agents\Marketing-Academy
 2. Count MDX files: (Get-ChildItem src/content -Recurse -Filter *.mdx).Count   [PowerShell]
-3. Current: 387 lessons · 216 glossary terms · 108 tools · 7 tracks · 15 categories
+3. Current: 393 lessons · 216 glossary terms · 108 tools · 7 tracks · 15 categories
 4. XP/Streak/Achievements system LIVE (Session 41). Cmd+K palette, skill-map, onboarding, settings page all shipped.
 5. Stats are dynamic everywhere: flatLessons().length, CATEGORIES.length, GLOSSARY_TERMS.length, TOOLS.length.
 6. Key constants: COMPLETED_KEY exported from progress.ts, COMMAND_PALETTE_EVENT from src/lib/events.ts.
@@ -32,28 +32,28 @@
 29: 
 30: ---
 31: 
-32: ## Current State: 324 MDX lessons across 15 categories
-33: 
-34: > Note: curriculum.ts lists 315 canonical lessons. 324 MDX files exist (9 bonus lessons written during workflows). All are accessible via direct URL but only all canonical appear in navigation.
-35: 
-36: | # | Emoji | Category | Slug | In curriculum.ts | MDX files on disk |
-37: |---|---|---|---|---|---|
-38: | 1 | 🎯 | Marketing Fundamentals | `fundamentals` | 20 | 20 |
-39: | 2 | 🔎 | SEO | `seo` | 21 | 21 |
-40: | 3 | 💰 | Paid Ads | `paid-ads` | 22 | 22 |
-41: | 4 | 🚀 | Growth Marketing | `growth` | 20 | 20 |
-42: | 5 | 📱 | Social Media | `social` | 19 | 19 |
-43: | 6 | ✍️ | Content Marketing | `content` | 20 | 20 |
-44: | 7 | 📧 | Email & Lifecycle | `email` | 23 | 27 |
-45: | 8 | 📊 | Analytics & Attribution | `analytics` | 26 | 28 |
-46: | 9 | 🛠️ | Marketing Tools | `tools` | 29 | 31 |
-47: | 10 | 🧠 | Human Psychology | `psychology` | 21 | 22 |
-48: | 11 | ✍️ | Copywriting | `copywriting` | 20 | 20 |
-49: | 12 | 🎯 | CRO | `cro` | 19 | 19 |
-50: | 13 | 🎨 | Brand Strategy | `brand-strategy` | 20 | 20 |
-51: | 14 | 📦 | Product Marketing | `product-marketing` | 17 | 17 |
-52: | 15 | 🤖 | AI in Marketing | `ai-marketing` | 18 | 18 |
-53: | | | **TOTAL** | | **315 canonical** | **324 on disk** |
+32: ## Current State: 393 lessons across 15 categories
+
+> All orphaned MDX files linked in Session 43. curriculum.ts and MDX disk counts are now fully in sync.
+
+| # | Category | Slug | Lessons |
+|---|---|---|---|
+| 1 | Marketing Fundamentals | `fundamentals` | 25 |
+| 2 | SEO | `seo` | 26 |
+| 3 | Paid Ads | `paid-ads` | 28 |
+| 4 | Growth Marketing | `growth` | 24 |
+| 5 | Social Media | `social` | 24 |
+| 6 | Content Marketing | `content` | 25 |
+| 7 | Email & Lifecycle | `email` | 31 |
+| 8 | Analytics & Attribution | `analytics` | 33 |
+| 9 | Marketing Tools | `tools` | 36 |
+| 10 | Human Psychology | `psychology` | 26 |
+| 11 | Copywriting | `copywriting` | 24 |
+| 12 | CRO | `cro` | 22 |
+| 13 | Brand Strategy | `brand-strategy` | 24 |
+| 14 | Product Marketing | `product-marketing` | 22 |
+| 15 | AI in Marketing | `ai-marketing` | 23 |
+| | **TOTAL** | | **393** |
 
 ---
 
@@ -700,6 +700,9 @@ Full review by 5 personas (CMO, Junior Marketer, SEO Specialist, UX Designer, Fr
 | 30 | 2026-06-14 | **Audit.** Checked for incorrect/stale info in Homepage & About pages. Logged findings and recommended fixes to Phase 12 Backlog. |
 | 31 | 2026-06-14 | **Done.** Created /compare tool comparison engine. Wrote, quiz-mapped, and registered the new Zero-Party Data Strategy lesson in curriculum and sitemap. |
 | 35 | 2026-06-15 | Full code review (0 critical, 0 high, 1 medium on hold, 9 low). Fixes applied then reverted on user request. Repo migrated to Layruss98266 account. Git identity updated. Source author (Surya8991) preserved in docs. |
+| 41 | 2026-06-15 | 8 Polymath-inspired features shipped: XP/streak system, achievements (10 badges), skill map, command palette (Cmd+K), DiagramBlock SVG component, onboarding modal, settings page (export/import/reset), Vercel security headers. New libs: engagement.ts, achievements.ts, commandIndex.ts, events.ts. New routes: /achievements, /skill-map, /settings. |
+| 42 | 2026-06-15 | Code review pass on Session 41 features: 6 bugs fixed (engagement dead branch, AchievementToast timer leak, CommandPalette crash on empty results, unused React import, COMPLETED_KEY coupling, event constant coupling). AGENTS.md Rule 22 added. README + PROJECT_LOG updated. |
+| 43 | 2026-06-15 | Orphan fix: 6 MDX lessons existed on disk but unregistered in curriculum.ts. Added to curriculum: analytics/attribution-models (Advanced), analytics/funnel-analytics (Intermediate), email/email-101 (Beginner), email/automation-drips (Intermediate), email/winback (Intermediate), email/compliance (Advanced). Total: 387 -> 393 registered lessons. All orphans resolved. |
 
 ---
 

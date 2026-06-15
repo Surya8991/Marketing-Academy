@@ -10,7 +10,7 @@ A free, structured marketing education site - from absolute beginner to advanced
 
 ## What This Is
 
-387 lessons across 15 disciplines. No paywalls, no drip sequences, no email required. Every lesson includes real research, company examples with specific numbers, Mermaid diagrams, interview Q&A, and curated free resources in English, Hindi, Tamil, and Telugu.
+393 lessons across 15 disciplines. No paywalls, no drip sequences, no email required. Every lesson includes real research, company examples with specific numbers, Mermaid diagrams, interview Q&A, and curated free resources in English, Hindi, Tamil, and Telugu.
 
 | # | Category | Slug | MDX Files |
 |---|---|---|---|
@@ -20,8 +20,8 @@ A free, structured marketing education site - from absolute beginner to advanced
 | 4 | Growth Marketing | `growth` | 24 |
 | 5 | Social Media | `social` | 24 |
 | 6 | Content Marketing | `content` | 25 |
-| 7 | Email & Lifecycle | `email` | 27 |
-| 8 | Analytics & Attribution | `analytics` | 31 |
+| 7 | Email & Lifecycle | `email` | 31 |
+| 8 | Analytics & Attribution | `analytics` | 33 |
 | 9 | Marketing Tools | `tools` | 36 |
 | 10 | Human Psychology | `psychology` | 26 |
 | 11 | Copywriting | `copywriting` | 24 |
@@ -29,7 +29,7 @@ A free, structured marketing education site - from absolute beginner to advanced
 | 13 | Brand Strategy | `brand-strategy` | 24 |
 | 14 | Product Marketing | `product-marketing` | 22 |
 | 15 | AI in Marketing | `ai-marketing` | 23 |
-| | **TOTAL** | | **387** |
+| | **TOTAL** | | **393** |
 
 ---
 
@@ -48,7 +48,7 @@ A free, structured marketing education site - from absolute beginner to advanced
 - **Onboarding** - First-visit goal selector: pick a goal, get routed to the right learning track
 
 **Discovery**
-- **Command Palette** - Cmd/Ctrl+K fuzzy search across all 387 lessons, 216 glossary terms, 108 tools, and nav pages
+- **Command Palette** - Cmd/Ctrl+K fuzzy search across all 393 lessons, 216 glossary terms, 108 tools, and nav pages
 - **Search** - Client-side fuzzy search (Fuse.js) with category and level filter chips
 - **Glossary** - 216 marketing terms with A-Z index and individual term pages at `/glossary`
 - **Tools directory** - 108 marketing tools across 11 categories with search, category, and pricing filters at `/tools`
