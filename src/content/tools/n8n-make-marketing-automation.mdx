@@ -1,0 +1,116 @@
+export const lessonMeta = {
+  title: "n8n and Make: Advanced Marketing Automation Beyond Zapier",
+  level: "Intermediate",
+  summary: "Why savvy marketing teams are moving from Zapier to n8n and Make — and the five workflows that prove it.",
+};
+
+## The Zapier Ceiling Is Real
+
+Zapier built the automation habit for marketers. Simple two-step zaps, thousands of integrations, no code required — it was a genuine unlock. Then your stack got bigger, your workflows got branchy, and the task-based billing turned every clever automation into a surprise invoice.
+
+The problem is structural. Zapier charges per *task* — each action inside a workflow counts separately. A five-step zap that runs 10,000 times per month burns 50,000 tasks. Add a loop or a conditional branch and the math gets worse fast.
+
+<Callout type="info">
+n8n charges per workflow *execution*, not per step. A 20-node workflow that runs 10,000 times still counts as 10,000 executions — not 200,000 tasks. That single pricing shift is why technical marketing teams are migrating.
+</Callout>
+
+The other gap: AI. As of 2025, native AI nodes in Zapier are an add-on layer bolted onto a platform built for linear triggers. n8n shipped 70+ LangChain-native AI nodes in its 2.0 release, including a full AI Agent node, LLM chains, and vector store connectors for RAG workflows. The architecture was built *for* AI from the start.
+
+---
+
+## n8n: The Open-Source Powerhouse
+
+n8n (pronounced "nodemation") is open-source, self-hostable, and has 400+ integrations. You can run it on your own server — which means zero per-execution cost and full data residency control. This matters if your team handles personal data or operates under GDPR.
+
+The visual workflow builder uses a node-based canvas. Each node is an action: fetch a webhook, call an API, transform data, call Claude or OpenAI, write to a database. You connect them like a flowchart and n8n handles the execution order.
+
+The AI capability is the real differentiator. n8n's AI Agent node can reason across tool calls — it decides *which* downstream node to invoke based on context, not a hardcoded branch. It supports persistent memory across executions, vector database lookups for context retrieval, and human-in-the-loop pauses where a Slack message or email approval gates the next step.
+
+<Callout type="tip">
+n8n Cloud starts at around $20/month for 2,500 executions. Self-hosted is free forever — you pay only for the server. A $10/month VPS handles most small-to-mid marketing teams with ease.
+</Callout>
+
+Best for: developer-adjacent marketing teams, AI-heavy workflows, data-sensitive orgs, teams that want unlimited branching without cost explosions.
+
+---
+
+## Make: Power Without the Complexity Tax
+
+Make (formerly Integromat) sits between Zapier and n8n on the complexity spectrum. It is not open-source and not self-hostable, but it is dramatically cheaper than Zapier — typically 60% less for equivalent operation counts.
+
+Make's visual interface uses a circular scenario builder with modules (their term for nodes). It excels at complex branching, routing, and data transformation — things Zapier handles awkwardly. If you need to parse a JSON payload, filter by 12 conditions, loop through an array of records, and fan out to three different APIs, Make handles that cleanly without code.
+
+Make's free tier gives you 1,000 operations per month — enough to run a real workflow in testing and early production. Their 2025 Maia AI assistant lets you describe a workflow in plain English and builds the scenario structure for you.
+
+Best for: operations and marketing teams who want power without touching code, complex data transformation, budget-conscious teams migrating off Zapier.
+
+---
+
+## n8n vs Make vs Zapier: The Fast Comparison
+
+| | Zapier | Make | n8n |
+|---|---|---|---|
+| Pricing model | Per task | Per operation | Per execution |
+| Free tier | 100 tasks/month | 1,000 ops/month | Free (self-hosted) |
+| Self-hosting | No | No | Yes |
+| AI nodes | Add-on | Maia assistant | 70+ native (LangChain) |
+| Complexity ceiling | Low-medium | High | Very high |
+| Best for | Simple, fast setup | Ops/marketing teams | Dev-adjacent, AI workflows |
+
+---
+
+## 5 Marketing Workflows to Build First
+
+These are battle-tested workflows that map directly to revenue or pipeline outcomes.
+
+**1. Social mention → Slack alert → CRM note**
+Trigger: brand mention detected via a Mention.com or Brandwatch webhook. n8n runs a sentiment analysis via an LLM node, posts the result to a Slack channel with context, and writes a note to the contact record in HubSpot or Salesforce. Total nodes: 6. Time to build: under an hour.
+
+**2. New lead → enrich via Clay → sequence via Instantly**
+Trigger: form submission hits a webhook. n8n calls Clay to enrich the contact with company size, tech stack, and LinkedIn data. A conditional node checks enrichment quality — high-fit leads go into Instantly for an AI-personalised cold sequence, low-fit leads get tagged in the CRM and deprioritised. This workflow replaces a manual SDR task that typically takes 15–20 minutes per lead.
+
+**3. Blog publish → auto-post to LinkedIn, X, and newsletter**
+Trigger: a new post appears in your CMS RSS feed or a webhook fires on publish. n8n fetches the post, passes the title and first 200 words to an LLM node that writes a platform-appropriate caption for each channel, then posts to LinkedIn via API, X via API, and drafts a Beehiiv or ConvertKit newsletter entry. One publish, three channels, zero manual effort.
+
+**4. Form submission → personalised AI email → CRM update**
+Trigger: Typeform or Tally webhook. An AI Agent node reads the form responses, pulls company context from a vector store of your product docs, and writes a personalised reply that references the prospect's specific situation. The email sends via SendGrid, and the CRM record is created and tagged — all within 90 seconds of form submission.
+
+**5. Weekly analytics digest → AI narrative → Slack/email report**
+Trigger: cron job every Monday at 8am. n8n pulls data from Google Analytics, your ad platform, and CRM via APIs. An LLM chain reads the numbers, compares them to the prior week, and writes a three-paragraph narrative summary with highlights and one recommended action. The report posts to Slack and emails the leadership team. This one alone saves a junior analyst two hours per week.
+
+---
+
+## The AI Agent Node in Depth
+
+n8n's AI Agent node is different from a simple 'call ChatGPT' step. It behaves like a ReAct agent — it receives a goal, decides which tools to call, calls them, reads the results, and loops until the goal is complete.
+
+You define which tools the agent can access (any other n8n node can be a tool), set a system prompt, and wire in a memory node if you want context to persist across sessions. This is the foundation for autonomous outbound sequences, dynamic content pipelines, and real-time customer support bots — all built inside n8n without writing agent framework code.
+
+<Callout type="example">
+A practical example: an AI Agent node receives a new LinkedIn connection request notification, looks up the person's company in your CRM, checks if they match your ICP criteria, and either sends a personalised intro message or adds them to a nurture sequence — entirely autonomously.
+</Callout>
+
+---
+
+## Where to Start
+
+For n8n: sign up for n8n Cloud and build the blog-to-social workflow first. It has a clear trigger, a clear output, and teaches you LLM nodes without high stakes. Then graduate to lead enrichment once you are comfortable with conditional branching.
+
+For Make: start with their free tier and rebuild your most expensive Zapier zap. The operation count will be a fraction of your Zapier task count for the same workflow. If you save money in week one, the migration pays for itself.
+
+The rule of thumb: if your team has a developer or a technical marketer, n8n wins on AI capability and long-term cost. If you are a pure marketing/ops team without coding comfort, Make delivers 90% of n8n's power with a gentler learning curve.
+
+<ResourceList resources={[
+  { title: "n8n Official Documentation", url: "https://docs.n8n.io/", type: "docs", free: true, note: "Start with the Quickstart and AI Agent sections" },
+  { title: "Make.com Official Documentation", url: "https://www.make.com/en/help/home", type: "docs", free: true },
+  { title: "n8n Community Workflows — Marketing Category", url: "https://n8n.io/workflows/categories/marketing/", type: "tool", free: true, note: "3,000+ community-built marketing workflow templates" },
+  { title: "n8n vs Zapier — Definitive 2026 Comparison (Hatchworks)", url: "https://hatchworks.com/blog/ai-agents/n8n-vs-zapier/", type: "article", free: true },
+  { title: "Make vs n8n vs Zapier Detailed Guide 2026 (Intuz)", url: "https://www.intuz.com/blog/make-vs-n8n-vs-zapier-detailed-comparison", type: "article", free: true },
+  { title: "Advanced n8n Workflows: AI Agents and Marketing Guide 2026", url: "https://koanthic.com/en/advanced-n8n-workflows-ai-agents-marketing-guide-2026/", type: "article", free: true },
+  { title: "n8n AI Automation Examples for Business Teams", url: "https://www.codegeeks.solutions/blog/n8n-ai-workflow-automation-examples-10-ideas-that-work", type: "article", free: true },
+  { title: "n8n Cloud Pricing", url: "https://n8n.io/pricing/", type: "tool", free: false, note: "Starts ~$20/month; self-hosted is free" },
+  { title: "Make.com Pricing", url: "https://www.make.com/en/pricing", type: "tool", free: true, note: "Free tier: 1,000 ops/month" },
+  { title: "WsCube Tech - Marketing Automation (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - n8n Automation", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Make Automation", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />
