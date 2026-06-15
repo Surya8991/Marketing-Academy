@@ -1343,7 +1343,7 @@ Full codebase read across all pages and components. Evaluated as 5 distinct pers
 | P1.4 | Junior | Empty search shows 20 random lessons | Medium | ✅ Fixed |
 | P1.5 | Junior | Quiz 100% pass required | High | ⏸ Deferred |
 | P1.6 | Junior | No guided onboarding flow | High | ⏸ Deferred |
-| P1.7 | Junior | No category time estimate | Low | ❌ Open (low pri) |
+| P1.7 | Junior | No category time estimate | Low | ✅ Fixed |
 | P2.1 | CMO | Featured lessons all Beginner | High | ✅ Fixed |
 | P2.2 | CMO | No What's New section | High | ✅ Fixed |
 | P2.3 | CMO | No author credentials | High | ✅ Fixed |
@@ -1351,19 +1351,19 @@ Full codebase read across all pages and components. Evaluated as 5 distinct pers
 | P2.5 | CMO | No last updated date | Medium | ✅ Fixed |
 | P2.6 | CMO | About page personal projects prominent | Medium | ✅ Fixed |
 | P2.7 | CMO | No social proof | High | ✅ Fixed |
-| P2.8 | CMO | Track cards no time estimate | Low | ❌ Open (low pri) |
+| P2.8 | CMO | Track cards no time estimate | Low | ✅ Fixed |
 | P3.1 | SEO | No Organization/WebSite JSON-LD | High | ✅ Fixed |
 | P3.2 | SEO | Glossary meta "150+" vs 146 | Medium | ✅ Fixed |
 | P3.3 | SEO | Learning paths link to `/learn` | Medium | ✅ Fixed |
 | P3.4 | SEO | No VideoObject schema | Medium | ⏸ Deferred |
 | P3.5 | SEO | No hreflang tags | Medium | ⏸ Deferred |
 | P3.6 | SEO | Search page no meta description | Low | ✅ Fixed |
-| P3.7 | SEO | No OPML for RSS | Low | ❌ Open (low pri) |
+| P3.7 | SEO | No OPML for RSS | Low | ✅ Fixed |
 | P4.1 | Mobile | Nav logo "Mkt Academy" truncation | Medium | ✅ Fixed |
 | P4.2 | Mobile | Mobile nav 15 cats no grouping | High | ✅ Fixed |
 | P4.3 | Mobile | Filter chips no scroll fade | High | ✅ Fixed |
 | P4.4 | Mobile | Tools grid 320px too wide | Medium | ✅ Fixed |
-| P4.5 | Mobile | Quiz dots tiny | Low | ❌ Open (low pri) |
+| P4.5 | Mobile | Quiz dots tiny | Low | ✅ Fixed |
 | P4.6 | Mobile | No swipe prev/next | Medium | ⏸ Deferred |
 | P4.7 | Mobile | Accordion tap targets small | Medium | ✅ Fixed |
 | P4.8 | Mobile | No skip to content | Medium | ✅ Fixed |
@@ -1372,12 +1372,12 @@ Full codebase read across all pages and components. Evaluated as 5 distinct pers
 | P5.2 | Consultant | Compare tool not prominent | High | ✅ Fixed |
 | P5.3 | Consultant | Cheat sheet no PDF label | High | ✅ Fixed |
 | P5.4 | Consultant | No cert badge download | Medium | ⏸ Deferred |
-| P5.5 | Consultant | Interview Q copy format options | Medium | ❌ Open (low pri) |
+| P5.5 | Consultant | Interview Q copy format options | Medium | ✅ Fixed |
 | P5.6 | Consultant | No last updated on lessons | High | ✅ Fixed |
 | P5.7 | Consultant | No share track link | Medium | ✅ Fixed |
 | P5.8 | Consultant | No social proof | High | ✅ Fixed |
 
-**Summary after full fix pass:** 26 fixed · 5 low-priority open · 6 deferred
+**Summary after full fix pass:** 31 fixed · 0 low-priority open · 6 deferred
 | Track sharing link | Simple feature, next session |
 
 ---
@@ -1415,3 +1415,21 @@ Full codebase read across all pages and components. Evaluated as 5 distinct pers
 - No edstellar emails in source code
 - No console.log debris (newsletter route has intentional log — on hold)
 - All doc counts aligned: 315 lessons · 148 glossary · 112 tools
+
+---
+
+## Session 38 — 2026-06-15 (5 low-priority persona audit fixes)
+
+### Fixes Applied
+| Issue | Fix | Files |
+|-------|-----|-------|
+| P4.5 — Quiz progress dots too tiny on mobile | Dots `h-1.5 w-6` → `h-2.5 w-8 sm:w-7` | `src/components/Quiz.tsx` |
+| P3.7 — No OPML file for RSS aggregators | New route returning valid OPML 2.0 XML | `src/app/opml.xml/route.ts` |
+| P2.8 — Track cards show no time estimate | Added `· {track.duration}` to lesson count in card footer | `src/components/TrackCard.tsx` |
+| P1.7 — Category pages no total read time | Computed sum of all lesson read times, shown as `~X hr read` in category header | `src/app/learn/[category]/page.tsx` |
+| P5.5 — Interview questions no copy format | New `CopyQuestionsButton` client component — copies all Q&As as Markdown to clipboard | `src/app/interview-questions/[category]/CopyQuestionsButton.tsx` + `page.tsx` |
+
+### Verification
+- TypeScript: **0 errors** via `tsc --noEmit`
+- Build: clean — all 315 lesson pages + `/opml.xml` route rendered successfully
+- All 38 persona audit issues resolved (31 fixed · 6 deferred · 1 open P1.2 progress widget)

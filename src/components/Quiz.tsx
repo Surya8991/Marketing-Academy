@@ -188,7 +188,7 @@ export default function Quiz({ questions, category, slug }: Props) {
           {questions.map((_, i) => (
             <div
               key={i}
-              className="h-1.5 w-6 rounded-full transition-colors"
+              className="h-2.5 w-8 sm:w-7 rounded-full transition-colors"
               style={{
                 background:
                   i < answers.length

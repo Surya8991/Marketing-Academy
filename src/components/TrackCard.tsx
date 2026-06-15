@@ -18,7 +18,7 @@ export default function TrackCard({ track }: { track: Track }) {
         {track.description}
       </p>
       <div className="flex items-center justify-between text-xs text-[var(--muted-foreground)]">
-        <span>{track.lessons.length} lessons</span>
+        <span>{track.lessons.length} lessons · {track.duration}</span>
         <span className="text-[var(--accent)] font-medium group-hover:underline">
           View Track
         </span>

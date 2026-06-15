@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { INTERVIEW_SECTIONS } from "@/lib/interview-questions";
+import CopyQuestionsButton from "./CopyQuestionsButton";
 
 type Props = { params: Promise<{ category: string }> };
 
@@ -74,8 +75,8 @@ export default async function InterviewCategoryPage({ params }: Props) {
             {section.description}
           </p>
 
-          {/* Question type summary badges */}
-          <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginTop: "1rem" }}>
+          {/* Question type summary badges + copy button */}
+          <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginTop: "1rem", alignItems: "center" }}>
             <span
               style={{
                 fontSize: "0.78rem",
@@ -102,6 +103,11 @@ export default async function InterviewCategoryPage({ params }: Props) {
             >
               {section.scenarioQAs.length} scenario-based questions
             </span>
+            <CopyQuestionsButton
+              title={section.title}
+              conceptual={section.conceptualQAs}
+              scenario={section.scenarioQAs}
+            />
           </div>
         </div>
 
