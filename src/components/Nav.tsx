@@ -6,7 +6,7 @@ import {
   Menu, X, Search, BookOpen, ChevronDown, Bookmark,
   GraduationCap, LayoutGrid, Brain, Map,
   BookMarked, FileText, Mic2, Wrench,
-  SlidersHorizontal,
+  SlidersHorizontal, Trophy, Settings,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CATEGORIES } from "@/lib/curriculum";
@@ -15,19 +15,22 @@ import StreakBadge from "@/components/StreakBadge";
 import { COMMAND_PALETTE_EVENT } from "@/lib/events";
 
 const LEARN_ITEMS = [
-  { href: "/tracks",           label: "Learning Tracks",   icon: Map,          desc: "Structured paths by goal" },
-  { href: "/quizzes",          label: "Quizzes",            icon: Brain,         desc: "Test your knowledge" },
-  { href: "/certificates",     label: "Certificates",       icon: GraduationCap, desc: "Prove your skills" },
-  { href: "/bookmarks",        label: "Bookmarks",          icon: BookMarked,    desc: "Your saved lessons" },
+  { href: "/tracks",       label: "Learning Tracks", icon: Map,          desc: "Structured paths by goal" },
+  { href: "/quizzes",      label: "Quizzes",          icon: Brain,         desc: "Test your knowledge" },
+  { href: "/skill-map",    label: "Skill Map",        icon: LayoutGrid,    desc: "See your progress by category" },
+  { href: "/achievements", label: "Achievements",     icon: Trophy,        desc: "Badges and XP milestones" },
+  { href: "/certificates", label: "Certificates",     icon: GraduationCap, desc: "Prove your skills" },
+  { href: "/bookmarks",    label: "Bookmarks",        icon: BookMarked,    desc: "Your saved lessons" },
+  { href: "/settings",     label: "Settings",         icon: Settings,      desc: "Export, import or reset progress" },
 ];
 
 const RESOURCE_ITEMS = [
-  { href: "/glossary",              label: "Glossary",          icon: BookMarked,      desc: "Marketing terms A–Z" },
-  { href: "/interview-questions",   label: "Interview Prep",    icon: Mic2,            desc: "Ace your marketing interview" },
-  { href: "/cheat-sheets",          label: "Cheat Sheets",      icon: FileText,        desc: "Quick-reference summaries" },
-  { href: "/tools",                 label: "Tools Directory",   icon: Wrench,          desc: "Best marketing tools" },
-  { href: "/compare",               label: "Compare Tools",     icon: SlidersHorizontal, desc: "Side-by-side tool comparison" },
-  { href: "/search",                label: "Search",            icon: Search,          desc: "Find any lesson fast" },
+  { href: "/glossary",                        label: "Glossary",           icon: BookMarked,        desc: "Marketing terms A-Z" },
+  { href: "/interview-questions",             label: "Interview Prep",     icon: Mic2,              desc: "Ace your marketing interview" },
+  { href: "/cheat-sheets",                    label: "Cheat Sheets",       icon: FileText,          desc: "Quick-reference summaries" },
+  { href: "/tools",                           label: "Tools Directory",    icon: Wrench,            desc: "Best marketing tools" },
+  { href: "/compare",                         label: "Compare Tools",      icon: SlidersHorizontal, desc: "Side-by-side tool comparison" },
+  { href: "/search",                          label: "Search",             icon: Search,            desc: "Find any lesson fast" },
 ];
 
 type DropId = "topics" | "learn" | "resources" | null;
@@ -39,13 +42,11 @@ export default function Nav() {
   const router = useRouter();
   const navRef = useRef<HTMLDivElement>(null);
 
-  // Close everything on route change
   useEffect(() => {
     setMobileOpen(false);
     setOpenDrop(null);
   }, [pathname]);
 
-  // Press "/" to open search; Cmd/Ctrl+K to open command palette
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       const tag = (e.target as HTMLElement).tagName;
@@ -62,7 +63,6 @@ export default function Nav() {
     return () => document.removeEventListener("keydown", onKey);
   }, [router]);
 
-  // Close dropdowns on outside click / escape
   useEffect(() => {
     if (!openDrop) return;
     function onClick(e: MouseEvent) {
@@ -70,14 +70,14 @@ export default function Nav() {
         setOpenDrop(null);
       }
     }
-    function onKey(e: KeyboardEvent) {
+    function onEsc(e: KeyboardEvent) {
       if (e.key === "Escape") setOpenDrop(null);
     }
     document.addEventListener("mousedown", onClick);
-    document.addEventListener("keydown", onKey);
+    document.addEventListener("keydown", onEsc);
     return () => {
       document.removeEventListener("mousedown", onClick);
-      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("keydown", onEsc);
     };
   }, [openDrop]);
 
@@ -88,8 +88,11 @@ export default function Nav() {
   const learnActive =
     pathname.startsWith("/tracks") ||
     pathname.startsWith("/quizzes") ||
+    pathname.startsWith("/skill-map") ||
+    pathname.startsWith("/achievements") ||
     pathname.startsWith("/certificates") ||
-    pathname.startsWith("/bookmarks");
+    pathname.startsWith("/bookmarks") ||
+    pathname.startsWith("/settings");
 
   const resourceActive =
     pathname.startsWith("/glossary") ||
@@ -138,7 +141,7 @@ export default function Nav() {
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-0.5 relative">
 
-          {/* ── Topics dropdown ── */}
+          {/* Topics dropdown */}
           <div className="relative">
             {dropBtn("topics", "Topics", onLearn)}
             {openDrop === "topics" && (
@@ -175,20 +178,20 @@ export default function Nav() {
                 </Link>
                 <Link
                   href="/skill-map"
-                  className="flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-[var(--border)] text-sm font-medium hover:bg-[var(--muted)] transition-colors"
+                  className="mt-1 flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-[var(--border)] text-sm font-medium hover:bg-[var(--muted)] transition-colors"
                 >
                   <Map size={14} />
-                  Find my path
+                  My progress map
                 </Link>
               </div>
             )}
           </div>
 
-          {/* ── Learn dropdown ── */}
+          {/* Learn dropdown */}
           <div className="relative">
             {dropBtn("learn", "Learn", learnActive)}
             {openDrop === "learn" && (
-              <div className="absolute left-0 top-full mt-2 w-64 rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-2xl p-2">
+              <div className="absolute left-0 top-full mt-2 w-72 rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-2xl p-2">
                 {LEARN_ITEMS.map((item) => {
                   const Icon = item.icon;
                   const active = pathname.startsWith(item.href);
@@ -215,7 +218,7 @@ export default function Nav() {
             )}
           </div>
 
-          {/* ── Resources dropdown ── */}
+          {/* Resources dropdown */}
           <div className="relative">
             {dropBtn("resources", "Resources", resourceActive)}
             {openDrop === "resources" && (
@@ -249,7 +252,7 @@ export default function Nav() {
             )}
           </div>
 
-          {/* ── About ── */}
+          {/* About */}
           <Link
             href="/about"
             className={cn(
@@ -270,7 +273,7 @@ export default function Nav() {
             onClick={() => window.dispatchEvent(new CustomEvent(COMMAND_PALETTE_EVENT))}
             className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors border border-[var(--border)]"
             aria-label="Open command palette"
-            title="Command palette (⌘K)"
+            title="Command palette (Ctrl+K)"
           >
             <Search size={13} />
             <kbd className="font-sans">⌘K</kbd>
@@ -288,14 +291,6 @@ export default function Nav() {
             title="Bookmarks"
           >
             <Bookmark size={18} />
-          </Link>
-          <Link
-            href="/search"
-            className="p-2 rounded-md text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors"
-            aria-label="Search"
-            title="Search (press /)"
-          >
-            <Search size={18} />
           </Link>
           <Link
             href="/learn/fundamentals/what-is-marketing"
@@ -318,7 +313,7 @@ export default function Nav() {
       {mobileOpen && (
         <div className="md:hidden border-t border-[var(--border)] bg-[var(--background)] px-4 pt-3 pb-5 max-h-[calc(100vh-4rem)] overflow-y-auto">
 
-          {/* Topics — grouped */}
+          {/* Topics grouped */}
           {[
             { label: "Strategy", slugs: ["fundamentals", "psychology", "copywriting", "brand-strategy", "product-marketing"] },
             { label: "Channels", slugs: ["seo", "paid-ads", "social", "content", "email"] },

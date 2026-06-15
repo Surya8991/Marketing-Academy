@@ -3,23 +3,28 @@ import { ExternalLink, Rss } from "lucide-react";
 import { CATEGORIES } from "@/lib/curriculum";
 
 const LEARN_LINKS = [
-  { href: "/learn",            label: "Browse All Lessons" },
-  { href: "/tracks",           label: "Learning Tracks" },
-  { href: "/quizzes",          label: "Quizzes" },
-  { href: "/certificates",     label: "Certificates" },
-  { href: "/bookmarks",        label: "Bookmarks" },
-  { href: "/search",           label: "Search" },
+  { href: "/learn",         label: "Browse All Lessons" },
+  { href: "/tracks",        label: "Learning Tracks" },
+  { href: "/quizzes",       label: "Quizzes" },
+  { href: "/skill-map",     label: "Skill Map" },
+  { href: "/achievements",  label: "Achievements" },
+  { href: "/certificates",  label: "Certificates" },
+  { href: "/bookmarks",     label: "Bookmarks" },
+  { href: "/settings",      label: "Settings" },
 ];
 
 const RESOURCE_LINKS = [
-  { href: "/glossary",                          label: "Glossary" },
-  { href: "/interview-questions",               label: "Interview Questions" },
-  { href: "/cheat-sheets",                      label: "Cheat Sheets" },
-  { href: "/tools",                             label: "Tools Directory" },
-  { href: "/compare",                           label: "Compare Tools" },
-  { href: "/digital-marketing-cheat-sheet",     label: "Quick Reference Sheet" },
-  { href: "/about",                             label: "About" },
+  { href: "/glossary",                       label: "Glossary" },
+  { href: "/interview-questions",            label: "Interview Questions" },
+  { href: "/cheat-sheets",                   label: "Cheat Sheets" },
+  { href: "/tools",                          label: "Tools Directory" },
+  { href: "/compare",                        label: "Compare Tools" },
+  { href: "/search",                         label: "Search" },
+  { href: "/digital-marketing-cheat-sheet",  label: "Quick Reference Sheet" },
+  { href: "/about",                          label: "About" },
 ];
+
+const GITHUB_URL = "https://github.com/Layruss98266/Marketing-Academy";
 
 export default function Footer() {
   const colA = CATEGORIES.slice(0, 8);
@@ -29,7 +34,7 @@ export default function Footer() {
     <footer className="border-t border-[var(--border)] bg-[var(--card)] mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Top brand strip */}
+        {/* Top grid */}
         <div className="py-12 grid gap-8 grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
 
           {/* Brand */}
@@ -44,7 +49,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-3">
               <a
-                href="https://github.com/Surya8991/Marketing-Academy"
+                href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
@@ -98,17 +103,6 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <a
-                  href="https://github.com/Surya8991/Marketing-Academy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
-                >
-                  <ExternalLink size={11} />
-                  View on GitHub
-                </a>
-              </li>
             </ul>
           </div>
 
@@ -133,7 +127,7 @@ export default function Footer() {
 
           {/* Topics B */}
           <div>
-            <p className="text-xs uppercase tracking-wider font-semibold text-[var(--foreground)] mb-4 opacity-0 select-none">
+            <p className="text-xs uppercase tracking-wider font-semibold text-[var(--foreground)] mb-4 invisible select-none">
               More
             </p>
             <ul className="space-y-2.5 text-sm">
@@ -152,7 +146,7 @@ export default function Footer() {
                   href="/learn"
                   className="text-[var(--accent)] hover:opacity-80 font-medium transition-opacity text-xs"
                 >
-                  Browse all 15 topics &rarr;
+                  Browse all {CATEGORIES.length} topics &rarr;
                 </Link>
               </li>
             </ul>
@@ -162,13 +156,13 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-[var(--border)] py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[var(--muted-foreground)]">
           <p>
-            &copy; {new Date().getFullYear()} Marketing Academy &mdash; Free and open source.
+            &copy; {new Date().getFullYear()} Marketing Academy - Free and open source.
           </p>
           <div className="flex items-center gap-4">
             <span>Built for marketers who learn by doing.</span>
             <Link href="/about" className="hover:text-[var(--foreground)] transition-colors">About</Link>
             <a
-              href="https://github.com/Surya8991/Marketing-Academy"
+              href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[var(--foreground)] transition-colors"
