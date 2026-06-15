@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ENGAGEMENT_EVENT } from "@/lib/engagement";
 import { ACHIEVEMENTS } from "@/lib/achievements";
 import type { EngagementState } from "@/lib/engagement";
@@ -9,6 +9,7 @@ type ToastItem = { id: string; label: string; emoji: string; ts: number };
 
 export default function AchievementToast() {
   const [toasts, setToasts] = useState<ToastItem[]>([]);
+  const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   useEffect(() => {
     const handler = (e: Event) => {
@@ -21,12 +22,16 @@ export default function AchievementToast() {
         return { id, label: a?.label ?? id, emoji: a?.emoji ?? "🏅", ts: now };
       });
       setToasts((prev) => [...prev, ...newToasts]);
-      setTimeout(() => {
+      const id = setTimeout(() => {
         setToasts((prev) => prev.filter((t) => !newToasts.some((n) => n.ts === t.ts)));
       }, 4000);
+      timers.current.push(id);
     };
     window.addEventListener(ENGAGEMENT_EVENT, handler);
-    return () => window.removeEventListener(ENGAGEMENT_EVENT, handler);
+    return () => {
+      window.removeEventListener(ENGAGEMENT_EVENT, handler);
+      timers.current.forEach(clearTimeout);
+    };
   }, []);
 
   if (toasts.length === 0) return null;

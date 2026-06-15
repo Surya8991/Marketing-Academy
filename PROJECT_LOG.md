@@ -1,7 +1,7 @@
 # Marketing Academy - Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-06-15 (Session 40). Updated via Antigravity.
+> Last audited: 2026-06-15 (Session 42).
 
 ---
 
@@ -10,10 +10,12 @@
 ```
 1. cd C:\Users\Surya L\Desktop\AI Agents\Marketing-Academy
 2. Count MDX files: (Get-ChildItem src/content -Recurse -Filter *.mdx).Count   [PowerShell]
-3. Current: 387 lessons across 15 categories - all written + reviewed
-4. Quiz component FIXED: registered in mdx-components.tsx, all 5 MDX Quiz usages corrected to questions[] API.
-5. Interview expansion DONE: 16 sections (added Behavioral), 151 Q&As, answers split into 2-4 paragraphs.
-6. Stats are now dynamic: flatLessons().length, CATEGORIES.length, GLOSSARY_TERMS.length, TOOLS.length used everywhere.
+3. Current: 387 lessons · 216 glossary terms · 108 tools · 7 tracks · 15 categories
+4. XP/Streak/Achievements system LIVE (Session 41). Cmd+K palette, skill-map, onboarding, settings page all shipped.
+5. Stats are dynamic everywhere: flatLessons().length, CATEGORIES.length, GLOSSARY_TERMS.length, TOOLS.length.
+6. Key constants: COMPLETED_KEY exported from progress.ts, COMMAND_PALETTE_EVENT from src/lib/events.ts.
+7. localStorage keys: ma-completed (lessons), ma_bookmarks (bookmarks), ma_engagement (XP/streak), ma_onboarded (shown onboarding).
+8. Build remote: https://github.com/Layruss98266/Marketing-Academy.git (Layruss98266 account)
 ```
 17: 
 18: **Do NOT:**
@@ -1667,39 +1669,69 @@ Full curriculum inventory (323 MDX files across 15 categories) cross-referenced 
 
 ---
 
-## Session 41 — 2026-06-15 (Planned / In Progress)
+## Session 41 — 2026-06-15 (8 engagement + discovery features)
 
-**8 engagement + discovery features (Polymath-inspired, MA-adapted)**
+**Polymath-inspired features adapted for Marketing Academy. All shipped, reviewed, and pushed.**
 
-### Features being built
+### Features shipped
 
-1. **Vercel security headers** — `vercel.json` at root: CSP, HSTS preload, X-Frame-Options DENY, X-Content-Type-Options, Permissions-Policy
-2. **SVG Diagram Library** — `DiagramBlock` global MDX component (funnel/bars/timeline/cycle/quadrant/flow), CSS-variable themed, registered in mdx-components.tsx
-3. **Command Palette** — Cmd/Ctrl+K global search across lessons + 216 glossary terms + 108 tools + nav links. Uses existing Fuse.js dep. `src/lib/commandIndex.ts` + `src/components/CommandPalette.tsx`
-4. **Streak + XP system** — `src/lib/engagement.ts`: lesson complete = 30 XP, quiz passed = 20 XP, bookmark = 5 XP. Daily streak on first action per day. StreakBadge in Nav.
-5. **Progress Export/Import** — `/settings` page: download all state as JSON, re-import/merge
-6. **Achievements** — `src/lib/achievements.ts`: 10 declarative achievements checked on every addXP() call. Toast on unlock. `/achievements` page.
-7. **Skill Map** — `/skill-map` page: 15 category cards with completion %, sorted by progress descending
-8. **Onboarding goal selector** — First-visit modal (gated on `ma_onboarded`): 6 goals → recommended track. "Find my path" in Nav.
+| # | Feature | Key files |
+|---|---------|-----------|
+| 1 | **Vercel security headers** | `vercel.json` — CSP, HSTS preload, X-Frame-Options DENY, X-Content-Type-Options, Permissions-Policy |
+| 2 | **Streak + XP system** | `src/lib/engagement.ts` — complete=30XP, quiz=20XP, bookmark=5XP, daily streak, 7 levels, 24h dedup |
+| 3 | **Achievements** | `src/lib/achievements.ts` — 10 declarative achievements, `checkAchievements()`, dispatches ENGAGEMENT_EVENT |
+| 4 | **XP wired into components** | `MarkComplete.tsx`, `Quiz.tsx`, `BookmarkButton.tsx` all call `addXP()` + `checkAchievements()` |
+| 5 | **StreakBadge in Nav** | `src/components/StreakBadge.tsx` — 🔥N / LvN / N XP, links to /achievements |
+| 6 | **Command Palette (Cmd+K)** | `src/lib/commandIndex.ts` + `src/components/CommandPalette.tsx` — Fuse.js across lessons+glossary+tools+nav |
+| 7 | **AchievementToast** | `src/components/AchievementToast.tsx` — bottom-right toast on achievement unlock |
+| 8 | **DiagramBlock MDX component** | `src/components/DiagramBlock.tsx` — funnel/bars/timeline/cycle/flow, registered globally |
+| 9 | **OnboardingModal** | `src/components/OnboardingModal.tsx` — first-visit, 6 goals → track redirect, gated by `ma_onboarded` |
+| 10 | **/achievements page** | `src/app/achievements/` — XP bar, level, badge grid (earned vs locked) |
+| 11 | **/skill-map page** | `src/app/skill-map/` — 15 category cards sorted by % complete, animated progress bars |
+| 12 | **/settings page** | `src/app/settings/` — export/import/reset all progress as JSON |
 
-### New files
-- `vercel.json`
-- `src/lib/engagement.ts`
-- `src/lib/achievements.ts`
-- `src/lib/commandIndex.ts`
-- `src/components/CommandPalette.tsx`
-- `src/components/StreakBadge.tsx`
-- `src/components/AchievementToast.tsx`
-- `src/components/DiagramBlock.tsx`
-- `src/components/OnboardingModal.tsx`
-- `src/app/achievements/page.tsx`
-- `src/app/skill-map/page.tsx`
-- `src/app/settings/page.tsx`
+### New lib constants (single source of truth)
+- `src/lib/events.ts` — `COMMAND_PALETTE_EVENT = "ma_cmd_palette"`
+- `src/lib/progress.ts` — `COMPLETED_KEY = "ma-completed"` (exported, was private)
 
-### Modified files
-- `mdx-components.tsx` — register DiagramBlock
-- `src/components/MarkComplete.tsx` — call addXP('complete')
-- `src/components/Quiz.tsx` — call addXP('quiz')
-- `src/components/BookmarkButton.tsx` — call addXP('bookmark')
-- `src/components/Nav.tsx` — add StreakBadge + Cmd+K button + "Find my path"
-- `src/app/layout.tsx` — mount AchievementToast + OnboardingModal
+### localStorage key map
+| Key | Set by | Read by |
+|-----|--------|---------|
+| `ma-completed` | `progress.ts` | MarkComplete, SkillMap, Achievements, Settings |
+| `ma_bookmarks` | `bookmarks.ts` | BookmarkButton, Bookmarks page, Settings |
+| `ma_engagement` | `engagement.ts` | StreakBadge, Achievements, Settings |
+| `ma_onboarded` | `OnboardingModal` | OnboardingModal (gate) |
+| `ma_quiz_pass_*` | `quizzes.ts` | Quiz, MarkComplete (lock) |
+
+### Build result
+- 621/621 static pages ✅ — includes /achievements, /skill-map, /settings as new routes
+
+---
+
+## Session 42 — 2026-06-15 (Code review + cleanup)
+
+**Full code review of all Session 41 output. 6 bugs/smells fixed. 3 workspace dirs deleted.**
+
+### Code review fixes
+
+| # | Severity | File | Fix |
+|---|----------|------|-----|
+| 1 | Medium | `SettingsClient.tsx` | Imported `COMPLETED_KEY` from `@/lib/progress` instead of hardcoding `"ma-completed"` |
+| 2 | Low | `AchievementToast.tsx` | `setTimeout` IDs stored in `useRef`, cleared on unmount — eliminates stale-closure setState after unmount |
+| 3 | Low | `engagement.ts` | Dead `else if (lastActiveDay !== t)` inside `if (lastActiveDay !== t)` replaced with plain `else` |
+| 4 | Low | `CommandPalette.tsx` | Guard ArrowDown when `results.length === 0` to prevent `activeIndex` going to −1 |
+| 5 | Info | `DiagramBlock.tsx` | Removed unused `import React from "react"` (JSX transform handles it) |
+| 6 | Info | `events.ts` (new) | `COMMAND_PALETTE_EVENT` extracted to `src/lib/events.ts`; `StreakBadge` re-exports it, `CommandPalette` and `Nav` import directly from lib |
+
+### Workspace cleanup (deletions approved by user)
+| Deleted | What it was |
+|---------|-------------|
+| `polymath-analysis/` | Full separate Next.js POLYMATH app (own `.git`), used for feature analysis — never committed to MA repo |
+| `polymath-repo/` | Duplicate copy of POLYMATH project — also has own `.git`, never committed |
+| `.git-rewrite/` | Working state left by one-time `git filter-repo` run — no longer needed |
+
+### tsconfig.json
+- Added `"polymath-analysis"` and `"polymath-repo"` to `exclude` array — prevents TypeScript from picking up unrelated project files via `**/*.tsx` glob
+
+### Build result after review fixes
+- 621/621 static pages ✅ — zero type errors, zero new warnings

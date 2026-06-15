@@ -11,7 +11,8 @@ import {
 import { cn } from "@/lib/utils";
 import { CATEGORIES } from "@/lib/curriculum";
 import ThemeToggle from "@/components/ThemeToggle";
-import StreakBadge, { COMMAND_PALETTE_EVENT } from "@/components/StreakBadge";
+import StreakBadge from "@/components/StreakBadge";
+import { COMMAND_PALETTE_EVENT } from "@/lib/events";
 
 const LEARN_ITEMS = [
   { href: "/tracks",           label: "Learning Tracks",   icon: Map,          desc: "Structured paths by goal" },

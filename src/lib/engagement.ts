@@ -75,7 +75,7 @@ export function addXP(action: XPAction, id: string): EngagementState {
   if (state.lastActiveDay !== t) {
     if (state.lastActiveDay === yesterday()) {
       state.streak += 1;
-    } else if (state.lastActiveDay !== t) {
+    } else {
       state.streak = 1;
     }
     state.lastActiveDay = t;

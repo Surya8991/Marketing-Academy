@@ -2,8 +2,7 @@
 
 import { useRef, useState } from "react";
 import { BOOKMARK_KEY } from "@/lib/bookmarks";
-
-const COMPLETED_KEY = "ma-completed";
+import { COMPLETED_KEY } from "@/lib/progress";
 const ENGAGEMENT_KEY = "ma_engagement";
 const EXPORT_KEYS = [COMPLETED_KEY, BOOKMARK_KEY, ENGAGEMENT_KEY];
 

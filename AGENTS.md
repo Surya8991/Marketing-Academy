@@ -254,3 +254,32 @@ a: "First paragraph here.\n\nSecond paragraph here.\n\nThird paragraph if needed
 ```
 
 Do NOT use actual newline characters inside the string — only the literal `\n\n` escape sequence. Do NOT instruct an LLM agent to insert `\n\n` paragraph breaks into TypeScript source: agents produce real newline characters (JSON `\n`), not the 4-char literal. Use a Python script with `r'\n\n'` as the joiner if bulk-splitting answers.
+
+### Rule 22 — XP/Engagement system: localStorage key, event bus, and call pattern
+The XP system lives in `src/lib/engagement.ts`. Key constants and patterns that MUST be followed:
+
+**localStorage key:** `"ma_engagement"` (defined in engagement.ts — import it, never hardcode it)
+
+**Adding XP from a component:**
+```ts
+import { addXP, ENGAGEMENT_EVENT } from "@/lib/engagement";
+import { checkAchievements } from "@/lib/achievements";
+
+const newState = addXP("complete" | "quiz" | "bookmark", lessonId);
+const unlocked = checkAchievements(newState);
+window.dispatchEvent(new CustomEvent(ENGAGEMENT_EVENT, { detail: { state: newState, unlocked } }));
+```
+`checkAchievements()` is called OUTSIDE `addXP()` because it needs cross-cutting localStorage state (completions, bookmarks) not available inside the pure XP function.
+
+**Reactive components** (StreakBadge, AchievementToast) listen to `ENGAGEMENT_EVENT` via `window.addEventListener`. They do NOT poll localStorage on a timer.
+
+**The event constants single source of truth is `src/lib/events.ts`:**
+```ts
+// src/lib/events.ts — add all CustomEvent name constants here
+export const COMMAND_PALETTE_EVENT = "ma_cmd_palette";
+```
+Never export event constants from component files. Components re-export from `@/lib/events` if backward compat is needed.
+
+**XP values:** complete=30, quiz=20, bookmark=5. 24h deduplication per lessonId per action type.
+
+**Levels (7 total):** Marketing Newcomer (0) → Certified Polymath (last). `nextAt: Infinity` at max level — always guard `if (nextAt !== Infinity)` before rendering XP progress bar.

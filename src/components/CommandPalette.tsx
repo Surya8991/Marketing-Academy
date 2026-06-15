@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Fuse from "fuse.js";
 import { buildCommandIndex, type CommandEntry } from "@/lib/commandIndex";
-import { COMMAND_PALETTE_EVENT } from "@/components/StreakBadge";
+import { COMMAND_PALETTE_EVENT } from "@/lib/events";
 
 const TYPE_BADGE: Record<CommandEntry["type"], { label: string; style: React.CSSProperties }> = {
   lesson: {
@@ -109,7 +109,7 @@ export default function CommandPalette() {
       }
       if (e.key === "ArrowDown") {
         e.preventDefault();
-        setActiveIndex((i) => Math.min(i + 1, results.length - 1));
+        if (results.length > 0) setActiveIndex((i) => Math.min(i + 1, results.length - 1));
         return;
       }
       if (e.key === "ArrowUp") {

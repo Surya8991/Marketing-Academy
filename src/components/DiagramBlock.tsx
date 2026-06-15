@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 type DiagramBlockProps = {
   type: "funnel" | "bars" | "timeline" | "cycle" | "flow";
   title?: string;

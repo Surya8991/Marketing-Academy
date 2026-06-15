@@ -4,8 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { getEngagement, ENGAGEMENT_EVENT, getCurrentLevel } from "@/lib/engagement";
 import type { EngagementState } from "@/lib/engagement";
-
-export const COMMAND_PALETTE_EVENT = "ma_cmd_palette";
+export { COMMAND_PALETTE_EVENT } from "@/lib/events";
 
 export default function StreakBadge() {
   const [state, setState] = useState<EngagementState | null>(null);
