@@ -110,9 +110,7 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
           <div
             ref={ref}
             className="w-full overflow-x-auto rounded-xl border border-[var(--border)] bg-[var(--muted)] p-6 [&_svg]:max-w-full [&_svg]:h-auto [&_svg]:mx-auto"
-            // Safe: svg is Mermaid library output from internal MDX content, never user input.
-          // If user-supplied chart code is ever added, sanitize with DOMPurify first.
-          dangerouslySetInnerHTML={{ __html: svg }}
+            dangerouslySetInnerHTML={{ __html: svg }}
           />
           <button
             type="button"
