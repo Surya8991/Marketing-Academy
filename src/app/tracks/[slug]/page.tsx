@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { TRACKS, getTrack } from "@/lib/tracks";
 import TrackLessonList from "@/components/TrackLessonList";
+import TrackShareButton from "@/components/TrackShareButton";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -18,6 +19,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: track.description,
   };
 }
+
+const BASE = "https://marketing-academy-roan.vercel.app";
 
 export default async function TrackDetailPage({ params }: Props) {
   const { slug } = await params;
@@ -39,6 +42,7 @@ export default async function TrackDetailPage({ params }: Props) {
           <span className="text-xs px-2.5 py-1 rounded-full bg-[var(--muted)] text-[var(--muted-foreground)] font-medium">
             {track.duration}
           </span>
+          <TrackShareButton title={track.title} url={`${BASE}/tracks/${slug}`} />
         </div>
         <h1 className="text-3xl sm:text-4xl font-bold mb-3">{track.title}</h1>
         <p className="text-[var(--muted-foreground)] text-base leading-relaxed max-w-xl">

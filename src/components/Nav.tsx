@@ -126,7 +126,7 @@ export default function Nav() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/icon.svg" width={28} height={28} alt="" className="rounded-md" />
           <span className="hidden sm:inline">Marketing Academy</span>
-          <span className="sm:hidden font-semibold">Mkt Academy</span>
+          <span className="sm:hidden font-semibold">Academy</span>
         </Link>
 
         {/* Desktop nav */}
@@ -295,37 +295,47 @@ export default function Nav() {
       {mobileOpen && (
         <div className="md:hidden border-t border-[var(--border)] bg-[var(--background)] px-4 pt-3 pb-5 max-h-[calc(100vh-4rem)] overflow-y-auto">
 
-          {/* Topics */}
-          <p className="text-xs uppercase tracking-wider text-[var(--muted-foreground)] mb-2 px-1 font-semibold">
-            Topics
-          </p>
-          <div className="grid grid-cols-2 gap-1 mb-5">
-            {CATEGORIES.map((cat) => {
-              const active = pathname.startsWith(`/learn/${cat.slug}`);
-              return (
-                <Link
-                  key={cat.slug}
-                  href={`/learn/${cat.slug}`}
-                  className={cn(
-                    "flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-colors",
-                    active
-                      ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
-                      : "text-[var(--foreground)] hover:bg-[var(--muted)]"
-                  )}
-                >
-                  <span className="text-base">{cat.emoji}</span>
-                  <span className="font-medium text-xs truncate">{cat.title}</span>
-                </Link>
-              );
-            })}
-            <Link
-              href="/learn"
-              className="col-span-2 mt-1 flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-[var(--border)] text-sm font-medium hover:bg-[var(--muted)] transition-colors"
-            >
-              <LayoutGrid size={14} />
-              All Topics
-            </Link>
-          </div>
+          {/* Topics — grouped */}
+          {[
+            { label: "Strategy", slugs: ["fundamentals", "psychology", "copywriting", "brand-strategy", "product-marketing"] },
+            { label: "Channels", slugs: ["seo", "paid-ads", "social", "content", "email"] },
+            { label: "Growth & Data", slugs: ["growth", "analytics", "tools", "cro", "ai-marketing"] },
+          ].map((group) => (
+            <div key={group.label} className="mb-3">
+              <p className="text-xs uppercase tracking-wider text-[var(--muted-foreground)] mb-1.5 px-1 font-semibold">
+                {group.label}
+              </p>
+              <div className="grid grid-cols-2 gap-1">
+                {group.slugs.map((slug) => {
+                  const cat = CATEGORIES.find((c) => c.slug === slug);
+                  if (!cat) return null;
+                  const active = pathname.startsWith(`/learn/${slug}`);
+                  return (
+                    <Link
+                      key={slug}
+                      href={`/learn/${slug}`}
+                      className={cn(
+                        "flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-colors",
+                        active
+                          ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
+                          : "text-[var(--foreground)] hover:bg-[var(--muted)]"
+                      )}
+                    >
+                      <span className="text-base">{cat.emoji}</span>
+                      <span className="font-medium text-xs truncate">{cat.title}</span>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+          <Link
+            href="/learn"
+            className="flex items-center justify-center gap-2 px-3 py-2 mb-4 rounded-lg border border-[var(--border)] text-sm font-medium hover:bg-[var(--muted)] transition-colors"
+          >
+            <LayoutGrid size={14} />
+            All Topics
+          </Link>
 
           {/* Learn */}
           <p className="text-xs uppercase tracking-wider text-[var(--muted-foreground)] mb-2 px-1 font-semibold">

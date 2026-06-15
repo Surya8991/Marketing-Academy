@@ -30,10 +30,10 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Top brand strip */}
-        <div className="py-12 grid gap-8 lg:grid-cols-[1fr_1fr_1fr_1fr_1fr]">
+        <div className="py-12 grid gap-8 grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
 
           {/* Brand */}
-          <div className="lg:col-span-1">
+          <div className="col-span-2 lg:col-span-1">
             <Link href="/" className="flex items-center gap-2 font-semibold text-lg mb-3">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/icon.svg" width={28} height={28} alt="" className="rounded-md" />

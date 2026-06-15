@@ -6,11 +6,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Marketing Tools Directory 2026 | Marketing Academy",
   description:
-    "Browse 85+ marketing tools for SEO, paid ads, email, analytics, AI, social media and more. Filter by category and pricing to find the right tool for your stack.",
+    "Browse 112 marketing tools for SEO, paid ads, email, analytics, AI, social media and more. Filter by category and pricing to find the right tool for your stack.",
   openGraph: {
     title: "Marketing Tools Directory 2026 | Marketing Academy",
     description:
-      "Browse 85+ marketing tools for SEO, paid ads, email, analytics, AI, social media and more. Filter by category and pricing to find the right tool for your stack.",
+      "Browse 112 marketing tools for SEO, paid ads, email, analytics, AI, social media and more. Filter by category and pricing to find the right tool for your stack.",
     type: "website",
   },
 };
@@ -105,9 +105,7 @@ export default function ToolsPage() {
           </div>
           <a
             id="submit-tool-link"
-            href="https://github.com/Surya8991/Marketing-Academy/issues/new?title=Tool+Suggestion&body=Tool+name:%0AURL:%0ACategory:%0AWhy+it+belongs+here:"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:suryaraj8991@gmail.com?subject=Tool%20Suggestion%20for%20Marketing%20Academy&body=Tool%20name%3A%0AURL%3A%0ACategory%3A%0AWhy%20it%20belongs%20here%3A"
             className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] font-medium text-sm hover:border-[var(--accent)] transition-colors"
           >
             + Submit a tool

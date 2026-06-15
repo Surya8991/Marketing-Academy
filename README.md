@@ -10,26 +10,26 @@ A free, structured marketing education site - from absolute beginner to advanced
 
 ## What This Is
 
-308 lessons across 15 disciplines. No paywalls, no drip sequences, no email required. Every lesson includes real research, company examples with specific numbers, Mermaid diagrams, interview Q&A, and curated free resources in English, Hindi, Tamil, and Telugu.
+315 lessons across 15 disciplines. No paywalls, no drip sequences, no email required. Every lesson includes real research, company examples with specific numbers, Mermaid diagrams, interview Q&A, and curated free resources in English, Hindi, Tamil, and Telugu.
 
 | # | Category | Slug | MDX Files |
 |---|---|---|---|
-| 1 | Marketing Fundamentals | `fundamentals` | 19 |
-| 2 | SEO | `seo` | 20 |
-| 3 | Paid Ads | `paid-ads` | 21 |
-| 4 | Growth Marketing | `growth` | 19 |
-| 5 | Social Media | `social` | 18 |
-| 6 | Content Marketing | `content` | 19 |
-| 7 | Email & Lifecycle | `email` | 25 |
-| 8 | Analytics & Attribution | `analytics` | 27 |
-| 9 | Marketing Tools | `tools` | 30 |
-| 10 | Human Psychology | `psychology` | 21 |
-| 11 | Copywriting | `copywriting` | 19 |
-| 12 | Conversion Rate Optimization | `cro` | 18 |
-| 13 | Brand Strategy | `brand-strategy` | 19 |
-| 14 | Product Marketing | `product-marketing` | 16 |
-| 15 | AI in Marketing | `ai-marketing` | 17 |
-| | **TOTAL** | | **308** |
+| 1 | Marketing Fundamentals | `fundamentals` | 20 |
+| 2 | SEO | `seo` | 21 |
+| 3 | Paid Ads | `paid-ads` | 22 |
+| 4 | Growth Marketing | `growth` | 20 |
+| 5 | Social Media | `social` | 19 |
+| 6 | Content Marketing | `content` | 20 |
+| 7 | Email & Lifecycle | `email` | 27 |
+| 8 | Analytics & Attribution | `analytics` | 28 |
+| 9 | Marketing Tools | `tools` | 31 |
+| 10 | Human Psychology | `psychology` | 22 |
+| 11 | Copywriting | `copywriting` | 20 |
+| 12 | Conversion Rate Optimization | `cro` | 19 |
+| 13 | Brand Strategy | `brand-strategy` | 20 |
+| 14 | Product Marketing | `product-marketing` | 17 |
+| 15 | AI in Marketing | `ai-marketing` | 18 |
+| | **TOTAL** | | **315** |
 
 ---
 
@@ -46,7 +46,7 @@ A free, structured marketing education site - from absolute beginner to advanced
 **Discovery**
 - **Search** - Client-side fuzzy search (Fuse.js) with category and level filter chips
 - **Glossary** - 148 marketing terms with A-Z index and individual term pages at `/glossary`
-- **Tools directory** - 85+ marketing tools across 11 categories with search, category, and pricing filters at `/tools`
+- **Tools directory** - 112 marketing tools across 11 categories with search, category, and pricing filters at `/tools`
 - **Cheat sheets** - Printable per-category quick reference cards at `/cheat-sheets/[category]`
 
 **Interview Prep**
@@ -132,7 +132,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/tracks.ts` | 7 learning track definitions |
 | `src/lib/glossary.ts` | 148 marketing term definitions |
 | `src/lib/quizzes.ts` | Quiz questions for 257 lessons |
-| `src/lib/tools-directory.ts` | 85+ marketing tools with category/pricing data |
+| `src/lib/tools-directory.ts` | 112 marketing tools with category/pricing data |
 | `src/lib/bookmarks.ts` | Shared bookmark storage (BOOKMARK_KEY, getBookmarks, saveBookmarks) |
 | `mdx-components.tsx` | Global MDX component registry (must be at project root, not in src/) |
 | `src/app/globals.css` | Tailwind v4 + CSS variable design system |
@@ -160,7 +160,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/glossary` | 148-term A-Z marketing glossary |
 | `/glossary/[slug]` | Individual term page |
 | `/bookmarks` | Saved lessons (localStorage) |
-| `/tools` | 85+ marketing tools with search + category + pricing filters |
+| `/tools` | 112 marketing tools with search + category + pricing filters |
 | `/cheat-sheets` | Printable cheat sheet index (15 categories) |
 | `/cheat-sheets/[category]` | Printable per-category cheat sheet |
 | `/interview-prep` | Interview prep hub with category Q&A links |
