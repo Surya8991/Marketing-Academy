@@ -60,7 +60,7 @@ export default function CommandPalette() {
         threshold: 0.3,
         includeScore: true,
       }),
-    []
+    [index]
   );
 
   const results: CommandEntry[] = useMemo(() => {

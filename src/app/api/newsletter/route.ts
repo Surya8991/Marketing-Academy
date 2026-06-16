@@ -20,7 +20,5 @@ export async function POST(req: NextRequest) {
   }
 
   // TODO: connect to Mailchimp/ConvertKit/Resend - replace this with your email service API call
-  console.log("Newsletter signup:", email);
-
   return NextResponse.json({ success: true }, { status: 200 });
 }

@@ -10,14 +10,13 @@ type Lesson = { category: string; slug: string; title: string };
 
 type Props = {
   trackSlug: string;
-  trackTitle: string;
   lessons: Lesson[];
   questions: Quiz[];
 };
 
 const PASS_THRESHOLD = 0.8;
 
-export default function TrackQuizPageClient({ trackSlug, trackTitle, lessons, questions }: Props) {
+export default function TrackQuizPageClient({ trackSlug, lessons, questions }: Props) {
   const router = useRouter();
   const [shuffled, setShuffled] = useState<Quiz[]>([]);
   const [answers, setAnswers] = useState<Record<number, number>>({});
@@ -34,7 +33,6 @@ export default function TrackQuizPageClient({ trackSlug, trackTitle, lessons, qu
   const answeredCount = Object.keys(answers).length;
   const allAnswered = total > 0 && answeredCount === total;
   const passed = submitted && score / total >= PASS_THRESHOLD;
-  const failed = submitted && !passed;
   const pct = total > 0 ? Math.round((score / total) * 100) : 0;
 
   function pick(idx: number, opt: number) {
