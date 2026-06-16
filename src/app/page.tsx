@@ -59,8 +59,9 @@ const organizationLd = {
   "@type": "Organization",
   name: "Marketing Academy",
   url: BASE,
-  logo: `${BASE}/favicon.ico`,
+  logo: { "@type": "ImageObject", url: `${BASE}/favicon.ico`, width: 32, height: 32 },
   description: "Free marketing education: SEO, paid ads, growth, social, email, analytics, and AI in plain English.",
+  sameAs: ["https://github.com/Surya8991/Marketing-Academy", "https://twitter.com/SURYA_L1998"],
 };
 
 const websiteLd = {
@@ -68,6 +69,7 @@ const websiteLd = {
   "@type": "WebSite",
   name: "Marketing Academy",
   url: BASE,
+  description: "393+ free marketing lessons across 15 disciplines. No account required.",
   potentialAction: {
     "@type": "SearchAction",
     target: { "@type": "EntryPoint", urlTemplate: `${BASE}/search?q={search_term_string}` },
@@ -99,10 +101,25 @@ export default function HomePage() {
     return [{ ...r, cat, lesson }];
   });
 
+  const itemListLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Featured Marketing Lessons",
+    url: BASE,
+    numberOfItems: featuredLessons.length,
+    itemListElement: featuredLessons.map((f, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `${BASE}/learn/${f.category}/${f.slug}`,
+      name: f.lesson.title,
+    })),
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
     <div>
       {/* Hero */}
       <section className="relative overflow-hidden">

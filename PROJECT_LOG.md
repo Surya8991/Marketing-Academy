@@ -2118,3 +2118,31 @@ The script used `[a-z-]*` to match existing keys. That character class excluded 
 - Math formulas (`This Month - Last Month`): left unchanged
 - Code/URLs/slugs: left unchanged
 - JSX section comments (`Section N - Title`): replaced with `Section N: Title`
+
+---
+
+## Session 55, 2026-06-16 (SEO schema + meta enhancements)
+
+**Added comprehensive structured data and meta improvements across the site. 638/638 pages build clean.**
+
+### Changes
+| # | File | What was added/changed |
+|---|------|----------------------|
+| 1 | `src/app/layout.tsx` | Added global `openGraph` (siteName, locale, type, fallback image) and `twitter` (card, site, creator) metadata to root layout, so every page inherits them |
+| 2 | `src/app/learn/[category]/[lesson]/page.tsx` | Upgraded Article schema to `["Article", "LearningResource"]` dual type; added `timeRequired` (ISO 8601 from readTime), `teaches`, `learningResourceType: "lesson"`, `isAccessibleForFree`, `image` fields; breadcrumb "All Topics" → "All Lessons" |
+| 3 | `src/app/learn/[category]/page.tsx` | Added `Course` schema (provider, educationalLevel, numberOfCredits, timeRequired, hasCourseInstance, isAccessibleForFree); added BreadcrumbList; added canonical + openGraph to generateMetadata |
+| 4 | `src/app/tracks/[slug]/page.tsx` | Added `Course` schema (audience, numberOfCredits, hasCourseInstance, isAccessibleForFree); added BreadcrumbList; added canonical + openGraph to generateMetadata |
+| 5 | `src/app/interview-questions/[category]/page.tsx` | Added dynamic `FAQPage` schema built from actual Q&A data (first 10 Q&As per section); added BreadcrumbList |
+| 6 | `src/app/page.tsx` | Added `ItemList` schema for featured lessons; upgraded Organization schema (ImageObject logo, sameAs links); added website description to WebSite schema |
+| 7 | `src/app/sitemap.ts` | Added `lastModified: BUILD_DATE` to all route groups (static, category, track, cheat-sheet, certificate, glossary, interview, lesson, comparison) |
+
+### Schema coverage after this session
+| Page type | Schema types |
+|-----------|-------------|
+| Homepage | Organization, WebSite (SearchAction), ItemList |
+| Lesson | Article + LearningResource, BreadcrumbList |
+| Category | Course, BreadcrumbList |
+| Track | Course, BreadcrumbList |
+| Glossary term | DefinedTerm |
+| Interview Q&A | FAQPage, BreadcrumbList |
+| Interview index | FAQPage (5 curated) |
