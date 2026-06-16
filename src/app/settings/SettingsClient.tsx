@@ -3,8 +3,38 @@
 import { useRef, useState } from "react";
 import { BOOKMARK_KEY } from "@/lib/bookmarks";
 import { COMPLETED_KEY } from "@/lib/progress";
+
 const ENGAGEMENT_KEY = "ma_engagement";
-const EXPORT_KEYS = [COMPLETED_KEY, BOOKMARK_KEY, ENGAGEMENT_KEY];
+const ONBOARDED_KEY = "ma_onboarded";
+const QUIZ_KEY_PREFIX = "ma_quiz_pass_";
+const EXPORT_KEYS = [COMPLETED_KEY, BOOKMARK_KEY, ENGAGEMENT_KEY, ONBOARDED_KEY];
+const SYNC_SECRET = process.env.NEXT_PUBLIC_SYNC_SECRET ?? "";
+
+function collectAllKeys(): Record<string, unknown> {
+  const data: Record<string, unknown> = {};
+  for (const key of EXPORT_KEYS) {
+    const raw = localStorage.getItem(key);
+    data[key] = raw ? JSON.parse(raw) : null;
+  }
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key?.startsWith(QUIZ_KEY_PREFIX)) {
+      data[key] = localStorage.getItem(key);
+    }
+  }
+  return data;
+}
+
+function restoreAllKeys(data: Record<string, unknown>) {
+  for (const [key, value] of Object.entries(data)) {
+    if (value === null || value === undefined) continue;
+    if (typeof value === "string") {
+      localStorage.setItem(key, value);
+    } else {
+      localStorage.setItem(key, JSON.stringify(value));
+    }
+  }
+}
 
 type Status = { type: "success" | "error"; message: string } | null;
 
@@ -80,14 +110,55 @@ export default function SettingsClient() {
   const [importStatus, setImportStatus] = useState<Status>(null);
   const [exportStatus, setExportStatus] = useState<Status>(null);
   const [resetStatus, setResetStatus] = useState<Status>(null);
+  const [syncStatus, setSyncStatus] = useState<Status>(null);
+  const [syncing, setSyncing] = useState(false);
+
+  async function handlePush() {
+    setSyncing(true);
+    setSyncStatus(null);
+    try {
+      const data = collectAllKeys();
+      const res = await fetch("/api/sync", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-sync-secret": SYNC_SECRET },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error();
+      const time = new Date().toLocaleTimeString();
+      setSyncStatus({ type: "success", message: `Saved to cloud at ${time}.` });
+    } catch {
+      setSyncStatus({ type: "error", message: "Push failed. Check your CF KV env vars." });
+    } finally {
+      setSyncing(false);
+    }
+  }
+
+  async function handlePull() {
+    setSyncing(true);
+    setSyncStatus(null);
+    try {
+      const res = await fetch("/api/sync", {
+        headers: { "x-sync-secret": SYNC_SECRET },
+      });
+      if (!res.ok) throw new Error();
+      const { data } = (await res.json()) as { data: Record<string, unknown> | null };
+      if (!data) {
+        setSyncStatus({ type: "error", message: "No cloud save found. Push from your main device first." });
+        return;
+      }
+      restoreAllKeys(data);
+      setSyncStatus({ type: "success", message: "Pulled from cloud. Refreshing…" });
+      setTimeout(() => window.location.reload(), 1200);
+    } catch {
+      setSyncStatus({ type: "error", message: "Pull failed. Check your CF KV env vars." });
+    } finally {
+      setSyncing(false);
+    }
+  }
 
   function handleExport() {
     try {
-      const data: Record<string, unknown> = {};
-      for (const key of EXPORT_KEYS) {
-        const raw = localStorage.getItem(key);
-        data[key] = raw ? JSON.parse(raw) : null;
-      }
+      const data = collectAllKeys();
       const json = JSON.stringify(data, null, 2);
       const blob = new Blob([json], { type: "application/json" });
       const url = URL.createObjectURL(blob);
@@ -128,11 +199,7 @@ export default function SettingsClient() {
           return;
         }
 
-        for (const key of EXPORT_KEYS) {
-          if (key in data && data[key] !== null) {
-            localStorage.setItem(key, JSON.stringify(data[key]));
-          }
-        }
+        restoreAllKeys(data);
 
         setImportStatus({
           type: "success",
@@ -214,6 +281,40 @@ export default function SettingsClient() {
           Choose File &amp; Import
         </button>
         <StatusBanner status={importStatus} />
+      </section>
+
+      {/* Cloud Sync */}
+      <section style={cardStyle}>
+        <h2 style={headingStyle}>Cloud Sync</h2>
+        <p style={descStyle}>
+          Push your progress to Cloudflare KV to restore it on another device. Requires{" "}
+          <code style={{ fontSize: "0.8rem" }}>CF_KV_*</code> env vars to be set.
+        </p>
+        <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+          <button
+            style={primaryBtn}
+            onClick={handlePush}
+            disabled={syncing || !SYNC_SECRET}
+            title={!SYNC_SECRET ? "NEXT_PUBLIC_SYNC_SECRET not set" : undefined}
+          >
+            {syncing ? "…" : "↑ Push to cloud"}
+          </button>
+          <button
+            style={{ ...primaryBtn, background: "var(--muted)", color: "var(--muted-foreground)", border: "1px solid var(--border)" }}
+            onClick={handlePull}
+            disabled={syncing || !SYNC_SECRET}
+            title={!SYNC_SECRET ? "NEXT_PUBLIC_SYNC_SECRET not set" : undefined}
+          >
+            {syncing ? "…" : "↓ Pull from cloud"}
+          </button>
+        </div>
+        {!SYNC_SECRET && (
+          <p style={{ marginTop: "0.5rem", fontSize: "0.8rem", color: "var(--muted-foreground)" }}>
+            Add <code>NEXT_PUBLIC_SYNC_SECRET</code> to your env vars to enable sync.
+            See <code>.env.local.example</code> for setup instructions.
+          </p>
+        )}
+        <StatusBanner status={syncStatus} />
       </section>
 
       {/* Reset */}

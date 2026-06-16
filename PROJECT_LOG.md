@@ -1739,3 +1739,38 @@ Full curriculum inventory (323 MDX files across 15 categories) cross-referenced 
 
 ### Build result after review fixes
 - 621/621 static pages ✅ — zero type errors, zero new warnings
+
+---
+
+## Future Plan: Auth + DB Sync (Option C) — parked
+
+**Status: parked. Implement when Cloudflare KV sync (Option B, Session 46) becomes insufficient (multi-device conflict resolution, sharing, leaderboards, etc.)**
+
+### Stack
+- **NextAuth.js v5** (`next-auth@beta`) — Google OAuth, whitelist your email in config
+- **Neon** (serverless Postgres, free 0.5GB) — simpler than Supabase, no dashboard bloat
+
+### Why Neon over Supabase
+Neon is just Postgres with a serverless adapter — no extra auth layer, no storage buckets, no realtime subscription complexity. For a single user storing progress rows, it's the lighter choice.
+
+### Approximate schema
+```sql
+CREATE TABLE progress (
+  id         SERIAL PRIMARY KEY,
+  key        TEXT NOT NULL UNIQUE,   -- mirrors localStorage key
+  value      JSONB NOT NULL,
+  updated_at TIMESTAMPTZ DEFAULT now()
+);
+```
+
+### Auth setup sketch
+1. `npm install next-auth@beta @auth/neon-adapter`
+2. Google OAuth provider in `auth.ts`
+3. Middleware: protect all routes except `/`, redirect to `/api/auth/signin`
+4. Allow only your email: `callbacks.signIn = ({ profile }) => profile.email === process.env.ALLOWED_EMAIL`
+
+### Migration path (localStorage → Neon)
+- On first login: prompt "Import local progress to your account?"
+- API route reads body, upserts into `progress` table per key
+- All `getCompleted()` / `getBookmarks()` / `getEngagement()` lib functions get a server-side sibling that hits Neon instead of localStorage
+
