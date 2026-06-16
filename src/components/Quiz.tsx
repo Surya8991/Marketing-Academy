@@ -1,5 +1,29 @@
 "use client";
 
+/**
+ * Per-lesson quiz component.
+ *
+ * MUST be rendered inside a <section id="quiz-section"> — MarkComplete.tsx
+ * calls `document.getElementById("quiz-section")?.scrollIntoView()` when locked.
+ *
+ * Pass/fail:
+ *   - Requires 100% (all questions correct) to dispatch QUIZ_PASSED_EVENT.
+ *   - Partial scores show a fail screen with a "Try Again" button.
+ *   - There is no partial credit; the threshold can't be configured per-lesson.
+ *
+ * Events dispatched on perfect score:
+ *   QUIZ_PASSED_EVENT  — unlocks MarkComplete on the same page (no reload needed)
+ *   ENGAGEMENT_EVENT   — awards 20 XP and triggers achievement checks
+ *
+ * Progress persistence:
+ *   - In-progress state (current question + previous answers) is saved to
+ *     localStorage under quizStorageKey(pathname) so the user can resume after
+ *     a page reload mid-quiz.
+ *   - Quiz pass flag is saved under ma_quiz_pass_{category}_{slug}.
+ *   - On mount, if the quiz is already passed, all answers are pre-filled as
+ *     correct so the progress bar shows 100%.
+ */
+
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import type { Quiz } from "@/lib/quizzes";
@@ -18,17 +42,19 @@ export default function Quiz({ questions, category, slug }: Props) {
   const pathname = usePathname();
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
-  // answers[i] = true/false for completed questions (NOT including current unanswered question)
+  // answers[i] = true/false for each completed question.
+  // NOTE: does NOT include the currently displayed question until handleNext fires.
   const [answers, setAnswers] = useState<boolean[]>([]);
   const [finished, setFinished] = useState(false);
   const [alreadyPassed, setAlreadyPassed] = useState(false);
 
-  // Restore saved state on mount
+  // Restore saved progress on mount. If quiz was already passed, jump straight to
+  // the success screen with all answers showing as correct.
   useEffect(() => {
     const passed = getQuizPassed(category, slug);
     if (passed) {
       setAlreadyPassed(true);
-      setAnswers(Array(questions.length).fill(true));
+      setAnswers(Array(questions.length).fill(true)); // pre-fill so progress bar = 100%
       setFinished(true);
       return;
     }
@@ -36,6 +62,7 @@ export default function Quiz({ questions, category, slug }: Props) {
       const saved = localStorage.getItem(quizStorageKey(pathname));
       if (saved) {
         const parsed = JSON.parse(saved) as { answers?: boolean[]; score?: number; total: number };
+        // Only restore if question count matches — stale state from a different quiz version is discarded
         if (parsed.total === questions.length) {
           const restored = parsed.answers
             ?? Array(parsed.score ?? 0).fill(true).concat(Array(parsed.total - (parsed.score ?? 0)).fill(false));
@@ -48,12 +75,12 @@ export default function Quiz({ questions, category, slug }: Props) {
 
   const question = questions[current];
   const totalQuestions = questions.length;
-  const answered = selected !== null;
+  const answered = selected !== null; // true after the user picks an option for the current question
 
   function handleSelect(index: number) {
-    if (answered) return;
+    if (answered) return; // prevent changing answer after selection
     setSelected(index);
-    // Do NOT push to answers here — handleNext will capture it with the correct value
+    // Do NOT push to answers here — handleNext captures it with the correct/incorrect value
   }
 
   function handleNext() {
@@ -62,17 +89,20 @@ export default function Quiz({ questions, category, slug }: Props) {
     const newAnswers = [...answers, isCorrect];
 
     if (current + 1 >= totalQuestions) {
-      // All questions done — score using newAnswers which now includes this last answer
+      // All questions answered — evaluate final score using newAnswers (includes this last Q)
       const finalScore = newAnswers.filter(Boolean).length;
       const perfect = finalScore === totalQuestions;
       try {
+        // Persist finished state so the correct result screen shows on reload
         localStorage.setItem(quizStorageKey(pathname), JSON.stringify({ answers: newAnswers, total: totalQuestions }));
       } catch { /* storage full or unavailable */ }
       if (perfect) {
         setQuizPassed(category, slug);
+        // Unlock MarkComplete without a page reload
         window.dispatchEvent(
           new CustomEvent(QUIZ_PASSED_EVENT, { detail: { id: `${category}/${slug}` } })
         );
+        // Award XP and broadcast to StreakBadge + AchievementToast
         const newState = addXP("quiz", `${category}/${slug}`);
         const unlocked = checkAchievements(newState);
         window.dispatchEvent(new CustomEvent(ENGAGEMENT_EVENT, { detail: { state: newState, unlocked } }));
@@ -137,7 +167,7 @@ export default function Quiz({ questions, category, slug }: Props) {
       );
     }
 
-    // Failed
+    // Failed — show score + context-sensitive encourage message
     let message = "Keep practicing — review the lesson and try again.";
     if (pct >= 75) message = "Almost there! Review the explanations and retry.";
     else if (pct >= 50) message = "Good start. Read through the sections you missed.";
@@ -182,7 +212,7 @@ export default function Quiz({ questions, category, slug }: Props) {
       role="region"
       aria-label={`Quiz question ${current + 1} of ${totalQuestions}`}
     >
-      {/* Progress header */}
+      {/* Progress header: pill indicators per question — green=correct, red=wrong, accent=current, muted=upcoming */}
       <div className="flex items-center justify-between mb-4">
         <span className="text-sm text-[var(--muted-foreground)]">
           Question {current + 1} of {totalQuestions}
@@ -212,6 +242,7 @@ export default function Quiz({ questions, category, slug }: Props) {
 
       <div className="flex flex-col gap-2.5 mb-5">
         {question.options.map((option, i) => {
+          // Colour logic: only applied AFTER the user has selected an option (answered=true)
           let borderColor = "var(--border)";
           let bgColor = "transparent";
           let opacity = "1";
@@ -224,7 +255,7 @@ export default function Quiz({ questions, category, slug }: Props) {
               borderColor = "#ef4444";
               bgColor = "rgba(239,68,68,0.08)";
             } else {
-              opacity = "0.45";
+              opacity = "0.45"; // dim non-selected, non-correct options
             }
           }
 
@@ -258,6 +289,7 @@ export default function Quiz({ questions, category, slug }: Props) {
         })}
       </div>
 
+      {/* Explanation block — only shown after the user selects an option */}
       {answered && (
         <div className="rounded-lg bg-[var(--muted)] border border-[var(--border)] px-4 py-3 mb-5 text-sm text-[var(--foreground)] leading-relaxed">
           <span className="font-semibold">

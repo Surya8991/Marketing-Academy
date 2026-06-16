@@ -1,5 +1,25 @@
 "use client";
 
+/**
+ * AchievementToast — fixed-position toast stack for newly unlocked achievements.
+ *
+ * Listens to ENGAGEMENT_EVENT on window. When the event carries a non-empty
+ * `unlocked` array (achievement IDs), it renders a toast per achievement that
+ * auto-dismisses after 4 seconds.
+ *
+ * Key design decisions:
+ *   - crypto.randomUUID() is used as the toast ID (not Date.now()) because
+ *     multiple achievements can unlock in the same tick. Date.now() would produce
+ *     duplicate keys and React would collapse the toasts into one.
+ *   - Timer IDs are tracked in a ref (not state) to avoid triggering re-renders.
+ *   - The cleanup function in useEffect clears all pending timers on unmount,
+ *     preventing "Can't perform a React state update on an unmounted component".
+ *   - toastIds is captured as a Set per batch so the timeout correctly removes
+ *     only THIS batch and not any toasts added after the timer was set.
+ *
+ * This component is rendered once in the root layout — never instantiate it twice.
+ */
+
 import { useEffect, useRef, useState } from "react";
 import { ENGAGEMENT_EVENT } from "@/lib/engagement";
 import { ACHIEVEMENTS } from "@/lib/achievements";
@@ -9,6 +29,7 @@ type ToastItem = { id: string; label: string; emoji: string; ts: number };
 
 export default function AchievementToast() {
   const [toasts, setToasts] = useState<ToastItem[]>([]);
+  // ref instead of state so timer IDs don't cause re-renders
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   useEffect(() => {
@@ -16,11 +37,16 @@ export default function AchievementToast() {
       const ce = e as CustomEvent<{ state: EngagementState; unlocked: string[] }>;
       const { unlocked } = ce.detail;
       if (!unlocked || unlocked.length === 0) return;
+
+      // Build toast items — crypto.randomUUID() prevents duplicate keys on same-tick unlocks
       const newToasts: ToastItem[] = unlocked.map((achievementId) => {
         const a = ACHIEVEMENTS.find((x) => x.id === achievementId);
         return { id: crypto.randomUUID(), label: a?.label ?? achievementId, emoji: a?.emoji ?? "🏅", ts: Date.now() };
       });
+
       setToasts((prev) => [...prev, ...newToasts]);
+
+      // Capture the IDs of THIS batch so the timeout closure removes only these toasts
       const toastIds = new Set(newToasts.map((t) => t.id));
       const timerId = setTimeout(() => {
         setToasts((prev) => prev.filter((t) => !toastIds.has(t.id)));
@@ -28,9 +54,11 @@ export default function AchievementToast() {
       }, 4000);
       timers.current.push(timerId);
     };
+
     window.addEventListener(ENGAGEMENT_EVENT, handler);
     return () => {
       window.removeEventListener(ENGAGEMENT_EVENT, handler);
+      // Clear all pending timers to prevent state updates on an unmounted component
       timers.current.forEach(clearTimeout);
     };
   }, []);
@@ -47,7 +75,7 @@ export default function AchievementToast() {
         display: "flex",
         flexDirection: "column",
         gap: "0.5rem",
-        pointerEvents: "none",
+        pointerEvents: "none", // toasts don't intercept mouse events
       }}
     >
       {toasts.map((t) => (
@@ -76,6 +104,7 @@ export default function AchievementToast() {
           </div>
         </div>
       ))}
+      {/* Inline keyframes — avoids adding a global CSS dependency for a single animation */}
       <style>{`
         @keyframes ma-toast-in {
           from { opacity: 0; transform: translateY(12px); }

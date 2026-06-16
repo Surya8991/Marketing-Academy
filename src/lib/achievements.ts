@@ -1,3 +1,21 @@
+/**
+ * Achievement definitions and unlock checker.
+ *
+ * ACHIEVEMENTS is a declarative array of badges. Each badge has a `check` predicate
+ * that receives the current EngagementState, the completion Set, and the bookmarks array.
+ *
+ * Why checkAchievements() lives here and NOT inside addXP():
+ *   addXP() only owns XP/streak state. Achievements like "complete all 393 lessons" or
+ *   "bookmark 5 lessons" need cross-cutting data (completions, bookmarks) that addXP()
+ *   doesn't read. Keeping them separate avoids circular imports and side effects inside
+ *   the XP write path.
+ *
+ * Call pattern (every XP-earning action):
+ *   const newState = addXP("complete", id);
+ *   const unlocked = checkAchievements(newState);
+ *   window.dispatchEvent(new CustomEvent(ENGAGEMENT_EVENT, { detail: { state: newState, unlocked } }));
+ */
+
 import { getCompleted } from "@/lib/progress";
 import { getBookmarks, type BookmarkEntry } from "@/lib/bookmarks";
 import { flatLessons, CATEGORIES } from "@/lib/curriculum";
@@ -25,6 +43,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     label: "Quiz Crusher",
     description: "Pass your first quiz with a perfect score",
     emoji: "🧠",
+    // xpLog entries with action="quiz" only appear after a perfect quiz pass
     check: (s) => s.xpLog.some((e) => e.action === "quiz"),
   },
   {
@@ -60,6 +79,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     label: "Category Clear",
     description: "Complete all lessons in any one category",
     emoji: "🏆",
+    // Checks each category independently — pass as soon as ANY category is 100%
     check: (_, completed) =>
       CATEGORIES.some((c) =>
         c.lessons.every((l) => completed.has(`${c.slug}/${l.slug}`))
@@ -82,12 +102,20 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "all-lessons",
     label: "Marketing Polymath",
+    // getter so description stays accurate if curriculum.ts lesson count changes
     get description() { return `Complete all ${flatLessons().length} lessons`; },
     emoji: "🎓",
     check: (_, completed) => completed.size >= flatLessons().length,
   },
 ];
 
+/**
+ * Checks all ACHIEVEMENTS against the current state. Persists newly unlocked IDs
+ * into state.achievements and saves to localStorage. Returns the newly unlocked IDs
+ * so callers can dispatch ENGAGEMENT_EVENT with the toast list.
+ *
+ * Does NOT dispatch the event itself — caller controls when/whether to do that.
+ */
 export function checkAchievements(state: EngagementState): string[] {
   const completed = getCompleted();
   const bookmarks = getBookmarks();
