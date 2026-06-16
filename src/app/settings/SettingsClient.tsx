@@ -208,7 +208,7 @@ export default function SettingsClient() {
         if (!hasAnyKey) {
           setImportStatus({
             type: "error",
-            message: "Invalid file — no recognised progress keys found.",
+            message: "Invalid file: no recognised progress keys found.",
           });
           return;
         }

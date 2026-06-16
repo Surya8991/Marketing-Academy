@@ -1,16 +1,16 @@
 ﻿export const lessonMeta = {
   title: "Customer Data Platforms (CDPs)",
   level: "Advanced",
-  summary: "Segment, RudderStack, mParticle  -  the unified-customer-profile layer.",
+  summary: "Segment, RudderStack, mParticle ,  the unified-customer-profile layer.",
 };
 
 # Customer Data Platforms (CDPs)
 
-If your stack has six tools that all need the same user data, and each one defines 'active user' a little differently, you do not have an analytics problem  -  you have a plumbing problem. A CDP is the pipe and the schema. This lesson is for senior marketers, growth engineers, and analytics leads picking or operating one.
+If your stack has six tools that all need the same user data, and each one defines 'active user' a little differently, you do not have an analytics problem ,  you have a plumbing problem. A CDP is the pipe and the schema. This lesson is for senior marketers, growth engineers, and analytics leads picking or operating one.
 
 ## What It Actually Is
 
-A Customer Data Platform ingests user events from every source (web, mobile, server, warehouse), resolves them into a single persistent profile keyed by user ID, and forwards that data to downstream tools (ad platforms, email, product analytics, support, the warehouse). Concrete example: a user signs up on your web app, opens a push notification on iOS, refunds an order in Shopify, and emails support. A CDP stitches all four touchpoints into one profile, then activates that profile into Braze for lifecycle, Meta CAPI for ads, and Snowflake for analysis  -  without you wiring four point-to-point integrations.
+A Customer Data Platform ingests user events from every source (web, mobile, server, warehouse), resolves them into a single persistent profile keyed by user ID, and forwards that data to downstream tools (ad platforms, email, product analytics, support, the warehouse). Concrete example: a user signs up on your web app, opens a push notification on iOS, refunds an order in Shopify, and emails support. A CDP stitches all four touchpoints into one profile, then activates that profile into Braze for lifecycle, Meta CAPI for ads, and Snowflake for analysis ,  without you wiring four point-to-point integrations.
 
 ## Why It Matters (with data)
 
@@ -22,17 +22,17 @@ The vendor landscape shifted hard in 2025. Rokt acquired mParticle for USD 300M 
 
 The reference architecture has four layers:
 
-1. **Collection**  -  JS snippet, mobile SDKs, server libraries, and cloud-source connectors (Stripe, Shopify, Zendesk) emit events to a single spec.
-2. **Identity resolution**  -  anonymous IDs get merged with user IDs on signup; deterministic stitching across devices via shared identifiers (email, phone hash).
-3. **Profile and modeling**  -  the canonical user record plus computed traits (LTV, last_purchase_at, churn_risk). On composable CDPs this lives in your warehouse.
-4. **Activation**  -  reverse-ETL or streaming destinations push audiences to ad platforms, ESPs, support tools.
+1. **Collection** ,  JS snippet, mobile SDKs, server libraries, and cloud-source connectors (Stripe, Shopify, Zendesk) emit events to a single spec.
+2. **Identity resolution** ,  anonymous IDs get merged with user IDs on signup; deterministic stitching across devices via shared identifiers (email, phone hash).
+3. **Profile and modeling** ,  the canonical user record plus computed traits (LTV, last_purchase_at, churn_risk). On composable CDPs this lives in your warehouse.
+4. **Activation** ,  reverse-ETL or streaming destinations push audiences to ad platforms, ESPs, support tools.
 
 Vendor choice in 2026:
 
-- **Twilio Segment**  -  packaged CDP, fastest time-to-value, deepest catalog of ~450 destinations, expensive at scale (per-MTU pricing).
-- **mParticle** (now Rokt-owned)  -  enterprise, strong mobile and consent management, audience engine.
-- **RudderStack**  -  warehouse-native and open-source core, you own the storage, lowest TCO at high event volume, requires more engineering.
-- **Hightouch / Census**  -  pure composable, sit on top of your warehouse, reverse-ETL only (no collection).
+- **Twilio Segment** ,  packaged CDP, fastest time-to-value, deepest catalog of ~450 destinations, expensive at scale (per-MTU pricing).
+- **mParticle** (now Rokt-owned) ,  enterprise, strong mobile and consent management, audience engine.
+- **RudderStack** ,  warehouse-native and open-source core, you own the storage, lowest TCO at high event volume, requires more engineering.
+- **Hightouch / Census** ,  pure composable, sit on top of your warehouse, reverse-ETL only (no collection).
 
 <Callout type="example">
 Allbirds replaced a brittle tag-manager-and-spreadsheet setup with Segment to unify web, retail POS, and email data into one profile per shopper. The team used Segment Personas to build a 'high-LTV repeat buyer' audience and synced it to Facebook and Iterable, which let them suppress paid retargeting on customers already in lifecycle flows. Segment's own case-study work and the broader CDP cohort cited 10-12% media-efficiency lifts post-migration ([SNS Insider, 2025](https://www.globenewswire.com/fr/news-release/2025/11/21/3192858/0/en/Customer-Data-Platform-Market-Set-for-Exponential-Growth-to-USD-57-81-Billion-by-2032-Owing-to-First-Party-Data-Adoption-and-AI-Powered-Personalization-Research-by-SNS-Insider.html)).

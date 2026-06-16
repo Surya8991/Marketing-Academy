@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Marketing Academy — Free marketing education";
+export const alt = "Marketing Academy: Free marketing education";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -79,7 +79,7 @@ export default function RootOGImage() {
             marginBottom: "48px",
           }}
         >
-          SEO, paid ads, growth, social, email, analytics, AI — 393 lessons, 100% free.
+          SEO, paid ads, growth, social, email, analytics, AI, 393 lessons, 100% free.
         </div>
 
         <div

@@ -1,6 +1,6 @@
 # Marketing Academy
 
-A free, structured marketing education site - from absolute beginner to advanced practitioner across every major discipline.
+A free, structured marketing education site, from absolute beginner to advanced practitioner across every major discipline.
 
 **Live:** [marketing-academy-roan.vercel.app](https://marketing-academy-roan.vercel.app)
 **Repo:** [github.com/Surya8991/Marketing-Academy](https://github.com/Surya8991/Marketing-Academy)
@@ -36,41 +36,41 @@ A free, structured marketing education site - from absolute beginner to advanced
 ## Features
 
 **Learning**
-- **Lesson reader** - Left-side table of contents, reading progress bar, reading time estimate, prev/next navigation
-- **Related lessons** - "You might also like" section at the bottom of every lesson
-- **Lesson quizzes** - 4 questions at the bottom of 393 lessons; quiz must be passed (100%) to unlock Mark Complete
-- **Progress tracking** - Mark lessons complete, per-category progress bar, bookmarks (all localStorage)
-- **Learning tracks** - 8 curated paths: B2B Marketer, E-commerce Growth, Solo Founder, AI-First Marketer, Content Creator, Social Media Manager, Data-Driven Marketer, Freelancer & Agency
-- **Progress certificates** - Printable completion certificate per track at `/certificates/[slug]`
-- **XP + Streak system** - Earn XP for completing lessons (30), passing quizzes (20), bookmarking (5). Daily streak. 7 levels (Marketing Newcomer → Certified Polymath). Live badge in nav.
-- **Achievements** - 10 unlockable badges with toast notification on unlock. Full gallery at `/achievements`
-- **Skill Map** - `/skill-map`: 15 category cards sorted by your % complete with animated progress bars
-- **Onboarding** - First-visit goal selector: pick a goal, get routed to the right learning track
+- **Lesson reader**, Left-side table of contents, reading progress bar, reading time estimate, prev/next navigation
+- **Related lessons**, "You might also like" section at the bottom of every lesson
+- **Lesson quizzes**, 4 questions at the bottom of 393 lessons; quiz must be passed (100%) to unlock Mark Complete
+- **Progress tracking**, Mark lessons complete, per-category progress bar, bookmarks (all localStorage)
+- **Learning tracks**, 8 curated paths: B2B Marketer, E-commerce Growth, Solo Founder, AI-First Marketer, Content Creator, Social Media Manager, Data-Driven Marketer, Freelancer & Agency
+- **Progress certificates**, Printable completion certificate per track at `/certificates/[slug]`
+- **XP + Streak system**, Earn XP for completing lessons (30), passing quizzes (20), bookmarking (5). Daily streak. 7 levels (Marketing Newcomer → Certified Polymath). Live badge in nav.
+- **Achievements**, 10 unlockable badges with toast notification on unlock. Full gallery at `/achievements`
+- **Skill Map**, `/skill-map`: 15 category cards sorted by your % complete with animated progress bars
+- **Onboarding**, First-visit goal selector: pick a goal, get routed to the right learning track
 
 **Discovery**
-- **Command Palette** - Cmd/Ctrl+K fuzzy search across all 393 lessons, 216 glossary terms, 108 tools, and nav pages
-- **Search** - Client-side fuzzy search (Fuse.js) with category and level filter chips
-- **Glossary** - 216 marketing terms with A-Z index and individual term pages at `/glossary`
-- **Tools directory** - 108 marketing tools across 11 categories with search, category, and pricing filters at `/tools`
-- **Cheat sheets** - Printable per-category quick reference cards at `/cheat-sheets/[category]`
+- **Command Palette**, Cmd/Ctrl+K fuzzy search across all 393 lessons, 216 glossary terms, 108 tools, and nav pages
+- **Search**, Client-side fuzzy search (Fuse.js) with category and level filter chips
+- **Glossary**, 216 marketing terms with A-Z index and individual term pages at `/glossary`
+- **Tools directory**, 108 marketing tools across 11 categories with search, category, and pricing filters at `/tools`
+- **Cheat sheets**, Printable per-category quick reference cards at `/cheat-sheets/[category]`
 
 **Interview Prep**
-- **Interview prep hub** - `/interview-prep` aggregates all categories with sample Q&A
-- **Interview questions (2026)** - `/interview-questions`: 151 Q&As across 16 disciplines with scenario-based questions, updated for 2026. Covers behavioral, SEO, paid ads, content, analytics, email, growth, AI marketing, social, copywriting, CRO, brand strategy, product marketing, psychology, tools, and general/behavioral interview skills
-- **SEO landing pages** - `/interview-questions` and `/digital-marketing-cheat-sheet` for organic search
+- **Interview prep hub**, `/interview-prep` aggregates all categories with sample Q&A
+- **Interview questions (2026)**, `/interview-questions`: 151 Q&As across 16 disciplines with scenario-based questions, updated for 2026. Covers behavioral, SEO, paid ads, content, analytics, email, growth, AI marketing, social, copywriting, CRO, brand strategy, product marketing, psychology, tools, and general/behavioral interview skills
+- **SEO landing pages**, `/interview-questions` and `/digital-marketing-cheat-sheet` for organic search
 
 **Sharing**
-- **Share buttons** - LinkedIn and Twitter/X share on every lesson
-- **Bookmarks** - Save lessons to `/bookmarks` (localStorage)
-- **RSS feed** - `/feed.xml` with auto-discovery `<link>` in layout
-- **OG images** - Dynamic per-lesson Open Graph images via edge function at `/api/og`
+- **Share buttons**, LinkedIn and Twitter/X share on every lesson
+- **Bookmarks**, Save lessons to `/bookmarks` (localStorage)
+- **RSS feed**, `/feed.xml` with auto-discovery `<link>` in layout
+- **OG images**, Dynamic per-lesson Open Graph images via edge function at `/api/og`
 
 **Technical**
-- **Dark mode** - Manual toggle (Sun/Moon) with localStorage persistence and no flash on load
-- **PWA** - Installable on mobile: `public/manifest.json` + `public/sw.js` service worker
-- **Multilingual resources** - Every lesson links to Hindi (WsCube Tech), Tamil, and Telugu YouTube channels
-- **Newsletter signup** - Footer form with `/api/newsletter` endpoint (connect to your email service)
-- **Sitemap** - Auto-generated, only includes lessons that have MDX files
+- **Dark mode**, Manual toggle (Sun/Moon) with localStorage persistence and no flash on load
+- **PWA**, Installable on mobile: `public/manifest.json` + `public/sw.js` service worker
+- **Multilingual resources**, Every lesson links to Hindi (WsCube Tech), Tamil, and Telugu YouTube channels
+- **Newsletter signup**, Footer form with `/api/newsletter` endpoint (connect to your email service)
+- **Sitemap**, Auto-generated, only includes lessons that have MDX files
 
 ---
 
@@ -81,7 +81,7 @@ A free, structured marketing education site - from absolute beginner to advanced
 | Framework | Next.js 16.2.9 (App Router) |
 | Language | TypeScript 5 (strict) |
 | Styling | Tailwind CSS v4 + CSS variables for theming |
-| Content | MDX via `@next/mdx` - lessons are `.mdx` files in `src/content/` |
+| Content | MDX via `@next/mdx`, lessons are `.mdx` files in `src/content/` |
 | Search | Fuse.js (client-side fuzzy search) |
 | Diagrams | Mermaid (client-side, dark-mode aware, fullscreen button) |
 | Icons | Lucide React v1.18 |
@@ -92,7 +92,7 @@ A free, structured marketing education site - from absolute beginner to advanced
 ## Development
 
 ```bash
-# Dev server (node_modules already installed - skip npm install)
+# Dev server (node_modules already installed, skip npm install)
 npm run dev
 
 # Type check
@@ -134,7 +134,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 
 | File | Purpose |
 |---|---|
-| `src/lib/curriculum.ts` | Single source of truth — all lesson slugs, titles, levels |
+| `src/lib/curriculum.ts` | Single source of truth, all lesson slugs, titles, levels |
 | `src/lib/tracks.ts` | 8 learning track definitions |
 | `src/lib/glossary.ts` | 216 marketing term definitions |
 | `src/lib/quizzes.ts` | Quiz questions (4 per lesson, all 393 lessons covered) |
@@ -155,7 +155,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `vercel.json` | Security headers (CSP, HSTS, X-Frame-Options, etc.) |
 | `AGENTS.md` | 25 non-negotiable build rules for AI agents (incl. Rule 23: pre-push doc checklist) |
 | `src/lib/notes.ts` | Shared note storage (NOTE_KEY_PREFIX, getNoteKey, getNote, saveNote) |
-| `src/app/api/sync-proxy/route.ts` | Server-side CF KV proxy — secret never exposed to client |
+| `src/app/api/sync-proxy/route.ts` | Server-side CF KV proxy, secret never exposed to client |
 | `src/app/api/sync/status/route.ts` | Returns `{ enabled: boolean }` so client knows if sync is configured |
 | `PROJECT_LOG.md` | Full session history, gotchas, file inventory, pending tasks |
 
@@ -181,7 +181,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/interview-prep` | Interview prep hub with category Q&A links |
 | `/interview-questions` | SEO landing: digital marketing interview Q&A |
 | `/digital-marketing-cheat-sheet` | SEO landing: key metrics, frameworks, glossary |
-| `/skill-map` | 15 category cards sorted by your % complete — progress overview |
+| `/skill-map` | 15 category cards sorted by your % complete, progress overview |
 | `/achievements` | XP level, streak, and 10 unlockable achievement badges |
 | `/settings` | Export / import / reset all learning progress as JSON |
 | `/about` | About page: mission, builder profile, stats, tech stack, links |
@@ -198,4 +198,4 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 
 Auto-deploys to Vercel on every push to `main`. No environment variables needed.
 
-To connect newsletter to an email service, edit `src/app/api/newsletter/route.ts` - it has a `// TODO` comment marking the integration point.
+To connect newsletter to an email service, edit `src/app/api/newsletter/route.ts`, it has a `// TODO` comment marking the integration point.

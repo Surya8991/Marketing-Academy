@@ -7,7 +7,7 @@ import { ChevronRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "Marketing Quizzes | Test Your Knowledge | Marketing Academy",
   description:
-    "Test your marketing knowledge with 1,000+ quiz questions across 15 categories — SEO, Paid Ads, Growth, Email, Analytics, AI Marketing and more. Free interactive quizzes.",
+    "Test your marketing knowledge with 1,000+ quiz questions across 15 categories: SEO, Paid Ads, Growth, Email, Analytics, AI Marketing and more. Free interactive quizzes.",
   alternates: {
     canonical: "https://marketing-academy-roan.vercel.app/quizzes",
   },

@@ -4,7 +4,7 @@ export const lessonMeta = {
   summary: 'Master modern A/B testing platforms and the statistical rigor behind them.',
 };
 
-Most teams run A/B tests like they're rolling dice. A/B testing platforms have evolved far beyond simple traffic splitting — they now handle feature flags, multivariate experiments, holdout groups, and sequential testing. Understanding the landscape and how to use these tools properly separates teams that learn from data from teams that chase statistical noise.
+Most teams run A/B tests like they're rolling dice. A/B testing platforms have evolved far beyond simple traffic splitting, they now handle feature flags, multivariate experiments, holdout groups, and sequential testing. Understanding the landscape and how to use these tools properly separates teams that learn from data from teams that chase statistical noise.
 
 ## Beyond A/B: What Modern Platforms Do
 
@@ -14,33 +14,33 @@ The major platforms in 2026 each carve out a niche. **Optimizely** dominates ent
 
 ## Client-Side vs Server-Side Testing
 
-This distinction changes everything about reliability. Client-side testing (the old way) runs in the browser: the platform loads JavaScript, renders different variants, and users see a flicker before the test variant loads. This creates several problems. First, the flicker itself influences behaviour — users who see the control loading fast might behave differently than users who see a slower variant load. Second, users with JavaScript disabled or ad blockers never see the test, skewing results. Third, bots and non-human traffic pollute the sample.
+This distinction changes everything about reliability. Client-side testing (the old way) runs in the browser: the platform loads JavaScript, renders different variants, and users see a flicker before the test variant loads. This creates several problems. First, the flicker itself influences behaviour, users who see the control loading fast might behave differently than users who see a slower variant load. Second, users with JavaScript disabled or ad blockers never see the test, skewing results. Third, bots and non-human traffic pollute the sample.
 
-Server-side testing fixes all of this. The decision happens at the backend — before the HTML renders, before any client request — so users never see flicker. Non-human traffic is filtered naturally because you control the server. The test is invisible to the user, making it more reliable. The trade-off: you need engineering to instrument server-side tests. But for any high-stakes experiment, that engineering cost pays itself back in cleaner data.
+Server-side testing fixes all of this. The decision happens at the backend, before the HTML renders, before any client request, so users never see flicker. Non-human traffic is filtered naturally because you control the server. The test is invisible to the user, making it more reliable. The trade-off: you need engineering to instrument server-side tests. But for any high-stakes experiment, that engineering cost pays itself back in cleaner data.
 
 ## Setting Up a Proper Experiment
 
 A one-sentence hypothesis beats a vague goal. Instead of 'increase sign-ups,' write: 'Removing step 2 of the sign-up flow will increase conversion rate by 15% because fewer form fields reduce abandonment.' This clarity lets you predict what success looks like before you run the test.
 
-Pick one primary metric — the thing you actually care about optimising. Pick 2–3 guardrail metrics — things you don't want to break (latency, support volume, churn). Before running the test, calculate the minimum detectable effect (the smallest improvement you care about) and the sample size needed to detect it with 95% confidence and 80% power. A statistician's rule of thumb: if your sample size is huge, your effect size is tiny, and running the test for 8 weeks might show statistical significance but near-zero practical impact.
+Pick one primary metric, the thing you actually care about optimising. Pick 2–3 guardrail metrics, things you don't want to break (latency, support volume, churn). Before running the test, calculate the minimum detectable effect (the smallest improvement you care about) and the sample size needed to detect it with 95% confidence and 80% power. A statistician's rule of thumb: if your sample size is huge, your effect size is tiny, and running the test for 8 weeks might show statistical significance but near-zero practical impact.
 
 ## Statistical Foundations You Actually Need
 
-A p-value of 0.05 means: 'If the null hypothesis were true (the variants are equal), we'd see a difference this extreme 5% of the time by random chance.' It does NOT mean 'there's a 95% chance this variant is better.' That confusion breaks more A/B tests than anything else. A 95% confidence interval means the true effect likely falls in that range — but 5% of the time it won't. Across 100 tests at 95% confidence, roughly 5 will be false positives.
+A p-value of 0.05 means: 'If the null hypothesis were true (the variants are equal), we'd see a difference this extreme 5% of the time by random chance.' It does NOT mean 'there's a 95% chance this variant is better.' That confusion breaks more A/B tests than anything else. A 95% confidence interval means the true effect likely falls in that range, but 5% of the time it won't. Across 100 tests at 95% confidence, roughly 5 will be false positives.
 
-This is why running 20 tests simultaneously without adjustment is dangerous. If you run 20 independent tests with 0.05 significance, the probability that at least one shows a false positive is not 5% — it's roughly 64%. You need Bonferroni correction or sequential testing to stay safe.
+This is why running 20 tests simultaneously without adjustment is dangerous. If you run 20 independent tests with 0.05 significance, the probability that at least one shows a false positive is not 5%, it's roughly 64%. You need Bonferroni correction or sequential testing to stay safe.
 
 ## Common Experiment Mistakes
 
-**Peeking** is the silent killer. You run the test for 3 days, the variant wins, you declare victory and ship it. But 3 days wasn't enough statistical power — you just got unlucky with which visitors saw which variant. The test finishes a week later and reverses. Always predetermine your sample size and stick to it. If you must peek early, use sequential testing frameworks that account for it mathematically.
+**Peeking** is the silent killer. You run the test for 3 days, the variant wins, you declare victory and ship it. But 3 days wasn't enough statistical power, you just got unlucky with which visitors saw which variant. The test finishes a week later and reverses. Always predetermine your sample size and stick to it. If you must peek early, use sequential testing frameworks that account for it mathematically.
 
-**Mutual exclusion failures** happen when one user sees multiple conflicting tests simultaneously. If test A shows the blue button and test B shows the red button, which one does the user see? Optimizely solves this with mutual exclusion rules — declare which tests can't run together. **Novelty effect** is when users click the variant simply because it's new, not because it's better. Give behavioural changes 1–2 weeks to settle into normal patterns before checking significance.
+**Mutual exclusion failures** happen when one user sees multiple conflicting tests simultaneously. If test A shows the blue button and test B shows the red button, which one does the user see? Optimizely solves this with mutual exclusion rules, declare which tests can't run together. **Novelty effect** is when users click the variant simply because it's new, not because it's better. Give behavioural changes 1–2 weeks to settle into normal patterns before checking significance.
 
 ## Building an Experiment Backlog
 
 Running every idea that sounds good wastes testing capacity. Use ICE scoring (Impact × Confidence × Ease) or PIE scoring (Potential × Importance × Ease) to rank which tests matter. A test with 50% expected impact, high confidence from user research, and low implementation effort scores higher than a hunch about button colour.
 
-Pair experimentation roadmaps with your product roadmap. Don't run experiments in isolation — frame them as part of a release cycle. This prevents the trap of running small tests forever while missing the big leverage points.
+Pair experimentation roadmaps with your product roadmap. Don't run experiments in isolation, frame them as part of a release cycle. This prevents the trap of running small tests forever while missing the big leverage points.
 
 ## From Tests to Culture
 

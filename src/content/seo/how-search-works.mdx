@@ -1,7 +1,7 @@
 export const lessonMeta = {
   title: "How Search Engines Actually Work",
   level: "Beginner",
-  summary: "Crawl, index, rank  -  the three stages your page must survive.",
+  summary: "Crawl, index, rank ,  the three stages your page must survive.",
   category: "seo",
   slug: "how-search-works",
   relatedConcepts: ["keyword-research", "technical-seo", "on-page-seo"],
@@ -16,8 +16,8 @@ When you type something into Google and hit Enter, results appear in under a sec
 ## Quick Summary
 
 - Google discovers pages by following links with automated programs called crawlers (also called spiders or bots)
-- Only pages that pass Google's quality filters get stored in its index - a database of hundreds of billions of pages
-- Ranking happens in real time when you search - Google scores every relevant indexed page against 200+ signals in milliseconds
+- Only pages that pass Google's quality filters get stored in its index, a database of hundreds of billions of pages
+- Ranking happens in real time when you search, Google scores every relevant indexed page against 200+ signals in milliseconds
 - A page that no other page links to is called an "orphan page" and crawlers rarely find it
 - As of 2023, 96.55% of published pages on the internet get zero organic traffic from Google (Ahrefs study of 1 billion+ pages)
 
@@ -45,7 +45,7 @@ When Googlebot (Google's main crawler) visits your page, it reads the text, note
 Google also allocates a **crawl budget** to each site: a rough limit on how many pages Googlebot will crawl per day. Sites with thousands of low-quality or duplicate pages can find that important pages get crawled infrequently, or skipped entirely. This is why keeping your site lean and well-linked matters.
 
 Key facts about crawling:
-- Googlebot has a 15 MB page size limit - content beyond that is ignored
+- Googlebot has a 15 MB page size limit, content beyond that is ignored
 - Google switched to **mobile-first indexing** in 2019, meaning it crawls and indexes the mobile version of your page by default
 - Googlebot now uses HTTP/2, which lets it fetch multiple resources more efficiently
 
@@ -89,12 +89,12 @@ flowchart LR
 
 ### Airbnb: From Invisible to #1
 
-Airbnb's SEO team discovered in 2014 that millions of people searched for location-specific terms like "apartments in Paris" or "houses near Central Park" - but Airbnb's pages were not ranking. The problem was not content quality. The pages were not structured in a way Googlebot could crawl and understand.
+Airbnb's SEO team discovered in 2014 that millions of people searched for location-specific terms like "apartments in Paris" or "houses near Central Park", but Airbnb's pages were not ranking. The problem was not content quality. The pages were not structured in a way Googlebot could crawl and understand.
 
 By rebuilding their URL structure, creating crawlable city and neighborhood landing pages, and fixing JavaScript rendering issues that blocked Googlebot, Airbnb made their entire inventory visible to Google's index for the first time at scale. Between 2014 and 2016, they restructured over 100,000 location landing pages. The result was a reported 2-3x increase in organic search traffic to those destination pages, with some city pages reaching positions 1-3 for high-intent travel queries.
 
 <Callout type="example">
-**The lesson from Airbnb:** You can have excellent content that nobody sees because crawlers cannot access it. Fixing crawlability is often the highest-leverage SEO action a growing site can take - before writing a single new word.
+**The lesson from Airbnb:** You can have excellent content that nobody sees because crawlers cannot access it. Fixing crawlability is often the highest-leverage SEO action a growing site can take, before writing a single new word.
 </Callout>
 
 ### HubSpot: The Compound Effect of Indexing Discipline
@@ -108,11 +108,11 @@ HubSpot publishes thousands of blog posts and pillar pages. In 2019, they ran an
 </Callout>
 
 <Callout type="warning">
-**Assuming published means indexed.** Publishing a page does not guarantee Google will crawl or index it. A page that no other page links to is called an "orphan page" - crawlers rarely find them. Always link to new content from somewhere already indexed on your site.
+**Assuming published means indexed.** Publishing a page does not guarantee Google will crawl or index it. A page that no other page links to is called an "orphan page", crawlers rarely find them. Always link to new content from somewhere already indexed on your site.
 </Callout>
 
 <Callout type="tip">
-**Submit a sitemap and request indexing proactively.** Do not wait for Googlebot to wander in. Submit an XML sitemap via Google Search Console and use the URL Inspection tool to request indexing for important new pages immediately. For large sites, audit your crawl budget by checking which pages Googlebot visits most - and whether it is wasting time on low-value URLs like faceted navigation or thin tag pages.
+**Submit a sitemap and request indexing proactively.** Do not wait for Googlebot to wander in. Submit an XML sitemap via Google Search Console and use the URL Inspection tool to request indexing for important new pages immediately. For large sites, audit your crawl budget by checking which pages Googlebot visits most, and whether it is wasting time on low-value URLs like faceted navigation or thin tag pages.
 </Callout>
 
 ## How Search Has Changed in 2024-2025
@@ -142,53 +142,53 @@ flowchart TD
 
 ## The One-Line Takeaway
 
-**Before Google can rank your page, it must first find it and file it - and either step can silently fail without you ever knowing.**
+**Before Google can rank your page, it must first find it and file it, and either step can silently fail without you ever knowing.**
 
 <ResourceList resources={[
   {
-    title: "How Search Works - Google Search Central",
+    title: "How Search Works, Google Search Central",
     url: "https://developers.google.com/search/docs/fundamentals/how-search-works",
     type: "docs",
     note: "Google's own explanation of crawling, indexing, and ranking. The most authoritative source available, completely free.",
     free: true,
   },
   {
-    title: "How Do Search Engines Work? - Ahrefs Blog",
+    title: "How Do Search Engines Work?, Ahrefs Blog",
     url: "https://ahrefs.com/blog/how-do-search-engines-work",
     type: "article",
     note: "Practical breakdown of all three stages with actionable takeaways. Part of Ahrefs' free 10-part SEO learning series.",
     free: true,
   },
   {
-    title: "Beginner's Guide to SEO - Moz",
+    title: "Beginner's Guide to SEO, Moz",
     url: "https://moz.com/beginners-guide-to-seo",
     type: "course",
     note: "Chapter 2 covers how search engines work with clear diagrams. A classic reference for building foundational knowledge.",
     free: true,
   },
   {
-    title: "How Search Engines Work (Interactive) - Google",
+    title: "How Search Engines Work (Interactive), Google",
     url: "https://www.google.com/search/howsearchworks/",
     type: "article",
     note: "Google's public-facing interactive guide. Great visual introduction to the crawl-index-rank process for total beginners.",
     free: true,
   },
   {
-    title: "Crawl Budget Management - Google Search Central",
+    title: "Crawl Budget Management, Google Search Central",
     url: "https://developers.google.com/search/docs/crawling-indexing/large-site-managing-crawl-budget",
     type: "docs",
     note: "Official Google documentation on how crawl budget works and how to optimize it for larger sites.",
     free: true,
   },
   {
-    title: "SEO Fundamentals Course - Ahrefs Academy",
+    title: "SEO Fundamentals Course, Ahrefs Academy",
     url: "https://ahrefs.com/academy/seo-training-course",
     type: "course",
     note: "Free video course covering how search engines work, keyword research, and on-page SEO. No account required to watch.",
     free: true,
   },
   {
-    title: "Google Search Console - URL Inspection Tool",
+    title: "Google Search Console, URL Inspection Tool",
     url: "https://search.google.com/search-console/",
     type: "tool",
     note: "Free tool from Google. Use it to check whether any page on your site is crawled, indexed, and eligible to rank.",
@@ -200,6 +200,6 @@ flowchart TD
 ]} />
 
 ## Related Concepts
-- [Keyword Research](/learn/seo/keyword-research) - Ranking starts with knowing which queries to target; crawling and indexing only pay off if your pages match what searchers actually type.
-- [Technical SEO](/learn/seo/technical-seo) - The discipline dedicated to making sure crawlers can find, access, and understand every page on your site.
-- [On-Page SEO](/learn/seo/on-page-seo) - Once Google indexes your page, on-page signals are the primary lever for improving where it ranks.
+- [Keyword Research](/learn/seo/keyword-research), Ranking starts with knowing which queries to target; crawling and indexing only pay off if your pages match what searchers actually type.
+- [Technical SEO](/learn/seo/technical-seo), The discipline dedicated to making sure crawlers can find, access, and understand every page on your site.
+- [On-Page SEO](/learn/seo/on-page-seo), Once Google indexes your page, on-page signals are the primary lever for improving where it ranks.

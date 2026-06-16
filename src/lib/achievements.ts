@@ -79,7 +79,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     label: "Category Clear",
     description: "Complete all lessons in any one category",
     emoji: "🏆",
-    // Checks each category independently — pass as soon as ANY category is 100%
+    // Checks each category independently, pass as soon as ANY category is 100%
     check: (_, completed) =>
       CATEGORIES.some((c) =>
         c.lessons.every((l) => completed.has(`${c.slug}/${l.slug}`))
@@ -114,7 +114,7 @@ export const ACHIEVEMENTS: Achievement[] = [
  * into state.achievements and saves to localStorage. Returns the newly unlocked IDs
  * so callers can dispatch ENGAGEMENT_EVENT with the toast list.
  *
- * Does NOT dispatch the event itself — caller controls when/whether to do that.
+ * Does NOT dispatch the event itself, caller controls when/whether to do that.
  */
 export function checkAchievements(state: EngagementState): string[] {
   const completed = getCompleted();

@@ -15,7 +15,7 @@ Cohort analysis is the antidote: it groups users by when they joined (or what th
 - A cohort is a group of users who share a starting event in the same time window, usually the week or month they signed up.
 - Cohort analysis shows retention curves per group, so you can spot whether newer users behave better or worse than older ones.
 - Blended "average retention" hides the truth; cohort tables expose it.
-- The goal is a curve that drops fast early, then flattens - that flat tail is the sign of product-market fit.
+- The goal is a curve that drops fast early, then flattens, that flat tail is the sign of product-market fit.
 - Segment cohorts by acquisition channel and plan tier for the most useful insights.
 
 ## What It Actually Is
@@ -40,7 +40,7 @@ Reading down each column shows progress: March users are outperforming January u
 
 ## Why It Matters: The Numbers
 
-Retention has gotten harder, not easier. According to 2025 benchmarks, the average SaaS product retains roughly 46.9% of users after one month and about 35% after eight weeks. Net Revenue Retention (NRR, which measures whether existing customers are spending more or less over time) sits at a median of 101% for SaaS companies - barely above flat.
+Retention has gotten harder, not easier. According to 2025 benchmarks, the average SaaS product retains roughly 46.9% of users after one month and about 35% after eight weeks. Net Revenue Retention (NRR, which measures whether existing customers are spending more or less over time) sits at a median of 101% for SaaS companies, barely above flat.
 
 But here is the critical split: companies with NRR above 100% grow 48% year over year. Companies below 100% grow at less than half that rate. The entire difference comes down to how well you retain and expand existing customers, and cohort analysis is the only reliable way to measure that.
 
@@ -92,7 +92,7 @@ None of these numbers are visible in a single blended chart. You only see them i
 
 **Step 3: Build the triangle table.** Rows equal signup week or month. Columns equal time periods since signup. Cells equal the percentage of that cohort that performed your north-star action. Most analytics tools (GA4, Amplitude, Mixpanel) build this table automatically.
 
-**Step 4: Read the curve shape, not just the number.** A healthy retention curve drops steeply in the first few periods, then flattens out. The flat tail means you have a loyal core user base. A curve that never stops falling means you have no retention at all - you are refilling a leaky bucket.
+**Step 4: Read the curve shape, not just the number.** A healthy retention curve drops steeply in the first few periods, then flattens out. The flat tail means you have a loyal core user base. A curve that never stops falling means you have no retention at all, you are refilling a leaky bucket.
 
 **Step 5: Segment before you celebrate.** One cohort table for all users is almost always misleading. Split by acquisition channel (organic search vs paid ads vs referral), plan tier (free vs paid), and onboarding variant if you have one. These subgroups behave completely differently.
 
@@ -112,8 +112,8 @@ GA4 includes a built-in cohort exploration tool under the Explore tab. Here is t
 
 1. Open GA4 and click **Explore** in the left sidebar.
 2. Click **Template gallery** and select **Cohort exploration**.
-3. Set your **Cohort inclusion criteria** - this defines who enters the cohort (for example: users who made a purchase, or users who triggered a specific event).
-4. Set your **Return criteria** - this defines the behavior you are tracking over time (usually session_start or a key action).
+3. Set your **Cohort inclusion criteria**, this defines who enters the cohort (for example: users who made a purchase, or users who triggered a specific event).
+4. Set your **Return criteria**, this defines the behavior you are tracking over time (usually session_start or a key action).
 5. Choose your **granularity**: daily (consumer apps), weekly (most products), or monthly (SaaS or e-commerce).
 6. Choose your **calculation method**: Standard (how many users were active in each specific period), Rolling (active in the current period AND all prior periods), or Cumulative (unique total from start through current period).
 

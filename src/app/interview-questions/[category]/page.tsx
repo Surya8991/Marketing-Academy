@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const total = section.conceptualQAs.length + section.scenarioQAs.length;
   return {
     title: `${section.title} 2026 | Marketing Academy`,
-    description: `${total} real ${section.categoryLabel} interview questions with detailed answers - ${section.conceptualQAs.length} conceptual and ${section.scenarioQAs.length} scenario-based questions for 2026.`,
+    description: `${total} real ${section.categoryLabel} interview questions with detailed answers, ${section.conceptualQAs.length} conceptual and ${section.scenarioQAs.length} scenario-based questions for 2026.`,
   };
 }
 

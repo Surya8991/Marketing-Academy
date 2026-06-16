@@ -11,10 +11,10 @@ Last-click attribution tells you which channel got credit. Incrementality testin
 ## Quick Summary
 
 - Incrementality testing is a controlled experiment that separates people who see your ad from people who do not, then compares their purchase rates.
-- The gap between what ad platforms report and what actually happened is massive - one anonymous eCommerce brand found Meta was claiming 4x more conversions than it actually caused.
+- The gap between what ad platforms report and what actually happened is massive, one anonymous eCommerce brand found Meta was claiming 4x more conversions than it actually caused.
 - There are three test designs: user-level holdouts, geo holdouts, and time-based switchbacks. Geo holdouts are the current industry default.
 - iROAS (incremental return on ad spend) is the only metric that tells you if a channel deserves more budget.
-- As of 2025, 71% of retail media advertisers now say incrementality is their primary KPI - this method has crossed into the mainstream.
+- As of 2025, 71% of retail media advertisers now say incrementality is their primary KPI, this method has crossed into the mainstream.
 
 ---
 
@@ -22,14 +22,14 @@ Last-click attribution tells you which channel got credit. Incrementality testin
 
 Here is the core idea in one sentence: **would this conversion have happened even if you had never shown the ad?**
 
-Attribution models (last-click, data-driven, multi-touch) assign credit to channels after the fact. But they cannot answer the causation question. A customer who was already searching for your product, was already loyal to your brand, and was already going to buy today - that customer will convert whether or not they see your retargeting ad. If your platform counts that as a win, you are measuring correlation, not cause.
+Attribution models (last-click, data-driven, multi-touch) assign credit to channels after the fact. But they cannot answer the causation question. A customer who was already searching for your product, was already loyal to your brand, and was already going to buy today, that customer will convert whether or not they see your retargeting ad. If your platform counts that as a win, you are measuring correlation, not cause.
 
 Incrementality testing fixes this by running a randomized controlled experiment (the same idea as a clinical drug trial, but for ads). You split your audience into two groups:
 
 - **Test group (treatment cell):** sees your ads as normal.
 - **Control group (holdout cell):** is withheld from your ads entirely.
 
-The difference in conversion rate between the two groups is your **incremental lift** - the purchases that happened *because* of your marketing, not just alongside it.
+The difference in conversion rate between the two groups is your **incremental lift**, the purchases that happened *because* of your marketing, not just alongside it.
 
 <Callout type="info">
 Attribution asks: "which channel touched this conversion?" Incrementality asks: "which channel caused this conversion?" These are completely different questions. Only the second one tells you where to put your budget.
@@ -41,13 +41,13 @@ Attribution asks: "which channel touched this conversion?" Incrementality asks: 
 
 The gap between platform-reported performance and true incremental performance is shockingly large across the industry.
 
-**Anonymous eCommerce brand (Italy, 2024):** An online retailer spending 3,000 euros per month on Meta Ads ran a geo-based incrementality test across two Italian regions. Meta's own dashboard reported a cost per order (CPO) of 0.54 euros. The incrementality test measured the true incremental CPO at 2.07 euros - a **4x over-attribution** by the platform. Meta had been counting organic purchases that would have happened with or without the ads.
+**Anonymous eCommerce brand (Italy, 2024):** An online retailer spending 3,000 euros per month on Meta Ads ran a geo-based incrementality test across two Italian regions. Meta's own dashboard reported a cost per order (CPO) of 0.54 euros. The incrementality test measured the true incremental CPO at 2.07 euros, a **4x over-attribution** by the platform. Meta had been counting organic purchases that would have happened with or without the ads.
 
-**Shinola (luxury goods):** The American watchmaker ran zip-code-level geo testing on their Facebook awareness campaigns and found a **14.3% genuine increase in online conversions**. The catch: the platform had been under-reporting their true impact by 413% after iOS 14 privacy changes. The lesson cuts both ways - platforms can over-count *and* under-count, depending on your tracking setup.
+**Shinola (luxury goods):** The American watchmaker ran zip-code-level geo testing on their Facebook awareness campaigns and found a **14.3% genuine increase in online conversions**. The catch: the platform had been under-reporting their true impact by 413% after iOS 14 privacy changes. The lesson cuts both ways, platforms can over-count *and* under-count, depending on your tracking setup.
 
-**ServicePro (local services):** This local services company paused Google Ads in control regions for 3 months while keeping them running in test regions. Result: only **40% of leads during the campaign were truly incremental**. The other 60% would have come in organically anyway. But the 40% that were real drove a **400% ROI** on their $25,000 monthly spend - $100,000 in incremental revenue. The test told them to keep spending, but also to stop overcounting.
+**ServicePro (local services):** This local services company paused Google Ads in control regions for 3 months while keeping them running in test regions. Result: only **40% of leads during the campaign were truly incremental**. The other 60% would have come in organically anyway. But the 40% that were real drove a **400% ROI** on their $25,000 monthly spend, $100,000 in incremental revenue. The test told them to keep spending, but also to stop overcounting.
 
-**Industry-wide data (2025):** Stella's platform analyzed 225 geo-based incrementality tests on DTC ecommerce brands between August 2024 and December 2025. The median incremental ROAS across all paid channels was **2.31x** (meaning every dollar of ad spend drove $2.31 in incremental revenue). Branded Google Search scored the lowest at just **0.70x** - meaning brands were losing money on ads targeting people who were already going to search for them by name. Meta came in at 2.92x median iROAS. Only 16.9% of tests came back with results below breakeven.
+**Industry-wide data (2025):** Stella's platform analyzed 225 geo-based incrementality tests on DTC ecommerce brands between August 2024 and December 2025. The median incremental ROAS across all paid channels was **2.31x** (meaning every dollar of ad spend drove $2.31 in incremental revenue). Branded Google Search scored the lowest at just **0.70x**, meaning brands were losing money on ads targeting people who were already going to search for them by name. Meta came in at 2.92x median iROAS. Only 16.9% of tests came back with results below breakeven.
 
 <Callout type="warning">
 Never trust platform-run lift studies as your only source of truth. Meta and Google design and run their own tests. Their methodology has conflicts of interest built in. Run an independent geo test at least once a year to cross-check their numbers.
@@ -75,7 +75,7 @@ Never trust platform-run lift studies as your only source of truth. Meta and Goo
 
 The ad platform randomly assigns a percentage of your eligible audience to a control group. These users *qualify* for your ads but never see them. The platform compares their conversion rate to everyone else.
 
-**Best for:** Meta Ads, YouTube, large display buys - anywhere the platform has user-level IDs.
+**Best for:** Meta Ads, YouTube, large display buys, anywhere the platform has user-level IDs.
 
 **Minimum requirement:** Enough volume to split off a 10-20% holdout and still reach statistical significance. Small campaigns (under $5,000/month) often cannot power this type of test.
 
@@ -83,7 +83,7 @@ The ad platform randomly assigns a percentage of your eligible audience to a con
 
 ### 2. Geo Holdout (Geographic Split Test)
 
-You divide your markets into matched pairs - cities or regions that are demographically and economically similar. One set runs your ads normally (test geos). The other set has ads paused or spending cut to near-zero (control geos). After 4-6 weeks, you compare sales across the two groups.
+You divide your markets into matched pairs, cities or regions that are demographically and economically similar. One set runs your ads normally (test geos). The other set has ads paused or spending cut to near-zero (control geos). After 4-6 weeks, you compare sales across the two groups.
 
 **Best for:** TV, podcasts, out-of-home (OOH) billboards, radio, and any channel where you cannot track individual users. Also the gold standard for cross-platform tests.
 
@@ -93,7 +93,7 @@ You divide your markets into matched pairs - cities or regions that are demograp
 
 ### 3. Time-Based Switchback
 
-You alternate the channel on and off across the same geography over time - for example, running ads in week 1, pausing in week 2, running again in week 3. The difference in conversion rates across on-weeks vs. off-weeks estimates lift.
+You alternate the channel on and off across the same geography over time, for example, running ads in week 1, pausing in week 2, running again in week 3. The difference in conversion rates across on-weeks vs. off-weeks estimates lift.
 
 **Best for:** When geo splits are genuinely impossible (very small brands, single-region businesses).
 
@@ -107,7 +107,7 @@ You alternate the channel on and off across the same geography over time - for e
     A[Pre-register hypothesis] --> B[Power the test]
     B --> C[Set up holdout group]
     C --> D[Run for full purchase cycle]
-    D --> E[Lock test - no changes]
+    D --> E[Lock test: no changes]
     E --> F[Analyze iROAS]
     F --> G{Result?}
     G -- Positive lift --> H[Scale channel]
@@ -115,22 +115,22 @@ You alternate the channel on and off across the same geography over time - for e
     G -- Underpowered --> J[Rerun with bigger sample]
 `} />
 
-**Step 1 - Pre-register your hypothesis.** Before you launch, write down: expected lift percentage, minimum detectable effect (MDE), planned test duration, and the exact success/failure criteria. No changing the goalposts mid-test. This is not optional - it is what separates a real experiment from a fishing expedition.
+**Step 1, Pre-register your hypothesis.** Before you launch, write down: expected lift percentage, minimum detectable effect (MDE), planned test duration, and the exact success/failure criteria. No changing the goalposts mid-test. This is not optional, it is what separates a real experiment from a fishing expedition.
 
-**Step 2 - Power the test.** Run a sample size calculation. Your MDE should be something meaningful to the business - usually at least 10-15% lift. If your traffic volume cannot detect effects smaller than 50%, the test will not give you actionable information even if lift is real.
+**Step 2, Power the test.** Run a sample size calculation. Your MDE should be something meaningful to the business, usually at least 10-15% lift. If your traffic volume cannot detect effects smaller than 50%, the test will not give you actionable information even if lift is real.
 
-**Step 3 - Hold the holdout sacred.** Do not re-target the control group with email. Do not add them to a lookalike audience. Do not run a promotion that reaches them. Any contamination ruins the experiment. Make this a team rule before the test starts.
+**Step 3, Hold the holdout sacred.** Do not re-target the control group with email. Do not add them to a lookalike audience. Do not run a promotion that reaches them. Any contamination ruins the experiment. Make this a team rule before the test starts.
 
-**Step 4 - Run for full purchase cycles.** Minimum 4 weeks for ecommerce. Eight to twelve weeks for considered purchases like B2B software, cars, or home services. Cutting a test short because early numbers look good (or bad) inflates false positives and false negatives.
+**Step 4, Run for full purchase cycles.** Minimum 4 weeks for ecommerce. Eight to twelve weeks for considered purchases like B2B software, cars, or home services. Cutting a test short because early numbers look good (or bad) inflates false positives and false negatives.
 
-**Step 5 - Measure iROAS, not platform ROAS.** The formula is:
+**Step 5, Measure iROAS, not platform ROAS.** The formula is:
 
-> **iROAS = (Revenue in test group - Revenue in control group) / Ad spend in test group**
+> **iROAS = (Revenue in test group, Revenue in control group) / Ad spend in test group**
 
 This is the only metric that tells you the true return on your investment. Platform ROAS is just attribution. iROAS is causation.
 
 <Callout type="example">
-Mondelez ran always-on search incrementality tests inside Walmart Connect retail media through 2024 and 2025 to optimize ad frequency caps and seasonal creative timing. The program lifted conversions 53% year-over-year and incremental ROI 29% - numbers they would never have surfaced through last-click reporting alone. The key was treating incrementality testing as a continuous discipline, not a one-time project.
+Mondelez ran always-on search incrementality tests inside Walmart Connect retail media through 2024 and 2025 to optimize ad frequency caps and seasonal creative timing. The program lifted conversions 53% year-over-year and incremental ROI 29%, numbers they would never have surfaced through last-click reporting alone. The key was treating incrementality testing as a continuous discipline, not a one-time project.
 </Callout>
 
 ---
@@ -147,13 +147,13 @@ Let's say you run a geo holdout test on Meta Ads:
 - Incremental revenue: 60 x $80 = $4,800
 - **iROAS: $4,800 / $5,000 = 0.96x**
 
-This is a **failing test** - the channel is not paying for itself at current spend levels. Platform ROAS might have shown 4x or 5x. This is why the distinction matters.
+This is a **failing test**, the channel is not paying for itself at current spend levels. Platform ROAS might have shown 4x or 5x. This is why the distinction matters.
 
 ---
 
 ## Channel iROAS Benchmarks (2025 Data)
 
-Based on 225 geo tests on DTC ecommerce brands (August 2024 - December 2025):
+Based on 225 geo tests on DTC ecommerce brands (August 2024, December 2025):
 
 | Channel | Median iROAS | Verdict |
 |---|---|---|
@@ -166,7 +166,7 @@ Based on 225 geo tests on DTC ecommerce brands (August 2024 - December 2025):
 | TikTok | 0.94x | Below breakeven (high variance) |
 | Google Search (branded) | 0.70x | Losing money on brand defense |
 
-The branded search result is the most controversial finding. Spending money to show ads to people already searching for your brand name by name often produces nearly zero incremental lift - those people were going to click your organic result anyway.
+The branded search result is the most controversial finding. Spending money to show ads to people already searching for your brand name by name often produces nearly zero incremental lift, those people were going to click your organic result anyway.
 
 ---
 
@@ -188,7 +188,7 @@ The branded search result is the most controversial finding. Spending money to s
 
 ## The One-Line Takeaway
 
-**Your ad platform's ROAS measures what happened near your ads; incrementality testing measures what your ads actually caused - and the gap between those two numbers is where wasted budget hides.**
+**Your ad platform's ROAS measures what happened near your ads; incrementality testing measures what your ads actually caused, and the gap between those two numbers is where wasted budget hides.**
 
 <ResourceList resources={[
   { title: "2025 DTC Incrementality Benchmarks (Stella)", url: "https://www.stellaheystella.com/blog/2025-dtc-digital-advertising-incrementality-benchmarks", type: "article", free: true },

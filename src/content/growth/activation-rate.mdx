@@ -1,7 +1,7 @@
 export const lessonMeta = {
   title: "Activation Rate (the metric)",
   level: "Intermediate",
-  summary: "The one number that predicts retention better than any other early signal - and why a 25% lift here compounds into 34% more MRR.",
+  summary: "The one number that predicts retention better than any other early signal, and why a 25% lift here compounds into 34% more MRR.",
 };
 
 # Activation Rate (the metric)
@@ -34,7 +34,7 @@ The time window matters as much as the behavior itself. For most B2B SaaS the wi
 
 ## Why It Matters (with data)
 
-The 2025 SaaS activation landscape, compiled by [Agile Growth Labs](https://www.agilegrowthlabs.com/blog/user-activation-rate-benchmarks-2025/), shows an average activation rate of 37.5% and a median of 37% across SaaS and AI tools. Top-quartile companies hit 2.3x the median, which means the gap between good and great activation is massive - and largely untapped.
+The 2025 SaaS activation landscape, compiled by [Agile Growth Labs](https://www.agilegrowthlabs.com/blog/user-activation-rate-benchmarks-2025/), shows an average activation rate of 37.5% and a median of 37% across SaaS and AI tools. Top-quartile companies hit 2.3x the median, which means the gap between good and great activation is massive, and largely untapped.
 
 The revenue math is direct. A 25% improvement in activation produces a 34% increase in MRR over 12 months. This is not a soft metric: it drives hard revenue faster than almost any other lever.
 
@@ -51,17 +51,17 @@ Industry performance varies dramatically:
 
 Source: [Agile Growth Labs Activation Benchmarks 2025](https://www.agilegrowthlabs.com/blog/user-activation-rate-benchmarks-2025/)
 
-The downstream churn math is even more sobering. According to [Userpilot research](https://userpilot.com/blog/user-activation-benchmarks/), users who disengage within 3 days have a 90% likelihood of churning permanently. Meanwhile, 43% of churn traces back to users never finding clear "next steps" - which is a pure activation problem.
+The downstream churn math is even more sobering. According to [Userpilot research](https://userpilot.com/blog/user-activation-benchmarks/), users who disengage within 3 days have a 90% likelihood of churning permanently. Meanwhile, 43% of churn traces back to users never finding clear "next steps", which is a pure activation problem.
 
 Onboarding mechanics matter too. Video-based onboarding doubles conversion rates and improves retention by 35%. Interactive walkthroughs drive activation 50% higher than static alternatives. Early "quick wins" inside the product increase retention by 80%.
 
-Facebook discovered that users who added 7 friends within their first 10 days became lifelong, engaged users at overwhelming rates. That single finding reshaped their entire onboarding architecture - and became the blueprint every growth team now follows.
+Facebook discovered that users who added 7 friends within their first 10 days became lifelong, engaged users at overwhelming rates. That single finding reshaped their entire onboarding architecture, and became the blueprint every growth team now follows.
 
 ## How It Works / The Playbook
 
 <Mermaid chart={`graph TD
     A[New Signup] --> B{Reaches activation event?}
-    B -->|Yes - within window| C[Activated User]
+    B -->|Yes, within window| C[Activated User]
     B -->|No| D[Churned / Dormant]
     C --> E[Day 30+ Retention]
     C --> F[Expansion Revenue]
@@ -83,7 +83,7 @@ Pick the shortest window that still captures 80% of eventual retainers completin
 
 **Step 3: Write the definition down and freeze it.**
 
-Document the exact event name, the threshold count, and the time window. Every team - growth, product, marketing, CS - measures against the identical definition. Ambiguity here causes teams to optimize for different things and produce metrics that cannot be compared quarter to quarter.
+Document the exact event name, the threshold count, and the time window. Every team, growth, product, marketing, CS, measures against the identical definition. Ambiguity here causes teams to optimize for different things and produce metrics that cannot be compared quarter to quarter.
 
 **Step 4: Instrument a single event.**
 
@@ -121,16 +121,16 @@ In 2025, Attention Insight achieved a 47% increase in activation by switching fr
 
 ### Facebook: The "7 Friends in 10 Days" Rule
 
-Facebook's growth team, during their hyper-growth phase, discovered that new users who added 7 friends within 10 days were overwhelmingly likely to become long-term retained users. This finding, now widely cited in product-led growth literature, fundamentally changed how Facebook treated the "connections" step in onboarding. It was not presented as optional setup - it became the product's first job.
+Facebook's growth team, during their hyper-growth phase, discovered that new users who added 7 friends within 10 days were overwhelmingly likely to become long-term retained users. This finding, now widely cited in product-led growth literature, fundamentally changed how Facebook treated the "connections" step in onboarding. It was not presented as optional setup, it became the product's first job.
 
 <Callout type="example">
-Notion's reported activation threshold is "added 2 blocks on day 1 across 2+ sessions." Once the team identified that signal, they eliminated the empty workspace and replaced it with pre-populated templates. Users experienced the product's value before making any creative decisions. The result was not just higher activation - it reduced the intimidation of a blank page, which had been one of the biggest early drop-off causes. The takeaway is not the specific number. It is that a sharp definition gave every team a shared target instead of a shared debate.
+Notion's reported activation threshold is "added 2 blocks on day 1 across 2+ sessions." Once the team identified that signal, they eliminated the empty workspace and replaced it with pre-populated templates. Users experienced the product's value before making any creative decisions. The result was not just higher activation, it reduced the intimidation of a blank page, which had been one of the biggest early drop-off causes. The takeaway is not the specific number. It is that a sharp definition gave every team a shared target instead of a shared debate.
 </Callout>
 
 ## Common Mistakes
 
 **Picking a vanity threshold.**
-"Logged in 3 times" is attendance, not activation. It does not reveal whether users experienced value - it only reveals that they showed up. The threshold must correlate with day-30 retention in your own data. If you cannot show the statistical correlation, you have not found your activation event yet.
+"Logged in 3 times" is attendance, not activation. It does not reveal whether users experienced value, it only reveals that they showed up. The threshold must correlate with day-30 retention in your own data. If you cannot show the statistical correlation, you have not found your activation event yet.
 
 **Tracking "activated users" instead of "activation rate."**
 Absolute numbers inflate with marketing spend even when the product experience is deteriorating. A growing number of activated users alongside a declining rate means your acquisition efficiency is collapsing. Always track the ratio.
@@ -145,11 +145,11 @@ As your ICP shifts, your aha behavior shifts. A usage pattern that predicted ret
 Paid traffic with weak intent will tank activation regardless of how good onboarding is. Segment activation by acquisition channel before redesigning the product experience. You may find that fixing the channel mix delivers more lift than any onboarding experiment.
 
 **Optimizing for activation without watching what happens at day 7.**
-Some tactics - heavy email nudges, forced "quick win" tutorials - inflate short-term activation while reducing genuine day-30 retention. Track both together. Activation is only valuable if the users who activate actually stick.
+Some tactics, heavy email nudges, forced "quick win" tutorials, inflate short-term activation while reducing genuine day-30 retention. Track both together. Activation is only valuable if the users who activate actually stick.
 
 ## Key Takeaways
 
-- The 2025 industry median activation rate is 37% - two out of three signups never reach the value moment.
+- The 2025 industry median activation rate is 37%, two out of three signups never reach the value moment.
 - A 25% lift in activation produces 34% more MRR over 12 months, making it the highest-leverage growth lever in most SaaS products.
 - The activation event must be derived from cohort analysis: find the earliest behavior that separates day-30 retainers from churned users.
 - AI and ML products lead all verticals at 54.8% activation; most SaaS verticals have significant room to improve.

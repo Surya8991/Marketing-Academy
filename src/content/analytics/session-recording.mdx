@@ -4,7 +4,7 @@ export const lessonMeta = {
   summary: "Learn how to use session recordings to watch real user behavior, find hidden friction points, and fix the exact problems that stop visitors from converting.",
 };
 
-You have Google Analytics showing a 70% cart abandonment rate. But the number does not tell you WHY people are leaving. Session recording does. It lets you watch a video replay of exactly what a real user did on your site - every mouse move, scroll, click, and moment of confusion - before they left.
+You have Google Analytics showing a 70% cart abandonment rate. But the number does not tell you WHY people are leaving. Session recording does. It lets you watch a video replay of exactly what a real user did on your site, every mouse move, scroll, click, and moment of confusion, before they left.
 
 ## Quick Summary
 - A session recording is a video replay of one real user's visit to your website.
@@ -20,13 +20,13 @@ You have Google Analytics showing a 70% cart abandonment rate. But the number do
 A **session recording** (also called a session replay) is a pixel-by-pixel video capture of how one visitor interacted with your website during a single visit (called a "session").
 
 The recording captures:
-- **Mouse movement** - where the cursor travels across the screen
-- **Clicks** - what the user clicks (or tries to click)
-- **Scrolls** - how far down the page they read
-- **Rage-clicks** - when someone clicks the same spot rapidly out of frustration
-- **Dead-clicks** - clicking on something that is not actually a link
-- **Form interactions** - which fields they fill in, skip, or abandon
-- **Page navigation** - the sequence of pages they visited
+- **Mouse movement**: where the cursor travels across the screen
+- **Clicks**: what the user clicks (or tries to click)
+- **Scrolls**: how far down the page they read
+- **Rage-clicks**: when someone clicks the same spot rapidly out of frustration
+- **Dead-clicks**: clicking on something that is not actually a link
+- **Form interactions**: which fields they fill in, skip, or abandon
+- **Page navigation**: the sequence of pages they visited
 
 <Callout type="info">
 Session recordings do NOT capture passwords or payment card numbers. All reputable tools automatically mask sensitive fields before the data is stored. The recording shows a placeholder like "XXXX" instead of the actual value. GDPR (Europe's privacy law) and CCPA (California's privacy law) both require you to inform users in your privacy policy that you use session recording software.
@@ -48,7 +48,7 @@ Traditional analytics tools like Google Analytics answer "what" and "how many." 
 | What confused them? | No | Yes |
 | Did the button even work? | No | Yes |
 
-This "why" is the missing link in most conversion optimization work. You might spend weeks redesigning a checkout page when the actual problem is a broken coupon code field - something you would see immediately in a 10-minute recording session.
+This "why" is the missing link in most conversion optimization work. You might spend weeks redesigning a checkout page when the actual problem is a broken coupon code field, something you would see immediately in a 10-minute recording session.
 
 <Callout type="example">
 **Real case: Swiss Gear + The Good (2023)**
@@ -61,7 +61,7 @@ After fixing the mobile experience and running A/B tests on the content filters,
 - **28% increase in mobile revenue per visit**
 - **8% reduction in mobile bounce rate**
 
-The key insight came entirely from watching recordings - not from the numbers alone.
+The key insight came entirely from watching recordings, not from the numbers alone.
 </Callout>
 
 ---
@@ -119,21 +119,21 @@ New users often open their session recording dashboard and watch sessions random
   F --> G[Measure improvement]
   G --> A`} />
 
-### Step 1 - Identify the Problem First
+### Step 1, Identify the Problem First
 
 Do not open your recording tool without a target. Go to your analytics tool (Google Analytics 4 works fine) and find your highest-traffic page with the worst conversion rate or highest exit rate. That is your starting point.
 
-### Step 2 - Filter to Relevant Sessions
+### Step 2, Filter to Relevant Sessions
 
 Every major recording tool lets you filter sessions by:
-- **Page visited** - show me recordings where the user visited /checkout
-- **Duration** - show me sessions longer than 30 seconds (removes bots and accidental clicks)
-- **Behavior** - show me sessions with rage-clicks
-- **Device type** - show me only mobile sessions
+- **Page visited**: show me recordings where the user visited /checkout
+- **Duration**: show me sessions longer than 30 seconds (removes bots and accidental clicks)
+- **Behavior**: show me sessions with rage-clicks
+- **Device type**: show me only mobile sessions
 
 Use these filters. You want to watch the right 15 recordings, not 500 random ones.
 
-### Step 3 - Watch and Tag
+### Step 3, Watch and Tag
 
 Watch recordings at 2x speed. Most tools let you skip inactivity (periods where nothing happens). As you watch, use the tagging or annotation feature to mark moments:
 - "User hesitated here for 8 seconds"
@@ -142,16 +142,16 @@ Watch recordings at 2x speed. Most tools let you skip inactivity (periods where 
 
 After 10-15 recordings, look for patterns. If 7 out of 15 users did the same confusing thing, you have found a real problem.
 
-### Step 4 - Form a Hypothesis
+### Step 4, Form a Hypothesis
 
 Write a specific, testable statement:
 "Users are abandoning the checkout form because the phone number field has no explanation for why we need it. Adding a tooltip saying 'Used only for delivery updates' will reduce abandonment."
 
-### Step 5 - Test the Fix
+### Step 5, Test the Fix
 
 Make one change. If your traffic volume supports it (at least 100+ conversions per variant per week), run an A/B test (a split test where half the visitors see the old version and half see the new version). If your volume is too low, just implement the fix and compare conversion rates over the next two weeks.
 
-### Step 6 - Measure and Repeat
+### Step 6, Measure and Repeat
 
 Did the abandonment rate drop? By how much? Document the result and move to the next problem. This loop is the core of conversion rate optimization (CRO).
 
@@ -180,10 +180,10 @@ Did the abandonment rate drop? By how much? Document the result and move to the 
 
 Session recordings involve collecting behavioral data from your website visitors. You have legal obligations:
 
-1. **Update your privacy policy** - State that you use session recording software, name the tool (e.g., "We use Hotjar for session recordings"), and explain what data is collected.
-2. **Add a consent banner** - In the European Union (EU) and UK, you must get explicit consent before activating session recording. Use a Consent Management Platform (CMP) like Cookiebot or OneTrust that integrates with your recording tool.
-3. **Mask sensitive fields** - Configure your recording tool to mask password fields, payment fields, and any field containing personal data. All major tools offer this by default, but verify it is active.
-4. **Data retention** - Set a sensible data retention period (how long recordings are stored). 90 days is standard. Keeping recordings forever is a data liability.
+1. **Update your privacy policy**, State that you use session recording software, name the tool (e.g., "We use Hotjar for session recordings"), and explain what data is collected.
+2. **Add a consent banner**, In the European Union (EU) and UK, you must get explicit consent before activating session recording. Use a Consent Management Platform (CMP) like Cookiebot or OneTrust that integrates with your recording tool.
+3. **Mask sensitive fields**, Configure your recording tool to mask password fields, payment fields, and any field containing personal data. All major tools offer this by default, but verify it is active.
+4. **Data retention**, Set a sensible data retention period (how long recordings are stored). 90 days is standard. Keeping recordings forever is a data liability.
 
 ---
 
@@ -191,17 +191,17 @@ Session recordings involve collecting behavioral data from your website visitors
 
 Once you have recordings running, track these metrics to measure impact:
 
-- **Rage-click rate** - Percentage of sessions containing rage-clicks. A high rate (above 5%) signals broken or confusing UI elements.
-- **Dead-click rate** - Clicks on non-interactive elements. Signals user confusion about what is clickable.
-- **Form completion rate** - Percentage of users who start and finish your forms.
-- **Scroll depth** - How far down your key pages users read. Aim for your CTA (call to action) to be above the point where 50% of users stop scrolling.
-- **Session duration on problem pages** - Very short sessions mean users bounced immediately. Very long sessions on simple pages suggest confusion.
+- **Rage-click rate**: Percentage of sessions containing rage-clicks. A high rate (above 5%) signals broken or confusing UI elements.
+- **Dead-click rate**: Clicks on non-interactive elements. Signals user confusion about what is clickable.
+- **Form completion rate**: Percentage of users who start and finish your forms.
+- **Scroll depth**: How far down your key pages users read. Aim for your CTA (call to action) to be above the point where 50% of users stop scrolling.
+- **Session duration on problem pages**: Very short sessions mean users bounced immediately. Very long sessions on simple pages suggest confusion.
 
 ---
 
 ## The One-Line Takeaway
 
-**Stop guessing why visitors leave - watch 15 targeted session recordings this week and you will find a real, fixable problem that no dashboard ever showed you.**
+**Stop guessing why visitors leave, watch 15 targeted session recordings this week and you will find a real, fixable problem that no dashboard ever showed you.**
 
 ---
 

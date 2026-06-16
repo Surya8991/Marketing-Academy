@@ -22,9 +22,9 @@ Predictive analytics is a branch of data analysis that uses statistical algorith
 
 The raw ingredients are:
 
-1. **Historical data** - what customers did in the past (purchases, page views, email opens, churn dates)
-2. **A predictive model** - an algorithm trained to find patterns in that data
-3. **A prediction output** - a score or label for each customer (e.g., "70% likely to churn this month")
+1. **Historical data**, what customers did in the past (purchases, page views, email opens, churn dates)
+2. **A predictive model**, an algorithm trained to find patterns in that data
+3. **A prediction output**, a score or label for each customer (e.g., "70% likely to churn this month")
 
 <Callout type="info">
 Predictive analytics is different from descriptive analytics (what happened) and diagnostic analytics (why it happened). Predictive analytics is specifically about forecasting the future. A fourth type, prescriptive analytics, goes one step further and recommends what action to take. Most marketing tools combine predictive and prescriptive in the same workflow.
@@ -109,18 +109,18 @@ It also lets you segment your marketing budget. Instead of sending the same rete
 Regression and time series models can forecast how much revenue a given media mix will produce before you spend the money. This is the predictive layer on top of Marketing Mix Modeling (MMM). You test budget allocations in the model first, then spend.
 
 <Callout type="example">
-**McDonald's Hong Kong, 2024:** The team used Google Analytics 4's built-in predictive audiences to target users who had a high purchase probability within the next 7 days. They ran Google Ads campaigns aimed specifically at this predicted segment. Results: 550% increase in app orders and a 63% reduction in cost per acquisition compared to their previous targeting approach. The entire setup used GA4's free predictive features - no custom model required.
+**McDonald's Hong Kong, 2024:** The team used Google Analytics 4's built-in predictive audiences to target users who had a high purchase probability within the next 7 days. They ran Google Ads campaigns aimed specifically at this predicted segment. Results: 550% increase in app orders and a 63% reduction in cost per acquisition compared to their previous targeting approach. The entire setup used GA4's free predictive features, no custom model required.
 </Callout>
 
 ## Real Company Case Studies
 
-### Amazon - Predictive Recommendations
+### Amazon, Predictive Recommendations
 
 Amazon's recommendation engine is the most commercially successful predictive analytics system in retail history. It uses collaborative filtering (a model that finds customers similar to you and shows what they bought next) combined with purchase history, browsing behavior, and search queries.
 
-The result: predictive product recommendations drive up to 30% of Amazon's total annual revenue. That is not 30% of one campaign - it is 30% of the entire business, predicted and personalized at scale.
+The result: predictive product recommendations drive up to 30% of Amazon's total annual revenue. That is not 30% of one campaign, it is 30% of the entire business, predicted and personalized at scale.
 
-### Netflix - Predicted Viewing Preferences
+### Netflix, Predicted Viewing Preferences
 
 Netflix uses predictive models to decide which shows to surface to each of its 260 million subscribers. The model predicts what any given user will want to watch next based on viewing history, time of day, device, and behavior patterns of similar users.
 
@@ -178,8 +178,8 @@ The minimum viable data set for most marketing predictions includes:
 
 Data quality rules:
 - Remove duplicates before training
-- Handle missing values explicitly - do not ignore them
-- Make sure your historical data reflects current customer behavior - a 5-year-old model trained on pre-pandemic behavior may not apply today
+- Handle missing values explicitly, do not ignore them
+- Make sure your historical data reflects current customer behavior, a 5-year-old model trained on pre-pandemic behavior may not apply today
 
 <Callout type="tip">
 Start with churn prediction rather than CLV prediction. Churn has a clean binary outcome (they left or they did not), which makes model validation straightforward. CLV prediction requires revenue forecasting, which is harder to validate quickly. Win easy first, build confidence in the process, then tackle harder problems.
@@ -189,15 +189,15 @@ Start with churn prediction rather than CLV prediction. Churn has a clean binary
 
 When predictive analytics is running, measure these to know if it is working:
 
-- **Model accuracy** - what percentage of predictions were correct
-- **Precision** - of all the customers you flagged as high churn risk, how many actually churned
-- **Recall** - of all customers who actually churned, how many did your model flag in advance
-- **Revenue impact** - compare cohorts that received predictive-triggered campaigns vs. those that did not
-- **Cost per retained customer** - are you spending less to retain customers than you were before
+- **Model accuracy**: what percentage of predictions were correct
+- **Precision**: of all the customers you flagged as high churn risk, how many actually churned
+- **Recall**: of all customers who actually churned, how many did your model flag in advance
+- **Revenue impact**: compare cohorts that received predictive-triggered campaigns vs. those that did not
+- **Cost per retained customer**: are you spending less to retain customers than you were before
 
 ## The One-Line Takeaway
 
-**Predictive analytics turns your customer history into a machine that spots who needs your attention before they leave - making every campaign smarter without spending more.**
+**Predictive analytics turns your customer history into a machine that spots who needs your attention before they leave, making every campaign smarter without spending more.**
 
 <ResourceList resources={[
   { title: "Google Analytics 4 Predictive Metrics - Official Docs", url: "https://support.google.com/analytics/answer/9846734", type: "docs", free: true, note: "Official guide to GA4's built-in predictive audiences and metrics" },

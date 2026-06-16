@@ -80,15 +80,15 @@ According to [Baremetrics benchmarks](https://baremetrics.com/blog/trial-convers
   A[Prospect Lands on Site] --> B{Which model?}
   B --> C[Freemium]
   B --> D[Free Trial]
-  C --> E[Signs Up - Low Friction]
+  C --> E[Signs Up: Low Friction]
   E --> F[Uses Free Tier]
   F --> G{Hits Limit?}
   G -->|No| H[Stays Free / Dormant]
   G -->|Yes| I[Upgrade Prompt]
   I --> J[Paid Customer]
   D --> K{Card Required?}
-  K -->|Opt-In - No Card| L[Signs Up - Medium Friction]
-  K -->|Opt-Out - Card| M[Signs Up - High Friction]
+  K -->|Opt-In, No Card| L[Signs Up: Medium Friction]
+  K -->|Opt-Out, Card| M[Signs Up: High Friction]
   L --> N[Tries Full Product]
   M --> N
   N --> O{Time Expires?}

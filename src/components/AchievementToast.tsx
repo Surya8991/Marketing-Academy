@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * AchievementToast — fixed-position toast stack for newly unlocked achievements.
+ * AchievementToast: fixed-position toast stack for newly unlocked achievements.
  *
  * Listens to ENGAGEMENT_EVENT on window. When the event carries a non-empty
  * `unlocked` array (achievement IDs), it renders a toast per achievement that
@@ -17,7 +17,7 @@
  *   - toastIds is captured as a Set per batch so the timeout correctly removes
  *     only THIS batch and not any toasts added after the timer was set.
  *
- * This component is rendered once in the root layout — never instantiate it twice.
+ * This component is rendered once in the root layout, never instantiate it twice.
  */
 
 import { useEffect, useRef, useState } from "react";
@@ -38,7 +38,7 @@ export default function AchievementToast() {
       const { unlocked } = ce.detail;
       if (!unlocked || unlocked.length === 0) return;
 
-      // Build toast items — crypto.randomUUID() prevents duplicate keys on same-tick unlocks
+      // Build toast items, crypto.randomUUID() prevents duplicate keys on same-tick unlocks
       const newToasts: ToastItem[] = unlocked.map((achievementId) => {
         const a = ACHIEVEMENTS.find((x) => x.id === achievementId);
         return { id: crypto.randomUUID(), label: a?.label ?? achievementId, emoji: a?.emoji ?? "🏅", ts: Date.now() };
@@ -104,7 +104,7 @@ export default function AchievementToast() {
           </div>
         </div>
       ))}
-      {/* Inline keyframes — avoids adding a global CSS dependency for a single animation */}
+      {/* Inline keyframes, avoids adding a global CSS dependency for a single animation */}
       <style>{`
         @keyframes ma-toast-in {
           from { opacity: 0; transform: translateY(12px); }

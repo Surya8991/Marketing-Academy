@@ -1,20 +1,20 @@
 export const lessonMeta = {
   title: "WhatsApp Business Marketing",
   level: "Advanced",
-  summary: "The dominant marketing channel outside North America - templates, opt-in, and Meta ecosystem.",
+  summary: "The dominant marketing channel outside North America, templates, opt-in, and Meta ecosystem.",
 };
 
 # WhatsApp Business Marketing
 
-If your customers live in India, Brazil, Indonesia, Mexico, Nigeria, the UAE, or most of Southeast Asia, WhatsApp is not a 'nice to have' channel - it is the inbox. With 3+ billion monthly users and 98% open rates, it dwarfs email everywhere outside North America. This lesson is for marketers running cross-border ecommerce, D2C brands, fintech, or anyone whose audience checks WhatsApp 40 times a day but ignores email.
+If your customers live in India, Brazil, Indonesia, Mexico, Nigeria, the UAE, or most of Southeast Asia, WhatsApp is not a 'nice to have' channel, it is the inbox. With 3+ billion monthly users and 98% open rates, it dwarfs email everywhere outside North America. This lesson is for marketers running cross-border ecommerce, D2C brands, fintech, or anyone whose audience checks WhatsApp 40 times a day but ignores email.
 
 ## What It Actually Is
 
-WhatsApp marketing runs on the **WhatsApp Business Platform** (the API, formerly called the WhatsApp Business API) - not the free WhatsApp Business app on a phone. You connect through a Meta-approved Business Solution Provider (BSP) like Twilio, Gupshup, Infobip, or AiSensy, register a phone number, verify your business through Meta Business Manager, and send messages via **pre-approved templates**. Example: an Indian D2C skincare brand uses a marketing template to send a Diwali flash sale message with a product image, two quick-reply buttons ('Shop now' / 'Stop promos'), and a click-to-WhatsApp ad on Instagram driving the opt-in.
+WhatsApp marketing runs on the **WhatsApp Business Platform** (the API, formerly called the WhatsApp Business API), not the free WhatsApp Business app on a phone. You connect through a Meta-approved Business Solution Provider (BSP) like Twilio, Gupshup, Infobip, or AiSensy, register a phone number, verify your business through Meta Business Manager, and send messages via **pre-approved templates**. Example: an Indian D2C skincare brand uses a marketing template to send a Diwali flash sale message with a product image, two quick-reply buttons ('Shop now' / 'Stop promos'), and a click-to-WhatsApp ad on Instagram driving the opt-in.
 
 ## Why It Matters (with data)
 
-WhatsApp messages hit a **98% open rate**, with around **80% of messages read within 5 minutes**, compared to roughly 20% for email. Click-through rates for well-designed campaigns sit in the **45-60% range**, and conversion rates land between **18-25%** - about 3x email's typical 6-7%. Brands using the API have seen [cart abandonment drop by 25%](https://www.wapikit.com/blog/global-whatsapp-business-statistics-2025) when recovery messages are sent via WhatsApp instead of email.
+WhatsApp messages hit a **98% open rate**, with around **80% of messages read within 5 minutes**, compared to roughly 20% for email. Click-through rates for well-designed campaigns sit in the **45-60% range**, and conversion rates land between **18-25%**, about 3x email's typical 6-7%. Brands using the API have seen [cart abandonment drop by 25%](https://www.wapikit.com/blog/global-whatsapp-business-statistics-2025) when recovery messages are sent via WhatsApp instead of email.
 
 The 2024-2025 policy shifts changed the rules:
 
@@ -24,8 +24,8 @@ The 2024-2025 policy shifts changed the rules:
 
 ## How It Works / The Playbook
 
-1. **Get on the API through a BSP.** Pick one with good template-approval workflows and analytics. Avoid grey-market panels - Meta bans the underlying number.
-2. **Capture explicit, logged opt-in.** A checkbox at checkout, a 'Send to WhatsApp' button, a click-to-WhatsApp ad on Facebook or Instagram, or a website widget. Store timestamp, source, and exact consent text - you will need it if Meta audits quality.
+1. **Get on the API through a BSP.** Pick one with good template-approval workflows and analytics. Avoid grey-market panels, Meta bans the underlying number.
+2. **Capture explicit, logged opt-in.** A checkbox at checkout, a 'Send to WhatsApp' button, a click-to-WhatsApp ad on Facebook or Instagram, or a website widget. Store timestamp, source, and exact consent text, you will need it if Meta audits quality.
 3. **Build templates for the three categories:**
    - **Utility**: order confirmations, shipping updates, appointment reminders. Cheapest tier, expected by users, highest tolerance.
    - **Marketing**: promos, launches, win-back. Most expensive, subject to per-user frequency caps.
@@ -43,14 +43,14 @@ The 2024-2025 policy shifts changed the rules:
 - **Treating it like an email list.** Blasting your entire database with weekly promos triggers blocks, kills your Quality Rating, and gets templates paused. Frequency above ~1 marketing message per week is risky.
 - **Sloppy opt-in.** Pre-checked boxes, scraped numbers, or 'we found your number on the invoice' do not count. Meta will deactivate the number on the second strike.
 - **Free-form messages outside the 24-hour window.** They simply will not deliver. Marketers waste hours debugging what is actually a policy block.
-- **Ignoring template categorization.** Sneaking a promo into a 'utility' template ('Your order is ready - and here is 20% off!') gets re-categorized by Meta, sometimes retroactively billed, sometimes rejected.
-- **No localization.** A Hindi-speaking customer in Tier-2 India does not want an English template. WhatsApp supports per-language template variants - use them.
+- **Ignoring template categorization.** Sneaking a promo into a 'utility' template ('Your order is ready, and here is 20% off!') gets re-categorized by Meta, sometimes retroactively billed, sometimes rejected.
+- **No localization.** A Hindi-speaking customer in Tier-2 India does not want an English template. WhatsApp supports per-language template variants, use them.
 
 ## Key Takeaways
 
 - WhatsApp is the dominant 1:1 marketing channel outside North America, with 98% open rates and conversion rates 3x those of email.
 - Everything serious runs through the WhatsApp Business Platform (API) via a BSP, and every proactive message must be a Meta-approved template in one of three categories: utility, marketing, or authentication.
-- Opt-in, frequency discipline, and Quality Rating are the three levers that decide whether you scale or get throttled - treat the channel like SMS plus permissioned push, not like email.
+- Opt-in, frequency discipline, and Quality Rating are the three levers that decide whether you scale or get throttled, treat the channel like SMS plus permissioned push, not like email.
 
 <ResourceList resources={[
   { title: "Meta - Get opt-in for WhatsApp", url: "https://developers.facebook.com/documentation/business-messaging/whatsapp/getting-opt-in", type: "docs", free: true },

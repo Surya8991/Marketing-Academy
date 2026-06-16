@@ -5,7 +5,7 @@ import { INTERVIEW_SECTIONS } from "@/lib/interview-questions";
 export const metadata: Metadata = {
   title: "Digital Marketing Interview Questions 2026 | Marketing Academy",
   description:
-    "Ace your next marketing job interview with 150+ real digital marketing interview questions and answers across 16 categories - behavioral, SEO, paid ads, content, analytics, email, growth, AI marketing, social, copywriting, CRO, brand strategy, product marketing, psychology, and tools.",
+    "Ace your next marketing job interview with 150+ real digital marketing interview questions and answers across 16 categories: behavioral, SEO, paid ads, content, analytics, email, growth, AI marketing, social, copywriting, CRO, brand strategy, product marketing, psychology, and tools.",
   keywords: [
     "digital marketing interview questions 2026",
     "marketing interview questions and answers 2026",
@@ -74,7 +74,7 @@ export default function InterviewQuestionsPage() {
         name: "Walk me through the 4Ps framework and explain when it breaks down as a strategic tool.",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "The 4Ps - Product, Price, Place, Promotion - give a structured way to audit how a business delivers value to a market. The framework breaks down for service businesses and SaaS products because Place and Product blur together when delivery is digital and continuous.",
+          text: "The 4Ps, Product, Price, Place, Promotion, give a structured way to audit how a business delivers value to a market. The framework breaks down for service businesses and SaaS products because Place and Product blur together when delivery is digital and continuous.",
         },
       },
       {

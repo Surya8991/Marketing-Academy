@@ -1,7 +1,7 @@
 export const lessonMeta = {
   title: 'The Modern Marketing Data Stack in 2026',
   level: 'Advanced',
-  summary: 'A composable architecture that connects data sources to a warehouse, transforms it with dbt, and activates insights back to your ad platforms and CRM — replacing siloed point solutions with a single source of truth.',
+  summary: 'A composable architecture that connects data sources to a warehouse, transforms it with dbt, and activates insights back to your ad platforms and CRM, replacing siloed point solutions with a single source of truth.',
 };
 
 ## The Old Way vs. The Composable Stack
@@ -14,15 +14,15 @@ This shift happened because cloud warehouses got cheap, ETL tools automated data
 
 ## Layer 1: Source Systems
 
-Your data starts in the tools you already use. Don't try to replace them — pipe their data out.
+Your data starts in the tools you already use. Don't try to replace them, pipe their data out.
 
-**Website and app analytics.** Google Analytics 4 (GA4) sends events — page views, clicks, conversions, custom events. You own the raw event stream. Segment and mParticle are tag managers that collect GA4, Amplitude, Mixpanel, and custom events into one stream.
+**Website and app analytics.** Google Analytics 4 (GA4) sends events, page views, clicks, conversions, custom events. You own the raw event stream. Segment and mParticle are tag managers that collect GA4, Amplitude, Mixpanel, and custom events into one stream.
 
-**CRM.** Salesforce and HubSpot hold your accounts, contacts, deals, and pipeline. This is the single source of truth for revenue — don't guess it.
+**CRM.** Salesforce and HubSpot hold your accounts, contacts, deals, and pipeline. This is the single source of truth for revenue, don't guess it.
 
-**Ad platforms.** Google Ads, Meta Ads, LinkedIn Ads — each has its own performance data: spend, impressions, clicks, conversions. Each platform's data is siloed unless you pull it out.
+**Ad platforms.** Google Ads, Meta Ads, LinkedIn Ads, each has its own performance data: spend, impressions, clicks, conversions. Each platform's data is siloed unless you pull it out.
 
-**Product analytics.** Mixpanel and Amplitude track user behavior inside your app — funnels, cohorts, feature adoption. This tells you which customers are active, which are churning.
+**Product analytics.** Mixpanel and Amplitude track user behavior inside your app, funnels, cohorts, feature adoption. This tells you which customers are active, which are churning.
 
 **Email.** Mailchimp, HubSpot, or Klaviyo track opens, clicks, replies. This behavior reveals intent.
 
@@ -30,23 +30,23 @@ Your data starts in the tools you already use. Don't try to replace them — pip
 
 The rule: if you log into it to check a metric, its data should live in your warehouse.
 
-## Layer 2: ETL/ELT — Getting Data In
+## Layer 2: ETL/ELT, Getting Data In
 
 You don't manually pull data from 12 sources. Connectors do it automatically.
 
-**Fivetran** (founded 2013, acquired by Datadog 2023) is the oldest and most trusted. You connect your Salesforce account, your Google Ads account, your Stripe account. Fivetran runs on a schedule (every hour, every 6 hours, daily — you choose). New data lands in your warehouse automatically. Fivetran is fully managed — they handle schema changes when platforms update.
+**Fivetran** (founded 2013, acquired by Datadog 2023) is the oldest and most trusted. You connect your Salesforce account, your Google Ads account, your Stripe account. Fivetran runs on a schedule (every hour, every 6 hours, daily, you choose). New data lands in your warehouse automatically. Fivetran is fully managed, they handle schema changes when platforms update.
 
 **Airbyte** is open-source and free if you self-host, or managed if you use Airbyte Cloud. It has more connectors than Fivetran because anyone can build them. You get more flexibility but less hand-holding.
 
 **Stitch** (now part of Talend) is cheaper and good for small stacks.
 
-**Custom scripts** — if a tool has an API but no pre-built connector, write a Python script that calls the API and writes to your warehouse. This is common for proprietary tools or niche platforms.
+**Custom scripts**, if a tool has an API but no pre-built connector, write a Python script that calls the API and writes to your warehouse. This is common for proprietary tools or niche platforms.
 
 The pattern: Source → Connector → Warehouse. Data lands raw and untransformed. You clean it up in the next layer.
 
 ## Layer 3: The Warehouse
 
-This is where all your data lives — clean, queryable, indexed.
+This is where all your data lives, clean, queryable, indexed.
 
 **BigQuery** (Google's data warehouse, 2010) is the most popular in marketing. You get 1 TB of query free per month. Storage costs $0.02/GB/month. It integrates with Google products (GA4, Google Ads) natively. If you use Google Cloud already, BigQuery is your obvious choice.
 
@@ -58,13 +58,13 @@ All three are column-oriented (optimized for analytics, not transactions), suppo
 
 The reality: pick the one your company already uses. If you're on Google Cloud, BigQuery. If you're AWS-native, Redshift. If you want vendor independence, Snowflake.
 
-## Layer 4: Transformation — dbt (Data Build Tool)
+## Layer 4: Transformation, dbt (Data Build Tool)
 
 You have raw data in the warehouse. Now you transform it.
 
 Transactions from Salesforce arrive with fields like `created_date_unix_ms`. You convert it to `account_created_date`, add a `days_since_created` column, and join it to the accounts table. Email opens from Mailchimp arrive at the contact level; you aggregate them to the account level. Ad spend arrives separately from conversions; you join them by `utm_source` and `utm_campaign`.
 
-**dbt** (founded 2017, raised $450M at $2.2B valuation) is how you do this. You write SQL. dbt turns your SQL into tables and views in the warehouse. It tracks dependencies — if you change one transform, dbt knows which downstream tables to rebuild. It also tests your data: "Does this table have any null account IDs?" Fail the transform if it does.
+**dbt** (founded 2017, raised $450M at $2.2B valuation) is how you do this. You write SQL. dbt turns your SQL into tables and views in the warehouse. It tracks dependencies, if you change one transform, dbt knows which downstream tables to rebuild. It also tests your data: "Does this table have any null account IDs?" Fail the transform if it does.
 
 dbt runs on a schedule (usually every 6 hours or daily). After it finishes, your transformed data is clean, consistent, and ready to activate.
 
@@ -86,7 +86,7 @@ Example use case: Your dbt model surfaces high-propensity leads. Hightouch syncs
 
 ### Why Reverse ETL Matters
 
-Without reverse ETL, your activation tools live in the dark. Your Facebook Ads account doesn't know which audiences are valuable because that analysis lives in your warehouse. You have to export a CSV, upload it manually every week — or it goes stale.
+Without reverse ETL, your activation tools live in the dark. Your Facebook Ads account doesn't know which audiences are valuable because that analysis lives in your warehouse. You have to export a CSV, upload it manually every week, or it goes stale.
 
 Reverse ETL wires your insights directly to your activation channels. You build a model once ("high-intent accounts based on engagement + firmographic data"). Every 6 hours, that audience syncs to Google Ads, LinkedIn Ads, and your email tool. Stale audiences die. You sell based on real-time intent.
 
@@ -94,19 +94,19 @@ Reverse ETL wires your insights directly to your activation channels. You build 
 
 Data in a warehouse is useless if humans can't see it.
 
-**Looker** (acquired by Google 2019, now free with BigQuery) lets you build dashboards and exploratory reports on top of your warehouse. You define "explores" — views that business users can query without writing SQL. A marketer clicks a few filters and gets "Leads by source, this month vs. last month." Looker is best if you're on Google Cloud.
+**Looker** (acquired by Google 2019, now free with BigQuery) lets you build dashboards and exploratory reports on top of your warehouse. You define "explores", views that business users can query without writing SQL. A marketer clicks a few filters and gets "Leads by source, this month vs. last month." Looker is best if you're on Google Cloud.
 
 **Metabase** is open-source and free. You self-host or use their cloud. Set-up is 5 minutes. You connect your warehouse and get instant dashboards. Metabase is scrappy and fast.
 
 **Tableau** (acquired by Salesforce 2019) is the premium option. It handles massive datasets and complex interactivity. Cost: $70–140/user/month.
 
-**Mode** is a good middle ground — collaborative SQL notebooks where analysts and stakeholders write and share queries.
+**Mode** is a good middle ground, collaborative SQL notebooks where analysts and stakeholders write and share queries.
 
 Pick one: Looker if you want it native to Google Cloud, Metabase if you want free and simple, Tableau if budget doesn't matter and you need bulletproof performance.
 
 ## Why This Beats Point Solutions
 
-Imagine your ad platform had a CRM built in. You'd use it — for a day. Then you'd realize you want to slice conversions by customer segment, or compare performance against forecast, or build a custom audience using historical support tickets. One tool can't do all that.
+Imagine your ad platform had a CRM built in. You'd use it, for a day. Then you'd realize you want to slice conversions by customer segment, or compare performance against forecast, or build a custom audience using historical support tickets. One tool can't do all that.
 
 The composable stack philosophy: *one source of truth*. All your data in one warehouse. You transform once. You activate to 30 different places. If your Salesforce definition of "qualified lead" changes, you update dbt and every downstream tool updates automatically.
 
@@ -130,7 +130,7 @@ But here's what marketers should understand:
 
 ## The Bottom Line
 
-In 2026, a marketing data stack means *one warehouse connected to everything*. You stop exporting CSVs. You stop arguing about what "qualified" means. You build your ideal audience once and activate it to Google, Meta, LinkedIn, and your email platform in parallel. Your data is stale at exactly 6 hours old — not 6 days old.
+In 2026, a marketing data stack means *one warehouse connected to everything*. You stop exporting CSVs. You stop arguing about what "qualified" means. You build your ideal audience once and activate it to Google, Meta, LinkedIn, and your email platform in parallel. Your data is stale at exactly 6 hours old, not 6 days old.
 
 This isn't just cleaner. It's faster. It's more accurate. And it's how you scale.
 

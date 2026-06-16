@@ -46,22 +46,22 @@ A multimodal marketing workflow runs through five stages. Follow this sequence a
 
 <Mermaid chart={`flowchart TD
     A[Stage 1: Collect All Inputs\nBrief, product images, past ads, brand guidelines, competitor video] --> B[Stage 2: Cross-Modal Analysis\nAI finds relationships and flags mismatches across all formats]
-    B --> C[Stage 3: Multi-Format Generation\nCopy variants, image concepts, video scripts, captions - all aligned]
+    B --> C[Stage 3: Multi-Format Generation\nCopy variants, image concepts, video scripts, captions: all aligned]
     C --> D[Stage 4: Human Review\nFact-check, brand accuracy, legal compliance, channel fit]
     D --> E{Approved?}
     E -- Yes --> F[Stage 5: Channel-Specific Optimization\nResize images, trim captions, adapt specs per platform]
     F --> G[Publish]
     E -- No --> C`} />
 
-**Stage 1 - Input Collection.** Feed the model everything that defines the campaign: the written brief, product photos, past ad performance data, brand voice guidelines, a competitor's recent video ad. The more relevant context you provide, the more coherent the output.
+**Stage 1, Input Collection.** Feed the model everything that defines the campaign: the written brief, product photos, past ad performance data, brand voice guidelines, a competitor's recent video ad. The more relevant context you provide, the more coherent the output.
 
-**Stage 2 - Cross-Modal Analysis.** The model does not process each input in isolation. It finds relationships across modalities. If your brief says "premium and minimal" but your product photos have busy backgrounds, it flags the contradiction before production starts. This is where multimodal AI pays for itself in saved revision cycles.
+**Stage 2, Cross-Modal Analysis.** The model does not process each input in isolation. It finds relationships across modalities. If your brief says "premium and minimal" but your product photos have busy backgrounds, it flags the contradiction before production starts. This is where multimodal AI pays for itself in saved revision cycles.
 
-**Stage 3 - Multi-Format Generation.** One prompt run produces outputs across multiple formats simultaneously. A single session might yield three caption options, two image style concepts, a 30-second video script, a subject line for the email announcement, and a Pinterest pin description, all aligned to one creative direction.
+**Stage 3, Multi-Format Generation.** One prompt run produces outputs across multiple formats simultaneously. A single session might yield three caption options, two image style concepts, a 30-second video script, a subject line for the email announcement, and a Pinterest pin description, all aligned to one creative direction.
 
-**Stage 4 - Human Review.** Non-negotiable. Multimodal models hallucinate with confidence. A generated product image may show the wrong button count on a shirt. A caption may reference a feature your product does not have. A video script may contradict a legal disclaimer. A human must verify every factual claim before anything publishes.
+**Stage 4, Human Review.** Non-negotiable. Multimodal models hallucinate with confidence. A generated product image may show the wrong button count on a shirt. A caption may reference a feature your product does not have. A video script may contradict a legal disclaimer. A human must verify every factual claim before anything publishes.
 
-**Stage 5 - Channel-Specific Optimization.** Multimodal generation produces aligned content, not platform-ready content. Instagram compresses images differently than Pinterest. LinkedIn captions have different optimal lengths than Twitter. Run every output through your existing channel checklists after generation.
+**Stage 5, Channel-Specific Optimization.** Multimodal generation produces aligned content, not platform-ready content. Instagram compresses images differently than Pinterest. LinkedIn captions have different optimal lengths than Twitter. Run every output through your existing channel checklists after generation.
 
 <Callout type="tip">
 **Start with analysis, not generation.** The fastest ROI from multimodal AI is auditing existing content, not creating new content. Upload your last 30 social posts including the images and ask the model to identify which visual-copy combinations drove the highest engagement rates. Then use those patterns to brief your next campaign. Analysis is lower risk, builds team confidence, and surfaces insights you likely missed when reviewing formats separately.

@@ -10,7 +10,7 @@ export const lessonMeta = {
 
 ## What It Is
 
-Email deliverability is the measure of how reliably your emails reach the recipient's inbox - not just their server. An email can be "sent" successfully and still end up in spam, the Promotions tab, or quietly deleted before anyone sees it. According to Validity's 2024 Email Deliverability Benchmark, roughly one in six legitimate marketing emails never reaches the inbox. The gap between "sent" and "seen" is where revenue quietly disappears.
+Email deliverability is the measure of how reliably your emails reach the recipient's inbox, not just their server. An email can be "sent" successfully and still end up in spam, the Promotions tab, or quietly deleted before anyone sees it. According to Validity's 2024 Email Deliverability Benchmark, roughly one in six legitimate marketing emails never reaches the inbox. The gap between "sent" and "seen" is where revenue quietly disappears.
 
 ## Quick Summary
 
@@ -25,7 +25,7 @@ Email deliverability is the measure of how reliably your emails reach the recipi
 <Callout type="info">
 **The scale of the problem is bigger than most marketers realize.**
 
-The global inbox placement rate in 2024 was approximately 83.5% (Validity). That sounds decent until you break it down: Gmail places 87.2% of emails in inboxes, but only 57.8% of those land in the Primary tab - the rest go to Promotions. Microsoft Outlook has a 75.6% inbox rate with a 14.6% spam rate. Organizations sending over 1 million emails per month face inbox placement below 28% on average - meaning more than 7 in 10 of their emails are filtered or rejected (Landbase, 2025). Authentication is your first and most impactful lever to fix this.
+The global inbox placement rate in 2024 was approximately 83.5% (Validity). That sounds decent until you break it down: Gmail places 87.2% of emails in inboxes, but only 57.8% of those land in the Primary tab, the rest go to Promotions. Microsoft Outlook has a 75.6% inbox rate with a 14.6% spam rate. Organizations sending over 1 million emails per month face inbox placement below 28% on average, meaning more than 7 in 10 of their emails are filtered or rejected (Landbase, 2025). Authentication is your first and most impactful lever to fix this.
 </Callout>
 
 Here is why every email marketer needs to understand authentication:
@@ -39,7 +39,7 @@ Here is why every email marketer needs to understand authentication:
 ## Real-World Examples
 
 <Callout type="example">
-**Heal Your Nervous System - Open Rates Up 84%, Enrollments Up 216% (2022)**
+**Heal Your Nervous System, Open Rates Up 84%, Enrollments Up 216% (2022)**
 
 Dr. Linnea Passaler, founder of the mental health brand Heal Your Nervous System (HYNS), watched her email open rates collapse from 30% to under 10% after launching new campaigns in early 2022. The problem was a deliverability failure, not content quality.
 
@@ -47,11 +47,11 @@ Her team ran inbox placement testing through GlockApps (a diagnostic tool), segm
 
 The fix was almost entirely technical. The content was already good. Authentication and list health unlocked the audience that was already there.
 
-**UK HMRC - Inbox Rate Jumps from 18% to 98% After DMARC Enforcement**
+**UK HMRC, Inbox Rate Jumps from 18% to 98% After DMARC Enforcement**
 
 Before implementing DMARC, the UK tax authority HMRC had an inbox placement rate of just 18%. Fraudsters were spoofing the hmrc.gov.uk domain to run phishing campaigns. Receiving mail servers had no way to tell real HMRC emails from fakes, so they filtered everything cautiously.
 
-After deploying DMARC with a `p=reject` policy, inbox placement climbed from 18% to 98%. In the first year, DMARC blocked over 500 million phishing emails impersonating HMRC. The improvement came entirely from authentication - no content changes, no new send times, no list cleanup required. For a commercial sender generating $500,000 annually from email, a 5-point deliverability lift from DMARC enforcement recovers roughly $25,000 to $50,000 per year in lost revenue.
+After deploying DMARC with a `p=reject` policy, inbox placement climbed from 18% to 98%. In the first year, DMARC blocked over 500 million phishing emails impersonating HMRC. The improvement came entirely from authentication, no content changes, no new send times, no list cleanup required. For a commercial sender generating $500,000 annually from email, a 5-point deliverability lift from DMARC enforcement recovers roughly $25,000 to $50,000 per year in lost revenue.
 </Callout>
 
 ## How the Three Protocols Work Together
@@ -183,7 +183,7 @@ Google Postmaster Tools is a free dashboard from Google that shows your domain r
 
 ## The One-Line Takeaway
 
-**Without SPF, DKIM, and DMARC at `p=reject`, Gmail and Microsoft do not filter your emails - they delete them before anyone has a chance to open them.**
+**Without SPF, DKIM, and DMARC at `p=reject`, Gmail and Microsoft do not filter your emails, they delete them before anyone has a chance to open them.**
 
 <ResourceList resources={[
   { title: "Gmail Bulk Sender Requirements (official Google documentation)", url: "https://support.google.com/a/answer/81126", type: "docs", free: true, note: "The official source for Gmail's SPF, DKIM, and DMARC requirements for bulk senders. Start here before anything else." },

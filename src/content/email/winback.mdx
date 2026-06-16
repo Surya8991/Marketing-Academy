@@ -10,21 +10,21 @@ export const lessonMeta = {
 
 ## What It Is
 
-A win-back campaign (also called a re-engagement campaign) is a triggered email sequence sent to subscribers who have gone quiet: no opens, no clicks, no purchases for a defined window of time. The goal is binary - either get a measurable engagement signal, or remove the contact from your active sending pool before they damage the deliverability of everyone else on your list. Dormant subscribers are not neutral. Inbox providers like Gmail and Outlook score your engagement rates continuously, and a list bloated with unresponsive addresses pushes your emails into spam for your best customers too.
+A win-back campaign (also called a re-engagement campaign) is a triggered email sequence sent to subscribers who have gone quiet: no opens, no clicks, no purchases for a defined window of time. The goal is binary, either get a measurable engagement signal, or remove the contact from your active sending pool before they damage the deliverability of everyone else on your list. Dormant subscribers are not neutral. Inbox providers like Gmail and Outlook score your engagement rates continuously, and a list bloated with unresponsive addresses pushes your emails into spam for your best customers too.
 
 The standard inactivity threshold is 3-6 months, though it shifts by product and sending frequency. A daily newsletter might flag someone after 60 days of silence. A SaaS tool with monthly billing might not act until 90-120 days. A DTC brand with seasonal purchase cycles might wait 180 days. Whichever threshold you pick, the underlying reality is consistent: email lists decay at roughly 22.5% per year through disengagement, role changes, and address abandonment, and 30-40% of a typical list is disengaged at any snapshot in time (Mailmend, 2024).
 
-Win-back campaigns are distinct from standard promotional emails in two structural ways. First, they are sequenced - a single "we miss you" email almost never works, while a 3-5 email series spaced 7 days apart performs reliably. Second, the final email in the sequence explicitly gives the subscriber permission to leave, with a one-click resubscribe button and a clear statement that you are removing them. This "sunset" framing is counterintuitive but consistently outperforms sequences that end with another offer.
+Win-back campaigns are distinct from standard promotional emails in two structural ways. First, they are sequenced, a single "we miss you" email almost never works, while a 3-5 email series spaced 7 days apart performs reliably. Second, the final email in the sequence explicitly gives the subscriber permission to leave, with a one-click resubscribe button and a clear statement that you are removing them. This "sunset" framing is counterintuitive but consistently outperforms sequences that end with another offer.
 
 ## Real-World Example
 
 <Callout type="example">
-Dr. Squatch, a DTC men's grooming brand, ran a segmented win-back flow through Klaviyo targeting subscribers with 90-plus days of inactivity. The sequence used behavior-based personalization rather than a generic "we miss you" subject line. Result: a 42% lift in open rate and a 67% lift in click-through rate versus their standard broadcast benchmarks (Mailmend, 2024). A second example: Larsson and Jennings, a fashion retailer, pushed open rates 82% higher on their reactivation flow simply by personalizing the subject line with the product category the subscriber had previously browsed. Neither brand led with a discount - they led with relevance, escalated to an incentive only after the first email received no response, and suppressed all non-responders after the fourth email.
+Dr. Squatch, a DTC men's grooming brand, ran a segmented win-back flow through Klaviyo targeting subscribers with 90-plus days of inactivity. The sequence used behavior-based personalization rather than a generic "we miss you" subject line. Result: a 42% lift in open rate and a 67% lift in click-through rate versus their standard broadcast benchmarks (Mailmend, 2024). A second example: Larsson and Jennings, a fashion retailer, pushed open rates 82% higher on their reactivation flow simply by personalizing the subject line with the product category the subscriber had previously browsed. Neither brand led with a discount, they led with relevance, escalated to an incentive only after the first email received no response, and suppressed all non-responders after the fourth email.
 </Callout>
 
 ## Why It Matters
 
-- **Deliverability protection:** Gmail's February 2024 bulk sender rules formalized what inbox providers had been doing algorithmically for years - they penalize senders whose recipients consistently ignore them. High inactivity drags your domain reputation down, raising spam placement rates for your engaged subscribers too.
+- **Deliverability protection:** Gmail's February 2024 bulk sender rules formalized what inbox providers had been doing algorithmically for years, they penalize senders whose recipients consistently ignore them. High inactivity drags your domain reputation down, raising spam placement rates for your engaged subscribers too.
 - **Revenue recovery at low cost:** Reactivated email addresses deliver a 7:1 ROI. Win-back campaigns generate 27% more orders than standard benchmark campaigns. Retaining a customer costs 5-7x less than acquiring a new one, and existing customers spend 138% more than first-time buyers (Mailmend, 2024).
 - **Automated performance uplift:** Automated win-back sequences achieve a 42.51% average open rate, versus 20.7% for standard marketing emails (Brevo, 2025). Top-performing sequences reach 57% open rates. The automation context signals to subscribers that this email was triggered by their specific behavior, not blasted to a list.
 - **Retention compounding:** A 5% increase in customer retention can increase profits by 25-95%. Forty-five percent of subscribers who engage with a win-back email continue engaging with future messages, extending value beyond the single re-engagement event.
@@ -36,44 +36,44 @@ Win-back campaigns follow a five-step framework: detect inactivity, segment the 
 
 <Mermaid chart={`flowchart TD
     A[Subscriber triggers dormancy rule\n90 to 180 days no open or click] --> B[Segment by recency\nRecently lapsed vs deep sleepers]
-    B --> C[Email 1: Value reminder\nDay 0 - what they have been missing]
-    C --> D[Email 2: Soft incentive\nDay 7 - discount or exclusive content]
-    D --> E[Email 3: Preference center\nDay 14 - offer fewer emails option]
-    E --> F[Email 4: Sunset email\nDay 21 - click to stay or be removed]
+    B --> C[Email 1: Value reminder\nDay 0: what they have been missing]
+    C --> D[Email 2: Soft incentive\nDay 7: discount or exclusive content]
+    D --> E[Email 3: Preference center\nDay 14: offer fewer emails option]
+    E --> F[Email 4: Sunset email\nDay 21: click to stay or be removed]
     F --> G{Engaged at any point?}
     G -- Yes --> H[Return to active segment\nReset engagement clock]
     G -- No --> I[Move to suppression list\nStop all marketing sends]
     I --> J[Hard remove after 30 days\nProtects sender reputation]`} />
 
-**Step 1 - Define dormancy precisely.** Build your trigger using multiple behavioral signals, not just opens. Apple Mail Privacy Protection inflates open rates for roughly half of iOS users, making opens an unreliable solo signal. Use "no click AND no purchase AND no site visit in X days" for a cleaner definition.
+**Step 1, Define dormancy precisely.** Build your trigger using multiple behavioral signals, not just opens. Apple Mail Privacy Protection inflates open rates for roughly half of iOS users, making opens an unreliable solo signal. Use "no click AND no purchase AND no site visit in X days" for a cleaner definition.
 
-**Step 2 - Segment before you send.** Split dormant contacts by depth of inactivity. A subscriber silent for 95 days gets a lighter touch than one silent for 14 months. One Litmus study found that targeting only the top decile of lapsed engagers lifted open rates to 22% and clicks to 1.2%, versus much weaker results when blasting the full dormant cohort in one send.
+**Step 2, Segment before you send.** Split dormant contacts by depth of inactivity. A subscriber silent for 95 days gets a lighter touch than one silent for 14 months. One Litmus study found that targeting only the top decile of lapsed engagers lifted open rates to 22% and clicks to 1.2%, versus much weaker results when blasting the full dormant cohort in one send.
 
-**Step 3 - Run the 4-email sequence.** Each email has a specific job:
+**Step 3, Run the 4-email sequence.** Each email has a specific job:
 - Email 1 (Day 0): Acknowledge the gap, lead with value. "Here is what you have missed." No offer yet.
-- Email 2 (Day 7): Introduce an incentive - discount, free shipping, content unlock, or early access.
+- Email 2 (Day 7): Introduce an incentive, discount, free shipping, content unlock, or early access.
 - Email 3 (Day 14): Offer a preference center. Some dormant subscribers are not gone, just over-mailed. A frequency downgrade saves the relationship.
-- Email 4 (Day 21): The sunset email. Explicitly state you are removing them unless they click to stay. Change the sender name to a real person at your company for this one - personal sender names consistently outperform brand sender names on sunset emails.
+- Email 4 (Day 21): The sunset email. Explicitly state you are removing them unless they click to stay. Change the sender name to a real person at your company for this one, personal sender names consistently outperform brand sender names on sunset emails.
 
-**Step 4 - Throttle the send.** Do not blast your entire dormant cohort in one day. Spam complaints will spike and box providers will notice. Send to the most-recently-lapsed segment first, wait a week, then expand to deeper dormancy groups.
+**Step 4, Throttle the send.** Do not blast your entire dormant cohort in one day. Spam complaints will spike and box providers will notice. Send to the most-recently-lapsed segment first, wait a week, then expand to deeper dormancy groups.
 
-**Step 5 - Suppress ruthlessly.** Anyone who completes the sequence without engaging moves to a suppression list. This is the step most teams skip, and it is the step that protects deliverability for everyone else. Re-permission asks to long-dormant contacts pull only a 1.8% read rate (MediaPost), meaning 98%+ are dead weight.
+**Step 5, Suppress ruthlessly.** Anyone who completes the sequence without engaging moves to a suppression list. This is the step most teams skip, and it is the step that protects deliverability for everyone else. Re-permission asks to long-dormant contacts pull only a 1.8% read rate (MediaPost), meaning 98%+ are dead weight.
 
 ## Common Mistakes
 
 <Callout type="warning">
-**Leading with a discount on email 1.** This trains subscribers that ignoring your regular emails is the correct strategy for extracting offers. Reserve the incentive for email 2 or 3, after a value-led first touch has already tried a softer approach. Brands that front-load discounts in win-back sequences also undermine their regular promotional emails - subscribers learn to wait.
+**Leading with a discount on email 1.** This trains subscribers that ignoring your regular emails is the correct strategy for extracting offers. Reserve the incentive for email 2 or 3, after a value-led first touch has already tried a softer approach. Brands that front-load discounts in win-back sequences also undermine their regular promotional emails, subscribers learn to wait.
 
 **Running win-back as a one-time quarterly project instead of an always-on triggered flow.** Dormancy is continuous. A subscriber who hit your 90-day threshold in March is very different from one who hit it in July. Triggered automation catches them at the right moment; a quarterly blast catches them too late or too early and skews your deliverability impact.
 </Callout>
 
 <Callout type="tip">
-On your final sunset email, change the From name from your brand to a real person: "Sarah from Acme" instead of "Acme Marketing." The curiosity trigger is fundamentally different - the subscriber thinks a real person noticed their absence specifically. This single change regularly produces a 10-20% open rate lift on the email that would otherwise pull the lowest engagement in the sequence.
+On your final sunset email, change the From name from your brand to a real person: "Sarah from Acme" instead of "Acme Marketing." The curiosity trigger is fundamentally different, the subscriber thinks a real person noticed their absence specifically. This single change regularly produces a 10-20% open rate lift on the email that would otherwise pull the lowest engagement in the sequence.
 </Callout>
 
 ## The One-Line Takeaway
 
-**A 3-5 email win-back sequence recovers 5-15% of dormant subscribers and protects the deliverability of your entire list - and the suppression of non-responders is just as valuable as the reactivations.**
+**A 3-5 email win-back sequence recovers 5-15% of dormant subscribers and protects the deliverability of your entire list, and the suppression of non-responders is just as valuable as the reactivations.**
 
 <ResourceList resources={[
   { title: "35 Win-Back Campaign Statistics (Mailmend, 2024)", url: "https://mailmend.io/blogs/win-back-campaign-statistics", type: "article", free: true, note: "Comprehensive data set on open rates, ROI, timing, and sequence structure" },

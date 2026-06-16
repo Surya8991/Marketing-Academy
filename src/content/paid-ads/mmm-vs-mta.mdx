@@ -72,7 +72,7 @@ flowchart TD
   B -->|Strategic / Quarterly| C[Use MMM]
   B -->|Tactical / Daily| D[Use MTA]
   C --> E[Aggregate historical data]
-  E --> F[Regression model - all channels]
+  E --> F[Regression model: all channels]
   F --> G[Channel budget allocation]
   D --> H[User-level touchpoint data]
   H --> I[Attribution model assigns credit]
@@ -84,14 +84,14 @@ flowchart TD
 ## Real-World Examples
 
 <Callout type="example" title="How MMM Saved Airbnb Millions in Display Budget">
-In 2022, Airbnb ran a large-scale brand awareness campaign across TV, digital display, and paid social. Their MTA data showed display ads as a weak performer - users who saw display ads rarely clicked, and last-click attribution gave display almost no credit. But when Airbnb's data science team ran an MMM analysis over 18 months of data, display accounted for roughly 15% of incremental bookings by building brand recognition that lifted conversion rates on search ads by approximately 12%. Cutting display based on MTA alone would have cost them millions in downstream bookings.
+In 2022, Airbnb ran a large-scale brand awareness campaign across TV, digital display, and paid social. Their MTA data showed display ads as a weak performer, users who saw display ads rarely clicked, and last-click attribution gave display almost no credit. But when Airbnb's data science team ran an MMM analysis over 18 months of data, display accounted for roughly 15% of incremental bookings by building brand recognition that lifted conversion rates on search ads by approximately 12%. Cutting display based on MTA alone would have cost them millions in downstream bookings.
 </Callout>
 
 **Google MMM case study (2024):** Japanese video game company Nexon used MMM to analyze all their media channels. The analysis revealed that Google Display Network delivered the highest ROI of any channel they used, and that YouTube played a key role in indirectly lifting performance across other channels. Before running the MMM, both channels were undervalued in their standard reporting.
 
 **YouTube ROAS finding (Nielsen meta-analysis):** On average, YouTube ROAS grew by 108% for brands that collaborated with Google on MMM calibration. That is a 7x greater increase compared to brands that did not use MMM to measure YouTube's contribution.
 
-**MMM budget reallocation results:** A case study from Cassandra App (2024) showed that one brand achieved +13% more conversions with the exact same total ad budget, simply by reallocating spend based on MMM findings. No extra money was spent - just smarter distribution.
+**MMM budget reallocation results:** A case study from Cassandra App (2024) showed that one brand achieved +13% more conversions with the exact same total ad budget, simply by reallocating spend based on MMM findings. No extra money was spent, just smarter distribution.
 
 ## Side-by-Side Comparison
 
@@ -138,7 +138,7 @@ flowchart LR
 ## Common Mistakes
 
 <Callout type="warning">
-**Mistake 1: Treating MTA as the single source of truth.** Teams that rely exclusively on MTA - especially last-click - systematically defund brand-building channels and upper-funnel spend. Those touchpoints are invisible or underweighted in MTA. The result is short-term performance metrics that look fine while the brand slowly erodes. If your MTA report says TV and podcast spend contribute nothing, that is a data gap, not a real signal.
+**Mistake 1: Treating MTA as the single source of truth.** Teams that rely exclusively on MTA, especially last-click, systematically defund brand-building channels and upper-funnel spend. Those touchpoints are invisible or underweighted in MTA. The result is short-term performance metrics that look fine while the brand slowly erodes. If your MTA report says TV and podcast spend contribute nothing, that is a data gap, not a real signal.
 </Callout>
 
 <Callout type="warning">
@@ -146,54 +146,54 @@ flowchart LR
 </Callout>
 
 <Callout type="tip">
-**Pro tip - use geo-based incrementality experiments to validate both models.** Run a spend-up or spend-down test in a subset of regions, measure the actual sales lift, then compare it against what MMM predicted and what MTA predicted. This triangulation reveals which model is closer to ground truth for your business. It also gives you evidence to push back when finance questions your channel mix.
+**Pro tip, use geo-based incrementality experiments to validate both models.** Run a spend-up or spend-down test in a subset of regions, measure the actual sales lift, then compare it against what MMM predicted and what MTA predicted. This triangulation reveals which model is closer to ground truth for your business. It also gives you evidence to push back when finance questions your channel mix.
 </Callout>
 
 ## Open-Source Tools Worth Knowing
 
 As of 2024, three major tech companies released open-source MMM tools that anyone can use:
 
-- **Google Meridian** - Google's open-source MMM launched in 2024. Designed for Bayesian modeling with geo-level data support. Free on GitHub.
-- **Meta Robyn** - Meta's open-source MMM package (R language). Has been widely adopted since 2021 and has a large community of contributors.
-- **PyMC-Marketing** - Python-based Bayesian MMM toolkit backed by the PyMC community. Good for teams with Python data science skills.
+- **Google Meridian**: Google's open-source MMM launched in 2024. Designed for Bayesian modeling with geo-level data support. Free on GitHub.
+- **Meta Robyn**: Meta's open-source MMM package (R language). Has been widely adopted since 2021 and has a large community of contributors.
+- **PyMC-Marketing**: Python-based Bayesian MMM toolkit backed by the PyMC community. Good for teams with Python data science skills.
 
 These tools have lowered the barrier to entry for MMM significantly. Three years ago, you needed a specialized vendor costing six figures. Today, a mid-size brand with a data analyst can run a basic MMM.
 
 ## The One-Line Takeaway
 
-**MMM tells you where to put your money; MTA tells you how to spend it - you need both because each model is blind to exactly what the other sees.**
+**MMM tells you where to put your money; MTA tells you how to spend it, you need both because each model is blind to exactly what the other sees.**
 
 <ResourceList resources={[
   {
-    title: "Google Meridian - Open Source MMM",
+    title: "Google Meridian, Open Source MMM",
     url: "https://developers.google.com/meridian",
     type: "tool",
     note: "Google's official open-source Marketing Mix Modeling tool released in 2024. Free, Bayesian, supports geo-level data.",
     free: true,
   },
   {
-    title: "Meta Robyn - Open Source MMM (GitHub)",
+    title: "Meta Robyn, Open Source MMM (GitHub)",
     url: "https://github.com/facebookexperimental/Robyn",
     type: "tool",
     note: "Meta's open-source MMM package in R. Widely adopted since 2021 with active community support.",
     free: true,
   },
   {
-    title: "Google: MMM vs. MTA - Think with Google",
+    title: "Google: MMM vs. MTA, Think with Google",
     url: "https://www.thinkwithgoogle.com/intl/en-emea/marketing-strategies/data-and-measurement/roi-marketing-mix-models/",
     type: "article",
     note: "Think with Google's guide on using MMM to grow ROI, with real brand case studies including Suntory Wellness and Nexon.",
     free: true,
   },
   {
-    title: "Funnel.io: MTA vs MMM - Deep Comparison",
+    title: "Funnel.io: MTA vs MMM, Deep Comparison",
     url: "https://funnel.io/blog/mta-vs-mmm",
     type: "article",
     note: "Detailed breakdown of how each model works, when to use each, and how Unified Marketing Measurement combines them.",
     free: true,
   },
   {
-    title: "inBeat: MMM vs MTA - Which Works in 2025?",
+    title: "inBeat: MMM vs MTA, Which Works in 2025?",
     url: "https://www.inbeat.co/articles/mmm-vs-mta/",
     type: "article",
     note: "Current comparison with 2024 eMarketer survey data, iOS 14 impact analysis, and practical decision framework.",
@@ -219,6 +219,6 @@ These tools have lowered the barrier to entry for MMM significantly. Three years
 ]} />
 
 ## Related Concepts
-- [iOS Attribution](/learn/paid-ads/ios-attribution) - Understanding how Apple's ATT framework broke user-level MTA and why MMM became more valuable post-iOS 14
-- [Bidding Strategies](/learn/paid-ads/bidding-strategies) - MTA data feeds directly into smart bidding algorithms; knowing its limits helps you set realistic tROAS and tCPA targets
-- [Google Shopping & PMax](/learn/paid-ads/google-shopping-pmax) - Performance Max campaigns use Google's own attribution model internally, making external MMM validation especially important for understanding true incremental contribution
+- [iOS Attribution](/learn/paid-ads/ios-attribution), Understanding how Apple's ATT framework broke user-level MTA and why MMM became more valuable post-iOS 14
+- [Bidding Strategies](/learn/paid-ads/bidding-strategies), MTA data feeds directly into smart bidding algorithms; knowing its limits helps you set realistic tROAS and tCPA targets
+- [Google Shopping & PMax](/learn/paid-ads/google-shopping-pmax), Performance Max campaigns use Google's own attribution model internally, making external MMM validation especially important for understanding true incremental contribution

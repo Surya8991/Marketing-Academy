@@ -6,13 +6,13 @@ export const lessonMeta = {
 
 ## The Core Idea: Baking vs. Prompting
 
-Fine-tuning and prompt engineering solve the same problem—getting AI to match your brand voice—but in completely different ways. **Prompting is instructional**: you write detailed system messages every time you use the model, telling it rules like "sound enthusiastic but avoid exclamation marks" or "prefer short sentences over long ones." Fine-tuning is **architectural**: you take a pre-trained model and train it on examples of your brand voice until the model learns to generate that style on its own.
+Fine-tuning and prompt engineering solve the same problem, getting AI to match your brand voice, but in completely different ways. **Prompting is instructional**: you write detailed system messages every time you use the model, telling it rules like "sound enthusiastic but avoid exclamation marks" or "prefer short sentences over long ones." Fine-tuning is **architectural**: you take a pre-trained model and train it on examples of your brand voice until the model learns to generate that style on its own.
 
 Think of it this way: prompting is like handing a new employee a style guide every morning. Fine-tuning is like training them so deeply that they write in your voice without needing the guide.
 
 ## Why Fine-Tuning Wins at Scale
 
-If you're generating 10 marketing emails a month, a great prompt works fine. If you're generating 10,000 social posts a year, prompting breaks down. Humans drift—some outputs stay on-brand, others don't. Fine-tuning gives you consistency without that variance.
+If you're generating 10 marketing emails a month, a great prompt works fine. If you're generating 10,000 social posts a year, prompting breaks down. Humans drift, some outputs stay on-brand, others don't. Fine-tuning gives you consistency without that variance.
 
 When you fine-tune, the model's weights absorb your style. A fine-tuned model knows your tone intuitively and applies it across thousands of outputs without re-instructing. You also reduce context length usage (cheaper API calls) and latency because you're not sending 500-token system prompts to the API anymore.
 
@@ -20,9 +20,9 @@ The real win: fine-tuned models generalize your voice to *new topics* they never
 
 ## The Fine-Tuning Data Pipeline
 
-Fine-tuning starts with examples. You need **50 to 500 brand-approved samples minimum**—fewer than 50 and the model mostly memorizes; more than 500 and you hit diminishing returns unless your brand is massive.
+Fine-tuning starts with examples. You need **50 to 500 brand-approved samples minimum**, fewer than 50 and the model mostly memorizes; more than 500 and you hit diminishing returns unless your brand is massive.
 
-**Collect examples:** Gather your best-performing emails, social posts, landing page copy, and ad headlines. Pull these from your actual marketing output—real examples that worked. Exclude experiments, A/B tests, and anything your team didn't love.
+**Collect examples:** Gather your best-performing emails, social posts, landing page copy, and ad headlines. Pull these from your actual marketing output, real examples that worked. Exclude experiments, A/B tests, and anything your team didn't love.
 
 **Format as pairs:** Fine-tuning requires input/output pairs. For a brand voice model, a typical pair looks like:
 - **Input:** "Write a short social post announcing a new feature."
@@ -30,13 +30,13 @@ Fine-tuning starts with examples. You need **50 to 500 brand-approved samples mi
 
 Each pair teaches the model: "When you see this kind of prompt, respond with this specific tone and structure." Aim for 50–200 words per output example.
 
-**Clean and deduplicate:** Remove near-duplicates (two versions of the same email), typos, and bot-generated or mass-mailed copy. Every example should represent intentional, high-quality brand voice—not noise. Spend time here; bad examples corrupt the model's understanding of your style.
+**Clean and deduplicate:** Remove near-duplicates (two versions of the same email), typos, and bot-generated or mass-mailed copy. Every example should represent intentional, high-quality brand voice, not noise. Spend time here; bad examples corrupt the model's understanding of your style.
 
 **Shuffle and split:** Randomize the order (avoid recency bias in the model). Reserve 10–20% of examples for evaluation so you can test if the fine-tuned model actually learned anything.
 
 ## Model Options in 2026
 
-**OpenAI fine-tuning API** (GPT-4o mini, GPT-4 Turbo) is the mainstream choice for brand voice work. You upload training data, OpenAI fine-tunes in their infrastructure, and you get a custom model endpoint. Cost is ~$0.003/token for inference on a fine-tuned model—higher than base GPT-4o but lower than running long system prompts repeatedly. Advantage: simple API, fast training (hours), best-in-class generation quality.
+**OpenAI fine-tuning API** (GPT-4o mini, GPT-4 Turbo) is the mainstream choice for brand voice work. You upload training data, OpenAI fine-tunes in their infrastructure, and you get a custom model endpoint. Cost is ~$0.003/token for inference on a fine-tuned model, higher than base GPT-4o but lower than running long system prompts repeatedly. Advantage: simple API, fast training (hours), best-in-class generation quality.
 
 **Mistral** offers open fine-tuning through their API. Cheaper than OpenAI and fully controllable if you self-host.
 
@@ -80,7 +80,7 @@ If your brand voice is simple (e.g., "sound friendly and professional"), a detai
 
 ## The Outcome
 
-A fine-tuned LLM lets you scale your brand voice from hundreds of manually written outputs to thousands or millions of consistently branded AI-generated ones. It's not a replacement for human creativity—it's amplification. Your best writers' voice becomes baked into the model, letting them focus on strategy while the model handles volume.
+A fine-tuned LLM lets you scale your brand voice from hundreds of manually written outputs to thousands or millions of consistently branded AI-generated ones. It's not a replacement for human creativity, it's amplification. Your best writers' voice becomes baked into the model, letting them focus on strategy while the model handles volume.
 
 The investment (time to collect data, $500–$5,000 in API costs) pays off when you're generating 10,000+ pieces of marketing content annually and consistency across all of them is non-negotiable.
 

@@ -1,42 +1,42 @@
 export const lessonMeta = {
   title: "GTM Engineering: Automating the Revenue Stack",
   level: "Advanced",
-  summary: "How to build signal-triggered, AI-personalized outbound systems using Clay, Apollo, n8n, and intent data — and why PMMs who master this earn 40-60% more.",
+  summary: "How to build signal-triggered, AI-personalized outbound systems using Clay, Apollo, n8n, and intent data, and why PMMs who master this earn 40-60% more.",
 };
 
 ## What GTM Engineering Actually Is
 
-GTM engineering is the technical discipline of automating and scaling go-to-market motions using code, data pipelines, and AI. It sits at the intersection of RevOps, growth engineering, and product marketing — building the systems that let revenue teams scale output without scaling headcount linearly.
+GTM engineering is the technical discipline of automating and scaling go-to-market motions using code, data pipelines, and AI. It sits at the intersection of RevOps, growth engineering, and product marketing, building the systems that let revenue teams scale output without scaling headcount linearly.
 
 Clay coined the term in 2023. By 2025, GTM engineer job postings grew 205% year-over-year, and median total compensation reached $176K with top-tier roles clearing $300K. That salary premium reflects a rare combination: technical build skills plus commercial intuition about what actually moves pipeline.
 
-The role is not sales ops with a fancier title. A GTM engineer builds infrastructure — enrichment waterfalls, signal-triggered workflows, AI scoring models — that the rest of the revenue org runs on.
+The role is not sales ops with a fancier title. A GTM engineer builds infrastructure, enrichment waterfalls, signal-triggered workflows, AI scoring models, that the rest of the revenue org runs on.
 
 ## The GTM Engineering Stack
 
 Every serious GTM stack in 2026 has five layers.
 
-**Prospecting and contact data** — Apollo.io is the default starting point: 275M+ contacts, technographic filters, built-in sequencing. It feeds Clay with raw lead lists that then get enriched further.
+**Prospecting and contact data**, Apollo.io is the default starting point: 275M+ contacts, technographic filters, built-in sequencing. It feeds Clay with raw lead lists that then get enriched further.
 
-**Enrichment and orchestration** — Clay is the central nervous system. It pulls from 10+ data providers simultaneously (Apollo, LinkedIn, Clearbit, Hunter, Crunchbase, PeopleDataLabs) in a waterfall, paying only for successful matches. Coverage jumps from the typical 30% single-provider hit rate to 80%+.
+**Enrichment and orchestration**, Clay is the central nervous system. It pulls from 10+ data providers simultaneously (Apollo, LinkedIn, Clearbit, Hunter, Crunchbase, PeopleDataLabs) in a waterfall, paying only for successful matches. Coverage jumps from the typical 30% single-provider hit rate to 80%+.
 
-**Workflow automation** — n8n (self-hosted, open-source) or Make.com connects your tools: Clay → CRM → email sequencer → Slack alerts. These handle the routing logic that turns a signal into an action without manual intervention.
+**Workflow automation**, n8n (self-hosted, open-source) or Make.com connects your tools: Clay → CRM → email sequencer → Slack alerts. These handle the routing logic that turns a signal into an action without manual intervention.
 
-**Signals and intent** — Bombora and G2 surface accounts actively researching your category. PhantomBuster scrapes job postings, LinkedIn hiring signals, and tech stack installs. These are the triggers that make outbound feel uncannily timely.
+**Signals and intent**, Bombora and G2 surface accounts actively researching your category. PhantomBuster scrapes job postings, LinkedIn hiring signals, and tech stack installs. These are the triggers that make outbound feel uncannily timely.
 
-**Outbound execution** — Instantly and Smartlead manage email sending infrastructure at scale: inbox rotation, deliverability monitoring, reply detection. They receive drafted emails from Clay and handle the mechanics of getting them delivered.
+**Outbound execution**, Instantly and Smartlead manage email sending infrastructure at scale: inbox rotation, deliverability monitoring, reply detection. They receive drafted emails from Clay and handle the mechanics of getting them delivered.
 
 ## Clay Deep-Dive: Waterfall Enrichment
 
 The most powerful thing Clay does is waterfall enrichment. Instead of relying on one data provider and accepting 30-40% coverage, you chain providers: try Apollo first → if no match, try Hunter → if no match, try PeopleDataLabs → and so on. You pay only on hit, so coverage climbs without proportionally climbing cost.
 
 <Callout type="info">
-Clay's waterfall pushed one B2B SaaS team's email coverage from 31% to 79% on a 50,000-contact list — at roughly the same per-contact cost as using a single premium provider.
+Clay's waterfall pushed one B2B SaaS team's email coverage from 31% to 79% on a 50,000-contact list, at roughly the same per-contact cost as using a single premium provider.
 </Callout>
 
 Beyond enrichment, Clay's AI columns are where it gets powerful for PMMs. You write a prompt like: "Given this company's tech stack, headcount growth, and recent funding, write a two-sentence outreach opener that references their likely pain with [problem category]." Clay runs that prompt against every row, producing personalized first lines at scale before a human rep ever touches the sequence.
 
-CRM sync is the final piece. Clay writes enriched, scored leads directly back to Salesforce or HubSpot — no manual export-import cycle, no stale data sitting in a spreadsheet.
+CRM sync is the final piece. Clay writes enriched, scored leads directly back to Salesforce or HubSpot, no manual export-import cycle, no stale data sitting in a spreadsheet.
 
 ## Signal-Based Outbound: The Core Workflow
 
@@ -62,18 +62,18 @@ Manual lead scoring is a quarterly spreadsheet exercise that's stale before it's
 The architecture: pull Bombora intent data + G2 review activity into Clay → join with firmographic data (ARR band, headcount, industry) → join with web activity from your CDP → run an AI column that weights and scores each account → push scores back to Salesforce → route high-intent accounts to AE, mid-intent to SDR sequences, low-intent to nurture.
 
 <Callout type="warning">
-Score decay matters. An account that spiked intent three weeks ago and went cold is not the same as a fresh spike. Build a score-decay field that reduces the score by 20% per week of inactivity — otherwise your AEs chase ghosts.
+Score decay matters. An account that spiked intent three weeks ago and went cold is not the same as a fresh spike. Build a score-decay field that reduces the score by 20% per week of inactivity, otherwise your AEs chase ghosts.
 </Callout>
 
-The routing logic is often where teams see the biggest win. A score threshold of 70+ goes directly into an AE's Salesforce queue with a Slack notification. A score of 40-69 triggers an automated SDR sequence. Below 40 gets added to a low-touch nurture campaign. No human makes that routing decision — the system does.
+The routing logic is often where teams see the biggest win. A score threshold of 70+ goes directly into an AE's Salesforce queue with a Slack notification. A score of 40-69 triggers an automated SDR sequence. Below 40 gets added to a low-touch nurture campaign. No human makes that routing decision, the system does.
 
 ## Why PMMs Should Care
 
-Product marketing has always owned the 'what to say' layer: positioning, messaging, ICP definition. GTM engineering adds the 'how to deploy at scale' layer — and the two are inseparable now.
+Product marketing has always owned the 'what to say' layer: positioning, messaging, ICP definition. GTM engineering adds the 'how to deploy at scale' layer, and the two are inseparable now.
 
 A PMM who can articulate the ICP and also build the Clay workflow to find and reach that ICP at signal moments is worth dramatically more than one who hands a positioning doc to sales and hopes. Data from 2025 shows individual contributors with AI automation skills saw a 23% earnings increase in one year as companies competed for people who could close the loop between strategy and execution.
 
-The PMM-to-GTM-engineer bridge is not about becoming a full-stack developer. It is about understanding enough of the stack to design the system, brief the engineer, and QA the output — or, increasingly, build the no-code/low-code version yourself in Clay and n8n.
+The PMM-to-GTM-engineer bridge is not about becoming a full-stack developer. It is about understanding enough of the stack to design the system, brief the engineer, and QA the output, or, increasingly, build the no-code/low-code version yourself in Clay and n8n.
 
 ## Hire a GTM Engineer or Build the Skill In-House?
 
@@ -85,17 +85,17 @@ Build in-house when: your team has RevOps or growth ops capacity, your sequences
 Hybrid path many teams take: hire a Clay agency or freelancer for the initial build (6-8 weeks), run the system for a quarter, then hire a full-time GTM engineer once you can articulate the exact workflows they will own and the volume justifies the headcount.
 </Callout>
 
-The GTM engineer role exists because the gap between commercial strategy and technical execution became too expensive to leave unfilled. PMMs who understand both sides of that gap — positioning and pipeline infrastructure — will define what senior product marketing looks like in the next decade.
+The GTM engineer role exists because the gap between commercial strategy and technical execution became too expensive to leave unfilled. PMMs who understand both sides of that gap, positioning and pipeline infrastructure, will define what senior product marketing looks like in the next decade.
 
 <ResourceList resources={[
-  { title: "Clay GTM Engineering Guide", url: "https://www.clay.com/blog/gtm-engineering", type: "article", free: true, note: "Clay's canonical explainer — covers waterfall enrichment, AI columns, and workflow design" },
+  { title: "Clay GTM Engineering Guide", url: "https://www.clay.com/blog/gtm-engineering", type: "article", free: true, note: "Clay's canonical explainer, covers waterfall enrichment, AI columns, and workflow design" },
   { title: "Apollo: What Tools Do GTM Engineers Use?", url: "https://www.apollo.io/insights/what-tools-do-gtm-engineers-use-to-build-and-automate-revenue-workflows", type: "article", free: true, note: "Apollo's breakdown of the 2026 GTM stack with integration patterns" },
   { title: "Clay for GTM Engineering: Use Cases and ROI", url: "https://www.factors.ai/blog/clay-gtm-engineering", type: "article", free: true, note: "Third-party analysis of Clay workflows with real coverage and cost data" },
   { title: "GTM Engineer Salary Guide 2026", url: "https://ideaware.co/blog/why-gtm-engineers-are-in-high-demand-and-how-to-hire-one/", type: "article", free: true, note: "When to hire, cost vs ROI, and what the role actually owns" },
   { title: "Clay Official Docs", url: "https://docs.clay.com", type: "docs", free: true, note: "Table setup, waterfall configuration, AI column prompting" },
-  { title: "n8n Documentation", url: "https://docs.n8n.io", type: "docs", free: true, note: "Self-hosted workflow automation — Clay, CRM, and Slack integrations" },
+  { title: "n8n Documentation", url: "https://docs.n8n.io", type: "docs", free: true, note: "Self-hosted workflow automation, Clay, CRM, and Slack integrations" },
   { title: "Apollo.io", url: "https://www.apollo.io", type: "tool", free: false, note: "Prospecting database + sequencer; free tier available with limits" },
-  { title: "Bombora Intent Data", url: "https://bombora.com", type: "tool", free: false, note: "B2B intent signals — integrates directly into Clay via API" },
+  { title: "Bombora Intent Data", url: "https://bombora.com", type: "tool", free: false, note: "B2B intent signals, integrates directly into Clay via API" },
   { title: "Instantly.ai", url: "https://instantly.ai", type: "tool", free: false, note: "Email sending infrastructure for high-volume outbound" },
   { title: "WsCube Tech - GTM Engineering (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
   { title: "Mr Digital Marketing Tamil - GTM Engineering", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },

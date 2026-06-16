@@ -202,7 +202,7 @@ export const TRACKS: Track[] = [
     title: "Freelancer & Agency Track",
     emoji: "🎯",
     description:
-      "Master every channel clients will ask you to deliver. SEO, paid ads, social, email, analytics, and conversion — the full-stack toolkit for freelancers and agency marketers.",
+      "Master every channel clients will ask you to deliver. SEO, paid ads, social, email, analytics, and conversion, the full-stack toolkit for freelancers and agency marketers.",
     audience: "Freelancers & Agency Marketers",
     duration: "14-17 hours",
     lessons: [

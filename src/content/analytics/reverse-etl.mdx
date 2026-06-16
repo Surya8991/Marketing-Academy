@@ -1,7 +1,7 @@
 export const lessonMeta = {
   title: "Reverse ETL",
   level: "Advanced",
-  summary: "Warehouse-to-tool sync (Hightouch, Census) - the new layer in the modern marketing stack.",
+  summary: "Warehouse-to-tool sync (Hightouch, Census), the new layer in the modern marketing stack.",
 };
 
 # Reverse ETL
@@ -10,16 +10,16 @@ export const lessonMeta = {
 
 ETL stands for Extract, Transform, Load. Traditional ETL moves data from your business tools (CRM, ad platforms, website) into a central data warehouse like Snowflake, BigQuery, or Databricks. Reverse ETL flips that direction: it takes processed data sitting in your warehouse and pushes it back out to the tools your marketing, sales, and customer success teams actually use every day.
 
-Think of your warehouse as a brain. It holds every customer event, purchase, lifetime value score, and churn prediction your data team has built. Without Reverse ETL, that intelligence stays locked inside dashboards that only analysts can read. With Reverse ETL, that same intelligence flows directly into Salesforce, HubSpot, Facebook Ads, or Braze - where your team can act on it.
+Think of your warehouse as a brain. It holds every customer event, purchase, lifetime value score, and churn prediction your data team has built. Without Reverse ETL, that intelligence stays locked inside dashboards that only analysts can read. With Reverse ETL, that same intelligence flows directly into Salesforce, HubSpot, Facebook Ads, or Braze, where your team can act on it.
 
 The global Reverse ETL market was valued at $485 million in 2024 and is growing at roughly 35% annually, driven by demand for real-time personalization (Integrate.io, 2024). The leading tools in this space are Hightouch (300+ destinations) and Census ($60M Series C), along with RudderStack and Polytomic.
 
 ## Real-World Example
 
-Wyze, the smart home device company, used RudderStack to build complete customer profiles inside their data warehouse. They computed metrics like churn score and customer lifetime value (LTV) directly in the warehouse, then synced those scores to Braze (their email and push platform) via Reverse ETL. The result: Wyze shipped 3x more campaigns driven by machine learning models, leading to measurable conversion increases - all without requiring engineers to rebuild that logic inside Braze.
+Wyze, the smart home device company, used RudderStack to build complete customer profiles inside their data warehouse. They computed metrics like churn score and customer lifetime value (LTV) directly in the warehouse, then synced those scores to Braze (their email and push platform) via Reverse ETL. The result: Wyze shipped 3x more campaigns driven by machine learning models, leading to measurable conversion increases, all without requiring engineers to rebuild that logic inside Braze.
 
 <Callout type="example">
-Wyze built churn scores and LTV predictions inside their data warehouse. Reverse ETL (via RudderStack) synced those scores into Braze automatically. Marketing teams could then trigger personalized campaigns based on real warehouse data - no SQL access needed. They shipped 3x more ML-driven campaigns as a result.
+Wyze built churn scores and LTV predictions inside their data warehouse. Reverse ETL (via RudderStack) synced those scores into Braze automatically. Marketing teams could then trigger personalized campaigns based on real warehouse data, no SQL access needed. They shipped 3x more ML-driven campaigns as a result.
 </Callout>
 
 ## Why It Matters
@@ -50,12 +50,12 @@ The process has four distinct steps. First, a data team builds a model (a SQL qu
   D --> E3[Email / Push\nBraze / Klaviyo]
   D --> E4[Customer Support\nIntercom / Zendesk]`} />
 
-The key technical concept is **incremental sync**. A good Reverse ETL tool tracks which rows changed since the last run and only syncs those. Without this, every sync would push your entire customer table to Salesforce - slow, expensive, and likely to hit API rate limits.
+The key technical concept is **incremental sync**. A good Reverse ETL tool tracks which rows changed since the last run and only syncs those. Without this, every sync would push your entire customer table to Salesforce, slow, expensive, and likely to hit API rate limits.
 
 ## Common Mistakes
 
 <Callout type="warning">
-The most common mistake is treating Reverse ETL as a data pipeline problem instead of a data quality problem. Teams spend weeks setting up the sync, then discover the warehouse data itself is wrong - duplicate customer IDs, missing email addresses, or inconsistent segment definitions. Fix your data models first, then pipe them out. Also: do not sync raw, untransformed tables. Only sync models your team has validated and documented. Garbage in, garbage out - but now it is garbage inside your CRM too.
+The most common mistake is treating Reverse ETL as a data pipeline problem instead of a data quality problem. Teams spend weeks setting up the sync, then discover the warehouse data itself is wrong, duplicate customer IDs, missing email addresses, or inconsistent segment definitions. Fix your data models first, then pipe them out. Also: do not sync raw, untransformed tables. Only sync models your team has validated and documented. Garbage in, garbage out, but now it is garbage inside your CRM too.
 </Callout>
 
 A second common mistake is syncing too frequently without checking API limits. Facebook Ads, Salesforce, and HubSpot all have rate limits. If your Reverse ETL job fires every 5 minutes on a 2-million-row table, you will hit those limits fast. Start with hourly or daily syncs, then increase cadence only where real-time data actually changes campaign outcomes.

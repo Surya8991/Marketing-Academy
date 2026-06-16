@@ -29,7 +29,7 @@ export function setQuizPassed(category: string, slug: string): void {
   }
 }
 
-/** CustomEvent name dispatched by Quiz when user passes — canonical source: @/lib/events */
+/** CustomEvent name dispatched by Quiz when user passes, canonical source: @/lib/events */
 export { QUIZ_PASSED_EVENT } from "@/lib/events";
 
 /** Prefix for in-progress quiz state keys: ma_quiz_{path} */
@@ -14721,7 +14721,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "A copilot uses multiple tools while an agent relies on a single model",
       ],
       correct: 1,
-      explanation: "A copilot helps you do a task — you remain in the loop for every action. An agent receives a goal, breaks it into steps, executes them using tools, and reports back, only pausing at human-defined checkpoints.",
+      explanation: "A copilot helps you do a task, you remain in the loop for every action. An agent receives a goal, breaks it into steps, executes them using tools, and reports back, only pausing at human-defined checkpoints.",
     },
     {
       question: "According to McKinsey's 2025 research, what type of AI operating model achieves 40% better performance than fully automated approaches?",
@@ -14732,7 +14732,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Approval-gated systems that pause before every single action",
       ],
       correct: 2,
-      explanation: "McKinsey's 2025 research found hybrid models — machines handling execution, humans focusing on strategy — outperform fully automated approaches by 40%.",
+      explanation: "McKinsey's 2025 research found hybrid models, machines handling execution, humans focusing on strategy, outperform fully automated approaches by 40%.",
     },
     {
       question: "When should you automate the final publishing step after initially running your agent in 'draft mode'?",
@@ -14759,7 +14759,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
   ],
   "ai-marketing/ai-competitive-intelligence": [
     {
-      question: "Which tool is specifically highlighted for scoring battlecard quality and flagging when a card goes stale — a feature its main competitor lacks?",
+      question: "Which tool is specifically highlighted for scoring battlecard quality and flagging when a card goes stale, a feature its main competitor lacks?",
       options: [
         "Crayon",
         "Klue",
@@ -14789,7 +14789,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "SEO rank is more accurate for B2B brands than AI share of voice",
       ],
       correct: 1,
-      explanation: "AI share of voice and SEO rank are separate battlefields — a competitor can dominate Google rankings yet have low citation frequency in LLM answers because LLMs favour structured authority signals that differ from traditional SEO factors.",
+      explanation: "AI share of voice and SEO rank are separate battlefields, a competitor can dominate Google rankings yet have low citation frequency in LLM answers because LLMs favour structured authority signals that differ from traditional SEO factors.",
     },
     {
       question: "When using an LLM to mine CRM closed-lost notes for competitive patterns, what four data points should the classification prompt extract?",
@@ -14813,7 +14813,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Retargeting campaigns are cheaper to run than brand-building channels",
       ],
       correct: 1,
-      explanation: "Last-click attribution gives 100% credit to the final touchpoint before conversion. Retargeting pixels are designed to reach users right before they convert, so they almost always appear last — earning full credit even when earlier channels (email, organic search, YouTube) did the actual persuasion work.",
+      explanation: "Last-click attribution gives 100% credit to the final touchpoint before conversion. Retargeting pixels are designed to reach users right before they convert, so they almost always appear last, earning full credit even when earlier channels (email, organic search, YouTube) did the actual persuasion work.",
     },
     {
       question: "What is the minimum number of monthly conversions Google recommends for Data-Driven Attribution to train reliably in GA4?",
@@ -14835,7 +14835,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "MMM is built into GA4 and Google automatically updates it as cookies are phased out",
       ],
       correct: 1,
-      explanation: "MMM works by analyzing aggregate channel spend versus revenue over time — it never tracks individual users, clicks, or cookies. This makes it privacy-safe and fully functional even after third-party cookie deprecation.",
+      explanation: "MMM works by analyzing aggregate channel spend versus revenue over time, it never tracks individual users, clicks, or cookies. This makes it privacy-safe and fully functional even after third-party cookie deprecation.",
     },
     {
       question: "In incrementality testing, what is the purpose of a holdout group?",
@@ -14846,7 +14846,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "A group of high-LTV customers excluded from testing to protect revenue",
       ],
       correct: 1,
-      explanation: "A holdout group is a control group (typically 20% of the audience) that is completely excluded from a campaign. Comparing their conversion rate to the exposed group reveals the true incremental lift — revenue that exists only because the campaign ran.",
+      explanation: "A holdout group is a control group (typically 20% of the audience) that is completely excluded from a campaign. Comparing their conversion rate to the exposed group reveals the true incremental lift, revenue that exists only because the campaign ran.",
     },
   ],
   "ai-marketing/llm-fine-tuning-brand-voice": [
@@ -14859,7 +14859,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Prompting is more expensive than fine-tuning at scale",
       ],
       correct: 1,
-      explanation: "Fine-tuning bakes your brand voice into the model's weights so it generates your style automatically, while prompting requires sending style instructions with every API call — making fine-tuning far more consistent and efficient at scale.",
+      explanation: "Fine-tuning bakes your brand voice into the model's weights so it generates your style automatically, while prompting requires sending style instructions with every API call, making fine-tuning far more consistent and efficient at scale.",
     },
     {
       question: "What is the recommended minimum number of brand-approved samples needed to fine-tune a model for brand voice?",
@@ -14870,7 +14870,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "At least 10,000 samples",
       ],
       correct: 1,
-      explanation: "Fewer than 50 samples causes the model to mostly memorize rather than generalize, while more than 500 samples hits diminishing returns for most brands — so 50-500 is the practical sweet spot.",
+      explanation: "Fewer than 50 samples causes the model to mostly memorize rather than generalize, while more than 500 samples hits diminishing returns for most brands, so 50-500 is the practical sweet spot.",
     },
     {
       question: "What does LoRA (Low-Rank Adaptation) do during fine-tuning?",
@@ -14892,7 +14892,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Niche terminology collapse",
       ],
       correct: 2,
-      explanation: "Overfitting means the model memorized training examples too literally instead of learning the underlying style patterns — it can be fixed by reducing training epochs, using more diverse examples, or increasing the LoRA rank.",
+      explanation: "Overfitting means the model memorized training examples too literally instead of learning the underlying style patterns, it can be fixed by reducing training epochs, using more diverse examples, or increasing the LoRA rank.",
     },
   ],
   "ai-marketing/synthetic-audience-testing": [
@@ -14905,7 +14905,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Building personas from publicly available industry reports",
       ],
       correct: 1,
-      explanation: "Synthetic personas produce accurate feedback only when built from your actual customer data — interview transcripts, CRM patterns, support tickets — not generic assumptions. A stereotype-based persona will mislead; a data-grounded one catches real objections your audience actually raises.",
+      explanation: "Synthetic personas produce accurate feedback only when built from your actual customer data, interview transcripts, CRM patterns, support tickets, not generic assumptions. A stereotype-based persona will mislead; a data-grounded one catches real objections your audience actually raises.",
     },
     {
       question: "Which of the following is a hard limit of synthetic audience testing?",
@@ -14938,7 +14938,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "RIWI",
       ],
       correct: 3,
-      explanation: "RIWI takes a hybrid approach — releasing real surveys to actual respondents, then using AI to dig deeper with follow-up questions and test variations at scale. It is best suited for teams that want a mix of real and synthetic validation.",
+      explanation: "RIWI takes a hybrid approach, releasing real surveys to actual respondents, then using AI to dig deeper with follow-up questions and test variations at scale. It is best suited for teams that want a mix of real and synthetic validation.",
     },
   ],
   "analytics/ai-powered-insights": [
@@ -14951,7 +14951,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "It generates weekly PDF reports for stakeholders",
       ],
       correct: 1,
-      explanation: "Root-cause analysis correlates an anomaly against dimensions like device, browser, geography, and traffic source to surface the slice that explains the most variance — turning a raw percentage drop into an actionable finding.",
+      explanation: "Root-cause analysis correlates an anomaly against dimensions like device, browser, geography, and traffic source to surface the slice that explains the most variance, turning a raw percentage drop into an actionable finding.",
     },
     {
       question: "Why must data quality be validated before acting on AI-generated anomaly alerts?",
@@ -14962,7 +14962,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Data quality checks are required by GDPR before any automated analysis",
       ],
       correct: 1,
-      explanation: "A mislabeled event or broken analytics tag can cause an event that normally fires 10,000 times per day to fire 200 times, which looks identical to a genuine traffic drop — making data validation a prerequisite before escalating any alert.",
+      explanation: "A mislabeled event or broken analytics tag can cause an event that normally fires 10,000 times per day to fire 200 times, which looks identical to a genuine traffic drop, making data validation a prerequisite before escalating any alert.",
     },
     {
       question: "What is the recommended role split between AI analytics systems and human analysts?",
@@ -14989,7 +14989,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
   ],
   "analytics/composable-cdp": [
     {
-      question: "What is the core mechanism that makes a composable CDP work — pushing warehouse data back into operational tools like Salesforce or Meta Ads?",
+      question: "What is the core mechanism that makes a composable CDP work, pushing warehouse data back into operational tools like Salesforce or Meta Ads?",
       options: [
         "Traditional ETL pipelines",
         "Reverse ETL",
@@ -15008,7 +15008,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "10 times",
       ],
       correct: 2,
-      explanation: "Composable CDP vendors grew employment by 7.8% versus the 1.3% industry average — nearly six times faster — signaling a structural market shift toward warehouse-native architecture.",
+      explanation: "Composable CDP vendors grew employment by 7.8% versus the 1.3% industry average, nearly six times faster, signaling a structural market shift toward warehouse-native architecture.",
     },
     {
       question: "Which company acquired Census in May 2025, signaling the mainstreaming of Reverse ETL into the broader data movement market?",
@@ -15054,7 +15054,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "95%",
       ],
       correct: 2,
-      explanation: "Running 20 independent tests at 0.05 significance means the probability of at least one false positive is roughly 64%, not 5% — this is why Bonferroni correction or sequential testing is needed when running multiple simultaneous experiments.",
+      explanation: "Running 20 independent tests at 0.05 significance means the probability of at least one false positive is roughly 64%, not 5%, this is why Bonferroni correction or sequential testing is needed when running multiple simultaneous experiments.",
     },
     {
       question: "What does 'peeking' mean in the context of A/B testing, and why is it dangerous?",
@@ -15100,7 +15100,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "It assigns a new owner to the metric",
       ],
       correct: 1,
-      explanation: "Data lineage documents where data comes from and what depends on it, so when an upstream source breaks you immediately know which reports, dashboards, and decisions are affected — enabling targeted remediation.",
+      explanation: "Data lineage documents where data comes from and what depends on it, so when an upstream source breaks you immediately know which reports, dashboards, and decisions are affected, enabling targeted remediation.",
     },
     {
       question: "Under GDPR, CCPA, and India's DPDP Act, why must opted-out emails be retained for up to 3 years rather than deleted immediately?",
@@ -15122,7 +15122,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "A RACI matrix for all datasets",
       ],
       correct: 1,
-      explanation: "Month 3 of the starter plan is dedicated to establishing a UTM naming standard — defining consistent values for medium, source, and campaign — so that campaign data rolls up cleanly without manual reconciliation.",
+      explanation: "Month 3 of the starter plan is dedicated to establishing a UTM naming standard, defining consistent values for medium, source, and campaign, so that campaign data rolls up cleanly without manual reconciliation.",
     },
   ],
   "analytics/signal-based-measurement": [
@@ -15157,7 +15157,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "It matches anonymous visitors to known customers via hashed identifiers",
       ],
       correct: 1,
-      explanation: "Incrementality testing uses controlled holdout groups to determine whether a channel is genuinely driving new revenue or merely capturing demand that would have converted regardless — the only way to establish true causal lift.",
+      explanation: "Incrementality testing uses controlled holdout groups to determine whether a channel is genuinely driving new revenue or merely capturing demand that would have converted regardless, the only way to establish true causal lift.",
     },
     {
       question: "Why is probabilistic identity matching considered insufficient for conversion attribution on its own?",
@@ -15168,7 +15168,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "It only works for mobile app traffic, not web",
       ],
       correct: 2,
-      explanation: "Probabilistic matching estimates identity from device fingerprint and behavioral signals rather than confirming it, making it directional at best — reliable enough for top-of-funnel insight but not accurate enough to justify budget allocation decisions.",
+      explanation: "Probabilistic matching estimates identity from device fingerprint and behavioral signals rather than confirming it, making it directional at best, reliable enough for top-of-funnel insight but not accurate enough to justify budget allocation decisions.",
     },
   ],
   "brand-strategy/brand-in-ai-era": [
@@ -15181,7 +15181,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Number of pages indexed by Google",
       ],
       correct: 1,
-      explanation: "Brand search volume has a 0.334 correlation with LLM citations — outweighing traditional backlinks. LLMs surface brands from patterns in training data, and brands people search for frequently appear more in that data.",
+      explanation: "Brand search volume has a 0.334 correlation with LLM citations, outweighing traditional backlinks. LLMs surface brands from patterns in training data, and brands people search for frequently appear more in that data.",
     },
     {
       question: "Why does a brand having a consistent voice across the web specifically help with LLM visibility?",
@@ -15214,7 +15214,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Content volume increases faster than audiences can consume it",
       ],
       correct: 1,
-      explanation: "When competitors all use the same LLM for positioning and ad copy, outputs converge on near-identical sentence structures and tonal registers — collapsing distinctiveness. The guardrail is a brand voice document applied after AI drafting.",
+      explanation: "When competitors all use the same LLM for positioning and ad copy, outputs converge on near-identical sentence structures and tonal registers, collapsing distinctiveness. The guardrail is a brand voice document applied after AI drafting.",
     },
   ],
   "brand-strategy/global-vs-local-brand": [
@@ -15238,7 +15238,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Administrative distance due to currency differences",
       ],
       correct: 2,
-      explanation: "The CAGE framework flags cultural distance as high when norms, values, and preferences differ sharply — and Sweden to Saudi Arabia on gender roles in advertising is given as a direct example of high cultural distance that demands adaptation.",
+      explanation: "The CAGE framework flags cultural distance as high when norms, values, and preferences differ sharply, and Sweden to Saudi Arabia on gender roles in advertising is given as a direct example of high cultural distance that demands adaptation.",
     },
     {
       question: "Which scenario justifies a pure standardisation strategy rather than local adaptation?",
@@ -15273,7 +15273,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Organic growth, public access, and algorithm-driven reach",
       ],
       correct: 1,
-      explanation: "A micro-community is defined by exclusivity (entry requires invitation or qualification), reciprocity (members help members), and structure (regular rituals, clear values, active curation) — not simply by platform or size.",
+      explanation: "A micro-community is defined by exclusivity (entry requires invitation or qualification), reciprocity (members help members), and structure (regular rituals, clear values, active curation), not simply by platform or size.",
     },
     {
       question: "Why do peer-to-peer recommendations inside a micro-community carry more weight than brand-to-person recommendations?",
@@ -15284,10 +15284,10 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Brands are legally required to disclose paid promotions, reducing credibility",
       ],
       correct: 1,
-      explanation: "In a micro-community, members have skin in the game and know each other's work, so recommendations from peers feel genuine rather than promotional — the community shifts trust from brand-to-person to person-to-person.",
+      explanation: "In a micro-community, members have skin in the game and know each other's work, so recommendations from peers feel genuine rather than promotional, the community shifts trust from brand-to-person to person-to-person.",
     },
     {
-      question: "Which metric is described as the healthiest signal of micro-community vitality — and why are raw member counts called 'vanity metrics'?",
+      question: "Which metric is described as the healthiest signal of micro-community vitality, and why are raw member counts called 'vanity metrics'?",
       options: [
         "Total post volume, because more content means more value",
         "Active member rate and contribution ratio, because they measure real participation and peer-to-peer engagement",
@@ -15319,7 +15319,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "A PR strategy where the company takes blame for founder mistakes",
       ],
       correct: 1,
-      explanation: "Trust transfer occurs because people trust people before institutions — a founder's personal credibility flows directly to the company, making customers and investors more likely to choose it over rivals.",
+      explanation: "Trust transfer occurs because people trust people before institutions, a founder's personal credibility flows directly to the company, making customers and investors more likely to choose it over rivals.",
     },
     {
       question: "Why are founder-led brands harder to sell in M&A deals compared to company-led brands?",
@@ -15330,7 +15330,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Founders always retain veto rights under standard acquisition law",
       ],
       correct: 2,
-      explanation: "A buyer acquiring a founder-led company faces the risk that the brand's core value — the founder — will exit after the deal, making the premium paid essentially worthless. Company-led brands retain value because the brand survives any individual's departure.",
+      explanation: "A buyer acquiring a founder-led company faces the risk that the brand's core value, the founder, will exit after the deal, making the premium paid essentially worthless. Company-led brands retain value because the brand survives any individual's departure.",
     },
     {
       question: "According to the lesson's transition plan, what should happen in Year 2 of moving from founder brand to institutional brand?",
@@ -15365,7 +15365,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "An equal mix of all three groups",
       ],
       correct: 1,
-      explanation: "The 9% are the amplifiers — they engage without creating, and their reactions and shares create a feedback loop that surfaces the best content from the 1% to the 90%. Designing for them (easy reactions, voting, low-effort commenting) multiplies overall impact.",
+      explanation: "The 9% are the amplifiers, they engage without creating, and their reactions and shares create a feedback loop that surfaces the best content from the 1% to the 90%. Designing for them (easy reactions, voting, low-effort commenting) multiplies overall impact.",
     },
     {
       question: "Which community-driven content model turns your audience into researchers by aggregating their survey responses into publishable findings?",
@@ -15376,7 +15376,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Community Q&A",
       ],
       correct: 2,
-      explanation: "Crowdsourced research involves asking your audience a specific question, collecting their answers, and publishing the aggregated data as a trend report or study — giving the content built-in credibility because it reflects real data from real people.",
+      explanation: "Crowdsourced research involves asking your audience a specific question, collecting their answers, and publishing the aggregated data as a trend report or study, giving the content built-in credibility because it reflects real data from real people.",
     },
     {
       question: "Stack Overflow's success as a community-driven content platform is primarily attributed to which factor?",
@@ -15387,7 +15387,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "AI-generated summaries of developer questions",
       ],
       correct: 2,
-      explanation: "Stack Overflow outranks official documentation because community members answer the exact questions people search for, using the language and constraints searchers actually have — a velocity and precision no corporate documentation team can match.",
+      explanation: "Stack Overflow outranks official documentation because community members answer the exact questions people search for, using the language and constraints searchers actually have, a velocity and precision no corporate documentation team can match.",
     },
     {
       question: "When starting with community-driven content, what approach does the lesson recommend for a small but highly engaged audience?",
@@ -15398,7 +15398,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Wait until the audience grows before attempting any community model",
       ],
       correct: 1,
-      explanation: "A small, highly engaged community is best matched with co-creation or crowdsourced research because these models require active participation and deeper investment from contributors — a quality that engaged (not just large) audiences provide.",
+      explanation: "A small, highly engaged community is best matched with co-creation or crowdsourced research because these models require active participation and deeper investment from contributors, a quality that engaged (not just large) audiences provide.",
     },
   ],
   "content/content-localization": [
@@ -15444,7 +15444,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Brand Voice Consistency",
       ],
       correct: 1,
-      explanation: "Fluency measures whether content reads naturally in the target language — native speakers should not detect that it was adapted or translated from another language.",
+      explanation: "Fluency measures whether content reads naturally in the target language, native speakers should not detect that it was adapted or translated from another language.",
     },
   ],
   "content/content-velocity-with-ai": [
@@ -15460,7 +15460,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
       explanation: "Google's March 2024 core update targeted low-quality AI content that ignored E-E-A-T signals, with affected sites seeing ranking drops of 20-40%. E-E-A-T (Experience, Expertise, Authoritativeness, Trust) signals like author bylines, cited sources, and real examples are what separate quality content from noise.",
     },
     {
-      question: "In the three-pass human-AI workflow, what is the specific role of Pass 2 — the human editing stage?",
+      question: "In the three-pass human-AI workflow, what is the specific role of Pass 2, the human editing stage?",
       options: [
         "Running the final quality check and approving content before it publishes",
         "Generating the first draft from a structured brief in 2-4 minutes",
@@ -15468,13 +15468,13 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Checking for E-E-A-T signals and adding author credentials",
       ],
       correct: 2,
-      explanation: "Pass 2 is where a writer or content marketer reviews for accuracy, brand voice, and any claims needing sources — crucially adding anecdotes, specific examples, and sentences only someone with real experience could write. AI drafts the structure; humans inject the judgment and lived experience.",
+      explanation: "Pass 2 is where a writer or content marketer reviews for accuracy, brand voice, and any claims needing sources, crucially adding anecdotes, specific examples, and sentences only someone with real experience could write. AI drafts the structure; humans inject the judgment and lived experience.",
     },
     {
       question: "According to the content repurposing pipeline example, how many content pieces can be extracted from a single 40-minute interview?",
       options: [
-        "3 pieces — a blog post, a newsletter section, and social posts",
-        "5 pieces — one per major distribution channel",
+        "3 pieces, a blog post, a newsletter section, and social posts",
+        "5 pieces, one per major distribution channel",
         "8 pieces across blog, newsletter, LinkedIn posts, video clips, and a Twitter thread",
         "10 pieces using full AI automation of the transcript",
       ],
@@ -15484,13 +15484,13 @@ export const QUIZZES: Record<string, Quiz[]> = {
     {
       question: "What does a 'minimum effective brief' for AI drafting require, and why do teams treat prompts as governed assets?",
       options: [
-        "Only a topic and word count — AI fills in the rest based on its training data",
-        "Topic and angle, target persona, word count/format, tone notes, must-include, and must-avoid — because teams managing prompt libraries see dramatic consistency gains",
-        "A competitor analysis and keyword list — so AI can optimize for search rankings from the start",
-        "A sample article for AI to mimic and a content calendar slot — consistency comes from scheduling",
+        "Only a topic and word count, AI fills in the rest based on its training data",
+        "Topic and angle, target persona, word count/format, tone notes, must-include, and must-avoid, because teams managing prompt libraries see dramatic consistency gains",
+        "A competitor analysis and keyword list, so AI can optimize for search rankings from the start",
+        "A sample article for AI to mimic and a content calendar slot, consistency comes from scheduling",
       ],
       correct: 1,
-      explanation: "A minimum effective brief includes topic + angle, target persona, word count + format, tone notes, must-include items, and must-avoid items. Teams that treat prompts as governed assets rather than one-off inputs see dramatic consistency gains — Optimizely found early adopters managing prompt libraries created 53 reusable agents in a single month.",
+      explanation: "A minimum effective brief includes topic + angle, target persona, word count + format, tone notes, must-include items, and must-avoid items. Teams that treat prompts as governed assets rather than one-off inputs see dramatic consistency gains, Optimizely found early adopters managing prompt libraries created 53 reusable agents in a single month.",
     },
   ],
   "content/original-research-content": [
@@ -15525,7 +15525,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Email your full list a link to the raw data spreadsheet",
       ],
       correct: 2,
-      explanation: "Week 1 focuses on owned and earned channels — pitching journalists with the top 3 stats and a clear story angle, not the report itself, to maximize earned media coverage.",
+      explanation: "Week 1 focuses on owned and earned channels, pitching journalists with the top 3 stats and a clear story angle, not the report itself, to maximize earned media coverage.",
     },
     {
       question: "Why does labeling a survey report 'annual' provide a strategic content advantage?",
@@ -15549,7 +15549,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Design infographics first, then narrate them as video content",
       ],
       correct: 1,
-      explanation: "A video-first strategy inverts the old blog-to-clips waterfall: you record a deep-dive video once, then extract the transcript as a blog post, pull quotes as carousels, clips as Shorts, and stats as infographics — production effort happens upfront and multiplies across platforms.",
+      explanation: "A video-first strategy inverts the old blog-to-clips waterfall: you record a deep-dive video once, then extract the transcript as a blog post, pull quotes as carousels, clips as Shorts, and stats as infographics, production effort happens upfront and multiplies across platforms.",
     },
     {
       question: "Which video production element matters MORE than resolution quality?",
@@ -15560,7 +15560,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Studio background and set design",
       ],
       correct: 0,
-      explanation: "Bad lighting and bad audio are dealbreakers for viewers, while bad resolution is not — a phone shooting 4K with poor audio will underperform a lower-res video with clear sound and good light.",
+      explanation: "Bad lighting and bad audio are dealbreakers for viewers, while bad resolution is not, a phone shooting 4K with poor audio will underperform a lower-res video with clear sound and good light.",
     },
     {
       question: "What is the recommended view-through rate target, and what does a 25% rate signal?",
@@ -15571,7 +15571,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Target 30%+; a 25% rate is acceptable for long-form content",
       ],
       correct: 1,
-      explanation: "A 50%+ view-through rate is the benchmark for strong retention; if only 25% of viewers finish, the video has a problem with its hook, pacing, or value delivery — not necessarily its topic or length.",
+      explanation: "A 50%+ view-through rate is the benchmark for strong retention; if only 25% of viewers finish, the video has a problem with its hook, pacing, or value delivery, not necessarily its topic or length.",
     },
     {
       question: "Why do specific CTAs outperform generic ones like 'like and subscribe'?",
@@ -15582,7 +15582,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Generic CTAs confuse viewers who are watching on mobile without sound",
       ],
       correct: 1,
-      explanation: "Specific CTAs — such as asking viewers to comment their biggest challenge for a promised follow-up — give viewers a clear, low-friction action with an immediate reward, which drives 5x more engagement than vague requests.",
+      explanation: "Specific CTAs, such as asking viewers to comment their biggest challenge for a promised follow-up, give viewers a clear, low-friction action with an immediate reward, which drives 5x more engagement than vague requests.",
     },
   ],
   "copywriting/ai-human-copy-collaboration": [
@@ -15617,7 +15617,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Constraints",
       ],
       correct: 3,
-      explanation: "Constraints — telling AI what NOT to do, which clichés to avoid, which tone to reject — is the most underused component and does more to eliminate bad output than adding more detail about what you want.",
+      explanation: "Constraints, telling AI what NOT to do, which clichés to avoid, which tone to reject, is the most underused component and does more to eliminate bad output than adding more detail about what you want.",
     },
     {
       question: "When should you regenerate an AI draft rather than continuing to edit it?",
@@ -15628,7 +15628,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "When the AI uses passive voice more than twice",
       ],
       correct: 2,
-      explanation: "If you find yourself rewriting more than 60% of an AI draft, the problem is the brief — fixing the brief and regenerating is faster than spending time editing a draft that was never close to the target.",
+      explanation: "If you find yourself rewriting more than 60% of an AI draft, the problem is the brief, fixing the brief and regenerating is faster than spending time editing a draft that was never close to the target.",
     },
   ],
   "copywriting/conversational-copy": [
@@ -15644,7 +15644,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
       explanation: "Formal corporate language creates psychological distance through three mechanisms: it signals institutional power imbalance (reducing trust), forces the brain to burn energy translating jargon (cognitive load), and implies rules and penalties rather than partnership (reduced perceived safety).",
     },
     {
-      question: "Which of the following is an example of 'nominalisation' — one of the key symptoms of corporate copy disease?",
+      question: "Which of the following is an example of 'nominalisation', one of the key symptoms of corporate copy disease?",
       options: [
         "Using passive voice instead of active voice",
         "Writing 'utilisation of analytics' instead of 'we use analytics'",
@@ -15663,7 +15663,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "When it uses second-person pronouns like 'you' and 'your'",
       ],
       correct: 2,
-      explanation: "The read-aloud test judges copy by whether it sounds natural when spoken. If saying a phrase out loud — like 'We leverage synergies across verticals' — would feel ridiculous in casual conversation, that awkwardness signals the writing is too formal and needs rewriting.",
+      explanation: "The read-aloud test judges copy by whether it sounds natural when spoken. If saying a phrase out loud, like 'We leverage synergies across verticals', would feel ridiculous in casual conversation, that awkwardness signals the writing is too formal and needs rewriting.",
     },
     {
       question: "In which context does the lesson say conversational copy is NOT appropriate?",
@@ -15674,7 +15674,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "404 error pages",
       ],
       correct: 2,
-      explanation: "Legal disclaimers require formal, legally precise language because conversational tone in legal copy can create liability. All other listed contexts — onboarding, payment confirmations, and error pages — are explicitly cited as places where conversational copy wins.",
+      explanation: "Legal disclaimers require formal, legally precise language because conversational tone in legal copy can create liability. All other listed contexts, onboarding, payment confirmations, and error pages, are explicitly cited as places where conversational copy wins.",
     },
   ],
   "copywriting/copy-for-ai-search": [
@@ -15715,12 +15715,12 @@ export const QUIZZES: Record<string, Quiz[]> = {
       question: "What does 'entity authority across the web' mean in the context of AI search citation, and how does it differ from traditional SEO backlinks?",
       options: [
         "It means having a high domain authority score from tools like Moz or Ahrefs",
-        "It refers to being consistently associated with a topic across multiple sources — blogs, podcasts, forums — so AI models recognize topical authority",
+        "It refers to being consistently associated with a topic across multiple sources, blogs, podcasts, forums, so AI models recognize topical authority",
         "It means getting cited by government or academic websites, which carry more weight than commercial backlinks",
         "It refers to optimizing your Google My Business profile so local AI searches surface your brand",
       ],
       correct: 1,
-      explanation: "Entity authority is about topical consistency across the web — repeated mentions in the same subject context on podcasts, interviews, forums, and publications. This differs from backlink-based SEO, which focuses on link quantity and domain strength.",
+      explanation: "Entity authority is about topical consistency across the web, repeated mentions in the same subject context on podcasts, interviews, forums, and publications. This differs from backlink-based SEO, which focuses on link quantity and domain strength.",
     },
   ],
   "copywriting/video-script-writing": [
@@ -15733,7 +15733,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "1 second",
       ],
       correct: 2,
-      explanation: "Short-form platforms algorithmically measure drop-off within the first 3 seconds, making the opening line a 'trap' — not an introduction — that must immediately give the viewer a reason to stay.",
+      explanation: "Short-form platforms algorithmically measure drop-off within the first 3 seconds, making the opening line a 'trap', not an introduction, that must immediately give the viewer a reason to stay.",
     },
     {
       question: "In the 3-act structure for 60-90 second videos, why should you never stack multiple CTAs at the end?",
@@ -15744,7 +15744,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "It makes the video exceed the 90-second time limit",
       ],
       correct: 1,
-      explanation: "When viewers face more than one action to choose from, decision paralysis sets in and they typically take no action at all — one clear CTA always outperforms multiple competing ones.",
+      explanation: "When viewers face more than one action to choose from, decision paralysis sets in and they typically take no action at all, one clear CTA always outperforms multiple competing ones.",
     },
     {
       question: "Where should the mid-video CTA appear in a long-form YouTube script, and why?",
@@ -15779,15 +15779,15 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Only the prompt factor can prevent behavior when absent",
       ],
       correct: 1,
-      explanation: "Fogg's model is multiplicative — if Motivation, Ability, or Prompt is zero, the product is zero and no behavior occurs. All three must be non-zero and must converge at the same moment.",
+      explanation: "Fogg's model is multiplicative, if Motivation, Ability, or Prompt is zero, the product is zero and no behavior occurs. All three must be non-zero and must converge at the same moment.",
     },
     {
       question: "A user lands on a signup page already motivated to sign up but abandons when they see an 8-field form. Which prompt type should you use to recover these users?",
       options: [
-        "Spark — to increase their motivation further",
-        "Signal — to confirm they are ready to act",
-        "Facilitator — to lower the friction blocking action",
-        "Social proof prompt — to reinforce their decision with peer behavior",
+        "Spark, to increase their motivation further",
+        "Signal, to confirm they are ready to act",
+        "Facilitator, to lower the friction blocking action",
+        "Social proof prompt, to reinforce their decision with peer behavior",
       ],
       correct: 2,
       explanation: "A facilitator prompt is designed for users who have high motivation but low ability. Replacing the long form with one-click social login or progressive profiling lowers friction, enabling the behavior that motivation has already primed.",
@@ -15798,7 +15798,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "The conversion gains compound over time as users become habituated",
         "Refund rates and churn rise 5-7x, destroying customer lifetime value",
         "Dark patterns have no measurable effect on churn if the product is good",
-        "The ethical cost is reputational only — financial metrics remain positive",
+        "The ethical cost is reputational only, financial metrics remain positive",
       ],
       correct: 2,
       explanation: "Dark patterns trade short-term conversion gains for catastrophically higher refund and churn rates. The 5-7x increase in churn and refunds means lifetime value collapses, making ethical design the superior strategy on financial metrics alone.",
@@ -15812,7 +15812,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Social leaderboards that increase motivation through competition",
       ],
       correct: 2,
-      explanation: "Repeating a small, high-ability behavior over the first few days builds a neural pathway, making the action feel automatic by day 7. This is the 'tiny habits' mechanism — small repetitions eliminate resistance rather than relying on motivation or rewards.",
+      explanation: "Repeating a small, high-ability behavior over the first few days builds a neural pathway, making the action feel automatic by day 7. This is the 'tiny habits' mechanism, small repetitions eliminate resistance rather than relying on motivation or rewards.",
     },
   ],
   "cro/saas-cro": [
@@ -15825,13 +15825,13 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Upgrade them to a paid plan forcibly",
       ],
       correct: 1,
-      explanation: "Users who haven't hit their aha moment won't respond to conversion emails — extending the trial behaviorally gives them the time needed to experience value before being pushed to upgrade.",
+      explanation: "Users who haven't hit their aha moment won't respond to conversion emails, extending the trial behaviorally gives them the time needed to experience value before being pushed to upgrade.",
     },
     {
       question: "What is the primary reason opt-out trials (credit card required) convert at nearly 3x the rate of opt-in trials?",
       options: [
         "They attract users with higher incomes",
-        "They signal intent — users who enter payment details are already committed",
+        "They signal intent, users who enter payment details are already committed",
         "They automatically charge users who forget to cancel",
         "They reduce the trial length, creating urgency",
       ],
@@ -15847,7 +15847,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "On the homepage only, not the pricing page",
       ],
       correct: 2,
-      explanation: "Social proof placed at the moment of decision — near the CTA — converts better than a logo strip above the fold because it reinforces confidence exactly when the user is weighing whether to act.",
+      explanation: "Social proof placed at the moment of decision, near the CTA, converts better than a logo strip above the fold because it reinforces confidence exactly when the user is weighing whether to act.",
     },
     {
       question: "Which SaaS CRO metric indicates that expansion revenue from existing accounts outpaces customer cancellations, resulting in overall growth without new customers?",
@@ -15882,7 +15882,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Verified badge + review excerpt only",
       ],
       correct: 0,
-      explanation: "All six widget elements — star rating, review count, recency indicator, verified badge, review excerpt, and reviewer context (name/photo/title) — together produce 8-15% conversion lift. Removing any single element cuts effectiveness by 20-30%.",
+      explanation: "All six widget elements, star rating, review count, recency indicator, verified badge, review excerpt, and reviewer context (name/photo/title), together produce 8-15% conversion lift. Removing any single element cuts effectiveness by 20-30%.",
     },
     {
       question: "A B2B SaaS company has a case study proving fast Salesforce integration. Where should it be placed for maximum conversion impact?",
@@ -15893,7 +15893,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "In the footer alongside certification badges",
       ],
       correct: 0,
-      explanation: "Case studies convert 5x better when placed next to the specific objection they overcome. Proximity to doubt is the mechanism — a case study answering 'integration complexity' must appear at the integration objection point, not grouped at the bottom of the page.",
+      explanation: "Case studies convert 5x better when placed next to the specific objection they overcome. Proximity to doubt is the mechanism, a case study answering 'integration complexity' must appear at the integration objection point, not grouped at the bottom of the page.",
     },
     {
       question: "Which type of social proof has the highest conversion power but is hardest to scale?",
@@ -15904,7 +15904,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Certification social proof",
       ],
       correct: 0,
-      explanation: "Friends/network social proof converts highest because trust is strongest from people you personally know — referral rates are 4x higher than cold traffic. However, it requires personalization (named friends or colleagues) and cannot be manufactured, making it the hardest type to scale.",
+      explanation: "Friends/network social proof converts highest because trust is strongest from people you personally know, referral rates are 4x higher than cold traffic. However, it requires personalization (named friends or colleagues) and cannot be manufactured, making it the hardest type to scale.",
     },
   ],
   "email/ai-email-personalization-scale": [
@@ -15928,7 +15928,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "They are the only signal compatible with LLM prompt injection",
       ],
       correct: 1,
-      explanation: "Predictive scores such as predicted LTV, churn probability, and next-purchase likelihood enable proactive personalization — messaging subscribers based on their likely future behavior rather than only reacting to past actions.",
+      explanation: "Predictive scores such as predicted LTV, churn probability, and next-purchase likelihood enable proactive personalization, messaging subscribers based on their likely future behavior rather than only reacting to past actions.",
     },
     {
       question: "What is the main guardrail against hallucination risk in AI-generated product recommendation emails?",
@@ -15985,7 +15985,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "180% drop in unsubscribe rate",
       ],
       correct: 1,
-      explanation: "Razorpay achieved a 257% improvement in survey response rates by removing the redirect friction — recipients could submit the form directly inside the email without clicking out to a landing page.",
+      explanation: "Razorpay achieved a 257% improvement in survey response rates by removing the redirect friction, recipients could submit the form directly inside the email without clicking out to a landing page.",
     },
     {
       question: "Which ESP in 2026 was built specifically around AMP email and offers the strongest out-of-the-box AMP support?",
@@ -16042,7 +16042,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Assume consent because they provided a phone number during checkout",
       ],
       correct: 1,
-      explanation: "Email and SMS are legally separate channels — an email opt-in does NOT constitute SMS consent. Explicit, separately collected consent (with stored timestamps) is required before sending any promotional SMS.",
+      explanation: "Email and SMS are legally separate channels, an email opt-in does NOT constitute SMS consent. Explicit, separately collected consent (with stored timestamps) is required before sending any promotional SMS.",
     },
   ],
   "email/inbox-placement-science": [
@@ -16077,7 +16077,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Your DKIM signature has expired and mail is being deferred",
       ],
       correct: 2,
-      explanation: "Flat bounce rates mean mail is being accepted by the ISP, so a sudden open-rate drop without bounce movement points to placement in spam or promotions — not rejection. Authentication fixes and inbox placement testing are the next diagnostic steps.",
+      explanation: "Flat bounce rates mean mail is being accepted by the ISP, so a sudden open-rate drop without bounce movement points to placement in spam or promotions, not rejection. Authentication fixes and inbox placement testing are the next diagnostic steps.",
     },
     {
       question: "In the DMARC progression, what is the correct order of policy stages from start to gold standard?",
@@ -16101,7 +16101,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "You rely on inbound content to attract prospects organically",
       ],
       correct: 1,
-      explanation: "ABM starts with a defined list of named accounts and builds marketing programs around those exact companies, as opposed to casting wide and filtering — making precision targeting the core distinction.",
+      explanation: "ABM starts with a defined list of named accounts and builds marketing programs around those exact companies, as opposed to casting wide and filtering, making precision targeting the core distinction.",
     },
     {
       question: "Only about 5% of your target market is actively in-market at any given time. Which TAL input helps you identify which accounts fall into that 5%?",
@@ -16129,7 +16129,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
       question: "What is the primary headline metric that justifies ABM investment to leadership?",
       options: [
         "Number of Marketing Qualified Leads (MQLs) generated",
-        "Pipeline Influenced — what percentage of open pipeline touched an ABM program",
+        "Pipeline Influenced, what percentage of open pipeline touched an ABM program",
         "Cost per lead compared to demand generation programs",
         "Total number of accounts reached with account-matched advertising",
       ],
@@ -16169,14 +16169,14 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "An open-source developer tool with active contributors",
       ],
       correct: 2,
-      explanation: "Purely transactional products with no natural reason for users to interact with each other — like a one-time tax filing tool — are poor fits for CLG because community requires ongoing shared interest or problems to sustain engagement.",
+      explanation: "Purely transactional products with no natural reason for users to interact with each other, like a one-time tax filing tool, are poor fits for CLG because community requires ongoing shared interest or problems to sustain engagement.",
     },
     {
       question: "What makes community-led growth structurally different from sales-led or product-led growth in terms of cost?",
       options: [
         "CLG requires more headcount but generates higher revenue per customer",
         "CLG has an upfront platform cost but zero ongoing marketing spend",
-        "CLG compounds — each member creates value that attracts more members without proportional cost increases",
+        "CLG compounds, each member creates value that attracts more members without proportional cost increases",
         "CLG is cheaper only at small scale but becomes expensive as the community grows",
       ],
       correct: 2,
@@ -16193,7 +16193,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "40%",
       ],
       correct: 1,
-      explanation: "69% of the B2B purchase process happens before a buyer talks to sales — this is the territory where demand gen operates, building awareness and educating the market.",
+      explanation: "69% of the B2B purchase process happens before a buyer talks to sales, this is the territory where demand gen operates, building awareness and educating the market.",
     },
     {
       question: "According to the Binet & Field principle endorsed by LinkedIn's 2024 B2B Marketing Benchmark Report, what budget split should favor demand gen?",
@@ -16226,7 +16226,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Lead-to-customer conversion velocity",
       ],
       correct: 2,
-      explanation: "Share of voice measures how often your brand appears in category conversations — a long-term brand health metric. CPL, MQLs, and lead-to-customer velocity are all short-term output metrics associated with lead gen.",
+      explanation: "Share of voice measures how often your brand appears in category conversations, a long-term brand health metric. CPL, MQLs, and lead-to-customer velocity are all short-term output metrics associated with lead gen.",
     },
   ],
   "fundamentals/go-to-market-strategy": [
@@ -16272,7 +16272,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Your sales cycle shortens every quarter",
       ],
       correct: 2,
-      explanation: "One of the four GTM fit criteria is that expansion happens without asking — customers upgrade or add seats organically. Erratic CAC or a shortening cycle alone does not confirm fit; all four criteria must be stable.",
+      explanation: "One of the four GTM fit criteria is that expansion happens without asking, customers upgrade or add seats organically. Erratic CAC or a shortening cycle alone does not confirm fit; all four criteria must be stable.",
     },
   ],
   "fundamentals/revops-for-marketers": [
@@ -16285,7 +16285,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Customer success teams churn customers faster",
       ],
       correct: 1,
-      explanation: "When each department optimizes for its own metric, decisions benefit one function at the expense of the whole — a lead that converts easily might churn fast, or a deal that closes might have broken unit economics. RevOps aligns all three teams around shared revenue outcomes.",
+      explanation: "When each department optimizes for its own metric, decisions benefit one function at the expense of the whole, a lead that converts easily might churn fast, or a deal that closes might have broken unit economics. RevOps aligns all three teams around shared revenue outcomes.",
     },
     {
       question: "In a RevOps model, what metric replaces MQL volume as the primary measure of marketing success?",
@@ -16296,7 +16296,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Number of qualified leads handed to sales",
       ],
       correct: 2,
-      explanation: "RevOps shifts marketing accountability to pipeline influenced, customer acquisition cost, and CAC payback period — metrics that require deals to actually close, making them harder to game than volume-based lead counts.",
+      explanation: "RevOps shifts marketing accountability to pipeline influenced, customer acquisition cost, and CAC payback period, metrics that require deals to actually close, making them harder to game than volume-based lead counts.",
     },
     {
       question: "What does the lead-to-revenue waterfall reveal when only 5% of MQLs convert to SQLs but 30% of SQLs convert to opportunities?",
@@ -16307,7 +16307,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "The marketing automation platform has a data sync error",
       ],
       correct: 1,
-      explanation: "Low MQL-to-SQL conversion with healthy SQL-to-opportunity conversion points to a breakdown at the handoff stage — either marketing is qualifying leads too loosely (poor MQL definition) or sales is not following up properly on the leads it receives.",
+      explanation: "Low MQL-to-SQL conversion with healthy SQL-to-opportunity conversion points to a breakdown at the handoff stage, either marketing is qualifying leads too loosely (poor MQL definition) or sales is not following up properly on the leads it receives.",
     },
     {
       question: "According to data cited on RevOps outcomes, what revenue growth advantage do companies with formal RevOps report over those without?",
@@ -16353,7 +16353,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "The result is only valid if the test ran for at least 30 days",
       ],
       correct: 1,
-      explanation: "If the new page also loaded faster, the conversion lift could be caused by improved speed rather than the design change — a classic confounding variable. An A/A test or isolated speed experiment is needed to separate the two effects.",
+      explanation: "If the new page also loaded faster, the conversion lift could be caused by improved speed rather than the design change, a classic confounding variable. An A/A test or isolated speed experiment is needed to separate the two effects.",
     },
     {
       question: "In the recommended human-AI experimentation workflow, which step is explicitly reserved for human judgment alone?",
@@ -16364,7 +16364,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Deciding whether to ship, kill, or iterate after reviewing results",
       ],
       correct: 3,
-      explanation: "The final ship/kill/iterate decision belongs entirely to humans. AI compresses hypothesis generation, statistical analysis, and data quality flagging, but cannot apply domain context — such as novelty periods or segment behavior differences — needed to judge whether an effect is real and worth acting on.",
+      explanation: "The final ship/kill/iterate decision belongs entirely to humans. AI compresses hypothesis generation, statistical analysis, and data quality flagging, but cannot apply domain context, such as novelty periods or segment behavior differences, needed to judge whether an effect is real and worth acting on.",
     },
   ],
   "growth/b2b-growth-loops": [
@@ -16377,7 +16377,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "A champion builds a business case for company-wide adoption",
       ],
       correct: 1,
-      explanation: "Figma's loop is link-based: a designer shares a file, the recipient must create an account to view it, and real-time collaboration immediately demonstrates the product's value — pulling in more stakeholders over time.",
+      explanation: "Figma's loop is link-based: a designer shares a file, the recipient must create an account to view it, and real-time collaboration immediately demonstrates the product's value, pulling in more stakeholders over time.",
     },
     {
       question: "What metric does Slack use to measure integration ecosystem loop efficiency?",
@@ -16399,7 +16399,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "B2B companies run content-SEO loops that reduce paid ad spend",
       ],
       correct: 2,
-      explanation: "In the champion-led loop, each new department sees ROI demonstrated by an internal advocate and approves its own budget — expansion happens inside an existing account without the marketing and sales spend required to acquire a net-new customer.",
+      explanation: "In the champion-led loop, each new department sees ROI demonstrated by an internal advocate and approves its own budget, expansion happens inside an existing account without the marketing and sales spend required to acquire a net-new customer.",
     },
     {
       question: "According to B2B loop design principles, what must outputs and feedback mechanisms be oriented around for a loop to sustain itself?",
@@ -16410,7 +16410,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Organic content that ranks on Google and drives free trial signups",
       ],
       correct: 1,
-      explanation: "B2C loops succeed on fun and social discovery, but B2B loops require business-oriented outputs — the feedback that compels repetition must be measurable ROI, not entertainment or social status.",
+      explanation: "B2C loops succeed on fun and social discovery, but B2B loops require business-oriented outputs, the feedback that compels repetition must be measurable ROI, not entertainment or social status.",
     },
   ],
   "growth/community-led-growth": [
@@ -16434,7 +16434,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "CQLs are identified by product usage frequency alone",
       ],
       correct: 2,
-      explanation: "Unlike MQLs (form fills) or PQLs (product usage), CQLs are identified by community behavioral signals — such as asking about enterprise pricing or attending events — which indicate self-education and peer validation before a sales interaction.",
+      explanation: "Unlike MQLs (form fills) or PQLs (product usage), CQLs are identified by community behavioral signals, such as asking about enterprise pricing or attending events, which indicate self-education and peer validation before a sales interaction.",
     },
     {
       question: "What is the 'attribution offset model' used to address in CLG measurement?",
@@ -16491,7 +16491,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Because CRM systems require role fields to sync properly",
       ],
       correct: 1,
-      explanation: "Most end users are not decision-makers, so one-size-fits-all upgrade prompts convert poorly. Admins see limit warnings and ROI summaries, billing contacts see renewal reminders, and end users get feature discovery nudges — matching the message to the person with actual buying authority.",
+      explanation: "Most end users are not decision-makers, so one-size-fits-all upgrade prompts convert poorly. Admins see limit warnings and ROI summaries, billing contacts see renewal reminders, and end users get feature discovery nudges, matching the message to the person with actual buying authority.",
     },
     {
       question: "What does the CRM integration pattern in a PLS motion look like?",
@@ -16515,7 +16515,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "200 conversions per month",
       ],
       correct: 1,
-      explanation: "AI Max relies on conversion data to train its algorithm. Below 30 conversions per month, the algorithm is under-trained and defaults to broad, wasteful spending — Standard Search should be used until that threshold is reached.",
+      explanation: "AI Max relies on conversion data to train its algorithm. Below 30 conversions per month, the algorithm is under-trained and defaults to broad, wasteful spending, Standard Search should be used until that threshold is reached.",
     },
     {
       question: "In the recommended 2026 campaign structure, what is Standard Search best used for?",
@@ -16537,7 +16537,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Google restricted broad match to only show ads for exact intent matches",
       ],
       correct: 1,
-      explanation: "Smart Bidding can now evaluate query intent, historical conversion patterns, and audience signals — bidding lower on low-intent variants and higher on high-intent ones, which was not possible with earlier rule-based bidding.",
+      explanation: "Smart Bidding can now evaluate query intent, historical conversion patterns, and audience signals, bidding lower on low-intent variants and higher on high-intent ones, which was not possible with earlier rule-based bidding.",
     },
     {
       question: "What is the recommended structure for AI Max asset groups within a single campaign?",
@@ -16545,10 +16545,10 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "One universal asset group targeting all customer types",
         "One asset group per keyword theme, with up to 20 groups",
         "3-5 asset groups, each targeting a distinct customer segment or intent",
-        "Asset groups are not used in AI Max — only keyword lists apply",
+        "Asset groups are not used in AI Max, only keyword lists apply",
       ],
       correct: 2,
-      explanation: "Creating 3-5 asset groups per campaign — each targeting a different segment like budget buyers, premium buyers, or beginners — lets Google's algorithm allocate budget intelligently across distinct audience intents rather than cannibalizing a single group.",
+      explanation: "Creating 3-5 asset groups per campaign, each targeting a different segment like budget buyers, premium buyers, or beginners, lets Google's algorithm allocate budget intelligently across distinct audience intents rather than cannibalizing a single group.",
     },
   ],
   "paid-ads/amazon-advertising": [
@@ -16561,7 +16561,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "TACoS and ACoS are the same metric reported by different Amazon tools",
       ],
       correct: 0,
-      explanation: "ACoS (Advertising Cost of Sale) divides ad spend by ad-attributed revenue only, while TACoS divides ad spend by all revenue — ads plus organic. TACoS reveals overall business health because it captures whether ads are building organic rank.",
+      explanation: "ACoS (Advertising Cost of Sale) divides ad spend by ad-attributed revenue only, while TACoS divides ad spend by all revenue, ads plus organic. TACoS reveals overall business health because it captures whether ads are building organic rank.",
     },
     {
       question: "What is the recommended 'pro strategy' for Amazon keyword campaigns?",
@@ -16583,7 +16583,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Ad spend is too high and should be redistributed to Sponsored Display",
       ],
       correct: 1,
-      explanation: "TACoS uses total revenue as its denominator. If ACoS stays flat or rises but TACoS falls, it means organic revenue is growing — ads are building organic rank, which is a sign of a healthy flywheel, not a problem.",
+      explanation: "TACoS uses total revenue as its denominator. If ACoS stays flat or rises but TACoS falls, it means organic revenue is growing, ads are building organic rank, which is a sign of a healthy flywheel, not a problem.",
     },
     {
       question: "Which Amazon ad type allows you to retarget shoppers who viewed your product but did not purchase, including on third-party sites and apps?",
@@ -16594,7 +16594,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Amazon DSP",
       ],
       correct: 2,
-      explanation: "Sponsored Display is Amazon's built-in retargeting layer. It targets audiences based on product views and purchase behavior and can serve ads on Amazon as well as third-party websites and apps — with no pixel setup required.",
+      explanation: "Sponsored Display is Amazon's built-in retargeting layer. It targets audiences based on product views and purchase behavior and can serve ads on Amazon as well as third-party websites and apps, with no pixel setup required.",
     },
   ],
   "paid-ads/creator-ugc-ads": [
@@ -16614,11 +16614,11 @@ export const QUIZZES: Record<string, Quiz[]> = {
       options: [
         "The product offer and discount amount",
         "The target audience segment",
-        "Only the visual creative — keeping budget, duration, copy, and offer identical",
+        "Only the visual creative, keeping budget, duration, copy, and offer identical",
         "The ad platform (Meta vs Google)",
       ],
       correct: 2,
-      explanation: "A fair creative test isolates only the visual creative while holding all other variables constant — same budget, same duration, same ad copy, same product offer. Changing multiple variables makes it impossible to know what actually caused any performance difference.",
+      explanation: "A fair creative test isolates only the visual creative while holding all other variables constant, same budget, same duration, same ad copy, same product offer. Changing multiple variables makes it impossible to know what actually caused any performance difference.",
     },
     {
       question: "Why does whitelisting (running ads through a creator's account) often improve click rates by 20-40%?",
@@ -16629,7 +16629,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Creators have access to ad formats not available to brand accounts",
       ],
       correct: 1,
-      explanation: "A creator's account carries social proof — followers, engagement, and authentic posting history. When an ad runs from that account it looks like organic content rather than a brand advertisement, which increases trust and click intent.",
+      explanation: "A creator's account carries social proof, followers, engagement, and authentic posting history. When an ad runs from that account it looks like organic content rather than a brand advertisement, which increases trust and click intent.",
     },
     {
       question: "If a UGC ad achieves a 3% CTR but a 0.5% CVR, what does this most likely indicate?",
@@ -16653,7 +16653,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "They continued running alongside Demand Gen as separate campaign types",
       ],
       correct: 1,
-      explanation: "Discovery Ads were officially replaced by Demand Gen in March 2024, and Video Action Campaigns were absorbed into Demand Gen in July 2025 — existing campaigns were auto-migrated.",
+      explanation: "Discovery Ads were officially replaced by Demand Gen in March 2024, and Video Action Campaigns were absorbed into Demand Gen in July 2025, existing campaigns were auto-migrated.",
     },
     {
       question: "Which bidding strategy should you use when launching a new Demand Gen campaign with limited conversion data?",
@@ -16682,11 +16682,11 @@ export const QUIZZES: Record<string, Quiz[]> = {
       options: [
         "The lookalike audience seed list is too narrow and should be expanded",
         "The campaign budget is too low to generate competitive bids",
-        "The creative is underperforming — the hook or value proposition is weak",
+        "The creative is underperforming, the hook or value proposition is weak",
         "Optimised Targeting is expanding reach to the wrong audience segments",
       ],
       correct: 2,
-      explanation: "High impressions with low CTR means the ad is being shown but not compelling people to act — the creative needs a stronger hook in the first 3 seconds for video and a clearer value proposition in image headlines.",
+      explanation: "High impressions with low CTR means the ad is being shown but not compelling people to act, the creative needs a stronger hook in the first 3 seconds for video and a clearer value proposition in image headlines.",
     },
   ],
   "paid-ads/first-party-data-activation": [
@@ -16699,7 +16699,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Base64 encoding",
       ],
       correct: 1,
-      explanation: "SHA-256 is the required hashing standard for all three platforms (Customer Match, CAPI, Enhanced Conversions). Raw PII is never transmitted — SHA-256 produces a fixed-length, irreversible hash that platforms can match against their own hashed identity graphs.",
+      explanation: "SHA-256 is the required hashing standard for all three platforms (Customer Match, CAPI, Enhanced Conversions). Raw PII is never transmitted, SHA-256 produces a fixed-length, irreversible hash that platforms can match against their own hashed identity graphs.",
     },
     {
       question: "When running Meta Pixel and CAPI in parallel, what parameter prevents the same conversion from being counted twice?",
@@ -16710,7 +16710,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "dedup_key",
       ],
       correct: 2,
-      explanation: "Every event must carry an identical `event_id` in both the browser Pixel payload and the CAPI server payload. Meta uses this key to deduplicate on their end — without it, the same purchase is counted as two separate conversions, artificially lowering reported CPA.",
+      explanation: "Every event must carry an identical `event_id` in both the browser Pixel payload and the CAPI server payload. Meta uses this key to deduplicate on their end, without it, the same purchase is counted as two separate conversions, artificially lowering reported CPA.",
     },
     {
       question: "Which Customer Match use case directly reduces wasted acquisition spend?",
@@ -16745,7 +16745,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "It relies exclusively on lookalike audiences from pixel data",
       ],
       correct: 1,
-      explanation: "Pinterest allows advertisers to target by keywords — the same way search ads work — letting you reach users actively searching for terms like 'sustainable wedding dress' or 'DIY raised garden bed,' which signals high purchase intent.",
+      explanation: "Pinterest allows advertisers to target by keywords, the same way search ads work, letting you reach users actively searching for terms like 'sustainable wedding dress' or 'DIY raised garden bed,' which signals high purchase intent.",
     },
     {
       question: "On Snapchat, what does a swipe rate below 20% indicate about your ad creative?",
@@ -16802,14 +16802,14 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Provide an AI pair programmer for collaborative coding",
       ],
       correct: 1,
-      explanation: "GitHub Copilot's job is not code generation per se — it is eliminating the cognitive overhead of recalling boilerplate and API patterns so the developer maintains flow state. The feature serves a mental experience, not just a speed metric.",
+      explanation: "GitHub Copilot's job is not code generation per se, it is eliminating the cognitive overhead of recalling boilerplate and API patterns so the developer maintains flow state. The feature serves a mental experience, not just a speed metric.",
     },
     {
       question: "Which of the following is described as the most defensible competitive moat for AI products?",
       options: [
         "Fine-tuned models built on proprietary data",
         "Prompt-engineered wrappers around foundation models",
-        "Integration depth — AI embedded in workflow context with company-specific data",
+        "Integration depth, AI embedded in workflow context with company-specific data",
         "Faster inference latency than competitors",
       ],
       correct: 2,
@@ -16818,10 +16818,10 @@ export const QUIZZES: Record<string, Quiz[]> = {
     {
       question: "When Grammarly says 'write with confidence' instead of mentioning transformer-based NLP, which positioning stance is it using?",
       options: [
-        "Lead with the magic — showing the AI experience",
-        "Lead with trust — explaining the AI methodology",
-        "Lead with the outcome — hiding the AI as invisible infrastructure",
-        "Lead with integration — emphasizing workflow context",
+        "Lead with the magic, showing the AI experience",
+        "Lead with trust, explaining the AI methodology",
+        "Lead with the outcome, hiding the AI as invisible infrastructure",
+        "Lead with integration, emphasizing workflow context",
       ],
       correct: 2,
       explanation: "Grammarly uses outcome-first positioning by focusing on the result ('write with confidence') without exposing the underlying technology. This works because its buyers are non-technical writers who care about clearer writing, not the model architecture.",
@@ -16837,7 +16837,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Case studies from enterprise customers",
       ],
       correct: 1,
-      explanation: "Brand sits at the top of the Developer Trust Pyramid and only becomes relevant after the four foundational layers — GitHub presence, documentation quality, open-source contribution, and community — are solid. Most companies mistakenly start at the brand layer and wonder why developers don't engage.",
+      explanation: "Brand sits at the top of the Developer Trust Pyramid and only becomes relevant after the four foundational layers, GitHub presence, documentation quality, open-source contribution, and community, are solid. Most companies mistakenly start at the brand layer and wonder why developers don't engage.",
     },
     {
       question: "What is the key distinction between Developer Relations (DevRel) and Developer Marketing?",
@@ -16848,7 +16848,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "DevRel handles social media; developer marketing handles technical documentation",
       ],
       correct: 1,
-      explanation: "DevRel is relationship-focused — community building, advocacy, conferences — and earns trust over time. Developer marketing handles positioning, content strategy, and conversion. The two are complementary, not interchangeable.",
+      explanation: "DevRel is relationship-focused, community building, advocacy, conferences, and earns trust over time. Developer marketing handles positioning, content strategy, and conversion. The two are complementary, not interchangeable.",
     },
     {
       question: "According to the sandbox strategy, what is the most effective top-of-funnel move for developer marketing?",
@@ -16859,7 +16859,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "A product demo video hosted on the pricing page",
       ],
       correct: 1,
-      explanation: "Friction is the enemy in developer marketing. A frictionless sandbox — where developers can build something real before registering — is the entire top of funnel. If a developer hits a wall before that moment, no amount of retargeting brings them back.",
+      explanation: "Friction is the enemy in developer marketing. A frictionless sandbox, where developers can build something real before registering, is the entire top of funnel. If a developer hits a wall before that moment, no amount of retargeting brings them back.",
     },
     {
       question: "Which metric is described as the single best proxy for onboarding friction in developer marketing?",
@@ -16905,7 +16905,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "A reverse-IP tracker on the pricing page",
       ],
       correct: 2,
-      explanation: "Score decay ensures that stale intent signals don't mislead the sales team — without it, an account that spiked three weeks ago looks identical to a fresh high-intent account in the scoring model.",
+      explanation: "Score decay ensures that stale intent signals don't mislead the sales team, without it, an account that spiked three weeks ago looks identical to a fresh high-intent account in the scoring model.",
     },
     {
       question: "According to the GTM engineering stack described in this lesson, which tool serves as the 'central nervous system' for enrichment and orchestration?",
@@ -16916,7 +16916,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "n8n",
       ],
       correct: 2,
-      explanation: "Clay is described as the central nervous system of the GTM stack — it pulls from 10+ data providers in a waterfall, runs AI columns for personalization, and syncs enriched leads back to the CRM.",
+      explanation: "Clay is described as the central nervous system of the GTM stack, it pulls from 10+ data providers in a waterfall, runs AI columns for personalization, and syncs enriched leads back to the CRM.",
     },
   ],
   "product-marketing/partner-ecosystem-marketing": [
@@ -16945,7 +16945,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
     {
       question: "According to ecosystem marketing principles, when should a company start building a partner program?",
       options: [
-        "As early as possible — partners accelerate product-market fit discovery",
+        "As early as possible, partners accelerate product-market fit discovery",
         "After achieving product-market fit with at least 50 similar paying customers and a repeatable sales playbook",
         "Only after reaching $10M ARR and hiring a dedicated VP of Partnerships",
         "Once the direct sales team has been fully staffed and is hitting quota consistently",
@@ -16975,7 +16975,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "PQLs only apply to enterprise accounts; MQLs apply to all tiers",
       ],
       correct: 1,
-      explanation: "PQLs are defined by usage signals — hitting feature thresholds, inviting teammates, or exceeding usage limits — proving the user already has product-market fit, unlike MQLs which are generated by campaign touchpoints.",
+      explanation: "PQLs are defined by usage signals, hitting feature thresholds, inviting teammates, or exceeding usage limits, proving the user already has product-market fit, unlike MQLs which are generated by campaign touchpoints.",
     },
     {
       question: "In Product-Led Sales, what is the primary role of champion enablement materials created by PMMs?",
@@ -17003,12 +17003,12 @@ export const QUIZZES: Record<string, Quiz[]> = {
       question: "What makes messaging strategy uniquely complex for a PMM working in Product-Led Sales?",
       options: [
         "PLS requires translating all content into multiple languages simultaneously",
-        "The same product must be messaged differently for three personas — free user champion, evaluator, and economic buyer — each at a different stage and with different concerns",
+        "The same product must be messaged differently for three personas, free user champion, evaluator, and economic buyer, each at a different stage and with different concerns",
         "PLS PMMs must write code to instrument PQL tracking alongside messaging work",
         "PMMs must manage both inbound and outbound campaigns at the same time",
       ],
       correct: 1,
-      explanation: "PLS surfaces three distinct personas who need fundamentally different messages: champions want adoption tips, evaluators need premium-tier proof, and economic buyers demand ROI math, security, and compliance answers — all for the same product.",
+      explanation: "PLS surfaces three distinct personas who need fundamentally different messages: champions want adoption tips, evaluators need premium-tier proof, and economic buyers demand ROI math, security, and compliance answers, all for the same product.",
     },
   ],
   "psychology/attention-neuroscience": [
@@ -17021,7 +17021,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "A meta-analysis of 50 years of attention span experiments",
       ],
       correct: 1,
-      explanation: "The figure came from a 2015 Microsoft report measuring how long people stayed on web pages before clicking away — a behavioral metric, not a measure of cognitive attention capacity.",
+      explanation: "The figure came from a 2015 Microsoft report measuring how long people stayed on web pages before clicking away, a behavioral metric, not a measure of cognitive attention capacity.",
     },
     {
       question: "Which four visual properties does the brain detect in parallel across an entire scene in under 250ms, before conscious scanning begins?",
@@ -17032,7 +17032,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Font weight, spacing, alignment, and saturation",
       ],
       correct: 1,
-      explanation: "These are pre-attentive attributes — hardwired neural responses that the visual cortex processes automatically, before deliberate attention is applied.",
+      explanation: "These are pre-attentive attributes, hardwired neural responses that the visual cortex processes automatically, before deliberate attention is applied.",
     },
     {
       question: "Why should branded logo intros be avoided in the first 3 seconds of a video ad?",
@@ -17043,7 +17043,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Platform algorithms penalise non-native content in the first 3 seconds",
       ],
       correct: 1,
-      explanation: "The amygdala evaluates novelty and emotional valence almost instantly. Known brand stimuli trigger familiarity bias — the brain treats them as already processed and lowers arousal, reducing the chance of continued viewing.",
+      explanation: "The amygdala evaluates novelty and emotional valence almost instantly. Known brand stimuli trigger familiarity bias, the brain treats them as already processed and lowers arousal, reducing the chance of continued viewing.",
     },
     {
       question: "According to Miller's Law, what is the working memory capacity that marketers risk exceeding with cluttered landing pages?",
@@ -17067,7 +17067,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "When the reward is larger than expected",
       ],
       correct: 1,
-      explanation: "Schultz's experiments showed dopamine fires at the cue predicting a reward, not at the moment of reward delivery — and unpredictable rewards trigger a far stronger dopamine response than certain ones.",
+      explanation: "Schultz's experiments showed dopamine fires at the cue predicting a reward, not at the moment of reward delivery, and unpredictable rewards trigger a far stronger dopamine response than certain ones.",
     },
     {
       question: "Why does a variable ratio reward schedule produce stronger habit loops than a fixed schedule?",
@@ -17078,7 +17078,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Users consciously prefer variable schedules",
       ],
       correct: 2,
-      explanation: "Skinner's schedule-of-reinforcement research established that variable ratio schedules — where rewards arrive after an unpredictable number of actions — create the strongest and most persistent behaviour loops because uncertainty drives dopamine anticipation.",
+      explanation: "Skinner's schedule-of-reinforcement research established that variable ratio schedules, where rewards arrive after an unpredictable number of actions, create the strongest and most persistent behaviour loops because uncertainty drives dopamine anticipation.",
     },
     {
       question: "Which of these is cited as an example of ETHICAL dopamine design?",
@@ -17089,10 +17089,10 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Loot boxes hiding reward quality behind a paywall",
       ],
       correct: 2,
-      explanation: "Duolingo's variable rewards (gem chests, bonus XP, league promotion) are ethical because they reward the genuine behaviour users want — daily learning — and users would endorse the design if told honestly what it does.",
+      explanation: "Duolingo's variable rewards (gem chests, bonus XP, league promotion) are ethical because they reward the genuine behaviour users want, daily learning, and users would endorse the design if told honestly what it does.",
     },
     {
-      question: "A 2022 Harvard Kennedy School study found that users who felt manipulated rated a brand 2.3 points lower on trust — yet many continued using the product. What does this reveal about dopamine-driven engagement?",
+      question: "A 2022 Harvard Kennedy School study found that users who felt manipulated rated a brand 2.3 points lower on trust, yet many continued using the product. What does this reveal about dopamine-driven engagement?",
       options: [
         "High engagement always correlates with high trust",
         "Manipulation increases long-term retention by strengthening habit",
@@ -17142,11 +17142,11 @@ export const QUIZZES: Record<string, Quiz[]> = {
       options: [
         "A visible drop in follower count",
         "A decrease in post frequency",
-        "Comment depth thinning — fewer personal comments on sponsored posts versus organic content",
+        "Comment depth thinning, fewer personal comments on sponsored posts versus organic content",
         "A rise in unsubscribe rates across their mailing list",
       ],
       correct: 2,
-      explanation: "Parasocial decay shows in engagement quality before quantity — sponsored posts start attracting fewer and shallower comments compared to organic content, signalling that audiences are beginning to perceive the relationship as transactional rather than genuine.",
+      explanation: "Parasocial decay shows in engagement quality before quantity, sponsored posts start attracting fewer and shallower comments compared to organic content, signalling that audiences are beginning to perceive the relationship as transactional rather than genuine.",
     },
   ],
   "psychology/trust-and-credibility-signals": [
@@ -17154,12 +17154,12 @@ export const QUIZZES: Record<string, Quiz[]> = {
       question: "A marketing page says 'Our algorithm improves open rates by 23% for B2B tech companies in the 500-employee range.' Why does this specific claim build more trust than 'Our product is the best'?",
       options: [
         "It uses larger sample sizes that users can verify",
-        "Specificity signals the claim is falsifiable — you would not pick a precise number you could not defend",
+        "Specificity signals the claim is falsifiable, you would not pick a precise number you could not defend",
         "It avoids jargon that confuses users",
         "Specific numbers are easier for users to remember",
       ],
       correct: 1,
-      explanation: "Specificity is expensive — it requires real data and constrains your claim to something that can be proven false. That voluntary constraint is why specific, falsifiable claims trigger a credibility circuit while vague superlatives trigger skepticism.",
+      explanation: "Specificity is expensive, it requires real data and constrains your claim to something that can be proven false. That voluntary constraint is why specific, falsifiable claims trigger a credibility circuit while vague superlatives trigger skepticism.",
     },
     {
       question: "According to the Forrester social proof hierarchy, which type of social proof carries the highest trust impact?",
@@ -17176,12 +17176,12 @@ export const QUIZZES: Record<string, Quiz[]> = {
       question: "The 'vulnerability paradox' in trust psychology means that brands admitting product limitations are perceived as MORE trustworthy. What best explains this effect?",
       options: [
         "Admissions of weakness lower user expectations, making it easier to exceed them",
-        "Honesty about flaws proves integrity — it signals the brand prioritises truth over perfection",
+        "Honesty about flaws proves integrity, it signals the brand prioritises truth over perfection",
         "Limitations reduce the product's scope, making competence claims easier to verify",
         "Admitting weaknesses triggers benevolence trust by showing the brand cares about users",
       ],
       correct: 1,
-      explanation: "The Kellogg School study showed that reviews admitting a flaw were 2.7x more trusted than flawless reviews. Honesty that costs something — like admitting a product crashes on import — proves integrity because the brand sacrifices the appearance of perfection for truth.",
+      explanation: "The Kellogg School study showed that reviews admitting a flaw were 2.7x more trusted than flawless reviews. Honesty that costs something, like admitting a product crashes on import, proves integrity because the brand sacrifices the appearance of perfection for truth.",
     },
     {
       question: "A website has 50 milliseconds before a user forms a trust impression. Which set of signals dominates that window?",
@@ -17192,7 +17192,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Named expert credentials and external source citations",
       ],
       correct: 1,
-      explanation: "In the first 50 milliseconds users are not reading — they are scanning visual cues like fonts, colours, whitespace, and layout for signals of competence. No copy, however persuasive, can recover a trust deficit created by poor visual design.",
+      explanation: "In the first 50 milliseconds users are not reading, they are scanning visual cues like fonts, colours, whitespace, and layout for signals of competence. No copy, however persuasive, can recover a trust deficit created by poor visual design.",
     },
   ],
   "seo/ai-mode-search-optimization": [
@@ -17230,7 +17230,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
       explanation: "The speakable schema type lets you mark the precise sentences you want AI systems to quote; it was designed for voice and AI summary contexts but is still rarely implemented, making it a low-competition advantage.",
     },
     {
-      question: "According to research on AI Mode citation behavior, what does citation rate correlate with — and what does it NOT correlate with?",
+      question: "According to research on AI Mode citation behavior, what does citation rate correlate with, and what does it NOT correlate with?",
       options: [
         "Total word count, not page authority",
         "Answer density (useful facts per word), not total content length",
@@ -17238,7 +17238,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Organic ranking position, not content freshness",
       ],
       correct: 1,
-      explanation: "AI Mode citation rate correlates with answer density — the ratio of useful facts to total words — not total content length. A concise 600-word page with five citable facts outperforms a 3,000-word page that buries them.",
+      explanation: "AI Mode citation rate correlates with answer density, the ratio of useful facts to total words, not total content length. A concise 600-word page with five citable facts outperforms a 3,000-word page that buries them.",
     },
   ],
   "seo/brand-serp-control": [
@@ -17251,7 +17251,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Google algorithmically boosts brand pages with trust badges",
       ],
       correct: 1,
-      explanation: "Brand SERP visitors have already heard about a company and are Googling to verify trustworthiness — they are in buying mode, not discovery mode, which makes them far more likely to convert.",
+      explanation: "Brand SERP visitors have already heard about a company and are Googling to verify trustworthiness, they are in buying mode, not discovery mode, which makes them far more likely to convert.",
     },
     {
       question: "Which tool takes roughly 30 minutes to set up and directly feeds structured facts (founding date, CEO, headquarters) into Google's Knowledge Panel?",
@@ -17273,7 +17273,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Report the review to Google Business Profile for policy violations",
       ],
       correct: 1,
-      explanation: "Creating more positive, authoritative content is the ethical and effective way to suppress negative results — fresh, high-authority pages push lower-quality results to page 2 within 30-60 days.",
+      explanation: "Creating more positive, authoritative content is the ethical and effective way to suppress negative results, fresh, high-authority pages push lower-quality results to page 2 within 30-60 days.",
     },
     {
       question: "Brand keyword variants like '[Brand] pricing' and '[Brand] vs [competitor]' are worth targeting because they have what characteristic compared to generic keywords?",
@@ -17297,7 +17297,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Fifth, behind major news sites",
       ],
       correct: 1,
-      explanation: "Reddit became the second most visible website in U.S. Google results by April 2025, surpassed only by Wikipedia — a result of Google's Helpful Content Updates rewarding authentic human discourse over thin AI-written content.",
+      explanation: "Reddit became the second most visible website in U.S. Google results by April 2025, surpassed only by Wikipedia, a result of Google's Helpful Content Updates rewarding authentic human discourse over thin AI-written content.",
     },
     {
       question: "What is the '9:1 rule' in Reddit community participation?",
@@ -17308,7 +17308,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Target 9 subreddits before promoting on any single one",
       ],
       correct: 1,
-      explanation: "The 9:1 rule means nine genuine, non-promotional contributions for every one mention of your product or brand — the baseline for avoiding 'karma farming' accusations and mod bans.",
+      explanation: "The 9:1 rule means nine genuine, non-promotional contributions for every one mention of your product or brand, the baseline for avoiding 'karma farming' accusations and mod bans.",
     },
     {
       question: "According to Discovered Labs research, what is the AI citation advantage for brands with millions of forum mentions?",
@@ -17365,7 +17365,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Gemini",
       ],
       correct: 2,
-      explanation: "Perplexity is the exception — every citation it generates is a clickable link, making it the only major AI platform whose citations appear cleanly as referral traffic in Google Analytics.",
+      explanation: "Perplexity is the exception, every citation it generates is a clickable link, making it the only major AI platform whose citations appear cleanly as referral traffic in Google Analytics.",
     },
     {
       question: "According to the GEO vs Traditional SEO comparison in the lesson, which content format best serves Generative Engine Optimisation?",
@@ -17376,7 +17376,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Short-form content under 300 words",
       ],
       correct: 2,
-      explanation: "GEO favours structured, passage-extractable content because AI retrieval systems extract specific passages rather than reading full articles — answers must be easy to isolate and quote directly.",
+      explanation: "GEO favours structured, passage-extractable content because AI retrieval systems extract specific passages rather than reading full articles, answers must be easy to isolate and quote directly.",
     },
   ],
   "seo/video-seo": [
@@ -17389,7 +17389,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Click-through rate",
       ],
       correct: 1,
-      explanation: "YouTube's algorithm optimises for watch time — the total seconds viewers spend watching. A 30-minute video at 40% average view duration generates more watch time than a 5-minute video at 80%, making absolute watch time the core ranking signal.",
+      explanation: "YouTube's algorithm optimises for watch time, the total seconds viewers spend watching. A 30-minute video at 40% average view duration generates more watch time than a 5-minute video at 80%, making absolute watch time the core ranking signal.",
     },
     {
       question: "When structuring a YouTube video title for search, where should the primary keyword appear?",
@@ -17411,7 +17411,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Video duration under 30 seconds",
       ],
       correct: 1,
-      explanation: "Engagement velocity — the speed of likes, comments, and shares within the first 60 minutes of posting — is the strongest proxy for TikTok ranking. Posting when your audience is most active and engaging with comments and duets early gives the algorithm a quality signal.",
+      explanation: "Engagement velocity, the speed of likes, comments, and shares within the first 60 minutes of posting, is the strongest proxy for TikTok ranking. Posting when your audience is most active and engaging with comments and duets early gives the algorithm a quality signal.",
     },
     {
       question: "What does adding VideoObject schema markup to a web page that embeds a YouTube video accomplish?",
@@ -17422,7 +17422,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "It enables TikTok to index the video for cross-platform search",
       ],
       correct: 1,
-      explanation: "VideoObject schema markup tells Google's crawler what the embedded video contains, enabling it to surface a video rich result in web search alongside the standard page result — earning two placements for the same query.",
+      explanation: "VideoObject schema markup tells Google's crawler what the embedded video contains, enabling it to surface a video rich result in web search alongside the standard page result, earning two placements for the same query.",
     },
   ],
   "social/creator-economy-strategy": [
@@ -17441,12 +17441,12 @@ export const QUIZZES: Record<string, Quiz[]> = {
       question: "A brand is writing a creator brief and debates how much creative direction to give. What does strong creator brief strategy recommend including?",
       options: [
         "Exact script, visual direction, and approved hashtags",
-        "One core message, mandatory disclosures, and a hard no-list — nothing else",
+        "One core message, mandatory disclosures, and a hard no-list, nothing else",
         "Detailed shot list, brand voice guide, and caption template",
         "Platform-specific formatting rules and a required call-to-action phrase",
       ],
       correct: 1,
-      explanation: "A loose brief covering only the core message, FTC/ASA compliance disclosures, and hard no-list outperforms tight scripts because creators know their audience's tone — over-directing forces corporate content through a trusted channel, killing engagement.",
+      explanation: "A loose brief covering only the core message, FTC/ASA compliance disclosures, and hard no-list outperforms tight scripts because creators know their audience's tone, over-directing forces corporate content through a trusted channel, killing engagement.",
     },
     {
       question: "When vetting a creator with 200K Instagram followers showing 1% engagement, what does this signal?",
@@ -17481,7 +17481,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "92%",
       ],
       correct: 2,
-      explanation: "RadiumOne's research found that dark social accounts for 84% of all online sharing — meaning referral and public social metrics only capture the remaining 16%.",
+      explanation: "RadiumOne's research found that dark social accounts for 84% of all online sharing, meaning referral and public social metrics only capture the remaining 16%.",
     },
     {
       question: "Why does dark social traffic appear as 'direct traffic' in analytics tools?",
@@ -17503,7 +17503,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Promotional announcements about new features",
       ],
       correct: 1,
-      explanation: "Dark social sharers ask 'Can I use this today?' or 'Will my team find this valuable?' — original research, surprising stats, and exclusive insider perspectives meet that bar, while product pages do not.",
+      explanation: "Dark social sharers ask 'Can I use this today?' or 'Will my team find this valuable?', original research, surprising stats, and exclusive insider perspectives meet that bar, while product pages do not.",
     },
     {
       question: "What is the recommended first step when building a dark social measurement strategy?",
@@ -17568,7 +17568,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
       question: "What makes social commerce fundamentally different from traditional e-commerce?",
       options: [
         "It uses paid ads to reach a wider audience",
-        "The full purchase journey — discovery, research, and checkout — happens inside a single app",
+        "The full purchase journey, discovery, research, and checkout, happens inside a single app",
         "It requires users to create an account before buying",
         "Products are cheaper because there are no middlemen",
       ],
@@ -17580,11 +17580,11 @@ export const QUIZZES: Record<string, Quiz[]> = {
       options: [
         "It has the highest number of daily active users",
         "Its algorithm prioritizes paid content over organic",
-        "Users arrive with buying intent — actively planning purchases rather than passively scrolling",
+        "Users arrive with buying intent, actively planning purchases rather than passively scrolling",
         "It offers the lowest commission rates for affiliate creators",
       ],
       correct: 2,
-      explanation: "Pinterest users are in planning mode, not passive scroll mode, which means they already intend to buy — 85% of weekly Pinterest users have purchased something based on a Pin.",
+      explanation: "Pinterest users are in planning mode, not passive scroll mode, which means they already intend to buy, 85% of weekly Pinterest users have purchased something based on a Pin.",
     },
     {
       question: "What is TikTok Shop's affiliate creator program, and what is its key financial advantage for brands?",
@@ -17595,13 +17595,13 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "A subscription service that gives brands access to TikTok's creator database",
       ],
       correct: 2,
-      explanation: "The affiliate program is commission-based with zero upfront cost — brands list products, creators promote them, and the brand only pays a percentage when an actual sale is made, making it a low-risk way to test creator performance.",
+      explanation: "The affiliate program is commission-based with zero upfront cost, brands list products, creators promote them, and the brand only pays a percentage when an actual sale is made, making it a low-risk way to test creator performance.",
     },
     {
       question: "What is the biggest structural risk of relying on social commerce as a sales channel?",
       options: [
         "High platform fees that erode profit margins",
-        "Algorithm dependency — reach can drop overnight if the platform changes how it surfaces shop content",
+        "Algorithm dependency, reach can drop overnight if the platform changes how it surfaces shop content",
         "Difficulty integrating product catalogs with inventory systems",
         "Low average order values compared to traditional e-commerce",
       ],
@@ -17630,7 +17630,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Net promoter score",
       ],
       correct: 2,
-      explanation: "SOV — the percentage of all category mentions that reference your brand — correlates with market share. A declining SOV signals your brand is fading from conversation even when absolute mention volume looks flat.",
+      explanation: "SOV, the percentage of all category mentions that reference your brand, correlates with market share. A declining SOV signals your brand is fading from conversation even when absolute mention volume looks flat.",
     },
     {
       question: "Modern AI-powered sentiment analysis goes beyond positive/negative/neutral polarity. Which of the following is cited as a specific emotional signal that precedes customer churn?",
@@ -17641,7 +17641,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Trust",
       ],
       correct: 2,
-      explanation: "Fear is specifically identified as an emotion that precedes churn. Detecting fear-level sentiment early — not just negative polarity — gives teams time to intervene before customers leave.",
+      explanation: "Fear is specifically identified as an emotion that precedes churn. Detecting fear-level sentiment early, not just negative polarity, gives teams time to intervene before customers leave.",
     },
     {
       question: "When building an advanced social listening stack, what is the recommended approach for tool selection?",
@@ -17687,7 +17687,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "When the tool has SOC 2 Type II certification and encrypts data in transit",
       ],
       correct: 1,
-      explanation: "A tool is ROI-positive only when hours saved x hourly cost minus tool cost is a positive number AND output quality is maintained or improved — time savings alone do not equal ROI.",
+      explanation: "A tool is ROI-positive only when hours saved x hourly cost minus tool cost is a positive number AND output quality is maintained or improved, time savings alone do not equal ROI.",
     },
     {
       question: "Why do mid-market companies often choose an all-in-one platform like HubSpot over best-of-breed AI-native point solutions?",
@@ -17711,7 +17711,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "The first provider in the waterfall is always free, reducing overall spend",
       ],
       correct: 1,
-      explanation: "In a waterfall setup, each provider only runs if the previous one missed, and you are only charged a credit when a provider actually returns a result — not for every provider attempted in the chain.",
+      explanation: "In a waterfall setup, each provider only runs if the previous one missed, and you are only charged a credit when a provider actually returns a result, not for every provider attempted in the chain.",
     },
     {
       question: "What does Claygent do that standard structured database enrichment cannot?",
@@ -17733,14 +17733,14 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Scoring inbound leads by company size and pushing them to a nurture sequence",
       ],
       correct: 1,
-      explanation: "Signal-based outbound — monitoring job changes, funding events, and tech stack shifts to reach prospects at the exact moment they are most receptive — is identified as Clay's highest-leverage use case in 2025-2026.",
+      explanation: "Signal-based outbound, monitoring job changes, funding events, and tech stack shifts to reach prospects at the exact moment they are most receptive, is identified as Clay's highest-leverage use case in 2025-2026.",
     },
     {
       question: "What is the recommended best practice when writing AI column prompts in Clay?",
       options: [
         "Combine multiple outputs into one prompt to save credits",
         "Write prompts in natural language without using enriched field variables",
-        "Limit each column to one output — one column, one thing",
+        "Limit each column to one output, one column, one thing",
         "Always use Claude as the AI model since GPT-4o produces inconsistent results",
       ],
       correct: 2,
@@ -17757,7 +17757,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Visualize warehouse data for non-technical marketing stakeholders",
       ],
       correct: 1,
-      explanation: "Reverse ETL tools move data in the opposite direction of traditional ETL — from the warehouse outward to activation channels like CRMs, ad platforms, and email tools, enabling real-time audience syncing based on warehouse models.",
+      explanation: "Reverse ETL tools move data in the opposite direction of traditional ETL, from the warehouse outward to activation channels like CRMs, ad platforms, and email tools, enabling real-time audience syncing based on warehouse models.",
     },
     {
       question: "Why does the composable stack eliminate 'qualified lead' definition drift between tools?",
@@ -17790,7 +17790,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "GA4 has a 48-hour delay before event data becomes available",
       ],
       correct: 1,
-      explanation: "dbt transformation schedules determine data freshness in dashboards. If dbt runs once daily at 2 AM, any events after that cutoff won't appear in transformed tables until the next scheduled run — a key operational detail marketers must account for in reporting.",
+      explanation: "dbt transformation schedules determine data freshness in dashboards. If dbt runs once daily at 2 AM, any events after that cutoff won't appear in transformed tables until the next scheduled run, a key operational detail marketers must account for in reporting.",
     },
   ],
   "tools/n8n-make-marketing-automation": [
@@ -17814,7 +17814,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "100+ nodes built on a custom n8n AI framework",
       ],
       correct: 1,
-      explanation: "n8n shipped 70+ LangChain-native AI nodes in its 2.0 release, including a full AI Agent node, LLM chains, and vector store connectors — built on LangChain from the architecture up, not bolted on as an add-on.",
+      explanation: "n8n shipped 70+ LangChain-native AI nodes in its 2.0 release, including a full AI Agent node, LLM chains, and vector store connectors, built on LangChain from the architecture up, not bolted on as an add-on.",
     },
     {
       question: "What term does Make use for the individual building blocks of its automation workflows?",
@@ -17836,7 +17836,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "It uses React.js as its frontend rendering engine",
       ],
       correct: 1,
-      explanation: "A ReAct agent reasons and acts iteratively — it receives a goal, selects which tools (downstream nodes) to invoke based on context, executes them, evaluates the results, and repeats the loop until the task is done, rather than following a hardcoded linear branch.",
+      explanation: "A ReAct agent reasons and acts iteratively, it receives a goal, selects which tools (downstream nodes) to invoke based on context, executes them, evaluates the results, and repeats the loop until the task is done, rather than following a hardcoded linear branch.",
     },
   ],
   "tools/revenue-intelligence-tools": [
@@ -17849,7 +17849,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "It automates campaign scheduling based on pipeline data",
       ],
       correct: 1,
-      explanation: "A/B testing shows which headline or email line performs better in metrics like opens. Revenue intelligence goes deeper — it shows the actual buyer language and objections from sales conversations that led to wins or losses.",
+      explanation: "A/B testing shows which headline or email line performs better in metrics like opens. Revenue intelligence goes deeper, it shows the actual buyer language and objections from sales conversations that led to wins or losses.",
     },
     {
       question: "How does Clari differ from Gong and Chorus in its primary focus?",
@@ -17860,7 +17860,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Clari integrates exclusively with HubSpot CRM for pipeline tracking",
       ],
       correct: 1,
-      explanation: "Gong and Chorus focus on analyzing what was said in sales calls, while Clari specializes in forecasting — predicting deal slippage, compression, and closure probability based on CRM, email, and calendar signals.",
+      explanation: "Gong and Chorus focus on analyzing what was said in sales calls, while Clari specializes in forecasting, predicting deal slippage, compression, and closure probability based on CRM, email, and calendar signals.",
     },
     {
       question: "When Gong data shows that 'integration' is mentioned in the first sales call, close rates jump 23%. What is the correct PMM action based on this insight?",
@@ -17871,7 +17871,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
         "Build a separate product SKU focused exclusively on integration capabilities",
       ],
       correct: 1,
-      explanation: "When a specific topic correlates with higher close rates early in the deal, the PMM response is to pre-qualify buyers around that topic through campaigns — so sales encounters buyers already primed on integration, reducing surprises and accelerating deals.",
+      explanation: "When a specific topic correlates with higher close rates early in the deal, the PMM response is to pre-qualify buyers around that topic through campaigns, so sales encounters buyers already primed on integration, reducing surprises and accelerating deals.",
     },
     {
       question: "Under U.S. call recording law, which states require ALL parties on a call to consent to recording?",

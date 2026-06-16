@@ -52,7 +52,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "DAU",
     slug: "dau",
     definition:
-      "Daily Active Users - the number of unique users who engage with a product on a given day. Often used alongside MAU to calculate the DAU/MAU ratio, which measures how sticky a product is. A ratio above 20% is generally considered strong.",
+      "Daily Active Users: the number of unique users who engage with a product on a given day. Often used alongside MAU to calculate the DAU/MAU ratio, which measures how sticky a product is. A ratio above 20% is generally considered strong.",
     category: "Analytics",
     relatedTerms: ["mau", "retention", "engagement-rate", "cohort"],
   },
@@ -76,7 +76,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "MAU",
     slug: "mau",
     definition:
-      "Monthly Active Users - the number of unique users who engage with a product at least once in a calendar month. A standard benchmark for measuring an app or platform's scale and health. Meaningful only when paired with retention data.",
+      "Monthly Active Users: the number of unique users who engage with a product at least once in a calendar month. A standard benchmark for measuring an app or platform's scale and health. Meaningful only when paired with retention data.",
     category: "Analytics",
     relatedTerms: ["dau", "retention", "churn", "cohort"],
   },
@@ -84,7 +84,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "MoM",
     slug: "mom",
     definition:
-      "Month-over-Month - a period comparison that shows how a metric changed from one month to the next. Used for short-term trend analysis. MoM growth compounds into YoY growth: 6% MoM growth equals roughly 100% YoY growth.",
+      "Month-over-Month: a period comparison that shows how a metric changed from one month to the next. Used for short-term trend analysis. MoM growth compounds into YoY growth: 6% MoM growth equals roughly 100% YoY growth.",
     category: "Analytics",
     relatedTerms: ["yoy", "arr", "mrr", "north-star-metric"],
   },
@@ -124,7 +124,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "UTM",
     slug: "utm",
     definition:
-      "Urchin Tracking Module - five URL parameters (source, medium, campaign, term, content) appended to links to track where traffic comes from in analytics tools. Without UTM tags, much of your referral traffic appears as 'direct' in GA4.",
+      "Urchin Tracking Module: five URL parameters (source, medium, campaign, term, content) appended to links to track where traffic comes from in analytics tools. Without UTM tags, much of your referral traffic appears as 'direct' in GA4.",
     category: "Analytics",
     relatedTerms: ["attribution", "session", "conversion-tracking", "dark-social"],
   },
@@ -132,7 +132,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "YoY",
     slug: "yoy",
     definition:
-      "Year-over-Year - a comparison of a metric against the same period in the prior year. YoY removes seasonal noise and gives a cleaner picture of underlying growth than MoM. Commonly used in board and investor reporting.",
+      "Year-over-Year: a comparison of a metric against the same period in the prior year. YoY removes seasonal noise and gives a cleaner picture of underlying growth than MoM. Commonly used in board and investor reporting.",
     category: "Analytics",
     relatedTerms: ["mom", "arr", "mrr", "kpi"],
   },
@@ -150,7 +150,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "CPC",
     slug: "cpc",
     definition:
-      "Cost Per Click - the amount an advertiser pays each time someone clicks their ad. Calculated as total ad spend divided by total clicks. CPC varies by industry, competition, and platform. Google Search CPCs for competitive keywords can exceed $50.",
+      "Cost Per Click: the amount an advertiser pays each time someone clicks their ad. Calculated as total ad spend divided by total clicks. CPC varies by industry, competition, and platform. Google Search CPCs for competitive keywords can exceed $50.",
     category: "Paid Ads",
     relatedTerms: ["cpm", "ctr", "roas", "quality-score"],
   },
@@ -158,7 +158,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "CPM",
     slug: "cpm",
     definition:
-      "Cost Per Mille (thousand impressions) - the price paid for every 1,000 times an ad is displayed, regardless of clicks. CPM is the standard pricing model for brand awareness campaigns on display and video channels.",
+      "Cost Per Mille (thousand impressions): the price paid for every 1,000 times an ad is displayed, regardless of clicks. CPM is the standard pricing model for brand awareness campaigns on display and video channels.",
     category: "Paid Ads",
     relatedTerms: ["cpc", "impressions", "reach", "roas"],
   },
@@ -166,7 +166,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "CTR",
     slug: "ctr",
     definition:
-      "Click-Through Rate - the percentage of people who see an ad or link and click on it. Calculated as clicks divided by impressions. A high CTR signals relevance. Google Search CTR benchmarks vary widely by position: position 1 averages roughly 28%.",
+      "Click-Through Rate: the percentage of people who see an ad or link and click on it. Calculated as clicks divided by impressions. A high CTR signals relevance. Google Search CTR benchmarks vary widely by position: position 1 averages roughly 28%.",
     category: "Paid Ads",
     relatedTerms: ["cpc", "impressions", "quality-score", "ad-rank"],
   },
@@ -222,7 +222,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "ROAS",
     slug: "roas",
     definition:
-      "Return on Ad Spend - revenue generated divided by ad spend. A ROAS of 4x means you earned $4 in revenue for every $1 spent on ads. ROAS does not equal profit: a 4x ROAS can still lose money if margins are thin or CAC payback is too long.",
+      "Return on Ad Spend: revenue generated divided by ad spend. A ROAS of 4x means you earned $4 in revenue for every $1 spent on ads. ROAS does not equal profit: a 4x ROAS can still lose money if margins are thin or CAC payback is too long.",
     category: "Paid Ads",
     relatedTerms: ["cac", "ltv", "cpc", "cpm"],
   },
@@ -272,7 +272,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "SERP",
     slug: "serp",
     definition:
-      "Search Engine Results Page - the page displayed when someone submits a query to a search engine. Modern SERPs include organic results, paid ads, featured snippets, local packs, image carousels, and AI Overviews, meaning organic links now compete with many more elements.",
+      "Search Engine Results Page: the page displayed when someone submits a query to a search engine. Modern SERPs include organic results, paid ads, featured snippets, local packs, image carousels, and AI Overviews, meaning organic links now compete with many more elements.",
     category: "SEO",
     relatedTerms: ["featured-snippet", "domain-authority", "ctr", "zero-click"],
   },
@@ -348,7 +348,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "CAC",
     slug: "cac",
     definition:
-      "Customer Acquisition Cost - the total cost to acquire one new customer, including all sales and marketing spend. Calculated as total acquisition spend divided by new customers in a period. CAC must be significantly lower than LTV for a business to be profitable.",
+      "Customer Acquisition Cost: the total cost to acquire one new customer, including all sales and marketing spend. Calculated as total acquisition spend divided by new customers in a period. CAC must be significantly lower than LTV for a business to be profitable.",
     category: "Growth",
     relatedTerms: ["ltv", "roas", "cpc", "payback-period"],
   },
@@ -372,7 +372,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "LTV",
     slug: "ltv",
     definition:
-      "Lifetime Value (also CLV or Customer Lifetime Value) - the total revenue a business can expect from a single customer throughout the entire relationship. The LTV/CAC ratio is one of the most important unit economics metrics in growth. A ratio of 3:1 or higher is generally healthy.",
+      "Lifetime Value (also CLV or Customer Lifetime Value): the total revenue a business can expect from a single customer throughout the entire relationship. The LTV/CAC ratio is one of the most important unit economics metrics in growth. A ratio of 3:1 or higher is generally healthy.",
     category: "Growth",
     relatedTerms: ["cac", "churn", "mrr", "payback-period"],
   },
@@ -380,7 +380,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "PLG",
     slug: "plg",
     definition:
-      "Product-Led Growth - a go-to-market strategy where the product itself is the primary driver of acquisition, conversion, and expansion. Users experience value before talking to sales. Slack, Figma, and Notion are canonical examples. Opposite of Sales-Led Growth.",
+      "Product-Led Growth: a go-to-market strategy where the product itself is the primary driver of acquisition, conversion, and expansion. Users experience value before talking to sales. Slack, Figma, and Notion are canonical examples. Opposite of Sales-Led Growth.",
     category: "Growth",
     relatedTerms: ["viral-coefficient", "activation", "freemium", "cac"],
   },
@@ -398,7 +398,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "ARR",
     slug: "arr",
     definition:
-      "Annual Recurring Revenue - the annualized value of all active subscription contracts, excluding one-time fees. ARR is the primary valuation metric for SaaS businesses. ARR = MRR x 12. Investors often use ARR multiples to value growth-stage companies.",
+      "Annual Recurring Revenue: the annualized value of all active subscription contracts, excluding one-time fees. ARR is the primary valuation metric for SaaS businesses. ARR = MRR x 12. Investors often use ARR multiples to value growth-stage companies.",
     category: "Business Metrics",
     relatedTerms: ["mrr", "ltv", "churn", "gmv"],
   },
@@ -406,7 +406,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "GMV",
     slug: "gmv",
     definition:
-      "Gross Merchandise Value - the total value of goods sold through a marketplace or platform over a period, before subtracting platform fees or returns. GMV is a top-line scale metric for marketplaces like Amazon, Etsy, or Shopify. It is not the same as revenue.",
+      "Gross Merchandise Value: the total value of goods sold through a marketplace or platform over a period, before subtracting platform fees or returns. GMV is a top-line scale metric for marketplaces like Amazon, Etsy, or Shopify. It is not the same as revenue.",
     category: "Business Metrics",
     relatedTerms: ["arr", "mrr", "ltv", "roas"],
   },
@@ -414,7 +414,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "MRR",
     slug: "mrr",
     definition:
-      "Monthly Recurring Revenue - the predictable subscription revenue a company collects each month. MRR is broken into new MRR, expansion MRR, contraction MRR, and churned MRR. Net MRR growth is the pulse of a subscription business.",
+      "Monthly Recurring Revenue: the predictable subscription revenue a company collects each month. MRR is broken into new MRR, expansion MRR, contraction MRR, and churned MRR. Net MRR growth is the pulse of a subscription business.",
     category: "Business Metrics",
     relatedTerms: ["arr", "churn", "ltv", "cac"],
   },
@@ -422,7 +422,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "NPS",
     slug: "nps",
     definition:
-      "Net Promoter Score - a loyalty metric based on one question: how likely are you to recommend this product on a scale of 0 to 10? Respondents scoring 9-10 are promoters; 0-6 are detractors. NPS = % promoters minus % detractors. Scores above 50 are considered excellent.",
+      "Net Promoter Score: a loyalty metric based on one question: how likely are you to recommend this product on a scale of 0 to 10? Respondents scoring 9-10 are promoters; 0-6 are detractors. NPS = % promoters minus % detractors. Scores above 50 are considered excellent.",
     category: "Business Metrics",
     relatedTerms: ["retention", "churn", "ltv", "social-proof"],
   },
@@ -438,7 +438,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "SAM",
     slug: "sam",
     definition:
-      "Serviceable Addressable Market - the portion of TAM that your product can realistically target given its current features, channels, and geography. SAM is a more honest number than TAM and the one serious investors scrutinize when evaluating market size claims.",
+      "Serviceable Addressable Market: the portion of TAM that your product can realistically target given its current features, channels, and geography. SAM is a more honest number than TAM and the one serious investors scrutinize when evaluating market size claims.",
     category: "Business Metrics",
     relatedTerms: ["tam", "som", "icp", "value-proposition"],
   },
@@ -446,7 +446,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "SOM",
     slug: "som",
     definition:
-      "Serviceable Obtainable Market - the share of SAM your company can realistically capture in the near term, given competition, sales capacity, and go-to-market constraints. SOM is the credible near-term revenue ceiling founders pitch to early investors.",
+      "Serviceable Obtainable Market: the share of SAM your company can realistically capture in the near term, given competition, sales capacity, and go-to-market constraints. SOM is the credible near-term revenue ceiling founders pitch to early investors.",
     category: "Business Metrics",
     relatedTerms: ["sam", "tam", "icp", "cac"],
   },
@@ -454,7 +454,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "TAM",
     slug: "tam",
     definition:
-      "Total Addressable Market - the maximum revenue opportunity available if a product captured 100% of its target market. TAM is often used in pitch decks and is frequently overstated. Always pair with SAM and SOM for a credible market size story.",
+      "Total Addressable Market: the maximum revenue opportunity available if a product captured 100% of its target market. TAM is often used in pitch decks and is frequently overstated. Always pair with SAM and SOM for a credible market size story.",
     category: "Business Metrics",
     relatedTerms: ["sam", "som", "icp", "positioning"],
   },
@@ -472,7 +472,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "ICP",
     slug: "icp",
     definition:
-      "Ideal Customer Profile - a detailed description of the company or person most likely to buy your product, get maximum value from it, and stay a customer. ICP is about fit, not demographics. Getting ICP wrong is the most common reason marketing spend underperforms.",
+      "Ideal Customer Profile: a detailed description of the company or person most likely to buy your product, get maximum value from it, and stay a customer. ICP is about fit, not demographics. Getting ICP wrong is the most common reason marketing spend underperforms.",
     category: "Strategy",
     relatedTerms: ["tam", "positioning", "cac", "segmentation"],
   },
@@ -514,7 +514,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "CRO",
     slug: "cro",
     definition:
-      "Conversion Rate Optimization - the systematic process of increasing the percentage of visitors who complete a desired action. CRO combines quantitative data (analytics, A/B tests) with qualitative research (heatmaps, session recordings, user interviews) to find and fix what stops people from converting.",
+      "Conversion Rate Optimization: the systematic process of increasing the percentage of visitors who complete a desired action. CRO combines quantitative data (analytics, A/B tests) with qualitative research (heatmaps, session recordings, user interviews) to find and fix what stops people from converting.",
     category: "CRO",
     relatedTerms: ["a-b-test", "conversion-rate", "landing-page", "heatmap"],
   },
@@ -522,7 +522,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "CTA",
     slug: "cta",
     definition:
-      "Call to Action - a button, link, or instruction prompting the user to take a specific next step, such as 'Start Free Trial' or 'Download Now.' CTAs should be specific about what happens next. 'Get Started' consistently outperforms 'Submit' in testing.",
+      "Call to Action: a button, link, or instruction prompting the user to take a specific next step, such as 'Start Free Trial' or 'Download Now.' CTAs should be specific about what happens next. 'Get Started' consistently outperforms 'Submit' in testing.",
     category: "CRO",
     relatedTerms: ["landing-page", "above-the-fold", "microcopy", "conversion-rate"],
   },
@@ -612,7 +612,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "FOMO",
     slug: "fomo",
     definition:
-      "Fear of Missing Out - the anxiety that others are experiencing something desirable that you are not. In marketing, FOMO is triggered by scarcity cues, countdowns, social proof, and exclusivity signals. Genuine scarcity is effective; manufactured scarcity erodes long-term trust.",
+      "Fear of Missing Out: the anxiety that others are experiencing something desirable that you are not. In marketing, FOMO is triggered by scarcity cues, countdowns, social proof, and exclusivity signals. Genuine scarcity is effective; manufactured scarcity erodes long-term trust.",
     category: "Psychology",
     relatedTerms: ["social-proof", "loss-aversion", "anchoring", "cta"],
   },
@@ -712,7 +712,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "KPI",
     slug: "kpi",
     definition:
-      "Key Performance Indicator - a quantifiable measure used to evaluate success against objectives. Good KPIs are specific, measurable, and tied directly to business outcomes. Most teams track too many KPIs; the best teams identify the 3 to 5 that actually predict what matters.",
+      "Key Performance Indicator: a quantifiable measure used to evaluate success against objectives. Good KPIs are specific, measurable, and tied directly to business outcomes. Most teams track too many KPIs; the best teams identify the 3 to 5 that actually predict what matters.",
     category: "Analytics",
     relatedTerms: ["north-star-metric", "arr", "mrr", "conversion-rate"],
   },
@@ -728,7 +728,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "MMM",
     slug: "mmm",
     definition:
-      "Marketing Mix Modeling - a statistical technique that quantifies the contribution of each marketing channel to sales outcomes using aggregated historical data. MMM does not require user-level tracking, making it privacy-safe. It is best for measuring long-term brand investment.",
+      "Marketing Mix Modeling: a statistical technique that quantifies the contribution of each marketing channel to sales outcomes using aggregated historical data. MMM does not require user-level tracking, making it privacy-safe. It is best for measuring long-term brand investment.",
     category: "Analytics",
     relatedTerms: ["attribution", "multi-touch", "roas", "incrementality"],
   },
@@ -770,7 +770,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "E-E-A-T",
     slug: "eeat",
     definition:
-      "Experience, Expertise, Authoritativeness, and Trustworthiness - the four qualities Google uses to evaluate content quality through its Search Quality Rater Guidelines. Added 'Experience' in 2022 to reward first-hand expertise. High E-E-A-T matters most in YMYL (your money or your life) topics like health, finance, and legal.",
+      "Experience, Expertise, Authoritativeness, and Trustworthiness: the four qualities Google uses to evaluate content quality through its Search Quality Rater Guidelines. Added 'Experience' in 2022 to reward first-hand expertise. High E-E-A-T matters most in YMYL (your money or your life) topics like health, finance, and legal.",
     category: "SEO",
     relatedTerms: ["domain-authority", "backlink", "serp", "featured-snippet"],
   },
@@ -818,7 +818,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "LLMO",
     slug: "llmo",
     definition:
-      "Large Language Model Optimization - the practice of structuring content so that AI tools like ChatGPT, Claude, and Perplexity cite your brand or content in their responses. LLMO overlaps with traditional SEO but emphasizes concise, factual, quotable writing that AI summarizes well. Also called GEO (Generative Engine Optimization).",
+      "Large Language Model Optimization: the practice of structuring content so that AI tools like ChatGPT, Claude, and Perplexity cite your brand or content in their responses. LLMO overlaps with traditional SEO but emphasizes concise, factual, quotable writing that AI summarizes well. Also called GEO (Generative Engine Optimization).",
     category: "SEO",
     relatedTerms: ["serp", "zero-click", "featured-snippet", "eeat"],
   },
@@ -828,7 +828,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "CTOR",
     slug: "ctor",
     definition:
-      "Click-to-Open Rate - the percentage of people who opened your email and then clicked a link. CTOR = clicks divided by opens. It isolates email body performance from subject line performance, making it a cleaner engagement metric than click rate alone. Average CTOR across industries is around 10-15%.",
+      "Click-to-Open Rate: the percentage of people who opened your email and then clicked a link. CTOR = clicks divided by opens. It isolates email body performance from subject line performance, making it a cleaner engagement metric than click rate alone. Average CTOR across industries is around 10-15%.",
     category: "Email",
     relatedTerms: ["click-rate", "open-rate", "segmentation", "drip-campaign"],
   },
@@ -878,7 +878,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "TOFU / MOFU / BOFU",
     slug: "tofu-mofu-bofu",
     definition:
-      "Top of Funnel, Middle of Funnel, Bottom of Funnel - a framework for matching content to buyer intent. TOFU content attracts awareness (blog posts, social). MOFU nurtures consideration (case studies, webinars). BOFU drives decisions (demos, pricing comparisons). Effective content strategies cover all three stages.",
+      "Top of Funnel, Middle of Funnel, Bottom of Funnel: a framework for matching content to buyer intent. TOFU content attracts awareness (blog posts, social). MOFU nurtures consideration (case studies, webinars). BOFU drives decisions (demos, pricing comparisons). Effective content strategies cover all three stages.",
     category: "Content",
     relatedTerms: ["funnel", "content-cluster", "lead-magnet", "drip-campaign"],
   },
@@ -886,7 +886,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "UGC",
     slug: "ugc",
     definition:
-      "User Generated Content - any content created by customers or users about a brand, including reviews, social posts, unboxing videos, and forum discussions. UGC is highly trusted because it is perceived as unbiased. Brands that encourage and repurpose UGC reduce content costs while increasing social proof.",
+      "User Generated Content: any content created by customers or users about a brand, including reviews, social posts, unboxing videos, and forum discussions. UGC is highly trusted because it is perceived as unbiased. Brands that encourage and repurpose UGC reduce content costs while increasing social proof.",
     category: "Content",
     relatedTerms: ["social-proof", "personalization", "engagement-rate", "viral-coefficient"],
   },
@@ -994,7 +994,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "Distinctive Assets",
     slug: "distinctive-assets",
     definition:
-      "The sensory cues - colors, shapes, sounds, characters - that consumers associate with a specific brand without needing to see the brand name. Byron Sharp's research shows distinctive assets drive brand salience and are built through consistent, long-term repetition rather than clever creativity alone.",
+      "The sensory cues, colors, shapes, sounds, and characters that consumers associate with a specific brand without needing to see the brand name. Byron Sharp's research shows distinctive assets drive brand salience and are built through consistent, long-term repetition rather than clever creativity alone.",
     category: "Brand",
     relatedTerms: ["brand-identity", "brand-equity", "visual-identity", "share-of-voice"],
   },
@@ -1012,7 +1012,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "AIDA",
     slug: "aida",
     definition:
-      "Attention, Interest, Desire, Action - a four-stage copywriting framework describing how effective sales messages move a reader toward a decision. First formalized by E. St. Elmo Lewis in 1898. Still the most widely taught copywriting structure. Nearly every effective ad, email, or landing page follows some version of this arc.",
+      "Attention, Interest, Desire, Action: a four-stage copywriting framework describing how effective sales messages move a reader toward a decision. First formalized by E. St. Elmo Lewis in 1898. Still the most widely taught copywriting structure. Nearly every effective ad, email, or landing page follows some version of this arc.",
     category: "Copywriting",
     relatedTerms: ["pas", "usp", "headline", "cta"],
   },
@@ -1020,7 +1020,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "PAS",
     slug: "pas",
     definition:
-      "Problem, Agitate, Solution - a copywriting framework that identifies a reader's pain, amplifies the emotional stakes of not solving it, then positions your product as the resolution. PAS works because it meets people where they are emotionally before selling. Used heavily in email, direct response ads, and landing pages.",
+      "Problem, Agitate, Solution: a copywriting framework that identifies a reader's pain, amplifies the emotional stakes of not solving it, then positions your product as the resolution. PAS works because it meets people where they are emotionally before selling. Used heavily in email, direct response ads, and landing pages.",
     category: "Copywriting",
     relatedTerms: ["aida", "usp", "headline", "loss-aversion"],
   },
@@ -1028,7 +1028,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "USP",
     slug: "usp",
     definition:
-      "Unique Selling Proposition - the specific benefit that differentiates your product from all competitors and is compelling enough to make a buyer choose you. Coined by advertising legend Rosser Reeves. A strong USP is specific (not 'best quality'), provable, and impossible for a competitor to easily claim.",
+      "Unique Selling Proposition: the specific benefit that differentiates your product from all competitors and is compelling enough to make a buyer choose you. Coined by advertising legend Rosser Reeves. A strong USP is specific (not 'best quality'), provable, and impossible for a competitor to easily claim.",
     category: "Copywriting",
     relatedTerms: ["positioning", "value-proposition", "aida", "headline"],
   },
@@ -1052,7 +1052,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "Copywriting",
     slug: "copywriting-101",
     definition:
-      "The craft of writing words designed to persuade people to take action - buy, sign up, click, share. Distinct from content writing (which primarily educates) in that every line of copy exists to move the reader toward a specific goal. Good copy sounds like a conversation, not a brochure.",
+      "The craft of writing words designed to persuade people to take action: buy, sign up, click, share. Distinct from content writing (which primarily educates) in that every line of copy exists to move the reader toward a specific goal. Good copy sounds like a conversation, not a brochure.",
     category: "Copywriting",
     relatedTerms: ["aida", "pas", "usp", "cta"],
   },
@@ -1060,7 +1060,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "FAB",
     slug: "fab",
     definition:
-      "Features, Advantages, Benefits - a copywriting framework for translating product capabilities into customer value. Features describe what a product has. Advantages explain what it does better than alternatives. Benefits describe the emotional or practical outcome for the buyer. Customers buy benefits, not features.",
+      "Features, Advantages, Benefits: a copywriting framework for translating product capabilities into customer value. Features describe what a product has. Advantages explain what it does better than alternatives. Benefits describe the emotional or practical outcome for the buyer. Customers buy benefits, not features.",
     category: "Copywriting",
     relatedTerms: ["usp", "value-proposition", "aida", "landing-page"],
   },
@@ -1136,7 +1136,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "Product-Market Fit",
     slug: "product-market-fit",
     definition:
-      "The degree to which a product satisfies strong market demand. Sean Ellis's benchmark: a product has PMF if over 40% of users would be 'very disappointed' if it went away. PMF is not a single moment but a range - you can have PMF in one segment and not in another. Most startup failures are blamed on marketing but caused by missing PMF.",
+      "The degree to which a product satisfies strong market demand. Sean Ellis's benchmark: a product has PMF if over 40% of users would be 'very disappointed' if it went away. PMF is not a single moment but a range. You can have PMF in one segment and not in another. Most startup failures are blamed on marketing but caused by missing PMF.",
     category: "Growth",
     relatedTerms: ["north-star-metric", "retention", "churn", "activation"],
   },
@@ -1144,7 +1144,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "Flywheel",
     slug: "flywheel",
     definition:
-      "A growth model where each part of the system reinforces the next, building momentum over time. Jim Collins introduced the concept; Amazon popularized it in business strategy. Unlike funnels that run out, flywheels compound - more customers bring more sellers, which improves selection, which attracts more customers.",
+      "A growth model where each part of the system reinforces the next, building momentum over time. Jim Collins introduced the concept; Amazon popularized it in business strategy. Unlike funnels that run out, flywheels compound: more customers bring more sellers, which improves selection, which attracts more customers.",
     category: "Growth",
     relatedTerms: ["growth-loop", "viral-coefficient", "plg", "retention"],
   },
@@ -1176,7 +1176,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "Category Design",
     slug: "category-design",
     definition:
-      "The strategy of creating and dominating a new market category rather than competing in an existing one. Popularized by Al Ramadan and Christopher Lochhead. Category designers define the problem in a way that makes their solution obvious. Salesforce did not compete in 'CRM' - they created 'cloud CRM.'",
+      "The strategy of creating and dominating a new market category rather than competing in an existing one. Popularized by Al Ramadan and Christopher Lochhead. Category designers define the problem in a way that makes their solution obvious. Salesforce did not compete in 'CRM'. They created 'cloud CRM.'",
     category: "Strategy",
     relatedTerms: ["positioning", "brand-equity", "gtm", "value-proposition"],
   },
@@ -1202,7 +1202,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "CDP",
     slug: "cdp",
     definition:
-      "Customer Data Platform - software that collects, unifies, and activates customer data from all touchpoints into a single customer profile. Unlike a CRM (sales-focused), a CDP serves marketing with behavioral, transactional, and engagement data. Segment and Rudderstack are leading CDP tools.",
+      "Customer Data Platform: software that collects, unifies, and activates customer data from all touchpoints into a single customer profile. Unlike a CRM (sales-focused), a CDP serves marketing with behavioral, transactional, and engagement data. Segment and Rudderstack are leading CDP tools.",
     category: "Analytics",
     relatedTerms: ["first-party-data", "segmentation", "attribution", "personalization"],
   },
@@ -1210,7 +1210,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "Cohort Retention",
     slug: "cohort-retention",
     definition:
-      "Tracking what percentage of a specific user group continues to be active over time, expressed as a retention curve. A retention curve that flattens is healthy - you are keeping a stable core. A curve that drops to zero means your product has no habit-forming value. Cohort retention is more diagnostic than aggregate retention.",
+      "Tracking what percentage of a specific user group continues to be active over time, expressed as a retention curve. A retention curve that flattens is healthy, meaning you are keeping a stable core. A curve that drops to zero means your product has no habit-forming value. Cohort retention is more diagnostic than aggregate retention.",
     category: "Analytics",
     relatedTerms: ["cohort", "retention", "churn", "dau"],
   },

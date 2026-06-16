@@ -11,16 +11,16 @@ Google Analytics 4 (GA4) is the analytics platform that replaced Universal Analy
 ## Quick Summary
 
 - GA4 tracks everything as "events" (not pageviews and sessions like the old system), giving you much more flexibility.
-- By default, GA4 only keeps your data for 2 months - you must change this to 14 months on day one.
+- By default, GA4 only keeps your data for 2 months, you must change this to 14 months on day one.
 - Six types of interactions are tracked automatically with no coding required.
-- Internal traffic from your own team inflates your numbers - you must filter it out.
-- "Conversions" were renamed "key events" in 2024 - same thing, new label.
+- Internal traffic from your own team inflates your numbers, you must filter it out.
+- "Conversions" were renamed "key events" in 2024, same thing, new label.
 
 ## What GA4 Actually Is
 
-GA4 is an event-based analytics platform. "Event-based" means every single thing a user does on your site - viewing a page, clicking a button, watching a video, completing a purchase - is recorded in the same format. Think of it as a log where each line says: "User X did [action name] with [these details] at [this time]."
+GA4 is an event-based analytics platform. "Event-based" means every single thing a user does on your site, viewing a page, clicking a button, watching a video, completing a purchase, is recorded in the same format. Think of it as a log where each line says: "User X did [action name] with [these details] at [this time]."
 
-The old system (Universal Analytics) tracked "sessions" and "hits." GA4 tracks events and parameters (a parameter is just extra detail attached to an event - like attaching a price tag to a purchase event).
+The old system (Universal Analytics) tracked "sessions" and "hits." GA4 tracks events and parameters (a parameter is just extra detail attached to an event, like attaching a price tag to a purchase event).
 
 A checkout event looks like this in GA4:
 - Event name: `purchase`
@@ -43,7 +43,7 @@ Before you set up a single event, understand what is at stake:
 - Companies using GA4's active user model reduced wasted ad spend by **17.4% annually** and improved content engagement by 23%.
 - Brands using GA4 predictive purchase probability audiences in Google Ads achieved a **33% average improvement in cost-per-acquisition** versus interest-based targeting.
 
-The difference between a clean GA4 setup and a sloppy one is not cosmetic - it directly affects your ad spend efficiency and your ability to run year-over-year comparisons.
+The difference between a clean GA4 setup and a sloppy one is not cosmetic, it directly affects your ad spend efficiency and your ability to run year-over-year comparisons.
 
 <Mermaid chart={`flowchart TD
     A[Create GA4 Property] --> B[Add Web Data Stream]
@@ -55,7 +55,7 @@ The difference between a clean GA4 setup and a sloppy one is not cosmetic - it d
     G --> H[Verify in DebugView]
     H --> I[GA4 is Production-Ready]`} />
 
-## The Setup Playbook - Step by Step
+## The Setup Playbook, Step by Step
 
 A clean first-time GA4 setup, in order:
 
@@ -69,7 +69,7 @@ A "data stream" is the connection between your website and GA4. Add a Web data s
 
 ### Step 3: Install via Google Tag Manager (GTM)
 
-Google Tag Manager (GTM) is a free tool that lets you add tracking code to your site without touching the actual code. Use GTM, not hardcoded gtag (the raw JavaScript snippet). Here is why: one GA4 Configuration tag firing on "Initialization - All Pages" keeps everything tidy. It ensures GA4 loads before any event tags fire, which prevents missed events.
+Google Tag Manager (GTM) is a free tool that lets you add tracking code to your site without touching the actual code. Use GTM, not hardcoded gtag (the raw JavaScript snippet). Here is why: one GA4 Configuration tag firing on "Initialization, All Pages" keeps everything tidy. It ensures GA4 loads before any event tags fire, which prevents missed events.
 
 If you hardcode gtag AND use GTM, you will double-count every page view. This bug is painful to track down. Use one method only.
 
@@ -98,19 +98,19 @@ Any custom event parameter you create (like a product category or a user type) m
 Before calling it done, install the GA Debugger Chrome extension. Trigger your events on the site. Open GA4, go to Admin, then DebugView. Watch your events appear in real time. If they do not show up here, they will not show up in reports either.
 
 <Callout type="example">
-**Currys (UK retailer) - 2024:** When the UK electronics retailer Currys migrated to GA4, their analytics team discovered that 300+ physical store locations had not been excluded from web tracking. Internal staff browsing the website from store devices was inflating "engaged sessions" by roughly 12%. After adding IP-based internal traffic filters and switching data retention from 2 to 14 months, their year-over-year reporting became reliable enough to drive actual merchandising decisions. The fix took one afternoon. The data quality gain was permanent. (Source: Measureminds GA4 audit case studies)
+**Currys (UK retailer), 2024:** When the UK electronics retailer Currys migrated to GA4, their analytics team discovered that 300+ physical store locations had not been excluded from web tracking. Internal staff browsing the website from store devices was inflating "engaged sessions" by roughly 12%. After adding IP-based internal traffic filters and switching data retention from 2 to 14 months, their year-over-year reporting became reliable enough to drive actual merchandising decisions. The fix took one afternoon. The data quality gain was permanent. (Source: Measureminds GA4 audit case studies)
 </Callout>
 
 ## The Six Auto-Tracked Events
 
 GA4 auto-collects six types of "enhanced measurement" events out of the box with zero coding required:
 
-1. **page_view** - every page load
-2. **scroll** - when a user reaches 90% of the page
-3. **click** - clicks on links that leave your site
-4. **view_search_results** - when a user searches your site
-5. **video_engagement** - play, pause, complete on YouTube embeds
-6. **file_download** - clicks on PDFs, ZIPs, DOCs, etc.
+1. **page_view**, every page load
+2. **scroll**, when a user reaches 90% of the page
+3. **click**, clicks on links that leave your site
+4. **view_search_results**, when a user searches your site
+5. **video_engagement**, play, pause, complete on YouTube embeds
+6. **file_download**, clicks on PDFs, ZIPs, DOCs, etc.
 
 Most teams never realize these exist and end up double-tracking them via Google Tag Manager. Check your DebugView before adding custom tracking for any of these six.
 
@@ -164,12 +164,12 @@ Two concrete numbers from post-migration research:
 - GA4 is event-first. Every interaction is an event with named parameters. Stick to reserved names where possible.
 - Change data retention to 14 months and filter internal traffic on day one, not day 90.
 - Install via GTM with one Configuration tag on Initialization. Register custom dimensions for any parameter you want to report on. Verify everything in DebugView before declaring it done.
-- Use the six auto-tracked enhanced measurement events - they are free and require no code.
+- Use the six auto-tracked enhanced measurement events, they are free and require no code.
 - "Key events" is the new name for "conversions" in GA4 as of 2024.
 
 ## The One-Line Takeaway
 
-**A broken GA4 install does not just give you bad data - it makes every budget decision, ad campaign, and growth report built on top of it wrong too.**
+**A broken GA4 install does not just give you bad data, it makes every budget decision, ad campaign, and growth report built on top of it wrong too.**
 
 <ResourceList resources={[
   { title: "Google Analytics 4 Official Documentation", url: "https://support.google.com/analytics/answer/10089681", type: "docs", free: true },

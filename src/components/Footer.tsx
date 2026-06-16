@@ -156,7 +156,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-[var(--border)] py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[var(--muted-foreground)]">
           <p>
-            &copy; {new Date().getFullYear()} Marketing Academy - Free and open source.
+            &copy; {new Date().getFullYear()} Marketing Academy: Free and open source.
           </p>
           <div className="flex items-center gap-4">
             <span>Built for marketers who learn by doing.</span>

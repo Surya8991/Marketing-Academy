@@ -9,7 +9,7 @@ export const lessonMeta = {
 - Run a sample size calculation BEFORE launching any A/B test, not after.
 - The three inputs you need: baseline conversion rate, minimum detectable effect (MDE), and desired statistical power.
 - Peeking at results early and stopping when you see significance inflates false positive rates to 40%+ (simulation data, 2025).
-- Low-traffic sites need larger MDEs or longer run times - there is no shortcut around math.
+- Low-traffic sites need larger MDEs or longer run times, there is no shortcut around math.
 - Sequential testing methods let you peek safely, but they require more total sample to compensate.
 
 ---
@@ -18,13 +18,13 @@ export const lessonMeta = {
 
 Sample size math answers one question: how many visitors do you need in each variant before your A/B test result can be trusted?
 
-Think of it like flipping a coin. If you flip it 10 times and get 6 heads, you cannot conclude the coin is biased. Flip it 1,000 times and get 600 heads - now you have real evidence. A/B testing works the same way. You need enough flips (visitors) before the difference between variants stops being noise.
+Think of it like flipping a coin. If you flip it 10 times and get 6 heads, you cannot conclude the coin is biased. Flip it 1,000 times and get 600 heads, now you have real evidence. A/B testing works the same way. You need enough flips (visitors) before the difference between variants stops being noise.
 
 The formula depends on three things:
 
-1. **Baseline conversion rate** - what your control currently converts at.
-2. **Minimum detectable effect (MDE)** - the smallest improvement worth acting on.
-3. **Statistical power** - how confident you want to be that you will detect a real effect if one exists (typically 80%).
+1. **Baseline conversion rate**, what your control currently converts at.
+2. **Minimum detectable effect (MDE)**, the smallest improvement worth acting on.
+3. **Statistical power**, how confident you want to be that you will detect a real effect if one exists (typically 80%).
 
 A fourth input, statistical significance threshold (alpha), is usually set at 0.05 (95% confidence).
 
@@ -44,13 +44,13 @@ Running tests without a sample size calculation is one of the most common and co
 
 ## The 5-Step Playbook
 
-### Step 1 - Measure your baseline conversion rate
+### Step 1, Measure your baseline conversion rate
 
 Pull data from the last 30 to 90 days for the specific page or funnel step you are testing. Do not use site-wide averages. If you are testing a product page checkout button, use the conversion rate for that page only.
 
 Example: 1,200 conversions from 40,000 visitors = 3.0% baseline conversion rate.
 
-### Step 2 - Choose your MDE
+### Step 2, Choose your MDE
 
 The MDE is the smallest relative improvement you care about. Smaller MDEs require larger samples. Use this table as a starting point:
 
@@ -63,7 +63,7 @@ The MDE is the smallest relative improvement you care about. Smaller MDEs requir
 
 A 10% relative MDE on a 3% baseline means you are trying to detect a move from 3.0% to 3.3%.
 
-### Step 3 - Run the calculation
+### Step 3, Run the calculation
 
 Use an online calculator (Evan Miller's is the standard) or the formula below:
 
@@ -75,7 +75,7 @@ Where sigma is the standard deviation of your metric and delta is the absolute d
 
 Example: baseline 3%, MDE 10% relative (target 3.3%), alpha 0.05, power 80% gives approximately 14,000 visitors per variant, or 28,000 total.
 
-### Step 4 - Estimate runtime
+### Step 4, Estimate runtime
 
 Divide your required sample by your daily traffic to the test page.
 
@@ -85,7 +85,7 @@ Example: 28,000 total visitors needed, 2,000 daily visitors to the page = 14 day
 Never stop a test early because it reached significance before the planned runtime. Peeking and stopping early is how you get 40%+ false positive rates. Set your end date before you launch.
 </Callout>
 
-### Step 5 - Validate results after the test
+### Step 5, Validate results after the test
 
 When the test ends, check:
 - Did you hit your planned sample size?
@@ -123,30 +123,30 @@ flowchart TD
 ## Real Company Examples
 
 <Callout type="example">
-**Booking.com - scaling sample size math to 25,000+ tests per year**
+**Booking.com, scaling sample size math to 25,000+ tests per year**
 
 Booking.com's experimentation team has written publicly about their statistical infrastructure. At 25,000+ tests per year with hundreds of metrics per test, they cannot manually set sample sizes for each experiment. They use automated power analysis that pulls baseline metrics from their data warehouse and sets runtime automatically. Every test gets a planned end date before launch. The team explicitly trains new analysts that peeking and stopping early is a fireable-level mistake because of how badly it corrupts their decision database over time.
 </Callout>
 
 <Callout type="example">
-**Airbnb - when standard A/B testing breaks down**
+**Airbnb, when standard A/B testing breaks down**
 
-Airbnb's engineering blog describes their challenge with low-frequency conversion events like first bookings and host sign-ups. A 1% MDE on a 0.5% conversion rate requires millions of visitors per variant - an impractical runtime. Their solution was to move to interleaving experiments (showing multiple variants to the same user in sequence) and Bayesian sequential testing for these rare events. Standard fixed-horizon sample size math still governs their high-volume experiments (search ranking, page layout), but they built separate infrastructure for the long-tail metrics.
+Airbnb's engineering blog describes their challenge with low-frequency conversion events like first bookings and host sign-ups. A 1% MDE on a 0.5% conversion rate requires millions of visitors per variant, an impractical runtime. Their solution was to move to interleaving experiments (showing multiple variants to the same user in sequence) and Bayesian sequential testing for these rare events. Standard fixed-horizon sample size math still governs their high-volume experiments (search ranking, page layout), but they built separate infrastructure for the long-tail metrics.
 </Callout>
 
 ---
 
 ## Common Mistakes
 
-**Mistake 1 - Calculating sample size after the test ends.** Some teams run tests until they see a result they like and then calculate whether the sample was sufficient. This is backwards and produces whatever answer you want to hear.
+**Mistake 1, Calculating sample size after the test ends.** Some teams run tests until they see a result they like and then calculate whether the sample was sufficient. This is backwards and produces whatever answer you want to hear.
 
-**Mistake 2 - Using site-wide traffic instead of page traffic.** If you get 100,000 monthly visits but only 5,000 reach your test page, your effective traffic is 5,000. Use the number that actually sees the test.
+**Mistake 2, Using site-wide traffic instead of page traffic.** If you get 100,000 monthly visits but only 5,000 reach your test page, your effective traffic is 5,000. Use the number that actually sees the test.
 
-**Mistake 3 - Ignoring multiple variants.** Running an A/B/C/D test with four variants does not give you the same power as a two-variant test at the same traffic. You need to adjust your sample size upward or your significance threshold downward (Bonferroni correction).
+**Mistake 3, Ignoring multiple variants.** Running an A/B/C/D test with four variants does not give you the same power as a two-variant test at the same traffic. You need to adjust your sample size upward or your significance threshold downward (Bonferroni correction).
 
-**Mistake 4 - Setting MDE too small for your traffic.** Setting a 1% relative MDE because you think it should be detectable sounds rigorous. In practice it requires 10x more traffic than a 10% MDE. If you cannot reach that sample in 8 weeks, you will never run a conclusive test.
+**Mistake 4, Setting MDE too small for your traffic.** Setting a 1% relative MDE because you think it should be detectable sounds rigorous. In practice it requires 10x more traffic than a 10% MDE. If you cannot reach that sample in 8 weeks, you will never run a conclusive test.
 
-**Mistake 5 - Forgetting novelty effect.** The first few days of a test often show inflated engagement just because something is new. This is one reason two-week minimums matter even when you hit sample size faster.
+**Mistake 5, Forgetting novelty effect.** The first few days of a test often show inflated engagement just because something is new. This is one reason two-week minimums matter even when you hit sample size faster.
 
 ---
 
@@ -154,7 +154,7 @@ Airbnb's engineering blog describes their challenge with low-frequency conversio
 
 If your site gets fewer than 10,000 monthly visitors to the page you are testing, standard A/B testing is difficult to do well. Your options:
 
-- **Widen your MDE.** Only test changes you genuinely believe will produce 20%+ improvements. This means bigger, bolder changes - not button color tweaks.
+- **Widen your MDE.** Only test changes you genuinely believe will produce 20%+ improvements. This means bigger, bolder changes, not button color tweaks.
 - **Test higher in the funnel.** If your checkout page gets 500 visits per month, test your homepage or category page where traffic is higher.
 - **Use Bayesian sequential testing.** Methods like Thompson Sampling or AGILE allow you to update your beliefs as data comes in without the false positive inflation of naive peeking. The tradeoff is that you need more total sample than a fixed-horizon test at equivalent power.
 - **Run for longer.** A 16-week test is not ideal, but it is better than a 2-week underpowered test that gives you a wrong answer you act on.
@@ -171,7 +171,7 @@ There is no statistical trick that lets you get reliable results from a sample t
 - Calculate sample size before you launch. Everything else is rationalizing.
 - Your three inputs: baseline rate, MDE, and power (usually 80%).
 - Peeking and stopping early at first significance gets you 40%+ false positives.
-- Low-traffic sites need bigger MDEs or longer runtimes - not smaller significance thresholds.
+- Low-traffic sites need bigger MDEs or longer runtimes, not smaller significance thresholds.
 - Sequential testing methods let you monitor in real time but require more total sample.
 - Runtime must cover at least one full business cycle, regardless of when you hit sample size.
 

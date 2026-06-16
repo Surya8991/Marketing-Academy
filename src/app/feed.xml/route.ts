@@ -38,7 +38,7 @@ export async function GET() {
     <title>Marketing Academy</title>
     <link>${BASE}</link>
     <atom:link href="${BASE}/feed.xml" rel="self" type="application/rss+xml" />
-    <description>Free marketing lessons - SEO, paid ads, growth, social, email, analytics, AI tools and more.</description>
+    <description>Free marketing lessons: SEO, paid ads, growth, social, email, analytics, AI tools and more.</description>
     <language>en-us</language>
     <image>
       <url>${BASE}/favicon.ico</url>

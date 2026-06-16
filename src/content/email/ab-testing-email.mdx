@@ -1,7 +1,7 @@
 export const lessonMeta = {
   title: "A/B Testing for Email Marketing",
   level: "Intermediate",
-  summary: "How to run A/B tests on your emails to lift open rates, click rates, and revenue - with a repeatable testing framework you can use every send.",
+  summary: "How to run A/B tests on your emails to lift open rates, click rates, and revenue, with a repeatable testing framework you can use every send.",
   category: "email",
   slug: "ab-testing-email",
 };
@@ -15,7 +15,7 @@ Most email marketers send one version of an email and hope for the best. A/B tes
 - A/B testing means sending two versions of an email to a split audience to find which one performs better.
 - Test only ONE element at a time: subject line, sender name, send time, CTA (call to action), or body copy.
 - You need at least 1,000 subscribers per variant to get results you can trust, and ideally 10,000+ for high-confidence decisions.
-- Wait a minimum of 4 hours (ideally 48 hours) before declaring a winner - early results mislead.
+- Wait a minimum of 4 hours (ideally 48 hours) before declaring a winner, early results mislead.
 - Only 1 in 8 A/B tests produces a significant improvement, so consistent testing over many sends is what builds real advantage.
 
 ## Why A/B Testing Beats Guessing
@@ -36,7 +36,7 @@ The stakes are real. For a list of 50,000 subscribers with an average order valu
 
 <Mermaid chart={`flowchart TD
     A[Choose ONE element to test] --> B[Write Version A and Version B]
-    B --> C[Split list randomly - 3 groups]
+    B --> C[Split list randomly: 3 groups]
     C --> D[Group 1 = 45% gets Version A]
     C --> E[Group 2 = 45% gets Version B]
     C --> F[Group 3 = 10% held back]
@@ -51,7 +51,7 @@ The stakes are real. For a list of 50,000 subscribers with an average order valu
     K --> L
     L --> M[Run next test on next send]`} />
 
-The 45/45/10 split is the most common approach. Some platforms use 50/50 with no held-back group, which is fine for lists under 10,000 where the winner-send step is less meaningful. The key is that the split is random - the platform handles this automatically.
+The 45/45/10 split is the most common approach. Some platforms use 50/50 with no held-back group, which is fine for lists under 10,000 where the winner-send step is less meaningful. The key is that the split is random, the platform handles this automatically.
 
 ## What to Test, and in What Order
 
@@ -91,7 +91,7 @@ For international lists: test in subscribers' local time zones rather than your 
 
 ### 4. CTA (Call to Action) Button (Medium Impact)
 
-The CTA is what drives conversions. Indeed (the jobs platform) ran a CTA test in 2024 and found that changing form copy to include the word "activate" instead of more generic alternatives increased email sign-ups by 12%. The winning variant was the one their team least expected to win - which is exactly why you test.
+The CTA is what drives conversions. Indeed (the jobs platform) ran a CTA test in 2024 and found that changing form copy to include the word "activate" instead of more generic alternatives increased email sign-ups by 12%. The winning variant was the one their team least expected to win, which is exactly why you test.
 
 Test:
 - Button text: "Get started" vs. "Start free trial" vs. "Try it now"
@@ -106,7 +106,7 @@ Body copy changes are harder to isolate because they involve more variables. Onl
 - One image vs. no image
 
 <Callout type="warning">
-**Never test two elements at the same time.** If you change both the subject line and the CTA in the same test, you cannot know which change caused the result. The entire value of A/B testing is isolating one variable. This is the most common beginner mistake - and it produces data that is completely useless for future decisions. One test, one variable. No exceptions.
+**Never test two elements at the same time.** If you change both the subject line and the CTA in the same test, you cannot know which change caused the result. The entire value of A/B testing is isolating one variable. This is the most common beginner mistake, and it produces data that is completely useless for future decisions. One test, one variable. No exceptions.
 </Callout>
 
 ## Sample Size: The Rule That Kills Most Tests
@@ -123,16 +123,16 @@ Practical minimums:
 For a 95% confidence level (the standard used in serious testing), use the free calculator at abtestguide.com. Enter your open counts for each variant and it tells you whether the result is statistically significant.
 
 <Callout type="warning">
-**Do not stop a test early.** If Version B is ahead after 1 hour, the temptation is to call it the winner and move on. Early results are almost always misleading. Open rates spike in the first hour (immediate openers) and then trickle in over 24 to 48 hours (delayed openers). Litmus recommends waiting a minimum of 48-72 hours before declaring a winner. Set your test window before you send - and stick to it.
+**Do not stop a test early.** If Version B is ahead after 1 hour, the temptation is to call it the winner and move on. Early results are almost always misleading. Open rates spike in the first hour (immediate openers) and then trickle in over 24 to 48 hours (delayed openers). Litmus recommends waiting a minimum of 48-72 hours before declaring a winner. Set your test window before you send, and stick to it.
 </Callout>
 
 ## What Metric to Optimize For
 
 Choose your success metric BEFORE you run the test. The three most common are:
 
-- **Open rate** - the percentage of delivered emails that were opened. Use this when testing subject lines and sender names. Industry average in 2025: 43.46% (MailerLite benchmark data).
-- **Click-through rate (CTR)** - the percentage of delivered emails where someone clicked a link. Use this when testing body copy, CTA, and layout. Industry average in 2025: 2.09%.
-- **Conversion rate** - the percentage of recipients who completed a purchase or sign-up. Use this for revenue-focused tests, but requires longer test windows and larger lists.
+- **Open rate**: the percentage of delivered emails that were opened. Use this when testing subject lines and sender names. Industry average in 2025: 43.46% (MailerLite benchmark data).
+- **Click-through rate (CTR)**: the percentage of delivered emails where someone clicked a link. Use this when testing body copy, CTA, and layout. Industry average in 2025: 2.09%.
+- **Conversion rate**: the percentage of recipients who completed a purchase or sign-up. Use this for revenue-focused tests, but requires longer test windows and larger lists.
 
 Optimizing for open rate when your goal is revenue can lead you astray. A clickbait subject line may lift opens but destroy clicks because the email body does not deliver on the promise.
 

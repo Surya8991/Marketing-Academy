@@ -1,5 +1,5 @@
 /**
- * Bookmark storage — lessons the user has saved for later.
+ * Bookmark storage, lessons the user has saved for later.
  *
  * Storage: localStorage key "ma_bookmarks", JSON array of BookmarkEntry.
  * Two components read/write bookmarks: BookmarkButton.tsx and BookmarksList.tsx.

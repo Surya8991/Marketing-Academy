@@ -14,7 +14,7 @@ In 2025, 91% of marketing professionals actively use AI writing tools, and those
 - A 4-part prompt structure (Role, Task, Context, Constraints) dramatically outperforms single-sentence prompts.
 - AI-assisted blog tools can increase organic traffic by 120% within six months, per 2025 industry data.
 - AI usage for editing among marketers doubled from 19% to 38% in a single year.
-- Humans still own fact-checking, brand voice calibration, and final edits - AI without an editor is a liability.
+- Humans still own fact-checking, brand voice calibration, and final edits, AI without an editor is a liability.
 
 ## What It Actually Is
 
@@ -43,7 +43,7 @@ Tool adoption breakdown among content marketers ([Siege Media, 2026](https://www
 - Gemini: 44% selection rate
 - Perplexity: 38% selection rate
 
-Use cases where AI is most deployed: ideation (74%), outlining (61%), drafting (44%), editing (38% - doubled from 19% in one year).
+Use cases where AI is most deployed: ideation (74%), outlining (61%), drafting (44%), editing (38%, doubled from 19% in one year).
 
 <Callout type="info">
 Only 1% of marketers report fully AI-generated work. The dominant model is human-AI collaboration: AI handles bulk drafting, humans handle voice calibration, fact-checking, and final judgment. This is the workflow that actually produces results.
@@ -63,10 +63,10 @@ Each major LLM has a distinct strength profile. Using the wrong model for the jo
 
 Every production marketing prompt needs all four parts. Missing any one degrades output quality significantly.
 
-1. **Role** - Tell the model who it is. "You are a direct-response email copywriter for a B2B SaaS company selling to HR managers."
-2. **Task** - Be specific about deliverable and format. "Write 3 subject-line variants and a 120-word body for a webinar invite."
-3. **Context** - Include audience details, product specifics, brand voice, and 2 to 3 examples of copy you like. Paste real examples directly into the prompt.
-4. **Constraints** - Word count, tone, banned words. Explicitly list terms to avoid: "do not use 'unlock', 'leverage', 'game-changer', or 'in today's rapidly evolving landscape'."
+1. **Role**, Tell the model who it is. "You are a direct-response email copywriter for a B2B SaaS company selling to HR managers."
+2. **Task**, Be specific about deliverable and format. "Write 3 subject-line variants and a 120-word body for a webinar invite."
+3. **Context**, Include audience details, product specifics, brand voice, and 2 to 3 examples of copy you like. Paste real examples directly into the prompt.
+4. **Constraints**, Word count, tone, banned words. Explicitly list terms to avoid: "do not use 'unlock', 'leverage', 'game-changer', or 'in today's rapidly evolving landscape'."
 
 A weak prompt: "Write me a blog post about email marketing."
 
@@ -76,19 +76,19 @@ A strong prompt: "You are a B2B content writer for an email marketing SaaS. Writ
 
 Single-shot prompting produces mediocre output for anything longer than 150 words. The professional workflow uses multiple passes.
 
-**For blog posts - the 3-pass method:**
+**For blog posts, the 3-pass method:**
 
 1. Prompt 1: "Create a detailed outline with H2s and key points under each section."
 2. Prompt 2 (per section): "Write the [section name] section in full. Here is the outline: [paste]. Match this tone: [paste example]."
 3. Prompt 3: "Edit the full draft for consistency, remove any AI-tells like 'delve' or 'it's worth noting', and tighten every paragraph to 3 sentences or fewer."
 
-**For ads - the bulk variant method:**
+**For ads, the bulk variant method:**
 
 1. Generate 15 to 20 variants in one prompt.
 2. Ask the model to rank its own outputs against a specific buying-stage hypothesis: "Rank these by which would most likely convert a first-time visitor who has never heard of the brand."
 3. Use the top 3 to 5 for testing.
 
-**For emails - the in-context example method:**
+**For emails, the in-context example method:**
 
 1. Paste your last 3 high-performing emails directly into the prompt.
 2. Say: "Match the tone, sentence length, and structure of these examples. Here is the new brief: [brief]."

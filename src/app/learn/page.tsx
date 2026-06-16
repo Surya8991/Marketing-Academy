@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "All Marketing Lessons | Marketing Academy",
   description:
-    "Browse all 393+ marketing lessons across 15 disciplines — SEO, paid ads, growth, email, analytics, AI marketing, copywriting, CRO, and more. Free, structured Beginner to Advanced.",
+    "Browse all 393+ marketing lessons across 15 disciplines: SEO, paid ads, growth, email, analytics, AI marketing, copywriting, CRO, and more. Free, structured Beginner to Advanced.",
 };
 
 export default function LearnPage() {

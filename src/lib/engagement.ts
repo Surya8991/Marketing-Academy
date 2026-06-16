@@ -2,7 +2,7 @@
  * XP / streak / level system for Marketing Academy.
  *
  * All state lives in localStorage under ENGAGEMENT_KEY ("ma_engagement").
- * Components must NEVER read localStorage directly — always use getEngagement().
+ * Components must NEVER read localStorage directly, always use getEngagement().
  *
  * Typical call sequence from any component that awards XP:
  *   import { addXP, ENGAGEMENT_EVENT } from "@/lib/engagement";
@@ -37,7 +37,7 @@ export type EngagementState = {
   xpLog: { action: XPAction; id: string; xp: number; ts: number }[];
 };
 
-/** Returns a local "YYYY-MM-DD" string — avoids UTC/local timezone mismatch for streak tracking */
+/** Returns a local "YYYY-MM-DD" string, avoids UTC/local timezone mismatch for streak tracking */
 function localDate(d: Date = new Date()): string {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
@@ -104,7 +104,7 @@ let _pendingState: EngagementState | null = null;
 /**
  * Awards XP for an action, updates streak, and saves to localStorage.
  * Returns the new state. Caller is responsible for dispatching ENGAGEMENT_EVENT
- * and calling checkAchievements() — those are NOT done here because they need
+ * and calling checkAchievements(), those are NOT done here because they need
  * cross-cutting data (completions, bookmarks) that addXP doesn't own.
  */
 export function addXP(action: XPAction, id: string): EngagementState {
@@ -151,7 +151,7 @@ export function addXP(action: XPAction, id: string): EngagementState {
 /**
  * 7-level progression ladder.
  * nextAt: XP required to ENTER the NEXT level (Infinity = already at max).
- * prevAt: XP at which the CURRENT level started — used for intra-tier progress bar math:
+ * prevAt: XP at which the CURRENT level started, used for intra-tier progress bar math:
  *   pct = (xp - prevAt) / (nextAt - prevAt) * 100
  */
 const LEVELS = [
@@ -166,7 +166,7 @@ const LEVELS = [
 
 /**
  * Returns the user's current level info including prevAt (start of this tier).
- * Always guard `if (nextAt !== Infinity)` before rendering an XP progress bar —
+ * Always guard `if (nextAt !== Infinity)` before rendering an XP progress bar ,
  * dividing by (Infinity - prevAt) would produce 0% at max level.
  */
 export function getCurrentLevel(xp: number): { level: number; title: string; nextAt: number; prevAt: number } {

@@ -1,7 +1,7 @@
 ﻿export const lessonMeta = {
   title: "Data Clean Rooms",
   level: "Advanced",
-  summary: "Google Ads Data Hub, Amazon AMC, Meta Advanced Analytics - privacy-safe attribution at scale.",
+  summary: "Google Ads Data Hub, Amazon AMC, Meta Advanced Analytics, privacy-safe attribution at scale.",
 };
 
 # Data Clean Rooms
@@ -40,7 +40,7 @@ Netgear ran an AMC analysis from November 2023 to February 2024 to measure Strea
 - Skipping the aggregation threshold check. ADH will silently drop rows under 50 users. If your segments are too narrow, your report comes back empty and you waste a week debugging SQL.
 - Hashing emails without lowercasing first. AMC, Meta, and Google all expect lowercase-then-SHA256. A trailing space will tank your match rate.
 - Comparing AMC ROAS to GA4 ROAS like-for-like. AMC uses a 14-day post-click and 1-day post-view window by default; your GA4 model probably does not.
-- Running one-off queries instead of scheduled workflows. AMC and ADH both support scheduled runs - use them so insights flow into your weekly business review, not a slide deck once per quarter.
+- Running one-off queries instead of scheduled workflows. AMC and ADH both support scheduled runs, use them so insights flow into your weekly business review, not a slide deck once per quarter.
 
 ## Key Takeaways
 

@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Mermaid diagram renderer — client-side only (see AGENTS.md Rule 8).
+ * Mermaid diagram renderer: client-side only (see AGENTS.md Rule 8).
  *
  * Why client-only:
  *   Mermaid reads the DOM to measure text width. It cannot run in Node.js/SSR.
@@ -24,7 +24,7 @@
  *
  * Cleanup:
  *   `cancelled` flag prevents setSvg() calls from landing after the component unmounts
- *   or the chart prop changes — without this, rapid prop changes could cause a stale
+ *   or the chart prop changes, without this, rapid prop changes could cause a stale
  *   render to overwrite a newer one.
  */
 
@@ -48,7 +48,7 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
 
     async function render(isDark: boolean) {
       try {
-        // Dynamic import — keeps Mermaid out of the initial JS bundle
+        // Dynamic import, keeps Mermaid out of the initial JS bundle
         const mermaid = (await import("mermaid")).default;
 
         // Read current theme tokens so the diagram colours match globals.css variables
@@ -105,7 +105,7 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
     render(mq.matches);
 
-    // Re-render when the user switches OS theme — must re-initialize Mermaid with new token values
+    // Re-render when the user switches OS theme, must re-initialize Mermaid with new token values
     const onChange = (e: MediaQueryListEvent) => render(e.matches);
     mq.addEventListener("change", onChange);
 
@@ -164,7 +164,7 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
         )}
       </figure>
 
-      {/* Fullscreen overlay — backdrop click closes, Esc also closes (handled by keydown effect above) */}
+      {/* Fullscreen overlay, backdrop click closes, Esc also closes (handled by keydown effect above) */}
       {fullscreen && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-[var(--background)]/95 backdrop-blur-sm p-6 sm:p-12"

@@ -17,7 +17,7 @@ const BASE = "https://marketing-academy-roan.vercel.app";
 export const metadata: Metadata = {
   title: { template: "%s | Marketing Academy", default: "Marketing Academy" },
   description:
-    "Learn marketing from scratch to advanced - SEO, paid ads, growth, social, email, analytics, AI tools and more. Free, humanized lessons with real examples.",
+    "Learn marketing from scratch to advanced: SEO, paid ads, growth, social, email, analytics, AI tools and more. Free, humanized lessons with real examples.",
   metadataBase: new URL(BASE),
   manifest: "/manifest.json",
 };
@@ -27,7 +27,7 @@ export const viewport: Viewport = {
 };
 
 // Inline script runs before React hydration (no-flash theme detection).
-// Cannot import THEME_KEY here — raw string only. Must stay in sync with THEME_KEY in src/lib/events.ts ("theme").
+// Cannot import THEME_KEY here, raw string only. Must stay in sync with THEME_KEY in src/lib/events.ts ("theme").
 const themeScript = `
 try {
   var t = localStorage.getItem('theme');

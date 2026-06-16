@@ -60,7 +60,7 @@ const organizationLd = {
   name: "Marketing Academy",
   url: BASE,
   logo: `${BASE}/favicon.ico`,
-  description: "Free marketing education — SEO, paid ads, growth, social, email, analytics, and AI in plain English.",
+  description: "Free marketing education: SEO, paid ads, growth, social, email, analytics, and AI in plain English.",
 };
 
 const websiteLd = {
@@ -121,7 +121,7 @@ export default function HomePage() {
           </h1>
 
           <p className="text-base sm:text-xl text-[var(--muted-foreground)] mb-10 max-w-2xl mx-auto leading-relaxed">
-            Every marketing discipline — from SEO and paid ads to AI agents and growth loops —
+            Every marketing discipline, from SEO and paid ads to AI agents and growth loops,
             explained in plain English with real research, Mermaid diagrams, and the 2026 playbook.
             Free forever.
           </p>
@@ -175,7 +175,7 @@ export default function HomePage() {
             { icon: "📚", title: "Real research", desc: "Every lesson cites actual stats and company examples." },
             { icon: "📅", title: "Updated 2026", desc: "Current playbooks, not outdated theory." },
             { icon: "🌏", title: "Multilingual", desc: "English, Hindi, Tamil & Telugu video resources." },
-            { icon: "🔓", title: "No account needed", desc: "Progress, bookmarks, quizzes — all work instantly." },
+            { icon: "🔓", title: "No account needed", desc: "Progress, bookmarks, quizzes: all work instantly." },
           ].map((item) => (
             <div key={item.title} className="flex flex-col gap-1 p-4 rounded-xl border border-[var(--border)] bg-[var(--card)]">
               <span className="text-xl mb-1">{item.icon}</span>
@@ -201,10 +201,10 @@ export default function HomePage() {
               <span className="text-xs px-2 py-0.5 rounded-full bg-[var(--accent)]/15 text-[var(--accent)] font-medium">36 lessons</span>
             </div>
             <h3 className="font-bold text-base sm:text-lg group-hover:text-[var(--accent)] transition-colors">
-              AI is reshaping every marketing channel — are you keeping up?
+              AI is reshaping every marketing channel. Are you keeping up?
             </h3>
             <p className="text-sm text-[var(--muted-foreground)] mt-0.5 line-clamp-1">
-              AI agents, LLM optimization, agentic workflows, Clay & n8n — the full 2026 playbook.
+              AI agents, LLM optimization, agentic workflows, Clay & n8n: the full 2026 playbook.
             </p>
           </div>
           <div className="shrink-0 flex items-center gap-1 text-sm text-[var(--accent)] font-semibold">
@@ -447,13 +447,13 @@ export default function HomePage() {
                 icon: "🔓",
                 vs: "vs. HubSpot Academy",
                 title: "No forms, no sign-up",
-                desc: "Lessons, quizzes, progress tracking — all work instantly without an account or email verification.",
+                desc: "Lessons, quizzes, progress tracking: all work instantly without an account or email verification.",
               },
               {
                 icon: "📊",
                 vs: "vs. YouTube tutorials",
                 title: "Real research, cited stats",
-                desc: "Every lesson uses actual numbers from HubSpot, McKinsey, Statista — not opinion dressed as fact.",
+                desc: "Every lesson uses actual numbers from HubSpot, McKinsey, Statista. Not opinion dressed as fact.",
               },
               {
                 icon: "📈",
@@ -465,13 +465,13 @@ export default function HomePage() {
                 icon: "⚖️",
                 vs: "vs. vendor courses",
                 title: "Tool-agnostic playbooks",
-                desc: "Strategies that work regardless of which tool you use — not a sales pitch disguised as education.",
+                desc: "Strategies that work regardless of which tool you use, not a sales pitch disguised as education.",
               },
               {
                 icon: "🗓️",
                 vs: "vs. Coursera 2019 courses",
                 title: "Updated for 2026",
-                desc: "AI overviews, agentic workflows, zero-click search, privacy sandbox — the current playbook, not a relic.",
+                desc: "AI overviews, agentic workflows, zero-click search, privacy sandbox: the current playbook, not a relic.",
               },
               {
                 icon: "🌏",

@@ -132,7 +132,7 @@ export default function SearchClient() {
         <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[var(--background)] to-transparent" />
       </div>
 
-      {/* Empty state — show categories */}
+      {/* Empty state: show categories */}
       {showEmptyState ? (
         <div>
           <p className="text-xs text-[var(--muted-foreground)] mb-4 font-medium uppercase tracking-wider">Browse by topic</p>
@@ -166,7 +166,7 @@ export default function SearchClient() {
           {filteredResults.length === 0 ? (
             <div className="text-center py-16">
               <p className="text-[var(--muted-foreground)] text-lg">No lessons found for that search.</p>
-              <p className="text-[var(--muted-foreground)] text-sm mt-2">Try a different term - e.g. &ldquo;funnel&rdquo;, &ldquo;email&rdquo;, &ldquo;TikTok&rdquo;</p>
+              <p className="text-[var(--muted-foreground)] text-sm mt-2">Try a different term, e.g. &ldquo;funnel&rdquo;, &ldquo;email&rdquo;, &ldquo;TikTok&rdquo;</p>
             </div>
           ) : (
             <ul className="divide-y divide-[var(--border)]">

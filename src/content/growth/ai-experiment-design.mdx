@@ -1,10 +1,10 @@
 export const lessonMeta = {
   title: "Using AI to Design and Analyse Growth Experiments",
   level: "Advanced",
-  summary: "How LLMs augment experiment design, hypothesis generation, statistical analysis, and prioritisation—and where human judgment remains essential.",
+  summary: "How LLMs augment experiment design, hypothesis generation, statistical analysis, and prioritisation, and where human judgment remains essential.",
 };
 
-Growth teams run 20+ experiments per month. Each one starts with a hypothesis, scales to hundreds of thousands of users, and ends with a decision: ship it, kill it, or iterate. AI doesn't replace that workflow; it compresses the manual work—hypothesis generation from 2 hours to 10 minutes, statistical analysis from 30 minutes to 30 seconds—and surfaces patterns humans miss.
+Growth teams run 20+ experiments per month. Each one starts with a hypothesis, scales to hundreds of thousands of users, and ends with a decision: ship it, kill it, or iterate. AI doesn't replace that workflow; it compresses the manual work, hypothesis generation from 2 hours to 10 minutes, statistical analysis from 30 minutes to 30 seconds, and surfaces patterns humans miss.
 
 This lesson covers where AI creates real leverage in experimentation and where over-reliance on AI conclusions leads to false positives and wasted engineering effort.
 
@@ -16,7 +16,7 @@ Traditional hypothesis generation: a PM reads a heatmap, notices users are aband
 
 AI-assisted hypothesis generation: paste the heatmap, user session recordings, and a support ticket log into Claude, and ask, 'What are the top 5 friction points in this flow?' Claude identifies that users are re-entering payment info, that success messages aren't visible, that the page loads 3.2 seconds slower on mobile.
 
-The hypothesis generation loop compounds: AI finds friction points humans miss (rage clicks on a field label, repeated form resets), surfaces them as high-confidence hypotheses, and the experiment targets a real problem. LLMs excel here because they process qualitative data at scale—reading 100 session recordings manually takes 10 hours; Claude reads them in 30 seconds and surfaces the top 3 patterns.
+The hypothesis generation loop compounds: AI finds friction points humans miss (rage clicks on a field label, repeated form resets), surfaces them as high-confidence hypotheses, and the experiment targets a real problem. LLMs excel here because they process qualitative data at scale, reading 100 session recordings manually takes 10 hours; Claude reads them in 30 seconds and surfaces the top 3 patterns.
 
 Similarly, when a feature ships and early data rolls in, LLMs can be prompted to identify surprising patterns: 'In this user cohort data, which segments have the highest churn?' Claude identifies that enterprise users with 10+ team members churn at 2x the average, pointing to a hypothesis (feature doesn't scale to large teams) that deserves investigation.
 
@@ -36,7 +36,7 @@ When A/B testing headline copy, designers often guess: 'Try the urgent version? 
 
 AI can generate 10 headline variants in 1 minute, each tied to a different persuasion principle (urgency, scarcity, trust, specificity). A PM can then pick the 2–3 most promising variants to test, dramatically raising the odds of finding a true winner.
 
-The process: paste the current headline + product description + target audience into an LLM with a prompt like, 'Generate 10 A/B test variants of this headline, each using a different persuasion principle. Include a brief reasoning for each.' LLMs produce coherent variants fast. Human judgment filters them—'This one's too aggressive for our brand'—before running the test.
+The process: paste the current headline + product description + target audience into an LLM with a prompt like, 'Generate 10 A/B test variants of this headline, each using a different persuasion principle. Include a brief reasoning for each.' LLMs produce coherent variants fast. Human judgment filters them, 'This one's too aggressive for our brand', before running the test.
 
 Copy iteration is a lower-stakes use case for AI than design or features, so it's a good place to start building AI-assisted experimentation workflows.
 
@@ -46,7 +46,7 @@ An experiment ships. Variant B has a 15% higher conversion rate than variant A. 
 
 A human statistician would say, 'No, that's not statistically significant at the 0.05 level. You'd need 10,000 more users or 5 more days.' Waiting for that analysis takes hours or days.
 
-Paste the results into Claude and ask, 'Are these results statistically significant? What's the effect size? Are there any data quality issues I should investigate?' Claude processes the p-value, confidence interval, and sample sizes and flags whether the result is a true signal or noise. Importantly, Claude also surfaces confounding variables a human might miss: 'The variant also loaded 0.3 seconds faster—faster pages might be the cause, not the copy change. Run a follow-up test.'
+Paste the results into Claude and ask, 'Are these results statistically significant? What's the effect size? Are there any data quality issues I should investigate?' Claude processes the p-value, confidence interval, and sample sizes and flags whether the result is a true signal or noise. Importantly, Claude also surfaces confounding variables a human might miss: 'The variant also loaded 0.3 seconds faster, faster pages might be the cause, not the copy change. Run a follow-up test.'
 
 Optimizely and Statsig now embed AI analysis: they auto-generate summaries of test results, flag data quality issues (traffic anomalies, low sample sizes), and estimate whether a test will reach significance given current trajectory.
 
@@ -56,7 +56,7 @@ The critical distinction: AI can interpret statistical significance instantly, b
 
 A PM has 15 experiment ideas. Which 3 should we run this sprint?
 
-ICE scoring (Impact × Confidence × Ease) is a standard prioritization framework. But scoring each idea is manual and biased—different PMs score the same idea differently.
+ICE scoring (Impact × Confidence × Ease) is a standard prioritization framework. But scoring each idea is manual and biased, different PMs score the same idea differently.
 
 AI can standardize this: feed Claude the list of 15 ideas + historical experiment data (past experiments with their estimated impact and actual impact), and ask it to score each using ICE. Claude can also spot patterns: 'Based on past experiments, onboarding changes had 30% higher conversion lift than pricing changes. I've weighted ideas accordingly.'
 
@@ -64,7 +64,7 @@ RICE (Reach × Impact × Confidence × Effort) is similar but adds time-to-value
 
 ## Tools: Statsig, Optimizely, AB Tasty
 
-**Statsig** is the emerging default for modern teams: it's built for product-led companies, ships AI-powered statistical analysis, and offers a free tier. Its strength is speed—get statistical significance and effect sizes with one click.
+**Statsig** is the emerging default for modern teams: it's built for product-led companies, ships AI-powered statistical analysis, and offers a free tier. Its strength is speed, get statistical significance and effect sizes with one click.
 
 **Optimizely** is the enterprise choice for teams that need complex personalization, audience segmentation, and premium support. Its Stats Engine uses Bayesian statistics instead of frequentist methods, meaning it can flag winners earlier and adapts to mid-experiment changes.
 
@@ -78,7 +78,7 @@ All three now include AI-powered hypothesis generation and result interpretation
 
 An experiment shows that the new checkout page increases conversion by 12%. The LLM declares victory. But the new page also loads 40% faster, and faster pages drive conversions regardless of design.
 
-AI cannot infer causality from data alone—it requires domain knowledge. An experienced PM knows that page speed can be confounded with design changes and would request an A/A test (identical variant against control) to isolate the speed effect.
+AI cannot infer causality from data alone, it requires domain knowledge. An experienced PM knows that page speed can be confounded with design changes and would request an A/A test (identical variant against control) to isolate the speed effect.
 
 Always ask: 'What else changed between variant A and B?' If it's more than one thing (copy + color + page speed), you have confounded variables and no clear winner.
 
@@ -86,7 +86,7 @@ Always ask: 'What else changed between variant A and B?' If it's more than one t
 
 A test runs for 2 days. Variant B is up 18% and statistically significant at p < 0.05. The PM ships it. On day 8, the lift collapses to 2%.
 
-This is 'peeking'—looking at intermediate results and stopping early when they look good. Sequential hypothesis testing (Optimizely's Stats Engine) accounts for this, but most tools don't. An LLM analyzing day-2 data doesn't know the test will reverse; it only sees the current data.
+This is 'peeking', looking at intermediate results and stopping early when they look good. Sequential hypothesis testing (Optimizely's Stats Engine) accounts for this, but most tools don't. An LLM analyzing day-2 data doesn't know the test will reverse; it only sees the current data.
 
 The safeguard: commit to a sample size or duration before running the test. Don't stop early because AI says you're significant.
 
@@ -106,7 +106,7 @@ Always sanity-check AI suggestions against domain knowledge: 'Does this hypothes
 
 3. **Design variants** (AI assists). For copy tests, AI generates variants. For design changes, humans design; AI suggests color or layout variations. Human makes final call.
 
-4. **Calculate sample size and duration** (AI). Use Optimizely or Statsig's calculator. Human reviews—does the required sample size fit the timeline?
+4. **Calculate sample size and duration** (AI). Use Optimizely or Statsig's calculator. Human reviews, does the required sample size fit the timeline?
 
 5. **Run the experiment** (system). Platform collects data.
 
@@ -126,7 +126,7 @@ The phrase 'human-in-the-loop' is overstated in AI hype, but here it's literal: 
 
 Track conversion rates from AI-generated hypotheses vs. baseline hypotheses. If AI hypotheses win at 60%+ the rate, integrate it into your standard workflow. If they don't, revisit your prompt engineering.
 
-The fastest-growing teams don't abandon experimentation rigor for AI speed. They use AI to move faster *and* smarter—generating more hypotheses, running more experiments, and catching more confounds.
+The fastest-growing teams don't abandon experimentation rigor for AI speed. They use AI to move faster *and* smarter, generating more hypotheses, running more experiments, and catching more confounds.
 
 <ResourceList resources={[
   { title: "Statsig - A/B Testing Platform with AI Analysis", url: "https://www.statsig.com/", type: "tool", free: true, note: "Free tier includes AI-powered statistical significance" },

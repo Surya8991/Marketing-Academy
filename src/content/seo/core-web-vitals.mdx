@@ -1,7 +1,7 @@
 export const lessonMeta = {
   title: "Core Web Vitals",
   level: "Intermediate",
-  summary: "LCP, INP, CLS  -  the page-experience metrics Google uses.",
+  summary: "LCP, INP, CLS ,  the page-experience metrics Google uses.",
   category: "seo",
   slug: "core-web-vitals",
   relatedConcepts: ["technical-seo", "eeat", "ai-overviews-geo"],
@@ -19,17 +19,17 @@ The three metrics are Largest Contentful Paint (LCP), Interaction to Next Paint 
 
 ## Quick Summary
 
-- LCP measures how fast the main content loads - Google wants it under 2.5 seconds
-- INP measures how quickly your page responds to clicks and taps - under 200 milliseconds is "Good"
-- CLS measures how much your layout jumps around while loading - under 0.1 is the target
-- Only 39% of websites currently pass all three thresholds - meaning there is a real competitive advantage available
+- LCP measures how fast the main content loads, Google wants it under 2.5 seconds
+- INP measures how quickly your page responds to clicks and taps, under 200 milliseconds is "Good"
+- CLS measures how much your layout jumps around while loading, under 0.1 is the target
+- Only 39% of websites currently pass all three thresholds, meaning there is a real competitive advantage available
 - Google uses real visitor data (from Chrome users), not just your lab test scores
 
 ---
 
 ## The Three Metrics Explained
 
-### LCP - Largest Contentful Paint
+### LCP, Largest Contentful Paint
 
 LCP is the time from when someone lands on your page to when the biggest visible element has fully loaded. This is usually your hero image, a big headline, or a video thumbnail. If LCP takes longer than 2.5 seconds, Google marks it "Poor." Between 2.5 and 4 seconds is "Needs Improvement." Under 2.5 seconds is "Good."
 
@@ -41,7 +41,7 @@ Think of it this way: a visitor opens your page and stares at a blank or half-lo
 - Render-blocking JavaScript (scripts that pause the page load)
 - No CDN (content delivery network, which is a system of servers spread around the world to serve files faster)
 
-### INP - Interaction to Next Paint
+### INP, Interaction to Next Paint
 
 INP replaced First Input Delay (FID) as Google's interactivity metric in March 2024. It measures the delay between a user clicking or tapping something and the page visually responding. Under 200 milliseconds is "Good." Over 500 milliseconds is "Poor."
 
@@ -52,9 +52,9 @@ The difference from the old metric: FID only measured the first click on a page.
 - Third-party scripts like chat widgets, analytics, and ad trackers
 - Large React or JavaScript framework components that run too much code on each click
 
-### CLS - Cumulative Layout Shift
+### CLS, Cumulative Layout Shift
 
-CLS measures how much your page content moves around unexpectedly as it loads. The score runs from 0 (nothing moves) upward - anything under 0.1 is "Good," over 0.25 is "Poor."
+CLS measures how much your page content moves around unexpectedly as it loads. The score runs from 0 (nothing moves) upward, anything under 0.1 is "Good," over 0.25 is "Poor."
 
 You have experienced bad CLS: you are about to tap a button and an ad appears above it, pushing everything down. You tap the wrong thing. That is a layout shift, and Google penalizes it.
 
@@ -67,39 +67,39 @@ You have experienced bad CLS: you are about to tap a button and an ad appears ab
 ---
 
 <Callout type="info">
-**The 2024 metric change that matters.** Google replaced First Input Delay (FID) with Interaction to Next Paint (INP) in March 2024. If your team has older reports referencing FID, those are now outdated. INP is a stricter and more comprehensive measure - a site that passed FID may now fail INP. Check your current scores in Google Search Console under the "Core Web Vitals" report.
+**The 2024 metric change that matters.** Google replaced First Input Delay (FID) with Interaction to Next Paint (INP) in March 2024. If your team has older reports referencing FID, those are now outdated. INP is a stricter and more comprehensive measure, a site that passed FID may now fail INP. Check your current scores in Google Search Console under the "Core Web Vitals" report.
 </Callout>
 
 ---
 
 ## Real Company Results
 
-### redBus - 7% sales increase from optimizing INP
+### redBus, 7% sales increase from optimizing INP
 
 The online bus ticketing platform redBus focused on reducing JavaScript execution time and optimizing event handlers to improve their Interaction to Next Paint (INP) score (which became an official Core Web Vital in March 2024). They achieved a 72% improvement in INP, which directly resulted in a 7% increase in sales. 
 
 This case study demonstrates that interactivity and page responsiveness are directly tied to user trust and checkout completion. When users click "buy" or "select seat," even minor visual lags lead to cart abandonment.
 
-### The Economic Times - 50% decrease in bounce rate
+### The Economic Times, 50% decrease in bounce rate
 
 The Economic Times undertook a significant performance optimization to reduce their site-wide INP from roughly 1,000 milliseconds to 257 milliseconds. 
 
 This improvement in interactivity was linked to a 50% decrease in bounce rate and a 43% increase in pageviews. By making the site feel snappier, users remained on the page longer, consumed more content, and clicked more internal links.
 
-### Nykaa - 28% more organic traffic from LCP improvement
+### Nykaa, 28% more organic traffic from LCP improvement
 
 Nykaa, India's largest beauty e-commerce platform, improved their LCP by 40%. Organic traffic grew by 28%. This is a direct line between a technical metric and top-of-funnel marketing results: more visibility in Google search, more clicks, more potential customers.
 
 <Callout type="example">
 **Worked example: diagnosing a slow product page**
 
-You run an e-commerce store. Google Search Console shows your product pages are in the "Poor" bucket for LCP - average 4.8 seconds. Here is how you debug it step by step.
+You run an e-commerce store. Google Search Console shows your product pages are in the "Poor" bucket for LCP, average 4.8 seconds. Here is how you debug it step by step.
 
 1. Open PageSpeed Insights (pagespeed.web.dev) and paste a product URL.
-2. Look at the "Opportunities" section - it will list specific issues. In this example: "Properly size images" and "Eliminate render-blocking resources."
+2. Look at the "Opportunities" section, it will list specific issues. In this example: "Properly size images" and "Eliminate render-blocking resources."
 3. Your product photos are 3MB JPEGs. Compress them to WebP format (a modern image format that is 25-35% smaller than JPEG at the same quality).
 4. One JavaScript file from a chat widget is loading before your images. Move it to load after the page (add `defer` attribute or load it at the bottom of the page).
-5. Re-run PageSpeed Insights. LCP is now 2.2 seconds - "Good."
+5. Re-run PageSpeed Insights. LCP is now 2.2 seconds, "Good."
 6. Wait 28 days for Google Search Console to update with real user data.
 
 This is a realistic sequence. Steps 3 and 4 alone cover the majority of LCP issues on product pages.
@@ -155,7 +155,7 @@ Most marketing teams hand Core Web Vitals over to the dev team and never think a
 <Callout type="warning">
 **The most common Core Web Vitals mistake: fixing only the homepage.**
 
-Search Console's Core Web Vitals report groups URLs by template type - blog posts, product pages, category pages, checkout. Teams optimize the homepage, see a green checkmark, and stop. Meanwhile, the blog posts and product detail pages that drive 80% of organic traffic stay in "Poor."
+Search Console's Core Web Vitals report groups URLs by template type, blog posts, product pages, category pages, checkout. Teams optimize the homepage, see a green checkmark, and stop. Meanwhile, the blog posts and product detail pages that drive 80% of organic traffic stay in "Poor."
 
 Always check the URL groups breakdown in Search Console. Sort by volume of affected pages, not by which page feels most important. Fixing one product page template can move thousands of URLs from "Poor" to "Good" at once.
 </Callout>
@@ -187,21 +187,21 @@ Always check the URL groups breakdown in Search Console. Sort by volume of affec
 
 ## The One-Line Takeaway
 
-**Core Web Vitals are the only ranking factor you can improve without writing a single word of content - fix LCP, INP, and CLS and you unlock ranking gains that better writing alone cannot deliver.**
+**Core Web Vitals are the only ranking factor you can improve without writing a single word of content, fix LCP, INP, and CLS and you unlock ranking gains that better writing alone cannot deliver.**
 
 <ResourceList resources={[
   {
-    title: "Core Web Vitals - Google Search Central",
+    title: "Core Web Vitals, Google Search Central",
     url: "https://developers.google.com/search/docs/appearance/core-web-vitals",
     type: "docs",
     note: "The official Google documentation. Includes threshold definitions, measurement tools, and how the metrics connect to Search rankings.",
     free: true,
   },
   {
-    title: "The Business Impact of Core Web Vitals - web.dev",
+    title: "The Business Impact of Core Web Vitals, web.dev",
     url: "https://web.dev/case-studies/vitals-business-impact",
     type: "article",
-    note: "Google's own collection of brand case studies: Vodafone, Tokopedia, Nykaa, Redbus, and more - each with specific metric improvements and business outcomes.",
+    note: "Google's own collection of brand case studies: Vodafone, Tokopedia, Nykaa, Redbus, and more, each with specific metric improvements and business outcomes.",
     free: true,
   },
   {
@@ -212,28 +212,28 @@ Always check the URL groups breakdown in Search Console. Sort by volume of affec
     free: true,
   },
   {
-    title: "Core Web Vitals: The Complete Guide - Backlinko",
+    title: "Core Web Vitals: The Complete Guide, Backlinko",
     url: "https://backlinko.com/core-web-vitals",
     type: "article",
     note: "Brian Dean's thorough breakdown with visual explainers and a prioritized fix list for each metric. Best starting point for marketing teams.",
     free: true,
   },
   {
-    title: "Core Web Vitals for Marketers 2025 Guide - Upward Engine",
+    title: "Core Web Vitals for Marketers 2025 Guide, Upward Engine",
     url: "https://upwardengine.com/core-web-vitals-for-marketers-2025-guide/",
     type: "article",
     note: "Written specifically for non-technical marketers. Explains how CWV connects to paid ads quality scores, conversions, and organic rankings.",
     free: true,
   },
   {
-    title: "Core Web Vitals Explainer - Google Search Central YouTube",
+    title: "Core Web Vitals Explainer, Google Search Central YouTube",
     url: "https://www.youtube.com/c/GoogleSearchCentral",
     type: "video",
     note: "Google's official YouTube channel. Search for 'Core Web Vitals' to find the explainer videos from their developer advocate team.",
     free: true,
   },
   {
-    title: "WsCube Tech - Core Web Vitals (Hindi)",
+    title: "WsCube Tech, Core Web Vitals (Hindi)",
     url: "https://www.youtube.com/@WsCubeTech",
     type: "video",
     lang: "hi",
@@ -241,7 +241,7 @@ Always check the URL groups breakdown in Search Console. Sort by volume of affec
     note: "Top Hindi digital marketing channel",
   },
   {
-    title: "Mr Digital Marketing Tamil - Core Web Vitals",
+    title: "Mr Digital Marketing Tamil, Core Web Vitals",
     url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw",
     type: "video",
     lang: "ta",
@@ -249,7 +249,7 @@ Always check the URL groups breakdown in Search Console. Sort by volume of affec
     note: "Tamil digital marketing tutorials",
   },
   {
-    title: "ODMT Telugu - Core Web Vitals (Telugu)",
+    title: "ODMT Telugu, Core Web Vitals (Telugu)",
     url: "https://www.youtube.com/@ODMTtelugu",
     type: "video",
     lang: "te",
@@ -260,6 +260,6 @@ Always check the URL groups breakdown in Search Console. Sort by volume of affec
 
 ## Related Concepts
 
-- [Technical SEO](/learn/seo/technical-seo) - Core Web Vitals are a subset of technical SEO; fixing them requires server, code, and infrastructure access that broader technical audits also demand.
-- [E-E-A-T](/learn/seo/eeat) - Google's quality evaluation framework works alongside page experience signals; strong E-E-A-T content on a slow page still faces a ranking disadvantage.
-- [AI Overviews and GEO](/learn/seo/ai-overviews-geo) - As AI Overviews absorb more informational clicks, page experience metrics become more important for the transactional and navigational traffic that still drives click-throughs.
+- [Technical SEO](/learn/seo/technical-seo), Core Web Vitals are a subset of technical SEO; fixing them requires server, code, and infrastructure access that broader technical audits also demand.
+- [E-E-A-T](/learn/seo/eeat), Google's quality evaluation framework works alongside page experience signals; strong E-E-A-T content on a slow page still faces a ranking disadvantage.
+- [AI Overviews and GEO](/learn/seo/ai-overviews-geo), As AI Overviews absorb more informational clicks, page experience metrics become more important for the transactional and navigational traffic that still drives click-throughs.

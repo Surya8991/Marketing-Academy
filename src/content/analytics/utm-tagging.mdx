@@ -13,7 +13,7 @@ Every marketing report you read starts with someone deciding what to call a link
 - UTM parameters are five text tags added to the end of any URL to track traffic sources.
 - Only 44% of marketers use them consistently, meaning most teams make budget decisions on bad data (HubSpot, 2025).
 - All five parameters are case-sensitive: `facebook` and `Facebook` appear as two separate sources in GA4.
-- Never add UTM tags to links inside your own website - it erases the original campaign attribution.
+- Never add UTM tags to links inside your own website, it erases the original campaign attribution.
 - Teams that standardize a UTM naming convention see roughly 29% better attribution accuracy.
 
 ---
@@ -28,16 +28,16 @@ Here is what a tagged URL looks like:
 
 Everything after the `?` is the tracking data. The five parameters, in order of importance:
 
-1. `utm_source` - the specific platform the visitor came from: `linkedin`, `google`, `mailchimp`
-2. `utm_medium` - the category of channel: `social`, `cpc`, `email`, `referral`
-3. `utm_campaign` - the name of your initiative: `q2-launch`, `black-friday-2025`
-4. `utm_content` - which version of an ad or link was clicked: `carousel-v2`, `header-cta`
-5. `utm_term` - the paid keyword (used mainly for paid search ads)
+1. `utm_source`, the specific platform the visitor came from: `linkedin`, `google`, `mailchimp`
+2. `utm_medium`, the category of channel: `social`, `cpc`, `email`, `referral`
+3. `utm_campaign`, the name of your initiative: `q2-launch`, `black-friday-2025`
+4. `utm_content`, which version of an ad or link was clicked: `carousel-v2`, `header-cta`
+5. `utm_term`, the paid keyword (used mainly for paid search ads)
 
 Parameters 1, 2, and 3 (source, medium, campaign) are the core three. GA4 requires all three to be present together. If you send only one or two, GA4 ignores them all and labels the visit "Unassigned."
 
 <Callout type="info">
-UTM stands for "Urchin Tracking Module." Urchin was the analytics company Google acquired in 2005 to build what became Google Analytics. The name stuck. You do not need to remember this - just know that UTM tags work across nearly every analytics platform, not just Google.
+UTM stands for "Urchin Tracking Module." Urchin was the analytics company Google acquired in 2005 to build what became Google Analytics. The name stuck. You do not need to remember this, just know that UTM tags work across nearly every analytics platform, not just Google.
 </Callout>
 
 ---
@@ -138,7 +138,7 @@ LinkedIn and Meta have their own versions of these tokens. Check each platform's
 ## Common Mistakes to Avoid
 
 <Callout type="warning">
-**The internal link trap.** Adding UTM parameters to links inside your own website is one of the most damaging mistakes in analytics. When someone arrives from Google (`utm_source=google`) and then clicks a UTM-tagged "Pricing" button in your navigation, GA4 starts a new session and credits it to your nav bar instead of Google. The original campaign attribution is gone. UTM tags are for external links only - links you share on social media, in emails, in ads, in partner posts.
+**The internal link trap.** Adding UTM parameters to links inside your own website is one of the most damaging mistakes in analytics. When someone arrives from Google (`utm_source=google`) and then clicks a UTM-tagged "Pricing" button in your navigation, GA4 starts a new session and credits it to your nav bar instead of Google. The original campaign attribution is gone. UTM tags are for external links only, links you share on social media, in emails, in ads, in partner posts.
 </Callout>
 
 Here are the other mistakes that quietly destroy attribution:

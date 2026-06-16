@@ -1,23 +1,23 @@
 "use client";
 
 /**
- * MarkComplete — per-lesson completion button with quiz gate.
+ * MarkComplete: per-lesson completion button with quiz gate.
  *
  * State machine:
  *   locked  (quizPassed=false, done=false) → shows Lock icon, click scrolls to #quiz-section
  *   unlocked (quizPassed=true, done=false)  → shows Circle icon, click marks complete + fires confetti
  *   done    (done=true)                     → shows CheckCircle icon, click un-marks
  *
- * There is NO modal here. The quiz gate is purely a scroll — see AGENTS.md Rule 25.
- * Do NOT add a hasQuiz prop — all 393 lessons have quizzes.
+ * There is NO modal here. The quiz gate is purely a scroll, see AGENTS.md Rule 25.
+ * Do NOT add a hasQuiz prop, all 393 lessons have quizzes.
  *
  * Events emitted:
- *   LESSON_TOGGLE_EVENT — keeps other MarkComplete instances on the same page in sync
- *   ENGAGEMENT_EVENT    — carries new XP state + unlocked achievements for StreakBadge / toast
+ *   LESSON_TOGGLE_EVENT: keeps other MarkComplete instances on the same page in sync
+ *   ENGAGEMENT_EVENT: carries new XP state + unlocked achievements for StreakBadge / toast
  *
  * Events listened:
- *   LESSON_TOGGLE_EVENT — syncs done state when a sibling instance toggles
- *   QUIZ_PASSED_EVENT   — dispatched by Quiz.tsx on 100% score; unlocks this button
+ *   LESSON_TOGGLE_EVENT, syncs done state when a sibling instance toggles
+ *   QUIZ_PASSED_EVENT  , dispatched by Quiz.tsx on 100% score; unlocks this button
  */
 
 import { useState, useEffect, useRef } from "react";
@@ -156,7 +156,7 @@ export default function MarkComplete({
       setJustCompleted(false);
       window.dispatchEvent(new CustomEvent(LESSON_TOGGLE_EVENT, { detail: { id, done: false } }));
     } else if (locked) {
-      // Scroll to the quiz instead of opening a modal — see AGENTS.md Rule 25
+      // Scroll to the quiz instead of opening a modal, see AGENTS.md Rule 25
       document.getElementById("quiz-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
     } else {
       handleComplete();
@@ -199,7 +199,7 @@ export default function MarkComplete({
         {done ? "Completed" : locked ? "Take quiz to complete" : "Mark as complete"}
       </button>
 
-      {/* Continue CTA — only shown immediately after the user completes the lesson */}
+      {/* Continue CTA, only shown immediately after the user completes the lesson */}
       {justCompleted && nextHref && nextTitle && (
         <Link
           href={nextHref}

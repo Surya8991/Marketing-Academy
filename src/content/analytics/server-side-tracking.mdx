@@ -12,22 +12,22 @@ If your GA4 conversions look 20-40% lower than your ad platforms claim, you are 
 
 - Browser-based tracking is dying: ad blockers, Safari's cookie limits, and iOS privacy rules erase 20-60% of your conversion data before it ever reaches Google or Meta.
 - Server-side tracking moves data collection from the user's browser to a server you control, so ad blockers and browser rules cannot touch it.
-- Real brands report 40-88% gains in measured conversions after switching - and the ROI math works fast for teams spending over $50k/month on paid ads.
+- Real brands report 40-88% gains in measured conversions after switching, and the ROI math works fast for teams spending over $50k/month on paid ads.
 - The core setup is one first-party subdomain + a Google Tag Manager server container + server tags for your top ad platforms.
 - Event deduplication (sending a matching `event_id` from both browser and server) is the one technical step most teams get wrong.
 
 ## What It Actually Is
 
-Think of standard (client-side) tracking like this: every time a user does something on your site, their browser makes 20 separate phone calls - one to Google, one to Meta, one to TikTok, and so on. Each call can be intercepted, blocked, or delayed.
+Think of standard (client-side) tracking like this: every time a user does something on your site, their browser makes 20 separate phone calls, one to Google, one to Meta, one to TikTok, and so on. Each call can be intercepted, blocked, or delayed.
 
-Server-side tracking changes that. The browser makes one phone call to a server you own. Your server then forwards the data to Google, Meta, TikTok, and everyone else - from a trusted, private line that ad blockers cannot tap.
+Server-side tracking changes that. The browser makes one phone call to a server you own. Your server then forwards the data to Google, Meta, TikTok, and everyone else, from a trusted, private line that ad blockers cannot tap.
 
 In technical terms: instead of browser scripts firing directly to vendor endpoints, you deploy a tagging server (usually Google Tag Manager Server-Side, or sGTM) on a first-party subdomain like `metrics.yourbrand.com`. The browser sends one clean event payload to that subdomain. Your server enriches it (adds hashed email, user ID, UTM params) and dispatches it in parallel to each ad platform using their server APIs: GA4 Measurement Protocol, Meta Conversions API (CAPI), Google Ads Enhanced Conversions, TikTok Events API, etc.
 
 The browser never touches Meta or Google directly. Ad blockers see nothing to block.
 
 <Callout type="info">
-A "first-party subdomain" means a URL on your own domain - like `metrics.yourbrand.com`. When your server sets cookies from this address, browsers treat them as first-party (trusted). If you use a vendor's domain like `gtm.stape.io`, browsers treat it as third-party and block it. The subdomain setup is not optional - it is the whole point.
+A "first-party subdomain" means a URL on your own domain, like `metrics.yourbrand.com`. When your server sets cookies from this address, browsers treat them as first-party (trusted). If you use a vendor's domain like `gtm.stape.io`, browsers treat it as third-party and block it. The subdomain setup is not optional, it is the whole point.
 </Callout>
 
 ## Why It Matters (The Data Problem)
@@ -40,12 +40,12 @@ The browser is becoming a hostile environment for measurement. Three forces are 
 
 3. **iOS App Tracking Transparency (ATT):** Apple's ATT prompt suppresses in-app browser signals and has led to opt-out rates above 70% in many markets.
 
-The combined effect: marketing teams routinely find 20-40% more conversions exist than their tools report. That missing data is not gone from reality - it is just gone from your attribution model. So your algorithms under-bid, your ROAS looks worse than it is, and you cut budgets on campaigns that are actually working.
+The combined effect: marketing teams routinely find 20-40% more conversions exist than their tools report. That missing data is not gone from reality, it is just gone from your attribution model. So your algorithms under-bid, your ROAS looks worse than it is, and you cut budgets on campaigns that are actually working.
 
 <Callout type="example">
-**ROI Assist (Digital Marketing Agency) - 2024:** After implementing server-side tracking, Facebook Ads conversion tracking accuracy jumped from 60% to 93.65%. Google Ads accuracy improved to 95%. They closed a 30% data gap that had been suppressing campaign performance for months.
+**ROI Assist (Digital Marketing Agency), 2024:** After implementing server-side tracking, Facebook Ads conversion tracking accuracy jumped from 60% to 93.65%. Google Ads accuracy improved to 95%. They closed a 30% data gap that had been suppressing campaign performance for months.
 
-**Skincare E-Commerce Brand - 2024:** Before server-side tracking, GA4 recorded 1,724 purchases per month. After implementing sGTM with Meta CAPI, measured purchases jumped to 4,512 - a 162% increase in tracked conversions from the same actual sales. Their Meta event match quality score rose from 0-5 to consistently above 9 out of 10. Google Ads cost-per-purchase dropped 39% in the first month because the algorithm had better data to optimize with.
+**Skincare E-Commerce Brand, 2024:** Before server-side tracking, GA4 recorded 1,724 purchases per month. After implementing sGTM with Meta CAPI, measured purchases jumped to 4,512, a 162% increase in tracked conversions from the same actual sales. Their Meta event match quality score rose from 0-5 to consistently above 9 out of 10. Google Ads cost-per-purchase dropped 39% in the first month because the algorithm had better data to optimize with.
 
 **Square (payments company):** Reported a 46% increase in conversions reported from Google Ads after moving to server-side tagging, according to Stape's published case studies.
 </Callout>
@@ -71,25 +71,25 @@ The combined effect: marketing teams routinely find 20-40% more conversions exis
 
 Here is the minimum viable implementation. These steps assume you already use Google Tag Manager on your site.
 
-**Step 1 - Pick your tagging server host.**
-Google Tag Manager Server-Side is the standard. You can host it yourself on Google Cloud Run (roughly $40-120/month for typical SMB traffic) or use a managed provider: Stape, Taggrs, and Addingwell all cost less and handle the infrastructure. For most teams, a managed host is the right call - it removes the DevOps overhead.
+**Step 1, Pick your tagging server host.**
+Google Tag Manager Server-Side is the standard. You can host it yourself on Google Cloud Run (roughly $40-120/month for typical SMB traffic) or use a managed provider: Stape, Taggrs, and Addingwell all cost less and handle the infrastructure. For most teams, a managed host is the right call, it removes the DevOps overhead.
 
-**Step 2 - Set up a first-party subdomain.**
+**Step 2, Set up a first-party subdomain.**
 Create a subdomain on your own domain: `metrics.yourbrand.com`, `data.yourbrand.com`, or similar. Point it at your tagging server via a CNAME DNS record. This single step is what makes cookies first-party and what bypasses ad blockers.
 
-**Step 3 - Connect your existing web GTM container.**
+**Step 3, Connect your existing web GTM container.**
 In your web GTM container, change the GA4 Configuration Tag's `transport_url` setting to your new subdomain. All GA4 hits now route through your server instead of going directly to Google.
 
-**Step 4 - Add server tags for each ad platform.**
+**Step 4, Add server tags for each ad platform.**
 Inside the sGTM server container, add server tags for every destination: GA4, Meta CAPI, Google Ads Enhanced Conversions, TikTok Events API, LinkedIn CAPI. Each platform provides a server tag template in the sGTM template gallery.
 
-**Step 5 - Pass first-party identifiers.**
-Hash and forward email address, phone number, and logged-in user ID with every event. This is what feeds Meta's Advanced Matching and Google's Enhanced Conversions - and where most of the accuracy gains actually come from. The platforms use this data to match events to real users even when cookies are missing.
+**Step 5, Pass first-party identifiers.**
+Hash and forward email address, phone number, and logged-in user ID with every event. This is what feeds Meta's Advanced Matching and Google's Enhanced Conversions, and where most of the accuracy gains actually come from. The platforms use this data to match events to real users even when cookies are missing.
 
-**Step 6 - Deduplicate events (critical).**
+**Step 6, Deduplicate events (critical).**
 Send a unique `event_id` (a string like `purchase_1234567890`) from both your browser pixel and your server tag for every event. Meta and Google use this ID to discard duplicates. If you skip this, you will double-count every conversion and your ad platforms will over-report by 2x.
 
-**Step 7 - Validate before going live.**
+**Step 7, Validate before going live.**
 Use the sGTM server preview mode, Meta Events Manager "Test Events" tab, and GA4 DebugView to confirm events are arriving correctly. Check that deduplication is working by looking for "deduplicated event" notices in Meta Events Manager.
 
 <Callout type="warning">
@@ -97,9 +97,9 @@ Use the sGTM server preview mode, Meta Events Manager "Test Events" tab, and GA4
 
 1. **No `event_id` deduplication.** If you fire both a browser pixel and a server event without a shared `event_id`, Meta and Google count both. Your conversion numbers inflate 2x, your CAC metrics collapse, and your campaigns optimize toward phantom data.
 
-2. **Sending raw PII to Meta CAPI.** Meta requires SHA-256 hashed email and phone number. Sending unhashed values gets events silently rejected - you will not see an error, just missing data.
+2. **Sending raw PII to Meta CAPI.** Meta requires SHA-256 hashed email and phone number. Sending unhashed values gets events silently rejected, you will not see an error, just missing data.
 
-3. **Hosting the server on a vendor subdomain.** If your sGTM is served from `gtm.stape.io` instead of `metrics.yourbrand.com`, it is still third-party and still gets blocked. The CNAME to your own domain is not a nicety - it is the entire privacy and ad-block bypass mechanism.
+3. **Hosting the server on a vendor subdomain.** If your sGTM is served from `gtm.stape.io` instead of `metrics.yourbrand.com`, it is still third-party and still gets blocked. The CNAME to your own domain is not a nicety, it is the entire privacy and ad-block bypass mechanism.
 </Callout>
 
 ## Handling Consent and Privacy
@@ -113,8 +113,8 @@ MecShopping (an Italian retailer) actually used server-side tagging to improve t
 <Mermaid chart={`flowchart TD
     A[User Visits Site] --> B{Consent Given?}
     B -->|No| C[Fire No Tags]
-    B -->|Yes - Analytics| D[Fire GA4 Server Tag]
-    B -->|Yes - Ads| E[Fire Meta CAPI + Google Ads Tags]
+    B -->|Yes, Analytics| D[Fire GA4 Server Tag]
+    B -->|Yes, Ads| E[Fire Meta CAPI + Google Ads Tags]
     D --> F[Your sGTM Server]
     E --> F
     F --> G[Enrich with Hashed Email + User ID]
@@ -127,18 +127,18 @@ Server-side tracking is table stakes if you are spending over $50k/month on paid
 
 For smaller budgets ($5k-50k/month), the ROI still exists but takes longer to materialize. The setup complexity is worth it if you are seeing a significant gap between ad platform reports and your CRM or Shopify order data.
 
-If you are spending under $5k/month on paid ads and have no in-house technical resources, a simpler fix - like using GA4's server-side integration for Google Ads only - may make more sense as a starting point.
+If you are spending under $5k/month on paid ads and have no in-house technical resources, a simpler fix, like using GA4's server-side integration for Google Ads only, may make more sense as a starting point.
 
 ## Key Takeaways
 
 - Server-side tracking recovers 20-60% of conversion signal lost to ITP, ad blockers, and broken JavaScript. The case studies are public and the numbers are consistent.
 - The minimum viable setup is: first-party subdomain, sGTM container, server tags for your top 3 ad platforms, and proper event deduplication.
-- Deduplication with a shared `event_id` is the most technically critical step - skip it and you corrupt your data.
+- Deduplication with a shared `event_id` is the most technically critical step, skip it and you corrupt your data.
 - Privacy compliance still applies. Server-side does not mean consent-free. Gate your server tags on the same consent signals your browser tags use.
 
 ## The One-Line Takeaway
 
-**Server-side tracking is not a tool upgrade - it is reclaiming the conversion data you are already generating but currently losing.**
+**Server-side tracking is not a tool upgrade, it is reclaiming the conversion data you are already generating but currently losing.**
 
 <ResourceList resources={[
   { title: "Stape: Server-Side Tagging Benefits and Case Studies", url: "https://stape.io/blog/benefits-server-side-tagging", type: "article", free: true, note: "Real case studies with actual numbers from Square, MecShopping, WoodUpp" },
