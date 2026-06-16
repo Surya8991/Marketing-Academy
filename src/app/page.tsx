@@ -121,9 +121,9 @@ export default function HomePage() {
           </h1>
 
           <p className="text-base sm:text-xl text-[var(--muted-foreground)] mb-10 max-w-2xl mx-auto leading-relaxed">
-            SEO, paid ads, growth, social, email, analytics, AI - every discipline
-            explained in plain English with real examples, diagrams, and the
-            current 2026 playbook.
+            Every marketing discipline — from SEO and paid ads to AI agents and growth loops —
+            explained in plain English with real research, Mermaid diagrams, and the 2026 playbook.
+            Free forever.
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
@@ -432,43 +432,64 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* How it works */}
+      {/* Not like the others */}
       <section>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-          <h2 className="text-3xl font-bold mb-4">How to use this site</h2>
-          <p className="text-[var(--muted-foreground)] mb-10 max-w-xl mx-auto">
-            No account. No paywall. No dark patterns. Just solid marketing
-            knowledge.
-          </p>
-          <div className="grid sm:grid-cols-3 gap-6 text-left">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-3">Not like the others</h2>
+            <p className="text-[var(--muted-foreground)] max-w-xl mx-auto">
+              The internet already has $997 courses and shallow listicles. This is neither.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               {
-                step: "1",
-                title: "Pick a category",
-                desc: "Start with Fundamentals if you're new, or jump to the channel you work on today.",
+                icon: "🔓",
+                vs: "vs. HubSpot Academy",
+                title: "No forms, no sign-up",
+                desc: "Lessons, quizzes, progress tracking — all work instantly without an account or email verification.",
               },
               {
-                step: "2",
-                title: "Follow the path",
-                desc: "Each category runs Beginner → Intermediate → Advanced. Complete in order, or browse freely.",
+                icon: "📊",
+                vs: "vs. YouTube tutorials",
+                title: "Real research, cited stats",
+                desc: "Every lesson uses actual numbers from HubSpot, McKinsey, Statista — not opinion dressed as fact.",
               },
               {
-                step: "3",
-                title: "Use the resources",
-                desc: "Every lesson links to free blogs, official docs, and videos so you can go deeper.",
+                icon: "📈",
+                vs: "vs. random blog posts",
+                title: "Beginner → Advanced sequence",
+                desc: "Each category is ordered. You build on what you learned in the last lesson instead of jumping randomly.",
               },
-            ].map((s) => (
+              {
+                icon: "⚖️",
+                vs: "vs. vendor courses",
+                title: "Tool-agnostic playbooks",
+                desc: "Strategies that work regardless of which tool you use — not a sales pitch disguised as education.",
+              },
+              {
+                icon: "🗓️",
+                vs: "vs. Coursera 2019 courses",
+                title: "Updated for 2026",
+                desc: "AI overviews, agentic workflows, zero-click search, privacy sandbox — the current playbook, not a relic.",
+              },
+              {
+                icon: "🌏",
+                vs: "vs. English-only platforms",
+                title: "Hindi, Tamil & Telugu resources",
+                desc: "Every lesson ends with curated video resources in Hindi, Tamil, and Telugu for Indian learners.",
+              },
+            ].map((d) => (
               <div
-                key={s.step}
-                className="flex gap-4 p-5 rounded-2xl border border-[var(--border)] bg-[var(--card)]"
+                key={d.title}
+                className="p-5 rounded-2xl border border-[var(--border)] bg-[var(--card)]"
               >
-                <div className="shrink-0 w-9 h-9 rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] flex items-center justify-center text-sm font-bold">
-                  {s.step}
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-xl">{d.icon}</span>
+                  <span className="text-xs text-[var(--muted-foreground)] font-medium">{d.vs}</span>
                 </div>
-                <div>
-                  <h3 className="font-semibold mb-1">{s.title}</h3>
-                  <p className="text-sm text-[var(--muted-foreground)]">{s.desc}</p>
-                </div>
+                <h3 className="font-semibold mb-1.5">{d.title}</h3>
+                <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">{d.desc}</p>
               </div>
             ))}
           </div>
@@ -478,17 +499,26 @@ export default function HomePage() {
       {/* CTA */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
         <div className="rounded-3xl border border-[var(--border)] bg-gradient-to-br from-[var(--accent)]/10 via-fuchsia-500/5 to-transparent p-10">
-          <h2 className="text-3xl font-bold mb-4">Ready to become a marketer?</h2>
+          <h2 className="text-3xl font-bold mb-3">Start building your marketing stack.</h2>
           <p className="text-[var(--muted-foreground)] mb-8 max-w-md mx-auto">
-            Start with the basics and go at your own pace.
+            New to marketing? Start at Lesson 1. Know your role? Jump straight to a track.
           </p>
-          <Link
-            href="/learn/fundamentals/what-is-marketing"
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] font-medium hover:opacity-90 transition-opacity shadow-lg shadow-[var(--accent)]/20"
-          >
-            Lesson 1: What Marketing Actually Is
-            <ArrowRight size={16} />
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link
+              href="/learn/fundamentals/what-is-marketing"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] font-medium hover:opacity-90 transition-opacity shadow-lg shadow-[var(--accent)]/20"
+            >
+              <BookOpen size={16} />
+              Lesson 1: What Marketing Actually Is
+            </Link>
+            <Link
+              href="/tracks"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--border)] font-medium hover:border-[var(--accent)] transition-colors text-sm"
+            >
+              Pick a learning track
+              <ArrowRight size={15} />
+            </Link>
+          </div>
         </div>
       </section>
     </div>

@@ -132,8 +132,8 @@ export default function AboutPage() {
             </p>
             <p className="text-sm text-[var(--muted-foreground)] leading-relaxed mb-4">
               Built Marketing Academy to combine a passion for web development with a belief
-              that structured, free marketing education should exist on the internet. 42 public
-              repos and counting - mostly tools that solve real problems.
+              that structured, free marketing education should exist on the internet — no
+              paywalls, no email required, no bias toward any tool or platform.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
