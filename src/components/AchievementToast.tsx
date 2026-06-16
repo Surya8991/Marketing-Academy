@@ -24,6 +24,7 @@ export default function AchievementToast() {
       setToasts((prev) => [...prev, ...newToasts]);
       const id = setTimeout(() => {
         setToasts((prev) => prev.filter((t) => !newToasts.some((n) => n.ts === t.ts)));
+        timers.current = timers.current.filter((t) => t !== id);
       }, 4000);
       timers.current.push(id);
     };

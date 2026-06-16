@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Fuse from "fuse.js";
-import { buildCommandIndex, type CommandEntry } from "@/lib/commandIndex";
+import { COMMAND_INDEX, type CommandEntry } from "@/lib/commandIndex";
 import { COMMAND_PALETTE_EVENT } from "@/lib/events";
 
 const TYPE_BADGE: Record<CommandEntry["type"], { label: string; style: React.CSSProperties }> = {
@@ -51,7 +51,7 @@ export default function CommandPalette() {
   const listRef = useRef<HTMLUListElement>(null);
   const router = useRouter();
 
-  const index = useMemo(() => buildCommandIndex(), []);
+  const index = COMMAND_INDEX;
 
   const fuse = useMemo(
     () =>
@@ -60,7 +60,7 @@ export default function CommandPalette() {
         threshold: 0.3,
         includeScore: true,
       }),
-    [index]
+    []
   );
 
   const results: CommandEntry[] = useMemo(() => {

@@ -18,14 +18,18 @@ export type EngagementState = {
   xpLog: { action: XPAction; id: string; xp: number; ts: number }[];
 };
 
+function localDate(d: Date = new Date()): string {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
 function today(): string {
-  return new Date().toISOString().slice(0, 10);
+  return localDate();
 }
 
 function yesterday(): string {
   const d = new Date();
   d.setDate(d.getDate() - 1);
-  return d.toISOString().slice(0, 10);
+  return localDate(d);
 }
 
 export function getEngagement(): EngagementState {
@@ -112,4 +116,4 @@ export function getCurrentLevel(xp: number): { level: number; title: string; nex
   return levels[0];
 }
 
-export const ENGAGEMENT_EVENT = "ma_xp_update";
+export { ENGAGEMENT_EVENT } from "@/lib/events";
