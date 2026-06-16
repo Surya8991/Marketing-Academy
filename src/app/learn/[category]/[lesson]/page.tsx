@@ -188,19 +188,6 @@ export default async function LessonPage({ params }: Props) {
               <div className="mt-5 flex flex-wrap items-center gap-3">
                 <MarkComplete category={category} slug={lesson} />
                 <BookmarkButton category={category} slug={lesson} title={lessonMeta?.title ?? lesson} />
-                {hasQuiz && (
-                  <a
-                    href="#quiz-section"
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium border transition-colors"
-                    style={{
-                      borderColor: "var(--accent)",
-                      color: "var(--accent)",
-                      background: "rgba(99,102,241,0.06)",
-                    }}
-                  >
-                    🧠 Take Quiz
-                  </a>
-                )}
               </div>
               <div className="mt-4">
                 <ShareButtons title={lessonMeta?.title ?? lesson} url={`${BASE}/learn/${category}/${lesson}`} />
