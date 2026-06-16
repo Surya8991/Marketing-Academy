@@ -1,7 +1,7 @@
-# Marketing Academy - Master Project Log
+﻿# Marketing Academy - Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-06-16 (Session 47).
+> Last audited: 2026-06-16 (Session 50).
 
 ---
 
@@ -707,6 +707,9 @@ Full review by 5 personas (CMO, Junior Marketer, SEO Specialist, UX Designer, Fr
 | 45 | 2026-06-16 | Deep code review (123 files). 10 bugs fixed: UTC streak bug, quiz answers persistence, achievements localStorage over-read, commandIndex singleton, ENGAGEMENT_EVENT consolidation to events.ts, StreakBadge re-export removed, AchievementToast timer leak, MarkComplete LESSON_TOGGLE_EVENT, Quiz stale pathname dep, AchievementsClient dead pct branch. |
 | 46 | 2026-06-16 | Cloud sync (Cloudflare KV Option B): /api/sync route, SettingsClient push/pull, .env.local.example, cf-kv-setup.html guide. Nav reorg: Settings moved to gear icon in header; Learn/Progress/Resources dropdowns logically separated; mobile menu restructured into 4 sections. |
 | 47 | 2026-06-16 | Planned sessions documented in PROJECT_LOG: /progress dashboard, PostHog analytics, notes per lesson. Parked pending user decision. PostHog setup guide created: public/posthog-setup.html (11-step interactive checklist, covers account → env vars → PostHogProvider.tsx code → LessonViewTracker extension → events reference). Notes per lesson shipped: LessonNotes.tsx (collapsible, auto-save 800ms debounce, ma_note_{category}_{slug} key, saved badge). Wired into lesson page after Quiz, before RelatedLessons. Export/import in SettingsClient extended to include ma_note_* keys. |
+| 48 | 2026-06-16 | Track quiz gate: TrackQuizGate.tsx + TrackLessonList.tsx. "Mark all complete" on track pages now requires passing a quiz (≥80%) before marking. Individual per-lesson checkboxes ungated. |
+| 49 | 2026-06-16 | Quiz coverage expanded to 393/393 lessons. 86 missing lessons had quizzes generated via 86-agent Workflow (reading MDX content). 17 keys were duplicates (regex bug `[a-z-]*` missed digits — fixed to `[a-z0-9][a-z0-9-]*`). 69 unique entries appended. quizzes.ts grew from ~1.07MB to ~1.27MB. Per-lesson lock restored uniformly — `hasQuiz` prop removed from MarkComplete (all lessons now always have quizzes). |
+| 50 | 2026-06-16 | Per-lesson + track quiz gate overhaul. New: LessonQuizGate.tsx (4-question inline modal, 100% pass required, backdrop/Esc closes). MarkComplete.tsx rewired: `locked = !quizPassed && !done`; locked button clickable → opens LessonQuizGate; `handleGatePass()` calls setQuizPassed + markComplete. TrackQuizGate.tsx upgraded: no question cap, PAGE_SIZE=10 pagination with Prev/Next + global progress bar, all track lessons pooled. |
 
 ---
 
@@ -1912,3 +1915,69 @@ CREATE TABLE progress (
 - API route reads body, upserts into `progress` table per key
 - All `getCompleted()` / `getBookmarks()` / `getEngagement()` lib functions get a server-side sibling that hits Neon instead of localStorage
 
+
+## Session 48 — 2026-06-16 (Track quiz gate)
+
+**Gate added to "Mark all complete" on track pages — requires 80% pass before marking.**
+
+### Files changed
+| File | Change |
+|------|--------|
+| `src/components/TrackQuizGate.tsx` | New modal component — pools questions from all track lessons, shuffles, caps at 10, scores on submit, auto-marks-all on pass |
+| `src/components/TrackLessonList.tsx` | openGate() replaces direct markAll() call on the button; renders TrackQuizGate conditionally |
+
+### Behaviour
+- "Mark all complete" opens modal with up to 10 shuffled questions from QUIZZES for lessons in the track
+- User must answer all before submitting
+- Pass (>=80%): marks all complete after 1.2s delay, modal closes
+- Fail (<80%): error banner + score + "Try again" button resets answers
+- Esc / backdrop click closes modal
+- Individual per-lesson checkboxes remain ungated
+
+---
+
+## Session 49 — 2026-06-16 (Quiz coverage: 393/393 lessons)
+
+**Generated quizzes for 86 previously uncovered lessons. All 393 lessons now have quiz questions. Per-lesson lock restored uniformly.**
+
+### Files changed
+| File | Change |
+|------|--------|
+| `src/lib/quizzes.ts` | 69 unique new entries appended (86 targeted, 17 were duplicates detected after regex fix) |
+| `src/app/learn/[category]/[lesson]/page.tsx` | Removed `hasQuiz` prop from both MarkComplete calls — all lessons have quizzes now |
+
+### Key fix: duplicate-detection regex bug
+The script used `[a-z-]*` to match existing keys. That character class excluded digits, so keys like `ai-marketing/ai-marketing-101` and `cro/cro-101` weren't matched → treated as missing → generated again → TypeScript duplicate property error. Fixed to `[a-z0-9][a-z0-9-]*`. After dedup: 17 already existed, 69 were genuinely new.
+
+### Behaviour
+- `QUIZZES` in `src/lib/quizzes.ts` now has an entry for every slug registered in `curriculum.ts`
+- `MarkComplete` no longer receives `hasQuiz` prop — all lessons are locked by default until quiz passes
+- `hasQuiz` variable still exists in `lesson/page.tsx` for the optional bottom Quiz section and "Take Quiz" anchor link
+
+---
+
+## Session 50 — 2026-06-16 (Inline 4Q per-lesson gate + paginated all-Q track gate)
+
+**Per-lesson Mark Complete now opens a 4-question inline modal. Track Mark All Complete now uses all available questions with 10-per-page pagination.**
+
+### Files changed
+| File | Change |
+|------|--------|
+| `src/components/LessonQuizGate.tsx` | NEW — 4-question inline modal gate for per-lesson completion |
+| `src/components/MarkComplete.tsx` | Rewired: locked button → opens LessonQuizGate; handleGatePass sets quiz pass + marks complete |
+| `src/components/TrackQuizGate.tsx` | Upgraded: no question cap, PAGE_SIZE=10 pagination, Prev/Next nav, global progress bar |
+| `src/components/TrackLessonList.tsx` | openGate() pools all track lesson questions (no cap) before showing modal |
+
+### LessonQuizGate behaviour
+- Randomly samples 4 questions from `QUIZZES[category/slug]`
+- All 4 must be correct to pass (100% threshold)
+- Pass → `onPass()` fires after 1000ms, modal stays open briefly showing green banner
+- Fail → red banner + score + "Try again" button (resets answers only, same sample)
+- Esc or backdrop click closes without passing
+
+### TrackQuizGate behaviour (updated)
+- Pools ALL questions from every lesson in the track — no 10-question cap
+- Paginated: 10 questions per page, Prev/Next buttons, global progress bar showing answered/total
+- Submit disabled until all questions across all pages are answered
+- Pass (≥80%): marks all complete after 1.2s delay
+- Fail (<80%): score banner + "Try again" resets to page 0 with fresh shuffled order

@@ -318,3 +318,15 @@ Before any `git push`, update ALL of the following that are affected by the chan
 - Nav/Footer changed → PROJECT_LOG component description row
 
 **Enforcement:** The commit message must reference what docs were updated. If no docs were changed in a code commit, state explicitly why none needed updating.
+
+### Rule 24 — TrackQuizGate gates "Mark all complete" on track pages only
+`src/components/TrackQuizGate.tsx` opens when clicking "Mark all complete" on a `/tracks/[slug]` page. It pools ALL questions from every lesson in the track (no cap), paginates them 10 per page with Prev/Next navigation and a global progress bar, and requires ≥80% correct before calling `markAll()`. Individual per-lesson checkboxes on the same page are NOT gated. The gate is wired in `TrackLessonList.tsx` — `openGate()` pools QUIZZES for all track lessons, sets `gateQuestions`, and shows the modal. `markAll()` also closes the gate. Do not add the gate to individual lesson `MarkComplete.tsx`.
+
+### Rule 25 — Per-lesson quiz gate: LessonQuizGate + MarkComplete pattern
+Every lesson page is locked behind a 4-question quiz gate. Architecture:
+
+- **`src/components/LessonQuizGate.tsx`** — modal that randomly samples 4 questions from `QUIZZES[category/slug]`, shows them one screen, and requires **all 4 correct** (100%) to pass. Backdrop click / Esc closes without passing. `onPass` fires after 1000ms on perfect score.
+- **`src/components/MarkComplete.tsx`** — `locked = !quizPassed && !done`. When locked, the button is clickable (NOT disabled) and opens `LessonQuizGate`. `handleGatePass()` calls `setQuizPassed(category, slug)` then `handleComplete()`. The bottom standalone `Quiz` component can also unlock via `QUIZ_PASSED_EVENT` (`window.addEventListener`).
+- **`src/lib/quizzes.ts`** exports `getQuizPassed`, `setQuizPassed`, `QUIZ_PASSED_EVENT`, and `QUIZZES`. `setQuizPassed` writes `ma_quiz_pass_{category}_{slug}` to localStorage; `getQuizPassed` reads it.
+- All 393 lessons have entries in `QUIZZES` — never remove entries or make `QUIZZES[key]` return undefined for a registered lesson.
+- Do NOT add `hasQuiz` prop back to `MarkComplete` — it was removed because all lessons now have quizzes.

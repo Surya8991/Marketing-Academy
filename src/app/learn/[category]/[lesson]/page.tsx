@@ -186,7 +186,7 @@ export default async function LessonPage({ params }: Props) {
                 </p>
               )}
               <div className="mt-5 flex flex-wrap items-center gap-3">
-                <MarkComplete category={category} slug={lesson} hasQuiz={hasQuiz} />
+                <MarkComplete category={category} slug={lesson} />
                 <BookmarkButton category={category} slug={lesson} title={lessonMeta?.title ?? lesson} />
                 {hasQuiz && (
                   <a
@@ -220,7 +220,6 @@ export default async function LessonPage({ params }: Props) {
               <MarkComplete
                 category={category}
                 slug={lesson}
-                hasQuiz={hasQuiz}
                 nextHref={next ? `/learn/${next.categorySlug}/${next.slug}` : undefined}
                 nextTitle={next?.title}
               />
