@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloudflare KV Sync — Setup Guide</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f0f0f;
+      --surface: #1a1a1a;
+      --surface2: #242424;
+      --border: #2e2e2e;
+      --text: #e8e8e8;
+      --muted: #888;
+      --accent: #1D9E75;
+      --accent-dim: rgba(29,158,117,0.15);
+      --accent-border: rgba(29,158,117,0.35);
+      --warn-bg: rgba(234,179,8,0.12);
+      --warn-border: rgba(234,179,8,0.35);
+      --warn-text: #d4a017;
+      --info-bg: rgba(59,130,246,0.12);
+      --info-border: rgba(59,130,246,0.3);
+      --info-text: #60a5fa;
+      --code-bg: #111;
+      --radius: 8px;
+      --radius-lg: 12px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .container { max-width: 720px; margin: 0 auto; }
+
+    /* Header */
+    .header { margin-bottom: 2.5rem; }
+    .header h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.35rem; }
+    .header p { color: var(--muted); font-size: 0.95rem; }
+    .header .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      border-radius: 4px;
+      padding: 2px 8px;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Progress */
+    .progress-wrap { margin-bottom: 2.5rem; }
+    .progress-label { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+    .progress-label span { color: var(--accent); font-weight: 600; }
+    .progress-track { height: 4px; background: var(--surface2); border-radius: 99px; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--accent); border-radius: 99px; transition: width 0.4s ease; width: 0%; }
+
+    /* Phase */
+    .phase { margin-bottom: 2rem; }
+    .phase-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .phase-num {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      color: var(--text);
+      flex-shrink: 0;
+    }
+    .phase-time { margin-left: auto; font-size: 10px; font-weight: 400; }
+
+    /* Step */
+    .step {
+      display: flex;
+      gap: 14px;
+      padding: 12px 10px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.15s;
+      -webkit-user-select: none; user-select: none;
+    }
+    .step:hover { background: var(--surface); }
+
+    .check {
+      width: 22px; height: 22px;
+      border: 1.5px solid var(--border);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 1px;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s;
+    }
+    .check svg { opacity: 0; transition: opacity 0.2s; }
+    .step.done .check {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .step.done .check svg { opacity: 1; }
+
+    .step-body { flex: 1; min-width: 0; }
+    .step-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 3px;
+      transition: color 0.2s;
+    }
+    .step.done .step-title { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--border); }
+    .step-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .step-desc a { color: var(--info-text); text-decoration: none; }
+    .step-desc a:hover { text-decoration: underline; }
+    .step-desc strong { color: var(--text); font-weight: 500; }
+
+    /* Code */
+    .code-block {
+      position: relative;
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 40px 10px 12px;
+      margin-top: 8px;
+      font-family: "SF Mono", "Fira Code", Consolas, monospace;
+      font-size: 12px;
+      color: #a3e0c8;
+      overflow-x: auto;
+      white-space: pre;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 7px; right: 8px;
+      font-size: 10px;
+      color: var(--muted);
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 7px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: color 0.15s;
+    }
+    .copy-btn:hover { color: var(--text); }
+
+    /* Env grid */
+    .env-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
+      margin-top: 10px;
+    }
+    .env-key {
+      font-family: "SF Mono", Consolas, monospace;
+      font-size: 12px;
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 7px 10px;
+      color: #a3e0c8;
+    }
+    .env-val {
+      font-size: 12px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 7px 10px;
+      color: var(--muted);
+    }
+    .env-same {
+      grid-column: 1 / -1;
+      font-size: 11px;
+      color: var(--warn-text);
+      padding: 6px 10px;
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
+      border-radius: var(--radius);
+      margin-top: 2px;
+    }
+
+    /* Callouts */
+    .tip, .warn {
+      font-size: 12px;
+      border-radius: var(--radius);
+      padding: 7px 11px;
+      margin-top: 8px;
+      line-height: 1.55;
+    }
+    .tip { background: var(--info-bg); border: 1px solid var(--info-border); color: var(--info-text); }
+    .warn { background: var(--warn-bg); border: 1px solid var(--warn-border); color: var(--warn-text); }
+
+    /* Done banner */
+    .done-banner {
+      display: none;
+      margin-top: 1.5rem;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      text-align: center;
+    }
+    .done-banner.show { display: block; }
+    .done-banner h3 { font-size: 16px; font-weight: 600; color: var(--accent); margin-bottom: 4px; }
+    .done-banner p { font-size: 13px; color: var(--muted); }
+
+    /* Footer */
+    .footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+    .footer p { font-size: 12px; color: var(--muted); }
+    .footer code { font-family: "SF Mono", Consolas, monospace; font-size: 11px; background: var(--surface2); border: 1px solid var(--border); border-radius: 3px; padding: 1px 5px; color: var(--text); }
+
+    @media (max-width: 480px) {
+      .env-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="badge">Setup Guide</div>
+    <h1>Cloudflare KV — Cloud Sync Setup</h1>
+    <p>Follow these steps to activate push/pull sync in your Marketing Academy Settings page.</p>
+  </div>
+
+  <div class="progress-wrap">
+    <p class="progress-label"><span id="done-count">0</span> of 14 steps complete</p>
+    <div class="progress-track"><div class="progress-fill" id="prog"></div></div>
+  </div>
+
+  <!-- Phase 1 -->
+  <div class="phase">
+    <div class="phase-label">
+      <div class="phase-num">1</div>
+      Cloudflare Account &amp; KV Namespace
+      <span class="phase-time">~3 min</span>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Sign in to Cloudflare</div>
+        <div class="step-desc">Go to <a href="https://dash.cloudflare.com" target="_blank" rel="noopener">dash.cloudflare.com</a> — create a free account if needed. No credit card required.</div>
+      </div>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Open Workers &amp; Pages → KV</div>
+        <div class="step-desc">In the left sidebar click <strong>Workers &amp; Pages</strong>, then click the <strong>KV</strong> tab. If Workers isn't visible, click "Explore Products" and enable it.</div>
+      </div>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Create a KV namespace named <code style="font-size:12px;background:#111;padding:1px 5px;border-radius:3px;color:#a3e0c8">ma-progress</code></div>
+        <div class="step-desc">Click <strong>Create namespace</strong>. Enter the name exactly:
+          <div class="code-block">ma-progress<button class="copy-btn" onclick="cp(event,'ma-progress')">copy</button></div>
+          <div class="tip">The name is just a label — the Namespace ID (shown after creation) is what goes in your env vars.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Copy the Namespace ID</div>
+        <div class="step-desc">After creation, the namespace appears in the list with a long hex ID like <code style="font-size:12px;background:#111;padding:1px 5px;border-radius:3px;color:#a3e0c8">a1b2c3d4e5f6…</code> — copy it and save somewhere. This is your <code style="font-size:12px;background:#111;padding:1px 5px;border-radius:3px;color:#a3e0c8">CF_KV_NAMESPACE_ID</code>.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 2 -->
+  <div class="phase">
+    <div class="phase-label">
+      <div class="phase-num">2</div>
+      Get Your Account ID
+      <span class="phase-time">~1 min</span>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Find your Account ID</div>
+        <div class="step-desc">Click <strong>Workers &amp; Pages</strong> in the sidebar. On the right side under <strong>Account details</strong>, you'll see a 32-character hex Account ID. Copy it — this is your <code style="font-size:12px;background:#111;padding:1px 5px;border-radius:3px;color:#a3e0c8">CF_ACCOUNT_ID</code>.
+          <div class="tip">Also visible in the right sidebar of any domain's Overview page.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 3 -->
+  <div class="phase">
+    <div class="phase-label">
+      <div class="phase-num">3</div>
+      Create an API Token
+      <span class="phase-time">~3 min</span>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Open API Tokens</div>
+        <div class="step-desc">Top-right of the Cloudflare dashboard → click your <strong>avatar / profile icon</strong> → <strong>My Profile</strong> → click the <strong>API Tokens</strong> tab → click <strong>Create Token</strong>.</div>
+      </div>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Use the "Edit Cloudflare Workers" template</div>
+        <div class="step-desc">Scroll to find the <strong>Edit Cloudflare Workers</strong> template and click <strong>Use template</strong>. This pre-fills the correct permissions including KV write access.</div>
+      </div>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Verify KV permission, then create</div>
+        <div class="step-desc">Under Permissions confirm you see: <strong>Account → Workers KV Storage → Edit</strong>. Scroll down → <strong>Continue to summary</strong> → <strong>Create Token</strong>.</div>
+      </div>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Copy the token — shown only once</div>
+        <div class="step-desc">Cloudflare shows the token <strong>once</strong> on this screen. Copy it now and save it. This is your <code style="font-size:12px;background:#111;padding:1px 5px;border-radius:3px;color:#a3e0c8">CF_KV_API_TOKEN</code>.
+          <div class="warn">⚠ If you navigate away without copying, you'll need to delete and recreate the token.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 4 -->
+  <div class="phase">
+    <div class="phase-label">
+      <div class="phase-num">4</div>
+      Generate a Sync Secret
+      <span class="phase-time">~1 min</span>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Generate a random secret</div>
+        <div class="step-desc">This protects your sync API endpoint. Run in terminal:
+          <div class="code-block">openssl rand -hex 32<button class="copy-btn" onclick="cp(event,'openssl rand -hex 32')">copy</button></div>
+          Save the output — you'll paste it into Vercel <strong>twice</strong> as <code style="font-size:12px;background:#111;padding:1px 5px;border-radius:3px;color:#a3e0c8">SYNC_SECRET</code> and <code style="font-size:12px;background:#111;padding:1px 5px;border-radius:3px;color:#a3e0c8">NEXT_PUBLIC_SYNC_SECRET</code>.
+          <div class="tip">No terminal? Use any strong 32+ character random string from a password manager.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 5 -->
+  <div class="phase">
+    <div class="phase-label">
+      <div class="phase-num">5</div>
+      Add Environment Variables to Vercel
+      <span class="phase-time">~3 min</span>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Open Vercel → your project → Settings → Environment Variables</div>
+        <div class="step-desc">Go to <a href="https://vercel.com/dashboard" target="_blank" rel="noopener">vercel.com/dashboard</a> → click the Marketing Academy project → <strong>Settings</strong> tab → <strong>Environment Variables</strong> in the left sidebar.</div>
+      </div>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Add all 5 environment variables</div>
+        <div class="step-desc">Add each key, paste the value, set environments to <strong>Production + Preview + Development</strong>, then click Save:
+          <div class="env-grid">
+            <div class="env-key">CF_ACCOUNT_ID</div><div class="env-val">← from Step 5</div>
+            <div class="env-key">CF_KV_NAMESPACE_ID</div><div class="env-val">← from Step 4</div>
+            <div class="env-key">CF_KV_API_TOKEN</div><div class="env-val">← from Step 9</div>
+            <div class="env-key">SYNC_SECRET</div><div class="env-val">← your random string</div>
+            <div class="env-key">NEXT_PUBLIC_SYNC_SECRET</div><div class="env-val">← same random string</div>
+          </div>
+          <div class="env-same">⚠ SYNC_SECRET and NEXT_PUBLIC_SYNC_SECRET must be the exact same value.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Redeploy the project</div>
+        <div class="step-desc">Go to the <strong>Deployments</strong> tab → three dots on the latest deployment → <strong>Redeploy</strong>. Env vars only take effect after a new deploy.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 6 -->
+  <div class="phase">
+    <div class="phase-label">
+      <div class="phase-num" style="background:rgba(29,158,117,0.2);border-color:rgba(29,158,117,0.4);color:var(--accent)">6</div>
+      Test It
+      <span class="phase-time">~1 min</span>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Push from your main device</div>
+        <div class="step-desc">Go to your site → click the ⚙ gear icon in the nav → scroll to <strong>Cloud Sync</strong> → click <strong>↑ Push to cloud</strong>. Should show: <em>"Saved to cloud at HH:MM:SS"</em>.</div>
+      </div>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Pull on another device</div>
+        <div class="step-desc">On a second device or incognito browser → open your site → <strong>Settings</strong> → <strong>↓ Pull from cloud</strong>. The page reloads with your progress restored.
+          <div class="tip">✓ Done. From now on: push after each session, pull when switching devices.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="done-banner" id="done-banner">
+    <h3>✓ All steps complete</h3>
+    <p>Cloud sync is live. Push from Settings whenever you finish a session.</p>
+  </div>
+
+  <div class="footer">
+    <p>Env var reference: see <code>.env.local.example</code> in the project root &middot; API route: <code>src/app/api/sync/route.ts</code> &middot; UI: <code>src/app/settings/SettingsClient.tsx</code></p>
+  </div>
+
+</div>
+
+<script>
+  const TOTAL = 14;
+
+  // Persist state in localStorage so ticks survive a page refresh
+  const STORAGE_KEY = "cf_setup_done";
+
+  function getState() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); } catch { return []; }
+  }
+  function saveState(indices) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(indices));
+  }
+
+  function toggle(el) {
+    el.classList.toggle("done");
+    syncState();
+    update();
+  }
+
+  function syncState() {
+    const steps = document.querySelectorAll(".step");
+    const done = [];
+    steps.forEach((s, i) => { if (s.classList.contains("done")) done.push(i); });
+    saveState(done);
+  }
+
+  function update() {
+    const done = document.querySelectorAll(".step.done").length;
+    const pct = Math.round((done / TOTAL) * 100);
+    document.getElementById("prog").style.width = pct + "%";
+    document.getElementById("done-count").textContent = done;
+    document.getElementById("done-banner").classList.toggle("show", done === TOTAL);
+  }
+
+  function cp(e, text) {
+    e.stopPropagation();
+    navigator.clipboard.writeText(text).catch(() => {});
+    const btn = e.target;
+    btn.textContent = "copied";
+    setTimeout(() => { btn.textContent = "copy"; }, 1500);
+  }
+
+  // Restore ticked state on load
+  (function restore() {
+    const done = getState();
+    const steps = document.querySelectorAll(".step");
+    done.forEach(i => { if (steps[i]) steps[i].classList.add("done"); });
+    update();
+  })();
+</script>
+</body>
+</html>

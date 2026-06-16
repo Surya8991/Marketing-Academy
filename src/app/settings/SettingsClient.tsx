@@ -7,6 +7,7 @@ import { COMPLETED_KEY } from "@/lib/progress";
 const ENGAGEMENT_KEY = "ma_engagement";
 const ONBOARDED_KEY = "ma_onboarded";
 const QUIZ_KEY_PREFIX = "ma_quiz_pass_";
+const NOTE_KEY_PREFIX = "ma_note_";
 const EXPORT_KEYS = [COMPLETED_KEY, BOOKMARK_KEY, ENGAGEMENT_KEY, ONBOARDED_KEY];
 const SYNC_SECRET = process.env.NEXT_PUBLIC_SYNC_SECRET ?? "";
 
@@ -18,7 +19,7 @@ function collectAllKeys(): Record<string, unknown> {
   }
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
-    if (key?.startsWith(QUIZ_KEY_PREFIX)) {
+    if (key?.startsWith(QUIZ_KEY_PREFIX) || key?.startsWith(NOTE_KEY_PREFIX)) {
       data[key] = localStorage.getItem(key);
     }
   }

@@ -1,7 +1,7 @@
 # Marketing Academy - Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-06-15 (Session 43).
+> Last audited: 2026-06-16 (Session 47).
 
 ---
 
@@ -704,6 +704,9 @@ Full review by 5 personas (CMO, Junior Marketer, SEO Specialist, UX Designer, Fr
 | 42 | 2026-06-15 | Code review pass on Session 41 features: 6 bugs fixed (engagement dead branch, AchievementToast timer leak, CommandPalette crash on empty results, unused React import, COMPLETED_KEY coupling, event constant coupling). AGENTS.md Rule 22 added. README + PROJECT_LOG updated. |
 | 43 | 2026-06-15 | Orphan fix: 6 MDX lessons existed on disk but unregistered in curriculum.ts. Added to curriculum: analytics/attribution-models (Advanced), analytics/funnel-analytics (Intermediate), email/email-101 (Beginner), email/automation-drips (Intermediate), email/winback (Intermediate), email/compliance (Advanced). Total: 387 -> 393 registered lessons. All orphans resolved. |
 | 44 | 2026-06-15 | Nav + Footer improvements. Nav: added Skill Map, Achievements, Settings to Learn dropdown and mobile menu; removed redundant Search icon (Cmd+K covers it); learnActive updated for new routes. Footer: fixed GitHub URLs (Surya8991 -> Layruss98266 in all 3 places, extracted to GITHUB_URL const); removed em dash from copyright (Rule 1); added Skill Map/Achievements/Settings to Learn column; moved Search to Resources column; removed duplicate GitHub link from Resources; "Browse all 15 topics" made dynamic via CATEGORIES.length. |
+| 45 | 2026-06-16 | Deep code review (123 files). 10 bugs fixed: UTC streak bug, quiz answers persistence, achievements localStorage over-read, commandIndex singleton, ENGAGEMENT_EVENT consolidation to events.ts, StreakBadge re-export removed, AchievementToast timer leak, MarkComplete LESSON_TOGGLE_EVENT, Quiz stale pathname dep, AchievementsClient dead pct branch. |
+| 46 | 2026-06-16 | Cloud sync (Cloudflare KV Option B): /api/sync route, SettingsClient push/pull, .env.local.example, cf-kv-setup.html guide. Nav reorg: Settings moved to gear icon in header; Learn/Progress/Resources dropdowns logically separated; mobile menu restructured into 4 sections. |
+| 47 | 2026-06-16 | Planned sessions documented in PROJECT_LOG: /progress dashboard, PostHog analytics, notes per lesson. Parked pending user decision. PostHog setup guide created: public/posthog-setup.html (11-step interactive checklist, covers account → env vars → PostHogProvider.tsx code → LessonViewTracker extension → events reference). Notes per lesson shipped: LessonNotes.tsx (collapsible, auto-save 800ms debounce, ma_note_{category}_{slug} key, saved badge). Wired into lesson page after Quiz, before RelatedLessons. Export/import in SettingsClient extended to include ma_note_* keys. |
 
 ---
 
@@ -1739,6 +1742,141 @@ Full curriculum inventory (323 MDX files across 15 categories) cross-referenced 
 
 ### Build result after review fixes
 - 621/621 static pages ✅ — zero type errors, zero new warnings
+
+---
+
+## Session 45 — 2026-06-16 (10-bug deep code review pass)
+
+**Full project code review (123 changed files). 10 bugs found and fixed.**
+
+### Fixes
+
+| # | Severity | File | Fix |
+|---|----------|------|-----|
+| 1 | High | `engagement.ts` | Streak broke for users in timezones behind UTC — replaced `toISOString()` (UTC) with local-date formatter using `getFullYear/getMonth/getDate` |
+| 2 | Medium | `Quiz.tsx` | Quiz restore showed wrong answers on refresh — switched from persisting scalar `score` to full `answers: boolean[]` array; backward-compat fallback for old format |
+| 3 | Medium | `achievements.ts` | `check()` callbacks re-read localStorage on every achievement — refactored to read once in `checkAchievements()`, pass `completed` + `bookmarks` into each check |
+| 4 | Medium | `commandIndex.ts` | Command index rebuilt on every route navigation — added module-level singleton `COMMAND_INDEX`; `CommandPalette` removed `useMemo` rebuild, fuse deps `[]` |
+| 5 | Medium | `engagement.ts` / `events.ts` | `ENGAGEMENT_EVENT` defined in `engagement.ts` — moved to `src/lib/events.ts` (single source); `engagement.ts` re-exports for backward compat |
+| 6 | Low | `StreakBadge.tsx` | Incorrectly re-exported `COMMAND_PALETTE_EVENT` from a component file — removed; consumers import from `@/lib/events` directly |
+| 7 | Low | `AchievementToast.tsx` | Fired `setTimeout` IDs not pruned after firing — added self-removal from `timers.current` ref on callback to prevent unbounded array growth |
+| 8 | Low | `MarkComplete.tsx` | Used inline `const SYNC_EVENT = "lesson-toggle"` — replaced with `import { LESSON_TOGGLE_EVENT } from "@/lib/events"` |
+| 9 | Low | `Quiz.tsx` | `useEffect` dep array excluded `pathname/category/slug` — removed eslint-disable comment, added proper deps to prevent stale pathname reads |
+| 10 | Info | `AchievementsClient.tsx` | Dead branch: `pct` computed even when `nextAt === Infinity` (max level) — guarded to `0` at max level |
+
+Also added `LESSON_TOGGLE_EVENT` to `src/lib/events.ts` (was inline in MarkComplete). All 10 fixes passed `npx tsc --noEmit` with zero errors.
+
+---
+
+## Session 46 — 2026-06-16 (Cloud sync + nav reorg)
+
+### Cloud Sync (Cloudflare KV — Option B)
+
+Single-user progress sync across devices via Cloudflare KV REST API. Push/pull buttons in Settings page.
+
+**New files:**
+- `src/app/api/sync/route.ts` — GET reads KV, POST writes KV; protected by `x-sync-secret` header
+- `.env.local.example` — template for 5 required env vars
+- `public/cf-kv-setup.html` — step-by-step interactive setup guide (checkboxes persist in localStorage)
+
+**Modified:**
+- `src/app/settings/SettingsClient.tsx` — added `collectAllKeys()`, `restoreAllKeys()`, `handlePush()`, `handlePull()`, Cloud Sync section UI
+- `.gitignore` — added `!.env*.example` exception so example file is committed
+
+**Env vars required:**
+
+| Key | What |
+|-----|------|
+| `CF_ACCOUNT_ID` | Cloudflare account ID (32-char hex) |
+| `CF_KV_NAMESPACE_ID` | ID of the `ma-progress` KV namespace |
+| `CF_KV_API_TOKEN` | API token with Workers KV Storage → Edit permission |
+| `SYNC_SECRET` | Random string protecting the /api/sync endpoint (server-side) |
+| `NEXT_PUBLIC_SYNC_SECRET` | Same value as SYNC_SECRET (client-side header) |
+
+CF KV API format: PUT body must be `text/plain` (raw JSON string), GET returns raw text — `JSON.parse()` on read.
+
+### Nav reorg
+
+Logical regrouping of all nav items. Settings was incorrectly nested under "Learn".
+
+**Before:** Topics | Learn (7 items incl. Settings, Bookmarks) | Resources | About
+
+**After:**
+- **Learn** — Tracks, Quizzes, Cheat Sheets, Certificates
+- **Progress** — Skill Map, Achievements, Bookmarks
+- **Resources** — Glossary, Interview Prep, Tools Directory, Compare Tools, Search
+- **Settings** — gear icon in action bar (next to bookmarks icon in header)
+- Mobile menu: 4 sections + footer row (About, Settings, Start Learning)
+
+---
+
+## Session 47 — 2026-06-16 (Setup guides + planning)
+
+**Two interactive HTML setup guides created. Three features documented and parked for user decision.**
+
+### Setup guides added
+| File | Steps | Purpose |
+|------|-------|---------|
+| `public/posthog-setup.html` | 11 | PostHog analytics wiring — account, env vars, PostHogProvider.tsx code, LessonViewTracker extension, events table |
+| `public/cf-kv-setup.html` | 14 | Cloudflare KV sync — account, KV namespace, API token, env vars, Vercel deploy, test |
+
+Both guides: dark theme, interactive checkboxes, localStorage-persisted tick state, code copy buttons. Served as static files at `/posthog-setup.html` and `/cf-kv-setup.html` after deploy.
+
+> Planned items below are documented for planning. User reviewing before committing to implementation order.
+
+### Planned: Learner Progress Dashboard (`/progress`)
+
+A single-page visual hub for all tracked data. All data already exists in localStorage — page is read-only aggregation.
+
+**Proposed sections:**
+- XP bar + current level + next level threshold
+- Streak counter + last active date
+- Achievements earned (count + icons)
+- Per-category completion % (bar chart or ring)
+- Total lessons completed vs total available (from curriculum.ts)
+- Recently viewed lessons (from `RecentlyViewed` component logic)
+- Bookmarks count
+
+**Implementation notes:**
+- Server component with `"use client"` client parts for localStorage reads
+- Use `addXP`/`getEngagement` from `engagement.ts`, `getCompleted` from `progress.ts`, `getBookmarks` from `bookmarks.ts`
+- Route: `/progress` — add to Progress dropdown in Nav
+- No new data — purely reads existing localStorage keys
+- CategoryProgress component already exists, reuse it
+
+**Status: PARKED — user reviewing**
+
+---
+
+### PostHog Analytics — DONE (pending env vars from user)
+
+**Files changed:**
+- `src/components/PostHogProvider.tsx` (new) — `"use client"` wrapper, inits posthog in `useEffect`, guards on missing key
+- `src/app/layout.tsx` — imports PostHogProvider, wraps body children
+- `src/components/LessonViewTracker.tsx` — added `level?` prop, fires `posthog.capture("lesson_viewed", { category, slug, title, level })`
+- `src/components/MarkComplete.tsx` — fires `posthog.capture("lesson_completed", { lesson_id })` on mark-complete (not on unmark)
+- `.env.local.example` — added `NEXT_PUBLIC_POSTHOG_KEY` + `NEXT_PUBLIC_POSTHOG_HOST`
+
+**Events live:** `lesson_viewed` (every lesson page load), `lesson_completed` (on mark complete), `pageleave` (built-in)
+
+**Needs from user:** Add `NEXT_PUBLIC_POSTHOG_KEY` and `NEXT_PUBLIC_POSTHOG_HOST` to Vercel env vars + redeploy. See `/posthog-setup.html` for step-by-step.
+
+---
+
+### Notes Per Lesson — DONE
+
+**Files:**
+- `src/components/LessonNotes.tsx` — collapsible textarea, 800ms debounce auto-save, "Saved" indicator, focus ring on accent color
+- `src/app/learn/[category]/[lesson]/page.tsx` — LessonNotes inserted after Quiz block, before RelatedLessons
+- `src/app/settings/SettingsClient.tsx` — `collectAllKeys()` extended to include `ma_note_*` keys in export/import
+
+**Storage key:** `ma_note_{category}_{slug}`
+
+**Behaviour:**
+- Collapsed by default; expands automatically if a saved note exists for the lesson
+- Auto-saves 800ms after last keystroke (debounced)
+- Empty textarea removes the key from localStorage (no orphan entries)
+- "saved" chip visible on the toggle button when note exists and panel is closed
 
 ---
 

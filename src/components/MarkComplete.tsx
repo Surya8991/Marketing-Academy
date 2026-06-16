@@ -5,6 +5,7 @@ import Link from "next/link";
 import { getCompleted, markComplete, markIncomplete, lessonId } from "@/lib/progress";
 import { getQuizPassed, QUIZ_PASSED_EVENT } from "@/lib/quizzes";
 import { addXP, ENGAGEMENT_EVENT } from "@/lib/engagement";
+import posthog from "posthog-js";
 import { LESSON_TOGGLE_EVENT } from "@/lib/events";
 import { checkAchievements } from "@/lib/achievements";
 import { CheckCircle, Circle, ArrowRight, Lock } from "lucide-react";
@@ -123,6 +124,7 @@ export default function MarkComplete({
       const newState = addXP("complete", id);
       const unlocked = checkAchievements(newState);
       window.dispatchEvent(new CustomEvent(ENGAGEMENT_EVENT, { detail: { state: newState, unlocked } }));
+      posthog.capture("lesson_completed", { lesson_id: id });
     }
   };
 
