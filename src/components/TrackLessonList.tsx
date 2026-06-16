@@ -2,43 +2,18 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { CheckCircle, Circle } from "lucide-react";
+import { CheckCircle, Circle, ClipboardList } from "lucide-react";
 import { getCompleted, markComplete, markIncomplete, lessonId } from "@/lib/progress";
-import { QUIZZES, type Quiz } from "@/lib/quizzes";
-import TrackQuizGate from "@/components/TrackQuizGate";
 import type { Track } from "@/lib/tracks";
 
 export default function TrackLessonList({ track }: { track: Track }) {
   const [completed, setCompleted] = useState<Set<string>>(new Set());
   const [mounted, setMounted] = useState(false);
-  const [showGate, setShowGate] = useState(false);
-  const [gateQuestions, setGateQuestions] = useState<Quiz[]>([]);
 
   useEffect(() => {
     setMounted(true);
     setCompleted(getCompleted());
   }, []);
-
-  const markAll = () => {
-    const next = new Set(completed);
-    track.lessons.forEach((l) => {
-      const id = lessonId(l.category, l.slug);
-      markComplete(id);
-      next.add(id);
-    });
-    setCompleted(next);
-    setShowGate(false);
-  };
-
-  const openGate = () => {
-    const pool: Quiz[] = [];
-    for (const l of track.lessons) {
-      const qs = QUIZZES[`${l.category}/${l.slug}`];
-      if (qs) pool.push(...qs);
-    }
-    setGateQuestions(pool);
-    setShowGate(true);
-  };
 
   const toggle = (category: string, slug: string) => {
     const id = lessonId(category, slug);
@@ -61,15 +36,6 @@ export default function TrackLessonList({ track }: { track: Track }) {
 
   return (
     <div>
-      {showGate && gateQuestions.length > 0 && (
-        <TrackQuizGate
-          questions={gateQuestions}
-          trackTitle={track.title}
-          onPass={markAll}
-          onClose={() => setShowGate(false)}
-        />
-      )}
-
       {/* Progress bar */}
       <div className="mb-8 p-5 rounded-xl border border-[var(--border)] bg-[var(--card)]">
         <div className="flex items-center justify-between mb-3">
@@ -93,12 +59,18 @@ export default function TrackLessonList({ track }: { track: Track }) {
             <span />
           )}
           {mounted && pct < 100 && (
-            <button
-              onClick={openGate}
-              className="text-xs text-[var(--muted-foreground)] hover:text-[var(--foreground)] underline underline-offset-2 transition-colors cursor-pointer"
+            <Link
+              href={`/tracks/${track.slug}/quiz`}
+              className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg border transition-colors"
+              style={{
+                borderColor: "var(--accent)",
+                color: "var(--accent)",
+                background: "color-mix(in srgb, var(--accent) 8%, transparent)",
+              }}
             >
-              Mark all complete
-            </button>
+              <ClipboardList size={12} />
+              Take track quiz to mark all complete
+            </Link>
           )}
         </div>
       </div>
