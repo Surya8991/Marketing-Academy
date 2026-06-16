@@ -2,11 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const NOTE_PREFIX = "ma_note_";
-
-function noteKey(category: string, slug: string) {
-  return `${NOTE_PREFIX}${category}_${slug}`;
-}
+import { getNoteKey } from "@/lib/notes";
 
 export default function LessonNotes({ category, slug }: { category: string; slug: string }) {
   const [open, setOpen] = useState(false);
@@ -16,7 +12,7 @@ export default function LessonNotes({ category, slug }: { category: string; slug
   const pendingText = useRef<string | null>(null);
 
   useEffect(() => {
-    const stored = localStorage.getItem(noteKey(category, slug));
+    const stored = localStorage.getItem(getNoteKey(category, slug));
     if (stored) {
       setText(stored);
       setOpen(true);
@@ -31,9 +27,9 @@ export default function LessonNotes({ category, slug }: { category: string; slug
     if (saveTimer.current) clearTimeout(saveTimer.current);
     saveTimer.current = setTimeout(() => {
       if (val.trim()) {
-        localStorage.setItem(noteKey(category, slug), val);
+        localStorage.setItem(getNoteKey(category, slug), val);
       } else {
-        localStorage.removeItem(noteKey(category, slug));
+        localStorage.removeItem(getNoteKey(category, slug));
       }
       pendingText.current = null;
       setSaved(true);
@@ -45,7 +41,7 @@ export default function LessonNotes({ category, slug }: { category: string; slug
       if (saveTimer.current) clearTimeout(saveTimer.current);
       // Flush any pending text that hasn't been saved yet
       if (pendingText.current !== null) {
-        const key = noteKey(category, slug);
+        const key = getNoteKey(category, slug);
         if (pendingText.current.trim()) {
           localStorage.setItem(key, pendingText.current);
         } else {

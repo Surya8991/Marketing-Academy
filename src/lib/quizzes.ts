@@ -29,8 +29,19 @@ export function setQuizPassed(category: string, slug: string): void {
   }
 }
 
-/** CustomEvent name dispatched by Quiz when user passes */
-export const QUIZ_PASSED_EVENT = "quiz-passed";
+/** CustomEvent name dispatched by Quiz when user passes — canonical source: @/lib/events */
+export { QUIZ_PASSED_EVENT } from "@/lib/events";
+
+/** Prefix for in-progress quiz state keys: ma_quiz_{path} */
+export const QUIZ_STORAGE_PREFIX = "ma_quiz_";
+
+/** Prefix for quiz pass flag keys: ma_quiz_pass_{category}_{slug} */
+export const QUIZ_PASS_KEY_PREFIX = "ma_quiz_pass_";
+
+/** localStorage key for in-progress quiz state */
+export function quizStorageKey(path: string): string {
+  return `${QUIZ_STORAGE_PREFIX}${path.replace(/\//g, "_")}`;
+}
 
 export const QUIZZES: Record<string, Quiz[]> = {
   "ai-marketing/ai-agents-marketing": [

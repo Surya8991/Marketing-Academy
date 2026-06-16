@@ -49,7 +49,6 @@ export default async function TrackQuizPage({ params }: Props) {
 
       <TrackQuizPageClient
         trackSlug={slug}
-        trackTitle={track.title}
         lessons={track.lessons}
         questions={questions}
       />

@@ -1,14 +1,15 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BOOKMARK_KEY } from "@/lib/bookmarks";
 import { COMPLETED_KEY } from "@/lib/progress";
-import { ENGAGEMENT_KEY } from "@/lib/engagement";
-const ONBOARDED_KEY = "ma_onboarded";
-const QUIZ_KEY_PREFIX = "ma_quiz_pass_";
-const NOTE_KEY_PREFIX = "ma_note_";
+import { ENGAGEMENT_KEY, ENGAGEMENT_EVENT } from "@/lib/engagement";
+import { ONBOARDED_KEY } from "@/lib/events";
+import { QUIZ_PASS_KEY_PREFIX } from "@/lib/quizzes";
+import { NOTE_KEY_PREFIX } from "@/lib/notes";
+
 const EXPORT_KEYS = [COMPLETED_KEY, BOOKMARK_KEY, ENGAGEMENT_KEY, ONBOARDED_KEY];
-const SYNC_SECRET = process.env.NEXT_PUBLIC_SYNC_SECRET ?? "";
+const ALLOWED_KEY_PREFIXES = [QUIZ_PASS_KEY_PREFIX, NOTE_KEY_PREFIX];
 
 function collectAllKeys(): Record<string, unknown> {
   const data: Record<string, unknown> = {};
@@ -16,16 +17,15 @@ function collectAllKeys(): Record<string, unknown> {
     const raw = localStorage.getItem(key);
     data[key] = raw ? JSON.parse(raw) : null;
   }
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    if (key?.startsWith(QUIZ_KEY_PREFIX) || key?.startsWith(NOTE_KEY_PREFIX)) {
+  // Snapshot all keys first to avoid length-changes mid-iteration
+  const allKeys = Array.from({ length: localStorage.length }, (_, i) => localStorage.key(i)).filter(Boolean) as string[];
+  for (const key of allKeys) {
+    if (ALLOWED_KEY_PREFIXES.some((p) => key.startsWith(p))) {
       data[key] = localStorage.getItem(key);
     }
   }
   return data;
 }
-
-const ALLOWED_KEY_PREFIXES = [QUIZ_KEY_PREFIX, NOTE_KEY_PREFIX];
 
 function isAllowedKey(key: string): boolean {
   if (EXPORT_KEYS.includes(key as typeof EXPORT_KEYS[number])) return true;
@@ -120,15 +120,23 @@ export default function SettingsClient() {
   const [resetStatus, setResetStatus] = useState<Status>(null);
   const [syncStatus, setSyncStatus] = useState<Status>(null);
   const [syncing, setSyncing] = useState(false);
+  const [syncEnabled, setSyncEnabled] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    fetch("/api/sync/status")
+      .then((r) => r.json())
+      .then((d: { enabled: boolean }) => setSyncEnabled(d.enabled))
+      .catch(() => setSyncEnabled(false));
+  }, []);
 
   async function handlePush() {
     setSyncing(true);
     setSyncStatus(null);
     try {
       const data = collectAllKeys();
-      const res = await fetch("/api/sync", {
+      const res = await fetch("/api/sync-proxy", {
         method: "POST",
-        headers: { "Content-Type": "application/json", "x-sync-secret": SYNC_SECRET },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
       if (!res.ok) throw new Error();
@@ -145,9 +153,7 @@ export default function SettingsClient() {
     setSyncing(true);
     setSyncStatus(null);
     try {
-      const res = await fetch("/api/sync", {
-        headers: { "x-sync-secret": SYNC_SECRET },
-      });
+      const res = await fetch("/api/sync-proxy");
       if (!res.ok) throw new Error();
       const { data } = (await res.json()) as { data: Record<string, unknown> | null };
       if (!data) {
@@ -224,13 +230,22 @@ export default function SettingsClient() {
 
   function handleReset() {
     const confirmed = window.confirm(
-      "Reset all progress? This will clear completed lessons, bookmarks, and XP. This cannot be undone."
+      "Reset all progress? This will clear completed lessons, bookmarks, XP, quiz passes, and notes. This cannot be undone."
     );
     if (!confirmed) return;
     try {
       for (const key of EXPORT_KEYS) {
         localStorage.removeItem(key);
       }
+      // Clear quiz pass keys and note keys
+      const allKeys = Array.from({ length: localStorage.length }, (_, i) => localStorage.key(i)).filter(Boolean) as string[];
+      for (const key of allKeys) {
+        if (key.startsWith(QUIZ_PASS_KEY_PREFIX) || key.startsWith(NOTE_KEY_PREFIX)) {
+          localStorage.removeItem(key);
+        }
+      }
+      // Notify reactive components immediately
+      window.dispatchEvent(new CustomEvent(ENGAGEMENT_EVENT, { detail: { state: null, unlocked: [] } }));
       setResetStatus({ type: "success", message: "Progress cleared. Refresh the page to see changes." });
     } catch {
       setResetStatus({ type: "error", message: "Reset failed. Try again." });
@@ -302,23 +317,24 @@ export default function SettingsClient() {
           <button
             style={primaryBtn}
             onClick={handlePush}
-            disabled={syncing || !SYNC_SECRET}
-            title={!SYNC_SECRET ? "NEXT_PUBLIC_SYNC_SECRET not set" : undefined}
+            disabled={syncing || syncEnabled === false}
+            title={syncEnabled === false ? "CF KV env vars not configured" : undefined}
           >
             {syncing ? "…" : "↑ Push to cloud"}
           </button>
           <button
             style={{ ...primaryBtn, background: "var(--muted)", color: "var(--muted-foreground)", border: "1px solid var(--border)" }}
             onClick={handlePull}
-            disabled={syncing || !SYNC_SECRET}
-            title={!SYNC_SECRET ? "NEXT_PUBLIC_SYNC_SECRET not set" : undefined}
+            disabled={syncing || syncEnabled === false}
+            title={syncEnabled === false ? "CF KV env vars not configured" : undefined}
           >
             {syncing ? "…" : "↓ Pull from cloud"}
           </button>
         </div>
-        {!SYNC_SECRET && (
+        {syncEnabled === false && (
           <p style={{ marginTop: "0.5rem", fontSize: "0.8rem", color: "var(--muted-foreground)" }}>
-            Add <code>NEXT_PUBLIC_SYNC_SECRET</code> to your env vars to enable sync.
+            Add <code>SYNC_SECRET</code>, <code>CF_ACCOUNT_ID</code>, <code>CF_KV_NAMESPACE_ID</code>,{" "}
+            and <code>CF_KV_API_TOKEN</code> to your env vars to enable sync.
             See <code>.env.local.example</code> for setup instructions.
           </p>
         )}
@@ -329,7 +345,7 @@ export default function SettingsClient() {
       <section style={cardStyle}>
         <h2 style={{ ...headingStyle, color: "rgba(220,38,38,0.9)" }}>Reset Progress</h2>
         <p style={descStyle}>
-          Permanently clear all completed lessons, bookmarks, and XP. Cannot be undone.
+          Permanently clear all completed lessons, bookmarks, XP, quiz passes, and notes. Cannot be undone.
         </p>
         <button style={dangerBtn} onClick={handleReset}>
           Reset All Progress

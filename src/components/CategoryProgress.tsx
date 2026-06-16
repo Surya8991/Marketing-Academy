@@ -20,7 +20,7 @@ export default function CategoryProgress({
     setMounted(true);
   }, [categorySlug, slugs]);
 
-  if (!mounted || count === 0) return null;
+  if (!mounted || count === 0 || slugs.length === 0) return null;
 
   const pct = Math.round((count / slugs.length) * 100);
 

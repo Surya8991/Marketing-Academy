@@ -21,7 +21,7 @@ export default function TrackProgress({ lessons }: Props) {
     }
   }, [lessons]);
 
-  if (!pct) return null;
+  if (pct === null) return null;
 
   return (
     <div className="mt-3">

@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { CheckCircle, Circle, ClipboardList } from "lucide-react";
 import { getCompleted, markComplete, markIncomplete, lessonId } from "@/lib/progress";
+import { addXP, ENGAGEMENT_EVENT } from "@/lib/engagement";
+import { checkAchievements } from "@/lib/achievements";
 import type { Track } from "@/lib/tracks";
 
 export default function TrackLessonList({ track }: { track: Track }) {
@@ -24,6 +26,9 @@ export default function TrackLessonList({ track }: { track: Track }) {
     } else {
       markComplete(id);
       next.add(id);
+      const newState = addXP("complete", id);
+      const unlocked = checkAchievements(newState);
+      window.dispatchEvent(new CustomEvent(ENGAGEMENT_EVENT, { detail: { state: newState, unlocked } }));
     }
     setCompleted(next);
   };

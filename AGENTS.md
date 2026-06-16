@@ -177,6 +177,16 @@ The last 3 entries of every ResourceList must be:
 ```
 CRITICAL: every resource object including the last one needs a trailing comma before `]} />`
 
+### Rule 16 — Lesson tone: encourage, don't overwhelm
+Lessons must feel like a smart friend explaining something, not a textbook.
+- **800-1200 words** of body content. A focused 900-word lesson beats a bloated 2000-word one.
+- **Max 2 sentences per paragraph.** Third sentence? New paragraph or bullet point.
+- **Short bullet lists: 3-6 items max.** If you have 10 bullets, you have 2 sections.
+- **One idea per section.** No "additionally" / "furthermore" dumps.
+- **End each section with momentum** - a short line that makes the reader want to continue.
+- **Define jargon immediately** when introduced. Never use a term before explaining it.
+- Goal: reader feels curious and confident after each section, not exhausted.
+
 ### Rule 17 — NO `"use client"` + `generateStaticParams` in the same file
 Next.js App Router forbids combining a Client Component directive with static param generation. This broke the Vercel build on 2026-06-14.
 
@@ -234,16 +244,6 @@ const hoverCSS = `.card:hover { border-color: var(--accent) !important; }`;
 // WRONG — breaks server component
 <div onMouseEnter={() => setHover(true)}>...</div>
 ```
-
-### Rule 16 — Lesson tone: encourage, don't overwhelm
-Lessons must feel like a smart friend explaining something, not a textbook.
-- **800-1200 words** of body content. A focused 900-word lesson beats a bloated 2000-word one.
-- **Max 2 sentences per paragraph.** Third sentence? New paragraph or bullet point.
-- **Short bullet lists: 3-6 items max.** If you have 10 bullets, you have 2 sections.
-- **One idea per section.** No "additionally" / "furthermore" dumps.
-- **End each section with momentum** - a short line that makes the reader want to continue.
-- **Define jargon immediately** when introduced. Never use a term before explaining it.
-- Goal: reader feels curious and confident after each section, not exhausted.
 
 ### Rule 21 — Interview answer strings use `\n\n` for paragraph breaks
 Interview Q&A answers in `src/lib/interview-questions.ts` use the literal 4-character escape sequence `\n\n` as a paragraph separator inside the `a:` string field. The renderer in `src/app/interview-questions/[category]/page.tsx` splits on `\n\n` at runtime to render each paragraph as a `<p>` tag.
@@ -319,14 +319,21 @@ Before any `git push`, update ALL of the following that are affected by the chan
 
 **Enforcement:** The commit message must reference what docs were updated. If no docs were changed in a code commit, state explicitly why none needed updating.
 
-### Rule 24 — TrackQuizGate gates "Mark all complete" on track pages only
-`src/components/TrackQuizGate.tsx` opens when clicking "Mark all complete" on a `/tracks/[slug]` page. It pools ALL questions from every lesson in the track (no cap), paginates them 10 per page with Prev/Next navigation and a global progress bar, and requires ≥80% correct before calling `markAll()`. Individual per-lesson checkboxes on the same page are NOT gated. The gate is wired in `TrackLessonList.tsx` — `openGate()` pools QUIZZES for all track lessons, sets `gateQuestions`, and shows the modal. `markAll()` also closes the gate. Do not add the gate to individual lesson `MarkComplete.tsx`.
+### Rule 24 — Track quiz gate: full-page route, not a modal component
+"Mark all complete" on a `/tracks/[slug]` page is gated behind a full-page quiz at `/tracks/[slug]/quiz`. There is NO `TrackQuizGate.tsx` component — it does not exist.
 
-### Rule 25 — Per-lesson quiz gate: LessonQuizGate + MarkComplete pattern
-Every lesson page is locked behind a 4-question quiz gate. Architecture:
+Architecture:
+- **`src/components/TrackLessonList.tsx`** — renders a Link to `/tracks/[slug]/quiz` when `pct < 100`. Individual per-lesson checkboxes are NOT gated.
+- **`src/components/TrackQuizPageClient.tsx`** — full-page client component at `/tracks/[slug]/quiz`. Pools ALL questions from every lesson in the track (shuffled), requires ≥80% correct to pass, then calls `markAll()` which calls `markComplete(lessonId)` for every lesson AND dispatches `ENGAGEMENT_EVENT` with XP for each completed lesson.
+- Do NOT create `TrackQuizGate.tsx`, `openGate()`, or `gateQuestions` — these do not exist.
 
-- **`src/components/LessonQuizGate.tsx`** — modal that randomly samples 4 questions from `QUIZZES[category/slug]`, shows them one screen, and requires **all 4 correct** (100%) to pass. Backdrop click / Esc closes without passing. `onPass` fires after 1000ms on perfect score.
-- **`src/components/MarkComplete.tsx`** — `locked = !quizPassed && !done`. When locked, the button is clickable (NOT disabled) and opens `LessonQuizGate`. `handleGatePass()` calls `setQuizPassed(category, slug)` then `handleComplete()`. The bottom standalone `Quiz` component can also unlock via `QUIZ_PASSED_EVENT` (`window.addEventListener`).
-- **`src/lib/quizzes.ts`** exports `getQuizPassed`, `setQuizPassed`, `QUIZ_PASSED_EVENT`, and `QUIZZES`. `setQuizPassed` writes `ma_quiz_pass_{category}_{slug}` to localStorage; `getQuizPassed` reads it.
+### Rule 25 — Per-lesson quiz gate: MarkComplete scroll pattern (no modal)
+Every lesson page is locked behind a quiz. There is NO `LessonQuizGate.tsx` modal — it does not exist.
+
+Architecture:
+- **`src/components/MarkComplete.tsx`** — `locked = !quizPassed && !done`. When locked, clicking the button calls `document.getElementById("quiz-section")?.scrollIntoView()` — it scrolls to the quiz, it does NOT open a modal.
+- **`src/components/Quiz.tsx`** — the quiz section at the bottom of each lesson. On 4/4 correct, dispatches `QUIZ_PASSED_EVENT` via `window.dispatchEvent`. `MarkComplete` listens to `QUIZ_PASSED_EVENT` and calls `setQuizPassed(category, slug)` then `handleComplete()`.
+- **`src/lib/quizzes.ts`** exports `getQuizPassed`, `setQuizPassed`, `QUIZ_PASSED_EVENT` (re-exported from events.ts), `QUIZ_PASS_KEY_PREFIX`, `quizStorageKey`, and `QUIZZES`. `setQuizPassed` writes `ma_quiz_pass_{category}_{slug}` to localStorage.
 - All 393 lessons have entries in `QUIZZES` — never remove entries or make `QUIZZES[key]` return undefined for a registered lesson.
 - Do NOT add `hasQuiz` prop back to `MarkComplete` — it was removed because all lessons now have quizzes.
+- Do NOT create `LessonQuizGate.tsx`, `handleGatePass()`, or `onPass` callback — these do not exist.
