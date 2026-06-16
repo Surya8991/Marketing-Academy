@@ -1,5 +1,5 @@
 import { getCompleted } from "@/lib/progress";
-import { getBookmarks } from "@/lib/bookmarks";
+import { getBookmarks, type BookmarkEntry } from "@/lib/bookmarks";
 import { flatLessons, CATEGORIES } from "@/lib/curriculum";
 import type { EngagementState } from "@/lib/engagement";
 
@@ -8,7 +8,7 @@ export type Achievement = {
   label: string;
   description: string;
   emoji: string;
-  check: (state: EngagementState) => boolean;
+  check: (state: EngagementState, completed: Set<string>, bookmarks: BookmarkEntry[]) => boolean;
 };
 
 export const ACHIEVEMENTS: Achievement[] = [
@@ -17,7 +17,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     label: "First Step",
     description: "Complete your first lesson",
     emoji: "🎯",
-    check: () => getCompleted().size >= 1,
+    check: (_, completed) => completed.size >= 1,
   },
   {
     id: "first-quiz",
@@ -31,7 +31,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     label: "Bookworm",
     description: "Bookmark 5 lessons",
     emoji: "📚",
-    check: () => getBookmarks().length >= 5,
+    check: (_, __, bookmarks) => bookmarks.length >= 5,
   },
   {
     id: "streak-3",
@@ -52,26 +52,24 @@ export const ACHIEVEMENTS: Achievement[] = [
     label: "Ten Down",
     description: "Complete 10 lessons",
     emoji: "✅",
-    check: () => getCompleted().size >= 10,
+    check: (_, completed) => completed.size >= 10,
   },
   {
     id: "category-clear",
     label: "Category Clear",
     description: "Complete all lessons in any one category",
     emoji: "🏆",
-    check: () => {
-      const completed = getCompleted();
-      return CATEGORIES.some((c) =>
+    check: (_, completed) =>
+      CATEGORIES.some((c) =>
         c.lessons.every((l) => completed.has(`${c.slug}/${l.slug}`))
-      );
-    },
+      ),
   },
   {
     id: "fifty-lessons",
     label: "Halfway There",
     description: "Complete 50 lessons",
     emoji: "🚀",
-    check: () => getCompleted().size >= 50,
+    check: (_, completed) => completed.size >= 50,
   },
   {
     id: "xp-500",
@@ -85,14 +83,16 @@ export const ACHIEVEMENTS: Achievement[] = [
     label: "Marketing Polymath",
     description: "Complete all 387 lessons",
     emoji: "🎓",
-    check: () => getCompleted().size >= flatLessons().length,
+    check: (_, completed) => completed.size >= flatLessons().length,
   },
 ];
 
 export function checkAchievements(state: EngagementState): string[] {
+  const completed = getCompleted();
+  const bookmarks = getBookmarks();
   const newlyUnlocked: string[] = [];
   for (const a of ACHIEVEMENTS) {
-    if (!state.achievements.includes(a.id) && a.check(state)) {
+    if (!state.achievements.includes(a.id) && a.check(state, completed, bookmarks)) {
       newlyUnlocked.push(a.id);
     }
   }

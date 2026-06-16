@@ -60,3 +60,5 @@ export function buildCommandIndex(): CommandEntry[] {
 
   return [...NAV_ENTRIES, ...lessons, ...glossary, ...tools];
 }
+
+export const COMMAND_INDEX: CommandEntry[] = buildCommandIndex();

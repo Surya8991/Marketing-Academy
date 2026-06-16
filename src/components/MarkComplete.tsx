@@ -5,6 +5,8 @@ import Link from "next/link";
 import { getCompleted, markComplete, markIncomplete, lessonId } from "@/lib/progress";
 import { getQuizPassed, QUIZ_PASSED_EVENT } from "@/lib/quizzes";
 import { addXP, ENGAGEMENT_EVENT } from "@/lib/engagement";
+import posthog from "posthog-js";
+import { LESSON_TOGGLE_EVENT } from "@/lib/events";
 import { checkAchievements } from "@/lib/achievements";
 import { CheckCircle, Circle, ArrowRight, Lock } from "lucide-react";
 
@@ -53,8 +55,6 @@ function fireConfetti() {
   requestAnimationFrame(draw);
 }
 
-const SYNC_EVENT = "lesson-toggle";
-
 export default function MarkComplete({
   category,
   slug,
@@ -86,8 +86,8 @@ export default function MarkComplete({
       const ce = e as CustomEvent<{ id: string; done: boolean }>;
       if (ce.detail.id === id) setDone(ce.detail.done);
     };
-    window.addEventListener(SYNC_EVENT, handler);
-    return () => window.removeEventListener(SYNC_EVENT, handler);
+    window.addEventListener(LESSON_TOGGLE_EVENT, handler);
+    return () => window.removeEventListener(LESSON_TOGGLE_EVENT, handler);
   }, [id]);
 
   // Listen for quiz-passed event to unlock immediately without reload
@@ -114,16 +114,17 @@ export default function MarkComplete({
       markIncomplete(id);
       setDone(false);
       setJustCompleted(false);
-      window.dispatchEvent(new CustomEvent(SYNC_EVENT, { detail: { id, done: false } }));
+      window.dispatchEvent(new CustomEvent(LESSON_TOGGLE_EVENT, { detail: { id, done: false } }));
     } else {
       markComplete(id);
       setDone(true);
       setJustCompleted(true);
       fireConfetti();
-      window.dispatchEvent(new CustomEvent(SYNC_EVENT, { detail: { id, done: true } }));
+      window.dispatchEvent(new CustomEvent(LESSON_TOGGLE_EVENT, { detail: { id, done: true } }));
       const newState = addXP("complete", id);
       const unlocked = checkAchievements(newState);
       window.dispatchEvent(new CustomEvent(ENGAGEMENT_EVENT, { detail: { state: newState, unlocked } }));
+      posthog.capture("lesson_completed", { lesson_id: id });
     }
   };
 

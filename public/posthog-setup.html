@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PostHog Analytics — Setup Guide</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f0f0f;
+      --surface: #1a1a1a;
+      --surface2: #242424;
+      --border: #2e2e2e;
+      --text: #e8e8e8;
+      --muted: #888;
+      --accent: #f3b730;
+      --accent-dim: rgba(243,183,48,0.12);
+      --accent-border: rgba(243,183,48,0.3);
+      --green: #1D9E75;
+      --green-dim: rgba(29,158,117,0.12);
+      --green-border: rgba(29,158,117,0.3);
+      --warn-bg: rgba(234,179,8,0.1);
+      --warn-border: rgba(234,179,8,0.3);
+      --warn-text: #d4a017;
+      --info-bg: rgba(59,130,246,0.1);
+      --info-border: rgba(59,130,246,0.3);
+      --info-text: #60a5fa;
+      --code-bg: #111;
+      --radius: 8px;
+      --radius-lg: 12px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .container { max-width: 740px; margin: 0 auto; }
+
+    .header { margin-bottom: 2.5rem; }
+    .badge {
+      display: inline-block;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      color: var(--accent); background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      border-radius: 4px; padding: 2px 8px; margin-bottom: 0.75rem;
+    }
+    .header h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.35rem; }
+    .header p { color: var(--muted); font-size: 0.95rem; }
+
+    .meta-row {
+      display: flex; gap: 1.5rem; margin-top: 1rem; flex-wrap: wrap;
+    }
+    .meta-item { font-size: 12px; color: var(--muted); }
+    .meta-item strong { color: var(--text); font-weight: 500; }
+
+    .progress-wrap { margin-bottom: 2.5rem; }
+    .progress-label { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+    .progress-label span { color: var(--accent); font-weight: 600; }
+    .progress-track { height: 4px; background: var(--surface2); border-radius: 99px; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--accent); border-radius: 99px; transition: width 0.4s ease; width: 0%; }
+
+    .phase { margin-bottom: 2rem; }
+    .phase-label {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
+    }
+    .phase-num {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--surface2); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; color: var(--text); flex-shrink: 0;
+    }
+    .phase-time { margin-left: auto; font-size: 10px; font-weight: 400; }
+
+    .step {
+      display: flex; gap: 14px; padding: 12px 10px;
+      border-radius: var(--radius); cursor: pointer;
+      transition: background 0.15s; -webkit-user-select: none; user-select: none;
+    }
+    .step:hover { background: var(--surface); }
+    .check {
+      width: 22px; height: 22px; border: 1.5px solid var(--border);
+      border-radius: 50%; flex-shrink: 0; margin-top: 1px;
+      display: flex; align-items: center; justify-content: center; transition: all 0.2s;
+    }
+    .check svg { opacity: 0; transition: opacity 0.2s; }
+    .step.done .check { background: var(--green); border-color: var(--green); }
+    .step.done .check svg { opacity: 1; }
+    .step-body { flex: 1; min-width: 0; }
+    .step-title {
+      font-size: 14px; font-weight: 600; color: var(--text);
+      margin-bottom: 3px; transition: color 0.2s;
+    }
+    .step.done .step-title { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--border); }
+    .step-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .step-desc a { color: var(--info-text); text-decoration: none; }
+    .step-desc a:hover { text-decoration: underline; }
+    .step-desc strong { color: var(--text); font-weight: 500; }
+
+    .code-block {
+      position: relative;
+      background: var(--code-bg); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 10px 40px 10px 12px;
+      margin-top: 8px; font-family: "SF Mono","Fira Code",Consolas,monospace;
+      font-size: 12px; color: #93c5fd; overflow-x: auto; white-space: pre;
+    }
+    .code-block.bash { color: #86efac; }
+    .code-block.tsx { color: #c4b5fd; }
+    .copy-btn {
+      position: absolute; top: 7px; right: 8px;
+      font-size: 10px; color: var(--muted); background: var(--surface2);
+      border: 1px solid var(--border); border-radius: 4px;
+      padding: 2px 7px; cursor: pointer; font-family: inherit; transition: color 0.15s;
+    }
+    .copy-btn:hover { color: var(--text); }
+
+    .tip, .warn, .info {
+      font-size: 12px; border-radius: var(--radius);
+      padding: 7px 11px; margin-top: 8px; line-height: 1.55;
+    }
+    .tip { background: var(--green-dim); border: 1px solid var(--green-border); color: #6ee7b7; }
+    .warn { background: var(--warn-bg); border: 1px solid var(--warn-border); color: var(--warn-text); }
+    .info { background: var(--info-bg); border: 1px solid var(--info-border); color: var(--info-text); }
+
+    .env-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5px; margin-top: 10px;
+    }
+    .env-key {
+      font-family: "SF Mono",Consolas,monospace; font-size: 12px;
+      background: var(--code-bg); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 7px 10px; color: #93c5fd;
+    }
+    .env-val {
+      font-size: 12px; background: var(--surface2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 7px 10px; color: var(--muted);
+    }
+
+    .events-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 12px; }
+    .events-table th {
+      text-align: left; padding: 6px 10px;
+      background: var(--surface2); border: 1px solid var(--border); color: var(--muted);
+      font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .events-table td { padding: 6px 10px; border: 1px solid var(--border); color: var(--muted); }
+    .events-table td:first-child { font-family: "SF Mono",Consolas,monospace; color: #c4b5fd; }
+    .events-table tr:hover td { background: var(--surface); }
+
+    .done-banner {
+      display: none; margin-top: 1.5rem;
+      background: var(--green-dim); border: 1px solid var(--green-border);
+      border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; text-align: center;
+    }
+    .done-banner.show { display: block; }
+    .done-banner h3 { font-size: 16px; font-weight: 600; color: var(--green); margin-bottom: 4px; }
+    .done-banner p { font-size: 13px; color: var(--muted); }
+
+    .footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+    .footer p { font-size: 12px; color: var(--muted); }
+    .footer code {
+      font-family: "SF Mono",Consolas,monospace; font-size: 11px;
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 3px; padding: 1px 5px; color: var(--text);
+    }
+    code { font-family: "SF Mono",Consolas,monospace; font-size: 12px; background: var(--code-bg); border: 1px solid var(--border); border-radius: 3px; padding: 1px 5px; color: #93c5fd; }
+
+    @media (max-width: 480px) {
+      .env-grid { grid-template-columns: 1fr; }
+      .meta-row { gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="badge">Setup Guide</div>
+    <h1>PostHog Analytics — Setup</h1>
+    <p>Wire up free usage analytics for your Marketing Academy site. Track which lessons get viewed, completed, and quizzed.</p>
+    <div class="meta-row">
+      <div class="meta-item"><strong>Free tier</strong> — 1M events/month, no CC required</div>
+      <div class="meta-item"><strong>Package</strong> — <code>posthog-js</code></div>
+      <div class="meta-item"><strong>Env vars</strong> — 2 (both <code>NEXT_PUBLIC_*</code>)</div>
+    </div>
+  </div>
+
+  <div class="progress-wrap">
+    <p class="progress-label"><span id="done-count">0</span> of 11 steps complete</p>
+    <div class="progress-track"><div class="progress-fill" id="prog"></div></div>
+  </div>
+
+  <!-- Phase 1 -->
+  <div class="phase">
+    <div class="phase-label">
+      <div class="phase-num">1</div>
+      PostHog Account &amp; Project
+      <span class="phase-time">~3 min</span>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Sign up at posthog.com</div>
+        <div class="step-desc">Go to <a href="https://posthog.com" target="_blank" rel="noopener">posthog.com</a> → <strong>Get started free</strong>. No credit card. Free tier is 1M events/month — more than enough for personal use.</div>
+      </div>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Choose a region and create your project</div>
+        <div class="step-desc">During onboarding pick <strong>US</strong> or <strong>EU</strong> data residency. The region determines your API host:
+          <div class="code-block bash">US → https://us.i.posthog.com
+EU → https://eu.i.posthog.com</div>
+          Name the project <strong>Marketing Academy</strong> and select <strong>Web</strong> as the platform.
+        </div>
+      </div>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Copy your Project API Key</div>
+        <div class="step-desc">After project creation, PostHog shows a snippet with your key: <code>phc_xxxxxxxxxxxxxxxxxxxxxxxx</code>. Copy it — this is your <code>NEXT_PUBLIC_POSTHOG_KEY</code>.
+          <div class="tip">Also findable later: Settings → Project → Project API Key.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 2 -->
+  <div class="phase">
+    <div class="phase-label">
+      <div class="phase-num">2</div>
+      Environment Variables
+      <span class="phase-time">~2 min</span>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Add to <code>.env.local</code> (local dev)</div>
+        <div class="step-desc">In the project root, add to your local <code>.env.local</code> file:
+          <div class="code-block bash">NEXT_PUBLIC_POSTHOG_KEY=phc_your_key_here
+NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com</div>
+          Change <code>us</code> to <code>eu</code> if you picked EU region.
+        </div>
+      </div>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Add to Vercel environment variables</div>
+        <div class="step-desc">Vercel dashboard → your project → <strong>Settings → Environment Variables</strong>. Add both, set to Production + Preview + Development:
+          <div class="env-grid">
+            <div class="env-key">NEXT_PUBLIC_POSTHOG_KEY</div><div class="env-val">phc_your_key_here</div>
+            <div class="env-key">NEXT_PUBLIC_POSTHOG_HOST</div><div class="env-val">https://us.i.posthog.com</div>
+          </div>
+          Then redeploy the project.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 3 -->
+  <div class="phase">
+    <div class="phase-label">
+      <div class="phase-num">3</div>
+      Install &amp; Wire Up in Code
+      <span class="phase-time">~5 min</span>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Install posthog-js</div>
+        <div class="step-desc">Run in the project root:
+          <div class="code-block bash">npm install posthog-js<button class="copy-btn" onclick="cp(event,'npm install posthog-js')">copy</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Create <code>src/components/PostHogProvider.tsx</code></div>
+        <div class="step-desc">Create a new file with this exact content:
+          <div class="code-block tsx">"use client";
+
+import posthog from "posthog-js";
+import { PostHogProvider as PHProvider } from "posthog-js/react";
+import { useEffect } from "react";
+
+export function PostHogProvider({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    if (!process.env.NEXT_PUBLIC_POSTHOG_KEY) return;
+    posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
+      api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://us.i.posthog.com",
+      capture_pageview: false,
+      capture_pageleave: true,
+      persistence: "localStorage",
+    });
+  }, []);
+
+  return &lt;PHProvider client={posthog}&gt;{children}&lt;/PHProvider&gt;;
+}<button class="copy-btn" onclick="cp(event,`&quot;use client&quot;;\n\nimport posthog from &quot;posthog-js&quot;;\nimport { PostHogProvider as PHProvider } from &quot;posthog-js/react&quot;;\nimport { useEffect } from &quot;react&quot;;\n\nexport function PostHogProvider({ children }: { children: React.ReactNode }) {\n  useEffect(() => {\n    if (!process.env.NEXT_PUBLIC_POSTHOG_KEY) return;\n    posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {\n      api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST ?? &quot;https://us.i.posthog.com&quot;,\n      capture_pageview: false,\n      capture_pageleave: true,\n      persistence: &quot;localStorage&quot;,\n    });\n  }, []);\n\n  return <PHProvider client={posthog}>{children}</PHProvider>;\n}`)">copy</button></div>
+          <div class="info">ℹ <code>capture_pageview: false</code> — we'll fire page views manually via <code>LessonViewTracker</code> so they include lesson metadata (category, slug, level).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Wrap the root layout in <code>src/app/layout.tsx</code></div>
+        <div class="step-desc">Add the import and wrap the <code>&lt;body&gt;</code> children:
+          <div class="code-block tsx">// Add at top of layout.tsx:
+import { PostHogProvider } from "@/components/PostHogProvider";
+
+// Inside &lt;body&gt;, wrap {children}:
+&lt;PostHogProvider&gt;
+  {/* existing Nav, children, Footer etc */}
+&lt;/PostHogProvider&gt;<button class="copy-btn" onclick="cp(event,`import { PostHogProvider } from &quot;@/components/PostHogProvider&quot;;`)">copy</button></div>
+          <div class="warn">⚠ layout.tsx must remain a Server Component — PostHogProvider is the "use client" boundary. Do NOT add "use client" to layout.tsx.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Extend <code>src/components/LessonViewTracker.tsx</code> to fire events</div>
+        <div class="step-desc">Add a <code>posthog.capture</code> call inside the existing <code>useEffect</code>:
+          <div class="code-block tsx">import posthog from "posthog-js";
+
+// Inside the useEffect that fires on pathname change:
+posthog.capture("lesson_viewed", {
+  category,
+  slug,
+  title,   // pass from lesson page props if available
+  level,   // "Beginner" | "Intermediate" | "Advanced"
+});<button class="copy-btn" onclick="cp(event,`posthog.capture(&quot;lesson_viewed&quot;, {\n  category,\n  slug,\n  title,\n  level,\n});`)">copy</button></div>
+          <div class="info">ℹ The component already tracks the route — just add the capture call alongside whatever it already does (analytics, recently-viewed, etc).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 4 -->
+  <div class="phase">
+    <div class="phase-label">
+      <div class="phase-num">4</div>
+      Events Reference
+      <span class="phase-time">add as needed</span>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Where to call <code>posthog.capture()</code> for key events</div>
+        <div class="step-desc">
+          <table class="events-table">
+            <thead>
+              <tr><th>Event name</th><th>File to edit</th><th>Trigger</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>lesson_viewed</td><td>LessonViewTracker.tsx</td><td>useEffect on pathname</td></tr>
+              <tr><td>lesson_completed</td><td>MarkComplete.tsx</td><td>inside toggle handler</td></tr>
+              <tr><td>lesson_bookmarked</td><td>BookmarkButton.tsx</td><td>on add (not remove)</td></tr>
+              <tr><td>quiz_started</td><td>Quiz.tsx</td><td>first answer selected</td></tr>
+              <tr><td>quiz_completed</td><td>Quiz.tsx</td><td>on finish, include score/total</td></tr>
+              <tr><td>command_palette_opened</td><td>CommandPalette.tsx</td><td>on open</td></tr>
+              <tr><td>track_started</td><td>TrackLessonList.tsx</td><td>first lesson click</td></tr>
+            </tbody>
+          </table>
+          <div class="tip">Start with just <code>lesson_viewed</code> + <code>lesson_completed</code>. Add the rest over time.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 5 -->
+  <div class="phase">
+    <div class="phase-label">
+      <div class="phase-num" style="background:rgba(29,158,117,0.15);border-color:rgba(29,158,117,0.35);color:#6ee7b7">5</div>
+      Verify It Works
+      <span class="phase-time">~2 min</span>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Run dev server and open a lesson</div>
+        <div class="step-desc">
+          <div class="code-block bash">npm run dev<button class="copy-btn" onclick="cp(event,'npm run dev')">copy</button></div>
+          Navigate to any lesson page on localhost.
+        </div>
+      </div>
+    </div>
+
+    <div class="step" onclick="toggle(this)">
+      <div class="check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-body">
+        <div class="step-title">Confirm events appear in PostHog Live Events</div>
+        <div class="step-desc">In PostHog dashboard → <strong>Activity → Live events</strong>. Within a few seconds you should see <code>lesson_viewed</code> appear with your lesson's category and slug as properties.
+          <div class="tip">✓ Done! PostHog is live. Check Dashboards → create a simple "Lessons viewed this week" insight to get started.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="done-banner" id="done-banner">
+    <h3>✓ All steps complete</h3>
+    <p>PostHog is wired up. Events flow on every lesson view and completion.</p>
+  </div>
+
+  <div class="footer">
+    <p>
+      Provider: <code>src/components/PostHogProvider.tsx</code> &middot;
+      Tracker: <code>src/components/LessonViewTracker.tsx</code> &middot;
+      Layout: <code>src/app/layout.tsx</code> &middot;
+      Env ref: <code>.env.local.example</code>
+    </p>
+  </div>
+
+</div>
+
+<script>
+  const TOTAL = 11;
+  const STORAGE_KEY = "ph_setup_done";
+
+  function getState() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); } catch { return []; }
+  }
+  function saveState(indices) { localStorage.setItem(STORAGE_KEY, JSON.stringify(indices)); }
+
+  function toggle(el) {
+    el.classList.toggle("done");
+    syncState();
+    update();
+  }
+
+  function syncState() {
+    const steps = document.querySelectorAll(".step");
+    const done = [];
+    steps.forEach((s, i) => { if (s.classList.contains("done")) done.push(i); });
+    saveState(done);
+  }
+
+  function update() {
+    const done = document.querySelectorAll(".step.done").length;
+    document.getElementById("prog").style.width = Math.round((done / TOTAL) * 100) + "%";
+    document.getElementById("done-count").textContent = done;
+    document.getElementById("done-banner").classList.toggle("show", done === TOTAL);
+  }
+
+  function cp(e, text) {
+    e.stopPropagation();
+    navigator.clipboard.writeText(text).catch(() => {});
+    const btn = e.target;
+    btn.textContent = "copied";
+    setTimeout(() => { btn.textContent = "copy"; }, 1500);
+  }
+
+  (function restore() {
+    const done = getState();
+    const steps = document.querySelectorAll(".step");
+    done.forEach(i => { if (steps[i]) steps[i].classList.add("done"); });
+    update();
+  })();
+</script>
+</body>
+</html>

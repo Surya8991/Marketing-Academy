@@ -23,7 +23,7 @@ export default function AchievementsClient() {
 
   const { xp, streak, longestStreak, achievements } = state;
   const { level, title, nextAt } = getCurrentLevel(xp);
-  const pct = nextAt === Infinity ? 100 : Math.min(100, Math.round((xp / nextAt) * 100));
+  const pct = nextAt !== Infinity ? Math.min(100, Math.round((xp / nextAt) * 100)) : 0;
 
   return (
     <main

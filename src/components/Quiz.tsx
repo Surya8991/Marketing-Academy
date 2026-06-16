@@ -38,15 +38,16 @@ export default function Quiz({ questions, category, slug }: Props) {
     try {
       const saved = localStorage.getItem(quizStorageKey(pathname));
       if (saved) {
-        const { score, total } = JSON.parse(saved) as { score: number; total: number };
-        if (total === questions.length) {
-          setAnswers(Array(score).fill(true).concat(Array(total - score).fill(false)));
+        const parsed = JSON.parse(saved) as { answers?: boolean[]; score?: number; total: number };
+        if (parsed.total === questions.length) {
+          const restored = parsed.answers
+            ?? Array(parsed.score ?? 0).fill(true).concat(Array(parsed.total - (parsed.score ?? 0)).fill(false));
+          setAnswers(restored);
           setFinished(true);
         }
       }
     } catch { /* ignore corrupt storage */ }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [pathname, category, slug, questions.length]);
 
   const question = questions[current];
   const totalQuestions = questions.length;
@@ -68,7 +69,7 @@ export default function Quiz({ questions, category, slug }: Props) {
       const finalScore = newAnswers.filter(Boolean).length;
       const perfect = finalScore === totalQuestions;
       try {
-        localStorage.setItem(quizStorageKey(pathname), JSON.stringify({ score: finalScore, total: totalQuestions }));
+        localStorage.setItem(quizStorageKey(pathname), JSON.stringify({ answers: newAnswers, total: totalQuestions }));
       } catch { /* storage full or unavailable */ }
       if (perfect) {
         setQuizPassed(category, slug);
