@@ -30,20 +30,20 @@ All major platforms use a similar architecture. Understanding the stages tells y
 
 <Mermaid chart={`graph TD
   A[All content in network] --> B[Candidate Generation]
-  B --> C[Light Ranking - fast signals]
-  C --> D[Heavy Ranking - deep ML scoring]
-  D --> E[Re-Ranking - diversity and policy filters]
+  B --> C[Light Ranking: fast signals]
+  C --> D[Heavy Ranking: deep ML scoring]
+  D --> E[Re-Ranking: diversity and policy filters]
   E --> F[User Feed]
   style A fill:#6366f1,color:#fff
   style F fill:#22c55e,color:#fff`} />
 
-**Stage 1 - Candidate Generation:** The system pulls a small subset of content from accounts you follow, topics you have engaged with, and trending content in your region. Most content never makes it past this stage for most users.
+**Stage 1, Candidate Generation:** The system pulls a small subset of content from accounts you follow, topics you have engaged with, and trending content in your region. Most content never makes it past this stage for most users.
 
-**Stage 2 - Light Ranking:** Fast signals are applied to the candidates. These include recency, your past engagement with the creator, and basic content type preferences. This is cheap to compute and narrows the pool quickly.
+**Stage 2, Light Ranking:** Fast signals are applied to the candidates. These include recency, your past engagement with the creator, and basic content type preferences. This is cheap to compute and narrows the pool quickly.
 
-**Stage 3 - Heavy Ranking:** The ML model scores remaining candidates on predicted engagement probability. This is where completion rate, comment depth, and share likelihood get weighted. For TikTok, completion rate accounts for 40-50% of algorithm weight at this stage.
+**Stage 3, Heavy Ranking:** The ML model scores remaining candidates on predicted engagement probability. This is where completion rate, comment depth, and share likelihood get weighted. For TikTok, completion rate accounts for 40-50% of algorithm weight at this stage.
 
-**Stage 4 - Re-Ranking:** Diversity filters are applied so you do not see ten identical posts in a row. Policy filters remove content that violates guidelines. Paid promotion slots are inserted. What survives this stage reaches the feed.
+**Stage 4, Re-Ranking:** Diversity filters are applied so you do not see ten identical posts in a row. Policy filters remove content that violates guidelines. Paid promotion slots are inserted. What survives this stage reaches the feed.
 
 ---
 
@@ -63,7 +63,7 @@ What Instagram de-weights: posts that re-use TikTok watermarks (the algorithm de
 
 ### TikTok
 
-TikTok's algorithm is the most aggressive distribution engine of any major platform. A new account with zero followers can have a video reach millions within 48 hours if early signals are strong. This is because TikTok does not primarily rank by follower graph - it ranks by content quality signals from small test audiences.
+TikTok's algorithm is the most aggressive distribution engine of any major platform. A new account with zero followers can have a video reach millions within 48 hours if early signals are strong. This is because TikTok does not primarily rank by follower graph, it ranks by content quality signals from small test audiences.
 
 The engagement rate on TikTok averaged 3.70% in 2025, up 49% year-over-year, making it the highest-engagement platform by a large margin.
 
@@ -74,7 +74,7 @@ The process works in batches:
 4. A 70%+ completion rate is the target threshold for wide distribution beyond the initial cohort
 
 <Callout type="tip">
-Hook the first 2-3 seconds hard. TikTok measures how many people scroll past in the first second. A strong open line - a question, a surprising stat, or a visual that creates curiosity - is the single highest-ROI edit you can make to any short video.
+Hook the first 2-3 seconds hard. TikTok measures how many people scroll past in the first second. A strong open line, a question, a surprising stat, or a visual that creates curiosity, is the single highest-ROI edit you can make to any short video.
 </Callout>
 
 ### LinkedIn
@@ -107,7 +107,7 @@ Duolingo grew from 50,000 to 15 million TikTok followers between 2021 and 2024 w
 
 - Videos consistently opened with a bizarre or unexpected visual in the first second
 - The brand leaned into trending audio tracks within 24 hours of a sound going viral
-- Comment sections were actively managed by the social team, with the Duolingo account replying to hundreds of comments - which pushed post-engagement scores up in subsequent ranking batches
+- Comment sections were actively managed by the social team, with the Duolingo account replying to hundreds of comments, which pushed post-engagement scores up in subsequent ranking batches
 - No watermarked reposts from other platforms
 
 The result: individual videos routinely cleared 1 million views, and the brand became a case study cited by TikTok's own marketing team.
@@ -124,7 +124,7 @@ Results over 30 days on equivalent audience sizes:
 The carousel outperformed the link post by 23x. The algorithm's preference for native content is that pronounced on LinkedIn.
 
 <Callout type="example">
-Test your own content mix using this approach: take one piece of content and publish it in three formats over three weeks - link, text summary, and native format (carousel or video). Track impressions-per-post, not total impressions, to control for posting frequency differences. The data will usually make the platform's preferences obvious within a single month.
+Test your own content mix using this approach: take one piece of content and publish it in three formats over three weeks, link, text summary, and native format (carousel or video). Track impressions-per-post, not total impressions, to control for posting frequency differences. The data will usually make the platform's preferences obvious within a single month.
 </Callout>
 
 ---
@@ -165,7 +165,7 @@ Consistency matters more than volume. Three posts per week every week outperform
 
 A common mistake is treating the algorithm as all-seeing. Several things it cannot measure:
 
-- **Content quality in isolation.** The algorithm measures proxies for quality - completion rate, saves, comments - not the content itself. Bad content with a strong hook can outperform genuinely useful content with a weak one.
+- **Content quality in isolation.** The algorithm measures proxies for quality, completion rate, saves, comments, not the content itself. Bad content with a strong hook can outperform genuinely useful content with a weak one.
 - **Brand safety in nuanced contexts.** Automated content moderation makes errors. Policy appeals processes exist for a reason.
 - **Long-term brand value.** The algorithm optimizes for session-level engagement, not multi-year customer relationships. You still need a strategy that goes beyond what any single algorithm rewards.
 
@@ -177,7 +177,7 @@ Understanding these limits prevents over-indexing on algorithmic optimization at
 
 1. Algorithms are prediction engines, not gatekeepers. Your content is competing to satisfy a probability estimate about user engagement.
 2. Completion rate and saves are the highest-value signals on most platforms. Optimize content to earn both.
-3. TikTok's batch distribution system means new accounts can achieve massive reach if early signals are strong - use this for testing content ideas cheaply.
+3. TikTok's batch distribution system means new accounts can achieve massive reach if early signals are strong, use this for testing content ideas cheaply.
 4. LinkedIn's comment weighting is an opportunity. A real reply to someone's comment can add more algorithmic weight than 50 passive likes.
 5. Consistency beats volume. Regular posting builds the engagement history algorithms rely on for distribution decisions.
 

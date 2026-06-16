@@ -173,7 +173,7 @@ export const TOOLS: MarketingTool[] = [
   },
   {
     name: "Microsoft Advertising",
-    description: "Run PPC campaigns on Bing, Yahoo, and DuckDuckGo - often with lower CPCs than Google.",
+    description: "Run PPC campaigns on Bing, Yahoo, and DuckDuckGo, often with lower CPCs than Google.",
     category: "Paid Advertising",
     pricing: "Free",
     url: "https://ads.microsoft.com",
@@ -297,7 +297,7 @@ export const TOOLS: MarketingTool[] = [
   },
   {
     name: "Notion",
-    description: "All-in-one workspace for notes, wikis, databases, and project management - popular for content planning.",
+    description: "All-in-one workspace for notes, wikis, databases, and project management, popular for content planning.",
     category: "Content Marketing",
     pricing: "Freemium",
     url: "https://notion.so",
@@ -377,7 +377,7 @@ export const TOOLS: MarketingTool[] = [
   },
   {
     name: "Brevo",
-    description: "Multi-channel marketing platform with email, SMS, WhatsApp, and live chat - formerly Sendinblue.",
+    description: "Multi-channel marketing platform with email, SMS, WhatsApp, and live chat, formerly Sendinblue.",
     category: "Email & CRM",
     pricing: "Freemium",
     url: "https://brevo.com",
@@ -1010,7 +1010,7 @@ export const TOOLS: MarketingTool[] = [
   // ── Video & Podcast ───────────────────────────────────────────────────────
   {
     name: "Loom (Video)",
-    description: "Async video messaging for sharing product walkthroughs, feedback, and team updates - watch rates beat email.",
+    description: "Async video messaging for sharing product walkthroughs, feedback, and team updates. Watch rates beat email.",
     category: "Video & Podcast",
     pricing: "Freemium",
     url: "https://loom.com",
@@ -1038,7 +1038,7 @@ export const TOOLS: MarketingTool[] = [
   },
   {
     name: "Descript",
-    description: "Podcast and video editor where you edit media by editing the transcript - includes AI voice cloning.",
+    description: "Podcast and video editor where you edit media by editing the transcript. Includes AI voice cloning.",
     category: "Video & Podcast",
     pricing: "Freemium",
     url: "https://descript.com",

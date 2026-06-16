@@ -23,7 +23,7 @@ const FAQS = [
   },
   {
     q: "How do I answer 'Tell me about a campaign you ran'?",
-    a: "Use the STAR format - Situation, Task, Action, Result. Lead with the business goal, not the tactic. Interviewers want to see that you tied your work to revenue, retention, or pipeline, not just impressions or clicks.",
+    a: "Use the STAR format: Situation, Task, Action, Result. Lead with the business goal, not the tactic. Interviewers want to see that you tied your work to revenue, retention, or pipeline, not just impressions or clicks.",
   },
   {
     q: "Do I need to know SQL or data tools for a marketing role?",
@@ -31,7 +31,7 @@ const FAQS = [
   },
   {
     q: "How long should I spend studying before a marketing interview?",
-    a: "A focused 5-7 days beats a scattered two weeks. Spend the first two days reviewing the core frameworks for the relevant disciplines, days three and four practicing answers out loud, and the last day researching the company's current marketing - channels they use, positioning, campaigns running.",
+    a: "A focused 5-7 days beats a scattered two weeks. Spend the first two days reviewing the core frameworks for the relevant disciplines, days three and four practicing answers out loud, and the last day researching the company's current marketing, channels they use, positioning, campaigns running.",
   },
   {
     q: "What is the most common mistake candidates make in marketing interviews?",
@@ -358,12 +358,12 @@ export default function InterviewPrepPage() {
               {
                 step: "2",
                 heading: "Test with the quiz",
-                body: "Every lesson has an in-page quiz. Get every answer right before moving on. If you miss one, re-read that section - the explanation tells you exactly what you missed.",
+                body: "Every lesson has an in-page quiz. Get every answer right before moving on. If you miss one, re-read that section. The explanation tells you exactly what you missed.",
               },
               {
                 step: "3",
                 heading: "Review the Q&A",
-                body: "Use the sample questions above to practice out loud. Saying an answer is very different from knowing it silently. Record yourself once, then watch it back - the gaps will be obvious.",
+                body: "Use the sample questions above to practice out loud. Saying an answer is very different from knowing it silently. Record yourself once, then watch it back. The gaps will be obvious.",
               },
             ].map(({ step, heading, body }) => (
               <li

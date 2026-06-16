@@ -6,7 +6,7 @@ export const lessonMeta = {
 
 ## The Last-Click Problem
 
-Last-click attribution is broken, and you probably know it without realizing. When a customer converts on your website after seeing 7 different touchpoints (organic search, email, paid ad, social, referral, direct, blog), last-click attribution credits 100% of that conversion to whichever channel brought them in the door last—usually the cheapest, most bottom-funnel channel.
+Last-click attribution is broken, and you probably know it without realizing. When a customer converts on your website after seeing 7 different touchpoints (organic search, email, paid ad, social, referral, direct, blog), last-click attribution credits 100% of that conversion to whichever channel brought them in the door last, usually the cheapest, most bottom-funnel channel.
 
 The result: you starve the channels that actually built awareness and trust. You might cut spending on brand-building channels (YouTube, podcast sponsorships, email nurture) because they don't show as "converters" under last-click. Meanwhile, you overfund retargeting pixels because they literally always come last. Your budget allocation drifts further from reality each quarter.
 
@@ -32,11 +32,11 @@ Before we get to AI, understand the traditional models:
 
 **Data-driven attribution** is Google's term for machine learning models trained on conversion path data. Instead of using a fixed rule (like linear or U-shaped), DDA looks at millions of real customer journeys in your account and learns which touchpoints actually matter.
 
-Here's how it works: Google's ML model trains on hundreds of thousands of your conversion paths and non-conversion paths. It learns patterns like "users who clicked a paid search ad AND then an email campaign convert at 8x the baseline rate, but users who only clicked the paid ad convert at 2x." From these patterns, the model infers credit allocation—how much of that conversion should be attributed to each channel.
+Here's how it works: Google's ML model trains on hundreds of thousands of your conversion paths and non-conversion paths. It learns patterns like "users who clicked a paid search ad AND then an email campaign convert at 8x the baseline rate, but users who only clicked the paid ad convert at 2x." From these patterns, the model infers credit allocation, how much of that conversion should be attributed to each channel.
 
 The catch: **DDA requires minimum data volumes.** Google recommends at least 200 conversions per month for reliable results. If you're doing fewer than 50 conversions monthly across all channels, DDA won't train properly and will fall back to position-based attribution.
 
-DDA is now Google Analytics 4's default model for conversion credit, which means if you're not actively checking your model settings, you're probably already using it. The advantage: it's free and built into GA4. The disadvantage: you see only what Google shows you—limited transparency into how the model actually works.
+DDA is now Google Analytics 4's default model for conversion credit, which means if you're not actively checking your model settings, you're probably already using it. The advantage: it's free and built into GA4. The disadvantage: you see only what Google shows you, limited transparency into how the model actually works.
 
 ## The AI Attribution Platform Layer
 
@@ -62,7 +62,7 @@ Incrementality testing works through:
 
 **Conversion lift studies:** Meta and Google both offer built-in incrementality tests. You set a control percentage, run your campaign to a test group, and the platform measures lift. It's statistical and accounts for variance automatically.
 
-Incrementality tests are expensive (you're intentionally not reaching some customers) and slow (you need 2–4 weeks for results), but they're the only way to know true channel contribution. Use them quarterly on your highest-spend channels. Compare results against your attribution model's estimates—if they diverge wildly, your model is wrong.
+Incrementality tests are expensive (you're intentionally not reaching some customers) and slow (you need 2–4 weeks for results), but they're the only way to know true channel contribution. Use them quarterly on your highest-spend channels. Compare results against your attribution model's estimates, if they diverge wildly, your model is wrong.
 
 ## Media Mix Modelling (MMM) in the Privacy Era
 
@@ -70,21 +70,21 @@ Incrementality tests are expensive (you're intentionally not reaching some custo
 
 Instead of asking "which customer clicked what," MMM asks "when we spent more on email, did revenue go up?" It trains a regression model that estimates each channel's contribution based on spend patterns and revenue outcomes. No pixels, no cookies, no privacy violation.
 
-The downside: MMM requires at least 52 weeks of historical data (ideally 2–3 years) to train properly. It can't tell you about individual customer journeys. It works best with stable, seasonal businesses. And the models are harder to interpret—explaining "the coefficient for email is 1.2" to a marketer is tougher than "email gets 25% of credit."
+The downside: MMM requires at least 52 weeks of historical data (ideally 2–3 years) to train properly. It can't tell you about individual customer journeys. It works best with stable, seasonal businesses. And the models are harder to interpret, explaining "the coefficient for email is 1.2" to a marketer is tougher than "email gets 25% of credit."
 
 But as third-party cookies disappear and privacy regulations tighten, MMM is the attribution method that survives. Google is actively pushing MMM tools (Meridian), and platforms like Rockerbox and Northbeam now include MMM alongside DDA as options.
 
 ## Building Your Attribution Stack for 2026
 
-**Layer 1 — DDA baseline:** Use Google Analytics 4's data-driven attribution model as your operational baseline. It's free, familiar, and catches most of the low-hanging fruit vs. last-click.
+**Layer 1, DDA baseline:** Use Google Analytics 4's data-driven attribution model as your operational baseline. It's free, familiar, and catches most of the low-hanging fruit vs. last-click.
 
-**Layer 2 — Incrementality tests:** Run quarterly incrementality tests on paid channels. Schedule them in advance and build them into your measurement calendar.
+**Layer 2, Incrementality tests:** Run quarterly incrementality tests on paid channels. Schedule them in advance and build them into your measurement calendar.
 
-**Layer 3 — Specialized AI platform (conditional):** If you're a DTC brand doing $5M+ in annual revenue, or if you have 5+ active marketing channels, a platform like Northbeam or Triple Whale pays for itself. If you're smaller or simpler, skip this.
+**Layer 3, Specialized AI platform (conditional):** If you're a DTC brand doing $5M+ in annual revenue, or if you have 5+ active marketing channels, a platform like Northbeam or Triple Whale pays for itself. If you're smaller or simpler, skip this.
 
-**Layer 4 — MMM for strategic decisions:** Build or hire someone to build an MMM model using 2+ years of data. Use it to answer big strategic questions quarterly: "Should we increase email spend? Shift budget from paid search to content?" DDA answers tactical questions; MMM answers strategic ones.
+**Layer 4, MMM for strategic decisions:** Build or hire someone to build an MMM model using 2+ years of data. Use it to answer big strategic questions quarterly: "Should we increase email spend? Shift budget from paid search to content?" DDA answers tactical questions; MMM answers strategic ones.
 
-**Layer 5 — Privacy-first redundancy:** Plan for a world without third-party cookies. Audit which parts of your attribution chain depend on cookies (pixel tracking, cross-domain tracking, remarketing). Build server-side event tracking and first-party data collection so your models continue working when cookies disappear.
+**Layer 5, Privacy-first redundancy:** Plan for a world without third-party cookies. Audit which parts of your attribution chain depend on cookies (pixel tracking, cross-domain tracking, remarketing). Build server-side event tracking and first-party data collection so your models continue working when cookies disappear.
 
 ## The Privacy Challenge Ahead
 
@@ -96,7 +96,7 @@ Brands that act now will have clean, attribution-ready data when cookies disappe
 
 ## The Outcome
 
-AI attribution models give you a truer picture of which channels and campaigns actually drive revenue. You can reallocate budget from low-impact channels to high-impact ones with confidence. The difference between last-click allocation and DDA-based allocation can be 20–40% of your budget on average—that's revenue at stake.
+AI attribution models give you a truer picture of which channels and campaigns actually drive revenue. You can reallocate budget from low-impact channels to high-impact ones with confidence. The difference between last-click allocation and DDA-based allocation can be 20–40% of your budget on average, that's revenue at stake.
 
 The best attribution system combines DDA for day-to-day insights, incrementality tests for validation, and MMM for strategic planning. It takes time to build, but the payoff is a budget allocation that reflects reality instead of statistical artifacts.
 

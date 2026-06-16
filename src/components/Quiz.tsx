@@ -3,7 +3,7 @@
 /**
  * Per-lesson quiz component.
  *
- * MUST be rendered inside a <section id="quiz-section"> — MarkComplete.tsx
+ * MUST be rendered inside a <section id="quiz-section">: MarkComplete.tsx
  * calls `document.getElementById("quiz-section")?.scrollIntoView()` when locked.
  *
  * Pass/fail:
@@ -12,8 +12,8 @@
  *   - There is no partial credit; the threshold can't be configured per-lesson.
  *
  * Events dispatched on perfect score:
- *   QUIZ_PASSED_EVENT  — unlocks MarkComplete on the same page (no reload needed)
- *   ENGAGEMENT_EVENT   — awards 20 XP and triggers achievement checks
+ *   QUIZ_PASSED_EVENT: unlocks MarkComplete on the same page (no reload needed)
+ *   ENGAGEMENT_EVENT: awards 20 XP and triggers achievement checks
  *
  * Progress persistence:
  *   - In-progress state (current question + previous answers) is saved to
@@ -62,7 +62,7 @@ export default function Quiz({ questions, category, slug }: Props) {
       const saved = localStorage.getItem(quizStorageKey(pathname));
       if (saved) {
         const parsed = JSON.parse(saved) as { answers?: boolean[]; score?: number; total: number };
-        // Only restore if question count matches — stale state from a different quiz version is discarded
+        // Only restore if question count matches, stale state from a different quiz version is discarded
         if (parsed.total === questions.length) {
           const restored = parsed.answers
             ?? Array(parsed.score ?? 0).fill(true).concat(Array(parsed.total - (parsed.score ?? 0)).fill(false));
@@ -80,7 +80,7 @@ export default function Quiz({ questions, category, slug }: Props) {
   function handleSelect(index: number) {
     if (answered) return; // prevent changing answer after selection
     setSelected(index);
-    // Do NOT push to answers here — handleNext captures it with the correct/incorrect value
+    // Do NOT push to answers here, handleNext captures it with the correct/incorrect value
   }
 
   function handleNext() {
@@ -89,7 +89,7 @@ export default function Quiz({ questions, category, slug }: Props) {
     const newAnswers = [...answers, isCorrect];
 
     if (current + 1 >= totalQuestions) {
-      // All questions answered — evaluate final score using newAnswers (includes this last Q)
+      // All questions answered, evaluate final score using newAnswers (includes this last Q)
       const finalScore = newAnswers.filter(Boolean).length;
       const perfect = finalScore === totalQuestions;
       try {
@@ -149,7 +149,7 @@ export default function Quiz({ questions, category, slug }: Props) {
             {alreadyPassed ? "Already Passed!" : "Perfect Score!"}
           </div>
           <p className="text-sm text-[var(--muted-foreground)] mb-1">
-            {totalQuestions}/{totalQuestions} correct &mdash; 100%
+            {totalQuestions}/{totalQuestions} correct, 100%
           </p>
           <p className="font-medium mb-5 text-[var(--foreground)]">
             You&apos;ve unlocked &ldquo;Mark as Complete&rdquo; for this lesson.
@@ -167,8 +167,8 @@ export default function Quiz({ questions, category, slug }: Props) {
       );
     }
 
-    // Failed — show score + context-sensitive encourage message
-    let message = "Keep practicing — review the lesson and try again.";
+    // Failed, show score + context-sensitive encourage message
+    let message = "Keep practicing, review the lesson and try again.";
     if (pct >= 75) message = "Almost there! Review the explanations and retry.";
     else if (pct >= 50) message = "Good start. Read through the sections you missed.";
 
@@ -212,7 +212,7 @@ export default function Quiz({ questions, category, slug }: Props) {
       role="region"
       aria-label={`Quiz question ${current + 1} of ${totalQuestions}`}
     >
-      {/* Progress header: pill indicators per question — green=correct, red=wrong, accent=current, muted=upcoming */}
+      {/* Progress header: pill indicators per question: green=correct, red=wrong, accent=current, muted=upcoming */}
       <div className="flex items-center justify-between mb-4">
         <span className="text-sm text-[var(--muted-foreground)]">
           Question {current + 1} of {totalQuestions}
@@ -289,7 +289,7 @@ export default function Quiz({ questions, category, slug }: Props) {
         })}
       </div>
 
-      {/* Explanation block — only shown after the user selects an option */}
+      {/* Explanation block: only shown after the user selects an option */}
       {answered && (
         <div className="rounded-lg bg-[var(--muted)] border border-[var(--border)] px-4 py-3 mb-5 text-sm text-[var(--foreground)] leading-relaxed">
           <span className="font-semibold">

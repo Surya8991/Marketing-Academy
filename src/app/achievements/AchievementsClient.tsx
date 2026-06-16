@@ -64,7 +64,7 @@ export default function AchievementsClient() {
       >
         {[
           { label: "Total XP", value: `${xp} XP` },
-          { label: "Level", value: `${level} — ${title}` },
+          { label: "Level", value: `${level}: ${title}` },
           { label: "Current Streak", value: `${streak} day${streak !== 1 ? "s" : ""}` },
           { label: "Longest Streak", value: `${longestStreak} day${longestStreak !== 1 ? "s" : ""}` },
           { label: "Unlocked", value: `${achievements.length} / ${ACHIEVEMENTS.length}` },

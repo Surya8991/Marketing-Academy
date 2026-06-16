@@ -13,7 +13,7 @@ export function GET() {
       type="rss"
       xmlUrl="${BASE}/feed.xml"
       htmlUrl="${BASE}"
-      description="Free marketing lessons — SEO, paid ads, growth, analytics, AI, social media and more." />
+      description="Free marketing lessons: SEO, paid ads, growth, analytics, AI, social media and more." />
   </body>
 </opml>`;
 

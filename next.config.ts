@@ -1,13 +1,13 @@
 /**
- * next.config.ts — Next.js 16 configuration.
+ * next.config.ts: Next.js 16 configuration.
  *
- * AGENTS: Rule 10 — remark/rehype plugins MUST use the string/tuple format
+ * AGENTS: Rule 10, remark/rehype plugins MUST use the string/tuple format
  * (["plugin-name", {}]), NOT the imported function form (remarkGfm).
  * The function form breaks @next/mdx in this version.
  *
  * MDX: all .md and .mdx files under src/content/ are processed as React components.
  * Global components (Callout, Mermaid, ResourceList, Quiz, DiagramBlock) are
- * registered in mdx-components.tsx at the project root — Next.js picks it up
+ * registered in mdx-components.tsx at the project root; Next.js picks it up
  * automatically; never import it.
  */
 
@@ -26,9 +26,9 @@ const nextConfig: NextConfig = {
    *     hydration scripts) and Mermaid (runtime code generation). Cannot be removed.
    *   - PostHog domains are whitelisted for analytics (script-src + connect-src).
    *   - api.cloudflare.com is whitelisted for the KV sync proxy's server-side fetch.
-   *     This header applies to the BROWSER, not server routes — but it's kept consistent.
+   *     This header applies to the BROWSER, not server routes, but it's kept consistent.
    *   - frame-ancestors 'none' prevents clickjacking (equivalent to X-Frame-Options DENY,
-   *     but CSP takes precedence in modern browsers — both are set for compatibility).
+   *     but CSP takes precedence in modern browsers; both are set for compatibility).
    *
    * If you add a new third-party script or font, update script-src / connect-src here.
    */
@@ -38,7 +38,7 @@ const nextConfig: NextConfig = {
         source: "/(.*)", // applies to every route
         headers: [
           // Prevent this site from being embedded in an iframe (clickjacking protection)
-          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "X-Frame-Options", value: "DENY" },
           // Stop browsers from MIME-sniffing responses away from the declared content-type
           { key: "X-Content-Type-Options", value: "nosniff" },
           // Only send full referrer to same origin; send origin-only to cross-origin HTTPS
@@ -73,7 +73,7 @@ const nextConfig: NextConfig = {
 const withMDX = createMDX({
   extension: /\.(md|mdx)$/,
   options: {
-    // Rule 10: string tuple format required — function form breaks @next/mdx
+    // Rule 10: string tuple format required; function form breaks @next/mdx
     remarkPlugins: [["remark-gfm", {}]],
     rehypePlugins: [
       ["rehype-slug", {}],                                    // adds id="" to headings

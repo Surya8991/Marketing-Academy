@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const term = getTermBySlug(slug);
   if (!term) return {};
   return {
-    title: `${term.term} - Marketing Glossary`,
+    title: `${term.term}: Marketing Glossary`,
     description: term.definition.slice(0, 155),
   };
 }

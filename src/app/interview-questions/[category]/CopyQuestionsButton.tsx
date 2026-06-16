@@ -41,7 +41,7 @@ export default function CopyQuestionsButton({ title, conceptual, scenario }: Pro
       setState("copied");
       setTimeout(() => setState("idle"), 2000);
     } catch {
-      // clipboard unavailable — silently skip
+      // clipboard unavailable: silently skip
     }
   }
 

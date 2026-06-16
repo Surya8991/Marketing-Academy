@@ -6,15 +6,15 @@ export const lessonMeta = {
 
 The cookie is gone. Chrome finished its third-party cookie removal in 2025, joining Safari and Firefox which had been blocking them for years. If your measurement stack still depends on pixels firing in the browser, you are flying blind on roughly 18-25% of your traffic right now.
 
-Signal-based measurement is the replacement architecture. Instead of relying on a tiny file dropped in the browser, you build a system around events your infrastructure controls — server-side hits, CRM matches, email engagement, and hashed identity. These signals are harder to block, harder to lose, and significantly more accurate than what came before.
+Signal-based measurement is the replacement architecture. Instead of relying on a tiny file dropped in the browser, you build a system around events your infrastructure controls, server-side hits, CRM matches, email engagement, and hashed identity. These signals are harder to block, harder to lose, and significantly more accurate than what came before.
 
 ---
 
 ## Why Cookie Tracking Broke
 
-Safari's Intelligent Tracking Prevention (ITP) has capped first-party cookies set via JavaScript to 7 days since 2019, and cross-site tracking has been dead on Safari for even longer. Firefox followed with Enhanced Tracking Protection. iOS 14.5 introduced App Tracking Transparency, which required users to opt-in before any cross-app identifier (IDFA) could be read — and opt-in rates settled around 25%. Chrome's removal in 2025 was the final blow, but it was already a years-long collapse.
+Safari's Intelligent Tracking Prevention (ITP) has capped first-party cookies set via JavaScript to 7 days since 2019, and cross-site tracking has been dead on Safari for even longer. Firefox followed with Enhanced Tracking Protection. iOS 14.5 introduced App Tracking Transparency, which required users to opt-in before any cross-app identifier (IDFA) could be read, and opt-in rates settled around 25%. Chrome's removal in 2025 was the final blow, but it was already a years-long collapse.
 
-The result: approximately 18% of all web traffic is now 'dark' — invisible to standard client-side analytics and ad servers. That number was 590 million blocked users in 2019; it reached 976 million by 2023 before Chrome even moved.
+The result: approximately 18% of all web traffic is now 'dark', invisible to standard client-side analytics and ad servers. That number was 590 million blocked users in 2019; it reached 976 million by 2023 before Chrome even moved.
 
 ---
 
@@ -22,7 +22,7 @@ The result: approximately 18% of all web traffic is now 'dark' — invisible to 
 
 A signal is any observable, consented event that tells you something about customer intent or behavior. The shift from cookies to signals is a shift from passive tracking to active data architecture.
 
-First-party signals are events generated on your own properties: form fills, purchases, page views captured server-side, email opens, CRM activity. Second-party signals come from direct data partnerships — a retailer sharing purchase data with an adjacent brand, or a publisher sharing engagement data with an advertiser they have a direct deal with. Third-party signals are modeled or probabilistic — inferred from panels, surveys, or aggregated cohorts. Never deprecated, but increasingly unreliable and low-resolution.
+First-party signals are events generated on your own properties: form fills, purchases, page views captured server-side, email opens, CRM activity. Second-party signals come from direct data partnerships, a retailer sharing purchase data with an adjacent brand, or a publisher sharing engagement data with an advertiser they have a direct deal with. Third-party signals are modeled or probabilistic, inferred from panels, surveys, or aggregated cohorts. Never deprecated, but increasingly unreliable and low-resolution.
 
 The hierarchy matters: first-party deterministic data is ground truth. Everything else is an approximation.
 
@@ -30,11 +30,11 @@ The hierarchy matters: first-party deterministic data is ground truth. Everythin
 
 ## Server-Side Tagging: The Infrastructure Fix
 
-Client-side tags — a pixel in the browser — fire after the page loads, from the user's device. Ad blockers, ITP, and network conditions all kill them before they reach your analytics. Server-side tagging moves that logic to a server you control.
+Client-side tags, a pixel in the browser, fire after the page loads, from the user's device. Ad blockers, ITP, and network conditions all kill them before they reach your analytics. Server-side tagging moves that logic to a server you control.
 
 Here is how it works: a user converts on your site. Instead of the browser sending an event directly to Google Analytics or Meta, it sends the event to your server endpoint (Google Tag Manager server-side container, Segment, or a custom endpoint). Your server validates, enriches, and forwards the event to every destination. The browser is no longer the bottleneck or the vulnerability.
 
-The gain is significant: server-side capture typically recovers 15-30% of events that client-side missed, mostly from blocked requests and script failures. It also lets you attach server-known data — logged-in user ID, order value from your database — that JavaScript could never reliably pass.
+The gain is significant: server-side capture typically recovers 15-30% of events that client-side missed, mostly from blocked requests and script failures. It also lets you attach server-known data, logged-in user ID, order value from your database, that JavaScript could never reliably pass.
 
 Tools in play: GTM server-side containers (Google Cloud or self-hosted), Segment with event forwarding, RudderStack for the open-source path. Google's Tag Gateway also now lets you serve GTM libraries from a first-party domain via CDN, improving signal quality without full server infrastructure.
 
@@ -44,9 +44,9 @@ Tools in play: GTM server-side containers (Google Cloud or self-hosted), Segment
 
 Server-side tagging solves event capture. Identity resolution solves the harder problem: connecting the anonymous visitor to the customer you know.
 
-The primary method is hashed identifiers. When a user logs in, submits an email, or completes a purchase, you hash their email (SHA-256) and pass it with events to ad platforms. Google's Enhanced Conversions and Meta's Conversion API (CAPI) both accept hashed email and phone to match your conversion back to an ad impression — without exposing raw PII. Customer Match in Google Ads and Custom Audiences in Meta use the same mechanism for audience targeting.
+The primary method is hashed identifiers. When a user logs in, submits an email, or completes a purchase, you hash their email (SHA-256) and pass it with events to ad platforms. Google's Enhanced Conversions and Meta's Conversion API (CAPI) both accept hashed email and phone to match your conversion back to an ad impression, without exposing raw PII. Customer Match in Google Ads and Custom Audiences in Meta use the same mechanism for audience targeting.
 
-The data flow looks like this: a visitor lands anonymously → they authenticate or submit a form → you capture the email hash → you attach it to all downstream conversion events → the ad platform matches to its own hashed identity graph → your impression-to-conversion path closes. This is deterministic matching — either the hash matches or it does not.
+The data flow looks like this: a visitor lands anonymously → they authenticate or submit a form → you capture the email hash → you attach it to all downstream conversion events → the ad platform matches to its own hashed identity graph → your impression-to-conversion path closes. This is deterministic matching, either the hash matches or it does not.
 
 Probabilistic matching is the fallback: inferring identity from device fingerprint, behavioral patterns, or modeled lookalikes. It is useful for filling gaps at the top of the funnel where no login exists. It is not reliable enough for conversion attribution on its own. Use it for directional insight, not for budget decisions.
 
@@ -68,7 +68,7 @@ First-party data carries a structural advantage no third-party signal can match:
 
 Here is what the research says plainly: last-click attribution overstates branded search and undervalues paid social by up to 17x. GA4's models are better than last-click but they are still correlative, biased toward Google channels, and blind to offline or cross-device paths.
 
-The modern measurement stack that actually works is a triangle: server-side conversion APIs feed clean, high-fidelity conversion data into ad platforms in real time. Media Mix Modeling (MMM) runs weekly or bi-weekly on aggregate spend and outcome data to give you cross-channel budget allocation at the strategic level. Incrementality testing runs controlled holdout experiments to prove causal lift for each channel — it is the only way to know if your Meta spend is actually driving new revenue or just capturing demand that would have converted anyway.
+The modern measurement stack that actually works is a triangle: server-side conversion APIs feed clean, high-fidelity conversion data into ad platforms in real time. Media Mix Modeling (MMM) runs weekly or bi-weekly on aggregate spend and outcome data to give you cross-channel budget allocation at the strategic level. Incrementality testing runs controlled holdout experiments to prove causal lift for each channel, it is the only way to know if your Meta spend is actually driving new revenue or just capturing demand that would have converted anyway.
 
 Three of four marketers say their current measurement approach is not delivering the speed, accuracy, or trust they need. The brands getting it right are running MMM and incrementality in a closed loop, recalibrating every Monday instead of every quarter.
 
@@ -80,7 +80,7 @@ Do not use GA4 last-click for budget decisions. Use it for site behavior and fun
 
 ## What to Build Next
 
-If you are starting from zero, the priority order is: (1) deploy server-side GTM or Segment and verify event capture improves, (2) set up Enhanced Conversions in Google and CAPI in Meta with hashed email, (3) audit your CRM data quality — garbage in, garbage out at every step, (4) run your first incrementality test on your highest-spend channel, (5) commission or build a lightweight MMM.
+If you are starting from zero, the priority order is: (1) deploy server-side GTM or Segment and verify event capture improves, (2) set up Enhanced Conversions in Google and CAPI in Meta with hashed email, (3) audit your CRM data quality, garbage in, garbage out at every step, (4) run your first incrementality test on your highest-spend channel, (5) commission or build a lightweight MMM.
 
 Signal-based measurement is not a tool swap. It is an architectural shift. The teams that build it now will have a durable measurement advantage for the next decade.
 

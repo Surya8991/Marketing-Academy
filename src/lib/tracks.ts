@@ -197,6 +197,33 @@ export const TRACKS: Track[] = [
       { category: "fundamentals", slug: "marketing-math", title: "Marketing Math: CAC, LTV, ROAS, Payback" },
     ],
   },
+  {
+    slug: "freelancer-agency",
+    title: "Freelancer & Agency Track",
+    emoji: "🎯",
+    description:
+      "Master every channel clients will ask you to deliver. SEO, paid ads, social, email, analytics, and conversion, the full-stack toolkit for freelancers and agency marketers.",
+    audience: "Freelancers & Agency Marketers",
+    duration: "14-17 hours",
+    lessons: [
+      { category: "fundamentals", slug: "what-is-marketing", title: "What Marketing Actually Is" },
+      { category: "fundamentals", slug: "value-proposition", title: "The Value Proposition" },
+      { category: "fundamentals", slug: "marketing-math", title: "Marketing Math: CAC, LTV, ROAS, Payback" },
+      { category: "seo", slug: "how-search-works", title: "How Search Engines Work" },
+      { category: "seo", slug: "keyword-research", title: "Keyword Research" },
+      { category: "seo", slug: "on-page-seo", title: "On-Page SEO" },
+      { category: "paid-ads", slug: "paid-ads-101", title: "Paid Ads 101" },
+      { category: "paid-ads", slug: "google-search-ads", title: "Google Search Ads" },
+      { category: "paid-ads", slug: "meta-ads", title: "Meta Ads (Facebook & Instagram)" },
+      { category: "social", slug: "instagram", title: "Instagram Playbook" },
+      { category: "email", slug: "email-marketing-101", title: "Email Marketing 101" },
+      { category: "copywriting", slug: "copywriting-101", title: "Copywriting 101" },
+      { category: "cro", slug: "cro-101", title: "CRO 101" },
+      { category: "analytics", slug: "analytics-101", title: "Analytics 101" },
+      { category: "analytics", slug: "utm-tagging", title: "UTM Tagging" },
+      { category: "tools", slug: "all-in-one-tools", title: "All-in-One Marketing Tools" },
+    ],
+  },
 ];
 
 export function getTrack(slug: string): Track | undefined {

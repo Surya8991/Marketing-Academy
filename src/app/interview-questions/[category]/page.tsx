@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const total = section.conceptualQAs.length + section.scenarioQAs.length;
   return {
     title: `${section.title} 2026 | Marketing Academy`,
-    description: `${total} real ${section.categoryLabel} interview questions with detailed answers - ${section.conceptualQAs.length} conceptual and ${section.scenarioQAs.length} scenario-based questions for 2026.`,
+    description: `${total} real ${section.categoryLabel} interview questions with detailed answers, ${section.conceptualQAs.length} conceptual and ${section.scenarioQAs.length} scenario-based questions for 2026.`,
   };
 }
 
@@ -33,6 +33,8 @@ details:not([open]) summary .iq-minus { display: none; }
 }
 `;
 
+const BASE = "https://marketing-academy-roan.vercel.app";
+
 export default async function InterviewCategoryPage({ params }: Props) {
   const { category } = await params;
   const section = INTERVIEW_SECTIONS.find((s) => s.id === category);
@@ -42,8 +44,35 @@ export default async function InterviewCategoryPage({ params }: Props) {
   const prev = currentIndex > 0 ? INTERVIEW_SECTIONS[currentIndex - 1] : null;
   const next = currentIndex < INTERVIEW_SECTIONS.length - 1 ? INTERVIEW_SECTIONS[currentIndex + 1] : null;
 
+  // Build FAQPage schema from first 10 Q&As (all conceptual + first few scenario)
+  const allQAs = [...section.conceptualQAs, ...section.scenarioQAs].slice(0, 10);
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: allQAs.map((qa) => ({
+      "@type": "Question",
+      name: qa.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: qa.a.replace(/\n\n/g, " ").slice(0, 500),
+      },
+    })),
+  };
+
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+      { "@type": "ListItem", position: 2, name: "Interview Questions", item: `${BASE}/interview-questions` },
+      { "@type": "ListItem", position: 3, name: section.categoryLabel, item: `${BASE}/interview-questions/${category}` },
+    ],
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <style dangerouslySetInnerHTML={{ __html: pageCss }} />
       <main style={{ maxWidth: "860px", margin: "0 auto", padding: "2rem 1.5rem 4rem", color: "var(--foreground)" }}>
         {/* Breadcrumb */}

@@ -92,7 +92,7 @@ export const CUSTOM_COMPARISONS: Record<string, CustomComparison> = {
   "google-analytics-4-vs-mixpanel": {
     winner: "Google Analytics 4 (for Web Traffic), Mixpanel (for Product Analytics)",
     winnerReason: "They serve different purposes. GA4 tracks who visits your site and how they got there. Mixpanel tracks exactly what logged-in users do inside your product or application.",
-    verdict: "Do not choose between them—use them together. Use GA4 to measure marketing campaign performance, UTM traffic channels, and overall SEO page views. Use Mixpanel to build retention charts, user cohort funnels, and feature usage maps.",
+    verdict: "Do not choose between them. Use them together. Use GA4 to measure marketing campaign performance, UTM traffic channels, and overall SEO page views. Use Mixpanel to build retention charts, user cohort funnels, and feature usage maps.",
     features: [
       { feature: "Traffic Source Attribution", toolAVal: "Outstanding (Standard Google Ads & marketing integration)", toolBVal: "Basic (Requires manual UTM mapping, not built for search auditing)" },
       { feature: "User Journey Funnels", toolAVal: "Difficult (Rigid structure, slow reporting updates)", toolBVal: "Outstanding (Instant, drag-and-drop funnel builds)" },
@@ -227,7 +227,7 @@ export const CUSTOM_COMPARISONS: Record<string, CustomComparison> = {
   },
   "wordpress-vs-ghost": {
     winner: "Ghost (for Newsletters & Blogs), WordPress (for Complex Web Portals)",
-    winnerReason: "Ghost is built purely for publishers—it includes membership management, newsletter dispatch, and subscription payments natively. WordPress is a massive ecosystem that can build anything, but requires complex plugin stacks.",
+    winnerReason: "Ghost is built purely for publishers, it includes membership management, newsletter dispatch, and subscription payments natively. WordPress is a massive ecosystem that can build anything, but requires complex plugin stacks.",
     verdict: "For content websites, clean blogs, and membership newsletters, Ghost is superior because it is fast, secure, and has zero plugin maintenance. For e-commerce stores (WooCommerce), custom directory databases, and highly stylized corporate sites, WordPress's vast theme and plugin library is required.",
     features: [
       { feature: "Ecosystem & Plugins", toolAVal: "Infinite (50,000+ plugins, can build anything)", toolBVal: "Minimalist (Built-in features first, integration webhooks)" },

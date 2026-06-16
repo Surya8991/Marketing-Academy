@@ -106,7 +106,7 @@ export default function LessonNotes({ category, slug }: { category: string; slug
           <textarea
             value={text}
             onChange={handleChange}
-            placeholder="Jot down anything — key takeaways, questions, ideas to try…"
+            placeholder="Jot down anything: key takeaways, questions, ideas to try…"
             rows={5}
             style={{
               width: "100%",

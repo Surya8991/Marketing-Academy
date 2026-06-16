@@ -1,7 +1,7 @@
 /**
- * Lesson completion tracking — which lessons the user has marked complete.
+ * Lesson completion tracking, which lessons the user has marked complete.
  *
- * Storage: localStorage key "ma-completed" (note the hyphen, not underscore —
+ * Storage: localStorage key "ma-completed" (note the hyphen, not underscore ,
  * this predates the ma_ prefix convention; do NOT rename it or all users lose progress).
  * Format: JSON array of "category/slug" strings e.g. ["seo/keyword-research", "growth/ab-testing"]
  *
@@ -28,7 +28,7 @@ export function getCompleted(): Set<string> {
   }
 }
 
-/** Idempotent — safe to call multiple times for the same id. */
+/** Idempotent, safe to call multiple times for the same id. */
 export function markComplete(id: string): void {
   const completed = getCompleted();
   completed.add(id);

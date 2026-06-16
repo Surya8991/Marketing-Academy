@@ -5,16 +5,20 @@ import SurpriseMeButton from "@/components/SurpriseMeButton";
 import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = { title: "All Topics" };
+export const metadata: Metadata = {
+  title: "All Marketing Lessons | Marketing Academy",
+  description:
+    "Browse all 393+ marketing lessons across 15 disciplines: SEO, paid ads, growth, email, analytics, AI marketing, copywriting, CRO, and more. Free, structured Beginner to Advanced.",
+};
 
 export default function LearnPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="mb-10 flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h1 className="text-4xl font-bold mb-3">All Topics</h1>
+          <h1 className="text-4xl font-bold mb-3">All Marketing Lessons</h1>
           <p className="text-[var(--muted-foreground)] text-lg max-w-2xl">
-            Browse every category and lesson. Each category progresses from Beginner to Advanced.
+            15 disciplines, Beginner to Advanced. Browse every category or use Ctrl+K to search.
           </p>
         </div>
         <SurpriseMeButton />

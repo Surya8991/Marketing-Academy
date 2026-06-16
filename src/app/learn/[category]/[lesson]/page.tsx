@@ -102,16 +102,27 @@ export default async function LessonPage({ params }: Props) {
 
   const articleLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": ["Article", "LearningResource"],
     headline: lessonMeta?.title ?? lesson,
+    name: lessonMeta?.title ?? lesson,
     description: lessonMeta?.summary ?? "",
     url: `${BASE}/learn/${category}/${lesson}`,
     author: { "@type": "Organization", name: "Marketing Academy", url: BASE },
-    publisher: { "@type": "Organization", name: "Marketing Academy", url: BASE },
-    educationalLevel: lessonMeta?.level ?? "",
-    about: cat.title,
+    publisher: {
+      "@type": "Organization",
+      name: "Marketing Academy",
+      url: BASE,
+      logo: { "@type": "ImageObject", url: `${BASE}/favicon.ico` },
+    },
+    educationalLevel: lessonMeta?.level ?? "Beginner",
+    learningResourceType: "lesson",
+    teaches: lessonMeta?.title ?? lesson,
+    about: { "@type": "Thing", name: cat.title },
     inLanguage: "en",
+    timeRequired: `PT${readTime}M`,
     isPartOf: { "@type": "Course", name: cat.title, url: `${BASE}/learn/${category}` },
+    image: `${BASE}/api/og?title=${encodeURIComponent(lessonMeta?.title ?? lesson)}&category=${encodeURIComponent(cat.title)}&level=${encodeURIComponent(lessonMeta?.level ?? "")}`,
+    isAccessibleForFree: true,
   };
 
   const breadcrumbLd = {
@@ -119,7 +130,7 @@ export default async function LessonPage({ params }: Props) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: BASE },
-      { "@type": "ListItem", position: 2, name: "All Topics", item: `${BASE}/learn` },
+      { "@type": "ListItem", position: 2, name: "All Lessons", item: `${BASE}/learn` },
       { "@type": "ListItem", position: 3, name: cat.title, item: `${BASE}/learn/${category}` },
       { "@type": "ListItem", position: 4, name: lessonMeta?.title ?? lesson, item: `${BASE}/learn/${category}/${lesson}` },
     ],

@@ -38,7 +38,7 @@ const sectionHeadingStyle: React.CSSProperties = {
 };
 
 export const metadata = {
-  title: "Digital Marketing Cheat Sheet 2025 - Key Metrics, Formulas & Benchmarks",
+  title: "Digital Marketing Cheat Sheet 2025: Key Metrics, Formulas & Benchmarks",
   description:
     "Quick-reference cheat sheet: marketing metrics, funnel stages, SEO, paid ads, email benchmarks, AI/GEO tactics, and social media stats for 2025.",
 };
@@ -105,7 +105,7 @@ export default function CheatSheetPage() {
               lineHeight: 1.6,
             }}
           >
-            Metrics, formulas, benchmarks, AI/GEO tactics, and social stats -
+            Metrics, formulas, benchmarks, AI/GEO tactics, and social stats,
             every number you need in one page. Updated for 2025.
           </p>
         </div>
@@ -134,7 +134,7 @@ export default function CheatSheetPage() {
         <a href="#social" style={{ color: "var(--foreground)" }}>Social Media</a>
       </nav>
 
-      {/* Section 1 - Key Marketing Metrics */}
+      {/* Section 1: Key Marketing Metrics */}
       <section id="metrics">
         <h2 style={sectionHeadingStyle}>1. Key Marketing Metrics</h2>
         <table style={tableStyle}>
@@ -177,7 +177,7 @@ export default function CheatSheetPage() {
                 name: "Blended / True ROAS",
                 formula: "Total Revenue / Total Ad Spend (all channels)",
                 meaning:
-                  "The real ROAS across your entire ad portfolio. Use this for business decisions - single-channel ROAS is easily gamed by last-click attribution.",
+                  "The real ROAS across your entire ad portfolio. Use this for business decisions. Single-channel ROAS is easily gamed by last-click attribution.",
               },
               {
                 metric: "CTR",
@@ -195,7 +195,7 @@ export default function CheatSheetPage() {
                 metric: "CPL",
                 name: "Cost Per Lead",
                 formula: "Ad Spend / Number of Leads",
-                meaning: "Lead cost. Weigh against lead-to-close rate - a cheap lead that never converts is worthless.",
+                meaning: "Lead cost. Weigh against lead-to-close rate. A cheap lead that never converts is worthless.",
               },
               {
                 metric: "NPS",
@@ -231,7 +231,7 @@ export default function CheatSheetPage() {
         </table>
       </section>
 
-      {/* Section 2 - Marketing Funnel Stages */}
+      {/* Section 2: Marketing Funnel Stages */}
       <section id="funnel">
         <h2 style={sectionHeadingStyle}>2. Marketing Funnel Stages (TOFU / MOFU / BOFU)</h2>
         <table style={tableStyle}>
@@ -291,7 +291,7 @@ export default function CheatSheetPage() {
         </table>
       </section>
 
-      {/* Section 3 - SEO Quick Reference */}
+      {/* Section 3: SEO Quick Reference */}
       <section id="seo">
         <h2 style={sectionHeadingStyle}>3. SEO Quick Reference (2025)</h2>
         <table style={tableStyle}>
@@ -324,9 +324,9 @@ export default function CheatSheetPage() {
               },
               {
                 category: "Core Web Vitals (2025)",
-                covers: "Google's UX ranking signals - INP replaced FID in March 2024",
+                covers: "Google's UX ranking signals: INP replaced FID in March 2024",
                 actions:
-                  "LCP under 2.5s (fastest element load), INP under 200ms (interaction response - replaces FID), CLS under 0.1 (no layout shifts). INP is the new metric to watch.",
+                  "LCP under 2.5s (fastest element load), INP under 200ms (interaction response, replaces FID), CLS under 0.1 (no layout shifts). INP is the new metric to watch.",
               },
               {
                 category: "E-E-A-T",
@@ -335,7 +335,7 @@ export default function CheatSheetPage() {
                   "Add author bios with credentials, cite primary sources, earn mentions from credible sites, keep content accurate and dated, show first-hand experience",
               },
               {
-                category: "GEO - Generative Engine Optimization",
+                category: "GEO: Generative Engine Optimization",
                 covers: "Optimizing for AI answers (Google AI Overviews, Perplexity, ChatGPT)",
                 actions:
                   "Write direct, factual answers in the first 2 sentences. Use structured content (tables, lists, headers). Cite stats with sources. Aim to be the source AI tools quote.",
@@ -357,7 +357,7 @@ export default function CheatSheetPage() {
         </table>
       </section>
 
-      {/* Section 4 - Paid Ads Glossary */}
+      {/* Section 4: Paid Ads Glossary */}
       <section id="paid-ads">
         <h2 style={sectionHeadingStyle}>4. Paid Ads Reference (2025)</h2>
         <table style={tableStyle}>
@@ -372,12 +372,12 @@ export default function CheatSheetPage() {
             {[
               {
                 term: "CPC",
-                def: "Cost Per Click - how much you pay each time someone clicks your ad",
+                def: "Cost Per Click: how much you pay each time someone clicks your ad",
                 use: "Avg Google Search CPC 2025: $2-$4 (general), $10-$50 (legal/finance). Compare CPC against CVR, not in isolation.",
               },
               {
                 term: "CPM",
-                def: "Cost Per Thousand Impressions - pricing based on views not clicks",
+                def: "Cost Per Thousand Impressions: pricing based on views not clicks",
                 use: "Meta CPM 2025: $8-$14 avg. TikTok: $6-$10. Good CPM = brand awareness at scale; optimize CTR to control effective CPC.",
               },
               {
@@ -393,12 +393,12 @@ export default function CheatSheetPage() {
               {
                 term: "Meta Advantage+",
                 def: "Meta's AI campaign automation: automated placements, audiences, and creative testing",
-                use: "Advantage+ Shopping outperforms manual campaigns in ~70% of tests (Meta 2024). Requires strong creative library - AI picks the winner.",
+                use: "Advantage+ Shopping outperforms manual campaigns in ~70% of tests (Meta 2024). Requires strong creative library. AI picks the winner.",
               },
               {
                 term: "Incrementality Testing",
                 def: "Measuring the true causal lift your ads drive vs. what would have happened without them",
-                use: "Run holdout tests (geo-based or user-split) to validate if your spend actually causes conversions - attribution models often double-count.",
+                use: "Run holdout tests (geo-based or user-split) to validate if your spend actually causes conversions. Attribution models often double-count.",
               },
               {
                 term: "Signal Loss / Cookieless",
@@ -426,7 +426,7 @@ export default function CheatSheetPage() {
         </table>
       </section>
 
-      {/* Section 5 - Email Marketing Benchmarks */}
+      {/* Section 5: Email Marketing Benchmarks */}
       <section id="email">
         <h2 style={sectionHeadingStyle}>5. Email Marketing Benchmarks by Industry (2025)</h2>
         <p
@@ -455,7 +455,7 @@ export default function CheatSheetPage() {
                 open: "18-23%",
                 click: "2-3%",
                 unsub: "0.2%",
-                note: "Abandon cart emails avg 40%+ open rate. MPP inflates open rates - watch click rate instead.",
+                note: "Abandon cart emails avg 40%+ open rate. MPP inflates open rates. Watch click rate instead.",
               },
               {
                 industry: "SaaS / Tech",
@@ -476,7 +476,7 @@ export default function CheatSheetPage() {
                 open: "21-26%",
                 click: "2-4%",
                 unsub: "0.2%",
-                note: "Subject line personalization matters most. Avoid promotional language - focus on health outcomes.",
+                note: "Subject line personalization matters most. Avoid promotional language. Focus on health outcomes.",
               },
               {
                 industry: "Media / Publishing",
@@ -490,7 +490,7 @@ export default function CheatSheetPage() {
                 open: "27-34%",
                 click: "3-5%",
                 unsub: "0.1%",
-                note: "Mission-driven storytelling boosts engagement. Avoid over-asking - space donation requests 6+ weeks apart.",
+                note: "Mission-driven storytelling boosts engagement. Avoid over-asking. Space donation requests 6+ weeks apart.",
               },
               {
                 industry: "B2B / Professional Services",
@@ -539,7 +539,7 @@ export default function CheatSheetPage() {
         </div>
       </section>
 
-      {/* Section 6 - AI Marketing Quick Reference */}
+      {/* Section 6: AI Marketing Quick Reference */}
       <section id="ai">
         <h2 style={sectionHeadingStyle}>6. AI Marketing Quick Reference (2025)</h2>
         <p
@@ -568,7 +568,7 @@ export default function CheatSheetPage() {
                   "Structure content as Q&A. Put the direct answer in the first 2 sentences. Use headers, lists, and tables. Cite stats. Aim to be quoted, not just ranked.",
               },
               {
-                concept: "GEO - Generative Engine Optimization",
+                concept: "GEO: Generative Engine Optimization",
                 what: "Optimizing content to appear in AI-generated answers (Perplexity, ChatGPT, Gemini, Google AIO) not just traditional search results.",
                 action:
                   "Write factual, sourced, current content. Be specific with numbers and dates. AI tools prefer quoting exact data. Brand mentions in trusted sources boost GEO authority.",
@@ -583,11 +583,11 @@ export default function CheatSheetPage() {
                 concept: "AI-Generated Creative",
                 what: "Ad creative (images, copy, video) generated or iterated using AI tools (Meta's AI creative, Google's asset generation, Runway, Midjourney)",
                 action:
-                  "Use AI to scale creative testing - run 10-20 variants, let platforms pick the winner. Human art direction + AI iteration outperforms either alone.",
+                  "Use AI to scale creative testing. Run 10-20 variants, let platforms pick the winner. Human art direction + AI iteration outperforms either alone.",
               },
               {
                 concept: "First-Party Data",
-                what: "Data you own directly - email lists, CRM records, loyalty program data, survey responses. More valuable as third-party cookies disappear.",
+                what: "Data you own directly: email lists, CRM records, loyalty program data, survey responses. More valuable as third-party cookies disappear.",
                 action:
                   "Every campaign should have a first-party data capture goal. Build preference centers and zero-party data flows. Segment by behavior, not just demographics.",
               },
@@ -595,7 +595,7 @@ export default function CheatSheetPage() {
                 concept: "AI Content at Scale",
                 what: "Using LLMs (ChatGPT, Claude, Gemini) to produce or assist with marketing content at scale.",
                 action:
-                  "AI drafts, humans edit and add original insight. Google does not penalize AI content - it penalizes low-quality content. E-E-A-T (especially Experience) is your differentiator.",
+                  "AI drafts, humans edit and add original insight. Google does not penalize AI content. It penalizes low-quality content. E-E-A-T (especially Experience) is your differentiator.",
               },
               {
                 concept: "Dark Social / Attribution Gap",
@@ -614,7 +614,7 @@ export default function CheatSheetPage() {
         </table>
       </section>
 
-      {/* Section 7 - Social Media Benchmarks */}
+      {/* Section 7: Social Media Benchmarks */}
       <section id="social">
         <h2 style={sectionHeadingStyle}>7. Social Media Benchmarks by Platform (2025)</h2>
         <p
@@ -685,7 +685,7 @@ export default function CheatSheetPage() {
                 eng: "0.3-1% (saves)",
                 format: "Vertical images (2:3), idea pins, step-by-step guides",
                 time: "Sat-Sun, 8-11pm local",
-                note: "Long-tail discovery platform - pins can drive traffic 6-12 months after publishing. E-commerce and DIY niches see the best results.",
+                note: "Long-tail discovery platform. Pins can drive traffic 6-12 months after publishing. E-commerce and DIY niches see the best results.",
               },
             ].map((row, i) => (
               <tr key={i} style={i % 2 === 0 ? trEvenStyle : {}}>
@@ -723,7 +723,7 @@ export default function CheatSheetPage() {
           Want a cheat sheet for a specific topic?
         </h2>
         <p style={{ color: "var(--muted-foreground)", margin: 0, lineHeight: 1.6 }}>
-          Marketing Academy has focused cheat sheets for SEO, paid ads, analytics, and more - each
+          Marketing Academy has focused cheat sheets for SEO, paid ads, analytics, and more, each
           paired with full lessons so you can go from reference to real skill.
         </p>
         <div

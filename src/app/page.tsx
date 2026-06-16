@@ -15,10 +15,10 @@ import {
 } from "lucide-react";
 
 const FEATURED = [
+  { category: "ai-marketing", slug: "ai-marketing-101", emoji: "🤖", reason: "🔥 Hot in 2026" },
   { category: "fundamentals", slug: "what-is-marketing", emoji: "🎯", reason: "Start here" },
   { category: "seo", slug: "keyword-research", emoji: "🔎", reason: "Quick win" },
   { category: "fundamentals", slug: "brand-vs-performance", emoji: "⚡", reason: "Advanced" },
-  { category: "ai-marketing", slug: "ai-marketing-101", emoji: "🤖", reason: "New & hot" },
 ];
 
 const PATHS = [
@@ -38,10 +38,17 @@ const PATHS = [
   },
   {
     title: "For agencies & freelancers",
-    href: "/tracks",
+    href: "/tracks/freelancer-agency",
     icon: <Compass size={18} />,
     desc: "Master every channel you'll be asked to deliver.",
     topics: ["seo", "paid-ads", "social", "email"],
+  },
+  {
+    title: "For content creators",
+    href: "/tracks/content-creator",
+    icon: <Sparkles size={18} />,
+    desc: "Build an audience with SEO, social, email, and great copy.",
+    topics: ["content", "social", "copywriting", "seo"],
   },
 ];
 
@@ -52,8 +59,9 @@ const organizationLd = {
   "@type": "Organization",
   name: "Marketing Academy",
   url: BASE,
-  logo: `${BASE}/favicon.ico`,
-  description: "Free marketing education — SEO, paid ads, growth, social, email, analytics, and AI in plain English.",
+  logo: { "@type": "ImageObject", url: `${BASE}/favicon.ico`, width: 32, height: 32 },
+  description: "Free marketing education: SEO, paid ads, growth, social, email, analytics, and AI in plain English.",
+  sameAs: ["https://github.com/Surya8991/Marketing-Academy", "https://twitter.com/SURYA_L1998"],
 };
 
 const websiteLd = {
@@ -61,6 +69,7 @@ const websiteLd = {
   "@type": "WebSite",
   name: "Marketing Academy",
   url: BASE,
+  description: "393+ free marketing lessons across 15 disciplines. No account required.",
   potentialAction: {
     "@type": "SearchAction",
     target: { "@type": "EntryPoint", urlTemplate: `${BASE}/search?q={search_term_string}` },
@@ -78,22 +87,39 @@ const RECENT_LESSONS = [
 export default function HomePage() {
   const totalLessons = flatLessons().length;
 
-  const featuredLessons = FEATURED.map((f) => {
-    const cat = CATEGORIES.find((c) => c.slug === f.category)!;
-    const lesson = cat.lessons.find((l) => l.slug === f.slug)!;
-    return { ...f, cat, lesson };
+  const featuredLessons = FEATURED.flatMap((f) => {
+    const cat = CATEGORIES.find((c) => c.slug === f.category);
+    const lesson = cat?.lessons.find((l) => l.slug === f.slug);
+    if (!cat || !lesson) return [];
+    return [{ ...f, cat, lesson }];
   });
 
-  const recentLessons = RECENT_LESSONS.map((r) => {
-    const cat = CATEGORIES.find((c) => c.slug === r.category)!;
-    const lesson = cat.lessons.find((l) => l.slug === r.slug)!;
-    return { ...r, cat, lesson };
+  const recentLessons = RECENT_LESSONS.flatMap((r) => {
+    const cat = CATEGORIES.find((c) => c.slug === r.category);
+    const lesson = cat?.lessons.find((l) => l.slug === r.slug);
+    if (!cat || !lesson) return [];
+    return [{ ...r, cat, lesson }];
   });
+
+  const itemListLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Featured Marketing Lessons",
+    url: BASE,
+    numberOfItems: featuredLessons.length,
+    itemListElement: featuredLessons.map((f, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `${BASE}/learn/${f.category}/${f.slug}`,
+      name: f.lesson.title,
+    })),
+  };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
     <div>
       {/* Hero */}
       <section className="relative overflow-hidden">
@@ -114,9 +140,9 @@ export default function HomePage() {
           </h1>
 
           <p className="text-base sm:text-xl text-[var(--muted-foreground)] mb-10 max-w-2xl mx-auto leading-relaxed">
-            SEO, paid ads, growth, social, email, analytics, AI - every discipline
-            explained in plain English with real examples, diagrams, and the
-            current 2026 playbook.
+            Every marketing discipline, from SEO and paid ads to AI agents and growth loops,
+            explained in plain English with real research, Mermaid diagrams, and the 2026 playbook.
+            Free forever.
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
@@ -141,16 +167,20 @@ export default function HomePage() {
 
       {/* Stats bar */}
       <section className="border-y border-[var(--border)] bg-[var(--muted)]/50">
-        <div className="max-w-4xl mx-auto px-4 py-6 grid grid-cols-3 divide-x divide-[var(--border)] text-center">
+        <div className="max-w-4xl mx-auto px-4 py-6 grid grid-cols-2 sm:grid-cols-4 divide-x divide-[var(--border)] text-center">
           <div className="px-4">
             <p className="text-2xl sm:text-3xl font-bold">{totalLessons}+</p>
             <p className="text-sm text-[var(--muted-foreground)]">Lessons</p>
           </div>
           <div className="px-4">
             <p className="text-2xl sm:text-3xl font-bold">{CATEGORIES.length}</p>
-            <p className="text-sm text-[var(--muted-foreground)]">Categories</p>
+            <p className="text-sm text-[var(--muted-foreground)]">Disciplines</p>
           </div>
-          <div className="px-4">
+          <div className="px-4 col-span-1 max-sm:border-t max-sm:border-[var(--border)] max-sm:pt-4 max-sm:mt-4">
+            <p className="text-2xl sm:text-3xl font-bold">{TRACKS.length}</p>
+            <p className="text-sm text-[var(--muted-foreground)]">Learning Tracks</p>
+          </div>
+          <div className="px-4 max-sm:border-t max-sm:border-[var(--border)] max-sm:pt-4 max-sm:mt-4">
             <p className="text-2xl sm:text-3xl font-bold">0</p>
             <p className="text-sm text-[var(--muted-foreground)]">Paywalls</p>
           </div>
@@ -164,7 +194,7 @@ export default function HomePage() {
             { icon: "📚", title: "Real research", desc: "Every lesson cites actual stats and company examples." },
             { icon: "📅", title: "Updated 2026", desc: "Current playbooks, not outdated theory." },
             { icon: "🌏", title: "Multilingual", desc: "English, Hindi, Tamil & Telugu video resources." },
-            { icon: "🔓", title: "No account needed", desc: "Progress, bookmarks, quizzes — all work instantly." },
+            { icon: "🔓", title: "No account needed", desc: "Progress, bookmarks, quizzes: all work instantly." },
           ].map((item) => (
             <div key={item.title} className="flex flex-col gap-1 p-4 rounded-xl border border-[var(--border)] bg-[var(--card)]">
               <span className="text-xl mb-1">{item.icon}</span>
@@ -173,6 +203,34 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* AI Marketing spotlight */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4">
+        <Link
+          href="/learn/ai-marketing"
+          className="group flex flex-col sm:flex-row items-start sm:items-center gap-4 p-5 sm:p-6 rounded-2xl border border-[var(--accent)]/40 bg-gradient-to-r from-[var(--accent)]/8 via-fuchsia-500/5 to-transparent hover:border-[var(--accent)]/70 hover:shadow-lg transition-all"
+        >
+          <div className="shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-[var(--accent)]/15 text-2xl">
+            🤖
+          </div>
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-xs font-semibold uppercase tracking-wider text-[var(--accent)]">New & Updated</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-[var(--accent)]/15 text-[var(--accent)] font-medium">36 lessons</span>
+            </div>
+            <h3 className="font-bold text-base sm:text-lg group-hover:text-[var(--accent)] transition-colors">
+              AI is reshaping every marketing channel. Are you keeping up?
+            </h3>
+            <p className="text-sm text-[var(--muted-foreground)] mt-0.5 line-clamp-1">
+              AI agents, LLM optimization, agentic workflows, Clay & n8n: the full 2026 playbook.
+            </p>
+          </div>
+          <div className="shrink-0 flex items-center gap-1 text-sm text-[var(--accent)] font-semibold">
+            Explore AI Marketing
+            <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+          </div>
+        </Link>
       </section>
 
       <RecentlyViewed />
@@ -354,7 +412,7 @@ export default function HomePage() {
               Not sure where to start? Pick the path that matches your role.
             </p>
           </div>
-          <div className="grid sm:grid-cols-3 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {PATHS.map((p) => (
               <Link
                 key={p.title}
@@ -393,43 +451,64 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* How it works */}
+      {/* Not like the others */}
       <section>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-          <h2 className="text-3xl font-bold mb-4">How to use this site</h2>
-          <p className="text-[var(--muted-foreground)] mb-10 max-w-xl mx-auto">
-            No account. No paywall. No dark patterns. Just solid marketing
-            knowledge.
-          </p>
-          <div className="grid sm:grid-cols-3 gap-6 text-left">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-3">Not like the others</h2>
+            <p className="text-[var(--muted-foreground)] max-w-xl mx-auto">
+              The internet already has $997 courses and shallow listicles. This is neither.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               {
-                step: "1",
-                title: "Pick a category",
-                desc: "Start with Fundamentals if you're new, or jump to the channel you work on today.",
+                icon: "🔓",
+                vs: "vs. HubSpot Academy",
+                title: "No forms, no sign-up",
+                desc: "Lessons, quizzes, progress tracking: all work instantly without an account or email verification.",
               },
               {
-                step: "2",
-                title: "Follow the path",
-                desc: "Each category runs Beginner → Intermediate → Advanced. Complete in order, or browse freely.",
+                icon: "📊",
+                vs: "vs. YouTube tutorials",
+                title: "Real research, cited stats",
+                desc: "Every lesson uses actual numbers from HubSpot, McKinsey, Statista. Not opinion dressed as fact.",
               },
               {
-                step: "3",
-                title: "Use the resources",
-                desc: "Every lesson links to free blogs, official docs, and videos so you can go deeper.",
+                icon: "📈",
+                vs: "vs. random blog posts",
+                title: "Beginner → Advanced sequence",
+                desc: "Each category is ordered. You build on what you learned in the last lesson instead of jumping randomly.",
               },
-            ].map((s) => (
+              {
+                icon: "⚖️",
+                vs: "vs. vendor courses",
+                title: "Tool-agnostic playbooks",
+                desc: "Strategies that work regardless of which tool you use, not a sales pitch disguised as education.",
+              },
+              {
+                icon: "🗓️",
+                vs: "vs. Coursera 2019 courses",
+                title: "Updated for 2026",
+                desc: "AI overviews, agentic workflows, zero-click search, privacy sandbox: the current playbook, not a relic.",
+              },
+              {
+                icon: "🌏",
+                vs: "vs. English-only platforms",
+                title: "Hindi, Tamil & Telugu resources",
+                desc: "Every lesson ends with curated video resources in Hindi, Tamil, and Telugu for Indian learners.",
+              },
+            ].map((d) => (
               <div
-                key={s.step}
-                className="flex gap-4 p-5 rounded-2xl border border-[var(--border)] bg-[var(--card)]"
+                key={d.title}
+                className="p-5 rounded-2xl border border-[var(--border)] bg-[var(--card)]"
               >
-                <div className="shrink-0 w-9 h-9 rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] flex items-center justify-center text-sm font-bold">
-                  {s.step}
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-xl">{d.icon}</span>
+                  <span className="text-xs text-[var(--muted-foreground)] font-medium">{d.vs}</span>
                 </div>
-                <div>
-                  <h3 className="font-semibold mb-1">{s.title}</h3>
-                  <p className="text-sm text-[var(--muted-foreground)]">{s.desc}</p>
-                </div>
+                <h3 className="font-semibold mb-1.5">{d.title}</h3>
+                <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">{d.desc}</p>
               </div>
             ))}
           </div>
@@ -439,17 +518,26 @@ export default function HomePage() {
       {/* CTA */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
         <div className="rounded-3xl border border-[var(--border)] bg-gradient-to-br from-[var(--accent)]/10 via-fuchsia-500/5 to-transparent p-10">
-          <h2 className="text-3xl font-bold mb-4">Ready to become a marketer?</h2>
+          <h2 className="text-3xl font-bold mb-3">Start building your marketing stack.</h2>
           <p className="text-[var(--muted-foreground)] mb-8 max-w-md mx-auto">
-            Start with the basics and go at your own pace.
+            New to marketing? Start at Lesson 1. Know your role? Jump straight to a track.
           </p>
-          <Link
-            href="/learn/fundamentals/what-is-marketing"
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] font-medium hover:opacity-90 transition-opacity shadow-lg shadow-[var(--accent)]/20"
-          >
-            Lesson 1: What Marketing Actually Is
-            <ArrowRight size={16} />
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link
+              href="/learn/fundamentals/what-is-marketing"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] font-medium hover:opacity-90 transition-opacity shadow-lg shadow-[var(--accent)]/20"
+            >
+              <BookOpen size={16} />
+              Lesson 1: What Marketing Actually Is
+            </Link>
+            <Link
+              href="/tracks"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--border)] font-medium hover:border-[var(--accent)] transition-colors text-sm"
+            >
+              Pick a learning track
+              <ArrowRight size={15} />
+            </Link>
+          </div>
         </div>
       </section>
     </div>

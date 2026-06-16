@@ -31,11 +31,24 @@ export async function generateStaticParams() {
   return CATEGORIES.map((c) => ({ category: c.slug }));
 }
 
+const BASE = "https://marketing-academy-roan.vercel.app";
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category } = await params;
   const cat = getCategory(category);
   if (!cat) return {};
-  return { title: cat.title, description: cat.description };
+  const description = cat.description ?? `Free ${cat.title} lessons from beginner to advanced. ${cat.lessons.length} structured lessons, no account required.`;
+  return {
+    title: cat.title,
+    description,
+    alternates: { canonical: `${BASE}/learn/${category}` },
+    openGraph: {
+      title: `${cat.title} | Marketing Academy`,
+      description,
+      url: `${BASE}/learn/${category}`,
+      type: "website",
+    },
+  };
 }
 
 const LEVEL_ORDER = ["Beginner", "Intermediate", "Advanced"] as const;
@@ -64,7 +77,39 @@ export default async function CategoryPage({ params }: Props) {
       ? `~${Math.round(totalMinutes / 60)} hr read`
       : `~${totalMinutes} min read`;
 
+  const courseLd = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: cat.title,
+    description: cat.description ?? `Free ${cat.title} lessons from beginner to advanced.`,
+    url: `${BASE}/learn/${cat.slug}`,
+    provider: { "@type": "Organization", name: "Marketing Academy", url: BASE },
+    educationalLevel: "Beginner to Advanced",
+    numberOfCredits: cat.lessons.length,
+    timeRequired: totalMinutes >= 60 ? `PT${Math.round(totalMinutes / 60)}H` : `PT${totalMinutes}M`,
+    isAccessibleForFree: true,
+    inLanguage: "en",
+    hasCourseInstance: {
+      "@type": "CourseInstance",
+      courseMode: "online",
+      instructor: { "@type": "Organization", name: "Marketing Academy" },
+    },
+  };
+
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+      { "@type": "ListItem", position: 2, name: "All Lessons", item: `${BASE}/learn` },
+      { "@type": "ListItem", position: 3, name: cat.title, item: `${BASE}/learn/${cat.slug}` },
+    ],
+  };
+
   return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       {/* Breadcrumb */}
       <Link
@@ -170,5 +215,6 @@ export default async function CategoryPage({ params }: Props) {
         </Link>
       </div>
     </div>
+    </>
   );
 }

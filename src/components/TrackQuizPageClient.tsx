@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * TrackQuizPageClient — full-page quiz gate for learning tracks.
+ * TrackQuizPageClient: full-page quiz gate for learning tracks.
  *
  * Architecture (see AGENTS.md Rule 24):
  *   - This is the client component rendered at /tracks/[slug]/quiz.
@@ -13,13 +13,13 @@
  *       3. Dispatches ENGAGEMENT_EVENT once with the final accumulated state
  *       4. Navigates back to /tracks/[slug] after 800ms
  *
- * There is NO TrackQuizGate.tsx modal — do NOT create one.
+ * There is NO TrackQuizGate.tsx modal, do NOT create one.
  * The per-lesson Quiz.tsx component is separate and lives at the bottom of each lesson page.
  *
  * Props:
- *   trackSlug — used for the post-pass redirect URL
- *   lessons   — ordered list of lessons in this track; passed to markAll()
- *   questions — already-pooled Quiz[] from all lessons (assembled by the server page)
+ *   trackSlug: used for the post-pass redirect URL
+ *   lessons: ordered list of lessons in this track; passed to markAll()
+ *   questions: already-pooled Quiz[] from all lessons (assembled by the server page)
  */
 
 import { useState, useEffect, useRef } from "react";
@@ -27,7 +27,7 @@ import { useRouter } from "next/navigation";
 import { CheckCircle2, XCircle, Trophy, RotateCcw, ChevronRight } from "lucide-react";
 import { markComplete, lessonId } from "@/lib/progress";
 import type { Quiz } from "@/lib/quizzes";
-import { addXP, ENGAGEMENT_EVENT } from "@/lib/engagement";
+import { addXP, ENGAGEMENT_EVENT, type EngagementState } from "@/lib/engagement";
 import { checkAchievements } from "@/lib/achievements";
 
 type Lesson = { category: string; slug: string; title: string };
@@ -43,9 +43,9 @@ const PASS_THRESHOLD = 0.8;
 
 export default function TrackQuizPageClient({ trackSlug, lessons, questions }: Props) {
   const router = useRouter();
-  // Shuffle once on mount — array is stable for the lifetime of this page visit
+  // Shuffle once on mount, array is stable for the lifetime of this page visit
   const [shuffled, setShuffled] = useState<Quiz[]>([]);
-  // Map of question index → chosen option index (sparse — only answered Qs present)
+  // Map of question index → chosen option index (sparse, only answered Qs present)
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [submitted, setSubmitted] = useState(false);
   const [score, setScore] = useState(0);
@@ -88,14 +88,14 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
 
   /**
    * Marks every lesson in the track complete and awards XP.
-   * XP loop uses the module-level write lock in engagement.ts — all addXP() calls
+   * XP loop uses the module-level write lock in engagement.ts, all addXP() calls
    * in the same tick accumulate on the same base state, so no XP is lost.
    * Only dispatches ENGAGEMENT_EVENT once (with the final accumulated state) to
    * avoid flooding StreakBadge with N re-renders.
    */
   function markAll() {
     setMarking(true);
-    let latestState = null;
+    let latestState: EngagementState | null = null;
     for (const l of lessons) {
       const id = lessonId(l.category, l.slug);
       markComplete(id);
@@ -117,7 +117,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
 
   return (
     <div>
-      {/* Sticky answer-progress bar — shows how many of the total questions have been answered */}
+      {/* Sticky answer-progress bar, shows how many of the total questions have been answered */}
       <div
         className="sticky top-0 z-10 mb-8 px-4 py-3 rounded-xl border border-[var(--border)]"
         style={{ background: "var(--background)" }}
@@ -137,7 +137,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
         </div>
       </div>
 
-      {/* All questions rendered at once (no pagination) — answers are tracked by index */}
+      {/* All questions rendered at once (no pagination), answers are tracked by index */}
       <ol className="flex flex-col gap-8">
         {shuffled.map((q, qi) => {
           const userAnswer = answers[qi];
@@ -203,7 +203,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
                 })}
               </div>
 
-              {/* Per-question explanation — only visible after submit */}
+              {/* Per-question explanation, only visible after submit */}
               {submitted && (
                 <div
                   className="mt-4 px-4 py-3 rounded-lg text-sm leading-relaxed"
@@ -220,12 +220,12 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
         })}
       </ol>
 
-      {/* Submit bar — disabled until all questions answered */}
+      {/* Submit bar, disabled until all questions answered */}
       {!submitted && (
         <div className="mt-10 flex items-center justify-between gap-4 p-5 rounded-2xl border border-[var(--border)]" style={{ background: "var(--card)" }}>
           <p className="text-sm text-[var(--muted-foreground)]">
             {allAnswered
-              ? "All questions answered — ready to submit."
+              ? "All questions answered, ready to submit."
               : `${total - answeredCount} question${total - answeredCount !== 1 ? "s" : ""} remaining.`}
           </p>
           <button
@@ -244,7 +244,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
         </div>
       )}
 
-      {/* Results panel — auto-scrolled into view after submit */}
+      {/* Results panel, auto-scrolled into view after submit */}
       {submitted && (
         <div ref={resultsRef} className="mt-10">
           {passed ? (
@@ -256,7 +256,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
                 <Trophy size={44} style={{ color: "rgb(22,163,74)" }} />
               </div>
               <div className="text-3xl font-bold mb-1" style={{ color: "rgb(22,163,74)" }}>
-                {score}/{total} — {pct}%
+                {score}/{total}: {pct}%
               </div>
               <p className="text-[var(--muted-foreground)] mb-6">
                 You passed! {Math.round(PASS_THRESHOLD * 100)}% required · you scored {pct}%.
@@ -283,7 +283,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
               <div className="flex justify-center mb-3">
                 <XCircle size={44} style={{ color: "rgba(239,68,68,0.8)" }} />
               </div>
-              <div className="text-3xl font-bold mb-1">{score}/{total} — {pct}%</div>
+              <div className="text-3xl font-bold mb-1">{score}/{total}: {pct}%</div>
               <p className="text-[var(--muted-foreground)] mb-2">
                 Need {Math.round(PASS_THRESHOLD * 100)}% to pass. Review the lessons and try again.
               </p>

@@ -29,14 +29,14 @@ The activation metric is the measurable proxy for that experience: one number, t
 The 2025 data on activation is stark and consistent across multiple research sources.
 
 - The average activation rate across SaaS and AI tools is **37.5%, with a median of 37%**, meaning the typical product never delivers its value proposition to 63% of the users who signed up for it ([Agile Growth Labs](https://www.agilegrowthlabs.com/blog/user-activation-rate-benchmarks-2025/)).
-- The gap by vertical is extreme: **AI and ML products activate at 54.8%, while FinTech and Insurance sits at 5.0%** - a tenfold difference driven almost entirely by how quickly each category can deliver a first meaningful outcome ([Agile Growth Labs](https://www.agilegrowthlabs.com/blog/user-activation-rate-benchmarks-2025/)).
+- The gap by vertical is extreme: **AI and ML products activate at 54.8%, while FinTech and Insurance sits at 5.0%**: a tenfold difference driven almost entirely by how quickly each category can deliver a first meaningful outcome ([Agile Growth Labs](https://www.agilegrowthlabs.com/blog/user-activation-rate-benchmarks-2025/)).
 - **Users inactive within three days have a 90% churn likelihood.** Amplitude's 2025 benchmark data, drawn from more than 2,600 companies, found that over 98% of new users churn within two weeks when they never reach a value milestone ([Amplitude](https://amplitude.com/blog/time-to-value-drives-user-retention)).
 - Products that engineer a "quick win" early in onboarding **retain 80% more users** than those that require users to discover value on their own ([Agile Growth Labs](https://www.agilegrowthlabs.com/blog/user-activation-rate-benchmarks-2025/)).
 - A **25% improvement in activation rates correlates with a 34% revenue increase**, which is why fixing activation almost always beats buying more traffic ([Agile Growth Labs](https://www.agilegrowthlabs.com/blog/user-activation-rate-benchmarks-2025/)).
 - Amplitude found that only **7% of users returning on day seven** puts a product in the top 25% for activation performance, and 69% of strong day-seven performers were also strong three-month retention performers ([Amplitude](https://amplitude.com/blog/7-percent-retention-rule)).
 
 <Callout type="info">
-The compounding math is brutal. If your activation rate is 37% and your retention rate among activated users is 60%, you are keeping roughly 22% of everyone who signs up. Raise activation to 55% and the same retention rate gets you to 33% - a 50% improvement in paying customers with zero change to acquisition spend.
+The compounding math is brutal. If your activation rate is 37% and your retention rate among activated users is 60%, you are keeping roughly 22% of everyone who signs up. Raise activation to 55% and the same retention rate gets you to 33%, a 50% improvement in paying customers with zero change to acquisition spend.
 </Callout>
 
 ## How It Works / The Playbook
@@ -75,12 +75,12 @@ Activation curves drift. A pricing change that attracts a new segment shifts who
 
 <Mermaid chart={`graph TD
     A[User Signs Up] --> B{Hits activation event?}
-    B -->|Yes - within 3 days| C[Activated User]
-    B -->|No - after 3+ days| D[High churn risk - 90% likely to leave]
+    B -->|Yes, within 3 days| C[Activated User]
+    B -->|No, after 3+ days| D[High churn risk: 90% likely to leave]
     C --> E{Day 7 active?}
-    E -->|Yes| F[Strong retention predictor - top 25% if DAU > 7%]
+    E -->|Yes| F[Strong retention predictor: top 25% if DAU > 7%]
     E -->|No| G[Lifecycle re-engagement window]
-    F --> H[Month 1 retained - expansion and referral eligible]
+    F --> H[Month 1 retained: expansion and referral eligible]
     G --> I[Win-back sequence triggered off last action]
     D --> J[Urgent onboarding intervention needed]`} />
 
@@ -96,14 +96,14 @@ Slack's growth team identified that **teams which exchanged 2,000 messages were 
 
 ### The Room: 75% Activation Increase in 10 Days (2025)
 
-The Room, a professional community platform, refocused their onboarding around a single activation event - connecting a member with a relevant peer - and saw a **75% increase in activation within 10 days** of shipping the revised flow. The lever was removing the exploratory discovery phase from onboarding and replacing it with a curated first match. Users experienced value in the first session rather than after several return visits.
+The Room, a professional community platform, refocused their onboarding around a single activation event, connecting a member with a relevant peer, and saw a **75% increase in activation within 10 days** of shipping the revised flow. The lever was removing the exploratory discovery phase from onboarding and replacing it with a curated first match. Users experienced value in the first session rather than after several return visits.
 
 ### ClearCalcs: 10% Activation Lift in One Month
 
 ClearCalcs, a structural engineering SaaS tool, added personalization surveys at the start of onboarding and used the answers to route users to the templates most relevant to their project type. The result was a **10% improvement in activation within the first month** of shipping the change. The lesson: generic onboarding delivers generic activation rates. Segmenting by use case and routing users to their specific value moment pays off quickly.
 
 <Callout type="example">
-Amplitude's own 2025 data from their analytics platform shows a stark benchmark gap in enterprise SaaS: the top 10% of enterprise products achieve **12.4% day-seven retention**, while median performers manage just **2.1%** - nearly six times less. The difference is almost entirely explained by how quickly top performers deliver a first meaningful outcome. Enterprise buyers in 2025 expect to see ROI demonstrated within 14 days; products that fail to show value in that window face steep contract cancellation risk at renewal.
+Amplitude's own 2025 data from their analytics platform shows a stark benchmark gap in enterprise SaaS: the top 10% of enterprise products achieve **12.4% day-seven retention**, while median performers manage just **2.1%**, nearly six times less. The difference is almost entirely explained by how quickly top performers deliver a first meaningful outcome. Enterprise buyers in 2025 expect to see ROI demonstrated within 14 days; products that fail to show value in that window face steep contract cancellation risk at renewal.
 </Callout>
 
 ## Common Mistakes
@@ -122,9 +122,9 @@ Amplitude's own 2025 data from their analytics platform shows a stark benchmark 
 
 ## Key Takeaways
 
-- The average SaaS product activates 37.5% of signups - most of your acquisition budget is funding a leaky bucket.
+- The average SaaS product activates 37.5% of signups, most of your acquisition budget is funding a leaky bucket.
 - Users inactive within three days have a 90% chance of churning permanently; activation is a day-one priority, not a week-two problem.
-- A 25% improvement in activation correlates with a 34% revenue lift - it almost always outperforms the equivalent investment in top-of-funnel traffic.
+- A 25% improvement in activation correlates with a 34% revenue lift, it almost always outperforms the equivalent investment in top-of-funnel traffic.
 - Find your magic number with cohort analysis: a specific behavior, at a specific frequency, in a specific time window where retained and churned user curves visibly diverge.
 - Speed is part of the metric. Top performers activate users in the first session or within 24 hours; anything longer is a competitive liability.
 - Rebuild onboarding and lifecycle triggers around accelerating that one event, then re-measure every quarter.

@@ -41,7 +41,7 @@ export default async function TrackQuizPage({ params }: Props) {
 
       <div className="mb-8">
         <div className="text-4xl mb-3">{track.emoji}</div>
-        <h1 className="text-2xl sm:text-3xl font-bold mb-2">{track.title} — Knowledge Check</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold mb-2">{track.title}: Knowledge Check</h1>
         <p className="text-[var(--muted-foreground)]">
           {questions.length} questions across {track.lessons.length} lessons · pass 80% to mark all complete
         </p>

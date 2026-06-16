@@ -9,7 +9,7 @@ import { TRACKS } from "@/lib/tracks";
 export const metadata: Metadata = {
   title: "About | Marketing Academy",
   description:
-    `Marketing Academy is a free, structured marketing education site built by Surya L from Bangalore. ${flatLessons().length} lessons across ${CATEGORIES.length} disciplines - no paywalls, no email required.`,
+    `Marketing Academy is a free, structured marketing education site built by Surya L from Bangalore. ${flatLessons().length} lessons across ${CATEGORIES.length} disciplines, no paywalls, no email required.`,
 };
 
 const hoverCSS = `
@@ -74,7 +74,7 @@ export default function AboutPage() {
         </h1>
         <p className="text-lg text-[var(--muted-foreground)] leading-relaxed">
           Marketing Academy exists because the internet has too many $997 courses and not enough plain-English explanations.
-          Every lesson here is free, research-backed, and written to give you real understanding - not just a checklist.
+          Every lesson here is free, research-backed, and written to give you real understanding, not just a checklist.
         </p>
       </div>
 
@@ -106,7 +106,7 @@ export default function AboutPage() {
             fundamentals to advanced in a logical sequence. No fluff, no upsells.
           </p>
           <p>
-            Every lesson also includes multilingual resources in Hindi, Tamil, and Telugu -
+            Every lesson also includes multilingual resources in Hindi, Tamil, and Telugu,
             because quality marketing education should be accessible to learners across India,
             not just English-first audiences.
           </p>
@@ -128,12 +128,12 @@ export default function AboutPage() {
           <div className="min-w-0">
             <h3 className="font-bold text-lg leading-tight">Surya L</h3>
             <p className="text-sm text-[var(--muted-foreground)] mb-3">
-              Bangalore, India - Web developer and marketing enthusiast.
+              Bangalore, India: Web developer and marketing enthusiast.
             </p>
             <p className="text-sm text-[var(--muted-foreground)] leading-relaxed mb-4">
               Built Marketing Academy to combine a passion for web development with a belief
-              that structured, free marketing education should exist on the internet. 42 public
-              repos and counting - mostly tools that solve real problems.
+              that structured, free marketing education should exist on the internet, no
+              paywalls, no email required, no bias toward any tool or platform.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
@@ -183,7 +183,7 @@ export default function AboutPage() {
         </div>
         <p className="text-sm text-[var(--muted-foreground)] mt-4 leading-relaxed">
           All content is written in MDX and lives in the repo alongside the code.
-          The full source is open - read the lessons, copy the patterns, fork it if you want.
+          The full source is open, read the lessons, copy the patterns, fork it if you want.
         </p>
       </section>
 

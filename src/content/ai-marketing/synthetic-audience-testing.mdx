@@ -6,7 +6,7 @@ export const lessonMeta = {
 
 # Synthetic Audience Testing: Using AI Personas to Pre-Test Marketing
 
-Before 2024, testing a message across different buyer segments required recruiting real people, scheduling interviews or surveys, and waiting weeks for results. In 2025, synthetic audience testing has collapsed that timeline to hours. Teams can now train an LLM with detailed persona profiles—demographics, psychographics, job pains, objections, buying triggers—and query it as if they were actually interviewing that buyer. The output is not a replacement for real user research, but it is a powerful pre-filter that catches messaging failures before they become expensive campaign mistakes.
+Before 2024, testing a message across different buyer segments required recruiting real people, scheduling interviews or surveys, and waiting weeks for results. In 2025, synthetic audience testing has collapsed that timeline to hours. Teams can now train an LLM with detailed persona profiles, demographics, psychographics, job pains, objections, buying triggers, and query it as if they were actually interviewing that buyer. The output is not a replacement for real user research, but it is a powerful pre-filter that catches messaging failures before they become expensive campaign mistakes.
 
 ## What Synthetic Audience Testing Is
 
@@ -26,7 +26,7 @@ Four platforms have emerged as leaders in synthetic audience testing. Each has d
 
 **Persona AI** provides a template-based approach. You fill in persona details (role, company size, challenges, success metrics), and the system generates a conversational AI model for that persona. It is lighter weight than Synthetic Users but requires more manual persona input. Good for smaller teams with fewer personas.
 
-**Yabble** uses AI to conduct automated market research across synthetic audiences. You submit a concept—a headline, product feature, or value proposition—and Yabble tests it against multiple AI-generated personas representing your target segment. The output includes sentiment analysis, top objections, and recommended copy changes. Pricing scales with the number of respondents and personas.
+**Yabble** uses AI to conduct automated market research across synthetic audiences. You submit a concept, a headline, product feature, or value proposition, and Yabble tests it against multiple AI-generated personas representing your target segment. The output includes sentiment analysis, top objections, and recommended copy changes. Pricing scales with the number of respondents and personas.
 
 **RIWI** takes a hybrid approach, combining real-time crowdsourced research with synthetic follow-up. They release real surveys to actual respondents, then use AI to dig deeper on follow-up questions and test variations at scale. Best for teams that want a mix of real + synthetic validation.
 
@@ -34,7 +34,7 @@ All four charge on a per-test or per-month basis. None require engineering resou
 
 ## Building Synthetic Personas: The Data-Grounding Step
 
-A synthetic persona is only as accurate as the data you ground it in. Generic personas—"busy VP of Marketing, age 35, wants to save time"—produce generic feedback. Real personas, built from your actual customer base, catch the specific objections and language patterns your audience uses.
+A synthetic persona is only as accurate as the data you ground it in. Generic personas, "busy VP of Marketing, age 35, wants to save time", produce generic feedback. Real personas, built from your actual customer base, catch the specific objections and language patterns your audience uses.
 
 Start by collecting three types of data:
 
@@ -70,7 +70,7 @@ Synthetic audience testing has hard constraints. Ignoring them leads to expensiv
 
 **Cannot predict first-time behavior.** Synthetic personas are trained on existing customer data. They cannot tell you how a completely novel audience will react. If you are entering a new market or selling to a customer type you have never served, synthetic feedback will mislead you. You must still do real research in new markets.
 
-**Cannot measure emotional or sensory responses.** An LLM cannot truly feel the emotional impact of a design, video, or brand experience. It can analyze the *framing* of copy, but cannot predict emotional resonance the way a human would. Do not rely solely on synthetic feedback for brand positioning or creative direction—always validate with real customers on emotional and design elements.
+**Cannot measure emotional or sensory responses.** An LLM cannot truly feel the emotional impact of a design, video, or brand experience. It can analyze the *framing* of copy, but cannot predict emotional resonance the way a human would. Do not rely solely on synthetic feedback for brand positioning or creative direction, always validate with real customers on emotional and design elements.
 
 **Cannot predict novelty effects or adoption curves.** New products often see initial excitement that does not translate to long-term adoption. Synthetic personas cannot capture the "shiny new" effect that drives early sales but disappears after three months. For entirely new product categories, synthetic feedback tells you if the *concept* resonates, not if the market will actually adopt it at scale.
 
@@ -103,9 +103,9 @@ The rule: **Synthetic testing should reduce your overall research bias because i
 
 **Week 1: Build your persona profiles.** Pull customer interview transcripts, support tickets, and CRM data for your top two or three customer segments. Extract key characteristics: role, company size, main challenges, decision criteria, typical objections. Write a 500-word persona profile for each that a third-party could read and understand. This is your grounding data.
 
-**Week 2: Test one round on a low-stakes asset.** Choose an email subject line, landing page headline, or pricing page you are working on. Pitch it to your synthetic audience. Iterate on copy based on feedback. Do not spend more than 4-5 iterations in this phase—the goal is to learn how the tool works and whether the feedback feels accurate.
+**Week 2: Test one round on a low-stakes asset.** Choose an email subject line, landing page headline, or pricing page you are working on. Pitch it to your synthetic audience. Iterate on copy based on feedback. Do not spend more than 4-5 iterations in this phase, the goal is to learn how the tool works and whether the feedback feels accurate.
 
-**Week 3: Validate synthetic feedback against real customers.** Send your refined copy to 10-15 real customers (or a small beta group) and compare their feedback to what the synthetic personas said. If the synthetic and real feedback align, you have validated your synthetic setup. If they diverge wildly, revisit your persona profiles—they may not be data-grounded enough.
+**Week 3: Validate synthetic feedback against real customers.** Send your refined copy to 10-15 real customers (or a small beta group) and compare their feedback to what the synthetic personas said. If the synthetic and real feedback align, you have validated your synthetic setup. If they diverge wildly, revisit your persona profiles, they may not be data-grounded enough.
 
 <Callout type="tip">
 Do not launch a synthetic-only workflow without doing at least one real validation round. The first iteration of your synthetic personas will have gaps. Real customer feedback tells you where those gaps are so you can refine the personas for future tests.
@@ -118,7 +118,7 @@ Do not launch a synthetic-only workflow without doing at least one real validati
 - Four mature platforms (Synthetic Users, Persona AI, Yabble, RIWI) offer different pricing models and customization levels; all are no-code and require no engineering resources.
 - Data-grounded personas trained on your interviews, support tickets, and CRM outperform generic stereotypes and catch real objections your audience actually raises.
 - Synthetic testing has hard limits: it cannot predict first-time behavior, emotional responses, novelty effects, or legal compliance. Use it as a pre-filter, not a replacement for real research.
-- A hybrid workflow—synthetic testing for iteration, followed by one small real validation round—is faster and more reliable than pure synthetic or pure real research alone.
+- A hybrid workflow, synthetic testing for iteration, followed by one small real validation round, is faster and more reliable than pure synthetic or pure real research alone.
 
 <ResourceList resources={[
   { title: "Synthetic Audience Testing in Marketing: A Guide for 2025", url: "https://www.synthesia.io/blog/synthetic-audiences", type: "article", free: true },

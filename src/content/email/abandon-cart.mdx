@@ -12,10 +12,10 @@ Imagine 100 people walking into your store, picking something off the shelf, and
 
 ## Quick Summary
 
-- About 75% of shoppers who add items to a cart never complete the purchase - abandoned cart emails win back a portion of that revenue at zero extra acquisition cost
+- About 75% of shoppers who add items to a cart never complete the purchase, abandoned cart emails win back a portion of that revenue at zero extra acquisition cost
 - Three-email sequences generate 6.5x more revenue than single-email flows (Klaviyo 2024 benchmark data)
 - Send the first email within 30-60 minutes of abandonment; every hour of delay costs conversions
-- Never offer a discount in Email 1 - it trains shoppers to abandon carts on purpose to get the coupon
+- Never offer a discount in Email 1, it trains shoppers to abandon carts on purpose to get the coupon
 - Browse abandonment flows reach the 95% of visitors who showed interest but never added anything to cart
 
 ## Why Abandoned Cart Emails Are the Highest-ROI Email You Can Send
@@ -25,7 +25,7 @@ Every visitor who abandons a cart already cost you money. You paid for the ad cl
 The numbers back this up. Klaviyo's 2024 benchmark report found that abandoned cart flows drive:
 
 - A placed order rate (share of emails that lead to a purchase) of 3.33%
-- Average revenue per recipient of $3.65 - the highest of any automated email flow
+- Average revenue per recipient of $3.65, the highest of any automated email flow
 - High-performing brands push that figure to $28.89 per recipient
 
 Amundsen Sports (a Norwegian outdoor apparel brand) saw their abandoned cart flow account for 10.8% of total Omnisend-attributed revenue in 2025, from just 0.9% of total sends. That is a wildly efficient use of email.
@@ -50,22 +50,22 @@ Knowing this tells you what to put in your emails. Email 2 should address the to
 
 <Mermaid chart={`flowchart TD
     A[Shopper adds item to cart] --> B{Completes checkout?}
-    B -- Yes --> C[Purchase confirmed - exit flow]
+    B -- Yes --> C[Purchase confirmed: exit flow]
     B -- No --> D[Cart Abandonment Trigger fires]
-    D --> E[Email 1: 30-60 min after - Reminder + product image]
+    D --> E[Email 1: 30-60 min after: Reminder + product image]
     E --> F{Purchased?}
     F -- Yes --> C
-    F -- No --> G[Email 2: 24 hrs later - Reviews + objection handling]
+    F -- No --> G[Email 2: 24 hrs later: Reviews + objection handling]
     G --> H{Purchased?}
     H -- Yes --> C
-    H -- No --> I[Email 3: 72 hrs later - Urgency or one-time incentive]
+    H -- No --> I[Email 3: 72 hrs later: Urgency or one-time incentive]
     I --> J{Purchased?}
     J -- Yes --> C
     J -- No --> K[Move to re-engagement or sunset flow]`} />
 
 ### Email 1: The Reminder (30-60 minutes after abandonment)
 
-Show the exact item left in the cart. Include a product image, the product name, the price, and a clear "Return to cart" button. Keep copy short - two or three sentences maximum. No discount.
+Show the exact item left in the cart. Include a product image, the product name, the price, and a clear "Return to cart" button. Keep copy short, two or three sentences maximum. No discount.
 
 Most first-time abandoners were genuinely distracted (their phone rang, the meeting started, their Wi-Fi dropped). A simple reminder converts this group without giving away margin.
 
@@ -82,7 +82,7 @@ Creality Store (a 3D printer retailer) achieved a 54% open rate and 8.25% click 
 
 ### Email 3: Urgency or Incentive (48-72 hours later)
 
-Create real scarcity ("Only 3 left in stock" - only say this if it is true) or offer a one-time incentive. A 10-15% discount or free expedited shipping both work. Make the offer explicitly time-limited (expires in 24 hours). This is your final recovery attempt.
+Create real scarcity ("Only 3 left in stock", only say this if it is true) or offer a one-time incentive. A 10-15% discount or free expedited shipping both work. Make the offer explicitly time-limited (expires in 24 hours). This is your final recovery attempt.
 
 <Callout type="warning">
 Do not offer a discount in Email 1 or Email 2. Brands that lead with discounts train their best customers to abandon carts intentionally to collect coupons. Analysis across multiple ESP (email service provider) datasets shows that leading with a discount recovers roughly the same number of carts as waiting, but at 10-15% lower margin on every recovered sale. Hold the incentive until Email 3.
@@ -102,9 +102,9 @@ Only 3-5% of ecommerce visitors ever add anything to a cart. Browse abandonment 
     V[Visitor views product page] --> AC{Add to cart?}
     AC -- Yes --> CF[Cart Flow starts]
     AC -- No --> BT[Browse Abandonment Trigger]
-    BT --> BE1[Email 1: 1-4 hrs - Product spotlight]
-    BE1 --> BE2[Email 2: 24-48 hrs - Social proof]
-    BE2 --> BE3[Email 3: 3-5 days - Soft urgency]
+    BT --> BE1[Email 1: 1-4 hrs: Product spotlight]
+    BE1 --> BE2[Email 2: 24-48 hrs: Social proof]
+    BE2 --> BE3[Email 3: 3-5 days: Soft urgency]
     BE3 --> OUT{Purchased?}
     OUT -- Yes --> WIN[Conversion]
     OUT -- No --> RE[Re-engagement flow]`} />
@@ -112,7 +112,7 @@ Only 3-5% of ecommerce visitors ever add anything to a cart. Browse abandonment 
 ## A Real Worked Example
 
 <Callout type="example">
-Amundsen Sports (outdoor apparel, Norway) ran their abandoned cart automation through Omnisend in 2025. Their flow accounted for 10.8% of all email-attributed revenue while representing only 0.9% of total email sends. The math: their cart emails were about 12 times more revenue-efficient per send than their broadcast (bulk) emails. Their approach included a product-focused Email 1 at 45 minutes, a user review block in Email 2 at 24 hours, and a free shipping offer in Email 3 at 72 hours - no discount code. The free shipping offer in Email 3 added the incentive without training shoppers to expect a percentage off.
+Amundsen Sports (outdoor apparel, Norway) ran their abandoned cart automation through Omnisend in 2025. Their flow accounted for 10.8% of all email-attributed revenue while representing only 0.9% of total email sends. The math: their cart emails were about 12 times more revenue-efficient per send than their broadcast (bulk) emails. Their approach included a product-focused Email 1 at 45 minutes, a user review block in Email 2 at 24 hours, and a free shipping offer in Email 3 at 72 hours, no discount code. The free shipping offer in Email 3 added the incentive without training shoppers to expect a percentage off.
 </Callout>
 
 ## Technical Requirements Before You Launch
@@ -125,10 +125,10 @@ Amundsen Sports (outdoor apparel, Norway) ran their abandoned cart automation th
 
 4. **Dynamic product blocks:** Email 1 must display the exact product(s) in the cart using live product data pulled from your catalog. A static email without the cart contents converts far worse.
 
-5. **Send-time logic:** Avoid sending between 10 PM and 6 AM. If someone abandons at midnight, queue the Email 1 for 7 AM the following morning. Omnisend's 2025 data shows peak open rates at 8 PM - scheduling around that window improves performance.
+5. **Send-time logic:** Avoid sending between 10 PM and 6 AM. If someone abandons at midnight, queue the Email 1 for 7 AM the following morning. Omnisend's 2025 data shows peak open rates at 8 PM, scheduling around that window improves performance.
 
 <Callout type="tip">
-Segment your cart abandonment flow by cart value. Shoppers with a cart over $200 respond better to a personal Email 2 written in a conversational tone - from the founder or a support rep who offers to answer questions directly - rather than a polished promotional template. High-ticket abandoners often have specific objections about sizing, return policy, or whether the item will be right for them. A helpful, direct tone outperforms a promotional one for this segment.
+Segment your cart abandonment flow by cart value. Shoppers with a cart over $200 respond better to a personal Email 2 written in a conversational tone, from the founder or a support rep who offers to answer questions directly, rather than a polished promotional template. High-ticket abandoners often have specific objections about sizing, return policy, or whether the item will be right for them. A helpful, direct tone outperforms a promotional one for this segment.
 </Callout>
 
 ## Key Metrics to Track
@@ -145,7 +145,7 @@ Data sources: Omnisend 2025, Klaviyo 2024 benchmark report, Analyzify 2025.
 
 ## The One-Line Takeaway
 
-**Send a reminder at 60 minutes, add social proof at 24 hours, and hold the discount until 72 hours - those two extra emails will recover 6.5x more revenue than sending just one.**
+**Send a reminder at 60 minutes, add social proof at 24 hours, and hold the discount until 72 hours, those two extra emails will recover 6.5x more revenue than sending just one.**
 
 <ResourceList resources={[
   { title: "Klaviyo Abandoned Cart Benchmark Report", url: "https://www.klaviyo.com/blog/abandoned-cart-benchmarks", type: "article", free: true, note: "Klaviyo's own benchmark data: open rates, placed order rates, and revenue per recipient across thousands of stores" },

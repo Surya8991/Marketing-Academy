@@ -9,7 +9,7 @@
  * Never hardcode "ma_note_" anywhere else or key-name drift will silently split user data.
  *
  * The settings reset handler iterates all localStorage keys and removes any that
- * start with NOTE_KEY_PREFIX — so the prefix must stay stable.
+ * start with NOTE_KEY_PREFIX, so the prefix must stay stable.
  */
 
 export const NOTE_KEY_PREFIX = "ma_note_";
@@ -30,7 +30,7 @@ export function getNote(category: string, slug: string): string {
 }
 
 /**
- * Saves a note. Automatically deletes the key when the note is blank —
+ * Saves a note. Automatically deletes the key when the note is blank ,
  * avoids accumulating empty-string entries in localStorage after the user clears a note.
  */
 export function saveNote(category: string, slug: string, text: string): void {

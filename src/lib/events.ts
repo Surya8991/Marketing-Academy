@@ -2,7 +2,7 @@
  * Single source of truth for all CustomEvent names and shared localStorage keys.
  *
  * Rule: event constants MUST live here, never in component files.
- * Centralising prevents key-name drift across components — a mismatch means
+ * Centralising prevents key-name drift across components, a mismatch means
  * the listener never fires and progress silently vanishes.
  *
  * Adding a new event:
