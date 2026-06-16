@@ -263,7 +263,7 @@ export default async function LessonPage({ params }: Props) {
 
             {/* Quiz */}
             {hasQuiz && (
-              <div className="mt-12 pt-8 border-t border-[var(--border)]">
+              <div id="quiz-section" className="mt-12 pt-8 border-t border-[var(--border)]">
                 <h2 className="text-xl font-bold mb-4">Test Your Knowledge</h2>
                 <Quiz questions={quizQuestions!} category={category} slug={lesson} />
               </div>

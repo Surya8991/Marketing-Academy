@@ -3,13 +3,12 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { getCompleted, markComplete, markIncomplete, lessonId } from "@/lib/progress";
-import { getQuizPassed, setQuizPassed, QUIZZES, QUIZ_PASSED_EVENT } from "@/lib/quizzes";
+import { getQuizPassed, setQuizPassed, QUIZ_PASSED_EVENT } from "@/lib/quizzes";
 import { addXP, ENGAGEMENT_EVENT } from "@/lib/engagement";
 import posthog from "posthog-js";
 import { LESSON_TOGGLE_EVENT } from "@/lib/events";
 import { checkAchievements } from "@/lib/achievements";
 import { CheckCircle, Circle, ArrowRight, Lock } from "lucide-react";
-import LessonQuizGate from "@/components/LessonQuizGate";
 
 function fireConfetti() {
   const canvas = document.createElement("canvas");
@@ -72,7 +71,6 @@ export default function MarkComplete({
   const [mounted, setMounted] = useState(false);
   const [justCompleted, setJustCompleted] = useState(false);
   const [quizPassed, setQuizPassedState] = useState(false);
-  const [showGate, setShowGate] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -90,11 +88,14 @@ export default function MarkComplete({
     return () => window.removeEventListener(LESSON_TOGGLE_EVENT, handler);
   }, [id]);
 
-  // Also unlock if the standalone Quiz component at the bottom passes
+  // Unlock when the bottom Quiz component passes
   useEffect(() => {
     const handler = (e: Event) => {
       const ce = e as CustomEvent<{ id: string }>;
-      if (ce.detail.id === `${category}/${slug}`) setQuizPassedState(true);
+      if (ce.detail.id === `${category}/${slug}`) {
+        setQuizPassedState(true);
+        setQuizPassed(category, slug);
+      }
     };
     window.addEventListener(QUIZ_PASSED_EVENT, handler);
     return () => window.removeEventListener(QUIZ_PASSED_EVENT, handler);
@@ -103,25 +104,17 @@ export default function MarkComplete({
   if (!mounted) return null;
 
   const locked = !quizPassed && !done;
-  const quizQuestions = QUIZZES[`${category}/${slug}`] ?? [];
 
   function handleComplete() {
     markComplete(id);
     setDone(true);
     setJustCompleted(true);
-    setShowGate(false);
     fireConfetti();
     window.dispatchEvent(new CustomEvent(LESSON_TOGGLE_EVENT, { detail: { id, done: true } }));
     const newState = addXP("complete", id);
     const unlocked = checkAchievements(newState);
     window.dispatchEvent(new CustomEvent(ENGAGEMENT_EVENT, { detail: { state: newState, unlocked } }));
     posthog.capture("lesson_completed", { lesson_id: id });
-  }
-
-  function handleGatePass() {
-    setQuizPassed(category, slug);
-    setQuizPassedState(true);
-    handleComplete();
   }
 
   const toggle = () => {
@@ -131,74 +124,64 @@ export default function MarkComplete({
       setJustCompleted(false);
       window.dispatchEvent(new CustomEvent(LESSON_TOGGLE_EVENT, { detail: { id, done: false } }));
     } else if (locked) {
-      setShowGate(true);
+      document.getElementById("quiz-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
     } else {
       handleComplete();
     }
   };
 
   return (
-    <>
-      {showGate && quizQuestions.length > 0 && (
-        <LessonQuizGate
-          questions={quizQuestions}
-          onPass={handleGatePass}
-          onClose={() => setShowGate(false)}
-        />
-      )}
-
-      <div className="flex flex-col gap-3">
-        <button
-          onClick={toggle}
-          className="flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-lg transition-all w-fit"
-          style={
-            done
-              ? {
-                  background: "rgba(22,163,74,0.15)",
-                  color: "rgb(22 163 74)",
-                  border: "1px solid rgba(22,163,74,0.3)",
-                }
-              : locked
-              ? {
-                  background: "var(--muted)",
-                  color: "var(--muted-foreground)",
-                  border: "1px solid var(--border)",
-                  cursor: "pointer",
-                }
-              : {
-                  background: "var(--muted)",
-                  color: "var(--muted-foreground)",
-                  border: "1px solid transparent",
-                }
-          }
-        >
-          {done ? (
-            <CheckCircle size={16} />
-          ) : locked ? (
-            <Lock size={16} />
-          ) : (
-            <Circle size={16} />
-          )}
-          {done ? "Completed" : locked ? "Take quiz to complete" : "Mark as complete"}
-        </button>
-
-        {/* Continue CTA after completing */}
-        {justCompleted && nextHref && nextTitle && (
-          <Link
-            href={nextHref}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold w-fit"
-            style={{
-              background: "rgba(22,163,74,0.12)",
-              color: "rgb(22 163 74)",
-              border: "1px solid rgba(22,163,74,0.25)",
-            }}
-          >
-            <CheckCircle size={15} />
-            Continue: {nextTitle}
-            <ArrowRight size={14} />
-          </Link>
+    <div className="flex flex-col gap-3">
+      <button
+        onClick={toggle}
+        className="flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-lg transition-all w-fit"
+        style={
+          done
+            ? {
+                background: "rgba(22,163,74,0.15)",
+                color: "rgb(22 163 74)",
+                border: "1px solid rgba(22,163,74,0.3)",
+              }
+            : locked
+            ? {
+                background: "var(--muted)",
+                color: "var(--muted-foreground)",
+                border: "1px solid var(--border)",
+                cursor: "pointer",
+              }
+            : {
+                background: "var(--muted)",
+                color: "var(--muted-foreground)",
+                border: "1px solid transparent",
+              }
+        }
+      >
+        {done ? (
+          <CheckCircle size={16} />
+        ) : locked ? (
+          <Lock size={16} />
+        ) : (
+          <Circle size={16} />
         )}
-      </div>
-    </>
+        {done ? "Completed" : locked ? "Take quiz to complete" : "Mark as complete"}
+      </button>
+
+      {/* Continue CTA after completing */}
+      {justCompleted && nextHref && nextTitle && (
+        <Link
+          href={nextHref}
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold w-fit"
+          style={{
+            background: "rgba(22,163,74,0.12)",
+            color: "rgb(22 163 74)",
+            border: "1px solid rgba(22,163,74,0.25)",
+          }}
+        >
+          <CheckCircle size={15} />
+          Continue: {nextTitle}
+          <ArrowRight size={14} />
+        </Link>
+      )}
+    </div>
   );
 }
