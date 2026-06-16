@@ -2,6 +2,7 @@ import { getCompleted } from "@/lib/progress";
 import { getBookmarks, type BookmarkEntry } from "@/lib/bookmarks";
 import { flatLessons, CATEGORIES } from "@/lib/curriculum";
 import type { EngagementState } from "@/lib/engagement";
+import { saveEngagement } from "@/lib/engagement";
 
 export type Achievement = {
   id: string;
@@ -95,6 +96,10 @@ export function checkAchievements(state: EngagementState): string[] {
     if (!state.achievements.includes(a.id) && a.check(state, completed, bookmarks)) {
       newlyUnlocked.push(a.id);
     }
+  }
+  if (newlyUnlocked.length > 0) {
+    state.achievements = [...state.achievements, ...newlyUnlocked];
+    saveEngagement(state);
   }
   return newlyUnlocked;
 }

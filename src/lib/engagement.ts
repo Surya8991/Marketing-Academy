@@ -1,4 +1,5 @@
-const KEY = "ma_engagement";
+export const ENGAGEMENT_KEY = "ma_engagement";
+const KEY = ENGAGEMENT_KEY;
 
 export type XPAction = "complete" | "quiz" | "bookmark";
 

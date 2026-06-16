@@ -3,8 +3,7 @@
 import { useRef, useState } from "react";
 import { BOOKMARK_KEY } from "@/lib/bookmarks";
 import { COMPLETED_KEY } from "@/lib/progress";
-
-const ENGAGEMENT_KEY = "ma_engagement";
+import { ENGAGEMENT_KEY } from "@/lib/engagement";
 const ONBOARDED_KEY = "ma_onboarded";
 const QUIZ_KEY_PREFIX = "ma_quiz_pass_";
 const NOTE_KEY_PREFIX = "ma_note_";
@@ -26,8 +25,16 @@ function collectAllKeys(): Record<string, unknown> {
   return data;
 }
 
+const ALLOWED_KEY_PREFIXES = [QUIZ_KEY_PREFIX, NOTE_KEY_PREFIX];
+
+function isAllowedKey(key: string): boolean {
+  if (EXPORT_KEYS.includes(key as typeof EXPORT_KEYS[number])) return true;
+  return ALLOWED_KEY_PREFIXES.some((p) => key.startsWith(p));
+}
+
 function restoreAllKeys(data: Record<string, unknown>) {
   for (const [key, value] of Object.entries(data)) {
+    if (!isAllowedKey(key)) continue;
     if (value === null || value === undefined) continue;
     if (typeof value === "string") {
       localStorage.setItem(key, value);
