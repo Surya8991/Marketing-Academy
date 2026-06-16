@@ -27,7 +27,7 @@ import { useRouter } from "next/navigation";
 import { CheckCircle2, XCircle, Trophy, RotateCcw, ChevronRight } from "lucide-react";
 import { markComplete, lessonId } from "@/lib/progress";
 import type { Quiz } from "@/lib/quizzes";
-import { addXP, ENGAGEMENT_EVENT } from "@/lib/engagement";
+import { addXP, ENGAGEMENT_EVENT, type EngagementState } from "@/lib/engagement";
 import { checkAchievements } from "@/lib/achievements";
 
 type Lesson = { category: string; slug: string; title: string };
@@ -95,7 +95,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
    */
   function markAll() {
     setMarking(true);
-    let latestState = null;
+    let latestState: EngagementState | null = null;
     for (const l of lessons) {
       const id = lessonId(l.category, l.slug);
       markComplete(id);

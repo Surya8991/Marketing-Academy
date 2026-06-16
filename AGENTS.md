@@ -337,3 +337,9 @@ Architecture:
 - All 393 lessons have entries in `QUIZZES`, never remove entries or make `QUIZZES[key]` return undefined for a registered lesson.
 - Do NOT add `hasQuiz` prop back to `MarkComplete`, it was removed because all lessons now have quizzes.
 - Do NOT create `LessonQuizGate.tsx`, `handleGatePass()`, or `onPass` callback, these do not exist.
+
+### Rule 26 — SYNC_SECRET must be set as NEXT_PUBLIC_SYNC_SECRET for client auth
+`/api/sync-proxy` verifies `x-sync-secret` header against `process.env.SYNC_SECRET`. The client reads `process.env.NEXT_PUBLIC_SYNC_SECRET` to send in this header. Both vars must be set in Vercel: `SYNC_SECRET` (server-only) AND `NEXT_PUBLIC_SYNC_SECRET` (same value, exposed to client). Without both, sync push/pull silently returns 401.
+
+### Rule 27 — `src/app/opengraph-image.tsx` lesson count is hardcoded
+The root OG image uses a literal `"393+"` string (edge runtime cannot import `flatLessons()`). When the lesson count changes significantly, manually update the string in `src/app/opengraph-image.tsx` line 82 to match.

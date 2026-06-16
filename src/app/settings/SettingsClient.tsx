@@ -136,7 +136,10 @@ export default function SettingsClient() {
       const data = collectAllKeys();
       const res = await fetch("/api/sync-proxy", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "x-sync-secret": process.env.NEXT_PUBLIC_SYNC_SECRET ?? "",
+        },
         body: JSON.stringify(data),
       });
       if (!res.ok) throw new Error();
@@ -153,7 +156,9 @@ export default function SettingsClient() {
     setSyncing(true);
     setSyncStatus(null);
     try {
-      const res = await fetch("/api/sync-proxy");
+      const res = await fetch("/api/sync-proxy", {
+        headers: { "x-sync-secret": process.env.NEXT_PUBLIC_SYNC_SECRET ?? "" },
+      });
       if (!res.ok) throw new Error();
       const { data } = (await res.json()) as { data: Record<string, unknown> | null };
       if (!data) {

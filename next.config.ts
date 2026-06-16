@@ -38,7 +38,7 @@ const nextConfig: NextConfig = {
         source: "/(.*)", // applies to every route
         headers: [
           // Prevent this site from being embedded in an iframe (clickjacking protection)
-          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "X-Frame-Options", value: "DENY" },
           // Stop browsers from MIME-sniffing responses away from the declared content-type
           { key: "X-Content-Type-Options", value: "nosniff" },
           // Only send full referrer to same origin; send origin-only to cross-origin HTTPS

@@ -85,16 +85,18 @@ const RECENT_LESSONS = [
 export default function HomePage() {
   const totalLessons = flatLessons().length;
 
-  const featuredLessons = FEATURED.map((f) => {
-    const cat = CATEGORIES.find((c) => c.slug === f.category)!;
-    const lesson = cat.lessons.find((l) => l.slug === f.slug)!;
-    return { ...f, cat, lesson };
+  const featuredLessons = FEATURED.flatMap((f) => {
+    const cat = CATEGORIES.find((c) => c.slug === f.category);
+    const lesson = cat?.lessons.find((l) => l.slug === f.slug);
+    if (!cat || !lesson) return [];
+    return [{ ...f, cat, lesson }];
   });
 
-  const recentLessons = RECENT_LESSONS.map((r) => {
-    const cat = CATEGORIES.find((c) => c.slug === r.category)!;
-    const lesson = cat.lessons.find((l) => l.slug === r.slug)!;
-    return { ...r, cat, lesson };
+  const recentLessons = RECENT_LESSONS.flatMap((r) => {
+    const cat = CATEGORIES.find((c) => c.slug === r.category);
+    const lesson = cat?.lessons.find((l) => l.slug === r.slug);
+    if (!cat || !lesson) return [];
+    return [{ ...r, cat, lesson }];
   });
 
   return (

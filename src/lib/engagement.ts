@@ -112,40 +112,44 @@ export function addXP(action: XPAction, id: string): EngagementState {
   const state = (_writing && _pendingState) ? _pendingState : getEngagement();
   _writing = true;
   _pendingState = state;
-  const amount = XP_VALUES[action];
-  const t = today();
 
-  // 24-hour deduplication: same (action, id) pair can only earn XP once per day
-  const alreadyEarned = state.xpLog.some(
-    (e) => e.action === action && e.id === id && e.ts > Date.now() - 86_400_000
-  );
-  if (alreadyEarned) return state;
+  try {
+    const amount = XP_VALUES[action];
+    const t = today();
 
-  // Streak: increment if last activity was yesterday; reset to 1 if there was a gap
-  if (state.lastActiveDay !== t) {
-    if (state.lastActiveDay === yesterday()) {
-      state.streak += 1;
-    } else {
-      state.streak = 1;
+    // 24-hour deduplication: same (action, id) pair can only earn XP once per day
+    const alreadyEarned = state.xpLog.some(
+      (e) => e.action === action && e.id === id && e.ts > Date.now() - 86_400_000
+    );
+    if (alreadyEarned) return state;
+
+    // Streak: increment if last activity was yesterday; reset to 1 if there was a gap
+    if (state.lastActiveDay !== t) {
+      if (state.lastActiveDay === yesterday()) {
+        state.streak += 1;
+      } else {
+        state.streak = 1;
+      }
+      state.lastActiveDay = t;
+      if (state.streak > state.longestStreak) {
+        state.longestStreak = state.streak;
+      }
     }
-    state.lastActiveDay = t;
-    if (state.streak > state.longestStreak) {
-      state.longestStreak = state.streak;
-    }
+
+    state.xp += amount;
+    state.xpByDay[t] = (state.xpByDay[t] ?? 0) + amount;
+    // Keep only the last 200 log entries to cap storage growth
+    state.xpLog = [
+      { action, id, xp: amount, ts: Date.now() },
+      ...state.xpLog.slice(0, 199),
+    ];
+
+    saveEngagement(state);
+    return state;
+  } finally {
+    _writing = false;
+    _pendingState = null;
   }
-
-  state.xp += amount;
-  state.xpByDay[t] = (state.xpByDay[t] ?? 0) + amount;
-  // Keep only the last 200 log entries to cap storage growth
-  state.xpLog = [
-    { action, id, xp: amount, ts: Date.now() },
-    ...state.xpLog.slice(0, 199),
-  ];
-
-  saveEngagement(state);
-  _writing = false;
-  _pendingState = null;
-  return state;
 }
 
 /**

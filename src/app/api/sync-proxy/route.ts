@@ -35,10 +35,19 @@ function isConfigured(): boolean {
   );
 }
 
+/** Verifies the shared secret sent by the client matches the server-side env var */
+function authenticate(req: NextRequest): boolean {
+  const clientSecret = req.headers.get("x-sync-secret") ?? "";
+  return clientSecret === (process.env.SYNC_SECRET ?? "");
+}
+
 /** GET /api/sync-proxy, pulls the user's saved progress blob from CF KV */
-export async function GET() {
+export async function GET(req: NextRequest) {
   if (!isConfigured()) {
     return NextResponse.json({ error: "Sync not configured" }, { status: 503 });
+  }
+  if (!authenticate(req)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
   const res = await fetch(CF_BASE, {
     headers: { Authorization: `Bearer ${CF_TOKEN}` },
@@ -58,6 +67,9 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   if (!isConfigured()) {
     return NextResponse.json({ error: "Sync not configured" }, { status: 503 });
+  }
+  if (!authenticate(req)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
   let body: unknown;
