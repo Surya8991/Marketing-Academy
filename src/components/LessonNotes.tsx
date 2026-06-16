@@ -13,6 +13,7 @@ export default function LessonNotes({ category, slug }: { category: string; slug
   const [text, setText] = useState("");
   const [saved, setSaved] = useState(false);
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pendingText = useRef<string | null>(null);
 
   useEffect(() => {
     const stored = localStorage.getItem(noteKey(category, slug));
@@ -26,6 +27,7 @@ export default function LessonNotes({ category, slug }: { category: string; slug
     const val = e.target.value;
     setText(val);
     setSaved(false);
+    pendingText.current = val;
     if (saveTimer.current) clearTimeout(saveTimer.current);
     saveTimer.current = setTimeout(() => {
       if (val.trim()) {
@@ -33,6 +35,7 @@ export default function LessonNotes({ category, slug }: { category: string; slug
       } else {
         localStorage.removeItem(noteKey(category, slug));
       }
+      pendingText.current = null;
       setSaved(true);
     }, 800);
   }
@@ -40,8 +43,17 @@ export default function LessonNotes({ category, slug }: { category: string; slug
   useEffect(() => {
     return () => {
       if (saveTimer.current) clearTimeout(saveTimer.current);
+      // Flush any pending text that hasn't been saved yet
+      if (pendingText.current !== null) {
+        const key = noteKey(category, slug);
+        if (pendingText.current.trim()) {
+          localStorage.setItem(key, pendingText.current);
+        } else {
+          localStorage.removeItem(key);
+        }
+      }
     };
-  }, []);
+  }, [category, slug]);
 
   return (
     <div
