@@ -11,18 +11,17 @@ type Props = {
 };
 
 const PASS_THRESHOLD = 0.8;
-const MAX_QUESTIONS = 10;
+const PAGE_SIZE = 10;
 
 export default function TrackQuizGate({ questions, trackTitle, onPass, onClose }: Props) {
-  const [sample, setSample] = useState<Quiz[]>([]);
+  const [shuffled, setShuffled] = useState<Quiz[]>([]);
+  const [page, setPage] = useState(0);
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [submitted, setSubmitted] = useState(false);
   const [score, setScore] = useState(0);
 
   useEffect(() => {
-    // Shuffle and cap
-    const shuffled = [...questions].sort(() => Math.random() - 0.5);
-    setSample(shuffled.slice(0, MAX_QUESTIONS));
+    setShuffled([...questions].sort(() => Math.random() - 0.5));
   }, [questions]);
 
   const handleClose = useCallback(() => onClose(), [onClose]);
@@ -35,14 +34,22 @@ export default function TrackQuizGate({ questions, trackTitle, onPass, onClose }
     return () => window.removeEventListener("keydown", onKey);
   }, [handleClose]);
 
-  function pick(qIdx: number, optIdx: number) {
+  const totalPages = Math.ceil(shuffled.length / PAGE_SIZE);
+  const pageQuestions = shuffled.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
+  const answeredOnPage = pageQuestions.every((_, i) => {
+    const globalIdx = page * PAGE_SIZE + i;
+    return answers[globalIdx] !== undefined;
+  });
+  const allAnswered = shuffled.length > 0 && Object.keys(answers).length === shuffled.length;
+
+  function pick(globalIdx: number, optIdx: number) {
     if (submitted) return;
-    setAnswers((prev) => ({ ...prev, [qIdx]: optIdx }));
+    setAnswers((prev) => ({ ...prev, [globalIdx]: optIdx }));
   }
 
   function submit() {
-    const correct = sample.filter((q, i) => answers[i] === q.correct).length;
-    const pct = sample.length > 0 ? correct / sample.length : 0;
+    const correct = shuffled.filter((q, i) => answers[i] === q.correct).length;
+    const pct = shuffled.length > 0 ? correct / shuffled.length : 0;
     setScore(correct);
     setSubmitted(true);
     if (pct >= PASS_THRESHOLD) {
@@ -50,8 +57,7 @@ export default function TrackQuizGate({ questions, trackTitle, onPass, onClose }
     }
   }
 
-  const allAnswered = sample.length > 0 && Object.keys(answers).length === sample.length;
-  const passed = submitted && score / sample.length >= PASS_THRESHOLD;
+  const passed = submitted && score / shuffled.length >= PASS_THRESHOLD;
   const failed = submitted && !passed;
 
   const overlay: React.CSSProperties = {
@@ -70,7 +76,7 @@ export default function TrackQuizGate({ questions, trackTitle, onPass, onClose }
     background: "var(--background)",
     border: "1px solid var(--border)",
     borderRadius: "1rem",
-    maxWidth: "640px",
+    maxWidth: "660px",
     width: "100%",
     maxHeight: "90vh",
     overflowY: "auto",
@@ -85,10 +91,10 @@ export default function TrackQuizGate({ questions, trackTitle, onPass, onClose }
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1.25rem" }}>
           <div>
             <h2 style={{ fontSize: "1.25rem", fontWeight: 700, color: "var(--foreground)", marginBottom: "0.25rem" }}>
-              Quick Knowledge Check
+              Track Knowledge Check
             </h2>
             <p style={{ fontSize: "0.875rem", color: "var(--muted-foreground)" }}>
-              {trackTitle} — pass {Math.round(PASS_THRESHOLD * 100)}% to mark all complete
+              {trackTitle} — {shuffled.length} questions · pass {Math.round(PASS_THRESHOLD * 100)}% to mark all complete
             </p>
           </div>
           <button
@@ -114,19 +120,41 @@ export default function TrackQuizGate({ questions, trackTitle, onPass, onClose }
             }}
           >
             {passed
-              ? `${score}/${sample.length} correct — nice work! Marking all complete…`
-              : `${score}/${sample.length} correct — need ${Math.round(PASS_THRESHOLD * 100)}% to pass. Review the lessons and try again.`}
+              ? `${score}/${shuffled.length} correct — great work! Marking all complete…`
+              : `${score}/${shuffled.length} correct — need ${Math.round(PASS_THRESHOLD * 100)}% to pass. Review the lessons and try again.`}
           </div>
         )}
 
-        {/* Questions */}
+        {/* Progress bar across pages */}
+        {!submitted && totalPages > 1 && (
+          <div style={{ marginBottom: "1.25rem" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.375rem", fontSize: "0.8rem", color: "var(--muted-foreground)" }}>
+              <span>Page {page + 1} of {totalPages}</span>
+              <span>{Object.keys(answers).length} / {shuffled.length} answered</span>
+            </div>
+            <div style={{ height: "4px", background: "var(--muted)", borderRadius: "9999px", overflow: "hidden" }}>
+              <div
+                style={{
+                  height: "100%",
+                  background: "var(--accent)",
+                  borderRadius: "9999px",
+                  width: `${(Object.keys(answers).length / shuffled.length) * 100}%`,
+                  transition: "width 0.3s",
+                }}
+              />
+            </div>
+          </div>
+        )}
+
+        {/* Questions for current page */}
         <ol style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "1.75rem" }}>
-          {sample.map((q, qi) => {
-            const userAnswer = answers[qi];
+          {pageQuestions.map((q, localIdx) => {
+            const globalIdx = page * PAGE_SIZE + localIdx;
+            const userAnswer = answers[globalIdx];
             return (
-              <li key={qi}>
+              <li key={globalIdx}>
                 <p style={{ fontWeight: 600, color: "var(--foreground)", marginBottom: "0.75rem", fontSize: "0.95rem" }}>
-                  {qi + 1}. {q.question}
+                  {globalIdx + 1}. {q.question}
                 </p>
                 <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                   {q.options.map((opt, oi) => {
@@ -150,7 +178,7 @@ export default function TrackQuizGate({ questions, trackTitle, onPass, onClose }
                     return (
                       <button
                         key={oi}
-                        onClick={() => pick(qi, oi)}
+                        onClick={() => pick(globalIdx, oi)}
                         disabled={submitted}
                         style={{
                           display: "block",
@@ -181,61 +209,103 @@ export default function TrackQuizGate({ questions, trackTitle, onPass, onClose }
           })}
         </ol>
 
-        {/* Footer buttons */}
-        <div style={{ marginTop: "2rem", display: "flex", gap: "0.75rem", justifyContent: "flex-end" }}>
-          {failed && (
-            <button
-              onClick={() => { setSubmitted(false); setAnswers({}); }}
-              style={{
-                padding: "0.625rem 1.25rem",
-                borderRadius: "0.5rem",
-                background: "var(--card)",
-                border: "1px solid var(--border)",
-                color: "var(--foreground)",
-                fontWeight: 500,
-                cursor: "pointer",
-                fontSize: "0.9rem",
-              }}
-            >
-              Try again
-            </button>
+        {/* Footer */}
+        <div style={{ marginTop: "2rem", display: "flex", gap: "0.75rem", justifyContent: "space-between", alignItems: "center" }}>
+          {/* Page nav */}
+          {!submitted && totalPages > 1 && (
+            <div style={{ display: "flex", gap: "0.5rem" }}>
+              <button
+                onClick={() => setPage((p) => Math.max(0, p - 1))}
+                disabled={page === 0}
+                style={{
+                  padding: "0.5rem 0.875rem",
+                  borderRadius: "0.5rem",
+                  background: "var(--card)",
+                  border: "1px solid var(--border)",
+                  color: page === 0 ? "var(--muted-foreground)" : "var(--foreground)",
+                  cursor: page === 0 ? "default" : "pointer",
+                  fontSize: "0.875rem",
+                  opacity: page === 0 ? 0.5 : 1,
+                }}
+              >
+                ← Prev
+              </button>
+              <button
+                onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
+                disabled={page === totalPages - 1}
+                style={{
+                  padding: "0.5rem 0.875rem",
+                  borderRadius: "0.5rem",
+                  background: "var(--card)",
+                  border: "1px solid var(--border)",
+                  color: page === totalPages - 1 ? "var(--muted-foreground)" : "var(--foreground)",
+                  cursor: page === totalPages - 1 ? "default" : "pointer",
+                  fontSize: "0.875rem",
+                  opacity: page === totalPages - 1 ? 0.5 : 1,
+                }}
+              >
+                Next →
+              </button>
+            </div>
           )}
-          {!submitted && (
-            <button
-              onClick={submit}
-              disabled={!allAnswered}
-              style={{
-                padding: "0.625rem 1.25rem",
-                borderRadius: "0.5rem",
-                background: allAnswered ? "var(--accent)" : "var(--muted)",
-                color: allAnswered ? "var(--accent-foreground)" : "var(--muted-foreground)",
-                border: "none",
-                fontWeight: 600,
-                cursor: allAnswered ? "pointer" : "default",
-                fontSize: "0.9rem",
-                transition: "background 0.15s",
-              }}
-            >
-              Submit answers
-            </button>
-          )}
-          {passed && (
-            <button
-              onClick={handleClose}
-              style={{
-                padding: "0.625rem 1.25rem",
-                borderRadius: "0.5rem",
-                background: "var(--card)",
-                border: "1px solid var(--border)",
-                color: "var(--foreground)",
-                fontWeight: 500,
-                cursor: "pointer",
-                fontSize: "0.9rem",
-              }}
-            >
-              Close
-            </button>
-          )}
+
+          {/* Submit / retry / close */}
+          <div style={{ display: "flex", gap: "0.625rem", marginLeft: "auto" }}>
+            {failed && (
+              <button
+                onClick={() => { setSubmitted(false); setAnswers({}); setPage(0); }}
+                style={{
+                  padding: "0.625rem 1.25rem",
+                  borderRadius: "0.5rem",
+                  background: "var(--card)",
+                  border: "1px solid var(--border)",
+                  color: "var(--foreground)",
+                  fontWeight: 500,
+                  cursor: "pointer",
+                  fontSize: "0.9rem",
+                }}
+              >
+                Try again
+              </button>
+            )}
+            {!submitted && (
+              <button
+                onClick={submit}
+                disabled={!allAnswered}
+                style={{
+                  padding: "0.625rem 1.25rem",
+                  borderRadius: "0.5rem",
+                  background: allAnswered ? "var(--accent)" : "var(--muted)",
+                  color: allAnswered ? "var(--accent-foreground)" : "var(--muted-foreground)",
+                  border: "none",
+                  fontWeight: 600,
+                  cursor: allAnswered ? "pointer" : "default",
+                  fontSize: "0.9rem",
+                  transition: "background 0.15s",
+                }}
+                title={!allAnswered ? `Answer all ${shuffled.length} questions to submit` : undefined}
+              >
+                Submit {shuffled.length} answers
+              </button>
+            )}
+            {passed && (
+              <button
+                onClick={handleClose}
+                style={{
+                  padding: "0.625rem 1.25rem",
+                  borderRadius: "0.5rem",
+                  background: "var(--card)",
+                  border: "1px solid var(--border)",
+                  color: "var(--foreground)",
+                  fontWeight: 500,
+                  cursor: "pointer",
+                  fontSize: "0.9rem",
+                }}
+              >
+                Close
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </div>
