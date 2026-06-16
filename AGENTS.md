@@ -318,3 +318,6 @@ Before any `git push`, update ALL of the following that are affected by the chan
 - Nav/Footer changed → PROJECT_LOG component description row
 
 **Enforcement:** The commit message must reference what docs were updated. If no docs were changed in a code commit, state explicitly why none needed updating.
+
+### Rule 24 — TrackQuizGate gates "Mark all complete" on track pages only
+`src/components/TrackQuizGate.tsx` opens when clicking "Mark all complete" on a `/tracks/[slug]` page. It draws questions from `QUIZZES` (keyed by `category/slug`), shuffles, caps at 10, and requires ≥80% correct before calling `markAll()`. Individual per-lesson checkboxes on the same page are NOT gated. The gate is wired in `TrackLessonList.tsx` — `openGate()` replaces the direct `markAll()` call on the button. Do not add the gate to individual lesson `MarkComplete.tsx`.

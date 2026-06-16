@@ -1,7 +1,7 @@
-# Marketing Academy - Master Project Log
+﻿# Marketing Academy - Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-06-16 (Session 47).
+> Last audited: 2026-06-16 (Session 48).
 
 ---
 
@@ -1912,3 +1912,21 @@ CREATE TABLE progress (
 - API route reads body, upserts into `progress` table per key
 - All `getCompleted()` / `getBookmarks()` / `getEngagement()` lib functions get a server-side sibling that hits Neon instead of localStorage
 
+
+## Session 48 — 2026-06-16 (Track quiz gate)
+
+**Gate added to "Mark all complete" on track pages — requires 80% pass before marking.**
+
+### Files changed
+| File | Change |
+|------|--------|
+| `src/components/TrackQuizGate.tsx` | New modal component — pools questions from all track lessons, shuffles, caps at 10, scores on submit, auto-marks-all on pass |
+| `src/components/TrackLessonList.tsx` | openGate() replaces direct markAll() call on the button; renders TrackQuizGate conditionally |
+
+### Behaviour
+- "Mark all complete" opens modal with up to 10 shuffled questions from QUIZZES for lessons in the track
+- User must answer all before submitting
+- Pass (>=80%): marks all complete after 1.2s delay, modal closes
+- Fail (<80%): error banner + score + "Try again" button resets answers
+- Esc / backdrop click closes modal
+- Individual per-lesson checkboxes remain ungated

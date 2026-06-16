@@ -4,11 +4,15 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { CheckCircle, Circle } from "lucide-react";
 import { getCompleted, markComplete, markIncomplete, lessonId } from "@/lib/progress";
+import { QUIZZES, type Quiz } from "@/lib/quizzes";
+import TrackQuizGate from "@/components/TrackQuizGate";
 import type { Track } from "@/lib/tracks";
 
 export default function TrackLessonList({ track }: { track: Track }) {
   const [completed, setCompleted] = useState<Set<string>>(new Set());
   const [mounted, setMounted] = useState(false);
+  const [showGate, setShowGate] = useState(false);
+  const [gateQuestions, setGateQuestions] = useState<Quiz[]>([]);
 
   useEffect(() => {
     setMounted(true);
@@ -23,6 +27,17 @@ export default function TrackLessonList({ track }: { track: Track }) {
       next.add(id);
     });
     setCompleted(next);
+    setShowGate(false);
+  };
+
+  const openGate = () => {
+    const pool: Quiz[] = [];
+    for (const l of track.lessons) {
+      const qs = QUIZZES[`${l.category}/${l.slug}`];
+      if (qs) pool.push(...qs);
+    }
+    setGateQuestions(pool);
+    setShowGate(true);
   };
 
   const toggle = (category: string, slug: string) => {
@@ -46,6 +61,15 @@ export default function TrackLessonList({ track }: { track: Track }) {
 
   return (
     <div>
+      {showGate && gateQuestions.length > 0 && (
+        <TrackQuizGate
+          questions={gateQuestions}
+          trackTitle={track.title}
+          onPass={markAll}
+          onClose={() => setShowGate(false)}
+        />
+      )}
+
       {/* Progress bar */}
       <div className="mb-8 p-5 rounded-xl border border-[var(--border)] bg-[var(--card)]">
         <div className="flex items-center justify-between mb-3">
@@ -70,7 +94,7 @@ export default function TrackLessonList({ track }: { track: Track }) {
           )}
           {mounted && pct < 100 && (
             <button
-              onClick={markAll}
+              onClick={openGate}
               className="text-xs text-[var(--muted-foreground)] hover:text-[var(--foreground)] underline underline-offset-2 transition-colors cursor-pointer"
             >
               Mark all complete
