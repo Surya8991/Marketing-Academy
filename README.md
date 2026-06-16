@@ -40,7 +40,7 @@ A free, structured marketing education site - from absolute beginner to advanced
 - **Related lessons** - "You might also like" section at the bottom of every lesson
 - **Lesson quizzes** - 4 questions at the bottom of 393 lessons; quiz must be passed (100%) to unlock Mark Complete
 - **Progress tracking** - Mark lessons complete, per-category progress bar, bookmarks (all localStorage)
-- **Learning tracks** - 7 curated paths: B2B Marketer, E-commerce Growth, Solo Founder, AI-First Marketer, Content Creator, Social Media Manager, Data-Driven
+- **Learning tracks** - 8 curated paths: B2B Marketer, E-commerce Growth, Solo Founder, AI-First Marketer, Content Creator, Social Media Manager, Data-Driven Marketer, Freelancer & Agency
 - **Progress certificates** - Printable completion certificate per track at `/certificates/[slug]`
 - **XP + Streak system** - Earn XP for completing lessons (30), passing quizzes (20), bookmarking (5). Daily streak. 7 levels (Marketing Newcomer → Certified Polymath). Live badge in nav.
 - **Achievements** - 10 unlockable badges with toast notification on unlock. Full gallery at `/achievements`
@@ -135,7 +135,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | File | Purpose |
 |---|---|
 | `src/lib/curriculum.ts` | Single source of truth — all lesson slugs, titles, levels |
-| `src/lib/tracks.ts` | 7 learning track definitions |
+| `src/lib/tracks.ts` | 8 learning track definitions |
 | `src/lib/glossary.ts` | 216 marketing term definitions |
 | `src/lib/quizzes.ts` | Quiz questions (4 per lesson, all 393 lessons covered) |
 | `src/lib/tools-directory.ts` | 108 marketing tools with category/pricing data |
@@ -165,12 +165,12 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 
 | Route | What |
 |---|---|
-| `/` | Homepage: hero, category grid, 7 learning tracks, featured lessons |
+| `/` | Homepage: hero, category grid, 8 learning tracks, featured lessons |
 | `/learn` | All lessons browsable by category |
 | `/learn/[category]` | Category page: Beginner/Intermediate/Advanced grouping + progress |
 | `/learn/[category]/[lesson]` | Lesson reader: ToC, share, bookmark, related lessons, quiz, prev/next |
 | `/search` | Fuzzy search with category + level filters |
-| `/tracks` | 7 learning tracks overview |
+| `/tracks` | 8 learning tracks overview |
 | `/tracks/[slug]` | Track detail with ordered lesson list |
 | `/glossary` | 216-term A-Z marketing glossary |
 | `/glossary/[slug]` | Individual term page |

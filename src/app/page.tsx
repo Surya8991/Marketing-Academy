@@ -15,10 +15,10 @@ import {
 } from "lucide-react";
 
 const FEATURED = [
+  { category: "ai-marketing", slug: "ai-marketing-101", emoji: "🤖", reason: "🔥 Hot in 2026" },
   { category: "fundamentals", slug: "what-is-marketing", emoji: "🎯", reason: "Start here" },
   { category: "seo", slug: "keyword-research", emoji: "🔎", reason: "Quick win" },
   { category: "fundamentals", slug: "brand-vs-performance", emoji: "⚡", reason: "Advanced" },
-  { category: "ai-marketing", slug: "ai-marketing-101", emoji: "🤖", reason: "New & hot" },
 ];
 
 const PATHS = [
@@ -38,10 +38,17 @@ const PATHS = [
   },
   {
     title: "For agencies & freelancers",
-    href: "/tracks",
+    href: "/tracks/freelancer-agency",
     icon: <Compass size={18} />,
     desc: "Master every channel you'll be asked to deliver.",
     topics: ["seo", "paid-ads", "social", "email"],
+  },
+  {
+    title: "For content creators",
+    href: "/tracks/content-creator",
+    icon: <Sparkles size={18} />,
+    desc: "Build an audience with SEO, social, email, and great copy.",
+    topics: ["content", "social", "copywriting", "seo"],
   },
 ];
 
@@ -141,16 +148,20 @@ export default function HomePage() {
 
       {/* Stats bar */}
       <section className="border-y border-[var(--border)] bg-[var(--muted)]/50">
-        <div className="max-w-4xl mx-auto px-4 py-6 grid grid-cols-3 divide-x divide-[var(--border)] text-center">
+        <div className="max-w-4xl mx-auto px-4 py-6 grid grid-cols-2 sm:grid-cols-4 divide-x divide-[var(--border)] text-center">
           <div className="px-4">
             <p className="text-2xl sm:text-3xl font-bold">{totalLessons}+</p>
             <p className="text-sm text-[var(--muted-foreground)]">Lessons</p>
           </div>
           <div className="px-4">
             <p className="text-2xl sm:text-3xl font-bold">{CATEGORIES.length}</p>
-            <p className="text-sm text-[var(--muted-foreground)]">Categories</p>
+            <p className="text-sm text-[var(--muted-foreground)]">Disciplines</p>
           </div>
-          <div className="px-4">
+          <div className="px-4 col-span-1 max-sm:border-t max-sm:border-[var(--border)] max-sm:pt-4 max-sm:mt-4">
+            <p className="text-2xl sm:text-3xl font-bold">{TRACKS.length}</p>
+            <p className="text-sm text-[var(--muted-foreground)]">Learning Tracks</p>
+          </div>
+          <div className="px-4 max-sm:border-t max-sm:border-[var(--border)] max-sm:pt-4 max-sm:mt-4">
             <p className="text-2xl sm:text-3xl font-bold">0</p>
             <p className="text-sm text-[var(--muted-foreground)]">Paywalls</p>
           </div>
@@ -173,6 +184,34 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* AI Marketing spotlight */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4">
+        <Link
+          href="/learn/ai-marketing"
+          className="group flex flex-col sm:flex-row items-start sm:items-center gap-4 p-5 sm:p-6 rounded-2xl border border-[var(--accent)]/40 bg-gradient-to-r from-[var(--accent)]/8 via-fuchsia-500/5 to-transparent hover:border-[var(--accent)]/70 hover:shadow-lg transition-all"
+        >
+          <div className="shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-[var(--accent)]/15 text-2xl">
+            🤖
+          </div>
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-xs font-semibold uppercase tracking-wider text-[var(--accent)]">New & Updated</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-[var(--accent)]/15 text-[var(--accent)] font-medium">36 lessons</span>
+            </div>
+            <h3 className="font-bold text-base sm:text-lg group-hover:text-[var(--accent)] transition-colors">
+              AI is reshaping every marketing channel — are you keeping up?
+            </h3>
+            <p className="text-sm text-[var(--muted-foreground)] mt-0.5 line-clamp-1">
+              AI agents, LLM optimization, agentic workflows, Clay & n8n — the full 2026 playbook.
+            </p>
+          </div>
+          <div className="shrink-0 flex items-center gap-1 text-sm text-[var(--accent)] font-semibold">
+            Explore AI Marketing
+            <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+          </div>
+        </Link>
       </section>
 
       <RecentlyViewed />
@@ -354,7 +393,7 @@ export default function HomePage() {
               Not sure where to start? Pick the path that matches your role.
             </p>
           </div>
-          <div className="grid sm:grid-cols-3 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {PATHS.map((p) => (
               <Link
                 key={p.title}

@@ -2063,3 +2063,19 @@ The script used `[a-z-]*` to match existing keys. That character class excluded 
 |---|-------|-----|
 | 1 | `layout.tsx` hardcodes `'theme'` in inline script (can't import THEME_KEY pre-React) | Added comment noting it must stay in sync with THEME_KEY in events.ts |
 | 2 | `src/app/api/sync/route.ts` dead code — old route replaced by sync-proxy, no callers | Deleted file |
+---
+
+## Session 53 — 2026-06-16 (Non-code product improvements)
+
+**Non-code product review, then fixes for items 3-8 from the review. Build, TypeScript, ESLint all clean.**
+
+### Changes made
+| # | Area | What changed |
+|---|------|-------------|
+| 1 | Homepage OG image | Added `src/app/opengraph-image.tsx` — Next.js native root OG image was missing; per-lesson OGs via `/api/og` already existed |
+| 2 | New track | Added `freelancer-agency` track (16 lessons) to `src/lib/tracks.ts` — homepage PATHS referenced agencies with no dedicated track |
+| 3 | Homepage stats bar | Expanded from 3→4 stats: added "Learning Tracks" count; grid changed to 2×2 on mobile |
+| 4 | Homepage PATHS | Added 4th path "For content creators" → `/tracks/content-creator`; fixed agencies path from `/tracks` to `/tracks/freelancer-agency`; grid 3→4 col |
+| 5 | AI Marketing spotlight | Added accent banner between credibility strip and featured lessons — surfaces the #1 differentiator for cold visitors |
+| 6 | Featured lessons order | Moved `ai-marketing-101` from 4th ("New & hot") to 1st position ("🔥 Hot in 2026") |
+| 7 | README | Updated all "7 tracks/paths" references to 8 |
