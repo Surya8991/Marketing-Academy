@@ -26,6 +26,8 @@ export const viewport: Viewport = {
   themeColor: "#6366f1",
 };
 
+// Inline script runs before React hydration (no-flash theme detection).
+// Cannot import THEME_KEY here — raw string only. Must stay in sync with THEME_KEY in src/lib/events.ts ("theme").
 const themeScript = `
 try {
   var t = localStorage.getItem('theme');

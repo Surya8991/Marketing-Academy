@@ -1,7 +1,7 @@
 ﻿# Marketing Academy - Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-06-16 (Session 51).
+> Last audited: 2026-06-16 (Session 52).
 
 ---
 
@@ -2033,3 +2033,33 @@ The script used `[a-z-]*` to match existing keys. That character class excluded 
 - 7 over-long lessons (>1200 words): content trimming deferred
 - CommandPalette `inputRef` memoization: micro-optimization, no UX impact
 - Service worker `origin` hardcoding: requires deploy env knowledge
+
+---
+
+## Session 52 — 2026-06-16 (Architecture comments + post-comment codereview + dead code removal)
+
+**Added documentation comments to all core lib/component files. Re-ran codereview — 2 issues found and fixed immediately. Build, TypeScript, and ESLint all clean. Pushed to main.**
+
+### Comments added (14 files)
+| File | What was documented |
+|------|-------------------|
+| `src/lib/events.ts` | Single-source-of-truth contract, payload shapes for each event |
+| `src/lib/engagement.ts` | Write-lock race condition, 24h dedup, call sequence, prevAt math, Infinity guard |
+| `src/lib/progress.ts` | Key name hyphen-vs-underscore gotcha (must never rename), markComplete ordering |
+| `src/lib/bookmarks.ts` | Rule 18 pattern rationale |
+| `src/lib/notes.ts` | Auto-delete on blank, prefix stability for reset handler |
+| `src/lib/achievements.ts` | Why checkAchievements is outside addXP, dynamic description getter |
+| `src/app/api/sync-proxy/route.ts` | Why proxy exists, env var contract, 512KB guard rationale |
+| `src/app/api/sync/status/route.ts` | Purpose, 4-var mirror instruction |
+| `src/components/MarkComplete.tsx` | State machine, scroll-not-modal (Rule 25), double-click guard |
+| `src/components/Quiz.tsx` | Pass/fail flow, QUIZ_PASSED_EVENT dispatch, storage restore logic |
+| `src/components/TrackQuizPageClient.tsx` | markAll XP loop, write-lock note, PASS_THRESHOLD |
+| `src/components/AchievementToast.tsx` | UUID dedup reason, captured-Set pattern, timer leak prevention |
+| `src/components/Mermaid.tsx` | DOMPurify XSS, cancelled flag, dynamic import, fullscreen scroll lock |
+| `next.config.ts` | CSP domain rationale, Rule 10 plugin format constraint |
+
+### Post-comment codereview fixes
+| # | Issue | Fix |
+|---|-------|-----|
+| 1 | `layout.tsx` hardcodes `'theme'` in inline script (can't import THEME_KEY pre-React) | Added comment noting it must stay in sync with THEME_KEY in events.ts |
+| 2 | `src/app/api/sync/route.ts` dead code — old route replaced by sync-proxy, no callers | Deleted file |
