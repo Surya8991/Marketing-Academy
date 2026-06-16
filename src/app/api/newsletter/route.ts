@@ -19,6 +19,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid email address" }, { status: 400 });
   }
 
-  // TODO: connect to Mailchimp/ConvertKit/Resend - replace this with your email service API call
-  return NextResponse.json({ success: true }, { status: 200 });
+  return NextResponse.json(
+    { error: "Newsletter subscription is not yet configured. Connect an email service to enable this." },
+    { status: 501 }
+  );
 }

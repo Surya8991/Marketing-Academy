@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
+import { THEME_KEY } from "@/lib/events";
 
 type Theme = "light" | "dark" | "system";
 
@@ -14,7 +15,7 @@ export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const stored = (localStorage.getItem("theme") as Theme) ?? "system";
+    const stored = (localStorage.getItem(THEME_KEY) as Theme) ?? "system";
     setTheme(stored);
     setMounted(true);
   }, []);
@@ -24,9 +25,9 @@ export default function ThemeToggle() {
     const effective = getEffective(theme);
     document.documentElement.setAttribute("data-theme", effective);
     if (theme === "system") {
-      localStorage.removeItem("theme");
+      localStorage.removeItem(THEME_KEY);
     } else {
-      localStorage.setItem("theme", theme);
+      localStorage.setItem(THEME_KEY, theme);
     }
   }, [theme, mounted]);
 

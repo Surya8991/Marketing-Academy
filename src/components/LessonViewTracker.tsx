@@ -15,7 +15,7 @@ export default function LessonViewTracker({ categorySlug, slug, title, categoryT
   useEffect(() => {
     trackLesson({ categorySlug, slug, title, categoryTitle });
     posthog.capture("lesson_viewed", { category: categorySlug, slug, title, level: level ?? "Unknown" });
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [categorySlug, slug, title, categoryTitle, level]);
 
   return null;
 }

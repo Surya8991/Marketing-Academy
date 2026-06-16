@@ -16,17 +16,17 @@ export default function AchievementToast() {
       const ce = e as CustomEvent<{ state: EngagementState; unlocked: string[] }>;
       const { unlocked } = ce.detail;
       if (!unlocked || unlocked.length === 0) return;
-      const now = Date.now();
-      const newToasts: ToastItem[] = unlocked.map((id) => {
-        const a = ACHIEVEMENTS.find((x) => x.id === id);
-        return { id, label: a?.label ?? id, emoji: a?.emoji ?? "🏅", ts: now };
+      const newToasts: ToastItem[] = unlocked.map((achievementId) => {
+        const a = ACHIEVEMENTS.find((x) => x.id === achievementId);
+        return { id: crypto.randomUUID(), label: a?.label ?? achievementId, emoji: a?.emoji ?? "🏅", ts: Date.now() };
       });
       setToasts((prev) => [...prev, ...newToasts]);
-      const id = setTimeout(() => {
-        setToasts((prev) => prev.filter((t) => !newToasts.some((n) => n.ts === t.ts)));
-        timers.current = timers.current.filter((t) => t !== id);
+      const toastIds = new Set(newToasts.map((t) => t.id));
+      const timerId = setTimeout(() => {
+        setToasts((prev) => prev.filter((t) => !toastIds.has(t.id)));
+        timers.current = timers.current.filter((t) => t !== timerId);
       }, 4000);
-      timers.current.push(id);
+      timers.current.push(timerId);
     };
     window.addEventListener(ENGAGEMENT_EVENT, handler);
     return () => {

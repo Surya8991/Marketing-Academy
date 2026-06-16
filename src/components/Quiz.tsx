@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import type { Quiz } from "@/lib/quizzes";
-import { getQuizPassed, setQuizPassed, QUIZ_PASSED_EVENT } from "@/lib/quizzes";
+import { getQuizPassed, setQuizPassed, QUIZ_PASSED_EVENT, quizStorageKey } from "@/lib/quizzes";
 import { addXP, ENGAGEMENT_EVENT } from "@/lib/engagement";
 import { checkAchievements } from "@/lib/achievements";
 import { CheckCircle2, XCircle, RotateCcw, Trophy } from "lucide-react";
@@ -13,10 +13,6 @@ type Props = {
   category: string;
   slug: string;
 };
-
-function quizStorageKey(path: string) {
-  return `ma_quiz_${path.replace(/\//g, "_")}`;
-}
 
 export default function Quiz({ questions, category, slug }: Props) {
   const pathname = usePathname();
@@ -32,6 +28,7 @@ export default function Quiz({ questions, category, slug }: Props) {
     const passed = getQuizPassed(category, slug);
     if (passed) {
       setAlreadyPassed(true);
+      setAnswers(Array(questions.length).fill(true));
       setFinished(true);
       return;
     }

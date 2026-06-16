@@ -22,8 +22,11 @@ export default function AchievementsClient() {
   if (!state) return null;
 
   const { xp, streak, longestStreak, achievements } = state;
-  const { level, title, nextAt } = getCurrentLevel(xp);
-  const pct = nextAt !== Infinity ? Math.min(100, Math.round((xp / nextAt) * 100)) : 0;
+  const { level, title, nextAt, prevAt } = getCurrentLevel(xp);
+  // Intra-tier progress: how far through the current level's XP range
+  const pct = nextAt !== Infinity
+    ? Math.min(100, Math.round(((xp - prevAt) / (nextAt - prevAt)) * 100))
+    : 100;
 
   return (
     <main

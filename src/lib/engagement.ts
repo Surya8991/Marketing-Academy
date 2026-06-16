@@ -65,8 +65,15 @@ export function saveEngagement(state: EngagementState): void {
   }
 }
 
+// Module-level lock prevents concurrent reads+writes losing XP when two calls fire in the same tick
+let _writing = false;
+let _pendingState: EngagementState | null = null;
+
 export function addXP(action: XPAction, id: string): EngagementState {
-  const state = getEngagement();
+  // If a write is in progress, queue onto its accumulated state
+  const state = (_writing && _pendingState) ? _pendingState : getEngagement();
+  _writing = true;
+  _pendingState = state;
   const amount = XP_VALUES[action];
   const t = today();
 
@@ -98,23 +105,29 @@ export function addXP(action: XPAction, id: string): EngagementState {
   ];
 
   saveEngagement(state);
+  _writing = false;
+  _pendingState = null;
   return state;
 }
 
-export function getCurrentLevel(xp: number): { level: number; title: string; nextAt: number } {
-  const levels = [
-    { level: 1, title: "Marketing Newcomer", nextAt: 100 },
-    { level: 2, title: "Curious Learner", nextAt: 250 },
-    { level: 3, title: "Emerging Marketer", nextAt: 500 },
-    { level: 4, title: "Skilled Practitioner", nextAt: 1000 },
-    { level: 5, title: "Senior Marketer", nextAt: 2000 },
-    { level: 6, title: "Marketing Expert", nextAt: 4000 },
-    { level: 7, title: "Certified Polymath", nextAt: Infinity },
-  ];
-  for (let i = levels.length - 1; i >= 0; i--) {
-    if (xp >= (levels[i - 1]?.nextAt ?? 0)) return levels[i];
+const LEVELS = [
+  { level: 1, title: "Marketing Newcomer", nextAt: 100 },
+  { level: 2, title: "Curious Learner", nextAt: 250 },
+  { level: 3, title: "Emerging Marketer", nextAt: 500 },
+  { level: 4, title: "Skilled Practitioner", nextAt: 1000 },
+  { level: 5, title: "Senior Marketer", nextAt: 2000 },
+  { level: 6, title: "Marketing Expert", nextAt: 4000 },
+  { level: 7, title: "Certified Polymath", nextAt: Infinity },
+] as const;
+
+export function getCurrentLevel(xp: number): { level: number; title: string; nextAt: number; prevAt: number } {
+  for (let i = LEVELS.length - 1; i >= 0; i--) {
+    const threshold = LEVELS[i - 1]?.nextAt ?? 0;
+    if (xp >= threshold) {
+      return { ...LEVELS[i], prevAt: threshold };
+    }
   }
-  return levels[0];
+  return { ...LEVELS[0], prevAt: 0 };
 }
 
 export { ENGAGEMENT_EVENT } from "@/lib/events";

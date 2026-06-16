@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { getCompleted, markComplete, markIncomplete, lessonId } from "@/lib/progress";
 import { getQuizPassed, setQuizPassed, QUIZ_PASSED_EVENT } from "@/lib/quizzes";
@@ -71,6 +71,7 @@ export default function MarkComplete({
   const [mounted, setMounted] = useState(false);
   const [justCompleted, setJustCompleted] = useState(false);
   const [quizPassed, setQuizPassedState] = useState(false);
+  const completing = useRef(false);
 
   useEffect(() => {
     setMounted(true);
@@ -106,6 +107,8 @@ export default function MarkComplete({
   const locked = !quizPassed && !done;
 
   function handleComplete() {
+    if (completing.current) return;
+    completing.current = true;
     markComplete(id);
     setDone(true);
     setJustCompleted(true);
@@ -115,6 +118,7 @@ export default function MarkComplete({
     const unlocked = checkAchievements(newState);
     window.dispatchEvent(new CustomEvent(ENGAGEMENT_EVENT, { detail: { state: newState, unlocked } }));
     posthog.capture("lesson_completed", { lesson_id: id });
+    completing.current = false;
   }
 
   const toggle = () => {

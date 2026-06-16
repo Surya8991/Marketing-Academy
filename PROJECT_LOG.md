@@ -1,7 +1,7 @@
 ﻿# Marketing Academy - Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-06-16 (Session 50).
+> Last audited: 2026-06-16 (Session 51).
 
 ---
 
@@ -1981,3 +1981,55 @@ The script used `[a-z-]*` to match existing keys. That character class excluded 
 - Submit disabled until all questions across all pages are answered
 - Pass (≥80%): marks all complete after 1.2s delay
 - Fail (<80%): score banner + "Try again" resets to page 0 with fresh shuffled order
+
+---
+
+## Session 51 — 2026-06-16 (Full codebase security & quality audit + 41-issue fix pass)
+
+**Full repomix-backed code review surfaced 41 issues. All fixed by priority (High → Medium → Low). 19 MDX files gained missing multilingual entries (Rule 15). Security headers, XSS sanitization, race conditions, and API secret exposure all resolved.**
+
+### High-priority fixes (security & correctness)
+| Issue | Fix |
+|-------|-----|
+| `NEXT_PUBLIC_SYNC_SECRET` exposed to client bundle | Created `/api/sync-proxy` (server-side CF KV calls) + `/api/sync/status` (boolean enabled check). Client never sees secret. |
+| XSS via unsanitized Mermaid SVG | Added `DOMPurify.sanitize()` in `Mermaid.tsx` with SVG profile |
+| CSP / security headers missing | Added `headers()` to `next.config.ts` — X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, Content-Security-Policy |
+| XP progress bar wrong math | `getCurrentLevel()` now returns `prevAt`; AchievementsClient uses `(xp - prevAt) / (nextAt - prevAt)` |
+| localStorage race condition in `addXP` | Module-level `_writing`/`_pendingState` write lock prevents concurrent reads from stale base state |
+| `/api/newsletter` silently returned 200 | Now returns 501 with descriptive error message |
+| `/api/og` unbounded input | `title.slice(0, 200)`, `category/level.slice(0, 100)` guards added |
+| `TrackProgress` falsy-zero bug | `if (!pct)` → `if (pct === null)` prevents hiding real 0% bars |
+| `CategoryProgress` divide-by-zero | Guard `slugs.length === 0` added |
+| Double-click `MarkComplete` | `useRef completing` guard prevents double XP/event dispatch |
+| `TrackLessonList` checkbox missing XP | `addXP + checkAchievements + ENGAGEMENT_EVENT` dispatch added on check |
+| `TrackQuizPageClient.markAll` missing XP | Same pattern: loops lessons, dispatches final state after loop |
+| `LessonViewTracker` stale deps | Empty dep array `[]` → proper deps `[categorySlug, slug, title, categoryTitle, level]` |
+| `AchievementToast` duplicate toasts | `crypto.randomUUID()` replaces `Date.now()` as dedup key |
+| `Quiz.tsx` pre-populate passed answers | `setAnswers(Array(n).fill(true))` when `alreadyPassed` so progress bar shows 100% |
+
+### Medium-priority fixes (Rule violations & coupling)
+| Issue | Fix |
+|-------|-----|
+| Note key duplicated in components | New `src/lib/notes.ts` (NOTE_KEY_PREFIX, getNoteKey, getNote, saveNote). `LessonNotes.tsx` imports it. |
+| `QUIZ_PASSED_EVENT` defined in component | Moved to `src/lib/events.ts`; `quizzes.ts` re-exports it |
+| `ONBOARDED_KEY` hardcoded in component | Exported from `events.ts`; `OnboardingModal.tsx` imports it |
+| `THEME_KEY` hardcoded `"theme"` | Exported from `events.ts`; `ThemeToggle.tsx` imports it |
+| `quizStorageKey()` duplicated in Quiz.tsx | Moved to `quizzes.ts`; Quiz.tsx imports from there |
+| `StreakBadge` unused destructure | `nextAt` added to destructure (already used proactively) |
+| `achievements.ts` hardcoded lesson count | `get description()` getter calls `flatLessons().length` dynamically |
+| AGENTS.md Rules 24/25 described non-existent components | Rewrote both rules to match actual code (no TrackQuizGate.tsx, no LessonQuizGate.tsx) |
+| README stale lesson/rule counts | Fixed: 393 lessons, 25 rules, new Key Files rows added |
+| 19 MDX files missing multilingual entries | Added WsCube/Tamil/Telugu bottom-3 to all 19 missing files (Rule 15) |
+
+### New files added this session
+| File | Purpose |
+|------|---------|
+| `src/lib/notes.ts` | Shared note key/storage (NOTE_KEY_PREFIX, getNoteKey, getNote, saveNote, deleteNote) |
+| `src/app/api/sync-proxy/route.ts` | Server-side CF KV proxy — GET/POST with 512KB limit, 503 if unconfigured |
+| `src/app/api/sync/status/route.ts` | Returns `{ enabled: boolean }` — client checks sync availability without a secret |
+
+### Deferred / out-of-scope
+- Test suite setup (vitest): no test infrastructure exists — scope too large for this session
+- 7 over-long lessons (>1200 words): content trimming deferred
+- CommandPalette `inputRef` memoization: micro-optimization, no UX impact
+- Service worker `origin` hardcoding: requires deploy env knowledge

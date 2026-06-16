@@ -38,7 +38,7 @@ A free, structured marketing education site - from absolute beginner to advanced
 **Learning**
 - **Lesson reader** - Left-side table of contents, reading progress bar, reading time estimate, prev/next navigation
 - **Related lessons** - "You might also like" section at the bottom of every lesson
-- **Lesson quizzes** - 4 questions at the bottom of 257 lessons; quiz must be passed (100%) to unlock Mark Complete
+- **Lesson quizzes** - 4 questions at the bottom of 393 lessons; quiz must be passed (100%) to unlock Mark Complete
 - **Progress tracking** - Mark lessons complete, per-category progress bar, bookmarks (all localStorage)
 - **Learning tracks** - 7 curated paths: B2B Marketer, E-commerce Growth, Solo Founder, AI-First Marketer, Content Creator, Social Media Manager, Data-Driven
 - **Progress certificates** - Printable completion certificate per track at `/certificates/[slug]`
@@ -137,7 +137,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/curriculum.ts` | Single source of truth — all lesson slugs, titles, levels |
 | `src/lib/tracks.ts` | 7 learning track definitions |
 | `src/lib/glossary.ts` | 216 marketing term definitions |
-| `src/lib/quizzes.ts` | Quiz questions (4 per lesson, 257 lessons covered) |
+| `src/lib/quizzes.ts` | Quiz questions (4 per lesson, all 393 lessons covered) |
 | `src/lib/tools-directory.ts` | 108 marketing tools with category/pricing data |
 | `src/lib/bookmarks.ts` | Shared bookmark storage (BOOKMARK_KEY, getBookmarks, saveBookmarks) |
 | `src/lib/progress.ts` | Lesson completion helpers (COMPLETED_KEY exported, getCompleted, markComplete) |
@@ -153,7 +153,10 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `public/manifest.json` | PWA Web App Manifest |
 | `public/sw.js` | Service worker: network-first for HTML, cache-first for hashed static assets |
 | `vercel.json` | Security headers (CSP, HSTS, X-Frame-Options, etc.) |
-| `AGENTS.md` | 23 non-negotiable build rules for AI agents (incl. Rule 23: pre-push doc checklist) |
+| `AGENTS.md` | 25 non-negotiable build rules for AI agents (incl. Rule 23: pre-push doc checklist) |
+| `src/lib/notes.ts` | Shared note storage (NOTE_KEY_PREFIX, getNoteKey, getNote, saveNote) |
+| `src/app/api/sync-proxy/route.ts` | Server-side CF KV proxy — secret never exposed to client |
+| `src/app/api/sync/status/route.ts` | Returns `{ enabled: boolean }` so client knows if sync is configured |
 | `PROJECT_LOG.md` | Full session history, gotchas, file inventory, pending tasks |
 
 ---

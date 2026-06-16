@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { ONBOARDED_KEY as STORAGE_KEY } from "@/lib/events";
 
 const GOALS = [
   { emoji: "🚀", label: "Grow a B2B startup", href: "/tracks/b2b-marketer" },
@@ -11,8 +12,6 @@ const GOALS = [
   { emoji: "✍️", label: "Build a content audience", href: "/tracks/content-creator" },
   { emoji: "📱", label: "Master social media", href: "/tracks/social-media-manager" },
 ];
-
-const STORAGE_KEY = "ma_onboarded";
 
 export default function OnboardingModal() {
   const router = useRouter();

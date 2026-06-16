@@ -5,9 +5,9 @@ export const runtime = "edge";
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
-  const title = searchParams.get("title") || "Marketing Academy";
-  const category = searchParams.get("category") || "";
-  const level = searchParams.get("level") || "";
+  const title = (searchParams.get("title") ?? "").slice(0, 200) || "Marketing Academy";
+  const category = (searchParams.get("category") ?? "").slice(0, 100);
+  const level = (searchParams.get("level") ?? "").slice(0, 100);
 
   return new ImageResponse(
     (

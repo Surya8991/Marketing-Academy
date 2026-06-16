@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { Maximize2, X } from "lucide-react";
+import DOMPurify from "dompurify";
 
 interface MermaidProps {
   chart: string;
@@ -61,7 +62,7 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
         const id = `mermaid-${Math.random().toString(36).slice(2)}`;
         const { svg: rendered } = await mermaid.render(id, chart.trim());
         if (!cancelled) {
-          setSvg(rendered);
+          setSvg(DOMPurify.sanitize(rendered, { USE_PROFILES: { svg: true, svgFilters: true } }));
           setError("");
         }
       } catch (e) {

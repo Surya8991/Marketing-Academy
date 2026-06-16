@@ -82,7 +82,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "all-lessons",
     label: "Marketing Polymath",
-    description: "Complete all 387 lessons",
+    get description() { return `Complete all ${flatLessons().length} lessons`; },
     emoji: "🎓",
     check: (_, completed) => completed.size >= flatLessons().length,
   },
