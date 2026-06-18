@@ -94,7 +94,11 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
         const { svg: rendered } = await mermaid.render(id, chart.trim());
         if (!cancelled) {
           // Sanitize SVG output before injecting into the DOM (XSS prevention)
-          setSvg(DOMPurify.sanitize(rendered, { USE_PROFILES: { svg: true, svgFilters: true } }));
+          setSvg(DOMPurify.sanitize(rendered, {
+            USE_PROFILES: { svg: true, svgFilters: true },
+            ADD_TAGS: ["foreignObject"],
+            ADD_ATTR: ["requiredExtensions", "dominant-baseline"],
+          }));
           setError("");
         }
       } catch (e) {
