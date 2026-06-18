@@ -6,7 +6,7 @@ import {
   Menu, X, Search, BookOpen, ChevronDown, Bookmark,
   GraduationCap, LayoutGrid, Brain, Map,
   BookMarked, FileText, Mic2, Wrench,
-  SlidersHorizontal, Trophy, Settings,
+  SlidersHorizontal, Trophy, Settings, Library,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CATEGORIES } from "@/lib/curriculum";
@@ -31,6 +31,7 @@ const RESOURCE_ITEMS = [
   { href: "/glossary",            label: "Glossary",        icon: BookMarked,        desc: "Marketing terms A-Z" },
   { href: "/interview-questions", label: "Interview Prep",  icon: Mic2,              desc: "Ace your marketing interview" },
   { href: "/tools",               label: "Tools Directory", icon: Wrench,            desc: "Best marketing tools" },
+  { href: "/resources",           label: "Curated Resources", icon: Library,         desc: "Newsletters, books, communities" },
   { href: "/compare",             label: "Compare Tools",   icon: SlidersHorizontal, desc: "Side-by-side tool comparison" },
   { href: "/search",              label: "Search",          icon: Search,            desc: "Find any lesson fast" },
 ];
@@ -105,6 +106,7 @@ export default function Nav() {
     pathname.startsWith("/glossary") ||
     pathname.startsWith("/interview") ||
     pathname.startsWith("/tools") ||
+    pathname.startsWith("/resources") ||
     pathname.startsWith("/compare") ||
     pathname.startsWith("/search");
 
