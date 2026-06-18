@@ -11,6 +11,7 @@ import ShareButtons from "@/components/ShareButtons";
 import BookmarkButton from "@/components/BookmarkButton";
 import RelatedLessons from "@/components/RelatedLessons";
 import LessonNotes from "@/components/LessonNotes";
+import LessonResources from "@/components/LessonResources";
 import LessonViewTracker from "@/components/LessonViewTracker";
 import { ChevronLeft, ChevronRight, ArrowLeft, Clock } from "lucide-react";
 import type { Metadata } from "next";
@@ -212,6 +213,8 @@ export default async function LessonPage({ params }: Props) {
             <article className="prose prose-slate max-w-none">
               <LessonContent />
             </article>
+
+            <LessonResources slug={lesson} />
 
             {/* Bottom Mark Complete */}
             <div className="mt-10 pt-8 border-t border-[var(--border)]">
