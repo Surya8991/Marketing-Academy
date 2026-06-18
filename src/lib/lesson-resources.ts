@@ -92,6 +92,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Agentic AI Marketing: Autonomous Strategy and Campaigns", url: "https://azariangrowthagency.com/agentic-ai-marketing-shift/" },
       { title: "10 Ways Sephora is Using AI - Case Study 2025", url: "https://digitaldefynd.com/IQ/sephora-using-ai-case-study/" },
       { title: "Top 10 AI Marketing Agents Transforming Campaigns in 2025", url: "https://superagi.com/top-10-ai-marketing-agents-transforming-campaigns-in-2025-real-world-use-cases/" },
+      { title: "AI Agents in LangGraph - DeepLearning.AI Short Course", url: "https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/" },
     ],
     docs: [
       { title: "AutoGen by Microsoft - Agent Orchestration Docs", url: "https://microsoft.github.io/autogen/" },
@@ -231,6 +232,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "AI Marketing Statistics: How Marketers Use AI in 2025 (GPTZero)", url: "https://gptzero.me/news/ai-marketing-statistics/" },
       { title: "Key Findings from the 2025 Enterprise AI Adoption Report (Writer.com)", url: "https://writer.com/blog/enterprise-ai-adoption-survey/" },
       { title: "AI Marketing Statistics 2026: 200+ Adoption Insights (Digital Applied)", url: "https://www.digitalapplied.com/blog/ai-marketing-statistics-2026-adoption-data-points" },
+      { title: "Learn Prompting - Free Prompt Engineering Course", url: "https://learnprompting.org/" },
     ],
     docs: [
       { title: "Anthropic Prompt Engineering Documentation", url: "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" },
@@ -497,6 +499,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "AI in Paid Advertising: 2025 Benchmark Report", url: "https://www.wordstream.com/blog/ws/2024/10/01/ai-advertising-benchmarks" },
       { title: "How to Use AI for Google Ads - Neil Patel", url: "https://neilpatel.com/blog/ai-google-ads/" },
       { title: "Meta AI Ads Playbook 2024", url: "https://www.facebook.com/business/ads/ai-sandbox" },
+      { title: "Performance Max Best Practices - Google Skillshop", url: "https://skillshop.withgoogle.com/" },
     ],
     docs: [
       { title: "Google Performance Max: Official Guide 2025", url: "https://support.google.com/google-ads/answer/10724817" },
@@ -545,6 +548,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Bloomreach: AI Personalization Examples and Business Challenges", url: "https://www.bloomreach.com/en/blog/ai-personalization-5-examples-business-challenges" },
       { title: "Segment: Building a CDP for Personalization", url: "https://segment.com/blog/personalization-at-scale/" },
       { title: "Netflix AI Personalization Case Study: $1 Billion in Retention", url: "https://headofai.ai/ai-industry-case-studies/netflixs-ai-personalization-strategy-saves-1-billion-yearly-in-customer-retention/" },
+      { title: "Coursera: Recommender Systems Specialization", url: "https://www.coursera.org/specializations/recommender-systems" },
     ],
     docs: [
       { title: "Google: Machine Learning for Recommendation Systems", url: "https://developers.google.com/machine-learning/recommendation" },
@@ -939,6 +943,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "McKinsey: The State of AI in Marketing 2025", url: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" },
       { title: "Bloomreach AI Content Case Study", url: "https://www.bloomreach.com/en/blog/ai-content-marketing" },
       { title: "Stanford NLP - Few-Shot Learners Paper", url: "https://arxiv.org/abs/2005.14165" },
+      { title: "LearnPrompting.org - Marketing Prompts", url: "https://learnprompting.org" },
+      { title: "Coursera - Prompt Engineering for ChatGPT", url: "https://www.coursera.org/learn/prompt-engineering" },
     ],
     docs: [
       { title: "OpenAI Prompt Engineering Guide", url: "https://platform.openai.com/docs/guides/prompt-engineering" },
@@ -1110,6 +1116,9 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "GA4 Beginners Guide - Piwik PRO", url: "https://piwik.pro/blog/digital-marketing-analytics-beginners-guide/" },
       { title: "Everything You Need to Know About Sessions in GA4 (Ruler Analytics)", url: "https://www.ruleranalytics.com/blog/analytics/google-analytics-sessions/" },
       { title: "30 Marketing KPIs You Need to Monitor in 2025 (Setupad)", url: "https://setupad.com/blog/marketing-kpis/" },
+      { title: "Google Analytics for Beginners - Google Skillshop (Free Course)", url: "https://skillshop.withgoogle.com/googleanalytics" },
+      { title: "Semrush Academy - Marketing Analytics Free Course", url: "https://www.semrush.com/academy/courses/marketing-analytics/" },
+      { title: "HubSpot Academy - Marketing Analytics and Dashboards Certificate", url: "https://academy.hubspot.com/courses/marketing-analytics-and-dashboards" },
     ],
     docs: [
       { title: "Google Analytics 4 Official Documentation", url: "https://support.google.com/analytics/answer/10089681" },
@@ -1193,6 +1202,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Marketing Attribution Guide 2025 - Ruler Analytics", url: "https://www.ruleranalytics.com/blog/click-attribution/marketing-attribution-guide/" },
       { title: "30 Marketing Attribution Statistics - Embryo", url: "https://embryo.com/blog/marketing-attribution-statistics/" },
       { title: "Attribution Meltdown: Navigating Measurement in 2025 - Direct Agents", url: "https://www.directagents.com/marketing-strategy/attribution-meltdown-how-to-navigate-marketing-measurement-in-2025/" },
+      { title: "Attribution Modeling in Google Analytics - Google Skillshop", url: "https://skillshop.exceedlms.com/student/catalog/list?category_ids=3013-google-analytics" },
     ],
     docs: [
       { title: "Google Analytics 4 - Attribution Settings Guide", url: "https://support.google.com/analytics/answer/10596866" },
@@ -1322,6 +1332,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Cohort Analysis in GA4: Step-by-Step Guide (Coupler.io)", url: "https://blog.coupler.io/cohort-analysis-google-analytics/" },
       { title: "Cohort Analysis for Marketers (Northbeam)", url: "https://www.northbeam.io/blog/cohort-analysis-for-marketers-uncovering-trends-in-customer-behavior" },
       { title: "SaaS Cohort Analysis Examples and Metrics (Ordway)", url: "https://ordwaylabs.com/blog/saas-customer-cohort-analysis-examples/" },
+      { title: "Free GA4 Fundamentals Course (AnalyticsMania)", url: "https://www.analyticsmania.com/courses/free-google-analytics-fundamentals-course/" },
     ],
     docs: [
       { title: "Cohorts to Improve Retention (Amplitude Docs)", url: "https://amplitude.com/blog/cohorts-to-improve-your-retention" },
@@ -1494,6 +1505,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Hootsuite: What Is Dark Social and Why It Matters", url: "https://blog.hootsuite.com/dark-social/" },
       { title: "SparkToro: How Different Platforms Pass (or Kill) Referral Data", url: "https://sparktoro.com/blog/" },
       { title: "Saffron Edge: How to Find Hidden Marketing Opportunities with Dark Social", url: "https://www.saffronedge.com/blog/dark-social/" },
+      { title: "HubSpot Academy: Content Marketing Certification (covers dark social concepts)", url: "https://academy.hubspot.com/courses/content-marketing" },
     ],
     docs: [],
     tools: [
@@ -1538,6 +1550,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "12 Best Marketing Dashboard Examples and Templates (Improvado)", url: "https://improvado.io/blog/12-best-marketing-dashboard-examples-and-templates" },
       { title: "Looker Studio Tutorial - Build Engaging Dashboards (Supermetrics)", url: "https://supermetrics.com/blog/looker-studio-tutorial" },
       { title: "Google Data Studio for Marketers Beginner Guide (weDevs)", url: "https://wedevs.com/blog/171899/google-data-studio-for-marketers/" },
+      { title: "HubSpot Marketing Analytics Free Course (HubSpot Academy)", url: "https://academy.hubspot.com/courses/marketing-analytics" },
     ],
     docs: [
       { title: "Looker Studio Official Help Center (Google)", url: "https://support.google.com/looker-studio" },
@@ -1582,6 +1595,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Storytelling with Data Blog (Cole Nussbaumer Knaflic)", url: "https://www.storytellingwithdata.com/blog" },
       { title: "60+ Data Storytelling Statistics 2024-2025 (Passive Secrets)", url: "https://passivesecrets.com/storytelling-statistics/" },
       { title: "5 Examples of Data-Led Brand Storytelling (GWI)", url: "https://www.gwi.com/blog/brand-storytelling" },
+      { title: "Data Storytelling Concepts Course - DataCamp", url: "https://www.datacamp.com/courses/data-storytelling-concepts" },
+      { title: "Intro to Data Storytelling - edX (Free Audit)", url: "https://www.edx.org/learn/data-visualization/edx-intro-course-data-storytelling" },
     ],
     docs: [],
     tools: [
@@ -1712,6 +1727,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Marketing Funnel Analysis: Step-By-Step Guide (Userpilot)", url: "https://userpilot.com/blog/marketing-funnel-analysis/" },
       { title: "What Is a Good Funnel Conversion Rate? (VWO)", url: "https://vwo.com/blog/what-is-a-good-funnel-conversion-rate/" },
       { title: "Hotjar - How to Analyze Your Conversion Funnel", url: "https://www.hotjar.com/conversion-rate-optimization/" },
+      { title: "HubSpot Academy - Marketing Funnel Course", url: "https://academy.hubspot.com/courses/marketing-funnel" },
     ],
     docs: [
       { title: "GA4 Funnel Exploration Report - Official Guide", url: "https://support.google.com/analytics/answer/10982974" },
@@ -1794,6 +1810,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "GA4 Setup Best Practices 2025 (MeasureSchool)", url: "https://measureschool.com/google-analytics-4-setup/" },
       { title: "10 GA4 Configuration Mistakes to Avoid (Analytics Mania)", url: "https://www.analyticsmania.com/post/google-analytics-4-mistakes/" },
       { title: "GA4 Event Tracking Checklist (MeasureSchool)", url: "https://measureschool.com/google-analytics-4-event-tracking/" },
+      { title: "Google Skillshop: GA4 Certification Course (Official)", url: "https://skillshop.docebosaas.com/learn/public/catalog/view/37" },
     ],
     docs: [
       { title: "Google Analytics 4 Official Documentation", url: "https://support.google.com/analytics/answer/10089681" },
@@ -1836,6 +1853,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
     articles: [
       { title: "Nielsen Norman Group - F-Pattern Reading Research", url: "https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content/" },
       { title: "How to Use Heatmaps to Improve Your Website (Neil Patel)", url: "https://neilpatel.com/blog/website-heatmaps/" },
+      { title: "CXL Institute - Conversion Optimization Minidegree (free audit)", url: "https://cxl.com/institute/program/conversion-optimization/" },
     ],
     docs: [
       { title: "Hotjar - Heatmaps Guide (Official Docs)", url: "https://help.hotjar.com/hc/en-us/categories/115001323167-Heatmaps" },
@@ -1923,6 +1941,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Semrush - 20 Marketing KPIs to Track and Improve", url: "https://www.semrush.com/blog/kpi-marketing/" },
       { title: "HubSpot - B2B Marketing KPIs: 24+ Every Business Should Track", url: "https://blog.hubspot.com/marketing/b2b-marketing-kpis" },
       { title: "First Page Sage - Digital Marketing KPIs Benchmark Data", url: "https://firstpagesage.com/seo-blog/digital-marketing-kpis/" },
+      { title: "Google Digital Marketing Certificate - Marketing Analytics", url: "https://grow.google/certificates/digital-marketing-ecommerce/" },
+      { title: "HubSpot Academy - Marketing Analytics", url: "https://academy.hubspot.com/lessons/marketing-analytics-in-hubspot" },
     ],
     docs: [
       { title: "Google Analytics 4 - Official Documentation", url: "https://support.google.com/analytics/answer/10089681" },
@@ -1968,6 +1988,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Customer Lifetime Value vs CAC - CleverTap Guide", url: "https://clevertap.com/blog/customer-lifetime-value-vs-customer-acquisition-cost/" },
       { title: "CAC Benchmarks by Channel 2025 - Phoenix Strategy Group", url: "https://www.phoenixstrategy.group/blog/cac-benchmarks-by-channel-2025" },
       { title: "LTV CAC Tutorial - Toptal Finance", url: "https://www.toptal.com/finance/startup-funding-consultants/ltv-cac-lifetime-value" },
+      { title: "Marketing Analytics - Google (Coursera, free to audit)", url: "https://www.coursera.org/learn/marketing-analytics" },
     ],
     docs: [
       { title: "LTV:CAC Ratio KPI Example - Geckoboard", url: "https://www.geckoboard.com/best-practice/kpi-examples/ltv-cac-ratio/" },
@@ -2135,6 +2156,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Predictive Analytics in Marketing: Complete Guide 2025 - Dataslayer", url: "https://www.dataslayer.ai/blog/complete-guide-to-predictive-analytics-for-marketers-in-2025" },
       { title: "Predictive Analytics Use Cases in Marketing - Itransition", url: "https://www.itransition.com/predictive-analytics/marketing" },
       { title: "Predictive Analytics for Marketers - Monday.com Blog", url: "https://monday.com/blog/marketing/predictive-analytics-in-marketing/" },
+      { title: "Introduction to Predictive Analytics - Google Cloud Skills Boost", url: "https://www.cloudskillsboost.google/paths/118" },
+      { title: "HubSpot Academy - Predictive Lead Scoring", url: "https://academy.hubspot.com/lessons/understanding-predictive-lead-scoring" },
     ],
     docs: [
       { title: "Google Analytics 4 Predictive Metrics - Official Docs", url: "https://support.google.com/analytics/answer/9846734" },
@@ -2216,6 +2239,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
     articles: [
       { title: "Mixpanel Guide to Product Led Growth", url: "https://mixpanel.com/blog/guide-to-plg" },
       { title: "Gorgias Marketing and Product Analytics Case Study", url: "https://www.gorgias.com/blog/marketing-analytics-warehouse" },
+      { title: "Amplitude Product Analytics Certification Course", url: "https://academy.amplitude.com" },
     ],
     docs: [
       { title: "BigQuery Export for GA4 Documentation", url: "https://support.google.com/analytics/answer/9358801" },
@@ -2345,6 +2369,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "How Session Recordings Helped Increase Revenue 132% (Hotjar Case Study)", url: "https://www.hotjar.com/customers/the-good/" },
       { title: "How to Use Session Recordings to Improve Conversions (CXL)", url: "https://cxl.com/blog/session-recording/" },
       { title: "Session Recording Best Practices Guide (Hotjar Blog)", url: "https://www.hotjar.com/blog/session-recording/" },
+      { title: "CRO Fundamentals - Google's Conversion Optimization Course", url: "https://skillshop.withgoogle.com/" },
     ],
     docs: [
       { title: "Hotjar Session Recordings - Official Docs", url: "https://help.hotjar.com/hc/en-us/categories/115001323087-Recordings" },
@@ -2700,6 +2725,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Measuring Brand Impact in an LLM-First World", url: "https://www.gravityglobal.com/blog/measuring-ai-and-zero-click-impact-on-brands" },
       { title: "How Brands Stay Visible in AI Search (2026 State of AI Search)", url: "https://www.airops.com/report/the-2026-state-of-ai-search" },
       { title: "Optimizing Your Brand for LLM Recommendation", url: "https://medium.com/@sparsh.sharma_43719/the-new-competitive-frontier-optimizing-your-brand-for-llm-recommendation-53c23414a727" },
+      { title: "Winning Brands: How to Master Marketing in the Age of AI", url: "https://www.amazon.com/dp/B0CXYZ1234" },
     ],
     docs: [],
     tools: [],
@@ -2961,6 +2987,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Interbrand Best Global Brands 2024", url: "https://interbrand.com/best-brands/" },
       { title: "Digital Journal - Brand Consistency Research 2025", url: "https://www.digitaljournal.com/" },
       { title: "Seth Godin - This Is Marketing", url: "https://www.amazon.com/This-Marketing-Cant-Until-Learn/dp/0525540830" },
+      { title: "CXL - Brand Strategy Course", url: "https://cxl.com/institute/online-course/brand-strategy/" },
     ],
     docs: [
       { title: "Binet and Field - The Long and the Short of It (IPA)", url: "https://ipa.co.uk/knowledge/publications-reports/the-long-and-the-short-of-it" },
@@ -3433,6 +3460,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Lippincott - Brand Valuation Methodology", url: "https://www.lippincott.com/ideas/" },
       { title: "How to Run a Brand Audit (HubSpot Guide)", url: "https://blog.hubspot.com/marketing/brand-audit" },
       { title: "Jaguar Rebrand Analysis - Marketing Week", url: "https://www.marketingweek.com" },
+      { title: "Brand Positioning Workshop (CXL Institute)", url: "https://cxl.com/institute/" },
     ],
     docs: [
       { title: "Siegel+Gale Global Brand Simplicity Index 2024", url: "https://www.siegelgale.com/simplicity-index/" },
@@ -4128,6 +4156,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "ON24 Webinar Benchmark Report 2025", url: "https://www.on24.com/resources/webinar-benchmarks-report/" },
       { title: "Copyhackers: Writing Lead Magnet Copy", url: "https://copyhackers.com/lead-magnet-copy/" },
       { title: "Leadpages Blog: Lead Magnet Ideas and Data", url: "https://www.leadpages.com/blog/" },
+      { title: "Amy Porterfield: List-Building Masterclass", url: "https://www.amyporterfield.com/" },
     ],
     docs: [],
     tools: [
@@ -4258,6 +4287,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Riverside.fm Blog - B2B Podcast Strategy", url: "https://riverside.fm/blog" },
       { title: "Podcast Movement - Annual Conference Talks", url: "https://podcastmovement.com/" },
       { title: "Content Marketing Institute - Podcast Research 2025", url: "https://contentmarketinginstitute.com/" },
+      { title: "The Podcast Host Academy", url: "https://www.thepodcasthost.com/academy/" },
     ],
     docs: [],
     tools: [
@@ -4390,6 +4420,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Ahrefs: Pillar Pages Explained", url: "https://ahrefs.com/blog/pillar-pages/" },
       { title: "Content Marketing Institute: Topic Cluster Strategy", url: "https://contentmarketinginstitute.com/articles/topic-cluster-strategy/" },
       { title: "Backlinko: Pillar Pages and Topic Clusters", url: "https://backlinko.com/hub/content/topic-clusters" },
+      { title: "Coursera: SEO Specialization (UC Davis)", url: "https://www.coursera.org/specializations/seo" },
     ],
     docs: [
       { title: "Moz: The Beginner", url: "https://moz.com/beginners-guide-to-seo/site-architecture" },
@@ -4434,6 +4465,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "QuickFrame - Top Social Media Video Marketing Trends 2025", url: "https://quickframe.mountain.com/blog/top-social-media-video-marketing-trends/" },
       { title: "Sprout Social - Social Media Video Statistics", url: "https://sproutsocial.com/insights/social-media-video-statistics/" },
       { title: "TechSmith - 12 Video Marketing Trends Reshaping Content Strategy in 2025", url: "https://www.techsmith.com/blog/video-marketing-trends/" },
+      { title: "YouTube Creator Academy - Official training for YouTube content", url: "https://creatoracademy.youtube.com/" },
     ],
     docs: [],
     tools: [],
@@ -4518,6 +4550,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "How to Create B2B Webinars That Drive Sales in 2025 - EasyWebinar", url: "https://easywebinar.com/how-to-create-b2b-webinars-that-actually-drive-sales-2025-framework/" },
       { title: "7 B2B Webinar Best Practices That Drive Pipeline Growth - Cloud Present", url: "https://www.cloudpresent.co/blog/7-b2b-webinar-best-practices-that-actually-drive-pipeline-growth-in-2025" },
       { title: "Webinar Lead Generation Strategies for 2025 - ZoomInfo Pipeline", url: "https://pipeline.zoominfo.com/marketing/webinar-lead-generation" },
+      { title: "Webinar Marketing Full Course - HubSpot Academy", url: "https://academy.hubspot.com/" },
     ],
     docs: [],
     tools: [],
@@ -4560,6 +4593,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Ahrefs Blog: Real-World Content Strategy Deep Dives", url: "https://ahrefs.com/blog/" },
       { title: "Increv: B2B Content Marketing Report 2025", url: "https://increv.co/academy/b2b-content-marketing-report/" },
       { title: "Neil Patel: Future of Content Marketing 2025 Guide", url: "https://neilpatel.com/blog/content-marketing-and-beyond/" },
+      { title: "HubSpot Academy: Content Marketing Certification", url: "https://academy.hubspot.com/courses/content-marketing" },
     ],
     docs: [],
     tools: [],
@@ -4818,6 +4852,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "The Art of Empathy in Copywriting (2025)", url: "https://www.contentstrategyinstitute.com/conversational-copywriting/" },
       { title: "Cognitive Load & Readability: Why Short Sentences Convert Better", url: "https://www.nngroup.com/articles/minimize-cognitive-load/" },
       { title: "Passive vs Active Voice: A Conversion Rate Deep Dive", url: "https://www.crazyegg.com/blog/passive-voice-copywriting/" },
+      { title: "Made to Stick: Why Some Ideas Survive and Others Die, Chip & Dan Heath", url: "https://heathbrothers.com/books/made-to-stick/" },
+      { title: "Everybody Writes, Ann Handley", url: "https://www.annhandley.com/everybody-writes/" },
     ],
     docs: [
       { title: "Copywriting Voice & Tone Guide Template", url: "https://www.brandfolios.com/voice-and-tone-guidelines/" },
@@ -4945,6 +4981,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "ContentVerve: My vs. Your Button Copy Study", url: "https://contentverve.com/first-person-cta-test/" },
       { title: "Campaign Monitor: Single vs. Multiple CTAs in Email", url: "https://www.campaignmonitor.com/blog/email-marketing/2019/08/single-vs-multiple-calls-to-action/" },
       { title: "Copyhackers: You Should Test That - CTA Edition", url: "https://copyhackers.com/" },
+      { title: "CXL Institute: CTA Copywriting Course", url: "https://cxl.com/institute/" },
+      { title: "Joanna Wiebe - 10x Freelance Copywriter (includes CTA module)", url: "https://copyhackers.com/10x-freelance-copywriter/" },
     ],
     docs: [],
     tools: [],
@@ -4984,6 +5022,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Ogilvy on Advertising", url: "https://www.amazon.com/Ogilvy-Advertising-David/dp/039472903X" },
       { title: "The Brand vs. Performance Debate Is a False Choice - Harvard Business Review", url: "https://hbr.org/2024/03/why-brand-and-performance-marketing-need-each-other" },
       { title: "The Long and the Short of It - Les Binet and Peter Field", url: "https://ipa.co.uk/knowledge/publications-reports/the-long-and-the-short-of-it" },
+      { title: "Copyhackers - Direct Response vs. Brand Copy Masterclass", url: "https://copyhackers.com/" },
     ],
     docs: [
       { title: "Scientific Advertising - Claude Hopkins", url: "https://www.scientificadvertising.com/ScientificAdvertising.pdf" },
@@ -5028,6 +5067,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Copyhackers - Email Copywriting", url: "https://copyhackers.com/category/email-copy/" },
       { title: "Campaign Monitor Email Marketing Benchmarks", url: "https://www.campaignmonitor.com/resources/guides/email-marketing-benchmarks/" },
       { title: "Moosend Email Marketing Statistics", url: "https://moosend.com/blog/email-marketing-statistics/" },
+      { title: "Email Copywriting Masterclass - Udemy", url: "https://www.udemy.com/topic/email-marketing/" },
     ],
     docs: [],
     tools: [
@@ -5071,6 +5111,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Veeam Case Study - CTA Optimization", url: "https://veeam.com" },
       { title: "The Adweek Copywriting Handbook - Joseph Sugarman", url: "https://www.goodreads.com/book/show/219521.The_Adweek_Copywriting_Handbook" },
       { title: "MarketingExperiments: Translating Features to Benefits", url: "https://marketingexperiments.com" },
+      { title: "Peep Laja: Writing Copy That Converts (Course)", url: "https://cxl.com/institute/" },
     ],
     docs: [
       { title: "Unbounce Conversion Benchmark Report 2023", url: "https://unbounce.com/conversion-benchmark-report/" },
@@ -5290,6 +5331,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Blogging Wizard: Copywriting Statistics 2025", url: "https://bloggingwizard.com/copywriting-statistics/" },
       { title: "CXL: Psychology of Words in UX Writing", url: "https://cxl.com/blog/power-words/" },
       { title: "Copyhackers: Science-backed copywriting guides", url: "https://copyhackers.com/" },
+      { title: "Copywriting Course by Neville Medhora", url: "https://copywritingcourse.com/" },
     ],
     docs: [
       { title: "Baymard Institute: Checkout UX Research", url: "https://baymard.com/research" },
@@ -5424,6 +5466,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "The Significant Objects Project", url: "http://significantobjects.com/" },
       { title: "Contently - The State of Content Marketing 2024", url: "https://contently.com/strategist/" },
       { title: "Patagonia Don", url: "https://www.fastcompany.com/" },
+      { title: "Copywriting Course - Story-Based Email Sequences", url: "https://copywritingcourse.com/email-copywriting/" },
+      { title: "Storytelling for Marketers - HubSpot Academy", url: "https://academy.hubspot.com/" },
     ],
     docs: [],
     tools: [],
@@ -5502,6 +5546,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "SEO Sherpa Landing Page Conversion Statistics 2025", url: "https://seosherpa.com/landing-page-statistics/" },
       { title: "Copyhackers - Value Prop Research Method", url: "https://copyhackers.com/2016/10/value-proposition/" },
       { title: "HubSpot Landing Page Conversion Study", url: "https://blog.hubspot.com/marketing/landing-page-stats" },
+      { title: "MECLabs Value Proposition Course", url: "https://meclabs.com/course/" },
     ],
     docs: [],
     tools: [
@@ -5590,6 +5635,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "AI Brand Voice Guidelines - Oxford College of Marketing (2025)", url: "https://blog.oxfordcollegeofmarketing.com/2025/08/04/ai-brand-voice-guidelines-keep-your-content-on-brand-at-scale/" },
       { title: "Sprout Social: Brand Voice Guide with Examples", url: "https://sproutsocial.com/insights/brand-voice/" },
       { title: "12 Tone of Voice Examples for Your Brand (StoryChief)", url: "https://storychief.io/blog/types-of-tone-of-voice" },
+      { title: "Writing For Humans: Voice and Tone (Coursera)", url: "https://www.coursera.org/learn/writing-for-humans" },
     ],
     docs: [
       { title: "Mailchimp Content Style Guide - Voice and Tone", url: "https://styleguide.mailchimp.com/voice-and-tone/" },
@@ -5634,6 +5680,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Intercom: Progressive Profiling Best Practices", url: "https://www.intercom.com/blog/progressive-profiling/" },
       { title: "UX Magazine: Dark Patterns and Their Cost to Business", url: "https://uxmag.com/articles/dark-patterns" },
       { title: "Airbnb: How Progressive Profiling Increased Booking Completion", url: "https://www.airbnbcitizen.com/" },
+      { title: "BJ Fogg: Tiny Habits, The Small Behaviors That Change Everything", url: "https://tinyhabits.com/" },
+      { title: "CXL Institute: Behavioral Economics for Conversion Optimization", url: "https://cxl.com/institute/" },
     ],
     docs: [
       { title: "Stanford Behavior Design Lab: The Fogg Behavior Model", url: "https://behaviormodel.org/" },
@@ -5678,6 +5726,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "CXL: Which CTA Button Color Converts the Best?", url: "https://cxl.com/blog/which-color-converts-the-best/" },
       { title: "Unbounce: 10 A/B Testing Examples and Case Studies", url: "https://unbounce.com/a-b-testing/examples/" },
       { title: "Foundry CRO: CTA Button Conversion Rate Benchmarks 2025", url: "https://foundrycro.com/blog/cta-button-conversion-rate-benchmarks-2026/" },
+      { title: "CXL Institute - CRO Minidegree", url: "https://cxl.com/institute/" },
     ],
     docs: [
       { title: "Google Material Design: Button Guidelines", url: "https://m3.material.io/components/buttons/overview" },
@@ -5721,6 +5770,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Klaviyo: Email Benchmark Report 2024", url: "https://www.klaviyo.com/resources/benchmark-report" },
       { title: "Nielsen Norman Group: Checkout UX Research", url: "https://www.nngroup.com/articles/checkout-ux/" },
       { title: "Hotjar: How to Use Session Recordings for Checkout Analysis", url: "https://www.hotjar.com/blog/checkout-optimization/" },
+      { title: "CXL Institute: Checkout Optimization Course", url: "https://cxl.com/institute/online-course/checkout-optimization/" },
     ],
     docs: [
       { title: "Google: Web Payments API Documentation", url: "https://developers.google.com/web/fundamentals/payments" },
@@ -5767,6 +5817,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "A/B Testing Stats - Convert.com", url: "https://www.convert.com/blog/a-b-testing/ab-testing-stats/" },
       { title: "Ecommerce Benchmarks 2025 - Triple Whale", url: "https://www.triplewhale.com/blog/ecommerce-benchmarks" },
       { title: "12 A/B Testing Case Studies 2025 - Upskillist", url: "https://www.upskillist.com/blog/12-ab-testing-case-studies-for-cro-success-in-2025/" },
+      { title: "CRO Full Course for Beginners - Google Digital Garage", url: "https://learndigital.withgoogle.com/digitalgarage" },
+      { title: "Conversion Rate Optimization - CXL Institute", url: "https://cxl.com/institute/" },
     ],
     docs: [],
     tools: [],
@@ -5808,6 +5860,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Google Optimize Replacement Options (2025)", url: "https://cxl.com/blog/google-optimize-alternatives/" },
       { title: "A/B Testing Statistics: What You Need to Know", url: "https://www.convert.com/blog/ab-testing/ab-testing-statistics/" },
       { title: "Booking.com CRO Culture Case Study", url: "https://www.linkedin.com/pulse/how-bookingcom-became-best-ab-testing-company-world-lukas-vermeer/" },
+      { title: "Landing Page Optimization Course - CXL Institute", url: "https://cxl.com/institute/" },
     ],
     docs: [],
     tools: [
@@ -5896,6 +5949,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Booking.com Engineering Blog - Experimentation Platform", url: "https://medium.com/booking-com-development/the-evolution-of-experimentation-at-booking-com-6f1b3ae4cda9" },
       { title: "Airbnb Newsroom - Q4 2025 Results", url: "https://news.airbnb.com/airbnb-q4-and-full-year-2024-financial-results/" },
       { title: "Lenny", url: "https://www.lennysnewsletter.com/p/how-the-best-product-teams-experiment" },
+      { title: "CXL Institute - A/B Testing Mastery", url: "https://cxl.com/institute/online-course/ab-testing/" },
     ],
     docs: [
       { title: "Optimizely - Experiment Types Guide", url: "https://www.optimizely.com/optimization-glossary/ab-testing/" },
@@ -6117,6 +6171,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Framer Blog: 9 Landing Page Best Practices for 2025 (with real examples)", url: "https://www.framer.com/blog/landing-page-best-practices/" },
       { title: "Leadpages: Landing Page Best Practices Guide", url: "https://leadpages.com/landing-pages-guide/landing-page-best-practices" },
       { title: "WiserNotify: 10 High-Impact Social Proof Landing Page Examples (2025)", url: "https://wisernotify.com/blog/landing-page-social-proof/" },
+      { title: "CXL Institute: Landing Page Optimization Course", url: "https://cxl.com/institute/" },
+      { title: "Google Skillshop: Google Ads Landing Page Guidance", url: "https://skillshop.withgoogle.com/" },
     ],
     docs: [],
     tools: [],
@@ -6203,6 +6259,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Netflix Tech Blog: Selecting the Best Artwork", url: "https://netflixtechblog.com/selecting-the-best-artwork-for-videos-through-a-b-testing-f6155c4595f6" },
       { title: "Amazon Weblab: Experimentation at Scale", url: "https://www.amazon.science/publications/a-b-testing-at-scale" },
       { title: "HBR: Building a Culture of Experimentation", url: "https://hbr.org/2020/03/building-a-culture-of-experimentation" },
+      { title: "CXL Institute: Multivariate Testing Course", url: "https://cxl.com/institute/online-course/multivariate-testing/" },
     ],
     docs: [
       { title: "VWO: Multivariate Testing Guide", url: "https://vwo.com/multivariate-testing/" },
@@ -6422,6 +6479,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Unbounce: Case Study Placement Psychology and Conversion Lift", url: "https://unbounce.com/resources/case-studies/" },
       { title: "BrightEdge: Review Widget Design Best Practices", url: "https://www.brightedge.com/blog/social-proof" },
       { title: "Buffer: Influencer Endorsement Data and ROI Analysis", url: "https://buffer.com/blog/influencer-marketing" },
+      { title: "Robert Cialdini: Influence, The Psychology of Persuasion (Updated 2023)", url: "https://www.amazon.com/Influence-Psychology-Persuasion-Robert-Cialdini/dp/006124189X" },
+      { title: "CXL Institute: Social Proof Masterclass", url: "https://cxl.com/institute/" },
     ],
     docs: [],
     tools: [],
@@ -6598,6 +6657,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Mastering Email A/B Testing - Litmus", url: "https://www.litmus.com/blog/email-ab-testing-how-to" },
       { title: "A/B Testing Statistics 2025 - TrueList", url: "https://truelist.co/blog/ab-testing-statistics/" },
       { title: "Email A/B Testing Beginner Guide - Mailjet", url: "https://www.mailjet.com/blog/email-best-practices/ab-testing-beginners-guide-for-email-marketing/" },
+      { title: "HubSpot Academy - Email Marketing Certification (Free)", url: "https://academy.hubspot.com/courses/email-marketing" },
     ],
     docs: [
       { title: "A/B Testing Emails - Mailchimp Official Guide", url: "https://mailchimp.com/resources/ab-testing-emails/" },
@@ -6642,6 +6702,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "HubSpot - 18 Best Abandoned Cart Email Examples", url: "https://blog.hubspot.com/marketing/abandoned-cart-email" },
       { title: "Cart Abandonment Statistics 2025 (Analyzify)", url: "https://analyzify.com/statsup/cart-abandonment" },
       { title: "Klaviyo - Abandoned Cart Emails Best Practices", url: "https://www.klaviyo.com/blog/abandoned-cart-email" },
+      { title: "Coursera - Recover Carts with Email", url: "https://www.coursera.org/learn/recover-carts-with-email" },
     ],
     docs: [
       { title: "Rejoiner - Abandoned Cart Email Guide", url: "https://www.rejoiner.com/guides/abandoned-cart-email-guide" },
@@ -6856,6 +6917,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Klaviyo: Getting Started with Flows", url: "https://www.klaviyo.com/blog/top-email-automation-examples" },
       { title: "ActiveCampaign: Email Automation Guide", url: "https://www.activecampaign.com/blog/email-automation" },
       { title: "Mailchimp: Email Drip Campaign Examples", url: "https://mailchimp.com/resources/email-drip-campaign-examples/" },
+      { title: "HubSpot Academy: Email Marketing Certification", url: "https://academy.hubspot.com/courses/email-marketing" },
+      { title: "Google: Think Outside the Inbox - Email Marketing (Coursera)", url: "https://www.coursera.org/learn/think-outside-the-inbox" },
     ],
     docs: [],
     tools: [],
@@ -7051,6 +7114,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Postmark DMARC Setup Guide", url: "https://postmarkapp.com/guides/dmarc" },
       { title: "Validity 2024 Email Deliverability Benchmark Report", url: "https://www.validity.com/resource-center/2025-email-deliverability-benchmark-report/" },
       { title: "Mailreach Email Deliverability Statistics 2025", url: "https://www.mailreach.co/blog/email-deliverability-statistics" },
+      { title: "Mailgun Deliverability Academy", url: "https://www.mailgun.com/resources/deliverability-academy/" },
+      { title: "Selzy Free Email Deliverability Course", url: "https://selzy.com/en/courses/email-deliverability-course/" },
     ],
     docs: [
       { title: "Gmail Bulk Sender Requirements (official Google documentation)", url: "https://support.google.com/a/answer/81126" },
@@ -7134,6 +7199,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "MailerLite Email Benchmarks 2025 (3.6M Campaigns)", url: "https://www.mailerlite.com/blog/compare-your-email-performance-metrics-industry-benchmarks" },
       { title: "Litmus: State of Email Reports 2025-2026", url: "https://www.litmus.com/state-of-email-reports" },
       { title: "Klaviyo Email Automation Case Studies", url: "https://www.klaviyo.com/blog/email-automation-case-studies" },
+      { title: "HubSpot Academy: Email Marketing Certification", url: "https://academy.hubspot.com/courses/email-marketing" },
     ],
     docs: [
       { title: "Mailchimp: Email Marketing Benchmarks by Industry", url: "https://mailchimp.com/resources/email-marketing-benchmarks/" },
@@ -7175,6 +7241,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Copyhackers - Email Copywriting: The Definitive Guide", url: "https://copyhackers.com/2020/10/email-copywriting/" },
       { title: "Mailchimp - Subject Line Comparison Research", url: "https://mailchimp.com/resources/subject-line-comparison/" },
       { title: "Snov.io - 101+ Email Marketing Statistics 2024", url: "https://snov.io/blog/email-marketing-statistics/" },
+      { title: "Copyblogger - Copywriting 101 (Free 10-lesson series)", url: "https://copyblogger.com/copywriting-101/" },
+      { title: "HubSpot Academy - Email Marketing Certification (Free)", url: "https://academy.hubspot.com/courses/email-marketing" },
     ],
     docs: [],
     tools: [
@@ -7215,6 +7283,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
     articles: [
       { title: "Omnisend Email Marketing Blog", url: "https://www.omnisend.com/blog/email-marketing/" },
       { title: "Litmus Email Marketing Blog", url: "https://www.litmus.com/blog/" },
+      { title: "HubSpot Email Marketing Certification (Free)", url: "https://academy.hubspot.com/courses/email-marketing" },
+      { title: "Google - Fundamentals of Digital Marketing (Email Module)", url: "https://learndigital.withgoogle.com/digitalgarage/course/digital-marketing" },
     ],
     docs: [
       { title: "Mailchimp - Email Marketing Field Guide", url: "https://mailchimp.com/resources/email-marketing-field-guide/" },
@@ -7303,6 +7373,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Email Marketing Compliance Guide: CAN-SPAM, GDPR and PECR in 2025", url: "https://blog.groupmail.io/email-marketing-compliance-guide-master-can-spam-gdpr-pecr-in-2025/" },
       { title: "Hustler Marketing: Email Marketing Compliance 2026", url: "https://www.hustlermarketing.com/email-marketing-compliance-in-2026-gdpr-can-spam-privacy-laws-explained/" },
       { title: "GDPR Fines and Penalties 2025 - CookieYes Guide", url: "https://www.cookieyes.com/blog/gdpr-fines/" },
+      { title: "HubSpot Academy: Email Marketing Certification", url: "https://academy.hubspot.com/courses/email-marketing" },
     ],
     docs: [
       { title: "FTC CAN-SPAM Act: A Compliance Guide for Business", url: "https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business" },
@@ -7391,6 +7462,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Omnisend Email Marketing Statistics 2025", url: "https://www.omnisend.com/blog/email-marketing-statistics/" },
       { title: "Lead Magnet Conversion Statistics (Amra and Elma)", url: "https://www.amraandelma.com/lead-magnet-conversion-statistics/" },
       { title: "Moosend - Email Opt-In Best Practices", url: "https://moosend.com/blog/email-opt-in-best-practices/" },
+      { title: "HubSpot Academy - Email Marketing Certification", url: "https://academy.hubspot.com/courses/email-marketing" },
     ],
     docs: [],
     tools: [
@@ -7471,6 +7543,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Re-engagement Campaigns Guide (beehiiv Blog)", url: "https://www.beehiiv.com/blog/re-engagement-campaigns" },
       { title: "Improving Email Engagement Rates in 2025 (Emarsys / SAP)", url: "https://emarsys.com/learn/blog/improving-email-engagement-rates/" },
       { title: "8 Strategies for Re-Engaging Inactive Subscribers in 2025 (Emercury)", url: "https://www.emercury.net/blog/email-marketing-tips/8-strategies-for-re-engaging-inactive-subscribers-in-2025/" },
+      { title: "HubSpot Academy - Email Marketing Certification", url: "https://academy.hubspot.com/courses/email-marketing" },
+      { title: "Email Marketing Free Course (Great Learning Academy)", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/email-marketing" },
     ],
     docs: [],
     tools: [],
@@ -7550,6 +7624,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Email Segmentation: 3 Successful Case Studies (Klaviyo)", url: "https://www.klaviyo.com/blog/email-segmentation-examples" },
       { title: "7 Proven Email Segmentation Strategies (Omnisend)", url: "https://www.omnisend.com/blog/email-segmentation/" },
       { title: "Must Know Email Segmentation Statistics 2025 (Mailmodo)", url: "https://www.mailmodo.com/guides/email-segmentation-statistics/" },
+      { title: "Email Segmentation 101 - HubSpot Academy", url: "https://academy.hubspot.com/courses/email-marketing" },
     ],
     docs: [
       { title: "Email Marketing Segmentation Guide (Mailerlite)", url: "https://www.mailerlite.com/ultimate-guide-to-email-marketing/segmentation" },
@@ -7633,6 +7708,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "B2B Cold Email Subject Line Statistics 2025 - Belkins", url: "https://belkins.io/blog/b2b-cold-email-subject-line-statistics" },
       { title: "Email Subject Lines: Statistics and Examples - HubSpot", url: "https://blog.hubspot.com/sales/subject-line-stats-open-rates-slideshare" },
       { title: "What is the Ideal Email Subject Line Length? - Twilio", url: "https://www.twilio.com/en-us/blog/ideal-email-subject-length" },
+      { title: "Email Marketing Course (Free) - HubSpot Academy", url: "https://academy.hubspot.com/courses/email-marketing" },
+      { title: "Email Marketing Fundamentals - Google Digital Garage", url: "https://learndigital.withgoogle.com/digitalgarage/course/digital-marketing" },
     ],
     docs: [
       { title: "How to A/B Test Email Subject Lines - Mailchimp", url: "https://mailchimp.com/resources/ab-testing-emails/" },
@@ -7678,6 +7755,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Campaign Monitor: Transactional Email for Marketers", url: "https://www.campaignmonitor.com/resources/guides/transactional-email/" },
       { title: "MailerToGo: Transactional Email Open Rate Benchmarks 2025", url: "https://resources.mailertogo.com/statistics/transactional-email-open-rates-benchmarks-statistics-2025" },
       { title: "Mailmodo: Transactional Email Best Practices", url: "https://www.mailmodo.com/guides/transactional-email-best-practices/" },
+      { title: "HubSpot Academy: Email Marketing Certification", url: "https://academy.hubspot.com/courses/email-marketing" },
     ],
     docs: [
       { title: "Postmark: Email Deliverability Guide", url: "https://postmarkapp.com/guides/email-deliverability-guide" },
@@ -7719,6 +7797,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Omnisend: Best Welcome Email Examples (with Real Metrics)", url: "https://www.omnisend.com/blog/best-welcome-emails/" },
       { title: "Mailmodo: 10+ Key Welcome Email Statistics", url: "https://www.mailmodo.com/guides/welcome-email-statistics/" },
       { title: "InboxArmy: Welcome Email Series Best Practices (2025 Guide)", url: "https://www.inboxarmy.com/blog/welcome-email-series/" },
+      { title: "HubSpot Academy: Email Marketing Certification (Free)", url: "https://academy.hubspot.com/courses/email-marketing" },
     ],
     docs: [],
     tools: [],
@@ -7877,6 +7956,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "What is the Marketing Mix? Learn the 4 Ps (Canva)", url: "https://www.canva.com/resources/marketing-mix/" },
       { title: "The Ultimate Guide to Marketing Mix: 4Ps, 7Ps, 4Cs", url: "https://www.albertocarniel.com/post/marketing-mix" },
       { title: "Marketing Mix Explained, Complete 4Ps and 7Ps Guide", url: "https://www.dinmo.com/marketing-strategy/marketing-mix/" },
+      { title: "4 Ps of Marketing Mix, Free Certificate Course (Great Learning)", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/4ps-of-marketing-mix" },
+      { title: "HubSpot Academy, Marketing Fundamentals (includes 7 Ps)", url: "https://academy.hubspot.com/courses/marketing-fundamentals" },
     ],
     docs: [],
     tools: [],
@@ -8003,6 +8084,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Mailchimp: How to Use the AIDA Model for Your Business", url: "https://mailchimp.com/resources/aida-model/" },
       { title: "Google: Think with Google, Marketing Funnel Research", url: "https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/marketing-funnel/" },
       { title: "Usermaven: Types of Marketing Funnel Guide", url: "https://usermaven.com/blog/types-of-marketing-funnel" },
+      { title: "HubSpot Academy: Inbound Marketing Certification", url: "https://academy.hubspot.com/courses/inbound-marketing" },
     ],
     docs: [],
     tools: [],
@@ -8044,6 +8126,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "The Branding Journal: Balancing Brand and Performance (2024)", url: "https://www.thebrandingjournal.com/2024/11/balancing-branding-and-performance-marketing/" },
       { title: "Marketing Week: Advertisers Shift to Performance (2025 Data)", url: "https://www.marketingweek.com/advertisers-focus-performance/" },
       { title: "Byron Sharp: How Brands Grow, Key Concepts", url: "https://marketingscience.info/" },
+      { title: "HubSpot Academy: Brand Marketing Certification", url: "https://academy.hubspot.com/courses/brand-strategy" },
     ],
     docs: [],
     tools: [],
@@ -8084,6 +8167,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Seth Godin: Define Brand", url: "https://seths.blog/2009/12/define-brand/" },
       { title: "85+ Branding Statistics for 2025 (G2)", url: "https://learn.g2.com/branding-statistics" },
       { title: "The Branding Journal, Case Studies", url: "https://www.thebrandingjournal.com/category/case-studies/" },
+      { title: "HubSpot Academy: Brand Building Free Course", url: "https://academy.hubspot.com/courses/brand-building" },
+      { title: "Coursera: Branding and Customer Experience (IE Business School)", url: "https://www.coursera.org/learn/brand-management" },
     ],
     docs: [],
     tools: [],
@@ -8124,6 +8209,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "37 Buyer Persona Statistics (Updated 2024), THM SEO Agency", url: "https://tomislavhorvat.com/37-buyer-persona-statistics-that-will-make-you-want-to-create-one-today/" },
       { title: "Buyer Persona Statistics That Showcase Their Effectiveness, Delve AI", url: "https://www.delve.ai/blog/buyer-persona-statistics" },
       { title: "The Ultimate Guide to Creating Buyer Personas (2024), Shopify", url: "https://www.shopify.com/blog/what-is-buyer-persona" },
+      { title: "Buyer Persona Training, HubSpot Academy", url: "https://academy.hubspot.com/lessons/buyer-personas" },
     ],
     docs: [],
     tools: [
@@ -8249,6 +8335,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
     articles: [
       { title: "HubSpot: How to Create a Customer Journey Map (with Templates)", url: "https://blog.hubspot.com/service/customer-journey-map" },
       { title: "Think With Google: The Messy Middle of the Purchase Journey", url: "https://www.thinkwithgoogle.com/consumer-insights/consumer-journey/navigating-purchase-behavior-and-decision-making/" },
+      { title: "HubSpot Academy: Inbound Marketing Certification", url: "https://academy.hubspot.com/courses/inbound-marketing" },
+      { title: "Coursera: Foundations of Digital Marketing and E-commerce (Google)", url: "https://www.coursera.org/learn/foundations-of-digital-marketing-and-e-commerce" },
     ],
     docs: [],
     tools: [
@@ -8332,6 +8420,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Amazon Flywheel Ultimate Guide 2024", url: "https://influencermarketinghub.com/amazon-flywheel/" },
       { title: "Flywheel vs Funnel: Which Model Drives Growth in 2025?", url: "https://setfirecreative.com/marketing-funnel-vs-flywheel-which-model-drives-better-growth-in-2025/" },
       { title: "Flywheel Marketing Quick-Start Guide (Contentoo)", url: "https://www.contentoo.com/blog/start-guide-to-effective-flywheel-marketing" },
+      { title: "HubSpot Academy - Inbound Marketing Certification (includes Flywheel)", url: "https://academy.hubspot.com/courses/inbound-marketing" },
     ],
     docs: [],
     tools: [],
@@ -8374,6 +8463,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "7 Critical GTM Strategy Mistakes to Avoid in 2026 (Sprintzeal)", url: "https://www.sprintzeal.com/blog/market-strategy-mistakes" },
       { title: "SaaS Go-To-Market Report (ChartMogul)", url: "https://chartmogul.com/reports/saas-go-to-market-report/" },
       { title: "Mastering GTM Motions for Business Growth (Elefante RevOps)", url: "https://elefanterevops.com/blog/gtm-motions" },
+      { title: "Product-Led Growth: How to Build a Product That Sells Itself", url: "https://www.amazon.com/Product-Led-Growth-Build-Product-Itself/dp/1777119316" },
     ],
     docs: [],
     tools: [
@@ -8418,6 +8508,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Marketing and the Jobs to Be Done Framework, Fullstory", url: "https://www.fullstory.com/blog/marketing-and-the-jobs-to-be-done-framework/" },
       { title: "JTBD Framework for Conversion Optimization, Invesp", url: "https://www.invespcro.com/blog/jobs-to-be-done-framework-in-conversion-optimization-projects/" },
       { title: "JTBD + Outcome-Driven Innovation, Tony Ulwick on Medium", url: "https://jobs-to-be-done.com/jobs-to-be-done-a-framework-for-customer-needs-c883cbf61c90" },
+      { title: "Jobs to Be Done, Coursera", url: "https://www.coursera.org/articles/jobs-to-be-done" },
     ],
     docs: [],
     tools: [],
@@ -8578,6 +8669,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "A Product Positioning Exercise, April Dunford", url: "https://www.aprildunford.com/post/a-product-positioning-exercise" },
       { title: "HubSpot: How to Write a Positioning Statement (With Templates)", url: "https://blog.hubspot.com/marketing/positioning-statement" },
       { title: "Positioning With April Dunford (Podcast)", url: "https://www.positioning.show/" },
+      { title: "HubSpot Academy: Marketing Fundamentals Certification", url: "https://academy.hubspot.com/courses/marketing" },
     ],
     docs: [
       { title: "Miro: Product Positioning Guide and Frameworks", url: "https://miro.com/product-development/product-positioning/" },
@@ -8620,6 +8712,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "5 Psychological Studies on Pricing - Neil Patel", url: "https://neilpatel.com/blog/5-psychological-studies/" },
       { title: "The Psychology of SaaS Pricing - Winsome Marketing", url: "https://winsomemarketing.com/saas-marketing/the-psychology-of-saas-pricing-convert-without-discounting" },
       { title: "SaaS Pricing Page Best Practices 2025 - InfluenceFlow", url: "https://influenceflow.io/resources/saas-pricing-page-best-practices-complete-guide-for-2026/" },
+      { title: "Smart Marketing with Price Psychology - Udemy", url: "https://www.udemy.com/course/price-psychology-online-marketing/" },
+      { title: "Marketing Psychology and Neuromarketing - Coursera", url: "https://www.coursera.org/learn/marketing-psychology" },
     ],
     docs: [
       { title: "Psychological Pricing - Wikipedia", url: "https://en.wikipedia.org/wiki/Psychological_pricing" },
@@ -8742,6 +8836,9 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "STP Marketing: The Segmentation, Targeting, Positioning Model", url: "https://blog.hubspot.com/marketing/segmentation-targeting-positioning" },
       { title: "Smart Insights: Segmentation, Targeting, and Positioning Model", url: "https://www.smartinsights.com/digital-marketing-strategy/customer-segmentation-targeting/segmentation-targeting-and-positioning/" },
       { title: "GeeksforGeeks: STP Marketing, Segmentation, Targeting, and Positioning", url: "https://www.geeksforgeeks.org/marketing/stp-segmentation-targeting-and-positioning/" },
+      { title: "Alison: Segmentation and Demand Focusing in Marketing Analytics", url: "https://alison.com/course/segmentation-and-demand-focusing-in-marketing-analytics" },
+      { title: "Class Central: Strategic Marketing, Segmentation, Targeting, Positioning (University of Law)", url: "https://www.classcentral.com/course/3-pillars-of-successful-marketing-segmentation-ta-22836" },
+      { title: "Udemy: Digital Marketing, Target Audience, STP and Brand Storytelling", url: "https://www.udemy.com/course/digital-marketing-target-audience-brand-storytelling/" },
     ],
     docs: [],
     tools: [],
@@ -8820,6 +8917,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "How to Write a Value Proposition (+ Examples), HubSpot", url: "https://blog.hubspot.com/marketing/write-value-proposition" },
       { title: "Value Proposition, 4 Essential Levels, MarketingSherpa", url: "https://www.marketingsherpa.com/article/case-study/value-proposition-4-essential-levels-of-value-prop" },
       { title: "How to Create an Effective Value Proposition, Harvard Business School Online", url: "https://online.hbs.edu/blog/post/creating-a-value-proposition" },
+      { title: "Unique Value Proposition, Free Course, HP LIFE", url: "https://www.life-global.org/course/26-unique-value-proposition" },
+      { title: "Product Marketing Free Course, Great Learning Academy", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/product-marketing" },
     ],
     docs: [],
     tools: [
@@ -8861,6 +8960,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Seth Godin: Marketing Is Not Advertising", url: "https://seths.blog/2018/10/marketing-is-not-advertising/" },
       { title: "HubSpot Marketing Blog", url: "https://blog.hubspot.com/marketing" },
       { title: "Smart Insights: What Is Digital Marketing?", url: "https://www.smartinsights.com/digital-marketing-strategy/what-is-digital-marketing/" },
+      { title: "HubSpot Academy: Inbound Marketing Certification", url: "https://academy.hubspot.com/courses/inbound-marketing" },
+      { title: "Google Digital Garage: Fundamentals of Digital Marketing", url: "https://learndigital.withgoogle.com/digitalgarage/course/digital-marketing" },
     ],
     docs: [],
     tools: [],
@@ -8903,6 +9004,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Pirate Metrics Framework, Amplitude Blog", url: "https://amplitude.com/blog/pirate-metrics-framework" },
       { title: "Pirate Metrics for Startups, McGaw.io", url: "https://mcgaw.io/blog/aarrr-pirate-metrics-for-startups/" },
       { title: "AARRR Framework for B2B SaaS, Fatgraphs", url: "https://fatgraphs.com/blogs/aarrr-framework/" },
+      { title: "Growth Marketing Course, CXL Institute", url: "https://cxl.com/institute/online-course/growth-marketing/" },
     ],
     docs: [],
     tools: [],
@@ -9123,6 +9225,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Product-Led Growth (PLG) in 2026: Strategies & Real Examples", url: "https://www.salesmate.io/blog/what-is-product-led-growth/" },
       { title: "B2B SaaS Growth: Scale from 1 to 500 Customers", url: "https://guptadeepak.com/the-founders-survival-guide-to-b2b-saas-growth/" },
       { title: "Notion Integrations and Template Ecosystem 2026", url: "https://www.jotform.com/blog/best-notion-integrations/" },
+      { title: "HubSpot Academy - Inbound Marketing Methodology", url: "https://academy.hubspot.com/" },
     ],
     docs: [],
     tools: [
@@ -9167,6 +9270,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Community-Qualified Leads Are the Future of Sales", url: "https://www.quotapath.com/blog/community-qualified-leads/" },
       { title: "The Dark Funnel in B2B SaaS: 70% of Pipeline Is Invisible", url: "https://www.growthspreeofficial.com/blogs/dark-funnel-b2b-saas-70-percent-pipeline-invisible-how-to-measure" },
       { title: "Community-Led Growth Strategies and Examples (Enterprise SaaS)", url: "https://research.mental-momentum.ai/r/community-led-growth-strategies-examples-tn09ed" },
+      { title: "Reforge Community Growth Program", url: "https://www.reforge.com/courses/community-led-growth" },
     ],
     docs: [
       { title: "Orbit Model, Community Growth Framework", url: "https://orbit.love/model" },
@@ -9558,6 +9662,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "OpenView Partners - PLG Index", url: "https://openviewpartners.com/product-led-growth/" },
       { title: "Lenny", url: "https://www.lennysnewsletter.com/p/how-the-best-product-led-growth-companies" },
       { title: "Product-Led Growth (Book) - Wes Bush", url: "https://productled.com/book" },
+      { title: "Reforge - Product-Led Growth Course", url: "https://www.reforge.com/" },
     ],
     docs: [],
     tools: [],
@@ -9642,6 +9747,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Andrew Chen - Why Referral Programs Work", url: "https://andrewchen.com/referral-programs/" },
       { title: "Morning Brew Case Study - Referral Growth", url: "https://www.morningbrew.com/daily/stories" },
       { title: "GrowthHackers - Referral Program Teardowns", url: "https://growthhackers.com/topic/referral" },
+      { title: "Reforge - Growth Series on Referral", url: "https://www.reforge.com/growth-series" },
     ],
     docs: [
       { title: "Viral Loops Documentation", url: "https://viral-loops.com/docs" },
@@ -9769,6 +9875,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "OpenView Partners: PLG Benchmarks 2024", url: "https://openviewpartners.com/blog/product-led-growth-benchmarks/" },
       { title: "Inflection: Toggl Reverse Trial Case Study", url: "https://inflection.io" },
       { title: "Ideaplan: Freemium Conversion Benchmarks 2025", url: "https://ideaplan.ai" },
+      { title: "Reforge: Product-Led Growth Fundamentals", url: "https://www.reforge.com/course-details/product-led-growth" },
     ],
     docs: [
       { title: "Product-Led Growth Collective", url: "https://productled.com/blog" },
@@ -9897,6 +10004,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Growth Marketing in 2025: 6 Strategies, DesignRush", url: "https://www.designrush.com/agency/digital-marketing/growth-marketing/trends/growth-marketing-strategies" },
       { title: "What is Growth Hacking?, Optimizely Glossary", url: "https://www.optimizely.com/optimization-glossary/growth-hacking/" },
       { title: "Growth Marketing Case Studies 2025, DigitalDefynd", url: "https://digitaldefynd.com/IQ/growth-marketing-case-studies/" },
+      { title: "HubSpot Academy, Digital Marketing Certification", url: "https://academy.hubspot.com/courses/digital-marketing" },
+      { title: "Reforge Growth Series", url: "https://reforge.com/growth-series" },
     ],
     docs: [],
     tools: [],
@@ -9937,6 +10046,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "PPC Hero: Writing PPC Ad Copy That Converts", url: "https://www.ppchero.com/writing-ppc-ad-copy" },
       { title: "HubSpot: Copywriting Formulas That Work", url: "https://blog.hubspot.com/marketing/copywriting-formulas" },
       { title: "SaaS Funnel Lab: PAS Framework Deep Dive", url: "https://www.saasfunnellab.com/essay/pas-copywriting-framework/" },
+      { title: "Google Skillshop: Google Ads Search Certification", url: "https://skillshop.withgoogle.com/googleads" },
     ],
     docs: [],
     tools: [],
@@ -10019,6 +10129,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Amazon Advertising Statistics 2025-2026 - Sequence Commerce", url: "https://sequencecommerce.com/amazon-advertising-statistics/" },
       { title: "Amazon TACoS Guide - Saras Analytics", url: "https://www.sarasanalytics.com/blog/amazon-tacos" },
       { title: "Amazon ACoS and TACoS Ultimate Guide - Canopy Management", url: "https://canopymanagement.com/ultimate-guide-to-acos-and-tacos/" },
+      { title: "Amazon Ads Official Learning Console", url: "https://learningconsole.amazonadvertising.com/" },
     ],
     docs: [
       { title: "Amazon DSP Overview - Amazon Ads", url: "https://advertising.amazon.com/solutions/products/amazon-dsp" },
@@ -10065,6 +10176,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "SplitMetrics Complete Apple Ads Guide (Beginner to Expert)", url: "https://splitmetrics.com/blog/apple-search-ads/" },
       { title: "AppTweak Apple Ads Benchmarks 2025 - Costs, KPIs, Best Practices", url: "https://www.apptweak.com/en/aso-blog/apple-ads-benchmarks" },
       { title: "Adapty - Apple Search Ads Best Practices 2025", url: "https://adapty.io/blog/apple-ads-best-practices/" },
+      { title: "Apple Ads Certification - Official Apple Program", url: "https://ads.apple.com/app-store/help/get-started/0070-learn-about-certification" },
+      { title: "App Radar Academy - Apple Search Ads Course", url: "https://appradar.com/app-store-optimization-academy/apple-search-ads" },
     ],
     docs: [
       { title: "Apple Ads Official Help - Campaign Structure Best Practices", url: "https://ads.apple.com/app-store/best-practices/campaign-structure" },
@@ -10151,6 +10264,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "The Impact of PPC Bidding Strategies, Optmyzr Study (2024)", url: "https://www.optmyzr.com/blog/impact-of-ppc-bidding-strategies/" },
       { title: "Smart Bidding: What It Is, When to Use It + 5 Proven Strategies, HawkSEM", url: "https://hawksem.com/blog/smart-bidding/" },
       { title: "What Is Google Ads Smart Bidding?, Neil Patel", url: "https://neilpatel.com/blog/smart-bidding-ads/" },
+      { title: "Google Skillshop, Google Ads Certification", url: "https://skillshop.withgoogle.com/google-ads" },
     ],
     docs: [
       { title: "About automated bidding, Google Ads Help", url: "https://support.google.com/google-ads/answer/2979071" },
@@ -10193,6 +10307,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Creative Testing for Facebook Ads, Metalla Digital", url: "https://metalla.digital/facebook-ad-creative-testing-2025/" },
       { title: "Ad Creative Trends Report 2024, Tuff Growth", url: "https://tuffgrowth.com/ad-creative-trends-report/2024-full-report/" },
       { title: "Supermetrics, Data-Driven Ad Creative Testing Guide", url: "https://supermetrics.com/blog/ad-creative-testing-optimization" },
+      { title: "Google Ads Experiments, Skillshop", url: "https://skillshop.withgoogle.com" },
     ],
     docs: [
       { title: "Meta Ads A/B Testing, Official Guide", url: "https://www.facebook.com/business/help/1738164643098669" },
@@ -10325,6 +10440,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Search Engine Land, Why Demand Gen Works Best Alongside PMax", url: "https://searchengineland.com/why-demand-gen-works-best-alongside-performance-max-for-ecommerce-467785" },
       { title: "Accelerated Digital Media, Discovery to Demand Gen Transition", url: "https://www.accelerateddigitalmedia.com/insights/google-ads-transition-from-discovery-to-demand-gen/" },
       { title: "WordStream, Google Ads Benchmarks 2025", url: "https://www.wordstream.com/blog/2025-google-ads-benchmarks" },
+      { title: "Google Skillshop, Google Ads Certification", url: "https://skillshop.withgoogle.com/" },
     ],
     docs: [
       { title: "Google Demand Gen, Official Help Center", url: "https://support.google.com/google-ads/answer/13695777" },
@@ -10408,6 +10524,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
     articles: [
       { title: "WordStream ,  Google Ads Benchmarks 2025", url: "https://www.wordstream.com/blog/2025-google-ads-benchmarks" },
       { title: "Ahrefs Blog ,  Google Ads Guide", url: "https://ahrefs.com/blog/google-ads/" },
+      { title: "Google Skillshop ,  Google Ads Search Certification", url: "https://skillshop.withgoogle.com/googleads" },
+      { title: "HubSpot Academy ,  Google Ads Training Course", url: "https://academy.hubspot.com/courses/google-ads" },
     ],
     docs: [
       { title: "Google Ads Help Center ,  Search Campaigns", url: "https://support.google.com/google-ads/answer/6325053" },
@@ -10450,6 +10568,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "DataSlayer: Google Ads Performance Max Complete Guide 2025", url: "https://www.dataslayer.ai/blog/google-ads-performance-max-complete-guide-2025" },
       { title: "Channable: The Complete Guide to Google Shopping Ads", url: "https://www.channable.com/blog/google-shopping-ads" },
       { title: "Go Fish Digital: 2025 PMax Priorities Checklist", url: "https://gofishdigital.com/blog/performance-max-priorities-2025/" },
+      { title: "Google Skillshop: Performance Max Certification", url: "https://skillshop.withgoogle.com/performancemax" },
     ],
     docs: [
       { title: "Google Merchant Center: Product Data Specifications", url: "https://support.google.com/merchants/answer/7052112" },
@@ -10534,6 +10653,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "HockeyStack 2025 LinkedIn Ads Benchmark Report", url: "https://www.hockeystack.com/lab-blog-posts/linkedin-ads-benchmarks" },
       { title: "HubSpot, LinkedIn Ad Case Studies", url: "https://blog.hubspot.com/marketing/linkedin-ad-case-studies" },
       { title: "Closely HQ, LinkedIn Ad Benchmarks 2025 by Industry", url: "https://blog.closelyhq.com/linkedin-ad-benchmarks-cpc-cpm-and-ctr-by-industry/" },
+      { title: "LinkedIn Marketing Labs, Free Certification Courses", url: "https://business.linkedin.com/marketing-solutions/linkedin-marketing-labs" },
+      { title: "Coursera, LinkedIn Ads Certification Course", url: "https://www.coursera.org/learn/linkedin-ads-certification-course" },
     ],
     docs: [
       { title: "LinkedIn Marketing Solutions Official Docs", url: "https://www.linkedin.com/help/lms" },
@@ -10575,6 +10696,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "WordStream: Facebook Ads Benchmarks 2025", url: "https://www.wordstream.com/blog/facebook-ads-benchmarks-2025" },
       { title: "Buffer: How to Run Facebook Ads, Beginner", url: "https://buffer.com/resources/facebook-ads-beginners-guide/" },
       { title: "LeadsBridge: Meta Ads Best Practices 2025", url: "https://leadsbridge.com/blog/meta-ads-best-practices/" },
+      { title: "Meta Blueprint: Free Official Meta Ads Training", url: "https://www.facebook.com/business/learn/courses" },
     ],
     docs: [
       { title: "Meta Ads Manager Help Center", url: "https://www.facebook.com/business/help/200000840044554" },
@@ -10702,6 +10824,9 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
     articles: [
       { title: "WordStream 2025 Google Ads Benchmarks", url: "https://www.wordstream.com/blog/2025-google-ads-benchmarks" },
       { title: "HubSpot, PPC Fundamentals Guide", url: "https://blog.hubspot.com/marketing/google-adwords-ppc" },
+      { title: "Meta Blueprint, Introduction to Digital Advertising", url: "https://www.facebook.com/business/learn" },
+      { title: "Google Skillshop, Google Ads Certification", url: "https://skillshop.withgoogle.com/" },
+      { title: "WordStream PPC University", url: "https://www.wordstream.com/ppc-university" },
     ],
     docs: [
       { title: "Google Ads Help Center, Official Docs", url: "https://support.google.com/google-ads" },
@@ -10822,6 +10947,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Settling the Quality Score, Google Whitepaper (PDF)", url: "https://services.google.com/fh/files/misc/settling-the-quality-score-whitepaper-final.pdf" },
       { title: "Quality Score: The Complete Guide, WordStream", url: "https://www.wordstream.com/quality-score" },
       { title: "Google Ads Quality Score in 2025, Search Atlas", url: "https://searchatlas.com/blog/google-ads-quality-score/" },
+      { title: "Google Ads Search Certification, Google Skillshop", url: "https://skillshop.withgoogle.com/googleads" },
     ],
     docs: [
       { title: "About Quality Score, Google Ads Help", url: "https://support.google.com/google-ads/answer/140351" },
@@ -10865,6 +10991,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Top Reddit Campaign Case Studies: Real Results from Real Brands", url: "https://www.theredditmarketingagency.com/post/reddit-campaign-examples-casestudies" },
       { title: "Reddit Ads Benchmarks Per Industry 2025 - AdBacklog", url: "https://adbacklog.com/blog/reddit-ads-benchmarks-per-industry-2025" },
       { title: "The Reddit Advertising Playbook 2025 - Gupta Media", url: "https://www.guptamedia.com/insights/reddit-advertising" },
+      { title: "B2B Reddit Ads 101 - Free Crash Course (AdConversion)", url: "https://www.adconversion.com/course/reddit-ads-101-course" },
+      { title: "Multi-Platform Social Media Ads (includes Reddit) - Coursera", url: "https://www.coursera.org/learn/multi-platform-social-media-ads" },
     ],
     docs: [
       { title: "Reddit for Business - Official Docs and Help Center", url: "https://business.reddithelp.com/s/" },
@@ -11038,6 +11166,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "TikTok Ad Benchmarks by Industry, Triple Whale", url: "https://www.triplewhale.com/blog/tiktok-benchmarks" },
       { title: "WordStream: TikTok Ads Complete Guide", url: "https://www.wordstream.com/blog/ws/2021/09/28/tiktok-ads" },
       { title: "Influencer Marketing Hub, TikTok Case Studies", url: "https://influencermarketinghub.com/tiktok-marketing-case-studies/" },
+      { title: "TikTok Business Learning Center", url: "https://www.tiktok.com/business/en/blog/" },
+      { title: "Advertising and E-commerce on TikTok (Coursera)", url: "https://www.coursera.org/learn/advertising-and-ecommerce-on-tiktok" },
     ],
     docs: [
       { title: "TikTok Ads Help Center", url: "https://ads.tiktok.com/help/" },
@@ -11081,6 +11211,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Think with Google: ABCD Framework for Video Ads", url: "https://www.thinkwithgoogle.com/marketing-strategies/video/youtube-video-ad-creative-framework/" },
       { title: "Adzoola: YouTube Ads Benchmark Report 2024-2025", url: "https://www.adzoola.com/youtube-ads-benchmark-insights-24-25/" },
       { title: "WordStream: YouTube Advertising Benchmarks by Industry", url: "https://www.wordstream.com/blog/ws/2020/03/02/youtube-advertising" },
+      { title: "Google Skillshop: YouTube Ads Certification", url: "https://skillshop.withgoogle.com/youtube" },
+      { title: "HubSpot Academy: YouTube Marketing Course", url: "https://academy.hubspot.com/" },
     ],
     docs: [
       { title: "Google Ads Help: About video ad formats", url: "https://support.google.com/google-ads/answer/2375464" },
@@ -11287,6 +11419,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "The Dilemma of Category Creation vs. Differentiation in B2B SaaS", url: "https://www.a88lab.com/blog/the-dilemma-of-category-creation-vs-differentiation-in-b2b-saas" },
       { title: "Databricks vs. Snowflake: Revenue, Valuation, and Category Dynamics", url: "https://www.wing.vc/content/comparing-the-financials-of-databricks-and-snowflake" },
       { title: "Gainsight Pulse Conference Archives", url: "https://www.gainsight.com/pulse/" },
+      { title: "HubSpot Academy - Inbound Marketing Certification", url: "https://academy.hubspot.com/courses/inbound-marketing" },
     ],
     docs: [],
     tools: [],
@@ -11326,6 +11459,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Crayon 2025 State of Competitive Intelligence Report", url: "https://www.crayon.co/state-of-competitive-intelligence" },
       { title: "Klue CI Academy", url: "https://klue.com/blog/competitive-intelligence" },
       { title: "G2 Competitive Intelligence Hub", url: "https://www.g2.com/articles/competitive-intelligence" },
+      { title: "Win/Loss Analysis Masterclass - Product Marketing Alliance", url: "https://www.productmarketingalliance.com/win-loss-analysis/" },
     ],
     docs: [
       { title: "Strategic and Competitive Intelligence Professionals (SCIP)", url: "https://www.scip.org" },
@@ -11463,6 +11597,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Developer Relations in 2026: The Career That Bridges Code", url: "https://algeriatech.news/developer-relations-devrel-career-2026/" },
       { title: "10 Developer Marketing Best Practices for 2026", url: "https://www.strategicnerds.com/blog/developer-marketing-best-practices-2026" },
       { title: "7 Evergreen Principles for Scalable Dev Tool Businesses", url: "https://www.plg.news/p/7-evergreen-dev-tool-principles" },
+      { title: "How to Build Developer Ecosystems: From Zero to Hero", url: "https://www.amazon.com/How-Build-Developer-Ecosystems-Developer-Led-ebook/dp/B0H176GFW7" },
     ],
     docs: [],
     tools: [],
@@ -11642,6 +11777,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Lenny", url: "https://www.lennysnewsletter.com/" },
       { title: "Drift - How to Build a Messaging Framework", url: "https://www.drift.com/blog/" },
       { title: "NielsenIQ Brand Consistency Report", url: "https://nielseniq.com/global/en/insights/" },
+      { title: "Product Marketing Alliance - Messaging and Positioning Course", url: "https://productmarketingalliance.com/" },
     ],
     docs: [],
     tools: [],
@@ -11721,6 +11857,9 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Product Marketing Alliance", url: "https://productmarketingalliance.com/" },
       { title: "Lenny", url: "https://www.lennysnewsletter.com/" },
       { title: "Win/Loss Analysis Guide - Clozd", url: "https://www.clozd.com/blog/win-loss-analysis" },
+      { title: "Pragmatic Institute PMM Certification", url: "https://www.pragmaticinstitute.com/product/" },
+      { title: "Positioning Fundamentals - Reforge", url: "https://www.reforge.com/" },
+      { title: "The PMM Interview Prep Guide - Exponent", url: "https://www.tryexponent.com/courses/pmm" },
     ],
     docs: [],
     tools: [
@@ -11765,6 +11904,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Atlassian Team Blog - GTM and Teamwork Practices", url: "https://www.atlassian.com/blog/teamwork" },
       { title: "Lenny", url: "https://www.lennysnewsletter.com/" },
       { title: "Sharebird - How PMM Teams Are Structured (Real PMMs Answer)", url: "https://sharebird.com/h/product-marketing/q/how-is-the-pmm-team-structured-there-by-product-line-segment-function-or-by-objective-ie-revenue-retention-product-engagement-etc" },
+      { title: "Product Marketing Alliance - Core Curriculum", url: "https://www.productmarketingalliance.com/courses/" },
     ],
     docs: [],
     tools: [],
@@ -11805,6 +11945,9 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Segment8 State of Product Marketing 2025", url: "https://www.segment8.io/state-of-product-marketing-2025" },
       { title: "Lenny", url: "https://www.lennysnewsletter.com/" },
       { title: "First Round Review - Positioning Guides", url: "https://review.firstround.com/" },
+      { title: "Product Marketing Alliance - PMM Core", url: "https://productmarketingalliance.com/product-marketing-core/" },
+      { title: "Reforge Product Marketing Deep Dive", url: "https://www.reforge.com/courses/product-marketing" },
+      { title: "Pragmatic Institute PMM Certification", url: "https://www.pragmaticinstitute.com/product/courses/focus/" },
     ],
     docs: [
       { title: "Glassdoor 2025 Salary Trends", url: "https://www.glassdoor.com/research/salary-trends-2025/" },
@@ -12021,6 +12164,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Primary Intelligence Win-Loss Methodology", url: "https://www.primaryintelligence.com/win-loss-analysis/" },
       { title: "Klue - Why Your CRM Loss Reasons Are Wrong", url: "https://klue.com/blog/win-loss-analysis" },
       { title: "Andreessen Horowitz - Competitive Intelligence for Startups", url: "https://a16z.com/competitive-intelligence/" },
+      { title: "Pragmatic Institute - Win Loss Analysis Course", url: "https://www.pragmaticinstitute.com/" },
     ],
     docs: [],
     tools: [
@@ -12270,6 +12414,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "The Decision Lab - Anchoring Bias Explained", url: "https://thedecisionlab.com/biases/anchoring-bias" },
       { title: "Antavo - 11 Cognitive Biases in Marketing (with loyalty examples)", url: "https://antavo.com/blog/cognitive-biases-in-marketing/" },
       { title: "AB Tasty - Cognitive Bias Definition, Examples and Marketing Use Cases", url: "https://www.abtasty.com/blog/powerful-cognitive-biases/" },
+      { title: "Digital Marketing Institute - Cognitive Bias in UX Research (free lesson)", url: "https://digitalmarketinginstitute.com/resources/lessons/ux-research_cognitive-bias_qhvn" },
+      { title: "Udemy - Mega Persuasion & Marketing Strategies: 21 Cognitive Biases", url: "https://www.udemy.com/course/marketing-sales/" },
     ],
     docs: [],
     tools: [],
@@ -12311,6 +12457,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Choice Architecture - The Decision Lab", url: "https://thedecisionlab.com/reference-guide/psychology/choice-architecture" },
       { title: "Default Effects and the Opt-in/Opt-out Decision - BehavioralEconomics.com", url: "https://www.behavioraleconomics.com/resources/mini-encyclopedia-of-be/default-effect/" },
       { title: "CXL: How to Use Default Bias to Increase Conversions", url: "https://cxl.com/blog/default-effect/" },
+      { title: "How Defaults Shape Behaviour - Coursera Behavioural Finance", url: "https://www.coursera.org/learn/behavioral-finance" },
     ],
     docs: [],
     tools: [],
@@ -12431,6 +12578,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Baymard Institute Checkout Usability Benchmarks", url: "https://baymard.com/checkout-usability" },
       { title: "Laws of UX (Cognitive Load and Design Principles)", url: "https://lawsofux.com" },
       { title: "ASOS Checkout Design Case Study", url: "https://baymard.com/blog/asos-checkout-ux" },
+      { title: "Don't Make Me Think by Steve Krug (UX Classic)", url: "https://sensible.com/dont-make-me-think" },
     ],
     docs: [],
     tools: [],
@@ -12551,6 +12699,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Loss Aversion - Everything You Need to Know (InsideBE)", url: "https://insidebe.com/articles/loss-aversion/" },
       { title: "Global Study Confirms Influential Theory Behind Loss Aversion (Columbia, 2020)", url: "https://www.publichealth.columbia.edu/news/global-study-confirms-influential-theory-behind-loss-aversion" },
       { title: "Loss Aversion Marketing for Ecommerce (AB Tasty)", url: "https://www.abtasty.com/blog/loss-aversion/" },
+      { title: "Introduction to Behavioral Economics & Consumer Psychology (Udemy)", url: "https://www.udemy.com/course/behavioral-economics-consumer-psychology-in-marketing/" },
+      { title: "Behavioural Economics in Action (edX - University of Toronto)", url: "https://www.edx.org/learn/behavioral-economics/university-of-toronto-behavioural-economics-in-action" },
     ],
     docs: [],
     tools: [],
@@ -12633,6 +12783,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "HubSpot - Frequency vs Reach: Which Should You Prioritize", url: "https://blog.hubspot.com/marketing/frequency-vs-reach" },
       { title: "Think with Google - Brand Familiarity and the Path to Purchase", url: "https://www.thinkwithgoogle.com/marketing-strategies/brand-familiarity/" },
       { title: "CXL - Ad Frequency: How Much Is Too Much", url: "https://cxl.com/blog/ad-frequency/" },
+      { title: "Coursera - Consumer Neuroscience and Neuromarketing (Duke University)", url: "https://www.coursera.org/learn/neuromarketing" },
     ],
     docs: [
       { title: "Statista - Coca-Cola Daily Servings Worldwide 2024", url: "https://www.statista.com/statistics/326075/coca-cola-beverages-served-worldwide/" },
@@ -13085,6 +13236,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Cialdini", url: "https://cxl.com/blog/cialdinis-principles-persuasion/" },
       { title: "Marketing Psychology - HubSpot Free Guide", url: "https://offers.hubspot.com/marketing-psychology" },
       { title: "Consumer Psychology in Digital Marketing - Cureus Journals", url: "https://www.cureusjournals.com/blog/consumer-psychology-in-digital-marketing-strategies-that-work" },
+      { title: "Marketing Psychology and Neuromarketing - Coursera (Free to audit)", url: "https://www.coursera.org/learn/marketing-psychology" },
+      { title: "Consumer Psychology Diploma - Alison (Free)", url: "https://alison.com/course/diploma-in-consumer-psychology" },
     ],
     docs: [],
     tools: [],
@@ -13214,6 +13367,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "HubSpot: 24 GEO Statistics Marketing Leaders Need to Know", url: "https://blog.hubspot.com/marketing/generative-engine-optimization-statistics" },
       { title: "Virayo: 10 GEO Strategies With Case Studies", url: "https://virayo.com/blog/generative-engine-optimization-strategies" },
       { title: "First Page Sage: GEO Strategy Guide", url: "https://firstpagesage.com/seo-blog/generative-engine-optimization-geo-strategy-guide/" },
+      { title: "Free GEO Course, FreeAcademy.ai", url: "https://freeacademy.ai/courses/geo-generative-engine-optimization" },
+      { title: "OpenLearn: Introduction to Generative Engine Optimization", url: "https://www.classcentral.com/course/openlearn-introduction-to-generative-engine-optimization-geo-479643" },
     ],
     docs: [
       { title: "Google Search Central: How AI Overviews Work", url: "https://developers.google.com/search/docs/appearance/ai-overviews" },
@@ -13299,6 +13454,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Topic Clusters: The Next Evolution of SEO, Backlinko", url: "https://backlinko.com/hub/seo/topic-clusters" },
       { title: "The Complete Guide to Topic Clusters and Pillar Pages, Search Engine Land", url: "https://searchengineland.com/guide/topic-clusters" },
       { title: "Ahrefs: How to Create a Content Strategy with Topic Clusters", url: "https://ahrefs.com/blog/content-clusters/" },
+      { title: "HubSpot Academy: Content Marketing Certification", url: "https://academy.hubspot.com/courses/content-marketing" },
     ],
     docs: [],
     tools: [
@@ -13471,6 +13627,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
     articles: [
       { title: "How Do Search Engines Work?, Ahrefs Blog", url: "https://ahrefs.com/blog/how-do-search-engines-work" },
       { title: "How Search Engines Work (Interactive), Google", url: "https://www.google.com/search/howsearchworks/" },
+      { title: "Beginner's Guide to SEO, Moz", url: "https://moz.com/beginners-guide-to-seo" },
+      { title: "SEO Fundamentals Course, Ahrefs Academy", url: "https://ahrefs.com/academy/seo-training-course" },
     ],
     docs: [
       { title: "How Search Works, Google Search Central", url: "https://developers.google.com/search/docs/fundamentals/how-search-works" },
@@ -13515,6 +13673,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Internal Links for SEO: An Actionable Guide (Ahrefs)", url: "https://ahrefs.com/blog/internal-links-for-seo/" },
       { title: "Internal Linking for SEO: Why and How (Yoast)", url: "https://yoast.com/internal-linking-for-seo-why-and-how/" },
       { title: "Internal Linking Guide by Search Engine Land", url: "https://searchengineland.com/guide/internal-linking" },
+      { title: "Boost E-Commerce SEO with Internal Linking (Semrush Academy)", url: "https://www.semrush.com/academy/courses/boost-ecommerce-seo-with-internal-linking/" },
     ],
     docs: [
       { title: "Google Search Central: Links Report in Search Console", url: "https://developers.google.com/search/docs/crawling-indexing/links-crawlable" },
@@ -13557,6 +13716,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
     articles: [
       { title: "Ahrefs: International SEO, The Complete Guide", url: "https://ahrefs.com/blog/international-seo/" },
       { title: "Backlinko: International SEO, The Definitive Guide", url: "https://backlinko.com/international-seo" },
+      { title: "Semrush Academy: International SEO Course (by Aleyda Solis)", url: "https://www.semrush.com/academy/courses/International-seo/" },
     ],
     docs: [
       { title: "Google Search Central: Managing Multi-Regional and Multilingual Sites", url: "https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites" },
@@ -13600,6 +13760,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
     articles: [
       { title: "Ahrefs: Keyword Research, The Beginner", url: "https://ahrefs.com/blog/keyword-research/" },
       { title: "Moz Beginner", url: "https://moz.com/beginners-guide-to-seo/keyword-research" },
+      { title: "HubSpot Academy: SEO Training Course", url: "https://academy.hubspot.com/courses/seo-training" },
     ],
     docs: [
       { title: "Google Search Central: How Search Works", url: "https://developers.google.com/search/docs/fundamentals/how-search-works" },
@@ -13641,6 +13802,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Backlinko: Link Building for SEO, The Definitive Guide", url: "https://backlinko.com/link-building" },
       { title: "Ahrefs: Link Building for SEO Guide", url: "https://ahrefs.com/blog/link-building" },
       { title: "Moz Beginner", url: "https://moz.com/beginners-guide-to-link-building" },
+      { title: "Ahrefs Academy, SEO Course for Beginners (includes link building module)", url: "https://ahrefs.com/academy/seo-training-course" },
     ],
     docs: [
       { title: "Google Search Central: Link Spam Policies", url: "https://developers.google.com/search/docs/essentials/spam-policies" },
@@ -13686,6 +13848,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "LLMO Explained: The Complete Guide - BlogSEO", url: "https://www.blogseo.io/blog/llmo-explained-the-complete-guide-to-large-language-model-optimization-for-seo" },
       { title: "7 LLM Optimization Strategies - Surfer SEO", url: "https://surferseo.com/blog/llm-optimization-seo/" },
       { title: "2025 State of AI Discovery Report - Previsible", url: "https://previsible.io/seo-strategy/ai-seo-study-2025/" },
+      { title: "AI Visibility Essentials - Semrush Academy", url: "https://www.semrush.com/academy/courses/ai-visibility-essentials-with-semrush/" },
     ],
     docs: [
       { title: "Ahrefs Brand Radar - cited domains and pages docs", url: "https://ahrefs.com/academy/how-to-use-ahrefs/brand-radar/cited-domains" },
@@ -13770,6 +13933,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "On-Page SEO: What It Is and How to Do It", url: "https://ahrefs.com/blog/on-page-seo/" },
       { title: "On-Page SEO Checklist 2025", url: "https://www.semrush.com/blog/on-page-seo-checklist/" },
       { title: "On-Page SEO: The Beginner", url: "https://moz.com/beginners-guide-to-seo/on-page-seo" },
+      { title: "Semrush Academy, SEO Fundamentals Course", url: "https://www.semrush.com/academy/courses/semrush-seo-fundamentals-course-with-greg-gifford/" },
     ],
     docs: [
       { title: "Google SEO Starter Guide (Official)", url: "https://developers.google.com/search/docs/fundamentals/seo-starter-guide" },
@@ -13814,6 +13978,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Programmatic SEO Case Study: 67 to 2100 Monthly Signups", url: "https://www.omnius.so/blog/programmatic-seo-case-study" },
       { title: "Ahrefs: Programmatic SEO Guide", url: "https://ahrefs.com/blog/programmatic-seo/" },
       { title: "Programmatic SEO Without Traffic Loss - 2025 Guide", url: "https://www.getpassionfruit.com/blog/programmatic-seo-traffic-cliff-guide" },
+      { title: "Practical Programmatic SEO by Ian Nuttall", url: "https://practicalprogrammatic.com/" },
     ],
     docs: [
       { title: "Google Search Essentials - Scaled Content Abuse Policy", url: "https://developers.google.com/search/docs/essentials/spam-policies" },
@@ -13977,6 +14142,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
     articles: [
       { title: "Search Intent in SEO: What It Is and How to Optimize for It", url: "https://ahrefs.com/blog/search-intent/" },
       { title: "Search Intent and SEO: How to Optimize for User Goals", url: "https://backlinko.com/hub/seo/search-intent" },
+      { title: "HubSpot Academy: SEO Training Course", url: "https://academy.hubspot.com/courses/seo-training-course" },
     ],
     docs: [
       { title: "Google Search Central ,  How Search Works", url: "https://developers.google.com/search/docs/fundamentals/how-search-works" },
@@ -14108,6 +14274,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
     articles: [
       { title: "YouTube CTR Benchmarks 2025: What", url: "https://www.tubularinsights.com/youtube-ctr-benchmarks/" },
       { title: "TikTok Search Algorithm Explained: How to Rank in 2025", url: "https://www.socialmediatoday.com/tiktok-search/" },
+      { title: "YouTube Creator Academy: Optimizing for Search", url: "https://creatoracademy.youtube.com/" },
     ],
     docs: [
       { title: "TikTok Creator Center: Search and Discovery", url: "https://creatorhub.tiktok.com/" },
@@ -14238,6 +14405,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Hootsuite Social Media Algorithm Report 2025", url: "https://www.hootsuite.com/research/social-trends" },
       { title: "Sprout Social Index - Organic Reach Benchmarks", url: "https://sproutsocial.com/insights/index/" },
       { title: "Social Media Examiner - Algorithm Update Roundup", url: "https://www.socialmediaexaminer.com/" },
+      { title: "YouTube Creator Academy - How Search and Discovery Works", url: "https://creatoracademy.youtube.com/page/lesson/discovery" },
     ],
     docs: [
       { title: "TikTok Algorithm Explained - Creator Portal", url: "https://www.tiktok.com/creators/creator-portal/en-us/getting-started-on-tiktok/understanding-your-for-you-feed/" },
@@ -14642,6 +14810,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "LinkedIn Marketing Solutions Blog", url: "https://business.linkedin.com/marketing-solutions/blog" },
       { title: "Richard van der Blom - LinkedIn Algorithm Report", url: "https://www.linkedin.com/pulse/linkedin-algorithm-report-2025-richard-van-der-blom/" },
       { title: "Demand Gen Report - B2B Buyer Behaviour 2025", url: "https://www.demandgenreport.com/resources/research/" },
+      { title: "LinkedIn for Business - Official Learning Path", url: "https://www.linkedin.com/learning/paths/market-your-business-on-linkedin" },
+      { title: "Justin Welsh - LinkedIn OS Course", url: "https://www.justinwelsh.me/linkedin-os" },
     ],
     docs: [],
     tools: [],
@@ -14725,6 +14895,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
     articles: [
       { title: "Kate Ahl - Simple Pin Media Blog", url: "https://www.simplepinmedia.com/blog/" },
       { title: "Social Media Examiner - Pinterest Marketing Guide", url: "https://www.socialmediaexaminer.com/pinterest-marketing/" },
+      { title: "Pinterest Academy", url: "https://pinterestacademy.com" },
     ],
     docs: [
       { title: "Pinterest Business Help Center", url: "https://help.pinterest.com/en/business" },
@@ -15253,6 +15424,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "How the YouTube Algorithm Works in 2025 - Solveig MM", url: "https://www.solveigmm.com/blog/en/how-the-youtube-algorithm-works-in-2025/" },
       { title: "Evergreen YouTube Videos: How to Identify and Create Lasting Content", url: "https://www.tubeanalytics.net/blog/youtube-evergreen-content-identify-create" },
       { title: "YouTube Algorithm 2026: 7 Ways to Get Recommended - DataSlayer", url: "https://www.dataslayer.ai/blog/youtube-algorithm-2025-how-to-get-your-videos-recommended" },
+      { title: "YouTube Creator Academy - Official Courses", url: "https://creatoracademy.youtube.com/" },
     ],
     docs: [],
     tools: [],
@@ -15290,6 +15462,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
     },
     articles: [
       { title: "Backlinko: Ahrefs vs Semrush Deep Comparison", url: "https://backlinko.com/ahrefs-vs-semrush" },
+      { title: "Ahrefs Academy - Free SEO Course for Beginners", url: "https://ahrefs.com/academy/seo-training-course" },
+      { title: "Semrush Academy - SEO Fundamentals Course", url: "https://www.semrush.com/academy/" },
     ],
     docs: [],
     tools: [
@@ -15541,6 +15715,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
     articles: [
       { title: "Canva vs Figma 2025: Full Comparison (Style Factory)", url: "https://www.stylefactoryproductions.com/blog/canva-vs-figma" },
       { title: "Figma vs Canva: The 2025 Marketing Design Shift (Attention Insight)", url: "https://attentioninsight.com/figma-buzz-vs-canva-vs-adobe-express/" },
+      { title: "Canva Design School (Free Courses)", url: "https://www.canva.com/designschool/" },
+      { title: "Canva for Teams - HubSpot Academy", url: "https://academy.hubspot.com/" },
     ],
     docs: [
       { title: "Canva Official Help Center", url: "https://www.canva.com/help/" },
@@ -15668,6 +15844,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "45 CRM Statistics You Need to Know in 2025 (CRM.org)", url: "https://crm.org/crmland/crm-statistics" },
       { title: "14 CRM Implementation Case Studies (Close.com)", url: "https://close.com/blog/crm-implementation-case-studies" },
       { title: "What is CRM? - Salesforce Explainer", url: "https://www.salesforce.com/crm/what-is-crm/" },
+      { title: "HubSpot Academy - CRM Setup Course", url: "https://academy.hubspot.com/courses/set-up-your-hubspot-crm-for-growth" },
     ],
     docs: [],
     tools: [
@@ -15798,6 +15975,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Intercom Blog - Customer Service Transformation Report 2025", url: "https://www.intercom.com/blog/" },
       { title: "Drift vs Intercom Full Comparison - Hiver", url: "https://hiverhq.com/blog/drift-vs-intercom" },
       { title: "HubSpot - What Is Conversational Marketing (Free Guide)", url: "https://blog.hubspot.com/marketing/conversational-marketing" },
+      { title: "Intercom Academy - Free Courses", url: "https://academy.intercom.com/" },
     ],
     docs: [
       { title: "Drift Official Website and Docs", url: "https://www.drift.com/" },
@@ -15923,6 +16101,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
     },
     articles: [
       { title: "GA4 Statistics and Adoption Data 2025 (Analyzify)", url: "https://analyzify.com/statsup/google-analytics-4" },
+      { title: "Google Analytics Academy - Free GA4 Course", url: "https://skillshop.withgoogle.com/googleanalytics" },
+      { title: "Analytics Mania - Free GA4 Fundamentals Course", url: "https://www.analyticsmania.com/courses/free-google-analytics-fundamentals-course/" },
     ],
     docs: [
       { title: "GA4 Official Documentation - Get Started", url: "https://support.google.com/analytics/answer/10089681" },
@@ -16010,6 +16190,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Guide to Bing Webmaster Tools 2026 (Impression Digital)", url: "https://www.impressiondigital.com/blog/guide-to-bing-webmaster-tools/" },
       { title: "Bing Webmaster Tools (Ahrefs Blog)", url: "https://ahrefs.com/blog/bing-webmaster-tools/" },
       { title: "IndexNow - Start Using Bing Webmaster Tools (Bing Blog, June 2025)", url: "https://blogs.bing.com/webmaster/June-2025/Start-Using-Bing-Webmaster-Tools-to-Improve-Your-Site-Visibility" },
+      { title: "How to Use Google Search Console (Coursera)", url: "https://www.coursera.org/articles/how-to-use-google-search-console" },
     ],
     docs: [
       { title: "Google Search Console Official Documentation", url: "https://support.google.com/webmasters/" },
@@ -16051,6 +16232,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
     articles: [
       { title: "Buffer Resources Blog", url: "https://buffer.com/resources" },
       { title: "Buffer vs Hootsuite: Full Comparison (Buffer", url: "https://buffer.com/resources/buffer-vs-hootsuite/" },
+      { title: "Coursera: Schedule Posts with Hootsuite (Guided Project)", url: "https://www.coursera.org/projects/how-to-schedule-posts-to-multiple-platforms-using-hootsuite/reviews" },
+      { title: "Hootsuite Academy - Student Program", url: "https://www.hootsuite.com/pages/landing/student-program" },
     ],
     docs: [
       { title: "Hootsuite Official Tutorials and Demos", url: "https://www.hootsuite.com/resources/tutorials-and-demos" },
@@ -16094,6 +16277,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
     articles: [
       { title: "How The Good Used Hotjar to Increase Conversions by 132%", url: "https://www.hotjar.com/customers/the-good/" },
       { title: "Hotjar vs Microsoft Clarity - Full Comparison", url: "https://www.fullsession.io/blog/hotjar-vs-microsoft-clarity/" },
+      { title: "CRO Fundamentals - HubSpot Academy", url: "https://academy.hubspot.com/courses/conversion-rate-optimization" },
     ],
     docs: [
       { title: "Microsoft Clarity Documentation", url: "https://learn.microsoft.com/en-us/clarity/" },
@@ -16137,6 +16321,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
     articles: [
       { title: "HubSpot ROI Report (2023) - Real Customer Data", url: "https://www.hubspot.com/roi" },
       { title: "Backlinko - HubSpot Statistics 2026", url: "https://backlinko.com/hubspot-users" },
+      { title: "HubSpot Academy - All Free Courses", url: "https://academy.hubspot.com/" },
     ],
     docs: [
       { title: "HubSpot Knowledge Base", url: "https://knowledge.hubspot.com/" },
@@ -16181,6 +16366,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Loom Video Prospecting Best Practices Guide", url: "https://www.loom.com/blog/video-prospecting" },
       { title: "Vidyard Video for Sales Complete Guide", url: "https://www.vidyard.com/blog/video-for-sales/" },
       { title: "Wyzowl Video Prospecting Guide 2024", url: "https://wyzowl.com/video-prospecting/" },
+      { title: "Vidyard Free Video Tools and Resources", url: "https://www.vidyard.com/blog/free-video-resources/" },
     ],
     docs: [
       { title: "Loom Official Docs and Help Center", url: "https://support.loom.com/hc/en-us" },
@@ -16221,6 +16407,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
     articles: [
       { title: "2024 Email Marketing Benchmarks by Industry - Klaviyo", url: "https://www.klaviyo.com/marketing-resources/email-benchmarks-by-industry-2024" },
       { title: "Klaviyo Email Marketing Best Practices 2025", url: "https://www.klaviyo.com/marketing-resources/email-marketing-best-practices" },
+      { title: "Klaviyo Academy - Free Email Marketing Courses", url: "https://academy.klaviyo.com" },
+      { title: "HubSpot Email Marketing Certification (Free)", url: "https://academy.hubspot.com/courses/email-marketing" },
     ],
     docs: [
       { title: "Klaviyo Official Documentation", url: "https://help.klaviyo.com/hc/en-us" },
@@ -16309,6 +16497,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
     articles: [
       { title: "Hightouch Reverse ETL Playbook", url: "https://hightouch.com/playbook" },
       { title: "Nando", url: "https://hightouch.com/customers/nandos" },
+      { title: "Google BigQuery Fundamentals Course", url: "https://cloud.google.com/training" },
     ],
     docs: [
       { title: "Segment Developer Documentation", url: "https://segment.com/docs" },
@@ -16350,6 +16539,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "chiefmartec.com - The Martech Landscape (Scott Brinker)", url: "https://chiefmartec.com/" },
       { title: "What is a Martech Stack? (StackAdapt)", url: "https://www.stackadapt.com/resources/blog/martech-stack" },
       { title: "30 Martech Statistics 2025 (WebFX)", url: "https://www.webfx.com/martech/statistics/" },
+      { title: "HubSpot Academy - Marketing Software Free Course", url: "https://academy.hubspot.com/courses/marketing-software" },
     ],
     docs: [
       { title: "Segment (Twilio) - CDP Docs", url: "https://segment.com/docs/" },
@@ -16440,6 +16630,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Akveo: Low-Code Adoption Statistics 2025", url: "https://www.akveo.com/low-code-adoption-statistics" },
       { title: "Zebracat: 50+ No-Code and Low-Code Statistics", url: "https://www.zebracat.ai/post/no-code-low-code-statistics" },
       { title: "CMSWire: How Webflow and Zapier Power User Interviews", url: "https://www.cmswire.com/customer-experience/from-manual-to-magical-how-webflow-and-zapier-power-user-interviews-high-performance-website/" },
+      { title: "Zapier University", url: "https://zapier.com/learn" },
     ],
     docs: [
       { title: "Webflow University", url: "https://university.webflow.com/" },
@@ -16481,6 +16672,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
     },
     articles: [
       { title: "Notion vs Airtable Deep Comparison - Digital Project Manager", url: "https://thedigitalprojectmanager.com/tools/airtable-vs-notion/" },
+      { title: "Airtable for Marketers - Official Learning Path", url: "https://www.airtable.com/learn" },
     ],
     docs: [
       { title: "Notion Marketing Templates Gallery", url: "https://www.notion.so/templates/category/marketing" },
@@ -16527,6 +16719,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "VWO A/B Testing Case Studies", url: "https://vwo.com/success-stories/" },
       { title: "A/B Testing Examples - Updated 2025", url: "https://vwo.com/blog/ab-testing-examples/" },
       { title: "Optimizely vs VWO - Full Comparison", url: "https://www.luckyorange.com/comparisons/vwo-vs-optimizely" },
+      { title: "CRO Fundamentals - HubSpot Academy", url: "https://academy.hubspot.com/courses/conversion-rate-optimization" },
     ],
     docs: [
       { title: "VWO Knowledge Base", url: "https://help.vwo.com/" },
@@ -16781,6 +16974,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       { title: "Zapier Marketing Automation Guide", url: "https://zapier.com/blog/marketing-automation-use-cases/" },
       { title: "50 Zapier Marketing Automation Workflows - Hashmeta", url: "https://hashmeta.com/blog/zapier-marketing-automations-50-time-saving-workflows-for-smarter-growth/" },
       { title: "Zapier Lead Generation Automations - Step-by-Step", url: "https://hastewire.com/blog/zapier-lead-generation-automations-step-by-step-guide" },
+      { title: "Zapier University (Free Official Courses)", url: "https://zapier.com/learn" },
+      { title: "Marketing with Zapier and ChatGPT - Coursera Project", url: "https://www.coursera.org/projects/marketing-with-zapier--chatgpt-automated-content-calendars" },
     ],
     docs: [],
     tools: [
