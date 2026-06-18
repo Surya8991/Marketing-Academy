@@ -104,7 +104,7 @@ export default function LessonResourcesClient({ data }: { data: LessonResourceDa
   return (
     <div className="not-prose mt-10 mb-2">
       <p className="text-[11px] font-bold uppercase tracking-widest text-[var(--muted-foreground)] mb-3">
-        Free resources for this lesson
+        Free Resources
       </p>
 
       {/* Tab bar */}
