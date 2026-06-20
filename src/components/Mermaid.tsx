@@ -28,7 +28,7 @@
  *   render to overwrite a newer one.
  */
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { Maximize2, X } from "lucide-react";
 import DOMPurify from "dompurify";
 
@@ -38,9 +38,12 @@ interface MermaidProps {
 }
 
 export default function Mermaid({ chart, caption }: MermaidProps) {
+  const rawId = useId();
+  const mermaidId = rawId.replace(/:/g, "");
   const ref = useRef<HTMLDivElement>(null);
   const [svg, setSvg] = useState<string>("");
   const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState(true);
   const [fullscreen, setFullscreen] = useState(false);
 
   useEffect(() => {
@@ -90,19 +93,27 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
           },
         });
 
-        const id = `mermaid-${Math.random().toString(36).slice(2)}`;
+        const id = `mermaid-${mermaidId}`;
         const { svg: rendered } = await mermaid.render(id, chart.trim());
         if (!cancelled) {
-          // Sanitize SVG output before injecting into the DOM (XSS prevention)
+          setLoading(false);
+          // Sanitize SVG output before injecting into the DOM (XSS prevention).
+          // foreignObject is kept because Mermaid needs it for node labels.
           setSvg(DOMPurify.sanitize(rendered, {
             USE_PROFILES: { svg: true, svgFilters: true },
             ADD_TAGS: ["foreignObject"],
-            ADD_ATTR: ["requiredExtensions", "dominant-baseline"],
+            ADD_ATTR: ["dominant-baseline"],
+            FORBID_TAGS: ["script", "style"],
+            FORBID_ATTR: ["onerror", "onload", "onclick", "onmouseover"],
+            SANITIZE_DOM: true,
           }));
           setError("");
         }
       } catch (e) {
-        if (!cancelled) setError(String(e));
+        if (!cancelled) {
+          setLoading(false);
+          setError(String(e));
+        }
       }
     }
 
@@ -133,6 +144,15 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
     };
   }, [fullscreen]);
 
+  if (loading && !svg && !error) {
+    return (
+      <div className="not-prose my-8 rounded-xl border border-[var(--border)] bg-[var(--muted)] p-6 animate-pulse" aria-label="Loading diagram">
+        <div className="h-4 w-1/3 rounded bg-[var(--border)] mb-4" />
+        <div className="h-32 w-full rounded bg-[var(--border)]" />
+      </div>
+    );
+  }
+
   if (error) {
     return (
       <div className="not-prose my-6 rounded-lg border border-[var(--border)] bg-[var(--muted)] p-4 text-sm text-red-600">
@@ -148,6 +168,8 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
         <div className="relative w-full group">
           <div
             ref={ref}
+            role="img"
+            aria-label={caption ?? "Diagram"}
             className="w-full overflow-x-auto rounded-xl border border-[var(--border)] bg-[var(--muted)] p-6 [&_svg]:max-w-full [&_svg]:h-auto [&_svg]:mx-auto"
             dangerouslySetInnerHTML={{ __html: svg }} // DOMPurify-sanitized above
           />

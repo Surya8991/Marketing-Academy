@@ -6,7 +6,7 @@ import {
   Menu, X, Search, BookOpen, ChevronDown, Bookmark,
   GraduationCap, LayoutGrid, Brain, Map,
   BookMarked, FileText, Mic2, Wrench,
-  SlidersHorizontal, Trophy, Settings, Library,
+  SlidersHorizontal, Trophy, Settings, Library, Zap,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CATEGORIES } from "@/lib/curriculum";
@@ -31,6 +31,7 @@ const RESOURCE_ITEMS = [
   { href: "/glossary",            label: "Glossary",        icon: BookMarked,        desc: "Marketing terms A-Z" },
   { href: "/interview-questions", label: "Interview Prep",  icon: Mic2,              desc: "Ace your marketing interview" },
   { href: "/tools",               label: "Tools Directory", icon: Wrench,            desc: "Best marketing tools" },
+  { href: "/tools/geo-audit",     label: "GEO Auditor",     icon: Zap,               desc: "Score any URL for AI citability" },
   { href: "/resources",           label: "Curated Resources", icon: Library,         desc: "Newsletters, books, communities" },
   { href: "/compare",             label: "Compare Tools",   icon: SlidersHorizontal, desc: "Side-by-side tool comparison" },
   { href: "/search",              label: "Search",          icon: Search,            desc: "Find any lesson fast" },

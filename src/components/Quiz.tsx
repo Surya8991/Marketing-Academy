@@ -143,9 +143,9 @@ export default function Quiz({ questions, category, slug }: Props) {
           aria-label="Quiz passed"
         >
           <div className="flex justify-center mb-3">
-            <Trophy size={40} style={{ color: "rgb(22 163 74)" }} />
+            <Trophy size={40} className="text-green-600 dark:text-green-400" />
           </div>
-          <div className="text-3xl font-bold mb-1" style={{ color: "rgb(22 163 74)" }}>
+          <div className="text-3xl font-bold mb-1 text-green-600 dark:text-green-400">
             {alreadyPassed ? "Already Passed!" : "Perfect Score!"}
           </div>
           <p className="text-sm text-[var(--muted-foreground)] mb-1">

@@ -1,7 +1,7 @@
 ﻿# Marketing Academy, Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-06-16 (Session 54).
+> Last audited: 2026-06-20 (Session 57 - Full code review + hardening pass).
 
 ---
 
@@ -2146,3 +2146,43 @@ The script used `[a-z-]*` to match existing keys. That character class excluded 
 | Glossary term | DefinedTerm |
 | Interview Q&A | FAQPage, BreadcrumbList |
 | Interview index | FAQPage (5 curated) |
+
+---
+
+## Session 56, 2026-06-20 (Security/reliability/GEO-auditor parity from career-plan audit)
+
+**Ported all security, reliability, and new-feature changes from the career-plan full-audit session. Build passes clean (638 pages).**
+
+### Changes
+| # | File | What changed |
+|---|------|-------------|
+| 1 | `src/components/Mermaid.tsx` | Loading state (animate-pulse skeleton), DOMPurify tightened (FORBID_TAGS script/iframe/object/embed, FORBID_ATTR on*, SANITIZE_DOM true), `role="img"` + `aria-label` on diagram div |
+| 2 | `src/app/error.tsx` | NEW - Root React error boundary: AlertTriangle icon, "Something went wrong" message, Try again + Go home buttons, shows error.digest in dev |
+| 3 | `src/app/api/groq/route.ts` | NEW - First AI feature in MA. Secured Groq proxy: model whitelist (6 models), in-memory rate limiter 30 req/min per IP, validateMessages() type-narrowing, content-type check on streaming response |
+| 4 | `src/app/api/geo-audit/route.ts` | NEW - GEO audit backend: URL validation, page text fetching (strips HTML, 8k cap, 10s timeout), 6-dimension scoring via Groq llama-3.3-70b-versatile, rate limit 10 req/min per IP |
+| 5 | `src/app/tools/geo-audit/page.tsx` | NEW - Server component with MA-specific metadata + OpenGraph for GEO Auditor page |
+| 6 | `src/app/tools/geo-audit/GeoAuditClient.tsx` | NEW - Client component: URL input, overall grade ring (A-F), 6 ScoreBar dimensions (green/yellow/red thresholds), Wins/Gaps cards, Quick fixes with impact/effort pills, loading skeleton, error state |
+| 7 | `src/components/Nav.tsx` | Added GEO Auditor entry to RESOURCE_ITEMS (Zap icon, "/tools/geo-audit") |
+| 8 | `.claude/launch.json` | NEW - Port 3001 dev server config for this project |
+
+### Skipped (already implemented in MA)
+- Security headers: MA `next.config.ts` already has full CSP + X-Frame-Options (more thorough than career-plan)
+- TableOfContents: `src/components/TableOfContents.tsx` already exists
+- LessonNotes: already exists
+- sync-proxy: already has 512KB payload guard and proper auth
+
+---
+
+## Session 57, 2026-06-20 (Full code review + hardening pass)
+
+**Ran parallel 5-dimension code review (React/TS/security/perf/a11y) across all of `src/`. Fixed every confirmed issue. Build passes clean.**
+
+### Changes
+| # | File | Fix |
+|---|------|-----|
+| 1 | `src/components/TrackQuizPageClient.tsx:148` | Replaced index `key={qi}` with content-based `key={\`q-${qi}-${q.question.slice(0,20)}\`}` to prevent state corruption when quiz is re-shuffled on retry |
+| 2 | `src/components/Mermaid.tsx` | Replaced `Math.random()` ID with stable `useId()` hook; added `useId` import |
+| 3 | `src/components/Quiz.tsx:146-148` | Replaced hardcoded `color: "rgb(22 163 74)"` with Tailwind `text-green-600 dark:text-green-400` classes |
+| 4 | `src/app/api/geo-audit/route.ts:87` | Request body: `unknown` type + runtime check instead of unsafe `as { url: string }` assertion |
+| 5 | `src/app/api/geo-audit/route.ts:105-112` | Added SSRF protection: block localhost/127.0.0.1/10.x/192.168.x/172.16-31.x ranges |
+| 6 | `src/app/api/geo-audit/route.ts:138` | Groq response: explicit empty-content check before JSON parse, returns 502 instead of silently passing `""` |

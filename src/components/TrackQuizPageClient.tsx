@@ -145,7 +145,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
 
           return (
             <li
-              key={qi}
+              key={`q-${qi}-${q.question.slice(0, 20)}`}
               className="rounded-2xl border p-6"
               style={{ borderColor: "var(--border)", background: "var(--card)" }}
             >
