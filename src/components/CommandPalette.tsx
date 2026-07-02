@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Fuse from "fuse.js";
 import { COMMAND_INDEX, type CommandEntry } from "@/lib/commandIndex";
 import { COMMAND_PALETTE_EVENT } from "@/lib/events";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 
 const TYPE_BADGE: Record<CommandEntry["type"], { label: string; style: React.CSSProperties }> = {
   lesson: {
@@ -49,7 +50,11 @@ export default function CommandPalette() {
   const [activeIndex, setActiveIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+
+  // Traps Tab focus inside the palette and restores focus to the trigger on close.
+  useFocusTrap(dialogRef, open);
 
   const index = COMMAND_INDEX;
 
@@ -139,15 +144,6 @@ export default function CommandPalette() {
     active?.scrollIntoView({ block: "nearest" });
   }, [activeIndex]);
 
-  // Focus input when opened
-  useEffect(() => {
-    if (open) {
-      // Defer one tick so the modal is painted before focus
-      const id = setTimeout(() => inputRef.current?.focus(), 10);
-      return () => clearTimeout(id);
-    }
-  }, [open]);
-
   if (!open) return null;
 
   return (
@@ -172,6 +168,7 @@ export default function CommandPalette() {
       }}
     >
       <div
+        ref={dialogRef}
         style={{
           width: "100%",
           maxWidth: 600,

@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { ONBOARDED_KEY as STORAGE_KEY } from "@/lib/events";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 
 const GOALS = [
   { emoji: "🚀", label: "Grow a B2B startup", href: "/tracks/b2b-marketer" },
@@ -17,6 +18,7 @@ export default function OnboardingModal() {
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -24,6 +26,23 @@ export default function OnboardingModal() {
       setVisible(true);
     }
   }, []);
+
+  // Traps Tab focus inside the modal and restores focus to the trigger on close.
+  useFocusTrap(dialogRef, visible);
+
+  // Esc closes, matching CommandPalette's convention. Locks body scroll while open.
+  useEffect(() => {
+    if (!visible) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") handleSkip();
+    };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [visible]);
 
   if (!mounted || !visible) return null;
 
@@ -40,6 +59,10 @@ export default function OnboardingModal() {
 
   return (
     <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="onboarding-modal-title"
+      onClick={handleSkip}
       style={{
         position: "fixed",
         inset: 0,
@@ -52,6 +75,8 @@ export default function OnboardingModal() {
       }}
     >
       <div
+        ref={dialogRef}
+        onClick={(e) => e.stopPropagation()}
         style={{
           background: "var(--card)",
           color: "var(--foreground)",
@@ -64,6 +89,7 @@ export default function OnboardingModal() {
         }}
       >
         <h2
+          id="onboarding-modal-title"
           style={{
             margin: "0 0 0.375rem",
             fontSize: "1.5rem",

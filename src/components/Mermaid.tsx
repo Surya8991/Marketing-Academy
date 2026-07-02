@@ -17,6 +17,11 @@
  *   Mermaid renders user-supplied chart strings into SVG. The SVG is sanitized with
  *   DOMPurify before being injected via dangerouslySetInnerHTML. SVG + svgFilters
  *   profiles are allowed so arrow markers and filters render correctly.
+ *   IMPORTANT: the embedded <style> element MUST survive sanitization — Mermaid ships
+ *   all node fills and label colours inside a diagram-scoped <style> block. Stripping it
+ *   makes every <rect> fall back to the SVG default black fill, so nodes render as solid
+ *   black boxes with invisible labels. DOMPurify still sanitizes the CSS inside it.
+ *   (Only <script> is forbidden as a tag; see AGENTS.md Rule 28.)
  *
  * Fullscreen:
  *   The Maximize button opens the diagram in a fixed overlay with Esc/backdrop-click
@@ -26,11 +31,47 @@
  *   `cancelled` flag prevents setSvg() calls from landing after the component unmounts
  *   or the chart prop changes, without this, rapid prop changes could cause a stale
  *   render to overwrite a newer one.
+ *
+ * Label line breaks:
+ *   Lesson MDX writes node labels like `A[Product\nWhat you sell]` inside a JS template
+ *   literal (see AGENTS.md Rule 30). JS evaluates that `\n` into a REAL newline before
+ *   Mermaid ever sees the string, so Mermaid's own `\n`-to-`<br/>` conversion (which only
+ *   recognizes the literal two-character escape) never fires. Left as a raw newline,
+ *   Mermaid's own label-text construction silently drops it, so words run together with
+ *   NO separator at all (e.g. "SegmentationDivide into groups").
+ *
+ *   Converting it to a literal `<br/>` tag does NOT work either: Mermaid renders node
+ *   labels inside an SVG `<foreignObject>` using XHTML-namespaced markup, and DOMPurify's
+ *   namespace-confusion protection (an mXSS defense, not a config gap) fully removes any
+ *   HTML-namespaced element there regardless of ADD_TAGS/ALLOWED_TAGS — it cannot be
+ *   safely disabled. A removed `<br/>` contributes zero replacement characters, so the
+ *   glued-together bug reappears even after "fixing" it that way.
+ *
+ *   `insertLabelBreaks` instead replaces the newline with a literal space. It never
+ *   becomes an element, so DOMPurify has nothing to strip, and the label reads correctly
+ *   as normal wrapped text (just not forced onto exactly two lines like the source intent).
  */
 
 import { useEffect, useId, useRef, useState } from "react";
 import { Maximize2, X } from "lucide-react";
 import DOMPurify from "dompurify";
+import { useFocusTrap } from "@/lib/useFocusTrap";
+
+/**
+ * Replaces newlines inside node-label delimiters ([], {}, ()) with a space so multi-line
+ * labels read as normal text instead of gluing words together (see file header comment).
+ * Tracks bracket depth so structural newlines between statements (depth 0) are untouched.
+ */
+function insertLabelBreaks(chart: string): string {
+  let depth = 0;
+  let out = "";
+  for (const ch of chart) {
+    if (ch === "[" || ch === "(" || ch === "{") depth++;
+    else if (ch === "]" || ch === ")" || ch === "}") depth = Math.max(0, depth - 1);
+    out += ch === "\n" && depth > 0 ? " " : ch;
+  }
+  return out;
+}
 
 interface MermaidProps {
   chart: string;
@@ -45,6 +86,10 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState(true);
   const [fullscreen, setFullscreen] = useState(false);
+  const overlayRef = useRef<HTMLDivElement>(null);
+
+  // Traps Tab focus inside the fullscreen overlay and restores focus to the trigger on close.
+  useFocusTrap(overlayRef, fullscreen);
 
   useEffect(() => {
     let cancelled = false;
@@ -94,19 +139,27 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
         });
 
         const id = `mermaid-${mermaidId}`;
-        const { svg: rendered } = await mermaid.render(id, chart.trim());
+        const { svg: rendered } = await mermaid.render(id, insertLabelBreaks(chart.trim()));
         if (!cancelled) {
           setLoading(false);
           // Sanitize SVG output before injecting into the DOM (XSS prevention).
           // foreignObject is kept because Mermaid needs it for node labels.
-          setSvg(DOMPurify.sanitize(rendered, {
+          const clean = DOMPurify.sanitize(rendered, {
             USE_PROFILES: { svg: true, svgFilters: true },
-            ADD_TAGS: ["foreignObject"],
+            // <style> kept: Mermaid stores node fills + label colours there. DOMPurify
+            // still sanitizes its CSS. Removing it renders every node as a black box.
+            // NOTE: do not try to also allow div/span/p/br for label markup — DOMPurify's
+            // namespace-confusion protection strips any HTML-namespaced element inside
+            // <foreignObject> regardless of ADD_TAGS/ALLOWED_TAGS (verified: it cannot be
+            // safely disabled). Multi-line labels are handled at the source instead, see
+            // insertLabelBreaks / AGENTS.md Rule 30.
+            ADD_TAGS: ["foreignObject", "style"],
             ADD_ATTR: ["dominant-baseline"],
-            FORBID_TAGS: ["script", "style"],
+            FORBID_TAGS: ["script"],
             FORBID_ATTR: ["onerror", "onload", "onclick", "onmouseover"],
             SANITIZE_DOM: true,
-          }));
+          });
+          setSvg(clean);
           setError("");
         }
       } catch (e) {
@@ -118,14 +171,29 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
     }
 
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
-    render(mq.matches);
 
-    // Re-render when the user switches OS theme, must re-initialize Mermaid with new token values
-    const onChange = (e: MediaQueryListEvent) => render(e.matches);
+    // Site theme is driven by the `data-theme` attribute (see ThemeToggle.tsx), NOT the OS
+    // preference. Read it first; fall back to the OS query only for "system"/unset.
+    const isDarkNow = () => {
+      const attr = document.documentElement.getAttribute("data-theme");
+      if (attr === "dark") return true;
+      if (attr === "light") return false;
+      return mq.matches;
+    };
+
+    render(isDarkNow());
+
+    // Re-render when the user toggles the in-app theme (data-theme attribute flips)
+    const observer = new MutationObserver(() => render(isDarkNow()));
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+    // Re-render on OS theme change too, covers "system" mode where data-theme is absent
+    const onChange = () => render(isDarkNow());
     mq.addEventListener("change", onChange);
 
     return () => {
       cancelled = true; // prevent stale async render from overwriting a newer one
+      observer.disconnect();
       mq.removeEventListener("change", onChange);
     };
   }, [chart]); // re-runs whenever the chart string changes (different diagram on same page)
@@ -193,10 +261,12 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
       {/* Fullscreen overlay, backdrop click closes, Esc also closes (handled by keydown effect above) */}
       {fullscreen && (
         <div
+          ref={overlayRef}
           className="fixed inset-0 z-[100] flex items-center justify-center bg-[var(--background)]/95 backdrop-blur-sm p-6 sm:p-12"
           onClick={() => setFullscreen(false)}
           role="dialog"
           aria-modal="true"
+          aria-label={caption ?? "Diagram fullscreen"}
         >
           <button
             type="button"

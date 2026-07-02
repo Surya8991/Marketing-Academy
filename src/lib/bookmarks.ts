@@ -27,8 +27,13 @@ export function getBookmarks(): BookmarkEntry[] {
   }
 }
 
-/** Replaces the entire bookmark list. Caller is responsible for deduplication. */
+/** Replaces the entire bookmark list. Caller is responsible for deduplication.
+ *  Silently swallows storage errors (private/full), matching getBookmarks(). */
 export function saveBookmarks(entries: BookmarkEntry[]): void {
   if (typeof window === "undefined") return;
-  localStorage.setItem(BOOKMARK_KEY, JSON.stringify(entries));
+  try {
+    localStorage.setItem(BOOKMARK_KEY, JSON.stringify(entries));
+  } catch {
+    // storage unavailable (private mode, quota exceeded)
+  }
 }

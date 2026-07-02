@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import { Search, ExternalLink, Zap, AlertTriangle, CheckCircle, TrendingUp, Info, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
@@ -60,11 +60,13 @@ function scoreColor(s: number) {
   return "#ef4444";
 }
 
-function impactBadge(level: string) {
-  const styles: Record<string, string> = {
-    high: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
-    medium: "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400",
-    low: "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400",
+// rgba overlays instead of Tailwind color/dark: classes: `dark:` is a no-op in this
+// project's theme system (AGENTS.md Rule 5/19).
+function impactBadge(level: string): CSSProperties {
+  const styles: Record<string, CSSProperties> = {
+    high: { backgroundColor: "rgba(22,163,74,0.15)", color: "#16a34a" },
+    medium: { backgroundColor: "rgba(217,119,6,0.15)", color: "#d97706" },
+    low: { backgroundColor: "rgba(220,38,38,0.15)", color: "#dc2626" },
   };
   return styles[level] ?? styles.low;
 }
@@ -177,7 +179,10 @@ export default function GeoAuditClient() {
           </div>
 
           {error && (
-            <div className="mt-4 flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950/30 px-4 py-3 text-sm text-red-600 dark:text-red-400">
+            <div
+              className="mt-4 flex items-start gap-2 rounded-lg px-4 py-3 text-sm"
+              style={{ border: "1px solid rgba(220,38,38,0.3)", background: "rgba(220,38,38,0.08)", color: "#dc2626" }}
+            >
               <AlertTriangle size={16} className="shrink-0 mt-0.5" />
               <span>{error}</span>
             </div>
@@ -261,28 +266,28 @@ export default function GeoAuditClient() {
           {/* Wins + Gaps */}
           <div className="grid sm:grid-cols-2 gap-6">
             <div className="rounded-xl border border-[var(--border)] bg-[var(--muted)] p-5">
-              <h3 className="font-semibold text-sm text-green-600 dark:text-green-400 mb-4 flex items-center gap-2">
+              <h3 className="font-semibold text-sm mb-4 flex items-center gap-2" style={{ color: "#16a34a" }}>
                 <CheckCircle size={15} />
                 What&apos;s working
               </h3>
               <ul className="space-y-2">
                 {result.wins.map((w, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm">
-                    <span className="text-green-500 mt-0.5 shrink-0">+</span>
+                    <span className="mt-0.5 shrink-0" style={{ color: "#22c55e" }}>+</span>
                     <span className="text-[var(--muted-foreground)]">{w}</span>
                   </li>
                 ))}
               </ul>
             </div>
             <div className="rounded-xl border border-[var(--border)] bg-[var(--muted)] p-5">
-              <h3 className="font-semibold text-sm text-yellow-600 dark:text-yellow-400 mb-4 flex items-center gap-2">
+              <h3 className="font-semibold text-sm mb-4 flex items-center gap-2" style={{ color: "#d97706" }}>
                 <Info size={15} />
                 Gaps to fix
               </h3>
               <ul className="space-y-2">
                 {result.gaps.map((g, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm">
-                    <span className="text-yellow-500 mt-0.5 shrink-0">-</span>
+                    <span className="mt-0.5 shrink-0" style={{ color: "#eab308" }}>-</span>
                     <span className="text-[var(--muted-foreground)]">{g}</span>
                   </li>
                 ))}
@@ -303,7 +308,10 @@ export default function GeoAuditClient() {
                     <span className="font-mono text-xs text-[var(--muted-foreground)] mt-0.5 w-5 shrink-0">{i + 1}.</span>
                     <p className="text-sm text-[var(--foreground)] flex-1">{fix.action}</p>
                     <div className="flex items-center gap-1.5 shrink-0 flex-wrap justify-end">
-                      <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium ${impactBadge(fix.impact)}`}>
+                      <span
+                        className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium"
+                        style={impactBadge(fix.impact)}
+                      >
                         {fix.impact} impact
                       </span>
                       <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-[var(--border)] text-[var(--muted-foreground)]">

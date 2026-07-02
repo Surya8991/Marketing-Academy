@@ -343,3 +343,27 @@ Architecture:
 
 ### Rule 27 — `src/app/opengraph-image.tsx` lesson count is hardcoded
 The root OG image uses a literal `"393+"` string (edge runtime cannot import `flatLessons()`). When the lesson count changes significantly, manually update the string in `src/app/opengraph-image.tsx` line 82 to match.
+
+### Rule 28 — Mermaid: NEVER strip `<style>` in the DOMPurify sanitize config
+`src/components/Mermaid.tsx` sanitizes Mermaid's SVG output with DOMPurify before injecting it. Mermaid v11 ships **all node fills and label colours inside a single diagram-scoped `<style>` element** embedded in the SVG. If DOMPurify removes it, every `<rect>` falls back to the SVG default `fill: black`, so nodes render as **solid black boxes with invisible labels** (this shipped to production and broke every diagram in both themes).
+
+**BROKEN:**
+```ts
+FORBID_TAGS: ["script", "style"],   // <-- strips Mermaid's styles → black boxes
+```
+**FIXED:**
+```ts
+ADD_TAGS: ["foreignObject", "style"],  // keep <style>; DOMPurify still sanitizes its CSS
+FORBID_TAGS: ["script"],               // only <script> is a tag-level threat here
+```
+The `<style>` is safe: it is diagram-`id`-scoped, DOMPurify sanitizes the CSS it contains, and the chart source is author-written MDX (not runtime user input). Forbid `<script>` and event-handler attrs (`onerror`, `onload`, …), never `<style>`.
+
+### Rule 29 — Mermaid theme must follow `data-theme`, not `prefers-color-scheme`
+The site theme is set by the `data-theme` attribute on `<html>` (see `ThemeToggle.tsx`), NOT the OS `prefers-color-scheme`. `Mermaid.tsx` must read `document.documentElement.getAttribute("data-theme")` to pick light/dark tokens and re-render via a `MutationObserver` on that attribute (with `matchMedia` only as the fallback for `"system"`/unset). Using `prefers-color-scheme` alone means diagrams don't re-render on the in-app theme toggle and mismatch colours when OS and site themes differ.
+
+### Rule 30 — Mermaid node labels: write `\n` in MDX; `insertLabelBreaks()` turns it into a space, NOT a line break
+Lesson MDX writes multi-line node labels like `A[Product\nWhat you sell]` inside the `<Mermaid chart={`...`}>` template literal. **JS evaluates that `\n` into a real newline character before Mermaid's parser ever runs** — Mermaid's own escape handling only recognizes the literal two-character `\n` sequence (as you'd get from a raw `.mmd` file), so it never fires here. Left unhandled, Mermaid's own label-text construction drops the raw newline entirely and words glue together with **zero separator** (e.g. "SegmentationDivide into groups"). This shipped across 74 lesson files / 611 labels before being caught.
+
+**Do NOT try to fix this by converting the newline to a literal `<br/>` tag.** That was the first attempt and it fails silently: Mermaid renders labels inside an SVG `<foreignObject>` using XHTML-namespaced markup, and DOMPurify's namespace-confusion protection (an mXSS defense) strips ANY HTML-namespaced element there — verified this cannot be worked around via `ADD_TAGS`/`ALLOWED_TAGS`/`SANITIZE_DOM`/profile combination. A stripped `<br/>` contributes zero replacement characters, so the exact same glued-together bug reappears even though the fix "looks" correct.
+
+`src/components/Mermaid.tsx`'s `insertLabelBreaks()` instead replaces the newline with a **literal space**, a bracket-depth-aware pass run on the chart string right before `mermaid.render()`. A space is plain text, not an element, so DOMPurify has nothing to strip — the label reads correctly as normal wrapped text (not forced onto exactly two lines like the visual source intent, but never glued). Do not remove this call, and do not attempt the `<br/>`/HTML-tag route again without first confirming DOMPurify can preserve it (it currently cannot). Continue writing labels as `A[Line one\nLine two]` in new lesson MDX — the component handles the conversion.

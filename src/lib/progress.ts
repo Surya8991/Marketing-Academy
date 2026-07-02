@@ -28,16 +28,28 @@ export function getCompleted(): Set<string> {
   }
 }
 
-/** Idempotent, safe to call multiple times for the same id. */
+/** Idempotent, safe to call multiple times for the same id.
+ *  Silently swallows storage errors (private/full), matching getCompleted(). */
 export function markComplete(id: string): void {
+  if (typeof window === "undefined") return;
   const completed = getCompleted();
   completed.add(id);
-  localStorage.setItem(KEY, JSON.stringify([...completed]));
+  try {
+    localStorage.setItem(KEY, JSON.stringify([...completed]));
+  } catch {
+    // storage unavailable (private mode, quota exceeded)
+  }
 }
 
-/** Removes a lesson from the completed set. Does not affect XP (XP is never taken away). */
+/** Removes a lesson from the completed set. Does not affect XP (XP is never taken away).
+ *  Silently swallows storage errors (private/full), matching getCompleted(). */
 export function markIncomplete(id: string): void {
+  if (typeof window === "undefined") return;
   const completed = getCompleted();
   completed.delete(id);
-  localStorage.setItem(KEY, JSON.stringify([...completed]));
+  try {
+    localStorage.setItem(KEY, JSON.stringify([...completed]));
+  } catch {
+    // storage unavailable (private mode, quota exceeded)
+  }
 }

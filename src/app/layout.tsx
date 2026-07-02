@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import AchievementToast from "@/components/AchievementToast";
 import OnboardingModal from "@/components/OnboardingModal";
-import CommandPalette from "@/components/CommandPalette";
+import CommandPaletteLoader from "@/components/CommandPaletteLoader";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -75,7 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ScrollToTop />
           <AchievementToast />
           <OnboardingModal />
-          <CommandPalette />
+          <CommandPaletteLoader />
           <script dangerouslySetInnerHTML={{ __html: `if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}` }} />
         </PostHogProvider>
       </body>
