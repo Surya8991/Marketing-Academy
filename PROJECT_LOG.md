@@ -10,7 +10,7 @@
 ```
 1. cd C:\Users\Surya L\Desktop\AI Agents\Marketing-Academy
 2. Count MDX files: (Get-ChildItem src/content -Recurse -Filter *.mdx).Count   [PowerShell]
-3. Current: 406 lessons · 216 glossary terms · 108 tools · 8 tracks · 16 categories
+3. Current: 406 lessons · 216 glossary terms · 108 tools · 9 tracks · 16 categories
 4. XP/Streak/Achievements system LIVE (Session 41). Cmd+K palette, skill-map, onboarding, settings page all shipped.
 5. Stats are dynamic everywhere: flatLessons().length, CATEGORIES.length, GLOSSARY_TERMS.length, TOOLS.length.
 6. Key constants: COMPLETED_KEY exported from progress.ts, COMMAND_PALETTE_EVENT from src/lib/events.ts.
@@ -2233,3 +2233,15 @@ Architecture:
 - `src/lib/quizzes.ts` - 13 quiz keys renamed from `fundamentals/*` to `mental-models/*` (canonical location)
 
 Categories: 15 -> 16. Unique lessons: 406 (unchanged; cross-listed, not duplicated). Fundamentals visible count: 38 (25 native + 13 cross-listed from mental-models).
+
+### Mental Models added to Tracks (Session 58, fourth pass)
+
+New track: **Marketing Mental Models Track** (`mental-models`) — dedicated 13-lesson path pooling all mental-model lessons in ROI order (First-Principles → Opportunity Cost → Writing to Think → Pattern Recognition → Base Rates → Second-Order → Inversion → Goodhart → Deliberate Practice → Systems Thinking → Pareto/TOC → Bayesian Updating → Decision-Making Under Uncertainty). 10-13 hours.
+
+Sprinkled into 4 existing tracks where they add the most value:
+- **B2B Marketing Track** (+3): First-Principles Thinking, Second-Order Thinking, Base Rates. Duration 16-20 -> 18-22h.
+- **Solo Founder Track** (+3): First-Principles Thinking, Opportunity Cost Thinking, Writing to Think. Duration 12-15 -> 14-17h.
+- **Content Creator Track** (+2): Writing to Think, Deliberate Practice. Duration 14-17 -> 15-18h.
+- **Data-Driven Marketer Track** (+3): Base Rates, Bayesian Updating, Goodhart's Law. Duration 14-18 -> 16-20h.
+
+Track count: 8 -> 9. Track quiz gates auto-pool the new mental-model quizzes since `QUIZZES[\`\${l.category}/\${l.slug}\`]` matches the `mental-models/*` keys used throughout.

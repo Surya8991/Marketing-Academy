@@ -166,12 +166,12 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 
 | Route | What |
 |---|---|
-| `/` | Homepage: hero, category grid, 8 learning tracks, featured lessons |
+| `/` | Homepage: hero, category grid, 9 learning tracks, featured lessons |
 | `/learn` | All lessons browsable by category |
 | `/learn/[category]` | Category page: Beginner/Intermediate/Advanced grouping + progress |
 | `/learn/[category]/[lesson]` | Lesson reader: ToC, share, bookmark, related lessons, quiz, prev/next |
 | `/search` | Fuzzy search with category + level filters |
-| `/tracks` | 8 learning tracks overview |
+| `/tracks` | 9 learning tracks overview |
 | `/tracks/[slug]` | Track detail with ordered lesson list |
 | `/glossary` | 216-term A-Z marketing glossary |
 | `/glossary/[slug]` | Individual term page |

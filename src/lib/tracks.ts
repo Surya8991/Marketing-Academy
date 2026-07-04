@@ -16,7 +16,7 @@ export const TRACKS: Track[] = [
     description:
       "Master the full B2B go-to-market stack: positioning, pipeline, content, email lifecycle, attribution, and product marketing. Built for marketers selling to businesses.",
     audience: "B2B Marketers",
-    duration: "16-20 hours",
+    duration: "18-22 hours",
     lessons: [
       { category: "fundamentals", slug: "what-is-marketing", title: "What Marketing Actually Is" },
       { category: "fundamentals", slug: "stp", title: "Segmentation, Targeting, Positioning" },
@@ -24,6 +24,9 @@ export const TRACKS: Track[] = [
       { category: "fundamentals", slug: "buyer-personas", title: "Buyer Personas (without the fluff)" },
       { category: "fundamentals", slug: "positioning", title: "Positioning" },
       { category: "fundamentals", slug: "customer-journey", title: "The Customer Journey" },
+      { category: "mental-models", slug: "first-principles-thinking", title: "First-Principles Thinking" },
+      { category: "mental-models", slug: "second-order-thinking", title: "Second-Order Thinking" },
+      { category: "mental-models", slug: "base-rates-forecasting", title: "Base Rates and Reference-Class Forecasting" },
       { category: "product-marketing", slug: "pmm-101", title: "Product Marketing 101" },
       { category: "product-marketing", slug: "icp", title: "Ideal Customer Profile (ICP)" },
       { category: "product-marketing", slug: "positioning-doc", title: "The Positioning Doc" },
@@ -74,12 +77,15 @@ export const TRACKS: Track[] = [
     description:
       "The lean marketing stack for founders doing it all themselves. Skip the fluff, learn the fundamentals that actually drive early traction, and build a repeatable growth system.",
     audience: "Solo Founders",
-    duration: "12-15 hours",
+    duration: "14-17 hours",
     lessons: [
       { category: "fundamentals", slug: "what-is-marketing", title: "What Marketing Actually Is" },
       { category: "fundamentals", slug: "value-proposition", title: "The Value Proposition" },
       { category: "fundamentals", slug: "marketing-math", title: "Marketing Math: CAC, LTV, ROAS, Payback" },
       { category: "fundamentals", slug: "product-market-fit", title: "Product-Market Fit" },
+      { category: "mental-models", slug: "first-principles-thinking", title: "First-Principles Thinking" },
+      { category: "mental-models", slug: "opportunity-cost-thinking", title: "Opportunity Cost Thinking" },
+      { category: "mental-models", slug: "writing-to-think", title: "Writing to Think" },
       { category: "seo", slug: "keyword-research", title: "Keyword Research" },
       { category: "seo", slug: "on-page-seo", title: "On-Page SEO" },
       { category: "content", slug: "what-is-content-marketing", title: "What Content Marketing Really Is" },
@@ -125,10 +131,12 @@ export const TRACKS: Track[] = [
     description:
       "Build an audience from scratch using content. Covers SEO writing, social media, email list building, copywriting fundamentals, and the tools that let one person produce like a team.",
     audience: "Content Creators",
-    duration: "14-17 hours",
+    duration: "15-18 hours",
     lessons: [
       { category: "content", slug: "what-is-content-marketing", title: "What Content Marketing Really Is" },
       { category: "content", slug: "content-strategy", title: "Content Strategy" },
+      { category: "mental-models", slug: "writing-to-think", title: "Writing to Think" },
+      { category: "mental-models", slug: "deliberate-practice", title: "Deliberate Practice for Marketers" },
       { category: "seo", slug: "keyword-research", title: "Keyword Research" },
       { category: "seo", slug: "on-page-seo", title: "On-Page SEO" },
       { category: "seo", slug: "content-clusters", title: "Content Clusters and Pillar Pages" },
@@ -177,8 +185,11 @@ export const TRACKS: Track[] = [
     description:
       "For marketers who want to own the numbers. Covers analytics setup, attribution, experimentation, dashboards, and the measurement frameworks that turn data into decisions.",
     audience: "Analytics-Focused Marketers",
-    duration: "14-18 hours",
+    duration: "16-20 hours",
     lessons: [
+      { category: "mental-models", slug: "base-rates-forecasting", title: "Base Rates and Reference-Class Forecasting" },
+      { category: "mental-models", slug: "bayesian-updating", title: "Bayesian Updating for Marketers" },
+      { category: "mental-models", slug: "goodharts-law", title: "Goodhart's Law: When Metrics Become Targets" },
       { category: "analytics", slug: "analytics-101", title: "Analytics 101" },
       { category: "analytics", slug: "ga4-setup", title: "GA4 Setup" },
       { category: "analytics", slug: "utm-tagging", title: "UTM Tagging" },
@@ -222,6 +233,30 @@ export const TRACKS: Track[] = [
       { category: "analytics", slug: "analytics-101", title: "Analytics 101" },
       { category: "analytics", slug: "utm-tagging", title: "UTM Tagging" },
       { category: "tools", slug: "all-in-one-tools", title: "All-in-One Marketing Tools" },
+    ],
+  },
+  {
+    slug: "mental-models",
+    title: "Marketing Mental Models Track",
+    emoji: "🧠",
+    description:
+      "The reasoning tools that separate the marketer who executes tactics from the one who chooses the right tactic. First-principles, systems thinking, second-order effects, probabilistic decisions, and the meta-skills that compound across every channel and every era.",
+    audience: "Ambitious Marketers at Any Level",
+    duration: "10-13 hours",
+    lessons: [
+      { category: "mental-models", slug: "first-principles-thinking", title: "First-Principles Thinking" },
+      { category: "mental-models", slug: "opportunity-cost-thinking", title: "Opportunity Cost Thinking" },
+      { category: "mental-models", slug: "writing-to-think", title: "Writing to Think" },
+      { category: "mental-models", slug: "pattern-recognition", title: "Pattern Recognition: The Marketer's Meta-Skill" },
+      { category: "mental-models", slug: "base-rates-forecasting", title: "Base Rates and Reference-Class Forecasting" },
+      { category: "mental-models", slug: "second-order-thinking", title: "Second-Order Thinking" },
+      { category: "mental-models", slug: "inversion-thinking", title: "Inversion: Solving Problems Backwards" },
+      { category: "mental-models", slug: "goodharts-law", title: "Goodhart's Law: When Metrics Become Targets" },
+      { category: "mental-models", slug: "deliberate-practice", title: "Deliberate Practice for Marketers" },
+      { category: "mental-models", slug: "systems-thinking", title: "Systems Thinking for Marketers" },
+      { category: "mental-models", slug: "pareto-and-constraints", title: "The Pareto Principle and Theory of Constraints" },
+      { category: "mental-models", slug: "bayesian-updating", title: "Bayesian Updating for Marketers" },
+      { category: "mental-models", slug: "decision-making-under-uncertainty", title: "Decision-Making Under Uncertainty" },
     ],
   },
 ];
