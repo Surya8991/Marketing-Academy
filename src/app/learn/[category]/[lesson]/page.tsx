@@ -33,8 +33,10 @@ const BASE = "https://marketing-academy-roan.vercel.app";
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category, lesson } = await params;
   try {
-    const mod = await import(`@/content/${category}/${lesson}.mdx`);
     const cat = getCategory(category);
+    const lessonRef = cat?.lessons.find((l) => l.slug === lesson);
+    const sourceCat = lessonRef?.sourceCategory ?? category;
+    const mod = await import(`@/content/${sourceCat}/${lesson}.mdx`);
     const title = mod.lessonMeta?.title ?? lesson;
     const description = mod.lessonMeta?.summary;
     const level = mod.lessonMeta?.level ?? "";
@@ -43,7 +45,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title,
       description,
       alternates: {
-        canonical: `${BASE}/learn/${category}/${lesson}`,
+        // Cross-listed lessons canonicalize to their source category to avoid duplicate content
+        canonical: `${BASE}/learn/${sourceCat}/${lesson}`,
       },
       openGraph: {
         title,
@@ -68,10 +71,14 @@ export default async function LessonPage({ params }: Props) {
   const cat = getCategory(category);
   if (!cat) notFound();
 
+  // Cross-listed lessons: MDX file lives in sourceCategory but appears in this category's URL
+  const lessonRef = cat.lessons.find((l) => l.slug === lesson);
+  const sourceCat = lessonRef?.sourceCategory ?? category;
+
   let LessonContent!: React.ComponentType;
   let lessonMeta: { title: string; level: string; summary: string } | undefined;
   try {
-    const mod = await import(`@/content/${category}/${lesson}.mdx`);
+    const mod = await import(`@/content/${sourceCat}/${lesson}.mdx`);
     LessonContent = mod.default;
     lessonMeta = mod.lessonMeta;
   } catch {
@@ -82,7 +89,7 @@ export default async function LessonPage({ params }: Props) {
   let readTime = 5;
   try {
     const raw = fs.readFileSync(
-      path.join(process.cwd(), "src", "content", category, `${lesson}.mdx`),
+      path.join(process.cwd(), "src", "content", sourceCat, `${lesson}.mdx`),
       "utf-8"
     );
     const text = raw
@@ -97,8 +104,8 @@ export default async function LessonPage({ params }: Props) {
 
   const { prev, next } = getLessonNav(category, lesson);
 
-  // Determine if this lesson has a quiz
-  const quizQuestions = QUIZZES[`${category}/${lesson}`];
+  // Determine if this lesson has a quiz (cross-listed lessons share the quiz under sourceCategory key)
+  const quizQuestions = QUIZZES[`${sourceCat}/${lesson}`];
   const hasQuiz = !!(quizQuestions && quizQuestions.length > 0);
 
   const articleLd = {
@@ -198,8 +205,8 @@ export default async function LessonPage({ params }: Props) {
                 </p>
               )}
               <div className="mt-5 flex flex-wrap items-center gap-3">
-                <MarkComplete category={category} slug={lesson} />
-                <BookmarkButton category={category} slug={lesson} title={lessonMeta?.title ?? lesson} />
+                <MarkComplete category={sourceCat} slug={lesson} />
+                <BookmarkButton category={sourceCat} slug={lesson} title={lessonMeta?.title ?? lesson} />
               </div>
               <div className="mt-4">
                 <ShareButtons title={lessonMeta?.title ?? lesson} url={`${BASE}/learn/${category}/${lesson}`} />
@@ -219,7 +226,7 @@ export default async function LessonPage({ params }: Props) {
             {/* Bottom Mark Complete */}
             <div className="mt-10 pt-8 border-t border-[var(--border)]">
               <MarkComplete
-                category={category}
+                category={sourceCat}
                 slug={lesson}
                 nextHref={next ? `/learn/${next.categorySlug}/${next.slug}` : undefined}
                 nextTitle={next?.title}
@@ -266,7 +273,7 @@ export default async function LessonPage({ params }: Props) {
             {hasQuiz && (
               <div id="quiz-section" className="mt-12 pt-8 border-t border-[var(--border)]">
                 <h2 className="text-xl font-bold mb-4">Test Your Knowledge</h2>
-                <Quiz questions={quizQuestions!} category={category} slug={lesson} />
+                <Quiz questions={quizQuestions!} category={sourceCat} slug={lesson} />
               </div>
             )}
 

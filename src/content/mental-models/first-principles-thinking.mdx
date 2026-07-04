@@ -1,0 +1,91 @@
+export const lessonMeta = {
+  title: "First-Principles Thinking",
+  level: "Beginner",
+  summary: "How to break a marketing problem down to its base truths and rebuild the answer from scratch, instead of copying what the industry already does.",
+};
+
+# First-Principles Thinking
+
+Most marketing advice is analogy stacked on analogy. "SaaS companies should do content marketing because HubSpot did." First-principles thinking is the antidote: strip the problem to base truths and build up from there.
+
+## Quick Summary
+
+- First-principles thinking means reasoning up from what is actually true, not sideways from what others do.
+- It is how Elon Musk cut battery costs 90%, how Airbnb built its first product, and how every category-defining brand starts.
+- The method is three steps: name the assumption, prove or reject it, rebuild from what survives.
+- The failure mode is doing it once for show; the value only compounds when it becomes the default.
+
+## What It Actually Is
+
+Aristotle called it "the first basis from which a thing is known." In plain English: the smallest handful of facts you cannot argue with, from which everything else follows.
+
+Most marketing decisions are made by analogy: "our competitor runs LinkedIn ads, so we should." First-principles thinking asks a different question: what do we actually know about how our buyers decide, and what does that imply?
+
+Analogies feel safe because they hide behind precedent. First principles feel exposed because you have to defend your own reasoning. That is exactly why they produce different answers.
+
+## Why It Matters
+
+The famous example is Elon Musk on battery cost. Industry consensus in 2012 said lithium-ion packs cost $600/kWh and always would. Musk asked: what are the raw material costs? Cobalt, nickel, aluminum, carbon, some steel cans, some polymers. Sourced from the London Metal Exchange, the raw materials cost about $80/kWh. Everything else was assembly and margin, both of which were negotiable. Tesla now targets under $100/kWh.
+
+Marketing has the same trap. "Our category CAC is $400 because that is the industry benchmark" is a benchmark parroted, not a truth derived. Airbnb founders in 2008 could have looked at hotel-industry customer acquisition and copied it. Instead they asked what a stranger actually needs to trust another stranger's home, and rebuilt the whole flow from that first principle.
+
+The pattern repeats: [category-defining brands almost always got there by rejecting an industry assumption](https://fs.blog/first-principles/) that everyone else treated as fixed cost.
+
+## The Playbook: The Three-Step Method
+
+<Mermaid chart={`graph TD
+    A[Take the standard answer\n"we should do X because our category does"] --> B[Step 1: Name the assumption\nwrite the reasoning out as an if-then chain]
+    B --> C[Step 2: Test each link\nis this actually true, or just repeated often?]
+    C --> D[Step 3: Rebuild from survivors\nwhat does the surviving evidence actually imply?]
+    D --> E[Compare to the standard answer\nsame? sanity check. different? potential edge.]`} />
+
+**Step 1: Name the assumption.** Write out the reasoning as an if-then chain. "We should launch on Product Hunt because that is where SaaS launches happen because that is where our buyers hang out."
+
+**Step 2: Test each link.** For each "because," ask: is this actually true, or repeated often? "Our buyers hang out on Product Hunt" is testable: check where your last 20 customers came from. Most claimed truths crumble at this step.
+
+**Step 3: Rebuild from survivors.** Take the links that survived and ask what they actually imply. Often the implied action is not the standard one.
+
+The reason this feels slow is that it is slow the first time. The second time on the same category of decision, it takes minutes.
+
+## A Real Example
+
+Buffer, the social media scheduling tool, needed to build brand awareness in 2011 in a crowded market. The standard playbook said: content marketing, SEO, paid ads.
+
+They asked instead: what actually gets a small SaaS discovered? Base truth 1: readers trust bylines from names they recognize. Base truth 2: existing blogs already have those audiences. Base truth 3: those blogs constantly need free content.
+
+The derived tactic was guest posting at scale, 150 posts in nine months, targeting sites their buyers already read. It took them from zero to 100,000 users. The industry playbook would have burned the same budget on ads.
+
+The tactic was not novel. The reasoning was. That is the point.
+
+<Callout type="tip">
+When you feel the pull to say "everyone in our category does X," pause. That sentence is often the fingerprint of an untested assumption. Ask "why does everyone do X?" and follow the chain until you hit either a real base truth or a "because they always have." The second answer is a green light to try something else.
+</Callout>
+
+## Common Mistakes
+
+**Mistake 1: Confusing first principles with contrarianism.** The point is not to disagree with the industry; it is to derive your answer independently. If the derived answer matches the industry, use the industry playbook with confidence. If it does not, you have found something.
+
+**Mistake 2: Stopping at the assumption.** Naming an assumption is not the work. Testing it is. If you list five assumptions and check none of them, you have done philosophy homework, not marketing.
+
+**Mistake 3: Applying it to everything.** First-principles thinking is expensive. Reserve it for decisions where the stakes are high (positioning, category strategy, big bets) or where you suspect the standard playbook is wrong. Everyday campaign choices should still borrow from experience.
+
+<Callout type="warning">
+Not every industry assumption is wrong. Sometimes the standard answer is standard because it is right. First-principles thinking is a filter, not a mandate to rebel. When your derived answer matches the consensus, that is a signal to move fast with confidence, not to invent friction.
+</Callout>
+
+## Key Takeaways
+
+- First-principles thinking derives answers up from base truths instead of sideways from what others do.
+- Use the three-step method: name the assumption, test the links, rebuild from what survives.
+- Category-defining brands (Tesla, Airbnb, Buffer) almost always got there by rejecting one assumption their industry treated as fixed.
+- Reserve the method for high-stakes decisions; use borrowed playbooks for everyday tactics.
+- The point is independent derivation, not contrarianism: matching the consensus with confidence counts as a win.
+
+<ResourceList resources={[
+  { title: "First Principles: The Building Blocks of True Knowledge (Farnam Street)", url: "https://fs.blog/first-principles/", type: "article", free: true, note: "The definitive primer, includes the Musk and Aristotle framing" },
+  { title: "Elon Musk on First Principles Reasoning (video)", url: "https://www.youtube.com/watch?v=NV3sBlRgzTI", type: "video", free: true, note: "Two minutes on the battery-cost example" },
+  { title: "How Buffer Got to 100,000 Users with Guest Blogging", url: "https://buffer.com/resources/how-i-guest-blogged-my-way-to-100000-customers/", type: "article", free: true, note: "The founder's own writeup of the derived strategy" },
+  { title: "WsCube Tech, Marketing Strategy (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, First Principles for Marketers", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Marketing Strategy Skills", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

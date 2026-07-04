@@ -38,6 +38,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${toolA.name} vs ${toolB.name} Comparison | Marketing Academy`,
     description: `Compare ${toolA.name} vs ${toolB.name} side-by-side. Read structured features, pros & cons, pricing tiers, and expert software recommendations.`,
+    alternates: {
+      // Alias slugs (e.g. ga4-vs-mixpanel) render the same content; point them at the full slug
+      canonical: `https://marketing-academy-roan.vercel.app/compare/${slugify(toolA.name)}-vs-${slugify(toolB.name)}`,
+    },
   };
 }
 

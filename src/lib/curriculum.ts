@@ -5,6 +5,13 @@ export type LessonRef = {
   title: string;
   level: Level;
   summary: string;
+  /**
+   * When set, the MDX file lives at src/content/{sourceCategory}/{slug}.mdx
+   * instead of src/content/{category}/{slug}.mdx. The lesson still appears in
+   * this category's UI, but the URL /learn/{category}/{slug} canonicalizes to
+   * /learn/{sourceCategory}/{slug} to avoid duplicate-content SEO issues.
+   */
+  sourceCategory?: string;
 };
 
 export type Category = {
@@ -52,6 +59,19 @@ export const CATEGORIES: Category[] = [
       { slug: "community-led-growth-intro", title: "Community-Led Growth: The Third GTM Motion", level: "Beginner", summary: "Why community is now a distribution, retention, and revenue channel, and how Notion, Figma, and Linear built theirs." },
       { slug: "demand-gen-vs-lead-gen", title: "Demand Generation vs Lead Generation: The Philosophy That Divides Marketing Teams", level: "Intermediate", summary: "Why demand gen builds markets while lead gen fills pipelines, and why your org probably needs both working in concert." },
       { slug: "revops-for-marketers", title: "Revenue Operations for Marketers: Why RevOps Changes Everything", level: "Intermediate", summary: "How aligning marketing, sales, and CS under one operating model transforms attribution, pipeline visibility, and what the marketer's job actually is." },
+      { slug: "pattern-recognition", title: "Pattern Recognition: The Marketer's Meta-Skill", level: "Intermediate", summary: "How to spot repeating structures in data, campaigns, and consumer behavior before your competitors do, and how to avoid seeing patterns that are not there.", sourceCategory: "mental-models" },
+      { slug: "systems-thinking", title: "Systems Thinking for Marketers", level: "Advanced", summary: "Why channels are not silos: feedback loops, time delays, and second-order effects, the mental model behind every compounding marketing engine.", sourceCategory: "mental-models" },
+      { slug: "decision-making-under-uncertainty", title: "Decision-Making Under Uncertainty", level: "Advanced", summary: "Thinking in bets, expected value, and reversible-vs-irreversible calls: how to make good marketing decisions when the data cannot tell you the answer.", sourceCategory: "mental-models" },
+      { slug: "first-principles-thinking", title: "First-Principles Thinking", level: "Beginner", summary: "How to break a marketing problem down to its base truths and rebuild the answer from scratch, instead of copying what the industry already does.", sourceCategory: "mental-models" },
+      { slug: "opportunity-cost-thinking", title: "Opportunity Cost Thinking", level: "Beginner", summary: "Every yes is a hidden no. How to see the campaigns you did not run, the hires you did not make, and the market you left on the table by focusing here.", sourceCategory: "mental-models" },
+      { slug: "writing-to-think", title: "Writing to Think", level: "Beginner", summary: "Why the marketers who write clearly also strategize clearly, and how the physical act of writing exposes the holes in your reasoning before the market does.", sourceCategory: "mental-models" },
+      { slug: "base-rates-forecasting", title: "Base Rates and Reference-Class Forecasting", level: "Intermediate", summary: "Before predicting how your campaign will do, look up how often campaigns like it actually work. The single most reliable fix for marketing overconfidence.", sourceCategory: "mental-models" },
+      { slug: "second-order-thinking", title: "Second-Order Thinking", level: "Intermediate", summary: "The habit of asking 'and then what?' after every marketing decision, so today's win does not become next year's structural problem.", sourceCategory: "mental-models" },
+      { slug: "inversion-thinking", title: "Inversion: Solving Problems Backwards", level: "Intermediate", summary: "Instead of asking 'how do we win?', ask 'how would we fail?' and then avoid every answer. Charlie Munger's favorite thinking tool, applied to marketing.", sourceCategory: "mental-models" },
+      { slug: "goodharts-law", title: "Goodhart's Law: When Metrics Become Targets", level: "Intermediate", summary: "Every metric you turn into a goal stops being a good measurement. How to spot Goodhart failures in marketing dashboards and design better ones.", sourceCategory: "mental-models" },
+      { slug: "deliberate-practice", title: "Deliberate Practice for Marketers", level: "Intermediate", summary: "Why ten years of marketing experience often produces one year of learning repeated ten times, and how to actually get better at your craft on purpose.", sourceCategory: "mental-models" },
+      { slug: "pareto-and-constraints", title: "The Pareto Principle and Theory of Constraints", level: "Advanced", summary: "80% of your results come from 20% of your effort, and the whole system moves at the pace of one bottleneck. Two rules that decide where your next dollar and hour should go.", sourceCategory: "mental-models" },
+      { slug: "bayesian-updating", title: "Bayesian Updating for Marketers", level: "Advanced", summary: "How to change your mind proportionally when new evidence lands, without ignoring your priors or overreacting to the latest data point.", sourceCategory: "mental-models" },
     ],
   },
   {
@@ -574,6 +594,30 @@ export const CATEGORIES: Category[] = [
       { slug: "llm-fine-tuning-brand-voice", title: "Fine-Tuning LLMs for Brand Voice: Making AI Write Like You", level: "Advanced", summary: "Learn how to customize LLMs so they consistently write in your brand voice at scale." },
       { slug: "ai-measurement-attribution", title: "AI-Powered Attribution: Moving Beyond Last-Click to Algorithmic Models", level: "Advanced", summary: "Learn how machine learning transforms multi-touch attribution to reveal true channel contribution." },
       { slug: "synthetic-audience-testing", title: "Synthetic Audience Testing: Using AI Personas to Pre-Test Marketing", level: "Advanced", summary: "How to use AI-simulated buyer personas to validate messaging, copy, and product concepts before spending on real market research." },
+    ],
+  },
+  {
+    slug: "mental-models",
+    title: "Mental Models",
+    tagline: "How great marketers think, not just what they do.",
+    description:
+      "The reasoning tools that separate the marketer who executes tactics from the one who chooses the right tactic. First-principles thinking, systems thinking, second-order effects, probabilistic decisions, and the meta-skills that compound across every channel and every era.",
+    emoji: "🧠",
+    color: "from-indigo-500/15 to-violet-500/10",
+    lessons: [
+      { slug: "first-principles-thinking", title: "First-Principles Thinking", level: "Beginner", summary: "How to break a marketing problem down to its base truths and rebuild the answer from scratch, instead of copying what the industry already does." },
+      { slug: "opportunity-cost-thinking", title: "Opportunity Cost Thinking", level: "Beginner", summary: "Every yes is a hidden no. How to see the campaigns you did not run, the hires you did not make, and the market you left on the table by focusing here." },
+      { slug: "writing-to-think", title: "Writing to Think", level: "Beginner", summary: "Why the marketers who write clearly also strategize clearly, and how the physical act of writing exposes the holes in your reasoning before the market does." },
+      { slug: "pattern-recognition", title: "Pattern Recognition: The Marketer's Meta-Skill", level: "Intermediate", summary: "How to spot repeating structures in data, campaigns, and consumer behavior before your competitors do, and how to avoid seeing patterns that are not there." },
+      { slug: "base-rates-forecasting", title: "Base Rates and Reference-Class Forecasting", level: "Intermediate", summary: "Before predicting how your campaign will do, look up how often campaigns like it actually work. The single most reliable fix for marketing overconfidence." },
+      { slug: "second-order-thinking", title: "Second-Order Thinking", level: "Intermediate", summary: "The habit of asking 'and then what?' after every marketing decision, so today's win does not become next year's structural problem." },
+      { slug: "inversion-thinking", title: "Inversion: Solving Problems Backwards", level: "Intermediate", summary: "Instead of asking 'how do we win?', ask 'how would we fail?' and then avoid every answer. Charlie Munger's favorite thinking tool, applied to marketing." },
+      { slug: "goodharts-law", title: "Goodhart's Law: When Metrics Become Targets", level: "Intermediate", summary: "Every metric you turn into a goal stops being a good measurement. How to spot Goodhart failures in marketing dashboards and design better ones." },
+      { slug: "deliberate-practice", title: "Deliberate Practice for Marketers", level: "Intermediate", summary: "Why ten years of marketing experience often produces one year of learning repeated ten times, and how to actually get better at your craft on purpose." },
+      { slug: "systems-thinking", title: "Systems Thinking for Marketers", level: "Advanced", summary: "Why channels are not silos: feedback loops, time delays, and second-order effects, the mental model behind every compounding marketing engine." },
+      { slug: "pareto-and-constraints", title: "The Pareto Principle and Theory of Constraints", level: "Advanced", summary: "80% of your results come from 20% of your effort, and the whole system moves at the pace of one bottleneck. Two rules that decide where your next dollar and hour should go." },
+      { slug: "bayesian-updating", title: "Bayesian Updating for Marketers", level: "Advanced", summary: "How to change your mind proportionally when new evidence lands, without ignoring your priors or overreacting to the latest data point." },
+      { slug: "decision-making-under-uncertainty", title: "Decision-Making Under Uncertainty", level: "Advanced", summary: "Thinking in bets, expected value, and reversible-vs-irreversible calls: how to make good marketing decisions when the data cannot tell you the answer." },
     ],
   },
 ];

@@ -1,0 +1,106 @@
+export const lessonMeta = {
+  title: "Goodhart's Law: When Metrics Become Targets",
+  level: "Intermediate",
+  summary: "Every metric you turn into a goal stops being a good measurement. How to spot Goodhart failures in marketing dashboards and design better ones.",
+};
+
+# Goodhart's Law: When Metrics Become Targets
+
+British economist Charles Goodhart, writing in 1975, made an observation that has become the most-quoted law in modern management: "When a measure becomes a target, it ceases to be a good measure." Every marketing team eventually learns this the hard way.
+
+## Quick Summary
+
+- Goodhart's Law: any metric optimized as a goal will be gamed until it stops reflecting the thing you actually care about.
+- Marketing dashboards are a graveyard of Goodhart failures: MQL counts that decorrelated from pipeline, page views that grew as time-on-site collapsed, "engagement" metrics no one can define.
+- The fix is not "no metrics." It is metrics designed to survive being targeted: multiple, hard-to-game, and tied to the outcome, not the proxy.
+- Every quarter, audit which of your KPIs still measure the thing you meant them to.
+
+## What It Actually Is
+
+Goodhart's original context was monetary policy: central banks that targeted a specific money-supply metric found the metric detached from the underlying economy. The general form: as soon as an operator knows what they are being measured on, they optimize the measurement, not the goal it was supposed to represent.
+
+Marketing has industrial-scale Goodhart problems. An SEO team measured on ranked keywords will chase easy-to-rank keywords with no commercial intent. A demand-gen team measured on MQL count will lower the MQL bar until sales rejects everything. A content team measured on posts published will publish thinner posts.
+
+The metric is not lying. The team is doing exactly what they were asked. The failure was in the goal design.
+
+## Why It Matters
+
+DoorDash learned this expensively when it optimized delivery-time predictions and drivers began gaming the system. Uber ran into it optimizing surge pricing (drivers coordinated to trigger surges). Facebook's engagement metric, which powered a decade of growth, is now widely seen as [the cause of most of the platform's downstream problems](https://en.wikipedia.org/wiki/Goodhart%27s_law): what maximized engagement was outrage and misinformation.
+
+The marketing versions are less dramatic but universal. A CMO who insists on "3x MQL growth by Q4" will hit the number. Sales will report that the leads are useless. Neither party is lying. The metric became the target and stopped measuring quality.
+
+Even ranking systems fall into this trap. Google's ranking algorithm was gamed hard enough by 2012 that they had to restructure their entire relevance system, and they still fight it. Goodhart is not solvable; it is manageable.
+
+## The Playbook: Metrics That Survive Being Targeted
+
+<Mermaid chart={`graph TD
+    A[Real business outcome\ne.g. profitable pipeline] --> B[Proxy metric\ne.g. MQL count]
+    B --> C[Team optimizes the proxy]
+    C --> D[Metric hits target]
+    D --> E{Did the real outcome move?}
+    E -->|Yes| F[Metric still valid]
+    E -->|No| G[Goodhart failure]
+    G --> H[Redesign: multi-metric,\nharder to game, closer to outcome]`} />
+
+Three design rules make metrics more resistant to Goodhart:
+
+**Rule 1: Measure multiple things at once.** Any single metric can be gamed. A pair (MQL count AND MQL-to-SQL conversion rate) is harder. A trio (volume, conversion, and unit economics) is harder still. Gaming three at once usually requires actually doing the work.
+
+**Rule 2: Move closer to the real outcome.** MQLs are a proxy for pipeline, which is a proxy for revenue, which is a proxy for profit. Every step of proxy adds Goodhart risk. Where possible, measure the closest step you have data for. Revenue is harder to game than MQL count.
+
+**Rule 3: Include a "guardrail" metric.** For every growth target, add a metric that catches the most likely gaming. Growing MQL count? Add "MQL-to-close rate cannot fall more than 10%." Growing pageviews? Add "average time-on-page cannot fall." The guardrail neutralizes the easiest cheat.
+
+<Callout type="tip">
+Amazon's marketing organization is famous for tracking many small metrics but escalating on very few. The reason: the smaller metrics are diagnostic (they help teams debug what is happening), but only the escalated few are targets. Diagnostic metrics do not trigger Goodhart because no one is optimizing them.
+</Callout>
+
+## A Real Example
+
+A B2B SaaS marketing team in 2023 was told to "double SQLs by end of year." The initial number was 200/month, so the target was 400/month.
+
+Six months in, SQL count hit 380. Champagne. Sales reported that close rates had fallen from 22% to 11%, because the SDR team had loosened qualification to hit the target. Net closed-won revenue at month six was actually lower than at month zero.
+
+The team redesigned the metric. New target: "SQLs where close rate stays above 20% within the historical distribution." Six months after that, SQL count was 290, close rate was 24%, and closed-won revenue was up 40% from the original starting point. The second metric was harder to game because gaming it required lowering close rate, which was now the guardrail.
+
+The lesson: not "SQLs are bad" but "SQLs alone are gameable." The paired metric survived Goodhart.
+
+## Common Marketing Goodhart Failures
+
+**MQL count decoupled from pipeline quality.** The classic. Fix with paired MQL-to-SQL conversion metric.
+
+**Time-on-site inflated by adding auto-play video.** The metric moves, the reading behavior does not. Fix with scroll depth plus time-to-first-scroll.
+
+**Impressions on brand campaigns that never lift search demand.** Impressions are trivial to buy. Fix with a demand-side metric (branded search volume, direct traffic).
+
+**Domain authority chased as an SEO target.** The metric was a Moz-invented proxy that Google does not use. Optimizing DA is the pure Goodhart form. Fix with real organic revenue.
+
+**Email open rates in the Apple-Mail-Privacy era.** Now inflated by 30-40% by preview fetches that do not represent human opens. Fix with click-through and downstream conversion.
+
+<Callout type="warning">
+The tell for a Goodhart-failing metric is a phrase like "we hit the number but it did not feel like it moved the business." When you hear that, do not blame the team. The metric was doing exactly what it was designed to do. The design was the problem.
+</Callout>
+
+## Common Mistakes
+
+**Mistake 1: Adding more metrics without adding guardrails.** More metrics without paired guardrails is more places to game, not fewer.
+
+**Mistake 2: Metrics inherited from the tool's default dashboard.** GA, HubSpot, and Marketo all ship with dashboard metrics that were designed to look good in a demo, not to survive being targeted. Rebuild.
+
+**Mistake 3: Punishing teams for gaming.** They responded rationally to the incentive. Fix the incentive, not the people.
+
+## Key Takeaways
+
+- When a metric becomes a target, it will be gamed until it stops measuring the goal.
+- The failure is in the metric design, not in the team responding to it.
+- Design metrics to survive: measure multiple things at once, move closer to the real outcome, add explicit guardrails.
+- Diagnostic metrics (many, unwatched) are safe; target metrics (few, escalated) need Goodhart protection.
+- Audit your KPI set every quarter for the "we hit the number but the business did not move" tell.
+
+<ResourceList resources={[
+  { title: "Goodhart's Law (Wikipedia)", url: "https://en.wikipedia.org/wiki/Goodhart%27s_law", type: "article", free: true, note: "The full history, including the DoorDash and social media examples" },
+  { title: "The Metric Society: On the Quantification of the Social (Steffen Mau)", url: "https://www.goodreads.com/book/show/44890301-the-metric-society", type: "article", free: false, note: "A broader treatment of what happens when we measure everything" },
+  { title: "Amazon's Weekly Business Review Process (Colin Bryar)", url: "https://commoncog.com/blogs/working-backwards-jeff-bezos.html", type: "article", free: true, note: "How diagnostic vs. target metrics work in practice" },
+  { title: "WsCube Tech, Marketing Metrics (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, KPI Design", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Marketing Analytics", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

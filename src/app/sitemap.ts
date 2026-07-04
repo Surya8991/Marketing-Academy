@@ -7,7 +7,7 @@ import fs from "fs";
 import path from "path";
 
 const BASE = "https://marketing-academy-roan.vercel.app";
-const BUILD_DATE = new Date("2026-06-16");
+const BUILD_DATE = new Date("2026-07-04");
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -24,6 +24,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/digital-marketing-cheat-sheet`, priority: 0.9, changeFrequency: "monthly", lastModified: BUILD_DATE },
     { url: `${BASE}/certificates`, priority: 0.5, changeFrequency: "monthly", lastModified: BUILD_DATE },
     { url: `${BASE}/compare`, priority: 0.8, changeFrequency: "weekly", lastModified: BUILD_DATE },
+    { url: `${BASE}/quizzes`, priority: 0.7, changeFrequency: "monthly", lastModified: BUILD_DATE },
+    { url: `${BASE}/resources`, priority: 0.7, changeFrequency: "monthly", lastModified: BUILD_DATE },
+    { url: `${BASE}/skill-map`, priority: 0.6, changeFrequency: "monthly", lastModified: BUILD_DATE },
   ];
 
   const categoryRoutes: MetadataRoute.Sitemap = CATEGORIES.map((cat) => ({
@@ -69,9 +72,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   // Only include lesson pages that actually have an MDX file.
+  // Cross-listed lessons (sourceCategory set) are skipped here so we only emit the canonical URL.
   const lessonRoutes: MetadataRoute.Sitemap = [];
   for (const cat of CATEGORIES) {
     for (const lesson of cat.lessons) {
+      if (lesson.sourceCategory) continue;
       const filePath = path.join(process.cwd(), "src", "content", cat.slug, `${lesson.slug}.mdx`);
       if (fs.existsSync(filePath)) {
         lessonRoutes.push({
@@ -88,7 +93,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "semrush-vs-ahrefs",
     "mailchimp-vs-klaviyo",
     "google-analytics-4-vs-mixpanel",
-    "ga4-vs-mixpanel",
     "chatgpt-vs-claude",
     "buffer-vs-hootsuite",
     "optimizely-vs-vwo",

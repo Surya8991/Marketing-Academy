@@ -1,0 +1,103 @@
+export const lessonMeta = {
+  title: "Decision-Making Under Uncertainty",
+  level: "Advanced",
+  summary: "Thinking in bets, expected value, and reversible-vs-irreversible calls: how to make good marketing decisions when the data cannot tell you the answer.",
+};
+
+# Decision-Making Under Uncertainty
+
+Most marketing decisions are made with incomplete data, under time pressure, in a market that changes while you deliberate. The skill is not eliminating uncertainty. It is deciding well inside it.
+
+## Quick Summary
+
+- Every marketing decision is a bet: money and time staked on an uncertain outcome. Treating it that way improves the process.
+- Judge decisions by process quality, not outcome quality; a good bet can lose and a bad bet can win.
+- Expected value (probability times payoff, minus cost) beats gut feel for comparing options.
+- Match decision speed to reversibility: two-way doors fast, one-way doors slow.
+- Written pre-decision records are the only defense against hindsight bias.
+
+## What It Actually Is
+
+Decision-making under uncertainty is choosing between options whose outcomes you cannot know in advance, using explicit probabilities instead of false confidence.
+
+The best framing comes from poker champion Annie Duke: [every decision is a bet on one uncertain future out of many possible ones](https://www.annieduke.com/article-decision-making-by-thinking-in-bets-annie-duke/). You are never choosing "the right answer"; you are staking resources on a probability.
+
+This kills the most toxic habit in marketing retros: judging decisions by results. Duke calls that error "resulting."
+
+A campaign that had a 70% chance of working and failed was a good decision with a bad outcome. Run it again.
+
+## Why It Matters (with data)
+
+Marketing lives at the uncomfortable intersection of high stakes and low certainty. [87% of marketers say data-driven marketing is critical, but only 32% trust their data quality enough to support decisions](https://blog.coupler.io/marketing-analytics-trends/).
+
+That gap is where careers are made. The data will not decide for you; it narrows the odds, and then someone has to bet.
+
+Teams that formalize the betting mindset get measurably better. [86% of executives using predictive analytics for over two years report improved ROI](https://improvado.io/blog/ai-marketing-trends), not because prediction is perfect, but because probabilistic forecasts force explicit assumptions that can be checked and improved.
+
+The alternative is decision by loudest voice. Uncertainty does not go away when you ignore it; it just stops being managed.
+
+## The Playbook: Four Tools
+
+**Tool 1: Expected value (EV).** For each option, estimate probability of success times the payoff, minus the cost. A 30% shot at $500K in pipeline (EV $150K) beats a 90% shot at $100K (EV $90K), even though the second one feels safer.
+
+**Tool 2: Thinking in bets.** Before committing, ask the calibration question: "Would I bet a month's budget on this at these odds?" If the honest answer is no, your stated confidence is theater.
+
+**Tool 3: Reversible vs. irreversible.** Jeff Bezos's two-door test: most marketing decisions (creative tests, channel pilots, subject lines) are two-way doors, walk through and walk back cheaply. A few (rebrands, pricing changes, agency lock-ins) are one-way doors. Speed on the first kind, rigor on the second.
+
+**Tool 4: The pre-mortem.** Before launch, write the future headline "this campaign failed because..." and have the team fill in the blank. It surfaces risks that optimism was hiding, while there is still time to hedge them.
+
+<Mermaid chart={`graph TD
+    A[Decision needed] --> B{Reversible?}
+    B -->|Two-way door| C[Decide fast\nsmall test, learn, iterate]
+    B -->|One-way door| D[Slow down]
+    D --> E[Estimate EV per option]
+    E --> F[Pre-mortem the favorite]
+    F --> G[Write down odds and reasoning]
+    G --> H[Commit and calendar the review]
+    C --> G`} />
+
+<Callout type="tip">
+Put probabilities in numbers, not words. "Likely" means 40% to one stakeholder and 80% to another; "70%" means the same thing to everyone, and it can be scored for calibration later.
+</Callout>
+
+## The Decision Journal
+
+The single highest-leverage habit: before every major decision, write down what you decided, the odds you gave it, and why.
+
+This is not bureaucracy. Hindsight bias rewrites memory; after the result lands, everyone remembers being right.
+
+The journal keeps score honestly. Review it quarterly and you learn whether your 70% calls actually hit around 70%, which is called calibration.
+
+Poorly calibrated marketers double down on confidence. Well-calibrated ones double down on process.
+
+<Callout type="warning">
+Never grade a decision by its outcome alone. Grade the process: was the information gathered reasonable, were the odds honest, was the downside sized? "Resulting" teaches your team to hide risk instead of managing it, and it punishes exactly the smart bets you want more of.
+</Callout>
+
+## Common Mistakes
+
+**Waiting for certainty.** The market moves while you gather the fourth round of data. A 70%-confidence decision today usually beats a 90% one next quarter.
+
+**Consensus as a substitute for odds.** Five people agreeing is not evidence; it is often shared bias. Ask each person for their probability privately before discussing.
+
+**Ignoring the base rate.** Before predicting your launch will beat benchmarks, look up how often launches like yours actually do. Start from that number, then adjust.
+
+**Betting the constraint.** Never stake something you cannot afford to lose on a two-way-door timeline. Position sizing applies to budgets, not just poker stacks.
+
+## Key Takeaways
+
+- Every marketing decision is a bet; make the odds explicit and the process reviewable.
+- Judge process, not outcomes: refuse to "result."
+- Use expected value to compare options and the two-door test to set decision speed.
+- Run pre-mortems on big bets and keep a decision journal to build calibration.
+- Match your stake to reversibility: fast and cheap through two-way doors, slow and rigorous through one-way doors.
+
+<ResourceList resources={[
+  { title: "Decision Making by Thinking in Bets (Annie Duke)", url: "https://www.annieduke.com/article-decision-making-by-thinking-in-bets-annie-duke/", type: "article", free: true },
+  { title: "Thinking in Bets: Making Smarter Decisions When You Don't Have All the Facts", url: "https://www.goodreads.com/book/show/35957157-thinking-in-bets", type: "article", free: false, note: "The full framework this lesson draws from" },
+  { title: "Marketing Analytics Trends 2026 (Coupler.io)", url: "https://blog.coupler.io/marketing-analytics-trends/", type: "article", free: true, note: "Source for the data-trust gap statistics" },
+  { title: "7 AI Marketing Trends for 2026 (Improvado)", url: "https://improvado.io/blog/ai-marketing-trends", type: "article", free: true, note: "Predictive analytics ROI data" },
+  { title: "WsCube Tech, Marketing Decision Skills (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Decision Making for Marketers", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Marketing Strategy Decisions", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

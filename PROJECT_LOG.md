@@ -1,7 +1,7 @@
 ﻿# Marketing Academy, Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-06-20 (Session 57 - Full code review + hardening pass).
+> Last audited: 2026-07-04 (Session 58 - Content freshness + SEO + 13 meta-skill lessons).
 
 ---
 
@@ -10,7 +10,7 @@
 ```
 1. cd C:\Users\Surya L\Desktop\AI Agents\Marketing-Academy
 2. Count MDX files: (Get-ChildItem src/content -Recurse -Filter *.mdx).Count   [PowerShell]
-3. Current: 393 lessons · 216 glossary terms · 108 tools · 8 tracks · 15 categories
+3. Current: 406 lessons · 216 glossary terms · 108 tools · 8 tracks · 16 categories
 4. XP/Streak/Achievements system LIVE (Session 41). Cmd+K palette, skill-map, onboarding, settings page all shipped.
 5. Stats are dynamic everywhere: flatLessons().length, CATEGORIES.length, GLOSSARY_TERMS.length, TOOLS.length.
 6. Key constants: COMPLETED_KEY exported from progress.ts, COMMAND_PALETTE_EVENT from src/lib/events.ts.
@@ -32,13 +32,13 @@
 29: 
 30: ---
 31: 
-32: ## Current State: 393 lessons across 15 categories
+32: ## Current State: 406 lessons across 16 categories
 
 > All orphaned MDX files linked in Session 43. curriculum.ts and MDX disk counts are now fully in sync.
 
 | # | Category | Slug | Lessons |
 |---|---|---|---|
-| 1 | Marketing Fundamentals | `fundamentals` | 25 |
+| 1 | Marketing Fundamentals | `fundamentals` | 38 |
 | 2 | SEO | `seo` | 26 |
 | 3 | Paid Ads | `paid-ads` | 28 |
 | 4 | Growth Marketing | `growth` | 24 |
@@ -53,7 +53,8 @@
 | 13 | Brand Strategy | `brand-strategy` | 24 |
 | 14 | Product Marketing | `product-marketing` | 22 |
 | 15 | AI in Marketing | `ai-marketing` | 23 |
-| | **TOTAL** | | **393** |
+| 16 | Mental Models | `mental-models` | 13 |
+| | **TOTAL** | | **406** |
 
 ---
 
@@ -2186,3 +2187,49 @@ The script used `[a-z-]*` to match existing keys. That character class excluded 
 | 4 | `src/app/api/geo-audit/route.ts:87` | Request body: `unknown` type + runtime check instead of unsafe `as { url: string }` assertion |
 | 5 | `src/app/api/geo-audit/route.ts:105-112` | Added SSRF protection: block localhost/127.0.0.1/10.x/192.168.x/172.16-31.x ranges |
 | 6 | `src/app/api/geo-audit/route.ts:138` | Groq response: explicit empty-content check before JSON parse, returns 502 instead of silently passing `""` |
+
+## Session 58, 2026-07-04 (Content freshness + SEO + 13 meta-skill lessons)
+
+**Refreshed 5 stale ai-marketing lessons to 2026 data, fixed sitemap/canonical SEO gaps, added 13 new fundamentals meta-skill lessons (393 -> 406).**
+
+### Changes
+| # | File | Change |
+|---|------|--------|
+| 1 | `src/content/ai-marketing/{ai-marketing-101,rag-for-marketers,internal-gpt-knowledge-bases,ai-analytics,multimodal-ai}.mdx` | Refreshed 2024/2025-anchored stats to Q1 2026 research (Salesforce State of Marketing 2026, HubSpot AI Trends 2026, McKinsey 2026); updated model names (GPT-5, Veo 3.1, Sora 2); added fresh sources to ResourceLists |
+| 2 | `src/app/sitemap.ts` | Added missing /quizzes, /resources, /skill-map routes; removed duplicate ga4-vs-mixpanel alias entry; bumped BUILD_DATE to 2026-07-04 |
+| 3 | `src/app/compare/[slug]/page.tsx` | Added canonical URL to generateMetadata so alias slugs (ga4-vs-mixpanel) canonicalize to the full slug instead of creating duplicate content |
+| 4 | `src/content/fundamentals/pattern-recognition.mdx` | NEW lesson (Intermediate): pattern types, pattern journal, apophenia guardrails |
+| 5 | `src/content/fundamentals/systems-thinking.mdx` | NEW lesson (Advanced): feedback loops, time delays, second-order effects, quarterly systems audit |
+| 6 | `src/content/fundamentals/decision-making-under-uncertainty.mdx` | NEW lesson (Advanced): thinking in bets, expected value, two-door test, decision journal |
+| 7 | `src/lib/curriculum.ts` | Registered 3 new fundamentals lessons (25 -> 28) |
+| 8 | `src/lib/quizzes.ts` | Added 4-question quizzes for all 3 new lessons (396/396 coverage maintained) |
+| 9 | `src/app/opengraph-image.tsx` | 393+ -> 396+ lesson count |
+| 10 | `README.md`, `PROJECT_LOG.md`, `AGENTS.md` | Lesson counts updated to 396, fundamentals to 28 |
+
+### Additional lessons added (Session 58, second pass)
+| # | File | Level | Focus |
+|---|------|-------|-------|
+| 11 | `src/content/fundamentals/first-principles-thinking.mdx` | Beginner | Deriving answers from base truths (Musk, Airbnb, Buffer examples) |
+| 12 | `src/content/fundamentals/opportunity-cost-thinking.mdx` | Beginner | The invisible cost of every yes; 3-question spend test |
+| 13 | `src/content/fundamentals/writing-to-think.mdx` | Beginner | Why prose exposes weak reasoning; Amazon memo culture |
+| 14 | `src/content/fundamentals/base-rates-forecasting.mdx` | Intermediate | Kahneman inside/outside view; reference-class forecasting |
+| 15 | `src/content/fundamentals/second-order-thinking.mdx` | Intermediate | 'And then what?' drill; JCPenney case study |
+| 16 | `src/content/fundamentals/inversion-thinking.mdx` | Intermediate | Munger's inversion; pre-mortem drill (Gary Klein) |
+| 17 | `src/content/fundamentals/goodharts-law.mdx` | Intermediate | Metric-becomes-target failure; guardrail metric design |
+| 18 | `src/content/fundamentals/deliberate-practice.mdx` | Intermediate | Ericsson's four elements; the feedback-loop-is-non-negotiable rule |
+| 19 | `src/content/fundamentals/pareto-and-constraints.mdx` | Advanced | 80/20 + Goldratt's TOC combined for allocation decisions |
+| 20 | `src/content/fundamentals/bayesian-updating.mdx` | Advanced | Prior + evidence proportional updates; button color A/B example |
+
+Lesson totals: 393 -> 406 (13 new fundamentals lessons total this session). Fundamentals category: 25 -> 38.
+
+### New "Mental Models" category (Session 58, third pass)
+
+Created a dedicated 16th category `mental-models` as the canonical home for the 13 meta-skill lessons written this session. Fundamentals still lists them via new `sourceCategory` field on `LessonRef`, so users browsing fundamentals see them; canonical URL and single MDX file live under mental-models.
+
+Architecture:
+- `src/lib/curriculum.ts` - added `sourceCategory?: string` to `LessonRef`; the 13 mental-model entries in fundamentals set `sourceCategory: "mental-models"`
+- `src/app/learn/[category]/[lesson]/page.tsx` - resolves `sourceCat = lessonRef.sourceCategory ?? category` for MDX import, reading-time source file, quiz key, canonical URL, and completion/quiz/bookmark localStorage keys (so state syncs across both URLs)
+- `src/app/sitemap.ts` - skips entries with `sourceCategory` set to avoid duplicate sitemap URLs
+- `src/lib/quizzes.ts` - 13 quiz keys renamed from `fundamentals/*` to `mental-models/*` (canonical location)
+
+Categories: 15 -> 16. Unique lessons: 406 (unchanged; cross-listed, not duplicated). Fundamentals visible count: 38 (25 native + 13 cross-listed from mental-models).

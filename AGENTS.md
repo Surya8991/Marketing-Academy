@@ -334,7 +334,7 @@ Architecture:
 - **`src/components/MarkComplete.tsx`**, `locked = !quizPassed && !done`. When locked, clicking the button calls `document.getElementById("quiz-section")?.scrollIntoView()`, it scrolls to the quiz, it does NOT open a modal.
 - **`src/components/Quiz.tsx`**, the quiz section at the bottom of each lesson. On 4/4 correct, dispatches `QUIZ_PASSED_EVENT` via `window.dispatchEvent`. `MarkComplete` listens to `QUIZ_PASSED_EVENT` and calls `setQuizPassed(category, slug)` then `handleComplete()`.
 - **`src/lib/quizzes.ts`** exports `getQuizPassed`, `setQuizPassed`, `QUIZ_PASSED_EVENT` (re-exported from events.ts), `QUIZ_PASS_KEY_PREFIX`, `quizStorageKey`, and `QUIZZES`. `setQuizPassed` writes `ma_quiz_pass_{category}_{slug}` to localStorage.
-- All 393 lessons have entries in `QUIZZES`, never remove entries or make `QUIZZES[key]` return undefined for a registered lesson.
+- All 406 lessons have entries in `QUIZZES`, never remove entries or make `QUIZZES[key]` return undefined for a registered lesson.
 - Do NOT add `hasQuiz` prop back to `MarkComplete`, it was removed because all lessons now have quizzes.
 - Do NOT create `LessonQuizGate.tsx`, `handleGatePass()`, or `onPass` callback, these do not exist.
 
@@ -342,7 +342,7 @@ Architecture:
 `/api/sync-proxy` verifies `x-sync-secret` header against `process.env.SYNC_SECRET`. The client reads `process.env.NEXT_PUBLIC_SYNC_SECRET` to send in this header. Both vars must be set in Vercel: `SYNC_SECRET` (server-only) AND `NEXT_PUBLIC_SYNC_SECRET` (same value, exposed to client). Without both, sync push/pull silently returns 401.
 
 ### Rule 27 — `src/app/opengraph-image.tsx` lesson count is hardcoded
-The root OG image uses a literal `"393+"` string (edge runtime cannot import `flatLessons()`). When the lesson count changes significantly, manually update the string in `src/app/opengraph-image.tsx` line 82 to match.
+The root OG image uses a literal `"406+"` string (edge runtime cannot import `flatLessons()`). When the lesson count changes significantly, manually update the string in `src/app/opengraph-image.tsx` line 82 to match.
 
 ### Rule 28 — Mermaid: NEVER strip `<style>` in the DOMPurify sanitize config
 `src/components/Mermaid.tsx` sanitizes Mermaid's SVG output with DOMPurify before injecting it. Mermaid v11 ships **all node fills and label colours inside a single diagram-scoped `<style>` element** embedded in the SVG. If DOMPurify removes it, every `<rect>` falls back to the SVG default `fill: black`, so nodes render as **solid black boxes with invisible labels** (this shipped to production and broke every diagram in both themes).
@@ -367,3 +367,17 @@ Lesson MDX writes multi-line node labels like `A[Product\nWhat you sell]` inside
 **Do NOT try to fix this by converting the newline to a literal `<br/>` tag.** That was the first attempt and it fails silently: Mermaid renders labels inside an SVG `<foreignObject>` using XHTML-namespaced markup, and DOMPurify's namespace-confusion protection (an mXSS defense) strips ANY HTML-namespaced element there — verified this cannot be worked around via `ADD_TAGS`/`ALLOWED_TAGS`/`SANITIZE_DOM`/profile combination. A stripped `<br/>` contributes zero replacement characters, so the exact same glued-together bug reappears even though the fix "looks" correct.
 
 `src/components/Mermaid.tsx`'s `insertLabelBreaks()` instead replaces the newline with a **literal space**, a bracket-depth-aware pass run on the chart string right before `mermaid.render()`. A space is plain text, not an element, so DOMPurify has nothing to strip — the label reads correctly as normal wrapped text (not forced onto exactly two lines like the visual source intent, but never glued). Do not remove this call, and do not attempt the `<br/>`/HTML-tag route again without first confirming DOMPurify can preserve it (it currently cannot). Continue writing labels as `A[Line one\nLine two]` in new lesson MDX — the component handles the conversion.
+
+### Rule 31 — Cross-listed lessons: `sourceCategory` field, canonical URL, and localStorage keys
+A lesson can appear in more than one category's UI without duplicating the MDX file. `LessonRef` in `src/lib/curriculum.ts` has an optional `sourceCategory?: string` field. When set, the entry is a **cross-reference**: the MDX file lives at `src/content/{sourceCategory}/{slug}.mdx`, not `src/content/{category}/{slug}.mdx`.
+
+**Wiring (all handled in `src/app/learn/[category]/[lesson]/page.tsx`):**
+- Look up the `LessonRef` from the current category, then compute `sourceCat = lessonRef?.sourceCategory ?? category`.
+- Use `sourceCat` for: MDX dynamic import, reading-time source file read, `QUIZZES[\`${sourceCat}/${slug}\`]` lookup, `alternates.canonical` URL, and the `category` prop passed to `<MarkComplete>`, `<Quiz>`, and `<BookmarkButton>` so localStorage keys (`ma_complete_*`, `ma_bookmarks`, `ma_quiz_pass_*`) sync across both URLs.
+- `articleLd.url` and breadcrumbs stay on the current-page `category` (both URLs are valid entry points; canonical handles SEO consolidation).
+
+**Sitemap:** `src/app/sitemap.ts` skips entries where `sourceCategory` is set so only the canonical URL is emitted.
+
+**Quiz keys:** live under the canonical `sourceCategory` (e.g. `"mental-models/pattern-recognition"`, not `"fundamentals/pattern-recognition"`). Do NOT create duplicate entries.
+
+Current cross-listings: 13 lessons in the `mental-models` category are also referenced from `fundamentals` with `sourceCategory: "mental-models"`.

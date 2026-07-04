@@ -1,0 +1,93 @@
+export const lessonMeta = {
+  title: "Opportunity Cost Thinking",
+  level: "Beginner",
+  summary: "Every yes is a hidden no. How to see the campaigns you did not run, the hires you did not make, and the market you left on the table by focusing here.",
+};
+
+# Opportunity Cost Thinking
+
+Every marketing decision has a visible price (budget, hours, headcount) and an invisible one (what you could have done with those resources instead). The invisible price is opportunity cost, and it is usually the bigger number.
+
+## Quick Summary
+
+- Opportunity cost is the value of the best alternative you did not choose.
+- It is invisible on any P&L, which is why it is systematically underweighted in marketing decisions.
+- Every yes to a campaign is a no to another campaign, a no to headcount, a no to a channel you cannot pursue.
+- The skill is making the invisible visible: forcing yourself to name what you gave up before you commit.
+
+## What It Actually Is
+
+The economist definition: opportunity cost is the value of the next-best option you could have taken. In marketing terms: what could this $50,000 or those two months have produced if you had done anything else with them?
+
+The trap is that P&Ls only show what you spent, not what you missed. A "successful" campaign that returned 2x looks great in a report and terrible if the alternative campaign would have returned 5x.
+
+Every marketer intuitively knows this. Almost none formalize it. Formalizing it is the whole skill.
+
+## Why It Matters
+
+A 2024 McKinsey analysis of marketing budget decisions found that senior marketers report [as much as 30% of channel spend is functionally locked in by inertia](https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights) rather than actively defended each quarter. "We do LinkedIn ads because we do LinkedIn ads" is opportunity cost by default.
+
+The compounding effect is brutal. If your best-performing channel returns 4x and your third-best returns 1.5x, every dollar you leave in the third channel out of habit is worth 62% less than it could be. Over a year, that gap is career-defining, not a rounding error.
+
+The reason it stays hidden: the alternatives never actually run, so they never show up in the data. You have to name them yourself.
+
+## The Playbook: Making Opportunity Cost Visible
+
+The trick is a written comparison, done before commitment. Three questions, every time you approve a meaningful spend.
+
+<Mermaid chart={`graph TD
+    A[Decision on the table\n"approve $50K for X"] --> B[Q1: What are the 2-3 other things\nthat $50K could do?]
+    B --> C[Q2: What would each of those\nlikely return?]
+    C --> D[Q3: Is the chosen option\nclearly the best?]
+    D -->|Yes| E[Approve with conviction]
+    D -->|No| F[Reallocate]
+    D -->|Not sure| G[Run a smaller test\nbefore committing full spend]`} />
+
+**Q1: List the alternatives.** Write down at least two other real uses for the same budget. Not "we could not spend it" but concrete alternatives: two months of a contractor, three ads on a different channel, one new hire's ramp cost.
+
+**Q2: Estimate each alternative's return.** Rough numbers are fine. The exercise is not precision; it is forcing yourself to look at what you would be giving up.
+
+**Q3: Is the chosen option clearly the best?** If yes, approve with conviction. If it is close, run a smaller test on the alternative before locking in the full budget on the current path.
+
+Ten minutes of writing. It is the highest-ROI ten minutes in marketing operations.
+
+<Callout type="tip">
+Do this exercise for time too, not just money. "This week I am spending 20 hours on campaign X" implies you are not spending those 20 hours on anything else. The alternative uses of your calendar have real value, and pretending otherwise is how leaders drift into busywork.
+</Callout>
+
+## A Real Example
+
+In 2019, Basecamp's Jason Fried publicly announced they were killing their (already-profitable) email marketing product Highrise to focus fully on Basecamp. The visible cost was walking away from revenue that was already coming in. The opportunity cost of keeping it was the split attention, the engineering capacity Basecamp did not get, and the market position Basecamp could not consolidate.
+
+Most companies never make that trade. They keep the profitable-but-distracting product because killing it looks like a loss on paper. What Basecamp actually did was recognize that continuing to run Highrise was silently costing them the ability to win the main game.
+
+The trade paid off: Basecamp grew significantly in the years that followed, and their focus was cited by Fried as the reason.
+
+## Common Mistakes
+
+**Mistake 1: Comparing options to "doing nothing."** The right comparison is not "spend $50K on X" versus "keep the money." The money will get spent somewhere. The right comparison is "spend $50K on X" versus "spend $50K on the best alternative."
+
+**Mistake 2: Only counting money.** Attention, team energy, and executive support are all finite budgets with real opportunity costs. Approving a project that consumes six weeks of your best PM is expensive even if it has no line-item budget.
+
+**Mistake 3: Ignoring sunk cost's cousin: the inertia yes.** If you would not fund the same channel today if it were new, you are keeping it out of habit. Rebuild your budget from zero once a year, not from last year plus inflation.
+
+<Callout type="warning">
+The most common opportunity cost failure in marketing is the "always-on" channel that used to work. It ran the flywheel three years ago; today it ticks over on autopilot returning marginal ROAS while a channel that would return 4x sits unfunded. The channel is not the villain; the decision to not compare it against alternatives every planning cycle is.
+</Callout>
+
+## Key Takeaways
+
+- Opportunity cost is the value of the next-best alternative you did not choose. It is invisible on the P&L and often larger than the visible cost.
+- Every yes is a no to something else: name the something else before you commit.
+- Use a three-question test on meaningful spends: what are the alternatives, what would they return, is the chosen option clearly best?
+- Apply it to time and attention, not just money.
+- Rebuild your budget from zero annually; inertia yeses are opportunity cost hiding in plain sight.
+
+<ResourceList resources={[
+  { title: "McKinsey: Growth Marketing and Sales Insights", url: "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights", type: "article", free: true, note: "Broad research base on marketing budget allocation decisions" },
+  { title: "Jason Fried on Killing Highrise (Basecamp SVN)", url: "https://world.hey.com/jason", type: "article", free: true, note: "Fried has written repeatedly about focus versus product sprawl" },
+  { title: "Opportunity Cost Explained (Investopedia)", url: "https://www.investopedia.com/terms/o/opportunitycost.asp", type: "article", free: true, note: "The clean economic definition with worked examples" },
+  { title: "WsCube Tech, Marketing Budget Decisions (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Opportunity Cost Thinking", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Marketing Decision Skills", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

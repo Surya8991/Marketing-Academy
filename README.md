@@ -10,11 +10,11 @@ A free, structured marketing education site, from absolute beginner to advanced 
 
 ## What This Is
 
-393 lessons across 15 disciplines. No paywalls, no drip sequences, no email required. Every lesson includes real research, company examples with specific numbers, Mermaid diagrams, interview Q&A, and curated free resources in English, Hindi, Tamil, and Telugu.
+406 lessons across 16 disciplines. No paywalls, no drip sequences, no email required. Every lesson includes real research, company examples with specific numbers, Mermaid diagrams, interview Q&A, and curated free resources in English, Hindi, Tamil, and Telugu.
 
 | # | Category | Slug | MDX Files |
 |---|---|---|---|
-| 1 | Marketing Fundamentals | `fundamentals` | 25 |
+| 1 | Marketing Fundamentals | `fundamentals` | 38 |
 | 2 | SEO | `seo` | 26 |
 | 3 | Paid Ads | `paid-ads` | 28 |
 | 4 | Growth Marketing | `growth` | 24 |
@@ -29,7 +29,8 @@ A free, structured marketing education site, from absolute beginner to advanced 
 | 13 | Brand Strategy | `brand-strategy` | 24 |
 | 14 | Product Marketing | `product-marketing` | 22 |
 | 15 | AI in Marketing | `ai-marketing` | 23 |
-| | **TOTAL** | | **393** |
+| 16 | Mental Models | `mental-models` | 13 |
+| | **TOTAL** | | **406** |
 
 ---
 
@@ -38,7 +39,7 @@ A free, structured marketing education site, from absolute beginner to advanced 
 **Learning**
 - **Lesson reader**, Left-side table of contents, reading progress bar, reading time estimate, prev/next navigation
 - **Related lessons**, "You might also like" section at the bottom of every lesson
-- **Lesson quizzes**, 4 questions at the bottom of 393 lessons; quiz must be passed (100%) to unlock Mark Complete
+- **Lesson quizzes**, 4 questions at the bottom of 406 lessons; quiz must be passed (100%) to unlock Mark Complete
 - **Progress tracking**, Mark lessons complete, per-category progress bar, bookmarks (all localStorage)
 - **Learning tracks**, 8 curated paths: B2B Marketer, E-commerce Growth, Solo Founder, AI-First Marketer, Content Creator, Social Media Manager, Data-Driven Marketer, Freelancer & Agency
 - **Progress certificates**, Printable completion certificate per track at `/certificates/[slug]`
@@ -48,7 +49,7 @@ A free, structured marketing education site, from absolute beginner to advanced 
 - **Onboarding**, First-visit goal selector: pick a goal, get routed to the right learning track
 
 **Discovery**
-- **Command Palette**, Cmd/Ctrl+K fuzzy search across all 393 lessons, 216 glossary terms, 108 tools, and nav pages
+- **Command Palette**, Cmd/Ctrl+K fuzzy search across all 406 lessons, 216 glossary terms, 108 tools, and nav pages
 - **Search**, Client-side fuzzy search (Fuse.js) with category and level filter chips
 - **Glossary**, 216 marketing terms with A-Z index and individual term pages at `/glossary`
 - **Tools directory**, 108 marketing tools across 11 categories with search, category, and pricing filters at `/tools`
@@ -137,7 +138,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/curriculum.ts` | Single source of truth, all lesson slugs, titles, levels |
 | `src/lib/tracks.ts` | 8 learning track definitions |
 | `src/lib/glossary.ts` | 216 marketing term definitions |
-| `src/lib/quizzes.ts` | Quiz questions (4 per lesson, all 393 lessons covered) |
+| `src/lib/quizzes.ts` | Quiz questions (4 per lesson, all 406 lessons covered) |
 | `src/lib/tools-directory.ts` | 108 marketing tools with category/pricing data |
 | `src/lib/bookmarks.ts` | Shared bookmark storage (BOOKMARK_KEY, getBookmarks, saveBookmarks) |
 | `src/lib/progress.ts` | Lesson completion helpers (COMPLETED_KEY exported, getCompleted, markComplete) |
@@ -176,7 +177,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/glossary/[slug]` | Individual term page |
 | `/bookmarks` | Saved lessons (localStorage) |
 | `/tools` | 108 marketing tools with search + category + pricing filters |
-| `/cheat-sheets` | Printable cheat sheet index (15 categories) |
+| `/cheat-sheets` | Printable cheat sheet index (16 categories) |
 | `/cheat-sheets/[category]` | Printable per-category cheat sheet |
 | `/interview-prep` | Interview prep hub with category Q&A links |
 | `/interview-questions` | SEO landing: digital marketing interview Q&A |
