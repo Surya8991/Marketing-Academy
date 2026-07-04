@@ -2245,3 +2245,11 @@ Sprinkled into 4 existing tracks where they add the most value:
 - **Data-Driven Marketer Track** (+3): Base Rates, Bayesian Updating, Goodhart's Law. Duration 14-18 -> 16-20h.
 
 Track count: 8 -> 9. Track quiz gates auto-pool the new mental-model quizzes since `QUIZZES[\`\${l.category}/\${l.slug}\`]` matches the `mental-models/*` keys used throughout.
+
+### Track-level synthesis quiz for mental-models (Session 58, fifth pass)
+
+Added `TRACK_QUIZZES` map to `src/lib/quizzes.ts` — track-slug-keyed set of scenario questions that test cross-lesson application. Wired into `src/app/tracks/[slug]/quiz/page.tsx` so track quizzes now pool `lessonQuestions + synthesisQuestions`.
+
+For `mental-models`: 10 synthesis questions that force choosing or combining multiple mental models per scenario (e.g. "MQL target hit but close rate collapsed - which two models diagnose this?" → Goodhart's Law + Second-Order Thinking). Existing 52 per-lesson questions still pool as before, so the mental-models track quiz now has 62 questions total, 80% required to pass.
+
+Extensible pattern: any other track can add synthesis questions later by dropping entries into `TRACK_QUIZZES`. New Rule 32 in AGENTS.md documents the wiring.

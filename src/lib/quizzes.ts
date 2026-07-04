@@ -43,6 +43,129 @@ export function quizStorageKey(path: string): string {
   return `${QUIZ_STORAGE_PREFIX}${path.replace(/\//g, "_")}`;
 }
 
+/**
+ * Track-level synthesis quizzes. Pulled by src/app/tracks/[slug]/quiz/page.tsx
+ * IN ADDITION TO the per-lesson quizzes pooled from QUIZZES. These are scenario
+ * questions that test cross-lesson application (e.g. "which mental model applies
+ * to this situation?") — the kind of question no single lesson quiz can ask.
+ * Keyed by track slug. Empty/missing entries are fine; only tracks that benefit
+ * from synthesis questions need entries.
+ */
+export const TRACK_QUIZZES: Record<string, Quiz[]> = {
+  "mental-models": [
+    {
+      question: "A CMO says 'our category benchmark for MQL-to-SQL is 22%, so our 21% is fine.' Which mental model most directly explains why this reasoning is weak?",
+      options: [
+        "First-Principles Thinking: the benchmark is copied consensus, not derived truth for your business",
+        "Bayesian Updating: you should update on the 1% gap",
+        "Deliberate Practice: the CMO needs more reps",
+        "Writing to Think: the CMO should have written it down",
+      ],
+      correct: 0,
+      explanation: "Reasoning by analogy to industry benchmarks is exactly the failure mode first-principles thinking is designed to catch. The benchmark tells you what the average company does, not what your specific unit economics require. Derive the target from your CAC, LTV, and payback constraints instead.",
+    },
+    {
+      question: "Your Q4 discount campaign lifted revenue 40% but training data shows first-order repeat-purchase rate at full price fell 18% in Q1. Which two models together diagnose this best?",
+      options: [
+        "Pattern Recognition + Deliberate Practice",
+        "Second-Order Thinking + Goodhart's Law",
+        "Inversion + Writing to Think",
+        "Base Rates + Bayesian Updating",
+      ],
+      correct: 1,
+      explanation: "Second-order thinking names the delayed effect (customers trained to wait for sales). Goodhart's Law names the metric failure (Q4 revenue became a target and stopped measuring durable demand). Both are required to explain WHY the number hit while the business got worse.",
+    },
+    {
+      question: "You have 10 hours this week and three initiatives worth $50K each. Two would yield ~2x ROI; one might yield 5x but has 30% uncertainty. What does Decision-Making Under Uncertainty combined with Expected Value tell you?",
+      options: [
+        "Split all three evenly — diversification",
+        "The 5x/30% option has EV of $50K × 0.30 × 5 = $75K vs. $50K × 1.0 × 2 = $100K, so pick a 2x option",
+        "The uncertain one has EV of 0.30 × $250K = $75K, lower than $100K certain, so pick a 2x option unless the 5x is a two-way door",
+        "Always pick the highest-ceiling option",
+      ],
+      correct: 2,
+      explanation: "Correct EV math on the uncertain option: 30% × $250K = $75K, versus $100K for the certain 2x. Pure EV picks the 2x. BUT if the 5x is reversible (two-way door), you can test it small first, so the effective downside is capped and it may still be worth trying. Both the number and the reversibility matter.",
+    },
+    {
+      question: "Your SDR team blew past its MQL target and close rate collapsed. A colleague says 'fire the SDRs.' Which two-model combination gives the honest diagnosis?",
+      options: [
+        "Deliberate Practice + Pattern Recognition — they need more reps",
+        "Goodhart's Law + Second-Order Thinking — the metric became a target, the SDRs responded rationally, close rate collapse was the predictable second-order effect",
+        "First-Principles + Inversion — start from scratch",
+        "Bayesian Updating + Base Rates — the data was wrong",
+      ],
+      correct: 1,
+      explanation: "The SDRs did exactly what they were incentivized to do. Goodhart explains why the MQL number stopped measuring quality once it became the target. Second-order thinking explains the delayed collapse in close rate. Firing the SDRs punishes them for responding rationally to a bad metric design.",
+    },
+    {
+      question: "You want to launch a webinar and predict 500 signups. Your last 8 webinars averaged 180 signups (range 90-320). What does reference-class forecasting say your Q4 planning number should look like?",
+      options: [
+        "500, because this launch feels bigger",
+        "180 as an anchor, adjusted upward only for measurable differences (larger list, better speaker, new partnership), landing at ~250 with a stated confidence range",
+        "500 with a note 'we might do better'",
+        "The average of 500 and 180 = 340",
+      ],
+      correct: 1,
+      explanation: "Reference-class forecasting starts from the historical base rate (180) and only adjusts for factors measurably different from the class average. 'This one feels bigger' is not a measurable difference. The inside-view 500 is a story; the base-rate ~250 with an explicit confidence range is a forecast.",
+    },
+    {
+      question: "A single 4,000-visitor A/B test shows the 'orange CTA' beats blue by 6% at p=0.04. Priors: decades of research say button color has small effects at best. What is the correct Bayesian move?",
+      options: [
+        "Ship orange immediately — statistical significance was hit",
+        "Ignore the test — priors say button color does not matter",
+        "Given a weak prior for 'orange > blue on our site' and moderate evidence, update partially and re-run at 12K per arm before shipping as permanent",
+        "Discard the test and run a completely different experiment",
+      ],
+      correct: 2,
+      explanation: "Strong evidence + weak prior = large update; weak evidence + strong prior = small update. Here the prior is moderately against 'button color matters much,' the evidence is moderate. Correct move: partial update, verify with more data. Shipping on 4K sessions is Bayesian over-updating; ignoring the test is Bayesian under-updating.",
+    },
+    {
+      question: "Your team is designing a new activation metric. Which combination of models best guides the design so it does not decay?",
+      options: [
+        "Systems Thinking + Deliberate Practice",
+        "Goodhart's Law + Second-Order Thinking + Systems Thinking: multiple metrics, guardrails against the most likely gaming, and awareness of how optimizing it affects the rest of the system",
+        "Writing to Think + Pattern Recognition + First-Principles",
+        "Inversion + Base Rates alone",
+      ],
+      correct: 1,
+      explanation: "Goodhart's Law tells you a single metric will be gamed; use multiple and guardrail against the most likely cheat. Second-order thinking asks what team behavior the metric will incentivize. Systems thinking asks how the metric interacts with everything else in the funnel. Together they produce a metric that survives being targeted.",
+    },
+    {
+      question: "You are auditing where a marketing team's next dollar should go. Traffic 100K, signups 3K, activated 600, paid 150. The team wants more ads. What does Pareto + Theory of Constraints say?",
+      options: [
+        "Yes, ads are the top of funnel; more traffic scales everything",
+        "The bottleneck is signup-to-activated (20% conversion). Fix that first; more traffic through a broken funnel wastes budget until the constraint moves",
+        "Pareto says defend the winners; keep spending on ads",
+        "TOC says double the smallest segment",
+      ],
+      correct: 1,
+      explanation: "TOC identifies signup-to-activated as the single constraint capping total output. Doubling traffic at current activation yields ~150 more paid customers; fixing activation from 20% to 40% yields ~150 more with zero extra spend. Concentrate resources on the constraint, not the winners the team already knows about.",
+    },
+    {
+      question: "You are about to propose a rebrand to leadership. Which model tells you this deserves rigor rather than speed?",
+      options: [
+        "Pattern Recognition — rebrands rhyme",
+        "Decision-Making Under Uncertainty: rebrands are one-way doors, so require EV analysis, pre-mortem, and stakeholder sign-off, not a fast test",
+        "Bayesian Updating — update on the branding survey",
+        "Writing to Think — write a memo",
+      ],
+      correct: 1,
+      explanation: "Bezos's two-door test: reversible decisions (two-way doors, like ad tests) get made fast, irreversible ones (one-way doors, like rebrands) get made slowly with EV analysis and a pre-mortem. Rebrands cannot be cheaply undone; treating them like a two-way door decision is where most rebrand failures come from.",
+    },
+    {
+      question: "A junior marketer has 5 years of experience and hits the same ceiling year after year. Which two models together explain the pattern AND the fix?",
+      options: [
+        "Systems Thinking + Inversion",
+        "Deliberate Practice + Writing to Think: 5 years of unstructured work is not 5 years of learning; the fix is bounded skill targets, feedback loops, and writing to expose gaps in reasoning",
+        "Base Rates + Bayesian Updating",
+        "First-Principles + Opportunity Cost",
+      ],
+      correct: 1,
+      explanation: "Ericsson's research: experience alone does not build expertise; deliberate practice does. Writing to Think adds the feedback loop most marketing careers lack. The ceiling is caused by rep-without-review; the fix is structured practice with immediate feedback on specific skills.",
+    },
+  ],
+};
+
 export const QUIZZES: Record<string, Quiz[]> = {
   "ai-marketing/ai-agents-marketing": [
     {

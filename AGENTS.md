@@ -381,3 +381,11 @@ A lesson can appear in more than one category's UI without duplicating the MDX f
 **Quiz keys:** live under the canonical `sourceCategory` (e.g. `"mental-models/pattern-recognition"`, not `"fundamentals/pattern-recognition"`). Do NOT create duplicate entries.
 
 Current cross-listings: 13 lessons in the `mental-models` category are also referenced from `fundamentals` with `sourceCategory: "mental-models"`.
+
+### Rule 32 — Track-level synthesis quizzes: `TRACK_QUIZZES` map in `quizzes.ts`
+The tracks quiz page (`/tracks/[slug]/quiz`) pools two sources: per-lesson quizzes from `QUIZZES` (keyed by `${category}/${slug}`) AND optional track-level synthesis quizzes from `TRACK_QUIZZES` (keyed by track slug). Synthesis questions test cross-lesson application — scenarios where the learner must pick or combine multiple concepts — which no single lesson quiz can ask.
+
+- Only add to `TRACK_QUIZZES` for tracks where cross-lesson synthesis meaningfully improves the assessment; most tracks work fine with pooled lesson quizzes alone.
+- Same `Quiz` shape as regular quizzes (question, options[], correct, explanation).
+- Currently populated: `mental-models` (10 synthesis questions on cross-model reasoning).
+- The 80% pass threshold applies to the combined pool.

@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TRACKS, getTrack } from "@/lib/tracks";
-import { QUIZZES } from "@/lib/quizzes";
+import { QUIZZES, TRACK_QUIZZES } from "@/lib/quizzes";
 import TrackQuizPageClient from "@/components/TrackQuizPageClient";
 import { ChevronLeft } from "lucide-react";
 
@@ -27,7 +27,9 @@ export default async function TrackQuizPage({ params }: Props) {
   const track = getTrack(slug);
   if (!track) notFound();
 
-  const questions = track.lessons.flatMap((l) => QUIZZES[`${l.category}/${l.slug}`] ?? []);
+  const lessonQuestions = track.lessons.flatMap((l) => QUIZZES[`${l.category}/${l.slug}`] ?? []);
+  const synthesisQuestions = TRACK_QUIZZES[slug] ?? [];
+  const questions = [...lessonQuestions, ...synthesisQuestions];
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
