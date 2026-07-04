@@ -90,7 +90,7 @@ export default function RootOGImage() {
         >
           {[
             { n: "406+", label: "Lessons" },
-            { n: "15", label: "Disciplines" },
+            { n: "16", label: "Disciplines" },
             { n: "0", label: "Paywalls" },
           ].map((s) => (
             <div

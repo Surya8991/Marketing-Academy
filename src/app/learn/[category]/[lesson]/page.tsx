@@ -108,13 +108,18 @@ export default async function LessonPage({ params }: Props) {
   const quizQuestions = QUIZZES[`${sourceCat}/${lesson}`];
   const hasQuiz = !!(quizQuestions && quizQuestions.length > 0);
 
+  // JSON-LD URLs always point to the canonical (sourceCat) location so schema
+  // signals do not contradict the canonical link when the lesson is viewed via
+  // a cross-listed URL. The visible HTML breadcrumb still reflects the user's
+  // actual navigation path (current category).
+  const sourceCatTitle = getCategory(sourceCat)?.title ?? cat.title;
   const articleLd = {
     "@context": "https://schema.org",
     "@type": ["Article", "LearningResource"],
     headline: lessonMeta?.title ?? lesson,
     name: lessonMeta?.title ?? lesson,
     description: lessonMeta?.summary ?? "",
-    url: `${BASE}/learn/${category}/${lesson}`,
+    url: `${BASE}/learn/${sourceCat}/${lesson}`,
     author: { "@type": "Organization", name: "Marketing Academy", url: BASE },
     publisher: {
       "@type": "Organization",
@@ -125,11 +130,12 @@ export default async function LessonPage({ params }: Props) {
     educationalLevel: lessonMeta?.level ?? "Beginner",
     learningResourceType: "lesson",
     teaches: lessonMeta?.title ?? lesson,
-    about: { "@type": "Thing", name: cat.title },
+    about: { "@type": "Thing", name: sourceCatTitle },
     inLanguage: "en",
     timeRequired: `PT${readTime}M`,
-    isPartOf: { "@type": "Course", name: cat.title, url: `${BASE}/learn/${category}` },
-    image: `${BASE}/api/og?title=${encodeURIComponent(lessonMeta?.title ?? lesson)}&category=${encodeURIComponent(cat.title)}&level=${encodeURIComponent(lessonMeta?.level ?? "")}`,
+    isPartOf: { "@type": "Course", name: sourceCatTitle, url: `${BASE}/learn/${sourceCat}` },
+    image: `${BASE}/api/og?title=${encodeURIComponent(lessonMeta?.title ?? lesson)}&category=${encodeURIComponent(sourceCatTitle)}&level=${encodeURIComponent(lessonMeta?.level ?? "")}`,
+    dateModified: "2026-07-04",
     isAccessibleForFree: true,
   };
 
@@ -139,8 +145,8 @@ export default async function LessonPage({ params }: Props) {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: BASE },
       { "@type": "ListItem", position: 2, name: "All Lessons", item: `${BASE}/learn` },
-      { "@type": "ListItem", position: 3, name: cat.title, item: `${BASE}/learn/${category}` },
-      { "@type": "ListItem", position: 4, name: lessonMeta?.title ?? lesson, item: `${BASE}/learn/${category}/${lesson}` },
+      { "@type": "ListItem", position: 3, name: sourceCatTitle, item: `${BASE}/learn/${sourceCat}` },
+      { "@type": "ListItem", position: 4, name: lessonMeta?.title ?? lesson, item: `${BASE}/learn/${sourceCat}/${lesson}` },
     ],
   };
 
@@ -278,7 +284,7 @@ export default async function LessonPage({ params }: Props) {
             )}
 
             {/* Notes */}
-            <LessonNotes category={category} slug={lesson} />
+            <LessonNotes category={sourceCat} slug={lesson} />
 
             {/* Related Lessons */}
             <RelatedLessons currentCategory={category} currentSlug={lesson} level={lessonMeta?.level ?? "Beginner"} />
