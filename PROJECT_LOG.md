@@ -1,7 +1,7 @@
 ﻿# Marketing Academy, Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-07-04 (Session 58 - Content freshness + SEO + 13 meta-skill lessons).
+> Last audited: 2026-07-20 (Session 59 - Site-wide dead-link/stale-content audit + 10 new lessons).
 
 ---
 
@@ -10,7 +10,7 @@
 ```
 1. cd C:\Users\Surya L\Desktop\AI Agents\Marketing-Academy
 2. Count MDX files: (Get-ChildItem src/content -Recurse -Filter *.mdx).Count   [PowerShell]
-3. Current: 406 lessons · 216 glossary terms · 108 tools · 9 tracks · 16 categories
+3. Current: 416 lessons · 216 glossary terms · 108 tools · 9 tracks · 16 categories
 4. XP/Streak/Achievements system LIVE (Session 41). Cmd+K palette, skill-map, onboarding, settings page all shipped.
 5. Stats are dynamic everywhere: flatLessons().length, CATEGORIES.length, GLOSSARY_TERMS.length, TOOLS.length.
 6. Key constants: COMPLETED_KEY exported from progress.ts, COMMAND_PALETTE_EVENT from src/lib/events.ts.
@@ -32,14 +32,14 @@
 29: 
 30: ---
 31: 
-32: ## Current State: 406 lessons across 16 categories
+32: ## Current State: 416 lessons across 16 categories
 
 > All orphaned MDX files linked in Session 43. curriculum.ts and MDX disk counts are now fully in sync.
 
 | # | Category | Slug | Lessons |
 |---|---|---|---|
 | 1 | Marketing Fundamentals | `fundamentals` | 38 |
-| 2 | SEO | `seo` | 26 |
+| 2 | SEO | `seo` | 28 |
 | 3 | Paid Ads | `paid-ads` | 28 |
 | 4 | Growth Marketing | `growth` | 24 |
 | 5 | Social Media | `social` | 24 |
@@ -49,12 +49,12 @@
 | 9 | Marketing Tools | `tools` | 36 |
 | 10 | Human Psychology | `psychology` | 26 |
 | 11 | Copywriting | `copywriting` | 24 |
-| 12 | CRO | `cro` | 22 |
+| 12 | CRO | `cro` | 24 |
 | 13 | Brand Strategy | `brand-strategy` | 24 |
-| 14 | Product Marketing | `product-marketing` | 22 |
-| 15 | AI in Marketing | `ai-marketing` | 23 |
-| 16 | Mental Models | `mental-models` | 13 |
-| | **TOTAL** | | **406** |
+| 14 | Product Marketing | `product-marketing` | 24 |
+| 15 | AI in Marketing | `ai-marketing` | 25 |
+| 16 | Mental Models | `mental-models` | 15 |
+| | **TOTAL** | | **416** |
 
 ---
 
@@ -2253,3 +2253,41 @@ Added `TRACK_QUIZZES` map to `src/lib/quizzes.ts` — track-slug-keyed set of sc
 For `mental-models`: 10 synthesis questions that force choosing or combining multiple mental models per scenario (e.g. "MQL target hit but close rate collapsed - which two models diagnose this?" → Goodhart's Law + Second-Order Thinking). Existing 52 per-lesson questions still pool as before, so the mental-models track quiz now has 62 questions total, 80% required to pass.
 
 Extensible pattern: any other track can add synthesis questions later by dropping entries into `TRACK_QUIZZES`. New Rule 32 in AGENTS.md documents the wiring.
+
+## Session 59, 2026-07-20 (Site-wide dead-link/stale-content audit + 10 new lessons)
+
+**Full-site content health pass: checked all 2,369 unique ResourceList URLs across 406 lessons, fixed every confirmed-dead link (404/410/503/522, 292 unique URLs across 156 files) and every stale "as of 2024/2025" framing issue (69 files), then added 10 new lessons across 5 categories. 406 -> 416 lessons.**
+
+### Dead-link + stale-content remediation
+- Ran a two-pass automated link checker (curl, then a browser-header retry to filter bot-detection false positives) across every `ResourceList` URL in `src/content/**/*.mdx`.
+- Grepped for stale-framing phrases ("as of 2024/2025", "looking ahead to 2025", "predictions for 2025") to shortlist 69 lessons needing a 2026 refresh.
+- Dispatched one agent per category (16 categories) to fix dead links with real, WebFetch-verified live replacements, and a second pass per category to fix stale framing with real 2026 WebSearch data where a fresher stat existed, or de-anchored phrasing where it didn't.
+- Net result: ~400 individual dead-link fixes across every content category, zero content files left with a broken ResourceList link or a "current as of a past year" claim.
+- A handful of resources were removed outright (never replaced with an invented URL) when no live equivalent existed after a real search, e.g. some `moz.com`/`patagonia.com` links that block automated fetches entirely, or blogs that pivoted away from the cited topic. Every file stayed at or above the 5-resource minimum.
+
+### 10 new lessons added
+| # | File | Category | Level | Focus |
+|---|------|----------|-------|-------|
+| 1 | `src/content/ai-marketing/ai-marketing-governance-compliance.mdx` | ai-marketing | Intermediate | Data privacy, FTC/EU AI Act disclosure rules, vendor risk for AI marketing tools |
+| 2 | `src/content/ai-marketing/ai-marketing-team-org-design.mdx` | ai-marketing | Intermediate | How marketing team structure and hiring are changing as AI absorbs execution work |
+| 3 | `src/content/seo/llms-txt-ai-crawler-management.mdx` | seo | Intermediate | The llms.txt standard, real 2026 AI-crawler behavior, robots.txt directives |
+| 4 | `src/content/seo/agentic-commerce-seo.mdx` | seo | Advanced | Getting discovered by AI shopping agents (ChatGPT Instant Checkout, AP2, Perplexity Shopping) |
+| 5 | `src/content/cro/progressive-disclosure-cognitive-load.mdx` | cro | Intermediate | Cognitive load theory and progressive disclosure patterns in checkout/signup flows |
+| 6 | `src/content/cro/cro-for-ai-referred-traffic.mdx` | cro | Advanced | Converting AI-referred visitors: referrer-stripping, higher intent, less brand familiarity |
+| 7 | `src/content/product-marketing/ai-tools-for-pmms.mdx` | product-marketing | Beginner | AI tools PMMs actually use: competitive intel, win-loss synthesis, first-draft positioning |
+| 8 | `src/content/product-marketing/vertical-saas-gtm.mdx` | product-marketing | Advanced | GTM playbook differences for industry-specific SaaS vs horizontal SaaS |
+| 9 | `src/content/mental-models/circle-of-competence.mdx` | mental-models | Beginner | Buffett/Munger's model applied to marketing decision boundaries |
+| 10 | `src/content/mental-models/antifragility-marketing.mdx` | mental-models | Intermediate | Taleb's antifragility, barbell-strategy budget allocation for campaigns |
+
+All 10 follow AGENTS.md content rules exactly: real 2026 research (WebSearch + WebFetch-verified sources), `export const lessonMeta`, 800-1200 word bodies, the 3 mandatory multilingual (hi/ta/te) ResourceList entries, and no unescaped double quotes.
+
+### Registration
+- `src/lib/curriculum.ts` — added all 10 `LessonRef` entries to their categories (seo, cro, product-marketing, ai-marketing, mental-models).
+- `src/lib/quizzes.ts` — added 4-question quizzes for all 10 new lessons (416/416 coverage maintained).
+- `src/app/opengraph-image.tsx` — 406+ -> 416+ lesson count (line 82, 92).
+- `README.md`, `PROJECT_LOG.md`, `AGENTS.md` — lesson counts updated to 416; per-category counts updated for seo (26->28), cro (22->24), product-marketing (22->24), ai-marketing (23->25), mental-models (13->15).
+
+### Verification
+- `npm run build` — clean, 679 static pages generated including all 10 new lesson routes.
+- `npx tsc --noEmit` — zero errors.
+- `npm run lint` — 1 pre-existing error + 2 pre-existing warnings, all in files untouched this session (`error.tsx`, `LessonResourcesClient.tsx`, `Mermaid.tsx`); not introduced by this work.

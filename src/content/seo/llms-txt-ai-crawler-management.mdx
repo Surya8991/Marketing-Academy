@@ -1,0 +1,105 @@
+export const lessonMeta = {
+  title: "llms.txt and AI Crawler Management",
+  level: "Intermediate",
+  summary: "What the llms.txt file actually does, why adoption is still patchy in 2026, and how to use robots.txt to actually control which AI bots touch your content.",
+};
+
+# llms.txt and AI Crawler Management
+
+Somewhere in your marketing Slack, someone asked "did we add that llms.txt thing yet?" This lesson tells you what it does, what it does not do, and where the real control actually lives.
+
+## Quick Summary
+
+- llms.txt is a proposed markdown file at your site root that summarizes your content for AI systems, it is a convention, not an enforced web standard.
+- Adoption sits around 8.7% of the top 1,000 sites as of June 2026, but [most major AI crawlers still are not fetching it in production](https://www.rankability.com/data/llms-txt-adoption/).
+- robots.txt, not llms.txt, is where you actually gain or deny AI crawler access, and it works today because bots like GPTBot and ClaudeBot already check it.
+- Training bots and retrieval bots from the same company are different user-agents, you can block one and allow the other.
+- Treat this whole space as still emerging: revisit your configuration quarterly, not once and forget.
+
+## What llms.txt Actually Is
+
+llms.txt is a plain markdown file you place at `yoursite.com/llms.txt`. It lists your most important pages with short descriptions, meant to give an AI model a clean map of your site instead of making it guess from raw HTML.
+
+The idea launched in 2024 as a proposal, similar in spirit to `sitemap.xml` but written for language models instead of search engine indexers. Tools like Cloudflare and some documentation platforms have built support for generating one.
+
+Here is the catch. A convention only works if the systems reading it agree to read it.
+
+<Callout type="warning">
+As of Q1 2026, no major AI lab, not OpenAI, Google, Anthropic, or Meta, has publicly committed to reading or acting on llms.txt in production. [GPTBot, ClaudeBot, PerplexityBot, and Google-Extended overwhelmingly crawl HTML directly and skip the file](https://ai.aeo.press/the-state-of-llms-txt-in-2026). Do not sell this internally as "how we control AI visibility," it is closer to a hopeful business card left at the door.
+</Callout>
+
+That does not make it worthless. A well-written llms.txt still documents your priority pages for the day adoption catches up, and some smaller AI tools already parse it. Just do not confuse publishing the file with controlling anything.
+
+## robots.txt: Where Real Control Lives
+
+robots.txt is the actual lever. AI companies each run multiple bots under different names for different jobs, and most of them respect robots.txt disallow rules today.
+
+The split that matters: training bots collect content to build future models, retrieval bots fetch a page live when a user asks the AI a direct question. You can allow one and block the other from the same company.
+
+```
+# OpenAI
+User-agent: GPTBot
+Disallow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Google
+User-agent: Google-Extended
+Disallow: /
+```
+
+This example says "do not train on us, but do cite us when someone asks live." [Practitioners in 2026 increasingly recommend this selective split](https://www.anagram.ai/blog/ai-crawlers-explained-gptbot-claudebot-perplexitybot-and-how-to-let-them-in-2026) over a single blanket rule for every AI user-agent.
+
+Two honest caveats. Perplexity has been caught running crawlers that ignore its declared user-agent, so robots.txt alone will not stop every bad actor. And GPTBot's allow share has been rising through 2026 as more publishers decide training exposure is worth the visibility trade.
+
+## Practical Implementation Checklist
+
+Work through this in order, it takes under an hour for most sites.
+
+1. **Decide your training-data stance first.** Do you want your content used to train future models, in exchange for nothing directly measurable? Answer that before touching any file.
+2. **List the specific bots by name**, not a wildcard. GPTBot, ClaudeBot, PerplexityBot, Google-Extended for training; OAI-SearchBot, Claude-User, ChatGPT-User, Perplexity-User for live retrieval.
+3. **Write allow/disallow rules per bot** in `robots.txt`, matching the training-vs-retrieval split you decided on in step one.
+4. **Add an llms.txt anyway**, low cost, and it is your content map for the day adoption improves. Point it at your highest-value pages only, not everything.
+5. **Check server logs monthly** for these user-agent strings to see who is actually visiting, robots.txt is a request, not a lock.
+6. **Revisit the whole setup quarterly.** New bots appear, existing ones split into sub-agents, and industry compliance norms are still shifting month to month.
+
+<Callout type="tip">
+If you cannot audit server logs yourself, ask your hosting or CDN provider (Cloudflare, Fastly, Vercel) whether they surface AI-bot traffic in their dashboard. Several added this reporting through 2025 and 2026 specifically because so many marketing teams were flying blind.
+</Callout>
+
+Small, correct, and revisited beats elaborate and stale. That is the whole game here.
+
+## Key Takeaways
+
+- llms.txt is a proposed convention, not an enforced standard, most major AI crawlers do not read it as of 2026.
+- robots.txt is where actual AI crawler control happens today, because the big bots still check it.
+- Training bots and retrieval bots from the same AI company are separate user-agents, control them separately.
+- Publish llms.txt anyway as a low-cost hedge, but never present it as a real access-control mechanism internally.
+- Review your AI crawler configuration every quarter, this space moves fast and last quarter's setup may already be outdated.
+
+<ResourceList resources={[
+  { title: "The State of llms.txt in 2026 (aeo.press)", url: "https://ai.aeo.press/the-state-of-llms-txt-in-2026", type: "article", free: true },
+  { title: "LLMS.txt Adoption: 8.7% of the Top 1,000 (Rankability, June 2026)", url: "https://www.rankability.com/data/llms-txt-adoption/", type: "article", free: true },
+  { title: "AI Crawlers Explained: GPTBot, ClaudeBot, PerplexityBot and How to Let Them In (Anagram, 2026)", url: "https://www.anagram.ai/blog/ai-crawlers-explained-gptbot-claudebot-perplexitybot-and-how-to-let-them-in-2026", type: "article", free: true },
+  { title: "How to Block or Allow AI Bots in robots.txt (Mersel AI, 2026)", url: "https://www.mersel.ai/blog/how-to-block-or-allow-ai-bots-on-your-website", type: "article", free: true },
+  { title: "We Analyzed robots.txt Across Cloudflare's Network", url: "https://technologychecker.io/blog/robots-txt-ai-crawlers-blocking-report", type: "article", free: true },
+  { title: "The AI User-Agent Landscape in 2026: A Complete Reference (No Hacks)", url: "https://nohacks.co/blog/ai-user-agents-landscape-2026", type: "article", free: true },
+  { title: "WsCube Tech, AI SEO and Crawler Management (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, llms.txt and AI Crawlers", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, AI Crawler Management", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

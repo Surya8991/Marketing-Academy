@@ -1,0 +1,99 @@
+export const lessonMeta = {
+  title: "Building an AI-Augmented Marketing Team",
+  level: "Intermediate",
+  summary: "How marketing team structure, roles, and hiring are actually changing because of AI, and a practical framework for deciding what stays human versus what AI now owns.",
+};
+
+# Building an AI-Augmented Marketing Team
+
+Every AI-marketing lesson tells you which tool to use. None of them tell you what your team should look like once you are using ten of those tools at once. That gap is the org chart nobody has redrawn yet.
+
+## Quick Summary
+
+- Marketing job postings grew just 6% year-on-year between 2024 and 2026, but total output grew 24%, [meaning teams now run 15-22% leaner than historical headcount medians](https://growthmarketer.com/blog/ai-native-marketing-org-chart/) for the same or greater output.
+- New titles are appearing on org charts: AI Marketing Operations Lead, Prompt and Workflow Designer, GEO/AEO Specialist, and AI Content Quality Editor.
+- Gartner reports marketing leaders expect [AI-driven automation of marketing work to more than double, from 16% in 2026 to 36% by 2028](https://www.gartner.com/en/newsroom/press-releases/2026-05-11-gartner-survey-reveals-marketing-leaders-expect-ai-automation-of-marketing-work-to-double-to-36-percent-by-2028).
+- Hiring has shifted toward senior operators: [23% of agencies cut junior copywriting headcount in 2025, with 31% planning further cuts in 2026](https://www.digitalapplied.com/blog/marketing-team-structure-2026-headcount-benchmarks), while demand for senior strategists climbs.
+- The winning structure is not "fewer people," it is fewer, more senior people paired with AI agents that absorb the execution layer.
+
+## The Headcount Story Isn't What You Think
+
+The instinct is to assume AI means smaller teams. The real story is stranger: teams are staying similar in size while output triples in some functions, and the roles inside the team are being rewritten.
+
+Marketing job postings grew only 6% between 2024 and 2026. Output, campaigns shipped, content produced, reports generated, grew 24% in the same window. That gap is AI absorbing the difference, not layoffs absorbing the headcount.
+
+The practical effect: a team of eight now does what used to take a team of ten or eleven. Nobody got fired to make that happen; the team just stopped backfilling junior execution roles as people left.
+
+That distinction matters when you are planning your own structure. You are not cutting people, you are changing what the next hire is for.
+
+## The New Titles, and What They Actually Do
+
+Four roles show up repeatedly in 2026 org charts that did not exist, or existed under different names, three years ago.
+
+**AI Marketing Operations Lead.** Owns the prompt library, the agent workflows, and the handoff points between AI-generated drafts and human review. Reports into marketing ops, not into a channel team.
+
+**Prompt and Workflow Designer.** Builds and maintains the repeatable prompt chains that turn a brief into a first-draft asset. This is closer to a systems-design job than a writing job.
+
+**GEO/AEO Specialist.** Generative Engine Optimization or Answer Engine Optimization, focused on getting brand content surfaced inside AI chat answers rather than blue links. Compensation tracks close to a senior SEO role, [roughly $90K to $150K](https://murrayresources.com/25-top-ai-marketing-jobs/).
+
+**AI Content Quality Editor.** Reviews AI output for factual accuracy, brand voice, and legal risk before it ships. This role did not exist when a human wrote every draft from scratch; it exists now because the volume of AI drafts needs a dedicated filter.
+
+<Callout type="tip">
+None of these four roles is "prompt engineer" in the narrow sense of writing clever one-off prompts. All four are process and judgment roles wrapped around an AI system. That is the actual skill shift: less typing, more system design.
+</Callout>
+
+## What Stays Human vs What AI Now Owns
+
+The clearest way to plan a restructure is a simple division-of-labor map, not a headcount spreadsheet. Draw the line at judgment, not at task type.
+
+<Mermaid chart={`graph TD
+    A[Marketing work] --> B[Stays human\nstrategy, judgment, relationships]
+    A --> C[AI-owned\ndrafting, analysis, first-pass execution]
+    B --> B1[Positioning and messaging calls]
+    B --> B2[Client and stakeholder relationships]
+    B --> B3[Brand risk and legal judgment calls]
+    C --> C1[First-draft copy and creative variants]
+    C --> C2[Data pulls and pattern surfacing]
+    C --> C3[Campaign QA checklists and reporting]`} />
+
+**Strategy and judgment stay human** because they require context AI does not have: your CEO's risk tolerance, this specific client's history with your brand, what will actually offend your audience versus what merely sounds edgy. [Authentic brand judgment, knowing what to say, to whom, and why it matters, is the scarcest asset](https://improvado.io/blog/ai-cmo) once AI has commoditized speed.
+
+**Relationships stay human** for the obvious reason that trust is built between people, not between a person and a tool. A senior account lead's Rolodex is not replicable by an agent.
+
+**Drafting and first-pass execution move to AI** because volume, not creativity, is the bottleneck there. Ten headline variants, a first-pass competitor analysis, a rough campaign report, all faster and cheaper from an AI system with a human editing pass after.
+
+<Callout type="warning">
+Do not draw this line by department, drawing it by department means "the content team stays human, the ops team goes to AI." That is wrong. Every role has both kinds of work inside it. A senior copywriter still writes the headline that requires judgment; they no longer write the fifteen variants that test it.
+</Callout>
+
+## A Practical Restructuring Framework
+
+Use this three-step process when you actually sit down to redesign a team, not just discuss it.
+
+1. **Audit current work by task, not by role.** List what each person spends their week on. You will find judgment work and execution work mixed inside every single job description.
+2. **Move execution work to an AI workflow with a named owner.** Someone, usually the AI Marketing Operations Lead role above, owns the prompt chain and the quality gate. Execution work without an owner drifts into inconsistent quality fast.
+3. **Reinvest freed hours into judgment work, not into more output.** The tempting mistake is using the time AI freed up to ship even more campaigns. The better move is spending it on strategy, customer conversations, and quality review the team never had time for before.
+
+Marketing leaders are already voting with their headcount plans: [65% plan to expand permanent headcount while also increasing contract hiring](https://www.digitalapplied.com/blog/ai-marketing-statistics-2026-adoption-data-points), a pattern that only makes sense if the new hires are senior judgment roles, not junior execution roles.
+
+Get this sequencing right and your team gets faster without getting shallower.
+
+## Key Takeaways
+
+- Marketing output is growing faster than marketing headcount, roughly 24% output growth against 6% job growth from 2024 to 2026, because AI absorbs execution work.
+- New titles worth budgeting for: AI Marketing Operations Lead, Prompt and Workflow Designer, GEO/AEO Specialist, AI Content Quality Editor.
+- Draw the human-vs-AI line by task, not by department: strategy, judgment, and relationships stay human; drafting, analysis, and first-pass execution move to AI.
+- Junior, pure-execution hiring is shrinking while senior strategist demand climbs, restructure your next hire around that shift.
+- Reinvest AI-freed hours into judgment work and customer relationships, not just more campaign volume.
+
+<ResourceList resources={[
+  { title: "AI-Native Marketing Org Chart for 2026 (GrowthMarketer)", url: "https://growthmarketer.com/blog/ai-native-marketing-org-chart/", type: "article", free: true },
+  { title: "Gartner: Marketing Leaders Expect AI Automation of Marketing Work to Double to 36% by 2028", url: "https://www.gartner.com/en/newsroom/press-releases/2026-05-11-gartner-survey-reveals-marketing-leaders-expect-ai-automation-of-marketing-work-to-double-to-36-percent-by-2028", type: "article", free: true },
+  { title: "Marketing Team Structure 2026: Headcount Benchmarks (Digital Applied)", url: "https://www.digitalapplied.com/blog/marketing-team-structure-2026-headcount-benchmarks", type: "article", free: true },
+  { title: "25 Top AI Marketing Jobs, Updated for 2026 (Murray Resources)", url: "https://murrayresources.com/25-top-ai-marketing-jobs/", type: "article", free: true },
+  { title: "The AI CMO: What It Means for Marketing Leadership in 2026 (Improvado)", url: "https://improvado.io/blog/ai-cmo", type: "article", free: true },
+  { title: "AI Marketing Statistics 2026: 200+ Adoption Insights (Digital Applied)", url: "https://www.digitalapplied.com/blog/ai-marketing-statistics-2026-adoption-data-points", type: "article", free: true },
+  { title: "WsCube Tech, AI Marketing Team Skills (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Building AI Marketing Teams", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, AI Marketing Skills Training", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

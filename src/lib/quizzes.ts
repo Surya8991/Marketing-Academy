@@ -167,6 +167,466 @@ export const TRACK_QUIZZES: Record<string, Quiz[]> = {
 };
 
 export const QUIZZES: Record<string, Quiz[]> = {
+  "ai-marketing/ai-marketing-governance-compliance": [
+    {
+      question: "What per-violation penalty does the FTC's AI enforcement unit apply to undisclosed AI-generated advertising, per the lesson?",
+      options: [
+        "$5,308",
+        "$53,088",
+        "$530,880",
+        "There is no fixed per-violation penalty yet",
+      ],
+      correct: 1,
+      explanation: "The lesson states FTC penalties for undisclosed AI-generated advertising are now $53,088 per violation, and since violations are counted per instance, one bad template used across 100 posts is 100 separate violations.",
+    },
+    {
+      question: "Under the EU AI Act's Article 50, when do transparency obligations for AI-generated marketing content apply?",
+      options: [
+        "Immediately upon passage in 2024",
+        "From 2 August 2026, with fines up to €15 million or 3% of global turnover",
+        "Only for companies headquartered in the EU",
+        "Only for video content, not text or images",
+      ],
+      correct: 1,
+      explanation: "Article 50 transparency rules apply from 2 August 2026, requiring machine-readable labels on AI-generated content, backed by fines up to €15 million or 3% of global turnover.",
+    },
+    {
+      question: "What are the three risk surfaces the lesson says AI governance for marketing should be split into?",
+      options: [
+        "Budget, headcount, and timeline risk",
+        "Data privacy, disclosure, and vendor risk",
+        "SEO, paid media, and social risk",
+        "Legal, technical, and creative risk",
+      ],
+      correct: 1,
+      explanation: "The lesson treats data privacy, disclosure, and vendor risk as three distinct risk surfaces, each needing its own control since a fix for one does not fix the others.",
+    },
+    {
+      question: "According to the lesson, what should gate connecting any new AI vendor to customer data?",
+      options: [
+        "A verbal agreement from the vendor's sales rep",
+        "A signed Data Processing Addendum (DPA), no exceptions",
+        "A one-time security questionnaire before the contract is signed",
+        "Approval from the marketing team lead only",
+      ],
+      correct: 1,
+      explanation: "The lesson is explicit: no AI vendor touches customer data without a signed DPA on file first, as a hard gate rather than a follow-up task, since the DPA is the only real contractual visibility into a vendor's sub-processors.",
+    },
+  ],
+  "ai-marketing/ai-marketing-team-org-design": [
+    {
+      question: "Between 2024 and 2026, how did marketing job postings compare to marketing output growth, per the lesson?",
+      options: [
+        "Job postings grew 24%, output grew 6%",
+        "Job postings grew 6%, output grew 24%",
+        "Both grew at roughly the same 15% rate",
+        "Job postings shrank while output stayed flat",
+      ],
+      correct: 1,
+      explanation: "Job postings grew only 6% while output grew 24% in the same window, meaning AI absorbed the difference rather than layoffs, so a team of eight now does what a team of ten or eleven used to do.",
+    },
+    {
+      question: "Which of these is NOT one of the four new marketing titles the lesson names as appearing on 2026 org charts?",
+      options: [
+        "AI Marketing Operations Lead",
+        "Prompt and Workflow Designer",
+        "Chief Automation Officer",
+        "AI Content Quality Editor",
+      ],
+      correct: 2,
+      explanation: "The lesson names AI Marketing Operations Lead, Prompt and Workflow Designer, GEO/AEO Specialist, and AI Content Quality Editor as the four new titles. 'Chief Automation Officer' does not appear in the lesson.",
+    },
+    {
+      question: "How does the lesson say you should draw the line between what stays human and what AI now owns?",
+      options: [
+        "By department, e.g. content team stays human, ops team goes to AI",
+        "By task and judgment, not by department or role",
+        "By seniority, junior roles go to AI entirely",
+        "By channel, paid media goes to AI, organic stays human",
+      ],
+      correct: 1,
+      explanation: "The lesson warns against drawing the line by department, calling that approach wrong, and instead says every role has both judgment work and execution work inside it, so the line should be drawn by task.",
+    },
+    {
+      question: "What does the lesson recommend teams do with the hours AI frees up?",
+      options: [
+        "Reinvest them into judgment work and customer relationships, not just more output",
+        "Use them to ship more campaigns at the same quality bar",
+        "Reduce total headcount proportionally",
+        "Redirect them entirely into paid media testing",
+      ],
+      correct: 0,
+      explanation: "The lesson calls shipping more campaigns with freed-up time the 'tempting mistake' and instead recommends reinvesting freed hours into strategy, customer conversations, and quality review.",
+    },
+  ],
+  "seo/llms-txt-ai-crawler-management": [
+    {
+      question: "What does the lesson say llms.txt actually is, as of 2026?",
+      options: [
+        "An enforced web standard all major AI crawlers must follow",
+        "A proposed convention that most major AI crawlers still do not read in production",
+        "A replacement for robots.txt",
+        "A required file for Google Search Console verification",
+      ],
+      correct: 1,
+      explanation: "The lesson states llms.txt is a convention, not an enforced standard, and as of Q1 2026 no major AI lab has publicly committed to reading or acting on it in production.",
+    },
+    {
+      question: "Where does the lesson say real AI crawler control actually happens today?",
+      options: [
+        "llms.txt",
+        "sitemap.xml",
+        "robots.txt, because major bots like GPTBot and ClaudeBot already check it",
+        "A paid opt-out request submitted directly to each AI company",
+      ],
+      correct: 2,
+      explanation: "robots.txt is the actual lever, since bots like GPTBot and ClaudeBot already respect its disallow rules today, unlike llms.txt which most crawlers ignore.",
+    },
+    {
+      question: "Why does the lesson recommend listing bots like GPTBot and OAI-SearchBot as separate user-agent rules instead of one blanket rule?",
+      options: [
+        "Because training bots and retrieval bots from the same company are different user-agents you can control separately",
+        "Because wildcard rules are not supported by any AI crawler",
+        "Because Google requires per-bot rules for indexing",
+        "Because retrieval bots ignore robots.txt entirely",
+      ],
+      correct: 0,
+      explanation: "The lesson explains you can disallow a training bot like GPTBot while allowing a retrieval bot like OAI-SearchBot from the same company, since they are distinct user-agents with different jobs.",
+    },
+    {
+      question: "How often does the lesson recommend revisiting your AI crawler configuration?",
+      options: [
+        "Once, and only if there's a major incident",
+        "Annually, alongside your yearly SEO audit",
+        "Quarterly, since new bots appear and norms are still shifting",
+        "Never, robots.txt rules are permanent once set",
+      ],
+      correct: 2,
+      explanation: "The lesson closes its checklist by recommending a quarterly revisit, since new bots appear, existing ones split into sub-agents, and industry compliance norms are still shifting month to month.",
+    },
+  ],
+  "seo/agentic-commerce-seo": [
+    {
+      question: "Which three 2026 implementations does the lesson identify as real agentic commerce systems?",
+      options: [
+        "Amazon Alexa Shopping, Meta AI Cart, and Bing Copilot Buy",
+        "OpenAI's Instant Checkout, Perplexity's Buy with Pro, and Google's Agent Payments Protocol (AP2)",
+        "Shopify Magic, WooCommerce AI, and BigCommerce Assistant",
+        "TikTok Shop AI, Instagram Checkout, and Pinterest Buyable Pins",
+      ],
+      correct: 1,
+      explanation: "The lesson names OpenAI's Instant Checkout, Perplexity's Buy with Pro, and Google's AP2 as the three real 2026 implementations, at very different maturity levels.",
+    },
+    {
+      question: "What kind of content does the lesson say AI shopping agents actually read to make recommendations?",
+      options: [
+        "Homepage copy and brand storytelling",
+        "Structured product data: Product/Offer schema, GTIN/MPN identifiers, live price and availability",
+        "Blog posts and press releases",
+        "Social media captions and influencer posts",
+      ],
+      correct: 1,
+      explanation: "The lesson is explicit that agents read structured, machine-parseable product data and discard anything incomplete, not marketing copy or brand narrative.",
+    },
+    {
+      question: "Why does the lesson say a thin review profile can quietly disqualify a product from an AI agent's recommendation?",
+      options: [
+        "Agents refuse to recommend any product with under 1,000 reviews",
+        "Review volume and rating feed directly into the agent's recommendation decision, so a product with 4 reviews loses to a near-identical one with 400",
+        "AI agents only trust products reviewed by verified purchasers",
+        "Reviews are used solely for return-policy calculations",
+      ],
+      correct: 1,
+      explanation: "The lesson states agents summarize review sentiment into their recommendation, so a product with far fewer reviews loses to a near-identical competitor with many more, regardless of actual quality.",
+    },
+    {
+      question: "What does the lesson recommend as the right level of priority for agentic commerce SEO in 2026?",
+      options: [
+        "Restructure the entire SEO roadmap around it immediately",
+        "Ignore it entirely until adoption is mainstream",
+        "Treat it as a byproduct of good feed hygiene, since that hygiene also helps traditional search and shopping ads",
+        "Only pursue it if competitors are already doing so",
+      ],
+      correct: 2,
+      explanation: "The lesson explicitly warns not to restructure a roadmap around agentic commerce in 2026, and instead frames feed and schema hygiene as work that pays off in traditional search now and agentic commerce later.",
+    },
+  ],
+  "cro/progressive-disclosure-cognitive-load": [
+    {
+      question: "According to the lesson, what does cognitive load actually measure on a page?",
+      options: [
+        "Word count",
+        "Decision count, the mental effort of processing visible fields and choices",
+        "Page load speed",
+        "Number of images on the page",
+      ],
+      correct: 1,
+      explanation: "The lesson states cognitive load is decision count, not word count. A page can be objectively short and still feel exhausting because it overloads processing capacity, not patience.",
+    },
+    {
+      question: "What is the difference between intrinsic and extraneous load as defined in the lesson?",
+      options: [
+        "Intrinsic load is removable by design, extraneous load is not",
+        "Intrinsic load is the unavoidable difficulty of the task itself; extraneous load is friction the design adds on top",
+        "Intrinsic load applies only to mobile, extraneous load only to desktop",
+        "They are the same thing, just different names",
+      ],
+      correct: 1,
+      explanation: "Intrinsic load is unavoidable (entering a shipping address has to happen somehow); extraneous load is friction the design adds, like unclear labels or fields shown too early. CRO can only strip out extraneous load.",
+    },
+    {
+      question: "Per the lesson's 2026 checkout data, when does multi-step checkout outperform single-page checkout?",
+      options: [
+        "Always, single-page checkout is obsolete",
+        "For complex or high-value purchases, by 28-35%; single-page still wins for cheap, impulse, mobile-first purchases",
+        "Only for B2B purchases over $10,000",
+        "Never, single-page always converts better regardless of product",
+      ],
+      correct: 1,
+      explanation: "The lesson cites multi-step flows outperforming single-page by 28-35% for complex or high-value products, while single-page wins for cheap, impulse, repeat-buyer, mobile-first flows.",
+    },
+    {
+      question: "What does the lesson say is the actual test for whether hiding a field is good progressive disclosure or a trust violation?",
+      options: [
+        "Whether it reduces the total number of page elements",
+        "Whether hiding it would speed someone up, versus delaying them finding out something that changes their decision",
+        "Whether the field is required by law",
+        "Whether competitors also hide that field",
+      ],
+      correct: 1,
+      explanation: "The lesson's test: progressive disclosure hides sequence, never information the user needs to decide. If a fact would change whether someone buys, it must be shown before they invest effort, not after.",
+    },
+  ],
+  "cro/cro-for-ai-referred-traffic": [
+    {
+      question: "How did AI-referred traffic conversion performance change between March 2025 and March 2026, per Adobe's data cited in the lesson?",
+      options: [
+        "It stayed flat both years",
+        "It went from 38% worse than non-AI traffic to 42% better",
+        "It went from 42% better to 38% worse",
+        "Adobe found no measurable difference either year",
+      ],
+      correct: 1,
+      explanation: "The lesson cites Adobe's Q1 2026 data showing AI-driven traffic converting 42% better than non-AI traffic in March 2026, a reversal from converting 38% worse in March 2025.",
+    },
+    {
+      question: "Why does the lesson say AI-referred visitors put the entire trust-building job on the landing page?",
+      options: [
+        "Because they arrive with lower purchase intent than search visitors",
+        "Because they skipped comparing multiple search results and did little pre-click evaluation before clicking through",
+        "Because AI referral links are flagged as untrusted by browsers",
+        "Because they always arrive on mobile devices",
+      ],
+      correct: 1,
+      explanation: "Unlike a Google searcher who pre-qualifies across several snippets and competitors, an AI-referred visitor already got a synthesized answer and clicked mainly to verify or go deeper, doing little to no comparison shopping first.",
+    },
+    {
+      question: "What measurement problem does the lesson highlight for AI-referred traffic in standard analytics?",
+      options: [
+        "GA4 blocks AI referral traffic entirely",
+        "70.6% of AI-driven visits arrived with no referrer header, misclassified as Direct traffic",
+        "AI referral traffic cannot be tracked on mobile devices",
+        "AI companies actively block analytics scripts",
+      ],
+      correct: 1,
+      explanation: "The lesson cites an analysis of 446,000 sessions finding 70.6% of AI-driven visits had no referrer header, landing in GA4 as 'Direct' rather than being correctly attributed to AI referral.",
+    },
+    {
+      question: "What practical page-content move does the lesson recommend for matching what an AI likely already told the visitor?",
+      options: [
+        "Remove all specific numbers and replace them with vaguer marketing language",
+        "Put the direct-answer sentence first and keep the specific claim the AI likely cited, above the fold",
+        "Hide the key stat to encourage the visitor to read the whole page",
+        "Redesign the page exclusively around SEO keywords",
+      ],
+      correct: 1,
+      explanation: "The lesson recommends putting the compressed, quotable answer first and repeating the specific claim (like a stat) above the fold rather than replacing it with vaguer copy, since that is likely what the AI already surfaced.",
+    },
+  ],
+  "product-marketing/ai-tools-for-pmms": [
+    {
+      question: "According to the lesson, what is the risk of relying on Gong or Chorus transcripts as your only win-loss data source?",
+      options: [
+        "They are too expensive for most PMM teams",
+        "They only capture sales calls, not the honest 'why did you actually pick them' loss interview a neutral third party can ask",
+        "They cannot transcribe non-English calls",
+        "They only work for enterprise deals, not SMB",
+      ],
+      correct: 1,
+      explanation: "The lesson warns that reps optimize calls for closing, not painful honesty, so a sales call transcript should never stand in for a real, neutral loss interview.",
+    },
+    {
+      question: "How does the lesson describe the right way to treat an AI-drafted positioning document?",
+      options: [
+        "As final copy ready to present to leadership",
+        "Like a junior analyst's first pass: useful structure and phrasing, zero authority to ship without a senior read",
+        "As something to discard since AI cannot help with positioning at all",
+        "As a replacement for customer interviews",
+      ],
+      correct: 1,
+      explanation: "The lesson says AI drafts should be treated like a junior analyst's first pass, useful but requiring a review pass from people who talk to customers weekly before it goes anywhere near a deck.",
+    },
+    {
+      question: "What example does the lesson give of a single detail that makes reps actually use an AI-drafted battlecard?",
+      options: [
+        "Adding more competitor logos to the slide",
+        "The one specific customer quote that killed a competitor in a real deal last month",
+        "Formatting the battlecard in the company's brand colors",
+        "Translating the battlecard into multiple languages",
+      ],
+      correct: 1,
+      explanation: "The lesson's example workflow has AI draft the battlecard from competitive intel, then a human adds the one real customer quote that beat a competitor in an actual deal, which is what makes reps trust and use it.",
+    },
+    {
+      question: "Per the lesson, what is the PMM skill shifting fastest because of AI tools?",
+      options: [
+        "Typing speed",
+        "Prompting and editing AI output, not outsourcing the thinking behind it",
+        "Graphic design ability",
+        "Cold outreach volume",
+      ],
+      correct: 1,
+      explanation: "The lesson's summary states the skill worth building is prompting and editing AI output, not outsourcing the thinking behind it, since AI is good at answering 'what changed,' not 'does this change matter.'",
+    },
+  ],
+  "product-marketing/vertical-saas-gtm": [
+    {
+      question: "How does the lesson contrast horizontal SaaS GTM with vertical SaaS GTM?",
+      options: [
+        "Horizontal optimizes for reach; vertical optimizes for depth in one industry",
+        "Horizontal is always cheaper to run than vertical",
+        "Vertical SaaS never uses paid channels at all",
+        "There is no meaningful difference in GTM approach",
+      ],
+      correct: 0,
+      explanation: "The lesson states horizontal GTM optimizes for reach with broad paid channels and generic messaging, while vertical GTM optimizes for depth: a narrow account list and industry-insider credibility.",
+    },
+    {
+      question: "What does the lesson identify as the fastest way to build credibility an outsider can't fake in a vertical market?",
+      options: [
+        "Running more paid search ads",
+        "Hiring from the industry itself, not just selling into it",
+        "Lowering prices below competitors",
+        "Rebranding with industry-specific colors",
+      ],
+      correct: 1,
+      explanation: "The lesson points to Toast hiring former restaurant workers as sales and support staff as the example: hiring from the industry passes the unwritten credibility test faster than case studies do.",
+    },
+    {
+      question: "Why does the lesson say a 'stalled' deal in a vertical SaaS CRM might actually be on schedule?",
+      options: [
+        "CRMs are unreliable for vertical SaaS companies",
+        "Regulated or seasonal industries run on their own budget and procurement calendar, not the seller's fiscal quarter",
+        "Vertical SaaS deals never close within a single quarter",
+        "Sales reps in vertical SaaS are typically slower to follow up",
+      ],
+      correct: 1,
+      explanation: "The lesson explains that construction and healthcare, for example, run on budget cycles and seasonal procurement windows unrelated to the seller's fiscal quarter, so a deal that looks stalled may simply be waiting on the buyer's calendar.",
+    },
+    {
+      question: "According to the lesson, why do trade channels outperform paid channels for many vertical SaaS niches?",
+      options: [
+        "Paid search is banned in most regulated industries",
+        "Many vertical niches see fewer than 100 monthly searches for core terms, making generic content marketing nearly worthless early on",
+        "Trade channels are always cheaper per lead than paid ads",
+        "Vertical SaaS buyers do not use the internet to research vendors",
+      ],
+      correct: 1,
+      explanation: "The lesson notes some vertical niches see fewer than 100 monthly searches for their core terms, so outbound-led education, trade associations, and peer referral outperform paid search which assumes the prospect is actively searching.",
+    },
+  ],
+  "mental-models/circle-of-competence": [
+    {
+      question: "According to the lesson, what does Buffett's circle of competence model actually instruct, based on his 1996 shareholder letter?",
+      options: [
+        "Never learn new skills or expand into new areas",
+        "Know the size of your circle honestly, and don't bet real money outside it",
+        "Only trust advice from certified experts",
+        "Diversify broadly to avoid ever being wrong",
+      ],
+      correct: 1,
+      explanation: "The lesson stresses the model does not say 'stay small' or 'never learn.' It says know the boundary of your competence honestly and don't act with conviction past it, since a narrow circle known precisely beats a wide circle you're guessing about.",
+    },
+    {
+      question: "What does the lesson identify as the actual marketing failure mode related to this model, not just having a narrow circle?",
+      options: [
+        "Being too cautious and never taking risks",
+        "Confident action just outside the boundary, where you don't know enough to know you're wrong",
+        "Spending too much time researching before deciding",
+        "Delegating too many decisions to junior staff",
+      ],
+      correct: 1,
+      explanation: "The lesson says everyone has a narrow circle; the failure is not knowing where yours ends and making confident calls past the edge with the same tone you'd use inside it.",
+    },
+    {
+      question: "In the self-assessment exercise, what do the three sort categories 'Inside,' 'Edge,' and 'Outside' represent?",
+      options: [
+        "Budget size, timeline, and team size of each decision",
+        "Whether you could defend the reasoning to an expert, had an informed but borrowed opinion, or were pattern-matching from vibes",
+        "How much the decision cost the company",
+        "Whether the decision succeeded, was neutral, or failed",
+      ],
+      correct: 1,
+      explanation: "Inside means you could defend the reasoning to a skeptical expert; Edge means an informed opinion that leaned on someone else's judgment; Outside means pattern-matching from vibes, a competitor, or a LinkedIn post.",
+    },
+    {
+      question: "What new trap does the lesson say AI tools create around expanding one's circle of competence?",
+      options: [
+        "AI tools make it impossible to learn new domains",
+        "Mistaking AI-assisted surface fluency for the tested judgment that only comes from making calls and watching outcomes",
+        "AI tools eliminate the need for a circle of competence entirely",
+        "AI tools only work within an existing circle of competence",
+      ],
+      correct: 1,
+      explanation: "The lesson warns AI can hand you vocabulary and surface fluency quickly, but not the pattern library that comes from being wrong a few times and remembering why, which is the real trap in an AI-flattened market.",
+    },
+  ],
+  "mental-models/antifragility-marketing": [
+    {
+      question: "How does the lesson distinguish a resilient campaign from an antifragile one?",
+      options: [
+        "Resilient campaigns cost more money than antifragile ones",
+        "Resilient returns to baseline after a shock; antifragile ends up stronger than before the shock",
+        "They are synonyms with no meaningful difference",
+        "Antifragile campaigns never use paid media",
+      ],
+      correct: 1,
+      explanation: "The lesson is explicit that resilience returns you to zero after a shock, while antifragility moves you into positive territory: the test is whether you finish ahead of where you started, not just intact.",
+    },
+    {
+      question: "What is the barbell strategy's recommended budget split, per the lesson?",
+      options: [
+        "50% safe base, 50% speculative bets",
+        "Roughly 90% safe base, roughly 10% speculative edge, with nothing in the mediocre middle",
+        "100% safe base with no speculative spending at all",
+        "70% speculative bets, 30% safe base",
+      ],
+      correct: 1,
+      explanation: "The lesson describes roughly 90% of budget on proven, compounding channels and 10% on capped-downside speculative bets, explicitly warning against the 'reasonable middle' of medium-risk, medium-budget campaigns.",
+    },
+    {
+      question: "What example does the lesson give of an antifragile campaign mechanism, and its result?",
+      options: [
+        "Duolingo's 'Death of Duo' stunt, which generated 1.7 billion impressions by leaning into unpredictable audience reactions",
+        "A single polished hero video campaign with no room for reaction",
+        "A medium-budget campaign that avoided all risk",
+        "A paid search campaign with a fixed, unchanging budget",
+      ],
+      correct: 0,
+      explanation: "The lesson cites Duolingo's mascot-death stunt hitting 1.7 billion impressions because the campaign absorbed unpredictable audience reactions as fuel rather than treating them as risk to control.",
+    },
+    {
+      question: "Why does the lesson say the 'reasonable middle' is the least antifragile place to put a marketing dollar?",
+      options: [
+        "It is always the most expensive option available",
+        "It is too big to shrug off if it flops, but too small to pay off if it hits",
+        "It requires more approval layers than either extreme",
+        "It only works for B2C brands, not B2B",
+      ],
+      correct: 1,
+      explanation: "The lesson calls the medium-budget, medium-risk middle the worst spot: unlike the safe base it can meaningfully hurt if it fails, and unlike the speculative edge it lacks the convex upside to pay off big if it succeeds.",
+    },
+  ],
   "ai-marketing/ai-agents-marketing": [
     {
       question: "What is the primary conceptual distinction between a standard AI chatbot and an autonomous AI agent?",

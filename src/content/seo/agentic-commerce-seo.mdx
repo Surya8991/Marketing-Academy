@@ -1,0 +1,91 @@
+export const lessonMeta = {
+  title: "SEO for Agentic Commerce: Getting Found by AI Shopping Agents",
+  level: "Advanced",
+  summary: "How to prepare your product data for ChatGPT, Perplexity, and Google agents that search, compare, and now sometimes buy on a shopper's behalf, plus an honest read on how far adoption has actually gotten in 2026.",
+};
+
+# SEO for Agentic Commerce: Getting Found by AI Shopping Agents
+
+Your next customer might never see your product page. An AI agent might read your feed, compare five competitors, and check out in under a second, all on someone else's behalf.
+
+## Quick Summary
+
+- Agentic commerce means an AI assistant searches, compares, and sometimes completes checkout for the shopper, instead of the shopper clicking through your site.
+- [OpenAI's Instant Checkout](https://openai.com/index/buy-it-in-chatgpt/), Perplexity's Buy with Pro, and Google's Agent Payments Protocol (AP2) are the three real 2026 implementations, and none of them are anywhere near mainstream volume yet.
+- Agents read structured product data, not marketing copy. `Product` and `Offer` schema, GTIN and MPN identifiers, live price, and live availability are the inputs that decide if you get shown at all.
+- Review counts, star ratings, and return policy data feed directly into an agent's "which option do I recommend" decision, so thin review profiles quietly disqualify you.
+- Treat this as a hedge, not a pivot. Traditional SEO and your existing product feed still do most of the work; agentic commerce adds requirements on top, it does not replace them.
+
+## What Agentic Commerce Actually Looks Like in 2026
+
+"Agentic commerce" means a shopper delegates part or all of a purchase to an AI system instead of browsing a store directly. Three implementations exist right now, at very different maturity levels.
+
+OpenAI launched Instant Checkout in February 2026 with Etsy and a small first wave of Shopify merchants including Glossier and Vuori. It hit real friction fast: [CNBC reported OpenAI pulled back to roughly 30 live Shopify merchants](https://www.cnbc.com/2026/03/20/open-ai-agentic-shopping-etsy-shopify-walmart-amazon.html) after onboarding proved harder than expected, and pivoted toward routing users to retailer-owned checkout apps instead of completing the purchase inside ChatGPT itself.
+
+Perplexity's "Buy with Pro" is the furthest along. It expanded to all Shopify merchants in January 2026 and opened free agentic checkout to all US users the next month, reportedly reaching over 5,000 merchants through PayPal-powered checkout.
+
+Google's Agent Payments Protocol (AP2), announced with 60-plus launch partners including Mastercard and PayPal, is infrastructure rather than a shopping surface. [AP2 defines signed "Mandates"](https://ap2-protocol.org/) that let any AI agent prove a user authorized a specific purchase, the plumbing other agents can build checkout on top of.
+
+None of this is mass adoption. It is three companies laying track in the same year, at different speeds, and merchants are still figuring out which one matters.
+
+## The Feed and Schema Requirements Agents Actually Read
+
+An AI shopping agent does not read your homepage copy or your brand story. It reads structured, machine-parseable product data, and it discards anything incomplete.
+
+The baseline requirements, consistent across Perplexity's merchant program and the Agentic Commerce Protocol, are:
+
+- **`Product` and `Offer` schema.org markup** on every product page, with price, currency, and availability kept current, not cached from launch day.
+- **GTIN or MPN identifiers**, the same universal product codes retailers have used for barcodes for decades, now doubling as the key an agent uses to match your listing against competitors.
+- **High-resolution product images** tagged correctly in the feed, since agents render these directly in chat without a human ever landing on your site.
+- **Real-time price and stock accuracy.** An agent that transacts on a stale price either fails the checkout or, worse, completes it and creates a support ticket you did not expect.
+- **Review volume and star rating**, pulled into the feed so the agent can justify a recommendation the way a human salesperson would.
+
+Perplexity has been explicit that feed completeness is a direct ranking input: the more complete your data, the more the agent has to work with when it writes a pros-and-cons comparison or matches your product to a specific query.
+
+<Mermaid chart={`graph LR
+    A[Shopper asks agent\na question or need] --> B[Agent searches\nmerchant feeds + schema]
+    B --> C[Agent compares\nprice, reviews, availability]
+    C --> D[Agent recommends\nor shortlists options]
+    D --> E[Agent completes checkout\nvia ACP or AP2 mandate]
+    E --> F[Merchant fulfills order\nas system of record]`} />
+
+Notice the merchant only enters this flow twice: as a feed the agent reads, and as the fulfillment system at the end. Everything in between happens without a human visiting your site.
+
+## What This Means for a Merchant, Concretely
+
+Optimizing for AI shopping agents is closer to feed management than content marketing. Four things move the needle today.
+
+**Audit your product feed like it is the product page.** If you run Shopify, Google Merchant Center feed quality already maps closely to what Perplexity and the Agentic Commerce Protocol expect, so a feed health check does double duty.
+
+**Close the identifier gaps.** Products without a GTIN or MPN are effectively invisible to systems built around universal matching. Backfill these before anything else on this list.
+
+**Treat reviews as acquisition infrastructure, not just trust signal.** Agents summarize review sentiment into their recommendation; a product with 4 reviews loses to a near-identical competitor with 400, regardless of actual quality.
+
+**Keep price and stock feeds synced in near-real time.** A checkout failure from stale data is worse for trust than never appearing in results at all, since the agent completed a transaction the merchant then has to unwind.
+
+<Callout type="warning">
+This is still early. Instant Checkout covers a few dozen merchants, AP2 is infrastructure most shoppers will never notice directly, and Perplexity's 5,000-merchant footprint is a fraction of any major marketplace. Do not restructure your SEO roadmap around agentic commerce in 2026. Do the feed and schema hygiene work because it also improves Google Shopping and traditional search, and treat agent-specific gains as a bonus, not the plan.
+</Callout>
+
+Feed hygiene is unglamorous work that pays off twice, once now in traditional search and shopping ads, once later if agentic checkout actually reaches scale.
+
+## Key Takeaways
+
+- Agentic commerce in 2026 means Instant Checkout (OpenAI), Buy with Pro (Perplexity), and AP2 (Google's payment infrastructure), each at an early and different stage of adoption.
+- Agents read `Product`/`Offer` schema, GTIN/MPN identifiers, live pricing, and review data, not marketing copy, so feed completeness is the real ranking lever.
+- Perplexity currently has the broadest live merchant footprint; OpenAI pulled back after early friction; AP2 is plumbing other agents build on top of.
+- Stale price or stock data creates failed or unwanted transactions, a worse outcome than simply not appearing.
+- Prioritize this as a byproduct of good feed hygiene, not a standalone strategy, until adoption numbers justify more investment.
+
+<ResourceList resources={[
+  { title: "Buy it in ChatGPT: Instant Checkout and the Agentic Commerce Protocol (OpenAI)", url: "https://openai.com/index/buy-it-in-chatgpt/", type: "article", free: true },
+  { title: "OpenAI revamps shopping experience in ChatGPT after Instant Checkout struggles (CNBC)", url: "https://www.cnbc.com/2026/03/24/openai-revamps-shopping-experience-in-chatgpt-after-instant-checkout.html", type: "article", free: true },
+  { title: "Announcing Agent Payments Protocol (AP2) (Google Cloud Blog)", url: "https://cloud.google.com/blog/products/ai-machine-learning/announcing-agents-to-payments-ap2-protocol", type: "article", free: true },
+  { title: "AP2 Specification (ap2-protocol.org)", url: "https://ap2-protocol.org/specification/", type: "docs", free: true },
+  { title: "Shopping That Puts You First (Perplexity)", url: "https://www.perplexity.ai/hub/blog/shopping-that-puts-you-first", type: "article", free: true },
+  { title: "Perplexity Shopping: How to Optimize Your Store for AI (Shopify)", url: "https://www.shopify.com/blog/perplexity-shopping", type: "article", free: true },
+  { title: "Product schema.org reference", url: "https://schema.org/Product", type: "docs", free: true },
+  { title: "WsCube Tech, AI SEO and Agentic Commerce (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, AI Shopping Agents SEO", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Ecommerce SEO for AI Agents", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

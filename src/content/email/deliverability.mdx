@@ -32,7 +32,7 @@ Here is why every email marketer needs to understand authentication:
 
 - **Provider enforcement is hard rejection now.** Since May 2025, Microsoft and Gmail reject (not just filter) bulk emails that fail authentication. Bounce rates spike, sender reputation tanks, and future emails suffer even after you fix the issue.
 - **Domain spoofing destroys customer trust.** Without DMARC, anyone can send email "from" your domain. Phishing campaigns using your brand damage customer relationships even though you did nothing wrong.
-- **Adoption gaps create a competitive advantage.** As of 2024, only 7.6% of internet domains enforce DMARC at `p=quarantine` or `p=reject`. Senders with full authentication stand out positively to inbox placement algorithms.
+- **Adoption gaps create a competitive advantage.** DMARC adoption has grown fast, over half of internet domains now publish a record, but enforcement lags: only about 11.5% of domains sit at full `p=reject` enforcement, with another 19.8% at `p=quarantine` (EasyDMARC, 2026). Senders with full authentication stand out positively to inbox placement algorithms.
 - **Authentication multiplies the value of every other optimization.** At 80% deliverability, 20% of your work on subject lines, send-time testing, and segmentation is wasted before it even starts.
 - **BIMI requires DMARC enforcement.** BIMI (Brand Indicators for Message Identification) is the standard that displays your logo in Gmail and Apple Mail inboxes. It only works at `p=quarantine` or `p=reject`. Early deployers report up to 10% open rate lifts from logo visibility alone.
 

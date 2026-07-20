@@ -1,0 +1,104 @@
+export const lessonMeta = {
+  title: "AI Marketing Governance & Compliance",
+  level: "Intermediate",
+  summary: "How to keep customer data safe, disclosures honest, and vendors accountable while your marketing team runs on AI tools, before a regulator or a headline forces the issue.",
+};
+
+# AI Marketing Governance & Compliance
+
+Your team adopted five AI tools this year and nobody wrote down the rules. That gap is where fines, leaked data, and PR fires come from.
+
+## Quick Summary
+
+- The FTC brought its first enforcement action against undisclosed AI-generated advertising in late 2025 and opened a dedicated AI enforcement unit in January 2026, with per-violation penalties now at $53,088.
+- The EU AI Act's Article 50 transparency rules apply from 2 August 2026, requiring machine-readable labels on AI-generated content and disclosure for deepfake-style marketing assets, backed by fines up to €15 million or 3% of global turnover.
+- Every AI marketing tool that touches customer data needs a signed Data Processing Addendum (DPA), no exceptions, no "we'll get to it later."
+- Governance is not a blocker, it is what lets your team use AI faster because nobody has to guess what is allowed.
+- A one-page internal AI usage policy prevents 90% of the mistakes that turn into compliance incidents.
+
+## Why Governance Can't Wait
+
+Marketing teams treat AI tools like any other software: sign up, start using, worry about the fine print never. That worked when the fine print was low-stakes.
+
+It stopped working in 2026. The FTC's AI enforcement unit is now active, and the [FTC's own guidance extends the Endorsement Guides to AI-generated and AI-modified content](https://www.ftc.gov/industry/technology/artificial-intelligence), meaning an AI-written testimonial without disclosure is treated the same as a fake human one. Penalties are per-violation, so one bad campaign template used across 100 posts is 100 separate violations, not one mistake.
+
+Europe raised the stakes further. [EU AI Act Article 50 transparency obligations apply from 2 August 2026](https://artificialintelligenceact.eu/article/50/), covering any business that uses generative AI to produce marketing text, images, or synthetic video, essentially every marketing team touching European audiences.
+
+The pattern is the same in both jurisdictions: regulators stopped treating AI disclosure as optional guidance and started treating it as an enforceable rule with real fines attached.
+
+<Callout type="warning">
+"We didn't know the tool stored that data" is not a defense once a DPA is legally required. Ignorance of a vendor's data practices is the exact gap governance closes.
+</Callout>
+
+## The Three Risk Surfaces
+
+AI governance for marketing breaks into three distinct risk surfaces. Treat them separately, because the fix for one does not fix the others.
+
+**Data privacy.** Every time someone pastes a customer list, an email transcript, or campaign performance data into a chat-based AI tool, that data may leave your control permanently. If the tool is not covered by a signed DPA, you likely cannot say where that data is now.
+
+**Disclosure.** AI-generated or AI-modified ad copy, images, video, and testimonials increasingly require a visible or machine-readable label. The FTC wants human-facing disclosure; the EU AI Act wants machine-readable marking too, they are related but not identical requirements.
+
+**Vendor risk.** Your AI tools have their own AI tools. A creator-matching platform, a content generator, an ad-optimization vendor, each one processes your data through models you did not choose and cannot audit directly. [A DPA specifies exactly what a vendor can collect, how long it retains data, and who else can access it](https://www.document.com/documents/ai-data-processing-addendum), so the contract is your only real visibility into that chain.
+
+<Mermaid chart={`graph TD
+    A[Marketing team uses AI tool] --> B[Data privacy risk\ncustomer PII pasted into prompts]
+    A --> C[Disclosure risk\nAI content shown without label]
+    A --> D[Vendor risk\nsub-processors, no DPA]
+    B --> E[Governance policy\nwhat data, what tools, what approval]
+    C --> E
+    D --> E
+    E --> F[Documented, auditable, fast]`} />
+
+None of these three risks require slowing down. They require deciding the rules once, in writing, before someone improvises under deadline pressure.
+
+## Building Your AI Usage Policy
+
+A working policy fits on one page. Longer than that, nobody reads it.
+
+Six sections cover the ground that actually matters for a marketing team:
+
+1. **Approved tools list.** Name the specific AI tools your team may use, and require anything new to go through a quick review before it touches real work.
+2. **Data classification.** Define what can never be pasted into an AI prompt: customer PII, unreleased pricing, anything under NDA. [Customer or prospect PII should never enter a tool without a signed DPA covering that specific use](https://improvado.io/blog/data-privacy-and-compliance-for-marketers-guide).
+3. **Disclosure rules.** State exactly when AI-generated content gets a visible label, and who signs off before an AI-assisted testimonial or influencer post goes live.
+4. **Vendor checklist.** No new AI vendor gets connected to customer data without a DPA on file first. Make this a hard gate, not a suggestion.
+5. **Review cadence.** Regulations moved fast through 2025 and 2026. Revisit the policy quarterly, not annually.
+6. **Owner.** Name one person accountable for keeping the policy current. A policy with no owner goes stale within two quarters.
+
+<Callout type="tip">
+Start with the approved-tools list and the data-classification rule. Those two sections alone stop the majority of real incidents, disclosure and vendor sections can follow in week two.
+</Callout>
+
+Write the policy with your legal or privacy team if you have one, but do not wait for them to initiate it. Marketing usually adopts AI tools faster than legal reviews them, so bring a draft to that conversation instead of an empty one.
+
+## What Good Looks Like in Practice
+
+A mature setup looks boring, and that is the point. New AI tool requests go through a short intake form before anyone connects real data. Any AI-assisted testimonial, review, or influencer content carries a clear disclosure before publish. Every vendor touching customer data has a DPA on file, reviewed at renewal, not forgotten after signing.
+
+None of this requires a compliance department. [Marketing teams using agentic AI tools are treated as users of AI systems under the EU AI Act](https://www.mtm.video/blog/ai-agents-data-privacy-gdpr-ai-act-compliance-guide-2026/), meaning the obligations fall on whoever operates the tool, not just the vendor who built it. That responsibility sits with your team either way, the only choice is whether you meet it on purpose or by accident.
+
+<Callout type="example">
+A mid-size SaaS company connected an AI ad-optimization vendor without a DPA in early 2025. The vendor's own sub-processor had a breach months later. Because no DPA existed, the company had no contractual visibility into what customer data the sub-processor held, and no leverage to demand a remediation timeline.
+</Callout>
+
+Governance built now costs an afternoon. Governance built after an incident costs weeks of cleanup, legal fees, and trust you cannot easily rebuild.
+
+## Key Takeaways
+
+- FTC enforcement on undisclosed AI content is active in 2026, with per-violation penalties up to $53,088.
+- EU AI Act Article 50 transparency obligations apply from 2 August 2026, with fines up to €15 million or 3% of global turnover.
+- The three risk surfaces are data privacy, disclosure, and vendor risk, each needs its own control, not one blanket rule.
+- A one-page AI usage policy covering approved tools, data classification, disclosure rules, vendor checklist, review cadence, and an owner prevents most real incidents.
+- No AI vendor touches customer data without a signed DPA. Make that a hard gate before connection, not a follow-up task.
+
+<ResourceList resources={[
+  { title: "Artificial Intelligence (FTC official guidance hub)", url: "https://www.ftc.gov/industry/technology/artificial-intelligence", type: "docs", free: true },
+  { title: "Article 50: Transparency Obligations (EU AI Act)", url: "https://artificialintelligenceact.eu/article/50/", type: "docs", free: true },
+  { title: "EU AI Act Transparency Obligations, Preparing for Compliance by 2 August 2026 (Sidley Data Matters)", url: "https://datamatters.sidley.com/2026/06/24/eu-ai-act-transparency-obligations-preparing-for-compliance-by-2-august-2026/", type: "article", free: true },
+  { title: "AI Data Processing Addendum: Template, GDPR Article 28 Terms & 2026 Rules", url: "https://www.document.com/documents/ai-data-processing-addendum", type: "article", free: true },
+  { title: "Data Privacy and Compliance for Marketers, 2026 Guide (Improvado)", url: "https://improvado.io/blog/data-privacy-and-compliance-for-marketers-guide", type: "article", free: true },
+  { title: "AI Agents and Data Privacy, GDPR and AI Act Compliance Guide 2026 (MTM)", url: "https://www.mtm.video/blog/ai-agents-data-privacy-gdpr-ai-act-compliance-guide-2026/", type: "article", free: true },
+  { title: "AI Governance Policy for Marketing Teams, the 12-Section Template", url: "https://www.lilachbullock.com/ai-governance-policy-marketing/", type: "article", free: true },
+  { title: "WsCube Tech, AI Marketing Compliance (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, AI Governance in Marketing", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, AI Marketing Compliance Training", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

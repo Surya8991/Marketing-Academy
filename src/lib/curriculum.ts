@@ -109,6 +109,8 @@ export const CATEGORIES: Category[] = [
       { slug: "reddit-forum-seo", title: "Reddit and Forum SEO: Why Google Loves Communities in 2026", level: "Advanced", summary: "Reddit visibility jumped 1,328% in Google SERPs, so learn how to build legitimate presence in forums that now outrank your own site." },
       { slug: "video-seo", title: "Video SEO: Ranking on YouTube and TikTok Search", level: "Intermediate", summary: "Learn the algorithms that rank videos on the world's second-largest search engine and Gen Z's fastest-growing platform." },
       { slug: "brand-serp-control", title: "Brand SERP Optimisation: Control What Google Shows for Your Name", level: "Advanced", summary: "Master the 10 elements of your Brand SERP and turn warm leads into customers before they ever click." },
+      { slug: "llms-txt-ai-crawler-management", title: "llms.txt and AI Crawler Management", level: "Intermediate", summary: "What llms.txt actually is, how AI crawlers like GPTBot and ClaudeBot really behave in 2026, and how to control them with robots.txt." },
+      { slug: "agentic-commerce-seo", title: "SEO for Agentic Commerce", level: "Advanced", summary: "Getting found and transacted with by AI shopping agents: ChatGPT Instant Checkout, Perplexity Shopping, and Google's Agent Payments Protocol." },
     ],
   },
   {
@@ -492,6 +494,8 @@ export const CATEGORIES: Category[] = [
       { slug: "post-purchase-cro", title: "Post-Purchase Conversion Rate Optimization", level: "Intermediate", summary: "One-click upsells, loyalty prompts, referral incentives, and account activation onboarding loops." },
       { slug: "behavioral-design-patterns", title: "Behavioral Design Patterns: Fogg Model Applied to UX", level: "Advanced", summary: "Map motivation, ability, and prompts to your signup flows, onboarding, and checkout using BJ Fogg's Behavior Model for measurable conversion lift." },
       { slug: "social-proof-engineering", title: "Engineering Social Proof Systems That Convert", level: "Advanced", summary: "Six types of social proof: placement science, review widget design, live signals, and testing frameworks to maximize conversion lift without diluting credibility." },
+      { slug: "progressive-disclosure-cognitive-load", title: "Progressive Disclosure & Cognitive Load in CRO", level: "Intermediate", summary: "Why revealing complexity only as needed converts better than one long form, and when progressive disclosure backfires." },
+      { slug: "cro-for-ai-referred-traffic", title: "Optimizing Conversion for AI-Referred Traffic", level: "Advanced", summary: "AI-referred visitors land differently: higher intent, less brand familiarity, and often invisible to your analytics. Here's how to convert them." },
     ],
   },
   {
@@ -560,6 +564,8 @@ export const CATEGORIES: Category[] = [
       { slug: "partner-ecosystem-marketing", title: "Partner and Ecosystem Marketing: Building a GTM Motion That Scales", level: "Advanced", summary: "How to build partner programs, run co-marketing campaigns, and measure partner-sourced pipeline as your company scales." },
       { slug: "ai-product-positioning", title: "Positioning AI-Powered Products: Beyond 'AI-Powered'", level: "Advanced", summary: "How to position AI features so buyers care about outcomes, not just the technology. Three stances and when to use each." },
       { slug: "product-led-sales-pmm", title: "Product-Led Sales: The PMM's Role When the Product Sells Itself", level: "Advanced", summary: "Master the hybrid model where product-led growth generates pipeline and sales converts enterprise accounts." },
+      { slug: "ai-tools-for-pmms", title: "AI Tools for Product Marketers", level: "Beginner", summary: "How PMMs actually use AI day-to-day: competitive intel monitoring, win-loss call synthesis, and first-draft positioning docs." },
+      { slug: "vertical-saas-gtm", title: "Vertical SaaS Go-to-Market", level: "Advanced", summary: "Why software built for one industry needs a different GTM playbook: trust-building, regulation-aware sales cycles, and community-first distribution." },
     ],
   },
   {
@@ -594,6 +600,8 @@ export const CATEGORIES: Category[] = [
       { slug: "llm-fine-tuning-brand-voice", title: "Fine-Tuning LLMs for Brand Voice: Making AI Write Like You", level: "Advanced", summary: "Learn how to customize LLMs so they consistently write in your brand voice at scale." },
       { slug: "ai-measurement-attribution", title: "AI-Powered Attribution: Moving Beyond Last-Click to Algorithmic Models", level: "Advanced", summary: "Learn how machine learning transforms multi-touch attribution to reveal true channel contribution." },
       { slug: "synthetic-audience-testing", title: "Synthetic Audience Testing: Using AI Personas to Pre-Test Marketing", level: "Advanced", summary: "How to use AI-simulated buyer personas to validate messaging, copy, and product concepts before spending on real market research." },
+      { slug: "ai-marketing-governance-compliance", title: "AI Marketing Governance & Compliance", level: "Intermediate", summary: "Data privacy, AI-content disclosure rules, and vendor risk: the operational side of using AI tools on a marketing team." },
+      { slug: "ai-marketing-team-org-design", title: "Building an AI-Augmented Marketing Team", level: "Intermediate", summary: "How team structure, roles, and hiring are changing as AI absorbs execution work, and what still requires a human." },
     ],
   },
   {
@@ -618,6 +626,8 @@ export const CATEGORIES: Category[] = [
       { slug: "pareto-and-constraints", title: "The Pareto Principle and Theory of Constraints", level: "Advanced", summary: "80% of your results come from 20% of your effort, and the whole system moves at the pace of one bottleneck. Two rules that decide where your next dollar and hour should go." },
       { slug: "bayesian-updating", title: "Bayesian Updating for Marketers", level: "Advanced", summary: "How to change your mind proportionally when new evidence lands, without ignoring your priors or overreacting to the latest data point." },
       { slug: "decision-making-under-uncertainty", title: "Decision-Making Under Uncertainty", level: "Advanced", summary: "Thinking in bets, expected value, and reversible-vs-irreversible calls: how to make good marketing decisions when the data cannot tell you the answer." },
+      { slug: "circle-of-competence", title: "Circle of Competence", level: "Beginner", summary: "Know the boundary of what you genuinely understand, and stay inside it, or expand it deliberately, instead of making confident calls on false expertise." },
+      { slug: "antifragility-marketing", title: "Antifragility: Designing Campaigns That Gain From Disorder", level: "Intermediate", summary: "Fragile things break under stress, resilient things withstand it, antifragile things get stronger from it. How to build a marketing strategy that benefits from volatility." },
     ],
   },
 ];

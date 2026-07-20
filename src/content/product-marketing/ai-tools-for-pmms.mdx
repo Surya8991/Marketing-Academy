@@ -1,0 +1,88 @@
+export const lessonMeta = {
+  title: "AI Tools for Product Marketers",
+  level: "Beginner",
+  summary: "The practical AI tool stack PMMs use day to day in 2026, competitive intel monitoring, win-loss synthesis, messaging drafts, sales enablement, and where human judgment still has to run the show.",
+};
+
+# AI Tools for Product Marketers
+
+You already know product marketing eats data for breakfast: competitor moves, win-loss calls, sales objections, positioning drafts. In 2026, AI does not replace that work, it changes what your Tuesday looks like.
+
+## Quick Summary
+
+- AI tools now handle the grunt work of PMM: watching competitor pages, transcribing calls, drafting first passes.
+- Competitive intel platforms like Klue and Crayon track over 100 competitor data types automatically, so you stop refreshing pricing pages by hand.
+- Call intelligence tools like Gong surface deal patterns, but the actual loss interview still needs a human on the line.
+- LLMs draft positioning docs and battlecards fast, you still make the judgment call on which angle wins.
+- The skill worth building is prompting and editing AI output, not outsourcing the thinking behind it.
+
+## Competitive Intel: Let AI Watch, You Interpret
+
+Manually checking ten competitor pricing pages every week is a waste of a PMM's brain. That is exactly the job AI does better than you.
+
+Platforms like Klue and Crayon monitor competitor websites, changelogs, pricing pages, job postings, and reviews continuously. Crayon alone tracks over [100 data types across a competitor's digital footprint](https://xyzeo.com/product/crayon-ai), then uses AI summarization, Crayon calls its feature "Sparks", to turn raw changes into a two-line brief instead of a raw diff.
+
+Klue leans sales-first: its Compete Agent [monitors live sales calls, flags competitor mentions, and pushes deal-specific intelligence to reps within minutes](https://klue.com/ai-in-competitive-intelligence-report-2026). Both platforms were named Leaders in the first Gartner Magic Quadrant for Competitive and Market Intelligence Platforms, which tells you this category matured fast.
+
+If you are pre-budget for a dedicated platform, Perplexity or Claude can do lightweight monitoring: feed them a competitor's changelog URL weekly and ask for a diff summary. It is not automated, but it beats nothing.
+
+<Callout type="tip">
+AI is great at answering "what changed." It is bad at answering "does this change matter." A competitor shipping a new integration might be a threat or might be a feature nobody uses. That call is still yours.
+</Callout>
+
+## Win-Loss Synthesis: Pattern Detection, Not Interviewing
+
+Win-loss analysis used to mean one PMM, a spreadsheet, and weeks of manual call review. AI collapses the review time, but it should not touch the interview itself.
+
+Conversation intelligence tools like Gong and Chorus record and transcribe sales calls, then mine them for deal signals. Together [Gong and Chorus hold over 65% of the conversation intelligence market](https://www.coffee.ai/articles/best-ai-gong-sales-calls) in 2026, and Gong's forecasting layer reportedly hits 93 to 96% accuracy by reading pipeline and stakeholder signals.
+
+Here is the catch: Gong reads sales calls, not loss interviews. One analysis put it bluntly, [the loss call itself is the wrong conversation to mine](https://www.coffee.ai/articles/best-ai-gong-sales-calls) through a sales tool, because reps rarely ask the honest "why did you actually pick them" question a neutral third party can ask.
+
+That is why 2026's win-loss market runs on two lanes wired together: Gong or Chorus for pipeline-level deal signals, plus a dedicated win-loss layer, AI-moderated interview tools like Perspective AI, or a human researcher, for the actual buyer conversation. Use the first lane to spot patterns worth investigating. Use the second lane to find out why.
+
+<Callout type="warning">
+Do not let a sales call transcript stand in for a real loss interview. Reps optimize calls for closing, not for painful honesty. If your only win-loss data comes from Gong, you are reading the deal from the seller's side only.
+</Callout>
+
+## Drafting Positioning and Messaging: First Pass, Not Final Cut
+
+Staring at a blank positioning doc is the slowest part of PMM work. AI is genuinely good at breaking that inertia.
+
+Feed an LLM your ICP, three customer quotes, and two competitor positioning statements, and it will produce a workable first draft of a positioning doc or messaging hierarchy in minutes. That draft compresses a task that used to take a full afternoon into a 20-minute editing pass.
+
+Where this breaks down is nuance. An LLM does not know that your sales team hates the word "seamless" because prospects roll their eyes at it, or that your last three campaigns already tried the "all-in-one platform" angle and it flopped. It has no institutional memory of what already failed.
+
+Treat AI drafts the way you would treat a junior analyst's first pass: useful structure, useful phrasing options, zero authority to ship without a senior read. The pattern that works best is draft with AI, then run the draft past three people who talk to customers weekly, sales, support, and a PMM peer, before it goes anywhere near a deck.
+
+## Sales Enablement Content: Scale Without Losing Voice
+
+Sales reps ask for the same three things constantly: a one-pager, an objection response, a competitor battlecard update. AI is well suited to producing the first version of all three.
+
+Once you have a positioning doc and a competitive intel feed, an LLM can turn both into a battlecard skeleton, objection handling scripts, or a customer-facing one-pager in a fraction of the time a manual build takes. Tools like Klue and Crayon go one step further and auto-generate battlecard updates directly from the competitor signals they already track, so the battlecard refreshes itself when a competitor changes pricing.
+
+The risk with scale is sameness. If every rep gets AI-generated talking points with no editing pass, your sales floor starts sounding like a script, and prospects notice generic language fast. Keep a PMM in the loop to inject the specific proof points, the real customer quote, the exact stat, that make content sound like it came from someone who actually knows the product.
+
+<Callout type="example">
+A good workflow: AI drafts the battlecard from your competitive intel feed. You add the one customer quote that killed that competitor in a real deal last month. That single human addition is usually what makes reps actually use the battlecard instead of ignoring it.
+</Callout>
+
+## Key Takeaways
+
+- Competitive intel platforms like Klue and Crayon automate the watching, you still decide what a competitor's move means.
+- Gong and Chorus are pipeline-signal tools, not a replacement for a real, third-party win-loss interview.
+- AI drafts positioning and messaging fast, but institutional memory, what already failed, what sales hates, only lives in your head and your team's.
+- Sales enablement content scales with AI, but a specific human-sourced detail is what makes reps trust and use it.
+- The PMM skill shifting fastest right now is editing and directing AI output, not typing faster.
+
+<ResourceList resources={[
+  { title: "AI in Competitive Intelligence Report 2026 (Klue)", url: "https://klue.com/ai-in-competitive-intelligence-report-2026", type: "article", free: true },
+  { title: "Crayon AI Review 2026: Guide to Key Product Features (XYZEO)", url: "https://xyzeo.com/product/crayon-ai", type: "article", free: true },
+  { title: "Best AI Win/Loss Analysis Tools in 2026: 8 Platforms for Deal Post-Mortems (Perspective AI)", url: "https://getperspective.ai/blog/best-ai-win-loss-analysis-tools-2026-8-platforms-deal-post-mortems", type: "article", free: true },
+  { title: "Best AI Tools to Analyze Gong Sales Calls in 2026 (Coffee AI)", url: "https://www.coffee.ai/articles/best-ai-gong-sales-calls", type: "article", free: true },
+  { title: "Klue vs Crayon: Features, Pricing and Best Fit in 2026 (PlayWise HQ)", url: "https://playwisehq.com/blog/klue-vs-crayon/", type: "article", free: true },
+  { title: "Klue, competitive intelligence and battlecard platform", url: "https://klue.com/", type: "tool", free: false },
+  { title: "Gong, revenue and conversation intelligence platform", url: "https://www.gong.io/", type: "tool", free: false },
+  { title: "WsCube Tech, AI Tools for Marketers (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, AI Tools for Product Marketing", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, AI Marketing Tools Training", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

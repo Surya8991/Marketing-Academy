@@ -79,7 +79,7 @@ export default function RootOGImage() {
             marginBottom: "48px",
           }}
         >
-          SEO, paid ads, growth, social, email, analytics, AI, 406 lessons, 100% free.
+          SEO, paid ads, growth, social, email, analytics, AI, 416 lessons, 100% free.
         </div>
 
         <div
@@ -89,7 +89,7 @@ export default function RootOGImage() {
           }}
         >
           {[
-            { n: "406+", label: "Lessons" },
+            { n: "416+", label: "Lessons" },
             { n: "16", label: "Disciplines" },
             { n: "0", label: "Paywalls" },
           ].map((s) => (
