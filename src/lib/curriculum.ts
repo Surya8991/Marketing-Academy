@@ -111,6 +111,8 @@ export const CATEGORIES: Category[] = [
       { slug: "brand-serp-control", title: "Brand SERP Optimisation: Control What Google Shows for Your Name", level: "Advanced", summary: "Master the 10 elements of your Brand SERP and turn warm leads into customers before they ever click." },
       { slug: "llms-txt-ai-crawler-management", title: "llms.txt and AI Crawler Management", level: "Intermediate", summary: "What llms.txt actually is, how AI crawlers like GPTBot and ClaudeBot really behave in 2026, and how to control them with robots.txt." },
       { slug: "agentic-commerce-seo", title: "SEO for Agentic Commerce", level: "Advanced", summary: "Getting found and transacted with by AI shopping agents: ChatGPT Instant Checkout, Perplexity Shopping, and Google's Agent Payments Protocol." },
+      { slug: "seo-site-migrations", title: "SEO for Site Migrations", level: "Advanced", summary: "Domain changes, platform moves, URL restructures: the pre/during/post checklist that separates a clean migration from a traffic collapse." },
+      { slug: "content-decay-refresh", title: "Content Decay: Refreshing and Reclaiming Lost Rankings", level: "Intermediate", summary: "Why pages that used to rank well quietly lose traffic over time, and how to systematically find and fix them before a competitor does." },
     ],
   },
   {
@@ -150,6 +152,8 @@ export const CATEGORIES: Category[] = [
       { slug: "creator-ugc-ads", title: "Creator-Led Ads and UGC Creative: Why Authentic Beats Polished", level: "Intermediate", summary: "User-generated content (UGC) and creator-shot ads deliver 2–4x higher click-through rates than studio creative. Learn when to use UGC vs influencer marketing, how to source content at scale, and how to build a testing framework that works." },
       { slug: "snapchat-pinterest-ads", title: "Advertising on Snapchat and Pinterest: The Visual Discovery Platforms", level: "Intermediate", summary: "Master two underrated ad platforms with lower costs, younger audiences, and intent-driven users ready to buy." },
       { slug: "ai-max-broad-match", title: "Google AI Max and the New Broad Match Era", level: "Advanced", summary: "In 2025, Google shifted from keyword-level control to AI-driven intent matching. AI Max campaigns, Smart Bidding, and broad match fundamentally changed how search works. Learn the new structure, how to avoid common pitfalls, and when to use AI Max vs traditional Search." },
+      { slug: "ad-fraud-invalid-traffic", title: "Ad Fraud & Invalid Traffic (IVT) Prevention", level: "Advanced", summary: "GIVT vs SIVT, bot traffic, spoofed apps: how much of your spend is fraud, how to detect it, and the red flags to watch for." },
+      { slug: "ad-frequency-creative-fatigue", title: "Ad Frequency & Creative Fatigue Management", level: "Intermediate", summary: "Why CTR and CPA degrade as the same audience sees your ad again, the fatigue curve by platform, and a practical creative-refresh cadence." },
     ],
   },
   {
@@ -602,6 +606,8 @@ export const CATEGORIES: Category[] = [
       { slug: "synthetic-audience-testing", title: "Synthetic Audience Testing: Using AI Personas to Pre-Test Marketing", level: "Advanced", summary: "How to use AI-simulated buyer personas to validate messaging, copy, and product concepts before spending on real market research." },
       { slug: "ai-marketing-governance-compliance", title: "AI Marketing Governance & Compliance", level: "Intermediate", summary: "Data privacy, AI-content disclosure rules, and vendor risk: the operational side of using AI tools on a marketing team." },
       { slug: "ai-marketing-team-org-design", title: "Building an AI-Augmented Marketing Team", level: "Intermediate", summary: "How team structure, roles, and hiring are changing as AI absorbs execution work, and what still requires a human." },
+      { slug: "measuring-ai-marketing-roi", title: "Measuring AI Marketing ROI", level: "Intermediate", summary: "Why proving AI tool investment pays off is genuinely hard, the flawed time-saved shortcut, and a better output-based framework." },
+      { slug: "ai-marketing-tech-stack", title: "Choosing Your AI Marketing Tech Stack: Build vs Buy", level: "Beginner", summary: "All-in-one platform, stitched point solutions, or custom-built on an LLM API: a decision framework based on team size, resources, and how core the use case is." },
     ],
   },
   {

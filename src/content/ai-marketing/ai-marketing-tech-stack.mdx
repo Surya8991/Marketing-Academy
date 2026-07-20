@@ -1,0 +1,89 @@
+export const lessonMeta = {
+  title: "Choosing Your AI Marketing Tech Stack: Build vs Buy",
+  level: "Beginner",
+  summary: "A practical framework for deciding whether to buy an all-in-one AI platform, stitch together point solutions, or build custom on an LLM API, based on team size, technical resources, and how core the use case is.",
+};
+
+# Choosing Your AI Marketing Tech Stack: Build vs Buy
+
+Every marketing team hits this fork eventually: keep buying tools, or start building. Get it wrong and you either burn budget on shelfware or burn months on a custom project nobody maintains.
+
+## Quick Summary
+
+- There are three real paths: buy an all-in-one AI platform, stitch together best-of-breed point solutions, or build custom on an LLM API. Most teams end up doing a mix of all three.
+- The decision hinges on three factors: team size and technical resources, how commoditized the use case is, and how core it is to your differentiation.
+- [Gartner projects more than 40% of agentic AI projects will be scrapped by 2027](https://martech.org/the-truth-about-martech-in-2026/), usually because teams built or bought for hype instead of a specific job.
+- Marketer confidence in proving AI ROI actually fell in the last year, [from 49% to 41% of marketers who say they can demonstrate it](https://martech.org/the-truth-about-martech-in-2026/), a sign that stack decisions are often made before the outcome is defined.
+- Custom-built connections are now the single most common way teams integrate AI with their data, [ahead of pre-built platform features and iPaaS tools](https://martech.org/take-the-2026-state-of-your-stack-survey/), so "build" is no longer the niche option it used to be.
+
+## The Three Real Options
+
+**Buy an all-in-one platform.** One vendor, one login, one data model, covering content, campaigns, and reporting under an AI layer. You trade flexibility for speed: fewer integrations to maintain, one throat to choke when something breaks.
+
+This works best when your use cases are commodity ones, tasks every marketing team does the same way. Email sends, basic reporting, ad copy variants. Nobody wins by reinventing these.
+
+**Stitch together point solutions.** You pick the best tool for each job, an AI writing tool here, a specialist ad platform there, and glue them with an integration layer. You get best-in-class capability per function, at the cost of more vendors to manage and more seams where data falls through.
+
+This suits teams with a clear technical owner for integrations, and use cases where one weak link would hurt more than stack complexity does. A mediocre all-in-one SEO module is a bigger risk than three extra logins.
+
+**Build custom on an LLM API.** You skip vendor tools for a specific workflow and build directly on a model API, often layered with retrieval over your own content. This is the direction covered in [Custom GPTs & Internal Marketing Knowledge Bases](/learn/ai-marketing/internal-gpt-knowledge-bases) and [RAG for Marketers](/learn/ai-marketing/rag-for-marketers), so we won't repeat the how here.
+
+Build makes sense only where the workflow is core to your differentiation and no vendor tool captures your specific data or voice well enough. It is the most expensive option to maintain, not the cheapest to start.
+
+<Callout type="info">
+Custom-built integrations are now the most common way teams connect AI to their data, ahead of pre-built platform features and iPaaS middleware. "Build" has quietly become mainstream, not the exotic option it was two years ago.
+</Callout>
+
+## The Decision Framework
+
+Three questions decide which path fits, in this order.
+
+**1. How commoditized is the use case?** If every competitor does this task the same way, buy. If doing it differently is your actual edge, that's a build candidate. Most marketing tasks, most of the time, are commodity.
+
+**2. What's your team size and technical resource?** A two-person marketing team has no business maintaining custom code; buy or use point solutions with good support. A team with an engineer or data analyst on staff can responsibly own a build.
+
+**3. How core is it to differentiation?** Ask: if a competitor bought the exact same off-the-shelf tool for this, would we lose our edge? If yes, that's the one workflow worth building. Everything else, buy.
+
+<Mermaid chart={`graph TD
+    A[New AI marketing use case] --> B{Is it commodity work?\nsame for every team}
+    B -->|Yes| C[Buy: all-in-one platform\nor point solution]
+    B -->|No, it's core to our edge| D{Do we have technical\nresource to maintain it?}
+    D -->|No| C
+    D -->|Yes| E[Build: custom on LLM API\nRAG, internal knowledge base]
+    C --> F{Is this one function\nweaker than the rest?}
+    F -->|Yes| G[Add a point solution\nfor that function only]
+    F -->|No| H[Stay on the all-in-one]`} />
+
+Run every new AI tool request through these three questions before signing anything. Most requests resolve in under five minutes once you frame it this way.
+
+## Common Mistakes
+
+Three mistakes account for most wasted stack spend, and all three trace back to skipping the framework above.
+
+- **Building before defining the job.** Teams build custom tools because building feels impressive, then discover a $50/month tool already did it. Define the specific outcome first, per the "job-to-be-done" approach [recommended for lean 2026 stacks](https://www.factors.ai/blog/martech-stack-2026-guide).
+- **Buying an all-in-one for your hardest problem.** Suites cover the easy 80% of a workflow well and the hard 20% badly. If the hard 20% is where you differentiate, an all-in-one platform quietly caps your ceiling there.
+- **Under-resourcing the build.** A custom RAG pipeline or internal GPT needs an owner after launch, not just at launch. [Data professionals already spend roughly 44% of their time on data preparation and integration](https://www.factors.ai/blog/martech-stack-2026-guide); an unmaintained build adds to that pile and silently rots.
+
+<Callout type="warning">
+Before approving any build, name the person who owns it in six months. If nobody can answer, you're not choosing "build," you're choosing "build and abandon."
+</Callout>
+
+## Key Takeaways
+
+- Three options exist: buy all-in-one, stitch point solutions, or build custom on an LLM API. Most stacks blend all three.
+- Decide with three questions in order: how commodity is the use case, what's your technical resource, how core is it to your edge.
+- Buy for commodity tasks and thin teams. Build only for the few workflows that are both core to differentiation and staffed to maintain.
+- Nearly half of agentic AI projects get scrapped by 2027 per Gartner, mostly from building or buying without a defined job first.
+- Name an owner for any build before approving it. An unowned build is a liability, not an asset.
+
+<ResourceList resources={[
+  { title: "Custom GPTs & Internal Marketing Knowledge Bases (Marketing Academy)", url: "/learn/ai-marketing/internal-gpt-knowledge-bases", type: "article", free: true },
+  { title: "RAG for Marketers (Marketing Academy)", url: "/learn/ai-marketing/rag-for-marketers", type: "article", free: true },
+  { title: "The truth about martech in 2026 (MarTech)", url: "https://martech.org/the-truth-about-martech-in-2026/", type: "article", free: true },
+  { title: "Take the 2026 State of Your Stack Survey (MarTech)", url: "https://martech.org/take-the-2026-state-of-your-stack-survey/", type: "article", free: true },
+  { title: "MarTech in 2026: How to Build a Lean, Revenue-Driven Stack (Factors.ai)", url: "https://www.factors.ai/blog/martech-stack-2026-guide", type: "article", free: true },
+  { title: "Why Martech Stacks Are Consolidating in 2026 (Heinz Marketing)", url: "https://www.heinzmarketing.com/blog/why-martech-stacks-are-consolidating-in-2026-and-how-ai-fits-in/", type: "article", free: true },
+  { title: "WsCube Tech, AI Marketing Tech Stack (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, AI Marketing Tech Stack", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, AI Marketing Tech Stack", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

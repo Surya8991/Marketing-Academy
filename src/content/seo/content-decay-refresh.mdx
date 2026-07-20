@@ -1,0 +1,102 @@
+export const lessonMeta = {
+  title: "Content Decay: Refreshing and Reclaiming Lost Rankings",
+  level: "Intermediate",
+  summary: "Why pages that used to rank well quietly lose traffic over time, how to spot the decay early in Search Console, and what a real content refresh involves versus just changing the date.",
+};
+
+# Content Decay: Refreshing and Reclaiming Lost Rankings
+
+You wrote the page. It ranked. Then, without any warning email from Google, it started losing traffic, month after month, until you barely remember it exists.
+
+## Quick Summary
+
+- Content decay is the gradual loss of rankings and traffic on a page that once performed well, and it is happening faster: content decays at roughly 1.21% per week, and sites lose 20-30% of organic clicks every six months on average, per [Decoding's content decay research](https://trydecoding.com/blog/content-decay-how-to-identify-fix/).
+- Decay shows up in three patterns: cliff decay (sudden 40-60% drop), slow bleed (steady monthly loss), and position drift (rank falls while impressions hold), per [SEOJuice's decay guide](https://seojuice.com/blog/content-decay-guide/).
+- Find decaying pages by comparing Search Console's last six months to the previous six months, sorted by clicks lost.
+- A real refresh rewrites the intro, replaces every stat, and closes the gap with what competitors now cover, not just a new "updated" date.
+- Content untouched for a year is aging out of AI discovery too: [Animalz reports roughly 65% of AI bot crawl activity targets pages updated in the past 12 months](https://www.animalz.co/blog/content-refresh).
+
+## Why Pages That Ranked Well Start Losing Traffic
+
+Nothing about your page changed, but the internet around it did. That gap is content decay.
+
+Four forces drive it, usually at the same time. Competitors published fresher, deeper content and Google rotated their pages above yours. The facts in your page went stale: a "2023 benchmark" reads as ancient the moment 2026 competitors cite newer numbers.
+
+Google also keeps changing what a "good answer" looks like. SERP features shift, an AI Overview now answers the query directly, and your click-through rate drops even if your rank barely moves.
+
+Algorithm updates compress the timeline further. A page that held steady for two years pre-AI now runs on roughly a 6-12 month clock before it needs attention again.
+
+None of this means your content was wrong. It means the bar moved, and nobody told you.
+
+## How to Systematically Find Decaying Pages
+
+Guessing which pages are dying wastes the one resource a content team never has enough of: time. Search Console gives you the actual signal.
+
+Open the Performance report, set the date range to the last six months, then compare it against the six months before that. Sort by clicks lost, not percentage lost, so you catch high-traffic pages first.
+
+Watch for three distinct patterns, because each one points to a different fix:
+
+- **Cliff decay**: steady for 18+ months, then a 40-60% drop in a single quarter. Usually a SERP refresh or a named algorithm update.
+- **Slow bleed**: 5-10% fewer clicks every month for six months straight. Usually outdated facts or thin sections next to newer competitor content.
+- **Position drift**: average position falls (say 4.2 to 8.6) while impressions barely move. Google still shows the page, users just stop clicking it, a depth or freshness signal.
+
+<Callout type="tip">
+Impressions dropping alongside clicks is the more urgent signal. It means Google itself is showing your page less, which usually precedes a bigger traffic collapse.
+</Callout>
+
+Once you have the list, prioritize by three factors: current traffic value, decay severity, and the size of the competitive gap. A page bleeding 20% with a small content gap is a quick win; a page down 60% against a much deeper competitor article needs a full rewrite, not a patch.
+
+## What a Real Refresh Looks Like (and What Doesn't Count)
+
+Changing the "last updated" date without touching the content is the single most common fake refresh, and Google's systems see straight through it.
+
+A real refresh starts with the first 100-150 words. Rewrite the intro to answer the query directly and in plain language, because that section is what AI Overviews and answer engines lift first.
+
+Next, replace every dated statistic and example with a current one. A stat from three years ago signals to both readers and algorithms that the rest of the page might be equally stale.
+
+Then find the thin sections. If your competitors now cover a subtopic you skipped, that gap is exactly where they're pulling ahead in the SERP.
+
+<Callout type="warning">
+Do not just add 500 words to the bottom of the page and call it done. Refresh means fixing what's wrong in place, tightening the intro, updating the middle, adding what's missing, not padding the end.
+</Callout>
+
+Finally, fix any outdated claims your original research no longer supports. A tool you recommended that got shut down, a best practice Google has since deprecated, a pricing figure that changed, all quietly erode trust even when the ranking hasn't moved yet.
+
+Recovering 40-60% of lost traffic within 60 days is a realistic, strong outcome for a well-executed refresh. Full impact is usually measurable within 2-3 months as rankings settle at their new level.
+
+## The Traffic Lifecycle of a Page
+
+<Mermaid chart={`graph TD
+    A[Publish\nfresh, ranks well] --> B[Peak traffic\n3-6 months in]
+    B --> C[Plateau\nstable rankings]
+    C --> D{Decay signal?}
+    D -->|Cliff decay| E[Sudden 40-60% drop\nSERP or algo update]
+    D -->|Slow bleed| F[5-10% monthly loss\nstale facts, thin sections]
+    D -->|Position drift| G[Rank falls\nimpressions hold, clicks fall]
+    E --> H[Refresh: intro, stats,\ngaps, outdated claims]
+    F --> H
+    G --> H
+    H --> I[Recovery\n40-60% of traffic in 60 days]
+    I --> B`} />
+
+The page doesn't die after one refresh, it just re-enters the plateau, and the clock to the next decay signal starts again. Treat refreshing as a recurring calendar item, not a one-time rescue.
+
+## Key Takeaways
+
+- Content decay is driven by fresher competitor content, stale facts, SERP feature changes, and faster-moving algorithm updates.
+- Find decaying pages in Search Console by comparing six-month windows and sorting by clicks lost, not percentage.
+- Three decay patterns, cliff decay, slow bleed, position drift, each point to a different root cause and fix.
+- A real refresh rewrites the intro, replaces stats, fills competitive content gaps, and corrects outdated claims, not just the date stamp.
+- Expect 40-60% traffic recovery within 60 days, with full impact measurable by 2-3 months.
+
+<ResourceList resources={[
+  { title: "Content Decay: How to Identify, Fix, and Prevent Traffic Loss (Decoding)", url: "https://trydecoding.com/blog/content-decay-how-to-identify-fix/", type: "article", free: true },
+  { title: "Content Decay Guide: How to Detect Decay Before It Becomes a Cliff (SEOJuice)", url: "https://seojuice.com/blog/content-decay-guide/", type: "article", free: true },
+  { title: "Content Refresh Strategy: How to Update Old Content for SEO and AI Search (Animalz)", url: "https://www.animalz.co/blog/content-refresh", type: "article", free: true },
+  { title: "Content Decay Audits in 2026: How to Refresh Existing Pages (Clutch)", url: "https://clutch.co/resources/content-decay-audits", type: "article", free: true },
+  { title: "Content Decay and Revival: Identifying and Updating Underperforming Content (Fractl)", url: "https://www.frac.tl/content-decay-updating-underperforming-content/", type: "article", free: true },
+  { title: "Google Search Console", url: "https://search.google.com/search-console/about", type: "tool", free: true, note: "Performance report is the primary tool for spotting decay trends" },
+  { title: "WsCube Tech, SEO Content Refresh (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Content Refresh for SEO", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, SEO Content Strategy", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

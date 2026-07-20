@@ -1,7 +1,7 @@
 ﻿# Marketing Academy, Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-07-20 (Session 59 - Site-wide dead-link/stale-content audit + 10 new lessons).
+> Last audited: 2026-07-20 (Session 60 - 6 new lessons: SEO, AI marketing, paid ads).
 
 ---
 
@@ -10,7 +10,7 @@
 ```
 1. cd C:\Users\Surya L\Desktop\AI Agents\Marketing-Academy
 2. Count MDX files: (Get-ChildItem src/content -Recurse -Filter *.mdx).Count   [PowerShell]
-3. Current: 416 lessons · 216 glossary terms · 108 tools · 9 tracks · 16 categories
+3. Current: 422 lessons · 216 glossary terms · 108 tools · 9 tracks · 16 categories
 4. XP/Streak/Achievements system LIVE (Session 41). Cmd+K palette, skill-map, onboarding, settings page all shipped.
 5. Stats are dynamic everywhere: flatLessons().length, CATEGORIES.length, GLOSSARY_TERMS.length, TOOLS.length.
 6. Key constants: COMPLETED_KEY exported from progress.ts, COMMAND_PALETTE_EVENT from src/lib/events.ts.
@@ -32,15 +32,15 @@
 29: 
 30: ---
 31: 
-32: ## Current State: 416 lessons across 16 categories
+32: ## Current State: 422 lessons across 16 categories
 
 > All orphaned MDX files linked in Session 43. curriculum.ts and MDX disk counts are now fully in sync.
 
 | # | Category | Slug | Lessons |
 |---|---|---|---|
 | 1 | Marketing Fundamentals | `fundamentals` | 38 |
-| 2 | SEO | `seo` | 28 |
-| 3 | Paid Ads | `paid-ads` | 28 |
+| 2 | SEO | `seo` | 30 |
+| 3 | Paid Ads | `paid-ads` | 30 |
 | 4 | Growth Marketing | `growth` | 24 |
 | 5 | Social Media | `social` | 24 |
 | 6 | Content Marketing | `content` | 25 |
@@ -52,9 +52,9 @@
 | 12 | CRO | `cro` | 24 |
 | 13 | Brand Strategy | `brand-strategy` | 24 |
 | 14 | Product Marketing | `product-marketing` | 24 |
-| 15 | AI in Marketing | `ai-marketing` | 25 |
+| 15 | AI in Marketing | `ai-marketing` | 27 |
 | 16 | Mental Models | `mental-models` | 15 |
-| | **TOTAL** | | **416** |
+| | **TOTAL** | | **422** |
 
 ---
 
@@ -2291,3 +2291,29 @@ All 10 follow AGENTS.md content rules exactly: real 2026 research (WebSearch + W
 - `npm run build` — clean, 679 static pages generated including all 10 new lesson routes.
 - `npx tsc --noEmit` — zero errors.
 - `npm run lint` — 1 pre-existing error + 2 pre-existing warnings, all in files untouched this session (`error.tsx`, `LessonResourcesClient.tsx`, `Mermaid.tsx`); not introduced by this work.
+
+## Session 60, 2026-07-20 (6 new lessons: SEO, AI marketing, paid ads)
+
+**User asked for more lessons in SEO, AI in Marketing, and Paid Ads. Added 2 per category on genuine 2026 content gaps. 416 -> 422 lessons.**
+
+| # | File | Category | Level | Focus |
+|---|------|----------|-------|-------|
+| 1 | `src/content/seo/seo-site-migrations.mdx` | seo | Advanced | Domain/platform migration checklist: pre/during/post, common causes of ranking collapse |
+| 2 | `src/content/seo/content-decay-refresh.mdx` | seo | Intermediate | Why ranking pages lose traffic over time and how to systematically find + refresh them |
+| 3 | `src/content/paid-ads/ad-fraud-invalid-traffic.mdx` | paid-ads | Advanced | GIVT vs SIVT, bot/spoofed-app traffic, detection tools, red-flag checklist |
+| 4 | `src/content/paid-ads/ad-frequency-creative-fatigue.mdx` | paid-ads | Intermediate | Platform-specific fatigue curves (Meta/TikTok/YouTube) and creative-refresh cadence |
+| 5 | `src/content/ai-marketing/measuring-ai-marketing-roi.mdx` | ai-marketing | Intermediate | Why AI ROI is hard to prove, the flawed time-saved shortcut vs output-based measurement |
+| 6 | `src/content/ai-marketing/ai-marketing-tech-stack.mdx` | ai-marketing | Beginner | Build vs buy vs stitch-together decision framework for an AI marketing stack |
+
+All 6 follow the same AGENTS.md content rules as Session 59's batch: real WebSearch/WebFetch-verified 2026 research, `export const lessonMeta`, 800-1200 word bodies, mandatory multilingual ResourceList entries. One writing agent explicitly discarded two unsourced stats it found during research (an uncited "68% RevOps ownership" figure and an "18 tools average stack" figure) after the source article didn't actually support them.
+
+### Registration
+- `src/lib/curriculum.ts` — added all 6 `LessonRef` entries (seo, paid-ads, ai-marketing).
+- `src/lib/quizzes.ts` — added 4-question quizzes for all 6 new lessons (422/422 coverage maintained).
+- `src/app/opengraph-image.tsx` — 416+ -> 422+ lesson count.
+- `README.md`, `PROJECT_LOG.md`, `AGENTS.md` — lesson counts updated to 422; per-category counts updated for seo (28->30), paid-ads (28->30), ai-marketing (25->27).
+
+### Verification
+- `npm run build` — clean, all new lesson routes generated (422 total lesson MDX files on disk, matches curriculum.ts).
+- `npx tsc --noEmit` — zero errors.
+- `npm run lint` — same 3 pre-existing issues as Session 59, still untouched by this session.

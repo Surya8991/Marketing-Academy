@@ -1,0 +1,98 @@
+export const lessonMeta = {
+  title: "SEO for Site Migrations",
+  level: "Advanced",
+  summary: "How to move a domain, platform, or URL structure without losing the rankings that took years to build, and what to do in the first 48 hours if you did anyway.",
+};
+
+# SEO for Site Migrations
+
+A migration is the one SEO project where 'it looks fine to me' means nothing. Google has to re-crawl, re-evaluate, and re-trust every single URL, and it does that on its own schedule, not yours.
+
+## Quick Summary
+
+- Most migrations lose organic traffic: [industry data puts the failure rate at 60-80%, with only about 1 in 10 migrations ending in improved rankings](https://www.digitalapplied.com/blog/seo-site-migration-2026-zero-traffic-loss-playbook).
+- A 'migration hangover' is a 50%+ traffic drop lasting 12-18 months, versus normal post-launch volatility of 10-30% that settles in 2-6 weeks.
+- Real-world damage is severe when redirects are skipped: [WooCommerce's organic visibility fell over 90% after its 2023 domain move](https://www.digitalapplied.com/blog/seo-site-migration-2026-zero-traffic-loss-playbook), and a documented 2025 Volusion-to-Shopify replatform saw organic clicks drop roughly 58%.
+- The single biggest cause of ranking loss is missing or broken 301 redirects, not content quality or platform choice.
+- Recovery is slow: the industry average is [523 days to fully recover lost rankings, and 17% of sites never do](https://www.digitalapplied.com/blog/seo-site-migration-2026-zero-traffic-loss-playbook).
+
+## Why Migrations Are the Riskiest SEO Project You'll Run
+
+Every other SEO task is additive. You add a page, a link, a fix, and rankings respond gradually.
+
+A migration is subtractive first. The moment you flip the switch, every old URL, every backlink target, every indexed page in Google's memory points at something that may no longer exist.
+
+Google does not instantly transfer trust from old URL to new URL. It has to re-crawl each one, confirm a 301 redirect is in place, and slowly reassign the ranking signals, a process that can take weeks even when everything is done right.
+
+That lag is why teams get blindsided. The old site looked healthy on the day of launch, then traffic quietly cratered over the following month as Google worked through its crawl queue.
+
+<Callout type="warning">
+The most common fatal mistake is treating the migration as a one-time redirect file with no post-launch monitoring. Teams build the perfect redirect map, launch, and then stop watching, missing the crawl errors, orphaned redirects, or a leftover staging `noindex` tag that quietly deindexes the entire new site for weeks before anyone notices.
+</Callout>
+
+## The Three-Phase Migration Checklist
+
+Think of a migration as three phases, not one launch day. Skipping the 'during' or 'after' phase is where most of the damage happens.
+
+<Mermaid chart={`graph TD
+    A[Pre-Migration\nweeks before launch] --> B[URL mapping\nevery old URL to new URL]
+    A --> C[Staging tests\n301s, canonicals, robots.txt]
+    A --> D[Baseline capture\nrankings, traffic, backlinks]
+    B --> E[Launch Day]
+    C --> E
+    D --> E
+    E --> F[During\nfirst 48 hours]
+    F --> G[Verify redirects live\nno unexpected noindex]
+    F --> H[Submit new sitemap\nupdate Search Console property]
+    G --> I[Post-Migration\nweeks 1 to 8]
+    H --> I
+    I --> J[Daily crawl error checks]
+    I --> K[Weekly ranking and traffic review]
+    J --> L[Fix regressions fast]
+    K --> L`} />
+
+**Pre-migration** is where the real work happens. Crawl the entire existing site and export every indexed URL, then build a 1:1 redirect map, no many-to-one redirects to a homepage, ever.
+
+Capture a baseline: current rankings, organic traffic, top backlinks, and Core Web Vitals scores. Without this, you cannot prove what changed after launch.
+
+Test every 301 redirect in a staging environment before launch day, not after. A redirect that works in staging but silently fails to deploy to production is the single most common cause of a migration hangover.
+
+**During launch** is a narrow, high-attention window. Confirm redirects are live in production immediately, check for any leftover `noindex` meta tag or `Disallow` rule inherited from staging, and submit a fresh XML sitemap the moment the new site is live.
+
+If the domain changed, use Google Search Console's Change of Address tool and add the new property alongside the old one, don't delete the old property, Google still needs to see the redirects from it.
+
+**Post-migration** monitoring runs for 6-8 weeks minimum, not until it 'looks fine.' Check crawl errors daily for the first two weeks, then weekly.
+
+Track rankings and organic traffic against your baseline every week. A 10-30% dip that stabilizes within 2-6 weeks is normal volatility; anything beyond that, still falling after 4 weeks, is a hangover in progress and needs intervention now, not next quarter.
+
+## Common Mistakes That Cause Ranking Loss
+
+Most migration failures trace back to a small set of repeatable mistakes. Knowing them in advance is cheaper than discovering them in a Search Console graph.
+
+- **Missing or many-to-one redirects.** Redirecting ten unique pages to a single homepage tells Google those pages no longer exist, killing their accumulated authority instead of transferring it.
+- **Leftover staging noindex tags.** The single most common cause of a post-launch traffic cliff, a `noindex` tag or `robots.txt Disallow` that was fine on staging but never got removed for production.
+- **Restructuring URLs unnecessarily.** Changing URL slugs at the same time as a platform or domain move forces Google to reassess every page from scratch, compounding the risk for no SEO benefit.
+- **Content 'cleanup' during migration.** Rewriting or trimming page content in the same release as the technical move makes it impossible to isolate whether a ranking drop is technical or content-driven.
+- **No rollback plan.** If crawl errors spike or rankings collapse in week one, you need a tested way to revert, not a scramble to figure one out under pressure.
+
+Each of these is preventable with a checklist and a second set of eyes. None of them require new tooling, just discipline.
+
+## Key Takeaways
+
+- Treat migrations as three phases: pre-migration mapping and testing, a tightly monitored launch window, and 6-8 weeks of active post-launch tracking.
+- Build a 1:1 redirect map for every indexed URL; never redirect multiple pages to one destination.
+- Capture a traffic, ranking, and backlink baseline before launch so you can measure real impact afterward.
+- The most fatal mistake is silence after launch, watch crawl errors and rankings weekly, not just on launch day.
+- Recovery from a bad migration averages over 500 days industry-wide; the cheapest fix is never needing one.
+
+<ResourceList resources={[
+  { title: "SEO Site Migration in 2026: Zero-Traffic-Loss Playbook (Digital Applied)", url: "https://www.digitalapplied.com/blog/seo-site-migration-2026-zero-traffic-loss-playbook", type: "article", free: true },
+  { title: "What Is A Migration Hangover Traffic Drop & How Do You Avoid It? (Search Engine Journal)", url: "https://www.searchenginejournal.com/what-is-a-migration-hangover-traffic-drop-how-do-you-avoid-it/575102/", type: "article", free: true },
+  { title: "Google Shows Why Rankings Collapsed After Domain Migration (Search Engine Journal)", url: "https://www.searchenginejournal.com/google-shows-why-rankings-collapsed-after-domain-migration/548787/", type: "article", free: true },
+  { title: "Site Migrations, Google Search Central Documentation", url: "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes", type: "docs", free: true },
+  { title: "Change of Address Tool, Google Search Console Help", url: "https://support.google.com/webmasters/answer/9370220", type: "docs", free: true },
+  { title: "Screaming Frog SEO Spider, for pre-migration URL crawls and redirect audits", url: "https://www.screamingfrog.co.uk/seo-spider/", type: "tool", free: true, note: "Free for up to 500 URLs" },
+  { title: "WsCube Tech, Technical SEO and Site Migration (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, SEO Site Migration Basics", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Technical SEO Training", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

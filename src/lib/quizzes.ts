@@ -19066,4 +19066,280 @@ export const QUIZZES: Record<string, Quiz[]> = {
       explanation: "Most U.S. states are one-party consent, but California, Florida, Pennsylvania, and Illinois require all parties to consent to recording. Sales teams calling into these states must disclose and obtain approval before recording.",
     },
   ],
+  "seo/seo-site-migrations": [
+    {
+      question: "According to the lesson, what is the single biggest cause of ranking loss during a site migration?",
+      options: [
+        "Poor content quality on the new site",
+        "Choosing the wrong CMS platform",
+        "Missing or broken 301 redirects",
+        "Slow page load speed after launch",
+      ],
+      correct: 2,
+      explanation: "The lesson is explicit that missing or broken 301 redirects, not content quality or platform choice, is the single biggest cause of ranking loss in a migration.",
+    },
+    {
+      question: "Why does the lesson warn against redirecting many old URLs to a single homepage (many-to-one redirects)?",
+      options: [
+        "It slows down the redirect chain and hurts Core Web Vitals",
+        "It tells Google those pages no longer exist, killing their accumulated authority instead of transferring it",
+        "It triggers a manual action from Google's spam team",
+        "It is technically impossible to implement on most servers",
+      ],
+      correct: 1,
+      explanation: "The lesson explains a 1:1 redirect map is required; redirecting ten unique pages to one homepage signals to Google that those pages no longer exist, killing their authority rather than transferring it.",
+    },
+    {
+      question: "Per the lesson, what is a 'migration hangover'?",
+      options: [
+        "A 10-30% traffic dip that settles within 2-6 weeks, which is normal",
+        "A 50%+ traffic drop lasting 12-18 months, well beyond normal post-launch volatility",
+        "A temporary Search Console reporting delay after a domain change",
+        "A permanent, unrecoverable loss of all rankings",
+      ],
+      correct: 1,
+      explanation: "The lesson defines a migration hangover as a 50%+ traffic drop lasting 12-18 months, distinct from the normal 10-30% volatility that settles within 2-6 weeks.",
+    },
+    {
+      question: "What does the lesson say is the most common fatal mistake in a migration?",
+      options: [
+        "Not hiring an SEO consultant before launch",
+        "Treating the migration as a one-time redirect file with no post-launch monitoring",
+        "Migrating during a high-traffic season",
+        "Using Google Search Console's Change of Address tool",
+      ],
+      correct: 1,
+      explanation: "The lesson's Callout warns that teams often build a perfect redirect map, launch, then stop watching, missing crawl errors or a leftover staging noindex tag that quietly deindexes the new site for weeks.",
+    },
+  ],
+  "seo/content-decay-refresh": [
+    {
+      question: "Per the lesson, roughly how much organic traffic do sites lose to content decay on average every six months?",
+      options: [
+        "5-10%",
+        "20-30%",
+        "50-60%",
+        "70-80%",
+      ],
+      correct: 1,
+      explanation: "The lesson cites content decaying at roughly 1.21% per week, with sites losing 20-30% of organic clicks every six months on average.",
+    },
+    {
+      question: "The lesson describes three decay patterns. Which one shows average position falling while impressions barely move?",
+      options: [
+        "Cliff decay",
+        "Slow bleed",
+        "Position drift",
+        "SERP volatility",
+      ],
+      correct: 2,
+      explanation: "Position drift is when average position falls (e.g. 4.2 to 8.6) while impressions hold steady, meaning Google still shows the page but users stop clicking, a depth or freshness signal.",
+    },
+    {
+      question: "According to the lesson, what is the single most common 'fake refresh' that Google's systems see through?",
+      options: [
+        "Adding 500 words to the bottom of the page",
+        "Changing the 'last updated' date without touching the content",
+        "Rewriting only the meta description",
+        "Adding new internal links to the page",
+      ],
+      correct: 1,
+      explanation: "The lesson calls out changing the 'last updated' date without touching the content as the most common fake refresh, one Google's systems see straight through.",
+    },
+    {
+      question: "How should a marketer find decaying pages in Google Search Console, per the lesson?",
+      options: [
+        "Compare the last six months to the previous six months, sorted by clicks lost",
+        "Look only at pages with a bounce rate above 70%",
+        "Filter for pages older than five years",
+        "Sort all pages by keyword count",
+      ],
+      correct: 0,
+      explanation: "The lesson instructs comparing Search Console's last six months to the prior six months and sorting by clicks lost (not percentage lost) so high-traffic pages are caught first.",
+    },
+  ],
+  "paid-ads/ad-fraud-invalid-traffic": [
+    {
+      question: "How does the IAB Tech Lab's framework split invalid traffic, per the lesson?",
+      options: [
+        "Mobile fraud vs desktop fraud",
+        "GIVT (general invalid traffic) and SIVT (sophisticated invalid traffic)",
+        "Paid fraud vs organic fraud",
+        "Click fraud and impression fraud",
+      ],
+      correct: 1,
+      explanation: "The lesson explains GIVT is the easy-to-spot layer (declared bots, data center IPs), while SIVT is built to actively resemble authentic human behavior and requires multi-signal detection.",
+    },
+    {
+      question: "Per the lesson, what is the strongest single fraud tell a marketer can watch for in their own dashboards?",
+      options: [
+        "CTR staying flat for several weeks",
+        "Conversion rate collapsing while traffic volume rises",
+        "A slight increase in average session duration",
+        "Consistent geographic distribution of clicks",
+      ],
+      correct: 1,
+      explanation: "The lesson states that real audiences convert at a roughly stable rate, so volume rising while conversion rate falls is called out as the single strongest fraud tell.",
+    },
+    {
+      question: "Where does the lesson say mobile app install fraud like SDK spoofing and click injection is best caught?",
+      options: [
+        "By standard web verification tools like DoubleVerify or IAS alone",
+        "At the Mobile Measurement Partner (MMP) layer, such as AppsFlyer, Adjust, or Kochava",
+        "Only through manual review of app store reviews",
+        "By the ad platform's basic invalid click detection",
+      ],
+      correct: 1,
+      explanation: "The lesson explains SDK spoofing and click injection live at a different layer than display fraud and are caught by MMPs (AppsFlyer, Adjust, Kochava), not generic web verification tools.",
+    },
+    {
+      question: "According to the lesson, what does 'post-install silence' typically indicate?",
+      options: [
+        "The user simply hasn't opened the app yet",
+        "SDK spoofing, where the install itself was faked so no real in-app events ever follow",
+        "A normal onboarding delay",
+        "The MMP attribution window has expired",
+      ],
+      correct: 1,
+      explanation: "The lesson lists installs with zero in-app events afterward as pointing to SDK spoofing, since the install was faked, nothing real ever happens next.",
+    },
+  ],
+  "paid-ads/ad-frequency-creative-fatigue": [
+    {
+      question: "Per the lesson, roughly how long does creative fatigue take to set in on Meta versus TikTok?",
+      options: [
+        "Meta decays in about 10 days; TikTok fatigues in days, not weeks",
+        "Both platforms decay at the same roughly 30-day rate",
+        "Meta decays in days; TikTok holds steady for weeks",
+        "Neither platform shows a measurable decay curve",
+      ],
+      correct: 0,
+      explanation: "The lesson states Meta ads follow roughly a 10-day decay curve, while TikTok fatigues in days because its algorithm concentrates delivery on top-performing creative fast.",
+    },
+    {
+      question: "What is the earliest signal of creative fatigue the lesson says to watch, before CPA even moves?",
+      options: [
+        "A drop in total ad spend",
+        "CTR sliding 15-20% week over week while impressions stay flat",
+        "A rise in audience size",
+        "A change in ad placement mix",
+      ],
+      correct: 1,
+      explanation: "The lesson identifies CTR sliding 15-20% week over week with flat impressions as the earliest fatigue signal, meaning the same audience is seeing the ad and tuning it out.",
+    },
+    {
+      question: "Per the lesson, how does Meta Advantage+ change how a marketer should manage frequency compared to manual campaigns?",
+      options: [
+        "It provides a stricter hard frequency cap than manual campaigns",
+        "It removes the manual frequency dial, spreading delivery across broader inventory, so tracking CTR trend matters more since per-user frequency is less visible",
+        "It eliminates fatigue entirely by rotating creative automatically",
+        "It requires setting frequency caps manually, same as manual campaigns",
+      ],
+      correct: 1,
+      explanation: "The lesson explains Advantage+ optimizes audience, placement, and bidding together without a manual cap, reducing (but not eliminating) fatigue risk, so watching the CTR trend line matters more, not less.",
+    },
+    {
+      question: "What does the lesson recommend as the 2026 standard for the number of active creatives per campaign and minimum DCO variants?",
+      options: [
+        "3-4 active creatives per campaign; DCO needs no minimum variant count",
+        "6-8 active creatives per campaign; DCO needs a minimum of 10 variants",
+        "1-2 hero creatives per campaign; DCO needs 20+ variants",
+        "10-12 active creatives per campaign; DCO needs exactly 5 variants",
+      ],
+      correct: 1,
+      explanation: "The lesson states the 2026 standard is 6-8 active creatives per campaign (up from 3-4), and Meta's DCO wants a minimum of 10 variants (3-4 videos, 3 images, 3 headlines, 2 CTAs) to avoid starving the algorithm of signal.",
+    },
+  ],
+  "ai-marketing/measuring-ai-marketing-roi": [
+    {
+      question: "Per the lesson, what is the main flaw in the 'time saved times hourly rate' method of measuring AI ROI?",
+      options: [
+        "It is too complicated for most finance teams to calculate",
+        "Saved time only becomes value if it gets reinvested into something that moves a business metric, and most 'saved' hours quietly evaporate",
+        "It requires expensive third-party software to track",
+        "It only works for content teams, not paid media or sales",
+      ],
+      correct: 1,
+      explanation: "The lesson explains this method counts activity, not outcomes, since saved hours often evaporate into more meetings or revisions instead of being reinvested into something that moves a business metric.",
+    },
+    {
+      question: "What gap does the lesson highlight between AI adoption and demonstrated ROI in 2026?",
+      options: [
+        "91% of marketers use AI, but only 41% can demonstrate ROI",
+        "Adoption and ROI proof are roughly equal at 90%",
+        "Only 20% of marketers use AI, but 80% can prove ROI",
+        "Adoption has declined faster than ROI measurement",
+      ],
+      correct: 0,
+      explanation: "The lesson opens with this exact gap: 91% of marketers use AI, but only 41% can demonstrate ROI in 2026, down from 49% a year earlier.",
+    },
+    {
+      question: "Which three output metrics does the lesson recommend anchoring AI ROI claims to instead of time-saved math?",
+      options: [
+        "Tool subscription cost, headcount, and login frequency",
+        "Content velocity, campaign iteration speed, and lead or conversion quality",
+        "Social media follower growth, email open rate, and website uptime",
+        "Employee satisfaction, training hours, and tool adoption rate",
+      ],
+      correct: 1,
+      explanation: "The lesson recommends anchoring to content velocity, campaign iteration speed, and lead/conversion quality, metrics the business already tracks and that resist gaming.",
+    },
+    {
+      question: "What is the first step in the lesson's four-step framework for building an internal AI ROI case?",
+      options: [
+        "Report the miss rate to leadership",
+        "Run a control group for one sprint",
+        "Baseline content output, cycle time, and one quality metric for four to eight weeks before any AI tool touches the workflow",
+        "Pick five metrics to track simultaneously",
+      ],
+      correct: 2,
+      explanation: "The lesson states skipping the baseline step is why most AI ROI pitches fall apart under questioning; without a pre-rollout baseline, every 'improvement' claim is unverifiable.",
+    },
+  ],
+  "ai-marketing/ai-marketing-tech-stack": [
+    {
+      question: "Per the lesson, what are the three real paths for an AI marketing tech stack?",
+      options: [
+        "Buy an all-in-one AI platform, stitch together point solutions, or build custom on an LLM API",
+        "Hire an agency, hire in-house, or outsource entirely",
+        "Free tools, paid tools, or enterprise tools",
+        "Cloud-based, on-premise, or hybrid deployment",
+      ],
+      correct: 0,
+      explanation: "The lesson lays out three real options: buy an all-in-one platform, stitch together best-of-breed point solutions, or build custom on an LLM API, noting most teams blend all three.",
+    },
+    {
+      question: "According to the lesson's decision framework, which question should be asked first when evaluating a new AI marketing use case?",
+      options: [
+        "What's your team size and technical resource?",
+        "How commoditized is the use case?",
+        "How core is it to differentiation?",
+        "What is the total cost of ownership?",
+      ],
+      correct: 1,
+      explanation: "The lesson's three-question framework runs in order: how commoditized the use case is, first, since if every competitor does the task the same way, buying is the default answer.",
+    },
+    {
+      question: "Per the lesson, what does Gartner project will happen to more than 40% of agentic AI projects by 2027?",
+      options: [
+        "They will be acquired by larger vendors",
+        "They will be scrapped, usually because teams built or bought for hype instead of a specific job",
+        "They will be open-sourced",
+        "They will be merged into single all-in-one platforms",
+      ],
+      correct: 1,
+      explanation: "The lesson cites Gartner's projection that over 40% of agentic AI projects will be scrapped by 2027, tying this back to teams skipping the decision framework and building or buying for hype.",
+    },
+    {
+      question: "What does the lesson say a team must do before approving any custom AI build?",
+      options: [
+        "Get a signed contract with an outside vendor",
+        "Name the person who will own it in six months",
+        "Confirm it uses the cheapest available LLM API",
+        "Get sign-off from the legal department only",
+      ],
+      correct: 1,
+      explanation: "The lesson's warning Callout states that if nobody can name an owner for a build in six months, the team isn't choosing 'build', they're choosing 'build and abandon'.",
+    },
+  ],
 };
