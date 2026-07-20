@@ -10,27 +10,27 @@ A free, structured marketing education site, from absolute beginner to advanced 
 
 ## What This Is
 
-422 lessons across 16 disciplines. No paywalls, no drip sequences, no email required. Every lesson includes real research, company examples with specific numbers, Mermaid diagrams, interview Q&A, and curated free resources in English, Hindi, Tamil, and Telugu.
+471 lessons across 16 disciplines. No paywalls, no drip sequences, no email required. Every lesson includes real research, company examples with specific numbers, Mermaid diagrams, interview Q&A, and curated free resources in English, Hindi, Tamil, and Telugu.
 
 | # | Category | Slug | MDX Files |
 |---|---|---|---|
-| 1 | Marketing Fundamentals | `fundamentals` | 38 |
-| 2 | SEO | `seo` | 30 |
-| 3 | Paid Ads | `paid-ads` | 30 |
-| 4 | Growth Marketing | `growth` | 24 |
-| 5 | Social Media | `social` | 24 |
-| 6 | Content Marketing | `content` | 25 |
-| 7 | Email & Lifecycle | `email` | 31 |
-| 8 | Analytics & Attribution | `analytics` | 33 |
-| 9 | Marketing Tools | `tools` | 36 |
-| 10 | Human Psychology | `psychology` | 26 |
-| 11 | Copywriting | `copywriting` | 24 |
-| 12 | Conversion Rate Optimization | `cro` | 24 |
-| 13 | Brand Strategy | `brand-strategy` | 24 |
-| 14 | Product Marketing | `product-marketing` | 24 |
-| 15 | AI in Marketing | `ai-marketing` | 27 |
-| 16 | Mental Models | `mental-models` | 15 |
-| | **TOTAL** | | **422** |
+| 1 | Marketing Fundamentals | `fundamentals` | 40 |
+| 2 | SEO | `seo` | 32 |
+| 3 | Paid Ads | `paid-ads` | 32 |
+| 4 | Growth Marketing | `growth` | 28 |
+| 5 | Social Media | `social` | 28 |
+| 6 | Content Marketing | `content` | 28 |
+| 7 | Email & Lifecycle | `email` | 33 |
+| 8 | Analytics & Attribution | `analytics` | 35 |
+| 9 | Marketing Tools | `tools` | 38 |
+| 10 | Human Psychology | `psychology` | 29 |
+| 11 | Copywriting | `copywriting` | 28 |
+| 12 | Conversion Rate Optimization | `cro` | 28 |
+| 13 | Brand Strategy | `brand-strategy` | 28 |
+| 14 | Product Marketing | `product-marketing` | 28 |
+| 15 | AI in Marketing | `ai-marketing` | 29 |
+| 16 | Mental Models | `mental-models` | 20 |
+| | **TOTAL** | | **471** |
 
 ---
 
@@ -39,7 +39,7 @@ A free, structured marketing education site, from absolute beginner to advanced 
 **Learning**
 - **Lesson reader**, Left-side table of contents, reading progress bar, reading time estimate, prev/next navigation
 - **Related lessons**, "You might also like" section at the bottom of every lesson
-- **Lesson quizzes**, 4 questions at the bottom of 422 lessons; quiz must be passed (100%) to unlock Mark Complete
+- **Lesson quizzes**, 4 questions at the bottom of 471 lessons; quiz must be passed (100%) to unlock Mark Complete
 - **Progress tracking**, Mark lessons complete, per-category progress bar, bookmarks (all localStorage)
 - **Learning tracks**, 8 curated paths: B2B Marketer, E-commerce Growth, Solo Founder, AI-First Marketer, Content Creator, Social Media Manager, Data-Driven Marketer, Freelancer & Agency
 - **Progress certificates**, Printable completion certificate per track at `/certificates/[slug]`
@@ -49,7 +49,7 @@ A free, structured marketing education site, from absolute beginner to advanced 
 - **Onboarding**, First-visit goal selector: pick a goal, get routed to the right learning track
 
 **Discovery**
-- **Command Palette**, Cmd/Ctrl+K fuzzy search across all 422 lessons, 216 glossary terms, 108 tools, and nav pages
+- **Command Palette**, Cmd/Ctrl+K fuzzy search across all 471 lessons, 216 glossary terms, 108 tools, and nav pages
 - **Search**, Client-side fuzzy search (Fuse.js) with category and level filter chips
 - **Glossary**, 216 marketing terms with A-Z index and individual term pages at `/glossary`
 - **Tools directory**, 108 marketing tools across 11 categories with search, category, and pricing filters at `/tools`
@@ -138,7 +138,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/curriculum.ts` | Single source of truth, all lesson slugs, titles, levels |
 | `src/lib/tracks.ts` | 8 learning track definitions |
 | `src/lib/glossary.ts` | 216 marketing term definitions |
-| `src/lib/quizzes.ts` | Quiz questions (4 per lesson, all 422 lessons covered) |
+| `src/lib/quizzes.ts` | Quiz questions (4 per lesson, all 471 lessons covered) |
 | `src/lib/tools-directory.ts` | 108 marketing tools with category/pricing data |
 | `src/lib/bookmarks.ts` | Shared bookmark storage (BOOKMARK_KEY, getBookmarks, saveBookmarks) |
 | `src/lib/progress.ts` | Lesson completion helpers (COMPLETED_KEY exported, getCompleted, markComplete) |

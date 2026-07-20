@@ -1,0 +1,83 @@
+export const lessonMeta = {
+  title: "Image SEO & Visual Search Optimization",
+  level: "Intermediate",
+  summary: "Master the fundamentals that get images ranked, and prepare your catalog for the shift toward searching with cameras instead of keywords.",
+};
+
+Google Lens now handles roughly 20 billion visual searches a month, with about 4 billion of those tied to shopping. Pinterest Lens processes 1.5 billion queries a month, up 40% year over year. People aren't just typing 'blue running shoes' anymore, they're pointing a phone at a pair they saw on the street.
+
+This lesson covers two things that work together: the image SEO basics that still drive Google Images traffic, and what visual search engines actually need from your images to find and understand them.
+
+## Quick Summary
+
+- Alt text, descriptive filenames, and compression are still the highest-leverage image SEO wins, roughly 80% of the traffic lift comes from getting these three right.
+- WebP is the 2026 baseline format; AVIF compresses further but needs a fallback for older browsers.
+- Visual search engines (Google Lens, Pinterest Lens) match on objects and shapes, not filenames, so product angle, background, and image quality matter more than keywords.
+- 60% of Gen Z say they prefer visual search over typing a query, this is a discovery channel, not a novelty.
+- Structured data (ImageObject, Product) helps Google attach licensing, pricing, and authorship to your images in results.
+
+## Image SEO Fundamentals That Still Matter
+
+Before visual search, get the boring stuff right. It's still most of the traffic.
+
+**Alt text describes function, not keywords.** Write 5-15 words that explain what the image shows and why it's there. 'Woman in red jacket hiking a rocky trail at sunset' beats 'hiking jacket red womens outdoor gear' every time. Google penalizes keyword stuffing in alt attributes as a bad user experience signal, and screen reader users are reading this text too.
+
+For purely decorative images (a background texture, a divider), use `alt=""`. An empty alt tells screen readers to skip it, which is more helpful than a forced, meaningless description.
+
+**Filenames are a small but real ranking signal.** `IMG_0238.jpg` tells Google nothing. `blue-suede-loafers-side-view.jpg` tells it exactly what's in the frame before it even opens the file. Rename every image before upload, use hyphens between words, and skip filler words like 'photo' or 'image'.
+
+**Compression and format choice affect Core Web Vitals directly.** WebP is now the safe default, about 25-35% smaller than JPEG at equivalent quality, with full transparency support to replace PNG. AVIF pushes further, often 50% smaller than JPEG, but encoding is CPU-heavy and a few older Safari versions still choke on it. Serve AVIF inside a `<picture>` element with WebP and JPEG fallbacks so nothing breaks.
+
+Heavy, unoptimized images are one of the most common Largest Contentful Paint (LCP) killers, and LCP is a ranking factor. An image that looks identical but loads in 200ms instead of 2 seconds is a win nobody sees, except the algorithm.
+
+## How Visual Search Actually Works
+
+Visual search doesn't read your page. It reads the pixels.
+
+When someone points Google Lens or Pinterest Lens at an object, the system runs computer vision models that identify shapes, colors, textures, and patterns, then matches them against a visual index of images it's already crawled. Your alt text and filename help Google decide whether to index the image at all, but they don't influence whether the *visual match* succeeds. That's determined by the image itself.
+
+This means a few things change in priority:
+
+**Image quality and framing become ranking factors in their own right.** A cluttered background, awkward crop, or heavy filter confuses the matching model. Clean, well-lit, single-subject product shots on a neutral background match far more reliably than lifestyle shots with multiple objects competing for attention.
+
+**Multiple angles multiply your match surface.** A shopper's photo could be a front view, a side view, or a close-up of a logo. If your catalog only has one hero shot, you only match one kind of query. Retailers seeing 25-40% higher conversion from visual search traffic are typically the ones with 4-6 angles per product, not one.
+
+**Context on the page still counts for shopping results.** Google and Pinterest pull surrounding text, price, and availability to turn a visual match into a shoppable result. An image with no product name, price, or description nearby can be visually matched but never surfaced as buyable.
+
+One in three online shoppers now uses an AI-powered discovery tool, chatbot, visual search, or conversational product finder, somewhere in their purchase journey. Adoption skews young: about 22% of 16-34 year-olds use visual search to find or buy something, versus 17% of 35-54 year-olds and just 5% of the 55+ group. If your audience is younger and your catalog is product-heavy, this is no longer optional groundwork.
+
+## Practical Image Optimization Checklist
+
+Run every new image (and a batch of your top pages' existing images) through this list:
+
+1. **Rename the file** with descriptive, hyphenated words before upload, no camera IDs or generic terms.
+2. **Write alt text** that describes the image's content and purpose in under 15 words; use `alt=""` for decorative images only.
+3. **Convert to WebP**, with AVIF plus a JPEG fallback for image-heavy product pages where every kilobyte counts.
+4. **Compress without visible quality loss**, aim for the smallest file size where a side-by-side comparison still looks sharp.
+5. **Add `width` and `height` attributes** (or CSS aspect-ratio) so the browser reserves space and avoids layout shift.
+6. **Submit an image sitemap** for catalog or CDN-hosted images that Google's normal crawl might miss.
+7. **Add ImageObject or Product structured data** with `contentUrl`, `name`, `description`, and `license` where relevant, this is what lets Google attach pricing, authorship, and licensing badges in image results.
+
+<Callout type="tip">
+Visual search rewards clean, well-lit, single-subject photography the same way voice search rewards clear pronunciation. You can't caption your way out of a blurry, cluttered product shot, fix the photo first, then optimize the metadata around it.
+</Callout>
+
+## Key Takeaways
+
+- Alt text, filenames, and compression remain the foundation, do these before anything else.
+- WebP is the baseline format in 2026; pair AVIF with fallbacks rather than shipping it alone.
+- Visual search matches pixels, not metadata, invest in clean multi-angle photography for anything you want discovered by camera.
+- Structured data turns a visual match into a shoppable result by attaching price, name, and licensing data.
+- This channel already reaches roughly a third of online shoppers and skews younger every year, treat it as core SEO work, not an experiment.
+
+<ResourceList resources={[
+  { title: "Google Search Central: Image SEO Best Practices", url: "https://developers.google.com/search/docs/appearance/google-images", type: "docs", free: true },
+  { title: "Image SEO 2026: Visual Search Optimization Guide", url: "https://www.digitalapplied.com/blog/image-seo-2026-visual-search-optimization-guide", type: "article", free: true },
+  { title: "Visual Search and the New Rules of Retail Discovery in 2026", url: "https://imagga.com/blog/visual-search-and-the-new-rules-of-retail-discovery-in-2026/", type: "article", free: true },
+  { title: "Why Visual Search Marketing Is the Future (Pinterest Business)", url: "https://business.pinterest.com/blog/the-future-of-search-is-visual/", type: "article", free: true },
+  { title: "Schema.org ImageObject Documentation", url: "https://schema.org/ImageObject", type: "docs", free: true },
+  { title: "Google Lens Developer Documentation", url: "https://developers.google.com/lens", type: "docs", free: true },
+  { title: "WsCube Tech, Image SEO and Visual Search (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Image SEO Strategy", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Image SEO Mastery", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

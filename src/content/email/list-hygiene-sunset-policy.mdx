@@ -1,0 +1,106 @@
+export const lessonMeta = {
+  title: "Email List Hygiene & Sunset Policies",
+  level: "Intermediate",
+  summary: "The people who never open your emails are quietly costing you the ones who do. Here is how to let them go, on purpose.",
+  category: "email",
+  slug: "list-hygiene-sunset-policy",
+};
+
+# Email List Hygiene & Sunset Policies
+
+## Quick Summary
+
+- Inactive subscribers are not neutral, mailbox providers read them as a live signal that your content is unwanted, and lower inbox placement for everyone on your list.
+- A sunset policy is an ongoing discipline: define "unengaged" by time and behavior, attempt one re-engagement sequence, then suppress non-responders.
+- Click activity, not opens, is the reliable signal in 2026. Apple's Mail Privacy Protection and similar preloading inflate open rates on emails nobody actually reads.
+- A typical sunset window is 60-90 days of silence for daily senders, 90-120 for weekly senders, and 150-180 for monthly senders.
+- This is different from list building (acquisition) and general deliverability (broad sender reputation), it is the recurring maintenance that keeps both of those efforts from decaying.
+
+## Why Inactive Subscribers Actively Hurt You
+
+Here is the part most marketers get backwards: an unopened email does not just fail to help, it actively damages your sender reputation. Gmail and Outlook do not judge each email in isolation.
+
+They judge your domain's aggregate engagement pattern. Every send to someone who has ignored your last 20 emails drags that pattern down, and mailbox providers respond by filtering more of your mail to spam, including the mail your engaged subscribers would have opened.
+
+<Callout type="info">
+Gmail requires bulk senders to keep spam complaint rates under 0.3%, with anything under 0.1% considered excellent and rewarded with better inbox placement (Google's Bulk Sender Guidelines). Inactive subscribers are disproportionately likely to mark you as spam instead of unsubscribing, they have forgotten why they signed up, so a complaint feels easier than finding the unsubscribe link.
+</Callout>
+
+Think of your list as a shared reputation pool, not individual mailboxes. Mailbox providers now weigh engagement ratio over raw volume, 1,000 subscribers who click beat 10,000 who scroll past unread. Every dead contact you keep mailing is diluting that ratio and taxing the reputation your active subscribers rely on.
+
+This is the mechanism that makes sunset policies non-optional past a certain list size. Skip it, and your best subscribers start missing emails too.
+
+## Defining "Unengaged" and Setting a Sunset Timeline
+
+"Inactive" is not a fixed number, it scales with how often you send. A subscriber silent for 90 days means something different to a daily newsletter than to a monthly digest.
+
+**Recommended inactivity windows by send frequency:**
+- Daily senders: 60-90 days of zero engagement
+- Weekly senders: 90-120 days
+- Monthly senders: 150-180 days
+
+The harder question in 2026 is what counts as "engagement." Apple Mail Privacy Protection preloads images on delivery, so an email can register as "opened" the instant it lands, whether a human ever saw it or not.
+
+That inflates open rates across the board and makes them unreliable as a sunset trigger on their own. Clicks are a much cleaner signal, a click requires a real person to read something and act on it.
+
+Build your unengaged segment on clicks first, opens only as a secondary signal for subscribers on clients where clicks are rare (like plain-text confirmations). Anyone who has not clicked, replied, or converted inside your window is a sunset candidate, not yet a deletion.
+
+## The Re-Engagement-Then-Suppress Sequence
+
+A sunset policy is not "delete inactive people." It is a fair, documented process: warn them, give them one real chance to say yes, then act on silence.
+
+<Mermaid chart={`flowchart TD
+    A[Subscriber crosses inactivity window] --> B[Move to sunset segment]
+    B --> C[Email 1: We miss you + best content or offer]
+    C --> D{Clicked or replied?}
+    D -- Yes --> E[Return to active list, reset the clock]
+    D -- No, after 3-5 days --> F[Email 2: Direct question - still want these?]
+    F --> G{Clicked or replied?}
+    G -- Yes --> E
+    G -- No, after 3-5 days --> H[Email 3: Final notice - one-click to stay]
+    H --> I{Clicked or replied?}
+    I -- Yes --> E
+    I -- No --> J[Suppress from all future sends]`} />
+
+Run the sequence over 10-14 days, three emails, each one escalating:
+1. **Value first.** Remind them what they signed up for, lead with your best content or a modest offer. No mention of removal yet.
+2. **Direct question.** "Should we stop emailing you?" outperforms clever subject lines here, ambiguity just gets ignored again.
+3. **Final notice.** One clear action, click to stay subscribed. Make the deadline explicit.
+
+Expect to win back roughly 5-12% of dormant contacts through a well-run sequence, a real number, but the majority will stay silent. That is the expected outcome, not a failure of your copy.
+
+Anyone who does not click, reply, or convert by the end gets suppressed, not deleted outright. Suppression keeps the address on file so you never accidentally re-import it, while removing it from every future send.
+
+<Callout type="tip">
+Segment the sunset sequence by how long someone has been gone. A subscriber inactive for 60 days responds to a different message than one inactive for a year, the first still remembers you, the second needs to be reminded why they subscribed at all. One generic win-back email for both groups under-performs a tailored pair.
+</Callout>
+
+## Making Sunset a Routine, Not a One-Time Cleanup
+
+The mistake most teams make is treating list hygiene as a single spring-cleaning event instead of a standing process. Run the inactivity check monthly or quarterly, automatically, so contacts never sit unengaged for a year before anyone notices.
+
+Most ESPs charge by contact count, so suppressing dead weight typically lowers your bill at the same time it lifts your inbox placement, a rare case where the cheaper option is also the better one.
+
+<Callout type="warning">
+Do not suppress based on opens alone in 2026. A subscriber who "opened" every email via Apple's privacy preloading but never clicked once looks engaged on a dashboard and is functionally dead. Trust clicks, replies, and conversions as your primary signal, and treat opens as supporting evidence at best.
+</Callout>
+
+## Key Takeaways
+
+- Inactive subscribers lower your aggregate engagement signal, which suppresses inbox placement for your entire list, not just the inactive contacts.
+- Set your inactivity window by send frequency, 60-90 days for daily senders up to 150-180 for monthly senders, and use clicks over opens as the trigger.
+- Run a 3-email, 10-14 day re-engagement sequence before suppressing anyone, expect to recover roughly 5-12% of the segment.
+- Suppress, do not delete, non-responders, and repeat this check on a recurring monthly or quarterly schedule rather than as a one-off cleanup.
+
+<ResourceList resources={[
+  { title: "Google Bulk Sender Guidelines (official)", url: "https://support.google.com/a/answer/81126", type: "docs", free: true, note: "The 0.3% spam complaint threshold and engagement expectations that make sunset policies necessary." },
+  { title: "Mailjet - Understanding Email Sunset Policies", url: "https://www.mailjet.com/blog/deliverability/understanding-email-sunset-policies/", type: "article", free: true, note: "Clear walkthrough of sunset segmentation and suppression versus deletion." },
+  { title: "Litmus - Why They're Not That Into Your Emails", url: "https://www.litmus.com/blog/why-theyre-just-not-that-into-your-emails-and-how-to-fix-it", type: "article", free: true, note: "Diagnosing disengagement and structuring a win-back approach." },
+  { title: "Mailchimp - Re-Engagement Email Best Practices", url: "https://mailchimp.com/resources/re-engagement-emails/", type: "article", free: true, note: "Sequence structure and subject-line guidance for win-back campaigns." },
+  { title: "MailerLite - Re-Engagement Campaigns and Win-Back Examples", url: "https://www.mailerlite.com/blog/re-engaging-inactive-subscribers-with-a-win-back-email-campaign", type: "article", free: true, note: "Real win-back email examples across escalating stages." },
+  { title: "Suped - How Sending to Inactive Contacts Affects Deliverability", url: "https://www.suped.com/learn/email-deliverability/how-does-sending-email-to-inactive-contacts-affect-deliverability", type: "article", free: true, note: "Explains the aggregate reputation mechanism behind sunset policies in plain terms." },
+  { title: "Omnisend - What Is an Email Sunset Policy", url: "https://support.omnisend.com/en/articles/3405334-what-is-an-email-sunset-policy", type: "docs", free: true, note: "ESP-native explanation of how to configure automated sunset segments." },
+  { title: "WsCube Tech, Email List Hygiene (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Email List Hygiene", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Email List Hygiene", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

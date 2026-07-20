@@ -1,0 +1,130 @@
+export const lessonMeta = {
+  title: "Statistical Pitfalls in CRO",
+  level: "Advanced",
+  summary: "Peeking, multiple comparisons, and Simpson's Paradox, the three ways a test with a correct sample size still lies to you.",
+};
+
+## Quick Summary
+
+- Correct sample size does not protect you from peeking, multiple comparisons, or Simpson's Paradox, these are separate failure modes.
+- Checking a test daily and stopping at the first significant result can push your true false positive rate from 5% to 20% or higher.
+- Running 20 simultaneous A/B tests at alpha 0.05 gives you roughly a 64% chance of at least one false 'win' by pure chance.
+- Simpson's Paradox can make a variant look like a loser overall while it wins in every single segment underneath.
+- Pre-registering your analysis plan (what you'll check, when, and how conflicts get resolved) closes all three loopholes at once.
+
+---
+
+## The Peeking Problem, Why 'Stop When Significant' Is Wrong
+
+Peeking means checking your test dashboard mid-flight and stopping the moment you see a significant result. It feels responsible. It is actually the single most common way CRO teams fool themselves.
+
+Here is the mechanism. A p-value calculated for a fixed sample size assumes you look once, at the end. Every extra look is another roll of the dice, and random noise crosses the significance line constantly during a test even when there is zero real effect. If you keep watching, you eventually catch it crossing and stop right there.
+
+A concrete illustration: you launch a new homepage design, and after three days the conversion rate reads +4% with p = 0.04. That looks like a clean win. But a 2024 write-up on p-hacking in A/B testing notes this is a textbook p-hack, the more often you check, the higher the odds you catch a false signal that happens to look real ([Medium, P-hacking and peeking](https://medium.com/@r_valeev/p-hacking-and-peeking-6c829264f901)).
+
+The scale of the damage is well documented. Analytics Toolkit's glossary on peeking (also called 'optional stopping') describes it as a threat that can uncontrollably inflate Type I error and render significance calculations meaningless ([Analytics Toolkit, Peeking glossary](https://www.analytics-toolkit.com/glossary/peeking/)). Other write-ups on the same problem put daily peeking's effective error rate at 20% or more, four times the nominal 5% you think you're running at.
+
+**Fix:** decide your sample size and end date before launch, then don't look at significance until you hit it. If you genuinely need to monitor live, use a sequential testing method built for it (like GrowthBook's or Optimizely's always-valid p-values), not a standard fixed-horizon calculator checked every morning.
+
+<Callout type="warning">
+Never stop a test early because it "reached significance." A significant p-value seen on day 3 of a planned 14-day test is not evidence, it's the exact failure mode peeking produces. Set your end date before you launch and hold it.
+</Callout>
+
+---
+
+## Multiple Comparisons, When Running Many Tests Inflates Everything
+
+Peeking corrupts one test over time. The multiple comparisons problem corrupts your whole testing program at once.
+
+Every individual test at alpha 0.05 has a 5% chance of a false positive if there's no real effect. Run one test, that's fine. Run 20 simultaneous tests (or 20 metrics on one test, which is the same problem in disguise), and the odds that at least one comes back "significant" purely by chance climbs fast. Statsig's explainer on the problem puts the family-wise error rate at roughly 64% across 20 independent tests at alpha 0.05 ([Statsig, The multiple comparisons problem](https://www.statsig.com/perspectives/multiple-comparisons-abtests-care)), meaning you're more likely than not to see a fake winner somewhere in that batch.
+
+Two correction families fix this:
+
+| Method | What it controls | Tradeoff |
+|---|---|---|
+| Bonferroni | Family-wise error rate (probability of ANY false positive) | Simple, but conservative, divides alpha by number of tests |
+| Benjamini-Hochberg | False discovery rate (expected proportion of false positives among "wins") | Less conservative, better when you're screening many variants |
+
+GrowthBook's documentation on multiple testing corrections frames the choice plainly: Bonferroni assumes every false positive is equally costly, so it divides your significance threshold by the number of comparisons (10 tests means your effective bar becomes 0.005, not 0.05). Benjamini-Hochberg instead accepts a controlled share of false discoveries in exchange for more detection power ([GrowthBook Docs, Multiple Testing Corrections](https://docs.growthbook.io/statistics/multiple-corrections)).
+
+This isn't theoretical for teams running high test volume. Any program testing five or more metrics per experiment, or running many concurrent experiments across a site, is implicitly running dozens of comparisons whether anyone labeled it that way or not.
+
+**Fix:** decide your primary metric before launch, one number that decides ship or kill. Track secondary metrics as diagnostics, not as extra chances to declare a win, and apply a correction if you truly need to test many variants or metrics at once.
+
+---
+
+## Simpson's Paradox, When Every Segment Wins But the Total Loses
+
+This is the strangest of the three, and the hardest to catch, because the aggregate number can be flatly wrong in a way that segment-level data would have caught immediately.
+
+Simpson's Paradox happens when a trend inside every subgroup reverses once you combine the subgroups. In CRO this usually comes from uneven traffic mix between variants, not the button color you're testing.
+
+Here's a real numeric case, drawn from a documented CRO scenario. A site gets 1 million visitors daily. On Friday, 1% of traffic is routed to the treatment variant. On Saturday, that allocation is raised to 50%.
+
+| Day | Control CVR | Treatment CVR | Winner |
+|---|---|---|---|
+| Friday | 2.02% | 2.30% | Treatment |
+| Saturday | 1.00% | 1.20% | Treatment |
+| Combined | 1.68% | 1.20% | Control (!) |
+
+Treatment beats control on both individual days. Combined across the two days, treatment appears to lose, because Saturday (treatment's weaker day for both variants) contributed far more of treatment's total traffic once the split moved to 50/50 ([getDalton, Simpson's Paradox: The Statistical Trap That Ruins A/B Tests](https://www.getdalton.com/blogs/simpsons-paradox-ab-testing)). The math is correct on both levels. The interpretation without segmentation is not.
+
+The usual triggers: changing traffic allocation mid-test, an uneven device split between variants (mobile converts differently than desktop), or a new campaign that only reaches one arm of the test. Optimizely's own support documentation flags this directly, warning that segment-level splits should inform discovery, not override a properly randomized shipping decision ([Optimizely, Simpson's Paradox](https://support.optimizely.com/hc/en-us/articles/18208725352589-Simpson-s-Paradox-Discover-possibilities-with-your-segments-not-shipping-decisions)).
+
+**Fix:** hold traffic allocation constant for the full test duration, no ramping percentages mid-flight. Check that device mix and traffic source mix are balanced between variants before you trust the aggregate number.
+
+Catching this one is mostly about not changing the experiment while it's running, a discipline that pays for itself the first time it saves you from shipping a loser.
+
+---
+
+## How the Three Pitfalls Interact
+
+<Mermaid chart={`
+flowchart TD
+    A[Test is running] --> B{Checking results daily?}
+    B -- Yes --> C[Peeking inflates false positive rate]
+    B -- No, fixed end date --> D{Testing many metrics or variants?}
+    D -- Yes, uncorrected --> E[Multiple comparisons inflates false positive rate]
+    D -- No, one primary metric --> F{Traffic mix changed mid-test?}
+    F -- Yes --> G[Simpson's Paradox risk, segment vs aggregate conflict]
+    F -- No, stable allocation --> H[Result is trustworthy]
+    C --> I[Pre-register plan: fixed horizon or sequential method]
+    E --> J[Apply Bonferroni or Benjamini-Hochberg correction]
+    G --> K[Hold allocation constant, check segment balance]
+    I --> H
+    J --> H
+    K --> H
+`} />
+
+---
+
+<Callout type="example">
+**Booking.com and the discipline behind 25,000+ tests a year**
+
+Booking.com's experimentation team runs an enormous test volume and treats all three of these pitfalls as solved problems, not open debates. Sample size and end date are set automatically before launch, closing off peeking. Metric hierarchies (one primary, everything else diagnostic) keep multiple comparisons from silently inflating win rates across their metric-rich dashboards. New analysts are trained that stopping a test early or reinterpreting a "losing" test by segment after the fact corrupts the decision database for everyone downstream, treated internally as a serious process violation.
+</Callout>
+
+---
+
+## Key Takeaways
+
+- Peeking and stopping at first significance can turn a nominal 5% error rate into 20%+, fix your sample size and end date before launch.
+- Testing many metrics or many variants without correction (Bonferroni or Benjamini-Hochberg) means you're likely to see a false winner somewhere.
+- Simpson's Paradox lets every segment win while the aggregate loses, usually from a traffic mix that shifted mid-test.
+- All three failure modes are fixed the same way: decide your analysis plan (metric, sample, allocation) before the test starts, not after you see the data.
+- A correctly sized test is necessary but not sufficient, discipline in execution matters as much as the math up front.
+
+---
+
+<ResourceList resources={[
+  { title: "getDalton - Simpson's Paradox: The Statistical Trap That Ruins A/B Tests", url: "https://www.getdalton.com/blogs/simpsons-paradox-ab-testing", type: "article", free: true, note: "Worked numeric example of Simpson's Paradox from a shifting traffic allocation" },
+  { title: "Optimizely - Simpson's Paradox Support Article", url: "https://support.optimizely.com/hc/en-us/articles/18208725352589-Simpson-s-Paradox-Discover-possibilities-with-your-segments-not-shipping-decisions", type: "docs", free: true, note: "Official guidance on segment vs aggregate conflicts in test results" },
+  { title: "Statsig - The Multiple Comparisons Problem", url: "https://www.statsig.com/perspectives/multiple-comparisons-abtests-care", type: "article", free: true, note: "Family-wise error rate math, roughly 64% at 20 tests and alpha 0.05" },
+  { title: "GrowthBook Docs - Multiple Testing Corrections", url: "https://docs.growthbook.io/statistics/multiple-corrections", type: "docs", free: true, note: "Bonferroni vs Benjamini-Hochberg tradeoffs, practical implementation" },
+  { title: "Analytics Toolkit - Peeking (Optional Stopping) Glossary", url: "https://www.analytics-toolkit.com/glossary/peeking/", type: "docs", free: true, note: "Formal definition and error-rate mechanics of peeking" },
+  { title: "GoPractice - A/B Testing: Avoiding the Peeking Problem", url: "https://gopractice.io/data/peeking-problem/", type: "article", free: true, note: "Practitioner walkthrough of why peeking breaks significance" },
+  { title: "Medium - P-hacking and Peeking", url: "https://medium.com/@r_valeev/p-hacking-and-peeking-6c829264f901", type: "article", free: true, note: "Concrete peeking example with p-value walkthrough" },
+  { title: "WsCube Tech - A/B Testing and CRO (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - Statistical Testing in CRO", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - A/B Testing Fundamentals", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

@@ -1,0 +1,84 @@
+export const lessonMeta = {
+  title: "The Regret Minimization Framework",
+  level: "Beginner",
+  summary: "Jeff Bezos' age-80 thought experiment for making bold, irreversible calls, and why it backfires when applied to small, reversible ones.",
+};
+
+# The Regret Minimization Framework
+
+In 1994, Jeff Bezos had a good job, a good bonus, and no reason to leave. He quit anyway, and the reasoning he used is now a marketing decision tool.
+
+## Quick Summary
+
+- The Regret Minimization Framework asks: 'At age 80, looking back, which choice will I regret not having tried?'
+- Bezos used it in 1994 to justify leaving a stable Wall Street job to found Amazon, a decision with no supporting data at the time.
+- It is built for irreversible, identity-defining bets: launching a company, killing a legacy product line, entering a new channel with no track record.
+- Misapplied to small, reversible decisions, it becomes a permission slip for recklessness instead of a filter for courage.
+- The fix is a two-question gate: is this reversible, and does data already answer it? If yes to either, skip the framework.
+
+## The Model and Its Real Origin
+
+Jeff Bezos was a vice president at D. E. Shaw, a quantitative hedge fund, when he noticed early internet usage growing at [2,300% a year](https://fourweekmba.com/regret-minimization-framework/). He wanted to build an online bookstore. His boss, David Shaw, took him on a two-hour walk through Central Park and told him the idea was good, but better suited to someone without an already-great job.
+
+Bezos gave himself a different test. In a 2001 interview he described it this way: 'I wanted to project myself forward to age 80 and say, 'Okay, now I'm looking back on my life. I want to have minimized the number of regrets I have.'' He knew that at 80, he would not regret having tried the internet bet, only having stayed silent about it.
+
+That is the whole model. No spreadsheet, no market-sizing deck, just a projection forward in time to strip out short-term fear. It resolved a decision that data could not, because in 1994 there was no data on whether people would buy books online.
+
+The framework works because it isolates one specific kind of fear: the fear of trying and failing. It does nothing about the fear of trying and succeeding at the wrong thing, which is a separate problem entirely.
+
+## Where Marketers Misuse It
+
+The failure mode shows up the moment someone uses 'I'll regret not trying' to justify a decision that was never irreversible in the first place.
+
+Picture a mid-size SaaS team debating whether to test a new subject-line format on next week's newsletter. Someone invokes the age-80 test, the room nods, and the team skips the actual A/B test. That is backwards. A subject-line variant is reversible in a day and answerable with data in a week, exactly the situation this framework was never built for.
+
+<Callout type="warning">
+The Regret Minimization Framework has no mechanism for catching a bad idea. It only overrides the fear of trying a good one. Use it on the wrong kind of decision and you get false confidence, not clarity.
+</Callout>
+
+The pattern repeats at scale. Teams reach for the age-80 story to greenlight a rebrand nobody asked for, or to justify skipping a test because 'we'll regret not moving fast.' Every reversible, cheap-to-test decision run through this filter comes out looking braver than it is.
+
+The tell is simple: if you can undo the decision next quarter, or if the answer is one experiment away, you do not need a story about who you will be at 80. You need the test.
+
+## A Practical Framework for Using It Well
+
+Before invoking the age-80 question, run the decision through two filters first.
+
+1. **Reversibility check.** Can this be undone in weeks at low cost? If yes, this is a reversible decision, run an experiment instead.
+2. **Data check.** Does existing data, a test, or a competitor's public results already answer this? If yes, use that, the framework is for genuine uncertainty, not laziness.
+3. **Identity check.** Does the outcome change what your brand, product line, or team fundamentally is, not just its metrics? Killing a legacy product line, entering a channel with no internal precedent, or committing to a multi-year repositioning all pass this test.
+4. **The projection itself.** Only now ask: standing at the point where this could no longer be undone, which choice will the team wish it had made?
+
+<Mermaid chart={`graph TD
+    A[Bold decision on the table] --> B{Reversible in weeks?}
+    B -->|Yes| C[Run an experiment, skip the framework]
+    B -->|No| D{Data already answers it?}
+    D -->|Yes| C
+    D -->|No| E{Identity-defining?}
+    E -->|No| C
+    E -->|Yes| F[Apply age-80 regret test]
+    F --> G[Act on the choice you would regret not trying]`} />
+
+This sequencing matters more than the framework itself. Most marketing decisions are reversible, so most of them should never reach step four.
+
+The decisions that do reach it, killing a product line built by the team's original founders, entering a channel with zero internal precedent, are exactly the ones where analysis paralysis is the real risk, not recklessness. That is the narrow lane this model owns, and owning a narrow lane well beats being a hammer for every nail.
+
+## Key Takeaways
+
+- Bezos built the framework in 1994 to leave a stable job with no data supporting the bet, projecting himself to age 80 to strip out short-term fear.
+- It is designed for irreversible, identity-defining calls, not for decisions you can undo or test cheaply.
+- Misapplied to small decisions, it manufactures false courage instead of catching bad ideas, it has no built-in quality filter.
+- Gate every use with two questions first: is this reversible, and does data already exist? Only proceed to the regret test if both answers are no.
+- Save the framework for the handful of true identity-defining bets a team faces, a legacy product line, a new channel, a repositioning, so it retains its power when you need it most.
+
+<ResourceList resources={[
+  { title: "Regret Minimization Framework: Bezos' 2026 Decision Model (FourWeekMBA)", url: "https://fourweekmba.com/regret-minimization-framework/", type: "article", free: true },
+  { title: "The Bezos Regret Minimization Framework (Sahil Bloom)", url: "https://sahilbloom.substack.com/p/the-bezos-regret-minimization-framework", type: "article", free: true },
+  { title: "Regret Minimization Framework: How It Works & Strategies (Britannica Money)", url: "https://www.britannica.com/money/regret-minimization-theory", type: "article", free: true },
+  { title: "Jeff Bezos' Regret Minimization Framework Explained (Halbert Hargrove)", url: "https://www.halberthargrove.com/news-guidance/news-guidance-regret-minimization-framework-jeff-bezos/", type: "article", free: true },
+  { title: "Regret Minimization Framework (Mindsera)", url: "https://mindsera.com/frameworks/regret-minimization/", type: "article", free: true },
+  { title: "Thinking, Fast and Slow (Daniel Kahneman)", url: "https://www.goodreads.com/book/show/11468377-thinking-fast-and-slow", type: "article", free: false, note: "The foundational text on when intuition and long-horizon framing improve decisions versus when they mislead" },
+  { title: "WsCube Tech, Decision-Making Frameworks for Marketers (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Regret Minimization Framework", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Marketing Decision Models", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

@@ -1,0 +1,118 @@
+export const lessonMeta = {
+  title: "CRO for Mobile Apps: App Store & In-App Conversion",
+  level: "Advanced",
+  summary: "App CRO is not web CRO with smaller screens. Learn how App Store listing conversion (ASO) and post-install funnels actually behave in 2026, and the testing framework that improves both.",
+};
+
+# CRO for Mobile Apps: App Store & In-App Conversion
+
+A web landing page has one conversion moment. A mobile app has two: the store listing that turns a browser into an installer, then the onboarding-to-paywall flow that turns an installer into a payer. Most CRO advice only covers the first, or worse, treats both like the same problem.
+
+## Quick Summary
+
+- **App Store listing conversion (tap-through-to-install)** averages **33.4% on iOS and 27.7% on Google Play** in 2026, per [AppTweak benchmark data via SEM Nexus](https://semnexus.com/app-store-conversion-funnel-impression-to-install-benchmarks-2026), but swings from under 2% for board games to over 65% for business apps.
+- **In-app conversion is a different funnel entirely.** [RevenueCat's 2026 State of Subscription Apps](https://www.revenuecat.com/state-of-subscription-apps) reports trial-to-paid rates of 34.2% in North America, but **55% of all 3-day trial cancellations happen on Day 0**, before a store optimization could ever matter.
+- **Hard paywalls convert at 10.7% download-to-paid versus 2.1% for freemium**, yet both retain similarly at year one, meaning access-model choice is a strategy call, not a quick-win test.
+- Screenshots and preview video are the two highest-leverage store assets: quarterly-tested screenshot captions lift conversion **20-30%**, and portrait preview video adds roughly **+5% conversion** on Google Play per [Searchlab's 2026 ASO statistics roundup](https://searchlab.nl/en/statistics/app-marketing-aso-statistics-2026).
+- Treat the store listing and the in-app funnel as two separate optimization programs with separate metrics, separate tests, and separate owners.
+
+---
+
+## Why App CRO Splits Into Two Problems
+
+Web CRO happens on pages you fully control, in a browser you can instrument end to end. App CRO happens across a boundary you do not control: Apple and Google own the store page template, the review cadence, and how often you may re-test it.
+
+That boundary creates two distinct conversion events with different levers and owners.
+
+- **Store listing conversion** is a marketing and creative problem: screenshots, icon, video, description copy.
+- **In-app conversion** is a product and UX problem: onboarding flow, paywall placement, pricing presentation.
+
+Confusing the two is the most common mistake in app CRO. A team that A/B tests screenshot order for a quarter while ignoring a 55%-of-cancellations-on-Day-0 onboarding leak is optimizing the smaller lever.
+
+---
+
+## Store Listing Conversion: What Actually Moves Install Rate
+
+The store listing funnel has three stages: impression, page view (tap-through), and install. Each stage has its own conversion rate and its own fix.
+
+- **First screenshot carries the largest share of the decision.** [SEM Nexus's 2026 category benchmarks](https://semnexus.com/aso-conversion-rate-benchmarks-by-category-2026) note it is the single highest-tested asset, above icon or video, because most users decide within the first two screenshots.
+- **Portrait preview video beats landscape on Google Play.** Portrait format shows **+7% watch time, +9% completion rate, and +5% conversion** according to Searchlab's 2026 data. Match the video orientation to how the user is already holding the phone.
+- **Category benchmark, not a flat number, is your target.** iOS Utilities apps should expect 33-38% page-view-to-install, iOS Finance apps only 18-22%. Comparing a finance app's conversion to a utility app's benchmark will make a healthy listing look broken.
+- **Keyword-aware captions on screenshots beat static captions by 20-30%**, because the caption text itself is indexed and read, not just glanced at.
+- **Description and ratings compound, they do not substitute.** A great screenshot with a 3-star rating still underperforms a good screenshot with a 4.5-star rating; fix reviews before you fix creative.
+
+<Callout type="tip">
+Run store listing tests through Apple's Product Page Optimization or Google Play's Store Listing Experiments, both native, free A/B testing tools. Test one variable at a time: first screenshot, then video, then icon. Testing all three simultaneously makes the result impossible to attribute.
+</Callout>
+
+Store conversion work has a hard ceiling: it can only turn interested browsers into installers. It cannot fix a product that does not deliver. That is the next funnel's job.
+
+---
+
+## In-App Conversion: Why the Web Playbook Breaks
+
+Onboarding-to-paid is where most app revenue is won or lost, and it behaves nothing like a web checkout.
+
+- **The decision window is hours, not days.** Over 80% of trial starts happen immediately on download, and more than half of all short-trial cancellations happen on day zero. A web visitor who does not convert today might convert next week from an email; an app user who does not activate today usually never returns.
+- **Trial length changes conversion by 67%.** RevenueCat's 2026 data shows 17-32 day trials converting at 42.5% versus 25.5% for trials under 4 days. Web CRO rarely has an equivalent lever this large hiding in a single settings change.
+- **Paywall placement is a UX decision, not a pricing page edit.** Two-plan paywalls (41-60% of apps) with an annual plan as the default anchor are the dominant pattern; gaming apps uniquely lean on lifetime plans at roughly double other categories' rate.
+- **Hard paywalls and freemium are not "which converts better," they are different businesses.** Hard paywalls convert 10.7% download-to-paid against freemium's 2.1%, but year-one retention lands close either way. Switching models to chase conversion without checking retention shrinks lifetime value while celebrating a metrics win.
+- **Category sets your realistic ceiling.** Travel apps trial-convert at 43.5%, Photo & Video apps at 22.2%. A photo app chasing a travel app's benchmark is optimizing against the wrong comparison set.
+
+<Callout type="warning">
+If trial-to-paid conversion sits below 30%, treat it as a paywall design problem. Below 20%, stop testing the paywall entirely, the leak is almost always upstream in onboarding, before the user ever sees a price.
+</Callout>
+
+The practical implication: the highest-ROI fix is usually compressing time-to-value in the first session, not tweaking the paywall's button color.
+
+---
+
+## A Practical Testing Framework for App CRO
+
+Run the two funnels as two separate testing tracks with a shared cadence, so neither one starves the other of attention.
+
+1. **Instrument both funnels before testing either.** Track impression → page view → install in your store console, and install → onboarding-complete → trial-start → paid in your product analytics.
+2. **Diagnose which funnel has the bigger leak.** Compare install rate and trial-to-paid rate against your category benchmark, not a generic average. Fix whichever sits furthest below benchmark first.
+3. **Test store assets on the platform's native tool, one variable per cycle.** First screenshot, then preview video, then icon. Each test needs enough impression volume to reach significance, often 2-4 weeks.
+4. **Test in-app changes on cohorts, not aggregate rates.** Segment trial-to-paid by channel and by day-zero behavior. Strong installs with weak trial starts points at message mismatch, not onboarding UX.
+5. **Re-check retention whenever you touch the paywall or access model.** A conversion lift paired with a retention drop is not a win, run both metrics in the same readout.
+
+<Mermaid chart={`flowchart TD
+    A[Store impression] --> B[Page view\ntap-through]
+    B --> C[Install]
+    C --> D[Onboarding\nfirst session]
+    D --> E{Trial started\nsame day?}
+    E -- Yes --> F[Trial period]
+    E -- No --> G[Mostly lost,\nfix onboarding first]
+    F --> H{Converts\nto paid?}
+    H -- Yes --> I[Paying user]
+    H -- No --> J[Diagnose:\npaywall or upstream leak?]
+    J --> D`} />
+
+---
+
+## Key Takeaways
+
+- App CRO is two funnels: store listing conversion (ASO) and in-app conversion (onboarding to paid). Diagnose and fix them separately.
+- Store listing conversion averages 33.4% on iOS and 27.7% on Play in 2026, but the real target is your category benchmark, not a global average.
+- First screenshot and portrait preview video are the highest-leverage store assets; test one at a time on the platform's native experiment tool.
+- Trial-to-paid conversion lives or dies in the first session: 55% of short-trial cancellations happen on Day 0, so time-to-value beats paywall polish.
+- Hard paywalls convert far higher than freemium (10.7% vs 2.1% download-to-paid) but retain similarly, so choose the access model on strategy, not on a conversion number alone.
+- Below 30% trial-to-paid is a paywall problem; below 20% is an onboarding problem upstream of the paywall.
+
+---
+
+## Resources
+
+<ResourceList resources={[
+  { title: "App Store Conversion Funnel: Impression to Install Benchmarks 2026 (SEM Nexus)", url: "https://semnexus.com/app-store-conversion-funnel-impression-to-install-benchmarks-2026", type: "article", free: true },
+  { title: "ASO Conversion Rate Benchmarks by App Category in 2026 (SEM Nexus)", url: "https://semnexus.com/aso-conversion-rate-benchmarks-by-category-2026", type: "article", free: true },
+  { title: "State of Subscription Apps 2026 (RevenueCat)", url: "https://www.revenuecat.com/state-of-subscription-apps", type: "article", free: true },
+  { title: "App Marketing & ASO Statistics 2026 (Searchlab)", url: "https://searchlab.nl/en/statistics/app-marketing-aso-statistics-2026", type: "article", free: true },
+  { title: "App Subscription Trial Benchmarks 2026 (Business of Apps)", url: "https://www.businessofapps.com/data/app-subscription-trial-benchmarks/", type: "article", free: true },
+  { title: "Apple App Store Product Page Optimization (Official Docs)", url: "https://developer.apple.com/app-store/product-page-optimization/", type: "docs", free: true },
+  { title: "Google Play Store Listing Experiments (Official Docs)", url: "https://support.google.com/googleplay/android-developer/answer/9138168", type: "docs", free: true },
+  { title: "WsCube Tech, App Store Optimization (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, App Store Optimization", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, App Store Optimization", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

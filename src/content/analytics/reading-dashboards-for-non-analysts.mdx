@@ -1,0 +1,94 @@
+export const lessonMeta = {
+  title: "Reading a Dashboard Like an Analyst (Even If You Are Not One)",
+  level: "Beginner",
+  summary: "The dashboard is not lying. It is just showing you the version of the truth someone chose.",
+};
+
+# Reading a Dashboard Like an Analyst (Even If You Are Not One)
+
+You do not need to know SQL to read a dashboard well. You need to know where dashboards hide their assumptions, and which questions force those assumptions into the open.
+
+## Quick Summary
+
+- Correct data can still mislead. Chart choices (axis range, timeframe, comparison) shape the story as much as the numbers do.
+- A truncated y-axis can distort a small change so it "looks" up to 400% bigger than it really is, per Nielsen Norman Group research.
+- Correlation is not causation. Seasonal spikes, reverse causality, and hidden third variables all fake a relationship that is not real.
+- Only 21% of employees feel confident working with data, even though 75% of executives assume they are proficient, per Accenture.
+- A five-question habit, source, definition, timeframe, comparison, and confidence, catches most dashboard traps before you act on a bad number.
+
+## How a Correct Number Still Misleads You
+
+Nobody needs to fake data to mislead you. They just need to frame it.
+
+Start with the y-axis. If a chart's vertical axis starts at 95 instead of 0, a 20-unit gap between two bars looks enormous, even though the real difference is tiny. One retail team shifted $600K in marketing spend after a regional performance chart made one region's bars look three times taller than another's, when the actual gap was far smaller once the axis started at zero.
+
+Timeframe selection does the same trick. "Four straight quarters of growth" sounds like a trend. Zoom out to three years and that same data might show significant volatility, with the growth streak sitting right after a steep decline. Ask what the chart is not showing you, not just what it is.
+
+Dual-axis charts are a third trap. Plot two unrelated metrics, say, ad spend and unit sales, on separate scales, and you can make a modest 50% increase in one visually pair with a dramatic 200% increase in the other. They look linked. They may not be.
+
+<Callout type="warning">
+None of this requires bad intent. A well-meaning teammate picks a y-axis range that "fits the slide" or a date range that "tells the story" without realizing they have changed what the chart implies. Assume framing choices are usually accidental, then check them anyway.
+</Callout>
+
+## The Correlation Trap: When Two Lines Move Together
+
+Two lines moving in the same direction on a dashboard feels like proof. It rarely is.
+
+Seasonal patterns are the most common false signal. Back-to-school and Black Friday periods push both ad spend and sales up at the same time, so the chart implies your ads caused the lift when the calendar did most of the work. Reverse causality is sneakier still: a brand increases ad budget *because* sales already started climbing, which then makes the ad spend look like the cause of a trend it only followed.
+
+eBay ran into this directly. Paid search spend and sales moved together for years, reinforcing "ads drive revenue." Only when they switched off branded-keyword ads in select markets did they discover much of that spend was buying clicks from people who would have converted anyway.
+
+A dashboard answers "what happened." It cannot answer "what caused it" or "what happens if we change it" on its own, that needs a controlled test (holdout groups, geo experiments, incrementality tests), not a prettier chart.
+
+Two moving lines are a question, not an answer. Test before you commit budget to the story they seem to tell.
+
+## Five Questions to Ask Before You Trust Any Number
+
+Before you act on a dashboard number, run it through this checklist. It takes under two minutes.
+
+1. **Where does this number come from?** A metric pulled from GA4, your CRM, and an ad platform can each define "conversion" differently. Ask which system fed this specific tile.
+2. **What exactly does this metric mean?** "Active users" in one dashboard might mean "logged in once" and "engaged 3+ times" in another. If the definition is not in a tooltip, ask the builder directly.
+3. **What timeframe and what's excluded?** A 30-day window looks different from a 90-day one. Ask if any campaigns, segments, or outlier days were filtered out before this chart was built.
+4. **What is this being compared to?** A number with no comparison anchor, no prior period, no target, is close to meaningless. "$67 CAC" tells you nothing. "$67 CAC, up 12%, 85% to target" tells you three things.
+5. **How fresh is this, and how confident should I be?** Check the last-updated timestamp. A metric with a small sample size (10 conversions) swings wildly and should not drive a budget decision the way a 10,000-conversion metric can.
+
+<Callout type="tip">
+Keep these five questions on a sticky note next to your monitor for your first month of reading dashboards regularly. After that, they become a two-second reflex instead of a checklist.
+</Callout>
+
+## A Practical Dashboard-Literacy Checklist
+
+Use this before any meeting where a dashboard number will drive a decision.
+
+- **Confirm the axis starts at zero**, or that any truncation is clearly labeled with a visible break mark.
+- **Check for a "last updated" timestamp.** No timestamp means you cannot know if you are looking at live data or a stale snapshot from last week.
+- **Look for a comparison anchor**: previous period, target, or year-over-year, not a lone number floating in space.
+- **Ask "who defined this metric"** if two dashboards show different numbers for what sounds like the same thing.
+- **Separate correlation claims from tested claims.** If someone says a channel "drove" a result, ask whether that was measured with a holdout test or just observed alongside a trend.
+- **Distrust round, dramatic percentages** (like "conversions up 200%!") until you see the underlying volume. A jump from 2 to 6 conversions is technically 200% and statistically meaningless.
+
+Most dashboard mistakes are not fraud, they are a rushed builder and an unquestioning viewer. You only need to be the second person who stops rushing.
+
+<Callout type="example">
+A SaaS marketing team saw a dashboard tile showing website signups "up 45% week over week" and nearly reallocated budget toward the channel it credited. One team member asked for the raw counts: signups had gone from 11 to 16, during a week their competitor's site was down for maintenance. The percentage was accurate. The story it implied was not.
+</Callout>
+
+## Key Takeaways
+
+- A chart can be factually correct and still lead you to the wrong decision through axis choice, timeframe, or a hidden comparison.
+- Correlation on a dashboard is a hypothesis, not proof, seasonality and reverse causality fake real relationships constantly.
+- Run every high-stakes number through five questions: source, definition, timeframe, comparison, and confidence.
+- Confidence in data and actual data literacy are not the same thing, most teams have a large gap between the two, so asking "dumb" questions out loud is a strength, not a weakness.
+
+<ResourceList resources={[
+  { title: "How to Identify Misleading Graphs and Charts, With Examples (ThoughtSpot)", url: "https://www.thoughtspot.com/data-trends/data-visualization/how-to-identify-misleading-graphs-and-charts", type: "article", free: true },
+  { title: "How to Avoid Misleading Data Visualizations (AgencyAnalytics)", url: "https://agencyanalytics.com/blog/misleading-data-visualization", type: "article", free: true },
+  { title: "Correlation vs Causation in Marketing Analysis (Incrmntal)", url: "https://www.incrmntal.com/resources/correlation-causation", type: "article", free: true },
+  { title: "Data Literacy for Marketers: What You Need to Know (MarTech)", url: "https://martech.org/data-literacy-for-marketers-what-you-need-to-know/", type: "article", free: true },
+  { title: "Data Literacy, A Guide to Building a Data-Literate Organization (Gartner)", url: "https://www.gartner.com/en/data-analytics/topics/data-literacy", type: "article", free: true },
+  { title: "Data Visualization and Dashboard Building, A Personal Checklist (Medium)", url: "https://medium.com/@s.aakanksha23/data-visualization-dashboard-building-a-personal-checklist-55d374e23b9c", type: "article", free: true },
+  { title: "HubSpot Marketing Analytics Free Course (HubSpot Academy)", url: "https://academy.hubspot.com/courses/marketing-analytics", type: "course", free: true },
+  { title: "WsCube Tech, Reading a Dashboard Like an Analyst (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Reading a Dashboard Like an Analyst", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Reading a Dashboard Like an Analyst", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

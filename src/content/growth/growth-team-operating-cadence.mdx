@@ -1,0 +1,91 @@
+export const lessonMeta = {
+  title: "Growth Team Operating Cadence",
+  level: "Intermediate",
+  summary: "The weekly rhythm that turns a prioritized backlog into shipped experiments, why 'more headcount' fixes less than 'better cadence', and a practical template you can run this week.",
+};
+
+# Growth Team Operating Cadence
+
+You can have the sharpest ICE scores and the smartest experimentation program on paper and still ship almost nothing. The reason is usually not strategy, it is rhythm.
+
+## Quick Summary
+
+- Cadence, not headcount, is the biggest lever on shipped experiments per quarter. A five-person team with a tight weekly rhythm outships a fifteen-person team that meets 'whenever needed'.
+- Twitter's growth team reportedly went from one test every other week to 10 tests per week largely by fixing its operating rhythm, not by hiring.
+- Booking.com runs [over 1,000 experiments concurrently, at all times](https://leanconvert.com/insights/how-to-get-as-good-at-experimentation-as-booking-com/), a scale only possible because reviewing an experiment is routine, not a special event.
+- The weekly growth meeting should spend most of its time on learnings, not status updates. [Brian Balfour's format](https://brianbalfour.com/essays/growth-meeting) allocates roughly 40 of 45 minutes to interrogating what experiments taught the team.
+- Most cadence failures are not "too few meetings," they are the wrong meeting: status theater instead of decisions, or prioritization happening live instead of async beforehand.
+
+## Why Cadence Beats Headcount
+
+Growth teams love to solve slow velocity by hiring. It rarely works, because the bottleneck usually is not people, it is the handoffs between people.
+
+A backlog that only gets groomed "when someone remembers" bleeds a week every cycle. An experiment that ships but never gets reviewed teaches nothing, so the same mistake gets repeated by the next person who touches that surface.
+
+[Reforge's research into growth experiment management](https://www.reforge.com/blog/growth-experiment-management-system) found that teams which tripled their testing velocity did it by fixing the *system* around experiments, standardized templates, a fixed review rhythm, a single source of truth for what is running, not by adding engineers.
+
+Airbnb's growth team reportedly scaled from around 100 to 700 experiments per week over two years. That is a 7x jump in output from a team that did not grow anywhere near 7x in headcount, because the constraint they removed was process friction, not staffing.
+
+Cadence is the multiplier. Get it right and a small team compounds. Get it wrong and a big team just produces more meetings about meetings.
+
+## A Practical Weekly Rhythm Template
+
+Most growth teams need exactly four recurring touchpoints, no more. Adding a fifth almost always means someone is duplicating another meeting's job.
+
+**Monday, backlog grooming (30 min, async-first).** The backlog gets re-scored using your ICE or RICE framework *before* the meeting, not during it. The meeting itself is 10 minutes confirming the top 3 to 5 items for the week, the rest is silent reading time on a shared doc.
+
+**Tuesday to Thursday, build and ship.** No standing growth meetings. Engineers, designers, and analysts execute. Async Slack threads handle blockers; anything that needs a real-time decision waits for Friday.
+
+**Friday, experiment review (45 min).** This is the meeting that matters most, and it should look nothing like a status update. Following Balfour's structure, each experiment owner presents one learning in under 5 minutes, then the room spends its time asking three questions: is this a valid result, what else might it tell us, and where else should we apply it.
+
+**Biweekly or monthly, portfolio rebalance.** Zoom out from individual experiments to the whole roadmap. Are you over-indexed on one funnel stage? Has a "sure thing" experiment stopped moving the metric? This is where you kill zombie initiatives that keep getting re-added to sprints out of habit.
+
+<Mermaid chart={`graph TD
+    A[Backlog grooming\nMonday, async-scored] --> B[Build and ship\nTue-Thu, no meetings]
+    B --> C[Experiment review\nFriday, learnings not status]
+    C --> D[Decisions: scale, kill, iterate]
+    D --> E[Portfolio rebalance\nbiweekly or monthly]
+    E --> A`} />
+
+Notice the loop closes back to grooming. Every Friday's decisions directly reshape Monday's backlog, that connection is what makes the cadence self-correcting instead of a set of disconnected rituals.
+
+<Callout type="tip">
+Send the experiment-review doc out 24 hours before the meeting and require every owner to fill in their section before showing up. A meeting where people read for the first time in the room is a meeting where nobody has opinions yet.
+</Callout>
+
+## Common Cadence Failure Modes
+
+**The status-update trap.** The Friday review turns into "here's what's running" instead of "here's what we learned." If your meeting could be replaced by a dashboard link, it has already failed its purpose.
+
+**Live prioritization.** Debating ICE scores in the meeting burns the room's attention on math that one person could have done alone beforehand. Score async, discuss the top items only.
+
+**The variable schedule.** Moving the Friday review "just this once" because of a launch teaches the team that cadence is optional. [Balfour is explicit about this](https://brianbalfour.com/essays/growth-meeting): protect the recurring slot even when it feels inconvenient.
+
+**No portfolio zoom-out.** Weekly reviews without a monthly rebalance let a team run twenty small experiments on the same low-leverage page while a bigger funnel leak goes untouched for a quarter.
+
+**Confusing volume with cadence.** Booking.com's [culture minimizes bureaucracy per experiment](https://www.hustlebadger.com/what-do-product-teams-do/booking-com-experimentation-culture/) so employees can test without defending a hypothesis to a committee first. High cadence does not mean high ceremony, it means the ceremony that exists happens reliably.
+
+<Callout type="warning">
+A realistic target for most teams is 3 to 5 shipped experiments per week, not the hundreds you read about at Booking.com or Airbnb. Those numbers come from years of tooling investment and dedicated experimentation platforms. Copying their meeting cadence is useful; copying their raw experiment count as a benchmark will just demoralize your team.
+</Callout>
+
+## Key Takeaways
+
+- Cadence is the multiplier on growth output. Fix the rhythm before you add headcount.
+- Four recurring touchpoints are enough: async backlog grooming, an uninterrupted build window, a learnings-focused review, and a periodic portfolio rebalance.
+- Score and prioritize asynchronously; spend meeting time on decisions and learnings, not status.
+- Protect the recurring slot. A cadence that moves whenever something feels urgent stops being a cadence.
+- Benchmark your own velocity trend over time, not Booking.com's raw experiment count.
+
+<ResourceList resources={[
+  { title: "How To Run A Weekly Growth Meeting That Gets Results (Brian Balfour)", url: "https://brianbalfour.com/essays/growth-meeting", type: "article", free: true },
+  { title: "The Growth Experiment Management System that Tripled Our Testing Velocity (Reforge)", url: "https://www.reforge.com/blog/growth-experiment-management-system", type: "article", free: true },
+  { title: "Build Your Growth Team Operating Model (Reforge)", url: "https://www.reforge.com/guides/build-your-growth-team-operating-model", type: "article", free: false },
+  { title: "How to Get as Good at Experimentation as Booking.com (LeanConvert)", url: "https://leanconvert.com/insights/how-to-get-as-good-at-experimentation-as-booking-com/", type: "article", free: true },
+  { title: "Lessons from Booking.com's Experimentation Culture (Hustle Badger)", url: "https://www.hustlebadger.com/what-do-product-teams-do/booking-com-experimentation-culture/", type: "article", free: true },
+  { title: "The Importance of Testing Velocity, Not Speed (Growth Method)", url: "https://growthmethod.com/testing-velocity/", type: "article", free: true },
+  { title: "The Secret to Running Effective Growth Sprints (First Round Review)", url: "https://review.firstround.com/the-secret-to-running-effective-growth-sprints-follow-this-process-to-learn-faster/", type: "article", free: true },
+  { title: "WsCube Tech, Growth Marketing Team Structure (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Growth Team Cadence", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Growth Marketing Operations", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

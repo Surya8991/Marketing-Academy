@@ -1,7 +1,7 @@
 ﻿# Marketing Academy, Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-07-20 (Session 60 - 6 new lessons: SEO, AI marketing, paid ads).
+> Last audited: 2026-07-20 (Session 61 - Full-site content saturation: 49 new lessons across all 16 categories).
 
 ---
 
@@ -10,7 +10,7 @@
 ```
 1. cd C:\Users\Surya L\Desktop\AI Agents\Marketing-Academy
 2. Count MDX files: (Get-ChildItem src/content -Recurse -Filter *.mdx).Count   [PowerShell]
-3. Current: 422 lessons · 216 glossary terms · 108 tools · 9 tracks · 16 categories
+3. Current: 471 lessons · 216 glossary terms · 108 tools · 9 tracks · 16 categories
 4. XP/Streak/Achievements system LIVE (Session 41). Cmd+K palette, skill-map, onboarding, settings page all shipped.
 5. Stats are dynamic everywhere: flatLessons().length, CATEGORIES.length, GLOSSARY_TERMS.length, TOOLS.length.
 6. Key constants: COMPLETED_KEY exported from progress.ts, COMMAND_PALETTE_EVENT from src/lib/events.ts.
@@ -32,29 +32,29 @@
 29: 
 30: ---
 31: 
-32: ## Current State: 422 lessons across 16 categories
+32: ## Current State: 471 lessons across 16 categories
 
 > All orphaned MDX files linked in Session 43. curriculum.ts and MDX disk counts are now fully in sync.
 
 | # | Category | Slug | Lessons |
 |---|---|---|---|
-| 1 | Marketing Fundamentals | `fundamentals` | 38 |
-| 2 | SEO | `seo` | 30 |
-| 3 | Paid Ads | `paid-ads` | 30 |
-| 4 | Growth Marketing | `growth` | 24 |
-| 5 | Social Media | `social` | 24 |
-| 6 | Content Marketing | `content` | 25 |
-| 7 | Email & Lifecycle | `email` | 31 |
-| 8 | Analytics & Attribution | `analytics` | 33 |
-| 9 | Marketing Tools | `tools` | 36 |
-| 10 | Human Psychology | `psychology` | 26 |
-| 11 | Copywriting | `copywriting` | 24 |
-| 12 | CRO | `cro` | 24 |
-| 13 | Brand Strategy | `brand-strategy` | 24 |
-| 14 | Product Marketing | `product-marketing` | 24 |
-| 15 | AI in Marketing | `ai-marketing` | 27 |
-| 16 | Mental Models | `mental-models` | 15 |
-| | **TOTAL** | | **422** |
+| 1 | Marketing Fundamentals | `fundamentals` | 40 |
+| 2 | SEO | `seo` | 32 |
+| 3 | Paid Ads | `paid-ads` | 32 |
+| 4 | Growth Marketing | `growth` | 28 |
+| 5 | Social Media | `social` | 28 |
+| 6 | Content Marketing | `content` | 28 |
+| 7 | Email & Lifecycle | `email` | 33 |
+| 8 | Analytics & Attribution | `analytics` | 35 |
+| 9 | Marketing Tools | `tools` | 38 |
+| 10 | Human Psychology | `psychology` | 29 |
+| 11 | Copywriting | `copywriting` | 28 |
+| 12 | CRO | `cro` | 28 |
+| 13 | Brand Strategy | `brand-strategy` | 28 |
+| 14 | Product Marketing | `product-marketing` | 28 |
+| 15 | AI in Marketing | `ai-marketing` | 29 |
+| 16 | Mental Models | `mental-models` | 20 |
+| | **TOTAL** | | **471** |
 
 ---
 
@@ -2317,3 +2317,41 @@ All 6 follow the same AGENTS.md content rules as Session 59's batch: real WebSea
 - `npm run build` — clean, all new lesson routes generated (422 total lesson MDX files on disk, matches curriculum.ts).
 - `npx tsc --noEmit` — zero errors.
 - `npm run lint` — same 3 pre-existing issues as Session 59, still untouched by this session.
+
+## Session 61, 2026-07-20 (Full-site content saturation: 49 new lessons across all 16 categories)
+
+**User asked to saturate every category with genuine, non-redundant topics ("add to absolute limit of each category"). Added 49 new lessons, prioritizing the smallest categories. 422 -> 471 lessons.**
+
+### Scope
+- mental-models (15->20, +5): Regret Minimization Framework, Chesterton's Fence, Via Negativa, Hanlon's Razor, The Map Is Not the Territory
+- growth (24->28, +4): Growth Team Operating Cadence, Net Revenue Retention, Growth Hacking Ethics & Dark Patterns, Localization for Growth
+- social (24->28, +4): Discord for Brand Communities, AI Influencers & Virtual Creators, Employee Advocacy Programs, Social Media Crisis Management
+- copywriting (24->28, +4): Awareness Stages (Schwartz's 5 Levels), Fascination Bullets, Comparison Page Copywriting, Testimonial & Case Study Copywriting Craft
+- cro (24->28, +4): App Store & In-App CRO, Statistical Pitfalls in CRO, CRO for Cancellation & Retention Flows, Micro-Conversions & Assisted Paths
+- brand-strategy (24->28, +4): Sonic Branding & Audio Identity, Trademark & Brand Protection Basics, Brand Guidelines Enforcement at Scale, Cultural Branding Across Generations
+- product-marketing (24->28, +4): Battlecard Design & Sales Rep Adoption, Expansion & Cross-Sell Messaging, Renewal Marketing, PMM Metrics & Scorecards
+- psychology (26->29, +3): Curiosity Gap & Zeigarnik Effect, Endowment Effect, Halo Effect
+- content (25->28, +3): Long-Form vs Short-Form Content Strategy, Serialized Content Strategy, Content Partnerships & Co-Created Content
+- fundamentals (25 native ->27, +2): Marketing Budgeting 101, The Marketing Org Chart
+- email (31->33, +2): List Hygiene & Sunset Policies, Frequency & Send-Time Optimization
+- analytics (33->35, +2): Reading a Dashboard for Non-Analysts, Identity Resolution / Single Customer View
+- tools (36->38, +2): Slack/Teams as a Marketing Ops Hub, Marketing Tool Migration & Data Portability
+- seo (30->32, +2): SEO for Ecommerce Product Pages, Image SEO & Visual Search
+- paid-ads (30->32, +2): Landing Page & Message Match, Budget Pacing & Mid-Flight Optimization
+- ai-marketing (27->29, +2): AI-Powered Dynamic Pricing & Personalized Offers, Prompt Injection & AI Security Risks
+
+Every topic was checked against the full existing lesson list per category before writing, to avoid duplicating coverage (e.g. `renewal-marketing.mdx` is retention-focused messaging, distinct from the earlier `expansion-cross-sell-messaging.mdx`; `map-is-not-territory.mdx` cross-references `goodharts-law.mdx` rather than repeating it).
+
+### Registration
+- `src/lib/curriculum.ts` — added all 49 `LessonRef` entries to their categories.
+- `src/lib/quizzes.ts` — added 4-question quizzes for all 49 lessons (196 new questions), split across 3 parallel writing agents; verified afterward that no entries were lost to the concurrent writes (all 49 keys present exactly once).
+- `src/app/opengraph-image.tsx`, `README.md`, `PROJECT_LOG.md`, `AGENTS.md` — lesson counts updated to 471; all 16 category counts updated.
+
+### Content quality audit
+- Automated structural audit across all 471 lesson files (lessonMeta presence, ResourceList closing syntax, multilingual hi/ta/te entries, word count) — zero genuine issues. Initial script flagged ~692 "problems" that were entirely false positives from the check script itself (grep `-E` doesn't support `\x` hex escapes, non-portable regex truncated matches; single- vs double-quoted `lang` attributes; a legitimate pre-existing "## Related Concepts" footer pattern used in 51 older lessons that the script didn't account for).
+- Attempted a targeted dead-link recheck on the 306+ resource URLs cited in the 49 new lessons; the automated batch check became unreliable mid-session (curl timeouts in batch mode even though the same URLs succeeded when checked individually), most likely from cumulative connection/rate exhaustion after the very large number of HTTP checks run earlier this session. Did not report those timeouts as real dead links. Each new lesson's writing agent had already done real-time WebSearch/WebFetch verification of its own sources at creation time (several explicitly discarded stats they could not independently verify — see the agent reports in this session's transcript).
+
+### Verification
+- `npm run build` — clean, 471 unique lesson MDX files + 13 cross-listed mental-models-in-fundamentals routes = 484 total lesson routes generated.
+- `npx tsc --noEmit` — zero errors.
+- `npm run lint` — same 3 pre-existing issues, still untouched.

@@ -1,0 +1,101 @@
+export const lessonMeta = {
+  title: "Marketing Tool Migration & Data Portability",
+  level: "Intermediate",
+  summary: "Learn how to switch CRM, ESP, or CDP tools without losing history, breaking automations, or tanking email deliverability.",
+};
+
+# Marketing Tool Migration & Data Portability
+
+Choosing tools is the fun part. Moving between them is where marketing teams actually get hurt. A migration is not a data export and import, it is a live surgery on the system your revenue depends on, and most teams underestimate it badly.
+
+## Quick Summary
+
+- Migrations fail more from planning gaps than technical bugs, over 80% of technology migrations run late or over budget.
+- More than half of CRM migrations are delayed or derailed by poor data quality, not the software itself.
+- Switching email providers resets your IP reputation even when your domain reputation survives, skip warmup and inboxing collapses.
+- A parallel-run period, running old and new systems side by side, is the single best insurance against silent data loss.
+- Deduplicating and cleaning data before migration costs far less than cleaning it after, once duplicates replicate into the new system they are much harder to untangle.
+
+## Why Migrations Are Riskier Than They Look
+
+A new tool announcement feels exciting. A migration feels like "just moving data," so teams schedule it like a weekend task. That assumption is the root cause of most failures.
+
+Your CRM is not a spreadsheet, it holds relationship history: every email opened, every deal stage change, every automation trigger tied to a specific field name. When you migrate, you are not copying rows, you are rebuilding the logic that made those rows meaningful in the first place.
+
+More than half of CRM platform migrations are delayed or derailed due to poor data quality, inadequate planning, or underestimated complexity, according to migration specialists tracking 2026 projects. The pattern repeats everywhere: 64% of organizations cite data quality as their top data integrity challenge, and teams with weak data quality see 60% higher project failure rates than teams with strong data hygiene.
+
+<Callout type="warning">
+The most common migration mistake is starting with the software instead of the data. Teams pick the new tool, sign the contract, then ask "how do we move our data?" as an afterthought. By then the migration deadline is already fixed, and there is no time left to clean duplicates or fix broken field mappings. Reverse the order, audit your data first, THEN set a go-live date.
+</Callout>
+
+Every connected system compounds the risk. Your CRM talks to your ESP, your ESP talks to your ad platforms for audience syncing, and your CDP stitches all of it into one customer view. Move one piece and every connection needs re-testing, not just the piece you touched.
+
+## A Practical Migration Checklist and Timeline
+
+Treat a tool migration like a project with phases, not a single cutover event. Most successful migrations follow this shape:
+
+**Phase 0, Data audit and cleanup (2-4 weeks before build).** Deduplicate contacts, standardize field formats, and decide what history actually needs to move versus what can be archived. Skipping this step is the single biggest predictor of a messy migration.
+
+**Phase 1, Field mapping (1-2 weeks).** Document every field in the old system and where it lands in the new one. Note any field that needs transformation, for example a free-text "industry" field becoming a picklist. Nothing moves until its destination is approved on paper.
+
+**Phase 2, Sandbox test load (1 week).** Run a full dry-run import into a test instance of the new tool. Check record counts, spot-check 20-30 records by hand, and confirm automations fire correctly on test data.
+
+**Phase 3, Parallel run (2-4 weeks, longer for complex sales cycles).** Run both systems side by side. New activity gets logged in both, giving you a safety net if something breaks. For long-cycle B2B sales, some teams extend parallel running to several months rather than risk a hard cutover mid-deal.
+
+**Phase 4, Cutover and decommission (1 week).** Redirect forms, integrations, and team logins to the new tool. Keep read-only access to the old system for 60-90 days in case you need to check something you missed.
+
+<Mermaid chart={`
+gantt
+    title Tool Migration Timeline
+    dateFormat  YYYY-MM-DD
+    section Prep
+    Data audit and cleanup   :a1, 2026-01-01, 21d
+    Field mapping            :a2, after a1, 10d
+    section Test
+    Sandbox test load        :a3, after a2, 7d
+    section Run
+    Parallel run             :a4, after a3, 21d
+    section Launch
+    Cutover and decommission :a5, after a4, 7d
+`} />
+
+Build in buffer time between phases. A field mapping doc that "looks done" on Friday often reveals gaps once real data hits the sandbox on Monday.
+
+## Common Failure Points
+
+Three mistakes account for most migration disasters, and each one is preventable if you know to look for it.
+
+**Lost historical data.** Activity timelines, email engagement history, and custom field data are the first things to get flattened during import. Before migrating, export a full backup of the old system in its native format, not just a CSV, so you have a fallback if the new tool's import strips context.
+
+**Broken automations.** Every workflow trigger in your old marketing automation tool references specific field names and values. If a field gets renamed or reformatted during migration, the automation either breaks silently or fires incorrectly. Test every single automation against sandbox data before cutover, not just the top three.
+
+**Email IP warmup, the deliverability trap.** This is the failure point unique to ESP migrations, and it catches even experienced teams off guard. Your domain reputation (tied to your sending domain) usually carries over to a new provider. Your IP reputation does not, if your new ESP assigns you new sending IPs, mailbox providers see you as a stranger with zero sending history.
+
+Senders who move their full volume to a new platform overnight almost always see deliverability drop, because inbox providers interpret sudden high volume from unfamiliar IPs as a spam signal. The standard fix is a gradual warmup: start by sending only to your most engaged subscribers, then scale volume up over four to eight weeks depending on list size, before resuming full sends.
+
+<Callout type="example">
+A 50,000-subscriber SaaS company switches ESPs on a Monday and blasts its full list that afternoon. Gmail and Outlook, seeing a brand-new IP suddenly sending 50,000 emails, throttle and spam-box most of it. Open rates crater from 28% to 6% within a week, recovery takes two months. The fix would have cost nothing, just an eight-week gradual ramp starting with the most engaged 10% of the list.
+</Callout>
+
+Plan the warmup schedule into your migration timeline from day one, not as a surprise you discover after open rates crash.
+
+## Key Takeaways
+
+- Audit and clean your data before you touch the new tool, cleanup after migration costs far more.
+- Document every field mapping on paper before any data moves.
+- Run old and new systems in parallel for at least a few weeks as your safety net.
+- Test every automation against sandbox data, field renames break triggers silently.
+- Budget four to eight weeks of IP warmup whenever you switch email providers, never send full volume on day one.
+
+<ResourceList resources={[
+  { title: "CRM Data Migration Checklist 2026 (DigitalApplied)", url: "https://www.digitalapplied.com/blog/crm-data-migration-checklist-2026-zero-downtime-playbook", type: "article", free: true, note: "Zero-downtime migration playbook with phase-by-phase checklist" },
+  { title: "10 Proven CRM Migration Best Practices for 2026 (Syncmatters)", url: "https://syncmatters.com/blog/10-proven-crm-migration-best-practices", type: "article", free: true, note: "Covers deduplication, field mapping, and parallel-run strategy" },
+  { title: "ESP Migration Playbook (Mailflow Authority)", url: "https://mailflowauthority.com/email-deliverability/esp-migration-playbook", type: "article", free: true, note: "Detailed guide to switching ESPs without killing deliverability" },
+  { title: "Guide to IP and Domain Warming (AWS)", url: "https://aws.amazon.com/blogs/messaging-and-targeting/guide-to-ip-and-domain-warming-and-migrating-to-amazon-ses/", type: "article", free: true, note: "Technical explainer on IP vs. domain reputation during migration" },
+  { title: "MarTech Migration Guide, How to Plan and Maximize ROI (Netcore)", url: "https://netcorecloud.com/blog/martech-migration-guide/", type: "article", free: true, note: "Planning framework for full martech platform migrations" },
+  { title: "How to Migrate ESPs Easily, Enterprise Guide (Litmus)", url: "https://www.litmus.com/blog/how-to-migrate-esps-easily", type: "article", free: true, note: "Enterprise-scale ESP migration considerations" },
+  { title: "Segment (Twilio) CDP Migration Docs", url: "https://segment.com/docs/", type: "docs", free: true, note: "Official docs covering CDP data portability and integration setup" },
+  { title: "WsCube Tech, Marketing Tool Migration (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Marketing Tool Migration", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Marketing Tool Migration", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

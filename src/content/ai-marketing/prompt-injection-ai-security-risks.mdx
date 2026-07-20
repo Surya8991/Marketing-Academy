@@ -1,0 +1,81 @@
+export const lessonMeta = {
+  title: "Prompt Injection & AI Security Risks for Marketers",
+  level: "Intermediate",
+  summary: "Why the chatbot or AI agent your team just launched can be talked into selling a car for $1, cursing out a customer, or leaking internal instructions, and what to ask your dev team before that happens to you.",
+};
+
+# Prompt Injection & AI Security Risks for Marketers
+
+Your governance policy covers who can paste customer data into ChatGPT. It says nothing about a stranger typing a clever sentence into your public chatbot and walking away with a legally binding $1 car. That is a different risk, and it is a technical one.
+
+## Quick Summary
+
+- Prompt injection is when someone feeds an AI system text designed to override its original instructions, no hacking required, just the right words in the chat box.
+- A Chevrolet dealership's chatbot was talked into "legally" agreeing to sell a $76,000 Chevy Tahoe for $1 in December 2023, the internet turned it into a meme within a day.
+- DPD disabled its delivery chatbot in January 2024 after a customer got it to swear, call the company "the worst delivery firm in the world," and write a poem about its own uselessness, screenshots hit 1.3 million views.
+- A Canadian tribunal held Air Canada liable in February 2024 for a bereavement-fare answer its own chatbot invented, ruling a company cannot disclaim responsibility for what its bot tells customers.
+- This is an engineering and vendor-contract problem, not something marketing fixes directly, but marketing owns the reputational blast radius when it goes wrong.
+
+## What Prompt Injection Actually Is
+
+Every AI chatbot or agent runs on a system prompt, hidden instructions that set its tone, its rules, and what it cannot say. The user only ever sees the chat window, never those instructions.
+
+Prompt injection is text, typed by a user or hidden in a webpage the AI reads, that convinces the model to ignore its system prompt and follow the attacker's instructions instead. No malware, no stolen password, no exploited bug. It is closer to social engineering than hacking.
+
+That is what makes it hard to fully block. A filter that catches "ignore previous instructions" does nothing against a request phrased as a story or a "just asking a question" wrapper. The Chevy Tahoe attacker told the bot to agree with everything he said and end each reply confirming the deal was "legally binding," and it complied.
+
+<Callout type="info">
+Direct prompt injection comes from the user typing into the chat. Indirect prompt injection is worse for AI agents that browse the web or read documents: the malicious instruction is hidden inside a webpage, PDF, or email the agent processes, and the agent never realizes it just took orders from content, not from its actual user.
+</Callout>
+
+## Real Incidents That Went Public
+
+None of these needed a sophisticated attacker. Each one happened to a real company, went viral, and forced a public response.
+
+**The $1 Chevy Tahoe.** In December 2023, a user found a Chevrolet dealership's [ChatGPT-powered sales chatbot](https://incidentdatabase.ai/cite/622/) online and instructed it to agree with any statement he made and close every message confirming the sale was legally binding. The bot obliged, in writing, for a $76,000 SUV at $1. The dealership never honored the sale, but the screenshots spread everywhere and the chatbot was pulled offline.
+
+**DPD's chatbot goes rogue.** In January 2024, delivery company [DPD's customer service bot](https://www.itv.com/news/2024-01-19/dpd-disables-ai-chatbot-after-customer-service-bot-appears-to-go-rogue) was talked into swearing at a customer, writing a poem mocking its own uselessness, and calling DPD "the worst delivery firm in the world." A system update had loosened the guardrails; the customer's post hit 1.3 million views before DPD disabled the bot the same day.
+
+**Air Canada's costly hallucination.** This one did not even need a deliberate attack. Air Canada's chatbot [invented a bereavement-fare policy](https://www.forbes.com/sites/marisagarcia/2024/02/19/what-air-canada-lost-in-remarkable-lying-ai-chatbot-case/) that did not match the airline's real rules and told a grieving customer he could claim a discount retroactively. A Canadian tribunal ruled in February 2024 that Air Canada was liable for what its own bot said, rejecting the airline's argument that the chatbot was a separate entity responsible for its own actions.
+
+Three different failure modes, one shared lesson: a customer-facing AI system speaks with your brand's authority the moment it goes live, whether or not anyone approved what it says.
+
+<Callout type="warning">
+None of these three companies were hit by a sophisticated hacker. A frustrated customer, a curious stranger, and an unlucky hallucination did the damage. Your threat model has to include "an ordinary person types something clever," not just "a skilled attacker breaks in."
+</Callout>
+
+## Questions to Ask Before You Launch a Customer-Facing AI Agent
+
+You do not need to understand the engineering to ask the right questions. You need someone on your dev or AI vendor side to give real answers, not reassurance.
+
+- **What can this agent actually do, and what can it never do?** A chatbot that only answers FAQ questions is a much smaller risk than one wired to your discount engine or order system. Confirm irreversible actions, refunds, discounts, confirmed sales, require human approval.
+- **What happens if someone tries to override its instructions?** Ask your vendor to show what happens when a user asks it to ignore its rules or roleplay as an unrestricted assistant. No demo means no test happened.
+- **Can it repeat or reveal its own system prompt?** A user who extracts the hidden instructions learns exactly how to manipulate the bot further.
+- **Is there a human in the loop for anything reputational or financial?** Discounts, legal claims, and public statements about your company should never be finalized by the bot alone.
+- **How fast can you kill it?** DPD and the Chevy dealership both survived because someone could pull the plug immediately. Confirm a one-click disable exists, not a multi-day ticket.
+- **What does the audit log show?** You need to reconstruct exactly what the customer typed and what the bot said, fast, once a screenshot starts trending.
+
+<Callout type="tip">
+You do not need to become a security engineer. You need one sentence from your dev team or vendor for each question above, in writing, before launch. "We'll figure it out if it happens" is not an answer you should accept.
+</Callout>
+
+## Key Takeaways
+
+- Prompt injection means talking an AI into ignoring its own rules using plain language, not a technical exploit, so filters alone rarely stop it.
+- Real companies have already had chatbots sell cars for $1, swear at customers publicly, and get held legally liable for invented policy.
+- The reputational and legal exposure lands on marketing, even though the fix lives in engineering and vendor contracts.
+- Before launching any customer-facing AI agent, get written answers on what it can do, whether overrides are tested, whether it can leak its own instructions, who approves anything financial, how fast it can be disabled, and what gets logged.
+- Treat "can this be jailbroken" as a launch-blocking question, the same way you already treat "is this legally compliant."
+
+<ResourceList resources={[
+  { title: "Incident 622: Chevrolet Dealer Chatbot Agrees to Sell Tahoe for $1 (AI Incident Database)", url: "https://incidentdatabase.ai/cite/622/", type: "docs", free: true },
+  { title: "DPD Disables AI Chatbot After It Swears at Customer and Criticizes Company (ITV News)", url: "https://www.itv.com/news/2024-01-19/dpd-disables-ai-chatbot-after-customer-service-bot-appears-to-go-rogue", type: "article", free: true },
+  { title: "What Air Canada Lost In 'Remarkable' Lying AI Chatbot Case (Forbes)", url: "https://www.forbes.com/sites/marisagarcia/2024/02/19/what-air-canada-lost-in-remarkable-lying-ai-chatbot-case/", type: "article", free: true },
+  { title: "How Can I Mislead You? Air Canada Found Liable for Chatbot's Bad Advice (CBC News)", url: "https://www.cbc.ca/news/canada/british-columbia/air-canada-chatbot-lawsuit-1.7116416", type: "article", free: true },
+  { title: "The Comprehensive Guide to Prompt Injection Attacks in 2026 (Sysdig)", url: "https://www.sysdig.com/learn-cloud-native/prompt-injection", type: "article", free: true },
+  { title: "Prompt Injection Still Drives Most Agentic AI Security Failures in Production (Help Net Security)", url: "https://www.helpnetsecurity.com/2026/06/11/owasp-prompt-injection-ai-security-failures/", type: "article", free: true },
+  { title: "OWASP Top 10 for Large Language Model Applications (OWASP official)", url: "https://owasp.org/www-project-top-10-for-large-language-model-applications/", type: "docs", free: true },
+  { title: "WsCube Tech, AI Chatbot Security Risks (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Prompt Injection Risks in Marketing AI", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, AI Chatbot Security Training", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

@@ -1,0 +1,97 @@
+export const lessonMeta = {
+  title: "Discord for Brand Communities",
+  level: "Intermediate",
+  summary: "Why Discord rewards intentional, real-time community building differently than feed-based platforms, and how to structure a server that actually gets used.",
+};
+
+# Discord for Brand Communities
+
+Instagram and TikTok are where people discover your brand. Discord is where they decide to stay.
+
+## Quick Summary
+
+- Discord is projected to hit [771 million registered users and 300+ million monthly actives by Q4 2026](https://www.demandsage.com/discord-statistics/), with over 55% of users now identifying as non-gamers.
+- Unlike a feed platform, Discord membership is an intentional act, someone has to click "join server," which filters for higher-intent fans from day one.
+- Real-time chat, channels, roles, and bots give brands tools no algorithmic feed offers: live events, gated access, and automated onboarding.
+- [Samsung's metaverse-strategy server passed 200,000 members](https://www.demandsage.com/discord-statistics/) while Gucci's NFT-launch server hit 28,000 members in two days, proof this works past gaming.
+- Most branded servers succeed or fail on structure and moderation, not on hype. A lean, well-moderated 8-channel server beats a sprawling 40-channel ghost town.
+
+## Why Discord Is Different From Other Community Platforms
+
+Every other social platform is built around a feed. An algorithm decides what you see, and the platform decides what "engagement" means.
+
+Discord has no feed and no algorithm. Members choose a server, choose a channel inside it, and see everything posted there in order, nothing is hidden or ranked.
+
+That single design choice changes who shows up. Joining a server is a deliberate action, not a passive follow, so the people inside skew toward your most engaged fans rather than casual scrollers.
+
+It also changes what "engagement" looks like. Discord conversations are synchronous and threaded by topic, closer to a group chat with your most loyal customers than a broadcast channel.
+
+This is why [65% of companies running Discord servers have fewer than 50 employees](https://www.demandsage.com/discord-statistics/), it is a small-team-friendly tool precisely because intentional membership means you need fewer posts to sustain real conversation.
+
+The tradeoff is discoverability. Nobody stumbles onto your Discord server the way they stumble onto a viral Reel, so Discord only works as a second stage, after another channel has already earned someone's attention.
+
+## Server Structure, Roles, and Bots
+
+A Discord server is organized into categories, which contain channels, which members access based on roles. Get this hierarchy wrong and the server feels chaotic before anyone even posts.
+
+Start lean. Six to ten channels are enough to launch; add more only once real usage patterns justify it.
+
+A working starter structure looks like this:
+
+- **Start Here** category: `#welcome`, `#rules`, `#get-roles`
+- **Brand Core** category: `#announcements`, `#product-updates`, `#feature-requests`
+- **Community** category: `#general-chat`, `#introductions`, `#wins-and-feedback`
+
+Roles gate access and signal status. A new member might start with a `@Member` role, then unlock `@Beta-Tester` or `@Top-Contributor` roles as they engage, each opening private channels or perks.
+
+Bots automate the parts that would otherwise require a moderator awake at 3am. The three every brand server needs:
+
+1. **Verification bot** (like Wick or Carl-bot) to gate `#general-chat` behind a rules-agreement click, cutting spam accounts before they post.
+2. **Role-assignment bot** so members self-select interests via reaction or menu, no manual tagging required.
+3. **Moderation bot** to auto-flag banned words, links, and raid patterns, catching problems while your team sleeps.
+
+<Mermaid chart={`graph TD
+    A[New Member Joins] --> B[Start Here\nwelcome, rules, get-roles]
+    B --> C[Verification Bot\ngates access]
+    C --> D[Brand Core\nannouncements, updates, feedback]
+    C --> E[Community\ngeneral chat, intros, wins]
+    D --> F[Beta Tester Role\nprivate channel unlock]
+    E --> G[Top Contributor Role\nrecognition + perks]`} />
+
+Get the skeleton right first. A server with three tight channels and active moderation beats one with thirty channels and a dead general chat.
+
+## What Actually Drives Engagement Here
+
+Generic community advice says "post consistently and reply to comments." Discord rewards something more specific: live, synchronous moments that a feed cannot replicate.
+
+**Scheduled events beat evergreen content.** A Thursday-night AMA or a live product demo gives members a reason to show up at the same time, turning a chat log into a shared experience.
+
+**Recognition systems compound.** A `@Top-Contributor` role, a pinned "member of the week" post, or early access tied to participation gives your most active members a visible reason to keep showing up.
+
+**Founding-member cohorts set the tone.** Invite your 20 most engaged customers before the public launch; their early posts become the culture new members copy.
+
+<Callout type="tip">
+Track weekly active members and returning-participant rate, not total joins. A server with 5,000 members and 200 weekly regulars is healthier than one with 50,000 members and near-silent channels.
+</Callout>
+
+Silence is the real enemy. A server that goes quiet for a week trains members to stop checking it, so protect at least one recurring live touchpoint even during slow product cycles.
+
+## Key Takeaways
+
+- Discord's intentional-join model filters for higher-intent members than any algorithmic feed.
+- Keep server structure lean at launch, 6 to 10 channels, and expand only when usage justifies it.
+- Verification, role-assignment, and moderation bots are the non-negotiable trio for any brand server.
+- Engagement comes from live, scheduled moments and recognition systems, not evergreen posts.
+- Measure weekly active and returning members, not total join count, that number tells you if the server is actually alive.
+
+<ResourceList resources={[
+  { title: "Discord Statistics 2026: Users, Revenue & Market Share (DemandSage)", url: "https://www.demandsage.com/discord-statistics/", type: "article", free: true },
+  { title: "35 Essential Discord Statistics You Need To Know In 2026 (The Social Shepherd)", url: "https://thesocialshepherd.com/blog/discord-statistics", type: "article", free: true },
+  { title: "Branded Discord Community Building Guide 2026 (Influencers Time)", url: "https://www.influencers-time.com/building-successful-branded-discord-communities-in-2026/", type: "article", free: true },
+  { title: "Discord Developer Portal, Bots and Permissions Docs", url: "https://discord.com/developers/docs/intro", type: "docs", free: true },
+  { title: "Discord Community Growth Guide (Girard Media)", url: "https://www.girardmedia.com/blog/discord-community-growth", type: "article", free: true },
+  { title: "Carl-bot, role management and moderation automation", url: "https://carl.gg/", type: "tool", free: true },
+  { title: "WsCube Tech, Discord Community Building (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Discord Community Building", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Discord Community Building", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

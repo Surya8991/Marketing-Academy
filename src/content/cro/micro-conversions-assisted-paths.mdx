@@ -1,0 +1,91 @@
+export const lessonMeta = {
+  title: "Micro-Conversions: Tracking and Optimizing Assisted Paths",
+  level: "Intermediate",
+  summary: "How to find which small actions, email signup, add-to-cart, video watched, actually predict a sale, and how to optimize the whole path instead of only the last click.",
+};
+
+# Micro-Conversions: Tracking and Optimizing Assisted Paths
+
+Most CRO dashboards obsess over one number: did they buy? That number arrives too late to act on.
+
+## Quick Summary
+
+- A micro-conversion is a small action, cart add, pricing-page view, video watched, that shows real progress toward a purchase, not just a click.
+- Not every small action counts. A vanity micro-conversion is one that spikes without ever moving the final conversion rate.
+- The fix is correlation, not intuition: measure which micro-conversions actually predict who buys, then weight them.
+- Optimizing "the whole path" means investing in channels and steps that assist conversions even when they never get last-click credit.
+- [Micro-conversion velocity](https://www.faurya.com/blog/how-to-track-micro-conversions-on-a-website), how fast a visitor stacks up several micro-conversions, is a stronger real-time buy signal than any single event alone.
+
+## Micro-Conversion vs Vanity Metric
+
+A micro-conversion is a small, measurable action that shows a user moving closer to your primary goal. Newsletter signups, add-to-cart, demo video views, and pricing-page visits are the classic examples.
+
+A vanity metric looks similar but proves nothing. Page views, session duration, and generic CTA clicks can rise for reasons that have nothing to do with buying intent, a viral post, a bot crawl, a confused user hitting back and forward.
+
+The test is simple: does this action, on its own, change the odds that a user buys? A [jewelry brand found that visitors who opened the size guide converted at 3x the rate of those who did not](https://kissmetrics.io/glossary/micro-conversion). That is a real micro-conversion. Bounce rate dropping because a slow page finally loaded is not.
+
+Treat every candidate metric as a hypothesis, not a fact, until you have checked it against actual purchases.
+
+<Callout type="info">
+Rule of thumb: if a metric cannot be tied to a specific user who later did or did not convert, it belongs on a dashboard for context, not in your scoring model.
+</Callout>
+
+## Finding the Micro-Conversions That Actually Predict Sales
+
+Start by listing every trackable event between "arrived on site" and "paid." Then run each one through a simple lift test: split users into "did the action" and "did not," and compare their eventual conversion rate.
+
+A few patterns show up again and again across industries:
+
+- **Depth beats breadth.** Checkout initiation predicts a sale far better than a homepage scroll, because it requires more commitment.
+- **Specific beats generic.** [A design tool found template usage in the first session was the single strongest predictor of paid conversion](https://kissmetrics.io/glossary/micro-conversion), stronger than login count or time on site.
+- **Combinations beat single events.** A user who views pricing AND opens a chat widget converts higher than either action alone predicts.
+- **Recency matters.** [Micro-conversion velocity, several events packed into a few minutes, out-predicts the same events spread across weeks](https://www.faurya.com/blog/how-to-track-micro-conversions-on-a-website).
+
+Once you have 3 to 5 events with real lift, you have your scoring inputs. Everything else stays in the "nice to watch" bucket, not the model.
+
+That short list is your leading-indicator dashboard, the one you check daily instead of waiting on lagging revenue data.
+
+## A Practical Scoring Framework
+
+Weight each validated micro-conversion by its measured lift, not by gut feeling about which one "feels" important.
+
+A simple version any team can build in a spreadsheet:
+
+1. **Assign points** to each event proportional to its lift, for example add-to-cart = 10, pricing view = 6, email signup = 3.
+2. **Sum points per user** to get a lead or session score.
+3. **Set a threshold** where score correlates with a meaningfully higher close rate, then route those users to faster follow-up or a different CRO treatment.
+4. **Re-test quarterly.** Lift shifts as your product, pricing, and traffic mix change; a score built in January can be stale by June.
+
+This is also where assisted-path thinking pays off. [Attribution models that credit only the last click routinely undervalue channels and content that reliably assist conversions without closing them](https://www.storegrowers.com/attribution-models-google-analytics/), a blog post that earns five email opens across a week gets zero credit under last-click, yet it may be doing more work than the ad that happened to run last.
+
+<Mermaid chart={`graph TD
+    A[Awareness\nblog, ad, social] --> B[Micro-conversion 1\nemail signup]
+    B --> C[Micro-conversion 2\npricing page viewed]
+    C --> D[Micro-conversion 3\nadd-to-cart or demo request]
+    D --> E[Macro-conversion\npurchase]
+    B -.assist credit.-> E
+    C -.assist credit.-> E
+    D -.assist credit.-> E`} />
+
+Budget follows the assist data, not just the close data. That reshuffling is usually where the real CRO wins hide.
+
+## Key Takeaways
+
+- A real micro-conversion has measurable lift toward the final sale; a vanity metric just moves without predicting anything.
+- Validate candidate events with a lift test before trusting them, aim for 3 to 5 that actually correlate with purchase.
+- Score sessions or leads by weighted micro-conversions, then re-test the weights every quarter.
+- Give assist credit to steps and channels that move users forward even when they never get the last click.
+- Watch velocity, not just presence, several micro-conversions close together is a stronger buy signal than the same events spread thin.
+
+<ResourceList resources={[
+  { title: "Micro-Conversion: What It Is, How to Calculate & Track It (Kissmetrics)", url: "https://kissmetrics.io/glossary/micro-conversion", type: "article", free: true },
+  { title: "How to Track Micro Conversions on a Website in 2026 (Faurya)", url: "https://www.faurya.com/blog/how-to-track-micro-conversions-on-a-website", type: "article", free: true },
+  { title: "Top Conversion Metrics to Track in 2026 (VWO)", url: "https://vwo.com/blog/conversion-metrics/", type: "article", free: true },
+  { title: "Growing Sales With Attribution Models in Google Analytics (StoreGrowers)", url: "https://www.storegrowers.com/attribution-models-google-analytics/", type: "article", free: true },
+  { title: "What Is Conversion Path Analysis? Complete Guide 2026 (Cometly)", url: "https://www.cometly.com/post/what-is-conversion-path-analysis", type: "article", free: true },
+  { title: "Assisted Conversions, Attribution Modeling Part 13 (Adequate)", url: "https://adequate.digital/en/assisted-conversions-attribution-modeling-part-13/", type: "article", free: true },
+  { title: "Analyze Channel Contribution with Multi-Channel Funnels (Google Analytics Help)", url: "https://support.google.com/analytics/answer/1191204?hl=en", type: "docs", free: true },
+  { title: "WsCube Tech, Conversion Tracking Skills (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Micro-Conversions and Assisted Paths", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Conversion Optimization Basics", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

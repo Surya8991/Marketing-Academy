@@ -1,0 +1,170 @@
+export const lessonMeta = {
+  title: "SEO for Ecommerce Product Pages",
+  level: "Intermediate",
+  summary: "Variant duplication, thin content, out-of-stock pages, and product schema, the problems generic on-page SEO advice does not solve.",
+  category: "seo",
+  slug: "ecommerce-product-page-seo",
+  relatedConcepts: ["on-page-seo", "technical-seo", "keyword-research"],
+}
+
+# SEO for Ecommerce Product Pages
+
+## What It Is
+
+Ecommerce product pages break the normal rules of on-page SEO. A blog post is one URL with one topic. A product page is often one item multiplied across five colors and four sizes, each with its own URL.
+
+That multiplication creates problems generic SEO advice never touches: near-identical pages competing against each other, manufacturer descriptions copy-pasted across thousands of competitor sites, and products that vanish from inventory but still hold rankings and backlinks.
+
+This lesson picks up where standard on-page SEO leaves off. It assumes you already know title tags and internal linking, and focuses on what's unique to a storefront.
+
+## Quick Summary
+
+- Variant pages (color, size, storage) create duplicate or near-duplicate content that dilutes ranking power unless you canonicalize or consolidate deliberately.
+- Thin product pages, a photo, a price, and a manufacturer's boilerplate paragraph, rank worse than pages with unique, specific copy.
+- Product schema (structured data) is what earns the price, star rating, and stock-status rich result in search, and increasingly, citations in AI shopping answers.
+- Out-of-stock does not mean delete. Deleting a page with rankings and backlinks throws away SEO equity you already earned.
+- Category pages and product pages target different keyword intents, mixing them up means both underperform.
+
+<Callout type="info">
+**Why this matters more in 2026:** Google now confirms attribute-rich Product schema (real GTINs, brand, reviews, detailed offers) drives measurably higher visibility in both classic rich results and AI Overviews, while generic or copy-pasted schema shows no lift at all (Xenara, 2026). Thin, templated product pages are penalized twice now, once by classic ranking signals, once by being invisible to AI shopping assistants.
+</Callout>
+
+## The Duplicate-Content and Thin-Content Problem
+
+### Why variants cause duplication
+
+A shirt in "red, size M" and "red, size L" is functionally the same product with one attribute changed. If each variant gets its own URL with the same title, description, and images, you have near-duplicate pages competing for the same query. Google typically picks one to rank and ignores the rest, splitting whatever authority your links and reviews built.
+
+Pick one strategy deliberately:
+
+- **Single URL with a variant selector.** One page, a dropdown or swatch picker changes color and size dynamically. Consolidates all ranking signals onto one strong page. Best when variants have no meaningfully different search demand.
+- **Separate indexable pages per variant.** Only worth it when data shows people search the specific variant ("blue running shoes size 10"). Each page then needs a unique SKU/GTIN, a genuinely different description, and variant-specific images, not just a swapped color word.
+
+Whichever you skip, canonicalize it back to the version you want indexed. Never leave both live unresolved.
+
+### Why manufacturer descriptions hurt you
+
+Copy-pasting the manufacturer's product description is the single most common thin-content failure in ecommerce. Google has not confirmed a direct "duplicate content penalty," but when hundreds of stores run the identical paragraph, Google indexes one version and the rest simply don't surface. You are not penalized, you are just invisible.
+
+Rewrite descriptions around the actual questions a buyer has before purchasing, not the specs already on the box. Add sizing notes, real photos, and your own return-rate data. A 150-word rewrite answering "will this run small" beats a 400-word spec sheet nobody wrote for your audience.
+
+<Callout type="warning">
+**Common mistake: treating filters as new pages.** Faceted navigation (color filters, price-range filters, "sort by rating") can generate thousands of crawlable URL combinations, most with no unique content and no search demand. Left unmanaged, these burn crawl budget and create duplicate-content problems at massive scale. Canonicalize filtered/sorted URLs back to the clean category page, and only allow indexing on filter combinations with real, distinct search volume.
+</Callout>
+
+## Product Schema and Rich Results
+
+Structured data (specifically `Product` and `Offer` schema, written in JSON-LD) tells Google, and increasingly AI shopping assistants, the exact facts about your product: price, currency, availability, brand, and rating. Get it right and your listing can show a star rating, price, and "in stock" badge directly in search results, a real click-through boost over a plain blue link.
+
+The fields that move the needle:
+
+- **name, image, description, brand** — the baseline identity fields
+- **sku and gtin** (Global Trade Item Number, the barcode-style ID) — real GTINs separate a page cited by AI shopping tools from one that isn't
+- **offers** — must include `price`, `priceCurrency`, and `availability` (`InStock`, `OutOfStock`, or `PreOrder`)
+- **aggregateRating** — only if you have real, on-page reviews. Fabricated or scraped ratings violate Google's guidelines and can trigger a manual action.
+
+The rule that trips people up most: **your schema and your visible page must match.** If the page shows "out of stock" but the schema still says `InStock`, Google treats that as misleading structured data and can strip your rich result sitewide, not just on that one page. Automate schema generation from the same inventory data that drives your stock badge, never hand-maintain the two separately.
+
+## Handling Out-of-Stock and Discontinued Products
+
+This is the decision most stores get wrong, costing real rankings. The instinct is to delete or 404 a page the moment stock hits zero. Resist it, and match the response to the actual situation instead:
+
+- **Temporarily out of stock, restocking soon.** Keep the page live. Update schema `availability` to `OutOfStock` or `PreOrder`, show a restock date, and offer a "notify me" email capture. Deleting a page that restocks next month throws away every backlink it built.
+- **Discontinued with a direct replacement.** Use a 301 redirect to the new product. This passes link equity forward and matches user intent.
+- **Discontinued, no replacement, still gets traffic.** Keep it live, mark it clearly discontinued, and link to the closest current alternative. A page with traffic and backlinks is still an asset even unsellable.
+- **Discontinued, low or zero traffic, no backlinks.** A 404 or 410 is fine, especially at catalog scale, where soft redirects to unrelated pages just read as noise to Google.
+
+Never mass-redirect discontinued products to your homepage or a generic category page. That mismatch is exactly what Google's soft-404 detection flags, and it kills trust with the visitor too.
+
+## Category Pages vs. Product Pages: Different Intent, Different Job
+
+A category page ("running shoes") and a product page ("Nike Pegasus 41 Men's Running Shoe") answer different questions. Treating them the same wastes ranking potential on both.
+
+- **Category pages** target broad, comparison-stage keywords like "best running shoes." Their job is filtering and comparison, intro copy that helps someone narrow options, plus strong internal links into individual products.
+- **Product pages** target specific, ready-to-buy keywords: exact model names, size-specific searches. Their job is answering the last doubts before checkout, sizing, materials, real photos, reviews.
+
+A category page with no unique copy has nothing to rank on. A product page chasing the broad category term usually loses to the dedicated category page anyway. Let each page do its own job and link between them.
+
+## Key Takeaways
+
+- Pick one variant strategy (single page with selector, or separate indexable pages with unique SKUs) and canonicalize everything else back to it.
+- Rewrite manufacturer descriptions around real buyer questions; copy-pasted spec sheets get indexed once, by someone else's store.
+- Keep schema `availability` perfectly synced with what the page visibly shows, mismatches can cost your rich results sitewide.
+- Never auto-delete out-of-stock pages. Match your response, live with restock date, 301 to a real replacement, or 404, to the actual traffic and backlink value of that page.
+- Let category pages own broad comparison keywords and product pages own specific buy-ready keywords; don't make one page try to do both jobs.
+
+<ResourceList resources={[
+  {
+    title: "Product Variants SEO: 7 Strategies to Avoid Duplicate Content",
+    url: "https://hiagency.au/ecommerce-seo/product-variants-seo/",
+    type: "article",
+    note: "A practical walkthrough of canonical tags, URL parameter handling, and when separate variant pages are actually worth building.",
+    free: true,
+  },
+  {
+    title: "Duplicate Content and SEO: A 2026 eCommerce Guide",
+    url: "https://scandiweb.com/blog/duplicate-content-seo-ecommerce-complete-guide/",
+    type: "article",
+    note: "Covers why copy-pasted manufacturer descriptions get quietly dropped from the index rather than penalized.",
+    free: true,
+  },
+  {
+    title: "E-commerce Schema Markup for Rich Results: Product, Merchant Listing, Variant, and Category Page Implementation Guide",
+    url: "https://almcorp.com/blog/ecommerce-schema-markup-rich-results-guide/",
+    type: "article",
+    note: "A full field-by-field breakdown of Product, Offer, and AggregateRating schema for ecommerce.",
+    free: true,
+  },
+  {
+    title: "Discontinued Product and SEO, To Remove or Not To Remove?",
+    url: "https://ultracommerce.co/blog/discontinued-product-and-seo-to-remove-or-not-to-remove",
+    type: "article",
+    note: "Lays out the decision tree for 301 redirect vs. keep-live vs. 404 based on traffic and backlinks.",
+    free: true,
+  },
+  {
+    title: "Google Search Central, Structured Data for Products",
+    url: "https://developers.google.com/search/docs/appearance/structured-data/product",
+    type: "docs",
+    note: "The authoritative source on required and recommended Product schema fields, straight from Google.",
+    free: true,
+  },
+  {
+    title: "Product Page SEO: 17 eCommerce Best Practices",
+    url: "https://www.conductor.com/academy/product-page-seo/",
+    type: "article",
+    note: "A broader checklist that pairs well with this lesson for auditing an existing catalog.",
+    free: true,
+  },
+  {
+    title: "Google Merchant Center Help",
+    url: "https://support.google.com/merchants/",
+    type: "tool",
+    note: "Free tool for validating product feed and schema data against what Google actually expects for Shopping rich results.",
+    free: true,
+  },
+  {
+    title: "WsCube Tech, Ecommerce SEO (Hindi)",
+    url: "https://www.youtube.com/@WsCubeTech",
+    type: "video",
+    lang: "hi",
+    free: true,
+    note: "Top Hindi digital marketing channel",
+  },
+  {
+    title: "Mr Digital Marketing Tamil, Ecommerce SEO",
+    url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw",
+    type: "video",
+    lang: "ta",
+    free: true,
+    note: "Tamil digital marketing tutorials",
+  },
+  {
+    title: "ODMT Telugu, Ecommerce SEO",
+    url: "https://www.youtube.com/@ODMTtelugu",
+    type: "video",
+    lang: "te",
+    free: true,
+    note: "Telugu digital marketing training",
+  },
+]} />

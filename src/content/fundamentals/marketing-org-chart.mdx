@@ -1,0 +1,105 @@
+export const lessonMeta = {
+  title: "The Marketing Org Chart: Roles and Reporting Lines",
+  level: "Beginner",
+  summary: "Who does what on a marketing team, how titles map to real responsibilities, and why the reporting lines shift as a company grows.",
+};
+
+# The Marketing Org Chart: Roles and Reporting Lines
+
+Every marketing job posting assumes you already know where that role sits. "Report to the Director of Demand Gen" means nothing if you have never seen a marketing org chart. This lesson fixes that gap.
+
+## Quick Summary
+
+- A marketing department has five core functions: brand, demand generation, content, product marketing, and operations, each owning a different piece of the customer journey.
+- Company size decides structure more than industry does: [3 marketers is the median at $1-10M revenue, 11 at $10-50M, and 26+ once a company crosses $50M](https://www.digitalapplied.com/blog/marketing-team-structure-2026-headcount-benchmarks).
+- Healthy span of control is five to eight direct reports per manager; fewer than five and you are probably missing a function, more than eight and the manager becomes a bottleneck.
+- [61% of CMOs report directly to the CEO](https://www.digitalapplied.com/blog/marketing-team-structure-2026-headcount-benchmarks), 22% to a Chief Revenue Officer, and the rest to a COO or President.
+- The most common friction point is not a missing role, it is one role (usually product marketing) with two bosses who want different things from it.
+
+## The Core Roles and What Each One Owns
+
+Think of a marketing department as five functions stacked under one leader. Each has a clear job, even at a two-person startup where one person wears three hats.
+
+**Brand.** Owns how the company looks, sounds, and feels: visual identity, messaging guidelines, and long-term reputation. Brand marketers ask "will people remember us," not "did this ad convert today."
+
+**Demand generation.** Owns the pipeline: paid ads, SEO, email nurture, webinars, anything designed to turn a stranger into a lead. This is usually the largest function by headcount because it is the most measurable.
+
+**Content.** Owns the words and assets everyone else uses: blog posts, case studies, video scripts, landing page copy. Content sits between brand (tone) and demand gen (conversion), which is exactly why it gets pulled in two directions.
+
+**Product marketing.** Owns positioning, messaging, and launches, translating what the product does into why a buyer should care. It is the bridge between the product team and the rest of marketing.
+
+**Marketing operations.** Owns the tech stack, the data, and the process: CRM hygiene, campaign tracking, attribution reporting. Without ops, every other function is flying blind on what actually worked.
+
+At the top, a CMO or VP Marketing sets the goals these five functions serve. Below that, Directors own each function, and individual contributors (managers, specialists, coordinators) execute inside them.
+
+## How the Structure Changes With Company Size
+
+A five-person startup does not need five directors. Structure should match headcount, not the org chart of the company you admire.
+
+**Under 10 people (centralized model).** One marketer or a tiny team reports straight to the CMO or founder. Everyone does a bit of everything; titles are aspirational.
+
+**10-50 marketers (functional model emerges).** [Directors appear for demand gen, content, ops, and product marketing, each managing their own small team, with 4-5 directors reporting to the CMO or VP](https://tomba.io/blog/b2b-marketing-structure). This is the point where span of control starts to matter.
+
+**50+ marketers (VP layer, pod or hybrid model).** Multiple VPs report to the CMO, each owning a function or a region. [Larger orgs often split into pods, cross-functional teams aligned to a product line, vertical, or geography, each with its own demand gen, content, and ops slice](https://improvado.io/blog/marketing-team-structure), while brand and analytics stay centralized for consistency.
+
+<Mermaid chart={`flowchart TD
+  CMO["CMO / VP Marketing"]
+  D1["Director, Demand Gen"]
+  D2["Director, Content"]
+  D3["Director, Product Marketing"]
+  D4["Director, Marketing Ops"]
+  D5["Director, Brand"]
+  IC1["Paid Media Manager"]
+  IC2["SEO Manager"]
+  IC3["Content Writers"]
+  IC4["Product Marketing Manager"]
+  IC5["Marketing Ops Analyst"]
+  CMO --> D1
+  CMO --> D2
+  CMO --> D3
+  CMO --> D4
+  CMO --> D5
+  D1 --> IC1
+  D1 --> IC2
+  D2 --> IC3
+  D3 --> IC4
+  D4 --> IC5`} />
+
+Role mix shifts too. [Mature teams average roughly 25% demand gen, 20% content, 15% ops, 15% brand, 15% product marketing, and 10% leadership](https://www.digitalapplied.com/blog/marketing-team-structure-2026-headcount-benchmarks), though SaaS companies weight product marketing higher and enterprise sales-led companies weight demand gen higher.
+
+## Where Reporting Lines Get Tense
+
+Most org charts look clean on a slide. In practice, one role almost always sits at the seam between two departments, and that seam causes real friction.
+
+**Product marketing: reports to product, or to marketing?** [When PMM reports into product, positioning stays tightly tied to the roadmap, but the role can narrow into "launch coordinator" and lose its go-to-market voice](https://www.launchnotes.com/blog/who-does-product-marketing-report-to-understanding-organizational-structure). When it reports into marketing, positioning connects better to sales enablement and campaigns, but can drift from what the product actually does. Neither answer is universally correct; what matters is which relationship the company needs more right now.
+
+**Content: serves brand or serves demand gen?** Brand wants content that builds long-term trust. Demand gen wants content that drives this quarter's leads. Whoever content reports to gets their priorities first, and the other function has to ask nicely.
+
+**Marketing ops: shared service, or embedded in one team?** As teams grow past 50 people, ops sometimes centralizes to serve everyone equally, and sometimes gets embedded inside demand gen because that is where most of the requests come from. Centralizing prevents duplicate tooling; embedding speeds up the team it sits inside.
+
+<Callout type="tip">
+If you are joining a marketing team, ask two questions before your first week: "who does my manager report to," and "which other team do I need permission from to ship work." The second question reveals the real org chart, the one that is not on the slide.
+</Callout>
+
+None of this is static. AI is already reshaping which of these roles exist and how lean the org underneath the CMO can run; the companion lesson linked below covers that shift in depth rather than repeating it here.
+
+## Key Takeaways
+
+- Five functions anchor every marketing org: brand, demand gen, content, product marketing, and ops.
+- Structure follows headcount: centralized under 10, functional directors from 10-50, VPs and pods above 50.
+- Keep span of control at five to eight direct reports per manager.
+- Product marketing and content are the most common friction points because they sit between two departments' priorities.
+- The org chart on the slide rarely shows the real approval chain, ask about it directly.
+
+<ResourceList resources={[
+  { title: "Digital Applied - Marketing Team Structure 2026: Headcount Benchmarks", url: "https://www.digitalapplied.com/blog/marketing-team-structure-2026-headcount-benchmarks", type: "article", free: true, note: "Source of the headcount-by-revenue and CMO reporting-line stats used in this lesson" },
+  { title: "Tomba - B2B Marketing Structure: 2026 Team and Org Models Guide", url: "https://tomba.io/blog/b2b-marketing-structure", type: "article", free: true, note: "Director-layer structure for 10-50 person marketing teams" },
+  { title: "Improvado - Marketing Team Structure Guide 2026", url: "https://improvado.io/blog/marketing-team-structure", type: "article", free: true, note: "Centralized, pod-based, and hybrid model comparison" },
+  { title: "LaunchNotes - Who Does Product Marketing Report To?", url: "https://www.launchnotes.com/blog/who-does-product-marketing-report-to-understanding-organizational-structure", type: "article", free: true, note: "Deep dive on the product vs. marketing reporting-line debate" },
+  { title: "Marketing Academy - Building an AI-Augmented Marketing Team", url: "/learn/ai-marketing/ai-marketing-team-org-design", type: "article", free: true, note: "Companion lesson: how AI is changing which roles exist on this org chart" },
+  { title: "TheOrgChart - Marketing Department Structure: Roles, Functions, and Org Charts", url: "https://theorgchart.com/resources/marketing-department-org-chart/", type: "article", free: true, note: "Visual reference org charts across company sizes" },
+  { title: "ZoomInfo Pipeline - Essential Marketing Roles and Team Structure in 2026", url: "https://pipeline.zoominfo.com/marketing/essential-marketing-roles", type: "article", free: true, note: "Role-by-role breakdown of a modern marketing department" },
+  { title: "WsCube Tech, Marketing Org Chart (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Marketing Org Chart", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Marketing Org Chart", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

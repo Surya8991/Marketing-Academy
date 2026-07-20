@@ -1,0 +1,83 @@
+export const lessonMeta = {
+  title: "AI-Powered Dynamic Pricing & Personalized Offers",
+  level: "Advanced",
+  summary: "How AI sets different prices, discounts, and bundles for different people based on predicted willingness-to-pay, and where the FTC, state lawmakers, and consumers are drawing the line.",
+};
+
+# AI-Powered Dynamic Pricing & Personalized Offers
+
+In 2025, Delta's president told investors the airline was testing AI-generated fares priced "to you, the individual." Within days, five US senators sent Delta a public letter demanding answers, and the phrase 'surveillance pricing' hit national news.
+
+## Quick Summary
+
+- Dynamic pricing reacts to market conditions (demand, inventory, time). Personalized pricing reacts to who you are, using data about your device, location, browsing history, or predicted willingness to pay.
+- A late-2025 investigation found 74% of grocery items sold at multiple price points to different Instacart shoppers, some items up to 23% higher for some buyers than others.
+- The FTC's surveillance pricing study, opened in 2024, found companies frequently use location, browser history, and even cart-abandonment behavior to set individualized prices.
+- New York's Algorithmic Pricing Disclosure Act (effective November 2025) now requires a specific on-screen warning label when a price was set using your personal data.
+- The legally safest lever is discounting downward from a public list price. Segmenting who sees a higher price than someone else is the risk zone.
+
+## How AI Personalized Pricing Actually Works
+
+Every dynamic pricing model starts with the same input, a prediction of your willingness to pay. The model estimates the highest price you are likely to accept without abandoning the purchase, then shows you an offer near that ceiling.
+
+Three signal categories feed the prediction:
+
+- **Behavioral:** mouse movement, scroll speed, time spent on a price page, cart abandons
+- **Contextual:** device type (iPhone users are frequently scored as higher-spend), location, time of day, referral source
+- **Historical:** past purchase price sensitivity, loyalty tier, email engagement, browsing session length
+
+The model then outputs one of three actions: a price shown directly, a discount code timed to your hesitation, or a bundle swap (same product, different attach-rate offer). Airlines and hotels have run yield management for decades using aggregate demand curves. What changed is the unit of analysis. It shifted from "the market" to "you specifically," and that shift is what regulators now call surveillance pricing.
+
+<Mermaid chart={`flowchart TD
+  A[Collect Individual Signals\ndevice, location, browsing, past purchases] --> B[Predict Willingness to Pay\nper-user price ceiling estimate]
+  B --> C[Generate Personalized Offer\nprice, discount, or bundle]
+  C --> D[Deliver at Point of Sale\nweb, app, email]
+  D --> E[Measure Conversion and Margin]
+  E --> A`} />
+
+## The Regulatory and Backlash Risk
+
+The FTC's Issue Spotlight on surveillance pricing, published from its 2024-2025 inquiry, documented that firms commonly use "precise location or browser history... to target individual consumers with different prices for the same goods and services." That single sentence is now the reference point for every state bill that followed.
+
+The Delta case shows how fast backlash escalates. After Delta's earnings call comment, [Senator Mark Warner called individualized fares "a very anti-consumer way" to use AI](https://www.warner.senate.gov/public/index.cfm/2025/7/warner-colleagues-demand-answers-from-delta-on-use-of-ai-to-set-individualized-ticket-prices), and Senator Ruben Gallego labeled it "predatory pricing." Delta's public response insisted the AI never uses personal data and only recommends aggregate market adjustments, a distinction that became the entire legal battleground: aggregate demand signal is fine, individual profiling is not.
+
+The grocery sector saw a parallel story. A Consumer Reports, Groundwork Collaborative, and More Perfect Union investigation found the same cart of groceries priced differently for different Instacart shoppers, triggering a March 2026 congressional inquiry. New York's Algorithmic Pricing Disclosure Act now forces a visible label, "THIS PRICE WAS SET BY AN ALGORITHM USING YOUR PERSONAL DATA," with fines up to $1,000 per violation. More than 35 similar state bills were filed in January and February 2026 alone.
+
+<Callout type="warning">
+**The line that matters legally: aggregate signal vs. individual profile**
+
+Adjusting price based on *market-wide* signals (inventory levels, competitor prices, time of day, local demand) is standard dynamic pricing and is not currently restricted. Adjusting price based on *who the specific person is* (their browsing history, device, inferred income, or past willingness to pay) is what the FTC calls surveillance pricing, and it is the part drawing subpoenas, state disclosure laws, and Senate letters. If your model has ever taken a user ID or device fingerprint as an input feature to a price output, you are on the wrong side of that line, whether or not you meant to be.
+</Callout>
+
+## A Practical Line for Marketers to Hold
+
+Discounting down from one public list price is safe: loyalty discounts, first-time-buyer codes, and cart-abandonment offers all lower price for a segment without hiding a higher price from someone else. The risk starts when two people can see the *exact same product page* at the *exact same time* and get different base prices with no visible reason.
+
+Three checks before shipping any personalized pricing feature:
+
+- **Can you publish the price logic without embarrassment?** If the honest explanation is "we priced you higher because our model predicted you'd pay it," that is the sentence that ends up in a Senate letter.
+- **Would disclosure change the offer's economics?** New York's law already requires the on-screen label. If a visible "this price was personalized" disclaimer would tank conversion, the offer was relying on the customer not knowing, which is the exact harm regulators are targeting.
+- **Are you using protected or proxy-protected attributes?** Location, device type, and browsing history can proxy for income, age, or disability status even when you never touch a protected class directly. Legal review before launch, not after a journalist notices, is the only safe sequence here.
+
+Building trust into the pricing model, rather than around it, is what separates durable AI pricing from the next Delta-style headline.
+
+## Key Takeaways
+
+- Dynamic pricing reacts to the market; personalized pricing reacts to the person. Regulators and consumers only object to the second one.
+- The FTC's surveillance pricing inquiry and New York's disclosure law both target the same behavior, individual profiling folded into price, not aggregate demand pricing.
+- Delta's 2025 backlash shows how fast a single earnings-call sentence can trigger Senate scrutiny; the Instacart investigation shows the same risk applies to everyday retail, not just airlines.
+- Downward discounting from a public list price is low risk. Showing different base prices to different people with no visible reason is the high-risk zone.
+- Before launch, run the disclosure test: if a visible "this price was personalized" label would break the offer's conversion rate, the offer depends on the customer not knowing, and that is the exact harm regulators are now writing laws against.
+
+<ResourceList resources={[
+  { title: "FTC: Issue Spotlight, The Rise of Surveillance Pricing", url: "https://www.ftc.gov/system/files/ftc_gov/pdf/sp6b-issue-spotlight.pdf", type: "docs", free: true, note: "The FTC's own findings on personal data used to set individualized consumer prices" },
+  { title: "FTC Press Release: Surveillance Pricing Study Findings", url: "https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-surveillance-pricing-study-indicates-wide-range-personal-data-used-set-individualized-consumer", type: "article", free: true, note: "Official summary of the FTC's 2025 surveillance pricing study" },
+  { title: "Senator Warner: Demand Answers from Delta on AI Ticket Pricing", url: "https://www.warner.senate.gov/public/index.cfm/2025/7/warner-colleagues-demand-answers-from-delta-on-use-of-ai-to-set-individualized-ticket-prices", type: "article", free: true, note: "Primary source on the Delta AI pricing Senate letter and backlash" },
+  { title: "Delta News Hub: Delta Responds to Misinformation Around AI Pricing", url: "https://news.delta.com/delta-responds-misinformation-around-ai-pricing", type: "article", free: true, note: "Delta's own rebuttal, useful for seeing both sides of the dispute" },
+  { title: "Brookings: What Is Dynamic Pricing and Why Do Consumers Need Better Protections?", url: "https://www.brookings.edu/articles/what-is-dynamic-pricing-and-why-do-consumers-need-better-protections/", type: "article", free: true, note: "Policy-level explainer distinguishing dynamic from personalized pricing" },
+  { title: "Holland & Knight: Surveillance Pricing, AI Pricing Tools and Price Transparency", url: "https://www.hklaw.com/en/insights/publications/2026/04/surveillance-pricing-ai-pricing-tools", type: "article", free: true, note: "2026 legal analysis of state disclosure laws including New York's Algorithmic Pricing Disclosure Act" },
+  { title: "WilmerHale: Personalized Pricing, What Business Lawyers Need to Know", url: "https://www.wilmerhale.com/en/insights/client-alerts/20260313-personalized-pricing-what-business-lawyers-need-to-know", type: "article", free: true, note: "Compliance-focused guidance for teams building pricing algorithms" },
+  { title: "WsCube Tech - AI Dynamic Pricing (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - AI Dynamic Pricing", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - AI Dynamic Pricing", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

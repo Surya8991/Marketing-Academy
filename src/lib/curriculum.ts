@@ -72,6 +72,8 @@ export const CATEGORIES: Category[] = [
       { slug: "deliberate-practice", title: "Deliberate Practice for Marketers", level: "Intermediate", summary: "Why ten years of marketing experience often produces one year of learning repeated ten times, and how to actually get better at your craft on purpose.", sourceCategory: "mental-models" },
       { slug: "pareto-and-constraints", title: "The Pareto Principle and Theory of Constraints", level: "Advanced", summary: "80% of your results come from 20% of your effort, and the whole system moves at the pace of one bottleneck. Two rules that decide where your next dollar and hour should go.", sourceCategory: "mental-models" },
       { slug: "bayesian-updating", title: "Bayesian Updating for Marketers", level: "Advanced", summary: "How to change your mind proportionally when new evidence lands, without ignoring your priors or overreacting to the latest data point.", sourceCategory: "mental-models" },
+      { slug: "marketing-budgeting-101", title: "Marketing Budgeting 101: Allocating Spend Across Channels", level: "Beginner", summary: "How much to spend, where to spend it, and a simple framework to build your first marketing budget." },
+      { slug: "marketing-org-chart", title: "The Marketing Org Chart: Roles and Reporting Lines", level: "Beginner", summary: "Who does what on a marketing team, how titles map to real responsibilities, and why the reporting lines shift as a company grows." },
     ],
   },
   {
@@ -113,6 +115,8 @@ export const CATEGORIES: Category[] = [
       { slug: "agentic-commerce-seo", title: "SEO for Agentic Commerce", level: "Advanced", summary: "Getting found and transacted with by AI shopping agents: ChatGPT Instant Checkout, Perplexity Shopping, and Google's Agent Payments Protocol." },
       { slug: "seo-site-migrations", title: "SEO for Site Migrations", level: "Advanced", summary: "Domain changes, platform moves, URL restructures: the pre/during/post checklist that separates a clean migration from a traffic collapse." },
       { slug: "content-decay-refresh", title: "Content Decay: Refreshing and Reclaiming Lost Rankings", level: "Intermediate", summary: "Why pages that used to rank well quietly lose traffic over time, and how to systematically find and fix them before a competitor does." },
+      { slug: "ecommerce-product-page-seo", title: "SEO for Ecommerce Product Pages", level: "Intermediate", summary: "Variant duplication, thin content, out-of-stock pages, and product schema, the problems generic on-page SEO advice does not solve." },
+      { slug: "image-seo-visual-search", title: "Image SEO & Visual Search Optimization", level: "Intermediate", summary: "Master the fundamentals that get images ranked, and prepare your catalog for the shift toward searching with cameras instead of keywords." },
     ],
   },
   {
@@ -154,6 +158,8 @@ export const CATEGORIES: Category[] = [
       { slug: "ai-max-broad-match", title: "Google AI Max and the New Broad Match Era", level: "Advanced", summary: "In 2025, Google shifted from keyword-level control to AI-driven intent matching. AI Max campaigns, Smart Bidding, and broad match fundamentally changed how search works. Learn the new structure, how to avoid common pitfalls, and when to use AI Max vs traditional Search." },
       { slug: "ad-fraud-invalid-traffic", title: "Ad Fraud & Invalid Traffic (IVT) Prevention", level: "Advanced", summary: "GIVT vs SIVT, bot traffic, spoofed apps: how much of your spend is fraud, how to detect it, and the red flags to watch for." },
       { slug: "ad-frequency-creative-fatigue", title: "Ad Frequency & Creative Fatigue Management", level: "Intermediate", summary: "Why CTR and CPA degrade as the same audience sees your ad again, the fatigue curve by platform, and a practical creative-refresh cadence." },
+      { slug: "landing-page-message-match", title: "Landing Page & Message Match for Paid Campaigns", level: "Intermediate", summary: "Why your ad's promise and your landing page's headline need to say the exact same thing, and what it costs you when they do not." },
+      { slug: "budget-pacing-optimization", title: "Budget Pacing & Mid-Flight Optimization", level: "Intermediate", summary: "How to spend a budget evenly across a flight, and why touching it mid-campaign can reset the algorithm's learning." },
     ],
   },
   {
@@ -189,6 +195,10 @@ export const CATEGORIES: Category[] = [
       { slug: "reverse-trials-monetization", title: "Reverse Trials & Freemium Economics", level: "Advanced", summary: "Managing conversion metrics, activation benchmarks, and paywall psychology for trials vs. freemium tiers." },
       { slug: "b2b-growth-loops", title: "B2B Growth Loop Design", level: "Advanced", summary: "Why B2B growth loops compound differently from B2C, and how to design self-reinforcing loops using collaboration, integrations, champion expansion, and content." },
       { slug: "ai-experiment-design", title: "Using AI to Design and Analyse Growth Experiments", level: "Advanced", summary: "How LLMs augment experiment design, hypothesis generation, statistical analysis, and prioritisation, and where human judgment remains essential." },
+      { slug: "growth-hacking-ethics-dark-patterns", title: "Growth Hacking Ethics: When Growth Tactics Cross the Line", level: "Intermediate", summary: "Aggressive growth is not the same as deceptive growth. Learn where the FTC draws the line on dark patterns and how to grow fast without building a lawsuit." },
+      { slug: "growth-team-operating-cadence", title: "Growth Team Operating Cadence", level: "Intermediate", summary: "The weekly rhythm that turns a prioritized backlog into shipped experiments, and a practical template you can run this week." },
+      { slug: "localization-for-growth", title: "Localization for Growth: Expanding Into New Markets", level: "Advanced", summary: "How growth teams pick which markets to enter, what actually needs localizing beyond language, and why weak localization has sunk expansions that looked unstoppable on paper." },
+      { slug: "net-revenue-retention", title: "Net Revenue Retention (NRR): The Metric That Decides If Growth Compounds", level: "Intermediate", summary: "The dollar-based retention metric investors watch closest, current 2026 benchmarks, and the specific marketing levers that move it." },
     ],
   },
   {
@@ -224,6 +234,10 @@ export const CATEGORIES: Category[] = [
       { slug: "short-form-video-algorithms", title: "Short-Form Video Algorithms (TikTok & Reels)", level: "Beginner", summary: "Hook writing, audio retention signals, and metadata tagging for viral organic video distribution." },
       { slug: "dark-social-strategy", title: "Dark Social Strategy: Measuring and Driving Invisible Shares", level: "Advanced", summary: "Learn how to identify, measure, and optimize for dark social: the 84% of shares happening invisibly across WhatsApp, Slack, and DMs." },
       { slug: "social-listening-advanced", title: "Advanced Social Listening: From Brand Mentions to Strategic Intelligence", level: "Advanced", summary: "Transform raw social data into strategic decisions using AI sentiment analysis, competitive intelligence, and emerging narrative detection." },
+      { slug: "discord-for-brand-communities", title: "Discord for Brand Communities", level: "Intermediate", summary: "Why Discord rewards intentional, real-time community building differently than feed-based platforms, and how to structure a server that actually gets used." },
+      { slug: "ai-influencers-virtual-creators", title: "AI Influencers & Virtual Creators", level: "Advanced", summary: "Why brands are paying computer-generated personas to sell products, when the ROI actually holds up, and why the FTC treats a fake face exactly like a real one." },
+      { slug: "employee-advocacy-programs", title: "Employee Advocacy Programs on Social Media", level: "Intermediate", summary: "How to turn a whole team into a distribution channel, with real 2026 reach data and a program design that does not feel forced." },
+      { slug: "social-media-crisis-management", title: "Social Media Crisis Management & Real-Time Response", level: "Advanced", summary: "A tactical playbook for the first hour of a social media crisis: escalation triggers, response-time benchmarks, and what to post versus take offline." },
     ],
   },
   {
@@ -260,6 +274,9 @@ export const CATEGORIES: Category[] = [
       { slug: "community-driven-content", title: "Community-Driven Content: Turning Your Audience into Your Content Team", level: "Intermediate", summary: "How to turn your audience into collaborators and scale content production through community models like UGC, co-creation, and crowdsourced research." },
       { slug: "video-first-content-strategy", title: "Video-First Content Strategy: Building for the Watch Economy", level: "Intermediate", summary: "Why video is now the default content format, how to extract multiple pieces of content from one video, and how to measure video performance across platforms." },
       { slug: "content-localization", title: "Content Localization: More Than Translation", level: "Advanced", summary: "Master the three levels of localization: translation, localisation, and transcreation, and learn when each is needed to maximize ROI in global markets." },
+      { slug: "long-form-vs-short-form-strategy", title: "Long-Form vs Short-Form Content Strategy: When Depth Wins", level: "Intermediate", summary: "A goal-first framework for choosing between a 3,000-word guide, a 300-word post, and a 60-second video, instead of picking a format because it is trendy." },
+      { slug: "serialized-content-strategy", title: "Content Series & Serialized Content Strategy", level: "Intermediate", summary: "Why numbered, recurring content earns habitual return visits that isolated posts never do, and how to plan one." },
+      { slug: "content-partnerships-co-creation", title: "Content Partnerships & Co-Created Content", level: "Intermediate", summary: "How to structure formal brand-to-brand content partnerships, co-hosted webinars, joint research, and newsletter swaps, that unlock audiences your own channels cannot." },
     ],
   },
   {
@@ -302,6 +319,8 @@ export const CATEGORIES: Category[] = [
       { slug: "abm-email-sequences", title: "Account-Based Marketing (ABM) Email Sequences", level: "Advanced", summary: "Structuring hyper-targeted, multi-touch outbound email cadences for B2B high-value enterprise accounts." },
       { slug: "inbox-placement-science", title: "Inbox Placement Science: Beyond Basic Deliverability", level: "Advanced", summary: "Master ISP reputation scoring, BIMI implementation, DMARC progression, and Gmail's 2024 requirements to keep emails in the inbox, not spam." },
       { slug: "email-plus-sms-orchestration", title: "Unified Email + SMS Campaign Orchestration", level: "Advanced", summary: "Combine email and SMS strategically using channel decision frameworks, compliance rules, frequency caps, and cross-channel sequencing to maximize revenue and engagement." },
+      { slug: "list-hygiene-sunset-policy", title: "Email List Hygiene & Sunset Policies", level: "Intermediate", summary: "The people who never open your emails are quietly costing you the ones who do. Here is how to let them go, on purpose." },
+      { slug: "frequency-send-time-optimization", title: "Email Frequency & Send-Time Optimization", level: "Intermediate", summary: "How often and exactly when to send. The two variables segmentation never answers." },
     ],
   },
   {
@@ -346,6 +365,8 @@ export const CATEGORIES: Category[] = [
       { slug: "experimentation-platforms", title: "Experimentation Platforms: Building a Culture of Testing at Scale", level: "Intermediate", summary: "Master modern A/B testing platforms and the statistical rigor behind them." },
       { slug: "ai-powered-insights", title: "Automated Insight Generation: AI That Tells You What Changed and Why", level: "Advanced", summary: "Move beyond dashboards you have to read: learn how AI insight engines detect anomalies, explain root causes, and deliver findings in plain language before you even know to look." },
       { slug: "marketing-data-governance", title: "Marketing Data Governance: Quality, Compliance, and Trust in Your Data", level: "Advanced", summary: "How to build policies, processes, and controls that make marketing data accurate, consistent, compliant, and trustworthy at scale." },
+      { slug: "reading-dashboards-for-non-analysts", title: "Reading a Dashboard Like an Analyst (Even If You Are Not One)", level: "Beginner", summary: "The dashboard is not lying. It is just showing you the version of the truth someone chose." },
+      { slug: "identity-resolution-single-customer-view", title: "Building a Single Customer View: Identity Resolution", level: "Advanced", summary: "How deterministic and probabilistic matching stitch fragmented touchpoints into one customer profile, and why the matching method you choose is now a regulatory decision, not just a technical one." },
     ],
   },
   {
@@ -393,6 +414,8 @@ export const CATEGORIES: Category[] = [
       { slug: "ai-native-martech", title: "AI-Native Martech: The Tools Built for 2026, Not Retrofitted", level: "Intermediate", summary: "Learn to distinguish purpose-built AI tools from legacy platforms bolting on AI, and build an evaluation framework to pilot them." },
       { slug: "revenue-intelligence-tools", title: "Revenue Intelligence Tools: Gong, Chorus, Clari and What Marketers Learn from Sales Data", level: "Advanced", summary: "AI-powered platforms that analyse sales calls and pipeline data to reveal messaging that resonates, common objections, and competitor intelligence: essential for PMMs building battle cards and campaign themes." },
       { slug: "marketing-data-stack-2026", title: "The Modern Marketing Data Stack in 2026", level: "Advanced", summary: "A composable architecture that connects data sources to a warehouse, transforms it with dbt, and activates insights back to your ad platforms and CRM: replacing siloed point solutions with a single source of truth." },
+      { slug: "slack-teams-marketing-workflows", title: "Slack and Teams as a Marketing Operations Hub", level: "Beginner", summary: "How marketing teams turn Slack and Microsoft Teams into a real-time alert and approval hub, without drowning in notifications." },
+      { slug: "marketing-tool-migration", title: "Marketing Tool Migration & Data Portability", level: "Intermediate", summary: "How to switch CRM, ESP, or CDP tools without losing history, breaking automations, or tanking email deliverability." },
     ],
   },
   {
@@ -430,6 +453,9 @@ export const CATEGORIES: Category[] = [
       { slug: "parasocial-relationships-marketing", title: "Parasocial Relationships: Why Audiences Trust Creators Like Friends", level: "Advanced", summary: "How one-sided emotional bonds with creators drive purchase decisions, and what brands must do to leverage this ethically." },
       { slug: "digital-dopamine-design", title: "Digital Dopamine: Reward Loops in Marketing and Product Design", level: "Advanced", summary: "How neuroscience explains engagement: dopamine is released in anticipation of reward, not just on receiving it. Learn variable ratio reward schedules, ethical dopamine design, and why over-optimisation damages long-term brand trust." },
       { slug: "trust-and-credibility-signals", title: "The Psychology of Trust and Credibility Signals", level: "Advanced", summary: "Three dimensions of trust: competence, integrity, benevolence. How expertise signals build trust, why admitting weakness paradoxically increases credibility, and why the first 50 milliseconds matter." },
+      { slug: "curiosity-gap-zeigarnik-effect", title: "The Curiosity Gap & The Zeigarnik Effect", level: "Beginner", summary: "Why an unanswered question pulls harder than an answered one, the 1927 study behind it, and where 'curious headline' turns into 'broken promise'." },
+      { slug: "endowment-effect", title: "The Endowment Effect", level: "Intermediate", summary: "You value things more the moment you feel they are 'yours', even if you never paid for them." },
+      { slug: "halo-effect", title: "The Halo Effect: How One Positive Trait Colors Everything Else", level: "Beginner", summary: "One standout quality quietly convinces people every other quality is just as good. Learn where the research came from and how brands engineer it on purpose." },
     ],
   },
   {
@@ -465,6 +491,10 @@ export const CATEGORIES: Category[] = [
       { slug: "ai-human-copy-collaboration", title: "AI + Human Copy Collaboration: The Pro Workflow", level: "Intermediate", summary: "Stop publishing AI's first draft. Learn the 3-phase workflow that uses AI for speed and humans for the insight, voice, and judgment that make copy actually convert." },
       { slug: "conversational-copy", title: "Conversational Copy: Writing That Sounds Like a Human Wrote It", level: "Intermediate", summary: "Learn the five techniques that make copy feel like a one-on-one conversation, and why conversational writing converts 10–30% better than corporate copy." },
       { slug: "copy-for-ai-search", title: "Writing for AI Search: Copy That Gets Cited by ChatGPT and Perplexity", level: "Intermediate", summary: "Learn how to structure and write content that AI search engines cite, prioritizing answers over keywords." },
+      { slug: "awareness-stages-schwartz", title: "Writing for Awareness Stages: Eugene Schwartz's 5 Levels", level: "Intermediate", summary: "The 1966 framework from 'Breakthrough Advertising' that decides your headline before you write a single word of body copy." },
+      { slug: "fascination-bullets", title: "Fascination Bullets: The Direct-Response Bullet-Point Craft", level: "Intermediate", summary: "Learn the classic direct-response technique of writing curiosity-driven bullets that tease a benefit without giving it away." },
+      { slug: "comparison-page-copywriting", title: "Comparison Page Copywriting (Us vs Them)", level: "Intermediate", summary: "How to write 'X vs Y' and 'Alternative to X' pages that convert bottom-of-funnel buyers without reading like a biased ad." },
+      { slug: "testimonial-case-study-copywriting", title: "Testimonial & Case Study Copywriting Craft", level: "Intermediate", summary: "How to structure a case-study narrative and extract specific, quotable language from customers instead of settling for generic praise." },
     ],
   },
   {
@@ -500,6 +530,10 @@ export const CATEGORIES: Category[] = [
       { slug: "social-proof-engineering", title: "Engineering Social Proof Systems That Convert", level: "Advanced", summary: "Six types of social proof: placement science, review widget design, live signals, and testing frameworks to maximize conversion lift without diluting credibility." },
       { slug: "progressive-disclosure-cognitive-load", title: "Progressive Disclosure & Cognitive Load in CRO", level: "Intermediate", summary: "Why revealing complexity only as needed converts better than one long form, and when progressive disclosure backfires." },
       { slug: "cro-for-ai-referred-traffic", title: "Optimizing Conversion for AI-Referred Traffic", level: "Advanced", summary: "AI-referred visitors land differently: higher intent, less brand familiarity, and often invisible to your analytics. Here's how to convert them." },
+      { slug: "app-store-in-app-cro", title: "CRO for Mobile Apps: App Store & In-App Conversion", level: "Advanced", summary: "App CRO is not web CRO with smaller screens. Learn how App Store listing conversion (ASO) and post-install funnels actually behave, and the testing framework that improves both." },
+      { slug: "statistical-pitfalls-in-cro", title: "Statistical Pitfalls in CRO", level: "Advanced", summary: "Peeking, multiple comparisons, and Simpson's Paradox, the three ways a test with a correct sample size still lies to you." },
+      { slug: "cro-cancellation-retention-flows", title: "CRO for Cancellation & Retention Flows", level: "Advanced", summary: "How to design a cancellation flow that legitimately saves 10-34% of leaving customers, and where the line sits between a real retention offer and an FTC-flagged dark pattern." },
+      { slug: "micro-conversions-assisted-paths", title: "Micro-Conversions: Tracking and Optimizing Assisted Paths", level: "Intermediate", summary: "How to find which small actions actually predict a sale, and how to optimize the whole path instead of only the last click." },
     ],
   },
   {
@@ -535,6 +569,10 @@ export const CATEGORIES: Category[] = [
       { slug: "brand-in-ai-era", title: "Brand Building in the AI Era: Visibility When AI Answers Replace Search", level: "Advanced", summary: "How to build brand equity when discovery happens inside ChatGPT and Perplexity, not Google." },
       { slug: "narrative-transport-branding", title: "Narrative Transport in Brand Storytelling", level: "Advanced", summary: "Cognitive mechanisms of brand storytelling: how narrative frameworks bypass consumer skepticism." },
       { slug: "global-vs-local-brand", title: "Global Brand vs Local Brand: The Standardisation vs Adaptation Debate", level: "Advanced", summary: "When brand consistency collides with local relevance, how do you decide? Learn the standardisation spectrum and the CAGE framework for choosing between global scale and local connection." },
+      { slug: "sonic-branding-audio-identity", title: "Sonic Branding & Audio Identity", level: "Intermediate", summary: "Why the sounds your brand makes, a chime, a jingle, a two-note sting, drive recall as hard as your logo, and how to design a sonic system instead of just commissioning a jingle." },
+      { slug: "trademark-brand-protection-basics", title: "Trademark & Brand Protection Basics for Marketers", level: "Beginner", summary: "The trademark basics every marketer needs before falling in love with a name, why 'TM' and 'R' mean very different things, and real brands that had to rebrand after getting this wrong." },
+      { slug: "brand-guidelines-enforcement", title: "Brand Guidelines Enforcement at Scale", level: "Advanced", summary: "Writing a brand book is the easy part. This lesson covers the harder problem: enforcing it once dozens of teams, freelancers, and agencies are producing content every week." },
+      { slug: "cultural-branding-generations", title: "Cultural Branding Across Generations: Gen Z, Gen Alpha, and What Comes Next", level: "Intermediate", summary: "Geography is not the only axis a brand must adapt across. Learn what actually changes generation to generation and the early signals on Gen Alpha as they enter the market." },
     ],
   },
   {
@@ -570,6 +608,10 @@ export const CATEGORIES: Category[] = [
       { slug: "product-led-sales-pmm", title: "Product-Led Sales: The PMM's Role When the Product Sells Itself", level: "Advanced", summary: "Master the hybrid model where product-led growth generates pipeline and sales converts enterprise accounts." },
       { slug: "ai-tools-for-pmms", title: "AI Tools for Product Marketers", level: "Beginner", summary: "How PMMs actually use AI day-to-day: competitive intel monitoring, win-loss call synthesis, and first-draft positioning docs." },
       { slug: "vertical-saas-gtm", title: "Vertical SaaS Go-to-Market", level: "Advanced", summary: "Why software built for one industry needs a different GTM playbook: trust-building, regulation-aware sales cycles, and community-first distribution." },
+      { slug: "battlecard-design-adoption", title: "Battlecard Design & Sales Rep Adoption", level: "Intermediate", summary: "Design a battlecard reps actually open mid-call, then close the adoption gap with the delivery tactics that separate a used battlecard from a dead file." },
+      { slug: "expansion-cross-sell-messaging", title: "Expansion & Cross-Sell Messaging for Existing Customers", level: "Intermediate", summary: "Why messaging existing customers to buy more is a different skill than acquisition, and how to time and frame the ask so it reads as help, not a cash grab." },
+      { slug: "renewal-marketing", title: "Renewal Marketing: Messaging for Contract Renewal Season", level: "Intermediate", summary: "Why getting a customer to simply renew is a different messaging problem than getting them to buy more, and how to time and prove value so the renewal is a formality." },
+      { slug: "pmm-metrics-scorecards", title: "PMM Metrics & Scorecards: Proving Product Marketing's Business Impact", level: "Intermediate", summary: "A practical scorecard framework for product marketers to prove business impact to skeptical executives, using real 2026 benchmarks on win rate, enablement adoption, and launch quality." },
     ],
   },
   {
@@ -608,6 +650,8 @@ export const CATEGORIES: Category[] = [
       { slug: "ai-marketing-team-org-design", title: "Building an AI-Augmented Marketing Team", level: "Intermediate", summary: "How team structure, roles, and hiring are changing as AI absorbs execution work, and what still requires a human." },
       { slug: "measuring-ai-marketing-roi", title: "Measuring AI Marketing ROI", level: "Intermediate", summary: "Why proving AI tool investment pays off is genuinely hard, the flawed time-saved shortcut, and a better output-based framework." },
       { slug: "ai-marketing-tech-stack", title: "Choosing Your AI Marketing Tech Stack: Build vs Buy", level: "Beginner", summary: "All-in-one platform, stitched point solutions, or custom-built on an LLM API: a decision framework based on team size, resources, and how core the use case is." },
+      { slug: "ai-dynamic-pricing-personalized-offers", title: "AI-Powered Dynamic Pricing & Personalized Offers", level: "Advanced", summary: "How AI sets different prices, discounts, and bundles for different people based on predicted willingness-to-pay, and where the FTC and consumers are drawing the line." },
+      { slug: "prompt-injection-ai-security-risks", title: "Prompt Injection & AI Security Risks for Marketers", level: "Intermediate", summary: "Why the chatbot or AI agent your team just launched can be talked into selling a car for $1, cursing out a customer, or leaking internal instructions." },
     ],
   },
   {
@@ -634,6 +678,11 @@ export const CATEGORIES: Category[] = [
       { slug: "decision-making-under-uncertainty", title: "Decision-Making Under Uncertainty", level: "Advanced", summary: "Thinking in bets, expected value, and reversible-vs-irreversible calls: how to make good marketing decisions when the data cannot tell you the answer." },
       { slug: "circle-of-competence", title: "Circle of Competence", level: "Beginner", summary: "Know the boundary of what you genuinely understand, and stay inside it, or expand it deliberately, instead of making confident calls on false expertise." },
       { slug: "antifragility-marketing", title: "Antifragility: Designing Campaigns That Gain From Disorder", level: "Intermediate", summary: "Fragile things break under stress, resilient things withstand it, antifragile things get stronger from it. How to build a marketing strategy that benefits from volatility." },
+      { slug: "regret-minimization-framework", title: "The Regret Minimization Framework", level: "Beginner", summary: "Jeff Bezos' age-80 thought experiment for making bold, irreversible calls, and why it backfires when applied to small, reversible ones." },
+      { slug: "chestertons-fence", title: "Chesterton's Fence: Don't Remove What You Don't Understand", level: "Intermediate", summary: "Why 'this looks pointless, let's cut it' is the most expensive sentence in marketing, and a framework for understanding a rule before you remove it." },
+      { slug: "via-negativa", title: "Via Negativa: Improve By Subtraction, Not Addition", level: "Intermediate", summary: "Why cutting a bad channel is usually safer than adding a new one, and how Nassim Taleb's 'via negativa' principle turns marketing improvement into a subtraction problem." },
+      { slug: "hanlons-razor", title: "Hanlon's Razor: Assume Incompetence Before Malice", level: "Beginner", summary: "Why the angry customer, the aggressive competitor, and the difficult cross-team email are usually confused, not out to get you." },
+      { slug: "map-is-not-territory", title: "The Map Is Not the Territory", level: "Intermediate", summary: "Every dashboard, persona, and dataset is a simplified stand-in for reality, not reality itself. The lesson is what happens when marketers forget the difference." },
     ],
   },
 ];

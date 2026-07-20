@@ -1,0 +1,107 @@
+export const lessonMeta = {
+  title: "Building a Single Customer View: Identity Resolution",
+  level: "Advanced",
+  summary: "Learn how deterministic and probabilistic matching stitch fragmented touchpoints into one customer profile, and why the matching method you choose is now a regulatory decision, not just a technical one.",
+};
+
+## Quick Summary
+
+- Identity resolution is the process of matching the same person across devices, cookies, emails, and offline touchpoints into one profile.
+- **Deterministic matching** uses exact identifiers (email, login, phone). High confidence, limited coverage.
+- **Probabilistic matching** uses statistical signals (IP, device fingerprint, behavior). Wide coverage, lower confidence.
+- Most mature stacks run a hybrid: deterministic first, probabilistic to fill gaps.
+- Aggressive probabilistic matching is drawing real regulatory attention in 2026, including a record $2.75M CCPA settlement over cross-device recognition.
+
+## Why a Single Customer View Even Matters
+
+A customer opens your email on their phone, clicks through on their laptop three days later, then walks into a store and pays cash. Without identity resolution, that's three strangers in three separate systems.
+
+A single customer view (SCV) merges those fragments into one profile. That profile is what lets you suppress an unsubscribed user across every channel, cap ad frequency per person instead of per device, and measure true customer lifetime value instead of session-level noise.
+
+<Callout type="info">
+A composable CDP gives you the warehouse to store a unified profile. Identity resolution is the matching logic that decides what actually gets merged into it.
+</Callout>
+
+Get this wrong and two failure modes follow. Merge too loosely and you conflate two different people, sending one person's abandoned-cart email to their roommate. Merge too strictly and you miss obvious matches, treating a returning customer as brand new every visit.
+
+## Deterministic Matching: Exact and Confident
+
+Deterministic matching links records only when an exact, verifiable identifier appears in both. Think logged-in email address, a loyalty card number, a phone number entered at checkout.
+
+The logic is simple: if identifier A in record 1 equals identifier A in record 2, they're the same person. No inference, no probability score.
+
+- **Strength**: near-zero false positives. You're matching on something the customer explicitly provided.
+- **Weakness**: coverage gaps. Anonymous browsing, guest checkout, and logged-out sessions produce no deterministic key at all.
+- **Where it wins**: post-login personalization, loyalty programs, transactional email, anywhere accuracy matters more than volume.
+
+Retailers commonly report deterministic match rates in the 20 to 40% range across all traffic, because most visitors never log in or leave an email on a given session.
+
+## Probabilistic Matching: Broad but Inferred
+
+Probabilistic matching fills that gap using statistical models instead of exact keys. It scores the *likelihood* that two records belong to the same person based on signals like IP address, browser and OS fingerprint, screen resolution, time zone, and behavioral patterns like typing cadence or navigation paths.
+
+Device fingerprinting is the workhorse technique here: combining dozens of low-entropy signals (installed fonts, WebGL rendering quirks, hardware concurrency) into a composite identifier that's often unique enough to track a device across sessions without a cookie.
+
+<Callout type="tip">
+Probabilistic matching answers "how likely," not "is it." Every vendor sets a confidence threshold, match above it, discard below it, and that threshold is a business decision with real tradeoffs.
+</Callout>
+
+The upside is coverage: probabilistic models can link 3 to 5x more sessions to a known profile than deterministic matching alone. The cost is precision, a false match sends the wrong content to the wrong person, and at scale that erodes trust quietly.
+
+## The Hybrid Approach Marketers Actually Use
+
+Neither method alone is sufficient for a real single customer view. The practical pattern is layered.
+
+1. Run deterministic matching first on every available exact identifier, this becomes your high-confidence backbone.
+2. Apply probabilistic matching only to unresolved records, using it to extend, not override, deterministic links.
+3. Set a conservative confidence threshold (commonly 90%+) before a probabilistic match writes to the profile.
+4. Re-run resolution regularly, matches strengthen as more deterministic signals accumulate over time.
+
+This is exactly how vendors like Amperity, BlueConic, and Redpoint Global structure their identity graphs: deterministic edges as ground truth, probabilistic edges as a lower-confidence supplement that never overwrites a verified match.
+
+## The Privacy Tension, and Why It's Getting Sharper in 2026
+
+Deterministic matching is relatively low-risk from a privacy standpoint, the customer gave you the identifier directly, usually with some form of consent already attached. Probabilistic matching is where regulators are focusing.
+
+Under GDPR, data used to build a device fingerprint counts as personal data because it can identify an individual, meaning explicit, informed consent is required before collecting it for advertising purposes. In the US, 20 states now have comprehensive privacy laws, with Indiana, Kentucky, and Rhode Island's taking effect January 1, 2026, and enforcement is catching up to the technology.
+
+<Callout type="warning">
+The California Attorney General secured a $2.75 million settlement with Disney in 2026, the largest CCPA enforcement action to date. The core finding: Disney could recognize consumers across devices for advertising, but opt-outs only worked on a single device. The regulator's principle was blunt, recognition architecture and rights architecture must align. If you can probabilistically match someone across devices, you must let them opt out across those same devices.
+</Callout>
+
+That single case reframes identity resolution as a compliance surface, not just a data engineering problem. Every probabilistic link you create is a link a consumer must also be able to sever.
+
+## How It Fits Together
+
+<Mermaid chart={`graph TD
+    A[Raw Touchpoints\nEmail, Login, Device, Offline] --> B{Exact Identifier\nPresent?}
+    B -->|Yes| C[Deterministic Match\nEmail, Phone, Login ID]
+    B -->|No| D[Probabilistic Match\nIP, Fingerprint, Behavior]
+    C --> E[High-Confidence Profile]
+    D --> F{Confidence Score\nAbove Threshold?}
+    F -->|Yes| E
+    F -->|No| G[Discard, Keep Separate]
+    E --> H[Single Customer View]
+    H --> I[Opt-Out Must Cover\nSame Scope as Recognition]
+`} />
+
+## Key Takeaways
+
+- Deterministic matching is exact and low-risk but leaves coverage gaps from anonymous traffic.
+- Probabilistic matching closes those gaps using statistical signals like device fingerprints, at the cost of precision.
+- A hybrid approach, deterministic backbone plus thresholded probabilistic supplementation, is the current industry standard.
+- Regulators now treat cross-device recognition and cross-device opt-out as one obligation, not two separate features.
+- Before deploying probabilistic matching, confirm your opt-out mechanism reaches every device your matching logic can link.
+
+<ResourceList resources={[
+  { title: "Identity Resolution in a CDP: Types & How It Works", url: "https://cdp.com/glossary/identity-resolution/", type: "docs", free: true, note: "CDP Institute reference on resolution methods" },
+  { title: "Deterministic vs. Probabilistic Matching Explained", url: "https://www.redpointglobal.com/blog/deterministic-probabilistic-matching-identity-resolution/", type: "article", free: true },
+  { title: "Identity Resolution: Probabilistic, Deterministic, Hybrid", url: "https://amperity.com/blog/identity-resolution-techniques-probabilistic-deterministic-hybrid", type: "article", free: true, note: "Vendor breakdown of hybrid architecture" },
+  { title: "FAQ on Identity Resolution: Navigating Privacy, Cookies, and Cross-Channel Fragmentation in 2026", url: "https://www.emarketer.com/content/faq-on-identity-resolution-navigating-privacy-cookies-cross-channel-fragmentation-2026", type: "article", free: true, note: "2026 privacy and regulatory landscape" },
+  { title: "California AG Secures Record CCPA Settlement, Cross-Device Opt-Outs Now a System-Level Obligation", url: "https://www.lowenstein.com/news-insights/publications/client-alerts/california-attorney-general-secures-record-ccpa-settlement-cross-device-opt-outs-now-a-system-level-obligation-data-privacy", type: "article", free: true, note: "$2.75M Disney settlement analysis" },
+  { title: "Device Fingerprinting Explained for 2026", url: "https://stackademic.com/blog/device-fingerprinting-explained-for-2026", type: "article", free: true },
+  { title: "The Guide to Probabilistic and Deterministic Matching in Data Science", url: "https://www.blueconic.com/resources/probabilistic-and-deterministic-matching-explained", type: "article", free: true },
+  { title: "WsCube Tech, Identity Resolution (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Identity Resolution", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Single Customer View", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />
