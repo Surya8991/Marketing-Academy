@@ -1,0 +1,57 @@
+export const lessonMeta = {
+  title: "Affiliate Payouts and Tax Compliance: 1099s and W-8BEN Forms",
+  level: "Intermediate",
+  summary: "What a US company must collect and file when paying domestic and international affiliates, including 1099-NEC thresholds and W-8BEN forms.",
+};
+
+Nobody starts an affiliate program thinking about tax forms, then a year in you're paying dozens of people across a dozen countries and realize you've built an unintentional compliance headache. Get the paperwork right early, it's far easier than fixing it after the IRS notices a gap.
+
+## The domestic case: 1099-NEC
+
+If you pay a US-based affiliate $600 or more in a calendar year by direct deposit, ACH, wire, or check, you're required to file Form 1099-NEC with the IRS and send a copy to the affiliate, with a January 31 filing deadline. That threshold is changing though: starting with the 2026 tax year, the reporting threshold rises to $2,000, so check which rule year applies before you file.
+
+Here's the part that trips people up: if you pay affiliates through PayPal or a credit-card-based processor instead of ACH or check, you generally don't file the 1099-NEC yourself. The payment processor reports that income on Form 1099-K instead, since they're the one who moved the money.
+
+- Collect a **Form W-9** from every US affiliate before their first payout, it captures their legal name, entity type, and Taxpayer ID Number
+- Track cumulative payouts per affiliate per year, not per payment, since the $600 (or $2,000 from 2026) threshold is an annual total
+- File by January 31 for the prior tax year, both to the IRS and to the affiliate
+- Late filing penalties run $60 to $310 per form, and they compound fast once you're managing a program with real scale
+
+<Callout type="warning">
+Collect the W-9 before the first payout, not after. Chasing tax paperwork from an affiliate who's already been paid is far harder than making it a gate on their onboarding flow.
+</Callout>
+
+## The international case: W-8BEN and W-8BEN-E
+
+A 1099 is a domestic US reporting requirement, it does not apply to affiliates based outside the United States. Instead, international affiliates need to complete a **W-8BEN** (for individuals) or **W-8BEN-E** (for business entities), a form that certifies their foreign status to the IRS.
+
+The W-8BEN matters for a specific reason: it determines whether you're required to withhold US tax from that affiliate's payout before it leaves your account. Depending on whether the affiliate's country has a tax treaty with the US, the default withholding rate can run as high as 30% without the form on file, or a reduced treaty rate with it.
+
+At year end, US companies furnish a **Form 1042-S** to any international affiliate who earned income, or had tax withheld, from the program during that tax year. This is the international counterpart to the domestic 1099-NEC, and skipping it is a common gap once programs expand past US borders.
+
+<Callout type="example">
+A US SaaS company runs an affiliate program with partners in India, the UK, and Brazil. Each completes a W-8BEN on signup. The UK affiliate's country has a favorable tax treaty, so no withholding applies; without a treaty in place, the company would default to withholding 30% of that affiliate's payout before sending it.
+</Callout>
+
+## Building this into your program, not bolting it on
+
+The cleanest way to handle this at scale is making tax form collection a hard gate before an affiliate's first payout clears, not a follow-up email after they've already earned commission. Most modern affiliate platforms (Refersion, Tipalti, Tax1099) can automate W-9 and W-8BEN collection and even auto-generate 1099-NEC and 1042-S filings at year end.
+
+Manually chasing tax forms from hundreds of affiliates in December is a miserable, error-prone project. Automating it at onboarding means the form is already on file long before the deadline crunch arrives.
+
+- Gate first payout behind a completed W-9 (US) or W-8BEN/W-8BEN-E (international)
+- Use a platform that auto-classifies affiliates by country and routes the correct form
+- Reconcile payout totals against filed 1099/1042-S amounts each January, not after a mismatch surfaces
+- Consult a tax professional once your program crosses into multiple countries, treaty rules vary enough that generic advice stops being reliable
+
+Getting this system built once means every future affiliate just flows through it. That's the whole point, compliance should be infrastructure, not an annual fire drill.
+
+<ResourceList resources={[
+  { title: "Do You Need to Send a 1099 to Your Affiliates? Tax Rules for DTC Brands", url: "https://www.referralcandy.com/blog/do-you-need-to-send-a-1099-to-your-affiliates-tax-rules-for-dtc-brands-in-2025", type: "article", free: true },
+  { title: "Affiliate Tax Compliance Made Easy: W-9, W-8BEN and Beyond", url: "https://www.i-payout.com/blog/affiliate-tax-compliance-made-easy-w-9-w-8ben-and-beyond", type: "article", free: true },
+  { title: "Automating Affiliate Taxes: W9s, 1099s for Affiliates", url: "https://blog.goaffpro.com/automating-affiliate-taxes-how-to-handle-w9-1099-forms/", type: "article", free: true },
+  { title: "IRS Instructions for Form W-8BEN", url: "https://www.irs.gov/forms-pubs/about-form-w-8-ben", type: "docs", free: true },
+  { title: "WsCube Tech, Affiliate Tax Compliance (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Affiliate Tax Compliance", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Affiliate Tax Compliance", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

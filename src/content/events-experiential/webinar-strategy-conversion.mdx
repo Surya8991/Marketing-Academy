@@ -1,0 +1,68 @@
+export const lessonMeta = {
+  title: "Webinar Strategy: Filling Seats and Turning Them Into Pipeline",
+  level: "Intermediate",
+  summary: "How to pick the right webinar format, promote it so people actually show up, and convert attendees into real pipeline instead of vanity registration numbers.",
+};
+
+Most teams treat "we ran a webinar" as a success metric. It isn't. A webinar with 800 registrants and 40 attendees who never hear from you again is a worse outcome than 150 registrants, 90 attendees, and 12 real sales conversations.
+
+The gap between registration and attendance is where most webinar programs quietly fail, and it's the first thing worth fixing.
+
+## Pick the format before you pick the topic
+
+Live vs. on-demand isn't a technical detail, it changes what the webinar can do for you. Live webinars create urgency and let you run real Q&A, which builds trust faster than any pre-recorded video can. On-demand content scales infinitely and captures leads on their own schedule, but it converts colder because there's no shared moment of attention.
+
+Panel vs. solo matters just as much. A single expert speaking builds authority and is easy to produce. A panel of 3-4 voices, especially with a customer or an outside analyst, adds social proof and multiple angles, but it needs more coordination and a stronger moderator to keep it from sprawling.
+
+<Callout type="tip">
+Match format to funnel stage. Top-of-funnel education works well on-demand and evergreen. Late-stage, buying-committee content (a product deep dive, a Q&A with your VP of Product) performs better live, because the urgency pulls in the people who are actually close to a decision.
+</Callout>
+
+## Getting people to actually show up
+
+Registration is easy to inflate with ads. Attendance is the number that actually matters, and industry data shows why: registration-to-attendance rates typically land between 40% and 57% for B2B webinars, with the median around 42-46% across recent large-scale analyses. That means over half of your "registrants" were never going to show up on their own.
+
+The lift comes from reminder sequencing, not from a bigger registration list. Organizations running a structured 3-touch reminder sequence (email plus SMS, personalized to the registrant) have pushed attendance from the roughly 56% industry average up to 71%, a 27% relative lift, simply by reminding people better.
+
+A few tactics consistently move that number:
+
+- **Confirm immediately, remind at 24 hours, remind at 1 hour.** Three touches, not one calendar invite and silence.
+- **Ask a question at registration** ("What's your biggest challenge with X?") and reference answers live. It gives registrants a reason to actually attend, not just register and forget.
+- **Promote through the presenter's own network**, not just your brand's list. A speaker sharing to their LinkedIn consistently outperforms a company post with the same reach.
+- **Keep the registration form to 3-4 fields.** Every extra field is measurable drop-off, and the leads you gain from a shorter form outnumber the ones you lose from "lower intent."
+
+Do these well and attendance becomes a controllable number, not a coin flip.
+
+## Turning attendance into pipeline
+
+The webinar itself is not the conversion event, what happens in the 48 hours after is. Sales needs to know who asked a buying-signal question, who stayed for the full session, and who dropped at minute six, that's three different follow-up conversations, not one generic "thanks for attending" email.
+
+<Mermaid chart={`graph LR
+A[Registered] --> B[Attended live]
+A --> C[No-show]
+B --> D[High engagement: Q or poll response]
+B --> E[Passive attendee]
+D --> F[Sales follow-up within 24h]
+E --> G[Nurture: on-demand link + related content]
+C --> G`} />
+
+Score engagement, not just attendance. Someone who asked a pointed question about pricing or implementation is a different lead than someone who had the tab open in the background. Route the first group to sales fast, keep the second in nurture with the recording and a related asset.
+
+<Callout type="example">
+A common pattern that works: sales gets a Slack alert for anyone who asks a question flagged as buying-intent (pricing, timeline, integration) during the live Q&A, with a follow-up SLA of same business day. Everyone else gets an automated recording email and enters a nurture track, no manual triage needed.
+</Callout>
+
+Repurpose the recording too. A 45-minute webinar becomes 4-5 short clips, a blog recap, and a slide deck, each with its own smaller registration or gated-content flow, extending the pipeline value of one hour of production far past the live date.
+
+The teams that treat webinars as a pipeline channel, not a content checkbox, are the ones measuring cost-per-opportunity from these events instead of just registration counts. That's the shift worth making.
+
+<ResourceList resources={[
+  { title: "ON24 2025 Webinar Benchmarks Report", url: "https://www.on24.com/blog/key-takeaways-from-the-2025-webinar-benchmarks-report/", type: "article", free: true },
+  { title: "Webinar Statistics 2026: Attendance and Conversion Data", url: "https://www.digitalapplied.com/blog/webinar-statistics-2026-attendance-conversion-data", type: "article", free: true },
+  { title: "GoTo Webinar Best Practices Guide", url: "https://www.goto.com/webinar/resources", type: "docs", free: true },
+  { title: "HubSpot Academy: Webinar Marketing", url: "https://academy.hubspot.com/", type: "course", free: true },
+  { title: "Wistia: How to Repurpose a Webinar", url: "https://wistia.com/learn/marketing", type: "article", free: true },
+  { title: "WsCube Tech, Webinar Marketing Strategy (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Webinar Marketing Strategy", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Webinar Marketing Strategy", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

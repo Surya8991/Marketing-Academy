@@ -1,0 +1,81 @@
+export const lessonMeta = {
+  title: "Unsubscribe Mechanics: What the Law Actually Requires",
+  level: "Intermediate",
+  summary: "The real technical requirements CAN-SPAM, GDPR, and CASL impose on the unsubscribe process, and the common violations companies commit without realizing it.",
+};
+
+Every marketer knows emails need an unsubscribe link. Fewer know that the mechanics behind that link, how many clicks, how fast it processes, whether it requires a login, are separately regulated and separately enforced.
+
+This is the lesson on the plumbing, not the principle.
+
+## CAN-SPAM: the US floor, not the ceiling
+
+CAN-SPAM sets the baseline for any commercial email sent to US recipients, and its rules are more specific than most teams assume.
+
+- The opt-out mechanism must work for at least **30 days after** the email was sent.
+- You have **10 business days** to actually stop emailing someone after they opt out, not 10 days to acknowledge the request.
+- Recipients **cannot be charged a fee**, required to give more than an email address, or forced to take any step beyond a single reply or one webpage visit.
+- **B2B commercial email is covered too**, "just business" isn't an exemption.
+
+<Callout type="warning">
+Penalties reach roughly $53,088 per violating email, and "per email" is doing a lot of work in that sentence. Send one non-compliant campaign to 50,000 people and the theoretical exposure is enormous, which is exactly why the two enforcement cases below settled instead of going to trial.
+</Callout>
+
+## The one-click standard nobody wrote into CAN-SPAM
+
+Here's the part that trips people up: CAN-SPAM itself never mandated a literal "one click" unsubscribe, it required something reasonably easy. Mailbox providers filled that gap themselves.
+
+In February 2024, Google and Yahoo rolled out bulk-sender requirements that made one-click unsubscribe functionally mandatory for anyone sending real volume. Any sender pushing more than 5,000 emails a day to Gmail addresses must support one-click unsubscribe via the List-Unsubscribe header, with the link visible in both the header and the message body.
+
+Outlook and other major providers have followed the same pattern since. Miss this and your consequence isn't a lawsuit, it's your email landing in spam or getting throttled entirely, which is a faster and more common penalty than any FTC action.
+
+<Callout type="info">
+As of October 10, 2024, unsubscribe links generated under these newer bulk-sender frameworks expire six months after creation. A stale, hard-coded unsubscribe link in an old template can quietly stop working, itself a compliance gap if you're still sending against that template.
+</Callout>
+
+## GDPR and CASL: stricter siblings
+
+If your list includes EU or Canadian recipients, CAN-SPAM's floor isn't enough.
+
+- **GDPR** treats withdrawal of consent as a right that must be "as easy as" giving it. If someone opted in with one click, opting out behind a login wall or multi-step form is itself a violation, independent of any email-specific rule.
+- **CASL** (Canada's Anti-Spam Law) requires the unsubscribe mechanism to work at **no cost** and be processed within **10 business days**, mirroring CAN-SPAM's timeline but applying it to a broader definition of "commercial electronic message" that includes some SMS and social messaging.
+- Both regimes expect the opt-out option to be **clearly and prominently displayed**, not buried in six-point grey font at the very bottom.
+
+<Callout type="tip">
+If you serve a global list, build to the strictest applicable standard by default rather than maintaining separate templates per region. It's less engineering overhead and it protects you from misclassifying a recipient's location.
+</Callout>
+
+## Violations companies commit without realizing it
+
+These aren't exotic edge cases, they show up in real enforcement actions.
+
+- **Requiring login to unsubscribe.** If someone has to remember a password to opt out of marketing email, that's an extra step CAN-SPAM and GDPR both prohibit.
+- **"Update preferences" instead of a true opt-out.** A preference center that only lets users downgrade frequency, with no "stop all marketing" option, doesn't satisfy the legal requirement.
+- **Processing delay past 10 business days.** Some ESPs batch-process unsubscribes weekly; if that batch cycle exceeds 10 business days, you're non-compliant even if the intent was there.
+- **Misleading subject lines that discourage opting out**, telling users an email "contains important account information" when it's actually promotional.
+
+<Callout type="example">
+In August 2024, the FTC and DOJ fined Verkada $2.95 million, the largest CAN-SPAM penalty on record, for sending over 30 million marketing emails over three years without functioning opt-out mechanisms and without honoring unsubscribe requests. A year earlier, Experian Consumer Services paid $650,000 for emails that lacked a working unsubscribe link and used misleading "account information" framing to discourage opt-outs, exactly the pattern above.
+</Callout>
+
+## A quick self-audit
+
+Run this against your current email program this week, not after the next campaign.
+
+- Click your own unsubscribe link from a real inbox, does it work in one click, no login?
+- Time how long it takes for a test opt-out to actually stop emails, is it under 10 business days?
+- Check whether your ESP supports the List-Unsubscribe header for Gmail and Yahoo compliance.
+- Confirm your preference center has a true "stop everything" option, not just frequency tiers.
+
+Unsubscribe compliance is one of the cheapest fixes in marketing law, mostly configuration, not litigation. Get it right once and it stays right.
+
+<ResourceList resources={[
+  { title: "FTC: CAN-SPAM Act Compliance Guide for Business", url: "https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business", type: "docs", free: true },
+  { title: "FTC Blog: Businesses Can't Unsubscribe from CAN-SPAM Compliance", url: "https://www.ftc.gov/business-guidance/blog/2023/08/when-sending-commercial-email-businesses-cant-unsubscribe-can-spam-compliance", type: "article", free: true },
+  { title: "Google/Yahoo Bulk Sender Requirements (One-Click Unsubscribe)", url: "https://support.google.com/a/answer/81126", type: "docs", free: true },
+  { title: "CASL Requirements for Commercial Electronic Messages", url: "https://crtc.gc.ca/eng/com500/guide.htm", type: "docs", free: true },
+  { title: "Katten: What the FTC's Click-to-Cancel Rule Means for Retailers", url: "https://katten.com/unsubscribe-what-the-ftcs-click-to-cancel-rule-means-for-retailers-and-consumers", type: "article", free: true },
+  { title: "WsCube Tech, Unsubscribe Compliance Rules (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Unsubscribe Compliance Rules", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Unsubscribe Compliance Rules", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

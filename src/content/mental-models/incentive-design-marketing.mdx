@@ -1,0 +1,60 @@
+export const lessonMeta = {
+  title: "Incentive Design in Marketing",
+  level: "Intermediate",
+  summary: "Charlie Munger's 'show me the incentive, I'll show you the outcome' explains why sales comp plans, agency fees, and affiliate payouts quietly produce behavior nobody wanted.",
+};
+
+Charlie Munger, Warren Buffett's longtime partner at Berkshire Hathaway, kept a one-line rule for predicting how any system will actually behave: "show me the incentive, and I'll show you the outcome." Not the mission statement, not the values deck, the incentive.
+
+His favorite proof of it was Xerox. Early on, Joe Wilson noticed Xerox's better, newer copier was selling worse than its inferior older model. The reason wasn't the product, it was the commission structure: salesmen earned more selling the older machine, so that's what they sold ([Kyle James, "Show Me the Incentive"](https://kylejameslearn.substack.com/p/show-me-the-incentive-the-simple)). The sales team wasn't sabotaging the company. They were following the incentive exactly as designed.
+
+## The pattern shows up everywhere in marketing
+
+Marketing runs on incentive structures nearly as often as sales does, and most of them were never stress-tested for what they'd actually reward.
+
+Take a commission plan built around total revenue with reps holding price discretion: the predictable result is reps racing to the lowest allowed price to close volume, revenue spikes, and profit tanks, exactly the trap Munger's framework predicts ([Kyle James](https://kylejameslearn.substack.com/p/show-me-the-incentive-the-simple)). Nobody designed that outcome on purpose. The comp plan designed it for them.
+
+Three marketing-specific versions of the same trap:
+
+- **Agency fee structures** billed on hours worked incentivize slower work, not better work, because the agency's revenue depends on the clock, not the outcome.
+- **Affiliate payouts** based purely on click-through or last-touch attribution invite exactly the fraud you'd expect: PayPal's Honey extension was found in December 2024 to be quietly swapping out legitimate creators' affiliate cookies for its own at checkout, redirecting commissions that weren't earned ([Affiverse](https://www.affiversemedia.com/cookie-stuffing-explained-from-ebays-28-million-fraud-case-to-paypal-honeys-browser-extension-scandal/)). Industry-wide, an estimated 17% of affiliate traffic is fraudulent, costing businesses roughly $3.4 billion a year.
+- **Growth team OKRs** tied to top-of-funnel signups reward volume, so the team ships every dark-pattern trick that inflates signups, even when it tanks activation downstream.
+
+None of these people are villains. They're rational actors reading the incentive correctly.
+
+<Callout type="info">
+Munger's point wasn't cynicism about people, it was realism about systems. Assume competence and self-interest, then ask what the incentive actually rewards.
+</Callout>
+
+## Reading a comp plan like Munger would
+
+Before you launch any incentive structure, whether it's an affiliate program, an agency contract, or a bonus tied to a KPI, run it through one question: **if someone optimized ruthlessly for this exact metric and nothing else, what would they do?**
+
+Try it on a few common structures:
+
+- Pay affiliates on last-click conversion only → reward cookie-stuffing and coupon-site poaching over genuine influence.
+- Pay agencies for hours billed → reward slow, padded work over efficient work.
+- Pay SDRs on meetings booked, not meetings held → reward booking junk meetings that no-show.
+
+The fix isn't "trust people to do the right thing." The fix is closing the loophole before it opens.
+
+## Designing the incentive, not patching the outcome
+
+Once you can see the loophole, redesign around it instead of policing it after the fact.
+
+- **Pay for the outcome you actually want**, not the easiest-to-measure proxy for it. Affiliate commissions weighted toward verified new-customer revenue, not raw clicks.
+- **Cap the downside of gaming it.** A revenue-based sales bonus with a minimum-margin floor closes the "sell at any price" loophole Xerox and the discount-racing example both hit.
+- **Audit quarterly**, not once at launch. Incentive structures decay as people find the gaps; what worked in January can be exploited by June.
+
+Every incentive structure is a message about what actually matters, whatever your mission statement says. Read your own comp plans the way Munger read Xerox's, and you'll usually find the outcome before it happens.
+
+<ResourceList resources={[
+  { title: "Show Me the Incentive: The Simple Cheat Code Charlie Munger Left Us", url: "https://kylejameslearn.substack.com/p/show-me-the-incentive-the-simple", type: "article", free: true },
+  { title: "Cookie Stuffing Explained: From eBay's $28 Million Fraud Case to PayPal Honey's Scandal", url: "https://www.affiversemedia.com/cookie-stuffing-explained-from-ebays-28-million-fraud-case-to-paypal-honeys-browser-extension-scandal/", type: "article", free: true },
+  { title: "The Dark Side of Sales, Bottom Up by David Sacks", url: "https://sacks.substack.com/p/the-dark-side-of-sales", type: "article", free: true },
+  { title: "Poor Charlie's Almanack, Charlie Munger's collected wisdom", url: "https://www.poorcharliesalmanack.com/", type: "docs", free: false },
+  { title: "How to structure affiliate commissions to avoid fraud", url: "https://www.anura.io/blog/how-to-fight-cookie-stuffing-within-affiliate-fraud", type: "article", free: true },
+  { title: "WsCube Tech, Incentive Design in Marketing (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Incentive Design in Marketing", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Incentive Design in Marketing", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

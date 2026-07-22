@@ -1,0 +1,73 @@
+export const lessonMeta = {
+  title: "AI Training Data, Copyright, and What Marketers Should Watch",
+  level: "Intermediate",
+  summary: "AI-generated marketing assets carry real, unresolved copyright risk, here's what the current litigation means for marketers and how to think about indemnification and provenance.",
+};
+
+Your AI-generated hero image looks perfect. Nobody can yet tell you with certainty whether it's legally clean.
+
+That's not scaremongering, it's the actual state of the law in 2026. Multiple major lawsuits over AI training data are still working through courts, the legal theories are genuinely unsettled, and marketers using AI-generated images and copy are sitting downstream of that uncertainty whether they realize it or not.
+
+## The litigation landscape marketers should actually track
+
+Two cases matter most for anyone using AI-generated marketing assets. Getty Images sued Stability AI over training Stable Diffusion on Getty's licensed photo library; in a UK High Court judgment published November 4, 2025, the court largely rejected Getty's core copyright infringement claims, ruling the AI model's weights didn't contain or store an actual copy of Getty's images, though it did find narrow, "historic and limited" trademark infringement (Mayer Brown, Bird & Bird analysis, November 2025).
+
+That outcome sounds like a win for AI companies, but it resolved one specific legal theory under UK law, not the broader question everywhere. The New York Times v. OpenAI case, still active in US federal court, is proceeding on different legal grounds and a different jurisdiction; as of late 2025, the court denied motions to dismiss key claims and ordered significant discovery, with summary judgment briefing expected into 2026 (legal trackers including Mesh IP Law and McKool Smith).
+
+<Callout type="warning">
+Getty lost its main UK copyright claim against Stability. That does not mean AI-generated content is now legally settled as copyright-clean in the US or anywhere else, different courts, different laws, different facts.
+</Callout>
+
+## Two separate risks marketers actually carry
+
+It helps to split the risk into two distinct questions, because they have different answers and different mitigations.
+
+**Can you even own copyright in the AI output?** The US Copyright Office has consistently held that purely AI-generated content, with no meaningful human creative input, isn't eligible for copyright protection at all. That means a fully AI-generated hero image might not be protectable as your asset, competitors could theoretically reuse it, even setting aside training-data questions entirely.
+
+**Did the AI's training data infringe someone else's copyright, and does that expose you as a user?** This is the Getty/NYT-style question, and it's the one still being litigated. If a court eventually finds that a specific model's outputs constitute infringing derivative works, downstream commercial users of those outputs could face exposure too, though the legal theory for user liability (versus the AI company's liability) remains largely untested.
+
+Neither question has a clean, final answer yet. That's exactly why contract terms matter more right now than legal certainty.
+
+## Indemnification: read the clause, don't assume it
+
+Several major AI vendors, including Microsoft, Adobe, and Google, now offer some form of "Copyright Shield" or indemnification commitment covering enterprise customers who get sued over AI-generated output. These commitments are real and worth having, but they come with conditions that marketers routinely skip reading.
+
+- Check whether the indemnification covers the specific product tier you're actually using, free and consumer tiers are frequently excluded
+- Check whether it requires you to have used built-in safety/content filters, turning those off can void coverage
+- Check whether it covers only the AI company's own training data claims, or broader third-party IP claims generally
+- Check the cap on liability, some indemnification clauses have dollar limits far below realistic litigation costs
+
+A vendor's marketing page saying "we indemnify you" is not the same as the actual contract language your legal team needs to review before you scale AI asset production.
+
+<Callout type="tip">
+Keep a simple internal log: which AI tool generated which asset, on what date, under what plan tier, and whether indemnification applied. If a claim surfaces two years from now, you will not remember which of your 40 AI tools produced the image in question.
+</Callout>
+
+## Provenance: the practical mitigation available today
+
+Provenance, being able to show where an asset came from and how it was made, is becoming the practical middle ground while the law catches up. The Coalition for Content Provenance and Authenticity (C2PA) standard, backed by Adobe, Microsoft, and others, embeds metadata showing an asset's generation history.
+
+For marketers, the practical version of provenance discipline is simpler than adopting a full standard: keep records of which tool generated each asset, whether it was substantially human-edited afterward (which strengthens your own copyright claim to it), and whether any human-created reference material was used as input. This record-keeping does two things: it supports an indemnification claim if you ever need one, and it gives you an answer when a client or platform asks "was this AI-generated."
+
+Treat provenance record-keeping the way you'd treat stock photo licensing records, boring, unglamorous, and exactly what you need the one time it matters.
+
+## What this means for how you brief AI tools
+
+Until the litigation settles, the lowest-risk approach isn't avoiding AI tools, it's using them deliberately. Favor enterprise-tier tools with real indemnification, keep meaningful human creative input in the final asset (supporting your own copyright claim), and avoid prompting tools to mimic a specific living artist's style or reproduce recognizable branded characters, the areas where infringement claims are strongest regardless of how the training-data cases resolve.
+
+That approach doesn't eliminate risk, nothing currently does. It puts you in the most defensible position available while courts work out the rest.
+
+## The takeaway
+
+The Getty v. Stability ruling and the ongoing NYT v. OpenAI case show the law is moving, not settled. Read your AI vendor's actual indemnification terms, keep basic provenance records, and keep real human creative input in what you publish, that's the realistic risk management available today.
+
+<ResourceList resources={[
+  { title: "Copyright Alliance: AI Copyright Lawsuit Developments in 2025", url: "https://copyrightalliance.org/ai-copyright-lawsuit-developments-2025/", type: "article", free: true },
+  { title: "Mayer Brown: Getty Images v Stability AI, What the Ruling Means", url: "https://www.mayerbrown.com/en/insights/publications/2025/11/getty-images-v-stability-ai-what-the-high-courts-decision-means-for-rights-holders-and-ai-developers", type: "article", free: true },
+  { title: "US Copyright Office, Copyright and Artificial Intelligence", url: "https://www.copyright.gov/ai/", type: "docs", free: true },
+  { title: "C2PA, Coalition for Content Provenance and Authenticity", url: "https://c2pa.org/", type: "docs", free: true },
+  { title: "Mesh IP Law, NYT v. OpenAI Litigation Tracker", url: "https://www.meshiplaw.com/litigation-tracker/new-york-times-microsoft", type: "article", free: true },
+  { title: "WsCube Tech, AI Copyright for Marketers (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, AI Copyright for Marketers", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, AI Copyright for Marketers", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

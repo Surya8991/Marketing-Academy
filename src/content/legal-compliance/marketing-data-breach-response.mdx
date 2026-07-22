@@ -1,0 +1,67 @@
+export const lessonMeta = {
+  title: "Marketing's Role in Data Breach Response",
+  level: "Intermediate",
+  summary: "What marketing and comms specifically own when a data breach happens, and why the notification letter can matter as much as the patch.",
+};
+
+When a breach hits, security patches the hole. Marketing writes the words that decide whether customers ever trust you again.
+
+That split is real and it is legally load-bearing. Security owns forensics, containment, and root cause. Marketing and comms own the notification copy, the timing of public disclosure, the press response, and the slow work of rebuilding trust afterward. Confusing the two roles is how companies end up either silent when the law requires speed, or loud when the law requires precision.
+
+## The clock starts before you're ready
+
+Every US state now requires notification when a breach exposes personal information, but the deadlines vary sharply. The FTC's guidance is blunt: notify affected individuals, law enforcement, and other businesses "without unreasonable delay" once you know what happened (FTC, *Data Breach Response: A Guide for Business*). California requires notice "in the most expedient time possible and without unreasonable delay," with a hard 45-day outer limit for CCPA-covered breaches.
+
+Marketing rarely controls this clock, but marketing usually drafts what goes out when it strikes. That means comms needs a pre-approved notification template sitting in a drawer before a breach ever happens, not a blank page during a crisis.
+
+- Legal confirms what must legally be disclosed and by when
+- Security confirms what actually happened, in plain language marketing can use
+- Marketing turns that into a notice a non-technical customer can actually read
+
+<Callout type="warning">
+Do not let engineering or legal draft the customer-facing notice alone. A technically accurate letter that reads like a courtroom filing increases customer anxiety and erodes trust faster than a clear, human one.
+</Callout>
+
+## What the notification copy must actually contain
+
+Most state breach laws specify required content, and marketing needs to hit every element without turning the letter into a wall of legalese. The consistent baseline across states: what happened, when it happened, what categories of data were involved, and what the company is doing about it.
+
+Skip vague reassurance like "we take your privacy seriously." Replace it with concrete, checkable facts: what data was and wasn't exposed, what monitoring or credit protection is being offered, and a real phone number or email a person can use today.
+
+One sentence of jargon is one sentence too many. If the security team's summary uses "unauthorized lateral movement" or "exfiltration," marketing's job is translating that into "someone accessed our system without permission and copied some customer records."
+
+This is the moment your notification copy either builds credibility or torches it, so write it like you're talking to one worried customer, not a regulator.
+
+## Timing is a legal decision, not a PR decision
+
+Marketing does not get to decide when to go public. That call belongs to legal, working from statutory deadlines and any active law enforcement investigation delay (many state laws allow a documented delay if disclosure would impede a criminal investigation).
+
+What marketing does control is the sequencing once the "go" signal is given: press statement, customer email, website banner, and social response should ideally land within the same window, not staggered over days while customers find out from a news outlet first. A 2024 IBM Cost of a Data Breach report pegged the global average breach cost at $4.88 million, and reputational damage from mishandled disclosure is a meaningful chunk of that figure, separate from the direct remediation cost.
+
+Get the sequencing plan agreed with legal and security in advance, so nobody is improvising a press strategy at 2am.
+
+## Rebuilding trust is a marketing project, not a one-time email
+
+The notification letter is day one. What customers actually remember is what the company does in the following weeks and whether promises made in the crisis were kept.
+
+Concrete follow-through beats messaging every time: did the promised credit monitoring actually activate, did the support line have wait times under ten minutes, did the company publish a plain-English post-mortem once the investigation closed. Target's 2013 breach and its aftermath is still taught as the textbook case: slow initial disclosure and shifting numbers hurt more than the breach itself.
+
+Trust rebuilding is measured in actions customers can verify, not adjectives in a follow-up email.
+
+<Callout type="tip">
+Draft two versions of every breach template: a "confirmed, limited scope" version and a "confirmed, scope still under investigation" version. Waiting for perfect information before saying anything is itself a compliance risk.
+</Callout>
+
+## The takeaway
+
+Security stops the bleeding. Marketing and legal decide whether the patient trusts the hospital again. Build the notification template, the sequencing plan, and the follow-through checklist before you need them, because during an actual breach there is no time to write from scratch.
+
+<ResourceList resources={[
+  { title: "FTC: Data Breach Response, A Guide for Business", url: "https://www.ftc.gov/business-guidance/resources/data-breach-response-guide-business", type: "docs", free: true },
+  { title: "IBM Cost of a Data Breach Report", url: "https://www.ibm.com/reports/data-breach", type: "article", free: true },
+  { title: "State data breach notification laws overview, Prey Project", url: "https://preyproject.com/blog/data-breach-notification-laws-an-overview-of-global-regulations", type: "article", free: true },
+  { title: "NIST Computer Security Incident Handling Guide", url: "https://csrc.nist.gov/pubs/sp/800/61/r2/final", type: "docs", free: true },
+  { title: "WsCube Tech, Data Breach Response (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Data Breach Response", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Data Breach Response", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />
