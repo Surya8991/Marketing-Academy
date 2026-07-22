@@ -22756,6 +22756,303 @@ export const QUIZZES: Record<string, Quiz[]> = {
     },
   ],
 
+  "pr-communications/analyst-relations": [
+    {
+      question: "According to the lesson, how do Gartner and Forrester briefing lead times typically compare?",
+      options: ["Gartner is 2-3 months, Forrester is 3-4 weeks", "Both take about 1 week", "Forrester is 2-3 months, Gartner is 3-4 weeks", "Both require a signed contract before scheduling"],
+      correct: 0,
+      explanation: "The lesson states Gartner briefings typically take 2 to 3 months to schedule due to selectivity, while Forrester moves faster at 3 to 4 weeks.",
+    },
+    {
+      question: "What does the lesson recommend sending 48 hours before a briefing?",
+      options: ["A signed NDA", "A 3 to 5 page pre-read with an executive summary, product overview, customer outcomes, and roadmap highlights", "A full slide deck of over 50 slides", "Nothing, briefings should be a surprise"],
+      correct: 1,
+      explanation: "The lesson describes sending a concise 3 to 5 page pre-read 48 hours in advance as a widely cited AR best practice.",
+    },
+    {
+      question: "Why does the lesson say Gartner's strict character limit on briefing requests is 'a feature, not a bug'?",
+      options: ["It reduces Gartner's workload", "It forces the same evidence-led discipline needed in the actual briefing", "It prevents vendors from mentioning competitors", "It guarantees a faster response time"],
+      correct: 1,
+      explanation: "The lesson argues the tight constraint forces vendors to lead with evidence and differentiation, the same discipline the briefing itself demands.",
+    },
+    {
+      question: "What does the lesson identify as the real long-term payoff of consistent analyst relations work?",
+      options: ["A signed licensing deal with the analyst firm", "Analysts referencing your company unprompted in client calls you never hear directly", "A guaranteed top ranking in every report", "Free advertising placements from the analyst firm"],
+      correct: 1,
+      explanation: "The lesson states that once an analyst trusts your data, they start referencing you unprompted in calls you'll never hear, which is the real payoff of quarterly consistency.",
+    },
+  ],
+
+  "pr-communications/online-reputation-management": [
+    {
+      question: "According to the 2025 Forrester Research survey cited in the lesson, what percentage of consumers rarely scroll past the first page of Google?",
+      options: ["41%", "54.4%", "82%", "27.6%"],
+      correct: 2,
+      explanation: "The lesson cites Forrester's 2025 finding that 82% of consumers rarely scroll past page one, which is why first-page rankings matter so much.",
+    },
+    {
+      question: "What is the key difference between 'suppression' and 'removal' in online reputation management?",
+      options: ["Suppression deletes the content permanently while removal just hides it temporarily", "Suppression pushes unwanted content down in rankings with stronger content, while removal means getting the content taken down entirely", "Suppression only works on social media while removal only works on news sites", "There is no meaningful difference, the terms are interchangeable"],
+      correct: 1,
+      explanation: "The lesson defines suppression as out-ranking negative content with stronger content, while removal means the content is taken down entirely, which is much harder to achieve.",
+    },
+    {
+      question: "Why do LinkedIn, X, Facebook, and YouTube profiles tend to rank highly for brand-name searches?",
+      options: ["Because companies pay these platforms for guaranteed top placement", "Because Google penalizes any competitor content automatically", "Because search engines trust established, high-authority domains, and these platforms already have that authority", "Because these platforms remove all negative reviews automatically"],
+      correct: 2,
+      explanation: "The lesson explains that social profiles rank well because search engines favor established, high-authority domains, giving brands an easy way to claim page-one real estate.",
+    },
+    {
+      question: "Why does the lesson warn against fake reviews or paid link farms as a way to fix a damaged reputation?",
+      options: ["They are more expensive than legitimate content strategies", "They work well short-term but are illegal in most countries", "Google's spam guidelines penalize manipulative link schemes, which can tank a domain's entire ranking", "They only work for AI search tools, not traditional Google search"],
+      correct: 2,
+      explanation: "The lesson's Callout warns that manipulative tactics violate Google's spam guidelines and can cause broader ranking damage than the original problem.",
+    },
+  ],
+
+  "pr-communications/internal-communications": [
+    {
+      question: "According to Axios HQ's 2025 report, why is internal communications considered a PR discipline rather than just an HR function?",
+      options: ["It focuses only on employee benefits and policy documents", "It shapes the narrative and beliefs employees carry outward, affecting company reputation", "It reports directly to the legal department", "It only matters during a crisis"],
+      correct: 1,
+      explanation: "Internal comms shapes what employees believe and say about the company, which leaks into public perception, making it a core reputation function like other PR work.",
+    },
+    {
+      question: "What did Axios HQ's 2025 data reveal about the gap between leaders and employees on goal alignment?",
+      options: ["Both groups agreed at similar rates around 50%", "27% of leaders believe staff are aligned, but only 9% of employees agree", "Employees rated alignment higher than leaders did", "There was no measurable gap"],
+      correct: 1,
+      explanation: "The lesson cites a sharp perception gap: 27% of leaders think employees are aligned versus only 9% of employees who agree.",
+    },
+    {
+      question: "Per the lesson, what is the most effective step to take before pushing major news through official channels?",
+      options: ["Skip managers entirely and email all employees directly", "Brief managers first with talking points since employees trust them most", "Wait until employees ask questions before responding", "Post it only on the intranet"],
+      correct: 1,
+      explanation: "Manager communication enablement is a top priority because managers are the most trusted source of information, so briefing them first prevents them from being caught off guard.",
+    },
+    {
+      question: "What is the recommended approach to handling difficult topics like AI adoption or return-to-office mandates internally?",
+      options: ["Stay silent until a final decision is made", "Share a short, honest update on what is known and not yet known", "Only address it if a journalist asks about it", "Delegate the topic entirely to HR without comms involvement"],
+      correct: 1,
+      explanation: "The lesson argues silence gets filled with rumor, so a brief honest acknowledgment of uncertainty builds more trust than saying nothing.",
+    },
+  ],
+
+  "pr-communications/executive-media-tours": [
+    {
+      question: "What is the most common mistake companies make when planning an executive media tour?",
+      options: ["Booking too few shows overall", "Optimizing for download counts instead of audience fit", "Spending too much time on prep", "Using video instead of audio podcasts"],
+      correct: 1,
+      explanation: "Industry guidance stresses matching shows to your specific target audience rather than chasing the biggest download numbers, since a smaller, well-matched audience converts better than a large mismatched one.",
+    },
+    {
+      question: "According to the lesson, what should an executive have prepared before starting a media tour, beyond a standard bio?",
+      options: ["A list of competitor weaknesses", "A point-of-view document with defensible opinions backed by real examples", "A script to read verbatim on every show", "A list of every award the company has won"],
+      correct: 1,
+      explanation: "A point-of-view document with 3-5 defensible opinions, each backed by a real example or number, prepares a leader to sound authentic and specific rather than vague or scripted.",
+    },
+    {
+      question: "How should a media tour typically be sequenced?",
+      options: ["Start with the biggest national outlets first to build credibility fast", "Book every available show simultaneously with no order", "Start with smaller, friendlier shows and graduate to higher-profile placements", "Only pursue panels, skip podcasts entirely"],
+      correct: 2,
+      explanation: "Tours work best as a rolling campaign: start with warm-up shows to build reps and refine the story, then move to mid-tier and flagship placements as the pitch tightens.",
+    },
+    {
+      question: "Why is repurposing a podcast appearance into clips, blog posts, and quotes important?",
+      options: ["It is required by most podcast hosts as a condition of appearing", "It replaces the need for measuring inbound inquiries", "The interview is the most expensive part of the tour, and repurposing extends its value across channels", "It automatically increases the show's download count"],
+      correct: 2,
+      explanation: "Because the recording itself is costly in executive time and prep, treating it as raw material for clips, blog posts, and quotes lets one appearance generate ongoing value long after the episode airs.",
+    },
+  ],
+
+  "pr-communications/newsjacking": [
+    {
+      question: "What is the core difference between newsjacking and trend-chasing?",
+      options: ["Newsjacking only works on Twitter", "Newsjacking earns media coverage or expert positioning by adding real insight to a story, while trend-chasing just rides a meme for laughs", "Trend-chasing requires legal approval and newsjacking does not", "Newsjacking only applies to crisis situations"],
+      correct: 1,
+      explanation: "Newsjacking adds genuine insight or utility to an active news story, which is why it earns coverage; trend-chasing is lighter and mostly aims for engagement.",
+    },
+    {
+      question: "In the Omnisend example during the 2025 UK retailer cyberattacks, what made the newsjacking effective?",
+      options: ["Omnisend was the largest ecommerce platform in the UK", "Omnisend paid for placement in The Scotsman and Your Money", "Omnisend moved quickly with expert commentary while the story was still breaking", "Omnisend ran a paid ad campaign referencing the attacks"],
+      correct: 2,
+      explanation: "Speed and relevant expertise, not size or budget, got Omnisend quoted in the coverage.",
+    },
+    {
+      question: "What went wrong with Kenneth Cole's 2011 Arab Spring tweet?",
+      options: ["It used a hashtag that was already trademarked", "It tied a product launch to a serious political crisis where people were risking their lives, trivializing the situation", "It was posted outside business hours", "It was factually inaccurate about the protests"],
+      correct: 1,
+      explanation: "The tweet trivialized a serious, dangerous political event for promotional gain, which is the classic newsjacking failure pattern: attaching a brand to real human suffering.",
+    },
+    {
+      question: "According to the lesson's decision framework, what should a brand do if a trending story involves death, disaster, or serious human suffering?",
+      options: ["Post quickly before competitors do", "Use humor to stand out from other brand reactions", "Stay silent; no newsjacking angle is worth exploiting a tragedy", "Donate publicly and tag the brand for visibility"],
+      correct: 2,
+      explanation: "The lesson's sensitivity check is explicit: when real harm or loss is involved, the correct move is silence, not a clever tie-in.",
+    },
+  ],
+
+  "pr-communications/pr-agency-vs-in-house": [
+    {
+      question: "According to 2025-2026 industry data, roughly how much does a full in-house PR team (manager, specialist, coordinator) cost annually including benefits and tools?",
+      options: ["$20,000 to $50,000", "$60,000 to $100,000", "$180,000 to $350,000", "$500,000 or more"],
+      correct: 2,
+      explanation: "AMW Group's 2026 cost-benefit analysis puts a full in-house PR team at $180,000 to $350,000 a year once salaries, benefits, tools, and training are included, often 40-60% more than an equivalent agency retainer.",
+    },
+    {
+      question: "How long does it typically take a new in-house PR hire to build real journalist relationships, compared to an agency's timeline for first placements?",
+      options: ["Both take about the same time, 30-60 days", "In-house takes 6-12 months; agencies often land first placements in 30-60 days", "In-house is instant; agencies take a year", "Neither has a predictable timeline"],
+      correct: 1,
+      explanation: "Agencies already have journalist relationships and often deliver first placements within 30-60 days, while a new in-house hire typically needs 6-12 months to build equivalent media contacts.",
+    },
+    {
+      question: "Which signal most strongly points toward hiring a PR agency rather than building in-house?",
+      options: ["Your product is highly technical and hard for outsiders to explain", "You need daily availability for fast crisis response", "Your PR needs are urgent, spiky, or tied to a big one-time launch", "You want maximum brand voice consistency"],
+      correct: 2,
+      explanation: "Agencies excel at broad, urgent, or fluctuating needs like a funding announcement or launch, since they can mobilize existing media relationships quickly. Steady technical depth and daily crisis response favor in-house teams instead.",
+    },
+    {
+      question: "What does the hybrid PR model described in this lesson typically combine?",
+      options: ["Two competing agencies working the same account", "An in-house lead for strategy and brand voice, supported by an agency for media relationships and execution", "Only freelancers with no full-time staff", "An in-house team that outsources everything except billing"],
+      correct: 1,
+      explanation: "PR.co's 2025 research found the hybrid model, an in-house lead owning strategy and voice while an agency handles media relationships and campaign execution, delivers the best outcomes for growing companies.",
+    },
+  ],
+
+  "pr-communications/data-driven-pr": [
+    {
+      question: "According to a 2023 Muck Rack survey cited in the lesson, what percentage of journalists say they are more likely to cover a story that includes proprietary data?",
+      options: ["45%", "61%", "78%", "89%"],
+      correct: 2,
+      explanation: "The lesson cites the 2023 Muck Rack survey finding that 78% of journalists are more likely to cover a story backed by proprietary data.",
+    },
+    {
+      question: "What is the ideal word count range the lesson recommends for a successful data pitch email?",
+      options: ["Under 200 words", "500 to 700 words", "800 to 1000 words", "Over 1500 words"],
+      correct: 0,
+      explanation: "The lesson notes that pitches under roughly 200 words see the highest reply rates from journalists.",
+    },
+    {
+      question: "Per the lesson, what should a data pitch package include beyond the headline stat?",
+      options: ["Only a locked PDF chart", "A methodology note, a clean CSV or spreadsheet, and one visual", "A full slide deck with 20 slides", "Nothing, just the number alone"],
+      correct: 1,
+      explanation: "The lesson recommends including a short methodology note (sample size, dates, source), a clean CSV, and one simple visual so reporters can verify and reuse the data.",
+    },
+    {
+      question: "What does the lesson warn against when distributing an embargoed dataset?",
+      options: ["Sending it to any reporter at any time", "Sending the same embargoed exclusive to multiple competing outlets at once", "Including a methodology note", "Using a survey panel tool"],
+      correct: 1,
+      explanation: "The lesson's warning Callout states that breaking an embargo by sending the same exclusive to multiple competing outlets can end future access with that reporter.",
+    },
+  ],
+
+  "pr-communications/product-launch-pr": [
+    {
+      question: "What makes a PR embargo work even though it is not legally enforceable?",
+      options: ["Journalists sign a binding contract", "Trust, breaking one damages future access to news", "Publishers pay a fee to hold the story", "A government regulator enforces the timing"],
+      correct: 1,
+      explanation: "Embargoes are a handshake agreement, they work because journalists who break them lose access to future early briefings.",
+    },
+    {
+      question: "What is the key difference between an exclusive and an embargo?",
+      options: ["An exclusive goes to one outlet first, an embargo goes to many outlets at once with a shared release time", "An embargo is only for video content", "An exclusive lasts longer than an embargo", "There is no real difference, the terms are interchangeable"],
+      correct: 0,
+      explanation: "An exclusive gives one journalist first access before anyone else is pitched, an embargo shares the same news with many journalists who all agree to hold until the same moment.",
+    },
+    {
+      question: "According to the 2025 State of the Media Report cited in the lesson, what percentage of journalists want exclusives from PR professionals?",
+      options: ["57%", "12%", "89%", "33%"],
+      correct: 0,
+      explanation: "Cision's 2025 State of the Media Report found 57% of journalists actively want exclusives from the PR pros they work with.",
+    },
+    {
+      question: "What should a PR team do if a journalist breaks an embargo early?",
+      options: ["Publicly call out the journalist on social media", "Immediately blast the press release to everyone to catch up", "Quietly confirm the leak, then decide whether to hold or move up the timeline for everyone", "Cancel the launch entirely"],
+      correct: 2,
+      explanation: "The right response is a quiet, controlled decision, either holding the rest of the embargo or notifying everyone at once, never a public callout or panic blast.",
+    },
+  ],
+
+  "pr-communications/b2b-pr-strategy": [
+    {
+      question: "Why does trade press typically outperform consumer press for B2B lead generation?",
+      options: ["Trade outlets have larger total circulation", "Trade readers are almost entirely decision-makers with budget authority", "Trade press is cheaper to pitch", "Consumer press never covers technology companies"],
+      correct: 1,
+      explanation: "Trade press reaches a narrower but far more relevant audience: most readers hold budget authority or influence over the exact problem the company solves, unlike a general consumer audience.",
+    },
+    {
+      question: "According to research cited in the lesson, what percentage of B2B decision-makers trust content from industry publications more than branded marketing?",
+      options: ["25%", "48%", "63%", "91%"],
+      correct: 2,
+      explanation: "Edelman's Trust Barometer research found that 63% of B2B decision-makers trust industry publication content more than branded marketing, which is why trade coverage transfers credibility that self-published content cannot.",
+    },
+    {
+      question: "What should a B2B company pitch to trade editors instead of generic marketing language like 'industry-leading'?",
+      options: ["Broad brand awareness statements", "Specific data points, mechanisms, or named trends", "Customer testimonials only", "Executive biographies"],
+      correct: 1,
+      explanation: "Trade editors and their readers already understand the industry context, so they want a specific number, mechanism, or proprietary finding rather than vague adjectives.",
+    },
+    {
+      question: "How should B2B PR success typically be measured, according to the lesson?",
+      options: ["Total reach and impressions across all coverage", "Sentiment score averaged across all mentions", "Whether sales cites the coverage and whether it correlates with pipeline movement", "Number of press releases distributed per month"],
+      correct: 2,
+      explanation: "B2B PR should track whether trade mentions get cited by sales, appear in deal-influence conversations, and correlate with pipeline movement, since a smaller but highly relevant readership can outperform a much larger but irrelevant one.",
+    },
+  ],
+
+  "pr-communications/award-submissions": [
+    {
+      question: "According to research cited in the lesson, what average increase in brand visibility comes from winning a major industry award?",
+      options: ["12%", "25%", "37%", "50%"],
+      correct: 2,
+      explanation: "JMG PR (February 2025) cited an average 37% increase in brand visibility from winning a major industry award.",
+    },
+    {
+      question: "What is the main reason judges reject vague award submissions?",
+      options: ["They are too short", "They lack hard, measurable results tied to the category", "They use too many images", "They are submitted too early"],
+      correct: 1,
+      explanation: "Judges want clear objectives, bold ideas, and measurable impact; entries without concrete metrics blend into the pile of generic submissions.",
+    },
+    {
+      question: "Why does the lesson caution against submitting the same generic write-up to five different awards?",
+      options: ["It costs more in fees", "Judges within the same industry sometimes see repurposed entries and it reads as ignoring category criteria", "It violates copyright law", "Awards only accept one submission per company ever"],
+      correct: 1,
+      explanation: "Judges in the same industry circle sometimes see reused entries, and ignoring specific category criteria makes a submission look lazy.",
+    },
+    {
+      question: "What is the recommended first step after winning an award, according to the lesson's activation cycle?",
+      options: ["Delete the entry documents", "Wait a year before mentioning it", "Issue a press release and update sales/marketing assets like the website badge and deck", "Submit the same entry to a different award immediately"],
+      correct: 2,
+      explanation: "The lesson's cycle shows a win should trigger a press release, social posts, a website badge, sales deck updates, and case study content, since recognition alone does not close deals without activation.",
+    },
+  ],
+
+  "pr-communications/digital-pr-link-building": [
+    {
+      question: "According to industry data cited in the lesson, why does digital PR outperform traditional link outreach?",
+      options: ["It uses automated email tools to send more pitches per day", "A single strong campaign can earn 20 to 50 high-authority links from one asset, versus roughly one link per outreach email", "It guarantees placement in any outlet a brand chooses", "It replaces the need for any original data or research"],
+      correct: 1,
+      explanation: "The lesson cites that a well-executed digital PR campaign can generate 20 to 50 high-authority links from a single asset, far outperforming the one-link-per-outreach model of cold link building.",
+    },
+    {
+      question: "In the Reckon case study, what made their regional 'best and worst' campaign succeed with 91 media features and 73 backlinks?",
+      options: ["They pitched every hook to only national outlets", "They matched the hook's scale (regional data) to the outlet's scale (local journalists)", "They avoided using any data and relied purely on relationship outreach", "They paid for sponsored placements in regional newspapers"],
+      correct: 1,
+      explanation: "The lesson emphasizes matching the hook's scale to the outlet: Reckon's regional comparisons were pitched to local journalists rather than national desks, which is why the campaign landed so widely.",
+    },
+    {
+      question: "What is the recommended test for whether a data finding is ready to pitch to journalists?",
+      options: ["It must include at least 10 data points and 3 charts", "It must be summarized in one sentence a non-expert would repeat at a dinner party", "It must be reviewed by legal before any outreach begins", "It must already have been covered by a competitor"],
+      correct: 1,
+      explanation: "The Callout in the lesson states that if a finding cannot be summarized in one sentence a non-expert would repeat, the data is not ready to pitch yet.",
+    },
+    {
+      question: "How does the lesson frame the relationship between digital PR and technical SEO link building?",
+      options: ["Digital PR should replace the SEO team entirely", "They are competing tactics that should never share a budget", "They solve different problems: SEO fixes authority gaps, PR creates net-new authority through original coverage", "Technical link building is obsolete now that digital PR exists"],
+      correct: 2,
+      explanation: "The lesson describes them as complementary functions with a shared scoreboard, SEO flags where authority gaps exist and PR builds the story that fills them, rather than one replacing the other.",
+    },
+  ],
+
   "events-experiential/events-marketing-101": [
     {
       question: "What return do trade shows average per dollar spent, according to the lesson?",
