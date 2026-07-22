@@ -1,0 +1,95 @@
+export const lessonMeta = {
+  title: "Cookie Consent and Tracking Law: GDPR, ePrivacy, and the Cookie Banner",
+  level: "Intermediate",
+  summary: "How cookie banners, consent management platforms, and first vs third-party tracking actually satisfy GDPR and ePrivacy, and what happens when they do not.",
+};
+
+<Callout type="warning">
+This lesson explains how cookie consent law works in practice. It is not legal advice. Talk to a qualified privacy lawyer before shipping a banner or CMP configuration on a live site.
+</Callout>
+
+## Why a Banner Is Not Enough
+
+Most marketers think "we added a cookie banner" means "we are compliant." That is not true.
+
+The legal requirement, driven by the EU's ePrivacy Directive and reinforced by GDPR, is that you get informed, freely-given, specific consent **before** any non-essential cookie touches the user's browser. A banner that just displays a notice, or that fires tracking scripts the instant the page loads, fails this test even though a banner is technically present.
+
+In 2025, regulators made this distinction expensive. France's CNIL fined Google 325 million euros and SHEIN 150 million euros on the same day, 1 September 2025, both cases turning on cookies firing before consent and "reject all" buttons that did not actually reject. Design details you might dismiss as UX polish are the entire legal case.
+
+## What Counts as a Cookie, Legally
+
+The law does not actually say "cookie." It covers any technology that stores or accesses information on a user's device: cookies, but also local storage, pixels, SDKs, and device fingerprinting.
+
+Cookies split into two categories that matter for consent:
+
+- **Strictly necessary cookies**, things like a session ID that keeps a shopping cart working. These are exempt from consent, but only if they are genuinely required for the service the user asked for.
+- **Everything else**, analytics, advertising, personalization, A/B testing. These all require prior opt-in consent, full stop.
+
+A common mistake is labeling analytics cookies as "necessary" because the team wants the data. Regulators specifically flag this as a dark pattern, not a technical judgment call.
+
+## First-Party vs Third-Party Cookies
+
+This distinction matters for both compliance and for how much longer these cookies will even work.
+
+**First-party cookies** are set by the domain the user is actually visiting, think your own analytics or login state. **Third-party cookies** are set by a different domain than the one in the address bar, typically an ad network or embedded widget, and they are how most cross-site ad tracking has historically worked.
+
+Third-party cookies still require consent under ePrivacy, but they carry extra risk: you often cannot fully control what the third-party script does after it loads, which makes your "purpose" disclosures harder to keep accurate. Browsers have also been steadily restricting third-party cookies by default, pushing more tracking toward first-party data and server-side tagging, which shifts the compliance burden but does not remove it.
+
+<Callout type="info">
+Blocking third-party cookies by default does not make a site GDPR-compliant on its own. Consent is still required for first-party analytics and marketing cookies too.
+</Callout>
+
+## Consent Management Platforms, What They Actually Do
+
+A **Consent Management Platform (CMP)** is the tool that renders your banner, stores the user's choice, and blocks scripts until consent is granted. Popular examples include OneTrust, Cookiebot, Usercentrics, and CookieFirst.
+
+A properly configured CMP does three things:
+
+- **Blocks by default.** Non-essential tags stay dormant until the user actively opts in, not just until the banner closes.
+- **Logs proof of consent.** Timestamp, banner version, and exact choice, so you can demonstrate compliance if a regulator asks.
+- **Syncs choices across tags.** One "reject all" click should disable every non-essential script, not just the ones the marketing team remembered to wire up.
+
+Studies cited in 2025 industry reports estimate that roughly 90% of EU cookie banners still fail to meet the legal bar for valid consent, mostly because the CMP is installed but misconfigured, not because a CMP was skipped entirely. Installing the tool is the easy part; wiring it correctly to every tag is where teams cut corners.
+
+## Designing a Banner That Actually Holds Up
+
+Regulators have been explicit about which banner designs constitute manipulative "dark patterns." A defensible banner needs:
+
+- **Reject as easy as accept.** A one-click "Reject all" next to "Accept all," not buried two menus deep.
+- **No pre-ticked boxes.** Every non-essential category starts unchecked.
+- **Equal visual weight.** No greying-out the reject button or making accept the only bright color.
+- **Granular categories.** Users can say yes to analytics but no to advertising, not just an all-or-nothing toggle.
+- **Consent that expires.** Most guidance points to roughly 6, sometimes up to 13, months before you must ask again.
+
+Here is the flow a compliant setup follows before a single marketing pixel fires.
+
+<Mermaid chart={`graph TD
+A[User lands on page] --> B[CMP blocks all non-essential tags]
+B --> C[Banner shown\nAccept, Reject, or Customize]
+C --> D{User choice}
+D -->|Accept all| E[All tags fire, choice logged]
+D -->|Reject all| F[Only essential cookies run]
+D -->|Customize| G[Only selected categories fire]`} />
+
+Get this flow right and the rest of your compliance program has a solid foundation to stand on.
+
+## What This Means for Your Analytics and Ad Stack
+
+Every marketing tool you rely on, GA4, Meta Pixel, LinkedIn Insight Tag, HubSpot forms, sits behind this consent gate now. If your CMP is misconfigured, your attribution data is not just legally risky, it is also quietly wrong, because it is missing everyone who rejected tracking but still converted.
+
+That gap is a real business cost, not just a legal one. Treat consent-rate and category-level opt-in data as a KPI your analytics team watches, the same way you'd watch bounce rate.
+
+Getting consent right protects the company and gives you cleaner data to work with, which is a rare case where compliance and marketing incentives actually point the same direction.
+
+<ResourceList resources={[
+  { title: "GDPR Cookie Consent Requirements for 2025", url: "https://secureprivacy.ai/blog/gdpr-cookie-consent-requirements-2025", type: "article", free: true },
+  { title: "EU Cookie Compliance Explained: A 2025 Guide", url: "https://usercentrics.com/knowledge-hub/eu-cookie-compliance/", type: "article", free: true },
+  { title: "Cookie Consent Fines 2025-2026: Biggest GDPR Cases", url: "https://kukie.io/blog/cookie-consent-fines-2025-2026", type: "article", free: true },
+  { title: "CNIL, Cookie Banner Dark Patterns Enforcement", url: "https://cookieinformation.com/blog/cnil-formal-notice-dark-patterns-website-cookie-banners/", type: "article", free: true },
+  { title: "ePrivacy Directive, Official Text (EUR-Lex)", url: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32002L0058", type: "docs", free: true },
+  { title: "Cookiebot by Usercentrics, Consent Management Platform", url: "https://www.cookiebot.com/", type: "tool", free: false },
+  { title: "OneTrust Cookie Consent", url: "https://www.onetrust.com/products/cookie-consent/", type: "tool", free: false },
+  { title: "WsCube Tech, Cookie Consent Law (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Cookie Consent Law", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Cookie Consent Law", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

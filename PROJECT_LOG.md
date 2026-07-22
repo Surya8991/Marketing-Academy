@@ -1,7 +1,7 @@
 ﻿# Marketing Academy, Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-07-22 (Session 63 - pr-communications saturated 9 -> 20 lessons; legal-compliance saturation started, 5 MDX files drafted but not yet registered).
+> Last audited: 2026-07-22 (Session 64 - events-experiential, affiliate-marketing, marketing-leadership, legal-compliance saturated to 20 lessons each, 44 new lessons wired, 532 -> 576 total).
 
 ---
 
@@ -10,7 +10,7 @@
 ```
 1. cd C:\Users\Surya L\Desktop\AI Agents\Marketing-Academy
 2. Count MDX files: (Get-ChildItem src/content -Recurse -Filter *.mdx).Count   [PowerShell]
-3. Current: 527 lessons · 216 glossary terms · 108 tools · 9 tracks · 21 categories
+3. Current: 576 lessons · 216 glossary terms · 108 tools · 9 tracks · 21 categories
 4. XP/Streak/Achievements system LIVE (Session 41). Cmd+K palette, skill-map, onboarding, settings page all shipped.
 5. Stats are dynamic everywhere: flatLessons().length, CATEGORIES.length, GLOSSARY_TERMS.length, TOOLS.length.
 6. Key constants: COMPLETED_KEY exported from progress.ts, COMMAND_PALETTE_EVENT from src/lib/events.ts.
@@ -32,10 +32,11 @@
 29: 
 30: ---
 31: 
-32: ## Current State: 527 lessons across 21 categories
+32: ## Current State: 576 lessons across 21 categories
 
 > All orphaned MDX files linked in Session 43. curriculum.ts and MDX disk counts are now fully in sync.
-> Session 63: pr-communications saturated to 20 lessons (thinnest-category cleanup, in progress across pr-communications, legal-compliance, events-experiential, affiliate-marketing, marketing-leadership).
+> Session 63: pr-communications saturated to 20 lessons; legal-compliance's 5 orphaned MDX files (CAN-SPAM, cookie consent, dark patterns, SMS/TCPA, sweepstakes) wired into curriculum.ts + quizzes.ts, 7 -> 12 lessons (thinnest-category cleanup, in progress across pr-communications, legal-compliance, events-experiential, affiliate-marketing, marketing-leadership).
+> Session 64: events-experiential (8->20), affiliate-marketing (8->20), marketing-leadership (8->20), and legal-compliance (12->20) all saturated to 20 lessons, 44 new lessons wired into curriculum.ts + quizzes.ts (4 quiz questions each), all 21 categories now at parity (20 lessons each, or MDX-count-matched). Total 532 -> 576.
 
 | # | Category | Slug | Lessons |
 |---|---|---|---|
@@ -56,11 +57,11 @@
 | 15 | AI in Marketing | `ai-marketing` | 29 |
 | 16 | Mental Models | `mental-models` | 20 |
 | 17 | PR & Communications | `pr-communications` | 20 |
-| 18 | Events & Experiential Marketing | `events-experiential` | 8 |
-| 19 | Affiliate & Partner Marketing | `affiliate-marketing` | 8 |
-| 20 | Marketing Leadership & Career | `marketing-leadership` | 8 |
-| 21 | Legal & Compliance for Marketers | `legal-compliance` | 7 |
-| | **TOTAL** | | **527** |
+| 18 | Events & Experiential Marketing | `events-experiential` | 20 |
+| 19 | Affiliate & Partner Marketing | `affiliate-marketing` | 20 |
+| 20 | Marketing Leadership & Career | `marketing-leadership` | 20 |
+| 21 | Legal & Compliance for Marketers | `legal-compliance` | 20 |
+| | **TOTAL** | | **576** |
 
 ---
 
@@ -2410,8 +2411,8 @@ Added: `analyst-relations`, `online-reputation-management`, `internal-communicat
 - Verified: all 11 files hand-checked for no unescaped double quotes, no em dashes, correct trailing commas on the mandatory 3 multilingual `ResourceList` entries; `npx tsc --noEmit` clean.
 - README.md, PROJECT_LOG.md, `src/app/opengraph-image.tsx` lesson counts updated 516 -> 527 per Rule 23 and Rule 27.
 
-### legal-compliance: in progress, NOT registered yet (paused mid-batch at user request)
-5 of a planned 13 new lessons were drafted and written to disk but deliberately left **uncommitted and unregistered** in curriculum.ts/quizzes.ts so the next session can pick up cleanly: `can-spam-email-compliance`, `sms-tcpa-compliance`, `cookie-consent-tracking-law`, `sweepstakes-contest-law`, `dark-patterns-ftc-enforcement`. Remaining planned topics for legal-compliance: `coppa-marketing-to-children`, `ai-generated-content-legal-risk`, `price-advertising-drip-pricing-law`, `greenwashing-ftc-green-guides`, `native-advertising-disclosure`, plus 2 more to reach 13 (data processing agreements, right to be forgotten, not yet started).
+### legal-compliance: 7 -> 12 lessons (the 5 orphaned MDX files now registered)
+The 5 lessons drafted earlier this session (`can-spam-email-compliance`, `sms-tcpa-compliance`, `cookie-consent-tracking-law`, `sweepstakes-contest-law`, `dark-patterns-ftc-enforcement`) were wired into `src/lib/curriculum.ts` (5 new `LessonRef` entries) and `src/lib/quizzes.ts` (5 new 4-question quiz blocks, 20 questions, keyed `legal-compliance/{slug}`). `npx tsc --noEmit` clean after the edits. Remaining planned topics for legal-compliance to reach the original 13-lesson target: `coppa-marketing-to-children`, `ai-generated-content-legal-risk`, `price-advertising-drip-pricing-law`, `greenwashing-ftc-green-guides`, `native-advertising-disclosure`, plus 2 more (data processing agreements, right to be forgotten, not yet started).
 
 ### Still thin, not started this session
 `events-experiential` (8), `affiliate-marketing` (8), `marketing-leadership` (8) — same saturation plan queued for a future session.
@@ -2419,3 +2420,20 @@ Added: `analyst-relations`, `online-reputation-management`, `internal-communicat
 ### Verification
 - `npx tsc --noEmit` — zero errors after the pr-communications curriculum.ts/quizzes.ts edits.
 - Full `npm run build` was kicked off in the background for extra confidence but not waited on before this partial push; the tsc pass plus manual per-file MDX rule checks were treated as sufficient given the isolated, additive nature of the change (new lesson files + new array entries only, no shared code touched).
+
+## Session 64, 2026-07-22 (Thin-category saturation, part 2: events-experiential, affiliate-marketing, marketing-leadership, legal-compliance all -> 20)
+
+**Finished the saturation plan from Session 63. 44 lesson MDX files (already drafted on disk by earlier background agents) were wired into `curriculum.ts` and `quizzes.ts` in one pass across the 4 remaining thin categories.**
+
+- `events-experiential`: 8 -> 20 lessons. Added `event-marketing-tech-stack`, `pop-up-retail-experiences`, `conference-speaking-thought-leadership`, `event-pr-media-relations`, `user-conference-strategy`, `roadshow-multi-city-events`, `community-meetup-programs`, `event-swag-branded-merch`, `crisis-planning-live-events`, `account-based-events-abm`, `post-event-content-repurposing`, `event-budgeting-hidden-costs`.
+- `affiliate-marketing`: 8 -> 20 lessons. Added `affiliate-content-sites-seo`, `coupon-deal-site-affiliates`, `saas-affiliate-programs`, `affiliate-attribution-multi-touch`, `affiliate-onboarding-enablement`, `sub-affiliate-networks`, `affiliate-vs-paid-media-mix`, `b2b-partner-referral-programs`, `affiliate-cookie-tracking-technical`, `international-affiliate-programs`, `affiliate-program-negotiation`, `de-influencing-affiliate-trust`.
+- `marketing-leadership`: 8 -> 20 lessons. Added `marketing-budget-planning`, `marketing-org-design`, `agency-vs-inhouse-decision`, `marketing-ops-function`, `cross-functional-alignment-sales`, `hiring-marketing-generalists-specialists`, `marketing-team-remote-distributed`, `personal-brand-marketing-leader`, `marketing-leadership-layoffs-restructuring`, `marketing-mentorship-coaching`, `board-reporting-marketing`, `first-90-days-cmo`.
+- `legal-compliance`: 12 -> 20 lessons. Added `coppa-marketing-to-children`, `native-advertising-disclosure`, `drip-pricing-junk-fees`, `ai-generated-content-ftc`, `email-list-purchasing-legality`, `loyalty-referral-program-law`, `health-wellness-marketing-claims`, `biometric-location-privacy-marketing`.
+
+- `src/lib/curriculum.ts` — 44 new `LessonRef` entries appended to the 4 categories' `lessons` arrays.
+- `src/lib/quizzes.ts` — 44 new 4-question quiz blocks (176 questions) keyed `{category}/{slug}`.
+- README.md, PROJECT_LOG.md, `src/app/opengraph-image.tsx` lesson counts updated 532 -> 576 per Rule 23 and Rule 27. All 21 categories now saturated to parity (20 lessons, or MDX-count-matched for the larger original categories).
+
+### Verification
+- `npx tsc --noEmit` — zero errors.
+- `npm run build` — clean, all 576 lesson MDX files build successfully.

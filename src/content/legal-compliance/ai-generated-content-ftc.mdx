@@ -1,0 +1,62 @@
+export const lessonMeta = {
+  title: "AI-Generated Marketing Content and the FTC: Reviews, Deepfakes, and Disclosure",
+  level: "Intermediate",
+  summary: "How the FTC's fake reviews rule, impersonation enforcement, and shifting 2025/2026 AI policy affect AI-generated testimonials, ad creative, and marketing copy.",
+};
+
+<Callout type="warning">
+This lesson explains compliance obligations for marketers. It is not legal advice. Talk to a lawyer before deploying AI-generated reviews, testimonials, or synthetic ad creative.
+</Callout>
+
+## The rule that made fake reviews explicitly illegal
+
+Fake reviews weren't new when generative AI arrived, but AI made them cheap to produce at scale. The FTC responded with a dedicated rule: on August 14, 2024, it announced a final rule banning fake and AI-generated consumer reviews, testimonials, and celebrity endorsements, effective October 21, 2024.
+
+The rule prohibits reviews that misrepresent they're from someone who doesn't exist, someone who never used the product, or that misstate the reviewer's actual experience. It explicitly names AI-generated fake reviews as covered conduct, and it also bans buying reviews, suppressing negative ones through threats, and using fake social media engagement, follower counts, views, to inflate influence.
+
+Penalties are real money: businesses face civil penalties currently set at **$51,744 per violation**, plus potential consumer redress. For a company generating thousands of fake reviews, that per-violation multiplier adds up fast.
+
+## Operation AI Comply and the Rytr case that got reversed
+
+In September 2024, the FTC sued Rytr, an AI writing tool, as part of a sweep called "Operation AI Comply." The complaint alleged Rytr's review-generation feature let subscribers produce large volumes of detailed, specific-sounding reviews with no connection to any real product use, and put no cap on how many a subscriber could generate. In December 2024, the FTC issued a final order banning Rytr from selling any review or testimonial generation service for 20 years.
+
+That order didn't last. In December 2025, the FTC reopened and **set aside its own Rytr order**, stating the original complaint didn't meet the legal bar and that the order "unduly burdens AI innovation" under the current administration's AI policy priorities.
+
+<Callout type="info">
+This reversal doesn't undo the underlying fake reviews rule, that ban on AI-generated fake reviews and testimonials is still in force. It signals the FTC is now drawing a sharper line between banning deceptive output (fake reviews themselves) and penalizing the general-purpose AI tools that could theoretically be misused to create them.
+</Callout>
+
+The practical read for marketers: the target of enforcement is the deceptive review or testimonial you publish, not the AI tool you used to draft it. Using AI in your content pipeline isn't the violation; publishing AI output as if it were a real customer's unprompted experience is.
+
+## Deepfakes and impersonation get their own enforcement track
+
+Separate from reviews, the FTC has been building out authority against AI-enabled impersonation. In February 2024, it proposed rule changes explicitly extending existing government- and business-impersonation protections to cover AI-generated impersonation of individuals, closing a gap where deepfaked voices, faces, or likenesses used in scams and marketing fell into a gray area.
+
+For marketers, this matters most in two spots:
+
+- **Synthetic testimonials or endorser likenesses.** Using an AI-generated voice or face styled after a real, identifiable person, celebrity or otherwise, without their consent risks both FTC action and separate right-of-publicity claims.
+- **AI voice-clone or deepfake ad creative.** Ad campaigns using synthetic media that implies a real person said or did something they didn't cross from "creative" into "deceptive" the moment a reasonable viewer would believe it's authentic and unlabeled.
+
+The safe pattern here isn't new, it's the same "reasonable consumer" deception test the FTC has always applied, just pointed at a new production method.
+
+## What to actually put in your AI content workflow
+
+None of this requires abandoning AI tools in marketing, it requires treating AI output the same way you'd treat any claim you publish under your brand's name.
+
+- **Never publish AI-generated text as a customer quote or review** unless it's disclosed as illustrative or synthetic, and ideally, just don't, real testimonials exist for a reason.
+- **Disclose synthetic media in ad creative** when a reasonable viewer could otherwise believe a real person is speaking or endorsing your product.
+- **Keep a human review step** before any AI-assisted review, testimonial, or endorsement content goes live, this is your main defense if the FTC asks how a fake review made it to your site.
+- **Watch the regulatory pace.** 2025 alone saw a new rule take effect, a major sweep, and a reversal, this is one of the fastest-moving corners of ad law right now, not a settled one.
+
+Treat AI as a drafting tool for your marketing copy, not a substitute for a real customer's voice, and you stay on the right side of a rule that's clearly still being tested in real time.
+
+<ResourceList resources={[
+  { title: "FTC: Final Rule Banning Fake Reviews and Testimonials", url: "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials", type: "docs", free: true },
+  { title: "FTC Proposes New Protections to Combat AI Impersonation of Individuals", url: "https://www.ftc.gov/news-events/news/press-releases/2024/02/ftc-proposes-new-protections-combat-ai-impersonation-individuals", type: "article", free: true },
+  { title: "FTC Reopens and Sets Aside Rytr Final Order, Response to AI Action Plan", url: "https://www.ftc.gov/news-events/news/press-releases/2025/12/ftc-reopens-sets-aside-rytr-final-order-response-trump-administrations-ai-action-plan", type: "docs", free: true },
+  { title: "FTC Cracks Down on AI-Generated Fake Reviews, Mintz", url: "https://www.mintz.com/insights-center/viewpoints/2191/2024-08-21-ftc-cracks-down-ai-generated-fake-reviews-ai-washington", type: "article", free: true },
+  { title: "US FTC's New Rule on Fake and AI-Generated Reviews and Social Media Bots, Sidley Austin", url: "https://www.sidley.com/en/insights/newsupdates/2024/08/us-ftcs-new-rule-on-fake-and-ai-generated-reviews-and-social-media-bots", type: "article", free: true },
+  { title: "WsCube Tech, AI-Generated Marketing Content and the Law (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, AI-Generated Marketing Content and the Law", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, AI-Generated Marketing Content and the Law", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

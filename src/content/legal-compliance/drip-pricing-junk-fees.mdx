@@ -1,0 +1,68 @@
+export const lessonMeta = {
+  title: "Drip Pricing and Junk Fees: What the FTC's All-In Pricing Rule Requires",
+  level: "Intermediate",
+  summary: "The FTC's 2024/2025 rule forcing hotels, ticketing platforms, and subscriptions to show total price upfront, and why the related click-to-cancel rule got vacated in court.",
+};
+
+<Callout type="warning">
+This lesson explains compliance obligations for marketers. It is not legal advice. Talk to a lawyer before you redesign checkout, pricing pages, or subscription flows.
+</Callout>
+
+## The gap between the price you see and the price you pay
+
+**Drip pricing** is advertising a price that leaves out mandatory fees, then revealing them one step at a time as the customer moves through checkout. A hotel room "from $99" that becomes $142 after a resort fee, a destination fee, and a "service charge" is the textbook example.
+
+These charges are often called **junk fees**: mandatory costs baked into the real transaction but excluded from the advertised price, so the number a shopper compares against competitors is never the number they actually pay.
+
+The FTC has treated this as a form of deceptive advertising for years under general Section 5 authority, but enforcement was inconsistent and case-by-case. That changed with a dedicated rule.
+
+## The rule that actually has teeth now
+
+On December 17, 2024, the FTC finalized its **Rule on Unfair or Deceptive Fees**, targeting live-event ticketing and short-term lodging specifically. It took effect May 12, 2025.
+
+The rule requires two things from covered businesses:
+
+- **Total price, prominently displayed.** Any price shown to a consumer for a hotel room, vacation rental, or event ticket must include all mandatory fees, and that total has to be presented more prominently than any other pricing figure on the page.
+- **No fee misrepresentation.** Businesses can't mislabel what a fee is for, or claim a charge is optional when it's actually required to complete the purchase.
+
+Notably, the rule doesn't cap fees or ban them outright, a company can still charge a $40 "resort fee." It just has to be baked into the number the customer sees first, not sprung on them at the final screen.
+
+<Callout type="info">
+The FTC estimated the rule would save consumers up to 53 million hours per year previously spent hunting for the real total price, worth more than $11 billion over the following decade.
+</Callout>
+
+If your pricing page, cart, or ticketing widget still shows a base price and adds mandatory charges later in the flow, this rule almost certainly applies to you.
+
+## What tripped up the companion rule
+
+The FTC also tried to overhaul subscription cancellation with a **"click-to-cancel"** rule, formally the amended Negative Option Rule, requiring that canceling a subscription be as easy as signing up for one. No more "call this number during business hours" cancellation mazes.
+
+That rule didn't survive. On July 8, 2025, the Eighth Circuit Court of Appeals **vacated it entirely**, just days before its revised July 14, 2025 compliance deadline. The court's reasoning was procedural, not substantive: it found the FTC skipped a required preliminary regulatory analysis, mandatory whenever a rule's compliance costs are projected above $100 million.
+
+<Callout type="warning">
+Vacatur on procedural grounds doesn't mean subscription traps are legal again. Companies with hard-to-cancel flows are still exposed under the Restore Online Shoppers' Confidence Act (ROSCA), general Section 5 unfairness authority, and a growing list of state autorenewal laws that were written independently of the federal rule.
+</Callout>
+
+The FTC has signaled it intends to revisit rulemaking with the proper procedural steps this time, so treat this as a pause, not a green light. Building an easy-cancel flow now is cheaper than retrofitting one under a future deadline.
+
+## What to actually change in your checkout
+
+Whether or not your category is directly covered by the ticketing/lodging rule, the direction of travel is unmistakable: state attorneys general, the FTC, and now several states have their own all-in pricing laws. Build toward the strictest standard rather than the narrowest one that technically applies to you today.
+
+- **Show the full total on the first price a shopper sees**, not just at checkout. If your product has a mandatory fee, it's part of the price, not an add-on.
+- **Label fees honestly.** "Service fee" for something that funds general overhead, not the specific service implied, invites a deception claim.
+- **Make cancellation match signup.** If someone can subscribe in two clicks online, they should be able to cancel in two clicks online, don't force a phone call.
+- **Audit third-party checkout widgets.** Ticketing and booking plugins you didn't build can still make your site the one holding non-compliant pricing.
+
+Fee transparency used to be a nice-to-have differentiator. Now it's baseline legal exposure for any business selling hotel rooms, tickets, or subscriptions online.
+
+<ResourceList resources={[
+  { title: "FTC: Rule on Unfair or Deceptive Fees Takes Effect May 12, 2025", url: "https://www.ftc.gov/news-events/news/press-releases/2025/05/ftc-rule-unfair-or-deceptive-fees-take-effect-may-12-2025", type: "docs", free: true },
+  { title: "FTC Issues Final Rule on Junk Fees for Live-Event Tickets and Short-Term Lodging, Foley & Lardner", url: "https://www.foley.com/insights/publications/2025/01/ftc-final-junk-fees-rule-live-event-tickets-short-term-lodging/", type: "article", free: true },
+  { title: "US FTC Click-to-Cancel Rule Struck Down, Sidley Austin", url: "https://www.sidley.com/en/insights/newsupdates/2025/07/us-ftc-click-to-cancel-rule-struck-down", type: "article", free: true },
+  { title: "Click-to-Cancelled! Eighth Circuit Vacates FTC's Negative Option Rule, Mayer Brown", url: "https://www.mayerbrown.com/en/insights/publications/2025/07/click-to-cancelled-eighth-circuit-vacates-federal-trade-commissions-revised-negative-option-rule", type: "article", free: true },
+  { title: "FTC Junk Fees Rule & What It Means for Consumers, Britannica Money", url: "https://www.britannica.com/money/junk-fees-rule", type: "article", free: true },
+  { title: "WsCube Tech, Drip Pricing and Junk Fees (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Drip Pricing and Junk Fees", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Drip Pricing and Junk Fees", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

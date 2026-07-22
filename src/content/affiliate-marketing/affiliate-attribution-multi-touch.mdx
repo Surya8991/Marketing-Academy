@@ -1,0 +1,89 @@
+export const lessonMeta = {
+  title: "Affiliate Attribution: Last-Click vs Multi-Touch Models",
+  level: "Advanced",
+  summary: "Why last-click attribution undervalues most affiliates, how multi-touch models split credit fairly, and how networks are adapting tracking as cross-device and cookie challenges grow.",
+};
+
+# Affiliate Attribution: Last-Click vs Multi-Touch Models
+
+Three different affiliates might touch the same sale, a comparison blog that sparked interest, a YouTube review that built trust, and a coupon site clicked seconds before checkout. Under most affiliate networks' default rules, only one of them gets paid.
+
+## Quick Summary
+
+- **Last-click attribution** gives 100% of the commission to whichever affiliate link was clicked last before purchase, ignoring every earlier touchpoint.
+- **Multi-touch attribution** splits credit across multiple touchpoints in the customer journey, rewarding the affiliates who actually built purchase intent.
+- Multi-touch is becoming the standard for sophisticated programs because it better reflects how customers actually shop, researching across several sources before buying.
+- Cross-device tracking is a growing challenge: over 40% of conversion paths go untracked without it, since a customer's research phone session and purchase laptop session look like two different people.
+- Chrome reversed its plan to kill third-party cookies in April 2025, but Safari and Firefox already block them by default, so affiliate networks are building cookie-independent tracking regardless.
+
+## Why Last-Click Attribution Persists
+
+Last-click is the default in most affiliate software for a simple reason: it's the easiest to measure. A cookie gets set when someone clicks an affiliate link, and whichever cookie is active at checkout wins the commission.
+
+The problem is what this incentivizes. It systematically rewards whoever is closest to the purchase moment, often a coupon site or retargeting affiliate, over whoever actually created the demand in the first place, often a review or content site earlier in the journey.
+
+<Callout type="warning">
+Industry analysts increasingly describe last-click attribution as fundamentally broken for multi-touchpoint journeys. It answers "who clicked last" convincingly, but that's rarely the same question as "who actually convinced this customer to buy."
+</Callout>
+
+This is the same underlying mechanism behind coupon-site "last-click theft" disputes: the model itself creates the incentive to intercept, not just badly-behaved affiliates.
+
+## How Multi-Touch Attribution Works
+
+Multi-touch attribution assigns partial credit to every touchpoint in a customer's path to purchase, not just the final click. A few common models:
+
+- **Linear**, splits credit equally across every touchpoint in the journey.
+- **Time-decay**, gives more credit to touchpoints closer to the purchase, but still rewards earlier ones.
+- **U-shaped**, weights the first touch (discovery) and last touch (conversion) most heavily, with smaller credit in between.
+- **Position-based/custom**, lets a program define its own weighting, for example crediting the first content affiliate 40%, and the closing affiliate 30%.
+
+Multi-touch attribution has become the standard for sophisticated marketing organizations because it aligns with how customers behave in reality, researching across several sources before ever reaching checkout.
+
+Affiliate networks that support this let a brand configure, for instance, that the first affiliate click in a 30-day window earns 60% of commission and the last click earns 40%, instead of an all-or-nothing split.
+
+<Callout type="tip">
+If you manage an affiliate program still running pure last-click, check whether your network supports even a basic split model before your top content affiliates start noticing they're losing credit to coupon partners. Retaining your best affiliates is often cheaper than any other growth lever you have.
+</Callout>
+
+## The Cross-Device Tracking Problem
+
+Attribution gets harder before it gets easier. A shopper might read a review on their phone during a commute, then complete the purchase on a laptop at home hours later, two devices, two sessions, and by default, two separate, disconnected people as far as a cookie-based tracker is concerned.
+
+Without cross-device tracking, more than 40% of conversion paths go missing entirely, and without a server-side Conversion API layer, 30 to 40% of conversions are lost outright. That's not a rounding error, that's a huge chunk of affiliate-driven revenue nobody gets properly credited for.
+
+Networks are closing this gap with a few approaches:
+
+- **Server-side conversion APIs**, tracking the purchase event directly from the retailer's backend instead of relying only on a browser cookie.
+- **Deterministic matching**, using logged-in account activity (email, user ID) to link sessions across devices when a customer is signed in.
+- **Probabilistic modeling**, statistically inferring that two anonymous sessions likely belong to the same person based on behavior patterns.
+
+## The Cookie Deprecation Reversal
+
+For years, the industry planned around Chrome killing third-party cookies, the tracking mechanism most affiliate attribution has depended on. That plan changed.
+
+In April 2025, Google officially abandoned its plan to deprecate third-party cookies in Chrome, meaning Chrome keeps supporting them for the foreseeable future. But this didn't reset the clock: Safari has blocked third-party cookies by default since 2020, and Firefox followed years ago, so a meaningful share of traffic was already cookie-blind regardless of what Chrome decided.
+
+<Callout type="info">
+Don't treat Chrome's reversal as "problem solved." Ad blockers keep growing in adoption, Safari and Firefox users are permanently cookie-blocked, and privacy regulation keeps tightening. The programs and networks that already built cookie-independent tracking are simply better positioned either way.
+</Callout>
+
+The practical move for 2025 and beyond is treating first-party data, server-side tracking, and multi-touch modeling as the baseline, not a contingency plan for a cookie apocalypse that may or may not fully arrive.
+
+## Key Takeaways
+
+- Last-click attribution pays whoever clicked last, systematically undervaluing the affiliates who actually built purchase intent earlier in the journey.
+- Multi-touch models like linear, time-decay, and U-shaped attribution split credit more fairly across the full customer path.
+- Cross-device tracking gaps are a bigger problem than cookies alone, over 40% of conversion paths go untracked without it.
+- Chrome reversed its third-party cookie deprecation plan in April 2025, but Safari and Firefox already block them, so cookie-independent tracking is still the safer long-term bet.
+- Server-side conversion APIs and deterministic matching are how leading affiliate networks are closing the attribution gap in 2024 and 2025.
+
+<ResourceList resources={[
+  { title: "What Changes Are Happening in Attribution Models? (Post Affiliate Pro)", url: "https://www.postaffiliatepro.com/faq/attribution-models-changes/", type: "article", free: true },
+  { title: "Multi-Touch Attribution Models & Tools Guide 2026 (Improvado)", url: "https://improvado.io/blog/multi-touch-attribution", type: "article", free: true },
+  { title: "Marketing Attribution 2026: Multi-Touch After Cookies (XICTRON)", url: "https://www.xictron.com/en/blog/marketing-attribution-multi-touch-2026/", type: "article", free: true },
+  { title: "Third-Party Cookies and Affiliate Marketing: Top Attribution Models (Scaletrix)", url: "https://www.scaletrix.ai/third-party-cookies/", type: "article", free: true },
+  { title: "Multi-Touch Attribution Without Cookies: Methods & Gaps (Prescient AI)", url: "https://prescientai.com/blog/multi-touch-attribution-without-cookies", type: "article", free: true },
+  { title: "WsCube Tech, Affiliate Attribution and Multi-Touch Models (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Affiliate Attribution and Multi-Touch Models", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Affiliate Attribution and Multi-Touch Models", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

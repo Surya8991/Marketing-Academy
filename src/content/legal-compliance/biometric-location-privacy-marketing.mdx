@@ -1,0 +1,66 @@
+export const lessonMeta = {
+  title: "Biometric Data and Location Targeting: Where Marketing Crosses a Legal Line",
+  level: "Advanced",
+  summary: "Facial recognition and location-based ad targeting sit under some of the toughest privacy laws in the country, from Illinois' BIPA statutory damages to post-Roe geofencing enforcement.",
+};
+
+Facial recognition filters, geofenced ads around a competitor's store, retargeting someone who walked past a clinic — these all sound like ordinary 2020s marketing tactics. Two categories of data behind them, biometrics and precise location, are now regulated more aggressively than almost anything else in the marketing stack.
+
+Get this wrong and the exposure isn't a warning letter, it's statutory damages that don't even require proving harm.
+
+## Why biometric data is legally radioactive
+
+**Biometric identifiers** are physical or behavioral traits used to identify a person: fingerprints, facial geometry, iris scans, voiceprints. Illinois' Biometric Information Privacy Act (BIPA), passed in 2008, is the toughest law governing them — and the only state biometric law with a **private right of action**, meaning individuals can sue directly, not just wait for a regulator.
+
+BIPA damages: $1,000 per negligent violation, $5,000 per intentional or reckless violation, plus attorney fees. Courts have held that a person doesn't need to prove any actual harm beyond the statutory violation itself — the violation *is* the harm.
+
+That combination (private lawsuits plus no-harm-required damages) is why BIPA has generated the most expensive privacy settlements in US history: Meta settled a BIPA case for $650 million in 2021, and Clearview AI's 2025 settlement handed plaintiffs a 23% equity stake in the company in lieu of cash. A 2024 amendment narrowed future exposure somewhat, capping damages to one recovery per person per method of collection rather than per-scan — but the underlying $1,000/$5,000 statutory framework remains intact.
+
+If a campaign uses facial filters, photo tagging, or voice-based personalization and touches an Illinois resident, BIPA applies regardless of where your company is headquartered.
+
+## Geofencing around sensitive locations
+
+**Geofencing** draws a virtual boundary around a physical location and targets ads at devices that entered it. It's a legitimate, widely used tactic — until the fence goes around a health clinic, place of worship, or addiction treatment center.
+
+The precedent case predates this decade but set the template regulators still use: Copley Advertising was found to have geofenced reproductive health clinics to target "abortion-minded women" with anti-abortion ads, and settled with the Massachusetts Attorney General in 2017, agreeing never to use geofencing to infer a person's health status or medical condition near a healthcare facility again.
+
+Post-*Dobbs*, that theory of enforcement has only intensified.
+
+- State attorneys general treat geofencing around reproductive health facilities as inherently likely to expose sensitive health status, not a neutral targeting choice
+- The legal theory extends to any sensitive-location category: clinics, shelters, places of worship, addiction treatment centers
+- "We didn't know it was a clinic" is a weak defense when geofencing platforms let you draw the boundary on a map with the clinic clearly visible
+
+The safest posture: exclude sensitive-location categories from geofence campaigns entirely, rather than trying to defend inference after the fact.
+
+## Facial recognition ad targeting bans
+
+A growing list of cities and states have gone further than data-handling rules and banned facial recognition outright for certain uses. Portland, Oregon's ban, effective January 2021, is unusually broad: it covers **private businesses**, not just government agencies, making it one of the few laws that reaches commercial and marketing use directly.
+
+- Portland (private-sector ban), Boston and several other cities (government-use bans) each have different scope, so "facial recognition is banned in my city" needs a specific check against the actual ordinance
+- A ban on government use doesn't protect a marketing team using facial recognition in a retail or ad-tech context in the same city
+- These bans compound with BIPA and similar state laws rather than replacing them
+
+Before piloting any facial-recognition-based ad targeting or in-store analytics, check both state biometric law and local ordinance — you may need to clear two separate bars.
+
+## What a compliant program looks like
+
+None of this rules out personalization or location-based marketing, it just requires drawing boundaries before the campaign launches, not after a complaint.
+
+- Get explicit written consent before collecting any biometric identifier, and document what BIPA calls a written retention/destruction policy
+- Build a permanent exclusion list of sensitive location categories for every geofencing campaign
+- Confirm facial recognition tools you license don't collect data on Illinois, Texas, or Washington residents without separately verifying consent
+- Treat "we bought it from a data broker" as no defense at all — courts have held companies liable for a vendor's collection practices
+
+<Callout type="warning">
+BIPA plaintiffs don't need to show they were harmed, only that biometric data was collected without proper notice and consent. That's what makes it different from almost every other privacy statute, and why the settlements run into hundreds of millions of dollars.
+</Callout>
+
+<ResourceList resources={[
+  { title: "Illinois Biometric Information Privacy Act, full text (740 ILCS 14)", url: "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=3004", type: "docs", free: true },
+  { title: "Recording Law: BIPA Explained, Illinois Biometric Privacy Act", url: "https://www.recordinglaw.com/us-laws/data-privacy-laws/bipa/", type: "article", free: true },
+  { title: "Mass.gov: AG Settlement Prohibiting Geofencing Around Healthcare Facilities", url: "https://www.mass.gov/news/ag-reaches-settlement-with-advertising-company-prohibiting-geofencing-around-massachusetts-healthcare-facilities", type: "article", free: true },
+  { title: "Privacy World: 2025 Year in Review, Biometric Privacy Litigation", url: "https://www.privacyworld.blog/2025/12/2025-year-in-review-biometric-privacy-litigation/", type: "article", free: true },
+  { title: "WsCube Tech, Biometric and Location Privacy in Marketing (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Biometric and Location Privacy in Marketing", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Biometric and Location Privacy in Marketing", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

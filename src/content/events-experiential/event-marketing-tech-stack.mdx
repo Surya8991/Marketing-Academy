@@ -1,0 +1,88 @@
+export const lessonMeta = {
+  title: "The Event Marketing Tech Stack: Where Leads Actually Get Lost",
+  level: "Intermediate",
+  summary: "How registration platforms, badge scanners, and CRM sync are supposed to work together, and the exact integration failures that quietly drop leads between the booth and the sales team.",
+};
+
+# The Event Marketing Tech Stack: Where Leads Actually Get Lost
+
+You scanned 400 badges. Sales says they only saw 220 leads. That gap is not a mystery, it's a broken handoff somewhere in your tech stack.
+
+## Quick Summary
+
+- A typical event tech stack has three separate layers: registration, on-site lead capture, and CRM sync, each run by a different vendor with its own data format.
+- Manual lead entry carries a 12-18% error rate on names, emails, and company fields, and that's before any sync problem even starts.
+- Only about 2% of scanned leads convert into qualified opportunities industry-wide, and a chunk of that loss is pure plumbing, not sales skill.
+- Day-1 follow-up email open rates sit at 38-45%, but only if the lead actually lands in the CRM in time to send that email.
+- The fix is mapping every field before the show, not troubleshooting after 400 leads vanish into a spreadsheet.
+
+## The Three Layers Nobody Owns Together
+
+Most event stacks are built from parts that were never designed to talk to each other. Registration lives in one platform, badge scanning in another, and CRM sync gets bolted on last.
+
+**Registration platforms** like Cvent or Bizzabo capture the attendee's info when they sign up weeks before the show. This data usually arrives clean, since the attendee typed it themselves.
+
+**Badge scanning hardware** is what your booth staff uses on the floor: a dedicated scanner or a phone app reading a QR code or barcode. This is where lead capture actually happens in real time, often with notes and a hot/warm/cold tag added by the rep.
+
+**CRM sync** is the pipe connecting scanner data to Salesforce, HubSpot, or Pipedrive, usually via a native integration, an API, or a Zapier workflow stitched together by whoever set up the booth. Each layer is a hand-off point, and hand-offs are where leads die.
+
+<Mermaid chart={`graph TD
+    A[Registration platform\nAttendee signs up] --> B[Badge scan at booth\nQR or barcode capture]
+    B --> C{CRM sync method}
+    C --> D[Native integration]
+    C --> E[API push]
+    C --> F[Manual CSV export]
+    D --> G[Leads land in CRM]
+    E --> G
+    F --> H[Leads sit in spreadsheet]`} />
+
+## Where the Integration Actually Breaks
+
+The failure almost never happens at the scan itself. It happens in the sync, and there are a few repeat offenders.
+
+**Field mapping mismatches** are the biggest one: your scanner exports "Company Name" but your CRM expects "Account", so the sync silently drops that field for every single lead. Nobody notices until sales asks why 300 leads have no company attached.
+
+**Delayed or manual export** is the second: some lead retrieval apps only sync in real time if you pay for the premium tier, and the default plan requires someone to manually export a CSV after the show. [According to Bizzabo's guide on building an event tech stack](https://www.bizzabo.com/blog/event-tech-stack-crm-integration-guide), CRM integration setup means mapping badge-scan data to CRM fields via API or Zapier, and skipping that mapping step is what causes the delay.
+
+**Duplicate and orphaned records** round it out: a lead who pre-registered AND got scanned at the booth creates two records if your registration platform and scanner don't share a unique ID, so sales works the wrong one or works both and looks disorganized.
+
+<Callout type="warning">
+Manual lead entry error rates run 12-18% on names, emails, and company fields. Every typo at that stage becomes a bounced email or a mis-routed lead once it hits the CRM, so the damage compounds instead of staying contained to one bad record.
+</Callout>
+
+Every one of these failures is invisible until the follow-up email doesn't land, and by then, the lead has gone cold.
+
+## Building the Stack So Leads Don't Fall Through
+
+Fix this before the show, not during the post-mortem. Three things matter more than the specific vendors you pick.
+
+**Test the sync with 10 fake leads a week before the event.** Scan them, watch them land in the CRM, and check every field arrived intact, not just that a record appeared. This catches 90% of mapping issues while you still have time to fix them.
+
+**Pick one unique identifier that survives every handoff**, usually email address, and make sure registration, badge scanning, and CRM all key off the same field. This is what collapses duplicate records instead of creating two versions of the same person.
+
+**Assign a single owner for the sync, not a committee.** Someone from marketing ops should watch the lead count in the CRM in real time during the show, not discover the gap three weeks later when sales complains.
+
+<Callout type="tip">
+Real-time lead scoring at the point of scan, tagging hot/warm/cold before the rep even leaves the conversation, does double duty: it speeds up follow-up AND gives you a built-in check that leads are actually syncing, since a stalled counter means the pipe broke.
+</Callout>
+
+A tech stack that works isn't the one with the fanciest scanner. It's the one where a lead who says "email me next week" actually gets that email, because the plumbing between the booth and the CRM never dropped their name.
+
+## Key Takeaways
+
+- Registration, badge scanning, and CRM sync are three separate systems built by three separate vendors. Treat the handoffs between them as the real risk, not the individual tools.
+- Field mapping mismatches, manual CSV exports, and duplicate records are the three most common ways leads disappear between scan and CRM.
+- Test your sync with fake leads before the show. Finding a broken field mapping after 400 real leads pass through it is too late.
+- Pick one unique identifier, usually email, that stays consistent across registration and scanning so records don't fork into duplicates.
+- Assign one person to own the sync during the event itself, watching lead count in real time instead of discovering gaps weeks later.
+
+<ResourceList resources={[
+  { title: "How to Build an Event Tech Stack with CRM Integration (Bizzabo)", url: "https://www.bizzabo.com/blog/event-tech-stack-crm-integration-guide", type: "article", free: true },
+  { title: "Comparing the 10 Best Event Lead Capture Platforms (Blinq)", url: "https://blinq.me/blog/best-event-lead-capture-software-2026", type: "article", free: true },
+  { title: "Lead Retrieval, Badge Scanner & Lead Capture App (Cvent)", url: "https://www.cvent.com/en/event-marketing-management/lead-capture", type: "tool", free: false },
+  { title: "Conference Lead Capture: 7-Step Workflow for Vendor Booths", url: "https://track360.io/blog/conference-lead-capture-affiliate-platforms-7-step-workflow-2026", type: "article", free: true },
+  { title: "HubSpot CRM Integrations Directory", url: "https://www.hubspot.com/products/marketplace/integrations", type: "tool", free: false, note: "Where to check if your lead capture app has a native CRM sync" },
+  { title: "WsCube Tech, Event Marketing Technology (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Event Marketing Technology", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Event Marketing Technology", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

@@ -1,0 +1,88 @@
+export const lessonMeta = {
+  title: "Dark Patterns: The FTC's Crackdown on Deceptive UX",
+  level: "Intermediate",
+  summary: "How the FTC treats manipulative checkout, cancellation, and consent flows as illegal deception, and what marketers need to change before the next $2.5 billion settlement.",
+};
+
+Dark patterns are UI and UX choices designed to trick users into doing something they would not otherwise do, like staying subscribed, sharing more data, or buying an add-on. What used to be dismissed as 'aggressive growth tactics' is now a federal enforcement target with billion-dollar price tags.
+
+If your growth team has ever debated hiding a cancel button or pre-checking an upsell box, this lesson is for you.
+
+## The Amazon case that changed the conversation
+
+In September 2025, the FTC secured a $2.5 billion settlement against Amazon over Prime enrollment and cancellation practices. The breakdown: $1 billion in civil penalties and $1.5 billion in consumer refunds, the largest civil penalty ever tied to an FTC rule violation.
+
+The complaint centered on two things. First, Amazon repeatedly prompted shoppers to enroll in Prime during checkout while obscuring the decline option. Second, canceling required navigating what Amazon's own internal documents called the 'Iliad Flow,' a four-page, six-click, fifteen-option maze.
+
+That internal name is the tell. When your own team nicknames a cancellation flow after a ten-year siege, you already know it is a dark pattern.
+
+<Callout type="warning">
+The FTC did not need a special dark-patterns law to win this case. It used Section 5 of the FTC Act, the decades-old ban on 'unfair or deceptive acts or practices.' That means dark-pattern liability already applies to your funnel today, rule or no rule.
+</Callout>
+
+## What actually counts as a dark pattern
+
+Not every persuasive design choice is illegal. Regulators focus on patterns that create a real asymmetry between signing up and getting out.
+
+- **Roach motel**: easy to get in, deliberately hard to get out (Amazon's core violation).
+- **Confirmshaming**: guilt-tripping copy on decline buttons, like 'No thanks, I don't want to save money.'
+- **Hidden costs**: fees that appear only at the final step of checkout.
+- **Pre-checked boxes**: opt-in defaults for upsells, data sharing, or renewal that the user never affirmatively chose.
+- **Nagging**: repeated prompts for the same 'no' answer until the user gives up and says yes.
+
+Each of these shares one trait: they add friction to the choice the business does not want, and remove friction from the choice it does want. That imbalance is what regulators measure.
+
+## Why "Click to Cancel" still matters even though it was vacated
+
+The FTC finalized its Negative Option Rule, nicknamed 'Click to Cancel,' in late 2024. It required that canceling a subscription be at least as easy as signing up for one.
+
+In July 2025, the Eighth Circuit Court of Appeals vacated the rule, ruling that the FTC skipped a required preliminary economic analysis under Section 22 of the FTC Act. That is a procedural loss, not a philosophical one.
+
+The FTC has said enforcement continues under its existing Section 5 authority, and it has already proven that with the Amazon case and an $8 million settlement against Care.com in the summer of 2025. Several state attorneys general are also writing 'click to cancel' style rules into state law, so the compliance bar keeps rising even without a federal rule on the books.
+
+<Callout type="info">
+Practical takeaway: build your cancellation flow to the 'as easy as sign-up' standard regardless of whether a specific rule is in force. Courts vacate rules over paperwork technicalities, not over whether the underlying practice was fair.
+</Callout>
+
+## How this shows up in a marketer's actual workflow
+
+Growth and lifecycle teams touch dark-pattern risk constantly, often without framing it that way.
+
+- A/B tests that measure 'cancel completion rate' as a success metric worth optimizing downward.
+- Pricing pages where the annual plan is pre-selected and costs 3x more per month than advertised.
+- Email unsubscribe links buried below three paragraphs of retention copy.
+- Consent banners where 'Accept All' is a bright button and 'Reject' is grey text with no visible border.
+
+None of these require malicious intent to become a legal problem. Regulators look at the design outcome, not the Slack conversation that led to it.
+
+<Callout type="example">
+Care.com's $8 million settlement involved allegations of deceptive subscription enrollment and renewal practices aimed at caregivers, a population the FTC specifically flagged as economically vulnerable. Enforcement risk increases when the affected users have less power to walk away.
+</Callout>
+
+## Building a defensible flow
+
+Treat cancellation and consent flows as compliance surfaces, not just conversion surfaces.
+
+- Map the sign-up flow step by step, then map cancellation the same way, and count clicks on both.
+- If cancellation takes more steps, more pages, or requires a phone call while sign-up did not, flag it before launch.
+- Default toggles to 'off' for anything that costs the user money or shares their data.
+- Route final say on cancellation and consent UX through legal review, not just growth metrics.
+
+<Callout type="warning">
+This lesson is educational, not legal advice. Talk to a lawyer before shipping any flow that touches billing, cancellation, or consent, the cost of review is far smaller than a settlement.
+</Callout>
+
+Design for the exit as carefully as you design for the entrance. Regulators are already comparing the two.
+
+<ResourceList resources={[
+  { title: "FTC Negative Option Rule (Click to Cancel) Overview", url: "https://www.ftc.gov/legal-library/browse/rules/negative-option-rule", type: "docs", free: true },
+  { title: "FTC v. Amazon.com, Inc. Case Summary", url: "https://www.ftc.gov/legal-library/browse/cases-proceedings/2023090-amazoncom-inc", type: "docs", free: true },
+  { title: "Eighth Circuit Vacates the FTC's Click-to-Cancel Rule", url: "https://www.wilmerhale.com/en/insights/client-alerts/20250801-eighth-circuit-vacates-the-ftcs-click-to-cancel-rule-but-federal-and-state-regulators-likely-to-remain-active", type: "article", free: true },
+  { title: "Dark Patterns Lawsuits and the FTC's Click-to-Cancel Rule", url: "https://www.coulsonpc.com/coulson-pc-blog/dark-patterns-ftc-click-to-cancel-rule", type: "article", free: true },
+  { title: "Trapped By Design: How Dark Patterns Manipulate Choices", url: "https://btlj.org/2025/11/trapped-by-design-how-dark-patterns-manipulate-your-choices-and-the-regulators-fighting-back/", type: "article", free: true },
+  { title: "FTC Bringing Dark Patterns to Light Report", url: "https://www.ftc.gov/reports/bringing-dark-patterns-light", type: "docs", free: true },
+  { title: "Nielsen Norman Group: Dark Patterns in UX", url: "https://www.nngroup.com/articles/dark-patterns/", type: "article", free: true },
+  { title: "WsCube Tech, Dark Patterns and FTC Rules (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Dark Patterns and FTC Rules", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Dark Patterns and FTC Rules", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

@@ -1,0 +1,83 @@
+export const lessonMeta = {
+  title: "Coupon and Deal-Site Affiliates: RetailMeNot, Honey, and Cashback",
+  level: "Intermediate",
+  summary: "How coupon and cashback affiliates actually work, why brands complain about 'last-click coupon theft', and how to structure these deals fairly.",
+};
+
+# Coupon and Deal-Site Affiliates: RetailMeNot, Honey, and Cashback
+
+A shopper adds an item to their cart, a coupon popup appears, they click it, and somewhere a commission just changed hands, sometimes to a partner who did nothing to earn it.
+
+## Quick Summary
+
+- Coupon sites like RetailMeNot and cashback platforms like Rakuten earn commission by being the last click before checkout, regardless of whether they influenced the purchase.
+- Browser extensions like Honey (owned by PayPal) automate this by popping up at checkout and, according to a class-action lawsuit, swapping in their own cookie even without applying a discount.
+- "Last-click coupon theft" is the brand-side complaint: an affiliate who added zero value gets paid because they were technically the final touchpoint.
+- A January 2025 lawsuit against PayPal alleges Honey's cookie-swap cost content creators real commission revenue, with damages sought exceeding $5 million.
+- Fair coupon-affiliate deals require exclusive codes, no-discount clawback rules, and attribution windows that respect who actually drove the sale.
+
+## How Coupon and Cashback Sites Work
+
+**Coupon sites** aggregate discount codes and list them for shoppers hunting for a deal before checkout. **Cashback sites** like Rakuten pay users a percentage of their purchase back for shopping through the site's link.
+
+Both models exist entirely on affiliate commission. The retailer pays the coupon or cashback site the same commission it would pay any other affiliate, and the site shares part of that with the shopper as a "reward" for clicking through them.
+
+The business only works at volume: thin margins per transaction, millions of transactions. That volume is exactly what makes attribution disputes expensive.
+
+## The "Last-Click Theft" Problem
+
+Here is the scenario that frustrates brands and content creators alike: a shopper reads a genuine, well-researched review on a creator's blog, clicks the creator's affiliate link, browses the product, then opens a new tab to check for a coupon before buying. A browser extension pops up, "applies" a code (sometimes one that does not even work), and takes credit for the sale.
+
+**Last-click attribution** is the default model most affiliate networks still use, crediting whichever link was clicked last before purchase. That is precisely the vulnerability coupon extensions exploit.
+
+<Callout type="warning">
+The Honey browser extension, owned by PayPal, is at the center of a January 2025 class-action lawsuit alleging it swaps a content creator's affiliate cookie for its own at checkout, even when no discount code is actually applied. Plaintiffs are seeking damages exceeding $5 million. PayPal disputes the claims, stating Honey "follows industry rules and practices, including last-click attribution."
+</Callout>
+
+The technical mechanism: when a shopper clicks the extension's popup, it briefly loads the retailer's site with PayPal's own affiliate tag, resetting the cookie. Whoever clicked last, even a browser extension that added nothing, wins the commission.
+
+## Why This Matters for Program Managers
+
+If you run an affiliate program, coupon and cashback partners are not automatically bad, they drive real incremental volume for many brands. The problem is specifically when they intercept credit from someone else's genuine referral.
+
+Watch for these patterns in your own program data:
+
+- **Suspiciously high conversion rates** from coupon-code affiliates compared to content affiliates.
+- **Codes that don't actually discount anything**, "applying" a code that fails silently still counts as a "successful" coupon interaction to some extensions.
+- **A drop in content-affiliate commissions** right after adding coupon or cashback partners to your program.
+- **Complaints from top content affiliates** that their converting traffic isn't matching their commission reports.
+
+<Callout type="tip">
+Run a controlled test: disable coupon and cashback affiliates from your program for two weeks and watch whether total conversions actually drop, or whether they simply shift back to the content affiliates who originally drove the traffic. Many brands find the coupon affiliate was never incremental at all.
+</Callout>
+
+## Structuring Fair Coupon-Affiliate Deals
+
+You don't have to ban coupon and cashback partners, you have to structure the deal so they earn only what they actually contribute.
+
+- **Exclusive codes only.** Give coupon affiliates their own unique code so you can measure their real contribution instead of guessing.
+- **No-discount, no-commission.** If the "applied" code does nothing, no commission should trigger, full stop.
+- **First-click or content-priority attribution.** Some networks let you weight credit toward the first meaningful touchpoint instead of the last click, protecting the creator who actually generated interest.
+- **Separate commission tiers.** Pay coupon and cashback affiliates a lower rate than content affiliates, since they typically intercept demand rather than create it.
+- **Extension audits.** Periodically test what your own coupon-partner extensions actually do at checkout, don't take their marketing claims at face value.
+
+Getting this right protects the content creators who build genuine trust with your customers, which is the harder, more durable kind of affiliate marketing to lose.
+
+## Key Takeaways
+
+- Coupon and cashback sites earn commission by being the last click before checkout, which creates a structural incentive to intercept, not originate, sales.
+- The Honey/PayPal lawsuit, filed January 2025, alleges the extension swaps affiliate cookies even without applying a real discount, with damages sought over $5 million.
+- Last-click attribution is the root vulnerability, whoever clicks last gets paid, regardless of who actually influenced the purchase.
+- Program managers should test conversion authenticity, use exclusive codes, and consider first-click or weighted attribution to protect genuine content affiliates.
+- Fair deals pay coupon affiliates for real, verifiable value, not for popping up at the last second.
+
+<ResourceList resources={[
+  { title: "PayPal Honey Browser Extension Scam Lawsuit (Gibbs Mura LLP)", url: "https://www.classlawgroup.com/honey-browser-extension-scam-lawsuit", type: "article", free: true },
+  { title: "Honey, Capital One Shopping & Other Browser Coupon Extensions: Commission Theft Lawsuit (Seeger Weiss LLP)", url: "https://www.seegerweiss.com/class-actions/browser-coupon-extension-commission-theft-lawsuit/", type: "article", free: true },
+  { title: "Sweet Deal or Sweet Scam? How Honey Is Allegedly Hurting Content Creators' Commissions (Richmond Journal of Law and Technology, 2025)", url: "https://jolt.richmond.edu/2025/03/07/sweet-deal-or-sweet-scam-how-honey-is-allegedly-hurting-content-creators-commissions/", type: "article", free: true },
+  { title: "In Re PayPal Honey Browser Extension Litigation (Cohen Milstein)", url: "https://www.cohenmilstein.com/case-study/in-re-paypal-honey-browser-extension-litigation/", type: "article", free: true },
+  { title: "Content Creators: Did Honey Steal Your Affiliate Commissions? (Keller Rohrback)", url: "https://www.kellerrohrback.com/news/honey-affiliate-marketer-commissions-theft", type: "article", free: true },
+  { title: "WsCube Tech, Coupon and Deal Site Affiliates (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Coupon and Deal Site Affiliates", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Coupon and Deal Site Affiliates", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

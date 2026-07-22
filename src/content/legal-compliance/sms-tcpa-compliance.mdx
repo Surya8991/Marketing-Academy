@@ -1,0 +1,97 @@
+export const lessonMeta = {
+  title: "TCPA and SMS Marketing: Consent Rules That Carry Real Fines",
+  level: "Beginner",
+  summary: "How the Telephone Consumer Protection Act governs marketing texts, why 'just add a checkbox' is not enough, and what the 2025 opt-out changes mean for your SMS program.",
+};
+
+<Callout type="warning">
+This lesson explains compliance obligations for marketers. It is not legal advice. Talk to a lawyer before you launch or audit an SMS program, TCPA rules are detailed and penalties are real.
+</Callout>
+
+## Why SMS marketers should be nervous
+
+The Telephone Consumer Protection Act (TCPA) is a 1991 federal law that governs calls and texts to US consumers. It was written before smartphones existed, but courts treat a marketing text exactly like an unwanted robocall.
+
+That matters because the TCPA has a private right of action. Any individual consumer, not just a regulator, can sue you directly.
+
+Statutory damages run $500 to $1,500 per violation, per text, per person. There is no need to prove any actual harm happened.
+
+In Q1 2025 alone, 507 TCPA class actions were filed, a 112% jump over the same quarter in 2024. This is not a sleepy compliance corner, it is one of the most active areas of consumer litigation in the US.
+
+<Callout type="warning">
+Realogy paid $20 million in January 2025 to settle a TCPA text class action. Kaiser Permanente agreed to $10.5 million in January 2026 over spam telemarketing texts. These are not small companies caught off guard, they are sophisticated brands with legal teams.
+</Callout>
+
+One bad list import or a lagging opt-out process can turn into a seven-figure problem fast. Let's break down what the law actually requires.
+
+## What counts as 'consent' and why it must be written
+
+**Prior express written consent (PEWC)** is the standard for marketing texts. It means the consumer signed up specifically to receive promotional messages from your brand, in writing, before you sent anything.
+
+Three things make consent 'written' and valid:
+
+- It comes from a **separate, unbundled action**, a dedicated checkbox or reply keyword, not a pre-checked box buried in your Terms of Use.
+- The disclosure clearly states what kind of messages the person will get and roughly how often.
+- It explicitly says **consent is not a condition of purchase**. You cannot require someone to accept marketing texts to complete a transaction.
+
+A footer line that says 'by continuing you agree to receive texts' does not meet this bar. Neither does consent collected for one purpose (say, delivery alerts) and quietly reused for promotions later, that is a completely different consent and needs its own opt-in.
+
+<Callout type="tip">
+Keep a timestamped record of every opt-in: the exact language shown, the date, the source (web form, keyword, point of sale), and the phone number. When a lawsuit lands two years later, that record is your entire defense.
+</Callout>
+
+Good consent capture is half the job. The other half is what happens when someone wants out.
+
+## The 2025 opt-out overhaul
+
+The FCC's updated revocation rules took effect on April 11, 2025, and they changed the ground rules for every SMS program in the US.
+
+- Consumers can now revoke consent through **any reasonable method**, not just a STOP reply. Emails, phone calls, website forms, chatbots, and even spoken requests during a call all count.
+- Standard opt-out keywords you must always honor: **STOP, quit, end, revoke, opt out, cancel, unsubscribe**.
+- You must process the opt-out **within 10 business days**, down from the old 30-day standard.
+- After opt-out, that number is off-limits for that specific brand relationship, resubscribing requires a fresh, separate opt-in.
+
+This is the exact failure pattern behind several 2025 settlements. Bishop Gold Group paid $2 million in October 2025 to a class of people who kept receiving texts after replying STOP.
+
+If your platform's opt-out handling lives in a spreadsheet someone updates weekly, you are already out of compliance with the 10-day window. Build it into your SMS tool's automated suppression list instead.
+
+<Callout type="info">
+Transactional messages, order confirmations, appointment reminders, delivery updates, are exempt from PEWC requirements as long as they stay strictly non-promotional. The moment you slip a discount code into a 'your order shipped' text, it becomes a marketing message and needs full consent.
+</Callout>
+
+Opt-outs are the most litigated failure point, but timing and frequency create risk too.
+
+## Quiet hours, frequency, and the audit habit
+
+TCPA-adjacent state and industry rules restrict texting outside **8am to 9pm** in the recipient's local time zone. Sending a promotional blast at 6am because your list wasn't segmented by time zone is a quiet-hours violation waiting to be a lawsuit.
+
+Beyond timing, a few habits keep programs out of trouble:
+
+- **Audit your consent trail quarterly.** Confirm every active number in your SMS list has a matching, dated opt-in record.
+- **Test your STOP flow monthly.** Text STOP to your own campaign and confirm messages actually cease within your platform, not just on paper.
+- **Segment by time zone**, not just by area code, since mobile numbers travel with people.
+- **Never buy or rent a text list.** Purchased lists carry zero verifiable consent and are a direct path to the $500 to $1,500 per-message exposure described earlier.
+
+None of this requires exotic tooling, most reputable SMS platforms (Twilio, Attentive, Klaviyo, EZ Texting) build STOP handling and quiet-hours logic in by default. Your job is to not override it and to keep proof that consent was real.
+
+<Mermaid chart={`graph TD
+A[Get opt-in\nUnbundled checkbox] --> B[Send only what was disclosed]
+B --> C[Watch for opt-out\nAny reasonable method]
+C --> D[Suppress within 10 business days]
+D --> E[Audit consent records\nQuarterly]
+E --> A`} />
+
+Treat consent as a living record, not a one-time checkbox, and the TCPA becomes a manageable compliance task instead of a lawsuit waiting to happen.
+
+<ResourceList resources={[
+  { title: "FCC: The TCPA's New Opt-Out Rules Take Effect April 11, 2025", url: "https://www.bclplaw.com/en-US/events-insights-news/the-tcpas-new-opt-out-rules-take-effect-on-april-11-2025-what-does-this-mean-for-businesses.html", type: "article", free: true },
+  { title: "TCPA Compliance SMS Checklist for 2025, Voxie", url: "https://www.voxie.com/blog/tcpa-compliance-checklist-sms/", type: "article", free: true },
+  { title: "How to Get Legal Consent for SMS Marketing, TermsFeed", url: "https://www.termsfeed.com/blog/sms-marketing-consent/", type: "article", free: true },
+  { title: "TCPA Lawsuits on the Rise in 2025, CompliancePoint", url: "https://www.compliancepoint.com/marketing-compliance/tcpa-lawsuits-on-the-rise-in-2025/", type: "article", free: true },
+  { title: "Official FCC TCPA Rules and Regulations", url: "https://www.fcc.gov/general/telemarketing-and-robocalls", type: "docs", free: true },
+  { title: "CTIA Messaging Principles and Best Practices", url: "https://www.ctia.org/the-wireless-industry/industry-commitments/messaging-principles-and-best-practices", type: "docs", free: true },
+  { title: "Twilio: SMS Compliance Guide", url: "https://www.twilio.com/en-us/blog/insights/compliance/sms-compliance-guide", type: "article", free: true },
+  { title: "WsCube Tech, TCPA and SMS Marketing (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, TCPA and SMS Marketing", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, TCPA and SMS Marketing", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

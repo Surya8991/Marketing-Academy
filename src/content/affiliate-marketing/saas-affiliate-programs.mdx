@@ -1,0 +1,77 @@
+export const lessonMeta = {
+  title: "SaaS Affiliate Programs: Recurring Commissions and Clawbacks",
+  level: "Intermediate",
+  summary: "Why SaaS affiliate economics run on recurring, churn-adjusted commissions instead of one-time payouts, and how clawbacks keep the math honest.",
+};
+
+# SaaS Affiliate Programs: Recurring Commissions and Clawbacks
+
+An e-commerce affiliate gets paid once, the moment a customer checks out. A SaaS affiliate gets paid every month that customer keeps their subscription, which sounds better until you see what happens when the customer cancels.
+
+## Quick Summary
+
+- SaaS affiliate programs typically pay 20 to 60 percent recurring commission on a customer's monthly or annual subscription, for as long as that customer stays.
+- Recurring revenue share aligns the affiliate's incentive with retention, not just the initial sale, since they only keep earning while the customer stays.
+- **Clawbacks** claw commission back from an affiliate when the referred customer churns, refunds, or downgrades shortly after signing up.
+- The cleanest programs pay strictly in arrears on confirmed billing events, no payment received, no commission owed, avoiding messy after-the-fact reversals.
+- This is structurally different from e-commerce affiliate math, where the transaction is final the moment the order ships.
+
+## Why Recurring Commission Exists
+
+A one-time e-commerce affiliate payout is simple: customer buys, affiliate gets a cut, done. SaaS doesn't work that way because the product itself is a subscription, so a single "sale" isn't really a sale, it's the start of an ongoing relationship.
+
+Recurring revenue share is now the dominant model for SaaS affiliate programs because it aligns the partner with retention rather than volume alone. Many programs pay 20 to 60 percent recurring commission on monthly plans, or a larger fixed bounty for annual signups.
+
+This matters because it changes who makes a good affiliate. A partner who sends low-intent traffic that signs up for a free trial and churns in week two is worth far less to a SaaS company than one who sends five customers who all stay a year.
+
+<Callout type="info">
+Some programs offer lifetime recurring commission, the affiliate earns on that customer for as long as they're a paying subscriber, even five years later. Others cap recurring commission at 12 or 24 months, then stop. Read the terms carefully, this single detail changes long-term affiliate income dramatically.
+</Callout>
+
+## Why Churn Forces Clawbacks
+
+Here's the problem recurring commission creates: what happens when the customer an affiliate referred cancels after one month, or gets a refund?
+
+If the affiliate already got paid for month two and the customer churned after month one, the company overpaid. A **clawback** is the mechanism that reverses that commission, either by deducting it from a future payout or by holding a reserve balance against exactly this scenario.
+
+Clawback policy typically covers three triggers:
+
+- **Refunds.** If the company refunds the customer, the affiliate loses the commission tied to that payment.
+- **Chargebacks.** A disputed credit card charge triggers the same reversal.
+- **Early churn.** Some programs claw back the signup bonus if the customer cancels within a defined window, often 30 to 90 days.
+
+<Callout type="warning">
+The cleanest churn-safe design pays strictly in arrears on confirmed billing events, using something like a Stripe webhook: no payment, no commission, period. Programs that pay commission upfront on signup, before the first successful charge even clears, are the ones that end up chasing affiliates for clawbacks later. Design the payment trigger correctly from day one and you avoid most of the dispute.
+</Callout>
+
+## How This Changes Affiliate Behavior
+
+Because SaaS commission is tied to retention, the affiliates who succeed long-term think differently than a typical e-commerce affiliate. Sending someone who will churn in month one isn't just a wasted click, it actively costs the affiliate money down the line through clawbacks.
+
+This pushes good SaaS affiliates toward a few habits:
+
+- **Qualifying traffic before the click.** A detailed comparison article that filters for buyer intent converts better and retains longer than a generic "best tools" listicle.
+- **Explaining the product honestly**, including who it's a bad fit for, since a mismatched signup is a near-guaranteed churn and clawback.
+- **Tracking cohort retention**, not just signup volume, sophisticated SaaS affiliates watch how their referred customers behave at 30, 60, and 90 days.
+- **Negotiating commission caps or floors** upfront, so both sides know exactly how clawbacks will be calculated before any money moves.
+
+This is the core difference from e-commerce affiliate economics: an e-commerce affiliate's job ends at the click-to-cart. A SaaS affiliate's earnings depend on decisions made weeks or months after the click, decisions the affiliate has no direct control over but every financial stake in.
+
+## Key Takeaways
+
+- SaaS affiliate programs pay recurring commission, often 20 to 60 percent, tied to how long the referred customer keeps paying, not a one-time flat fee.
+- Clawbacks reverse commission when a customer refunds, disputes a charge, or churns within an early window, protecting the company from overpaying on customers who didn't stick.
+- Paying strictly in arrears on confirmed billing events, rather than upfront on signup, is the cleanest way to avoid painful clawback disputes later.
+- Good SaaS affiliates optimize for retention and fit, not just clicks, because their long-term earnings depend on customers who actually stay subscribed.
+- This recurring, churn-adjusted model is fundamentally different from one-time-purchase e-commerce affiliate economics, where the transaction closes the moment the sale completes.
+
+<ResourceList resources={[
+  { title: "Best SaaS Affiliate Programs 2026 (Operator Guide) (Track360)", url: "https://track360.io/blog/best-saas-affiliate-programs-2026", type: "article", free: true },
+  { title: "Recurring Commission Affiliate Program Economics (Track360)", url: "https://track360.io/blog/recurring-commission-affiliate-program-design-2026", type: "article", free: true },
+  { title: "SaaS Affiliate Commission Rates: 2026 Benchmark (Track360)", url: "https://track360.io/blog/saas-affiliate-commission-rates-benchmark-2026", type: "article", free: true },
+  { title: "Recurring Commission Affiliate Programs, a Guide for SaaS (LinkJolt)", url: "https://www.linkjolt.io/blog/recurring-commission-affiliate-programs", type: "article", free: true },
+  { title: "10+ Best SaaS Affiliate Programs in 2025 (Lemlist)", url: "https://www.lemlist.com/blog/saas-affiliate-programs", type: "article", free: true },
+  { title: "WsCube Tech, SaaS Affiliate Programs (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, SaaS Affiliate Programs", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, SaaS Affiliate Programs", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

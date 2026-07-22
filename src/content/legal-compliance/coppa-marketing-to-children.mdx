@@ -1,0 +1,73 @@
+export const lessonMeta = {
+  title: "COPPA: Marketing to Kids Under 13 Without Getting Sued",
+  level: "Intermediate",
+  summary: "What triggers the Children's Online Privacy Protection Act, how verifiable parental consent actually works, and what Amazon, Epic Games, and TikTok learned the hard way.",
+};
+
+<Callout type="warning">
+This lesson explains compliance obligations for marketers. It is not legal advice. Talk to a lawyer before you launch or audit any product, app, or campaign that touches users under 13.
+</Callout>
+
+## The law that outlasted the internet it was written for
+
+The Children's Online Privacy Protection Act (COPPA) passed in 1998, before smartphones, social apps, or in-app ads existed. It still governs almost every digital product a kid might touch today.
+
+COPPA applies to any "operator" of a website, app, or online service that is **directed to children under 13**, or that has **actual knowledge** it is collecting personal information from a child under 13. That second clause is the trap: you don't have to build a kids' product to be covered, you just have to find out a user is a kid and keep collecting their data anyway.
+
+"Personal information" under COPPA is broad. It covers name, email, geolocation, photos, voice recordings, and, since a 2025 rule update, biometric identifiers and persistent device identifiers used for ad targeting.
+
+If your product could plausibly reach kids, this law is already relevant to you. Let's look at what it actually requires.
+
+## What triggers COPPA, and what it demands
+
+The FTC looks at several factors to decide if a service is "directed to children": subject matter, animated characters, kid-oriented language, music, and whether the audience composition skews young. A general-audience app with a known population of under-13 users can still get pulled into COPPA's scope.
+
+Once you're covered, three obligations kick in before you collect a single data point:
+
+- **Notice.** A clear, direct privacy notice to parents describing exactly what data you collect and why.
+- **Verifiable parental consent (VPC).** You must confirm a real parent, not the child, approved the collection before it happens.
+- **Data minimization.** Collect only what you need for the activity, and don't retain it longer than necessary.
+
+VPC used to mean credit card verification or a signed consent form, both clunky for a mobile app's onboarding flow. The FTC's amended rule, effective June 23, 2025 with full compliance required by April 22, 2026, adds knowledge-based authentication and text message verification as acceptable methods, but only when used strictly to confirm parental identity, not to profile the child.
+
+<Callout type="info">
+The 2025 amendments also require **separate** verifiable parental consent before disclosing a child's data to third parties, including ad networks. Bundling that consent into your general sign-up flow no longer satisfies the rule.
+</Callout>
+
+Consent isn't a one-time checkbox you can bury in onboarding, it's an ongoing obligation tied to every new use of the data.
+
+## Ad targeting is where most brands get burned
+
+You cannot serve behaviorally targeted ads to a user you know is under 13 without separate parental consent for that specific purpose. Contextual ads, ads based on the content being viewed rather than the user's profile, are generally fine.
+
+This distinction is exactly what took down Epic Games. In December 2022, the FTC and Epic settled two cases totaling $520 million: a record $275 million civil penalty for COPPA violations in Fortnite, plus $245 million in refunds for dark-pattern purchase tactics. Epic had collected data from millions of child players without parental notice and enabled on-by-default voice and text chat for kids, a Section 5 violation stacked on top of the COPPA one.
+
+Amazon is the cautionary tale for retention, not collection. In 2023, Amazon agreed to a $25 million penalty after the FTC and DOJ found it kept children's Alexa voice recordings and geolocation data indefinitely, even after parents explicitly asked for deletion, and used that data to improve its algorithms anyway.
+
+TikTok shows what happens when you ignore a prior order. In August 2024, the DOJ sued TikTok and ByteDance, alleging the platform kept letting under-13 users create accounts, failed to honor parental deletion requests, and built profiles on kids using its own "Kids Mode," despite being bound by a 2019 consent order from its Musical.ly predecessor. The government is seeking civil penalties of up to $51,744 per violation, per day.
+
+<Callout type="warning">
+None of these were small, careless startups. They were sophisticated companies with legal teams that either miscalculated the rules or bet the FTC wouldn't enforce them. Both bets were wrong.
+</Callout>
+
+## What this means for your marketing stack
+
+If any part of your funnel could reach a user under 13, run this checklist before your next campaign or product update:
+
+- **Audit your ad pixels and SDKs.** Third-party trackers on a kids-facing property need their own parental consent, not a blanket privacy policy checkbox.
+- **Turn off behavioral retargeting** for any audience segment you know includes under-13 users.
+- **Set data retention limits** and actually enforce deletion requests within a defined window, not "whenever the backlog clears."
+- **Review your age gate.** A self-reported birthday field that lets a kid simply lie is not a defense if you have other signals suggesting the true age.
+
+COPPA fines are calculated per violation, which in practice means per affected child, so the exposure scales with your user base far faster than most marketers expect. Build the guardrails before you scale the audience, not after the FTC calls.
+
+<ResourceList resources={[
+  { title: "FTC: Children's Online Privacy Protection Rule (COPPA)", url: "https://www.ftc.gov/legal-library/browse/rules/childrens-online-privacy-protection-rule-coppa", type: "docs", free: true },
+  { title: "FTC Finalizes Amendments to the COPPA Rule, McDermott Will & Emery", url: "https://www.mcdermottlaw.com/insights/ftc-finalizes-amendments-to-the-childrens-online-privacy-protection-rule/", type: "article", free: true },
+  { title: "FTC and DOJ Charge Amazon Over Alexa Children's Privacy", url: "https://www.ftc.gov/news-events/news/press-releases/2023/05/ftc-doj-charge-amazon-violating-childrens-privacy-law-keeping-kids-alexa-voice-recordings-forever", type: "article", free: true },
+  { title: "FTC Lawsuit Against TikTok and ByteDance for COPPA Violations", url: "https://www.ftc.gov/news-events/news/press-releases/2024/08/ftc-investigation-leads-lawsuit-against-tiktok-bytedance-flagrantly-violating-childrens-privacy-law", type: "article", free: true },
+  { title: "6 Takeaways from the FTC's $520 Million Epic Games Settlement, Orrick", url: "https://www.orrick.com/en/Insights/2023/02/6-Top-Takeaways-from-FTCs-Landmark-Epic-Games-Settlements", type: "article", free: true },
+  { title: "WsCube Tech, COPPA and Marketing to Children (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, COPPA and Marketing to Children", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, COPPA and Marketing to Children", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

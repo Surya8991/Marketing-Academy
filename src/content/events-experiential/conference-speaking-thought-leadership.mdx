@@ -1,0 +1,84 @@
+export const lessonMeta = {
+  title: "Getting Your Executives on Stage: CFPs and Thought Leadership",
+  level: "Intermediate",
+  summary: "How call-for-papers review actually works, why a sales pitch gets rejected every time, and how to stretch one 30-minute talk into a quarter of content.",
+};
+
+# Getting Your Executives on Stage: CFPs and Thought Leadership
+
+Your CEO wants to speak at the industry's biggest conference. The talk you submit will most likely get rejected, unless you understand what conference organizers are actually screening for.
+
+## Quick Summary
+
+- Most CFPs (call-for-papers, the formal process conferences use to collect and review talk submissions) reject the majority of submissions; it's common for only 1 in 30 proposals to get accepted at a competitive event.
+- The single most common rejection reason is that the talk reads like a vendor pitch or product demo instead of genuine insight.
+- Reviewers look for three things in order: a clear problem, specific takeaways, and a credible reason you're the one to present it.
+- Smaller, niche conferences have meaningfully higher acceptance rates and often better-matched audiences than the flagship industry event everyone targets first.
+- One accepted talk can be repurposed into 6-10 pieces of content: blog posts, social clips, a podcast episode, and sales enablement material.
+
+## What a CFP Review Committee Actually Does
+
+A call-for-papers is the formal process conferences run to collect talk submissions from potential speakers, usually reviewed by a committee of program organizers, past speakers, or industry volunteers. Understanding how they read submissions changes what you write.
+
+Reviewers see hundreds of proposals for maybe 20-40 speaking slots. They are not reading for polish, they are pattern-matching against two questions: is this going to teach the audience something, and is this secretly an ad.
+
+[The most common reason proposals get rejected is that they read like a vendor pitch or product demo](https://dev.to/github/top-tips-for-getting-a-cfp-accepted-hh0), according to speakers who've sat on review committees. Conference organizers protect their audience fiercely, because an audience that feels sold to stops trusting the entire program, not just your session.
+
+<Callout type="warning">
+If you want to give a straightforward sales pitch, most conferences have a paid sponsorship track for exactly that. Submitting a thinly-veiled product demo to the open CFP track is the fastest way to get your executive rejected, and it can hurt your standing for future submissions too.
+</Callout>
+
+Knowing the committee's actual filter is half the battle. The other half is writing a proposal that passes it.
+
+## Writing a Pitch That Beats the Sales Pitch
+
+A strong CFP submission follows a predictable shape, and skipping any piece of it weakens the whole thing.
+
+**Lead with the problem, not the solution.** Open by naming a pain point your audience actually has, framed in their language, before you ever mention what you did about it. This signals you understand their world instead of just wanting airtime.
+
+**Be specific about the takeaway, not the topic.** "Marketing analytics trends" is a topic. "Three metrics that predicted a 40% churn spike before our dashboard did" is a takeaway, and it's the version that gets accepted, because [reviewers want the abstract to speak specifically to what participants will learn](https://www.civo.com/blog/everything-you-need-to-know-about-cfps), not a vague theme.
+
+**Explain, briefly, why you're the right presenter.** One or two sentences on your specific experience with this exact problem, not a full bio. The committee wants a credible narrator, not a resume.
+
+<Mermaid chart={`graph TD
+    A[Name the audience's real problem] --> B[State the specific takeaway]
+    B --> C[One line: why you]
+    C --> D[Submit to CFP]
+    D --> E{Reads like a pitch?}
+    E -->|Yes| F[Rejected]
+    E -->|No, specific + useful| G[Accepted]`} />
+
+Keep the whole abstract to a single tight paragraph, roughly 3-6 sentences. A CFP reviewer scanning 200 submissions rewards the one that respects their time.
+
+## Picking the Right Conference, and Stretching the Talk
+
+Don't aim your executive's first submission at the biggest event in the category. Aim for fit and odds first, prestige second.
+
+**Smaller and niche conferences have real advantages.** They typically have higher acceptance rates, more supportive audiences for a first-time speaker, and organizers who are more willing to coach a rough submission into a strong one. Build a track record there before chasing the flagship stage.
+
+**One accepted talk is a content engine, not a one-time event.** Break the 30-minute talk into a blog post expanding the core argument, 3-5 short video clips of the best moments, a LinkedIn post from your speaker with the key insight, and sales enablement slides using the same framework. That's a quarter of content from one prep cycle.
+
+<Callout type="tip">
+Record the talk yourself even if the conference does, and get the slides in a shareable format before you walk on stage. The content plan should be locked before the CFP is even accepted, so you're not scrambling to repurpose it after the fact.
+</Callout>
+
+A good conference talk isn't the finish line, it's raw material. Treat the acceptance as the start of a content calendar, not the end of a project.
+
+## Key Takeaways
+
+- CFP reviewers reject sales pitches disguised as talks more than anything else; save the product demo for the paid sponsorship track.
+- A strong submission leads with the audience's problem, states a specific takeaway, and briefly establishes why your speaker is credible.
+- Acceptance rates can be as low as 1 in 30 at flagship events, so smaller niche conferences are often the smarter first target.
+- Keep the abstract to one tight paragraph; reviewers are scanning hundreds of submissions and reward specificity over length.
+- Plan the content repurposing (blog, clips, social, sales enablement) before the talk happens, not after, so one session becomes a quarter's worth of material.
+
+<ResourceList resources={[
+  { title: "10 Tips for Getting That Conference CFP Accepted (Snyk)", url: "https://snyk.io/blog/10-tips-for-getting-that-conference-cfp-accepted/", type: "article", free: true },
+  { title: "Top Tips for Getting a CFP Accepted (DEV Community)", url: "https://dev.to/github/top-tips-for-getting-a-cfp-accepted-hh0", type: "article", free: true },
+  { title: "How to Get Your CFP Accepted at Civo Navigate", url: "https://www.civo.com/blog/everything-you-need-to-know-about-cfps", type: "article", free: true },
+  { title: "How to Write a Call for Papers for a Conference (Fourwaves)", url: "https://fourwaves.com/blog/how-to-write-a-call-for-papers-for-a-conference/", type: "article", free: true },
+  { title: "Sessionize, CFP and Speaker Management Platform", url: "https://sessionize.com/", type: "tool", free: true, note: "Where many tech and marketing conferences run their CFP process" },
+  { title: "WsCube Tech, Thought Leadership Marketing (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Conference Speaking Strategy", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Thought Leadership Training", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

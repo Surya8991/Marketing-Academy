@@ -1,0 +1,59 @@
+export const lessonMeta = {
+  title: "Affiliate Tracking Tech: Cookies, Pixels, and Server-to-Server Postbacks",
+  level: "Intermediate",
+  summary: "How affiliate tracking actually works under the hood, and why the industry is racing from cookies to server-to-server postbacks.",
+};
+
+Every affiliate commission depends on one invisible question: how does the network know *this* sale came from *that* link? The answer used to be simple. Now it is not.
+
+Understanding the mechanics matters even if you never touch a line of code. Program managers who don't understand tracking approve broken integrations, blame affiliates for "missing" sales that were never recorded, and lose partners over disputes that a better setup would have prevented.
+
+## How cookie-based tracking works
+
+When a shopper clicks an affiliate link, the network drops a small text file called a cookie into their browser. It stores the affiliate's ID and a timestamp.
+
+If that shopper buys within the program's "cookie window" (commonly 30 days), the merchant's checkout page reads the cookie and credits the affiliate. This has been the default model since the late 1990s, and most people still picture it when they think about affiliate tracking.
+
+The problem: cookies live in the browser, and browsers have spent the last several years trying to kill them.
+
+## Why cookies are breaking down
+
+Apple's Safari introduced Intelligent Tracking Prevention (ITP) years ago, capping first-party cookie life and blocking third-party cookies outright. iOS users on Safari, a huge share of mobile shoppers, were already invisible to old-style tracking before 2025 even started.
+
+Chrome's story has been messier. Google spent years promising to kill third-party cookies, tested the removal on 1% of Chrome users in early 2024, then reversed course in July 2024 and confirmed in April 2025 it would keep cookie choice with the user instead of a blanket ban. Ad blockers, private browsing modes, and multi-device shopping (click on phone, buy on laptop) all quietly erase cookie-based attribution regardless of what Chrome decides.
+
+The net effect is the same either way: a meaningful slice of real, affiliate-driven sales never get credited. Affiliates see traffic and no commission; merchants see "free" conversions and undervalue the channel that produced them.
+
+## Enter server-to-server (S2S) tracking
+
+S2S, also called postback tracking, skips the browser entirely. When a shopper clicks an affiliate link, the network generates a unique click ID and passes it to the merchant's server, often tucked into the checkout or order-confirmation URL.
+
+When the order completes, the merchant's server sends that click ID straight back to the affiliate network's server, no cookie, no browser dependency, no ad blocker in the way. It is server talking to server, which is exactly what the name says.
+
+This is why S2S has become the standard rather than a niche workaround. Industry estimates put roughly two-thirds of affiliate networks moving toward privacy-first, server-side tracking by 2025, and some implementations report double-digit gains in recorded conversion accuracy simply from switching over.
+
+## Tracking pixels still have a role
+
+A tracking pixel is a tiny, invisible 1x1 image loaded on a merchant's "thank you" page. When it loads, it fires a request back to the network confirming the conversion, similar in spirit to a cookie but triggered at the moment of purchase rather than at click.
+
+Pixels are easier to implement than full S2S but share cookies' core weakness: they still run in the browser and can be blocked. Most modern programs treat pixels as a fallback layer, not the primary system.
+
+## What this means for your program
+
+If you manage affiliates, ask your network directly whether S2S postback is available and whether your top partners are actually using it. A network that still relies solely on browser cookies in 2026 is quietly under-crediting your best affiliates.
+
+<Callout type="warning">
+If affiliates are complaining about "phantom" traffic that never converts on their dashboard, check the tracking method before you check the affiliate. Cookie loss, not affiliate fraud, is the more common culprit.
+</Callout>
+
+For affiliates on the other side, ask merchants for S2S setup before signing an exclusive deal. A generous commission rate is worthless if half your real sales get lost between click and checkout.
+
+<ResourceList resources={[
+  { title: "Server-Side Affiliate Tracking Without Cookies: The 2026 Guide", url: "https://irev.com/blog/cookieless-affiliate-tracking-what-actually-works-in-2026/", type: "article", free: true },
+  { title: "Affiliate Marketing Tracking Methods: The 2026 Decision Guide", url: "https://tapfiliate.com/blog/affiliate-marketing-tracking-methods/", type: "article", free: true },
+  { title: "Affiliate Tracking in 2026: A Guide to S2S, Cookieless, and Compliance", url: "https://www.affilitizer.com/news/affiliate-tracking-in-2026-a-guide-to-s2s-cookieless-and-compliance", type: "article", free: true },
+  { title: "Cookieless tracking for affiliate marketing: what changed", url: "https://cpvlab.pro/blog/tracking/cookieless-tracking-affiliate-marketing/", type: "article", free: true },
+  { title: "WsCube Tech, Affiliate Tracking Technology (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Affiliate Tracking Technology", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Affiliate Tracking Technology", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

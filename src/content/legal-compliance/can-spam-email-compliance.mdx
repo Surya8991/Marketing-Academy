@@ -1,0 +1,80 @@
+export const lessonMeta = {
+  title: "CAN-SPAM Compliance: The Rules Every Email Marketer Must Follow",
+  level: "Beginner",
+  summary: "Learn the eight CAN-SPAM rules the FTC enforces, why 'unsubscribe' is not optional, and how a single bad send can cost over $53,000.",
+};
+
+Email marketing feels informal, a quick note to someone who already knows your brand. Legally, it is not informal at all.
+
+The CAN-SPAM Act (Controlling the Assault of Non-Solicited Pornography and Marketing Act) has governed commercial email in the United States since 2003. The FTC enforces it, and as of January 17, 2025, the maximum penalty is $53,088 per violating email. That is not per campaign, it is per message. Send a non-compliant blast to 10,000 people and the theoretical exposure runs into the hundreds of millions.
+
+<Callout type="warning">
+This lesson explains marketing obligations under CAN-SPAM. It is not legal advice. If you handle regulated data, run high-volume campaigns, or operate outside the US, talk to a lawyer familiar with your specific situation.
+</Callout>
+
+## Who this law actually covers
+
+CAN-SPAM applies to any email whose primary purpose is commercial, promotions, newsletters with product plugs, sale announcements, cold outreach.
+
+It does not apply to purely transactional emails, like a password reset or an order confirmation. But if that same email also pitches a discount code, the promotional content can trigger CAN-SPAM's rules.
+
+One more surprising fact: CAN-SPAM does not require opt-in consent. It is an opt-out law, you can email someone who never signed up, as long as you follow the rules below. That single detail trips up a lot of marketers who assume US law works like Europe's GDPR.
+
+Knowing the scope is step one, knowing the eight rules is what keeps you out of trouble.
+
+## The eight things the FTC checks
+
+The FTC's compliance guide lists eight core requirements. Miss any one of them and the email is a violation, even if the content itself is honest.
+
+- **Accurate headers.** The "From," "To," and routing information must identify you truthfully, no spoofed domains or fake reply-to addresses.
+- **Honest subject lines.** The subject must match what is actually inside the email, no "Re:" tricks to fake a reply thread.
+- **Clear ad disclosure.** The email must be identifiable as an advertisement, this can be subtle but cannot be hidden.
+- **A real physical address.** Every email needs a valid postal address, a street address, PO box, or registered private mailbox.
+- **A working opt-out mechanism.** Recipients must be able to unsubscribe easily, and you must honor it within 10 business days.
+- **No fee or extra step to opt out.** You cannot charge money or require a login just to unsubscribe.
+- **Monitoring what others send for you.** If you hire an agency or affiliate to send on your behalf, you are still legally responsible for their compliance.
+
+Notice how many of these are about honesty, not formatting. That is the spirit of the whole law.
+
+<Callout type="info">
+"Clear and conspicuous" disclosure does not mean a giant banner. A plain sentence noting the promotional nature of the email, placed where a reasonable reader would see it, generally satisfies the FTC.
+</Callout>
+
+## Why the opt-out rule is the one that bites people
+
+Most CAN-SPAM violations that actually get enforced trace back to the unsubscribe process, not sloppy subject lines.
+
+The FTC's landmark 2024 case against Verkada Inc. resulted in a $2.95 million settlement, the largest CAN-SPAM penalty on record. Experian Consumer Services separately paid $650,000 for CAN-SPAM violations tied to how it handled marketing emails and opt-outs. Both cases show regulators care about the mechanics of consent removal, not just the initial send.
+
+Here is the practical bar you need to clear:
+
+- The unsubscribe link must work for at least 30 days after the email is sent.
+- Processing the opt-out cannot take more than 10 business days.
+- You cannot ask someone to visit multiple pages or provide anything beyond an email address to opt out.
+- Once someone opts out, you cannot sell, transfer, or rent their address to another list.
+
+That last point matters more than people realize, opting out is supposed to actually end the relationship, not just pause one list while your affiliate partner keeps emailing them.
+
+## Building compliance into your workflow, not bolting it on
+
+The easiest way to stay compliant is to make CAN-SPAM part of your email template, not a checklist you remember at send time.
+
+Most modern email service providers, Mailchimp, Klaviyo, HubSpot, automatically append a compliant footer with your address and an unsubscribe link. That handles two of the eight rules by default. What software cannot do for you is write honest subject lines or keep your sender identity accurate, that discipline is on you and your team.
+
+<Callout type="tip">
+Before every send, ask one question: would a recipient feel misled by the subject line, sender name, or list they are on? If the honest answer is yes, fix it before you hit send, not after a complaint.
+</Callout>
+
+Build that habit once and CAN-SPAM stops feeling like a legal minefield. It becomes just another part of writing a good email.
+
+<ResourceList resources={[
+  { title: "CAN-SPAM Act: A Compliance Guide for Business", url: "https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business", type: "docs", free: true, note: "The FTC's official rule breakdown" },
+  { title: "What is the CAN-SPAM Act? A Compliance Guide for 2025", url: "https://securiti.ai/what-is-can-spam-act/", type: "article", free: true },
+  { title: "CAN-SPAM Act: Compliance Guide for Businesses", url: "https://www.cookieyes.com/blog/can-spam-act/", type: "article", free: true },
+  { title: "FTC Gets Record Penalty in CAN-SPAM Enforcement Action", url: "https://advertisinglaw.fkks.com/post/102jlit/ftc-gets-record-penalty-in-can-spam-enforcement-action", type: "article", free: true, note: "Verkada $2.95M settlement analysis" },
+  { title: "Email Marketing Rules: CAN-SPAM Explained", url: "https://mailchimp.com/resources/can-spam/", type: "article", free: true },
+  { title: "Klaviyo Compliance Center", url: "https://www.klaviyo.com/legal", type: "docs", free: true },
+  { title: "WsCube Tech, CAN-SPAM Compliance (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, CAN-SPAM Compliance", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, CAN-SPAM Compliance", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

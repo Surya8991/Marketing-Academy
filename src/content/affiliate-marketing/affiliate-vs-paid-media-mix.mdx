@@ -1,0 +1,63 @@
+export const lessonMeta = {
+  title: "Affiliate vs Paid Media: Where It Fits in the Mix",
+  level: "Advanced",
+  summary: "How to figure out whether affiliate spend is actually driving new demand or just capturing sales you'd have gotten anyway, and where it belongs in your budget.",
+};
+
+Your affiliate channel shows a 12x return on ad spend. Your paid search shows 4x. An easy call, right? Shift budget to affiliate.
+
+Except a huge share of affiliate "conversions" might be shoppers who already decided to buy and just clicked a coupon link on their way to checkout. That 12x isn't new revenue, it's a discount you paid on a sale that was happening anyway.
+
+This is the core tension in affiliate budgeting, and it's why last-click ROAS is one of the worst ways to evaluate the channel.
+
+## The last-click trap
+
+Affiliate tracking is built almost entirely on last-click attribution: whoever's link the customer clicked right before purchase gets the credit. That structure rewards proximity to the sale, not causation of it.
+
+A cashback or coupon site sitting at the bottom of the funnel will look extraordinarily efficient by this math, because it's capturing clicks from people who already searched your brand name with intent to buy. It didn't create that demand. It intercepted it.
+
+This isn't a reason to distrust affiliate as a channel. It's a reason to distrust last-click numbers as proof of incrementality, the actual new revenue a channel generates that wouldn't have happened otherwise.
+
+<Callout type="warning">
+Bottom-funnel channels like brand search and affiliate cashback sites consistently look more efficient in last-click reporting than they actually are in incrementality tests, because click-based measurement rewards being last, not being causal.
+</Callout>
+
+## Prove it with holdout and geo tests, not more attribution models
+
+You can't fix an attribution problem with a better attribution model. You need a test that removes the channel entirely and watches what happens.
+
+- **Holdout tests**: Withhold affiliate traffic or specific placements (like a coupon site) from a slice of your audience or geography, then compare conversion rates against a matched group that still sees it.
+- **Geo tests**: Turn affiliate activity on in some regions and off in others, then compare the trend lines. This works well because most brands already track budgets and results by region, making it operationally easier than a user-level experiment.
+- **MMM calibration**: Feed incrementality test results into a broader media mix model so affiliate isn't judged in isolation but as one input competing for the same marginal budget dollar as paid search, social, and display.
+
+The output of a well-run holdout or geo test is usually humbling for at least part of the affiliate mix. Content and influencer-driven affiliate partners frequently prove genuinely incremental, they're introducing new customers to your brand. Coupon and cashback placements at the bottom of the funnel often prove much less incremental, they're capturing demand paid channels or organic search already generated.
+
+## Reallocate at the publisher level, not just the channel level
+
+The most useful outcome of an incrementality test isn't "affiliate works" or "affiliate doesn't work." It's a publisher-by-publisher map of who's actually incremental.
+
+- **High-incrementality partners**: content creators, review sites, and influencers introducing your brand to audiences who weren't already shopping-intent. These deserve more budget and better commission terms.
+- **Low-incrementality partners**: coupon aggregators and loyalty/cashback sites sitting at the final click of an already-decided purchase. These may still be worth running, but at lower commission rates that reflect their actual marginal contribution.
+- **Mixed partners**: most large affiliates fall here, some of their traffic is genuinely new, some is capture. Segment by placement or content type where you can.
+
+This reallocation logic is the same one incrementality testing surfaces across the wider media mix, click-based measurement systematically overstates channels that sit closest to the point of purchase.
+
+<Callout type="tip">
+Don't run one incrementality test and call it done. Publisher mix, seasonality, and promotional calendars shift, what was incremental in Q1 may not be by Q4.
+</Callout>
+
+## Where affiliate belongs in the budget conversation
+
+Affiliate earns its place in the mix by doing what other channels can't do as cheaply, tapping niche audiences through trusted third-party voices, at a cost that's largely performance-based rather than paid upfront. That's a real structural advantage over paid social or display.
+
+But "performance-based" only means "efficient" if the performance being paid for is actually incremental. Treat affiliate the same way you'd treat any other channel competing for budget: measure it against a null hypothesis, not against its own last-click dashboard.
+
+<ResourceList resources={[
+  { title: "How to Measure Incrementality in Affiliate Marketing", url: "https://irev.com/blog/how-to-measure-incrementality-in-affiliate-marketing-holdout-tests-geo-tests-and-mmm-for-real-growth/", type: "article", free: true },
+  { title: "Incrementality 101: Understanding What It Is and How It Works", url: "https://impact.com/partnerships/incrementality-101-optimize-affiliate-partnerships/", type: "article", free: true },
+  { title: "What is Incrementality Testing vs MMM vs MTA?", url: "https://www.measured.com/faq/what-are-the-pros-and-cons-of-incrementality-testing-versus-mmm-or-mta/", type: "article", free: true },
+  { title: "How to Measure Affiliate Incrementality", url: "https://www.dmipartners.com/blog/how-to-measure-affiliate-incrementality/", type: "article", free: true },
+  { title: "WsCube Tech, Affiliate vs Paid Media (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Affiliate vs Paid Media", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Affiliate vs Paid Media", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />
