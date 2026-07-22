@@ -1,7 +1,7 @@
 ﻿# Marketing Academy, Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-07-20 (Session 61 - Full-site content saturation: 49 new lessons across all 16 categories).
+> Last audited: 2026-07-20 (Session 62 - 5 new categories: PR, Events, Affiliate, Leadership, Legal + 45 lessons).
 
 ---
 
@@ -10,7 +10,7 @@
 ```
 1. cd C:\Users\Surya L\Desktop\AI Agents\Marketing-Academy
 2. Count MDX files: (Get-ChildItem src/content -Recurse -Filter *.mdx).Count   [PowerShell]
-3. Current: 471 lessons · 216 glossary terms · 108 tools · 9 tracks · 16 categories
+3. Current: 516 lessons · 216 glossary terms · 108 tools · 9 tracks · 16 categories
 4. XP/Streak/Achievements system LIVE (Session 41). Cmd+K palette, skill-map, onboarding, settings page all shipped.
 5. Stats are dynamic everywhere: flatLessons().length, CATEGORIES.length, GLOSSARY_TERMS.length, TOOLS.length.
 6. Key constants: COMPLETED_KEY exported from progress.ts, COMMAND_PALETTE_EVENT from src/lib/events.ts.
@@ -32,21 +32,21 @@
 29: 
 30: ---
 31: 
-32: ## Current State: 471 lessons across 16 categories
+32: ## Current State: 516 lessons across 21 categories
 
 > All orphaned MDX files linked in Session 43. curriculum.ts and MDX disk counts are now fully in sync.
 
 | # | Category | Slug | Lessons |
 |---|---|---|---|
 | 1 | Marketing Fundamentals | `fundamentals` | 40 |
-| 2 | SEO | `seo` | 32 |
-| 3 | Paid Ads | `paid-ads` | 32 |
-| 4 | Growth Marketing | `growth` | 28 |
+| 2 | SEO | `seo` | 33 |
+| 3 | Paid Ads | `paid-ads` | 33 |
+| 4 | Growth Marketing | `growth` | 29 |
 | 5 | Social Media | `social` | 28 |
 | 6 | Content Marketing | `content` | 28 |
 | 7 | Email & Lifecycle | `email` | 33 |
-| 8 | Analytics & Attribution | `analytics` | 35 |
-| 9 | Marketing Tools | `tools` | 38 |
+| 8 | Analytics & Attribution | `analytics` | 36 |
+| 9 | Marketing Tools | `tools` | 39 |
 | 10 | Human Psychology | `psychology` | 29 |
 | 11 | Copywriting | `copywriting` | 28 |
 | 12 | CRO | `cro` | 28 |
@@ -54,7 +54,12 @@
 | 14 | Product Marketing | `product-marketing` | 28 |
 | 15 | AI in Marketing | `ai-marketing` | 29 |
 | 16 | Mental Models | `mental-models` | 20 |
-| | **TOTAL** | | **471** |
+| 17 | PR & Communications | `pr-communications` | 9 |
+| 18 | Events & Experiential Marketing | `events-experiential` | 8 |
+| 19 | Affiliate & Partner Marketing | `affiliate-marketing` | 8 |
+| 20 | Marketing Leadership & Career | `marketing-leadership` | 8 |
+| 21 | Legal & Compliance for Marketers | `legal-compliance` | 7 |
+| | **TOTAL** | | **516** |
 
 ---
 
@@ -2353,5 +2358,41 @@ Every topic was checked against the full existing lesson list per category befor
 
 ### Verification
 - `npm run build` — clean, 471 unique lesson MDX files + 13 cross-listed mental-models-in-fundamentals routes = 484 total lesson routes generated.
+- `npx tsc --noEmit` — zero errors.
+- `npm run lint` — same 3 pre-existing issues, still untouched.
+
+## Session 62, 2026-07-20 (5 new categories: PR, Events, Affiliate, Leadership, Legal + 45 lessons)
+
+**User asked to add whole new categories plus the previously identified high-value lesson gaps. Added 5 brand-new categories (40 launch lessons) and 5 gap lessons in existing categories. 16 -> 21 categories, 471 -> 516 lessons.**
+
+### New categories
+| # | Category | Slug | Lessons |
+|---|---|---|---|
+| 17 | PR & Communications | `pr-communications` | 9: PR 101, press release writing, media relations, pitching journalists, crisis PR media response, earned/owned/paid media, press kits, measuring PR impact, thought leadership PR |
+| 18 | Events & Experiential Marketing | `events-experiential` | 8: events 101, trade show strategy, conference sponsorship ROI, field marketing, experiential activations, virtual/hybrid events, event lead follow-up, event budgeting/ROI |
+| 19 | Affiliate & Partner Marketing | `affiliate-marketing` | 8: affiliate 101, choosing a network, commission structures, recruiting/vetting affiliates, affiliate fraud/compliance, influencer vs affiliate, program management, Amazon Associates |
+| 20 | Marketing Leadership & Career | `marketing-leadership` | 8: IC to manager, building/hiring a team, the CMO role today, performance reviews/career ladders, managing up, career paths, career portfolio, freelance/consulting |
+| 21 | Legal & Compliance for Marketers | `legal-compliance` | 7: marketing law 101, FTC ad law, global privacy law (beyond email-specific GDPR/CAN-SPAM), ADA/WCAG accessibility, influencer disclosure law, marketing contracts, IP for marketers |
+
+Every new-category lesson was checked against existing lessons across the whole site to avoid duplication (e.g. `crisis-pr-media-response.mdx` is the media-facing tactical piece, cross-referencing `brand-strategy/brand-crisis.mdx` as the broader strategy companion rather than repeating it; `global-privacy-law-marketers.mdx` is cross-channel, distinct from `email/gdpr-can-spam.mdx`; `ip-for-marketers.mdx` covers using others' IP, distinct from `trademark-brand-protection-basics.mdx` which covers protecting your own name). All legal-compliance lessons include an explicit "not legal advice" Callout.
+
+### Gap lessons in existing categories
+- `seo/multi-location-franchise-seo.mdx` — distinct from `local-seo.mdx` (single-location)
+- `paid-ads/ai-creative-testing-at-scale.mdx` — distinct from `creative-testing.mdx` (general methodology)
+- `analytics/experimentation-program-roi.mdx` — distinct from `experimentation-platforms.mdx`/`growth/experimentation-program.mdx` (program-level ROI, not individual test lift)
+- `tools/headless-cms-selection.mdx`
+- `growth/churn-prediction-early-warning.mdx` — distinct from `retention-cohorts.mdx` (predictive vs. descriptive)
+
+### Registration and code changes
+- `src/lib/curriculum.ts` — added 5 new `Category` objects (slug/title/tagline/description/emoji/color/lessons) plus all 45 `LessonRef` entries. New category colors/emojis chosen to stay visually distinct from the existing 16: 📢 PR (sky/blue), 🎪 Events (orange/amber), 🤝 Affiliate (emerald/lime), 👔 Leadership (slate/zinc), ⚖️ Legal (red/orange).
+- `src/lib/quizzes.ts` — added 4-question quizzes for all 45 lessons (180 new questions), split across 3 parallel agents. Two of the three agents hit real concurrent-write collisions mid-task (one nearly landed its block inside `TRACK_QUIZZES` instead of `QUIZZES` after another agent's edit shifted file offsets) and self-corrected; verified afterward via full brace-balance check, key-uniqueness check, and `npx tsc --noEmit` that the file ended up structurally clean with no lost or misplaced entries.
+- `src/components/Nav.tsx` — the mobile menu's topic groups were a hardcoded list of category slugs (not derived from `CATEGORIES`), which would have made all 5 new categories invisible on mobile. Added two new groups ("Outreach": PR/Events/Affiliate, "Career & Legal": Leadership/Legal) and fixed a pre-existing gap where `mental-models` was missing from every group since its Session 58 launch.
+
+### Content quality audit
+- Structural audit re-run across all 516 lessons; the same known false-positive patterns from Session 61 reappeared (BOM handling, single- vs double-quoted `lang` attributes, the pre-existing "Related Concepts" footer pattern) — zero genuine defects found in any of the 45 new lessons after accounting for those.
+- Spot-checked 8 resource URLs from the new lessons directly (one-request-per-check, the reliable method established in Session 61) — all 8 resolved to 200 OK; the first 2 initially returned 403 with a bare curl UA but passed immediately with a browser UA, confirming bot-blocking rather than dead links.
+
+### Verification
+- `npm run build` — clean, 516 unique lesson MDX files, `/learn/[category]` generates 21 category pages.
 - `npx tsc --noEmit` — zero errors.
 - `npm run lint` — same 3 pre-existing issues, still untouched.

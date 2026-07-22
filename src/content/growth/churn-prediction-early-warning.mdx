@@ -1,0 +1,80 @@
+export const lessonMeta = {
+  title: "Churn Prediction and Early-Warning Signals",
+  level: "Advanced",
+  summary: "How growth teams spot an at-risk account weeks before it churns, and turn that signal into a save campaign.",
+};
+
+# Churn Prediction and Early-Warning Signals
+
+By the time an account cancels, the decision was made weeks earlier. This lesson is about catching that decision before it becomes final.
+
+## Quick Summary
+
+- Retention cohorts (see `retention-cohorts.mdx`) are descriptive and backward-looking; this lesson covers predictive signals that flag risk before churn happens.
+- Login frequency decline is the earliest signal, giving roughly 60 days of lead time before churn, per [2026 SaaS churn research](https://www.buildmvpfast.com/blog/leading-indicators-churn-b2b-saas-2026).
+- Product usage drops by an average of 41% in the quarter before a customer cancels.
+- Automated usage monitoring detects at-risk accounts about 45 days earlier than manual review, per [2026 usage-analytics data](https://ustechautomations.com/resources/blog/saas-usage-analytics-automation-detect-churn-early).
+- Roughly 46% of SaaS businesses now run churn prediction models, and adopters see a 10-15% churn reduction within 12-18 months.
+
+## Descriptive vs Predictive: Why This Is Different
+
+`retention-cohorts.mdx` teaches you to look backward: group users by signup period and measure what percentage stayed active over time. That analysis is essential, but it only tells you what already happened to a cohort. It cannot tell you which specific account sitting in your CRM right now is about to leave.
+
+Churn prediction flips the direction. Instead of asking 'how did January's cohort perform,' it asks 'which of my active accounts today show the fingerprint of a customer who churned last quarter?' That fingerprint is built from usage-decline patterns, support-ticket sentiment, and feature-adoption stalling, three signal families that show up before cancellation, not after.
+
+<Callout type="info">
+A useful mental model: cohort analysis is the autopsy, predictive churn signals are the vital-signs monitor. You need both, but only one lets you intervene while the patient is still in the room.
+</Callout>
+
+## The Three Signal Families
+
+**Usage-decline patterns.** Product usage typically declines by an average of 41% in the quarter immediately before a customer cancels. Login frequency decline is often the earliest tell, providing roughly 60 days of lead time, while feature-level usage tracking spots at-risk accounts 3-6 weeks earlier than teams relying on billing data alone, according to [2026 leading-indicator research](https://www.buildmvpfast.com/blog/leading-indicators-churn-b2b-saas-2026).
+
+**Support-ticket sentiment.** A spike in support tickets correlates with roughly 3x higher churn risk. It is not just volume that matters, the tone shifts too: repeated frustration language, escalation requests, and questions about cancellation or 'how do I export my data' are stronger signals than ticket count alone.
+
+**Feature-adoption stalling.** Accounts using fewer than 30% of a product's core features show around 80% first-year churn, echoing the adoption-depth finding in `retention-cohorts.mdx` but applied prospectively: a single account stuck at shallow adoption for multiple consecutive weeks is a live warning, not a historical data point.
+
+<Mermaid chart={`graph LR
+  A[Usage Decline] --> D[Composite Risk Score]
+  B[Support Sentiment] --> D
+  C[Feature Adoption Stall] --> D
+  D --> E{Above Threshold?}
+  E -- Yes --> F[Proactive Save Campaign]
+  E -- No --> G[Continue Monitoring]`} />
+
+## Turning Signals Into a Save Campaign
+
+A signal without a workflow is just a dashboard nobody acts on. The teams that actually move the churn number combine the three signal families into a single composite risk score per account, then route accounts above a threshold to a defined save motion, not an ad hoc email.
+
+Automated, continuous usage monitoring detects at-risk accounts about 45 days earlier than manual quarterly reviews, and that earlier detection produces a 3.5x improvement in intervention success rate, per [2026 usage-automation research](https://ustechautomations.com/resources/blog/saas-usage-analytics-automation-detect-churn-early). The lead time itself is the lever: a save motion started 45 days out has room for a real conversation (a check-in call, a training session, a feature-adoption nudge), while a save motion started at the cancellation-request stage is mostly discount negotiation.
+
+Build the save playbook around the specific signal that triggered it. A usage-decline trigger should route to a lifecycle email nudging the account back into the product. A support-sentiment trigger should route to a human CSM call, not an automated sequence. A feature-adoption stall should route to a targeted onboarding walkthrough of the specific unused feature most correlated with retention.
+
+<Callout type="tip">
+Roughly 46% of SaaS businesses now run some form of churn prediction model, and the better implementations reach around 88% prediction accuracy, translating into a 10-15% churn reduction within 12-18 months. The gap between adopters and non-adopters is now a real competitive advantage, not a nice-to-have.
+</Callout>
+
+## Common Mistakes
+
+Treating every risk signal the same way is the most common failure: a support-sentiment spike needs a human response, not the same automated email a usage-decline account gets. Waiting for a single strong signal instead of a composite score also causes false negatives, since some accounts churn from feature-adoption stalling alone with flat login frequency the whole time. Finally, building the risk model but skipping the save-motion workflow wastes the entire investment, the prediction has to route somewhere or it is just an interesting number.
+
+## Key Takeaways
+
+- Predictive churn signals complement, not replace, the descriptive cohort work in `retention-cohorts.mdx`, use cohorts for historical health and prediction for live intervention.
+- Usage-decline, support sentiment, and feature-adoption stalling are the three core signal families, and they compound into a stronger composite score than any one alone.
+- Automated monitoring buys roughly 45 extra days of lead time versus manual review, and that lead time is what makes a save campaign actually work.
+- Route each risk trigger to a matching save motion, human calls for sentiment triggers, automated nudges for usage-decline triggers, so the prediction turns into action.
+- Adoption of churn prediction models is now mainstream (46% of SaaS businesses) with a proven 10-15% churn reduction, the risk of not building this is falling behind competitors who already have.
+
+<ResourceList resources={[
+  { title: "Leading Indicators of Churn for B2B SaaS 2026", url: "https://www.buildmvpfast.com/blog/leading-indicators-churn-b2b-saas-2026", type: "article", free: true },
+  { title: "Identify At-Risk SaaS Accounts 45 Days Before Churn (US Tech Automations)", url: "https://ustechautomations.com/resources/blog/saas-usage-analytics-automation-detect-churn-early", type: "article", free: true },
+  { title: "SaaS Churn Analytics: How to Predict and Prevent Goodbyes (Pecan AI)", url: "https://www.pecan.ai/blog/saas-churn-analytics-prediction-and-prevention/", type: "article", free: true },
+  { title: "Best AI Tools for Predicting Customer Churn in 2026 (BuildBetter)", url: "https://blog.buildbetter.ai/best-ai-tools-for-predicting-customer-churn-2026/", type: "article", free: true },
+  { title: "SaaS Churn Benchmarks for 2026 (SHNO)", url: "https://www.shno.co/marketing-statistics/saas-churn-benchmarks-statistics", type: "article", free: true },
+  { title: "Gainsight, Customer Success Platform", url: "https://www.gainsight.com/", type: "tool", free: false },
+  { title: "ChurnZero, Customer Success and Churn Prevention", url: "https://churnzero.com/", type: "tool", free: false },
+  { title: "WsCube Tech - Churn Prediction (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - Churn Prediction", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Churn Prediction", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

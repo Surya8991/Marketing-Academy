@@ -1,0 +1,97 @@
+export const lessonMeta = {
+  title: "Website Accessibility (ADA/WCAG) for Marketers",
+  level: "Intermediate",
+  summary: "Why an inaccessible website is a real legal risk in 2026, the WCAG basics marketers actually control, and practical fixes for owned pages and campaigns.",
+};
+
+# Website Accessibility (ADA/WCAG) for Marketers
+
+Accessibility used to sound like a developer's problem. It is now a marketer's problem too, because most ADA website lawsuits target the pages marketing owns: the homepage, the landing pages, the checkout flow.
+
+More than 5,000 digital accessibility lawsuits were filed in the US by the end of 2025 alone. This lesson covers why that number matters to you and what you can fix without a developer.
+
+## Quick Summary
+
+- Federal website accessibility lawsuits rose sharply in 2025, plaintiffs filed over 3,100 in federal court, up 27% from 2024.
+- More than a third of new lawsuits target companies that were already sued once before for the same issue.
+- WCAG 2.2 is the current technical standard courts and regulators point to when judging "accessible enough."
+- The marketer-relevant parts of WCAG are narrow: alt text, color contrast, and readable structure cover most of your exposure.
+- New York and California account for the large majority of state-level filings, but any US business with a public website can be sued regardless of where it is based.
+
+<Callout type="warning">
+This lesson is educational content for marketers, not legal advice. Accessibility law varies by jurisdiction and courts interpret it differently. Consult a qualified attorney or accessibility auditor before treating any specific page as compliant.
+</Callout>
+
+## Why This Is a Real Legal Risk, Not a Nice-to-Have
+
+The Americans with Disabilities Act (ADA) was written in 1990, before most businesses had websites. Courts have since ruled, inconsistently but frequently, that a company's website counts as a "place of public accommodation" under the law, same as a physical store.
+
+That interpretation has turned into a lawsuit machine. Plaintiffs filed 3,117 website accessibility lawsuits in federal court in 2025, a 27% jump from 2024, and combined federal and state filings pushed the yearly total past 5,000 for the first time.
+
+<Callout type="info">
+Of the 2025 filings, 1,427 targeted companies that had already faced an ADA web accessibility claim before. Fixing an issue once and never checking again is not a durable defense, sites regress every time a new landing page or campaign microsite goes live without the same review.
+</Callout>
+
+The pattern is geographic too: New York accounts for well over a third of state-level filings, with New York and California courts combined handling nearly 2,000 cases in 2025. But the underlying federal law applies nationwide, a business in Texas or Ohio can be sued in a New York court if enough of its traffic or business activity touches the state.
+
+## WCAG 2.2: The Parts That Are Actually Your Job
+
+WCAG (Web Content Accessibility Guidelines) is the technical standard courts and settlement agreements reference. The full spec is deep and mostly a developer's concern, but three parts sit squarely in marketing's lane.
+
+**Alt text on every meaningful image.** Screen readers cannot interpret an image, they read whatever text description ("alt text") is attached to it. Missing alt text is one of the most commonly cited issues in ADA complaints, and it is entirely a content problem, not a code problem.
+
+**Color contrast on text.** WCAG 2.2 requires a 4.5:1 contrast ratio for normal text against its background, and 3:1 for large text (18pt and above, or 14pt bold and above). Marketing teams break this constantly with light gray text on white backgrounds because it looks "clean."
+
+**Readable structure.** Headings must be nested in order (an H2 should not jump straight to an H4), and links must describe their destination ("read the Q3 report" beats "click here"). Both of these live inside your CMS, not your codebase.
+
+<Mermaid chart={`graph TD
+    A[Marketing publishes a page] --> B{Does every image have alt text?}
+    A --> C{Does text pass 4.5:1 contrast?}
+    A --> D{Are headings in order, links descriptive?}
+    B --> E[Screen reader users can understand content]
+    C --> F[Low-vision users can read text]
+    D --> G[Keyboard and screen reader users can navigate]
+    E --> H[Lower legal exposure]
+    F --> H
+    G --> H`} />
+
+<Callout type="example">
+A common failure: a promotional banner built as a single image with all the sale details ("50% off, ends Sunday") baked into the graphic, and no alt text describing the offer. A screen reader user hits the banner and hears nothing, they miss the entire promotion and, separately, the page fails an accessibility audit on a purely marketing-owned asset.
+</Callout>
+
+Text-in-image banners are the single most common marketing-team accessibility failure. Swap the graphic for real HTML text with a background image whenever the copy is the point.
+
+## Practical Steps for Owned Pages and Campaigns
+
+You do not need to become an accessibility engineer. You need a five-item checklist run on every page and campaign before it ships.
+
+1. **Write alt text for every image that carries information.** Purely decorative images can have empty alt text, informative ones cannot skip it.
+2. **Run new landing pages through a free contrast checker** before publishing. WebAIM's Contrast Checker takes under a minute per page.
+3. **Keep heading order sequential** in your CMS: H1, then H2s, then H3s under those. Do not skip levels for visual sizing, style them with CSS instead.
+4. **Write link text that describes the destination.** Replace every "click here" and "learn more" with text that makes sense out of context.
+5. **Re-check campaign microsites and one-off landing pages** on the same schedule as your main site. These get built fast and skipped in reviews more than any other page type.
+
+<Callout type="tip">
+Free tools cover almost all of this: WebAIM's Contrast Checker for color, the WAVE browser extension for a full-page scan, and your CMS's built-in heading outline view. None of these require a developer or a budget line item.
+</Callout>
+
+## Key Takeaways
+
+- Website accessibility lawsuits are rising fast: 3,117 federal filings in 2025, up 27% year over year, and repeat targets are common.
+- WCAG 2.2 is the reference standard, but marketers only need to own three parts: alt text, color contrast, and readable structure.
+- Text baked into promotional images without alt text is the most common marketing-caused accessibility gap.
+- A five-item pre-publish checklist, alt text, contrast, heading order, descriptive links, and campaign-page re-checks, covers most of your real exposure.
+- Free tools (WebAIM Contrast Checker, WAVE) catch the majority of issues without developer involvement.
+
+<ResourceList resources={[
+  { title: "ADA Web Lawsuit Trends for 2026: What 2025 Filings Reveal (UsableNet)", url: "https://blog.usablenet.com/ada-web-lawsuit-trends-2026", type: "article", free: true, note: "Primary source for 2025 filing statistics" },
+  { title: "Federal Court Website Accessibility Lawsuit Filings Bounce Back in 2025 (ADA Title III)", url: "https://www.adatitleiii.com/2026/03/federal-court-website-accessibility-lawsuit-filings-bounce-back-in-2025/", type: "article", free: true },
+  { title: "WebAIM: Contrast and Color Accessibility", url: "https://webaim.org/articles/contrast/", type: "article", free: true, note: "Explains WCAG contrast math in plain language" },
+  { title: "WebAIM Contrast Checker (free tool)", url: "https://webaim.org/resources/contrastchecker/", type: "tool", free: true },
+  { title: "WAVE Web Accessibility Evaluation Tool (free browser extension)", url: "https://wave.webaim.org/", type: "tool", free: true, note: "Full-page accessibility scan, no code access needed" },
+  { title: "W3C WCAG 2.2 Official Specification", url: "https://www.w3.org/TR/WCAG22/", type: "docs", free: true, note: "The primary standard courts reference" },
+  { title: "Deque University: Web Accessibility Fundamentals", url: "https://dequeuniversity.com/curriculum/courses/wa11y", type: "course", free: false, note: "Paid but industry-standard training, worth it for teams shipping frequent landing pages" },
+  { title: "WsCube Tech, Website Accessibility Basics (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Website Compliance for Marketers", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Digital Marketing Compliance Training", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

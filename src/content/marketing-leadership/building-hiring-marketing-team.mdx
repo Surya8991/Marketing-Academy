@@ -1,0 +1,84 @@
+export const lessonMeta = {
+  title: "Building and Hiring a Marketing Team",
+  level: "Intermediate",
+  summary: "Which marketing role to hire first at each stage, how to write job descriptions that attract the right candidates, and interview techniques that actually predict on-the-job performance.",
+};
+
+# Building and Hiring a Marketing Team
+
+Most founders hire marketing backwards: a specialist before a generalist, a VP before there's anything to lead. Sequencing the hire matters more than the headcount.
+
+## Quick Summary
+
+- The first marketing hire at an early-stage company should be a generalist who can own strategy and execution together, not a narrow specialist, [most seed-stage teams need a T-shaped marketer comfortable with ambiguity](https://www.vendep.com/post/nailing-your-first-marketing-hire-in-b2b-saas) over someone who only does one channel well.
+- [Typical 2026 base compensation for that first marketing hire runs $180k-$275k plus meaningful equity](https://foundersnetwork.com/first-marketing-hire-startup/), and most companies make the hire post-product-market fit, not before.
+- Job descriptions that attract the right candidates describe outcomes and problems to solve, not a checklist of tools and years of experience.
+- [Structured interviews are the strongest standalone predictor of job performance, with roughly twice the predictive validity of unstructured interviews](https://www.pin.com/blog/structured-interviews-guide/), and they cut hiring bias by more than 60%.
+- Marketing-specific evaluation, portfolio reviews and live exercises, catches what a resume and a conversation cannot: whether someone can actually do the work, not just talk about it.
+
+## Sequencing Hires as You Scale
+
+The mistake is hiring in the order roles sound important, not the order the business needs them. Sequence should follow what's actually blocking growth.
+
+**Pre-product-market fit (0-1 marketer).** Don't hire yet if you can avoid it. A fractional CMO or the founder doing marketing directly keeps the function cheap and experimental while positioning is still shifting monthly.
+
+**Early stage, first hire.** [The strongest pattern is a growth or demand-generation generalist who can build a measurable pipeline and prove what's actually driving growth](https://productiveshop.com/first-marketing-hire/), before you commit to specialist headcount in any one channel. This person should be comfortable writing copy, running ads, and reading the analytics, not just one of the three.
+
+**10-30 people, second and third hires.** Hire toward whatever channel proved itself in the generalist's first six months. If content drove pipeline, hire a content specialist next; if paid search did, hire that instead. Let evidence pick the next role, not a template org chart.
+
+**30+ people, specialist and leadership layer.** This is where dedicated product marketing, marketing ops, and a people-manager layer start to earn their cost, because coordination overhead now exceeds what one generalist can absorb alone.
+
+<Mermaid chart={`graph TD
+    A[0 marketers\nfounder-led] --> B[1st hire\ngrowth generalist]
+    B --> C[Evidence: which channel worked?]
+    C --> D[2nd-3rd hires\nspecialize in what worked]
+    D --> E[30+ people\nops, PMM, managers]`} />
+
+## Writing Job Descriptions That Attract the Right People
+
+A job description full of buzzwords and a ten-bullet tool checklist filters for people who are good at reading job descriptions, not people who are good at marketing.
+
+Lead with the problem, not the title. "We need someone to figure out why trial-to-paid conversion is stuck at 8%" attracts a different, better candidate than "Growth Marketing Manager, 5+ years experience."
+
+Cut the requirements list to what's actually non-negotiable. Every extra "nice to have" bullet quietly discourages qualified candidates, especially ones from underrepresented backgrounds, who self-select out when they don't match every line.
+
+<Callout type="tip">
+Add one line near the top describing what a successful first 90 days looks like in this role. Candidates who read that line and get excited are self-selecting for fit; candidates who don't respond to it were never going to be a good match anyway.
+</Callout>
+
+## Interview Techniques That Actually Predict Performance
+
+Generic behavioral interviews ("tell me about a time you showed leadership") are weak signal for marketing roles because they test storytelling, not marketing skill.
+
+**Structured interviews beat unstructured ones by a wide margin.** [Validity research puts structured interviews at roughly .51 versus .38 for unstructured, and bias effects shrink by more than 60% when every candidate gets the same questions in the same order](https://www.pin.com/blog/structured-interviews-guide/). Write your question set before the first interview and use it for every candidate.
+
+**Portfolio review beats resume review.** Ask candidates to walk through one real campaign, page, or piece of content they own, and probe the decisions behind it: why this headline, why this channel, what didn't work and how they knew. A strong portfolio walkthrough reveals judgment; a strong resume just reveals what they were near.
+
+**Live exercises beat hypotheticals.** Give a take-home or in-interview exercise close to the actual job: write three subject lines for a real product, critique an underperforming landing page, or sketch a launch plan from a one-paragraph brief. Watching someone reason through real constraints predicts on-the-job output far better than asking them to describe how they'd theoretically approach it.
+
+<Callout type="example">
+A practical loop for a content marketing hire: (1) structured behavioral questions on collaboration and feedback, identical for every candidate, (2) a 20-minute portfolio walkthrough of one piece they're proud of, (3) a 45-minute live exercise rewriting a real underperforming page from your own site. Three different lenses on the same candidate, each catching something the others miss.
+</Callout>
+
+Keep the exercise short and paid if it takes more than an hour. Unpaid, lengthy take-homes filter out senior candidates who have other options, exactly the people you want most.
+
+## Key Takeaways
+
+- Sequence hires by evidence: generalist first, then specialize toward whatever channel proved itself.
+- The first marketing hire commands real compensation, $180k-$275k base in 2026, so budget for it seriously rather than treating it as an entry-level role.
+- Write job descriptions around the problem to solve and a 90-day success picture, not a buzzword checklist.
+- Structured interviews are roughly twice as predictive as unstructured ones and meaningfully reduce bias, use the same question set for every candidate.
+- Portfolio reviews and live exercises reveal judgment and real output; generic behavioral questions mostly reveal storytelling ability.
+
+<ResourceList resources={[
+  { title: "Nailing Your First Marketing Hire in B2B SaaS (Vendep)", url: "https://www.vendep.com/post/nailing-your-first-marketing-hire-in-b2b-saas", type: "article", free: true },
+  { title: "Startup Marketing: Hiring Your First Marketer (Founders Network)", url: "https://foundersnetwork.com/first-marketing-hire-startup/", type: "article", free: true, note: "Source of the 2026 compensation range for the first marketing hire" },
+  { title: "Your First Marketing Hire: A Guide for Startup Founders (Productive Shop)", url: "https://productiveshop.com/first-marketing-hire/", type: "article", free: true },
+  { title: "Structured Interviews: How to Run Them and Why They Work (Pin)", url: "https://www.pin.com/blog/structured-interviews-guide/", type: "article", free: true, note: "Source of the structured vs. unstructured interview validity and bias-reduction stats" },
+  { title: "Why Structured Interviews Lead to Better Hiring (Hunt Scanlon Media)", url: "https://huntscanlon.com/why-structured-interviews-lead-to-better-hiring/", type: "article", free: true },
+  { title: "How to Build a Digital Marketing Portfolio That Actually Gets You Hired (JobPrepped)", url: "https://jobprepped.com/digital-marketing-portfolio-guide/", type: "article", free: true, note: "Useful for understanding what strong candidate portfolios look like when evaluating them" },
+  { title: "Marketing Academy, The Marketing Org Chart: Roles and Reporting Lines", url: "/learn/fundamentals/marketing-org-chart", type: "article", free: true, note: "Companion lesson on how roles and reporting lines are structured once the team exists" },
+  { title: "WsCube Tech, Marketing Team Building (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Hiring a Marketing Team", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Marketing Team Building", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

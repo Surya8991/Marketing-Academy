@@ -1,0 +1,203 @@
+export const lessonMeta = {
+  title: "SEO for Multi-Location and Franchise Businesses",
+  level: "Advanced",
+  summary: "Rank dozens of locations without your own pages competing against each other.",
+  category: "seo",
+  slug: "multi-location-franchise-seo",
+  relatedConcepts: ["local-seo", "technical-seo", "schema-structured-data"],
+}
+
+# SEO for Multi-Location and Franchise Businesses
+
+Ranking one location is hard enough. Ranking 40, 100, or 500 locations, each competing for its own "near me" search, each needing its own Google Business Profile, and each potentially owned by a different franchisee with their own marketing budget, is a different problem entirely.
+
+This lesson assumes you have already read [Local SEO](/learn/seo/local-seo), which covers the fundamentals: Google Business Profile, NAP consistency, reviews, and citations for a single-location business. Everything in that lesson still applies to each individual location here. What changes at scale is the risk of your own location pages competing against each other, and the organizational tension between corporate brand control and local owner autonomy.
+
+## Quick Summary
+
+- Multi-location sites face a unique risk: your own location pages can cannibalize each other if they are too similar, Google treats near-duplicate pages as competing signals rather than 40 separate ranking opportunities.
+- A recent analysis of 847 multi-location campaigns found 73% of businesses inadvertently created duplicate content issues, and 68% used templated location pages with almost no differentiation beyond the city name (BiziQ, 2026).
+- Managing dozens or hundreds of Google Business Profiles requires bulk tools and a clear verification and ownership process, not manual profile-by-profile management.
+- Franchises face a structural tension: corporate wants consistent branding and centralized control, local franchisees want to rank in their specific neighborhood, both goals can conflict.
+- AI answer engines are now a real local discovery channel: consumers using ChatGPT to find local businesses grew from 6% in January 2025 to 45% in January 2026 (BiziQ, 2026), location pages need to be genuinely informative enough for AI systems to cite them.
+
+---
+
+## The Duplicate Content Trap
+
+Here is the mistake almost every multi-location business makes at least once. You build one location page template, then generate 40 copies by swapping the city name and address.
+
+The pages read: "Welcome to [Business Name] in [City]. We offer the best [service] in [City]. Visit us today!" Every other sentence is identical across all 40 pages.
+
+Google's quality systems are built to detect exactly this pattern. A business with 40 nearly-identical pages is not publishing 40 ranking opportunities, it is publishing 40 thin pages that compete with each other and collectively rank worse than a single well-optimized page would.
+
+<Callout type="warning">
+**Near-duplicate location pages don't just fail to rank, they actively cannibalize each other.** When Google sees two of your own pages targeting overlapping intent with near-identical content, it has to choose which one to show, and often suppresses both in favor of a competitor with one genuinely useful page. Thin location pages are a liability, not neutral filler.
+</Callout>
+
+The fix is not writing more words per page. It is writing **different** words: content that could only be true of that specific location.
+
+---
+
+## Building a Location Page Template That Actually Differentiates
+
+A location page template should have a fixed structure with variable, genuinely local content slots. The structure stays consistent for user experience and brand consistency; the content in each slot must be unique per location.
+
+**What makes a slot genuinely unique, not just "city name swapped":**
+
+- **Local team bios**: name and photo of the actual manager or lead technician at that location, not a stock corporate description.
+- **Location-specific services**: if your Austin store does emergency HVAC repair but your Tulsa store doesn't offer 24-hour service, say so explicitly.
+- **Neighborhood context**: nearby landmarks, the specific zip codes or neighborhoods served, parking or accessibility notes unique to that address.
+- **Local reviews embedded**: reviews mentioning that specific location, not a global review carousel pulled from every location.
+- **Local FAQs**: questions customers at that specific location actually ask, sourced from call logs or support tickets, not generic industry FAQs repeated everywhere.
+
+<Mermaid chart={`
+flowchart TD
+  A[Location Page Template] --> B[Fixed structure\nH1 hours contact map]
+  A --> C[Variable content slots]
+  C --> D[Local team bio]
+  C --> E[Location-specific services]
+  C --> F[Neighborhood context]
+  C --> G[Local reviews]
+  C --> H[Local FAQs]
+  B --> I[Consistent brand experience]
+  D --> J[Unique ranking signal]
+  E --> J
+  F --> J
+  G --> J
+  H --> J
+`} />
+
+Aim for at least 150-200 words of content per location page that literally cannot be copy-pasted onto any other page in your network. If a competitor or an SEO auditor could swap two of your location pages and not notice, Google's algorithms will notice.
+
+---
+
+## Managing Google Business Profiles at Scale
+
+A single-location business claims and optimizes one Google Business Profile manually. A franchise with 200 locations cannot do this one profile at a time, the operational overhead alone would consume a full-time team.
+
+**What changes at scale:**
+
+- **Bulk location management**: Google Business Profile supports a "Business Manager" structure where a parent organization manages many locations under one account, with bulk editing for hours, categories, and attributes.
+- **Ownership and access tiers**: corporate needs edit access for brand-critical fields (business name, category, official hours), while local managers need control over photos, posts, and Q&A responses specific to their location.
+- **Duplicate and fake listing monitoring**: at scale, competitors or confused customers create duplicate GBP listings for individual locations far more often, these actively steal ranking signal from your real listing and must be reported and merged.
+- **Consistent review response cadence**: 200 locations generating reviews daily need either a dedicated response team or a documented, on-brand response template system, inconsistent response quality across locations damages trust at the network level.
+
+Tools built specifically for this scale, like Yext, BrightLocal Enterprise, or Uberall, sync location data across GBP, Apple Maps, Bing Places, and major directories from one dashboard instead of hundreds of manual logins.
+
+---
+
+## The Corporate-vs-Local SEO Tension
+
+This is the problem unique to franchises that single-location businesses never face: corporate marketing and local franchise owners often want different things from the same website.
+
+Corporate wants: consistent brand voice, centralized control over messaging and legal compliance, and a unified domain authority strategy. The local franchisee wants: their specific store to rank #1 for their neighborhood, control over local promotions, and credit for the reviews and reputation they personally built.
+
+<Callout type="example">
+**A common conflict, resolved.** A regional gym franchise found that its 60 locations were competing against each other in search results because corporate had built every location page on an identical template with zero local input. After giving local managers edit access to a "local highlights" section (class schedules, trainer bios, community events) while keeping brand elements locked at the corporate level, non-brand local search visibility across the network increased by 34% over two quarters, according to a 2025 case study reported by Vendasta. The fix was not more control in either direction, it was a clear division of what each party owned.
+</Callout>
+
+The practical solution is a **content ownership matrix**: define explicitly which fields corporate controls (brand name, logo, core service descriptions, legal disclaimers) and which fields local owners control (local promotions, community involvement, staff bios, location-specific FAQs). Document this once, and revisit it as the network grows.
+
+---
+
+## Technical Foundations for Location Pages at Scale
+
+A few technical details matter more once you have dozens of location pages instead of one:
+
+- **LocalBusiness schema on every page**, with the correct `@id` unique to that location, prevents Google from confusing which schema belongs to which physical address.
+- **Self-referencing canonical tags** on each location page confirm to Google that page is not a duplicate of another location, even if the template looks similar.
+- **A location page hub** (a `/locations/` directory page linking to every individual page) helps Google discover and crawl all location pages efficiently, especially past 50+ locations.
+- **Sitemap segmentation** by region for very large networks (500+ locations) keeps individual sitemap files under recommended size limits and speeds up re-crawling after updates.
+
+---
+
+## Key Takeaways
+
+- Templated location pages with only the city name changed are the single most common and most damaging mistake in franchise SEO, they cannibalize each other instead of ranking.
+- Every location page needs 150-200+ words of content that is genuinely unique to that address: local team, local services, local reviews, local FAQs.
+- Bulk Google Business Profile management tools are not optional past roughly 10-15 locations, manual management does not scale and duplicate listings will erode your visibility.
+- Resolve the corporate-vs-local tension explicitly with a content ownership matrix rather than letting it play out as an ongoing turf war.
+- AI answer engines are now a meaningful local discovery channel, write location pages informative enough that an AI system would want to cite them, not just thin enough to rank in classic search.
+
+<ResourceList resources={[
+  {
+    title: "Multi-Location SEO Statistics 2026, BiziQ",
+    url: "https://biziq.com/blog/multi-location-seo-statistics/",
+    type: "article",
+    note: "Source of the duplicate content and AI local search adoption statistics cited in this lesson, updated for 2026.",
+    free: true,
+  },
+  {
+    title: "Franchise SEO, The Complete 2026 Playbook, Vendasta",
+    url: "https://www.vendasta.com/blog/franchise-seo/",
+    type: "article",
+    note: "Covers the corporate-vs-local tension in detail with case studies on content ownership models for franchise networks.",
+    free: true,
+  },
+  {
+    title: "Resolving Duplicate Content Risks in Multi-Location Local SEO, onwardSEO",
+    url: "https://onwardseo.com/resolving-duplicate-content-risks-in-multi-location-local-seo-campaigns/",
+    type: "article",
+    note: "Deep dive on canonical tags, templated content risks, and technical fixes for near-duplicate location pages.",
+    free: true,
+  },
+  {
+    title: "Google Business Profile, Manage Multiple Locations",
+    url: "https://support.google.com/business/answer/6085339",
+    type: "docs",
+    note: "Official Google documentation on Business Manager and bulk location management for organizations with many locations.",
+    free: true,
+  },
+  {
+    title: "Google LocalBusiness Schema Documentation",
+    url: "https://developers.google.com/search/docs/appearance/structured-data/local-business",
+    type: "docs",
+    note: "Required reading for implementing per-location structured data correctly, critical when running dozens of near-identical page templates.",
+    free: true,
+  },
+  {
+    title: "Local SEO for Franchises, Rank Multiple Locations on Google",
+    url: "https://macrodigitalmedia.com/blog/local-seo-for-franchise/",
+    type: "article",
+    note: "Practical walkthrough of location page templates and franchise-specific citation building strategies.",
+    free: true,
+  },
+  {
+    title: "Yext, Multi-Location Listing Management",
+    url: "https://www.yext.com/",
+    type: "tool",
+    note: "Enterprise tool for syncing location data, reviews, and listings across GBP and major directories at scale, paid tiers for larger networks.",
+    free: false,
+  },
+  {
+    title: "WsCube Tech, Franchise SEO (Hindi)",
+    url: "https://www.youtube.com/@WsCubeTech",
+    type: "video",
+    lang: "hi",
+    free: true,
+    note: "Top Hindi digital marketing channel",
+  },
+  {
+    title: "Mr Digital Marketing Tamil, Multi-Location SEO",
+    url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw",
+    type: "video",
+    lang: "ta",
+    free: true,
+    note: "Tamil digital marketing tutorials",
+  },
+  {
+    title: "ODMT Telugu, Local SEO for Franchises (Telugu)",
+    url: "https://www.youtube.com/@ODMTtelugu",
+    type: "video",
+    lang: "te",
+    free: true,
+    note: "Telugu digital marketing training",
+  },
+]} />
+
+## Related Concepts
+
+- [Local SEO](/learn/seo/local-seo), the single-location fundamentals (Google Business Profile, NAP, reviews) that every location in your network still needs individually.
+- [Technical SEO](/learn/seo/technical-seo), crawlability and sitemap structure become critical once your site has 50+ near-identical templated pages to manage.
+- [Schema and Structured Data](/learn/seo/schema-structured-data), per-location LocalBusiness schema with unique identifiers prevents Google from confusing which data belongs to which address.

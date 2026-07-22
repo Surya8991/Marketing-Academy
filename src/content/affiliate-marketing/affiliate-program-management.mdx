@@ -1,0 +1,84 @@
+export const lessonMeta = {
+  title: "Affiliate Program Management: Tracking, Payouts, Relationships",
+  level: "Intermediate",
+  summary: "How to run an affiliate program day-to-day: choosing tracking tech, setting payout schedules that build trust, and keeping your top affiliates engaged instead of dormant.",
+};
+
+# Affiliate Program Management: Tracking, Payouts, Relationships
+
+A launched affiliate program is not a finished one. Most of the work, and most of the revenue, happens after the sign-up form closes.
+
+## Quick Summary
+
+- Tracking is the foundation: [server-to-server (S2S) postback tracking is now the most accurate method](https://www.affilitizer.com/news/affiliate-tracking-in-2026-a-guide-to-s2s-cookieless-and-compliance), since it skips the browser entirely and survives cookie restrictions.
+- Pixel-based, cookie-dependent tracking still works but degrades under ad blockers and Safari's privacy defaults.
+- Payout thresholds and schedules are a trust signal, not just an accounting detail.
+- The 80/20 rule applies hard here: a small set of affiliates drives most conversions, and they need a different relationship than the long tail.
+- Retention beats recruitment. Re-engaging one dormant top affiliate is cheaper than onboarding five new ones.
+
+## Tracking Tech: Pick the Right Layer
+
+Every affiliate program runs on one core mechanic: attributing a sale to the affiliate who sent the customer. There are two main ways to do that.
+
+**Cookie-based tracking** drops a browser cookie when someone clicks an affiliate link, then checks for that cookie at checkout. It is simple to set up and works with almost any tracking platform.
+
+The problem is fragility. Safari's Intelligent Tracking Prevention and ad blockers can wipe the cookie before the sale happens, silently costing your affiliate their commission.
+
+**Server-to-server (S2S) postback tracking** skips the browser. Your checkout server fires a direct HTTP call to the tracking platform the moment an order confirms, carrying the click ID, order value, and order ID.
+
+Because [no browser is involved, there is no cookie loss, no ad-blocker interference, and no iOS privacy impact](https://www.affilitizer.com/news/affiliate-tracking-in-2026-a-guide-to-s2s-cookieless-and-compliance). This is why S2S has become the default architecture for programs run in 2026.
+
+<Callout type="info">
+Most mature programs run both: a pixel as a fallback signal, and S2S postback as the source of truth for actual payout calculations. Never pay out on pixel data alone if S2S is available.
+</Callout>
+
+## Payout Schedules and Thresholds
+
+How and when you pay affiliates shapes who stays in your program. Get this wrong and your best partners quietly stop promoting you.
+
+Three decisions matter most:
+
+- **Payout frequency.** Monthly is standard; weekly or bi-weekly builds more trust with high-volume affiliates who treat this as real income.
+- **Minimum threshold.** A $25-$50 minimum keeps admin costs low without frustrating casual affiliates who rarely hit it.
+- **Holding period.** Commissions should stay "pending" through your return window (often 30-45 days) before locking, so refunds and chargebacks can be deducted cleanly.
+
+Document all three publicly in your affiliate terms. Ambiguity about "when do I get paid" is the single biggest driver of affiliate distrust, and distrust kills promotion volume long before it kills anything else.
+
+Automate the holding-period-to-approved transition wherever your platform allows it. Manual payout approval that drags past 60 days reads as bad faith even when it is just a backlog.
+
+## Keeping Top Affiliates Engaged
+
+Most programs follow a steep power curve: a handful of affiliates generate the majority of revenue, and a long tail generates almost nothing. Treat these two groups differently.
+
+For your top tier, build a real relationship instead of a transactional one:
+
+1. **Tiered incentives.** Bump commission rates as affiliates cross volume milestones. This rewards growth instead of just existence.
+2. **Early access.** Give top affiliates new products, discount codes, or landing pages before the general list. They convert better when they feel like insiders.
+3. **Direct communication.** A quarterly email blast is not a relationship. A named account contact who checks in personally is.
+4. **Performance transparency.** Share a simple dashboard so affiliates see their own click-to-sale conversion rate, not just total earnings.
+
+<Callout type="tip">
+Segment your affiliate email list by performance tier before you send anything. A "new product launch" email to your top 10 affiliates should read differently than the same announcement to affiliate #400, even if the underlying offer is identical.
+</Callout>
+
+A dormant top affiliate is a bigger loss than an unrecruited new one. Before chasing new sign-ups, audit your top 20 affiliates for the last 90 days of activity and personally reach out to anyone who has gone quiet.
+
+## Key Takeaways
+
+- S2S postback tracking is the 2026 standard; keep pixel tracking only as a fallback signal, not the source of truth.
+- Publish your payout frequency, minimum threshold, and holding period, ambiguity here is the top driver of affiliate distrust.
+- A small set of top affiliates drives most of your revenue; give them tiered incentives, early access, and a named contact.
+- Retention of top affiliates is cheaper and more reliable than constant new recruitment.
+- Audit your top 20 affiliates quarterly and personally re-engage anyone who has gone dormant.
+
+<ResourceList resources={[
+  { title: "Affiliate Tracking in 2026: A Guide to S2S, Cookieless, and Compliance (Affilitizer)", url: "https://www.affilitizer.com/news/affiliate-tracking-in-2026-a-guide-to-s2s-cookieless-and-compliance", type: "article", free: true },
+  { title: "How Tracking Affiliate Programs Actually Works, 2026 Guide (Tapfiliate)", url: "https://tapfiliate.com/blog/tracking-affiliate-programs/", type: "article", free: true },
+  { title: "Affiliate Tracking Software: 8 Platforms Compared, 2026 (Track360)", url: "https://track360.io/blog/affiliate-tracking-software-operator-buyer-framework-2026", type: "article", free: true },
+  { title: "Conversion Tracking for Affiliate Marketing Guide 2026 (Cometly)", url: "https://www.cometly.com/post/conversion-tracking-for-affiliate-marketing", type: "article", free: true },
+  { title: "PartnerStack", url: "https://partnerstack.com", type: "tool", free: false, note: "Affiliate and partner program management platform with tiered commission support" },
+  { title: "Impact.com", url: "https://impact.com", type: "tool", free: false, note: "Enterprise partnership management platform with S2S tracking" },
+  { title: "WsCube Tech, Affiliate Program Management (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Affiliate Program Management", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Affiliate Marketing Basics", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

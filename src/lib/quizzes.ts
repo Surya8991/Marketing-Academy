@@ -167,6 +167,742 @@ export const TRACK_QUIZZES: Record<string, Quiz[]> = {
 };
 
 export const QUIZZES: Record<string, Quiz[]> = {
+  "affiliate-marketing/affiliate-marketing-101": [
+    {
+      question: "In the affiliate model, at what point does the merchant actually pay a commission?",
+      options: [
+        "When the affiliate places the link on their site",
+        "When a visitor clicks the tracked link",
+        "When a visitor buys within the attribution window after clicking",
+        "When the affiliate signs up for the program",
+      ],
+      correct: 2,
+      explanation: "The commission only fires once a visitor clicks the tracked link and completes a purchase within the attribution window (typically 7 to 90 days). Nobody gets paid for the click or the impression alone.",
+    },
+    {
+      question: "Why does the lesson call affiliate marketing a 'performance-only' channel compared to display ads?",
+      options: [
+        "Because affiliates work for free until they build an audience",
+        "Because you pay for impressions regardless of outcome, just like display",
+        "Because you carry zero cost until an actual sale clears, unlike display ads which charge for impressions whether or not anyone converts",
+        "Because affiliate networks subsidize the merchant's ad spend",
+      ],
+      correct: 2,
+      explanation: "Display ads charge for impressions win or lose. Affiliate marketing flips that risk: the affiliate absorbs the cost of building an audience, and the merchant only pays once a sale clears.",
+    },
+    {
+      question: "Who are the three parties in every affiliate transaction, and what does each one primarily want?",
+      options: [
+        "Merchant (incremental sales), affiliate (reliable payouts), network (enough volume to justify its fee)",
+        "Buyer, seller, and shipping carrier",
+        "Merchant, affiliate, and government regulator",
+        "Advertiser, agency, and ad exchange",
+      ],
+      correct: 0,
+      explanation: "The merchant wants incremental sales, the affiliate wants reliable payouts, and the network wants enough volume flowing through to justify its fee. Most disputes trace back to this misaligned triangle.",
+    },
+    {
+      question: "What does the lesson recommend for a first-time affiliate program launch?",
+      options: [
+        "Launch with five commission tiers and a 90-day cookie window immediately",
+        "Start with one commission structure (a flat percentage) and one cookie window (30 days is common), then iterate once you have data",
+        "Skip commission structure entirely and pay a flat annual fee to all affiliates",
+        "Wait until you have $1M in revenue before launching any program",
+      ],
+      correct: 1,
+      explanation: "The lesson advises starting simple, one flat percentage commission and a common 30-day cookie window, then adding tiers and special rates only once real data shows which affiliates drive profitable, non-cannibalized sales.",
+    },
+  ],
+  "affiliate-marketing/choosing-affiliate-network": [
+    {
+      question: "According to the lesson, what is the real tradeoff between joining a network and running a direct program?",
+      options: [
+        "Networks are always cheaper regardless of scale",
+        "Networks trade a fee for speed (tracking, invoicing, a discovery pool) while direct programs trade setup work for full control and no fee cut",
+        "Direct programs are illegal in most countries",
+        "There is no meaningful difference between the two approaches",
+      ],
+      correct: 1,
+      explanation: "Networks bundle tracking, invoicing, and a searchable affiliate directory for a recurring fee plus a cut of commissions. Direct programs remove that fee but require you to own recruiting, fraud detection, tax compliance, and payments yourself.",
+    },
+    {
+      question: "Which network does the lesson describe as the accessible entry point for mid-market ecommerce with a low platform fee?",
+      options: [
+        "Impact",
+        "CJ Affiliate",
+        "ShareASale",
+        "Rewardful",
+      ],
+      correct: 2,
+      explanation: "ShareASale is positioned as the natural starting network for budget-conscious, mid-market ecommerce brands earlier in their affiliate journey.",
+    },
+    {
+      question: "Why does the lesson warn against comparing network fees only at launch-month volume?",
+      options: [
+        "Launch-month volume is always the highest volume a program ever sees",
+        "Percentage-based fee models look cheap at low volume and expensive at scale, while flat platform fees do the opposite, so Year 2 volume changes which model is cheaper",
+        "Networks change their fee structure every month automatically",
+        "Fee comparisons are irrelevant since all networks charge the same amount",
+      ],
+      correct: 1,
+      explanation: "CJ's percentage-of-commission pricing looks cheap early but gets expensive fast at scale, while flat-fee networks like ShareASale do the opposite. The lesson recommends running the math against projected Year 2 volume, not launch-month numbers.",
+    },
+    {
+      question: "What hybrid path does the lesson describe as the most common real-world outcome for affiliate programs?",
+      options: [
+        "Staying on a network forever and never going direct",
+        "Going direct immediately and never touching a network",
+        "Starting on a network to learn the mechanics and find early partners, then migrating top affiliates to direct deals once the relationship is proven",
+        "Running three networks simultaneously from day one",
+      ],
+      correct: 2,
+      explanation: "Most teams start on a network to learn the mechanics and find early partners, then migrate their top 10-20 affiliates to direct deals once the data proves the relationship is profitable.",
+    },
+  ],
+  "affiliate-marketing/affiliate-commission-structures": [
+    {
+      question: "What is the main tradeoff of a flat-fee commission model?",
+      options: [
+        "It scales pay automatically with customer value",
+        "It disconnects payout from customer value, so an affiliate sending a $1,200 buyer earns the same as one sending a $49 trial that churns",
+        "It requires the most complex tracking of all four models",
+        "It only works for SaaS subscription products",
+      ],
+      correct: 1,
+      explanation: "Flat fee pays a fixed dollar amount regardless of order size, which is simple to budget but means high-value and low-value referrals are paid identically.",
+    },
+    {
+      question: "According to the lesson's industry benchmarks, which model dominates in finance and fintech, and why?",
+      options: [
+        "Revenue share, because loans have high margins",
+        "Tiered commissions, because volume is easy to track",
+        "Flat CPA payouts of $50-$200 per verified signup, because a percentage of a loan or policy is legally and financially messy",
+        "Hybrid models, because fintech customers churn quickly",
+      ],
+      correct: 2,
+      explanation: "Finance and fintech programs favor flat CPA (typically $50-$200 per verified signup) since taking a percentage of a loan or insurance policy creates legal and financial complications.",
+    },
+    {
+      question: "Per the lesson, what percentage of SaaS programs now use a recurring revenue-share model, and what does that shift signal?",
+      options: [
+        "10.5%, signaling SaaS is moving away from revenue share entirely",
+        "42.4%, a shift toward rewarding retention, not just the first sale",
+        "99%, meaning flat fee is nearly extinct in SaaS",
+        "42.4%, but only for enterprise-tier deals",
+      ],
+      correct: 1,
+      explanation: "42.4% of SaaS programs now use a recurring revenue-share model, reflecting a shift toward rewarding affiliates for customer retention rather than just the initial sale.",
+    },
+    {
+      question: "The lesson frames choosing a commission structure as fundamentally what kind of decision?",
+      options: [
+        "A payroll decision with no strategic implications",
+        "An incentive design problem, since the structure should reward the specific customer behavior you want repeated",
+        "A purely legal decision dictated by tax law",
+        "A random choice since all structures perform identically",
+      ],
+      correct: 1,
+      explanation: "The lesson frames commission structure as an incentive design problem: recurring revenue share rewards retention, flat fee rewards predictable lead-gen volume, and tiered rates reward your top performers without overpaying everyone else.",
+    },
+  ],
+  "affiliate-marketing/recruiting-vetting-affiliates": [
+    {
+      question: "What three sources does the lesson identify as the best places to find quality affiliates?",
+      options: [
+        "Random cold email lists, paid ad networks, and print media",
+        "Existing customers, niche content sites in your category, and competitor program research",
+        "Only affiliate networks, nothing else works",
+        "Social media influencers exclusively",
+      ],
+      correct: 1,
+      explanation: "Existing customers bring authentic voice, niche content sites bring built-in audience trust, and competitor program research surfaces people already proven to produce content in your exact space.",
+    },
+    {
+      question: "Why does the lesson recommend a 30 to 60 day commission holdback?",
+      options: [
+        "It is required by law in every country",
+        "It gives the merchant time to negotiate a lower rate",
+        "It gives enough time for fraud patterns, chargebacks, and refund abuse to surface before the money actually leaves the business",
+        "It speeds up the affiliate approval process",
+      ],
+      correct: 2,
+      explanation: "A commission holdback of 30 to 60 days is a practical safeguard: it lets fraud patterns, chargebacks, and refund abuse surface before payout, protecting the merchant from paying on fraudulent sales.",
+    },
+    {
+      question: "Which of these is listed as a post-approval red flag rather than a pre-approval one?",
+      options: [
+        "Vague or evasive answers about traffic sources on the application",
+        "Scraped or duplicate content lifted from other sites",
+        "Abnormally high clicks with near-zero conversions",
+        "Vulgar or adult content misaligned with brand guidelines",
+      ],
+      correct: 2,
+      explanation: "Abnormally high clicks with near-zero conversions is a post-approval traffic red flag that only becomes visible once traffic starts flowing, unlike content and application red flags visible before approval.",
+    },
+    {
+      question: "What percentage of global traffic does the lesson cite as invalid, and what conclusion does it draw from that number?",
+      options: [
+        "Roughly 20.64%, meaning auto-approving every applicant is a direct invitation to fraud",
+        "Less than 1%, meaning vetting is largely unnecessary",
+        "50%, meaning affiliate marketing should be avoided entirely",
+        "20.64%, but only relevant to display advertising, not affiliates",
+      ],
+      correct: 0,
+      explanation: "Invalid traffic sits around 20.64% globally across 105.7 billion impressions analyzed, which is why the lesson argues that skipping vetting and auto-approving applicants directly invites fraud.",
+    },
+  ],
+  "affiliate-marketing/affiliate-fraud-compliance": [
+    {
+      question: "What is cookie stuffing?",
+      options: [
+        "An affiliate legitimately earning multiple commissions from one customer",
+        "A fraudulent site force-dropping an affiliate cookie onto every visitor's browser with zero genuine referral behind it",
+        "A network policy that limits how many cookies an affiliate can use",
+        "A method for merchants to track affiliate performance more accurately",
+      ],
+      correct: 1,
+      explanation: "Cookie stuffing force-drops a tracking cookie via invisible iframes or auto-redirects, with no real referral behind it, so the fraudster gets paid when the visitor buys anything later.",
+    },
+    {
+      question: "What made the Honey browser extension controversy notable, according to the lesson?",
+      options: [
+        "It was found replacing creators' tracking cookies with its own at checkout, even on orders where it applied no discount code at all",
+        "It was the first affiliate program to offer flat-fee payouts",
+        "It exclusively promoted typosquatted domains",
+        "It required FTC disclosure for the first time in affiliate marketing history",
+      ],
+      correct: 0,
+      explanation: "The Honey extension case is the lesson's example of coupon-code hijacking: it swapped in its own affiliate cookie at the last second at checkout, stealing credit even when it applied no actual discount.",
+    },
+    {
+      question: "Which of these is NOT one of the four fraud patterns the lesson identifies?",
+      options: [
+        "Cookie stuffing",
+        "Typosquatting",
+        "Click injection on mobile",
+        "Tiered commission escalation",
+      ],
+      correct: 3,
+      explanation: "The lesson's four fraud patterns are cookie stuffing, coupon-code hijacking, typosquatting, and click injection on mobile. Tiered commission escalation is a legitimate program design choice, not a fraud pattern.",
+    },
+    {
+      question: "What does the lesson say about the FTC Endorsement Guides and disclosure?",
+      options: [
+        "They are optional best practices with no real enforcement",
+        "They only apply to the brand, never to individual affiliates",
+        "They require clear, conspicuous disclosure of any paid or commission relationship, and the FTC has pursued enforcement against both brands and individual affiliates",
+        "They only apply to influencers, not affiliates",
+      ],
+      correct: 2,
+      explanation: "The FTC Endorsement Guides are enforceable rules requiring conspicuous disclosure, not buried hashtags. The FTC has pursued enforcement actions against both the brand and the individual affiliate, so blaming the affiliate is not a legal shield.",
+    },
+  ],
+  "affiliate-marketing/influencer-vs-affiliate": [
+    {
+      question: "What is the core distinction the lesson draws between influencer marketing and affiliate marketing?",
+      options: [
+        "Influencer marketing pays for reach and content regardless of outcome; affiliate marketing pays only for tracked results",
+        "Influencer marketing is always more expensive than affiliate marketing",
+        "Affiliate marketing only works for physical products, not digital ones",
+        "There is no real difference between the two models",
+      ],
+      correct: 0,
+      explanation: "Influencer deals pay a flat fee for content regardless of what happens after it posts. Affiliate deals pay only when a tracked click or sale actually occurs, so the affiliate absorbs the performance risk.",
+    },
+    {
+      question: "How does the lesson describe risk allocation between the two models?",
+      options: [
+        "Both models allocate risk identically",
+        "Influencer deals protect the creator's income (paid regardless of outcome); affiliate deals protect the brand's budget (spend only follows revenue)",
+        "Influencer deals protect the brand; affiliate deals protect the creator",
+        "Neither model involves any risk for either party",
+      ],
+      correct: 1,
+      explanation: "Influencer deals guarantee creator income whether the campaign flops or flies. Affiliate deals guarantee the brand never spends until revenue has already occurred.",
+    },
+    {
+      question: "What structure does the lesson say the strongest 2026 creator programs are combining?",
+      options: [
+        "Pure flat fee only, with no performance component",
+        "Pure commission only, with no guaranteed floor",
+        "A base flat fee with a 10 to 15% commission, plus tiered bonuses once a creator crosses a sales threshold",
+        "A one-time bonus with no ongoing payment structure",
+      ],
+      correct: 2,
+      explanation: "Per industry data cited in the lesson, the strongest 2026 creator programs combine a base flat fee with a 10-15% commission and layered tiered bonuses, giving creators both security and upside.",
+    },
+    {
+      question: "What single question does the lesson recommend asking to decide which model fits a given creator relationship?",
+      options: [
+        "How many followers does this creator have?",
+        "If this creator's post gets zero clicks, did I still get something valuable? If yes, pay some flat fee; if not, the relationship should be commission-only",
+        "Is this creator willing to work for free exposure?",
+        "Does this creator use TikTok Shop?",
+      ],
+      correct: 1,
+      explanation: "The lesson's practical test is asking whether zero clicks would still leave the brand with something valuable. A 'yes' justifies a flat fee component; a 'no' means the deal should be commission-only.",
+    },
+  ],
+  "affiliate-marketing/affiliate-program-management": [
+    {
+      question: "Why has server-to-server (S2S) postback tracking become the 2026 default over cookie-based tracking?",
+      options: [
+        "It is cheaper to implement than cookie tracking",
+        "Because no browser is involved, so there is no cookie loss, no ad-blocker interference, and no iOS privacy impact",
+        "It only works for mobile apps, not websites",
+        "It replaces the need for any affiliate network entirely",
+      ],
+      correct: 1,
+      explanation: "S2S postback tracking fires a direct HTTP call from the checkout server to the tracking platform at order confirmation, skipping the browser entirely and surviving Safari's Intelligent Tracking Prevention and ad blockers.",
+    },
+    {
+      question: "What three payout decisions does the lesson say matter most for affiliate trust?",
+      options: [
+        "Payout frequency, minimum threshold, and holding period",
+        "Logo design, brand colors, and program name",
+        "Number of affiliates recruited, network chosen, and commission cap",
+        "Social media presence, email frequency, and website design",
+      ],
+      correct: 0,
+      explanation: "The lesson identifies payout frequency, minimum threshold, and holding period as the three decisions to document publicly, since ambiguity about 'when do I get paid' is the biggest driver of affiliate distrust.",
+    },
+    {
+      question: "What does the lesson recommend as the source of truth for payout calculations when both pixel and S2S tracking are running?",
+      options: [
+        "Pixel data alone, since it is easier to interpret",
+        "Whichever number is higher between the two",
+        "S2S postback tracking, using the pixel only as a fallback signal",
+        "Manual estimates from the affiliate manager",
+      ],
+      correct: 2,
+      explanation: "The lesson explicitly warns never to pay out on pixel data alone when S2S is available; mature programs run both but treat S2S postback as the source of truth for actual payout calculations.",
+    },
+    {
+      question: "According to the lesson, why is retaining top affiliates a bigger priority than recruiting new ones?",
+      options: [
+        "New affiliates are illegal to recruit in most markets",
+        "A small set of top affiliates drives most conversions, and a dormant top affiliate is a bigger loss than an unrecruited new one",
+        "Recruiting new affiliates always costs more than retaining old ones by a fixed multiple",
+        "Top affiliates never need any form of engagement or communication",
+      ],
+      correct: 1,
+      explanation: "The lesson describes a steep power curve where a handful of affiliates generate most revenue; re-engaging one dormant top affiliate is cheaper and more valuable than onboarding five new ones.",
+    },
+  ],
+  "affiliate-marketing/amazon-associates-marketplace": [
+    {
+      question: "Why does the lesson say Amazon's 24-hour cookie window is more generous than it first appears?",
+      options: [
+        "Because Amazon secretly extends it to 90 days for all affiliates",
+        "Because anything added to cart within that window can still earn commission for up to 90 days, and the affiliate earns on the shopper's entire cart, not just the linked product",
+        "Because the 24-hour window only applies to digital products",
+        "Because Amazon pays double commission after 24 hours",
+      ],
+      correct: 1,
+      explanation: "Items added to cart within 24 hours keep earning credit for up to 90 days, and the affiliate earns commission on the shopper's whole cart, not just the specific product they linked to.",
+    },
+    {
+      question: "What is the key structural difference between marketplace programs (Amazon, Walmart, Target, Etsy) and brand-run programs?",
+      options: [
+        "Marketplace programs pay on whatever the shopper buys in their cart; brand-run programs pay only on the specific promoted product",
+        "Brand-run programs always have shorter cookie windows than marketplace programs",
+        "Marketplace programs never use cookies for tracking",
+        "There is no meaningful difference between the two categories",
+      ],
+      correct: 0,
+      explanation: "Marketplace programs pay on the entire cart regardless of which products it contains, while brand-run programs pay only on the specific product promoted, though brand programs typically offer higher rates and longer cookie windows.",
+    },
+    {
+      question: "How do Amazon Associates commission rates vary by category in 2026?",
+      options: [
+        "Every category pays a flat 15% regardless of product type",
+        "Roughly 1% to 20%, with digital categories like Amazon Games near the top and most physical goods in the 1-4% range",
+        "Only digital products earn any commission at all",
+        "Rates are negotiated individually per affiliate, not set by category",
+      ],
+      correct: 1,
+      explanation: "Amazon Associates rates span roughly 1% to 20% by category, with digital purchases near the top and most everyday physical products like electronics paying in the low single digits.",
+    },
+    {
+      question: "What cookie window comparison does the lesson give for Walmart, Target, and Etsy?",
+      options: [
+        "All three run identical 30-day windows",
+        "Walmart runs about 3 days, Target about 7 days, Etsy up to 30 days",
+        "Walmart runs 90 days, Target 60 days, Etsy 45 days",
+        "None of these marketplaces disclose their cookie windows",
+      ],
+      correct: 1,
+      explanation: "The lesson cites Walmart at roughly 3 days, Target at about 7 days, and Etsy at up to 30 days, all shorter than most brand-run SaaS or DTC programs.",
+    },
+  ],
+  "marketing-leadership/ic-to-manager": [
+    {
+      question: "What is the core shift the lesson says happens when moving from individual contributor to manager?",
+      options: [
+        "Nothing really changes except the title and salary",
+        "Your value is now measured in what your team produces without you personally touching it, rather than in your own campaigns",
+        "You get to do the same work but with more authority to override others",
+        "You stop needing to understand the actual marketing work being done",
+      ],
+      correct: 1,
+      explanation: "As an IC, value was measured in personal output like campaigns and copy. As a manager, value is measured in what the team produces without the manager personally doing it.",
+    },
+    {
+      question: "What is the lesson's test for whether a new manager is actually delegating or just hiding?",
+      options: [
+        "Whether the manager has more direct reports than last year",
+        "Whether the manager could take a two-week vacation without the team's output dropping",
+        "Whether the manager still enjoys doing individual-contributor work",
+        "Whether the team hits its quarterly numbers regardless of who did the work",
+      ],
+      correct: 1,
+      explanation: "The lesson's test is simple: if a two-week vacation would cause the team's output to drop, the manager is still doing the individual-contributor job with a manager's title attached.",
+    },
+    {
+      question: "According to the lesson, what should a new manager do in the first 30 days?",
+      options: [
+        "Immediately reorganize the team and change every process",
+        "Run one-on-ones with every direct report focused on listening and discovery, not immediate changes",
+        "Take over the team's most visible accounts personally",
+        "Avoid meeting with direct reports until a strategy is fully formed",
+      ],
+      correct: 1,
+      explanation: "Days 1-30 are for listening: running one-on-ones to learn what's going well, what's blocked, and what reports wish their old manager had done differently, resisting the urge to fix anything yet.",
+    },
+    {
+      question: "What does the lesson say about how manager engagement affects team engagement?",
+      options: [
+        "Manager engagement has no measurable effect on team engagement",
+        "Roughly 70% of a team's engagement traces back to the manager",
+        "Team engagement is driven almost entirely by compensation, not management",
+        "Manager engagement only matters in the first week of a new hire's tenure",
+      ],
+      correct: 1,
+      explanation: "The lesson cites that roughly 70% of a team's engagement traces back to the manager, meaning a manager's mood and habits are a multiplier on everyone under them.",
+    },
+  ],
+  "marketing-leadership/building-hiring-marketing-team": [
+    {
+      question: "What kind of first marketing hire does the lesson recommend for an early-stage company?",
+      options: [
+        "A narrow channel specialist with deep expertise in one area",
+        "A T-shaped generalist comfortable with ambiguity who can own strategy and execution together",
+        "A VP of Marketing to build the org chart from the top down",
+        "No hire at all, ever, regardless of stage",
+      ],
+      correct: 1,
+      explanation: "The lesson recommends a generalist, specifically a growth or demand-generation generalist comfortable with ambiguity, over a narrow specialist for the first marketing hire at an early-stage company.",
+    },
+    {
+      question: "How should a company decide which specialist to hire second and third, according to the lesson?",
+      options: [
+        "Follow a fixed org chart template regardless of results",
+        "Let evidence from the generalist's first six months pick the next role: hire toward whichever channel proved itself",
+        "Always hire a content specialist second, no exceptions",
+        "Hire based on which role sounds most prestigious",
+      ],
+      correct: 1,
+      explanation: "The lesson advises hiring toward whatever channel proved itself in the generalist's first six months rather than following a template org chart, letting evidence pick the next role.",
+    },
+    {
+      question: "Why does the lesson advise against long lists of 'nice to have' bullets in job descriptions?",
+      options: [
+        "Legal requirements forbid long requirements lists",
+        "Every extra bullet quietly discourages qualified candidates, especially from underrepresented backgrounds, who self-select out when they don't match every line",
+        "Long job descriptions cost more to publish on job boards",
+        "Candidates never read past the first bullet point anyway",
+      ],
+      correct: 1,
+      explanation: "Extra 'nice to have' bullets discourage qualified candidates who self-select out if they don't match every requirement, so the lesson recommends cutting the list to what's truly non-negotiable.",
+    },
+    {
+      question: "What does the lesson say about structured versus unstructured interviews?",
+      options: [
+        "Structured interviews have roughly twice the predictive validity of unstructured ones and cut hiring bias by more than 60%",
+        "Unstructured interviews are more predictive because they allow spontaneity",
+        "There is no measurable difference between structured and unstructured interviews",
+        "Structured interviews only work for technical roles, not marketing roles",
+      ],
+      correct: 0,
+      explanation: "The lesson cites validity research putting structured interviews at roughly .51 versus .38 for unstructured, with bias effects shrinking by more than 60% when every candidate gets the same question set.",
+    },
+  ],
+  "marketing-leadership/cmo-role-today": [
+    {
+      question: "What is the average CMO tenure at S&P 500 companies, and how does it compare to other C-suite roles?",
+      options: [
+        "4.1 years, the shortest of any C-suite role, roughly half a CEO's average tenure",
+        "10 years, the longest of any C-suite role",
+        "4.1 years, but longer than both CFO and CEO tenure",
+        "There is no meaningful difference in tenure across C-suite roles",
+      ],
+      correct: 0,
+      explanation: "CMO tenure averages 4.1 years, the shortest in the C-suite, compared to 4.7 years for CFOs and 7.6 years for CEOs.",
+    },
+    {
+      question: "What happened to CMO scope over time, according to the lesson?",
+      options: [
+        "It has stayed completely static since the 1990s",
+        "It shrank in the 2010s as performance marketing and brand got carved out, then expanded again as boards began demanding ownership of eCommerce, data, and product decisions",
+        "It has only ever expanded, with no contraction period",
+        "It has only ever contracted, with the role now purely tactical",
+      ],
+      correct: 1,
+      explanation: "CMO scope shrank in the 2010s as performance marketing moved to a VP of Growth and brand was questioned as unmeasurable, then expanded again as boards demanded broader ownership of growth-adjacent functions.",
+    },
+    {
+      question: "What three questions does the lesson say 2026 boards evaluate CMOs against?",
+      options: [
+        "Can you tie spend to revenue/retention in board-legible language, are you building something durable versus just buying this quarter's number, and do you have a credible AI point of view",
+        "How many campaigns did you launch, how big is your team, and how much budget do you control",
+        "How long have you been in the role, what is your educational background, and who do you report to",
+        "What social media platforms do you use, how many followers does the brand have, and what is your content calendar",
+      ],
+      correct: 0,
+      explanation: "Boards score CMOs on revenue-legible proof, whether growth is durable rather than borrowed (e.g., via discounting), and a credible operating stance on AI.",
+    },
+    {
+      question: "What does the lesson say about what happens to most departing CMOs?",
+      options: [
+        "62% move into an equal or larger role elsewhere, suggesting short tenure is often structural rather than a personal failure",
+        "Most departing CMOs leave the marketing profession entirely",
+        "Most departing CMOs are demoted to smaller roles",
+        "Departing CMOs rarely find new employment within a year",
+      ],
+      correct: 0,
+      explanation: "62% of departing CMOs move into an equal or larger role elsewhere, which the lesson uses to argue that short tenure is often a structural feature of the job rather than a verdict on the individual.",
+    },
+  ],
+  "marketing-leadership/marketing-performance-reviews": [
+    {
+      question: "What does the lesson say a real marketing career ladder needs at the mid-senior level?",
+      options: [
+        "A single track that funnels everyone toward management",
+        "A split into individual contributor (IC) and management tracks, with both carrying equal pay and prestige at each level",
+        "No formal ladder at all, since marketing is too creative to level",
+        "A ladder based primarily on tenure and years of experience",
+      ],
+      correct: 1,
+      explanation: "The lesson argues for a split at the mid-senior level into IC and management tracks with equal pay and prestige, so strong ICs aren't pressured into managing just to keep advancing.",
+    },
+    {
+      question: "What four criteria does the lesson say leveling should score, instead of tenure?",
+      options: [
+        "Scope, impact, autonomy, and skill depth",
+        "Years of experience, headcount managed, salary history, and job title",
+        "Popularity, visibility in meetings, seniority, and likability",
+        "Number of campaigns launched, social media followers, and budget size",
+      ],
+      correct: 0,
+      explanation: "Leveling criteria should score scope (how big and ambiguous the problems are), impact, autonomy, and skill depth, none of which tenure earns on its own.",
+    },
+    {
+      question: "What is the lesson's fix for vague review language like 'communicates well'?",
+      options: [
+        "Remove all written feedback and rely on verbal conversations only",
+        "Replace the adjective with the artifact, the audience, and the measured impact",
+        "Use a numeric rating scale instead of any written comments",
+        "Only give feedback during the annual review, never in between",
+      ],
+      correct: 1,
+      explanation: "The lesson's substitution habit replaces vague adjectives with the specific artifact, audience, and measured effect, e.g., naming exactly which brief was adopted and what it changed.",
+    },
+    {
+      question: "What does the lesson say about surprises in a performance review?",
+      options: [
+        "Surprises are a normal and acceptable part of any review",
+        "If a review contains a surprise, that is a manager failure, since difficult feedback belongs in the 1:1 months earlier",
+        "Surprises should be saved for the review to maximize impact",
+        "Only positive surprises should be avoided in reviews",
+      ],
+      correct: 1,
+      explanation: "The lesson states that a review should never be the first time someone hears difficult feedback; if it contains a surprise, that reflects a manager failure, not an employee failure.",
+    },
+  ],
+  "marketing-leadership/managing-up-marketing": [
+    {
+      question: "What three things does the lesson say executives actually care about, versus funnel metrics?",
+      options: [
+        "MQLs, CTR, and brand lift scores",
+        "Revenue influenced, cost per outcome, and payback period",
+        "Number of campaigns launched, team headcount, and social followers",
+        "Email open rates, click-through rates, and impressions",
+      ],
+      correct: 1,
+      explanation: "The lesson says a CFO wants revenue influenced, cost per outcome, and payback period, and every marketing metric should be translated into one of those three before it reaches the board.",
+    },
+    {
+      question: "What four blocks make up the lesson's exec-ready report format?",
+      options: [
+        "Outcome, cost, trend, and one clear ask",
+        "Executive summary, methodology, appendix, and glossary",
+        "Goals, strategy, tactics, and timeline",
+        "Team, budget, tools, and channels",
+      ],
+      correct: 0,
+      explanation: "The working exec report format has four blocks in order: the outcome, the cost, the trend versus last period, and a single clear ask.",
+    },
+    {
+      question: "According to the lesson, what is 'marketing can't prove ROI' usually really about?",
+      options: [
+        "A marketing-competence problem that requires firing the team",
+        "Usually a data-access or attribution problem, not a marketing-competence problem",
+        "A sign that marketing budgets should be eliminated entirely",
+        "Something that can only be solved by hiring more analysts",
+      ],
+      correct: 1,
+      explanation: "The lesson frames this objection as usually a data problem, such as sales and marketing systems not sharing attribution, and recommends naming the real constraint rather than getting defensive.",
+    },
+    {
+      question: "What does the lesson say is the wrong way to respond to ROI skepticism?",
+      options: [
+        "Responding with more metrics, instead of a dated plan to fix the specific measurement gap",
+        "Asking what specific outcome would count as proof",
+        "Naming the real constraint, such as an attribution gap",
+        "Proposing a plan with a date attached to fix the issue",
+      ],
+      correct: 0,
+      explanation: "The lesson explicitly warns never to respond to ROI skepticism with more metrics; a dated plan to close the specific measurement gap reframes the conversation from defensive to accountable.",
+    },
+  ],
+  "marketing-leadership/marketing-career-paths": [
+    {
+      question: "What three career paths does the lesson identify, and how does it describe the leadership track?",
+      options: [
+        "Specialist, generalist, and leadership, with leadership being a different axis trading hands-on execution for people management and budget ownership",
+        "Junior, mid-level, and senior, purely based on years of experience",
+        "Specialist, generalist, and leadership, where leadership is simply 'senior specialist' with a bigger title",
+        "Only two paths exist: specialist and generalist",
+      ],
+      correct: 0,
+      explanation: "The lesson describes specialist, generalist, and leadership as three paths, with leadership as a distinct axis, not a promotion tier above senior specialist, that trades execution for managing people and budget.",
+    },
+    {
+      question: "What does the lesson recommend as the default path early in a marketing career?",
+      options: [
+        "Specialize immediately in one channel before trying anything else",
+        "Default to generalist, since employers hiring junior marketers favor a wide skill set before it's clear which channel someone would be good at",
+        "Go straight into a leadership track to build management experience early",
+        "Avoid marketing entirely until a specialty is chosen",
+      ],
+      correct: 1,
+      explanation: "Early career, the lesson recommends defaulting to generalist since employers favor a wide skill set before a marketer has proven which channel they'd excel in.",
+    },
+    {
+      question: "According to the lesson, what are the two honest signals that it's time to pivot career paths?",
+      options: [
+        "A single bad quarter or one piece of harsh feedback",
+        "Boredom that outlasts a new project, and the channel itself shrinking",
+        "A pay raise or a promotion opportunity elsewhere",
+        "Peer pressure from colleagues who are also pivoting",
+      ],
+      correct: 1,
+      explanation: "The lesson names boredom that outlasts a fresh project and a genuinely shrinking channel as real pivot signals, explicitly warning that a bad quarter or harsh feedback is noise, not a signal.",
+    },
+    {
+      question: "What hiring-demand statistic does the lesson cite about AI and martech skills for marketers?",
+      options: [
+        "Demand for AI skills rose 392% and martech expertise rose 351% in recent hiring data",
+        "AI skills demand fell by half over the past year",
+        "Martech expertise is now irrelevant to marketing hiring",
+        "Only specialists need AI skills, generalists do not",
+      ],
+      correct: 0,
+      explanation: "The lesson cites a 392% rise in demand for AI skills and a 351% rise for martech expertise, arguing that both specialists and generalists now need baseline AI fluency.",
+    },
+  ],
+  "marketing-leadership/marketing-portfolio": [
+    {
+      question: "What three elements does the lesson say every portfolio entry needs, in order?",
+      options: [
+        "The problem, what you specifically did, and the measurable outcome",
+        "The company logo, a screenshot, and a testimonial quote",
+        "Your job title, years of experience, and a headshot",
+        "The tools used, the timeline, and the budget spent",
+      ],
+      correct: 0,
+      explanation: "Every entry needs the problem, the specific action taken, and the measurable outcome, in that order; a vague description like 'managed social media' tells a hiring manager nothing.",
+    },
+    {
+      question: "How does the lesson say confidential, NDA-protected work should be handled in a portfolio?",
+      options: [
+        "It should always be excluded entirely from any portfolio",
+        "As an anonymized case study describing the challenge, role, and directional results while stripping brand names and exact figures",
+        "It should be published with exact figures since portfolios are considered private documents",
+        "It should only be discussed verbally, never in written form",
+      ],
+      correct: 1,
+      explanation: "The standard workaround is an anonymized case study using neutral labels like 'a mid-market fintech client' and directional numbers instead of exact figures or real screenshots.",
+    },
+    {
+      question: "How should portfolio format differ across marketing disciplines, according to the lesson?",
+      options: [
+        "Format should be identical across all disciplines for consistency",
+        "Copywriters need full writing samples, growth marketers need experiment logs, and brand strategists need frameworks and positioning documents",
+        "Only growth marketers need any evidence at all in their portfolio",
+        "Copywriters should use spreadsheets, and growth marketers should use writing samples",
+      ],
+      correct: 1,
+      explanation: "The lesson matches format to how each discipline is evaluated: full writing samples for copywriters, hypothesis-driven experiment logs for growth marketers, and frameworks/positioning docs for strategists.",
+    },
+    {
+      question: "What does the lesson recommend for portfolio length?",
+      options: [
+        "As many projects as possible, at least 20, to show breadth",
+        "Keep it to 4-6 strong projects, since a portfolio with 20 mediocre entries reads weaker than one with 5 excellent ones",
+        "Exactly one project is sufficient regardless of career stage",
+        "Length doesn't matter as long as the projects are recent",
+      ],
+      correct: 1,
+      explanation: "The lesson recommends 4-6 projects, arguing that a long list of thin entries reads as weaker than a short list of excellent ones.",
+    },
+  ],
+  "marketing-leadership/freelance-consulting-marketer": [
+    {
+      question: "What hidden costs does the lesson say independence exposes that employment hides?",
+      options: [
+        "Independence has no additional costs compared to employment",
+        "The full 15.3% self-employment tax, plus self-funded health insurance and time off, meaning a $150,000 salary and $150,000 freelance income are not equivalent",
+        "Only marketing software subscription costs",
+        "Independence eliminates all tax obligations entirely",
+      ],
+      correct: 1,
+      explanation: "As an employee, the employer pays half of payroll tax and subsidizes benefits. As a freelancer, the full 15.3% self-employment tax applies on top of income tax, and health insurance and time off are self-funded.",
+    },
+    {
+      question: "Why does the lesson say retainers are the pricing model experienced consultants steer toward?",
+      options: [
+        "Retainers always pay more per hour than hourly billing",
+        "Retainers typically price 10-15% below hourly rates but buy predictable, recurring income and priority client access",
+        "Retainers eliminate the need for any contract or agreement",
+        "Retainers are required by law for all consulting work",
+      ],
+      correct: 1,
+      explanation: "Retainers usually run 10-15% cheaper per hour than one-off rates, but that discount buys the consultant predictable, recurring income that turns choppy freelance revenue into something closer to a real paycheck.",
+    },
+    {
+      question: "According to the lesson, where do most first clients come from?",
+      options: [
+        "Cold outreach and unsolicited pitches to strangers",
+        "A former employer or existing network connection, since referrals convert 3-5 times better than cold channels",
+        "Paid advertising campaigns targeting small businesses",
+        "Random inbound leads from a portfolio website alone",
+      ],
+      correct: 1,
+      explanation: "Most first clients come from a former employer or network connection rather than outbound pitching, and referrals convert 3-5 times better because the prospect already trusts the person who sent them.",
+    },
+    {
+      question: "What buffer does the lesson recommend before going independent, and why?",
+      options: [
+        "No buffer is necessary if rates are set high enough",
+        "A 3-6 month expense buffer, since even established consultants experience feast-and-famine income cycles",
+        "A 10-year buffer to fully de-risk the transition",
+        "A buffer is only needed for consultants working internationally",
+      ],
+      correct: 1,
+      explanation: "The lesson recommends budgeting for volatility with a 3-6 month expense buffer, since even established consultants report slow quarters following fully booked ones with little warning.",
+    },
+  ],
   "ai-marketing/ai-marketing-governance-compliance": [
     {
       question: "What per-violation penalty does the FTC's AI enforcement unit apply to undisclosed AI-generated advertising, per the lesson?",
@@ -21594,6 +22330,1357 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "The lesson's quarterly framework runs: list everything, score each on evidence (not gut feeling), cut confirmed underperformers first, flag anything unmeasured as a removal candidate, and reinvest savings into what's already proven to work.",
+    },
+  ],
+
+  "pr-communications/pr-101": [
+    {
+      question: "According to the lesson, what is the core trade-off that defines PR versus advertising?",
+      options: [
+        "PR is cheaper than advertising but reaches fewer people",
+        "PR gives up control over the exact wording in exchange for third-party credibility, while advertising buys guaranteed placement and full message control",
+        "PR only works for B2B companies, advertising only works for consumer brands",
+        "PR is measured in impressions, advertising is measured in trust",
+      ],
+      correct: 1,
+      explanation: "The lesson states the whole trade-off: you give up control over the exact wording in exchange for third-party credibility. A banner ad says whatever you paid for; a news article says whatever the reporter concluded was true.",
+    },
+    {
+      question: "What are the four core disciplines of PR named in the lesson?",
+      options: [
+        "SEO, paid social, email, and analytics",
+        "Media relations, crisis communications, thought leadership, and internal comms",
+        "Branding, copywriting, design, and distribution",
+        "Advertising, sponsorship, influencer marketing, and events",
+      ],
+      correct: 1,
+      explanation: "The lesson lists four related disciplines: media relations (pitching journalists), crisis communications (managing failures), thought leadership (building executive authority), and internal comms (aligning employees).",
+    },
+    {
+      question: "Why does the lesson say 'PR is dead' claims keep being wrong?",
+      options: [
+        "Because PR budgets have tripled every year since 2010",
+        "Because the claim confuses the channel with the discipline; the channels change (press to social to AI search) but the function of earning third-party credibility does not",
+        "Because journalists have stopped writing about companies entirely",
+        "Because advertising has replaced PR as the dominant discipline",
+      ],
+      correct: 1,
+      explanation: "The lesson explains that PR is not press releases and print clippings, it's the function of managing third-party credibility, which just moved to new venues like Substack, podcasts, LinkedIn, and AI answer engines.",
+    },
+    {
+      question: "What did the mid-2026 study on press releases and AI cited in the lesson find?",
+      options: [
+        "AI systems refuse to cite press releases as sources",
+        "99.3% of a sample of 8,000+ press releases were cited by ChatGPT or Claude as source material",
+        "Press releases have become obsolete for SEO purposes",
+        "Only Fortune 500 companies benefit from press release distribution",
+      ],
+      correct: 1,
+      explanation: "The lesson cites this finding as evidence that PR content did not disappear, it became the raw material AI systems cite as ground truth, alongside the stat that 76% of PR professionals now use generative AI daily.",
+    },
+  ],
+
+  "pr-communications/press-release-writing": [
+    {
+      question: "What percentage of press releases actually result in media pickup, according to the lesson?",
+      options: [
+        "About 50%",
+        "Only 2 to 3%",
+        "Nearly 90%",
+        "Exactly 10%",
+      ],
+      correct: 1,
+      explanation: "The lesson opens with this statistic and attributes almost all the failures to the same handful of fixable structural mistakes: no real news, a buried lede, and promotional language.",
+    },
+    {
+      question: "What must the lead paragraph of a press release accomplish, per the lesson's structure?",
+      options: [
+        "Introduce the company's full history and mission statement",
+        "Answer the 5 Ws, who, what, when, where, and why, in two to three sentences",
+        "Include as many adjectives as possible to grab attention",
+        "List every product feature before naming the company",
+      ],
+      correct: 1,
+      explanation: "The lesson states a reporter should be able to read only the lead paragraph and still understand the entire story, which requires answering who, what, when, where, and why right away.",
+    },
+    {
+      question: "How much higher is the pickup rate for releases that include a quote from a named executive or expert, according to the lesson?",
+      options: [
+        "About 5% higher",
+        "About 40% higher",
+        "About 200% higher",
+        "There is no measurable difference",
+      ],
+      correct: 1,
+      explanation: "The lesson cites roughly 40% higher pickup rates for releases with a substantive quote, provided the quote addresses why the news matters rather than restating the announcement.",
+    },
+    {
+      question: "In the lesson's before-and-after example, what specifically made the 'after' version usable by a reporter?",
+      options: [
+        "It used more exciting adjectives like 'revolutionary' and 'game-changing'",
+        "It named the who, what, when, and scale (Acme Corp, Version 4.0, July 22 2026, 10,000 SKUs) in two sentences with almost no editing needed",
+        "It was twice as long as the original draft",
+        "It removed the company name to stay neutral",
+      ],
+      correct: 1,
+      explanation: "The rewrite packed the 5 Ws and a concrete number into two sentences, which the lesson notes a reporter could publish almost verbatim, unlike the adjective-heavy original.",
+    },
+  ],
+
+  "pr-communications/media-relations": [
+    {
+      question: "According to the lesson, what is the actual difference between media relations and pitching?",
+      options: [
+        "They are the same activity with different names",
+        "Media relations is the ongoing relationship built with reporters before you need coverage; pitching is just one moment inside that relationship",
+        "Pitching happens before media relations begins",
+        "Media relations only applies to crisis situations",
+      ],
+      correct: 1,
+      explanation: "The lesson frames media relations like networking, not advertising: you build familiarity with a reporter over time, and a single pitch is only one moment inside that longer relationship.",
+    },
+    {
+      question: "What percentage of journalists say they ignore pitches outside their beat entirely, per the lesson?",
+      options: [
+        "86%",
+        "25%",
+        "50%",
+        "12%",
+      ],
+      correct: 0,
+      explanation: "The lesson uses this stat to argue that beat research is not a nice-to-have but the first filter a pitch has to pass, since most journalists ignore anything off their specific beat.",
+    },
+    {
+      question: "What three ways does the lesson suggest to offer value to a reporter before you need anything from them?",
+      options: [
+        "Send gift baskets, invite them to dinner, and offer free product",
+        "Expert commentary on a story they're already writing, exclusive data, and honest story tips even if unflattering to your company",
+        "Daily check-in emails, phone calls, and LinkedIn connection requests",
+        "Offering payment for coverage disguised as a sponsorship",
+      ],
+      correct: 1,
+      explanation: "The lesson lists expert commentary, exclusive data, and story tips (including ones that don't flatter the company) as ways to build the 'attention bank' with a reporter before ever pitching your own news.",
+    },
+    {
+      question: "What does the lesson say about the ideal follow-up cadence after sending a pitch?",
+      options: [
+        "Follow up daily until you get a reply",
+        "One or two follow-ups, spaced three to six days apart",
+        "Never follow up under any circumstances",
+        "Follow up only through social media DMs, never email",
+      ],
+      correct: 1,
+      explanation: "The lesson states the most effective cadence is one or two follow-ups spaced three to six days apart, noting that a reporter's silence is often 'not now,' not 'convince me harder.'",
+    },
+  ],
+
+  "pr-communications/pitching-journalists": [
+    {
+      question: "What percentage of cold pitches actually get a response, according to the lesson?",
+      options: [
+        "About 3.27%",
+        "About 50%",
+        "About 90%",
+        "About 15%",
+      ],
+      correct: 0,
+      explanation: "The lesson opens with this figure to argue that the pitch itself, not the story, is usually where a PR person loses a reporter's attention.",
+    },
+    {
+      question: "What is the subject line's actual job, per the lesson?",
+      options: [
+        "To summarize the entire pitch in one sentence",
+        "To prove in under eight words that the pitch is worth ten more seconds of the reporter's time",
+        "To include the company's slogan for brand recall",
+        "To ask a question that requires a reply",
+      ],
+      correct: 1,
+      explanation: "The lesson describes the subject line as a filter, not a summary, and recommends leading with the news itself rather than the company name.",
+    },
+    {
+      question: "What genuine personalization signal does the lesson highlight, as opposed to fake personalization like 'Hi [First Name]'?",
+      options: [
+        "Sending the pitch at midnight so it's first in the inbox",
+        "Referencing a specific piece the reporter wrote recently and connecting your story to the angle they already took",
+        "Copying the reporter's editor on every email",
+        "Using the reporter's outlet name in the subject line",
+      ],
+      correct: 1,
+      explanation: "The lesson says reporters can tell within one line whether a pitch was written for them specifically; naming a recent article and extending its angle is the real signal, not a generic name insertion.",
+    },
+    {
+      question: "What are the three failure patterns the lesson says account for almost every ignored pitch?",
+      options: [
+        "Too short, too long, and too technical",
+        "Generic, self-serving, and missing a real news hook",
+        "Sent too early, sent too late, and sent to the wrong outlet",
+        "No images, no data, and no quotes",
+      ],
+      correct: 1,
+      explanation: "The lesson identifies generic pitches (could go to any reporter), self-serving pitches (about the company, not the reader), and pitches with no real hook (no number, trend, or timing reason) as the three fixable failure modes.",
+    },
+  ],
+
+  "pr-communications/crisis-pr-media-response": [
+    {
+      question: "What is the 'spokesperson rule' the lesson describes as a PRSA-standard practice?",
+      options: [
+        "Every crisis needs a rotating panel of spokespeople for balance",
+        "Every crisis needs exactly one designated spokesperson decided in advance, because mixed voices from multiple executives is the fastest way to lose control of a story",
+        "The CEO must always be the spokesperson regardless of the crisis type",
+        "Spokespeople should only speak off the record during a crisis",
+      ],
+      correct: 1,
+      explanation: "The lesson explains that once a second executive says something slightly different to a different outlet, the story shifts from the crisis itself to the company's internal confusion, which is often worse.",
+    },
+    {
+      question: "What three things does a holding statement do, according to the lesson's template?",
+      options: [
+        "Assign blame, admit liability, and speculate on cause",
+        "Acknowledge the issue, state action being taken, and commit to a specific update time",
+        "Apologize, offer compensation, and promise an investigation timeline of one year",
+        "Deny the issue, redirect blame, and go silent",
+      ],
+      correct: 1,
+      explanation: "The lesson's template acknowledges the issue, states that action is being taken, and commits to a specific time for a fuller update, deliberately avoiding blame or speculation.",
+    },
+    {
+      question: "What percentage of General Counsel say their organization lacked a prepared crisis communications playbook going into 2026, per the lesson?",
+      options: [
+        "12%",
+        "67%",
+        "25%",
+        "99%",
+      ],
+      correct: 1,
+      explanation: "The lesson cites this stat to explain why most companies end up drafting their first crisis sentence live, on deadline, instead of pulling from a pre-drafted template.",
+    },
+    {
+      question: "How does the lesson distinguish 'no comment' from a 'careful non-response'?",
+      options: [
+        "There is no real difference, they mean the same thing",
+        "'No comment' is silence that reads as a confession; a careful non-response is a substantive holding statement that says a lot without confirming unconfirmed facts",
+        "'No comment' is only appropriate for data breaches",
+        "A careful non-response requires admitting fault immediately",
+      ],
+      correct: 1,
+      explanation: "The lesson argues 'no comment' signals you have something to hide even when you don't yet have facts, while a careful non-response stays present and honest about the state of your knowledge.",
+    },
+  ],
+
+  "pr-communications/earned-owned-paid-media": [
+    {
+      question: "What consumer trust gap does the lesson open with?",
+      options: [
+        "92% trust earned media (reviews, press coverage) versus 41% who trust paid ads",
+        "50% trust earned media versus 50% who trust paid ads",
+        "Consumers trust paid ads more than earned media by a 2:1 margin",
+        "Trust levels are roughly equal across all media types",
+      ],
+      correct: 0,
+      explanation: "The lesson opens with this exact trust gap and calls it the entire reason PR exists as a discipline separate from advertising.",
+    },
+    {
+      question: "How does the lesson define the three media types?",
+      options: [
+        "Earned = coverage you didn't pay for; owned = channels you fully control; paid = placement you buy",
+        "Earned = your website; owned = press coverage; paid = word of mouth",
+        "Earned and owned are the same thing; paid is anything involving an agency",
+        "Earned = social media; owned = TV ads; paid = influencer contracts",
+      ],
+      correct: 0,
+      explanation: "The lesson defines earned media as coverage or mentions you did not pay for, owned media as anything you fully control (website, blog, email), and paid media as anything you buy placement for.",
+    },
+    {
+      question: "What surprising 2026 correlation does the lesson highlight about earned media and AI?",
+      options: [
+        "AI answer engines ignore earned media entirely and only cite paid content",
+        "Brand mentions in independent, third-party coverage correlate roughly 3x more strongly with appearing in AI answer engines than backlinks do",
+        "Paid ads are the primary source AI systems cite when naming brands",
+        "Owned content correlates most strongly with AI Overview citations",
+      ],
+      correct: 1,
+      explanation: "The lesson cites 2025-2026 analyses showing earned coverage correlates roughly 3x more strongly with AI answer engine visibility than backlinks, meaning AI answers disproportionately draw on earned coverage.",
+    },
+    {
+      question: "What sequencing does the lesson recommend for combining the three media types in a launch?",
+      options: [
+        "Paid first to build initial reach, then owned, then earned",
+        "Earned first to establish credibility, owned amplifies it, paid extends reach using earned media's borrowed credibility",
+        "All three should run simultaneously with equal budget from day one",
+        "Owned first, since it's free and easiest to control",
+      ],
+      correct: 1,
+      explanation: "The lesson's example walks through securing earned press coverage first, amplifying it on owned channels, then using paid media to extend reach carrying the earned story's credibility rather than an ad's own unproven claims.",
+    },
+  ],
+
+  "pr-communications/press-kit-media-kit": [
+    {
+      question: "What percentage of journalists say they prefer receiving a press kit over other pitch formats, per the lesson?",
+      options: [
+        "78%",
+        "15%",
+        "40%",
+        "99%",
+      ],
+      correct: 0,
+      explanation: "The lesson cites this stat to argue that a press kit is baseline expectation, not optional polish.",
+    },
+    {
+      question: "What five core elements does the lesson say belong in a press kit?",
+      options: [
+        "A mission statement, a founder biography, a product roadmap, pricing, and testimonials",
+        "High-res logos/images, a boilerplate, executive bios with headshots, a fact sheet, and past coverage links",
+        "Social media handles, a newsletter signup, a blog archive, a careers page, and a contact form",
+        "Investor deck, financial statements, cap table, and legal disclosures",
+      ],
+      correct: 1,
+      explanation: "The lesson lists these five as the core contents a journalist needs to write about a company without emailing first.",
+    },
+    {
+      question: "Why does the lesson recommend hosting a press kit as a permanent web page instead of a PDF?",
+      options: [
+        "PDFs are more expensive to produce than web pages",
+        "A PDF has to be re-sent every time it goes stale, cannot be linked to a specific section, and renders badly on mobile, while a web page updates in place and is searchable",
+        "Journalists cannot open PDF files on their devices",
+        "Web pages load faster on convention center Wi-Fi",
+      ],
+      correct: 1,
+      explanation: "The lesson argues a permanent page like yoursite.com/press solves all three PDF problems: it updates in place, links directly to sections, and gets indexed by search.",
+    },
+    {
+      question: "How often does the lesson say a press kit should be refreshed?",
+      options: [
+        "Once, at launch, and never again",
+        "On a quarterly cadence, to keep headshots, funding numbers, and the coverage archive current",
+        "Only when a journalist specifically requests an update",
+        "Daily, to match real-time company news",
+      ],
+      correct: 1,
+      explanation: "The lesson states a press kit is not a one-time project and recommends assigning someone to refresh it quarterly, since stale facts erode the credibility the kit exists to build.",
+    },
+  ],
+
+  "pr-communications/measuring-pr-impact": [
+    {
+      question: "What do the Barcelona Principles, cited in the lesson, explicitly reject as a valid PR measurement?",
+      options: [
+        "Share of voice",
+        "Advertising Value Equivalency (AVE)",
+        "Referral traffic tracking",
+        "Sentiment analysis",
+      ],
+      correct: 1,
+      explanation: "The lesson explains AVE converts column inches into 'equivalent ad spend,' which the Barcelona Principles reject because it excludes qualitative context and cannot be benchmarked consistently.",
+    },
+    {
+      question: "Why does the lesson say share of voice (SOV) must always be paired with sentiment analysis?",
+      options: [
+        "Because SOV and sentiment are calculated using the same formula",
+        "Because SOV can rise for bad reasons, like a product recall generating plenty of mentions, so volume alone doesn't show whether the conversation is positive or negative",
+        "Because sentiment analysis replaces the need for SOV entirely",
+        "Because journalists only report positive sentiment stories",
+      ],
+      correct: 1,
+      explanation: "The lesson warns that a rising SOV can come from negative events too, so it must travel alongside sentiment to mean anything.",
+    },
+    {
+      question: "What is 'message pull-through,' as defined in the lesson?",
+      options: [
+        "The total number of times a company is mentioned across all coverage",
+        "Whether the journalist actually included your key message, product name, or differentiator, or left it on the cutting room floor",
+        "The speed at which a press release gets picked up by outlets",
+        "The dollar value assigned to a mention based on outlet size",
+      ],
+      correct: 1,
+      explanation: "The lesson defines message pull-through as scoring coverage against the three briefed messages, noting a placement that mentions the company but omits the core point earned visibility, not persuasion.",
+    },
+    {
+      question: "What four data points does the lesson's recommended placement scorecard include?",
+      options: [
+        "Word count, publish date, author name, and headline length",
+        "Outlet relevance, sentiment, message pull-through (yes/partial/no), and any tracked referral action",
+        "AVE dollar value, reach, impressions, and clip count",
+        "Social shares, comments, likes, and backlinks",
+      ],
+      correct: 1,
+      explanation: "The lesson recommends this four-point scorecard per placement, arguing it beats one inflated reach number every time.",
+    },
+  ],
+
+  "pr-communications/thought-leadership-pr": [
+    {
+      question: "How does the lesson distinguish PR-driven thought leadership from content marketing's version?",
+      options: [
+        "They are identical practices with different job titles",
+        "Content marketing publishes owned essays the brand controls end to end; PR's version is a placement (quote, byline, award, keynote) someone else has to say yes to",
+        "PR thought leadership only happens on LinkedIn",
+        "Content marketing thought leadership requires no writing skill",
+      ],
+      correct: 1,
+      explanation: "The lesson explains a journalist, awards committee, or conference organizer decides whether PR's version of thought leadership gets used, unlike a blog post the brand fully controls.",
+    },
+    {
+      question: "What percentage of unsuccessful media appearances trace back to inadequate preparation, according to the lesson?",
+      options: [
+        "10%",
+        "65%",
+        "90%",
+        "25%",
+      ],
+      correct: 1,
+      explanation: "The lesson uses this stat to argue that media training is a PR line item, not a nice-to-have, since most bad appearances come from poor prep rather than a hostile reporter.",
+    },
+    {
+      question: "What does the lesson say about Qwoted as a journalist-request platform?",
+      options: [
+        "It only accepts pitches from Fortune 500 companies",
+        "It receives roughly 200 journalist requests a day, and 70% come from outlets with a domain rating of 80 or higher",
+        "It has replaced all direct reporter relationships entirely",
+        "It is exclusively for award submissions",
+      ],
+      correct: 1,
+      explanation: "The lesson cites this stat to show structured platforms skew toward higher-authority outlets, making them a useful entry point for teams without existing reporter relationships.",
+    },
+    {
+      question: "What core toolkit does the lesson recommend for media training an executive?",
+      options: [
+        "A word-for-word script memorized exactly as written",
+        "Three to five talking points per topic, a bridge phrase to redirect off-topic questions, and one sharp soundbite rehearsed out loud",
+        "A list of banned words and topics to avoid entirely",
+        "A PR agency contract and nothing else",
+      ],
+      correct: 1,
+      explanation: "The lesson warns that a media-trained executive who sounds robotic is almost as bad as an untrained one, so the toolkit favors genuine talking points delivered in the executive's own words over a memorized script.",
+    },
+  ],
+
+  "events-experiential/events-marketing-101": [
+    {
+      question: "What return do trade shows average per dollar spent, according to the lesson?",
+      options: [
+        "$2.00 for every $1 spent",
+        "$20.98 for every $1 spent",
+        "$100 for every $1 spent",
+        "Trade shows average a net loss",
+      ],
+      correct: 1,
+      explanation: "The lesson cites this ROI figure alongside a cost per lead of around $112, compared to $259 for a field sales call.",
+    },
+    {
+      question: "What are the four main event formats the lesson describes, each suited to a different funnel stage?",
+      options: [
+        "Owned, sponsored/trade show, field/regional, and experiential",
+        "Digital, print, broadcast, and outdoor",
+        "B2B, B2C, hybrid, and virtual-only",
+        "Small, medium, large, and flagship",
+      ],
+      correct: 0,
+      explanation: "The lesson maps owned events to deep customer relationships, sponsored/trade show to broad pipeline, field/regional to account-based targeting, and experiential to brand memory.",
+    },
+    {
+      question: "What does the lesson identify as the biggest reported weakness in event marketing?",
+      options: [
+        "Venue availability",
+        "Measurement, 62% of marketers say proving event ROI is their hardest reporting problem",
+        "Staffing shortages",
+        "Lack of interest from attendees",
+      ],
+      correct: 1,
+      explanation: "The lesson notes that 62% of marketers cite measurement as their hardest event-marketing challenge, even as ROI numbers themselves remain strong.",
+    },
+    {
+      question: "What does the lesson recommend doing before booking any event?",
+      options: [
+        "Choosing whichever event format is currently trending on social media",
+        "Writing down the one metric that would make the event a win, then picking the format that metric points to",
+        "Committing to the largest possible budget to maximize visibility",
+        "Copying whatever format a direct competitor used last year",
+      ],
+      correct: 1,
+      explanation: "The lesson advises identifying the single success metric (pipeline, retention, or brand lift) first, then matching the event format to that metric rather than to what looks impressive.",
+    },
+  ],
+
+  "events-experiential/trade-show-strategy": [
+    {
+      question: "What lift in lead capture did interactive booth elements (touchscreens, AR/VR, live demos) drive, per the lesson?",
+      options: [
+        "A 45% increase compared to static displays",
+        "A 5% increase, barely noticeable",
+        "No measurable difference",
+        "A 200% increase",
+      ],
+      correct: 0,
+      explanation: "The lesson cites this 45% lift, explaining that a hands-on activity gives a passerby a reason to stop that a banner never will.",
+    },
+    {
+      question: "What staffing rule does the lesson recommend for booth conversations?",
+      options: [
+        "Always open with a scripted product pitch",
+        "Never open with your pitch, open with their problem, e.g. asking what brought them to that part of the floor",
+        "Let visitors approach staff only, never initiate conversation",
+        "Recite the company's boilerplate to every visitor",
+      ],
+      correct: 1,
+      explanation: "The lesson argues a question about the visitor's reason for stopping by tells staff more in five seconds than a scripted intro tells them in five minutes.",
+    },
+    {
+      question: "What is the 'fishbowl trap' the lesson warns against?",
+      options: [
+        "Overcrowding the booth with too many staff",
+        "A bowl visitors drop a business card into for a prize drawing, which produces leads with zero context, zero consent, and zero intent signal",
+        "Using fish-themed swag at the booth",
+        "Placing the booth too close to a competitor's booth",
+      ],
+      correct: 1,
+      explanation: "The lesson calls the card fishbowl the single biggest reason trade show leads go cold before sales ever calls them, since it captures no qualifying context.",
+    },
+    {
+      question: "What three qualifying questions does the lesson recommend training staff on in advance?",
+      options: [
+        "Company size, budget, and timeline only",
+        "Role and authority, timeline, and fit",
+        "Name, email, and job title",
+        "Favorite product feature, biggest complaint, and referral source",
+      ],
+      correct: 1,
+      explanation: "The lesson recommends staff assess whether someone is a user/influencer/buyer, whether they're actively evaluating, and whether their stated problem matches what the company solves.",
+    },
+  ],
+
+  "events-experiential/conference-sponsorship-roi": [
+    {
+      question: "What is the typical ROI expectation range for sponsorship, according to the lesson?",
+      options: [
+        "1:1, breakeven is considered a success",
+        "2:1 to 4:1, every dollar in should return two to four dollars of pipeline value",
+        "10:1 or higher, anything less is a failure",
+        "There is no standard expectation range",
+      ],
+      correct: 1,
+      explanation: "The lesson states sponsorship ROI expectations run 2:1 to 4:1 in pipeline value, not just impressions.",
+    },
+    {
+      question: "What metric does the lesson recommend using to compare sponsorship packages, instead of cost-per-attendee?",
+      options: [
+        "Cost-per-qualified-meeting: total sponsorship spend divided by meetings booked with people matching the ideal customer profile",
+        "Cost-per-badge-scan",
+        "Cost-per-social-media-mention",
+        "Cost-per-square-foot of booth space",
+      ],
+      correct: 0,
+      explanation: "The lesson argues this single number lets you compare a cheap booth against an expensive keynote slot on equal footing, unlike cost-per-lead or cost-per-attendee.",
+    },
+    {
+      question: "Why does the lesson warn against reporting sponsorship ROI at the 30-day mark?",
+      options: [
+        "Because 30 days is too long and results should be reported within a week",
+        "Because B2B deal cycles run 60-180 days after the event, so a 30-day snapshot will make every sponsorship look like it failed",
+        "Because sponsorship contracts legally require a 90-day reporting delay",
+        "Because attendee data isn't available until 30 days have passed",
+      ],
+      correct: 1,
+      explanation: "The lesson explicitly warns against calling ROI final at 30 days, since the gap between an in-person conversation and a closed-won deal averages 60 to 180 days for B2B.",
+    },
+    {
+      question: "What does the lesson say is the real 2026 negotiation lever for sponsorship deals, beyond logo size?",
+      options: [
+        "Booth square footage",
+        "Data access: verified attendee data, purchase intent, and post-event conversion tools",
+        "Number of banners displayed",
+        "Length of the sponsorship contract term",
+      ],
+      correct: 1,
+      explanation: "The lesson states pricing is shifting from logo size to attendee data, purchase intent, and conversion tools, and recommends pricing an attendee list at zero if the organizer can't share registration numbers or job titles.",
+    },
+  ],
+
+  "events-experiential/field-marketing": [
+    {
+      question: "How does the lesson define field marketing versus centralized corporate events?",
+      options: [
+        "Field marketing is identical to corporate events but held in a different city",
+        "Field marketing is smaller, more frequent, regionally-owned events (dinners, meetups) built for relevance and tied closely to sales territories, while corporate events are built for reach",
+        "Field marketing only refers to outdoor events",
+        "Corporate events are always cheaper than field marketing events",
+      ],
+      correct: 1,
+      explanation: "The lesson contrasts field marketing's relevance-driven, sales-adjacent model against centralized events, which optimize for impressions and brand lift.",
+    },
+    {
+      question: "What does the lesson say should be standardized centrally versus left to regional owners in a scaled field marketing program?",
+      options: [
+        "Standardize the guest list and dinner topic; leave venue booking to regional owners",
+        "Standardize logistics (venue-booking, invite templates, follow-up sequence); leave guest list curation and local framing to regional owners",
+        "Standardize everything, including the specific pain point discussed at each event",
+        "Leave everything to regional owners with no central process at all",
+      ],
+      correct: 1,
+      explanation: "The lesson warns that when a central team dictates the guest list or dinner topic for a region it doesn't sell into, quality drops and attendance follows.",
+    },
+    {
+      question: "What timeframe does the lesson recommend for measuring field marketing's pipeline contribution?",
+      options: [
+        "30 days, matching the standard monthly marketing report",
+        "90-180 days: qualified meetings, opportunities created, and closed-won revenue attributed within that window",
+        "One full calendar year, no earlier",
+        "Field marketing cannot be measured, only felt",
+      ],
+      correct: 1,
+      explanation: "The lesson recommends tracking on the 90-180 day window that mirrors how B2B deal cycles actually move after an in-person touch, rather than judging a program flat after just 30 days.",
+    },
+    {
+      question: "What does the lesson say is more valuable than automated attribution reports for confirming field marketing's impact on a deal?",
+      options: [
+        "A tracking pixel embedded in the invite email",
+        "A sales rep directly confirming that a specific event, like a dinner, is why a deal moved",
+        "The total number of RSVPs collected",
+        "Social media engagement on the event's hashtag",
+      ],
+      correct: 1,
+      explanation: "The lesson states that a sales rep's direct confirmation carries more weight than a dozen automated attribution reports guessing at influence.",
+    },
+  ],
+
+  "events-experiential/experiential-activations": [
+    {
+      question: "What does the lesson say separates memorable activations from forgettable ones?",
+      options: [
+        "Budget size, bigger budgets always produce more memorable activations",
+        "Memorable activations optimize for the story a stranger tells a friend who wasn't there, not for headcount at the venue",
+        "The number of celebrity appearances at the event",
+        "Whether the event includes free food and drinks",
+      ],
+      correct: 1,
+      explanation: "The lesson contrasts 'attendance thinking' (a photo backdrop) with 'story thinking' (a moment worth pulling out a phone for), citing Wendy's low-budget 'Frosty Fix' activation as proof cleverness beats expense.",
+    },
+    {
+      question: "What four-step framework does the lesson recommend for building a shareable activation on a realistic budget?",
+      options: [
+        "Book the venue, hire a vendor, print swag, then plan the social posts",
+        "Start with the one-sentence premise, design a shareable artifact, build participation not observation, and seed the first wave with micro-creators",
+        "Maximize attendance first, then figure out branding later",
+        "Copy last year's flagship activation exactly",
+      ],
+      correct: 1,
+      explanation: "The lesson lays out this order: write the one-line premise first, design a single shareable artifact, make the audience active participants, and brief 10-20 micro-creators to post within the first hour.",
+    },
+    {
+      question: "What ratio does the lesson say should be treated as underperformance for an experiential activation?",
+      options: [
+        "Anything below 3:1 earned media value to production cost",
+        "Anything below 10:1",
+        "Anything below 1:1",
+        "Ratios are not used to measure experiential activations",
+      ],
+      correct: 0,
+      explanation: "The lesson states well-designed activations return 3:1 to 5:1, with top performers hitting 10x or more, and recommends treating anything below 3:1 as underperformance regardless of how the event felt.",
+    },
+    {
+      question: "What percentage of people who tell someone about an event mention the brand behind it, according to the lesson?",
+      options: [
+        "96%",
+        "50%",
+        "10%",
+        "25%",
+      ],
+      correct: 0,
+      explanation: "The lesson uses this stat to argue that a low brand-mention rate in recap conversations signals the artifact was interesting but not branded clearly enough.",
+    },
+  ],
+
+  "events-experiential/virtual-hybrid-events": [
+    {
+      question: "What does the lesson say about the gap between virtual event registration and actual attendance?",
+      options: [
+        "Registration and attendance are essentially the same number",
+        "Roughly half of virtual registrants never watch the live stream, so registration counts should not be reported as attendance",
+        "Virtual attendance always exceeds registration due to shared links",
+        "Attendance data cannot be tracked for virtual events",
+      ],
+      correct: 1,
+      explanation: "The lesson warns against reporting registration counts to leadership as attendance, since the gap between 'signed up' and 'showed up and stayed' is often 50%.",
+    },
+    {
+      question: "How long does the lesson say the average remote viewer stays engaged before disengaging?",
+      options: [
+        "2-3 hours",
+        "25-30 minutes",
+        "5 minutes",
+        "The entire session, virtual viewers rarely disengage",
+      ],
+      correct: 1,
+      explanation: "The lesson states the average remote viewer disengages within 25-30 minutes, meaning a 45-minute keynote loses most of its audience before it ends.",
+    },
+    {
+      question: "What trait do formats that hold virtual attention share, per the lesson?",
+      options: [
+        "They are all pre-recorded rather than live",
+        "They force a decision from the viewer every few minutes, like polls, live Q&A, or breakout chat prompts",
+        "They run for a minimum of 45-60 minutes uninterrupted",
+        "They avoid any interaction to prevent distraction",
+      ],
+      correct: 1,
+      explanation: "The lesson explains that interaction points reset the attention clock, while passive one-way delivery for 30+ minutes is the most common virtual-attendance killer.",
+    },
+    {
+      question: "What does the lesson identify as the most common hybrid event mistake?",
+      options: [
+        "Spending too much on the virtual production budget",
+        "Building the in-person event first and bolting a camera on afterward, producing a virtual experience that feels like watching someone else's party through a window",
+        "Hiring a separate producer for the virtual audience",
+        "Offering exclusive content to virtual attendees",
+      ],
+      correct: 1,
+      explanation: "The lesson recommends designing both experiences in parallel from the brief stage, with the virtual track getting its own moderator and screen-specific content, not a camera pointed at the stage.",
+    },
+  ],
+
+  "events-experiential/event-lead-follow-up": [
+    {
+      question: "What percentage of trade show leads never receive any follow-up at all, according to the lesson?",
+      options: [
+        "80%",
+        "10%",
+        "50%",
+        "5%",
+      ],
+      correct: 0,
+      explanation: "The lesson cites this figure alongside the roughly $5.4 billion a year it costs the U.S. B2B industry in wasted exhibit spend.",
+    },
+    {
+      question: "How much more likely to convert are leads contacted within 5 minutes compared to leads reached at the 30-minute mark, per the lesson?",
+      options: [
+        "2x more likely",
+        "21x more likely",
+        "No real difference",
+        "Leads contacted later convert better because they've had time to research",
+      ],
+      correct: 1,
+      explanation: "The lesson describes this as a 'cliff,' not a gradual decline, and notes connection odds drop 10x after 48 hours pass.",
+    },
+    {
+      question: "What are the lesson's three lead-scoring tiers, assigned at the moment of the booth conversation?",
+      options: [
+        "Beginner, intermediate, and advanced",
+        "Hot, warm, and cold",
+        "Gold, silver, and bronze",
+        "Qualified, disqualified, and pending",
+      ],
+      correct: 1,
+      explanation: "Hot leads (buying signals or decision-maker titles) go to sales same-day, warm leads get a personal email within 24 hours, and cold leads enter a nurture sequence rather than a sales queue.",
+    },
+    {
+      question: "What percentage of B2B sales go to whichever vendor responds first, independent of product quality, according to the lesson?",
+      options: [
+        "5-10%",
+        "35-50%",
+        "90-100%",
+        "This has no bearing on which vendor wins the deal",
+      ],
+      correct: 1,
+      explanation: "The lesson cites this stat to argue that speed of follow-up is often more decisive than product quality in winning a B2B deal after an event.",
+    },
+  ],
+
+  "events-experiential/event-budgeting-roi": [
+    {
+      question: "What multiple of the floor-space fee does total event cost typically run, per the lesson?",
+      options: [
+        "About 1x, the floor-space fee is close to the total cost",
+        "Roughly 3x, once exhibit build, staffing, travel, and promo are added in",
+        "About 10x",
+        "Total cost is unpredictable and cannot be estimated",
+      ],
+      correct: 1,
+      explanation: "The lesson gives the example of a $15,000 booth fee routinely becoming a $45,000 event once hidden categories like drayage, staffing travel, and lead retrieval tech are included.",
+    },
+    {
+      question: "Why does the lesson say cost-per-lead ($112 average) is 'close to meaningless on its own'?",
+      options: [
+        "Because it's calculated incorrectly by most organizers",
+        "Because cost per qualified lead ($150-$500) is the number that's actually comparable against other pipeline channels",
+        "Because cost-per-lead never changes across industries",
+        "Because leads captured at events are always low quality",
+      ],
+      correct: 1,
+      explanation: "The lesson argues raw cost-per-lead doesn't distinguish quality, while cost per qualified lead lets you compare an event against other channels on equal footing.",
+    },
+    {
+      question: "What formula does the lesson recommend for measuring event ROI instead of counting leads captured?",
+      options: [
+        "Total attendees divided by total cost",
+        "Pipeline value = leads captured x close rate x average deal size",
+        "Impressions x cost per impression",
+        "Number of badge scans minus number of no-shows",
+      ],
+      correct: 1,
+      explanation: "The lesson calls counting leads captured the vanity metric of event marketing and recommends this pipeline-value formula to compare events against other channels on a dollars-of-qualified-pipeline basis.",
+    },
+    {
+      question: "What percentage of event-generated pipeline should B2B SaaS companies expect to convert within 6 months, according to the lesson?",
+      options: [
+        "10-20%",
+        "60-70%",
+        "95-100%",
+        "Conversion cannot be estimated for event-generated pipeline",
+      ],
+      correct: 1,
+      explanation: "The lesson uses this figure to argue that judging an event's ROI one month out will always understate its value, since most pipeline converts over a 6-month horizon.",
+    },
+  ],
+  "legal-compliance/marketing-law-101": [
+    {
+      question: "According to the lesson, what are the five legal areas every marketing campaign touches?",
+      options: [
+        "Advertising truthfulness, data privacy, intellectual property, contracts, and consumer protection",
+        "Tax law, employment law, securities law, antitrust, and zoning",
+        "Copyright, trademark, patent, trade secret, and licensing",
+        "GDPR, CCPA, COPPA, CAN-SPAM, and HIPAA",
+      ],
+      correct: 0,
+      explanation: "The lesson frames every campaign as passing through five lenses: advertising truthfulness, data privacy, intellectual property, contracts, and consumer protection, regardless of whether legal reviews it.",
+    },
+    {
+      question: "Why doesn't 'we didn't know' work as a defense with regulators like the FTC?",
+      options: [
+        "Regulators judge outcomes and consumer harm, not marketer intent, so sloppiness and deliberate deception are treated the same",
+        "It works fine as long as the team documents good intentions",
+        "It only fails for public companies, not private ones",
+        "The FTC requires proof of malicious intent before any penalty applies",
+      ],
+      correct: 0,
+      explanation: "The lesson explains the FTC treats 'unfair or deceptive' claims the same whether the marketer meant to mislead or was simply careless, because the harm to the consumer is identical either way.",
+    },
+    {
+      question: "What did the FTC's late-2025 enforcement wave against companies like Instacart, Match Group, and MediaAlpha total in consumer refunds?",
+      options: [
+        "Under $10,000",
+        "Around $1 million",
+        "Well over $100 million",
+        "Roughly $500,000",
+      ],
+      correct: 2,
+      explanation: "The lesson cites the late-2025 enforcement wave as totaling well over $100 million in consumer refunds, none of which stemmed from practices the companies deliberately set out to violate the law with.",
+    },
+    {
+      question: "What practical fix does the lesson recommend for catching legal risk before a campaign ships?",
+      options: [
+        "Hiring a full-time in-house lawyer for every campaign",
+        "A five-minute legal gut-check built into the launch process, similar to a brand or QA review",
+        "Waiting for a regulator complaint before reviewing anything",
+        "Outsourcing all legal review to the creative agency",
+      ],
+      correct: 1,
+      explanation: "The lesson stresses most legal risk in marketing is preventable with a five-minute review before launch, built into the process the same way a brand review or QA pass already is.",
+    },
+  ],
+  "legal-compliance/ftc-advertising-law": [
+    {
+      question: "What are the three parts of the FTC's truth-in-advertising standard?",
+      options: [
+        "Truthful, substantiated before the claim ships, and not deceptive even if technically accurate",
+        "Creative, memorable, and legally reviewed",
+        "Cost-effective, measurable, and brand-safe",
+        "Approved by legal, approved by the client, and approved by the platform",
+      ],
+      correct: 0,
+      explanation: "The FTC's framework requires claims to be truthful, backed by evidence gathered before the claim is made, and not misleading through overall impression even when technically true.",
+    },
+    {
+      question: "What does 'substantiation' actually require, according to the lesson?",
+      options: [
+        "A good-faith belief that the claim is probably true",
+        "Positive customer reviews mentioning the claim",
+        "Competent, reliable evidence gathered before the claim ships, matched to the strength of the claim",
+        "A disclaimer added after the ad has already run",
+      ],
+      correct: 2,
+      explanation: "The lesson is explicit that substantiation means competent, reliable evidence gathered before the ad runs, not a good-faith belief or evidence scrambled together after a regulator asks.",
+    },
+    {
+      question: "What does the FTC's 'net impression' test evaluate?",
+      options: [
+        "Only the literal words used in an ad",
+        "The overall impression an ad leaves, including what it implies through emphasis or omission, not just its literal wording",
+        "How many people saw the ad",
+        "Whether the ad used a celebrity endorsement",
+      ],
+      correct: 1,
+      explanation: "The net impression test means an ad can use technically accurate words and still be deceptive if the overall impression, through emphasis, omission, or implication, misleads the viewer.",
+    },
+    {
+      question: "What did the Instacart settlement in the lesson center on?",
+      options: [
+        "Fake product reviews",
+        "Advertising 'free delivery' on first orders while still charging a mandatory service fee",
+        "Using a competitor's trademark without permission",
+        "Selling customer data without consent",
+      ],
+      correct: 1,
+      explanation: "Instacart settled for $60 million after the FTC alleged it advertised 'free delivery' on first orders while still charging a mandatory service fee, an example of literal words being defensible but the net impression not.",
+    },
+  ],
+  "legal-compliance/global-privacy-law-marketers": [
+    {
+      question: "According to the lesson, what are GDPR's three core principles that now apply well beyond email?",
+      options: [
+        "Consent, right to be forgotten, and data minimization",
+        "Encryption, anonymization, and pseudonymization",
+        "Opt-in, opt-out, and double opt-in",
+        "Cookies, pixels, and CDPs",
+      ],
+      correct: 0,
+      explanation: "The lesson identifies consent, the right to be forgotten, and data minimization as GDPR's three ideas that now show up across ad targeting, tracking, and CDPs, not just email opt-ins.",
+    },
+    {
+      question: "Why is a retargeting pixel that fires before a visitor accepts cookies a live GDPR violation?",
+      options: [
+        "Because pixels are always illegal regardless of consent",
+        "Because the moment it fires without confirmed consent, tracking happens before permission was given",
+        "Because only email tracking requires consent",
+        "Because pixels are banned in the United States",
+      ],
+      correct: 1,
+      explanation: "The lesson explains a Meta or Google pixel firing before cookie acceptance is a violation the moment it fires, which is why consent management platforms exist to block tag firing until consent is confirmed.",
+    },
+    {
+      question: "How many US states had comprehensive privacy laws in effect as of January 2026, per the lesson?",
+      options: [
+        "5 states",
+        "50 states",
+        "20 states",
+        "None yet, it's still federal only",
+      ],
+      correct: 2,
+      explanation: "The lesson states 20 US states have comprehensive privacy laws in effect as of January 2026, with Indiana, Kentucky, and Rhode Island as the newest additions, each with its own thresholds.",
+    },
+    {
+      question: "Under CCPA, what does syncing a customer list nightly to Meta and Google for lookalike audiences typically trigger?",
+      options: [
+        "Nothing, since no money changes hands in the sync",
+        "A required 'Do Not Sell or Share My Personal Information' opt-out link, since the sync counts as a sale or share of personal data",
+        "An automatic ban on using CDPs",
+        "A requirement to delete the CDP entirely",
+      ],
+      correct: 1,
+      explanation: "The lesson's example shows that syncing customer data to ad platforms counts as a 'sale' or 'share' under CCPA regardless of whether money changes hands, requiring a visible opt-out link.",
+    },
+  ],
+  "legal-compliance/website-accessibility-ada": [
+    {
+      question: "How much did federal website accessibility lawsuit filings grow from 2024 to 2025, per the lesson?",
+      options: [
+        "They declined by 10%",
+        "They grew by 27%, reaching 3,117 federal filings",
+        "They stayed flat",
+        "They grew by 200%",
+      ],
+      correct: 1,
+      explanation: "The lesson cites 3,117 federal filings in 2025, a 27% jump from 2024, with combined federal and state filings pushing the yearly total past 5,000 for the first time.",
+    },
+    {
+      question: "What are the three parts of WCAG 2.2 that the lesson says sit squarely in marketing's lane, not a developer's?",
+      options: [
+        "Server response time, database indexing, and caching",
+        "Alt text on meaningful images, color contrast on text, and readable heading/link structure",
+        "SSL certificates, cookie banners, and page load speed",
+        "Mobile responsiveness, favicon size, and font licensing",
+      ],
+      correct: 1,
+      explanation: "The lesson identifies alt text, color contrast (4.5:1 for normal text), and readable structure (sequential headings, descriptive link text) as the accessibility items marketing controls directly through content, not code.",
+    },
+    {
+      question: "What is the single most common marketing-team accessibility failure described in the lesson?",
+      options: [
+        "Using too many fonts on a page",
+        "Promotional banners with sale details baked into a single image with no alt text, so screen reader users hear nothing",
+        "Publishing pages too frequently",
+        "Using contrast ratios that are too high",
+      ],
+      correct: 1,
+      explanation: "The lesson's example describes a banner with all the offer details baked into a graphic with no alt text, meaning screen reader users miss the entire promotion, called the most common marketing-owned failure.",
+    },
+    {
+      question: "Why does the lesson warn that fixing an accessibility issue once is not a durable defense?",
+      options: [
+        "Because more than a third of 2025 filings targeted companies already sued once before for the same type of issue, as sites regress with every new page or microsite",
+        "Because WCAG standards change every month",
+        "Because fixes automatically expire after 90 days",
+        "Because only companies outside the US can be sued repeatedly",
+      ],
+      correct: 0,
+      explanation: "The lesson notes 1,427 of 2025's filings targeted repeat-sued companies, since sites regress every time a new landing page or campaign microsite ships without the same accessibility review.",
+    },
+  ],
+  "legal-compliance/influencer-disclosure-law": [
+    {
+      question: "What is the FTC's actual test for whether a 'material connection' exists between a brand and an endorser?",
+      options: [
+        "Whether cash payment specifically changed hands",
+        "Whether the connection would change how a reasonable viewer weighs the recommendation, which covers free product, affiliate commissions, and personal relationships too",
+        "Whether the influencer has over 100,000 followers",
+        "Whether the post uses a hashtag at all",
+      ],
+      correct: 1,
+      explanation: "The lesson stresses the test is not 'did money change hands' but 'would this change how a viewer weighs the recommendation,' which captures free product, affiliate deals, and even friendships or family ties.",
+    },
+    {
+      question: "Why do hashtags like '#sp' or '#collab' buried after 15 unrelated tags fail the FTC's disclosure standard?",
+      options: [
+        "They are too short to read",
+        "Disclosure must be clear (plain language like 'Ad' or 'Sponsored') and conspicuous (seen before any click or scroll), and vague or buried tags meet neither bar",
+        "The FTC only allows disclosure in video format",
+        "Hashtags are banned entirely on all platforms",
+      ],
+      correct: 1,
+      explanation: "The lesson explains disclosure must be clear and conspicuous; vague terms and hashtags stacked at the end of a caption fail both the plain-language and seen-before-scrolling requirements the FTC has called out by name.",
+    },
+    {
+      question: "Can a brand avoid liability by claiming it didn't know an influencer skipped disclosure?",
+      options: [
+        "Yes, if the brand can show the influencer signed a contract",
+        "No, the revised Endorsement Guides make brands, agencies, and platforms jointly liable, and failing to train or monitor creators is itself a violation",
+        "Yes, liability falls entirely on the influencer alone",
+        "No, but only if the brand paid more than $50,000 to the influencer",
+      ],
+      correct: 1,
+      explanation: "The lesson is direct: brands, agencies, and influencer platforms share joint liability, and 'we didn't know' stopped being a defense once the FTC began treating creator education as the brand's responsibility.",
+    },
+    {
+      question: "What roughly is the maximum penalty per violation cited in the lesson, and how is it counted?",
+      options: [
+        "Around $5,000, counted once per campaign",
+        "Over $53,088, counted per post rather than per campaign",
+        "A flat $1,000 no matter how many posts",
+        "There is no maximum, penalties are unlimited by law",
+      ],
+      correct: 1,
+      explanation: "The lesson cites penalties that can exceed $53,088 per violation, counted per individual post rather than per overall campaign, which multiplies exposure quickly across a creator relationship.",
+    },
+  ],
+  "legal-compliance/marketing-contracts-basics": [
+    {
+      question: "Which four clauses does the lesson say decide most marketing contract disputes?",
+      options: [
+        "Scope of work, usage rights and licensing, indemnification, and termination",
+        "Payment terms, logo placement, meeting cadence, and NDA length",
+        "Governing law, arbitration venue, force majeure, and severability",
+        "Brand guidelines, style guide, tone of voice, and color palette",
+      ],
+      correct: 0,
+      explanation: "The lesson names scope of work, usage rights and licensing, indemnification, and termination as the four clauses that determine most real-world outcomes in marketing contracts.",
+    },
+    {
+      question: "Why can paying for a video not automatically mean you can use it anywhere, forever?",
+      options: [
+        "Because usage rights specify which channels, how long, and what geography the brand can actually use the creative in, separate from payment itself",
+        "Because payment always grants unlimited global rights by default",
+        "Because only agencies can grant usage rights, never creators",
+        "Because usage rights only apply to music, not video",
+      ],
+      correct: 0,
+      explanation: "The lesson explains usage rights are a distinct legal question from payment: they define which channels, what duration, and what geography are covered, and creator contracts often grant less than a brand assumes.",
+    },
+    {
+      question: "In most agency-advertiser contracts, how does indemnification typically flow, per the lesson?",
+      options: [
+        "Only the agency is ever liable for anything",
+        "It runs both ways: the advertiser indemnifies the agency for claims from the advertiser's own false claims, while the agency indemnifies the advertiser for its own negligent execution or infringement",
+        "Only the advertiser is ever liable for anything",
+        "Indemnification never appears in marketing contracts",
+      ],
+      correct: 1,
+      explanation: "The lesson describes indemnification as typically bidirectional: the advertiser covers claims stemming from its own false or misleading claims, and the agency covers claims from its own negligence or infringement in the creative it produced.",
+    },
+    {
+      question: "What are the two most common causes of disputes that escalate past a phone call, according to the lesson?",
+      options: [
+        "Late invoices and missed meetings",
+        "Unclear ownership of creative work and undefined or unlimited revision limits",
+        "Wrong font choices and mismatched brand colors",
+        "Too many people on the account and slow email replies",
+      ],
+      correct: 1,
+      explanation: "The lesson identifies unclear ownership of creative work and undefined revision limits ('unlimited revisions until satisfied') as the two mistakes behind most disputes that actually escalate.",
+    },
+  ],
+  "legal-compliance/ip-for-marketers": [
+    {
+      question: "What is wrong with treating 'I found it on Google Images' as a legal defense for using a photo?",
+      options: [
+        "Nothing, Google-indexed images are automatically licensed for use",
+        "It describes how the image was located, not the legal right to use it, since search results carry no license and copyright exists automatically on creation",
+        "It is only a problem for video, not still images",
+        "It only matters if the image has a visible watermark",
+      ],
+      correct: 1,
+      explanation: "The lesson is explicit that finding an image via search tells you nothing about your right to use it: copyright exists automatically the moment a work is created, and search results carry no license.",
+    },
+    {
+      question: "How do royalty-free, rights-managed, and fair use differ, per the lesson?",
+      options: [
+        "They are all the same thing with different names",
+        "Royalty-free means pay-once-with-limits, rights-managed is priced per specific use, and fair use is a legal defense you raise if sued, not a license granted in advance",
+        "Royalty-free is always more expensive than rights-managed",
+        "Fair use is a paid license category alongside the other two",
+      ],
+      correct: 1,
+      explanation: "The lesson distinguishes royalty-free (pay once, reuse within scope limits), rights-managed (priced per specific use/campaign/region), and fair use (a legal defense you can raise if sued, not a permission slip obtained beforehand).",
+    },
+    {
+      question: "What did the 2025 Thomson Reuters v. ROSS Intelligence ruling illustrate about fair use, per the lesson?",
+      options: [
+        "That parody is never protected under any circumstances",
+        "That market harm can sink a fair use defense even when other factors are debatable, since the resulting product competed directly against the original",
+        "That AI-generated content is always exempt from copyright claims",
+        "That fair use only applies to nonprofit organizations",
+      ],
+      correct: 1,
+      explanation: "The lesson cites this ruling as finding no fair use because the resulting product competed directly with the original, showing the fourth factor (market harm) can decide a case even when other factors are debatable.",
+    },
+    {
+      question: "What did the US Copyright Office's January 2025 ruling establish about AI-generated content?",
+      options: [
+        "All AI-generated content is automatically copyrighted the moment it's created",
+        "Purely AI-generated output, even from detailed prompts, is not eligible for copyright protection, though meaningful human editing and arrangement of it can be",
+        "AI-generated content can only be copyrighted if it costs over $10,000 to produce",
+        "AI-generated content is banned from commercial advertising entirely",
+      ],
+      correct: 1,
+      explanation: "The lesson explains the ruling drew a clear line: prompts alone don't earn copyright protection for AI output, but a human's meaningful selection, arrangement, or modification of that output can be protected case-by-case.",
+    },
+  ],
+  "seo/multi-location-franchise-seo": [
+    {
+      question: "Why do near-duplicate location pages hurt a multi-location business's SEO instead of just failing to help?",
+      options: [
+        "Google ignores duplicate pages entirely with no penalty",
+        "Google's quality systems detect the overlapping intent and near-identical content, often suppressing both of the business's own pages in favor of a competitor's single genuinely useful page",
+        "Duplicate pages only affect paid search, not organic rankings",
+        "They only cause problems if there are more than 1,000 locations",
+      ],
+      correct: 1,
+      explanation: "The lesson warns that near-duplicate location pages actively cannibalize each other: Google has to choose which of two near-identical pages to show and often suppresses both, in favor of a competitor with one useful page.",
+    },
+    {
+      question: "According to the lesson, what percentage of multi-location campaigns in the cited 847-campaign analysis inadvertently created duplicate content issues?",
+      options: [
+        "10%",
+        "25%",
+        "73%",
+        "99%",
+      ],
+      correct: 2,
+      explanation: "The lesson cites a BiziQ analysis of 847 multi-location campaigns finding 73% inadvertently created duplicate content issues, with 68% using templated pages with almost no differentiation beyond the city name.",
+    },
+    {
+      question: "What is an example of a genuinely unique content slot for a location page, as opposed to just swapping the city name?",
+      options: [
+        "Repeating the same generic industry FAQ on every page",
+        "A local team bio with the actual manager's name and photo, sourced local FAQs from that location's own call logs, and location-specific service differences",
+        "A global review carousel pulled from all locations combined",
+        "A stock corporate description reused across every page",
+      ],
+      correct: 1,
+      explanation: "The lesson lists local team bios, location-specific services, neighborhood context, embedded local reviews, and local FAQs sourced from that location's own call logs as genuinely unique content, unlike a swapped city name.",
+    },
+    {
+      question: "What is the recommended solution to the corporate-vs-local SEO tension in franchise networks, per the lesson?",
+      options: [
+        "Give corporate full control over every field with no local input",
+        "Give local franchisees full control over the entire website",
+        "A content ownership matrix that explicitly defines which fields corporate controls versus which fields local owners control",
+        "Let each franchisee build a completely separate, unrelated website",
+      ],
+      correct: 2,
+      explanation: "The lesson's gym franchise example shows the fix was a content ownership matrix, not more control in either direction, dividing brand-critical fields from local-owned fields like class schedules and staff bios.",
+    },
+  ],
+  "paid-ads/ai-creative-testing-at-scale": [
+    {
+      question: "What is 'sameness fatigue' as defined in the lesson?",
+      options: [
+        "When the same audience sees one ad too many times",
+        "When 20 AI-generated 'different' variants are actually the same structural idea wearing different colors, so a winner only reveals a cosmetic preference, not a transferable insight",
+        "When ad platforms cap how many creatives you can upload",
+        "When a single ad runs for more than 14 days",
+      ],
+      correct: 1,
+      explanation: "The lesson distinguishes sameness fatigue from traditional creative fatigue: generative models converge on similar visual formulas, so testing 20 near-identical variants teaches you almost nothing transferable.",
+    },
+    {
+      question: "What does the lesson recommend to prevent sameness fatigue before generation even starts?",
+      options: [
+        "Generate as many variants as possible and let the algorithm sort it out",
+        "Brief 8-12 distinct psychological angles (pain point, social proof, visual metaphor, UGC-style) before letting AI generate multiple executions within each angle",
+        "Only ever test one ad at a time",
+        "Skip the briefing step entirely since AI tools already know what converts",
+      ],
+      correct: 1,
+      explanation: "The lesson's fix is forcing structural diversity into the brief before generation: locking in 8-12 distinct angles, then generating 3-5 executions per angle, rather than hoping the tool discovers variety on its own.",
+    },
+    {
+      question: "What did the DTC skincare brand example in the lesson add after an AI variant shipped with an unapproved implied medical claim?",
+      options: [
+        "They stopped using AI-generated creative entirely",
+        "A mandatory two-person QC pass, one marketer and one compliance reviewer, before any AI variant entered the ad account",
+        "They increased launch volume to compensate",
+        "They removed the compliance team from the review process",
+      ],
+      correct: 1,
+      explanation: "The lesson's case study shows the brand added a two-person QC gate after an AI-generated variant implied an unapproved medical claim; launch volume dropped but converted better since nothing was pulled mid-flight.",
+    },
+    {
+      question: "What is the correct order of the four-stage AI creative testing workflow described in the lesson?",
+      options: [
+        "Generation, launch, angle briefing, QC gate",
+        "Angle briefing, generation, QC gate, structured testing",
+        "QC gate, angle briefing, structured testing, generation",
+        "Structured testing, generation, angle briefing, QC gate",
+      ],
+      correct: 1,
+      explanation: "The lesson's four stages run in this order: a human briefs distinct angles first, AI generates executions per angle, a human QC gate reviews everything, and only the surviving set enters structured testing.",
+    },
+  ],
+  "analytics/experimentation-program-roi": [
+    {
+      question: "What is the core mistake the lesson says most teams make when calculating experimentation program ROI?",
+      options: [
+        "They only sum the lift from winning tests and ignore the cost of every losing test that ran alongside them",
+        "They never run enough tests to have any data",
+        "They only calculate ROI once per test instead of per program",
+        "They use too conservative a statistical significance threshold",
+      ],
+      correct: 0,
+      explanation: "The lesson compares this to judging a trading strategy by its best trades only: counting winners' lift while ignoring the cost of the 28 losing tests that ran alongside them overstates the program's real value.",
+    },
+    {
+      question: "What is the program-level ROI formula given in the lesson?",
+      options: [
+        "ROI = Total Winners / Total Tests x 100",
+        "ROI = (Incremental Profit − Total Program Cost) / Total Program Cost x 100",
+        "ROI = Revenue / Marketing Spend",
+        "ROI = Number of tests shipped per quarter",
+      ],
+      correct: 1,
+      explanation: "The lesson cites Convert's formula: ROI = (Incremental Profit − Experimentation Costs) / Experimentation Costs x 100, run quarterly at the program level rather than per individual test.",
+    },
+    {
+      question: "What does the lesson mean by 'opportunity cost' or 'velocity tax' in an experimentation program?",
+      options: [
+        "The cost of hiring new analysts",
+        "The dollar value lost from delaying a good idea's full rollout while it sits in a multi-week experiment to reach statistical significance",
+        "The price of the experimentation platform subscription",
+        "The cost of running A/A tests",
+      ],
+      correct: 1,
+      explanation: "The lesson defines velocity tax as the time a feature sits in an experiment instead of shipping to 100% of users, calculated as time-to-full-rollout delay times the daily value of the feature.",
+    },
+    {
+      question: "What does the lesson recommend reporting to leadership alongside the ROI percentage each quarter?",
+      options: [
+        "Only the number of winning tests, nothing else",
+        "Total program cost, total validated incremental profit with losers' costs subtracted, and a learning velocity metric like tests shipped per quarter",
+        "Just the names of the engineers who worked on each test",
+        "A comparison to a single competitor's testing program",
+      ],
+      correct: 1,
+      explanation: "The lesson recommends presenting total cost, net incremental profit (losers included), and the ROI trend line, paired with a learning velocity metric, since accelerating velocity signals a program about to compound.",
+    },
+  ],
+  "tools/headless-cms-selection": [
+    {
+      question: "What does 'headless' actually mean in a headless CMS, per the lesson?",
+      options: [
+        "The CMS has no user interface for editors at all",
+        "Content is decoupled from presentation: it's stored as structured data and delivered via API to any frontend, rather than the CMS also rendering the page",
+        "The CMS runs entirely without any server",
+        "It refers to a CMS with no admin login required",
+      ],
+      correct: 1,
+      explanation: "The lesson's kitchen analogy explains headless: the CMS stores and manages content but has no fixed presentation layer attached, letting any frontend (web, app, kiosk, voice) pull the same data through an API.",
+    },
+    {
+      question: "What are the two main forces pushing marketing teams toward headless architecture, according to the lesson?",
+      options: [
+        "Lower cost and simpler onboarding",
+        "Omnichannel publishing (one content entry feeding web, app, kiosk, voice) and developer velocity (frontend rebuilds without touching content)",
+        "Better SEO rankings and faster page load times",
+        "Elimination of the need for any editorial workflow",
+      ],
+      correct: 1,
+      explanation: "The lesson identifies omnichannel publishing, avoiding re-entering content per channel, and developer velocity, decoupling frontend rebuilds from content structure, as the two forces driving headless adoption.",
+    },
+    {
+      question: "How does the lesson characterize the tradeoff between Contentful, Sanity, and Strapi?",
+      options: [
+        "They are functionally identical and the choice doesn't matter",
+        "Contentful favors enterprise safety and SLAs, Sanity favors developer/editor experience, and Strapi favors full control at the cost of ongoing self-hosted maintenance",
+        "Strapi is always the cheapest and best option for every team",
+        "Contentful is open-source while Sanity and Strapi are proprietary",
+      ],
+      correct: 1,
+      explanation: "The lesson positions Contentful as the safe managed enterprise choice, Sanity as the developer-experience pick with real-time collaboration, and Strapi as open-source and self-hosted with no vendor lock-in but real maintenance overhead.",
+    },
+    {
+      question: "What hidden cost does the lesson warn can dwarf a managed platform's subscription fee?",
+      options: [
+        "Domain registration fees",
+        "Ongoing engineering time to run a self-hosted option, typically 0.25 to 0.5 FTE per year, roughly $50K-$100K annually at a senior engineer's fully-loaded cost",
+        "The cost of stock photography",
+        "Annual SSL certificate renewal",
+      ],
+      correct: 1,
+      explanation: "The lesson warns that self-hosting reliably (upgrades, backups, monitoring, plugin compatibility) typically consumes 0.25-0.5 FTE per year, roughly $50K-$100K annually, which can dwarf a subscription's price difference.",
+    },
+  ],
+  "growth/churn-prediction-early-warning": [
+    {
+      question: "How does the lesson distinguish predictive churn signals from the retention cohort analysis in 'retention-cohorts.mdx'?",
+      options: [
+        "They are the exact same analysis with a different name",
+        "Cohort analysis is backward-looking, describing what already happened to a group; predictive signals flag which specific active account today shows the fingerprint of past churners, enabling intervention",
+        "Cohort analysis only works for B2C, predictive signals only work for B2B",
+        "Predictive signals replace cohort analysis entirely and make it obsolete",
+      ],
+      correct: 1,
+      explanation: "The lesson's autopsy-versus-vital-signs-monitor analogy captures it: cohorts describe what already happened, while predictive signals identify which live account today resembles a customer who already churned, while there's still time to act.",
+    },
+    {
+      question: "What are the three signal families that make up a composite churn risk score, per the lesson?",
+      options: [
+        "Ad spend, email open rate, and social media followers",
+        "Usage-decline patterns, support-ticket sentiment, and feature-adoption stalling",
+        "Revenue growth, headcount, and funding stage",
+        "Website traffic, bounce rate, and page load speed",
+      ],
+      correct: 1,
+      explanation: "The lesson identifies usage-decline patterns, support-ticket sentiment (not just volume but tone), and feature-adoption stalling as the three signal families that combine into a stronger composite risk score than any one alone.",
+    },
+    {
+      question: "How much earlier does automated usage monitoring detect at-risk accounts compared to manual quarterly review, and what improvement does that produce?",
+      options: [
+        "10 days earlier, with no measurable improvement",
+        "About 45 days earlier, producing a 3.5x improvement in intervention success rate",
+        "1 year earlier, with a 100x improvement",
+        "It detects them at the same time, just more cheaply",
+      ],
+      correct: 1,
+      explanation: "The lesson cites automated monitoring detecting at-risk accounts roughly 45 days earlier than manual review, and that earlier detection produces a 3.5x improvement in intervention success rate.",
+    },
+    {
+      question: "What does the lesson identify as the most common mistake teams make even after building a churn risk model?",
+      options: [
+        "Building the risk model but skipping the save-motion workflow, so the prediction has nowhere to route and becomes just an interesting number",
+        "Using too many signal families at once",
+        "Only using support-ticket data and ignoring everything else",
+        "Running the model too frequently",
+      ],
+      correct: 0,
+      explanation: "The lesson warns that a prediction without a defined save-motion workflow wastes the entire investment; the risk score has to route to a matching action (human call, automated nudge, onboarding walkthrough) or it's just a dashboard nobody acts on.",
     },
   ],
 };

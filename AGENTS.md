@@ -334,7 +334,7 @@ Architecture:
 - **`src/components/MarkComplete.tsx`**, `locked = !quizPassed && !done`. When locked, clicking the button calls `document.getElementById("quiz-section")?.scrollIntoView()`, it scrolls to the quiz, it does NOT open a modal.
 - **`src/components/Quiz.tsx`**, the quiz section at the bottom of each lesson. On 4/4 correct, dispatches `QUIZ_PASSED_EVENT` via `window.dispatchEvent`. `MarkComplete` listens to `QUIZ_PASSED_EVENT` and calls `setQuizPassed(category, slug)` then `handleComplete()`.
 - **`src/lib/quizzes.ts`** exports `getQuizPassed`, `setQuizPassed`, `QUIZ_PASSED_EVENT` (re-exported from events.ts), `QUIZ_PASS_KEY_PREFIX`, `quizStorageKey`, and `QUIZZES`. `setQuizPassed` writes `ma_quiz_pass_{category}_{slug}` to localStorage.
-- All 471 lessons have entries in `QUIZZES`, never remove entries or make `QUIZZES[key]` return undefined for a registered lesson.
+- All 516 lessons have entries in `QUIZZES`, never remove entries or make `QUIZZES[key]` return undefined for a registered lesson.
 - Do NOT add `hasQuiz` prop back to `MarkComplete`, it was removed because all lessons now have quizzes.
 - Do NOT create `LessonQuizGate.tsx`, `handleGatePass()`, or `onPass` callback, these do not exist.
 
@@ -342,7 +342,7 @@ Architecture:
 `/api/sync-proxy` verifies `x-sync-secret` header against `process.env.SYNC_SECRET`. The client reads `process.env.NEXT_PUBLIC_SYNC_SECRET` to send in this header. Both vars must be set in Vercel: `SYNC_SECRET` (server-only) AND `NEXT_PUBLIC_SYNC_SECRET` (same value, exposed to client). Without both, sync push/pull silently returns 401.
 
 ### Rule 27 — `src/app/opengraph-image.tsx` lesson count is hardcoded
-The root OG image uses a literal `"471+"` string (edge runtime cannot import `flatLessons()`). When the lesson count changes significantly, manually update the string in `src/app/opengraph-image.tsx` line 82 to match.
+The root OG image uses a literal `"516+"` string (edge runtime cannot import `flatLessons()`). When the lesson count changes significantly, manually update the string in `src/app/opengraph-image.tsx` line 82 to match.
 
 ### Rule 28 — Mermaid: NEVER strip `<style>` in the DOMPurify sanitize config
 `src/components/Mermaid.tsx` sanitizes Mermaid's SVG output with DOMPurify before injecting it. Mermaid v11 ships **all node fills and label colours inside a single diagram-scoped `<style>` element** embedded in the SVG. If DOMPurify removes it, every `<rect>` falls back to the SVG default `fill: black`, so nodes render as **solid black boxes with invisible labels** (this shipped to production and broke every diagram in both themes).

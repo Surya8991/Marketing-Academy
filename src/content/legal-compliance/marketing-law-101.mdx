@@ -1,0 +1,97 @@
+export const lessonMeta = {
+  title: "Marketing Law 101: What Every Marketer Must Know",
+  level: "Beginner",
+  summary: "An orientation map to the legal areas every marketer touches, advertising truthfulness, data privacy, IP, contracts, and consumer protection, so you know when to loop in a lawyer before a campaign goes out.",
+};
+
+# Marketing Law 101: What Every Marketer Must Know
+
+Every campaign you ship touches at least one body of law, whether you notice it or not. This lesson is the map, not the territory.
+
+## Quick Summary
+
+- Marketing sits at the intersection of five legal areas: advertising truthfulness, data privacy, intellectual property, contracts, and consumer protection.
+- "We didn't know" is not a legal defense. Regulators expect marketers to know the baseline rules of their own function.
+- [By early 2026, 19 US states will have comprehensive privacy laws in effect](https://secureprivacy.ai/blog/us-state-privacy-laws-2026-marketing), each with its own consent and tracking rules.
+- Most legal risk in marketing is preventable with a five-minute review before launch, not an expensive fix after the fact.
+- This lesson, and this entire category, is education, not legal advice. Pair it with a real lawyer for real decisions.
+
+<Callout type="warning">
+This lesson is for general education only. It is not legal advice, and nothing here should be treated as a substitute for consulting a licensed attorney about your specific campaign, jurisdiction, or contract. Laws referenced here change; verify current requirements before you rely on them.
+</Callout>
+
+## The Five Areas Every Marketer Touches
+
+Think of these as five lenses. Any campaign you run gets viewed through all five, whether legal reviews it or not.
+
+**Advertising truthfulness** covers what your ads claim, explicitly and by implication. The core rule, enforced in the US mainly by the FTC, is that claims must be truthful, substantiated, and not misleading even if technically accurate.
+
+**Data privacy** covers what you collect about people and what you do with it. Cookies, pixels, email lists, CRM data, all of it now falls under a growing patchwork of state and international law.
+
+**Intellectual property** covers what you can use without permission, images, music, fonts, someone else's trademark, a competitor's tagline. Using it wrong is the fastest way to get a takedown notice or a demand letter.
+
+**Contracts** cover your relationships with vendors, agencies, influencers, and platforms. A handshake deal with a creator is still a contract, and an unwritten one is the hardest kind to enforce.
+
+**Consumer protection** covers the specific promises made to buyers, refund terms, subscription cancellation, pricing disclosures, and how contests or sweepstakes are run.
+
+<Mermaid chart={`graph TD
+    A[Campaign launch] --> B[Advertising truthfulness\nis every claim true and provable?]
+    A --> C[Data privacy\nwhat data, what consent?]
+    A --> D[Intellectual property\nwho owns the assets?]
+    A --> E[Contracts\nwho promised what to whom?]
+    A --> F[Consumer protection\nare terms and pricing clear?]
+    B --> G[Ship or flag for legal review]
+    C --> G
+    D --> G
+    E --> G
+    F --> G`} />
+
+## Why "We Didn't Know" Doesn't Work
+
+Regulators do not grade on intent. The FTC's own guidance treats "unfair or deceptive" the same whether the marketer meant to mislead or just got sloppy with a claim.
+
+That standard exists because the harm to the consumer is identical either way. A shopper who buys based on a false "clinically proven" claim is out the same money regardless of whether your team knew the study didn't exist.
+
+[The FTC's late-2025 enforcement wave against companies like Instacart, Match Group, and MediaAlpha](https://www.ftc.gov/news-events/news/press-releases/2025/12/instacart-pay-60-million-consumer-refunds-settle-ftc-lawsuit-over-allegations-it-engaged-deceptive) totaled well over $100 million in consumer refunds. None of those companies set out to break the law; the practices simply were not reviewed against the standard before they shipped.
+
+<Callout type="info">
+The pattern in almost every marketing-law failure is the same: a claim, a data practice, or a contract term that felt fine internally, reviewed too late or not at all. A five-minute legal gut-check before launch catches most of it.
+</Callout>
+
+The lesson is not "be scared of marketing." It's "build the checkpoint into your process," the same way you already build in a brand review or a QA pass.
+
+## How the Rest of This Category Fits Together
+
+This lesson is the map. Every other lesson in Legal & Compliance zooms into one area on it.
+
+- Advertising truthfulness lessons cover FTC substantiation, endorsements, and comparative claims in depth.
+- Data privacy lessons cover cookie consent, state privacy laws, and international frameworks like GDPR.
+- Later lessons cover IP clearance for creative assets, influencer and vendor contract basics, and consumer-protection traps like dark patterns and subscription cancellation rules.
+
+You do not need to memorize statutes. You need to recognize which of the five lenses applies to what you are about to ship, and know when the answer is "ask a lawyer" instead of "guess."
+
+<Callout type="tip">
+Keep a running list of the questions your team keeps asking legal. If the same question comes up three times, that is a sign the answer belongs in your team's onboarding doc, not just in one lawyer's inbox.
+</Callout>
+
+Momentum builder for what's next: once you can name which lens a risk falls under, the deep-dive lessons in this category will click into place fast.
+
+## Key Takeaways
+
+- Every campaign passes through five legal lenses: advertising truthfulness, data privacy, IP, contracts, and consumer protection.
+- Regulators judge outcomes, not intent, "we didn't know" is not a defense.
+- 2025's FTC enforcement wave shows the cost of skipping the checkpoint: over $100 million in refunds across a handful of cases.
+- Build a five-minute legal gut-check into your launch process instead of relying on memory.
+- This category is educational; consult a licensed attorney for decisions specific to your business.
+
+<ResourceList resources={[
+  { title: "FTC Enforcement Trends In 2026: What Businesses, Advertisers Should Be Watching Now (Benesch Law)", url: "https://www.beneschlaw.com/insight/ftc-enforcement-trends-in-2026-what-businesses-advertisers-should-be-watching-now/", type: "article", free: true },
+  { title: "US State Privacy Laws 2026: What Marketing Teams Must Know (Secure Privacy)", url: "https://secureprivacy.ai/blog/us-state-privacy-laws-2026-marketing", type: "article", free: true },
+  { title: "Advertising & Marketing 2025, USA Practice Guide (Chambers and Partners)", url: "https://practiceguides.chambers.com/practice-guides/advertising-marketing-2025/usa", type: "article", free: true },
+  { title: "FTC Business Guidance Resources", url: "https://www.ftc.gov/business-guidance", type: "docs", free: true },
+  { title: "Advertising and Marketing Law Committee (American Bar Association)", url: "https://www.americanbar.org/groups/intellectual_property_law/about/committees/advertising-marketing-law/", type: "article", free: true },
+  { title: "Marketing Data Privacy: A Comprehensive Guide for 2025 (Osano)", url: "https://www.jdsupra.com/legalnews/marketing-data-privacy-a-comprehensive-4836635/", type: "article", free: true },
+  { title: "WsCube Tech, Marketing Law Basics (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Marketing Compliance Basics", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Marketing Legal Basics", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

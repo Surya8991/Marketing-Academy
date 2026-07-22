@@ -1,0 +1,112 @@
+export const lessonMeta = {
+  title: "Global Privacy Law for Marketers: GDPR, CCPA, and Beyond Email",
+  level: "Intermediate",
+  summary: "How GDPR and the growing US state privacy law patchwork apply to ad targeting, tracking, and CDPs, not just your email list.",
+};
+
+# Global Privacy Law for Marketers: GDPR, CCPA, and Beyond Email
+
+Most marketers think privacy law means "email opt-ins." That was true in 2018. It is not true anymore.
+
+Today the same rules govern your ad pixels, your customer data platform, your retargeting lists, and every cookie your site drops before a visitor clicks anything. This lesson covers the cross-channel version of privacy law, the parts that live outside your inbox.
+
+## Quick Summary
+
+- GDPR's three core principles, consent, right to be forgotten, and data minimization, apply to ad targeting and tracking, not just email.
+- 20 US states now have comprehensive privacy laws in effect as of January 2026, and they do not all say the same thing.
+- Cookie consent and ad-tech enforcement is the fastest-growing GDPR category: a French court upheld a 40 million euro fine against ad-tech firm Criteo in March 2026.
+- Your CDP is a compliance surface now: it holds the exact data trail regulators ask for first.
+- This lesson covers cross-channel data practices. For email-specific rules (CAN-SPAM, list consent), see the companion lesson in the email category.
+
+<Callout type="warning">
+This lesson is educational content for marketers, not legal advice. Privacy law is jurisdiction-specific and changes often. Talk to a qualified privacy attorney before making compliance decisions for your company.
+</Callout>
+
+## GDPR's Three Ideas That Apply Everywhere You Track Someone
+
+GDPR was written for the EU, but its core ideas now show up inside US state laws too. Learn these three and you can read almost any privacy law fast.
+
+**Consent** means a visitor must take a clear, affirmative action before you process their data for marketing purposes. A pre-checked cookie banner box is not consent, courts have said so repeatedly. This applies to your ad pixel firing on page load just as much as it applies to a newsletter signup.
+
+**Right to be forgotten** means a person can ask you to delete their data, and you must actually be able to do it. If your CDP synced that person's profile to six ad platforms, all six copies need to go, not just the record in your database.
+
+**Data minimization** means you only collect what you actually need. Marketing teams love collecting "just in case" data, every field, every event, every scroll depth. Regulators increasingly ask "why did you need this," and "we might use it someday" is not an answer they accept.
+
+<Callout type="tip">
+Enforcement in 2026 has shifted specifically toward ad tech. CNIL fined Google 325 million euros and Shein 150 million euros in September 2025, both over cookie consent failures, and a French court upheld a 40 million euro fine against Criteo in March 2026 for its targeted advertising and consent banner practices. Most of these fines cite one specific failure: tracking tags firing before consent was given, not bad banner wording.
+</Callout>
+
+## Ad Targeting, Tracking, and CDPs: Where the Rules Actually Bite
+
+Cookie banners get the attention, but the real compliance surface is everywhere data moves after collection.
+
+**Retargeting pixels.** A Meta or Google pixel that fires before a visitor accepts cookies is a live GDPR violation the moment it fires, regardless of what your banner says. Consent management platforms exist specifically to block tag firing until consent is confirmed.
+
+**Server-side tracking and CDPs.** Moving tracking server-side does not remove the consent requirement, it just moves where the enforcement question gets asked. Your CDP is now the single place regulators point to when they ask "show me everywhere this person's data went."
+
+**Lookalike and custom audiences.** Uploading a customer list to build a lookalike audience is a data-sharing event under GDPR and most US state laws. If your original collection consent did not cover "sharing with ad platforms for audience matching," the upload itself is the violation.
+
+<Callout type="example">
+A mid-size ecommerce brand syncs its full customer list to Meta and Google nightly to build lookalike audiences. Under CCPA, that sync is a "sale" or "share" of personal information, triggering a required opt-out link ("Do Not Sell or Share My Personal Information") regardless of whether money changes hands. The brand had no such link. That gap alone is enough to trigger a state attorney general inquiry.
+</Callout>
+
+Momentum matters here: fix the pixel-firing order before you fix the banner copy. Regulators are checking the former, not the latter.
+
+## The US State Privacy Patchwork Is Now 20 States Deep
+
+The US never passed a federal privacy law. Instead, states filled the gap one at a time, and by January 2026, 20 states have comprehensive privacy laws in effect, with Indiana, Kentucky, and Rhode Island the newest additions.
+
+Each law sets its own thresholds and rights, which means a site serving customers in California, Colorado, and Texas must satisfy all three simultaneously, not just the strictest one.
+
+<Mermaid chart={`flowchart TD
+    A[Visitor lands on your site] --> B{Which state are they in?}
+    B --> C[California: CCPA/CPRA]
+    B --> D[Colorado, Virginia, 17 others]
+    B --> E[State with no law yet]
+    C --> C1[Opt-out of sale/share required]
+    C1 --> C2[Sensitive data needs opt-in]
+    D --> D1[Opt-out model, similar to Virginia CDPA]
+    D1 --> D2[Right to access, delete, correct]
+    E --> E1[No state law applies]
+    E1 --> E2[GDPR may still apply if EU traffic exists]`} />
+
+Three things almost every state law shares, so build to these first:
+
+- **A visible opt-out link** for the sale or sharing of personal data, most commonly labeled "Do Not Sell or Share My Personal Information."
+- **Access and deletion rights**, a way for a person to request their data or ask you to erase it, usually within 45 days.
+- **Sensitive data rules**, precise geolocation, health data, and racial or ethnic origin usually need opt-in consent, not just an opt-out option.
+
+CCPA and its update CPRA remain the strictest and most detailed of the twenty, so building to California's standard covers most of the others by default.
+
+## Practical Compliance Basics for a Marketing Team
+
+You do not need a legal degree to get the fundamentals right. Start with the parts your team actually controls.
+
+1. **Audit every tracking script on your site.** List every pixel, tag, and third-party script, and confirm each one waits for consent before firing. Most violations trace back to one forgotten tag, not a systemic failure.
+2. **Add a real "Do Not Sell or Share" link** if you sync customer data to any ad platform. This single link resolves the most common US state law gap.
+3. **Map your data flows.** Know where a customer record goes after it enters your CDP, every ad platform sync, every email tool, every analytics export. You cannot delete data you cannot find.
+4. **Set a deletion SLA.** Decide, in writing, how fast your team can fulfill a deletion request across every connected tool, and test it once a quarter.
+
+<Callout type="tip">
+Treat privacy compliance like technical debt: something breaks quietly when a new tool gets added and nobody updates the tracking audit. Put "does this need a consent check" on your new-tool onboarding checklist permanently.
+</Callout>
+
+## Key Takeaways
+
+- GDPR's consent, right to be forgotten, and data minimization principles now apply well past email, especially to ad pixels, CDPs, and retargeting.
+- Cookie and ad-tech enforcement is accelerating: the Criteo, Google, and Shein fines all landed within a single year.
+- 20 US states have privacy laws now, each with its own thresholds, but nearly all require an opt-out link and access/deletion rights.
+- Audit your tracking scripts and data flows before you worry about banner wording, most fines cite pre-consent tag firing.
+- This lesson is the cross-channel companion to the email-specific GDPR/CAN-SPAM lesson, read both if you run multi-channel campaigns.
+
+<ResourceList resources={[
+  { title: "US State Privacy Law Tracker 2026 (IAPP-sourced overview)", url: "https://secureprivacy.ai/blog/us-state-privacy-law-tracker-2026", type: "article", free: true, note: "Covers all 20 active state laws and their differences" },
+  { title: "GDPR Enforcement and Fines 2026: Business Categories and Top Cases", url: "https://www.uniconsent.com/blog/gdpr-enforcement-fines-2026", type: "article", free: true, note: "Breaks down 2026 fines by industry including ad tech" },
+  { title: "Criteo 40M Euro GDPR Fine Upheld: Advertising Cookies Ruling", url: "https://www.privado.ai/post/french-supreme-court-upholds-gdpr-fine-against-criteo", type: "article", free: true },
+  { title: "GDPR Enforcement Tracker, All Fines Database", url: "https://www.enforcementtracker.com/", type: "tool", free: true, note: "Searchable database of every GDPR fine issued" },
+  { title: "California Privacy Protection Agency, Official CCPA/CPRA Guidance", url: "https://cppa.ca.gov/", type: "docs", free: true, note: "Primary source for California's requirements" },
+  { title: "IAPP Privacy Certification (CIPP/US)", url: "https://iapp.org/certify/cipp/", type: "course", free: false, note: "Industry-standard privacy credential, paid but recognized by every legal and compliance team" },
+  { title: "WsCube Tech, Data Privacy Laws for Marketers (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Privacy Law Compliance", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Marketing Compliance Basics", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

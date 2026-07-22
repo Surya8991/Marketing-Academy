@@ -1,0 +1,82 @@
+export const lessonMeta = {
+  title: "Choosing a Headless CMS for Content Teams",
+  level: "Intermediate",
+  summary: "What a headless CMS actually is, how the major options differ, and the real tradeoff marketers sign up for.",
+};
+
+# Choosing a Headless CMS for Content Teams
+
+A developer on your team says 'we should go headless.' You nod, but what does that actually change for the person publishing content every day?
+
+## Quick Summary
+
+- Headless means content is decoupled from presentation, stored as structured data and delivered via API to any frontend.
+- Marketing teams adopt headless CMS for omnichannel publishing (web, app, kiosk, voice) and faster developer velocity.
+- The 2026 market has consolidated around three names: Sanity, Contentful, and Strapi, per [Sanity's own 2026 landscape review](https://www.sanity.io/top-5-headless-cms-platforms-2026).
+- The real tradeoff is technical setup cost versus flexibility, self-hosting Strapi can shift $50K-$100K a year in engineering time onto your team.
+- This is a companion to `content-marketing-tools.mdx`, which covers the content production stack, not the CMS architecture decision.
+
+## What 'Headless' Actually Means
+
+A traditional CMS like classic WordPress bundles two jobs into one system: it stores your content AND renders the webpage that displays it. A headless CMS does only the first job. Content lives as structured data, articles, product fields, images, in a content repository, and any frontend, a website, a mobile app, a smart display, pulls that data through an API.
+
+Think of it like a restaurant kitchen (the CMS) that ships meals through a delivery API to any dining room (the frontend), instead of a kitchen that only serves food at its own attached tables. One kitchen, multiple 'restaurants.'
+
+<Callout type="info">
+The word 'headless' refers to the missing 'head', the presentation layer. The CMS still has a body (content storage, editing UI, workflows), it just has no fixed head attached.
+</Callout>
+
+## Why Marketing Teams Increasingly Need One
+
+Two forces push marketing teams toward headless architecture. First, omnichannel publishing: the same product description needs to appear on a website, inside a mobile app, on a retail kiosk, and possibly read aloud by a voice assistant. A traditional CMS forces you to re-enter or duplicate that content per channel. A headless CMS lets one entry feed every channel through the same API.
+
+Second, developer velocity. Traditional CMS themes tightly couple content structure to a specific templating system, so a frontend redesign often means rebuilding content models too. Headless separates the two: engineering can rebuild the frontend in a new framework without touching the content that already exists, and marketers can restructure content fields without waiting on a full site rebuild.
+
+## Comparing the Major Options
+
+**Contentful** is the safe managed choice with the deepest enterprise feature set: robust roles/permissions, a mature app marketplace, and strong SLAs. It is also the most rigid of the group and its Team plan runs around $300/month, according to [recent 2026 comparisons](https://www.sanity.io/top-5-headless-cms-platforms-2026).
+
+**Sanity** is the developer-experience pick, praised in 2026 reviews as the strongest structured-content tooling in the market, with real-time collaborative editing and a flexible query language. It charges by usage (API calls, bandwidth, seats) with a generous free tier, which suits growing content teams that don't yet know their exact scale.
+
+**Strapi** is open-source and self-hosted, giving a team full control of the infrastructure and no vendor lock-in. The tradeoff: [comparison guides note](https://gautamkhorana.com/guides/headless-cms-comparison/) it requires meaningful developer resources to operate, upgrade, and secure over time.
+
+**WordPress-as-headless** strips the frontend rendering out of a familiar WordPress backend while keeping the editorial team's existing workflows and plugin ecosystem. It works best when you already run WordPress and want incremental modernization rather than a full platform switch.
+
+<Mermaid chart={`graph TD
+  A[Content Team Needs] --> B{Existing WordPress site?}
+  B -- Yes --> C[Headless WordPress]
+  B -- No --> D{In-house dev resources?}
+  D -- Strong --> E[Strapi, self-hosted]
+  D -- Limited --> F{Priority: dev experience or enterprise SLAs?}
+  F -- Dev experience --> G[Sanity]
+  F -- Enterprise SLAs --> H[Contentful]`} />
+
+## The Real Tradeoff: Setup Cost vs Flexibility
+
+Every headless CMS shifts work that a traditional CMS used to hide inside its templates onto your engineering team upfront: building the frontend, wiring the API calls, and maintaining the rendering layer. In exchange, you get a content model that isn't locked to one website's design.
+
+The hidden cost that catches marketers off guard is ongoing engineering time, not just initial setup. Running a self-hosted option reliably, upgrades, backups, monitoring, plugin compatibility, typically consumes 0.25 to 0.5 FTE per year. At a senior engineer's fully-loaded cost, [that is roughly $50K to $100K annually](https://www.sanity.io/top-5-headless-cms-platforms-2026), which can dwarf the price difference against a managed platform's subscription fee.
+
+<Callout type="warning">
+Do not advocate for a headless CMS based on which name is trending in developer circles. The content shape (how structured, how many channels, how much editorial flexibility needed) should drive the choice; the brand rarely should.
+</Callout>
+
+## Key Takeaways
+
+- Headless separates content storage from presentation, letting one content entry feed a website, app, and any future channel through an API.
+- Marketing teams adopt headless mainly for omnichannel publishing and faster, decoupled development cycles.
+- Contentful favors enterprise safety, Sanity favors developer/editor experience, Strapi favors full control at the cost of ongoing maintenance, and headless WordPress favors incremental change for existing sites.
+- Self-hosting can quietly cost $50K-$100K a year in engineering time, factor that in before comparing subscription prices alone.
+- Pair this decision with the production stack covered in `content-marketing-tools.mdx`, the CMS is where content lives, not how it gets written or distributed.
+
+<ResourceList resources={[
+  { title: "Top 5 Headless CMS Platforms for 2026 (Sanity)", url: "https://www.sanity.io/top-5-headless-cms-platforms-2026", type: "article", free: true },
+  { title: "Sanity vs Contentful vs Strapi vs Payload Comparison (2026)", url: "https://gautamkhorana.com/guides/headless-cms-comparison/", type: "article", free: true },
+  { title: "Best Headless CMS Comparison 2025 (Lucky Media)", url: "https://www.luckymedia.dev/blog/a-strategic-comparison-of-headless-cms-options", type: "article", free: true },
+  { title: "Contentful, Headless Content Platform", url: "https://www.contentful.com/", type: "tool", free: false },
+  { title: "Sanity, Structured Content Platform", url: "https://www.sanity.io/", type: "tool", free: true },
+  { title: "Strapi, Open-Source Headless CMS", url: "https://strapi.io/", type: "tool", free: true },
+  { title: "WsCube Tech - Headless CMS Selection (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - Headless CMS Selection", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Headless CMS Selection", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

@@ -1,0 +1,76 @@
+export const lessonMeta = {
+  title: "Affiliate Fraud and Compliance: Cookie Stuffing and Coupon Abuse",
+  level: "Advanced",
+  summary: "How affiliates fake credit for sales they never influenced, and the FTC disclosure rules that turn a sloppy program into a legal liability.",
+};
+
+# Affiliate Fraud and Compliance: Cookie Stuffing and Coupon Abuse
+
+Every affiliate program leaks money to fraud eventually. The question is whether you catch it in month one or discover it after paying commissions on traffic that was never real.
+
+## Quick Summary
+
+- Cookie stuffing drops a tracking cookie on a visitor's browser without any real click or referral, stealing credit for sales the "affiliate" never influenced.
+- Coupon and loyalty extensions can hijack commissions at checkout by swapping the last-click cookie, even when they add no real discount.
+- Typosquatting and forced clicks on mobile (click injection) are the other two fraud patterns every program manager should watch for.
+- The FTC Endorsement Guides require affiliates to clearly disclose paid or commission relationships, and enforcement has real teeth.
+- Detection is pattern-based: spending spikes without matching ROI, suspicious referrer headers, and conversion rates that beat your best channel by a mile.
+
+## The Four Fraud Patterns
+
+**Cookie stuffing** is the classic. A fraudulent site force-drops your affiliate cookie onto every visitor's browser, often through invisible iframes or auto-redirects, with zero genuine referral behind it. When that visitor buys anything later, the fraudster gets paid.
+
+**Coupon-code hijacking** is subtler and newer. Browser extensions promise a discount at checkout, but instead simply swap in their own affiliate cookie at the last second, stealing credit from whoever actually earned the sale. The Honey extension controversy made this pattern famous: it was found replacing creators' tracking cookies with its own at checkout, even on orders where it applied no discount code at all.
+
+**Typosquatting** registers domains one keystroke off your brand name, then redirects that traffic through an affiliate link, capturing commission on visitors who typed your URL from memory.
+
+**Click injection on mobile** fakes a click event right before an app install completes, so the fraudster's affiliate ID gets attributed to an install they never influenced.
+
+<Callout type="warning">
+Google updated Chrome Web Store policy in 2025 to explicitly ban extensions from claiming affiliate commissions without providing an actual discount, a direct response to the coupon-hijacking pattern. If your program allows browser extensions as affiliates, audit what they actually deliver at checkout.
+</Callout>
+
+## How to Detect It Before It Costs You
+
+Fraud rarely announces itself. It shows up as a pattern that looks slightly too good.
+
+Watch for these signals in your affiliate dashboard:
+
+- **Spending spikes without matching ROI.** A sudden jump in commission payouts that does not correlate with a traffic or revenue increase elsewhere.
+- **Suspicious HTTP referrer headers.** Legitimate affiliate traffic has a referrer chain that makes sense. Stuffed cookies often show blank, spoofed, or nonsensical referrers.
+- **Conversion rates that beat your best channel.** If an affiliate is converting at 40% when your paid search converts at 3%, that is not a great partner. That is a red flag.
+- **Clustering complaints.** A spike in customer complaints about unexpected charges or unclear pop-ups often traces back to one affiliate's traffic source.
+
+Run these checks monthly, not annually. Fraud compounds quietly, and the longer it runs, the larger the clawback fight becomes.
+
+## FTC Disclosure Requirements
+
+The FTC Endorsement Guides are not optional guidance, they are enforceable rules. Any affiliate, influencer, or reviewer who earns a commission on a purchase must clearly and conspicuously disclose that relationship, in a way an average reader would actually notice.
+
+That means "#ad" buried at the bottom of a long caption after ten hashtags does not count. Disclosure has to sit where readers will see it before they click.
+
+<Callout type="info">
+Build disclosure language into your affiliate terms of service, not just your marketing guidelines. If an affiliate cannot show you where their disclosure lives, do not activate their link. This is the cheapest fraud and compliance prevention you will ever do.
+</Callout>
+
+Programs that skip this step inherit legal risk alongside the traffic. The FTC has pursued enforcement actions against both the brand and the individual affiliate in past cases, so "the affiliate didn't disclose" is not a shield.
+
+## Key Takeaways
+
+- Cookie stuffing, coupon-code hijacking, typosquatting, and click injection are the four fraud patterns to monitor in any affiliate program.
+- Detection is about spotting statistical outliers: spending spikes without ROI, implausible referrers, and conversion rates too good to be true.
+- The Honey extension case shows how coupon-hijacking can operate at scale before anyone notices the commission theft.
+- FTC Endorsement Guides require clear, conspicuous disclosure of any paid or commission relationship, from every affiliate in your program.
+- Build fraud monitoring and disclosure verification into monthly program reviews, not an annual audit.
+
+<ResourceList resources={[
+  { title: "Understanding Cookie Stuffing Affiliate Fraud: Detection and Prevention (Post Affiliate Pro)", url: "https://www.postaffiliatepro.com/blog/cookie-stuffing-affiliate-fraud/", type: "article", free: true },
+  { title: "Cookie Stuffing Detection: 8-Pattern Affiliate Fraud Guide (Track360, 2026)", url: "https://track360.io/blog/cookie-stuffing-affiliate-fraud-detection-operator-guide-2026", type: "article", free: true },
+  { title: "Affiliate Link Hijacking & Protection for Creators (Influencer Marketing Hub, 2025)", url: "https://influencermarketinghub.com/affiliate-link-hijacking/", type: "article", free: true },
+  { title: "Combating Cookie Stuffing in Affiliate Fraud: Approaches and Solutions (Anura)", url: "https://www.anura.io/blog/how-to-fight-cookie-stuffing-within-affiliate-fraud", type: "article", free: true },
+  { title: "Compliance for Affiliates Part 2: Forced Clicks & Cookie Stuffing (BrandVerity)", url: "https://www.brandverity.com/blog/compliance-part-two-forced-clicks-cookie-stuffing", type: "article", free: true },
+  { title: "FTC Endorsement Guides (Federal Trade Commission)", url: "https://www.ftc.gov/business-guidance/resources/ftcs-endorsement-guides-what-people-are-asking", type: "docs", free: true },
+  { title: "WsCube Tech, Affiliate Marketing Fraud and Compliance (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Affiliate Fraud Detection", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Affiliate Marketing Compliance", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

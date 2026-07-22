@@ -365,9 +365,11 @@ export default function Nav() {
 
           {/* Topics grouped */}
           {[
-            { label: "Strategy", slugs: ["fundamentals", "psychology", "copywriting", "brand-strategy", "product-marketing"] },
+            { label: "Strategy", slugs: ["fundamentals", "psychology", "copywriting", "brand-strategy", "product-marketing", "mental-models"] },
             { label: "Channels", slugs: ["seo", "paid-ads", "social", "content", "email"] },
             { label: "Growth & Data", slugs: ["growth", "analytics", "tools", "cro", "ai-marketing"] },
+            { label: "Outreach", slugs: ["pr-communications", "events-experiential", "affiliate-marketing"] },
+            { label: "Career & Legal", slugs: ["marketing-leadership", "legal-compliance"] },
           ].map((group) => (
             <div key={group.label} className="mb-3">
               <p className="text-xs uppercase tracking-wider text-[var(--muted-foreground)] mb-1.5 px-1 font-semibold">

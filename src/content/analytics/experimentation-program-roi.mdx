@@ -1,0 +1,73 @@
+export const lessonMeta = {
+  title: "Proving Your Experimentation Program's ROI",
+  level: "Advanced",
+  summary: "A framework for calculating whether the testing program itself, not any single test, earns back its cost.",
+};
+
+# Proving Your Experimentation Program's ROI
+
+Your team ran 40 tests last year. Twelve won. Leadership asks: 'was the program worth it?' If your answer only cites the twelve winners, you are about to lose the budget.
+
+## Quick Summary
+
+- Program ROI is not test ROI: it must include tooling, headcount, and the opportunity cost of every losing test.
+- The formula: ROI = (Incremental Profit − Total Program Cost) / Total Program Cost x 100, per [Convert's ROI guide](https://www.convert.com/blog/a-b-testing/prove-roi-ab-testing-program/).
+- The global experimentation platform market hit $1.6 billion in 2024, per [Convert's 2025 stats roundup](https://www.convert.com/blog/a-b-testing/ab-testing-stats/), yet most programs still can't defend their own budget.
+- Mature programs report 30-50% higher revenue growth than teams that test occasionally, but only when losers are counted honestly.
+- This is distinct from `experimentation-platforms.mdx` (tool selection) and `experimentation-program.mdx` (operating cadence): this lesson is the finance conversation.
+
+## The Mistake Everyone Makes
+
+Most teams calculate ROI by summing the lift from winning tests and stopping there. A test that lifted conversion 8% on a $2M funnel looks like a $160K win. Stack five of those and the program looks unbeatable.
+
+But that number ignores the 28 losing tests that ran alongside the winners. Losers still cost engineering time, QA cycles, analyst hours, and platform fees. They also cost something harder to see: the weeks a team spent shipping a variant slower than they could have shipped a default rollout. [Optimizely's own metrics guidance](https://www.optimizely.com/insights/blog/metrics-for-your-experimentation-program/) is explicit that program-level reporting has to include cost, not just win-side lift.
+
+<Callout type="warning">
+Counting only winners is like judging a trading strategy by its best trades. A fund that shows you five winning trades and hides forty losing ones is not profitable, it is selectively reported. Treat your test backlog the same way.
+</Callout>
+
+## The Program-Level ROI Formula
+
+Start with total program cost, not per-test cost. That means: platform subscription (Optimizely, Statsig, Eppo, or similar), the fully-loaded cost of every person who spends meaningful time on experimentation (PM, analyst, engineer, designer), and QA/review overhead across every test run, win or lose.
+
+Then calculate incremental profit as the sum of validated lift from winners, minus the estimated cost of any 'false winner' that got walked back after shipping. [Convert's ROI framework](https://www.convert.com/blog/a-b-testing/prove-roi-ab-testing-program/) frames the equation simply:
+
+> ROI = (Incremental Profit − Experimentation Costs) / Experimentation Costs x 100
+
+Run this at the program level, quarterly, not per-test. A single test's ROI is nearly meaningless in isolation, since it hides the base rate of losses that made the win possible. One published Total Economic Impact study on Optimizely found organizations realizing 286% ROI over three years, alongside real productivity savings, but that figure came from aggregating the full cost base against the full benefit base, not cherry-picked wins.
+
+## Opportunity Cost Is Part of the Bill
+
+The subtlest cost in any testing program is velocity tax: the time a feature sits in an experiment instead of shipping to 100% of users. If a test runs four weeks to reach significance and the underlying idea was actually good, you delayed the full benefit by four weeks. That delay has a dollar value, and finance teams increasingly ask for it.
+
+Build this into your cost side as 'time-to-full-rollout delay x daily value of the feature.' For high-confidence ideas with low downside risk, some programs now skip testing entirely and ship with monitoring instead, reserving true A/B tests for genuinely uncertain bets. That triage decision is itself a return on program maturity: knowing when NOT to test saves real money.
+
+## Reporting Program ROI to Leadership
+
+Present three numbers every quarter: total program cost, total validated incremental profit (with losers' costs subtracted, not just winners' gains), and the resulting ROI percentage. Show the trend line quarter over quarter, since a program's ROI should generally improve as prioritization frameworks mature and win rates climb.
+
+Pair the dollar figure with a learning velocity metric, tests shipped per quarter, since [industry framing for 2026](https://www.convert.com/blog/a-b-testing/ab-testing-stats/) increasingly treats learning velocity, not raw test volume, as the leading indicator of a program about to compound. A program with modest ROI today but accelerating velocity is a better bet than one with high ROI on a shrinking backlog.
+
+<Callout type="tip">
+If you cannot get finance to agree on a 'value per feature-day' assumption, use a placeholder and label it as an estimate. An imperfect opportunity-cost number beats omitting the cost entirely, since omitting it always overstates the program.
+</Callout>
+
+## Key Takeaways
+
+- Program ROI must net out ALL costs, tooling, headcount, and losing tests, against ALL incremental profit, not just winners.
+- Use the Convert formula: (Incremental Profit − Experimentation Costs) / Experimentation Costs x 100, and run it quarterly at the program level.
+- Opportunity cost (delayed shipping while a test runs) belongs on the cost side even though it never appears on an invoice.
+- Report trend lines, not single-quarter snapshots, and pair ROI with learning velocity so leadership sees the program compounding.
+- See `experimentation-platforms.mdx` for choosing the tooling and `experimentation-program.mdx` for the operating cadence that produces the inputs to this calculation.
+
+<ResourceList resources={[
+  { title: "How to Prove the ROI of Your A/B Testing Program (Convert)", url: "https://www.convert.com/blog/a-b-testing/prove-roi-ab-testing-program/", type: "article", free: true },
+  { title: "A/B Testing & CRO Stats Every Optimizer Should Know (Convert)", url: "https://www.convert.com/blog/a-b-testing/ab-testing-stats/", type: "article", free: true },
+  { title: "Scaling Experimentation Program Metrics in 2025 (Optimizely)", url: "https://www.optimizely.com/insights/blog/metrics-for-your-experimentation-program/", type: "article", free: true },
+  { title: "How to Evaluate the ROI of Your Testing Program (Kameleoon)", url: "https://www.kameleoon.com/blog/how-to-measure-the-roi-of-your-testing-program", type: "article", free: true },
+  { title: "Eppo, Bayesian Experimentation Platform", url: "https://www.geteppo.com/", type: "tool", free: false },
+  { title: "GrowthBook, Open-Source Feature Flags & Experimentation", url: "https://www.growthbook.io/", type: "tool", free: true },
+  { title: "WsCube Tech - Experimentation Program ROI (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil - Experimentation Program ROI", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu - Experimentation Program ROI", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

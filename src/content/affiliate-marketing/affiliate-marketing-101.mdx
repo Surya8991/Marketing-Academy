@@ -1,0 +1,90 @@
+export const lessonMeta = {
+  title: "Affiliate Marketing 101: How the Model Actually Works",
+  level: "Beginner",
+  summary: "How affiliates earn commission on tracked links, why the model is performance-only, and why the channel is projected past $20 billion in 2026.",
+};
+
+# Affiliate Marketing 101: How the Model Actually Works
+
+A blogger writes "the best noise-cancelling headphones" article, drops a special link, and earns money every time someone buys through it. That single mechanic is the entire affiliate model.
+
+## Quick Summary
+
+- An affiliate promotes your product with a unique tracked link; you pay a commission only when that link produces a sale (or lead, or signup).
+- It is a performance-only channel: no click cost, no impression cost, no cost at all until the result happens.
+- [The global affiliate marketing market is projected to exceed $20 billion in 2026](https://www.publift.com/blog/affiliate-marketing-statistics), growing at a steep double-digit pace.
+- Over 90% of ecommerce businesses are expected to run some form of affiliate program by 2026.
+- Tracking runs on cookies or server-side attribution, both of which point every sale back to the exact affiliate who sent the buyer.
+
+## The Mechanic, In One Loop
+
+Every affiliate relationship follows the same four steps, no matter the industry.
+
+First, you (the merchant) give an affiliate a unique tracked link, one that encodes their ID inside the URL. Second, the affiliate places that link wherever their audience already is: a blog post, a YouTube description, an email newsletter.
+
+Third, a visitor clicks the link and a tracking cookie (or a server-side click ID) attaches to their session. Fourth, if that visitor buys within the attribution window, usually 7 to 90 days, the sale gets credited to the affiliate and a commission fires automatically.
+
+<Mermaid chart={`graph LR
+    A[Affiliate shares\ntracked link] --> B[Visitor clicks]
+    B --> C[Cookie or click ID\nattaches to session]
+    C --> D[Visitor buys\nwithin window]
+    D --> E[Sale attributed\nto affiliate]
+    E --> F[Commission paid\nautomatically]`} />
+
+Nobody gets paid for the click. Nobody gets paid for the impression. The entire chain only pays out on step six, an actual result.
+
+## Why It's a Performance-Only Channel
+
+Compare this to a display ad. You pay for impressions whether or not anyone converts, and you carry that cost even on a bad campaign day.
+
+Affiliate marketing flips the risk. The affiliate absorbs the cost of creating content, building an audience, and driving traffic; you only pay once a sale clears (and often only after the return window closes, so refunded orders do not get commissioned).
+
+This is why the channel scales so cleanly for cash-conscious teams. A startup with zero ad budget can still recruit affiliates, because the "media spend" only exists after revenue exists.
+
+<Callout type="info">
+Because payment is retroactive and tied to real revenue, affiliate marketing is one of the few channels where your customer acquisition cost is, by definition, never negative-ROI on a per-sale basis. The catch is time: recruiting and enabling affiliates who actually convert takes months, not days.
+</Callout>
+
+## Who Plays Which Role
+
+Three parties sit in every affiliate transaction, and confusing their incentives is the most common beginner mistake.
+
+The **merchant** (also called the advertiser) is the business selling the product. They set the commission rate, define the cookie window, and approve which affiliates can promote them.
+
+The **affiliate** (also called the publisher or partner) is the person or site sending traffic, a review blogger, a coupon site, a YouTuber, a cashback app, or a newsletter writer. Their only job is matching the right audience to the right offer.
+
+The **network or platform** sits in between, handling tracking, payouts, and dispute resolution so neither side has to build that infrastructure from scratch. You'll meet these platforms directly in the next lesson on choosing a network.
+
+Each party wants something different: merchants want incremental sales, affiliates want reliable payouts, and networks want enough volume flowing through to justify their fee. Understanding that triangle explains almost every disagreement that comes up later, commission disputes, cookie-stuffing accusations, and attribution fights all trace back to misaligned incentives between these three.
+
+## Why the Market Keeps Growing
+
+The scale here is not niche. [The affiliate marketing industry is projected to reach $71.74 billion by 2034, a 15.2% CAGR](https://www.publift.com/blog/affiliate-marketing-statistics), and U.S. affiliate spending alone is climbing toward $16 billion by 2028.
+
+Two forces are driving that growth. First, brands are tightening budgets and shifting more spend toward channels where payment is tied directly to a result, exactly what affiliate offers.
+
+Second, the definition of "affiliate" has quietly expanded. It now includes creator partnerships, cashback and rewards apps, comparison-shopping engines, and B2B software review sites, not just old-school coupon blogs.
+
+<Callout type="tip">
+If you are launching your first affiliate program, start with one commission structure (a flat percentage of sale price is simplest) and one cookie window (30 days is a common default). You can add tiers and special rates once you have real data on which affiliates actually drive profitable, non-cannibalized sales.
+</Callout>
+
+## Key Takeaways
+
+- The affiliate model is a four-step loop: tracked link, click, cookie attribution, commission on sale.
+- You pay nothing until a real sale happens, which makes it the lowest-risk acquisition channel to test.
+- Three parties, merchant, affiliate, network, each have different incentives; most disputes trace back to that mismatch.
+- The global market is projected past $20 billion in 2026, with a 15.2% CAGR pushing it toward $71.74 billion by 2034.
+- Start simple: one commission rate, one cookie window, then iterate once you have data.
+
+<ResourceList resources={[
+  { title: "Affiliate Marketing Statistics of 2026 (Publift)", url: "https://www.publift.com/blog/affiliate-marketing-statistics", type: "article", free: true },
+  { title: "Affiliate Marketing Industry Size 2025-2026: Growth Trends (Post Affiliate Pro)", url: "https://www.postaffiliatepro.com/blog/affiliate-marketing-industry-size-2025/", type: "article", free: true },
+  { title: "150 Affiliate Marketing Statistics: Industry Growth, Revenue & Trends (WeCanTrack)", url: "https://wecantrack.com/insights/affiliate-marketing-statistics/", type: "article", free: true },
+  { title: "Affiliate Marketing Statistics 2026 (FirstPromoter)", url: "https://firstpromoter.com/blog/affiliate-marketing-statistics", type: "article", free: true },
+  { title: "Affiliate Networks: 11 Best Options for Marketers (Shopify)", url: "https://www.shopify.com/blog/affiliate-networks", type: "article", free: true },
+  { title: "How Affiliate Marketing Works (Amazon Associates overview)", url: "https://affiliate-program.amazon.com/", type: "docs", free: true },
+  { title: "WsCube Tech, Affiliate Marketing Basics (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Affiliate Marketing Fundamentals", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Affiliate Marketing Training", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

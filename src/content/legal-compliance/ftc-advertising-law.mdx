@@ -1,0 +1,96 @@
+export const lessonMeta = {
+  title: "FTC Advertising Law: Truth-in-Advertising and Substantiation",
+  level: "Intermediate",
+  summary: "How the FTC's truth-in-advertising rules actually work, what real substantiation requires before you make a claim, and what recent enforcement actions reveal about where marketers get caught.",
+};
+
+# FTC Advertising Law: Truth-in-Advertising and Substantiation
+
+"We believed it was true" is not the same as "we could prove it was true." The FTC only cares about the second one.
+
+## Quick Summary
+
+- The FTC's truth-in-advertising standard has three parts: claims must be truthful, substantiated before they're made, and not deceptive even when technically accurate.
+- Substantiation means competent, reliable evidence gathered *before* the claim ships, not a good-faith belief or a plausible-sounding internal assumption.
+- [The FTC closed 2025 with settlements exceeding $100 million](https://www.ftc.gov/news-events/news/press-releases/2025/12/instacart-pay-60-million-consumer-refunds-settle-ftc-lawsuit-over-allegations-it-engaged-deceptive) against companies including Instacart, Match Group, and MediaAlpha for deceptive advertising and subscription practices.
+- Implied claims count as much as explicit ones, the FTC looks at the "net impression" an ad leaves, not just the literal words used.
+- This lesson is education, not legal advice. A claim that looks fine to a marketer can still be a violation; get counsel before making claims that carry real regulatory risk.
+
+<Callout type="warning">
+This lesson explains general FTC principles for educational purposes. It is not legal advice. Advertising law involves fact-specific tests and jurisdiction-specific rules; consult a licensed attorney before finalizing claims that carry legal or financial exposure.
+</Callout>
+
+## The Three-Part Truth-in-Advertising Standard
+
+The FTC's framework, built on Section 5 of the FTC Act, boils down to three tests every ad must pass.
+
+**Truthful.** The claim must be factually accurate. This one seems obvious until you get to the second test, which is where most violations actually happen.
+
+**Substantiated.** You must have had solid proof *before* you made the claim, not proof you scrambled to find after a regulator asked. Timing matters as much as the evidence itself.
+
+**Not deceptive, even if technically true.** An ad can use accurate words and still mislead through emphasis, omission, or the overall impression it creates. The FTC calls this the "net impression" test.
+
+<Mermaid chart={`graph TD
+    A[Draft ad claim] --> B{Is it true?}
+    B -->|No| Z[Do not run]
+    B -->|Yes| C{Do we have evidence\nbefore we say it?}
+    C -->|No| Z
+    C -->|Yes| D{Does the overall ad\nimply more than we can prove?}
+    D -->|Yes| Z
+    D -->|No| E[Cleared to run]`} />
+
+Fail any one of the three and the claim is a liability, regardless of how the other two check out.
+
+## What "Substantiation" Actually Requires
+
+This is the part marketers get wrong most often. Substantiation is not "we're pretty sure" or "our customers tell us it works."
+
+The FTC's own substantiation policy requires **competent and reliable evidence**, the type and amount of proof that experts in the relevant field would consider adequate to support the claim. For health, safety, or efficacy claims, that usually means controlled studies, not testimonials or internal opinion.
+
+<Callout type="example">
+Saying "clinically proven to reduce wrinkles in two weeks" requires an actual clinical study behind it, done before the ad ran, not a marketing team's confidence that the product probably works based on user reviews.
+</Callout>
+
+Three practical rules follow from this:
+
+- **Evidence comes first, claim comes second.** If the study, data, or test doesn't exist yet, the claim doesn't get made yet.
+- **The proof must match the claim's strength.** "Studies show" implies multiple, sound studies. One small internal test doesn't substantiate a broad claim.
+- **Someone outside marketing should be able to verify it.** If only the person who wrote the ad copy can explain why it's true, that's a red flag, not a defense.
+
+Substantiation isn't a formality to satisfy after launch. It's the actual gate a claim has to pass through before copy gets written.
+
+## What Recent Enforcement Actually Looks Like
+
+Reading a handful of real cases teaches this faster than reading the statute.
+
+[Instacart settled for $60 million in December 2025](https://www.ftc.gov/news-events/news/press-releases/2025/12/instacart-pay-60-million-consumer-refunds-settle-ftc-lawsuit-over-allegations-it-engaged-deceptive) after the FTC alleged the company advertised "free delivery" on first orders while still charging a mandatory service fee. The literal words were arguably defensible; the net impression was not.
+
+[MediaAlpha settled for $45 million](https://www.ftc.gov/business-guidance/blog/2025/08/if-youre-deceiving-consumers-ftc-means-business-exploring-recent-settlement-mediaalpha) over ads the FTC said faked a government affiliation and promised low-cost health coverage that its own telemarketing partners rarely actually delivered. Match Group separately settled for misrepresenting how easy it was to cancel a subscription.
+
+In 2026, enforcement pressure grew in a new direction too, [Executive Order 14392 directed the FTC to prioritize "Made in USA" claims](https://www.hklaw.com/en/insights/publications/2026/03/executive-order-signals-heightened-enforcement-of-made-in-us), and the agency followed with a sweep of enforcement actions in April 2026. Country-of-origin claims now sit firmly in the same substantiation bucket as health and performance claims.
+
+<Callout type="tip">
+Notice what these cases have in common: none turned on one dramatic lie. Each turned on a gap between what an ad implied and what the company could actually prove or deliver. That gap is exactly what substantiation is supposed to close before launch.
+</Callout>
+
+The common thread across every case: the company could point to a claim, but not to proof gathered *before* the claim ran.
+
+## Key Takeaways
+
+- Every ad claim must pass three tests: truthful, substantiated in advance, and not deceptive by overall impression.
+- Substantiation means competent, reliable evidence matched to the strength of the claim, gathered before the ad runs, not after a regulator asks.
+- Implied claims and "net impression" carry the same legal weight as literal statements.
+- 2025 to 2026 enforcement (Instacart, MediaAlpha, Match Group, the "Made in USA" sweep) shows the FTC pursuing the gap between what's implied and what's provable.
+- Treat substantiation as a pre-launch gate, not a post-launch defense.
+
+<ResourceList resources={[
+  { title: "FTC Policy Statement Regarding Advertising Substantiation (FTC.gov)", url: "https://www.ftc.gov/legal-library/browse/ftc-policy-statement-regarding-advertising-substantiation", type: "docs", free: true },
+  { title: "Instacart to Pay $60 Million in Consumer Refunds to Settle FTC Lawsuit (FTC.gov)", url: "https://www.ftc.gov/news-events/news/press-releases/2025/12/instacart-pay-60-million-consumer-refunds-settle-ftc-lawsuit-over-allegations-it-engaged-deceptive", type: "article", free: true },
+  { title: "If You're Deceiving Consumers, the FTC Means Business: MediaAlpha Settlement (FTC.gov)", url: "https://www.ftc.gov/business-guidance/blog/2025/08/if-youre-deceiving-consumers-ftc-means-business-exploring-recent-settlement-mediaalpha", type: "article", free: true },
+  { title: "FTC Enforcement Trends In 2026 (Benesch Law)", url: "https://www.beneschlaw.com/insight/ftc-enforcement-trends-in-2026-what-businesses-advertisers-should-be-watching-now/", type: "article", free: true },
+  { title: "Executive Order Signals Heightened Enforcement of Made in USA Claims (Holland & Knight)", url: "https://www.hklaw.com/en/insights/publications/2026/03/executive-order-signals-heightened-enforcement-of-made-in-us", type: "article", free: true },
+  { title: "Health Products Compliance Guidance (FTC.gov)", url: "https://www.ftc.gov/business-guidance/resources/health-products-compliance-guidance", type: "docs", free: true },
+  { title: "WsCube Tech, FTC Advertising Rules Explained (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Advertising Compliance Basics", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Advertising Law Basics", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />
