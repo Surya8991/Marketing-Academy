@@ -1,0 +1,86 @@
+export const lessonMeta = {
+  title: "No-Code Marketing Automation: n8n, Zapier & Make",
+  level: "Intermediate",
+  summary: "How to wire an LLM step into a no-code workflow so automations can judge, classify, and draft, not just move data between apps.",
+};
+
+## The Step That Turns Automation Into Judgment
+
+You already know the platforms: n8n, Zapier, and Make.com connect your marketing tools so a lead in a form can end up in your CRM, on Slack, and in an email sequence without anyone touching a spreadsheet. If you need a side-by-side on pricing and setup, that's covered elsewhere in this course.
+
+This lesson is about the one step that changes what these workflows can do at all: an **LLM node**, a step where the workflow sends data to Claude, GPT, or Gemini mid-run and uses the response to decide what happens next. Without it, automation can only follow hardcoded rules. With it, automation can make a judgment call.
+
+That distinction matters more than it sounds. A rule can check 'does this field contain the word urgent.' An LLM step can read a rambling customer message and correctly conclude the person is angry, in a hurry, and asking for a refund, then route accordingly. That's a different category of automation.
+
+---
+
+## What an LLM Node Actually Does
+
+Every LLM node in n8n, Zapier, or Make follows the same shape: take some text from earlier in the workflow, send it to an LLM API with a prompt, get a response back, and pass that response to the next step.
+
+The prompt inside the node needs to do three things well. **State the exact task**, not 'analyze this,' but 'classify this message into exactly one of these three categories.' **Show the input clearly**, usually by referencing the field from the trigger step (the form response, the email body, the Slack message). **Specify the output format**, because the next node in your workflow needs to parse whatever comes back.
+
+<Callout type="info">
+That last point is the difference between a workflow that works and one that breaks randomly. As of late 2025 and into 2026, OpenAI, Anthropic, and Google all support native structured output modes that constrain the model to return valid JSON matching a schema you define, guaranteeing the field names and types your next node expects. Ask for `{"category": "billing" | "technical" | "general", "urgency": 1-3}` and you get exactly that, not a paragraph you have to regex apart.
+</Callout>
+
+**Write the prompt like you're training a new hire on their first day**, specific enough that two different runs of the same input produce the same classification. Vague prompts produce vague, inconsistent output, exactly the failure mode that makes teams distrust automation.
+
+---
+
+## Cost and Latency: The Trade-off Nobody Mentions
+
+Every LLM node call costs money and takes time, and that changes how you design a workflow compared to a pure data-moving Zap.
+
+A plain automation step (create a CRM contact, post to Slack) runs in under a second and costs nothing beyond your platform's task fee. An LLM step adds an API call that typically takes 1-4 seconds and costs a fraction of a cent to a few cents depending on the model and prompt length, small per run, but it adds up at high volume and it adds latency your trigger-to-action chain didn't have before.
+
+Two practical decisions follow from that. **Keep the prompt short.** Token count drives both cost and response time, so send only the fields the model actually needs, not the entire form payload. **Reserve LLM steps for the parts of a workflow that genuinely need judgment**, and let hardcoded filters handle anything a simple rule can already catch (empty fields, obvious spam, exact keyword matches).
+
+<Callout type="warning">
+Don't put an LLM step in front of every single automation by default. A workflow that calls an LLM to check whether a field is blank is paying latency and cost for something a one-line filter already does for free. Reserve the AI step for decisions a rule genuinely cannot make.
+</Callout>
+
+---
+
+## Three Worked Examples
+
+Each of these takes a plain data-moving workflow and adds exactly one LLM node that makes it meaningfully smarter.
+
+**1. Classify an inbound reply by intent, not keywords.** Trigger: a prospect replies to an outbound email. A hardcoded rule can catch 'unsubscribe' in the text, but it can't tell 'not right now, check back in Q2' from 'absolutely not interested, stop emailing me,' both of which read as 'no' to a keyword filter. The LLM node reads the full reply and returns a structured classification (`interested`, `not-now`, `hard-no`, `wrong-person`), and the workflow branches: `interested` pings sales on Slack immediately, `not-now` schedules a follow-up task for 90 days out, `hard-no` unsubscribes them, `wrong-person` asks for a referral.
+
+**2. Summarize a long-form submission before it hits Slack.** Trigger: someone fills out a 'tell us about your project' field on a contact form, and half of submissions run 300+ words. Posting the raw text into Slack means nobody reads it before the lead goes cold. The LLM node condenses the submission into two sentences plus a recommended next step, and that summary, not the wall of text, is what lands in the sales channel.
+
+**3. Draft a personalized follow-up inside the workflow, then hold it for review.** Trigger: a demo request comes in with company name and a 'what are you hoping to solve' field. The LLM node drafts a short, specific reply referencing what they wrote, not a generic template, and the workflow posts the draft to a Slack approval channel instead of sending it automatically. A rep reads it, clicks approve, and the workflow sends it. The AI does the writing; a human still owns the send button.
+
+<Callout type="tip">
+Notice the pattern across all three: the LLM node makes a judgment or produces a draft, and a downstream node (a branch, a Slack post, an approval step) acts on that output. The AI never publishes or routes anything by itself, the workflow's existing logic still owns the action.
+</Callout>
+
+---
+
+## Building This Without Breaking Things
+
+Adding an AI step to a workflow you already trust is safer than building an AI-heavy workflow from scratch. Follow this order.
+
+- **Start with a workflow that already runs reliably** without AI, then add one LLM node to it, don't design a five-step AI pipeline on day one.
+- **Log every classification the model returns**, for the first two weeks, next to the human's actual judgment on the same case, so you can measure agreement rate before trusting it unsupervised.
+- **Keep a human approval step on anything that sends, publishes, or routes to a person outside your team**, at least until you've verified accuracy on 50+ real runs.
+- **Fix a bad prompt, don't patch around it downstream.** If the model keeps misclassifying one edge case, that's a signal to sharpen the prompt's instructions, not to add a workaround filter after it.
+
+The workflow platform is still doing the boring, reliable work it always did, triggering, branching, connecting apps. The LLM node is one node in that chain, doing the one thing the platform's own logic can't: reading messy human text and making a call on it.
+
+---
+
+<ResourceList resources={[
+  { title: "Best Tools for Structured Output and JSON Mode (2026)", url: "https://www.promptquorum.com/prompt-engineering/best-tools-structured-output-json", type: "article", free: true, note: "Covers native structured-output support across OpenAI, Anthropic, and Google models" },
+  { title: "LLM Structured Outputs: Schema Validation for Real Pipelines (2026)", url: "https://collinwilkins.com/articles/structured-output", type: "article", free: true },
+  { title: "n8n, AI Nodes and LangChain Integration (Official Docs)", url: "https://docs.n8n.io/advanced-ai/langchain/overview/", type: "docs", free: true },
+  { title: "Zapier AI Actions, Official Docs", url: "https://zapier.com/blog/zapier-ai-actions/", type: "docs", free: true },
+  { title: "n8n, Fair-Code Workflow Automation", url: "https://n8n.io/", type: "tool", free: true, note: "Free self-hosted; paid cloud plans from $24/month" },
+  { title: "Zapier, No-Code Automation for 7,000+ Apps", url: "https://zapier.com/", type: "tool", free: true, note: "Free tier available; paid from $19.99/month" },
+  { title: "Make.com, Visual Automation Platform", url: "https://www.make.com/", type: "tool", free: true, note: "Free tier available; paid from $10.59/month" },
+  { title: "n8n and Make: Advanced Marketing Automation Beyond Zapier", url: "/learn/tools/n8n-make-marketing-automation", type: "article", free: true, note: "Platform comparison and pricing, covered in depth in this course" },
+  { title: "WsCube Tech, No-Code Marketing Automation (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, No-Code Marketing Automation", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, No-Code Marketing Automation", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

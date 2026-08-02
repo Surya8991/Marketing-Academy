@@ -202,6 +202,7 @@ export const CATEGORIES: Category[] = [
       { slug: "localization-for-growth", title: "Localization for Growth: Expanding Into New Markets", level: "Advanced", summary: "How growth teams pick which markets to enter, what actually needs localizing beyond language, and why weak localization has sunk expansions that looked unstoppable on paper." },
       { slug: "net-revenue-retention", title: "Net Revenue Retention (NRR): The Metric That Decides If Growth Compounds", level: "Intermediate", summary: "The dollar-based retention metric investors watch closest, current 2026 benchmarks, and the specific marketing levers that move it." },
       { slug: "churn-prediction-early-warning", title: "Churn Prediction and Early-Warning Signals", level: "Advanced", summary: "How growth teams spot an at-risk account weeks before it churns, and turn that signal into a save campaign." },
+      { slug: "building-in-public", title: "Building in Public as a Growth Tactic", level: "Beginner", summary: "Sharing real MRR, mistakes, and roadmap decisions in public: what to share, what to keep private, and a cadence that avoids burnout and copycats." },
     ],
   },
   {
@@ -639,6 +640,12 @@ export const CATEGORIES: Category[] = [
       { slug: "prompt-engineering-marketers", title: "Prompt Engineering for Marketers", level: "Intermediate", summary: "The prompting patterns that make AI output actually usable." },
       { slug: "ai-voice-content", title: "AI Voice & Audio Content", level: "Intermediate", summary: "ElevenLabs, Descript, AI dubbing: voice content without a microphone." },
       { slug: "agentic-marketing-workflows", title: "Agentic AI: Autonomous Marketing Workflows", level: "Intermediate", summary: "AI agents that run campaigns end-to-end: from social scheduling to SEO pipelines to ad creative loops." },
+      { slug: "no-code-marketing-automation", title: "No-Code Marketing Automation: n8n, Zapier & Make", level: "Intermediate", summary: "How to wire an LLM node into a no-code workflow so automation can classify, summarize, and draft, not just move data." },
+      { slug: "ai-crm-automation", title: "AI + CRM Automation", level: "Intermediate", summary: "How AI layers onto HubSpot, Salesforce, and Pipedrive to score leads, draft follow-ups, flag churn, and route replies automatically." },
+      { slug: "automating-marketing-reports", title: "Automating Marketing Reports with AI", level: "Intermediate", summary: "Stop copying numbers into slides. Build a pipeline that pulls, summarizes, and delivers your report while you sleep." },
+      { slug: "automating-content-pipelines", title: "Automating Your Content Pipeline with AI", level: "Intermediate", summary: "Chain transcription, an LLM, and a scheduling tool so one podcast or blog post automatically becomes a dozen distributed formats." },
+      { slug: "choosing-marketing-automation-stack", title: "Choosing What to Automate First", level: "Beginner", summary: "A prioritization framework for deciding which manual marketing tasks to automate first, once you already have tools like n8n, Zapier, Make, or HubSpot workflows available." },
+      { slug: "ai-chatbots-marketing-strategy", title: "AI Chatbots for Marketing: Strategy Beyond the Tool", level: "Intermediate", summary: "How to decide when a chatbot helps or hurts conversion, design a qualification flow that does not feel like a form in disguise, and measure real ROI instead of vanity chat volume." },
       { slug: "ai-personalization", title: "AI Personalization at Scale", level: "Advanced", summary: "Dynamic content, product recommendations, 1:1 messaging." },
       { slug: "ai-agents-marketing", title: "AI Agents for Marketing", level: "Advanced", summary: "Autonomous agents that research, draft, schedule, and report." },
       { slug: "ai-ethics-brand-safety", title: "AI Ethics & Brand Safety", level: "Advanced", summary: "Hallucinations, copyright, disclosure: the guardrails you need." },
@@ -696,6 +703,7 @@ export const CATEGORIES: Category[] = [
     { slug: "occams-razor-marketing", title: "Occam's Razor: The Simplest Explanation Wins", level: "Beginner", summary: "Why the boring explanation for a campaign's performance is usually the correct one, and how marketers waste weeks building elaborate theories instead of checking the obvious cause first." },
     { slug: "red-queen-effect-marketing", title: "The Red Queen Effect in Marketing", level: "Intermediate", summary: "In evolutionary biology, species must keep adapting just to stay in place, and paid ads and SEO run on the exact same treadmill." },
     { slug: "survivorship-bias-marketing", title: "Survivorship Bias: The Silent Failures Behind Every Case Study", level: "Intermediate", summary: "Why viral case studies and 'best practices' mislead marketers, because you only ever hear from the campaigns that worked, never the thousand that used the same tactic and quietly died." },
+    { slug: "marketing-economics-elasticity-game-theory", title: "Marketing Economics: Elasticity, Substitutes, and Game Theory", level: "Intermediate", summary: "Why some products can raise prices freely and others can't, how competitor substitutes cap your pricing power, and why price wars are a prisoner's dilemma that destroys value for everyone." },
     ],
   },
   {

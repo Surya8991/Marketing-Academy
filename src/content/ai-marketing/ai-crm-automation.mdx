@@ -1,0 +1,94 @@
+export const lessonMeta = {
+  title: "AI + CRM Automation",
+  level: "Intermediate",
+  summary: "How AI layers onto HubSpot, Salesforce, and Pipedrive to score leads, draft follow-ups, flag churn, and route replies automatically.",
+};
+
+Your CRM used to be a filing cabinet. You typed things in, and it stored them.
+
+That model is over. HubSpot's Breeze, Salesforce's Einstein and Agentforce, and Pipedrive's AI features now read every field, call transcript, and email thread and act on what they find. 87% of sales organizations already use some form of AI for prospecting, scoring, or drafting outbound, according to a 2026 industry survey ([StealthAgents](https://stealthagents.com/research/ai-sales-tools-adoption-statistics-2026)). The CRM is no longer where data goes to rest, it is where decisions get made.
+
+This lesson is about the marketing side of that shift: what to automate, in what order, and how to set it up without wrecking data quality.
+
+## Why this matters now
+
+Salesforce reports that Einstein users see a 25% increase in sales productivity and a 30% reduction in customer churn ([Cirrus Insight](https://www.cirrusinsight.com/blog/ai-in-sales)). HubSpot's own case data shows one agency drove a 40% increase in qualified leads and a 25% shorter sales cycle after switching on AI-powered lead qualification ([Articsledge](https://www.articsledge.com/post/salesforce-einstein-vs-hubspot-ai)).
+
+The catch: adoption and actual usage are two different numbers. Only 19% of reps use the AI features already sitting inside their sales tools ([StealthAgents](https://stealthagents.com/research/ai-sales-tools-adoption-statistics-2026)). Turning a feature on is not the same as building a workflow around it.
+
+That gap is your opening. A marketer who wires up two or three AI-CRM automations well will outperform a team that "has AI" but never configured it.
+
+## The five layers of AI-on-CRM
+
+Think of AI-in-CRM as five separate jobs, not one feature. Each solves a different bottleneck.
+
+- **Lead scoring and enrichment.** The AI reads firmographic data, engagement history, and intent signals, then ranks leads and fills in missing fields (company size, industry, tech stack) automatically.
+- **Follow-up drafting.** The AI writes a first-pass reply to an inbound question or a stalled deal, using CRM context (past emails, deal stage, product interest) so it's not generic.
+- **Predictive churn and upsell flags.** The AI watches usage drop-offs, support tickets, or engagement decay and surfaces a risk score on the account record before a human notices.
+- **Call and meeting summarization.** The AI listens to a Zoom or Gong recording and writes structured notes directly into CRM fields, next steps, objections raised, budget mentioned.
+- **Intent-based workflow triggers.** The AI classifies what a lead's reply actually means ("send pricing," "not now," "wrong contact") and routes the record accordingly, no human triage needed.
+
+Each layer removes one manual step. Stack two or three together and you get a pipeline that mostly runs itself.
+
+## Worked example 1: lead-scoring-to-routing pipeline
+
+Say you run marketing for a B2B SaaS company using HubSpot. Here's a concrete setup:
+
+1. A lead fills out a demo request form.
+2. Breeze AI enriches the record with company size, industry, and tech stack pulled from public data, no manual research needed.
+3. A predictive scoring model (trained on your closed-won deals) assigns a 0-100 fit score based on firmographic match and on-site behavior.
+4. A workflow rule checks the score: 80+ routes to an AE's calendar link instantly, 40-79 enters a nurture sequence, under 40 gets a low-touch email track.
+5. Marketing ops reviews the scoring model's false positives monthly and retrains it.
+
+The 40% qualified-lead lift cited above came from exactly this kind of setup ([Articsledge](https://www.articsledge.com/post/salesforce-einstein-vs-hubspot-ai)). The AI does the triage, humans handle the conversation.
+
+## Worked example 2: call-summary-to-nurture trigger
+
+Now picture a Salesforce shop selling mid-market deals with long sales cycles.
+
+- A rep finishes a discovery call recorded via Gong or Salesforce's native call recording.
+- Einstein (or a connected tool like Gong AI) auto-summarizes the call into Salesforce fields, pain points, budget signals, competitor mentions, next steps.
+- A flow checks the "competitor mentioned" field; if populated, it auto-attaches a battlecard to the opportunity and pings marketing to send a comparison one-pager.
+- If the summary shows "no budget until Q3," the AI reclassifies the opportunity stage and enrolls the contact in a long-cycle nurture track instead of a sales-heavy one.
+
+Nobody typed those notes. Nobody manually decided which nurture track to use. That is the point, the CRM makes the routing call from the transcript alone.
+
+## Intent classification: the trigger most teams skip
+
+Here's the automation with the highest leverage and the lowest adoption: classifying what a lead's reply actually means.
+
+When a prospect replies "maybe next quarter" to a follow-up, most CRMs just log it as a reply. AI intent classifiers instead tag it: not-now, needs-approval, wrong-contact, ready-to-buy, or unsubscribe-adjacent. Pipedrive and HubSpot both now offer this as a workflow trigger, not just a reporting tag.
+
+Set the trigger so "ready-to-buy" replies alert a rep within minutes, and "not-now" replies auto-schedule a check-in for the date mentioned. That single trigger closes the gap between a lead going cold and someone actually noticing.
+
+## Guardrails before you turn this on
+
+AI-drafted follow-ups and auto-routing can misfire if the underlying CRM data is messy. A few rules keep this safe:
+
+- Always have a human review AI-drafted emails before send, at least for the first month of a new workflow.
+- Audit your scoring model's inputs quarterly, stale firmographic data quietly degrades scoring accuracy.
+- Log every auto-routed record with the reason code the AI assigned, so you can debug misroutes later.
+- Never let churn-risk flags auto-trigger cancellation offers without a human check, false positives cost you margin.
+
+Get these guardrails in place first, then let the automation run. Companies using generative AI inside their CRM are 83% more likely to exceed sales goals ([Wave Connect](https://wavecnct.com/blogs/crm-statistics)), but that number assumes the AI is trusted with clean data and sane rules, not left unsupervised on a messy pipeline.
+
+## Where to start this week
+
+Don't try to build all five layers at once. Pick the one bottleneck costing your team the most hours right now, lead triage, follow-up drafting, or call notes, and automate just that.
+
+Once it's running reliably for a month, layer in the next one. The 65% of businesses already using generative AI in their CRM ([Wave Connect](https://wavecnct.com/blogs/crm-statistics)) got there one workflow at a time, not in a single sprint.
+
+<Callout type="tip">
+Start with call/meeting summarization if your team hates writing notes. It has the fastest payoff and the lowest risk, since it only affects internal fields, not what prospects receive.
+</Callout>
+
+<ResourceList resources={[
+  { title: "CRM Statistics 2026: Market, Adoption and ROI Data", url: "https://www.digitalapplied.com/blog/crm-statistics-2026-market-adoption-roi-data-reference", type: "article", free: true },
+  { title: "AI Sales Tools Adoption Statistics 2026", url: "https://stealthagents.com/research/ai-sales-tools-adoption-statistics-2026", type: "article", free: true },
+  { title: "Salesforce Einstein vs HubSpot AI, 2025 Comparison", url: "https://www.articsledge.com/post/salesforce-einstein-vs-hubspot-ai", type: "article", free: true },
+  { title: "HubSpot Breeze AI Overview", url: "https://www.hubspot.com/products/artificial-intelligence", type: "docs", free: true },
+  { title: "Salesforce Agentforce Docs", url: "https://help.salesforce.com/s/articleView?id=ai.agentforce_overview.htm", type: "docs", free: false },
+  { title: "WsCube Tech, AI + CRM Automation (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, AI + CRM Automation", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, AI + CRM Automation", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

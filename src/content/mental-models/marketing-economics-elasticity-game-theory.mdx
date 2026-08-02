@@ -1,0 +1,85 @@
+export const lessonMeta = {
+  title: "Marketing Economics: Elasticity, Substitutes, and Game Theory",
+  level: "Intermediate",
+  summary: "Why some products raise prices freely while others can't, and why price wars are a trap nobody wins.",
+};
+
+# Marketing Economics: Elasticity, Substitutes, and Game Theory
+
+Behavioral economics explains why people buy irrationally. Classical economics explains something marketers need just as badly: why a 10% price hike barely dents demand for one product and destroys demand for another. Three tools from Econ 101, price elasticity, substitute goods, and game theory, quietly decide how much pricing power you actually have.
+
+## Price Elasticity, the Number That Predicts Your Revenue
+
+Price elasticity of demand measures how much quantity sold changes when price changes. The formula is simple: % change in quantity demanded divided by % change in price.
+
+If a 10% price increase causes a 20% drop in units sold, elasticity is -2.0, demand is **elastic**. If that same 10% increase only drops units by 2%, elasticity is -0.2, demand is **inelastic**. Anything below -1 in magnitude is elastic (price-sensitive), anything above -1 is inelastic (price-tolerant).
+
+**Worked example:** A snack brand sells 10,000 units a month at $5. They raise the price to $5.50 (a 10% increase) and volume drops to 9,000 units (a 10% decrease). Elasticity = -10% / 10% = -1.0, unit elastic, revenue stays flat at $49,500 either way. FasterCapital documents a real version of this: a boot brand that cut price and increase volume enough to lift total revenue from $150,000 to $162,000, an 8% gain, because their product sat in the elastic range where lower price more than paid for itself in volume.
+
+<Callout type="tip">
+Elasticity is not a personality trait of the product, it is a snapshot of the market at that price point. The same product can be elastic at $50 and inelastic at $15.
+</Callout>
+
+## Why Some Products Get to Ignore This
+
+Apple's iPhone is the textbook inelastic case. Prices climb every year and unit demand barely moves, because loyal buyers see no acceptable substitute and the switching cost (losing iMessage, AirDrop, the ecosystem) is high.
+
+Compare that to a commodity phone charger sold on Amazon. Raise the price 10% and buyers switch to an identical one from another seller in one click. Three things drive a product toward the inelastic, pricing-power end of the spectrum:
+
+- **Few or weak substitutes** ,  nothing else does the job as well.
+- **High switching costs** ,  contracts, learning curves, data lock-in.
+- **Brand loyalty or necessity** ,  insulin buyers do not comparison-shop mid-emergency.
+- **Small share of budget** ,  nobody haggles over a $3 coffee the way they haggle over a $30,000 car.
+
+The lesson lands here: pricing power is not something you declare, it is something you earn by reducing your buyer's substitute options. That is the bridge to the next idea.
+
+## Substitute Goods: The Real Ceiling on Your Price
+
+A substitute good is anything a customer could buy instead of yours to satisfy the same need. Coke and Pepsi are substitutes. So are a gym membership and a home Peloton. So, less obviously, are your SaaS tool and a shared spreadsheet someone's ops team cobbles together for free.
+
+The more substitutes buyers can see, and the closer those substitutes are in quality, the less you can charge without losing them. This is why competitive positioning is really an economics exercise in disguise: every differentiation tactic, better UX, a proprietary dataset, a network effect, exists to make your product feel like it has *fewer* substitutes than it actually does.
+
+<Mermaid chart={`graph LR; A[Many Close Substitutes] --> B[Low Pricing Power]; C[Few or Weak Substitutes] --> D[High Pricing Power]; E[Differentiation Strategy] --> C; F[Commoditization] --> A`} />
+
+Airlines run the substitute logic in real time: a nonstop flight has few substitutes for a business traveler on a deadline, so it is priced at a premium, while a flight with three viable connecting alternatives gets discounted to compete. Same seat, same fuel cost, different substitute landscape, different price.
+
+## Game Theory: Why Price Wars Burn Down the Village
+
+Once you have two or more sellers watching each other's prices, you are no longer just pricing against elasticity, you are playing a game. The most famous structure is the **prisoner's dilemma**: each competitor's individually rational move (cut price to win share) produces a collectively worse outcome (everyone earns less) than if both had held price.
+
+The math is blunt. If both firms hold price, both keep healthy margins. If one cuts and the other holds, the cutter wins share. But once both cut, both lose margin and neither gains relative share, the exact trap that makes price wars self-defeating.
+
+<Callout type="example">
+China's EV price war is the live 2024-2025 case study. BYD's 2025 net profit fell 19% year over year to roughly 32.6 billion yuan, and gross margin slid from about 22% in 2024 toward 20%, with some models down to 14-16% margin, even while BYD's unit sales grew nearly 28% and it overtook Tesla in EV volume. Tesla's own 2025 automotive revenue fell 11%, its first annual revenue decline ever, with profit dropping to its lowest level in years. Industry-wide, China's auto sector profit margin hit 4.4% in the first eleven months of 2025, about $2,000 per vehicle, the second-lowest on record. Everyone sold more. Almost everyone earned less.
+</Callout>
+
+An older but equally documented case: the Dutch grocery price war that began in 2003 cost the industry an estimated €900 million in lost value in a single year and over 30,000 jobs, and even the retailer who started it gained share while losing profit. No side declared victory.
+
+### When to Compete on Price vs. Differentiate
+
+Game theory also tells you when NOT to fight. Two signals matter most:
+
+- **Commit visibly if you truly have a durable cost advantage.** A public, hard-to-reverse move (long-term supplier contracts, automated fulfillment) signals to rivals that matching your price will hurt them more than you.
+- **Differentiate instead of matching if your advantage is fragile.** If your only edge is temporary funding, a price war just burns your runway faster than theirs.
+- **Watch for tacit signaling.** Publishing prices early, matching-price guarantees, or announcing capacity expansions are moves rivals read as "don't start something you can't finish."
+
+The way out of the prisoner's dilemma is rarely to fight harder, it is to change the game: differentiate the product so buyers stop comparing on price at all.
+
+## Key Takeaways
+
+- Elasticity tells you whether a price increase grows or shrinks revenue, run the % change math before changing price, don't guess.
+- Substitutes set your real price ceiling, differentiation works by making your product feel substitute-free.
+- Price wars are a prisoner's dilemma, individually rational cuts produce collectively worse outcomes for every player, as BYD, Tesla, and the whole Chinese auto sector are living through right now.
+- Compete on price only when you have a durable, signalable cost advantage, otherwise differentiate and exit the game entirely.
+
+<ResourceList resources={[
+  { title: "Price Elasticity: How It Affects Market Demand (FasterCapital)", url: "https://fastercapital.com/content/Price-Elasticity--How-it-Affects-Market-Demand.html", type: "article", free: true },
+  { title: "What Is Elasticity of Demand? Definition, Types, Examples (NetSuite)", url: "https://www.netsuite.com/portal/resource/articles/business-strategy/elasticity-of-demand.shtml", type: "article", free: true },
+  { title: "Rethinking Price Wars (Simon-Kucher)", url: "https://www.simon-kucher.com/en/insights/rethinking-price-wars-disruptive-forces-are-reshaping-how-they-start-get-fought-and-get", type: "article", free: true },
+  { title: "BYD Profit Falls Amid EV Price War, Tesla Challenge (Rest of World)", url: "https://restofworld.org/2026/byd-profits-drop/", type: "article", free: true },
+  { title: "Price Wars in Oligopoly, Examples and Evaluation (tutor2u)", url: "https://www.tutor2u.net/economics/reference/price-wars-in-oligopoly-examples-and-evaluation", type: "article", free: true },
+
+  { title: "WsCube Tech, Marketing Economics: Elasticity, Substitutes, and Game Theory (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Marketing Economics: Elasticity, Substitutes, and Game Theory", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Marketing Economics: Elasticity, Substitutes, and Game Theory", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+]} />

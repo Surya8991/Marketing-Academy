@@ -16220,6 +16220,52 @@ export const QUIZZES: Record<string, Quiz[]> = {
       explanation: "If more than 30% of agent outputs need significant human edits, the system prompt lacks sufficient guidance and must be improved before increasing the level of automation.",
     },
   ],
+  "ai-marketing/no-code-marketing-automation": [
+    {
+      question: "What is the key difference between a hardcoded filter and an LLM node inside a no-code workflow?",
+      options: [
+        "A filter can only run on Zapier, while an LLM node only runs on n8n",
+        "A filter checks fixed conditions like keyword matches, while an LLM node can make a judgment call on messy, unstructured text",
+        "There is no real difference, they both do the same thing",
+        "An LLM node is always faster and cheaper than a hardcoded filter",
+      ],
+      correct: 1,
+      explanation: "A rule can check whether a field contains a specific word, but it can't distinguish a polite 'not right now' from a hard 'stop emailing me.' An LLM node reads the full text and makes a judgment call a fixed rule cannot.",
+    },
+    {
+      question: "Why does the lesson recommend using a structured output or JSON mode when prompting an LLM node inside a workflow?",
+      options: [
+        "It makes the LLM call completely free",
+        "It guarantees the response matches a schema (field names and types) that the next node in the workflow can parse reliably",
+        "It is required by law for AI-generated content",
+        "It removes the need for a human approval step",
+      ],
+      correct: 1,
+      explanation: "Structured output modes constrain the model to return valid JSON matching a defined schema, so the next node gets exactly the fields it expects instead of a paragraph that needs to be parsed apart.",
+    },
+    {
+      question: "According to the lesson, when should you avoid adding an LLM node to a workflow step?",
+      options: [
+        "Whenever the workflow involves a CRM",
+        "When a simple hardcoded rule or filter can already catch the case, such as an empty field or an exact keyword match",
+        "Never, every workflow step should include an LLM node",
+        "Only when the workflow runs on n8n instead of Zapier",
+      ],
+      correct: 1,
+      explanation: "The lesson warns against putting an LLM step in front of every automation by default. Reserve AI steps for judgment calls a rule genuinely cannot make, and let simple filters handle what they already catch for free.",
+    },
+    {
+      question: "In the 'draft a personalized follow-up' example, what role does the human still play after the LLM node writes the reply?",
+      options: [
+        "None, the workflow sends the email automatically the moment the LLM finishes drafting it",
+        "The human rewrites the entire draft from scratch every time",
+        "The draft posts to a Slack approval channel, and a rep must click approve before the workflow sends it",
+        "The human only reviews the email after it has already been sent",
+      ],
+      correct: 2,
+      explanation: "The AI drafts the reply, but the workflow posts it to an approval channel instead of sending automatically. A human still owns the send button, the AI never publishes or routes anything by itself.",
+    },
+  ],
   "ai-marketing/ai-competitive-intelligence": [
     {
       question: "Which tool is specifically highlighted for scoring battlecard quality and flagging when a card goes stale, a feature its main competitor lacks?",
@@ -24474,6 +24520,52 @@ export const QUIZZES: Record<string, Quiz[]> = {
       explanation: "The lesson warns that a prediction without a defined save-motion workflow wastes the entire investment; the risk score has to route to a matching action (human call, automated nudge, onboarding walkthrough) or it's just a dashboard nobody acts on.",
     },
   ],
+  "growth/building-in-public": [
+    {
+      question: "How does the lesson distinguish 'building in public' from a general founder brand?",
+      options: [
+        "They are identical, just different names for the same activity",
+        "A founder brand is about the person broadly; building in public is the specific tactic of sharing real, checkable metrics and in-progress decisions on a schedule",
+        "Building in public only applies to B2C companies while founder brand only applies to B2B",
+        "Founder brand requires a large team, building in public only works solo",
+      ],
+      correct: 1,
+      explanation: "The lesson opens with this exact distinction: a founder brand is a magazine profile written about you, while building in public is a live scoreboard of real numbers and decisions posted on a schedule.",
+    },
+    {
+      question: "Per the lesson's rule of thumb, what should stay private even for a founder committed to transparency?",
+      options: [
+        "All revenue numbers, since money should never be discussed publicly",
+        "Anything a competitor reading the post tomorrow could copy directly, like the exact growth channel or integration your edge depends on",
+        "Product roadmap decisions, since those must always be kept secret",
+        "Milestones and misses, since only wins should ever be shared",
+      ],
+      correct: 1,
+      explanation: "The lesson's rule of thumb: if a competitor reading the post tomorrow would know exactly what to copy, do not post it yet. Exact ad spend by channel and unique growth tricks fall into this private category.",
+    },
+    {
+      question: "What engagement pattern does the lesson cite for posts showing real vulnerability (failures, pivots, reversed decisions)?",
+      options: [
+        "They get 2 to 3x more engagement than polished, branded announcement posts",
+        "They get fewer views because audiences prefer only good news",
+        "Vulnerability posts perform identically to feature-announcement posts",
+        "Engagement on vulnerability posts cannot be measured",
+      ],
+      correct: 0,
+      explanation: "The lesson cites SeedScope's 2025 research: posts with visible vulnerability get 2 to 3x more engagement than polished announcement posts, and business-narrative posts see roughly 2.4x higher engagement than feature announcements.",
+    },
+    {
+      question: "What cadence mistake does the lesson warn is most common, and what does it recommend instead?",
+      options: [
+        "Posting too rarely is always best; founders should never post more than once a quarter",
+        "Switching cadence constantly (daily, then silent for a month, then a burst) breaks trust; the lesson recommends picking one cadence and holding it for at least two quarters",
+        "Cadence does not matter as long as the numbers are accurate",
+        "Daily MRR screenshots are still the recommended default in 2026",
+      ],
+      correct: 1,
+      explanation: "The lesson flags inconsistent posting rhythm as a common mistake and recommends choosing weekly, monthly, or milestone-based cadence and sticking with it for at least two quarters, noting daily MRR screenshots are actually in decline by 2026.",
+    },
+  ],
   "mental-models/availability-heuristic-marketing": [
     { question: "Who coined the term 'availability heuristic'?", options: ["B.F. Skinner and Carl Rogers", "Amos Tversky and Daniel Kahneman", "Robert Cialdini", "Benjamin Graham"], correct: 1, explanation: "Psychologists Amos Tversky and Daniel Kahneman named the availability heuristic in the 1970s: people judge likelihood by how easily an example comes to mind." },
     { question: "According to the lesson, what makes a data point 'available' and therefore over-weighted?", options: ["It is statistically representative of the whole dataset", "It is vivid, recent, and emotional", "It comes from a trusted analyst", "It appears in a quarterly report"], correct: 1, explanation: "Vivid, recent, and emotional examples come to mind fastest, so they get weighted as if common, even when rare." },
@@ -24521,6 +24613,12 @@ export const QUIZZES: Record<string, Quiz[]> = {
     { question: "What was Wald's actual recommendation about where to add armor to the aircraft?", options: ["Armor the spots with the most visible bullet holes", "Armor the spots with no bullet holes, since hits there were likely fatal and those planes never made it back", "Armor the entire aircraft equally", "Remove armor entirely to increase speed"], correct: 1, explanation: "Wald pointed out that returning planes' bullet holes showed only where a plane could be hit and still survive; the planes hit in the engine or cockpit never made it back to be examined, so those unmarked spots needed the armor." },
     { question: "According to the lesson, why do case study libraries like HubSpot's structurally mislead marketers?", options: ["They contain fabricated data", "They only showcase companies that succeeded, not the base rate of everyone who tried the same tactic and failed", "They are updated too infrequently", "They focus only on enterprise companies"], correct: 1, explanation: "Case studies are built to showcase wins, not a random sample of outcomes, so they can't show how many companies tried the same tactic and got nothing or made things worse." },
     { question: "What question does the lesson say you should ask before copying any viral or case-study tactic?", options: ["How much did it cost to produce?", "What's the denominator, how many others tried this and never got a write-up?", "Is the company publicly traded?", "Did it win an industry award?"], correct: 1, explanation: "The fix is asking what the denominator is, how many people tried the tactic and did not get written up, before adopting it as if it were a reliable playbook." },
+  ],
+  "mental-models/marketing-economics-elasticity-game-theory": [
+    { question: "In the lesson's worked example, a snack brand raises price 10% and volume drops 10%. What does this tell you?", options: ["Demand is highly elastic and revenue will fall sharply", "Elasticity is -1.0 (unit elastic), so total revenue stays roughly flat", "The product has no substitutes", "The price increase was a mistake regardless of the numbers"], correct: 1, explanation: "% change in quantity divided by % change in price gives -10%/10% = -1.0, unit elastic, meaning the revenue gained from the higher price is offset by the revenue lost from fewer units, leaving total revenue about the same." },
+    { question: "According to the lesson, what mainly determines whether a product sits toward the inelastic (pricing-power) end of the spectrum?", options: ["How new the product is", "Few or weak substitutes, high switching costs, and brand loyalty or necessity", "How much the company spends on advertising", "Whether the product is sold online or in stores"], correct: 1, explanation: "The lesson lists few/weak substitutes, high switching costs, brand loyalty or necessity, and small share of budget as the main drivers of inelastic, pricing-power demand, using the iPhone as the textbook example." },
+    { question: "Per the lesson, what is a substitute good's real effect on pricing?", options: ["Substitutes have no effect on price if the product is well marketed", "The more close substitutes buyers can see, the lower the price ceiling; differentiation works by making a product feel substitute-free", "Substitutes only matter in B2B markets", "Substitutes always force prices upward"], correct: 1, explanation: "The lesson frames differentiation tactics (better UX, proprietary data, network effects) as existing specifically to make a product feel like it has fewer substitutes than it actually does, raising the price ceiling." },
+    { question: "What does the China EV price war example (BYD and Tesla, 2024-2025) illustrate about game theory in pricing?", options: ["Cutting prices always increases profit for the price-cutter", "It is a prisoner's dilemma: individually rational price cuts across competitors produced higher unit sales but falling profit margins industry-wide", "EV manufacturers were unaffected by price competition", "Only Tesla's margins were impacted, not BYD's"], correct: 1, explanation: "BYD's 2025 net profit fell 19% and gross margin slid toward 20% even as unit sales grew nearly 28%, while Tesla's automotive revenue fell 11%, and industry-wide China auto profit margin hit a near-record low of 4.4%, the classic prisoner's dilemma outcome where everyone sells more but nearly everyone earns less." },
   ],
   "pr-communications/community-relations-pr": [
     { question: "What does community relations focus on, as defined in the lesson?", options: ["National trade press coverage", "The people and institutions closest to a company's physical footprint, local government, neighborhood groups, and regional press", "Investor and analyst communications", "Influencer partnerships"], correct: 1, explanation: "Community relations is PR aimed at local government, neighborhood associations, regional reporters, and residents near where a company builds or operates, distinct from national or trade PR." },
@@ -24761,5 +24859,35 @@ export const QUIZZES: Record<string, Quiz[]> = {
     { question: "What has the US Copyright Office consistently held about purely AI-generated content with no meaningful human creative input?", options: ["It is automatically copyrighted to the AI company", "It isn't eligible for copyright protection at all", "It is copyrighted to whoever wrote the prompt", "Copyright status depends solely on image resolution"], correct: 1, explanation: "The US Copyright Office has consistently held that purely AI-generated content, with no meaningful human creative input, isn't eligible for copyright protection at all, meaning it might not be protectable as your own asset." },
     { question: "What does the lesson identify as two separate risks marketers carry with AI-generated marketing assets?", options: ["Only the risk of higher production costs", "Whether you can even own copyright in the AI output, and whether the AI's training data infringed someone else's copyright exposing you as a user", "Only the risk of slower production timelines", "Whether the AI tool is popular enough"], correct: 1, explanation: "The two separate risks are: can you even own copyright in the AI output (generally no, without human creative input), and did the AI's training data infringe someone else's copyright, exposing downstream users." },
     { question: "What does the lesson recommend checking in an AI vendor's indemnification ('Copyright Shield') commitment?", options: ["Nothing, all vendor indemnification is identical", "Whether it covers your specific product tier, requires safety filters to remain on, covers broader third-party claims, and what the liability cap is", "Only whether the vendor is a well-known brand", "Whether the vendor has ever been sued before"], correct: 1, explanation: "The lesson recommends checking whether indemnification covers the specific tier you use (free tiers are often excluded), whether it requires safety filters to stay on, whether it covers broader third-party claims, and the liability cap." },
+  ],
+  "ai-marketing/ai-crm-automation": [
+    { question: "Per the 2026 industry survey cited in the lesson, what percentage of sales organizations already use some form of AI for prospecting, scoring, or drafting outbound, and what percentage of reps actually use the AI features already in their tools?", options: ["87% adoption, 19% actual usage", "50% adoption, 50% actual usage", "19% adoption, 87% actual usage", "100% adoption, 100% actual usage"], correct: 0, explanation: "The lesson cites 87% of sales organizations already using some form of AI, but only 19% of reps actually use the AI features already sitting inside their sales tools, the gap between adoption and configured usage." },
+    { question: "In the lesson's worked example 1 (lead-scoring-to-routing pipeline), what happens to a lead that scores 80 or higher?", options: ["It gets a low-touch email track", "It enters a generic nurture sequence", "It routes instantly to an AE's calendar link", "It gets deleted from the CRM"], correct: 2, explanation: "In the worked example, a fit score of 80+ routes instantly to an AE's calendar link, while 40-79 enters a nurture sequence and under 40 gets a low-touch email track." },
+    { question: "According to the lesson, what is the automation with the 'highest leverage and lowest adoption' among the five AI-CRM layers?", options: ["Call and meeting summarization", "Intent-based workflow triggers, classifying what a lead's reply actually means", "Lead scoring and enrichment", "Predictive churn and upsell flags"], correct: 1, explanation: "The lesson singles out intent classification, tagging replies like 'not-now' or 'ready-to-buy' and routing accordingly, as the automation with the highest leverage and the lowest adoption among teams." },
+    { question: "What guardrail does the lesson insist on for churn-risk flags specifically?", options: ["Auto-trigger a cancellation offer immediately when risk is detected", "Never let churn-risk flags auto-trigger cancellation offers without a human check", "Ignore churn-risk flags entirely since they are unreliable", "Only review churn-risk flags once per year"], correct: 1, explanation: "The lesson explicitly warns to never let churn-risk flags auto-trigger cancellation offers without a human check, since false positives cost margin." },
+  ],
+  "ai-marketing/automating-marketing-reports": [
+    { question: "Per Nerve Central's 2026 analysis cited in the lesson, roughly how much does a three-person marketing team waste per year on tasks automation eliminates?", options: ["$8,300", "$83,200", "$830,000", "$3,400"], correct: 1, explanation: "The lesson opens with Nerve Central's figure that a three-person marketing team wastes roughly $83,200 a year, mostly on copying data between spreadsheets and manually sending emails." },
+    { question: "What are the four stages of the automated reporting pipeline described in the lesson?", options: ["Design, build, test, launch", "API pulls, a data warehouse or sheet, an AI narrative step, and auto-delivery", "Collect, clean, visualize, archive", "Plan, draft, review, publish"], correct: 1, explanation: "The lesson describes the pipeline as four dominoes: API pulls, a data warehouse or spreadsheet landing zone, an AI narrative step, and auto-delivery to Slack or email." },
+    { question: "What does the lesson identify as the real bottleneck in marketing reporting, even with dashboards everywhere?", options: ["Pulling the data from ad platforms", "Writing the 'what changed and why' narrative, since dashboards don't tell stories on their own", "Formatting the spreadsheet correctly", "Getting API access approved by IT"], correct: 1, explanation: "The lesson states plainly that dashboards do not tell stories and data pipes do not write summaries on their own, so the AI narrative step has to be deliberately built in." },
+    { question: "In the lesson's worked example, what did the LLM's narrative say caused paid search conversions to rise 18% week over week?", options: ["A holiday sale", "The new brand-term campaign launched Thursday", "A drop in ad spend", "A competitor going out of business"], correct: 1, explanation: "The worked example's LLM-generated narrative attributed the 18% rise in paid search conversions to the new brand-term campaign launched Thursday." },
+  ],
+  "ai-marketing/automating-content-pipelines": [
+    { question: "What are the five stations of the content pipeline described in the lesson?", options: ["Plan, write, edit, publish, archive", "Trigger, transcribe, extract, draft, schedule", "Record, upload, tag, review, delete", "Brainstorm, script, film, edit, post"], correct: 1, explanation: "The lesson lays out a 5-station pipeline: trigger, transcribe, extract, draft, and schedule, each handled by a separate connected tool rather than one all-in-one app." },
+    { question: "In the worked example, how much human time was invested per podcast episode after the pipeline was running, compared to the previous manual process?", options: ["About 15 minutes, replacing a 3 to 4 hour manual repurposing session", "About 3 hours, replacing a 15 minute session", "Zero time, fully automated with no review", "About 8 hours, the same as before"], correct: 0, explanation: "The worked example states total human time invested was about 15 minutes of review per episode, replacing what was previously a 3 to 4 hour manual repurposing session." },
+    { question: "What percentage of marketers using AI content tools report ongoing struggles keeping brand voice consistent, per the lesson?", options: ["18%", "50%", "81%", "96%"], correct: 2, explanation: "The lesson cites WorkfxAI's 2026 data that 81% of marketers using AI content tools still struggle with brand voice consistency without a review step." },
+    { question: "According to the lesson's real company examples, how many social posts did HubSpot's Content Atoms Team produce from 180 pillar assets in 2024?", options: ["180 posts", "1,200 posts", "2,400 posts", "47 posts"], correct: 2, explanation: "The lesson states HubSpot's Content Atoms Team produced 2,400 social posts from 180 pillar assets in 2024, an average of 13 atoms per source piece." },
+  ],
+  "ai-marketing/choosing-marketing-automation-stack": [
+    { question: "What formula does the lesson recommend for ranking which tasks to automate first?", options: ["(Hours per week x 52) divided by estimated setup hours", "Total tasks divided by team size", "Setup hours multiplied by hours per week", "Whichever task is most annoying this week"], correct: 0, explanation: "The lesson's ranking formula is (hours per week x 52) divided by estimated setup hours, with the highest ratio automated first." },
+    { question: "Per Salesforce's 2025 State of Marketing report cited in the lesson, what percentage of manual marketing tasks could be fully automated with existing technology?", options: ["10%", "32%", "64%", "100%"], correct: 1, explanation: "The lesson cites Salesforce's finding that 32% of manual marketing tasks could be fully automated with existing technology, meaning roughly two out of three tasks genuinely shouldn't be." },
+    { question: "In the lesson's worked 90-day plan, which task did the solo marketer automate first, and why?", options: ["Cross-posting to three platforms, because it was newest", "Lead-to-CRM sync, because it had the highest ratio and lowest setup effort", "Monthly win-back emails, because they took the most time", "The ad spend report, because it was easiest to explain"], correct: 1, explanation: "She built workflows in order of score, starting with lead-to-CRM sync because it had the highest ratio and lowest setup effort, then the ad spend report, then cross-posting." },
+    { question: "What three task types does the lesson say should stay manual regardless of how high they score on the automation formula?", options: ["Repetitive, customizable, and high-volume tasks", "Brand-judgment calls, high-stakes customer communication, and processes that haven't stabilized", "Any task under 2 hours a week", "Tasks that involve a spreadsheet"], correct: 1, explanation: "The lesson warns not to automate anything requiring brand judgment, high-stakes customer communication, or a process that hasn't stabilized yet, since the formula measures time, not risk." },
+  ],
+  "ai-marketing/ai-chatbots-marketing-strategy": [
+    { question: "Per the lesson, what conversion rate does AI-powered chat achieve versus static web forms?", options: ["15-25% versus 3-5% for static forms", "50-60% versus 30-40% for static forms", "3-5% versus 15-25% for static forms", "100% versus 50% for static forms"], correct: 0, explanation: "The lesson states AI-powered chat converts visitors to leads at 15-25%, versus 3-5% for static web forms, but only when the flow is designed well." },
+    { question: "What is the lesson's practical test for whether a chatbot belongs on a given page?", options: ["Whether the page gets high traffic", "Whether it can answer the three questions a visitor is most likely to ask, in under 20 seconds, without saying 'let me connect you with someone'", "Whether the company can afford the software", "Whether competitors already use a chatbot"], correct: 1, explanation: "The lesson's practical test is whether the bot can answer the three most likely questions on that page in under 20 seconds without deflecting to a human, otherwise you are shipping frustration, not conversion." },
+    { question: "According to the lesson, what signal should trigger a chat popup, versus what should never trigger it?", options: ["Trigger on arrival at the homepage; never trigger on buying-intent behavior", "Trigger on buying-intent signals like time on the pricing page; never trigger on arrival", "Trigger randomly every 30 seconds regardless of behavior", "Trigger only on mobile devices"], correct: 1, explanation: "The lesson says to trigger chat on buying-intent signals such as time on the pricing page or return visits, never on arrival, since a visitor scrolling a blog post is browsing while one lingering on pricing is deciding." },
+    { question: "In the lesson's ROI measurement section, what pairing of metrics reveals whether a chatbot is a net gain?", options: ["Total conversations alone", "Qualified pipeline against bounce-after-chat rate", "Number of pages visited before the chat opened", "Average response time only"], correct: 1, explanation: "The lesson argues that a bot lifting bookings while also spiking bounce-after-chat is not a clear win, so booking rate must be reviewed alongside bounce-after-chat, not raw conversation count." },
   ],
 };

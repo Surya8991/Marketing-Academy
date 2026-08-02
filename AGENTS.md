@@ -389,3 +389,8 @@ The tracks quiz page (`/tracks/[slug]/quiz`) pools two sources: per-lesson quizz
 - Same `Quiz` shape as regular quizzes (question, options[], correct, explanation).
 - Currently populated: `mental-models` (10 synthesis questions on cross-model reasoning).
 - The 80% pass threshold applies to the combined pool.
+
+### Rule 33 — Check for a stray leaked "thinking" line above `export const lessonMeta`
+An LLM writing agent occasionally ships its own planning sentence as the first line of the MDX file, ABOVE the `lessonMeta` export, e.g. `Now I have real stats. Let me write the complete MDX file.` This renders as visible garbage text at the top of the live lesson page. Found and fixed in 2 files during the Session 66 audit (`fundamentals/mission-vision-values.mdx`, `psychology/sunk-cost-fallacy.mdx`).
+
+Before trusting a newly-written lesson file, check that line 1 is either blank or `export const lessonMeta = {` — nothing else. A quick sweep across the whole library: `grep -rn "^Now I have\|^Good stats\|^Let me write\|^I'll write\|^Here's the" src/content/**/*.mdx` and manually confirm any hit isn't legitimate body prose before deleting it.
