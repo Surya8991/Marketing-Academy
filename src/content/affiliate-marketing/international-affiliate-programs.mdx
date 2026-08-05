@@ -20,6 +20,12 @@ Modern payout tools help close the gap. Providers like Wise and Payoneer, along 
 Before recruiting affiliates in a new country, confirm your network or payout provider actually supports a local rail there. A "we can wire it" answer usually means slow, expensive, and one more reason for an affiliate to ghost you.
 </Callout>
 
+<Callout type="example">
+A UK-based affiliate earns $2,000 in commissions this month, paid by a traditional bank wire that converts USD to GBP at roughly a 4% spread instead of the live mid-market rate. That's about $80 quietly gone before the money even lands, plus a flat wire fee that often runs $25-45 on top.
+
+Route the same $2,000 through a modern payout platform charging a 0.5-1% spread and a $0-2 transfer fee instead, and the affiliate keeps roughly $70-100 more every single month, with no extra work on the brand's side beyond picking a better provider. Scaled across a 500-affiliate international program, that gap is the difference between a payout system affiliates trust and one they complain about in Discord.
+</Callout>
+
 ## Networks aren't the same everywhere
 
 The affiliate network that dominates in the US is not automatically strong in Europe, and vice versa. Awin, founded in Germany, is the largest affiliate network in Europe and is usually the first stop for brands expanding into the UK or EU. Its merchant list still carries a noticeably European tilt even though plenty of US and global brands run through it too.
@@ -37,9 +43,20 @@ Compliance is the harder half. FTC-style disclosure rules exist in some form acr
 - Translate creative assets, don't just swap the currency symbol
 - Confirm affiliate links route to the correct country domain or region
 - Localize disclosure language per market, not one global disclaimer
-- Check tax documentation requirements per country, they are not all W-9/W-8BEN
 
 Get the localization right and international affiliates behave exactly like domestic ones, reliable, low-maintenance revenue. Skip it, and you'll spend more time on support tickets than the extra revenue was worth.
+
+## Tax paperwork isn't one form for everyone
+
+A US-based brand paying a US affiliate collects Form W-9. That form does nothing for an affiliate outside the US, and using it there is the single most common paperwork mistake in international programs.
+
+Non-US individual affiliates need a signed Form W-8BEN on file; foreign companies and agencies need the entity version, Form W-8BEN-E. Skip either one and the default IRS withholding is a blunt 30% pulled from the affiliate's US-source earnings before they ever see the payout, no warning, no negotiation.
+
+Tax treaties between the US and roughly 67 countries can cut that 30% rate substantially, sometimes to zero, but only if the affiliate claims the treaty benefit correctly in Part II of the form. These forms also expire: a W-8BEN signed in 2025 is valid through the end of 2028, while a W-8BEN-E is only valid for three calendar years from signing.
+
+<Callout type="warning">
+An expired W-8BEN doesn't send a friendly reminder, it just quietly reverts the affiliate to full 30% withholding on their next payout. Build an expiry check into your affiliate onboarding calendar, not something you discover from a confused support ticket.
+</Callout>
 
 <ResourceList resources={[
   { title: "Multi-Currency Commissions and Payouts, Track360", url: "https://track360.io/learn/cross-border-affiliate-program-management/multi-currency-commissions-and-payouts", type: "article", free: true },

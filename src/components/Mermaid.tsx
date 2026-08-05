@@ -196,7 +196,7 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
       observer.disconnect();
       mq.removeEventListener("change", onChange);
     };
-  }, [chart]); // re-runs whenever the chart string changes (different diagram on same page)
+  }, [chart, mermaidId]); // re-runs whenever the chart string (or the stable per-instance id) changes
 
   // Fullscreen overlay: lock body scroll and handle Esc to close
   useEffect(() => {

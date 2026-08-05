@@ -32,11 +32,32 @@ When the order completes, the merchant's server sends that click ID straight bac
 
 This is why S2S has become the standard rather than a niche workaround. Industry estimates put roughly two-thirds of affiliate networks moving toward privacy-first, server-side tracking by 2025, and some implementations report double-digit gains in recorded conversion accuracy simply from switching over.
 
+<Mermaid chart={`graph LR
+A[Shopper clicks\naffiliate link] --> B[Network generates\nunique click ID]
+B --> C[Click ID passed to\nmerchant server]
+C --> D[Shopper completes\npurchase]
+D --> E[Merchant server sends\nclick ID back to network]
+E --> F[Network credits\naffiliate commission]
+`} />
+
+Notice that nothing in that chain lives inside the shopper's browser. That's the entire point: there's no cookie for an ad blocker to strip or a browser setting to expire.
+
 ## Tracking pixels still have a role
 
 A tracking pixel is a tiny, invisible 1x1 image loaded on a merchant's "thank you" page. When it loads, it fires a request back to the network confirming the conversion, similar in spirit to a cookie but triggered at the moment of purchase rather than at click.
 
 Pixels are easier to implement than full S2S but share cookies' core weakness: they still run in the browser and can be blocked. Most modern programs treat pixels as a fallback layer, not the primary system.
+
+## Common mistakes in S2S implementation
+
+Switching to S2S fixes browser-based tracking loss, but only if it's actually implemented end to end. A few gaps show up repeatedly.
+
+- **Wiring it up on desktop checkout only**, then forgetting the mobile app checkout flow, sales made inside a native app still go untracked if the postback isn't fired there too
+- **Never testing with a real end-to-end order** before rolling out to top affiliates, a single misconfigured parameter can silently drop every conversion for weeks
+- **Assuming S2S solves cross-device attribution**: it fixes browser and ad-blocker loss, not a shopper who clicks on their phone and buys later on a laptop, that's a separate problem requiring deterministic ID matching
+- **Running pixels and S2S in parallel with no priority rule**, so a single sale gets double-counted or the systems quietly disagree on which one to trust
+
+A working S2S setup is worth a real test purchase before you trust the numbers it produces. Five minutes of manual verification catches problems that would otherwise take months to notice in aggregate reporting.
 
 ## What this means for your program
 

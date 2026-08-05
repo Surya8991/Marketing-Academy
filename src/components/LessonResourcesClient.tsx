@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import { ExternalLink, Play, FileText, Globe, BookOpen } from "lucide-react";
 import type { LessonResourceData, VideoLink, TextLink } from "@/lib/lesson-resources";
 
@@ -37,10 +38,12 @@ function VideoCard({ v }: { v: VideoLink }) {
     >
       {id ? (
         <div className="shrink-0 relative w-20 h-14 rounded overflow-hidden bg-[var(--surface-2)]">
-          <img
+          <Image
             src={`https://img.youtube.com/vi/${id}/mqdefault.jpg`}
             alt=""
-            className="w-full h-full object-cover"
+            fill
+            sizes="80px"
+            className="object-cover"
             loading="lazy"
           />
           <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">

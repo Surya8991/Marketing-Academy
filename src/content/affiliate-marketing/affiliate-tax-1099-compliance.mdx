@@ -44,6 +44,24 @@ Manually chasing tax forms from hundreds of affiliates in December is a miserabl
 - Reconcile payout totals against filed 1099/1042-S amounts each January, not after a mismatch surfaces
 - Consult a tax professional once your program crosses into multiple countries, treaty rules vary enough that generic advice stops being reliable
 
+## The backup withholding trap
+
+Here's a gap that catches even organized programs: if a US affiliate never returns a completed W-9, or the Taxpayer ID Number they provide doesn't match IRS records, you may be required to apply **backup withholding**, holding back 24% of every future payout and remitting it directly to the IRS rather than paying the affiliate in full.
+
+This isn't optional once triggered. Most affiliate platforms won't apply it automatically unless you configure the rule yourself, so a program that gates payout on "some" tax form but doesn't verify TIN matches can end up under-withholding without realizing it.
+
+<Callout type="example">
+An affiliate program pays a US-based creator $3,000 across a quarter without ever collecting a W-9, assuming the platform "handles it." At year end, the affiliate never returns the form, and the company should have withheld 24% ($720) from those payouts starting 30 days after the first request went unanswered. Instead it owes that shortfall itself, since the IRS holds the payer responsible for backup withholding it failed to apply, not the unresponsive payee.
+</Callout>
+
+## Common mistakes that create IRS exposure
+
+- **Assuming the payment processor always handles reporting.** ACH and wire payouts still require you to file the 1099-NEC yourself; only card-network and certain third-party processor payments shift to 1099-K.
+- **Never triggering backup withholding on missing or mismatched W-9s.** The 24% withholding requirement is automatic once a form request goes unanswered past the deadline, not something you can quietly skip.
+- **Treating every international affiliate as tax-exempt because they're "outside the US."** Without a completed W-8BEN on file, the default withholding rate is 30%, treaty rates never apply automatically.
+- **Filing 1099s based on payments made, not income earned in that tax year.** A December payout for November's sales belongs to the year it was actually paid, a common reconciliation error.
+- **Skipping state-level filing requirements.** Several states require their own 1099 copy or have different thresholds than the federal $600 (soon $2,000) rule, and missing a state filing is a separate penalty from missing the federal one.
+
 Getting this system built once means every future affiliate just flows through it. That's the whole point, compliance should be infrastructure, not an annual fire drill.
 
 <ResourceList resources={[
