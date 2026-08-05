@@ -1,0 +1,154 @@
+export const lessonMeta = {
+  title: "AI Image Generation for Social Content",
+  level: "Intermediate",
+  summary: "Text in an AI image is generated, not typeset, so the prompt engineering that prevents typos matters more than the prompt that picks a style.",
+  category: "ai-marketing",
+  slug: "ai-image-generation-social-content",
+  relatedConcepts: ["ai-image-video", "prompt-engineering-marketers", "multimodal-ai"],
+}
+
+# AI Image Generation for Social Content
+
+## The Problem Nobody Warns You About
+
+Every AI image tool in 2026 can produce a beautiful, on-brand graphic. What they still cannot reliably do is spell every word correctly. Even the best text-rendering models run roughly 94-96% character accuracy, which means a slide with 60 words of on-image text should be expected to contain 2-4 wrong characters somewhere.
+
+This single fact should drive most of your workflow decisions: which tool you pick for which job, how much text you put on one image, and how you fix an error once you see it. Treat a repair pass as a mandatory step, not an occasional annoyance.
+
+## Quick Summary
+
+- Different jobs need different tools, a dense multi-slide carousel with lots of copy is a different job than a single quote card, and picking the wrong tool for the job is the most common workflow mistake
+- Cap any single image at roughly 60-80 words of on-image text, beyond that both layout coherence and text accuracy degrade
+- Never reroll a good layout to fix one wrong word, use a targeted single-element edit instead
+- A locked, verbatim-reused style block is what makes a multi-slide series look like one coherent brand instead of a dozen separate experiments
+- Quote every exact string in a prompt rather than describing content abstractly, this is the single biggest lever on text accuracy
+
+---
+
+## Tool Routing: Match the Job to the Tool
+
+| Job | Best fit | Why |
+|---|---|---|
+| Dense multi-slide carousel with lots of copy | A tool that outputs real HTML/CSS (e.g., Google Stitch) | Text renders as literal DOM text, eliminating spelling risk entirely, and a linked design-system file locks the palette across every generation |
+| Text-heavy single infographic (60-100 words) | A high-quality text-rendering image model (e.g., GPT Image 2) at high quality settings | Best-in-class 2026 text rendering for dense single images |
+| Hero image or quote card (under 50 words) | A high-polish visual model (e.g., Gemini/Nano Banana Pro) at 4K | Best visual polish, and higher resolution materially improves small-text legibility |
+| Whole carousel, moderate text per slide | A model that accepts multiple reference images per generation | Can produce several consistent images from one style reference |
+| Fixing one wrong word | A targeted edit turn in the same conversation | Preserves a good layout instead of gambling on a full reroll |
+
+<Callout type="warning">
+**Never reroll a good layout to fix a small text error.** A full reroll regenerates the entire image, risking a worse layout to fix one wrong character. Instead, use a targeted edit instruction in the same session: "change only the word 'indexation' to 'indexing,' keep the layout, palette, icons, and all other text identical." This preserves everything that was already working.
+</Callout>
+
+## The Frozen Style Block: The Single Biggest Consistency Lever
+
+The most reliable way to make a multi-image series look like one coherent brand rather than a set of one-off experiments is a locked, verbatim style block pasted into every single prompt, never paraphrased or "improved" between generations.
+
+A well-built style block specifies, in order: the overall visual style and mood, the exact color palette with hex codes and a specific role for each color, the typography approach, the icon style, and explicit constraints (no photography, no gradients, no drop shadows, whatever the brand's specific exclusions are). Copy-pasting this block verbatim, rather than re-describing it in slightly different words each time, is what actually holds a series together.
+
+<Callout type="example">
+**Worked example of a style block excerpt**: "Canvas: near-black navy background. Card surfaces use a slightly lighter navy with a thin slate border and rounded corners. Primary text is off-white, muted text is slate grey. Each accent color is used only for its assigned step, step one lime green, step two electric blue, step three violet, use no other colors. Typography: geometric sans-serif throughout, title bold and large, body text regular with a maximum word count per line to prevent wrapping." Reusing this exact block across ten generations produces a coherent series; rewriting it fresh each time introduces drift.
+</Callout>
+
+## Prompt Anatomy: The Order That Works
+
+A prompt for a branded social graphic performs best in a consistent order: format and canvas size first, then the style block, then a layout skeleton describing zones as percentages of canvas height (not vague terms like "top area"), then the exact text strings in quotation marks, then a single icon specification sentence covering all icons at once, then any remaining constraints.
+
+**Five rules that carry most of the quality:**
+
+1. **Quote every exact string.** Never write "add a title," write the actual title text in quotation marks. This is the single biggest lever on text accuracy, since the model renders exactly what's quoted rather than paraphrasing a description.
+2. **State the item count twice and pre-label it.** "Exactly 3 cards, numbered 01, 02, 03" fixes the common wrong-item-count failure mode far more reliably than just describing "a few cards."
+3. **Give one global icon instruction** covering every icon in the image at once ("all icons in an identical flat line style, 2px stroke, no fill"), rather than describing each icon separately, which tends to produce visually inconsistent icon styles.
+4. **State a word budget out loud.** "Maximum 9 words per line, single line, never wrapping" prevents text overflow and clipping.
+5. **Generate at 2x resolution and downscale for export.** Rendering larger than the final export size and downscaling is the easiest single fix for crisp small text.
+
+## Series Consistency: How to Make 10 Images Look Like One Brand
+
+1. Perfect the first image in a series before moving on, iterate on it specifically until it's exactly right.
+2. Freeze the style block as literal, unchanging boilerplate for every subsequent generation.
+3. Attach the approved first image as a reference image on every following generation, most current tools accept multiple reference images per request.
+4. Change only the content block (the specific text and icons) between images, everything else, layout, palette, typography, stays locked.
+5. Never re-describe the style in new words for a later image in the same series, copy-paste the original style block verbatim every time.
+
+## Common Failure Modes and Fixes
+
+| Failure | Fix |
+|---|---|
+| Garbled or misspelled text | Quote exact strings, raise resolution, reduce total word count, repair with a targeted single-word edit rather than a full reroll |
+| Wrong number of items rendered | State the count twice and pre-label each item explicitly |
+| Inconsistent icon styles across a series | One global icon instruction covering all icons, explicitly stating "identical style and stroke weight" |
+| Text overflowing or getting clipped | Explicit word-per-line budget, single-line constraint, and a stated safe margin from the canvas edge |
+| Visual drift across a multi-image series | Attach the first approved image as a reference on every later generation, reuse the style block verbatim |
+| One accent color bleeding into unrelated elements | Assign every color a specific, named role, then explicitly state "use no other colors" |
+
+<Callout type="info">
+**On negative prompts.** Most current image models respond better to positive framing than explicit negatives, "empty background" tends to work more reliably than "no clutter in the background." Save explicit exclusions for genuinely important constraints (no faces, no watermarks) rather than relying on negative phrasing to do most of the stylistic work.
+</Callout>
+
+## The Workflow Order That Matters
+
+Write and lock the actual post copy before generating any image. The image exists to serve the finished text, not the other way around, so pull the exact strings for the image directly from copy that's already been finalized rather than drafting new copy at image-generation time. Then pick the right tool for the specific job (dense carousel versus single hero image), generate, proofread every single character in the output as a mandatory gate rather than a nicety, repair with targeted edits, and only then export at final resolution.
+
+## The One-Line Takeaway
+
+**AI-generated text on an image is rendered, not typeset, so plan for a 2-4 character error rate on any 60-word slide, quote every exact string in your prompts, freeze a verbatim style block across a series, and always repair with a targeted edit instead of gambling on a full reroll.**
+
+<ResourceList resources={[
+  {
+    title: "OpenAI, GPT Image Prompting Guide",
+    url: "https://platform.openai.com/docs/guides/image-generation",
+    type: "docs",
+    note: "Official prompting guidance for text-in-image generation and consistency techniques.",
+    free: true,
+  },
+  {
+    title: "Google, Gemini Image Generation Documentation",
+    url: "https://ai.google.dev/gemini-api/docs/image-generation",
+    type: "docs",
+    note: "Official documentation on reference-image-based consistency and multi-image prompting.",
+    free: true,
+  },
+  {
+    title: "Google Stitch",
+    url: "https://stitch.withgoogle.com/",
+    type: "tool",
+    note: "Generates real HTML/CSS UI designs rather than rasterized images, eliminating text-rendering spelling risk for dense, text-heavy carousels.",
+    free: true,
+  },
+  {
+    title: "Canva, AI Design Tools Overview",
+    url: "https://www.canva.com/ai-image-generator/",
+    type: "tool",
+    note: "Accessible entry point for brand-consistent social graphics with built-in template locking.",
+    free: true,
+  },
+  {
+    title: "WsCube Tech, AI Tools for Content Creation (Hindi)",
+    url: "https://www.youtube.com/@WsCubeTech",
+    type: "video",
+    lang: "hi",
+    free: true,
+    note: "Top Hindi digital marketing channel",
+  },
+  {
+    title: "Mr Digital Marketing Tamil, AI Content Creation Tools",
+    url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw",
+    type: "video",
+    lang: "ta",
+    free: true,
+    note: "Tamil digital marketing tutorials",
+  },
+  {
+    title: "ODMT Telugu, AI Design Tools (Telugu)",
+    url: "https://www.youtube.com/@ODMTtelugu",
+    type: "video",
+    lang: "te",
+    free: true,
+    note: "Telugu digital marketing training",
+  },
+]} />
+
+## Related Concepts
+
+- [AI Image and Video](/learn/ai-marketing/ai-image-video), the general-purpose lesson on AI visual generation; this lesson goes deeper specifically on prompt engineering for branded, multi-image social series.
+- [Prompt Engineering for Marketers](/learn/ai-marketing/prompt-engineering-marketers), the exact-string and structured-prompt principles here are a visual-specific application of general prompt engineering discipline.
+- [Multimodal AI](/learn/ai-marketing/multimodal-ai), broader context on how text, image, and video generation models are converging.

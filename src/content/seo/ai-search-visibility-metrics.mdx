@@ -1,0 +1,151 @@
+export const lessonMeta = {
+  title: "Measuring AI Search Visibility",
+  level: "Intermediate",
+  summary: "Rank tracking measures a position in a list of 10 links, AI answers have no fixed position, so the KPIs have to change too.",
+  category: "seo",
+  slug: "ai-search-visibility-metrics",
+  relatedConcepts: ["ai-overviews-geo", "llmo", "zero-click-search"],
+}
+
+# Measuring AI Search Visibility
+
+## Rank Tracking Was Built for a World That Is Disappearing
+
+Every classic SEO tool answers one question: where does this URL sit in a list of ten blue links. AI Overviews, AI Mode, ChatGPT, and Perplexity do not produce a list. They produce a synthesized answer that might cite you, mention you by name without a link, or leave you out entirely, and the same prompt can return a different answer the next time someone asks it.
+
+That means the entire measurement toolkit has to shift, from rank position to presence, share, and sentiment. Teams that keep reporting classic rank and organic CTR as their only KPIs are increasingly measuring a shrinking slice of what actually matters.
+
+## Quick Summary
+
+- Citation rate measures the percent of a defined prompt set where an AI engine links to your content, share of voice measures your mentions relative to competitors
+- Different AI models mention brands at very different baseline rates, so raw citation counts must be normalized per model, not compared directly
+- GA4 added a native "AI Assistant" channel in 2026, but it only recognizes ChatGPT, Gemini, and Claude, Perplexity and Copilot still need a manual custom channel group
+- A citation is not automatically positive, sentiment tracking is what turns a raw mention count into something you can actually act on
+- AI answers are non-deterministic, always measure on a rolling window across repeated prompts, never trust a single query's result
+
+---
+
+## The Core Metrics
+
+### Citation Rate & Share of Voice
+
+**Citation rate** is the percentage of a defined prompt set where an AI engine links to your content as a source. **Share of voice** is your brand's share of mentions, named but not necessarily linked, relative to competitors across that same prompt set. Together they answer two different questions: are you showing up at all, and how much of the conversation do you actually own.
+
+**Do this week:** build a spreadsheet of 20 to 30 prompts real buyers would actually type, full questions, not fragment keywords, then run them across ChatGPT, Perplexity, Gemini, and Google AI Mode, logging whether and how you are mentioned. Repeat weekly to build a trend line rather than a single snapshot.
+
+### Brand Mention Tracking Across Models
+
+Different models mention brands at wildly different baseline rates. One large-scale 2025 analysis found Claude mentioned some brand in over 97% of relevant responses, while Google AI Overviews did so in under half. Comparing your raw citation count across models without accounting for this baseline leads to the wrong conclusion about where you are actually winning or losing ground.
+
+<Callout type="warning">
+**Normalize before you compare.** If you get cited by Claude in 40% of your test prompts but only 10% by Google AI Overviews, that does not necessarily mean Claude likes you more, it might just mean Claude cites more brands overall for every query type. Always compare your rate against that model's own baseline mention rate for the category, not against your rate on a different model.
+</Callout>
+
+## AI-Referral Traffic in GA4
+
+GA4 added a native "AI Assistant" channel to its Default Channel Group in 2026, automatically tagging sessions from a recognized AI domain with `medium: ai-assistant`. This is the first real first-party proof point most teams get that AI search sends attributable traffic, before this existed, that traffic was invisibly bucketed as generic Referral or Direct.
+
+**The gap:** the native channel only recognizes ChatGPT, Gemini, and Claude. Perplexity and Copilot referrals still fall into generic Referral unless you build your own custom channel group.
+
+<Mermaid chart={`
+flowchart TD
+  A[Reports > Acquisition >\nTraffic acquisition] --> B[Check for native\nAI Assistant row]
+  B --> C[Build custom channel group\nfor perplexity.ai, copilot.microsoft.com]
+  C --> D[Spot-check Session source\nfor each AI domain manually]
+  D --> E[Tag content links with UTMs\nso AI-cited clicks are attributable]
+`} />
+
+1. Go to **Reports > Acquisition > Traffic acquisition**, set the primary dimension to Session default channel group, and check whether an "AI Assistant" row already appears.
+2. Build a **custom channel group** under Admin > Data display > Channel groups, explicitly bucketing `perplexity.ai`, `chatgpt.com`, `gemini.google.com`, and `copilot.microsoft.com` as sources.
+3. Spot-check today's volume via **Traffic acquisition > Session source**, searching each AI domain manually while the custom group backfills historical data.
+4. **Tag links inside content** that an AI answer might quote with UTM parameters, so a click-through from a cited passage is attributable end-to-end into your CRM.
+
+## Sentiment: The Layer Citation Rate Alone Misses
+
+A citation can still be a negative mention. One large 2025 analysis across 1.8 million brand-mentioning AI responses found the overwhelming majority were neutral, with only a small negative share, meaning most AI brand mentions are simply factual. That makes any negative-sentiment result disproportionately worth investigating, since it is rare enough to signal a real problem rather than noise.
+
+<Callout type="example">
+**Worked example: a citation that was actually a warning sign**
+
+A financial services company was thrilled to discover ChatGPT cited their comparison page for "best budgeting apps." On closer reading, the AI's summary paraphrased their own content to say the product "lacks features competitors offer standard," a factually accurate but unflattering framing pulled directly from an honest limitations section on the page.
+
+The fix was not to hide the limitations, since AI systems reward candor and E-E-A-T. Instead, the team added a "who this is and is not right for" framing near the limitations, giving the AI a more balanced sentence to lift instead of the most negative one available on the page.
+</Callout>
+
+## Proxy Metrics When You Cannot Afford a Paid Tool
+
+Dedicated AI-visibility platforms (Profound, Peec AI, Otterly.AI, Semrush's AI toolkit, and similar) automate most of this, but a few free proxies work as a stopgap.
+
+- **Branded search volume trend** in Search Console or GA4, since AI answer exposure often drives a "let me look this up directly" branded search afterward.
+- **Direct and unattributed traffic upticks** correlated with a specific content publish date, a rough proxy for zero-click AI exposure that never generates a referral.
+- **Server log audits** confirming GPTBot, PerplexityBot, ClaudeBot, and Google-Extended can actually reach your key pages, since no citation is possible if the crawler is blocked in the first place.
+- **A manual weekly prompt panel**, the same 20 to 30 question spreadsheet from earlier, run by hand, free but genuinely time-boxed.
+
+<Callout type="success">
+**None of these proxies are as clean as a direct citation report, but together they give a real signal.** Teams that cannot yet justify a paid AI-visibility subscription can still build a defensible, if rougher, picture of where they stand.
+</Callout>
+
+## The One-Line Takeaway
+
+**Classic rank tracking answers "where do I sit," AI search visibility has to answer "do I show up, how much of the conversation do I own, and is the mention actually helping," track citation rate, share of voice, AI-referral traffic, and sentiment together, on a rolling window, never off a single prompt run.**
+
+<ResourceList resources={[
+  {
+    title: "How to Track AI Traffic in GA4, AccessNewswire",
+    url: "https://www.accessnewswire.com/newsroom/en/business-and-professional-services/how-to-track-ai-traffic-in-ga4-chatgpt-gemini-claude-perplexity-1172953",
+    type: "article",
+    note: "Step-by-step setup for tracking ChatGPT, Gemini, Claude, and Perplexity referral traffic in GA4.",
+    free: true,
+  },
+  {
+    title: "AEO Metrics That Actually Matter, AirOps",
+    url: "https://www.airops.com/blog/aeo-metrics",
+    type: "article",
+    note: "Breakdown of citation rate, share of voice, and sentiment as the new core AEO/GEO scorecard.",
+    free: true,
+  },
+  {
+    title: "Otterly.AI, Best AI Search Monitoring Tools",
+    url: "https://otterly.ai/blog/10-best-ai-search-monitoring-and-llm-monitoring-solutions/",
+    type: "article",
+    note: "Comparison of the AI-visibility tool landscape, useful for picking a paid tool once proxies stop being enough.",
+    free: true,
+  },
+  {
+    title: "Otterly.AI",
+    url: "https://otterly.ai",
+    type: "tool",
+    note: "Entry-level AI search monitoring tool with a low-cost tier, strong for content intelligence and citation tracking.",
+    free: false,
+  },
+  {
+    title: "WsCube Tech, Measuring SEO and AI Search Results (Hindi)",
+    url: "https://www.youtube.com/@WsCubeTech",
+    type: "video",
+    lang: "hi",
+    free: true,
+    note: "Top Hindi digital marketing channel",
+  },
+  {
+    title: "Mr Digital Marketing Tamil, Analytics and Measurement",
+    url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw",
+    type: "video",
+    lang: "ta",
+    free: true,
+    note: "Tamil digital marketing tutorials",
+  },
+  {
+    title: "ODMT Telugu, AI Search Analytics (Telugu)",
+    url: "https://www.youtube.com/@ODMTtelugu",
+    type: "video",
+    lang: "te",
+    free: true,
+    note: "Telugu digital marketing training",
+  },
+]} />
+
+## Related Concepts
+
+- [AI Overviews & Generative Engine Optimization](/learn/seo/ai-overviews-geo), citation rate and share of voice are the measurement layer for the optimization work that lesson covers.
+- [LLM Optimization (LLMO)](/learn/seo/llmo), getting cited is the goal, this lesson is how you confirm whether it is actually working.
+- [Zero-Click Search](/learn/seo/zero-click-search), traffic-based KPIs alone increasingly understate AI-era visibility, which is exactly why citation and sentiment metrics matter more each year.

@@ -823,6 +823,104 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     relatedTerms: ["serp", "zero-click", "featured-snippet", "eeat"],
   },
 
+  // AI Search additions (2026)
+  {
+    term: "AI Overview",
+    slug: "ai-overview",
+    definition:
+      "Google's AI-generated summary shown above traditional search results, synthesizing multiple web sources, the Knowledge Graph, and Google's own data into one answer box. Rebranded from the 2023 Search Generative Experience (SGE) beta in May 2024, it reached roughly 2.5 billion monthly users and appeared on an estimated 48-60% of Google searches by mid-2026.",
+    category: "SEO",
+    relatedTerms: ["zero-click", "aeo", "geo", "eeat"],
+  },
+  {
+    term: "AEO",
+    slug: "aeo",
+    definition:
+      "Answer Engine Optimization: structuring content so AI answer engines, ChatGPT, Perplexity, Google AI Overviews, Gemini, quote or cite it directly inside a generated answer instead of just linking to it. AEO competes for the sentence an AI reads back to the user, not just a ranking position. Google's own 2026 guidance frames AEO as an extension of SEO, not a separate ranking system.",
+    category: "SEO",
+    relatedTerms: ["geo", "ai-overview", "featured-snippet", "llmo"],
+  },
+  {
+    term: "GEO",
+    slug: "geo",
+    definition:
+      "Generative Engine Optimization: the broader discipline of optimizing a brand's entire content and data footprint, site, third-party mentions, reviews, forums, so generative AI models are more likely to retrieve, trust, and reference it. Coined in a 2024 Princeton/Georgia Tech research paper that showed citation share could be boosted 22-41% through statistics, quotations, and authoritative sourcing.",
+    category: "SEO",
+    relatedTerms: ["aeo", "llmo", "rag", "entity-seo"],
+  },
+  {
+    term: "RAG (Retrieval-Augmented Generation)",
+    slug: "rag",
+    definition:
+      "The technique AI search tools use to look up real, current information from the web or a database and ground their generated answer in it, instead of answering purely from training memory. Every major AI answer engine runs some version of retrieve, rerank, then generate, which is why content structure and freshness directly affect whether a page gets pulled into an answer.",
+    category: "SEO",
+    relatedTerms: ["geo", "vector-embedding", "query-fan-out", "ai-overview"],
+  },
+  {
+    term: "Query Fan-Out",
+    slug: "query-fan-out",
+    definition:
+      "A technique where Google's AI Overviews and AI Mode silently issue multiple related sub-queries beyond the literal search typed, then build the final answer from whichever pages surface consistently across all of them. This is why a page can earn an AI citation without ranking #1 for the exact typed query, and why topical authority across a cluster matters more than single-page optimization.",
+    category: "SEO",
+    relatedTerms: ["ai-overview", "content-cluster", "rag", "eeat"],
+  },
+  {
+    term: "Vector Embedding",
+    slug: "vector-embedding",
+    definition:
+      "A numerical representation of text's meaning used by AI systems to match content by semantic similarity rather than exact keyword overlap. Retrieval systems chunk a page (commonly 300-1000 tokens), embed each chunk into vector space, and match it to a query by closeness in that space, which is why a page's internal heading structure functions as a de facto retrieval unit.",
+    category: "SEO",
+    relatedTerms: ["rag", "geo", "content-cluster"],
+  },
+  {
+    term: "Entity SEO",
+    slug: "entity-seo",
+    definition:
+      "Optimizing so search engines and AI systems recognize your brand, products, and people as distinct, disambiguated 'entities' connected within Google's Knowledge Graph and Wikidata, rather than just strings of text matching a query. Wikidata-verified brands are reported roughly 2.7x more likely to appear in AI Overview citations, since ambiguous entities are harder for a system to confidently cite.",
+    category: "SEO",
+    relatedTerms: ["knowledge-graph", "eeat", "geo", "serp"],
+  },
+  {
+    term: "Knowledge Graph",
+    slug: "knowledge-graph",
+    definition:
+      "Google's database of real-world entities and the relationships between them, holding over 800 billion facts about 8 billion entities as of 2025. It powers info boxes and facts alongside search results, and AI systems query it directly when deciding what to cite, making Knowledge Graph presence a foundation of Entity SEO.",
+    category: "SEO",
+    relatedTerms: ["entity-seo", "serp", "eeat"],
+  },
+  {
+    term: "Hreflang",
+    slug: "hreflang",
+    definition:
+      "An HTML attribute that tells search engines which language and regional version of a page to show which user, preventing duplicate-content confusion across international sites. Hreflang must be implemented as a complete, self-referencing reciprocal set; a 2026 industry study found 65-75% of enterprise multilingual sites still have at least one conflict that fragments rankings across an entire language cluster.",
+    category: "SEO",
+    relatedTerms: ["canonical-tag", "serp", "domain-authority"],
+  },
+  {
+    term: "Topical Authority",
+    slug: "topical-authority",
+    definition:
+      "The depth and breadth of a site's coverage on a specific subject, measured by how many interconnected, internally-linked articles a domain publishes on that topic. Sites with real topical authority rank and get cited by AI systems more reliably than a single strong page alone, since both classic ranking systems and query fan-out reward consistent coverage across a cluster.",
+    category: "SEO",
+    relatedTerms: ["content-cluster", "query-fan-out", "internal-linking", "eeat"],
+  },
+  {
+    term: "Agentic Browser",
+    slug: "agentic-browser",
+    definition:
+      "A browser built around an AI agent that can navigate, click, and complete tasks on a user's behalf, rather than just displaying pages for a human to click through. ChatGPT Atlas, Perplexity Comet, and Dia defined the 2026 'browser war,' though analysts project all agentic browsers combined will capture only 1-3% of global browser share given Chrome's incumbency.",
+    category: "SEO",
+    relatedTerms: ["ai-overview", "rag", "geo"],
+  },
+  {
+    term: "Citation Rate",
+    slug: "citation-rate",
+    definition:
+      "The percentage of a defined set of test prompts where an AI engine (ChatGPT, Perplexity, Google AI Overviews) links to a brand's content as a source. Paired with share of voice (unlinked mentions relative to competitors), it's the core KPI replacing classic rank tracking for AI-era visibility, since AI answers don't produce a fixed, comparable position the way a traditional SERP does.",
+    category: "SEO",
+    relatedTerms: ["ai-overview", "geo", "aeo"],
+  },
+
   // Email additions
   {
     term: "CTOR",

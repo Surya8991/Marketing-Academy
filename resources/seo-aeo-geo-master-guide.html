@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technical SEO, AEO, GEO & AI Overview — The Complete Master Guide</title>
+<meta name="description" content="An A-Z reference on Technical SEO, Answer Engine Optimization, Generative Engine Optimization, Google AI Overviews, and Content Strategy — basic to advanced, with real-world scenarios and curated resources.">
+<style>
+  :root{
+    --bg:#ffffff; --fg:#1a1a1e; --muted:#f4f5f7; --muted-fg:#5b5f6b;
+    --border:#e3e5ea; --accent:#2158d6; --accent-fg:#ffffff; --card:#ffffff;
+    --green:#16803d; --green-bg:rgba(22,128,61,.10); --green-bd:rgba(22,128,61,.35);
+    --amber:#a15c00; --amber-bg:rgba(217,119,6,.12); --amber-bd:rgba(217,119,6,.35);
+    --red:#b91c1c; --red-bg:rgba(220,38,38,.10); --red-bd:rgba(220,38,38,.35);
+    --purple:#7e22ce; --purple-bg:rgba(147,51,234,.10); --purple-bd:rgba(147,51,234,.35);
+    --blue-bg:rgba(37,99,235,.12); --blue-bd:rgba(37,99,235,.35);
+    --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    color-scheme: light;
+  }
+  html.dark{
+    --bg:#0e1015; --fg:#e7e8ec; --muted:#171a21; --muted-fg:#9aa0ad;
+    --border:#2a2e38; --accent:#5b9dff; --accent-fg:#0b1220; --card:#141721;
+    --green:#4ade80; --green-bg:rgba(74,222,128,.12); --green-bd:rgba(74,222,128,.35);
+    --amber:#fbbf24; --amber-bg:rgba(251,191,36,.14); --amber-bd:rgba(251,191,36,.35);
+    --red:#f87171; --red-bg:rgba(248,113,113,.12); --red-bd:rgba(248,113,113,.35);
+    --purple:#c084fc; --purple-bg:rgba(192,132,252,.12); --purple-bd:rgba(192,132,252,.35);
+    --blue-bg:rgba(91,157,255,.14); --blue-bd:rgba(91,157,255,.35);
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: dark){
+    html:not(.light):not(.dark){
+      --bg:#0e1015; --fg:#e7e8ec; --muted:#171a21; --muted-fg:#9aa0ad;
+      --border:#2a2e38; --accent:#5b9dff; --accent-fg:#0b1220; --card:#141721;
+      --green:#4ade80; --green-bg:rgba(74,222,128,.12); --green-bd:rgba(74,222,128,.35);
+      --amber:#fbbf24; --amber-bg:rgba(251,191,36,.14); --amber-bd:rgba(251,191,36,.35);
+      --red:#f87171; --red-bg:rgba(248,113,113,.12); --red-bd:rgba(248,113,113,.35);
+      --purple:#c084fc; --purple-bg:rgba(192,132,252,.12); --purple-bd:rgba(192,132,252,.35);
+      --blue-bg:rgba(91,157,255,.14); --blue-bd:rgba(91,157,255,.35);
+      color-scheme: dark;
+    }
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--fg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;
+  }
+  a{color:var(--accent);}
+  code{background:var(--muted); padding:.1em .4em; border-radius:4px; font-size:.9em;}
+  .wrap{max-width:1280px; margin:0 auto; padding:0 20px;}
+  header.site{
+    position:sticky; top:0; z-index:50; background:var(--bg);
+    border-bottom:1px solid var(--border); padding:14px 0;
+  }
+  header.site .inner{display:flex; align-items:center; gap:16px; flex-wrap:wrap;}
+  header.site h1{font-size:1.05rem; margin:0; white-space:nowrap;}
+  header.site h1 span{display:block; font-size:.72rem; font-weight:400; color:var(--muted-fg);}
+  .searchbox{flex:1; min-width:200px; position:relative;}
+  .searchbox input{
+    width:100%; padding:9px 14px; border-radius:8px; border:1px solid var(--border);
+    background:var(--muted); color:var(--fg); font-size:.9rem;
+  }
+  .btn{
+    border:1px solid var(--border); background:var(--card); color:var(--fg);
+    padding:8px 12px; border-radius:8px; cursor:pointer; font-size:.85rem; white-space:nowrap;
+  }
+  .btn:hover{border-color:var(--accent);}
+  .layout{display:flex; gap:32px; align-items:flex-start; padding-top:24px;}
+  nav.toc{
+    position:sticky; top:70px; width:230px; flex:none; max-height:calc(100vh - 90px);
+    overflow-y:auto; padding-bottom:40px;
+  }
+  nav.toc a{
+    display:block; padding:6px 10px; border-radius:6px; color:var(--fg); text-decoration:none;
+    font-size:.86rem; border-left:2px solid transparent;
+  }
+  nav.toc a:hover{background:var(--muted);}
+  nav.toc a.active{border-left:2px solid var(--accent); color:var(--accent); background:var(--muted);}
+  nav.toc .part-label{
+    font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted-fg);
+    margin:14px 10px 4px; font-weight:600;
+  }
+  main{flex:1; min-width:0; padding-bottom:80px;}
+  section.part{margin-bottom:56px; scroll-margin-top:80px;}
+  section.part > h2{
+    font-size:1.7rem; margin:0 0 6px; padding-bottom:10px; border-bottom:2px solid var(--accent);
+    display:flex; align-items:center; gap:10px;
+  }
+  .part-intro{color:var(--muted-fg); margin:8px 0 22px; font-size:.96rem;}
+  h3.subhead{font-size:1.25rem; margin:34px 0 4px; scroll-margin-top:80px;}
+  h4.topic-title{font-size:1.05rem; margin:0; padding:16px 18px; background:var(--muted); border-radius:10px 10px 0 0;}
+  .topic-card{
+    border:1px solid var(--border); border-radius:10px; margin:16px 0 26px; overflow:hidden; background:var(--card);
+  }
+  .topic-body{padding:2px 18px 16px;}
+  .tier{margin-top:14px;}
+  .tier-label{
+    display:inline-flex; align-items:center; gap:6px; font-weight:600; font-size:.85rem;
+    padding:4px 10px; border-radius:999px; margin-bottom:8px;
+  }
+  .tier-basic .tier-label{background:var(--green-bg); color:var(--green); border:1px solid var(--green-bd);}
+  .tier-inter .tier-label{background:var(--amber-bg); color:var(--amber); border:1px solid var(--amber-bd);}
+  .tier-advanced .tier-label{background:var(--purple-bg); color:var(--purple); border:1px solid var(--purple-bd);}
+  details.tier-box{border:1px dashed var(--border); border-radius:8px; padding:10px 14px; margin-top:10px;}
+  details.tier-box summary{cursor:pointer; font-weight:600; list-style:none;}
+  details.tier-box summary::-webkit-details-marker{display:none;}
+  details.tier-box summary:before{content:"▸ "; color:var(--accent);}
+  details.tier-box[open] summary:before{content:"▾ "; }
+  details.tier-box .tier-content{margin-top:10px;}
+  .mistakes{
+    background:var(--red-bg); border:1px solid var(--red-bd); border-radius:8px;
+    padding:10px 14px; margin-top:14px; font-size:.92rem;
+  }
+  .mistakes p.label{margin:0 0 6px; font-weight:700; color:var(--red);}
+  .mistakes ul{margin:0; padding-left:20px;}
+  ul.checklist{list-style:none; padding-left:0; margin:8px 0;}
+  ul.checklist li{
+    display:flex; gap:10px; align-items:flex-start; padding:5px 0; font-size:.94rem;
+  }
+  ul.checklist input[type=checkbox]{margin-top:4px; flex:none; width:16px; height:16px; accent-color:var(--accent);}
+  ul.checklist li.done label{text-decoration:line-through; color:var(--muted-fg);}
+  table{border-collapse:collapse; width:100%; margin:12px 0; font-size:.9rem;}
+  .table-wrap{overflow-x:auto; margin:12px 0;}
+  th,td{border:1px solid var(--border); padding:8px 10px; text-align:left; vertical-align:top;}
+  th{background:var(--muted);}
+  .badge{display:inline-block; padding:2px 8px; border-radius:999px; font-size:.72rem; font-weight:600; margin-right:4px;}
+  .lang-en{background:var(--blue-bg); border:1px solid var(--blue-bd); color:var(--accent);}
+  .lang-hi{background:var(--amber-bg); border:1px solid var(--amber-bd); color:var(--amber);}
+  .lang-ta{background:var(--green-bg); border:1px solid var(--green-bd); color:var(--green);}
+  .free{background:var(--green-bg); color:var(--green); border:1px solid var(--green-bd);}
+  .paid{background:var(--red-bg); color:var(--red); border:1px solid var(--red-bd);}
+  .resource-block{
+    background:var(--muted); border-radius:10px; padding:16px 20px; margin-top:24px;
+  }
+  .resource-block h4{margin:0 0 10px;}
+  .resource-group{margin-bottom:14px;}
+  .resource-group h5{margin:0 0 6px; font-size:.85rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted-fg);}
+  .glossary-grid{columns:2; column-gap:32px;}
+  @media (max-width:800px){.glossary-grid{columns:1;}}
+  .glossary-term{break-inside:avoid; margin-bottom:12px; font-size:.93rem;}
+  .glossary-term dt{font-weight:700; color:var(--accent);}
+  .glossary-term dd{margin:2px 0 0; color:var(--fg);}
+  .scenario-card{
+    border:1px solid var(--border); border-radius:10px; margin:16px 0; padding:18px 20px; background:var(--card);
+  }
+  .scenario-card h4{margin:0 0 6px; font-size:1.08rem;}
+  .scenario-meta{display:flex; gap:8px; margin-bottom:10px; flex-wrap:wrap;}
+  .lvl{padding:3px 10px; border-radius:999px; font-size:.72rem; font-weight:700;}
+  .lvl-beginner{background:var(--green-bg); color:var(--green); border:1px solid var(--green-bd);}
+  .lvl-intermediate{background:var(--amber-bg); color:var(--amber); border:1px solid var(--amber-bd);}
+  .lvl-advanced{background:var(--purple-bg); color:var(--purple); border:1px solid var(--purple-bd);}
+  .tag{background:var(--blue-bg); color:var(--accent); border:1px solid var(--blue-bd); padding:3px 10px; border-radius:999px; font-size:.72rem; font-weight:600;}
+  .scenario-card h5{margin:14px 0 4px; font-size:.86rem; text-transform:uppercase; letter-spacing:.03em; color:var(--muted-fg);}
+  details.faq-item{border:1px solid var(--border); border-radius:8px; padding:12px 16px; margin:10px 0;}
+  details.faq-item summary{cursor:pointer; font-weight:600;}
+  details.faq-item p{margin:10px 0 2px;}
+  .callout{border-radius:10px; padding:14px 18px; margin:16px 0; border:1px solid var(--border);}
+  .callout.future{background:var(--purple-bg); border-color:var(--purple-bd);}
+  .callout.future p.label{color:var(--purple); font-weight:700; margin:0 0 6px;}
+  .hidden{display:none !important;}
+  footer.site{border-top:1px solid var(--border); padding:28px 0; color:var(--muted-fg); font-size:.85rem;}
+  .comparison-wrap table{font-size:.85rem;}
+  .toc-toggle{display:none;}
+  @media (max-width:960px){
+    .layout{flex-direction:column;}
+    nav.toc{position:static; width:100%; max-height:none; display:none; border:1px solid var(--border); border-radius:10px; padding:10px;}
+    nav.toc.open{display:block;}
+    .toc-toggle{display:inline-flex;}
+  }
+  mark{background:var(--amber-bg); color:inherit;}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap inner">
+    <h1>SEO / AEO / GEO / AI Overview<span>The Complete Master Guide — 2026 Edition</span></h1>
+    <button class="btn toc-toggle" id="tocToggle">☰ Contents</button>
+    <div class="searchbox">
+      <input type="text" id="searchInput" placeholder="Search this guide… (e.g. schema, INP, GEO, hreflang)">
+    </div>
+    <button class="btn" id="themeToggle">🌙 Theme</button>
+  </div>
+</header>
+
+<div class="wrap layout">
+<nav class="toc" id="tocNav">
+  <div class="part-label">Foundations</div>
+  <a href="#foundations">1. Foundations & 2026 Outlook</a>
+  <a href="#comparison">2. Comparison Table</a>
+  <a href="#glossary">3. A-Z Glossary</a>
+  <div class="part-label">Core Disciplines</div>
+  <a href="#technical-seo">4. Technical SEO</a>
+  <a href="#aeo">5. AEO</a>
+  <a href="#geo">6. GEO</a>
+  <a href="#ai-overview">7. AI Overview / AI Mode</a>
+  <a href="#metrics">8. Metrics & KPIs</a>
+  <div class="part-label">Strategy</div>
+  <a href="#content-strategy">9. Content Strategy</a>
+  <a href="#related-topics">10. Related Topics</a>
+  <div class="part-label">Applied</div>
+  <a href="#scenarios">11. 10 Real-World Scenarios</a>
+  <a href="#faq">12. FAQ</a>
+</nav>
+
+<main id="mainContent">
+
+<!-- ============ PART 1: FOUNDATIONS ============ -->
+<section class="part" id="foundations">
+  <h2>🧭 1. Foundations & the 2026 Outlook</h2>
+  <p class="part-intro">Start here if the four terms in this guide's title still blur together. Everything downstream builds on these definitions.</p>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Technical SEO vs AEO vs GEO vs Traditional SEO</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic">
+        <span class="tier-label">🟢 Basic</span>
+        <p><strong>Traditional SEO</strong> is the practice of ranking a webpage as high as possible in a search engine's list of blue links, using keywords, backlinks, and page content. It assumes a human clicks through to a website to get their answer.</p>
+        <p><strong>Technical SEO</strong> is the engineering side of SEO — making sure a website can actually be crawled, rendered, indexed, and served fast. Think of it as the plumbing: site speed, mobile-friendliness, clean URLs, and structured data (machine-readable tags describing page content) all live here.</p>
+        <p><strong>Answer Engine Optimization (AEO)</strong> structures content so AI answer engines — ChatGPT, Perplexity, Google AI Overviews, Gemini — quote or cite it directly inside their generated answer. Instead of competing for a ranking position, AEO competes for a sentence.</p>
+        <p><strong>Generative Engine Optimization (GEO)</strong> is the broader discipline of optimizing a brand's entire content and data footprint — site, third-party mentions, reviews, forums — so generative AI models are more likely to retrieve, trust, and reference it. GEO was formalized in a 2024 Princeton research paper and spans multiple AI platforms, not just one.</p>
+      </div>
+      <details class="tier-box">
+        <summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content">
+          <ul>
+            <li>Google's own May 2026 <em>"Guide to Optimizing for Generative AI Features"</em> states AEO and GEO are "still SEO" — there's no separate ranking system to game. It explicitly tells site owners to ignore tactics like special <code>llms.txt</code> files or "AI-specific" schema types that don't exist.</li>
+            <li>The practical distinction has collapsed into one spectrum: <strong>Technical SEO is the foundation layer</strong> that both classic SEO and AEO/GEO depend on — a page that can't be crawled or rendered can't be cited by anyone.</li>
+            <li>GEO increasingly means optimizing for platforms with completely different retrieval backends (ChatGPT's own crawler + Bing fallback, Perplexity's own ~5-billion-URL index, Gemini via Google's index, Claude via Brave Search) — one-size-fits-all no longer works.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Timeline: Why AI Overviews / AI Mode Changed Search</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic">
+        <span class="tier-label">🟢 Basic</span>
+        <div class="table-wrap"><table>
+          <tr><th>Date</th><th>Milestone</th></tr>
+          <tr><td>May 2023</td><td>Google unveils Search Generative Experience (SGE) at I/O — an opt-in Labs experiment</td></tr>
+          <tr><td>May 2024</td><td>SGE is rebranded <strong>AI Overviews</strong> and launches broadly in the US</td></tr>
+          <tr><td>Mar 2025</td><td>AI Overviews expands across Europe</td></tr>
+          <tr><td>May 2025</td><td><strong>AI Mode</strong> rolls out to all US users; Google reports AI Overviews now covers 200+ countries and 40+ languages</td></tr>
+          <tr><td>Oct 2025</td><td>AI Mode reaches 40+ European countries (France held back)</td></tr>
+          <tr><td>Jan 2026</td><td>Gemini 3 becomes the default model powering Google's AI search features</td></tr>
+          <tr><td>May 2026</td><td>AI Overviews and AI Mode formally <strong>merge</strong>; Gemini 3.5 Flash powers the merged experience</td></tr>
+          <tr><td>Jul 2026</td><td>AI Overviews/AI Mode finally launch in France</td></tr>
+        </table></div>
+      </div>
+      <details class="tier-box">
+        <summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content">
+          <ul>
+            <li>Scale: AI Overviews reached <strong>2.5 billion monthly users</strong>; AI Mode passed <strong>1 billion</strong> users by May 2026.</li>
+            <li>AI Overviews' query coverage grew from roughly <strong>12% of queries in mid-2024 to 58% by early 2026</strong>.</li>
+            <li>As of April 2026, Google tests a desktop flow where "Show more" on an AI Overview transitions the whole page into an AI-Mode-style conversational experience — the "10 blue links" SERP is being phased toward a chat-first interface for a growing share of queries.</li>
+            <li>Zero-click rate for AI-Overview-triggering queries now averages <strong>~83%</strong>, versus ~60% for regular queries; overall roughly 60-68% of all US Google searches in 2026 end without a click.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">How AI Systems Retrieve and Cite Web Content</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic">
+        <span class="tier-label">🟢 Basic</span>
+        <p>Every major AI search product runs some version of the same pipeline: <strong>retrieve</strong> (search the web/an index for candidates), <strong>rerank</strong> (score candidates for relevance and quality), then <strong>generate</strong> (write an answer grounded in the best passages and attach citations). This is <strong>RAG — Retrieval-Augmented Generation</strong>: the model looks things up live instead of answering purely from training memory.</p>
+        <ul>
+          <li><strong>ChatGPT</strong> crawls with its own bot (OAI-SearchBot) and falls back to Bing's index.</li>
+          <li><strong>Perplexity</strong> uses its own ~5 billion-URL index and runs an agentic "Deep Research" loop.</li>
+          <li><strong>Gemini</strong> draws primarily from Google's own search index.</li>
+          <li><strong>Claude</strong> runs web search through Brave Search.</li>
+          <li><strong>Microsoft Copilot</strong> is built on Bing's index and ranking systems.</li>
+        </ul>
+      </div>
+      <details class="tier-box">
+        <summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content">
+          <ul>
+            <li><strong>Query fan-out</strong>: Google's AI Overviews/AI Mode silently issue multiple related sub-queries and build the final answer from whichever pages surface consistently across all of them — not just the page ranking #1 for the literal typed query.</li>
+            <li>The gap between ranking and citation has widened: the share of AI Overview citations that also rank top 10 organically <strong>fell from ~76% (Jul 2025) to ~38% (Mar 2026)</strong> — rank tracking alone is a weaker proxy for AI visibility than it used to be.</li>
+            <li>Three signals now predict citation better than raw rank: <strong>topical authority</strong> across a cluster, <strong>structured-data coverage</strong>, and <strong>third-party presence</strong> reached by fan-out sub-queries (reviews, forums, comparisons).</li>
+            <li><strong>96% of AI Overview citations</strong> come from sources with strong E-E-A-T signals; pages clearly referencing 15+ recognized entities show roughly <strong>4.8x higher</strong> selection probability.</li>
+            <li>Common invisible-to-RAG failure modes: JS-only rendering (crawler sees a blank page), poor heading hierarchy (can't segment into extractable chunks), vocabulary mismatch (internal jargon instead of buyer phrasing).</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="callout future searchable">
+    <p class="label">📡 What's Coming in 2026 — Agentic Browsers & Beyond</p>
+    <ul>
+      <li><strong>Agentic browsers</strong> — browsers built around an AI agent that navigates and completes tasks for you — defined the 2026 "browser war": ChatGPT Atlas, Perplexity Comet, Dia, Brave Leo, plus Chrome/Safari adding native Gemini/Apple Intelligence features.</li>
+      <li>Reality check: OpenAI announced it is <strong>retiring standalone ChatGPT Atlas</strong> (Jul 9, 2026 announcement, shutdown Aug 9, 2026) just nine months after launch — this space is still volatile. Perplexity Comet has held a defensible niche among citation-conscious users.</li>
+      <li>Analysts project all AI browsers <em>combined</em> will capture only <strong>1-3% of global browser market share</strong> in 2026 — Chrome's incumbency is a towering barrier.</li>
+      <li><strong>Practical adaptation</strong>: strengthen structured data (Article, Organization, Breadcrumb), front-load direct answers in the first ~150 words, use clean semantic heading hierarchy, and publish enough topical depth that models treat your domain as authoritative rather than a one-off page.</li>
+      <li><strong>Zero-click evolution</strong>: commodity informational content (generic definitions, basic how-tos) is fully absorbed by AI Overviews and unlikely to recover; original research, primary data, and expert analysis that requires a site visit remain comparatively resilient.</li>
+    </ul>
+  </div>
+
+  <div class="resource-block searchable">
+    <h4>📚 Resources — Foundations</h4>
+    <div class="resource-group">
+      <h5>Video — English</h5>
+      <table><tr><th>Title</th><th>Note</th></tr>
+      <tr><td><span class="badge lang-en">EN</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/@ahrefs" target="_blank">Ahrefs — YouTube Channel</a></td><td>Current, data-backed videos on AI Overviews, GEO, and technical SEO from a widely-cited SEO tool brand.</td></tr>
+      <tr><td><span class="badge lang-en">EN</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/@SearchEngineJournal" target="_blank">Search Engine Journal — YouTube</a></td><td>Frequent explainer/trend videos on AEO, GEO, and AI search from a leading trade publication.</td></tr>
+      <tr><td><span class="badge lang-en">EN</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/@GoogleSearchCentral" target="_blank">Google Search Central — YouTube</a></td><td>Official Google channel; the best primary source for how AI Overviews/AI Mode actually work.</td></tr>
+      </table>
+    </div>
+    <div class="resource-group">
+      <h5>Video — Hindi</h5>
+      <table>
+      <tr><td><span class="badge lang-hi">HI</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/@WsCubeTech" target="_blank">WsCube Tech — YouTube Channel</a></td><td>One of the largest, most credible Hindi digital-marketing channels; covers fundamentals through current AI-search trends.</td></tr>
+      <tr><td><span class="badge lang-hi">HI</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/watch?v=83RXYrqRLeM" target="_blank">Full SEO Course in Hindi — Umar Tazkeer</a></td><td>Full-length 2025 SEO course, fundamentals through modern practice, in Hindi.</td></tr>
+      </table>
+    </div>
+    <div class="resource-group">
+      <h5>Video — Tamil</h5>
+      <table>
+      <tr><td><span class="badge lang-ta">TA</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/c/MrDigitalMarketingTamil" target="_blank">Mr Digital Marketing Tamil</a></td><td>Established Tamil channel covering SEO, SMM, and digital marketing fundamentals.</td></tr>
+      <tr><td><span class="badge lang-ta">TA</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/@DigitalMarketingTamil" target="_blank">AI Digital Marketing Tamil — Alston Antony</a></td><td>Covers SEO and AI-driven digital marketing specifically, Tamil/English mix.</td></tr>
+      </table>
+    </div>
+    <div class="resource-group">
+      <h5>Free Courses</h5>
+      <table>
+      <tr><td><span class="badge free">Free</span> <a href="https://ahrefs.com/academy" target="_blank">Ahrefs Academy — SEO for Beginners</a></td><td>Foundational SEO: keyword research, on-page, link building.</td></tr>
+      <tr><td><span class="badge free">Free</span> <a href="https://ahrefs.com/academy/aeo-course" target="_blank">Ahrefs Academy — AEO Course</a></td><td>Dedicated course on getting cited/recommended by ChatGPT, AI Overviews, Perplexity, Gemini.</td></tr>
+      <tr><td><span class="badge free">Free</span> <a href="https://www.semrush.com/academy/courses/content-marketing-essentials-for-seo-and-ai-search-with-semrush/" target="_blank">Semrush Academy — Content for SEO & AI Search</a></td><td>Creating content that performs for both classic SEO and AI platforms.</td></tr>
+      </table>
+    </div>
+    <div class="resource-group">
+      <h5>Articles</h5>
+      <table>
+      <tr><td><a href="https://developers.google.com/search/docs/fundamentals/ai-optimization-guide" target="_blank">Google — Guide to Optimizing for Generative AI Features</a></td><td>Google's own May 2026 primary-source guide; frames AEO/GEO as "still SEO."</td></tr>
+      <tr><td><a href="https://www.searchenginejournal.com/googles-new-ai-search-guide-calls-aeo-and-geo-still-seo/575026/" target="_blank">SEJ — Google's AI Search Guide Calls AEO/GEO "Still SEO"</a></td><td>Trade-press analysis of Google's official 2026 guidance.</td></tr>
+      <tr><td><a href="https://ahrefs.com/blog/google-ai-overviews/" target="_blank">Ahrefs — Google AI Overviews: All You Need to Know</a></td><td>Comprehensive, regularly-updated explainer.</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART 2: COMPARISON TABLE ============ -->
+<section class="part" id="comparison">
+  <h2>⚖️ 2. Comparison Table</h2>
+  <p class="part-intro">The four disciplines side by side — what changes, what overlaps.</p>
+  <div class="table-wrap comparison-wrap searchable">
+  <table>
+    <tr><th></th><th>Traditional SEO</th><th>AEO</th><th>GEO</th><th>AI Overview Optimization</th></tr>
+    <tr><td><strong>Goal</strong></td><td>Rank a URL as high as possible in organic results</td><td>Get a specific sentence/answer quoted directly by an AI answer engine</td><td>Get a brand cited or recommended across generative AI platforms broadly</td><td>Get a page selected as a supporting citation inside Google's AI Overview / AI Mode</td></tr>
+    <tr><td><strong>Primary Surface</strong></td><td>Google/Bing classic SERP</td><td>ChatGPT, Perplexity, Gemini, Copilot answer boxes</td><td>ChatGPT, Perplexity, Claude, Gemini, Copilot — cross-platform</td><td>Google AI Overviews and AI Mode specifically</td></tr>
+    <tr><td><strong>Key Signals</strong></td><td>Backlinks, keyword relevance, on-page optimization, domain authority</td><td>Clear quotable answers, question-based headings, concise structure</td><td>E-E-A-T, topical authority, structured data, entity presence, original data</td><td>Query fan-out coverage, topical cluster, structured data, freshness, engagement</td></tr>
+    <tr><td><strong>Winning Format</strong></td><td>Long-form, keyword-optimized, strong internal linking</td><td>Short, extractable, standalone answer blocks near the top</td><td>Original research, expert bylines, comprehensive topical clusters</td><td>Clear semantic hierarchy, front-loaded answers, tables/lists, indexed pages</td></tr>
+    <tr><td><strong>How Success Is Measured</strong></td><td>Rank position, organic traffic, CTR</td><td>Share of AI answers where you're quoted/cited</td><td>Brand mention frequency/sentiment across AI platforms ("AI visibility")</td><td>Citation rate inside the AI Overview box, referral traffic</td></tr>
+    <tr><td><strong>Overlap</strong></td><td>The foundation all three others build on</td><td>Google says it's not separate — SEO with an extraction/quotability layer</td><td>The umbrella term; AI Overview Opt. and AEO are GEO applied to one platform</td><td>A subset of GEO scoped to Google; shares E-E-A-T/schema needs with AEO/GEO</td></tr>
+  </table>
+  </div>
+</section>
+
+<!-- ============ PART 3: GLOSSARY ============ -->
+<section class="part" id="glossary">
+  <h2>🔤 3. A-Z Glossary</h2>
+  <p class="part-intro">Quick lookup for the acronym-heavy vocabulary of this field.</p>
+  <dl class="glossary-grid searchable" id="glossaryList">
+    <div class="glossary-term"><dt>AI Overview</dt><dd>Google's AI-generated summary above traditional results, synthesizing multiple web sources, the Knowledge Graph, and Google's own data into one answer box.</dd></div>
+    <div class="glossary-term"><dt>Answer Engine Optimization (AEO)</dt><dd>Structuring content so AI systems like ChatGPT, Perplexity, and AI Overviews quote it directly as the answer, rather than optimizing purely for a ranked link.</dd></div>
+    <div class="glossary-term"><dt>Backlink</dt><dd>A link from another site pointing to yours; historically one of the strongest authority/trust signals search engines use.</dd></div>
+    <div class="glossary-term"><dt>Core Web Vitals</dt><dd>Google's three measured page-experience metrics (LCP, INP, CLS) that act as confirmed ranking factors.</dd></div>
+    <div class="glossary-term"><dt>Crawl Budget</dt><dd>The number of pages a search bot will crawl on your site in a given period; mainly relevant only for very large sites.</dd></div>
+    <div class="glossary-term"><dt>Dwell Time</dt><dd>How long a visitor stays on a page after clicking a result before returning to the SERP; an indirect quality/relevance signal.</dd></div>
+    <div class="glossary-term"><dt>E-E-A-T</dt><dd>Experience, Expertise, Authoritativeness, Trustworthiness — Google's content-quality framework, now with "Experience" as a primary differentiator.</dd></div>
+    <div class="glossary-term"><dt>Featured Snippet</dt><dd>A highlighted answer box above regular results, pulling a short excerpt from a ranking page — a.k.a. "position zero."</dd></div>
+    <div class="glossary-term"><dt>Generative Engine Optimization (GEO)</dt><dd>Optimizing a brand's content and web presence so generative AI models are more likely to retrieve, trust, and cite it.</dd></div>
+    <div class="glossary-term"><dt>Hreflang</dt><dd>An HTML attribute telling search engines which language/region version of a page to show, preventing duplicate-content confusion internationally.</dd></div>
+    <div class="glossary-term"><dt>Index / Indexing</dt><dd>The process of storing and organizing a crawled page so it can be retrieved and shown in results; unindexed pages can't rank or be cited.</dd></div>
+    <div class="glossary-term"><dt>JSON-LD</dt><dd>A lightweight code format for embedding structured data (Schema.org markup) so search engines and AI systems can parse page facts without guessing.</dd></div>
+    <div class="glossary-term"><dt>Knowledge Graph</dt><dd>Google's database of real-world entities and their relationships, powering info boxes and facts alongside search results.</dd></div>
+    <div class="glossary-term"><dt>Large Language Model (LLM)</dt><dd>The AI model (GPT, Gemini, Claude) trained on massive text datasets that powers chatbots and AI search features.</dd></div>
+    <div class="glossary-term"><dt>Meta Description</dt><dd>The short HTML summary that may display under a title in results; not a direct ranking factor but strongly influences CTR.</dd></div>
+    <div class="glossary-term"><dt>Natural Language Processing (NLP)</dt><dd>The AI branch letting computers understand, interpret, and generate human language, underlying query parsing and answer generation.</dd></div>
+    <div class="glossary-term"><dt>Organic Search</dt><dd>Unpaid results appearing due to relevance, as opposed to paid ads — the traditional target of SEO.</dd></div>
+    <div class="glossary-term"><dt>Position Zero</dt><dd>The informal name for the featured snippet slot, appearing above the #1 organic position.</dd></div>
+    <div class="glossary-term"><dt>Query Fan-Out</dt><dd>A technique where one user query silently triggers several related sub-searches, with the answer built from sources surfacing consistently across all of them.</dd></div>
+    <div class="glossary-term"><dt>Retrieval-Augmented Generation (RAG)</dt><dd>The technique AI search tools use to look up real, current information and ground their answer in it, instead of relying solely on training memory.</dd></div>
+    <div class="glossary-term"><dt>Schema Markup / Structured Data</dt><dd>Standardized code (usually JSON-LD, Schema.org vocabulary) explicitly labeling page content — like marking a paragraph as a "recipe" or "FAQ" — for machines.</dd></div>
+    <div class="glossary-term"><dt>Search Generative Experience (SGE)</dt><dd>Google's original 2023 name for what became AI Overviews after the 2024 rebrand.</dd></div>
+    <div class="glossary-term"><dt>Topical Authority</dt><dd>The depth and breadth of a site's coverage on a subject; sites with many interconnected articles rank and get cited more reliably than one strong page alone.</dd></div>
+    <div class="glossary-term"><dt>User Intent</dt><dd>The underlying goal behind a query (learn, navigate, buy); modern SEO/AEO content is built around matching intent, not just keywords.</dd></div>
+    <div class="glossary-term"><dt>Vector Embedding</dt><dd>A numerical representation of text's meaning used by AI systems to match content by semantic similarity rather than exact keyword overlap.</dd></div>
+    <div class="glossary-term"><dt>Web Crawler</dt><dd>An automated bot (Googlebot, OAI-SearchBot, PerplexityBot) that visits and downloads pages so a search engine/AI system can index and retrieve them.</dd></div>
+    <div class="glossary-term"><dt>XML Sitemap</dt><dd>A file listing a site's important URLs, submitted to search engines to help discover and crawl pages efficiently.</dd></div>
+    <div class="glossary-term"><dt>Zero-Click Search</dt><dd>A query where the user gets their answer directly on the results page (snippet or AI Overview) and never clicks through to any website.</dd></div>
+  </dl>
+</section>
+
+<!-- ============ PART 4: TECHNICAL SEO ============ -->
+<section class="part" id="technical-seo">
+  <h2>⚙️ 4. Technical SEO</h2>
+  <p class="part-intro">The plumbing every other discipline in this guide depends on. If a page can't be crawled or rendered, nothing else here matters.</p>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Crawling & Indexing (robots.txt, Sitemaps, Crawl Budget)</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>Crawling is how search engines discover pages by following links and reading sitemaps. Indexing is the next step, where Google decides whether a crawled page is good enough to store and show in results — a page can be perfectly crawlable and still sit in "Crawled, currently not indexed" limbo if judged low-value.</p>
+        <p>Get this wrong and everything else in this guide is wasted effort: a page that's never crawled or indexed can't rank, can't be cited by an AI, and won't show up no matter how well it's written. This is usually the very first thing to check when a page mysteriously never appears in search at all.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Create a robots.txt at the root domain; use Disallow sparingly (admin paths, internal search, staging).</label></li>
+          <li><input type="checkbox"><label>End robots.txt with a Sitemap: line pointing to your sitemap index.</label></li>
+          <li><input type="checkbox"><label>Build an XML sitemap listing only canonical, indexable, 200-status pages.</label></li>
+          <li><input type="checkbox"><label>Submit the sitemap in Google Search Console and Bing Webmaster Tools.</label></li>
+          <li><input type="checkbox"><label>Check GSC's Crawl Stats report monthly: total requests, response time, 404/500 breakdown.</label></li>
+          <li><input type="checkbox"><label>Fix soft 404s, redirect chains, and orphan pages that waste crawl budget.</label></li>
+          <li><input type="checkbox"><label>Validate robots.txt changes with the robots.txt Tester before deploying.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><ul>
+          <li>Crawl budget is a real concern mainly above ~1 million URLs or very high daily publish volume — small/medium sites should focus on quality signals instead.</li>
+          <li>Googlebot generates ~4.5% of all HTML request traffic on the internet and crawled 96% more pages in 2025 than 2024 — but AI crawler traffic on top of that surged over 300%.</li>
+          <li>Per Google's own guidance: there are only two real ways to increase crawl budget — add server capacity/speed, or improve content quality. Blocking low-value paths doesn't "reallocate" budget elsewhere.</li>
+        </ul></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Blocking CSS/JS in robots.txt, breaking rendering and Core Web Vitals evaluation.</li>
+        <li>Leaving stale staging-site Disallow rules in production.</li>
+        <li>Submitting a sitemap full of noindex/redirected/404 URLs.</li>
+        <li>Confusing "crawled" with "indexed" and chasing crawl stats instead of content quality.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Site Architecture & Internal Linking</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>Site architecture is your folder structure and road map. Internal links are the roads — the fewer clicks it takes to reach a page from the homepage, the more "important" search engines assume it is.</p>
+        <p>Search engines use link structure as a proxy for importance and topical relationship — a page linked from many relevant pages reads as a trusted, central resource on that subject. Get the structure wrong and even excellent content can go undiscovered, buried too many clicks deep for crawlers or users to bother reaching.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Aim for a flat architecture: important pages reachable within 3 clicks of the homepage.</label></li>
+          <li><input type="checkbox"><label>Build topic clusters: one pillar page linking to related cluster pages, all interlinking back.</label></li>
+          <li><input type="checkbox"><label>Add breadcrumb navigation with matching BreadcrumbList schema.</label></li>
+          <li><input type="checkbox"><label>Use descriptive anchor text instead of "click here."</label></li>
+          <li><input type="checkbox"><label>Crawl with Screaming Frog/Sitebulb to find orphan pages with zero internal links.</label></li>
+          <li><input type="checkbox"><label>Audit broken internal links quarterly.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><ul>
+          <li>AI answer engines tend to synthesize from pages with clear entity relationships — internal linking that reinforces topical authority increasingly affects AI citation likelihood, not just classic rankings.</li>
+          <li>Cross-reference log files (which pages AI crawlers actually reach) against your priority pages, and adjust internal links to route bots toward them.</li>
+        </ul></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Deep architecture requiring 5+ clicks to reach key pages.</li>
+        <li>Orphan cornerstone content relying only on the sitemap.</li>
+        <li>Over-optimized, repetitive exact-match anchor text.</li>
+        <li>Nav menus that differ wildly between mobile and desktop.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Core Web Vitals & Page Speed (LCP, INP, CLS)</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>Core Web Vitals are three real-user metrics Google uses to judge how a page feels to use: load speed, responsiveness, visual stability. Since March 2024, <strong>INP (Interaction to Next Paint) replaced FID</strong> as the responsiveness metric — any guide still mentioning FID is outdated.</p>
+        <p>These aren't abstract lab scores — Google measures them from real visitor sessions via the Chrome User Experience Report (CrUX), so they reflect what actual users feel on actual devices and connections. A slow, janky page doesn't just frustrate visitors; it can suppress rankings even when the content itself is excellent.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content">
+          <p>Passing thresholds (75th percentile, real users): <strong>LCP</strong> &lt; 2.5s · <strong>INP</strong> &lt; 200ms · <strong>CLS</strong> &lt; 0.1</p>
+          <ul class="checklist">
+          <li><input type="checkbox"><label>Check real-user data in Search Console's Core Web Vitals report + PageSpeed Insights field data.</label></li>
+          <li><input type="checkbox"><label>LCP: preload hero image/font, use fetchpriority="high", compress images (WebP/AVIF), use a CDN.</label></li>
+          <li><input type="checkbox"><label>INP: break up long JS tasks, reduce third-party scripts, debounce heavy event handlers.</label></li>
+          <li><input type="checkbox"><label>CLS: set explicit width/height or aspect-ratio on images/embeds, reserve space for ads.</label></li>
+          <li><input type="checkbox"><label>Test with Lighthouse (lab) AND real Chrome UX Report field data — they can disagree.</label></li>
+          <li><input type="checkbox"><label>Re-test after every major frontend deploy; regressions creep in silently.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><ul>
+          <li>43% of sites still fail the INP 200ms threshold — now the most commonly failed Core Web Vital, largely due to bloated third-party JS and ad tech.</li>
+          <li>Google grades on a rolling 28-day CrUX window at the 75th percentile — a single bad release can suppress your score for a month even after the fix ships.</li>
+          <li>HTTPS/HSTS indirectly boosts Core Web Vitals by enabling HTTP/2/3 multiplexing and faster TLS resumption.</li>
+        </ul></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Optimizing only lab data (Lighthouse) and ignoring real-user field data.</li>
+        <li>Treating INP like FID (only measuring first interaction).</li>
+        <li>Lazy-loading the LCP image itself.</li>
+        <li>Fixing CLS by removing dynamic content instead of reserving layout space.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Mobile-First Indexing</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>Mobile-first indexing means Google uses the <strong>mobile version</strong> of your site as the primary source for crawling, indexing, and ranking. Google completed this rollout globally in mid-2024 — it's now simply the permanent default.</p>
+        <p>This matters because most search traffic happens on phones, and if your mobile site hides or trims content that exists on desktop, Google only ever sees the trimmed version. Effectively, anything missing from the mobile page is invisible to search, no matter how good it looks on desktop.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Ensure content parity: text, images, structured data, and links identical (or richer) on mobile vs. desktop.</label></li>
+          <li><input type="checkbox"><label>Verify meta robots tags match between mobile and desktop.</label></li>
+          <li><input type="checkbox"><label>Prefer responsive design (one URL, CSS media queries) over separate m. subdomains.</label></li>
+          <li><input type="checkbox"><label>Test with Search Console's Mobile Usability report.</label></li>
+          <li><input type="checkbox"><label>Confirm structured data isn't stripped by a lighter mobile template.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><ul>
+          <li>Mobile Core Web Vitals carry outsized ranking weight since mobile is the only version Google evaluates.</li>
+          <li>With AI Overviews/AI Mode increasingly mobile-triggered, content hidden behind mobile-only "read more" toggles can be invisible to both classic mobile search and AI synthesis.</li>
+        </ul></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Legacy m. subdomains with outdated content or broken redirects.</li>
+        <li>Hiding tables/FAQs behind mobile-only toggles that don't load content into the DOM.</li>
+        <li>Ads/interstitials that block mobile content.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Structured Data / Schema Markup</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>Structured data (usually JSON-LD) is a standardized way to label content so machines understand what it means — how Google/AI know "this number is a price" or "this paragraph answers this question."</p>
+        <p>Without it, engines are left guessing at meaning from raw text and formatting alone. Schema removes the guesswork by explicitly declaring facts — this is a product, it costs $40, this review is 4.5 stars — which is exactly the kind of unambiguous data both classic rich results and modern AI systems rely on.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Use JSON-LD embedded in a script tag in the page head or body.</label></li>
+          <li><input type="checkbox"><label>Implement Article/BlogPosting, FAQPage, HowTo, Product, Organization/LocalBusiness, BreadcrumbList as relevant.</label></li>
+          <li><input type="checkbox"><label>Validate every implementation with Google's Rich Results Test and Schema Markup Validator.</label></li>
+          <li><input type="checkbox"><label>Monitor Search Console's Enhancements reports for errors/warnings.</label></li>
+          <li><input type="checkbox"><label>Keep schema truthful and matching visible page content.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><ul>
+          <li>Google retired the FAQ rich <em>visual</em> result on May 7, 2026, but FAQPage markup remains valid and is still read by AI systems for AI Overview/AI Mode citation — don't remove it.</li>
+          <li>The March 2026 core update reduced rich-result eligibility for schema slapped onto pages where that content isn't the primary focus — abuse detection tightened significantly.</li>
+          <li>John Mueller confirmed Google isn't "killing schema" — its role is growing since Gemini/AI Mode uses it to verify claims and establish entity relationships during synthesis.</li>
+        </ul></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Marking up FAQ/HowTo schema purely to chase rich snippets, now actively penalized.</li>
+        <li>Structured data contradicting visible page content.</li>
+        <li>Forgetting to update datePublished/dateModified on meaningful refreshes.</li>
+        <li>Copy-pasting boilerplate schema without customizing required fields.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Canonicalization, Hreflang, Pagination</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>Canonical tags tell search engines "this is the master version" when duplicate URLs exist. Hreflang tags tell them which language/region version to show which user; pagination markup organizes multi-page series.</p>
+        <p>Without clear signals, search engines have to guess which version of a page is the "real" one to index and rank. Guess wrong and your ranking authority gets split across near-duplicate URLs instead of consolidating on one, quietly weakening all of them.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Add a self-referencing canonical to every page.</label></li>
+          <li><input type="checkbox"><label>Implement hreflang as a complete reciprocal set — every variant links to every other, including itself.</label></li>
+          <li><input type="checkbox"><label>Fix canonical conflicts before hreflang — canonical must point to a page in the same language.</label></li>
+          <li><input type="checkbox"><label>Give each paginated page its own self-referencing canonical — never collapse to page 1.</label></li>
+          <li><input type="checkbox"><label>Validate hreflang with Search Console's International Targeting report.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><ul>
+          <li>A 2026 study found 65% of enterprise multilingual sites have at least one canonical/hreflang conflict invalidating the whole language cluster.</li>
+          <li>With rel=prev/next fully deprecated (2024), infinite scroll needs server-rendered paginated URLs underneath with real canonicals, or deep content can be stranded from indexing.</li>
+        </ul></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Canonicalizing every paginated page back to page 1.</li>
+        <li>Hreflang pointing to URLs that 404, redirect, or noindex.</li>
+        <li>Missing self-referencing hreflang.</li>
+        <li>Setting canonical to a different-language page "to consolidate authority."</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">JavaScript SEO / Rendering Issues</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>Many sites build pages with JS frameworks that construct content in the browser rather than sending finished HTML. If search engines and AI bots can't execute that JavaScript, they see a blank or incomplete page.</p>
+        <p>This gap between what a browser renders and what a crawler actually receives is one of the most common invisible reasons a well-written page never ranks or gets cited. Everything downstream — content, schema, links — is worthless if the crawler's first pass sees a blank page.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Understand Google's two-phase process: raw HTML crawled immediately, JS rendering queued separately (can lag hours-weeks).</label></li>
+          <li><input type="checkbox"><label>Prefer Server-Side Rendering (SSR) or Static Site Generation (SSG) over pure client-side rendering.</label></li>
+          <li><input type="checkbox"><label>Test what Googlebot sees via Search Console's URL Inspection → rendered HTML/screenshot.</label></li>
+          <li><input type="checkbox"><label>Ensure critical content isn't solely dependent on client-side API calls that could fail or time out.</label></li>
+          <li><input type="checkbox"><label>Don't rely on dynamic rendering (bot-only pre-rendered HTML) as a long-term fix.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><ul>
+          <li><strong>AI crawlers (GPTBot, ClaudeBot, PerplexityBot) generally do NOT execute JavaScript at all</strong> — they read raw initial HTML only, unlike Googlebot's eventual Phase 2 rendering.</li>
+          <li>This makes SSR/SSG a prerequisite for AI Overview and answer-engine visibility, not just a Google indexing nicety.</li>
+          <li>Audit with a "curl test" mentality: fetch raw HTML with no JS execution and confirm core content/headings/facts are already there.</li>
+        </ul></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Assuming "Google renders JS fine so we're fine" while AI bots largely don't render JS at all.</li>
+        <li>Content loaded only after a scroll-triggered API call.</li>
+        <li>Relying on dynamic rendering/user-agent detection — fragile and discouraged.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">HTTPS & Security Headers</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>HTTPS encrypts traffic between your site and visitors; it's been a confirmed ranking signal since 2014. Security headers (like HSTS) tell browsers to enforce secure behavior.</p>
+        <p>Beyond the ranking signal itself, HTTPS is now table stakes for user trust — browsers actively warn visitors away from non-secure sites. That warning alone can tank conversion rates before any SEO impact is even measured.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Install a valid TLS certificate site-wide (Let's Encrypt is free).</label></li>
+          <li><input type="checkbox"><label>Redirect all HTTP to HTTPS with 301s; update canonical tags and sitemap.</label></li>
+          <li><input type="checkbox"><label>Implement HSTS so browsers never attempt an insecure connection.</label></li>
+          <li><input type="checkbox"><label>Add a Content-Security-Policy header (start in report-only mode).</label></li>
+          <li><input type="checkbox"><label>Check for mixed content warnings via Chrome DevTools/Search Console.</label></li>
+          <li><input type="checkbox"><label>Test full header config with securityheaders.com or Mozilla Observatory.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><ul>
+          <li>John Mueller has clarified security headers like HSTS don't directly affect rankings — but indirect effects (Core Web Vitals via HTTP/2/3, trust, conversion) still matter.</li>
+          <li>Certificate Transparency logs and HSTS preload inclusion are increasingly used as trust signals by browsers and some AI crawlers evaluating source credibility.</li>
+        </ul></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Mixed content (HTTP resources on HTTPS pages) breaking the padlock.</li>
+        <li>Forgetting to update internal links/canonicals/sitemap after HTTP→HTTPS migration.</li>
+        <li>Adding HSTS preload without confirming ALL subdomains support HTTPS.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Log File Analysis</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>Log files are your server's raw record of every request — including every visit from Googlebot, Bingbot, and now AI crawlers. Unlike Search Console (sampled, Google-only), logs show exactly what happened, unfiltered.</p>
+        <p>This is the difference between guessing how search engines interact with your site and actually knowing. Most technical SEO diagnosis — crawl waste, blocked sections, ignored pages — traces back to something visible only in raw logs, not in any dashboard.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Export raw server access logs covering at least 30 days.</label></li>
+          <li><input type="checkbox"><label>Use Screaming Frog Log File Analyser or SEOlyzer to parse and verify bot user-agents by reverse DNS.</label></li>
+          <li><input type="checkbox"><label>Segment traffic by bot: Googlebot, Bingbot, GPTBot, ClaudeBot, PerplexityBot.</label></li>
+          <li><input type="checkbox"><label>Identify pages crawled most/least, response codes served to bots, orphaned pages bots never reach.</label></li>
+          <li><input type="checkbox"><label>Re-run monthly, especially after migrations or robots.txt changes.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><ul>
+          <li>Non-Google AI bot traffic averages ~4.2% of all HTML requests network-wide (peaking near 6.4%) — large enough to affect server capacity planning.</li>
+          <li>Search Console cannot show page-level trends for any crawler except Googlebot — log files are the only ground truth for AI-crawler behavior.</li>
+        </ul></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Trusting the user-agent string without verifying via reverse DNS/IP.</li>
+        <li>Only analyzing Googlebot activity and ignoring AI crawler patterns.</li>
+        <li>One-time analysis instead of an ongoing monthly habit.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Duplicate & Thin Content Handling</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>Duplicate content is the same/near-identical content at multiple URLs, confusing which version should rank. Thin content doesn't provide enough real value to satisfy a searcher's need.</p>
+        <p>Search engines have limited patience for scanning near-identical or low-value pages, and every one they index dilutes the perceived quality of the whole domain. This is one of the fastest ways a site earns a broad, sitewide quality penalty rather than a page-specific one.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Run a site-wide duplicate content audit (Screaming Frog near-duplicate detection, Copyscape).</label></li>
+          <li><input type="checkbox"><label>Canonical or noindex low-value parameter/filtered variants.</label></li>
+          <li><input type="checkbox"><label>Consolidate: merge thin/overlapping pages into one comprehensive resource.</label></li>
+          <li><input type="checkbox"><label>Audit low-traffic pages (GA4 + Search Console) for thin-content signals.</label></li>
+          <li><input type="checkbox"><label>Use noindex (not Disallow) for necessary-but-non-valuable pages.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><ul>
+          <li>Google's Helpful Content system is now fully integrated into core ranking, not a periodic separate update.</li>
+          <li>"Crawled — currently not indexed" is increasingly a direct quality tell for AI-generated or thin content — a spike is a leading indicator worth monitoring proactively.</li>
+        </ul></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Mass-producing near-identical programmatic pages without genuine unique value.</li>
+        <li>Using Disallow to "hide" thin content instead of noindex.</li>
+        <li>Treating word count as the fix for thin content instead of genuine depth.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">LLM-Crawler Access Control (GPTBot, PerplexityBot, Google-Extended, ClaudeBot)</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>Beyond classic search bots, a newer category feeds AI systems — some train foundation models, others power live AI search (like ChatGPT Search). You can choose, bot by bot, whether to allow training, allow retrieval, or block entirely via robots.txt.</p>
+        <p>This is a genuinely new decision layer that didn't exist a few years ago — every site owner is now implicitly choosing, whether they realize it or not, which AI systems get to see their content at all. That choice directly determines whether the site can ever be cited by those systems.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content">
+          <p><strong>Key user-agents</strong>: <code>GPTBot</code> (OpenAI training), <code>OAI-SearchBot</code>/<code>ChatGPT-User</code> (ChatGPT retrieval/citation), <code>ClaudeBot</code> (Anthropic training), <code>Claude-SearchBot</code>/<code>Claude-User</code> (Anthropic retrieval), <code>PerplexityBot</code> (Perplexity's crawler), <code>Google-Extended</code> (controls Gemini training — separate from Googlebot, never block that one), <code>CCBot</code> (Common Crawl, feeds many training sets).</p>
+          <ul class="checklist">
+          <li><input type="checkbox"><label>Common 2025-2026 strategy: "Block Training, Allow Search" — disallow GPTBot/Google-Extended/CCBot while allowing ChatGPT-User/Claude-SearchBot/PerplexityBot.</label></li>
+          <li><input type="checkbox"><label>Validate robots.txt changes with a crawler simulator before deploying (a syntax slip can accidentally block Googlebot itself).</label></li>
+          <li><input type="checkbox"><label>Consider an llms.txt file at root — a curated content map for AI systems (note: it's a navigation aid, NOT a training opt-out mechanism).</label></li>
+          <li><input type="checkbox"><label>Monitor actual AI bot behavior via log files, since robots.txt is voluntary and not universally honored.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><ul>
+          <li><strong>Robots.txt is not real access control.</strong> Cloudflare published evidence (Aug 2025) that Perplexity operates undeclared crawlers rotating user-agents/IPs/ASNs specifically to evade Disallow rules. Real enforcement needs a WAF rule (e.g., Cloudflare AI Crawl Control) layered on top.</li>
+          <li>Sites that unblocked GPTBot + PerplexityBot + ClaudeBot in Q4 2025 reportedly saw sizable AI-attributed referral traffic growth within 90 days — the allow/block decision is a genuine traffic trade-off now, not just defensive.</li>
+          <li>AI crawlers generally don't execute JS (see JavaScript SEO above), so even an "allowed" bot gets nothing useful from client-side-rendered pages — access control and renderability are now a joint decision.</li>
+        </ul></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Blocking Googlebot by mistake while trying to block Google-Extended.</li>
+        <li>Assuming robots.txt rules are enforced/legally binding — some AI crawlers ignore them via undeclared bots.</li>
+        <li>Adding llms.txt and assuming it opts the site out of AI training — it doesn't.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="resource-block searchable">
+    <h4>📚 Resources — Technical SEO</h4>
+    <div class="resource-group"><h5>Video — English</h5><table>
+      <tr><td><span class="badge lang-en">EN</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/@GoogleSearchCentral" target="_blank">Google Search Central</a></td><td>SEO Office Hours, Search Console tutorials, crawling/indexing straight from Google's Search team.</td></tr>
+      <tr><td><span class="badge lang-en">EN</span> <span class="badge free">Free</span> <a href="https://ahrefs.com/academy/ahrefs-youtube/core-web-vitals" target="_blank">Ahrefs — Core Web Vitals Optimization</a></td><td>Practical LCP/INP/CLS walkthrough.</td></tr>
+      <tr><td><span class="badge lang-en">EN</span> <span class="badge free">Free</span> <a href="https://ahrefs.com/academy/ahrefs-youtube/technical-seo" target="_blank">Ahrefs — Technical SEO Audit for Beginners</a></td><td>Step-by-step technical audit checklist.</td></tr>
+    </table></div>
+    <div class="resource-group"><h5>Video — Hindi</h5><table>
+      <tr><td><span class="badge lang-hi">HI</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/@WsCubeTech" target="_blank">WsCube Tech — Full SEO Course</a></td><td>Large Hindi channel; covers crawling, indexing, sitemaps, schema in Hindi.</td></tr>
+    </table></div>
+    <div class="resource-group"><h5>Video — Tamil</h5><table>
+      <tr><td><span class="badge lang-ta">TA</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/playlist?list=PL_0al8F11Xs_4OWZguaBg8ZwxCpypJmlf" target="_blank">Digital Marketing Tamil — Technical SEO Playlist</a></td><td>Covers technical SEO, crawlability, schema, Core Web Vitals in Tamil.</td></tr>
+    </table></div>
+    <div class="resource-group"><h5>Free Courses</h5><table>
+      <tr><td><span class="badge free">Free</span> <a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide" target="_blank">Google Search Essentials / SEO Starter Guide</a></td><td>Google's own foundational technical SEO documentation.</td></tr>
+      <tr><td><span class="badge free">Free</span> <a href="https://seotamil.com/seo-course-tamil/" target="_blank">SEO Course in Tamil — SEOTamil.com</a></td><td>30+ lesson free course including a dedicated technical SEO module.</td></tr>
+    </table></div>
+    <div class="resource-group"><h5>Articles</h5><table>
+      <tr><td><a href="https://searchengineland.com/canonicalization-seo-448161" target="_blank">Canonicalization and SEO: A Guide for 2026</a></td><td>Updated canonical/hreflang/pagination guidance.</td></tr>
+      <tr><td><a href="https://pixis.ai/blog/robots-txt-for-ai-crawlers-gptbot-perplexitybot-geo-audit/" target="_blank">Robots.txt for AI Crawlers: GPTBot, PerplexityBot & GEO Audit</a></td><td>Training-vs-retrieval bot directive breakdown.</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<!-- ============ PART 5: AEO ============ -->
+<section class="part" id="aeo">
+  <h2>🎯 5. AEO — Answer Engine Optimization</h2>
+  <p class="part-intro">Optimizing to be the sentence quoted back to the user, not just the link they might click.</p>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Optimizing for Featured Snippets / "Position Zero"</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>Featured snippets are the boxed answer above the #1 result — hence "position zero." They still matter, feeding voice assistants and often getting scraped into AI Overviews, though Google cut snippet volume roughly 35% between late 2024 and early 2025 as AI Overviews absorbed many of the same queries.</p>
+        <p>Winning this spot used to be one of the highest-value SEO wins available, since it put your content above every other result including your own organic listing. Understanding how it works is the foundation for the rest of this AEO section, since AI Overviews use very similar extraction logic.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Rank on page one first — you almost always need top-10 ranking before Google lifts a passage.</label></li>
+          <li><input type="checkbox"><label>Match the snippet type already shown: paragraph (40-60 words), list (6-10 items), or table (4-6 cols, 5-10 rows).</label></li>
+          <li><input type="checkbox"><label>Place the direct answer immediately under an H2/H3 mirroring the query's phrasing.</label></li>
+          <li><input type="checkbox"><label>Use literal ol/ul/table markup — Google extracts structured HTML more reliably than prose.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><p>Featured snippets and AI Overviews are now mutually exclusive on most SERPs — when an AI Overview shows, the classic snippet often disappears, so winning "position zero" increasingly means winning an AI Overview citation instead. Optimize the same passage for both surfaces simultaneously.</p></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Burying the answer after 300 words of preamble.</li>
+        <li>Writing an answer too long (150+ words) to be extractable.</li>
+        <li>Ignoring the existing SERP format for that query.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Structuring Content for Direct-Answer Extraction</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>Answer engines extract short, self-contained chunks, not whole articles. The "inverted pyramid" — lead with the conclusion, then supply evidence — beats narrative build-up.</p>
+        <p>This is the single biggest mental shift AEO requires: writing for extraction rather than for a leisurely read means reordering how you'd normally structure an article, answer first instead of built up to. A page can rank well and still get zero AI citations if it never states its point plainly.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Use question-phrased H2/H3 headers matching real search queries word-for-word.</label></li>
+          <li><input type="checkbox"><label>Follow each question header with a 2-3 sentence direct-answer block before elaboration.</label></li>
+          <li><input type="checkbox"><label>One idea per section — split compound questions into separate headers.</label></li>
+          <li><input type="checkbox"><label>Keep the answer block extractable in isolation — no pronouns referring outside the block.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><p>LLM-based engines increasingly retrieve semantically, not just lexically — they can cite content answering a question without exact wording, provided surrounding content reinforces topical relevance. Structure pages as "answer + immediate reasoning + evidence" triplets, matching how RAG systems chunk and re-rank passages.</p></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Answer buried inside a long paragraph instead of isolated.</li>
+        <li>Marketing fluff before the actual answer.</li>
+        <li>Vague headers ("Overview") instead of the literal question.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">FAQ / HowTo Schema for Voice & Answer Engines</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>Structured data marks up questions/answers or step-by-step instructions so engines can parse them programmatically instead of guessing from HTML.</p>
+        <p>Even though the visual payoff (the rich snippet) has shrunk, the underlying signal value to AI systems hasn't. This is a rare case where doing the technical work matters more than ever, despite looking on the surface like it stopped mattering.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Implement FAQPage schema with real Q&A pairs matched to on-page visible content.</label></li>
+          <li><input type="checkbox"><label>Implement HowTo schema for step-based content with step/name/text properties.</label></li>
+          <li><input type="checkbox"><label>Validate with Google's Rich Results Test before shipping.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+) — Deprecation Alert</summary>
+        <div class="tier-content"><ul>
+          <li>HowTo rich results were deprecated on desktop back in September 2023; FAQ rich results stopped appearing in Google Search on <strong>May 7, 2026</strong> (Search Console/Rich Results Test support followed by June, API support ended August 2026) due to widespread abuse.</li>
+          <li>Google says this is a search-<em>appearance</em> change, not algorithmic — rankings aren't hurt, and unused structured data doesn't penalize you.</li>
+          <li><strong>Keep the schema anyway</strong>: LLM-based answer engines (AI Overviews, AI Mode, ChatGPT, Perplexity) still parse this markup during retrieval even though Google Search no longer renders the visual dropdown.</li>
+        </ul></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Ripping out all FAQ/HowTo schema after hearing "it's deprecated" — throws away a machine-readability signal AI engines still use.</li>
+        <li>Marking up FAQ content not visible to users (guideline violation).</li>
+        <li>Stuffing FAQs purely for SERP appearance rather than answering real questions.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Conversational / Voice Query Optimization</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>Voice queries are longer and more natural than typed ones — full questions averaging 7-10 words versus 2-3 word typed queries. Voice search reportedly reached ~27% of queries in 2026, with 8.4 billion active voice assistants worldwide.</p>
+        <p>As more queries arrive as full spoken or typed questions instead of fragments, content written in a naturally conversational, question-and-answer style has a structural advantage over old-style keyword-fragment SEO prose. This same shift is also what powers Google's AI Mode and chat-style search below.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Map complete natural-language questions to each page's core topic, not fragment keywords.</label></li>
+          <li><input type="checkbox"><label>Answer in concise 40-50 word blocks — what gets read aloud by an assistant.</label></li>
+          <li><input type="checkbox"><label>Prioritize the featured snippet/AI Overview for the target query.</label></li>
+          <li><input type="checkbox"><label>Layer in local SEO signals (NAP, Google Business Profile) for local-intent voice queries.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><p>Voice and AI Mode are converging: conversational, multi-turn queries into AI Mode behave like voice search but typed. Build for follow-up questions too — anticipate what a user asks next in the same session and address it in adjacent sections/internal links, since AI Mode carries conversational context across turns.</p></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Optimizing only for short, fragment keywords.</li>
+        <li>Forgetting mobile/page-speed fundamentals underneath voice optimization.</li>
+        <li>Treating voice optimization as separate from snippet/AI Overview optimization.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Question-Cluster Mapping</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>A question cluster is the full set of ways real users phrase questions around one topic (what/why/how/vs/cost/best). Mapping it means building one comprehensive resource — or pillar + cluster pages — instead of separate thin pages per phrasing.</p>
+        <p>A single strong page answering one version of a question rarely earns lasting authority. Real topical trust comes from visibly covering the question from every angle a real person might ask it, which is exactly what a mapped cluster demonstrates to both search engines and AI systems.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Seed the cluster from Google's "People Also Ask" — expand entries, keep clicking to surface deeper questions.</label></li>
+          <li><input type="checkbox"><label>Cross-reference with autocomplete, AnswerThePublic, and keyword tools to catch PAA gaps.</label></li>
+          <li><input type="checkbox"><label>Group questions by search intent, not just keyword similarity.</label></li>
+          <li><input type="checkbox"><label>Build a pillar page + cluster pages per distinct sub-intent, interlinked densely.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><p>AI answer engines evaluate entity/topical authority — how consistently a domain covers a subject across interlinked pages — as a citation signal. A dense, cross-linked question cluster is now a topical-authority signal for LLM retrieval, not just a UX tactic; sparse, disconnected pages actively hurt citation odds.</p></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Near-duplicate pages for questions sharing the same intent (cannibalization).</li>
+        <li>Stopping after the first page of PAA results.</li>
+        <li>Building the cluster around keywords instead of underlying question intent.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="resource-block searchable">
+    <h4>📚 Resources — AEO</h4>
+    <div class="resource-group"><h5>Video — English</h5><table>
+      <tr><td><span class="badge lang-en">EN</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/watch?v=BjyF_4UhoOM" target="_blank">The AI Search Optimization Roadmap — Aleyda Solis</a></td><td>Clear end-to-end AEO framework from a leading international SEO consultant.</td></tr>
+    </table></div>
+    <div class="resource-group"><h5>Video — Hindi</h5><table>
+      <tr><td><span class="badge lang-hi">HI</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/@wscubetech" target="_blank">WsCube Tech</a></td><td>Full free SEO course including AI-search/AEO/GEO modules.</td></tr>
+    </table></div>
+    <div class="resource-group"><h5>Video — Tamil</h5><table>
+      <tr><td><span class="badge lang-ta">TA</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/@DigitalMarketingTamil" target="_blank">AI Digital Marketing Tamil — Alston Antony</a></td><td>Explicitly covers Google SEO and GEO/AEO (AI Search) topics.</td></tr>
+    </table></div>
+    <div class="resource-group"><h5>Free Courses</h5><table>
+      <tr><td><span class="badge free">Free</span> <a href="https://getcito.com/free-courses" target="_blank">GetCito — 7-Day GEO/AEO Certificate Course</a></td><td>Free 7-day AEO/GEO/AIO/LLM SEO training with templates and certificate.</td></tr>
+      <tr><td><span class="badge free">Free (audit)</span> <a href="https://www.coursera.org/learn/seo-mastering-generative-engine-optimization-geo" target="_blank">Coursera — Mastering GEO</a></td><td>Covers SEO's evolution toward AI-driven search.</td></tr>
+    </table></div>
+    <div class="resource-group"><h5>Articles</h5><table>
+      <tr><td><a href="https://ahrefs.com/blog/ai-overviews-reduce-clicks/" target="_blank">AI Overviews Reduce Clicks by 34.5% — Ahrefs</a></td><td>Original CTR-impact study.</td></tr>
+      <tr><td><a href="https://searchengineland.com/google-ai-overviews-hurt-click-through-rates-454428" target="_blank">Google AI Overviews Are Hurting CTR — Search Engine Land</a></td><td>Independent corroborating research.</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<!-- ============ PART 6: GEO ============ -->
+<section class="part" id="geo">
+  <h2>🌐 6. GEO — Generative Engine Optimization</h2>
+  <p class="part-intro">The term comes from a 2024 Princeton/Georgia Tech/Allen AI paper ("GEO: Generative Engine Optimization," <a href="https://arxiv.org/pdf/2311.09735" target="_blank">arXiv:2311.09735</a>, presented at ACM SIGKDD 2024) — the first controlled study proving content can be deliberately optimized for AI-answer visibility, boosting citation share 22-41% via statistics, quotations, and authoritative sourcing.</p>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">How LLMs Select and Cite Sources</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>Generative engines run a <strong>retrieval step</strong> (pulling candidate passages from an index or vector store) and a <strong>synthesis step</strong> (the LLM composes an answer, choosing which passages to quote). Most answers cite only 3-8 sources total — competition per query is fierce.</p>
+        <p>Understanding this pipeline matters because it reframes the entire optimization problem: you're no longer competing for a ranking slot, you're competing to be one of a handful of passages an LLM decides is worth quoting for a given question.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content">
+          <p>Four levers matter most in 2025-2026 data: <strong>Authority</strong> (branded mentions correlate 0.664 with citation vs. 0.218 for raw backlinks, Semrush 2025), <strong>Structure</strong> (answer-first, self-contained sections), <strong>Freshness</strong> (dated stats, recently-updated pages), <strong>Entity clarity</strong> (unambiguous naming so retrieval maps content correctly).</p>
+          <ul class="checklist">
+          <li><input type="checkbox"><label>Audit your top 20 commercial pages; add a one-paragraph "direct answer" at the top of each.</label></li>
+          <li><input type="checkbox"><label>Insert one recent, dated statistic per page.</label></li>
+          <li><input type="checkbox"><label>Link out to 1-2 authoritative external sources (citing trustworthy sources makes your own page read as trustworthy).</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><p>Retrieval mechanics increasingly resemble RAG pipelines: content is chunked (commonly 300-1000 tokens), embedded into vector space, matched by semantic similarity before the LLM ever sees it. 2025-2026 research running 252,000 controlled trials across 18 factors and six LLMs found citation preference is highly <em>relative</em> — a page can lose a citation slot purely because a competitor's page is marginally more complete on that one query, not because your page is bad in isolation.</p></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Treating GEO like keyword-stuffing SEO — LLMs weight semantic completeness and trust far more than exact-match phrasing.</li>
+        <li>Writing one giant "ultimate guide" instead of clearly chunked, independently-quotable sections.</li>
+        <li>Ignoring unlinked brand mentions because they don't show up in a backlink tool.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">E-E-A-T for AI Citation</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>E-E-A-T became a hard, machine-readable signal for LLMs in 2025-2026. Multiple studies found <strong>96% of AI Overview citations</strong> come from sources with strong E-E-A-T signals, and pages with Person schema appear ~3x more often.</p>
+        <p>This is a bigger shift than it sounds: E-E-A-T used to be a soft, human-judged quality heuristic; now it's something LLMs can mechanically check via schema and cross-referenced entity signals. Credibility has to be explicitly documented, not just implied by good writing.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Add a real author bio (name, credentials, LinkedIn) marked up with Person schema to every article.</label></li>
+          <li><input type="checkbox"><label>Build author bio pages linking to verifiable published work or talks.</label></li>
+          <li><input type="checkbox"><label>Publish at least one piece of original data per quarter (survey, benchmark, proprietary dataset).</label></li>
+          <li><input type="checkbox"><label>Cite primary sources inline rather than only secondary aggregator content.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><p>70.4% of sources cited by ChatGPT in one 2025 sample carried Person schema — but schema alone doesn't create trust, it makes existing trust machine-readable. LLMs increasingly triangulate entity trust across the open web: does the author's name appear on Wikipedia, in conference programs, in other outlets' bylines? E-E-A-T in 2026 is off-site entity-building as much as on-page copywriting.</p></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Adding an author name with no bio page, credentials, or schema.</li>
+        <li>Publishing "original research" that's a rehash of a competitor's public stats.</li>
+        <li>Assuming E-E-A-T only matters for medical/finance (YMYL) content — it now gates citation broadly.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Content Formatting That Gets Quoted by AI</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>As of early 2026, <strong>listicles account for 21.9% of AI citations</strong>, articles 16.7%, product pages 13.7%. Format determines whether a passage is liftable at all.</p>
+        <p>Format isn't cosmetic here — it's the difference between a passage an AI system can cleanly lift and quote versus one it has to paraphrase, summarize, or skip entirely because pulling an isolated sentence out would lose the meaning.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Answer-first opening — state the direct answer in the first 1-2 sentences of each section.</label></li>
+          <li><input type="checkbox"><label>Write liftable passages — sentences that make sense with zero surrounding context.</label></li>
+          <li><input type="checkbox"><label>Use hard evidence — specific, dated statistics, not vague claims.</label></li>
+          <li><input type="checkbox"><label>Use question-shaped H2/H3 headers matching real queries.</label></li>
+          <li><input type="checkbox"><label>Use real ol/ul/table markup for lists and comparisons, not prose lists.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><p>Citation earns roughly a 35% CTR lift over non-cited competitors on the same query — but pages that fail to earn citations saw traffic drop as much as 42% from pre-AI-Overview baselines by Q4 2025. Don't only optimize the first citable sentence: retrieval systems increasingly surface mid-document chunks, so every H2/H3 section needs its own answer-first opening and quotable statistic.</p></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Burying the direct answer three paragraphs deep.</li>
+        <li>Using stats without a date or named source.</li>
+        <li>Formatting a list as prose instead of actual ol/ul markup.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Brand / Entity SEO</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>Google's Knowledge Graph holds over 800 billion facts about 8 billion entities (2025). <strong>Entity SEO</strong> means making your brand, products, and people recognizable, disambiguated, and connected within that graph and within Wikidata — the structured layer LLMs are trained on and retrieve from.</p>
+        <p>This matters because AI systems increasingly reason about brands and people as distinct "entities" with a known identity, not just strings of text that happen to match a query. An ambiguous or inconsistent entity is much harder for a system to confidently cite.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Create/verify a Wikidata entry with correct properties (industry, founding date, official site, social IDs).</label></li>
+          <li><input type="checkbox"><label>Keep NAP and brand naming 100% consistent across site, GBP, social, and directories.</label></li>
+          <li><input type="checkbox"><label>Add Organization/Person schema site-wide with sameAs links to verified profiles.</label></li>
+          <li><input type="checkbox"><label>Pursue digital PR and earned mentions on high-authority third-party sites.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><p>Wikidata-verified brands are reported <strong>3.2x more likely</strong> to be Knowledge Panel eligible and <strong>2.7x more likely</strong> to appear in AI Overview citations. In 2026 this extends to product-entity and person-entity layers: individual product names and named authors each need their own disambiguation path, since generative engines resolve entities independently at each layer of a query.</p></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Never touching Wikidata "because we're not big enough" — its notability bar is much lower than Wikipedia's.</li>
+        <li>Letting NAP drift across old directory listings or acquired sub-brands.</li>
+        <li>Chasing backlinks while ignoring unlinked brand mentions.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">AI-Visibility Monitoring & Citation Tracking</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>A new tool category emerged in 2025-2026 to answer "how often does an AI engine mention or cite my brand?" — not covered by classic rank trackers. The category raised <strong>$300M+</strong> in funding between summer 2025 and spring 2026.</p>
+        <p>Without this kind of tracking, a brand can silently lose ground in AI-driven discovery for months with no visible symptom in any existing analytics dashboard, since none of the classic tools were built to see this channel.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — Verified Current Tools (2026)</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Profound — category leader, tracks up to 10 models, enterprise-focused.</label></li>
+          <li><input type="checkbox"><label>Peec AI — tracks 6 engines across 115+ languages, strong agency features, best mid-market self-serve.</label></li>
+          <li><input type="checkbox"><label>Otterly.AI — entry-level from $29/mo, strongest for content intelligence/GEO audits.</label></li>
+          <li><input type="checkbox"><label>Semrush AI Toolkit/One — bundles Brand Monitor, AI SERP Tracker, Content Analyzer; from $99/mo.</label></li>
+          <li><input type="checkbox"><label>Goodie — monitors across 11 AI engines plus prompt research and schema fix recommendations.</label></li>
+          <li><input type="checkbox"><label>Pick 20-30 real customer-intent prompts and run them weekly across 2-3 tools' free tiers as a baseline.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><p>AI answers are non-deterministic — the same prompt can return different citations run to run. 2026 best practice uses 7+ day rolling measurement windows and multiple prompt variants per intent, then benchmarks share-of-voice trend against named competitors rather than an absolute score.</p></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Judging visibility off one manual ChatGPT query — outputs vary run-to-run.</li>
+        <li>Picking a tool by engine count alone without checking coverage of surfaces customers actually use.</li>
+        <li>Not connecting AI-citation data back to pipeline/revenue.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="resource-block searchable">
+    <h4>📚 Resources — GEO</h4>
+    <div class="resource-group"><h5>Video — English</h5><table>
+      <tr><td><span class="badge lang-en">EN</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/watch?v=VGI3TKBcH6A" target="_blank">Generative Engine Optimization Explained Like You're 5</a></td><td>Accessible beginner explainer.</td></tr>
+      <tr><td><span class="badge lang-en">EN</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/watch?v=TkmRinmgYj8" target="_blank">Generative Engine Optimization in 6 Steps</a></td><td>Practical walkthrough of SEO-vs-GEO differences.</td></tr>
+    </table></div>
+    <div class="resource-group"><h5>Video — Hindi</h5><table>
+      <tr><td><span class="badge lang-hi">HI</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/@WsCubeTech" target="_blank">WsCube Tech — AI SEO / ChatGPT for SEO</a></td><td>Dedicated Hindi GEO content is still emerging; this is the closest current coverage.</td></tr>
+    </table></div>
+    <div class="resource-group"><h5>Video — Tamil</h5><table>
+      <tr><td><span class="badge lang-ta">TA</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/@DigitalMarketingTamil" target="_blank">AI Digital Marketing Tamil — Alston Antony</a></td><td>Genuinely GEO/AEO-specific Tamil-English channel.</td></tr>
+    </table></div>
+    <div class="resource-group"><h5>Free Courses</h5><table>
+      <tr><td><span class="badge free">Free</span> <a href="https://getcito.com/free-courses" target="_blank">GetCito — Free GEO & AEO Course</a></td><td>7-day training with templates and certificate.</td></tr>
+    </table></div>
+    <div class="resource-group"><h5>Articles</h5><table>
+      <tr><td><a href="https://arxiv.org/pdf/2311.09735" target="_blank">GEO: Generative Engine Optimization — Princeton Paper</a></td><td>The founding 2024 academic paper.</td></tr>
+      <tr><td><a href="https://searchengineland.com/mastering-generative-engine-optimization-in-2026-full-guide-469142" target="_blank">Mastering GEO in 2026 — Search Engine Land</a></td><td>Full practical guide: structure, entity authority, freshness.</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<!-- ============ PART 7: AI OVERVIEW / AI MODE ============ -->
+<section class="part" id="ai-overview">
+  <h2>🤖 7. AI Overview / AI Mode</h2>
+  <p class="part-intro">Google-specific optimization — the platform most marketers will be graded against first.</p>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">What Actually Triggers an AI Overview</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>AI Overviews appear on roughly <strong>48-60% of Google searches</strong> as of mid-2026, reaching over 2 billion monthly users. Triggering is not random — specific query shapes trigger them far more than others.</p>
+        <p>Knowing this changes where you invest content effort. Chasing AI Overview visibility on query types that almost never trigger one (single-word, ambiguous searches) wastes effort that could go toward the query shapes proven to reliably show one.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — Trigger Data (2025-2026)</summary>
+        <div class="tier-content"><ul>
+          <li><strong>Comparison queries</strong> ("X vs Y") — the strongest trigger, ~95.4% of the time.</li>
+          <li><strong>Question-phrased queries</strong> (who/what/when/why/how) — ~60% trigger rate.</li>
+          <li><strong>Long-tail queries</strong> (4+ words) — ~60.85% trigger rate.</li>
+          <li><strong>Single-word queries</strong> — only ~27.3%, too ambiguous for synthesis.</li>
+          <li>By vertical: Healthcare ~88%, Education ~83%, B2B Tech ~82%, Restaurants ~78%, e-commerce only ~4%.</li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><p>Google's May 2026 official guide states AI Overviews and AI Mode run on the <strong>same ranking systems as standard search</strong> — a RAG pipeline pulls already-ranked pages, then an LLM grounds its answer in them. There is no separate "AI ranking" to game: if you don't rank well organically for a query shape that triggers AI Overviews, you structurally cannot be cited for it. Commercial/transactional queries are gradually gaining coverage too — don't assume e-commerce stays permanently exempt.</p></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Assuming triggering is random or unrelated to organic ranking.</li>
+        <li>Ignoring comparison-style content — the single highest-trigger pattern.</li>
+        <li>Writing off e-commerce as permanently "safe."</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Auditing Whether Your Site Is Cited</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>Google Search Console has <strong>no dedicated AI Overview report</strong> — no built-in citations tab. Checking requires third-party tools or manual spot-checking.</p>
+        <p>Without deliberate checking, it's entirely possible to be fully cited, partially cited, or completely absent and never know it, since nothing in existing dashboards will tell you. This audit habit is the only way to actually see the picture.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Build a list of 10-20 target queries known to trigger AI Overviews for your topic.</label></li>
+          <li><input type="checkbox"><label>Test each in an incognito/private window (logged out, cleared location bias) and record citations.</label></li>
+          <li><input type="checkbox"><label>Watch for CTR anomalies (impressions flat/up, clicks down) as an indirect signal.</label></li>
+          <li><input type="checkbox"><label>Use a third-party tracker (Ahrefs, Semrush, Otterly.ai, Advanced Web Ranking, Profound) at scale.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><p>Because AI Overviews increasingly cite multiple sources per answer, track <strong>citation share of voice</strong> across a keyword set rather than binary cited/not-cited per query. Combine with server log analysis to detect Google's AI crawlers accessing pages that never show up in referral traffic — evidence of retrieval without a click.</p></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Relying only on Search Console, which has no AI Overview reporting.</li>
+        <li>Testing while logged in / with location-personalized results.</li>
+        <li>Treating "cited once" as proof of stable visibility.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Content Patterns Google's AI Overview Favors</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>AI Overviews pull from pages already well-structured for humans — clear headings, scannable formatting, demonstrable expertise — because that same structure makes content easy for an LLM to parse and trust.</p>
+        <p>These patterns aren't arbitrary Google preferences — they're a direct byproduct of how the underlying retrieval system finds and lifts passages. Understanding them tells you exactly what to change structurally, not just stylistically.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — What the Data Shows</summary>
+        <div class="tier-content"><ul>
+          <li>40-61% of AI Overviews use lists or bullet points; step-by-step guides/tables see higher citation rates than dense prose.</li>
+          <li>Pages with FAQ-style structured data are ~60% more likely to be cited than pages without.</li>
+          <li>Content combining text + image + video + structured data shows markedly higher selection rates (one study: 156% higher).</li>
+          <li>Roughly 23% of cited content is under 30 days old; recently-updated pages get cited ~25.7% more often.</li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><p>Google's May 2026 guide draws an explicit line between <strong>"commodity" content</strong> (generic restatements of common knowledge) and <strong>non-commodity content</strong> (original data, firsthand experience, expert analysis) — only the latter reliably earns citations, since RAG systems de-prioritize redundant sources. You don't need special AI-only files or AI-specific structured data — good SEO fundamentals are the actual lever.</p></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Writing generic, "me-too" summaries indistinguishable from ten other pages.</li>
+        <li>Neglecting to refresh high-value pages, losing freshness to newer competitors.</li>
+        <li>Chasing AI-specific schema hacks instead of genuine originality and author authority.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Traffic-Impact Mitigation (CTR/Traffic Drops)</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>AI Overviews measurably suppress organic click-through, even for the #1 result. This is one of the best-documented effects in SEO.</p>
+        <p>This is the uncomfortable reality every SEO team now has to plan around: a page can do everything right, rank #1, get cited — and still see meaningfully less traffic than it would have two years ago, purely because of where that ranking now appears on the page.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — The Real Numbers & Mitigation</summary>
+        <div class="tier-content">
+          <ul>
+            <li>Ahrefs (Apr 2025): AI Overviews reduced top-result CTR by <strong>34.5%</strong>; a Dec 2025 follow-up (300K keywords) found the reduction grew to <strong>58%</strong>.</li>
+            <li>Pew Research (Mar 2025): users clicked an organic result in only <strong>8%</strong> of visits with an AI summary present, vs. <strong>15%</strong> without.</li>
+          </ul>
+          <p><strong>Mitigation checklist:</strong></p>
+          <ul class="checklist">
+          <li><input type="checkbox"><label>Shift KPIs from clicks to share-of-voice/citation-share and assisted conversions.</label></li>
+          <li><input type="checkbox"><label>Double down on non-commodity content (original research, proprietary data, first-hand case studies).</label></li>
+          <li><input type="checkbox"><label>Build brand/demand outside organic search (YouTube, communities, email, newsletters).</label></li>
+          <li><input type="checkbox"><label>Re-target commercial/transactional queries, still the least AI-Overview-saturated segment.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><p>CTR damage isn't uniform by intent — informational/definitional queries see the steepest drops while transactional and specific long-tail queries retain more click value. A mature 2026 strategy re-weights keyword targeting toward query types where AI Overviews are least likely to fully satisfy intent (products, pricing, local availability, nuanced reviews).</p></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Abandoning content strategy entirely instead of re-targeting query types.</li>
+        <li>Continuing to report organic CTR as the primary success metric.</li>
+        <li>Ignoring brand-building channels as a hedge.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Google AI Mode Deep Dive</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>AI Mode is a separate, dedicated conversational search experience users actively opt into — not a box layered on the normal results page. It replaces the entire results page with a chat-style interface for complex, multi-step queries.</p>
+        <p>Because AI Mode users behave so differently from classic searchers — rarely clicking, often just accepting the AI's own shortlist — success here has to be measured and pursued differently from every other channel in this guide.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How It Differs</summary>
+        <div class="tier-content"><div class="table-wrap"><table>
+          <tr><th></th><th>AI Overview</th><th>AI Mode</th></tr>
+          <tr><td>Placement</td><td>Summary box atop normal SERP</td><td>Replaces entire results page</td></tr>
+          <tr><td>Interaction</td><td>Passive read, links below</td><td>Conversational, multi-turn follow-ups</td></tr>
+          <tr><td>Click behavior</td><td>~8% click an organic result (Pew)</td><td>64% click nothing at all in one study</td></tr>
+        </table></div></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><p>AI Overviews and AI Mode are no longer cleanly separate — Google now carries users from a quick Overview directly into a full AI Mode conversation using the same underlying Gemini model family. Success is measured almost entirely by <strong>being present in the citation/shortlist</strong>, not by driving visits — brand impression and trust signals matter more than URL-level CTR optimization here.</p></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Treating AI Mode as "just a bigger AI Overview."</li>
+        <li>Optimizing purely for clicks when the dominant behavior is accept-the-shortlist-and-leave.</li>
+        <li>Ignoring the growing convergence between AI Overview and AI Mode visibility.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="resource-block searchable">
+    <h4>📚 Resources — AI Overview / AI Mode</h4>
+    <div class="resource-group"><h5>Video — English</h5><table>
+      <tr><td><span class="badge lang-en">EN</span> <span class="badge free">Free</span> Search Engine Journal — YouTube Channel</td><td>Explainer/trend videos specifically on AI Overview mechanics.</td></tr>
+    </table></div>
+    <div class="resource-group"><h5>Video — Hindi / Tamil</h5><table>
+      <tr><td><span class="badge lang-hi">HI</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/@wscubetech" target="_blank">WsCube Tech</a></td><td>Covers Google AI Overview impact within its broader SEO course.</td></tr>
+      <tr><td><span class="badge lang-ta">TA</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw" target="_blank">Mr Digital Marketing Tamil</a></td><td>General digital marketing tutorials touching on AI search shifts.</td></tr>
+    </table></div>
+    <div class="resource-group"><h5>Articles</h5><table>
+      <tr><td><a href="https://developers.google.com/search/docs/appearance/ai-features" target="_blank">Google — AI Features and Your Website</a></td><td>Official documentation on how AI Overviews/AI Mode select and display content.</td></tr>
+      <tr><td><a href="https://www.medianama.com/2026/02/223-google-ai-overviews-click-through-rates-58-study/" target="_blank">Google AI Overviews Reduce Clicks by 58% — Study Coverage</a></td><td>2026 CTR-impact follow-up study coverage.</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<!-- ============ PART 8: METRICS ============ -->
+<section class="part" id="metrics">
+  <h2>📊 8. Metrics & KPIs for AEO / GEO / AI Overview Success</h2>
+  <p class="part-intro">Traditional rank tracking measures a position in a list of 10 blue links. AI answers have no fixed position — they synthesize — so the KPI set has to shift from <em>rank</em> to <em>presence, share, and sentiment</em>.</p>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Citation Rate & Share of Voice</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p><strong>Citation rate</strong>: % of a defined prompt set where an AI engine links to your content. <strong>Share of voice</strong>: your brand's share of mentions versus competitors across the same prompt set.</p>
+        <p>These two numbers together tell a story classic rank tracking can't: not just whether you show up, but how much of the conversation about a topic you actually own relative to competitors.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — Do This Week</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Build a spreadsheet of 20-30 prompts real buyers would type (full questions, not keywords).</label></li>
+          <li><input type="checkbox"><label>Run them across ChatGPT, Perplexity, Gemini, and Google AI Mode manually or via a tool trial.</label></li>
+          <li><input type="checkbox"><label>Log whether/how you're mentioned; repeat weekly for a trend line.</label></li>
+        </ul></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Reporting "AI Overview appearances" the same way as classic rank #1-10 — there is no stable rank, only appear/don't-appear per run.</li>
+        <li>Measuring off a single prompt run instead of a 7+ day rolling window.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Brand Mention Tracking Across LLM Outputs</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>Different models mention brands at very different base rates — one 2025 analysis of 1.8M+ responses found Claude mentioned <em>some</em> brand in 97.3% of relevant responses vs. Google AI Overviews at 48.5% — so cross-model comparisons must be normalized against each model's baseline, not compared raw.</p>
+        <p>This matters because a raw mention count is meaningless without knowing how often that specific model mentions anyone at all. Comparing your citation count across models without this context leads to wrong conclusions about where you're actually winning or losing.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — Do This Week</summary>
+        <div class="tier-content"><p>Use a monitoring tool's free tier (Otterly.AI's entry plan is $29/mo) to automate the manual spreadsheet above across at least 3 models.</p></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul><li>Comparing raw mention counts across models without normalizing for each model's baseline mention rate.</li></ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">AI-Referral Traffic in GA4</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>As of <strong>May 13, 2026</strong>, GA4 added a native <strong>"AI Assistant"</strong> channel to the Default Channel Group — sessions from a recognized AI domain get tagged <code>medium: ai-assistant</code> automatically. Limitation: the native list only recognizes ChatGPT, Gemini, and Claude — Perplexity/Copilot traffic still lands in generic Referral.</p>
+        <p>This is the first concrete, first-party proof point most teams will have that AI search is sending real, attributable traffic. Before this landed in GA4, most of that traffic was invisibly bucketed as generic "Referral" or "Direct."</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — Set Up This Week</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Go to Reports → Acquisition → Traffic acquisition, set primary dimension to Session default channel group — check for an "AI Assistant" row.</label></li>
+          <li><input type="checkbox"><label>Build a custom channel group (Admin → Data display → Channel groups) bucketing perplexity.ai, chatgpt.com, gemini.google.com, copilot.microsoft.com explicitly.</label></li>
+          <li><input type="checkbox"><label>Spot-check today's volume via Traffic acquisition → Session source, searching each AI domain manually.</label></li>
+          <li><input type="checkbox"><label>Tag UTM links inside content that AI answers might quote so click-throughs are attributable end-to-end.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><p>AI-driven sessions grew 527% year-over-year in early 2025, and ChatGPT alone drives an estimated 78-87% of AI-referral share across most industries — even a rough GA4 setup this week captures a fast-growing channel.</p></div>
+      </details>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Sentiment of AI-Generated Mentions</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>A citation can still be a negative mention. 2025 data across 1.8M+ brand-mentioning AI responses found <strong>80.6% neutral, 18.4% positive, ~1% negative</strong> — meaning most AI brand mentions are factual/neutral, so any negative-sentiment result is disproportionately worth investigating.</p>
+        <p>A citation alone doesn't tell you if it's helping or hurting the brand — sentiment is the missing layer that turns a raw mention count into something you can actually act on.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — Do This Week</summary>
+        <div class="tier-content"><p>When logging citation/mention data, add a manual sentiment tag (positive/neutral/negative) per response. Tools like Otterly.AI, Semrush AI Toolkit, and similar automate this once you're past manual spreadsheet tracking.</p></div>
+      </details>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Proxy Metrics When Direct Measurement Isn't Possible</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>When you can't afford a paid tool or need a stopgap, a few free proxies still work.</p>
+        <p>None of these are as clean as a direct citation report, but together they give a genuinely useful signal for teams that can't yet justify a paid AI-visibility tool.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — Free Proxies</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Track branded search volume trend (GSC/GA4) — AI exposure often drives a "let me look this up" branded search afterward.</label></li>
+          <li><input type="checkbox"><label>Watch direct/unattributed traffic upticks correlated with content publish dates.</label></li>
+          <li><input type="checkbox"><label>Audit schema/crawl logs — confirm GPTBot/PerplexityBot/ClaudeBot/Google-Extended can actually reach key pages.</label></li>
+          <li><input type="checkbox"><label>Run a manual weekly prompt panel (the 20-30 question spreadsheet) — free but time-boxed.</label></li>
+        </ul></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Treating a mention and a citation as the same KPI — a citation links to your site, a mention just names your brand.</li>
+        <li>Missing Perplexity/Copilot traffic by relying solely on GA4's native AI Assistant channel.</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART 9: CONTENT STRATEGY ============ -->
+<section class="part" id="content-strategy">
+  <h2>📝 9. Content Strategy</h2>
+  <p class="part-intro">How you plan, structure, and sustain content — the layer that makes every discipline above compound instead of resetting each month.</p>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Topic Clusters & Pillar Pages</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>A pillar page is one comprehensive page covering a broad topic; cluster pages are narrower sub-topic pages linking back to the pillar and to each other — signaling deep, organized expertise rather than scattered posts.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Pick a pillar topic with enough volume/relevance to support 8-15 subtopics.</label></li>
+          <li><input type="checkbox"><label>Map 5-15 cluster topics via keyword research, each with a distinct angle.</label></li>
+          <li><input type="checkbox"><label>Write the pillar at 3,000-5,000 words; write clusters at normal length with depth on one narrow question.</label></li>
+          <li><input type="checkbox"><label>Interlink deliberately: cluster → pillar, cluster → 2-3 siblings, pillar → every cluster.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><p>Google's December 2025 core update penalized thin, disconnected content — unstructured sites saw 85-95% traffic drops while sites with structured topical authority held steady or grew. Clustered sites see ~40% average organic traffic increases over non-clustered strategies. Treat the cluster as a "citation surface" for AI: comprehensive, well-linked clusters give LLMs multiple internally-consistent pages to pull from.</p></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Publishing cluster pages that duplicate the pillar instead of going deeper on one facet.</li>
+        <li>Building the cluster before validating the pillar topic has real demand.</li>
+        <li>Abandoning the cluster after 3-4 pages instead of the 8-15 needed for real authority.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Search Intent Mapping</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>Search intent is the <em>why</em> behind a query: informational, navigational, commercial, or transactional. Matching content format and depth to intent matters more than matching the keyword.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Google the target keyword and audit the top 10: blog posts, product pages, comparisons, tools?</label></li>
+          <li><input type="checkbox"><label>Bucket keywords into funnel stages and assign a content type to each.</label></li>
+          <li><input type="checkbox"><label>Build an intent-to-KPI map: informational → traffic/awareness, transactional → conversion.</label></li>
+          <li><input type="checkbox"><label>Revisit intent mapping quarterly — SERP intent shifts as AI Overviews evolve.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><p>Intent mapping now has to account for "Complex Intent" queries requiring subjective analysis or first-hand comparison — precisely where Google's AI struggles most and where expert, experience-driven content wins the citation. Treat this as an always-on process tied to SERP feature tracking, not a one-time keyword spreadsheet.</p></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Writing a blog post for a keyword the SERP shows is dominated by product/category pages.</li>
+        <li>Assuming intent is static and not re-checking after major algorithm updates.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Content Briefs & Editorial Calendars</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>A content brief tells a writer what to cover before starting: keyword, intent, audience, subtopics, word count. An editorial calendar sequences what gets published, when, by whom.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Brief fields: keyword+intent, competitor pages to beat, required subtopics, internal links, word count, success metric.</label></li>
+          <li><input type="checkbox"><label>Keep briefs directional, not rigid — over-specifying kills writer voice and originality.</label></li>
+          <li><input type="checkbox"><label>Plan calendars in four horizons: annual themes → quarterly pillars → monthly topics → weekly slots.</label></li>
+          <li><input type="checkbox"><label>Each calendar row needs status, owner, keyword, cluster, channel, CTA, repurposing plan, success metric.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><p>Sustained consistency beats volume spikes — 2 posts/week for 12 months outperforms an unsustainable 5/week that burns out after a quarter, though companies publishing 16+ posts/month still see roughly 3.5x the traffic of those publishing 4 or fewer. Briefs increasingly include an "AI-assist boundary" field (which sections AI may draft vs. which need a human SME).</p></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Briefs so rigid they produce robotic, near-identical content across writers.</li>
+        <li>Calendars planned in isolation from the topic-cluster map, causing gaps or overlap.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Content Refresh / Decay Strategy</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>Content decay is the natural decline in rankings/traffic as a page ages. A refresh updates an existing page's facts, examples, and structure instead of writing a new one from scratch.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Audit quarterly: pull traffic/ranking trends per URL, flag pages down &gt;20% over 3-6 months.</label></li>
+          <li><input type="checkbox"><label>Prioritize refreshes on pages already close to page 1 (positions 4-15).</label></li>
+          <li><input type="checkbox"><label>Update stats/dates, add subsections for emerging subtopics, refresh internal links.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><p>Content decay now runs on a faster clock: rankings that held 2-3 years pre-AI now decay within 6-12 months, since AI Overviews cite content ~25.7% fresher on average than what ranks organically. There's also a new "zero-click decay" vector — a page keeps its rank but loses traffic because AI answers the query directly from your (still-ranking) content — track impressions-to-click ratio alongside rank.</p></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Refreshing only the publish date without meaningfully updating content.</li>
+        <li>Ignoring pages that still rank but have collapsing CTR due to zero-click AI answers.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Multi-Format Repurposing (Blog → Video → Social)</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>Repurposing turns one deep "cornerstone" asset into multiple formats (video, social clips, infographics, email, podcast) to reach audiences preferring different formats without duplicating research effort.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — How to Implement</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>Start with one deep, well-researched pillar asset.</label></li>
+          <li><input type="checkbox"><label>Break it into "atoms": key takeaways, stats, quotes, step-by-step sections.</label></li>
+          <li><input type="checkbox"><label>Adapt, don't copy-paste — each format needs its own pacing/hook.</label></li>
+          <li><input type="checkbox"><label>Batch-create repurposed assets and schedule across weeks.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><p>Repurposing has become an AI-citation strategy too: consistent core facts across blog, video transcript, and social captions increase the surfaces where an LLM can find and corroborate a claim. Feed video transcripts/podcast notes back into the web page as supporting text so crawlers can index spoken content too.</p></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Verbatim copy-paste across formats instead of adapting tone/pacing.</li>
+        <li>Repurposing thin source content, multiplying weak content instead of extending strong content.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">AI-Assisted Content Workflows Used Responsibly</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span>
+        <p>Google does not penalize content for being AI-assisted; it evaluates quality, helpfulness, and originality regardless of the tool used — a policy consistent since February 2023.</p>
+      </div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate — A Responsible Workflow</summary>
+        <div class="tier-content"><ul class="checklist">
+          <li><input type="checkbox"><label>AI drafts research/outline.</label></li>
+          <li><input type="checkbox"><label>AI produces a first-pass structural draft.</label></li>
+          <li><input type="checkbox"><label>A human SME adds original insight, first-hand experience, opinion.</label></li>
+          <li><input type="checkbox"><label>AI helps with on-page/GEO optimization (headers, schema, structure).</label></li>
+          <li><input type="checkbox"><label>A human does a final accuracy and brand-voice review.</label></li>
+        </ul></div>
+      </details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced (2026+)</summary>
+        <div class="tier-content"><p>Google's March 2026 core update explicitly named "scaled content abuse," hitting sites publishing thousands of near-identical AI/template pages with 60-90% ranking losses overnight — the risk isn't AI use, it's AI use <em>without</em> differentiation. An Ahrefs study found 86.5% of top-ranking pages already use some AI assistance. The differentiator is the human layer: first-hand testing, named expert authorship, original data AI cannot fabricate.</p></div>
+      </details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul>
+        <li>Publishing raw AI output with no human review or fact-check.</li>
+        <li>Scaling AI content across thousands of near-duplicate template pages.</li>
+        <li>Skipping named-author/expert-reviewer bylines that signal E-E-A-T.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="resource-block searchable">
+    <h4>📚 Resources — Content Strategy</h4>
+    <div class="resource-group"><h5>Video — English</h5><table>
+      <tr><td><span class="badge lang-en">EN</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/c/AhrefsCom" target="_blank">Ahrefs — YouTube</a></td><td>Keyword research, link building, content strategy tutorials.</td></tr>
+      <tr><td><span class="badge lang-en">EN</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/channel/UC1I8fcAdjxy-YgChuzUIUPw" target="_blank">Backlinko — YouTube</a></td><td>Brian Dean's channel on content strategy case studies.</td></tr>
+    </table></div>
+    <div class="resource-group"><h5>Video — Hindi / Tamil</h5><table>
+      <tr><td><span class="badge lang-hi">HI</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/@wscubetech" target="_blank">WsCube Tech</a></td><td>Free SEO course covering content strategy fundamentals.</td></tr>
+      <tr><td><span class="badge lang-ta">TA</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/c/MrDigitalMarketingTamil" target="_blank">Mr Digital Marketing Tamil</a></td><td>Digital marketing and content tutorials in Tamil.</td></tr>
+    </table></div>
+    <div class="resource-group"><h5>Free Courses</h5><table>
+      <tr><td><span class="badge free">Free</span> <a href="https://academy.hubspot.com/courses/content-marketing" target="_blank">HubSpot Academy — Content Marketing Certification</a></td><td>Content strategy, editorial planning, repurposing fundamentals.</td></tr>
+    </table></div>
+    <div class="resource-group"><h5>Articles</h5><table>
+      <tr><td><a href="https://www.conductor.com/academy/topic-clusters/" target="_blank">Conductor — Topic Cluster & Pillar Page Guide</a></td><td>Framework + template for pillar/cluster structures.</td></tr>
+      <tr><td><a href="https://www.animalz.co/blog/content-refresh" target="_blank">Animalz — Content Refresh Strategy</a></td><td>2026 playbook on refresh prioritization and decay diagnosis.</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<!-- ============ PART 10: RELATED TOPICS ============ -->
+<section class="part" id="related-topics">
+  <h2>🔗 10. Related & Adjacent Topics</h2>
+  <p class="part-intro">Core SEO disciplines that every technical/AEO/GEO strategy still has to sit on top of.</p>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">On-Page SEO</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span><p>Title tags, meta descriptions, header hierarchy (H1→H2→H3), and image alt text are the core elements helping both users and search engines understand a page.</p></div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate</summary><div class="tier-content"><p>Keep titles 50-60 characters with the primary keyword near the front and brand at the end; meta descriptions 150-160 characters with a clear value prop and CTA; one H1 per page with a logical H2/H3 outline; compress images and use descriptive alt text (WebP/AVIF).</p></div></details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced</summary><div class="tier-content"><p>Google now rewrites 33.4% of title tags and 62.78% of meta descriptions it doesn't consider a good SERP match — write for accuracy/intent-match over keyword tricks, and prioritize rewriting descriptions on high-impression/low-CTR pages first each quarter.</p></div></details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul><li>Duplicate titles/descriptions across many pages.</li><li>Multiple H1s or broken header hierarchy.</li><li>Missing or generic alt text.</li></ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Off-Page SEO & Link Building</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span><p>Off-page SEO builds trust and authority outside your own site, primarily through backlinks, brand mentions, and reviews.</p></div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate</summary><div class="tier-content"><p>Prioritize quality over volume — one contextual, relevant link outweighs dozens of low-quality directory links. Build "linkable assets" (original research, free tools, definitive guides) that earn links passively, and run targeted digital PR/outreach.</p></div></details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced</summary><div class="tier-content"><p>Google's Gary Illyes has said Google now needs "very few links" to rank a page. A 2026 survey of 518 SEOs found digital PR rated the most effective link tactic (48.6%) — one editorial placement can outperform a hundred directory submissions.</p></div></details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul><li>Chasing link volume over topical relevance.</li><li>Buying links from irrelevant/low-trust domains.</li></ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Local SEO</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span><p>Local SEO optimizes visibility for "near me" and location-based searches, centered on the Google Business Profile (GBP) and the local 3-pack.</p></div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate</summary><div class="tier-content"><p>Fully complete your GBP (category, hours, photos, services); keep NAP identical everywhere; actively collect and respond to reviews; use local landing pages and local schema.</p></div></details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced</summary><div class="tier-content"><p>GBP signals control roughly 32% of local pack ranking weight, reviews another 16%. Complete profiles get ~7x more clicks; 50+ reviews get 4.4x more clicks than under 5. AI Overviews now trigger on over 40% of local queries — an added citation layer beyond the pack.</p></div></details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul><li>Inconsistent NAP across directories.</li><li>Incomplete GBP profile.</li><li>Ignoring reviews.</li></ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">International SEO</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span><p>International SEO targets users across countries/languages, using hreflang to tell search engines which page version to serve which audience.</p></div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate</summary><div class="tier-content"><p>Choose a URL structure (subdirectories like /de/ for consolidating link equity, ccTLDs for the strongest geo-signal but split authority); implement self-referencing, symmetric hreflang with valid ISO codes.</p></div></details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced</summary><div class="tier-content"><p>75% of international sites still have hreflang errors fragmenting rankings. In 2026, search engines and AI systems reward "transcreation" (culturally localized phrasing) over literal translation — machine-translated-reading content is penalized.</p></div></details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul><li>Missing self-referencing or asymmetric hreflang.</li><li>Literal translation without localizing intent.</li></ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">E-Commerce SEO</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span><p>E-commerce SEO optimizes category/product pages for buyer-intent searches, distinct due to large-scale templated pages and product feeds.</p></div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate</summary><div class="tier-content"><p>Build category pages around buyer intent, not just a raw product feed; interlink blog content to category/product pages; optimize speed (lazy loading, WebP/AVIF, deferred JS); add price/rating/availability schema.</p></div></details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced</summary><div class="tier-content"><p>Well-optimized category pages generate 3-5x more organic revenue than product pages alone. Google AI Overviews jumped from 2.1% to ~14% of shopping queries between late 2025 and March 2026 (5.6x increase) — shopping schema and review markup matter increasingly for AI visibility too.</p></div></details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul><li>Category pages that are just a raw product grid with no guide content.</li><li>Uncontrolled faceted navigation generating millions of near-duplicate URLs.</li></ul></div>
+    </div>
+  </div>
+
+  <div class="topic-card searchable">
+    <h4 class="topic-title">Programmatic SEO</h4>
+    <div class="topic-body">
+      <div class="tier tier-basic"><span class="tier-label">🟢 Basic</span><p>Programmatic SEO uses templates and structured data feeds to generate many pages at scale (e.g., "[Service] in [City]") instead of writing each manually.</p></div>
+      <details class="tier-box" open><summary class="tier-label" style="background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);display:inline-flex;">🟡 Intermediate</summary><div class="tier-content"><p>Start from a real, structured dataset (not thin variable-swapping); add unique elements per page (local data, reviews, specific stats) beyond swapping a city/product name; monitor indexation and thin-page ratio as you scale.</p></div></details>
+      <details class="tier-box"><summary class="tier-label" style="background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);display:inline-flex;">🔴 Advanced</summary><div class="tier-content"><p>Google's March 2026 update named "scaled content abuse" explicitly — sites with thousands of near-identical automated pages lost 60-90% of rankings almost overnight. Genuine data differentiation per page is what survives.</p></div></details>
+      <div class="mistakes"><p class="label">⚠️ Common Mistakes</p><ul><li>Pure variable substitution with no unique data per page.</li><li>Generating pages faster than they can be quality-checked and indexed.</li></ul></div>
+    </div>
+  </div>
+
+  <div class="resource-block searchable">
+    <h4>📚 Resources — Related Topics</h4>
+    <div class="resource-group"><h5>Video — English / Hindi / Tamil</h5><table>
+      <tr><td><span class="badge lang-en">EN</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/c/AhrefsCom" target="_blank">Ahrefs — YouTube</a></td><td>On-page, off-page, local, and e-commerce SEO tutorials.</td></tr>
+      <tr><td><span class="badge lang-hi">HI</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/@wscubetech" target="_blank">WsCube Tech</a></td><td>Full free SEO course covering on-page/off-page/technical + local SEO.</td></tr>
+      <tr><td><span class="badge lang-ta">TA</span> <span class="badge free">Free</span> <a href="https://www.youtube.com/c/MrDigitalMarketingTamil" target="_blank">Mr Digital Marketing Tamil</a></td><td>SEO and SMM fundamentals in Tamil.</td></tr>
+    </table></div>
+    <div class="resource-group"><h5>Free Courses</h5><table>
+      <tr><td><span class="badge free">Free</span> <a href="https://academy.hubspot.com/courses/seo-ii" target="_blank">HubSpot Academy — SEO II Certification</a></td><td>Keyword strategy, on-page optimization, audits, link fundamentals.</td></tr>
+      <tr><td><span class="badge free">Free</span> <a href="https://us.semrush.com/academy" target="_blank">Semrush Academy — International SEO Course</a></td><td>16-lesson free course on multilingual/multi-region SEO.</td></tr>
+    </table></div>
+    <div class="resource-group"><h5>Articles</h5><table>
+      <tr><td><a href="https://backlinko.com/off-page-seo-guide" target="_blank">Backlinko — Off-Page SEO: Complete Guide for 2026</a></td><td>Current link-building and digital-PR tactics.</td></tr>
+      <tr><td><a href="https://www.brightlocal.com/learn/google-local-algorithm-and-ranking-factors/" target="_blank">BrightLocal — Google's Local Algorithm & Ranking Factors</a></td><td>Annual survey-based local ranking-factor breakdown.</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<!-- ============ PART 11: SCENARIOS ============ -->
+<section class="part" id="scenarios">
+  <h2>🧩 11. 10 Real-World Scenarios</h2>
+  <p class="part-intro">A deliberately wide mix — local business, SaaS/B2B, e-commerce, an individual/solo-creator site, publishers, YMYL, startups, and enterprise — each a case-study walkthrough you can adapt.</p>
+
+  <div class="scenario-card searchable">
+    <h4>1. Local Service Business Invisible in AI Overviews</h4>
+    <div class="scenario-meta"><span class="lvl lvl-beginner">Beginner</span><span class="tag">Local Business</span><span class="tag">AEO</span></div>
+    <p>A family-owned plumbing company with three vans and a 15-year-old website ranks page one on Google Maps but never appears when locals ask ChatGPT or Google's AI Overview "who's a good emergency plumber near me."</p>
+    <h5>Root-Cause Diagnosis</h5>
+    <ul><li>No structured data (LocalBusiness, Service, FAQPage) anywhere on the site.</li><li>GBP claimed but only 12 reviews, zero owner responses — 89% of consumers prefer businesses that respond to all reviews.</li><li>One generic "Services" page instead of per-service pages — AI Overviews favor per-service depth and expert-curated lists.</li></ul>
+    <h5>Step-by-Step Fix</h5>
+    <ol><li>Add LocalBusiness schema (NAP, openingHours, areaServed, priceRange) to every page footer.</li><li>Build individual service pages with a 150-word answer-first summary plus FAQPage schema.</li><li>Respond to every review and automate request flow to raise review velocity.</li><li>Get listed on 3-5 relevant "best plumber in [city]" roundup pages.</li><li>Add an FAQ page answering literal, keyword-style emergency-plumbing queries.</li><li>Ensure NAP consistency across GBP, Yelp, Apple Maps, and the website.</li><li>Re-validate schema in Rich Results Test monthly.</li></ol>
+    <h5>Tools Used</h5><p>Google Business Profile, Schema Markup Validator, BrightLocal, Whitespark, Google Search Console.</p>
+    <h5>Expected Outcome</h5><p>Improved local pack stability and initial AI Overview appearances within 60-90 days; full LLM citation lift lags since third-party curated lists take longer to build.</p>
+  </div>
+
+  <div class="scenario-card searchable">
+    <h4>2. SaaS Company Losing Clicks to Its Own AI Overview Summary</h4>
+    <div class="scenario-meta"><span class="lvl lvl-intermediate">Intermediate</span><span class="tag">B2B / SaaS</span><span class="tag">AI Overview</span></div>
+    <p>A project-management SaaS ranked #1 for "how to write a project charter" for years; Google now shows an AI Overview built largely from their own article, and CTR has cratered despite still ranking #1 underneath it.</p>
+    <h5>Root-Cause Diagnosis</h5>
+    <ul><li>The article fully answers the question in the first 100 words — ideal for extraction, terrible for retaining the click (position-1 CTR drops ~58% when an AI Overview appears).</li><li>No reason to click through — no tool, template, or example that can't be summarized in three sentences.</li></ul>
+    <h5>Step-by-Step Fix</h5>
+    <ol><li>Segment Search Console queries by CTR anomalies (impressions flat/up, clicks down).</li><li>Keep the AI-extractable answer concise but move real value (downloadable template, calculator) below the fold.</li><li>Add unique, non-generic data an AI Overview is less likely to paraphrase away.</li><li>Add strong mid/bottom-page CTAs to a gated free trial/template.</li><li>Diversify traffic mix with comparison/"vs." and product-led content AI answers less completely.</li><li>Track branded query volume as a recovery signal, not just direct clicks.</li></ol>
+    <h5>Tools Used</h5><p>Search Console, Ahrefs/Semrush SERP feature tracking, Hotjar, GA4.</p>
+    <h5>Expected Outcome</h5><p>Direct clicks on the summarized query likely won't fully recover — that's structural — but total funnel volume can recover within a quarter via templates, branded lift, and diversified pages.</p>
+  </div>
+
+  <div class="scenario-card searchable">
+    <h4>3. E-Commerce Brand Optimizing Product Pages for GEO Citation</h4>
+    <div class="scenario-meta"><span class="lvl lvl-intermediate">Intermediate</span><span class="tag">E-Commerce</span><span class="tag">GEO</span></div>
+    <p>A DTC skincare brand wants to show up when users ask ChatGPT or Perplexity "what's the best vitamin C serum for sensitive skin" — a query type increasingly common in AI-assisted shopping research.</p>
+    <h5>Root-Cause Diagnosis</h5>
+    <ul><li>Product pages are marketing-copy-heavy with no concrete facts (concentration %, pH, who it's for) — AI systems retrieve concrete claims, not adjectives.</li><li>No comparison content; reviews live only on a third-party platform with no on-page Review/AggregateRating schema.</li></ul>
+    <h5>Step-by-Step Fix</h5>
+    <ol><li>Rewrite the top of each product page as a scannable fact block.</li><li>Add Product, Review, and AggregateRating schema pulled from the review platform's API.</li><li>Build a "Best Vitamin C Serum for [Skin Type]" comparison page naming competitors honestly.</li><li>Publish an FAQ block per product answering literal assistant-style questions.</li><li>Pursue earned mentions on dermatologist-reviewed "best of" roundups.</li><li>Refresh top product/comparison pages quarterly.</li><li>Run target queries monthly in ChatGPT/Perplexity/AI Mode and log mentions.</li></ol>
+    <h5>Tools Used</h5><p>Schema generator, Profound/Peec AI, Semrush AI toolset, GA4 with AI-referrer filtering.</p>
+    <h5>Expected Outcome</h5><p>Modest AI-referral traffic volume that converts far better than average organic, emerging over 2-3 months.</p>
+  </div>
+
+  <div class="scenario-card searchable">
+    <h4>4. Blog/Publisher Recovering Traffic After an AI Overview Zero-Click Hit</h4>
+    <div class="scenario-meta"><span class="lvl lvl-advanced">Advanced</span><span class="tag">Publisher</span><span class="tag">AI Overview</span></div>
+    <p>A mid-size recipe/lifestyle publisher saw a 35% organic traffic drop over two quarters after AI Overviews began fully answering "how long to bake chicken thighs at 400" style queries directly in the SERP.</p>
+    <h5>Root-Cause Diagnosis</h5>
+    <ul><li>Nearly all traffic depended on single-answer, low-word-count queries — the query type AI Overviews handle most completely.</li><li>No differentiated, non-extractable value (no video, no UGC, no interactive tools); ad revenue model assumed flat pageviews.</li></ul>
+    <h5>Step-by-Step Fix</h5>
+    <ol><li>Separate "fully answerable in one sentence" queries from ones needing nuance or personal judgment.</li><li>Redirect content budget to depth topics (technique explainers, troubleshooting) AI answers less completely.</li><li>Add Recipe/HowTo/FAQPage schema sitewide.</li><li>Build an email newsletter capture flow on every page.</li><li>Add embedded video and original photography — genuinely non-text content AI can't fully absorb.</li><li>Diversify acquisition (Pinterest, YouTube Shorts, branded search).</li><li>Track cited vs. not-cited vs. no-AIO segments monthly.</li></ol>
+    <h5>Tools Used</h5><p>Search Console, BrightEdge/Semrush, schema generator, ConvertKit, Chartbeat.</p>
+    <h5>Expected Outcome</h5><p>Full recovery to pre-AI-Overview levels is unlikely for single-answer queries; realistic goal is 40-50% of lost traffic recovered plus a more resilient revenue mix within two to three quarters.</p>
+  </div>
+
+  <div class="scenario-card searchable">
+    <h4>5. B2B Company Trying to Get Cited in ChatGPT/Perplexity</h4>
+    <div class="scenario-meta"><span class="lvl lvl-intermediate">Intermediate</span><span class="tag">B2B</span><span class="tag">GEO</span></div>
+    <p>A B2B payments infrastructure company wants to be the source ChatGPT and Perplexity cite when a finance buyer asks "ACH vs wire transfer for B2B payments" or "best payment orchestration platforms for mid-market."</p>
+    <h5>Root-Cause Diagnosis</h5>
+    <ul><li>Content is written for keyword ranking, not as a clean, quotable, standalone answer.</li><li>No original data exists — every page cites the same competitor blogs; author bylines are missing or generic.</li></ul>
+    <h5>Step-by-Step Fix</h5>
+    <ol><li>Rewrite core "what is X" / "X vs Y" pages so the first paragraph is a complete, quotable answer.</li><li>Commission a small proprietary survey to create original, citable statistics.</li><li>Add named author bylines with real credentials and a linked bio page.</li><li>Pursue inclusion in third-party comparison/analyst content (G2, Capterra).</li><li>Publish an FAQ hub with FAQPage schema for the 20-30 most common buyer questions.</li><li>Refresh top pages monthly.</li><li>Run monthly test queries directly in ChatGPT, Perplexity, and Gemini.</li></ol>
+    <h5>Tools Used</h5><p>Direct query testing, Profound/Peec AI, G2/Capterra optimization, HARO-style journalist outreach.</p>
+    <h5>Expected Outcome</h5><p>Modest but real traffic volume from AI citations, with disproportionately higher lead quality than standard organic.</p>
+  </div>
+
+  <div class="scenario-card searchable">
+    <h4>6. Individual / Personal-Brand Website Building AI Visibility From Scratch</h4>
+    <div class="scenario-meta"><span class="lvl lvl-beginner">Beginner–Intermediate</span><span class="tag">Individual / Solo Creator</span><span class="tag">GEO</span></div>
+    <p>A freelance UX consultant with 8 years of real client work wants to be recommended when someone asks ChatGPT "who's a good freelance UX consultant for a fintech startup" or asks Google AI Overview "how do I choose a UX consultant" — but the personal site is invisible in every AI answer tested.</p>
+    <h5>Root-Cause Diagnosis</h5>
+    <ul><li>No Person schema or structured bio — the About page is one paragraph with no credentials, portfolio proof, or sameAs links to LinkedIn/portfolio platforms.</li><li>Zero third-party validation: no guest posts, podcast appearances, or directory listings (Clutch, UpCity) — GEO citation leans heavily on independent validation individuals rarely invest in.</li><li>Content is all "about me" instead of answering real buyer questions; no FAQ or comparison/analysis content an AI could lift.</li><li>No Wikidata/Knowledge Graph presence and inconsistent name/handle across platforms — a real risk if the name is common.</li></ul>
+    <h5>Step-by-Step Fix</h5>
+    <ol><li>Rebuild the About page as a full bio with credentials and notable client work, marked up with Person schema and sameAs links.</li><li>Publish 5-8 articles answering real buyer questions ("how much does a UX audit cost") with FAQ schema.</li><li>Get listed on 3-5 credible freelancer directories and request client testimonials there.</li><li>Pursue 2-3 guest contributions or podcast appearances; transcribe podcasts into blog posts for extra indexable text.</li><li>Create/verify a Wikidata entry if eligible; at minimum keep name+handle+photo consistent everywhere.</li><li>Add one original data point (e.g., results from auditing 40 client onboarding flows) as genuine citation bait.</li><li>Test target queries monthly across ChatGPT, Perplexity, and AI Mode to track "not mentioned" → "mentioned."</li></ol>
+    <h5>Tools Used</h5><p>Schema Markup Validator, Clutch/UpCity, Wikidata (if eligible), Profound/Peec AI free tier or manual testing, LinkedIn.</p>
+    <h5>Expected Outcome</h5><p>Slower than a funded startup's push since there's no existing entity footprint to build on — meaningful first citations often take 2-3 quarters — but the same fixes compound into stronger direct-referral trust and inbound leads regardless of AI citation specifically.</p>
+  </div>
+
+  <div class="scenario-card searchable">
+    <h4>7. News/YMYL Site Building E-E-A-T for AI Trust</h4>
+    <div class="scenario-meta"><span class="lvl lvl-advanced">Advanced</span><span class="tag">Publisher</span><span class="tag">E-E-A-T</span></div>
+    <p>A personal-finance news site covering mortgage rates and retirement planning saw rankings and AI Overview citations drop sharply after Google's December 2025 core update raised E-E-A-T requirements for YMYL (Your Money Your Life) content — some finance/health sites saw losses exceeding 60%.</p>
+    <h5>Root-Cause Diagnosis</h5>
+    <ul><li>Articles bylined "Editorial Team" with no individual credentials or verifiable expertise.</li><li>No visible editorial policy, correction history, or dated/sourced primary references for financial claims.</li></ul>
+    <h5>Step-by-Step Fix</h5>
+    <ol><li>Add named, credentialed bylines (CFP, CFA, or equivalent) with linked author pages.</li><li>Publish a visible editorial policy: fact-checking process, correction handling, review cadence.</li><li>Date-stamp every article and re-verify hard numbers on a defined schedule.</li><li>Cite primary sources directly (Fed releases, IRS pages) rather than paraphrasing secondary coverage.</li><li>Add an About/ownership transparency page disclosing financial relationships.</li><li>Apply Article, Person, and Organization schema consistently, tying authors to credentials.</li><li>Prioritize the highest-traffic YMYL pages first for re-review.</li></ol>
+    <h5>Tools Used</h5><p>Schema Markup Validator, Search Console, credentialed editorial workflow tooling, manual competitive E-E-A-T audit.</p>
+    <h5>Expected Outcome</h5><p>Slow, compounding recovery over one to two quarters as author authority and trust signals accumulate — not an overnight bounce back.</p>
+  </div>
+
+  <div class="scenario-card searchable">
+    <h4>8. Startup Building Topical Authority From Zero</h4>
+    <div class="scenario-meta"><span class="lvl lvl-intermediate">Intermediate</span><span class="tag">B2B / Startup</span><span class="tag">Content Strategy + GEO</span></div>
+    <p>A newly-funded expense-management startup has a handful of product pages and no content history, competing against category incumbents with a decade of published content and existing AI citation share.</p>
+    <h5>Root-Cause Diagnosis</h5>
+    <ul><li>Zero topical footprint — no entity association with "expense management" in Google's Knowledge Graph or any LLM's retrieval data.</li><li>No third-party mentions or backlinks anywhere; founders want to "cover everything" immediately, spreading thin content across too many topics.</li></ul>
+    <h5>Step-by-Step Fix</h5>
+    <ol><li>Pick one narrow sub-topic where incumbents are weakest and build 15-20 genuinely deep pages there first.</li><li>Structure as hub-and-spoke: one pillar plus supporting pages, densely interlinked.</li><li>Publish one original data asset early (survey, benchmark, usage-derived stat).</li><li>Write every page answer-first with FAQ schema, since the domain has no accumulated authority to lean on.</li><li>Get 5-10 credible third-party mentions in year one rather than chasing broad link volume.</li><li>Claim and optimize all entity touchpoints (Crunchbase, G2, Wikidata if eligible, GBP).</li><li>Re-test target queries quarterly to track "not mentioned" → "mentioned" → "recommended."</li></ol>
+    <h5>Tools Used</h5><p>Ahrefs/Semrush content-gap analysis, Clearscope/Surfer, G2/Crunchbase setup, Profound/Peec AI.</p>
+    <h5>Expected Outcome</h5><p>Meaningful AI citation presence for a net-new domain realistically takes two to four quarters; narrow-then-expand produces first citations faster than broad coverage immediately.</p>
+  </div>
+
+  <div class="scenario-card searchable">
+    <h4>9. Technical SEO Audit Uncovering Crawl/Indexing Blockers Hurting AI Visibility</h4>
+    <div class="scenario-meta"><span class="lvl lvl-advanced">Advanced</span><span class="tag">B2B / Software</span><span class="tag">Technical SEO</span></div>
+    <p>A B2B software company invested heavily in content but AI Overview and LLM citations stayed flat for six months, prompting a full technical audit.</p>
+    <h5>Root-Cause Diagnosis</h5>
+    <ul><li>robots.txt was blocking GPTBot, PerplexityBot, and Google-Extended — added defensively early on and never revisited.</li><li>Core pages rendered via client-side JS with no SSR fallback; canonical tags misconfigured after a prior migration; Core Web Vitals failing on mobile.</li></ul>
+    <h5>Step-by-Step Fix</h5>
+    <ol><li>Audit robots.txt and explicitly allow GPTBot, PerplexityBot, ClaudeBot, Google-Extended, OAI-SearchBot unless deliberately blocking.</li><li>Run a JS-rendering crawl test to confirm content is visible without client-side execution; implement SSR/pre-rendering where missing.</li><li>Fix canonical tag chains site-wide.</li><li>Resolve Core Web Vitals failures, prioritizing mobile LCP.</li><li>Check sitemap completeness and freshness.</li><li>Verify via server logs that AI crawlers actually visit post-fix.</li><li>Re-run target query tests 30-60 days after fixes.</li></ol>
+    <h5>Tools Used</h5><p>Screaming Frog, Search Console, log file analyzer, PageSpeed Insights/Lighthouse.</p>
+    <h5>Expected Outcome</h5><p>Because the blockers were purely mechanical, fixes produce faster payoff than content-strategy work — crawler activity changes within days, citation lift typically measurable within 4-8 weeks.</p>
+  </div>
+
+  <div class="scenario-card searchable">
+    <h4>10. Enterprise Site Migration Without Losing AI Overview Citations</h4>
+    <div class="scenario-meta"><span class="lvl lvl-advanced">Advanced</span><span class="tag">Enterprise / B2B</span><span class="tag">Technical SEO + GEO</span></div>
+    <p>A large enterprise SaaS company is replatforming from a legacy CMS and consolidating three subdomains onto one domain — a migration type carrying high risk of losing both search rankings and years of built-up AI Overview/LLM citations.</p>
+    <h5>Root-Cause Diagnosis</h5>
+    <ul><li>Schema markup is typically the first thing lost in a CMS migration, directly reducing AI Overview eligibility even before rankings move.</li><li>Without a complete 1:1 redirect map, AI systems and crawlers hit broken/chained URLs and drop the reference; entity signals (sameAs, NAP) often aren't updated for the new domain.</li></ul>
+    <h5>Step-by-Step Fix</h5>
+    <ol><li>Build a complete 1:1 URL redirect map before launch — zero redirect chains.</li><li>Migrate and re-validate all schema on the new platform before launch, not as post-launch cleanup.</li><li>Update Organization schema's sameAs to include both historical and new domain references.</li><li>Stage the migration in a test environment and crawl it fully, simulating AI crawler user agents.</li><li>Keep old high-value URLs' content substantively unchanged in the new location.</li><li>Monitor Search Console, server logs, and direct AI-query tests daily for two weeks, then weekly for two months.</li><li>Budget 3-6 months for full citation and ranking recovery, not the 4-8 weeks assumed for smaller migrations.</li></ol>
+    <h5>Tools Used</h5><p>Screaming Frog, Search Console, log file analyzer, Profound/Peec AI, redirect-mapping spreadsheet/Sitebulb.</p>
+    <h5>Expected Outcome</h5><p>A well-executed migration retains most ranking equity within weeks, but full AI citation parity lags further and can take 3-6 months given how sensitive LLM citation indexes are to URL and entity continuity.</p>
+  </div>
+</section>
+
+<!-- ============ PART 12: FAQ ============ -->
+<section class="part" id="faq">
+  <h2>❓ 12. FAQ</h2>
+  <p class="part-intro">The questions people actually ask about this space.</p>
+
+  <details class="faq-item searchable"><summary>Is technical SEO dead because of AI Overviews?</summary>
+    <p>No — it's more load-bearing than before, not less. AI systems still need to crawl, render, and parse a page before they can cite it, and technical fixes (schema, crawl access, page speed) have been shown to increase AI citations dramatically for sites that were previously blocked or slow; one documented case saw a 221% citation increase from technical fixes alone.</p></details>
+
+  <details class="faq-item searchable"><summary>Do I need separate content for GEO vs. traditional SEO?</summary>
+    <p>Not entirely separate, but you do need different structuring on top of the same core content. Traditional SEO content can still rank while burying the answer under intros; GEO-friendly content puts a complete, quotable answer in the first few sentences plus FAQ/schema markup. Most teams adapt existing content rather than building a whole parallel operation.</p></details>
+
+  <details class="faq-item searchable"><summary>How long does it take to see results from AEO/GEO work?</summary>
+    <p>Purely technical fixes (schema, crawl access) can show citation movement in 4-8 weeks, while authority-dependent work (E-E-A-T, third-party citations, topical authority from zero) realistically takes two to four quarters to compound — similar to traditional SEO authority-building timelines.</p></details>
+
+  <details class="faq-item searchable"><summary>Can I track if ChatGPT or Perplexity is citing my site?</summary>
+    <p>Yes, with caveats. Since June 2025, ChatGPT appends <code>utm_source=chatgpt.com</code> to outbound citation links, making it filterable in GA4; Perplexity is identifiable by its referrer, though less consistent with UTM tagging. For citations that never produce a click, you need a dedicated AI-visibility tool (Profound, Peec AI, and others) that runs your target queries against the models directly and logs whether/how you're mentioned.</p></details>
+
+  <details class="faq-item searchable"><summary>Will AI Overviews kill organic traffic entirely?</summary>
+    <p>No, but they're reshaping it. AI Overviews appear on roughly 25-58% of queries depending on the tracker and vertical, and zero-click search rose sharply between 2024 and 2025 — a real structural shift, especially for single-fact informational queries. But most people still use traditional search every month, and being cited inside an AI Overview still delivers meaningfully more clicks than not being cited when one appears — the practical response is adapting content and diversifying channels, not assuming traffic goes to zero.</p></details>
+
+  <details class="faq-item searchable"><summary>Does getting cited in an AI Overview actually help if people don't click?</summary>
+    <p>Partially, similar to a strong brand mention. Being cited drives measurably more clicks than being uncited and builds branded-search recall even among users who don't click through immediately — but it's a real trade-off against the higher CTR available when no AI Overview appears at all. Track branded search volume and assisted conversions, not just direct clicks.</p></details>
+
+  <details class="faq-item searchable"><summary>Is structured data (schema markup) actually necessary, or just a "nice to have"?</summary>
+    <p>It's close to necessary now. Pages with proper FAQ, HowTo, Article, and Organization schema are cited in AI Overviews at meaningfully higher rates than equivalent unmarked pages, because schema is the clearest machine-readable signal of what a page actually answers — one of the highest-leverage, lowest-cost fixes available to most sites.</p></details>
+
+  <details class="faq-item searchable"><summary>How is E-E-A-T different for AI systems versus regular Google rankings?</summary>
+    <p>Same underlying signals, evaluated by an additional system. AI systems check trust and authority signals (author credentials, site transparency, citation-worthiness) before selecting a source to cite — essentially running their own quality filter on top of whatever ranks well traditionally. The December 2025 core update pushed strict E-E-A-T requirements beyond classic YMYL topics into e-commerce, SaaS, and general how-to content too.</p></details>
+
+  <details class="faq-item searchable"><summary>Should I block AI crawlers (GPTBot, PerplexityBot, ClaudeBot) to stop AI companies from using my content?</summary>
+    <p>That's a real business trade-off, not a technical no-brainer. Blocking protects content from AI training/summarization but also makes you structurally invisible to AI Overview and LLM citation opportunities. Most sites are better served allowing the crawlers and investing in becoming a preferred, well-cited source instead — unless you're actively negotiating a licensing deal.</p></details>
+
+  <details class="faq-item searchable"><summary>What's the single highest-leverage first step if I'm starting from nothing?</summary>
+    <p>Fix crawl access and add schema markup to your most important pages — it's the fastest, cheapest, most reversible action, and defensively-configured robots.txt files quietly blocking AI crawlers is a surprisingly common audit finding. Everything else (E-E-A-T, topical authority, third-party citations) compounds over months, but a blocked crawler means zero citation potential regardless of how good the content is.</p></details>
+</section>
+
+</main>
+</div>
+<footer class="site"><div class="wrap">Content compiled from live research across 2025-2026 sources (Google Search Central, Ahrefs, Search Engine Land/Journal, Princeton GEO paper, Pew Research, and named industry studies). Verify time-sensitive figures before citing externally — this space moves fast. Built for the Marketing Academy content library. Your checklist progress is saved locally in this browser only.</div></footer>
+
+<script>
+(function(){
+  // ---------- Theme toggle ----------
+  var root = document.documentElement;
+  var themeBtn = document.getElementById('themeToggle');
+  function applyTheme(t){
+    root.classList.remove('light','dark');
+    if(t) root.classList.add(t);
+    themeBtn.textContent = (t === 'dark') ? '☀️ Theme' : '🌙 Theme';
+  }
+  var savedTheme = localStorage.getItem('seo_guide_theme');
+  if(savedTheme) applyTheme(savedTheme);
+  themeBtn.addEventListener('click', function(){
+    var isDark = root.classList.contains('dark') ||
+      (!root.classList.contains('light') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    var next = isDark ? 'light' : 'dark';
+    applyTheme(next);
+    localStorage.setItem('seo_guide_theme', next);
+  });
+
+  // ---------- Mobile TOC toggle ----------
+  var tocToggle = document.getElementById('tocToggle');
+  var tocNav = document.getElementById('tocNav');
+  tocToggle.addEventListener('click', function(){ tocNav.classList.toggle('open'); });
+  tocNav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ tocNav.classList.remove('open'); });
+  });
+
+  // ---------- Active TOC highlight ----------
+  var sections = document.querySelectorAll('section.part');
+  var navLinks = document.querySelectorAll('nav.toc a');
+  function onScroll(){
+    var pos = window.scrollY + 100;
+    var current = null;
+    sections.forEach(function(s){ if(s.offsetTop <= pos) current = s.id; });
+    navLinks.forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+
+  // ---------- Search filter ----------
+  var searchInput = document.getElementById('searchInput');
+  var searchables = document.querySelectorAll('.searchable');
+  searchInput.addEventListener('input', function(){
+    var q = searchInput.value.trim().toLowerCase();
+    searchables.forEach(function(el){
+      if(!q){ el.classList.remove('hidden'); return; }
+      var text = el.textContent.toLowerCase();
+      var match = text.indexOf(q) !== -1;
+      el.classList.toggle('hidden', !match);
+      if(match){
+        el.querySelectorAll('details').forEach(function(d){
+          if(d.textContent.toLowerCase().indexOf(q) !== -1) d.open = true;
+        });
+      }
+    });
+  });
+
+  // ---------- Checklist progress persistence ----------
+  var STORAGE_KEY = 'seo_guide_progress';
+  var progress = {};
+  try{ progress = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }catch(e){ progress = {}; }
+  var checkItems = document.querySelectorAll('ul.checklist li');
+  checkItems.forEach(function(li, idx){
+    var cb = li.querySelector('input[type=checkbox]');
+    var lbl = li.querySelector('label');
+    if(!cb) return;
+    var id = 'chk-' + idx;
+    cb.id = id;
+    if(lbl) lbl.setAttribute('for', id);
+    if(progress[id]){ cb.checked = true; li.classList.add('done'); }
+    cb.addEventListener('change', function(){
+      progress[id] = cb.checked;
+      li.classList.toggle('done', cb.checked);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+    });
+  });
+})();
+</script>
+</body>
+</html>

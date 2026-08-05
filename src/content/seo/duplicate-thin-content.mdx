@@ -1,0 +1,148 @@
+export const lessonMeta = {
+  title: "Duplicate & Thin Content Cleanup",
+  level: "Intermediate",
+  summary: "Every low-value page you let Google index quietly drags down how it judges the rest of your site.",
+  category: "seo",
+  slug: "duplicate-thin-content",
+  relatedConcepts: ["technical-seo", "content-clusters", "ecommerce-product-page-seo"],
+}
+
+# Duplicate & Thin Content Cleanup
+
+## Two Related Problems, One Root Cause
+
+Duplicate content is the same or near-identical content living at multiple URLs, which confuses search engines about which version deserves to rank. Thin content is a page that does not provide enough real value to satisfy what a searcher actually needed. They are different problems, but they share a root cause: too many low-value or redundant URLs diluting the site's overall perceived quality.
+
+Search engines have limited patience for scanning near-identical or low-value pages, and every one they index counts against the whole domain, not just that page. This is one of the fastest ways a site earns a broad, sitewide quality penalty rather than a page-specific one, which is exactly why this deserves more attention than "just canonicalize it and move on."
+
+## Quick Summary
+
+- Duplicate content confuses ranking signals, thin content fails to satisfy intent, both dilute overall site quality in Google's eyes
+- Use canonical tags or noindex for necessary-but-low-value pages, never Disallow, which prevents Google from even seeing a later fix
+- Consolidation beats tagging, merging overlapping thin pages into one comprehensive resource is treated as a genuine quality signal
+- Google's Helpful Content system is now fully built into core ranking, not a separate periodic update, so this is an ongoing discipline, not a one-time cleanup
+- "Crawled, currently not indexed" in Search Console is an increasingly reliable early warning sign of a thin or duplicate content problem
+
+---
+
+## Where Duplicate Content Actually Comes From
+
+Very few sites deliberately publish duplicate content. It usually accumulates from technical patterns nobody thinks of as "content" at all.
+
+1. **URL parameters** creating multiple crawlable versions of the same page, tracking parameters, sort orders, and filter combinations on category pages are the most common source
+2. **Print-friendly or AMP versions** that never got a canonical tag pointing back to the primary page
+3. **Staging or test environments** that accidentally got indexed and now compete with the live site
+4. **Syndicated or cross-posted content** published elsewhere without a canonical tag crediting the original
+5. **Near-duplicate pages targeting the same intent** with slightly reworded copy, common when a site publishes one page per city or per minor product variant without genuinely differentiating them
+
+<Callout type="warning">
+**Disallow does not remove an already-indexed page, and it can actively block your fix.** A common mistake is using `robots.txt` Disallow to "hide" thin or duplicate content. If the page is already indexed, Disallow just stops Google from re-crawling it to see a later noindex tag, meaning the low-quality page stays indexed indefinitely. Use `noindex` in the page itself when you want a page removed from the index, and remove Disallow rules on any page you have already noindexed once the removal is confirmed.
+</Callout>
+
+## Fixing It: Canonicalize, Noindex, or Consolidate
+
+Different situations call for different fixes, and picking the wrong one is a common source of wasted effort.
+
+- **Canonical tag**: use when a duplicate URL exists for a legitimate technical reason (tracking parameters, sort orders) and you want to consolidate ranking signals onto one preferred version.
+- **Noindex**: use for pages that need to exist for users (an internal search results page, a thin tag archive) but add no value in search results.
+- **Consolidation**: use when you have several thin or overlapping pages that could genuinely become one comprehensive, valuable resource. This is the option Google's Helpful Content system rewards most directly, since it produces a genuinely better page rather than just hiding a weak one.
+
+<Callout type="example">
+**Worked example: 40 thin pages become one strong page**
+
+A SaaS company had 40 separate landing pages, one per integration partner, each around 150 words of near-identical boilerplate text with the partner's name swapped in. Individually, none of them ranked, and several sat in "Crawled, currently not indexed" in Search Console.
+
+The team consolidated all 40 into one comprehensive "Integrations" page with a genuine comparison table, setup instructions per partner, and real screenshots, then 301 redirected the old thin pages to the relevant section via anchor links. The new page ranked for significantly more integration-related queries within two months than all 40 thin pages combined had ever achieved.
+</Callout>
+
+## Auditing Your Own Site
+
+<Mermaid chart={`
+flowchart TD
+  A[Crawl site with\nScreaming Frog] --> B[Flag near-duplicate\nand thin pages]
+  B --> C{Legitimate technical\nduplicate, e.g. URL params?}
+  C -- Yes --> D[Add canonical tag]
+  C -- No --> E{Needed for users\nbut not search?}
+  E -- Yes --> F[Add noindex]
+  E -- No --> G[Consolidate into\none comprehensive page]
+  G --> H[301 redirect\nold thin URLs]
+`} />
+
+1. **Run a site-wide crawl** with Screaming Frog's near-duplicate content detection, or Copyscape for content duplicated externally.
+2. **Cross-reference against GA4 and Search Console** for pages with both low traffic and low engagement, a strong thin-content signal even without exact duplication.
+3. **Watch for "Crawled, currently not indexed"** in Search Console's Coverage report, a rising count here is often Google's own quality system quietly flagging pages it considers not worth indexing.
+4. **Decide canonical, noindex, or consolidate** per group of affected pages, using the framework above rather than defaulting to the same fix everywhere.
+5. **Re-crawl after changes** to confirm canonicals resolve correctly and noindex tags are actually being respected, not silently ignored due to a conflicting Disallow rule.
+
+<Callout type="info">
+**Word count is not the fix, added value is.** A thin page padded to 1,500 words of filler is still thin content, Google's Helpful Content evaluation looks at whether a page genuinely satisfies the query, not how long it is. Original data, examples, comparisons, and clear structure add value, restating the same three sentences in different orders does not.
+</Callout>
+
+## Why This Is an Ongoing Job in 2026
+
+Google's Helpful Content system used to be a separate, periodically-run update. It is now fully integrated into core ranking, evaluated continuously rather than in occasional waves. That means a thin-content problem does not wait for a named algorithm update to hurt you, and cleanup is not a one-time project you finish and forget.
+
+## The One-Line Takeaway
+
+**Every thin or duplicate page you let Google index is a small tax on how it judges your entire site, canonicalize the technical duplicates, noindex the necessary-but-low-value pages, and consolidate the rest into something genuinely better.**
+
+<ResourceList resources={[
+  {
+    title: "Consolidate Duplicate URLs, Google Search Central",
+    url: "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls",
+    type: "docs",
+    note: "Google's own guidance on canonical tags and consolidating duplicate content signals.",
+    free: true,
+  },
+  {
+    title: "Google's Helpful Content System, Google Search Central",
+    url: "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+    type: "docs",
+    note: "Official framework for what counts as genuinely helpful versus thin, low-value content.",
+    free: true,
+  },
+  {
+    title: "Screaming Frog SEO Spider",
+    url: "https://www.screamingfrog.co.uk/seo-spider/",
+    type: "tool",
+    note: "Site-wide crawler with near-duplicate content detection, the standard tool for this kind of audit.",
+    free: false,
+  },
+  {
+    title: "Thin Content: What It Is and How to Fix It, Ahrefs",
+    url: "https://ahrefs.com/blog/thin-content/",
+    type: "article",
+    note: "Practical breakdown of thin content patterns and fixes with real examples.",
+    free: true,
+  },
+  {
+    title: "WsCube Tech, Duplicate Content and Thin Content Fixes (Hindi)",
+    url: "https://www.youtube.com/@WsCubeTech",
+    type: "video",
+    lang: "hi",
+    free: true,
+    note: "Top Hindi digital marketing channel",
+  },
+  {
+    title: "Mr Digital Marketing Tamil, Content Quality for SEO",
+    url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw",
+    type: "video",
+    lang: "ta",
+    free: true,
+    note: "Tamil digital marketing tutorials",
+  },
+  {
+    title: "ODMT Telugu, Duplicate Content Cleanup (Telugu)",
+    url: "https://www.youtube.com/@ODMTtelugu",
+    type: "video",
+    lang: "te",
+    free: true,
+    note: "Telugu digital marketing training",
+  },
+]} />
+
+## Related Concepts
+
+- [Technical SEO](/learn/seo/technical-seo), canonical tags and noindex directives are core technical SEO tools, this lesson is where to apply them with judgment.
+- [Content Clusters & Pillar Pages](/learn/seo/content-clusters), consolidating thin pages into one comprehensive resource is the same underlying logic that makes topic clusters work.
+- [SEO for Ecommerce Product Pages](/learn/seo/ecommerce-product-page-seo), variant duplication and thin out-of-stock pages are the ecommerce-specific version of this exact problem.

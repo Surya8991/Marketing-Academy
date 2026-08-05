@@ -1,7 +1,8 @@
 ﻿# Marketing Academy, Master Project Log
 
 > **ACCOUNT-SWITCH PROOF. Read every section before touching any code.**
-> Last audited: 2026-08-02 (Session 66 - full-library check pass: 2 leaked LLM-thinking-text artifacts fixed, 3 broken resource URLs fixed, 8 new lessons added across ai-marketing (6, no-code AI automation), mental-models (1, economics/game theory), growth (1, building in public), 624 -> 632 total).
+> Last audited: 2026-08-05 (Session 68 - added 2 more tracks (on-page-seo-mastery, off-page-seo-mastery, pure curation, zero new lessons) plus 5 new lessons converted from an external content-ops research doc set (social/linkedin-algorithm-2026, social/linkedin-post-anatomy, ai-marketing/ai-image-generation-social-content, social/instagram-algorithm-2026, content/content-demand-research), all fully de-identified of the source's proprietary/personal specifics per explicit user confirmation, citing only the underlying named third-party studies (AuthoredUp, MagicPost, Taplio, Metricool, Socialinsider, Sprout Social). 637 -> 642 lessons, 22 -> 24 tracks. Ran a 2026-currency staleness sweep across all 642 lessons (~10 vectors: deprecated Core Web Vital terms, dateless stats, shipped-feature "coming soon" language, stale LLM model references, iOS version framing, SGE/AI-Overview transition, future-dated claims); found the curriculum already well-maintained from prior sessions, only 2 minor freshness touches warranted. Added 12 new glossary terms (AI Overview, AEO, GEO, RAG, Query Fan-Out, Vector Embedding, Entity SEO, Knowledge Graph, Hreflang, Topical Authority, Agentic Browser, Citation Rate) copied over from resources/seo-aeo-geo-master-guide.html's A-Z glossary gap-check; corrected a pre-existing doc drift where glossary count was documented as 216 but the actual `glossary.ts` array held 146 entries before this session's additions (now 158, verified via direct count, not carried forward from old docs). Session 67's tracks/lessons carried forward unchanged.
+> Last audited: 2026-08-05 (Session 67 - added 5 new seo lessons (mobile-first-indexing, https-security-seo, log-file-analysis, duplicate-thin-content, ai-search-visibility-metrics) filling confirmed gaps in the existing technical-SEO/GEO curriculum, wired into curriculum.ts + quizzes.ts, 632 -> 637. Added 13 new learning tracks to tracks.ts: technical-seo, ai-search-optimization, content-strategy (each with new-lesson gap-fills), plus 10 pure-curation tracks (paid-ads-mastery, email-lifecycle-mastery, cro-mastery, analytics-mastery, copywriting-mastery, brand-strategy-mastery, psychology-of-marketing, pr-communications-mastery, growth-marketing-mastery, product-marketing-mastery) built entirely from existing lessons, since every category audited was already saturated (28-40 lessons each). Every new track ships a synthesis TRACK_QUIZZES entry. 9 -> 22 tracks total. Also delivered a standalone HTML reference guide at resources/seo-aeo-geo-master-guide.html covering SEO/AEO/GEO/AI Overview A-Z (kept as a bonus quick-reference, not part of the site build). Full `npm run build` verified clean (exit 0) after the first 3-track batch; re-verify after this batch too.
 
 ---
 
@@ -10,7 +11,7 @@
 ```
 1. cd C:\Users\Surya L\Desktop\AI Agents\Marketing-Academy
 2. Count MDX files: (Get-ChildItem src/content -Recurse -Filter *.mdx).Count   [PowerShell]
-3. Current: 632 lessons · 216 glossary terms · 108 tools · 9 tracks · 21 categories
+3. Current: 642 lessons · 158 glossary terms · 108 tools · 24 tracks · 21 categories
 4. XP/Streak/Achievements system LIVE (Session 41). Cmd+K palette, skill-map, onboarding, settings page all shipped.
 5. Stats are dynamic everywhere: flatLessons().length, CATEGORIES.length, GLOSSARY_TERMS.length, TOOLS.length.
 6. Key constants: COMPLETED_KEY exported from progress.ts, COMMAND_PALETTE_EVENT from src/lib/events.ts.
@@ -31,8 +32,44 @@
 28:, Put `"use client"` and `export function generateStaticParams()` in the same file, Next.js forbids it (broke Vercel build 2026-06-14)
 29: 
 30: ---
+
+## Session 68 Plan (In Progress, started 2026-08-05)
+
+**Goal:** two more tracks, a full 2026-currency audit of all 637 lessons, a copy-over audit of the standalone HTML guide, a review of an external content-ops doc set, glossary expansion, then docs + branch + push.
+
+### Phase 1 — Two New Tracks: On-Page SEO & Off-Page SEO
+Same pattern as before (audit existing lessons first, per Rule 34).
+- **On-Page SEO Mastery**: `on-page-seo`, `keyword-research`, `search-intent`, `schema-structured-data`, `core-web-vitals`, `mobile-first-indexing`, `image-seo-visual-search`, `video-seo`, `ecommerce-product-page-seo`, `blog-seo-content`, `duplicate-thin-content`, plus copywriting crossovers (`headlines`, on-page copy elements).
+- **Off-Page SEO Mastery**: `link-building`, `digital-pr-link-building` (pr-communications), `brand-serp-control`, `entity-seo`, `eeat`, `local-seo`, `reddit-forum-seo`, `international-seo`.
+- Add a synthesis quiz for each. Likely zero new lessons needed (per the saturation pattern already confirmed).
+
+### Phase 2 — Copy-Over Audit: HTML Guide -> Site
+Cross-check every section of `resources/seo-aeo-geo-master-guide.html` against the live site:
+- A-Z Glossary (28 terms) vs. `src/lib/glossary.ts` (216 terms) -> add any missing terms.
+- Comparison table, 10 Scenarios, FAQ -> check if equivalent content/examples exist in lessons; port anything valuable as `Callout type="example"` additions to relevant lessons, or confirm intentionally HTML-only.
+- Metrics section already ported (`ai-search-visibility-metrics.mdx`) -> verify no other section was missed.
+
+### Phase 3 — Review the External Content-Ops Docs
+Read all 13 files in `D:\Coding\Social Media & Brand building Content\docs` (content-ops playbook: strategy, content rules, workflow, QA checklist, hashtag bank, post templates, topic engine, newsletter, prompt library, Instagram guide). Assess whether the material contains genuinely lesson-worthy substance distinct from what's already in the `social`/`content` categories. User confirmed: convert genuinely generalizable, lesson-worthy material into new public lessons, skip anything proprietary-specific (personal name, employer, salary target, banned campaign, personal proof points). I report findings before creating anything from this source rather than guess-converting a private operating playbook into public lessons without confirming.
+
+### Phase 4 — 2026 + Future-Facing Audit of All 637 Lessons
+This is the largest piece, scoped realistically:
+1. **Automated sweep** (grep-based, like Session 66) across all lessons for staleness markers: outdated year references, deprecated terms (e.g., FID instead of INP), stats without dates, "coming soon" language for shipped features, old algorithm names.
+2. **Prioritize by volatility**: `seo`, `ai-marketing`, `paid-ads`, `analytics`, `growth`, `social` (~190 lessons, fast-moving) get a full content refresh pass with real 2026 research + a "what's next" outlook where relevant. `mental-models`, `psychology`, `fundamentals` (~130 lessons, timeless concepts) get a lighter staleness-only check.
+3. Fix only lessons actually flagged, not a blanket rewrite of all 637 — report the flagged count before fixing so the real scope is visible.
+
+### Phase 5 — Fill Any New Gaps
+Any genuinely new lesson needs surfaced by Phases 2-4 get created following the standard template (real 2-3 WebSearch queries incl. 2025/2026, `export const lessonMeta`, global components, 800-1200 words guideline, 3 multilingual resources, quiz entry).
+
+### Phase 6 — Glossary Expansion
+Add missing terms from the HTML guide plus additional 2026 AI-search/marketing vocabulary to `src/lib/glossary.ts`.
+
+### Phase 7 — Docs, Build, Push
+Update `PROJECT_LOG.md`/`README.md`/`AGENTS.md`, run `npm run build` clean, then since we're on `main`: branch first (e.g. `content/2026-audit-and-tracks`), commit (no Co-Authored-By, no em dashes per standing preferences), push the branch to `origin` (`Surya8991/Marketing-Academy.git`), hand over the compare/PR link rather than pushing straight to `main`.
+
+---
 31: 
-32: ## Current State: 632 lessons across 21 categories
+32: ## Current State: 642 lessons across 21 categories
 
 > All orphaned MDX files linked in Session 43. curriculum.ts and MDX disk counts are now fully in sync.
 > Session 63: pr-communications saturated to 20 lessons; legal-compliance's 5 orphaned MDX files (CAN-SPAM, cookie consent, dark patterns, SMS/TCPA, sweepstakes) wired into curriculum.ts + quizzes.ts, 7 -> 12 lessons (thinnest-category cleanup, in progress across pr-communications, legal-compliance, events-experiential, affiliate-marketing, marketing-leadership).
@@ -43,11 +80,11 @@
 | # | Category | Slug | Lessons |
 |---|---|---|---|
 | 1 | Marketing Fundamentals | `fundamentals` | 40 |
-| 2 | SEO | `seo` | 33 |
+| 2 | SEO | `seo` | 38 |
 | 3 | Paid Ads | `paid-ads` | 33 |
 | 4 | Growth Marketing | `growth` | 30 |
-| 5 | Social Media | `social` | 28 |
-| 6 | Content Marketing | `content` | 28 |
+| 5 | Social Media | `social` | 31 |
+| 6 | Content Marketing | `content` | 29 |
 | 7 | Email & Lifecycle | `email` | 33 |
 | 8 | Analytics & Attribution | `analytics` | 36 |
 | 9 | Marketing Tools | `tools` | 39 |
@@ -56,14 +93,14 @@
 | 12 | CRO | `cro` | 28 |
 | 13 | Brand Strategy | `brand-strategy` | 28 |
 | 14 | Product Marketing | `product-marketing` | 28 |
-| 15 | AI in Marketing | `ai-marketing` | 35 |
+| 15 | AI in Marketing | `ai-marketing` | 36 |
 | 16 | Mental Models | `mental-models` | 29 |
 | 17 | PR & Communications | `pr-communications` | 28 |
 | 18 | Events & Experiential Marketing | `events-experiential` | 28 |
 | 19 | Affiliate & Partner Marketing | `affiliate-marketing` | 28 |
 | 20 | Marketing Leadership & Career | `marketing-leadership` | 28 |
 | 21 | Legal & Compliance for Marketers | `legal-compliance` | 28 |
-| | **TOTAL** | | **632** |
+| | **TOTAL** | | **642** |
 
 ---
 
