@@ -1,0 +1,152 @@
+export const lessonMeta = {
+  title: "Mobile-First Indexing",
+  level: "Beginner",
+  summary: "Google only sees your mobile site now, and content missing there is content that does not exist.",
+  category: "seo",
+  slug: "mobile-first-indexing",
+  relatedConcepts: ["technical-seo", "core-web-vitals", "on-page-seo"],
+}
+
+# Mobile-First Indexing
+
+## What It Actually Means
+
+Mobile-first indexing means Google uses the mobile version of your site, not the desktop version, as the primary source for crawling, indexing, and ranking. Google finished rolling this out globally in mid-2024, so it is no longer a "transition" happening in the background. It is simply the permanent default for every site on the web.
+
+Here is the part that surprises people: this is not "mobile matters too." It is "mobile is now the only version Google actually looks at." If your mobile page is missing a section, a link, or a paragraph that exists on desktop, Google effectively cannot see it at all.
+
+## Quick Summary
+
+- Google crawls and ranks based on your mobile page, desktop is now the secondary version
+- Content, links, and structured data must match between mobile and desktop, or the missing pieces are invisible to Google
+- Responsive design (one URL, one HTML file, CSS media queries) is the safest architecture, it makes mismatch impossible by design
+- Separate `m.` subdomains are the highest-risk setup, since two different HTML files can quietly drift apart
+- Mobile-only "read more" toggles are fine if the text is already in the HTML, hiding it visually is not the same as removing it from the page
+
+---
+
+## Why This Happened
+
+For most of Google's history, a desktop crawler visited your site, and mobile was treated as a secondary concern. That made sense when most searches happened on a desktop computer. That has not been true for a long time. Mobile devices now account for well over half of most sites' traffic, and Google's own crawling infrastructure switched to match that reality.
+
+<Callout type="info">
+**The rollout is finished, this is not still "coming."** Google completed the global mobile-first indexing migration in mid-2024. Any content strategy built around "desktop is still what Google reads" is working from outdated information. Test your own site today, not from memory of how it worked a few years ago.
+</Callout>
+
+## The Content Parity Problem
+
+The single biggest risk with mobile-first indexing is content parity, meaning your mobile page must contain everything your desktop page contains. Not a summary. Not a "see full details on desktop" link. The same text, the same images, the same internal links, the same structured data.
+
+**Where parity breaks in practice:**
+
+1. **Simplified mobile navigation** that drops links to important pages to save space
+2. **Truncated product descriptions** that show a shortened version on mobile "for readability"
+3. **Structured data added only to desktop templates**, because the dev team built mobile and desktop as separate components
+4. **Hidden FAQ or comparison tables** that only render after a user taps, and the underlying text is not in the page's HTML at all
+5. **Legacy `m.example.com` subdomains** running an older, thinner template that never got the content updates the main site received
+
+<Callout type="warning">
+**Hiding content visually is fine. Removing it from the HTML is not.** A collapsed accordion or a "read more" toggle is not a parity problem as long as the full text is already present in the page's HTML, just styled with `display: none` or similar, and expands on click. Google can still read DOM content that is visually hidden. The real danger is content that only loads after a click, fetched from an API the crawler never triggers.
+</Callout>
+
+## How to Check Your Own Site
+
+<Mermaid chart={`
+flowchart TD
+  A[Open Search Console] --> B[Check Mobile Usability report]
+  B --> C{Any errors flagged?}
+  C -- Yes --> D[Fix tap targets, viewport, text size]
+  C -- No --> E[Compare mobile vs desktop HTML manually]
+  E --> F{Content, links, schema all match?}
+  F -- No --> G[Add missing content to mobile template]
+  F -- Yes --> H[Re-check quarterly after redesigns]
+`} />
+
+1. Open **Search Console's Mobile Usability report** first, it flags tap targets that are too small, text that is too tiny to read without zooming, and viewport configuration errors.
+2. Use the **URL Inspection tool** and view the rendered HTML Google actually crawled. Compare it line by line against what a desktop browser shows.
+3. Check that **meta robots tags match** between versions, a `noindex` tag that only exists on one version is a common, easy-to-miss bug after a redesign.
+4. Confirm **structured data renders on mobile**, not just desktop. Run the mobile-rendered URL through the Rich Results Test specifically, do not assume the desktop schema audit covers both.
+5. Test your **primary navigation and internal links** on an actual phone, not just a resized browser window, some mobile menus hide links entirely rather than collapsing them into a hamburger menu.
+
+<Callout type="example">
+**Worked example: a hidden ranking regression**
+
+A B2B software company rebuilt their site with a leaner mobile template to improve load speed. The redesign dropped the footer's category links from mobile (to save vertical space) and shortened product page descriptions from 400 words to 120 words "for mobile readability."
+
+Three months later, organic traffic to those product pages had fallen 22%, despite desktop looking identical to before. The cause: Google's mobile-first index was now working from the shorter description and the missing footer links, effectively serving a thinner version of the page than what ranked well previously. Restoring full content parity recovered most of the lost traffic within six weeks.
+</Callout>
+
+## Why Marketers Should Care, Not Just Developers
+
+Responsive design (one URL, one set of HTML, adjusted only by CSS media queries) is the safest architecture precisely because it makes a parity mismatch structurally difficult. There is only one HTML file to keep updated, so a content or SEO team adding a new FAQ section or updating copy cannot accidentally update only one version.
+
+Separate mobile subdomains and app-shell architectures that fetch content differently on mobile carry real, ongoing risk. Every future content update becomes a two-place job, and it is exactly the kind of thing that quietly drifts out of sync after a redesign, a rushed launch, or a new hire who does not know both templates exist.
+
+<Callout type="success">
+**The good news: fixing this is usually cheap.** Unlike a Core Web Vitals overhaul or a full technical SEO audit, content parity fixes are often just "add the missing text back" or "unhide the footer links on mobile." Low-effort, high-leverage, and a genuinely common finding in site audits.
+</Callout>
+
+## The One-Line Takeaway
+
+**Google only reads your mobile page now, so anything missing there is not "less prominent," it is invisible, audit for content, link, and schema parity every time your site gets redesigned.**
+
+<ResourceList resources={[
+  {
+    title: "Mobile-First Indexing Best Practices, Google Search Central",
+    url: "https://developers.google.com/search/mobile-sites/mobile-first-indexing",
+    type: "docs",
+    note: "Google's own official guidance on what mobile-first indexing means and how to audit for parity issues.",
+    free: true,
+  },
+  {
+    title: "Mobile Usability Report, Search Console Help",
+    url: "https://support.google.com/webmasters/answer/6155909",
+    type: "docs",
+    note: "How to read and act on the Mobile Usability report inside Search Console.",
+    free: true,
+  },
+  {
+    title: "Mobile-First Indexing: What SEOs Need to Know in 2025, Search Engine Journal",
+    url: "https://www.searchenginejournal.com/mobile-first-indexing/",
+    type: "article",
+    note: "Practical audit checklist for content parity, structured data, and navigation issues.",
+    free: true,
+  },
+  {
+    title: "Rich Results Test",
+    url: "https://search.google.com/test/rich-results",
+    type: "tool",
+    note: "Test structured data specifically on the mobile-rendered version of a URL, not just desktop.",
+    free: true,
+  },
+  {
+    title: "WsCube Tech, Mobile SEO and Mobile-First Indexing (Hindi)",
+    url: "https://www.youtube.com/@WsCubeTech",
+    type: "video",
+    lang: "hi",
+    free: true,
+    note: "Top Hindi digital marketing channel",
+  },
+  {
+    title: "Mr Digital Marketing Tamil, Mobile SEO",
+    url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw",
+    type: "video",
+    lang: "ta",
+    free: true,
+    note: "Tamil digital marketing tutorials",
+  },
+  {
+    title: "ODMT Telugu, Mobile-First Indexing (Telugu)",
+    url: "https://www.youtube.com/@ODMTtelugu",
+    type: "video",
+    lang: "te",
+    free: true,
+    note: "Telugu digital marketing training",
+  },
+]} />
+
+## Related Concepts
+
+- [Technical SEO](/learn/seo/technical-seo), mobile-first indexing is the crawling foundation that the rest of technical SEO builds on, a page that renders incompletely on mobile has the same problem as one blocked from crawling.
+- [Core Web Vitals](/learn/seo/core-web-vitals), Google's page-experience metrics are measured primarily from mobile traffic, since that is where most real users are.
+- [On-Page SEO](/learn/seo/on-page-seo), titles, headings, and content depth only count if they are present in the version Google actually indexes, the mobile one.

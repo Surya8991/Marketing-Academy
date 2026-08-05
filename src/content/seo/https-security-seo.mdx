@@ -1,0 +1,151 @@
+export const lessonMeta = {
+  title: "HTTPS & Security Headers for SEO",
+  level: "Intermediate",
+  summary: "A confirmed ranking signal since 2014, and the browser trust layer that decides whether visitors stay long enough to convert.",
+  category: "seo",
+  slug: "https-security-seo",
+  relatedConcepts: ["technical-seo", "core-web-vitals", "eeat"],
+}
+
+# HTTPS & Security Headers for SEO
+
+## Why a "Security Topic" Belongs in an SEO Lesson
+
+HTTPS encrypts the traffic between your site and its visitors, and Google confirmed it as a ranking signal back in 2014. That part is old news. What is less understood is how much HTTPS quietly touches everything else in this curriculum: page speed, user trust, conversion rate, and even how fast your pages can load in the first place.
+
+Security headers are extra instructions your server sends alongside the page, telling the browser to enforce specific safe behaviors. Most sites have none of them configured beyond the basic TLS certificate. That gap is cheap to close and rarely gets attention because it does not feel like "SEO work."
+
+## Quick Summary
+
+- HTTPS has been a confirmed Google ranking signal since 2014, and it is the default expectation now, not a bonus
+- Mixed content (an HTTP image or script on an HTTPS page) breaks the padlock and creates a visible browser warning
+- HSTS (Strict-Transport-Security) tells browsers to never even attempt an insecure connection to your domain
+- Security headers do not directly move rankings, but they enable faster protocols (HTTP/2, HTTP/3) that do improve Core Web Vitals
+- A missing padlock or a browser security warning can tank conversion rate before any ranking effect is even measured
+
+---
+
+## HTTPS Migration, Done Right
+
+Moving from HTTP to HTTPS sounds simple and is one of the most common sources of self-inflicted traffic loss when done carelessly.
+
+1. **Install a valid TLS certificate site-wide.** Let's Encrypt provides free certificates and automatic renewal, there is no longer a cost excuse for running an unencrypted site.
+2. **301 redirect every HTTP URL to its HTTPS equivalent.** Do this at the server level, not with a JavaScript redirect, so search engines see the redirect immediately.
+3. **Update your canonical tags to point to HTTPS URLs.** A canonical tag still pointing at an HTTP version tells Google to consolidate signals onto a URL that no longer exists as the "real" one.
+4. **Update your XML sitemap to list only HTTPS URLs.** A sitemap full of stale HTTP entries signals a rushed, incomplete migration.
+5. **Crawl the entire site for internal links still pointing to HTTP versions.** Even after the redirect works, an HTTP internal link forces an extra redirect hop on every click, which slows down navigation and dilutes link equity.
+
+<Callout type="warning">
+**Mixed content is the most common HTTPS migration bug.** If even one image, script, or stylesheet on an HTTPS page loads over plain HTTP, browsers show a broken or missing padlock, sometimes with an explicit warning. Run Chrome DevTools' Console tab on your key templates after any migration, mixed content warnings show up immediately and are usually a five-minute fix per asset.
+</Callout>
+
+## Security Headers That Actually Matter
+
+Beyond the certificate itself, a handful of HTTP response headers meaningfully harden a site and, in some cases, indirectly support SEO performance.
+
+- **Strict-Transport-Security (HSTS):** tells the browser "never try HTTP with this domain again, even if a link points there." Example: `Strict-Transport-Security: max-age=31536000; includeSubDomains`. This closes a real attack window where a user's first visit could still be intercepted over HTTP before the redirect fires.
+- **Content-Security-Policy (CSP):** restricts which scripts, styles, and resources are allowed to load, reducing the attack surface for cross-site scripting. Start in report-only mode (`Content-Security-Policy-Report-Only`) so you can see what would have broken before enforcing it live.
+- **X-Content-Type-Options: nosniff:** stops browsers from guessing a file's type in ways that can be exploited, a small, low-risk header worth adding by default.
+- **Referrer-Policy: strict-origin-when-cross-origin:** controls how much of your URL gets shared with other sites when a user clicks an outbound link, a reasonable privacy-conscious default.
+
+<Callout type="info">
+**John Mueller has been direct about this: security headers do not move rankings by themselves.** HSTS, CSP, and similar headers are not a direct Google ranking factor. What they do is enable faster protocol negotiation (HTTP/2 and HTTP/3 both require HTTPS), reduce breach and downtime risk, and improve the user trust signals that feed into conversion rate, all of which support the SEO outcomes you actually care about.
+</Callout>
+
+## Testing Your Setup
+
+<Mermaid chart={`
+flowchart TD
+  A[Run securityheaders.com scan] --> B{Grade B or below?}
+  B -- Yes --> C[Add missing headers\none at a time]
+  B -- No --> D[Check for mixed content\nin DevTools Console]
+  C --> D
+  D --> E{Mixed content found?}
+  E -- Yes --> F[Fix each asset\nto load over HTTPS]
+  E -- No --> G[Re-test quarterly]
+`} />
+
+1. Run your domain through **securityheaders.com** or **Mozilla Observatory**, both give a letter grade and list exactly which headers are missing.
+2. Add headers incrementally, starting with HSTS and `X-Content-Type-Options`, then CSP in report-only mode once the basics are stable.
+3. Check Chrome DevTools' **Console tab** on your highest-traffic templates for mixed content warnings after any change.
+4. Re-scan after each deploy for a few weeks, since a single new third-party script (a chat widget, an analytics tag) can silently reintroduce mixed content.
+
+<Callout type="example">
+**Worked example: the subdomain that broke HSTS preload**
+
+A company added their domain to the HSTS preload list (a browser-maintained list that forces HTTPS before the first request, even before any redirect can happen) without confirming that every subdomain supported HTTPS. Their legacy support portal on a different subdomain still ran HTTP-only.
+
+Because HSTS preload with `includeSubDomains` applies to the entire domain tree, browsers refused to load the support portal at all, showing users a hard security error with no way to click through. It took several days to get removed from the preload list once submitted, since removal is slow and not instant. The lesson: confirm HTTPS works on every single subdomain before ever adding `includeSubDomains` or submitting to preload.
+</Callout>
+
+## The One-Line Takeaway
+
+**HTTPS itself is table stakes and has been since 2014, the real 2026 opportunity is in the security headers almost nobody bothers to configure, HSTS, CSP, and clean mixed-content hygiene, which quietly support both trust and Core Web Vitals.**
+
+<ResourceList resources={[
+  {
+    title: "HTTPS as a Ranking Signal, Google Search Central Blog",
+    url: "https://developers.google.com/search/blog/2014/08/https-as-ranking-signal",
+    type: "docs",
+    note: "Google's original 2014 announcement confirming HTTPS as a ranking signal.",
+    free: true,
+  },
+  {
+    title: "Security Headers Scanner",
+    url: "https://securityheaders.com",
+    type: "tool",
+    note: "Free scan that grades your site's security header configuration and lists exactly what is missing.",
+    free: true,
+  },
+  {
+    title: "Mozilla Observatory",
+    url: "https://observatory.mozilla.org",
+    type: "tool",
+    note: "Mozilla's free security and header configuration scanner, with specific fix guidance per header.",
+    free: true,
+  },
+  {
+    title: "HSTS: The Complete Guide, web.dev",
+    url: "https://web.dev/articles/hsts",
+    type: "article",
+    note: "Google's own explainer on HSTS, including the risks of preload and includeSubDomains misconfiguration.",
+    free: true,
+  },
+  {
+    title: "Content Security Policy Reference, MDN Web Docs",
+    url: "https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP",
+    type: "docs",
+    note: "Full reference for CSP directives, including how to run in report-only mode safely.",
+    free: true,
+  },
+  {
+    title: "WsCube Tech, HTTPS and Website Security for SEO (Hindi)",
+    url: "https://www.youtube.com/@WsCubeTech",
+    type: "video",
+    lang: "hi",
+    free: true,
+    note: "Top Hindi digital marketing channel",
+  },
+  {
+    title: "Mr Digital Marketing Tamil, Website Security Basics",
+    url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw",
+    type: "video",
+    lang: "ta",
+    free: true,
+    note: "Tamil digital marketing tutorials",
+  },
+  {
+    title: "ODMT Telugu, HTTPS Migration Basics (Telugu)",
+    url: "https://www.youtube.com/@ODMTtelugu",
+    type: "video",
+    lang: "te",
+    free: true,
+    note: "Telugu digital marketing training",
+  },
+]} />
+
+## Related Concepts
+
+- [Technical SEO](/learn/seo/technical-seo), HTTPS migration hygiene, redirects, canonicals, sitemaps, follows the same discipline as any other technical SEO migration.
+- [Core Web Vitals](/learn/seo/core-web-vitals), HTTPS unlocks HTTP/2 and HTTP/3, both of which reduce connection overhead and support faster LCP.
+- [E-E-A-T](/learn/seo/eeat), a broken padlock or security warning directly undermines the trustworthiness signal Google's quality raters are trained to look for.

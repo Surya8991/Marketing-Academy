@@ -10,16 +10,16 @@ A free, structured marketing education site, from absolute beginner to advanced 
 
 ## What This Is
 
-632 lessons across 21 disciplines. No paywalls, no drip sequences, no email required. Every lesson includes real research, company examples with specific numbers, Mermaid diagrams, interview Q&A, and curated free resources in English, Hindi, Tamil, and Telugu.
+642 lessons across 21 disciplines. No paywalls, no drip sequences, no email required. Every lesson includes real research, company examples with specific numbers, Mermaid diagrams, interview Q&A, and curated free resources in English, Hindi, Tamil, and Telugu.
 
 | # | Category | Slug | MDX Files |
 |---|---|---|---|
 | 1 | Marketing Fundamentals | `fundamentals` | 40 |
-| 2 | SEO | `seo` | 33 |
+| 2 | SEO | `seo` | 38 |
 | 3 | Paid Ads | `paid-ads` | 33 |
 | 4 | Growth Marketing | `growth` | 30 |
-| 5 | Social Media | `social` | 28 |
-| 6 | Content Marketing | `content` | 28 |
+| 5 | Social Media | `social` | 31 |
+| 6 | Content Marketing | `content` | 29 |
 | 7 | Email & Lifecycle | `email` | 33 |
 | 8 | Analytics & Attribution | `analytics` | 36 |
 | 9 | Marketing Tools | `tools` | 39 |
@@ -28,14 +28,14 @@ A free, structured marketing education site, from absolute beginner to advanced 
 | 12 | Conversion Rate Optimization | `cro` | 28 |
 | 13 | Brand Strategy | `brand-strategy` | 28 |
 | 14 | Product Marketing | `product-marketing` | 28 |
-| 15 | AI in Marketing | `ai-marketing` | 35 |
+| 15 | AI in Marketing | `ai-marketing` | 36 |
 | 16 | Mental Models | `mental-models` | 29 |
 | 17 | PR & Communications | `pr-communications` | 28 |
 | 18 | Events & Experiential Marketing | `events-experiential` | 28 |
 | 19 | Affiliate & Partner Marketing | `affiliate-marketing` | 28 |
 | 20 | Marketing Leadership & Career | `marketing-leadership` | 28 |
 | 21 | Legal & Compliance for Marketers | `legal-compliance` | 28 |
-| | **TOTAL** | | **632** |
+| | **TOTAL** | | **642** |
 
 ---
 
@@ -44,9 +44,9 @@ A free, structured marketing education site, from absolute beginner to advanced 
 **Learning**
 - **Lesson reader**, Left-side table of contents, reading progress bar, reading time estimate, prev/next navigation
 - **Related lessons**, "You might also like" section at the bottom of every lesson
-- **Lesson quizzes**, 4 questions at the bottom of 632 lessons; quiz must be passed (100%) to unlock Mark Complete
+- **Lesson quizzes**, 4 questions at the bottom of 642 lessons; quiz must be passed (100%) to unlock Mark Complete
 - **Progress tracking**, Mark lessons complete, per-category progress bar, bookmarks (all localStorage)
-- **Learning tracks**, 8 curated paths: B2B Marketer, E-commerce Growth, Solo Founder, AI-First Marketer, Content Creator, Social Media Manager, Data-Driven Marketer, Freelancer & Agency
+- **Learning tracks**, 24 curated paths: B2B Marketer, E-commerce Growth, Solo Founder, AI-First Marketer, Content Creator, Social Media Manager, Data-Driven Marketer, Freelancer & Agency, Marketing Mental Models, Technical SEO Mastery, AI Search Optimization, Content Strategy Mastery, On-Page SEO Mastery, Off-Page SEO Mastery, Paid Ads Mastery, Email & Lifecycle Mastery, CRO & Conversion Mastery, Analytics & Measurement Mastery, Copywriting Mastery, Brand Strategy Mastery, Psychology of Marketing, PR & Communications Mastery, Growth Marketing Mastery, Product Marketing Mastery
 - **Progress certificates**, Printable completion certificate per track at `/certificates/[slug]`
 - **XP + Streak system**, Earn XP for completing lessons (30), passing quizzes (20), bookmarking (5). Daily streak. 7 levels (Marketing Newcomer → Certified Polymath). Live badge in nav.
 - **Achievements**, 10 unlockable badges with toast notification on unlock. Full gallery at `/achievements`
@@ -54,7 +54,7 @@ A free, structured marketing education site, from absolute beginner to advanced 
 - **Onboarding**, First-visit goal selector: pick a goal, get routed to the right learning track
 
 **Discovery**
-- **Command Palette**, Cmd/Ctrl+K fuzzy search across all 632 lessons, 216 glossary terms, 108 tools, and nav pages
+- **Command Palette**, Cmd/Ctrl+K fuzzy search across all 642 lessons, 158 glossary terms, 108 tools, and nav pages
 - **Search**, Client-side fuzzy search (Fuse.js) with category and level filter chips
 - **Glossary**, 216 marketing terms with A-Z index and individual term pages at `/glossary`
 - **Tools directory**, 108 marketing tools across 11 categories with search, category, and pricing filters at `/tools`
@@ -141,9 +141,9 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | File | Purpose |
 |---|---|
 | `src/lib/curriculum.ts` | Single source of truth, all lesson slugs, titles, levels |
-| `src/lib/tracks.ts` | 8 learning track definitions |
+| `src/lib/tracks.ts` | 24 learning track definitions |
 | `src/lib/glossary.ts` | 216 marketing term definitions |
-| `src/lib/quizzes.ts` | Quiz questions (4 per lesson, all 632 lessons covered) |
+| `src/lib/quizzes.ts` | Quiz questions (4 per lesson, all 642 lessons covered) |
 | `src/lib/tools-directory.ts` | 108 marketing tools with category/pricing data |
 | `src/lib/bookmarks.ts` | Shared bookmark storage (BOOKMARK_KEY, getBookmarks, saveBookmarks) |
 | `src/lib/progress.ts` | Lesson completion helpers (COMPLETED_KEY exported, getCompleted, markComplete) |
@@ -171,12 +171,12 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 
 | Route | What |
 |---|---|
-| `/` | Homepage: hero, category grid, 9 learning tracks, featured lessons |
+| `/` | Homepage: hero, category grid, 24 learning tracks, featured lessons |
 | `/learn` | All lessons browsable by category |
 | `/learn/[category]` | Category page: Beginner/Intermediate/Advanced grouping + progress |
 | `/learn/[category]/[lesson]` | Lesson reader: ToC, share, bookmark, related lessons, quiz, prev/next |
 | `/search` | Fuzzy search with category + level filters |
-| `/tracks` | 9 learning tracks overview |
+| `/tracks` | 24 learning tracks overview |
 | `/tracks/[slug]` | Track detail with ordered lesson list |
 | `/glossary` | 216-term A-Z marketing glossary |
 | `/glossary/[slug]` | Individual term page |

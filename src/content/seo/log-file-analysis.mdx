@@ -1,0 +1,149 @@
+export const lessonMeta = {
+  title: "Log File Analysis for SEO",
+  level: "Advanced",
+  summary: "Search Console shows what Google says happened, your server logs show what actually happened, including every AI crawler in 2026.",
+  category: "seo",
+  slug: "log-file-analysis",
+  relatedConcepts: ["technical-seo", "llms-txt-ai-crawler-management", "core-web-vitals"],
+}
+
+# Log File Analysis for SEO
+
+## The Ground Truth Search Console Cannot Give You
+
+Log files are your server's raw, unfiltered record of every single request it receives, including every visit from Googlebot, Bingbot, and every AI crawler now roaming the web. Search Console shows you a sampled, Google-only, aggregated summary. Your logs show you exactly what happened, to the URL, to the second, to the specific bot.
+
+This distinction matters more in 2026 than it ever has, because Search Console literally cannot show you anything about how GPTBot, ClaudeBot, or PerplexityBot interact with your site. If you want to know whether AI crawlers can even reach your most important pages, log files are the only place that question can be answered.
+
+## Quick Summary
+
+- Log files record every request to your server, unfiltered, unlike Search Console's sampled and Google-only data
+- Search Console cannot show you anything about AI crawler behavior, GPTBot, ClaudeBot, and PerplexityBot activity is invisible there
+- Non-Google AI bot traffic now averages roughly 4% of all HTML requests site-wide, large enough to matter for both server capacity and content strategy
+- Always verify a bot's identity via reverse DNS lookup, user-agent strings alone can be spoofed by scrapers pretending to be Googlebot
+- This should be a recurring monthly habit, not a one-time audit, since crawl behavior shifts after every major release
+
+---
+
+## What a Log File Actually Contains
+
+A single log line typically records the requesting IP address, timestamp, requested URL, HTTP status code returned, and the user-agent string claiming to identify the bot or browser making the request. Multiply that by every request your server handles in a day, and you have a complete, if overwhelming, record of who is actually visiting your site.
+
+**What you can learn that no other tool tells you:**
+
+1. **Which pages get crawled most and least often**, revealing a mismatch between what you consider important and what bots actually prioritize
+2. **Response codes served to bots specifically**, a page returning a 500 error to Googlebot but 200 to real users is invisible in most dashboards
+3. **Orphaned pages that bots reach only via the sitemap**, never through an internal link, a sign of weak site architecture
+4. **Exactly which AI crawlers visit, how often, and which pages they touch**, data that exists nowhere else
+
+<Callout type="info">
+**Verify bot identity, do not trust the user-agent string alone.** Any scraper can set its user-agent to say "Googlebot." The reliable way to confirm a request is genuinely from Google is a reverse DNS lookup on the IP address, it should resolve to a `googlebot.com` or `google.com` domain, then a forward lookup back to confirm the IP matches. Tools like Screaming Frog's Log File Analyser automate this verification step.
+</Callout>
+
+## The 2026 Reason This Matters More Than Ever
+
+Before AI answer engines existed, log file analysis was a specialist's tool, useful mainly for very large sites worried about crawl budget. That has changed. A new category of crawler now visits every site on the web with real, measurable volume, and none of it shows up in Search Console.
+
+<Callout type="warning">
+**Non-Google AI crawler traffic now averages roughly 4% of all HTML requests network-wide, peaking near 6%.** That is a meaningful share of your server's total traffic, large enough to matter for capacity planning, and it is entirely invisible unless you look at raw logs. If you want to know whether GPTBot, PerplexityBot, or ClaudeBot can actually reach your key pages, before you spend any effort optimizing content for them, logs are the only way to check.
+</Callout>
+
+<Mermaid chart={`
+flowchart TD
+  A[Export 30 days of\nraw server logs] --> B[Parse with Screaming Frog\nLog File Analyser or SEOlyzer]
+  B --> C[Verify bot identity\nvia reverse DNS]
+  C --> D[Segment by bot:\nGooglebot, Bingbot, GPTBot,\nClaudeBot, PerplexityBot]
+  D --> E{Priority pages\nbeing crawled?}
+  E -- No --> F[Fix internal linking\nor sitemap gaps]
+  E -- Yes --> G[Check response codes\nserved to each bot]
+  G --> H[Re-run monthly]
+`} />
+
+## A Practical First Analysis
+
+1. **Export at least 30 days of raw access logs** from your server, CDN, or hosting provider, most platforms offer a download option even without a dedicated logging tool.
+2. **Parse the file with a dedicated tool.** Screaming Frog's Log File Analyser and SEOlyzer are the two most common choices, both handle the reverse DNS verification step automatically.
+3. **Segment traffic by bot.** Look at Googlebot and Bingbot first for classic SEO health, then specifically isolate GPTBot, ClaudeBot, and PerplexityBot to see whether AI crawlers reach your site at all.
+4. **Cross-reference against your sitemap and site architecture.** Pages you consider important but that bots rarely visit are strong candidates for an internal linking fix.
+5. **Check response codes served specifically to bots.** A page returning intermittent 500 errors only under crawler load, perhaps due to rate limiting or server strain, will quietly suppress both indexing and AI visibility.
+
+<Callout type="example">
+**Worked example: the blocked pages nobody noticed**
+
+A B2B software company had invested heavily in content but saw flat AI Overview and LLM citation numbers for six months, despite genuinely good writing. A log file analysis revealed that their `robots.txt` was blocking GPTBot and PerplexityBot entirely, a defensive rule added early on during a "protect our content" phase and never revisited.
+
+Once the block was lifted for the retrieval-focused agents (while still blocking pure training crawlers), server logs confirmed AI bots reaching the site within days. Citation activity followed within a few weeks, since the content itself had never been the problem, visibility was.
+</Callout>
+
+## Making This a Habit, Not a One-Time Audit
+
+Crawl behavior shifts after every major release: a redesign, a robots.txt change, a new CDN configuration, or a migration can all silently change which pages get crawled and how often. A single analysis tells you today's picture. A monthly cadence tells you whether things are trending in the right direction or quietly breaking.
+
+<Callout type="success">
+**This is one of the highest-leverage, lowest-glamour habits in technical SEO.** It rarely gets the attention that content strategy or link building gets, but a blocked or misrouted crawler means zero visibility potential, regardless of how good everything else is.
+</Callout>
+
+## The One-Line Takeaway
+
+**Search Console shows you Google's summary of your site, log files show you the truth, including the AI crawlers no dashboard tracks, make checking them a monthly habit, not a one-time audit.**
+
+<ResourceList resources={[
+  {
+    title: "Screaming Frog Log File Analyser",
+    url: "https://www.screamingfrog.co.uk/log-file-analyser/",
+    type: "tool",
+    note: "The most widely used log analysis tool, includes automatic bot-identity verification via reverse DNS.",
+    free: false,
+  },
+  {
+    title: "SEOlyzer",
+    url: "https://www.seolyzer.io/en/",
+    type: "tool",
+    note: "Cloud-based log monitoring with a free tier, useful for ongoing rather than one-time analysis.",
+    free: true,
+  },
+  {
+    title: "Verifying Googlebot and Other Google Crawlers, Google Search Central",
+    url: "https://developers.google.com/search/docs/crawling-indexing/verifying-googlebot",
+    type: "docs",
+    note: "Google's own documentation on how to verify a crawler is genuinely Googlebot via reverse DNS.",
+    free: true,
+  },
+  {
+    title: "How to Do a Log File Analysis for SEO, Ahrefs",
+    url: "https://ahrefs.com/blog/log-file-analysis/",
+    type: "article",
+    note: "Step-by-step walkthrough of a full log analysis workflow, including what to look for in the data.",
+    free: true,
+  },
+  {
+    title: "WsCube Tech, Log File Analysis for SEO (Hindi)",
+    url: "https://www.youtube.com/@WsCubeTech",
+    type: "video",
+    lang: "hi",
+    free: true,
+    note: "Top Hindi digital marketing channel",
+  },
+  {
+    title: "Mr Digital Marketing Tamil, Advanced Technical SEO",
+    url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw",
+    type: "video",
+    lang: "ta",
+    free: true,
+    note: "Tamil digital marketing tutorials",
+  },
+  {
+    title: "ODMT Telugu, Server Logs and Crawl Analysis (Telugu)",
+    url: "https://www.youtube.com/@ODMTtelugu",
+    type: "video",
+    lang: "te",
+    free: true,
+    note: "Telugu digital marketing training",
+  },
+]} />
+
+## Related Concepts
+
+- [Technical SEO](/learn/seo/technical-seo), log files are the verification layer for every crawling and indexing decision technical SEO makes.
+- [llms.txt and AI Crawler Management](/learn/seo/llms-txt-ai-crawler-management), robots.txt directives for AI bots are only as good as your ability to verify they are actually being honored, which is exactly what logs show.
+- [Core Web Vitals](/learn/seo/core-web-vitals), server response times under real crawl load, visible in logs, directly affect the field data Google uses for page-experience scoring.

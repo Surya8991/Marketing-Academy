@@ -387,10 +387,29 @@ The tracks quiz page (`/tracks/[slug]/quiz`) pools two sources: per-lesson quizz
 
 - Only add to `TRACK_QUIZZES` for tracks where cross-lesson synthesis meaningfully improves the assessment; most tracks work fine with pooled lesson quizzes alone.
 - Same `Quiz` shape as regular quizzes (question, options[], correct, explanation).
-- Currently populated: `mental-models` (10 synthesis questions on cross-model reasoning).
+- Currently populated: `mental-models` (10 questions) plus 13 tracks added in Session 67 (`technical-seo`, `ai-search-optimization`, `content-strategy`, `paid-ads-mastery`, `email-lifecycle-mastery`, `cro-mastery`, `analytics-mastery`, `copywriting-mastery`, `brand-strategy-mastery`, `psychology-of-marketing`, `pr-communications-mastery`, `growth-marketing-mastery`, `product-marketing-mastery`, 4-6 questions each).
 - The 80% pass threshold applies to the combined pool.
+
+### Rule 34 — Audit existing lessons before writing new ones for a track request
+`src/lib/tracks.ts`'s `Track` type is just `{ slug, title, emoji, description, audience, duration, lessons: {category, slug, title}[] }` — a track is a **curated list pointing at existing lessons**, not a container that needs its own content. This codebase's categories are already deeply saturated (28-40 lessons each as of Session 67), so a request for a new "X Mastery Track" almost never needs new lesson content.
+
+Before writing a single new `.mdx` file for a track request:
+1. `grep -H '  title:\|  level:' src/content/{category}/*.mdx` for every plausible source category to see the full existing lesson list.
+2. Build the track's lesson list from what already exists first (a track can pull lessons from multiple categories, e.g. `ai-search-optimization` mixes `seo` and `ai-marketing`).
+3. Only write a new lesson for a topic with a genuinely confirmed zero-result grep across all plausible categories (verified this way for `mobile-first-indexing`, `https-security-seo`, `log-file-analysis`, `duplicate-thin-content`, `ai-search-visibility-metrics` in Session 67 — everything else that session, 13 tracks total, used only existing lessons).
+
+Skipping this audit step and writing 10-15 new lessons per track wastes enormous effort duplicating content that already exists under a different lesson title.
 
 ### Rule 33 — Check for a stray leaked "thinking" line above `export const lessonMeta`
 An LLM writing agent occasionally ships its own planning sentence as the first line of the MDX file, ABOVE the `lessonMeta` export, e.g. `Now I have real stats. Let me write the complete MDX file.` This renders as visible garbage text at the top of the live lesson page. Found and fixed in 2 files during the Session 66 audit (`fundamentals/mission-vision-values.mdx`, `psychology/sunk-cost-fallacy.mdx`).
 
 Before trusting a newly-written lesson file, check that line 1 is either blank or `export const lessonMeta = {` — nothing else. A quick sweep across the whole library: `grep -rn "^Now I have\|^Good stats\|^Let me write\|^I'll write\|^Here's the" src/content/**/*.mdx` and manually confirm any hit isn't legitimate body prose before deleting it.
+
+### Rule 35 — Converting an external private/proprietary doc set into public lessons requires explicit de-identification
+Session 68 mined a user's private content-ops research doc (a personal LinkedIn/Instagram growth playbook) for genuinely well-sourced, generalizable 2026 platform-algorithm research (post-length studies, link-penalty data, format performance) and turned it into 5 new public lessons. This is a legitimate, valuable source, third-party named studies are exactly the kind of real research Rule 11 calls for, but the source document also contained the user's real name, employer, salary target, banned campaign references, and personal proof points mixed in with the citable research.
+
+**Before converting any external private document into a public lesson:**
+1. Get explicit user confirmation that conversion (not just reporting) is wanted — never assume.
+2. Strip every personal/proprietary specific: real names, employer names, financial targets, internal-only data, anything that reads as someone's private business strategy rather than a teachable, generalizable skill.
+3. Keep every genuine third-party citation (named study, sample size, date) — these are the actual value and are not proprietary just because they were found inside a private document.
+4. If a private doc's own illustrative example is useful, genericize it (a real handle like `@suryal` becomes a placeholder like `@yourhandle`; a specific person's SEO framework example stays as a generic teaching example since the technique itself, not the specific outcome, is what's being taught).

@@ -164,6 +164,766 @@ export const TRACK_QUIZZES: Record<string, Quiz[]> = {
       explanation: "Ericsson's research: experience alone does not build expertise; deliberate practice does. Writing to Think adds the feedback loop most marketing careers lack. The ceiling is caused by rep-without-review; the fix is structured practice with immediate feedback on specific skills.",
     },
   ],
+
+  "technical-seo": [
+    {
+      question: "A site's product pages rank well on desktop but organic traffic keeps falling. Search Console shows the mobile version is missing the product description and internal links present on desktop. What's the correct diagnosis?",
+      options: [
+        "A Core Web Vitals failure, since mobile is usually slower than desktop.",
+        "A mobile-first indexing content parity problem, Google indexes the mobile version, so the missing content is effectively invisible to search regardless of the desktop version's quality.",
+        "A schema markup error unrelated to the content itself.",
+        "A log file misconfiguration.",
+      ],
+      correct: 1,
+      explanation: "Since Google indexes based on the mobile version under mobile-first indexing, any content, links, or schema missing from mobile is simply not seen, no matter how complete the desktop version is. This is a parity problem, not a speed or markup issue.",
+    },
+    {
+      question: "A technical SEO audit finds: robots.txt blocking GPTBot, no HSTS header configured, and 40 near-identical thin partner pages. Which fix sequence has the highest leverage-to-effort ratio first?",
+      options: [
+        "Consolidate the thin pages first, since content always matters most.",
+        "Fix robots.txt to unblock AI crawlers first, it's the fastest, cheapest, most reversible action, and a blocked crawler means zero visibility potential regardless of anything else.",
+        "Add HSTS first, since security always takes priority.",
+        "Do all three simultaneously with no particular order.",
+      ],
+      correct: 1,
+      explanation: "A blocked crawler structurally prevents any citation or indexing regardless of content quality, making it the highest-leverage fix. Consolidating thin pages and adding HSTS still matter, but neither compounds if the crawler can't reach the site in the first place.",
+    },
+    {
+      question: "Log file analysis shows GPTBot and PerplexityBot are reaching a site's key pages, but AI Overview citations are still flat. Schema markup was validated as correct. What should the audit check next?",
+      options: [
+        "Nothing else, if crawlers can reach the pages, the job is done.",
+        "Whether the content itself is 'commodity' (generic, easily replicated) versus offering genuine original data or expertise, since crawl access alone doesn't guarantee citation.",
+        "Whether the site has enough backlinks.",
+        "Whether the site uses HTTPS.",
+      ],
+      correct: 1,
+      explanation: "Crawl access is necessary but not sufficient. If AI crawlers can reach the content but it's generic and easily found elsewhere, it won't be preferred for citation. The next diagnostic step is content differentiation, not more technical access work.",
+    },
+    {
+      question: "An enterprise site is migrating to a new domain and consolidating three subdomains. Which sequencing mistake most commonly causes both ranking AND AI citation loss?",
+      options: [
+        "Building the 1:1 redirect map before launch.",
+        "Treating schema re-validation as a post-launch cleanup task instead of pre-launch, letting structured data lapse the moment the new domain goes live.",
+        "Monitoring server logs after the cutover.",
+        "Keeping old high-value URLs' content substantively unchanged.",
+      ],
+      correct: 1,
+      explanation: "Schema markup is typically the first thing lost in a migration if treated as an afterthought. Since it directly affects both rich-result and AI-citation eligibility, letting it lapse even briefly compounds ranking loss with citation loss during the highest-risk period.",
+    },
+    {
+      question: "A site owner asks: 'Should I just Disallow my thin, outdated tag archive pages in robots.txt to clean things up?' What's the correct technical answer?",
+      options: [
+        "Yes, Disallow is the standard way to remove low-quality pages from the index.",
+        "No, if the pages are already indexed, Disallow prevents Google from re-crawling them to see a later noindex tag, leaving them stuck in the index indefinitely. Use noindex instead.",
+        "Yes, but only if the pages have fewer than 100 words.",
+        "It doesn't matter, both approaches produce the same result.",
+      ],
+      correct: 1,
+      explanation: "This is one of the most common technical SEO mistakes: Disallow blocks crawling, not indexing removal. An already-indexed page needs a noindex tag, which requires Google to be ABLE to crawl it, exactly what Disallow prevents.",
+    },
+    {
+      question: "Which combination of lessons explains why a fast, well-structured, schema-complete page can still fail to rank well?",
+      options: [
+        "Core Web Vitals + HTTPS, since these cover the entire ranking picture.",
+        "Internal Linking + Duplicate/Thin Content, a technically perfect page that's orphaned (no internal links) or duplicates an existing page's intent can still fail regardless of on-page technical quality.",
+        "Log File Analysis alone, since crawl data explains everything.",
+        "Mobile-First Indexing alone.",
+      ],
+      correct: 1,
+      explanation: "Technical page-level quality (speed, schema, security) doesn't guarantee discoverability or non-redundancy. A page needs internal links to be found as important, and it needs to not compete with a near-duplicate page cannibalizing the same intent.",
+    },
+  ],
+
+  "ai-search-optimization": [
+    {
+      question: "A B2B company gets cited by ChatGPT and Perplexity for industry questions but sees almost no citation in Google AI Overviews for the same queries. What's the most likely explanation given how these systems work?",
+      options: [
+        "Google AI Overviews are broken.",
+        "Different platforms run on different retrieval backends (ChatGPT via its own crawler/Bing fallback, Google AI Overviews via Google's own index), so ranking well in one doesn't guarantee retrieval in another.",
+        "The company's content is factually wrong.",
+        "AI Overviews never cite B2B companies.",
+      ],
+      correct: 1,
+      explanation: "Each AI platform has its own retrieval pipeline. Being cited on one and not another usually reflects differences in indexing/retrieval backend and content-matching, not a quality problem with the content itself.",
+    },
+    {
+      question: "A site's FAQ schema stopped producing the visual rich-snippet dropdown in Google Search after May 2026. Should the team remove the FAQPage schema?",
+      options: [
+        "Yes, since the visual rich result is gone, the schema no longer serves any purpose.",
+        "No, LLM-based answer engines (AI Overviews, AI Mode, ChatGPT, Perplexity) still parse FAQPage schema during retrieval even though the visual dropdown is gone.",
+        "Yes, but only if the site is also losing rankings.",
+        "It depends on whether the site uses HowTo schema too.",
+      ],
+      correct: 1,
+      explanation: "The FAQ rich result's retirement was a search-appearance change, not an algorithmic one. The structured data itself remains a machine-readable signal AI systems still use for retrieval and citation, so removing it throws away real value.",
+    },
+    {
+      question: "Two competing pages answer the same query equally well on paper, but only one gets cited consistently by AI Overviews. Per the GEO research on relative citation preference, what's the most likely differentiator?",
+      options: [
+        "Coin-flip randomness, citation preference is not influenced by content differences.",
+        "One page is marginally more complete, fresher, or better-structured for extraction, since citation preference is highly relative between competing pages on the same query.",
+        "The uncited page must have a manual action against it.",
+        "Page load speed is the only factor that matters for citation.",
+      ],
+      correct: 1,
+      explanation: "Large-scale citation research found preference is relative, not absolute: a page can lose a citation slot purely because a competitor's page is marginally more complete, fresh, or well-structured for that specific query, not because the losing page is bad in isolation.",
+    },
+    {
+      question: "A brand tracks 'AI visibility' using only raw mention counts across ChatGPT, Claude, and Google AI Overviews, and concludes Claude 'likes them most' because it has the highest raw count. What's the flaw?",
+      options: [
+        "There is no flaw, raw counts are the correct way to compare.",
+        "Different models mention brands at very different baseline rates, so raw counts must be normalized against each model's own baseline mention rate before comparing.",
+        "Claude cannot be tracked for brand mentions at all.",
+        "Only Google AI Overviews should ever be tracked.",
+      ],
+      correct: 1,
+      explanation: "Some models (like Claude, in 2025 data) mention some brand in the vast majority of relevant responses, while others (like Google AI Overviews) do so far less often. Comparing raw counts without normalizing for this baseline leads to the wrong conclusion about relative brand strength.",
+    },
+    {
+      question: "A YMYL (finance) site's content is E-E-A-T strong (credentialed authors, original data) but still isn't cited in AI Overviews for 'best budgeting apps.' Content audit shows the page never states a clear, standalone answer near the top. What's the fix, combining AEO and GEO principles?",
+      options: [
+        "Add more backlinks, since E-E-A-T is purely a link-based signal.",
+        "Restructure the page to lead with a direct, extractable answer (AEO's inverted pyramid) while keeping the credentialed, original-data content that already earns trust (GEO's E-E-A-T signal), both are needed together.",
+        "Remove the author bylines since they aren't helping.",
+        "Switch to a shorter page since AI systems only cite short pages.",
+      ],
+      correct: 1,
+      explanation: "E-E-A-T earns trust and citation eligibility, but AEO's answer-first structure is what makes a passage actually extractable and liftable. A trustworthy page that buries its answer under three paragraphs of preamble still won't get lifted cleanly.",
+    },
+    {
+      question: "Which two lessons together best explain why a page can rank #1 organically and still see traffic decline?",
+      options: [
+        "Schema Markup + International SEO.",
+        "AI Overviews & GEO + Zero-Click Search, being cited inside an AI Overview reduces the CTR advantage of ranking #1, since users increasingly get their answer without clicking through at all.",
+        "Voice Search SEO + Entity SEO.",
+        "LLMO + Brand SERP Control, with no connection to ranking position.",
+      ],
+      correct: 1,
+      explanation: "AI Overviews measurably suppress organic CTR even for the top-ranking result. A page can be cited, rank #1, and still see meaningfully less traffic than it would have gotten before AI Overviews existed, a structural shift the Zero-Click Search lesson covers directly.",
+    },
+  ],
+
+  "content-strategy": [
+    {
+      question: "A content team publishes 40 near-identical partner landing pages using an AI tool, each swapping only the partner name. Traffic collapses after a core update. Which principle from this track explains what happened?",
+      options: [
+        "AI-generated content is always penalized regardless of quality.",
+        "Google's 'scaled content abuse' policy targets low-effort, low-differentiation content produced at scale, the problem is the lack of genuine per-page value, not that AI was used.",
+        "The pages simply needed more backlinks.",
+        "The issue is unrelated to content strategy and is purely a technical SEO problem.",
+      ],
+      correct: 1,
+      explanation: "Google's stance (and the March 2026 core update) targets scaled, low-differentiation content, not AI assistance itself. The fix is genuine per-page differentiation and human-added expertise, not avoiding AI tools entirely.",
+    },
+    {
+      question: "A blog has 15 loosely related articles on 'email marketing' with no clear pillar page and inconsistent internal linking. What does the Topic Clusters framework recommend?",
+      options: [
+        "Delete 10 of the 15 articles to reduce site size.",
+        "Build one comprehensive pillar page and restructure the 15 articles as clearly-linked supporting cluster content, both linking up to the pillar and sideways to related siblings.",
+        "Republish all 15 articles with new dates and nothing else changed.",
+        "Merge all 15 into a single 10,000-word article.",
+      ],
+      correct: 1,
+      explanation: "Topic clusters work by establishing one authoritative pillar with deliberate, dense internal linking to and between supporting articles, not by deleting content or just refreshing dates. Structure and interlinking are what signal topical authority.",
+    },
+    {
+      question: "A content calendar shows the team publishes on whatever's easiest that week rather than tracking against the topic-cluster gaps. Which two lessons combined would fix this?",
+      options: [
+        "Thought Leadership + Content Moats.",
+        "Topic Clusters + Editorial Calendar, briefs and calendars should be built directly from the cluster map's gaps, not decided ad hoc week to week.",
+        "Original Research + Blog and SEO Content.",
+        "Content Repurposing alone.",
+      ],
+      correct: 1,
+      explanation: "An editorial calendar without a clear topic-cluster map to draw from tends to drift toward whatever's easiest to write, rather than closing real gaps. The calendar should be the scheduling layer on top of the cluster strategy, not a replacement for it.",
+    },
+    {
+      question: "A page that ranked well for two years has quietly lost 60% of its traffic despite no algorithm penalty notice. What does the Content Decay lesson say to check first?",
+      options: [
+        "Assume it's a manual action and file a reconsideration request.",
+        "Audit whether competitors have published fresher, more comprehensive content on the same topic, and whether the page's stats, examples, and structure have gone stale, then refresh accordingly.",
+        "Delete the page immediately.",
+        "Only check if the page has broken links.",
+      ],
+      correct: 1,
+      explanation: "Content decay is a natural, gradual process, not a penalty event, driven by newer competing content and staleness. The fix is auditing and refreshing (updated stats, expanded subtopics, refreshed internal links), not treating it as a manual action.",
+    },
+    {
+      question: "A brand wants to build genuine citation-worthy content but has no proprietary data or research budget. Which content strategy lesson offers the most direct starting point?",
+      options: [
+        "Long-Form vs Short-Form Content Strategy, since length alone builds authority.",
+        "Original Research as Content, even a small survey or usage-derived statistic creates something genuinely citable that doesn't exist anywhere else, unlike restating publicly available information.",
+        "Blog and SEO Content, since publishing volume is what matters most.",
+        "Content Moats, which requires an existing large audience to work at all.",
+      ],
+      correct: 1,
+      explanation: "Original research, even modest in scale, is one of the highest-leverage ways to create genuinely citable content, since it's the one thing competitors and AI systems can't simply find restated elsewhere.",
+    },
+  ],
+
+  "paid-ads-mastery": [
+    {
+      question: "A campaign has a high Quality Score but the client wants to also run Retargeting and test 5 new creative concepts. What's the correct sequencing to protect budget efficiency?",
+      options: [
+        "Launch retargeting and all 5 creatives simultaneously to maximize data collection speed.",
+        "Confirm bidding strategy matches campaign maturity first, then layer in creative testing with a controlled sample size, then expand to retargeting once the core campaign is stable.",
+        "Skip creative testing entirely since Quality Score is already high.",
+        "Retargeting should always launch before any new campaign, regardless of Quality Score.",
+      ],
+      correct: 1,
+      explanation: "Quality Score reflects relevance of the current setup, not creative or audience-expansion readiness. Sequencing bidding stability, then structured creative testing, then retargeting expansion avoids conflating signals from multiple simultaneous changes.",
+    },
+    {
+      question: "An iOS-heavy campaign shows declining reported conversions in-platform, but revenue reports from the client's own backend are flat. Which lesson combination explains this?",
+      options: [
+        "Ad Fraud & Invalid Traffic + Quality Score.",
+        "iOS 14+ & The Attribution Mess + Bidding Strategies, platform-reported conversions undercount due to attribution loss, and automated bidding strategies trained on incomplete data can misallocate spend in response.",
+        "Creative Testing alone.",
+        "Google Shopping & Performance Max exclusively.",
+      ],
+      correct: 1,
+      explanation: "Post-iOS14 attribution gaps mean platforms undercount real conversions. Automated bidding systems trained on this undercounted data can pull back spend from genuinely working campaigns, a compounding problem across both lessons.",
+    },
+    {
+      question: "A brand wants to expand from Google Search into Shopping, YouTube, and TikTok simultaneously with one shared creative asset. What's the flaw in this plan?",
+      options: [
+        "There is no flaw, one asset works identically across all placements.",
+        "Each platform has different creative-format and audience-behavior norms, a shared asset ignores platform-specific best practices covered separately in each channel's lesson.",
+        "Only Google Shopping requires unique creative.",
+        "TikTok and YouTube always require identical creative strategy.",
+      ],
+      correct: 1,
+      explanation: "Google Shopping/PMax, YouTube, and TikTok each have distinct creative and format expectations (product feeds vs. video-first vs. short-form vertical). A single repurposed asset typically underperforms platform-native creative.",
+    },
+    {
+      question: "Programmatic advertising spend is scaling but a growing share of impressions show suspiciously high click-through with zero downstream conversions. What should be audited first?",
+      options: [
+        "Increase the daily budget to compensate for lower conversion rate.",
+        "Ad Fraud & Invalid Traffic sources, since this pattern (high clicks, zero real conversions) is a classic invalid-traffic signature in programmatic buys.",
+        "Switch entirely to Meta Ads.",
+        "Lower the Quality Score threshold.",
+      ],
+      correct: 1,
+      explanation: "High CTR with no downstream conversion is a textbook invalid-traffic/ad-fraud pattern, especially common in lower-quality programmatic inventory. This should be investigated before assuming a targeting or creative problem.",
+    },
+  ],
+
+  "email-lifecycle-mastery": [
+    {
+      question: "A brand's welcome series has strong open rates but the abandoned cart flow underperforms industry benchmarks. Which two lessons combined best diagnose this?",
+      options: [
+        "List Building + GDPR and CAN-SPAM.",
+        "Abandoned Cart and Browse Flows + Segmentation, generic cart-recovery messaging sent to all abandoners regardless of cart value or browsing behavior underperforms targeted, segmented flows.",
+        "SMS Marketing alone.",
+        "Deliverability alone.",
+      ],
+      correct: 1,
+      explanation: "A well-performing welcome series doesn't guarantee a well-segmented recovery flow. Abandoned cart performance depends heavily on segmenting by cart value, product category, and abandonment stage, not just having the automation exist.",
+    },
+    {
+      question: "Open rates have dropped sharply across all campaigns despite no content changes. What should be checked first, per the Deliverability lesson?",
+      options: [
+        "Rewrite all subject lines immediately.",
+        "SPF, DKIM, and DMARC configuration and sender reputation, a sharp across-the-board drop usually signals a deliverability/inbox-placement issue, not a content problem.",
+        "Switch email service providers immediately without diagnosis.",
+        "Increase send frequency to compensate.",
+      ],
+      correct: 1,
+      explanation: "A sharp, sitewide drop in opens (not just one campaign) points to inbox placement rather than content quality. Checking SPF/DKIM/DMARC authentication and sender reputation is the correct first diagnostic step.",
+    },
+    {
+      question: "A win-back campaign is being planned for 'inactive' subscribers who haven't opened in 90 days. Per the List Hygiene lesson, what should happen before sending?",
+      options: [
+        "Send to the full inactive list immediately to maximize reach.",
+        "Segment further by engagement recency and consider suppressing the longest-dormant, highest-risk-to-deliverability segment rather than re-engaging the entire list at once.",
+        "Delete all inactive subscribers without attempting re-engagement.",
+        "Increase send frequency to the entire list to force engagement.",
+      ],
+      correct: 1,
+      explanation: "Blasting an entire long-dormant list risks spam complaints and hurts sender reputation, directly undermining deliverability. A tiered win-back approach, testing the least-dormant segment first, protects the sending domain's health.",
+    },
+    {
+      question: "A company wants to add SMS marketing on top of their existing email flows using the same message cadence and content. What's the risk?",
+      options: [
+        "No risk, SMS and email should always use identical content and cadence.",
+        "SMS has different regulatory requirements (consent, frequency expectations) and user tolerance than email, copying email cadence directly onto SMS risks opt-outs and compliance violations.",
+        "SMS Marketing is only relevant for e-commerce, not any other vertical.",
+        "Email and SMS should never be used by the same brand.",
+      ],
+      correct: 1,
+      explanation: "SMS carries stricter consent requirements and lower tolerance for frequency than email. Treating it as a copy-paste extension of the email cadence, rather than its own channel with its own rules, is a common and costly compliance mistake.",
+    },
+  ],
+
+  "cro-mastery": [
+    {
+      question: "A landing page test shows Variant B winning at 4,000 total visitors with p=0.04. The CRO lead wants to ship it immediately. What does Sample Size Math + Statistical Pitfalls in CRO say?",
+      options: [
+        "Ship immediately, statistical significance was reached.",
+        "Check whether the pre-calculated required sample size was actually reached and whether the test ran a full business cycle, a single p-value crossing 0.05 early can be a false positive from peeking.",
+        "The test is invalid regardless of p-value.",
+        "Sample size never matters if p < 0.05.",
+      ],
+      correct: 1,
+      explanation: "Stopping a test as soon as significance is 'reached' without hitting the pre-calculated sample size is a classic statistical pitfall (peeking). The correct practice is running to the pre-determined sample size and duration before declaring a winner.",
+    },
+    {
+      question: "A checkout flow has high add-to-cart rates but a steep drop-off at the payment step. Which lesson combination gives the most complete diagnosis?",
+      options: [
+        "Landing Page Anatomy + Hero Section Formula, since those affect only top-of-funnel.",
+        "Friction Audit + Trust Signals, drop-off specifically at payment often reflects unresolved friction (too many fields, unclear costs) combined with missing trust signals (security badges, clear return policy) at the exact moment of highest purchase anxiety.",
+        "Urgency and Scarcity Design alone.",
+        "Exit Intent and Recovery alone, since it only matters after the user has already left.",
+      ],
+      correct: 1,
+      explanation: "A drop specifically at payment (not earlier in the funnel) points to friction and trust issues concentrated at that exact step, where purchase anxiety peaks. Both a friction audit and trust-signal review are needed to diagnose it fully.",
+    },
+    {
+      question: "A team runs a multivariate test on a page with only 2,000 monthly visitors testing 4 elements with 3 variations each. What does the Multivariate vs A/B lesson say about this setup?",
+      options: [
+        "This is ideal, multivariate testing always outperforms simple A/B tests.",
+        "This traffic level is very unlikely to reach significance for a multivariate test's many combinations in a reasonable time, a simple A/B test would reach a valid conclusion far faster.",
+        "Multivariate testing requires no minimum traffic threshold.",
+        "The number of variations doesn't affect required sample size.",
+      ],
+      correct: 1,
+      explanation: "Multivariate testing splits traffic across many combinations, requiring dramatically more total visitors to reach significance than a simple A/B test. At 2,000 monthly visitors, this setup would likely never reach a valid conclusion; a single-variable A/B test is the correct choice.",
+    },
+    {
+      question: "Personalization for CRO is being planned using return-visitor behavior, but the CRO Research lesson's customer interview data hasn't been reviewed. What's the risk?",
+      options: [
+        "No risk, behavioral data alone is sufficient for personalization decisions.",
+        "Personalizing purely on behavioral signals without qualitative context (why users behave that way) risks optimizing for the wrong assumed intent, a mistake customer research would catch.",
+        "Customer interviews are only useful for brand strategy, not CRO.",
+        "Personalization always requires machine learning, not research.",
+      ],
+      correct: 1,
+      explanation: "Behavioral data shows what users do but not why. Skipping qualitative research before building personalization rules risks encoding a wrong assumption about intent at scale, amplifying rather than fixing a conversion problem.",
+    },
+  ],
+
+  "analytics-mastery": [
+    {
+      question: "A dashboard shows a channel's ROAS tripled after a platform update changed its attribution window. Leadership wants to shift budget immediately. What should be checked first?",
+      options: [
+        "Shift budget immediately, the data clearly shows improvement.",
+        "Whether this is a real performance change or an Attribution Models artifact, a wider attribution window alone can inflate a channel's reported ROAS without any real change in performance, incrementality testing is needed to confirm.",
+        "Dashboards are never affected by attribution window changes.",
+        "Ignore the metric change entirely.",
+      ],
+      correct: 1,
+      explanation: "A sudden ROAS jump coinciding with an attribution window change is a red flag for an artifact, not real performance improvement. Incrementality testing (holding out a control group) is the correct way to confirm whether the channel actually drove the lift.",
+    },
+    {
+      question: "A company relies entirely on last-click attribution in GA4 but is debating adding Marketing Mix Modeling. What gap does MMM specifically address that last-click attribution cannot?",
+      options: [
+        "MMM and last-click attribution measure identical things.",
+        "MMM can incorporate offline and non-clickable channels (TV, out-of-home, brand campaigns) and account for diminishing returns, which click-based attribution structurally cannot see or measure.",
+        "MMM only works for e-commerce companies.",
+        "MMM replaces the need for any conversion tracking.",
+      ],
+      correct: 1,
+      explanation: "Last-click and even multi-touch attribution models can only see channels with a trackable click or interaction. MMM uses statistical modeling across all spend (including offline/brand) to estimate incremental contribution, filling a gap click-based models can't address.",
+    },
+    {
+      question: "Server-side tracking is being implemented to address ad blocker data loss, but the Privacy Sandbox and Post-Cookie Web lesson raises a separate concern. What is it?",
+      options: [
+        "Server-side tracking is illegal under all privacy regulations.",
+        "Server-side tracking addresses ad-blocker data loss but doesn't by itself solve third-party cookie deprecation or the consent requirements privacy regulations still impose on the data being collected.",
+        "Privacy Sandbox makes all tracking unnecessary.",
+        "Server-side tracking and cookie deprecation are unrelated topics.",
+      ],
+      correct: 1,
+      explanation: "Server-side tracking solves a different problem (client-side data loss from ad blockers) than cookie deprecation and privacy regulation compliance. Teams often conflate the two, but implementing one doesn't automatically satisfy the other's requirements.",
+    },
+    {
+      question: "A KPI dashboard reports 'Marketing Qualified Leads' as the top-line success metric, and the number has grown 40% quarter over quarter, but sales complains lead quality has dropped. Which lesson combination explains the disconnect?",
+      options: [
+        "GA4 Setup + UTM Tagging, a purely technical tracking issue.",
+        "KPIs for Marketers + Funnel Analysis, an easily-gamed volume metric (MQLs) can grow while the downstream funnel (MQL-to-SQL, close rate) quietly deteriorates, a sign the KPI stopped reflecting real quality.",
+        "Cohort Analysis alone explains the disconnect.",
+        "This disconnect is impossible if GA4 is correctly configured.",
+      ],
+      correct: 1,
+      explanation: "A rising top-of-funnel volume metric alongside declining downstream quality is a classic KPI-gaming pattern. Reading the full funnel, not just the headline number, is what the KPIs and Funnel Analysis lessons together are designed to catch.",
+    },
+  ],
+
+  "copywriting-mastery": [
+    {
+      question: "A landing page uses a strong AIDA structure but conversions still lag behind a competitor's simpler page. The CTA button says 'Submit.' What does the CTA Copy lesson suggest checking first?",
+      options: [
+        "The AIDA structure is the problem and should be abandoned entirely.",
+        "Whether the CTA copy itself communicates a specific, low-friction next action and value, generic CTAs like 'Submit' underperform specific ones regardless of how strong the surrounding structural framework is.",
+        "The page needs more images, unrelated to copy.",
+        "AIDA and CTA copy are unrelated concerns.",
+      ],
+      correct: 1,
+      explanation: "A strong overall structure (AIDA) doesn't compensate for a weak, generic CTA at the moment of decision. 'Submit' communicates effort and obligation rather than benefit, a common and fixable underperformance driver even on well-structured pages.",
+    },
+    {
+      question: "A B2B company's homepage copy reads like a magazine feature story with strong StoryBrand framing, but sales says prospects don't understand what the product actually does. What's the likely gap?",
+      options: [
+        "StoryBrand framework should never be used for B2B.",
+        "Storytelling and clarity aren't mutually exclusive, but B2B Copy's pain/proof/process emphasis on concrete specificity may have been sacrificed for narrative polish, features vs. benefits clarity still needs to be explicit.",
+        "The homepage needs no copy at all, only visuals.",
+        "This is purely a design problem, unrelated to copywriting.",
+      ],
+      correct: 1,
+      explanation: "A compelling narrative frame (StoryBrand) can still fail to clearly state what a B2B product does if concrete specificity gets sacrificed for storytelling polish. Features vs. Benefits clarity and B2B's pain/proof/process structure need to coexist with narrative, not replace it.",
+    },
+    {
+      question: "A brand wants their comparison pages and how-to content to get cited by ChatGPT and Perplexity, but their current copy is written in classic persuasive sales-letter style. What does Writing for AI Search recommend changing?",
+      options: [
+        "Nothing, sales-letter style is equally effective for AI citation.",
+        "Restructure toward clear, standalone, factual statements the AI can lift and quote directly, persuasive rhetorical flourishes that read well to humans often don't extract cleanly as a citable passage.",
+        "Remove all persuasive elements from every page on the site.",
+        "AI search only cites pages with no marketing copy at all.",
+      ],
+      correct: 1,
+      explanation: "AI answer engines extract and quote clear, factual, self-contained statements. Classic persuasive copy (rhetorical questions, escalating tension, emotional appeals) often doesn't lift cleanly as an isolated quotable passage, even when it converts well with human readers.",
+    },
+    {
+      question: "A copywriter uses Power Words heavily throughout a page ('revolutionary,' 'game-changing,' 'unprecedented') but conversion rate is flat. What does Features vs. Benefits suggest is missing?",
+      options: [
+        "More power words should be added until conversion improves.",
+        "Power words alone don't substitute for concretely explaining what the product does and what specific outcome the reader gets, vague superlatives without concrete backing often read as empty hype.",
+        "Power words should never be used in any copy.",
+        "The issue must be unrelated to copy, likely a pricing problem.",
+      ],
+      correct: 1,
+      explanation: "Power words amplify emotional impact but don't replace concrete, specific benefit statements. Overusing superlatives without backing them with specific features and outcomes tends to read as generic hype rather than persuasive copy.",
+    },
+  ],
+
+  "brand-strategy-mastery": [
+    {
+      question: "A startup has strong Visual Identity Systems (logo, colors, typography) but a recent survey shows customers can't articulate what the brand actually stands for. What's missing per Brand Pillars?",
+      options: [
+        "Nothing, visual identity alone constitutes a complete brand.",
+        "Brand pillars, the core, differentiated ideas the brand consistently stands for, are a separate, more foundational layer than visual identity; a polished look without clear pillars leaves customers with recognition but no real understanding.",
+        "The visual identity system should be discarded entirely.",
+        "Customer confusion always indicates a logo redesign is needed.",
+      ],
+      correct: 1,
+      explanation: "Visual identity creates recognition; brand pillars create meaning and differentiation. A brand can look polished and consistent while still failing to communicate what it actually stands for if the underlying pillars were never clearly defined.",
+    },
+    {
+      question: "A company is planning a rebrand after a product pivot. Which two lessons combined determine whether this should be a full rebrand or a lighter refresh?",
+      options: [
+        "Brand Naming + Sonic Branding, since these are the only elements that matter.",
+        "Brand Equity + Brand vs. Marketing, measuring how much existing equity would be lost/retained, and clarifying whether the pivot changes the brand's core meaning or just its marketing tactics, determines the right scope of change.",
+        "Visual Identity Systems alone.",
+        "Employer Brand alone, since employees are the only stakeholder that matters.",
+      ],
+      correct: 1,
+      explanation: "The decision between a full rebrand and a lighter refresh hinges on how much existing brand equity is worth preserving and whether the underlying brand meaning (not just marketing execution) has actually changed. Both lessons are needed to make that call correctly.",
+    },
+    {
+      question: "A brand crisis breaks on social media on a Friday evening. The Brand Crisis Management lesson and the pre-communications category both apply. What's the correct first move?",
+      options: [
+        "Wait until Monday to issue any statement.",
+        "Activate the pre-built crisis response protocol immediately (even a holding statement), since crisis response speed itself is part of the message, delayed silence often reads as either not caring or hiding something.",
+        "Delete all social media accounts until the crisis passes.",
+        "Respond only privately to journalists, never publicly.",
+      ],
+      correct: 1,
+      explanation: "Crisis response speed matters as much as content. A pre-built protocol with an immediate holding statement, even before all facts are confirmed, prevents the silence itself from becoming a second story about the brand not caring or hiding something.",
+    },
+    {
+      question: "A B2C brand built entirely around its founder's public persona is now scaling and hiring a leadership team. What tension does Founder Brand vs. Company Brand introduce?",
+      options: [
+        "There is no tension, founder-led brands scale identically to company-led brands.",
+        "As the company grows beyond the founder, the brand needs to establish equity that doesn't depend entirely on one person's continued public visibility and reputation, a real transition risk if not planned deliberately.",
+        "The founder should immediately step back from all public visibility.",
+        "This only matters for B2B companies, not B2C.",
+      ],
+      correct: 1,
+      explanation: "A brand entirely dependent on a founder's personal reputation carries concentration risk as the company scales, if the founder leaves, says something controversial, or simply can't personally represent every market, the brand needs equity beyond that one person.",
+    },
+  ],
+
+  "psychology-of-marketing": [
+    {
+      question: "A checkout page shows a countdown timer and 'only 2 left in stock' simultaneously, but conversion actually dropped after adding both. What does Scarcity, Urgency, and FOMO combined with Cognitive Biases suggest went wrong?",
+      options: [
+        "Scarcity and urgency tactics never work and should be removed permanently.",
+        "Stacking multiple manufactured urgency signals at once can read as manipulative rather than genuine, triggering skepticism (a bias against perceived manipulation) instead of the intended FOMO response.",
+        "The countdown timer was simply too small visually.",
+        "This has nothing to do with psychology, only page design.",
+      ],
+      correct: 1,
+      explanation: "When urgency and scarcity signals are stacked and feel manufactured rather than genuine, users often recognize the pattern and react with skepticism rather than FOMO, the opposite of the intended effect. Authenticity and moderation matter as much as the tactic itself.",
+    },
+    {
+      question: "A pricing page uses anchoring (showing a high 'original price' crossed out) but sales for the discounted product haven't improved. What does Anchoring and Framing combined with the Endowment Effect suggest checking?",
+      options: [
+        "Anchoring never works and should be abandoned.",
+        "Whether the anchor price is perceived as credible, an anchor that seems fabricated or implausible fails to shift the reference point at all, unlike a credible anchor that a buyer already partially owns psychologically.",
+        "The product should be given away for free instead.",
+        "Pricing psychology only applies to B2C products.",
+      ],
+      correct: 1,
+      explanation: "Anchoring only works if the anchor is perceived as credible; an implausible 'original price' that looks fabricated doesn't successfully shift the buyer's reference point, and can actually undermine trust rather than build perceived value.",
+    },
+    {
+      question: "A subscription app uses habit-loop mechanics (daily notification, quick reward) but churn is still high after month one. Which combination of lessons explains this?",
+      options: [
+        "Habit Loops alone is sufficient to explain and fix churn.",
+        "Habit Loops + Peak-End Rule, a notification-driven habit loop can drive short-term opens without the underlying experience delivering a strong peak or satisfying end moment, which is what actually determines whether a habit becomes a lasting one.",
+        "Churn is unrelated to any psychological principle.",
+        "The Halo Effect is the only relevant factor.",
+      ],
+      correct: 1,
+      explanation: "A habit loop (cue, routine, reward) can drive short-term engagement mechanically, but the Peak-End Rule determines whether users remember the experience positively enough to sustain the habit long-term. Both are needed for durable retention, not just initial engagement.",
+    },
+    {
+      question: "A brand uses a celebrity endorsement (Halo Effect) for a product with genuinely mixed reviews. What risk does this combination create per Trust and Credibility Signals?",
+      options: [
+        "No risk, celebrity endorsement always overrides product quality perception permanently.",
+        "The halo effect can drive initial trial, but if real user reviews contradict the implied quality, the credibility gap becomes more damaging than if no celebrity had been used at all, once discovered.",
+        "Celebrity endorsements are illegal if reviews are mixed.",
+        "This combination has no measurable effect on consumer behavior.",
+      ],
+      correct: 1,
+      explanation: "The halo effect can drive short-term trial based on borrowed credibility, but if genuine product reviews contradict that implied quality, the resulting trust violation can be more damaging than a neutral first impression, since expectations were artificially inflated.",
+    },
+  ],
+
+  "pr-communications-mastery": [
+    {
+      question: "A startup pitches 15 journalists the same generic press release about a product launch and gets zero pickup. What does Pitching Journalists suggest was likely wrong?",
+      options: [
+        "The press release itself was too short.",
+        "A generic, non-personalized pitch sent identically to 15 journalists ignores that each journalist covers a specific beat and needs a pitch angle relevant to their actual audience, not a mass-blasted announcement.",
+        "Press releases should never be used for product launches.",
+        "The company should have hired more journalists internally.",
+      ],
+      correct: 1,
+      explanation: "Mass-blasting an identical, generic pitch to journalists with different beats is one of the most common PR mistakes. Effective pitching requires angling the story to each specific journalist's actual coverage area and audience.",
+    },
+    {
+      question: "A company's product gets negative press coverage right as they were planning a rebrand PR campaign. What does Crisis PR combined with Rebranding PR Strategy suggest?",
+      options: [
+        "Launch the rebrand campaign exactly as scheduled, ignoring the negative coverage.",
+        "Address the crisis response first using the media-facing protocol, since launching a rebrand narrative while an active crisis story is unresolved risks the rebrand messaging being read as damage control or getting drowned out entirely.",
+        "Cancel the rebrand permanently regardless of how the crisis resolves.",
+        "Rebrand PR and crisis PR should always run simultaneously without sequencing.",
+      ],
+      correct: 1,
+      explanation: "Launching a rebrand narrative during an unresolved crisis risks the new positioning being read as spin, or being completely overshadowed by the ongoing crisis story. Sequencing crisis resolution before rebrand messaging protects both narratives.",
+    },
+    {
+      question: "A B2B company wants coverage in major consumer publications instead of trade press, believing it signals bigger success. What does B2B PR: Why Trade Press Beats Consumer Press argue?",
+      options: [
+        "Consumer press always drives more B2B pipeline than trade press.",
+        "Trade press reaches the actual buyers and decision-makers in a B2B company's industry, while consumer press coverage, though prestigious-feeling, rarely reaches the audience that actually drives B2B purchasing decisions.",
+        "B2B companies should never pursue any press coverage.",
+        "Trade press and consumer press are functionally identical for B2B goals.",
+      ],
+      correct: 1,
+      explanation: "Trade press reaches the specific industry audience with actual purchasing influence, while consumer press, though it may feel more prestigious, often doesn't reach the buyers who make B2B purchasing decisions. Prestige and pipeline impact aren't the same thing.",
+    },
+    {
+      question: "A company measures PR success purely by number of press mentions, without tracking sentiment or share of voice. What does Measuring PR Impact: Beyond Vanity Metrics warn about this?",
+      options: [
+        "Mention count is the single most important and sufficient PR metric.",
+        "Raw mention count says nothing about whether coverage was positive, neutral, or damaging, or how it compares to competitors, real impact measurement requires sentiment and share-of-voice analysis alongside volume.",
+        "PR impact cannot be measured at all.",
+        "Sentiment analysis is only relevant for social media, not press coverage.",
+      ],
+      correct: 1,
+      explanation: "A high mention count could include negative or neutral coverage that hurts rather than helps the brand. Real PR measurement requires layering sentiment and competitive share-of-voice on top of raw volume, exactly what a vanity-metrics-only approach misses.",
+    },
+  ],
+
+  "growth-marketing-mastery": [
+    {
+      question: "A SaaS company's activation rate is high but Net Revenue Retention is declining. Which combination of lessons best explains this pattern?",
+      options: [
+        "Activation and Aha Moments + Net Revenue Retention, users are reaching initial value quickly, but something after activation, expansion, retention, or ongoing value, is failing, since activation alone doesn't guarantee durable growth.",
+        "AARRR alone fully explains this without needing NRR.",
+        "This pattern is impossible, activation and NRR always move together.",
+        "Referral Programs is the only relevant lesson here.",
+      ],
+      correct: 0,
+      explanation: "Strong activation means users reach initial value, but NRR reflects what happens after: expansion, renewal, and retained revenue over time. A company can activate users well while still failing to retain or grow their value long-term, a gap these two metrics together reveal that neither shows alone.",
+    },
+    {
+      question: "A referral program is launched but the viral coefficient stays below 1, meaning growth isn't self-sustaining from referrals alone. What does Viral Coefficient (K-Factor) say this indicates?",
+      options: [
+        "The referral program should be shut down immediately, it has zero value.",
+        "A K-factor below 1 means referrals alone won't drive exponential growth, but the program can still be a valuable acquisition channel alongside other growth loops, not a standalone growth engine.",
+        "K-factor below 1 is mathematically impossible to measure.",
+        "Referral programs only work if K-factor exceeds 2.",
+      ],
+      correct: 1,
+      explanation: "A K-factor under 1 means each user brings in less than one additional user on average, so referrals alone can't sustain exponential growth. That doesn't make the channel worthless, it can still meaningfully contribute alongside other growth loops.",
+    },
+    {
+      question: "A growth team runs 10 experiments per month using ICE scoring but overall growth has plateaued. What does Building an Experimentation Program suggest checking?",
+      options: [
+        "Run even more experiments per month without changing anything else.",
+        "Whether experiments are testing genuinely different hypotheses across the funnel, or repeatedly testing minor variations in the same low-leverage area, ICE scoring only helps if the underlying experiment ideas are diverse and high-potential.",
+        "ICE scoring itself is fundamentally broken and should be abandoned.",
+        "Plateau is always caused by insufficient budget, unrelated to experiment quality.",
+      ],
+      correct: 1,
+      explanation: "Running many experiments doesn't guarantee growth if they're all testing minor variations in the same low-leverage part of the funnel. A mature experimentation program needs genuinely diverse, high-potential hypotheses across the funnel, not just volume.",
+    },
+    {
+      question: "A B2B company adopts a Product-Led Growth (PLG) motion but their sales team still gatekeeps every free-trial-to-paid conversion. What's the structural conflict here?",
+      options: [
+        "No conflict, PLG and traditional sales gatekeeping work identically.",
+        "PLG's core premise is that the product itself drives conversion with minimal sales friction, a sales team gatekeeping every conversion reintroduces the exact friction PLG is designed to remove, undermining the motion's core value.",
+        "PLG requires eliminating the sales team entirely with no exceptions.",
+        "This conflict only applies to B2C companies, not B2B.",
+      ],
+      correct: 1,
+      explanation: "PLG is built around letting the product itself demonstrate value and drive conversion with low friction. A sales team gatekeeping every trial-to-paid conversion reintroduces exactly the friction PLG is meant to eliminate, undermining the whole motion rather than complementing it.",
+    },
+  ],
+
+  "product-marketing-mastery": [
+    {
+      question: "A product launch goes out with polished messaging and a positioning doc, but sales reps aren't using the new battlecards in actual deals. What does Battlecard Design & Sales Rep Adoption say is the likely cause?",
+      options: [
+        "The positioning doc was poorly written.",
+        "Battlecard adoption requires more than distribution, reps need training, real deal-relevant scenarios, and easy accessibility inside their existing workflow, a battlecard that exists but isn't embedded in the sales process gets ignored.",
+        "Sales reps should never use battlecards at all.",
+        "This has nothing to do with product marketing.",
+      ],
+      correct: 1,
+      explanation: "Creating a battlecard doesn't guarantee adoption. Reps need it built around real deal scenarios, trained on directly, and accessible inside their actual workflow (CRM, deal room), otherwise even a well-written battlecard gets ignored in practice.",
+    },
+    {
+      question: "A company loses several competitive deals in a row but has no formal Win-Loss Analysis process. What signal are they most likely missing?",
+      options: [
+        "Nothing important, deal outcomes are random and not worth analyzing.",
+        "Patterns in why specifically they're losing, whether it's pricing, a specific competitor's messaging, a missing feature, or a positioning gap, without structured win-loss interviews, the same fixable issue can recur deal after deal.",
+        "Win-Loss Analysis only matters for won deals, not lost ones.",
+        "This is purely a sales team's responsibility, unrelated to product marketing.",
+      ],
+      correct: 1,
+      explanation: "Without structured win-loss analysis, a company can lose deals to the same fixable issue repeatedly (a specific competitor claim, a pricing objection, a missing feature) without ever identifying the pattern, since anecdotal impressions from individual reps rarely surface the systemic cause.",
+    },
+    {
+      question: "A PMM team defines their ICP narrowly for a new product, but Sales keeps pursuing deals well outside that profile. Which combination of lessons addresses this tension?",
+      options: [
+        "ICP alone, since Sales should simply be told to follow it exactly.",
+        "Ideal Customer Profile (ICP) + Sales Enablement, a narrow ICP only works if it's reinforced through sales enablement (training, qualification criteria, incentives), otherwise reps chase any available deal regardless of fit.",
+        "This tension is impossible to resolve and the ICP should be abandoned.",
+        "Category Creation is the only relevant lesson here.",
+      ],
+      correct: 1,
+      explanation: "An ICP is only effective if it's operationalized through sales enablement, qualification criteria, training, and incentive alignment. Without that reinforcement, sales reps rationally chase any available deal, regardless of fit, since their incentives don't reflect the ICP's boundaries.",
+    },
+    {
+      question: "A company wants to pursue Category Creation for a genuinely novel product but is impatient for quick competitive-intel-style wins. What tension does this reveal?",
+      options: [
+        "No tension, category creation and competitive intelligence serve the same immediate timeline.",
+        "Category creation is a long-horizon narrative and market-education play, while competitive intelligence assumes an existing, defined category with known competitors, applying competitive-intel tactics too early can undermine the category-creation narrative before it takes hold.",
+        "Category creation should never be attempted by any company.",
+        "Competitive intelligence is irrelevant to any company pursuing category creation, ever.",
+      ],
+      correct: 1,
+      explanation: "Category creation requires patiently educating the market that a new category exists at all, a fundamentally different, longer-horizon effort than competitive intelligence, which assumes a defined category with known rivals already exists. Rushing competitive-style tactics too early can undercut the category narrative.",
+    },
+  ],
+
+  "on-page-seo-mastery": [
+    {
+      question: "A product page has strong Core Web Vitals and clean schema markup, but the page's title tag and content still target the wrong search intent (informational copy for a clearly transactional query). What's the outcome?",
+      options: [
+        "The page will rank well regardless, since technical signals dominate ranking.",
+        "The page will likely underperform despite strong technical health, Search Intent mismatch is an on-page problem technical fixes like Core Web Vitals or schema cannot solve.",
+        "Schema markup automatically corrects any intent mismatch.",
+        "Intent mismatch only matters for blog content, not product pages.",
+      ],
+      correct: 1,
+      explanation: "Technical health (speed, schema) and content-intent match are separate on-page layers. A fast, well-marked-up page that answers the wrong question for a query's intent still underperforms, since Google's ranking systems weigh intent match heavily regardless of technical quality.",
+    },
+    {
+      question: "A blog post has been rewritten with better keyword targeting, but mobile visitors see a shortened version missing the FAQ section present on desktop. What will happen under mobile-first indexing?",
+      options: [
+        "Google will index the more complete desktop version instead.",
+        "Google indexes the mobile version, so the missing FAQ section (and any content parity gap) is effectively invisible to search, undermining the keyword rework.",
+        "Content parity issues only affect Core Web Vitals, not keyword rankings.",
+        "Mobile-first indexing was deprecated in 2025.",
+      ],
+      correct: 1,
+      explanation: "Since Google indexes based on the mobile version, any content parity gap, including a missing FAQ section, means that content doesn't count toward the page's ranking, regardless of how well the visible content is optimized elsewhere.",
+    },
+    {
+      question: "An e-commerce site adds detailed product schema and optimizes images, but 40 variant pages remain near-duplicates of each other with minimal unique copy. What does this combination reveal?",
+      options: [
+        "Schema and image optimization fully compensate for thin variant content.",
+        "Technical on-page elements (schema, images) don't fix a Duplicate & Thin Content problem, each variant page still needs genuinely differentiated content to avoid diluting overall site quality.",
+        "Variant pages should never have schema markup.",
+        "This is exclusively an off-page SEO issue.",
+      ],
+      correct: 1,
+      explanation: "Schema and image optimization are valuable but orthogonal to content depth. Forty near-duplicate variant pages still create a thin/duplicate content problem regardless of how well-marked-up or well-imaged each individual page is.",
+    },
+    {
+      question: "A YouTube video and its accompanying blog post both target the same keyword, but the blog post's internal links never point to the video, and vice versa. What on-page opportunity is being missed?",
+      options: [
+        "Nothing, video SEO and blog SEO are entirely separate disciplines with no crossover.",
+        "Internal Linking & Site Architecture applies across content formats, not just text pages, cross-linking the video and blog post reinforces topical relevance and keeps users engaged with both assets longer.",
+        "Videos should never be linked from blog posts.",
+        "This only matters if the video and blog post target different keywords.",
+      ],
+      correct: 1,
+      explanation: "Internal linking principles apply across content formats. A video and blog post covering the same topic that don't cross-link miss an easy topical-authority and engagement opportunity that costs nothing to fix.",
+    },
+  ],
+
+  "off-page-seo-mastery": [
+    {
+      question: "A company publishes a well-designed original research report (a proprietary industry survey) but does zero PR outreach or journalist pitching around it. What's the likely outcome per Original Research as Content + Pitching Journalists?",
+      options: [
+        "The report will earn links automatically simply by existing on the site.",
+        "Original research earns links and coverage largely through deliberate pitching and outreach, publishing it passively without pitching journalists or PR contacts usually leaves the content's full link-earning potential unrealized.",
+        "Original research never earns links regardless of promotion.",
+        "PR outreach is only relevant for crisis situations, not content promotion.",
+      ],
+      correct: 1,
+      explanation: "Original research is powerful 'link bait,' but it doesn't earn coverage passively. It needs to be actively pitched to journalists and included in digital PR outreach to convert its inherent newsworthiness into actual links and mentions.",
+    },
+    {
+      question: "A brand has strong Local SEO signals (complete GBP, many reviews) but a Google search of their own brand name surfaces a 3-year-old negative news article on page one. Which lesson addresses this specific problem?",
+      options: [
+        "Local SEO alone will eventually push the negative article down automatically.",
+        "Brand SERP Optimisation and Online Reputation Management, controlling what appears across the full brand-name search results (not just the local pack) requires deliberately managing and diversifying the content ranking for that specific query.",
+        "This problem cannot be addressed through any SEO discipline.",
+        "Entity SEO has no relevance to reputation issues.",
+      ],
+      correct: 1,
+      explanation: "Local SEO signals affect the local pack and map results, but a full brand-name SERP includes many other result types. Actively managing what appears there, and diversifying with owned/earned content, is the specific job of Brand SERP Optimisation and Online Reputation Management.",
+    },
+    {
+      question: "A company earns dozens of backlinks quickly through a paid link-building service targeting low-relevance directory sites. How does this interact with E-E-A-T?",
+      options: [
+        "Any backlink volume increase automatically improves E-E-A-T signals.",
+        "Low-relevance, low-quality links don't meaningfully build the trustworthiness component of E-E-A-T, and can create risk if the pattern looks manipulative, genuine authority comes from earned, relevant, contextual links and demonstrated expertise, not volume alone.",
+        "E-E-A-T is entirely unrelated to backlinks.",
+        "Paid directory links are the recommended way to build E-E-A-T quickly.",
+        ],
+      correct: 1,
+      explanation: "E-E-A-T reflects genuine trustworthiness and authority, which low-quality, low-relevance links don't build, and a pattern of manipulative link acquisition can actively work against it. Off-page SEO Mastery, digital PR, and original research earn the kind of relevant, contextual links that genuinely support E-E-A-T instead.",
+    },
+    {
+      question: "A brand wants to build presence on Reddit and industry forums but posts overtly promotional content with links back to their product in every comment. What does Reddit and Forum SEO warn about this approach?",
+      options: [
+        "This is the correct, most effective way to build forum presence.",
+        "Overtly promotional posting typically gets flagged or removed by community moderators and damages credibility, genuine forum SEO requires participating authentically and contributing real value before any self-promotion.",
+        "Forum SEO has no real ranking impact regardless of approach.",
+        "Reddit and forums should never be used for any marketing purpose.",
+      ],
+      correct: 1,
+      explanation: "Communities like Reddit and niche forums actively police and remove overtly promotional content. Building genuine off-page authority there requires authentic participation and real value contribution first, exactly the opposite of a link-in-every-comment approach.",
+    },
+  ],
 };
 
 export const QUIZZES: Record<string, Quiz[]> = {
@@ -10951,6 +11711,461 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Since 2019, Google has used mobile-first indexing by default, meaning it crawls, renders, and indexes the mobile version of pages. JavaScript rendering is typically delayed in a 'second wave', rather than being processed instantly in the first wave.",
+    },
+  ],
+
+  "seo/mobile-first-indexing": [
+    {
+      question: "What does 'mobile-first indexing' actually mean for how Google evaluates your site?",
+      options: [
+        "Google crawls both mobile and desktop versions equally and averages the two.",
+        "Google uses the mobile version of your site as the primary source for crawling, indexing, and ranking.",
+        "Mobile-first indexing only affects sites without a responsive design.",
+        "Google prioritizes desktop but gives a small ranking boost to mobile-friendly pages.",
+      ],
+      correct: 1,
+      explanation: "Mobile-first indexing means Google's crawler primarily uses the mobile version of a page to index and rank it. Google completed this rollout globally in mid-2024, making it the permanent default rather than a transition.",
+    },
+    {
+      question: "A company's mobile template shows a shortened 120-word product description instead of the full 400-word desktop version. What is the SEO risk?",
+      options: [
+        "None, Google averages content length across both versions.",
+        "Google only indexes the shortened mobile version, so the extra 280 words are effectively invisible to search.",
+        "Google penalizes the desktop version for being 'too long' compared to mobile.",
+        "This only matters for AMP pages, not regular responsive sites.",
+      ],
+      correct: 1,
+      explanation: "Since Google indexes based on the mobile version, any content present only on desktop is not seen by the crawler at all. This is a content parity problem, and it directly reduces the ranking value of that page.",
+    },
+    {
+      question: "Is hiding text behind a mobile 'read more' accordion a content parity problem?",
+      options: [
+        "Yes, any visually hidden text is completely invisible to Google regardless of how it's implemented.",
+        "No, as long as the full text is present in the page's HTML and just styled as hidden, Google can still read it.",
+        "Only if the accordion uses JavaScript to hide the text.",
+        "Yes, but only on e-commerce sites.",
+      ],
+      correct: 1,
+      explanation: "Google can read DOM-present content even if it's visually collapsed via CSS. The real danger is content that only loads after a user interaction triggers an API call the crawler never fires, not content that's simply styled as hidden.",
+    },
+    {
+      question: "Which architecture carries the highest long-term risk of a mobile/desktop content mismatch?",
+      options: [
+        "A responsive design using one URL and one HTML file with CSS media queries.",
+        "A separate m.example.com subdomain running a different HTML template than the main site.",
+        "A single-page application with server-side rendering.",
+        "A static site generator with no JavaScript.",
+      ],
+      correct: 1,
+      explanation: "Separate mobile subdomains require every content update to happen in two places. Responsive design, with one shared HTML file adjusted only by CSS, makes a parity mismatch structurally difficult since there's nothing to keep in sync.",
+    },
+  ],
+
+  "seo/https-security-seo": [
+    {
+      question: "Since what year has HTTPS been a confirmed Google ranking signal?",
+      options: ["2010", "2014", "2018", "2022"],
+      correct: 1,
+      explanation: "Google confirmed HTTPS as a ranking signal in August 2014. By 2026 it's considered table stakes, not a bonus, and the real remaining opportunity is in security headers most sites still don't configure.",
+    },
+    {
+      question: "What is 'mixed content' and why does it matter for an HTTPS migration?",
+      options: [
+        "Content written in two different languages on the same page.",
+        "An HTTP image, script, or stylesheet loading on an otherwise HTTPS page, which breaks or removes the browser's padlock indicator.",
+        "A page that mixes AI-generated and human-written text.",
+        "Duplicate content that exists on both the HTTP and HTTPS version of a URL.",
+      ],
+      correct: 1,
+      explanation: "Mixed content occurs when any asset on an HTTPS page still loads over plain HTTP. Browsers respond by breaking or hiding the padlock, sometimes with an explicit warning, which undermines user trust even though the page itself uses HTTPS.",
+    },
+    {
+      question: "According to John Mueller, do security headers like HSTS directly affect Google rankings?",
+      options: [
+        "Yes, HSTS is a confirmed direct ranking factor on its own.",
+        "No, but they enable faster protocols (HTTP/2, HTTP/3) that improve Core Web Vitals, which does affect rankings indirectly.",
+        "Only for e-commerce sites processing payments.",
+        "Security headers actively hurt rankings by slowing down page loads.",
+      ],
+      correct: 1,
+      explanation: "Mueller has clarified that headers like HSTS don't directly move rankings, but they enable faster protocol negotiation and reduce breach/downtime risk, both of which support the Core Web Vitals and trust signals that do factor into ranking.",
+    },
+    {
+      question: "A company adds includeSubDomains to their HSTS preload submission without checking every subdomain first. What's the risk?",
+      options: [
+        "No risk, includeSubDomains only affects the main domain.",
+        "Any subdomain that doesn't support HTTPS becomes completely inaccessible in browsers, with no way for users to click through a warning.",
+        "It only affects search engine crawlers, not real users.",
+        "The certificate automatically renews for all subdomains.",
+      ],
+      correct: 1,
+      explanation: "HSTS preload with includeSubDomains applies to the entire domain tree at the browser level, before any redirect can even happen. A legacy HTTP-only subdomain becomes fully blocked with a hard security error, and removal from the preload list is slow.",
+    },
+  ],
+
+  "seo/log-file-analysis": [
+    {
+      question: "Why can't Google Search Console tell you anything about how GPTBot or PerplexityBot crawl your site?",
+      options: [
+        "Search Console only reports sampled, Google-specific crawl data, it has no visibility into other companies' crawlers at all.",
+        "AI crawlers are blocked from all websites by default.",
+        "Search Console requires a paid upgrade to see AI crawler data.",
+        "AI crawlers don't leave any trace in server logs either.",
+      ],
+      correct: 0,
+      explanation: "Search Console is a Google-only, sampled reporting tool. It has no mechanism to show GPTBot, ClaudeBot, or PerplexityBot activity, that data exists only in your raw server logs.",
+    },
+    {
+      question: "Why shouldn't you trust a request's user-agent string alone to confirm it's really Googlebot?",
+      options: [
+        "User-agent strings are encrypted and unreadable.",
+        "Any scraper can set its user-agent to falsely claim to be Googlebot, so identity must be verified via reverse DNS lookup.",
+        "Googlebot no longer sends a user-agent string as of 2025.",
+        "User-agent strings only matter for mobile crawlers.",
+      ],
+      correct: 1,
+      explanation: "A user-agent string is just a text field a request can set to anything. Verifying a request is genuinely Googlebot requires a reverse DNS lookup on the IP (confirming it resolves to a google.com domain) followed by a forward lookup to confirm the match.",
+    },
+    {
+      question: "Roughly what share of all HTML requests network-wide does non-Google AI crawler traffic now represent?",
+      options: ["Under 0.1%", "Around 4%, peaking near 6%", "Around 25%", "Over 50%"],
+      correct: 1,
+      explanation: "Non-Google AI bot traffic averages roughly 4% of all HTML requests network-wide, peaking near 6% on some sites, large enough to matter for both server capacity planning and content visibility strategy.",
+    },
+    {
+      question: "A company's log file analysis reveals GPTBot and PerplexityBot have been blocked by robots.txt for months. What's the likely consequence?",
+      options: [
+        "No consequence, since these bots don't affect Google rankings.",
+        "The site cannot appear in AI Overview or LLM-based citations at all, regardless of content quality, since the crawlers can never retrieve it.",
+        "Google will automatically penalize the site for blocking AI crawlers.",
+        "It only affects image search, not text content.",
+      ],
+      correct: 1,
+      explanation: "If GPTBot or PerplexityBot are blocked, the content is structurally invisible to those systems, no amount of content quality can overcome a crawler that's never allowed to fetch the page in the first place.",
+    },
+  ],
+
+  "seo/duplicate-thin-content": [
+    {
+      question: "Why is using robots.txt Disallow the wrong way to remove an already-indexed thin content page?",
+      options: [
+        "Disallow immediately deletes the page from Google's index.",
+        "Disallow stops Google from re-crawling the page, which means it can never see a later noindex tag, so the low-quality page stays indexed indefinitely.",
+        "Disallow only works for image files, not HTML pages.",
+        "Disallow requires a paid Search Console subscription to configure.",
+      ],
+      correct: 1,
+      explanation: "Disallow prevents crawling, not indexing removal. If a page is already indexed, blocking it via Disallow means Google can never re-crawl it to discover a noindex tag you add later, leaving the page stuck in the index.",
+    },
+    {
+      question: "A SaaS company has 40 thin, nearly identical 150-word partner landing pages. What's the recommended fix per this lesson?",
+      options: [
+        "Add a canonical tag on each page pointing to itself.",
+        "Consolidate all 40 into one comprehensive resource with real depth, then redirect the old thin URLs.",
+        "Increase each page's word count to 1,500 words using filler text.",
+        "Block all 40 pages with robots.txt Disallow.",
+        ],
+      correct: 1,
+      explanation: "Consolidation, merging overlapping thin pages into one genuinely comprehensive resource, is what Google's Helpful Content system rewards, since it produces real added value rather than just hiding or padding weak pages.",
+    },
+    {
+      question: "Does padding a thin page to 1,500 words with restated content fix a thin-content problem?",
+      options: [
+        "Yes, word count is the primary signal Google's Helpful Content system checks.",
+        "No, Helpful Content evaluation looks at whether the page genuinely satisfies the query, not how long it is.",
+        "Yes, but only for e-commerce product pages.",
+        "It fixes duplicate content but not thin content.",
+      ],
+      correct: 1,
+      explanation: "Word count is not the fix, added value is. Restating the same points in different words does not make a page more helpful; original data, examples, and clear structure do.",
+    },
+    {
+      question: "What does a rising 'Crawled, currently not indexed' count in Search Console often signal?",
+      options: [
+        "A temporary Google outage unrelated to content quality.",
+        "An early warning sign of thin or duplicate content that Google's quality systems are declining to index.",
+        "That the site has too many backlinks.",
+        "That the sitemap needs to be resubmitted.",
+      ],
+      correct: 1,
+      explanation: "'Crawled, currently not indexed' increasingly reflects Google's own continuous quality evaluation flagging pages it doesn't consider worth indexing, an early, actionable signal worth monitoring rather than ignoring.",
+    },
+  ],
+
+  "seo/ai-search-visibility-metrics": [
+    {
+      question: "Why can't classic rank tracking fully measure AI Overview or ChatGPT visibility?",
+      options: [
+        "AI answers don't produce a fixed position in a list, they synthesize a response that may or may not cite a source, and can vary between identical queries.",
+        "Rank tracking tools are technically incapable of connecting to AI platforms.",
+        "AI Overviews only appear for branded searches.",
+        "Classic rank tracking works identically for AI answers, no new metrics are needed.",
+      ],
+      correct: 0,
+      explanation: "AI answer engines don't produce a stable list of ten ranked positions. The same prompt can return different citations run to run, which is why measurement has to shift toward citation rate, share of voice, and sentiment tracked over a rolling window.",
+    },
+    {
+      question: "A brand is cited by Claude in 40% of test prompts but only 10% by Google AI Overviews. What's the correct interpretation?",
+      options: [
+        "Claude definitely likes the brand more than Google does.",
+        "The comparison is meaningless without knowing each model's baseline mention rate, since different models cite brands at very different overall frequencies.",
+        "This proves Google AI Overviews are broken.",
+        "The brand should stop trying to get cited by Google entirely.",
+      ],
+      correct: 1,
+      explanation: "Different models mention brands at very different baseline rates, one analysis found Claude mentions some brand in over 97% of relevant responses versus under half for Google AI Overviews. Raw citation counts must be normalized against each model's own baseline before comparing.",
+    },
+    {
+      question: "As of 2026, which AI platforms does GA4's native 'AI Assistant' channel automatically recognize?",
+      options: [
+        "All AI platforms equally, including Perplexity and Copilot.",
+        "ChatGPT, Gemini, and Claude only, Perplexity and Copilot still require a manually built custom channel group.",
+        "Only ChatGPT.",
+        "None, GA4 has no AI-specific channel as of 2026.",
+      ],
+      correct: 1,
+      explanation: "GA4's native AI Assistant channel, added in 2026, only recognizes ChatGPT, Gemini, and Claude referral domains. Perplexity and Copilot traffic still lands in generic Referral unless a custom channel group is built to bucket those domains explicitly.",
+    },
+    {
+      question: "Why does a citation alone not guarantee a positive outcome for a brand?",
+      options: [
+        "A citation is always positive by definition.",
+        "An AI system can accurately cite a brand while framing it unfavorably, which is why sentiment tracking is needed alongside citation rate.",
+        "Citations only count if they include a hyperlink.",
+        "Negative citations are impossible since AI models are trained to be neutral.",
+      ],
+      correct: 1,
+      explanation: "A citation just means the brand was named or linked, it says nothing about framing. Sentiment tracking turns a raw mention count into something actionable by revealing whether the citation is helping or hurting the brand.",
+    },
+  ],
+
+  "social/linkedin-algorithm-2026": [
+    {
+      question: "Three independent 2026 studies (AuthoredUp, MagicPost, Taplio) agree that LinkedIn engagement rises with post length up to roughly what point?",
+      options: ["400 characters", "800-1,000 characters", "2,500 characters", "There is no length effect at all"],
+      correct: 2,
+      explanation: "All three large-sample studies found engagement rising with length up to roughly 2,500 characters, with none peaking anywhere near the older 800-1,000 character guidance, which traces to a less-documented, older source.",
+    },
+    {
+      question: "According to a 566,957-post analysis, what actually causes the reach penalty often blamed on 'posting links'?",
+      options: [
+        "The presence of any URL in the post body.",
+        "The attached link preview card specifically, a plain URL with no card showed no measurable penalty.",
+        "Posting more than one link per post.",
+        "Links posted before 9am.",
+      ],
+      correct: 1,
+      explanation: "The study found a plain URL in the body with no preview card attached showed no penalty, while a link with an attached preview card saw roughly a 47% reach reduction. The card, not the link itself, is what costs reach.",
+    },
+    {
+      question: "Why did LinkedIn's own hashtag guidance shift toward using fewer tags in 2026?",
+      options: [
+        "Hashtags were removed from the platform entirely.",
+        "LinkedIn removed the ability to follow hashtags and stopped surfacing them in search, since the feed now ranks primarily on semantic meaning rather than keyword tags.",
+        "Using more than 3 hashtags is now technically impossible.",
+        "Hashtags only work for video content now.",
+      ],
+      correct: 1,
+      explanation: "LinkedIn dismantled much of its hashtag infrastructure (no more following hashtags, no profile display, no search surfacing) as its feed ranking shifted to reading semantic content directly, making hashtags a minor secondary signal rather than a discovery mechanism.",
+    },
+    {
+      question: "Why does topical consistency compound reach over time on LinkedIn's 2026 feed specifically?",
+      options: [
+        "Because more hashtags are allowed for consistent posters.",
+        "Because the semantic ranker builds an implicit model of what an account is authoritative on, letting high-relevance posts surface to people entirely outside the poster's existing network.",
+        "Because LinkedIn manually reviews consistent accounts.",
+        "Topical consistency has no measurable effect on reach.",
+      ],
+      correct: 1,
+      explanation: "Because the feed ranks semantically rather than by network connections, staying within one coherent topic area lets the algorithm confidently surface an account's content to relevant strangers outside their network, an effect that strengthens the longer that consistency holds.",
+    },
+  ],
+
+  "social/linkedin-post-anatomy": [
+    {
+      question: "Why is a hook like 'Here are 3 things I check in an SEO audit' considered weak under this framework?",
+      options: [
+        "It's too long for the 140-character constraint.",
+        "It reads as a table of contents rather than naming a specific stake, what the reader loses or gets wrong if they scroll past.",
+        "It doesn't include a statistic.",
+        "It uses the word 'audit' which is banned.",
+      ],
+      correct: 1,
+      explanation: "A hook's job is to name a concrete stake, not just preview a topic. 'Here are 3 things' promises information but doesn't tell the reader what they lose by not reading, which is why it underperforms a stake-based hook.",
+    },
+    {
+      question: "What is the 'reframe' device, and why does it matter more than just restating the framework?",
+      options: [
+        "It's a summary of the post's main points at the end.",
+        "It swaps the question the reader thought they were asking for a better one, turning the post from information into a point of view, which is what makes it memorable and quotable.",
+        "It's a call to action asking readers to reframe their opinion.",
+        "It's a technique only used in Personal Story posts.",
+      ],
+      correct: 1,
+      explanation: "The reframe reveals the underlying principle behind a framework by posing a better question than the reader started with. This is the insight peak of a post, the line most likely to be quoted or saved, distinct from the analogy which makes structure memorable rather than reframing the problem itself.",
+    },
+    {
+      question: "A closing question asks 'Do you agree?' Why does this fail the stranger-usefulness test?",
+      options: [
+        "It's too short to be a real question.",
+        "A competent stranger has no specific answer to give, and reading a stream of 'yes'/'no' replies wouldn't be worth anyone's time, unlike a specific, comparable question.",
+        "Questions are never allowed as post closers.",
+        "It should be rewritten as a poll instead.",
+      ],
+      correct: 1,
+      explanation: "The stranger-usefulness test asks whether a competent stranger would have a real, specific answer worth reading. A generic yes/no agreement question produces no real information exchange, unlike a specific question like 'what's the first thing you check when a page loses traffic?'",
+    },
+    {
+      question: "Why does the anti-monotony rule forbid repeating the same weekday-to-pillar schedule two weeks running?",
+      options: [
+        "LinkedIn's algorithm penalizes repeated schedules directly.",
+        "A fixed, predictable rotation trains an audience to unconsciously skip content that always looks the same on the same day, a documented growth-killer even though each individual post might be well-written.",
+        "It's a rule with no real justification, just a stylistic preference.",
+        "It only applies to the Engagement pillar.",
+      ],
+      correct: 1,
+      explanation: "Even well-written posts underperform if a feed becomes predictable in its rhythm. Varying which pillar lands on which day prevents an audience from learning to tune out content that always follows the same pattern.",
+    },
+  ],
+
+  "ai-marketing/ai-image-generation-social-content": [
+    {
+      question: "Why should you plan for a repair pass on any AI-generated image slide with around 60 words of on-image text?",
+      options: [
+        "Because all AI image tools charge extra for long text.",
+        "Even the best 2026 text-rendering models run roughly 94-96% character accuracy, so a 60-word slide should be expected to contain 2-4 wrong characters.",
+        "Because 60 words always exceeds the platform's character limit.",
+        "Repair passes are only needed for video, not images.",
+      ],
+      correct: 1,
+      explanation: "Text in an AI-generated image is rendered, not typeset, and even top models have a measurable error rate at that character volume. Planning for a mandatory proofread-and-repair step is the correct workflow response, not an occasional nicety.",
+    },
+    {
+      question: "A designer finds one wrong word in an otherwise perfect AI-generated slide. What's the recommended fix?",
+      options: [
+        "Reroll the entire generation until the text happens to be correct.",
+        "Use a targeted edit turn in the same session, changing only the specific word while keeping the layout, palette, and all other text identical.",
+        "Manually redraw the entire slide from scratch.",
+        "Switch to a completely different tool and start over.",
+      ],
+      correct: 1,
+      explanation: "A full reroll risks losing an otherwise good layout to fix one small error. A targeted edit instruction preserves everything that's already working while fixing only the specific mistake.",
+    },
+    {
+      question: "What is the single biggest lever on text-rendering accuracy when prompting an AI image model?",
+      options: [
+        "Choosing a more expensive image model.",
+        "Quoting every exact string that should appear, rather than describing the content abstractly (e.g., writing the actual title in quotes rather than saying 'add a title').",
+        "Using more adjectives in the style description.",
+        "Generating at a lower resolution.",
+      ],
+      correct: 1,
+      explanation: "Quoting exact strings gives the model a literal target to render rather than a description to interpret, which is the single biggest lever on getting on-image text correct.",
+    },
+    {
+      question: "Why does attaching the first approved image as a reference for every subsequent image in a series matter so much for consistency?",
+      options: [
+        "It's required by most platforms' terms of service.",
+        "It anchors the style, palette, and layout to a proven example rather than relying on the model to reproduce a text description identically each time, which is what actually prevents visual drift across a series.",
+        "It makes the generation process faster.",
+        "It only matters for video generation, not static images.",
+      ],
+      correct: 1,
+      explanation: "Re-describing a style in new words for each image in a series introduces drift, since slightly different phrasing can produce slightly different results. Attaching an approved reference image anchors every subsequent generation to a proven, exact visual target instead.",
+    },
+  ],
+
+  "social/instagram-algorithm-2026": [
+    {
+      question: "What are Instagram's named ranking signals, and how do they differ from a platform that optimizes for comments?",
+      options: [
+        "Comments and shares, identical to LinkedIn.",
+        "Watch time, likes-per-reach, and sends-per-reach, meaning content designed to invite a comment (like a specific question) can still underperform if it isn't also forwardable.",
+        "Follower count and post frequency only.",
+        "Instagram has no publicly stated ranking signals.",
+      ],
+      correct: 1,
+      explanation: "Instagram's leadership has named watch time, likes-per-reach, and sends-per-reach as core signals, a genuinely different currency than a comment-optimized platform. A specific, answerable question that drives comments elsewhere doesn't necessarily drive sends here.",
+    },
+    {
+      question: "Why are single-image posts considered the clearly losing format on Instagram in 2026?",
+      options: [
+        "Instagram banned single images outright.",
+        "A large-sample analysis found single images down sharply year-over-year in reach, interactions, and engagement rate, with carousels and Reels dominating every measured metric instead.",
+        "Single images require a paid subscription to post.",
+        "Single images only work for business accounts, not creators.",
+      ],
+      correct: 1,
+      explanation: "Measured data shows single images declining across every metric checked (reach, interactions, engagement rate) while carousels and Reels have taken over the format landscape, making single images the weakest available choice in nearly every situation.",
+    },
+    {
+      question: "Why does slide 2 of an Instagram carousel need to function as a standalone 'second cover'?",
+      options: [
+        "Instagram requires exactly 2 cover slides by policy.",
+        "The platform may re-serve unswiped remaining slides as new content later, meaning slide 2 is sometimes the very first slide a viewer ever sees, so it can't read as a continuation of slide 1.",
+        "Slide 2 is always the least important slide.",
+        "This only applies to carousels longer than 10 slides.",
+      ],
+      correct: 1,
+      explanation: "Because Instagram may treat unseen slides as new content and re-surface them later, some viewers encounter slide 2 as their first exposure to the carousel, requiring it to stand alone as its own cover rather than assuming continuity from slide 1.",
+    },
+    {
+      question: "A brand pastes a long, text-first LinkedIn post directly into an Instagram caption. What does this lesson say about that approach?",
+      options: [
+        "This is the recommended repurposing method, since consistency across platforms matters most.",
+        "This is one of the clearest failure modes, since long text-first content is close to a worst case on Instagram, and content needs to be rewritten for the platform's visual, sends-optimized format, not just reformatted.",
+        "It works fine as long as hashtags are updated.",
+        "Instagram automatically reformats pasted text for its own algorithm.",
+      ],
+      correct: 1,
+      explanation: "Directly pasting a long, text-first post is flagged as a clear failure mode, since Instagram's format economics favor carousels and Reels, and content needs genuine adaptation (not just reformatting) to perform on a platform optimized for very different signals.",
+    },
+  ],
+
+  "content/content-demand-research": [
+    {
+      question: "Why should first-party analytics data (like your own search console query data) be the first input checked in a content demand research routine?",
+      options: [
+        "It's the fastest data source to check.",
+        "It's the one category of signal genuinely unavailable to competitors, making it the highest-differentiation source even though it requires the most discipline to check consistently.",
+        "External tools like Reddit and Google Trends are unreliable.",
+        "First-party data is required by law to be checked first.",
+      ],
+      correct: 1,
+      explanation: "Nobody else researching the same space has access to your own analytics data. That makes it the single highest-differentiation input, which is exactly why it's easy to skip in favor of more exciting-feeling external research, and exactly why skipping it is a named failure mode.",
+    },
+    {
+      question: "Why is reading the top comment on a Reddit thread often more valuable than reading the original post?",
+      options: [
+        "Comments are always more accurate than posts.",
+        "The actual pain point is frequently buried in the highest-upvoted reply rather than stated plainly in the original post itself.",
+        "Reddit hides the real content of posts from search engines.",
+        "This only applies to threads with over 1,000 upvotes.",
+      ],
+      correct: 1,
+      explanation: "A recurring finding in demand research is that the sharpest articulation of a pain point often shows up in a top comment responding to a post, not in the post's own framing, making the comment worth reading as closely as the post itself.",
+    },
+    {
+      question: "Why is Google Trends' default 12-month view insufficient for judging whether a topic is a genuine trend?",
+      options: [
+        "The default view is always inaccurate regardless of timeframe.",
+        "A 12-month view can't distinguish a genuine multi-month trend from a seasonal spike that recurs every year at the same time, only a 5-year view reveals that pattern.",
+        "Google Trends requires a paid subscription for accurate data.",
+        "The 12-month view only shows data for the United States.",
+      ],
+      correct: 1,
+      explanation: "Expanding to the 5-year view is the specific check that distinguishes a fad (a spike that collapses), a genuine trend (a broad, sustained curve), and seasonality (the same spike recurring annually), a distinction invisible in the shorter default view.",
+    },
+    {
+      question: "Why does directly restating a search query as a headline usually underperform, per the query-to-post translation principle?",
+      options: [
+        "Search queries are always too short to make good headlines.",
+        "A query is typed privately in a low-status information-seeking mode, while public content is read in a status-aware mode, so effective content translates the query's underlying tension rather than just restating it.",
+        "Headlines and search queries use completely different keywords by definition.",
+        "This principle only applies to B2C content, not B2B.",
+      ],
+      correct: 1,
+      explanation: "The psychological mode of typing a private search query ('how do I do X') differs from the mode of reading public content (implicitly asking 'who's sharp, who's wrong, what am I missing'). Translating the query into its underlying tension, rather than just restating it, is what makes content land in that public, status-aware reading mode.",
     },
   ],
 
