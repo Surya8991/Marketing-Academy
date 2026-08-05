@@ -18,6 +18,13 @@ const nextConfig: NextConfig = {
   // Treat .md and .mdx files as page routes / importable components
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
 
+  // Allow next/image to optimize YouTube thumbnail images used in lesson ResourceList video cards
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "img.youtube.com", pathname: "/vi/**" },
+    ],
+  },
+
   /**
    * Security headers applied to every response.
    *

@@ -179,7 +179,7 @@ CRITICAL: every resource object including the last one needs a trailing comma be
 
 ### Rule 16, Lesson tone: encourage, don't overwhelm
 Lessons must feel like a smart friend explaining something, not a textbook.
-- **800-1200 words** of body content. A focused 900-word lesson beats a bloated 2000-word one.
+- **800-1200 words for a focused, single-concept lesson.** A lesson that's genuinely rich, real case studies with named numbers, a comparison table, a Mermaid diagram, a worked step-by-step example, legitimately runs longer, commonly 1300-2000 words in this codebase, and that's fine. Session 68 measured all 642 lessons: only 34% land in the literal 800-1200 band, the rest skew longer because they carry real depth (the reference lesson `core-web-vitals.mdx` runs ~1800 words and is an intentional quality exemplar). **Don't mechanically trim a rich lesson just to hit 1200; don't pad a focused one just to hit 800.** The failure mode this rule actually guards against is a lesson under ~700 words with no real depth (a stub) or one that rambles past 2000 words repeating itself without adding new information, not length itself.
 - **Max 2 sentences per paragraph.** Third sentence? New paragraph or bullet point.
 - **Short bullet lists: 3-6 items max.** If you have 10 bullets, you have 2 sections.
 - **One idea per section.** No "additionally" / "furthermore" dumps.
