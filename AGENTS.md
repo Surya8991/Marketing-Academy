@@ -432,6 +432,14 @@ const locked = !getQuizPassed(category, slug) && !done;
 
 Use `sourceCategory` for cross-listed lessons (Rule 31). Two components performing the same state change through two different gates is the bug class here, not a missing feature.
 
+**This is one of five interlocking integrity defects.** The others, all confirmed in code and documented in `PROJECTS_PLAN.md` 0.1b-0.1e:
+- `src/app/certificates/[slug]/page.tsx` computes `pct` and **never gates on it**, so anyone can print a certificate at 0% completion by visiting the URL.
+- `Quiz.tsx` reveals the correct answer and explanation per question, then offers unlimited retry, so 100% is reachable in ~30 seconds without knowledge.
+- `TrackQuizPageClient` passes at 80% of a *pooled* question set, so a learner can score 0% on two lessons and still have them marked complete.
+- `markIncomplete()` does not reverse XP, and `addXP` dedupes on a rolling 24h window, so completions are farmable.
+
+Fix them as one batch. Closing the track bypass alone just pushes everyone onto a quiz that shows its own answers, toward a certificate that was never gated.
+
 ### Rule 37 — The projects layer is planned in `PROJECTS_PLAN.md`, read it before touching projects
 `PROJECTS_PLAN.md` (root) is the active high-priority roadmap for the hands-on projects layer, the `/projects` hub, and concept scenarios in lessons. Section 0 carries the execution order. Do not design any part of that feature without reading it; a four-agent survey of 454 lessons is already recorded there and re-deriving it wastes a lot of effort.
 

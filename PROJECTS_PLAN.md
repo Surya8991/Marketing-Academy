@@ -4,7 +4,7 @@
 >
 > Status: PROPOSED, awaiting approval. **No code written yet, this document is the only deliverable so far.**
 >
-> ⚠️ **Contains one P0 production bug**, unrelated to the projects feature but found while planning it: track pages let a learner mark lessons complete without opening them or passing a quiz, awarding full XP. See **0.1**. Fix this before anything else here.
+> ⚠️ **Contains a family of five live integrity bugs**, unrelated to the projects feature but found while planning it. Two are P0: track pages let a learner complete a whole track without opening a lesson (**0.1**), and the certificate page has **no eligibility gate whatsoever** (**0.1b**). See **0.1 through 0.1f**. Fix these as one batch before anything else in this document; they interlock, and fixing one alone moves the hole rather than closing it.
 >
 > Decisions locked by the owner:
 > - **Projects on every lesson, present and future. Track lessons first** (0.2)
@@ -31,19 +31,54 @@
 
 This section is the **authoritative running order**. Sections 1-12 below are reference material, organised by topic rather than by importance; read them for detail, execute in the order here.
 
+Every known issue, in the order it should be executed. Nothing below is implemented yet.
+
+#### Stage 1, integrity. Ship as one batch, they interlock
+
 | # | Item | Section | Why this rank |
 |---|---|---|---|
-| **P0** | **Fix the track-page completion bypass** | **0.1** | Live integrity bug. Invalidates quizzes, XP and certificates today |
-| **P0** | 10 lessons with no headings | 12.2 | No TOC renders, and it hard-blocks projects + scenarios on those lessons |
-| **P1** | `" ,  "` punctuation residue, 53 files | 12.1 | Visible to every reader right now |
-| **P1** | Resolve near-duplicate slugs | 12.6 | Must land **before** authoring, or identical projects get written twice |
-| **P2** | Phase 0, roster + datasets + types | 6 | Foundation for everything after |
-| **P2** | Phase 1, pilot + hub + review gate | 6, 11.8 | Proves all six modes before scale |
-| **P3** | Phase 2, track lessons (240) | 6 | The stated priority target |
-| **P3** | Concept scenarios, track lessons | 10 | Bundle with the 45 stale-year fixes (12.5) |
-| **P4** | Phase 3, career layer + `calibration` | 6, 11.5 | Needs infrastructure that does not exist yet |
-| **P5** | Remaining 402 non-track lessons | 0.2 | Long tail, after tracks are complete |
-| **P6** | Related Concepts at 10% | 12.4 | Largest SEO win, but blocks nobody |
+| **1** | Track checkboxes bypass the quiz entirely | **0.1** | Live P0. 13 lessons, 390 XP and a certificate in ~5 seconds without opening anything |
+| **2** | Certificates render and print with **no gate at all** | **0.1b** | Live P0. Needs no clicks, just the URL. Independent of item 1 |
+| **3** | Quiz reveals answers then allows retry | **0.1c** | Fixing 1 makes the quiz the only gate, and this makes that gate ~30 seconds to defeat |
+| **4** | 80% pooled pass marks failed lessons complete | **0.1d** | Needs a decision, not necessarily a fix |
+| **5** | `markIncomplete()` does not reverse XP | **0.1e** | Low severity, cheap to fix while in the file |
+| **6** | Lint or test that fails on a 4th ungated `markComplete()` | 0.1f | Stops the family regrowing. Rule 36 |
+
+> Fix 1-3 together. Closing the track bypass alone pushes everyone onto a quiz that reveals its own answers, and the certificate at the end was never gated regardless. **Fixing one in isolation moves the hole rather than closing it.**
+
+#### Stage 2, blockers for the projects work
+
+| # | Item | Section | Why this rank |
+|---|---|---|---|
+| **7** | 10 lessons with zero `##` headings | 12.2 | No TOC renders, **and** hard-blocks projects and scenarios there, since steps must map to real headings |
+| **8** | Resolve 8 near-duplicate slug pairs | 12.6 | Must land **before** authoring or near-identical projects get written twice. 5 of the 8 are in `analytics` |
+| **9** | 4 sub-700-word stub lessons | 12.3 | Two are independently flagged unprojectable in 11.6 |
+
+#### Stage 3, reader-visible cleanup, parallelisable
+
+| # | Item | Section | Why this rank |
+|---|---|---|---|
+| **10** | `" ,  "` residue in 53 files, 200+ occurrences | 12.1 | Visible to every reader today. Scripted pass plus review |
+| **11** | UTF-8 BOM in 19 files | 12.7 | Silently breaks tooling anchored on `^export`. It broke this audit |
+| **12** | Single-quoted `lessonMeta` in 25 files | 12.8 | Same class: caused three phantom findings during the audit |
+| **13** | One bloated lesson | 12.9 | Optional |
+
+#### Stage 4, the projects layer
+
+| # | Item | Section | Why this rank |
+|---|---|---|---|
+| **14** | Phase 0, roster + datasets + types | 6 | Foundation for everything after |
+| **15** | Phase 1, pilot + hub + review gate | 6, 11.8 | Proves all six modes at 50 projects, not 600 |
+| **16** | Phase 2, track lessons (240 lessons, ~480 projects) | 6, 0.2 | The stated priority target |
+| **17** | Phase 2b, concept scenarios for track lessons | 10 | **Bundle with the 45 stale-year fixes (12.5)**, one evidence refresh not two |
+
+#### Stage 5, long tail
+
+| # | Item | Section | Why this rank |
+|---|---|---|---|
+| **18** | Phase 3, career layer, `/portfolio`, certificates, `calibration` | 6, 11.5 | `calibration` needs persistence and scheduled re-prompting that do not exist |
+| **19** | Related Concepts, present in only 10% of lessons | 12.4 | Largest SEO win available, but blocks nobody. Generate from `curriculum.ts` |
+| **20** | Remaining 402 non-track lessons, ~804 projects | 0.2 | Runs indefinitely. Rule 38 stops the backlog regrowing |
 
 ---
 
@@ -118,6 +153,97 @@ Recommend **3**. It is honest about the change without punishing people for usin
 
 - **Rewrite Rule 24.** Delete *"Individual per-lesson checkboxes are NOT gated."* Replace with the gated behaviour and a note that it must match Rule 25.
 - **Add:** any component calling `markComplete()` **must** check `getQuizPassed()` first. There are currently two such call sites; a third would reopen the hole.
+
+---
+
+### 0.1b P0 BUG: certificates have no eligibility gate at all
+
+**Status: confirmed in code, live today. Independent of 0.1, and arguably worse.**
+
+`src/app/certificates/[slug]/page.tsx` reads completion state:
+
+```tsx
+const count = track.lessons.filter((l) => completed.has(`${l.category}/${l.slug}`)).length;
+const pct = totalLessons > 0 ? Math.round((completedCount / totalLessons) * 100) : 0;
+```
+
+...and then **never uses `pct` as a condition**. Grepping the file for `pct <`, `pct >=`, `pct ===`, `completedCount <`, or any eligibility guard returns **zero matches**. The page renders `Certificate of Completion` with a working `window.print()` button unconditionally.
+
+**Anyone can open `/certificates/b2b-marketer` having completed nothing and print a certificate.** The only trace is a progress line reading "Completed 0 of 21 lessons (0%)", which is on the page but not on the part that matters.
+
+This does not even require the 0.1 bypass. It needs no clicks at all, just the URL.
+
+**Fix:** gate the certificate render on `pct === 100`. Below that, show the progress bar and a link back to the track. Decide separately whether 100% of lessons is the bar, or lessons plus the track quiz, which is the stronger claim now that 0.1 closes the free path.
+
+---
+
+### 0.1c P1 BUG: the lesson quiz reveals its answers, then lets you retry
+
+`src/components/Quiz.tsx` requires 100% to dispatch `QUIZ_PASSED_EVENT`, which sounds strict. But on answering each question it:
+
+- highlights the correct option (`i === question.correct`, line 251 and 280)
+- prints the full explanation (line 296-298)
+- offers `handleRetry()` (line 119, wired at 159 and 194)
+
+So the defeat is: answer all four at random, read the four revealed correct answers, click retry, score 100%. **Roughly thirty seconds, no knowledge required.**
+
+This matters more once 0.1 is fixed, because the quiz then becomes the *only* gate on completion, XP and certificates. Fixing 0.1 without fixing this just moves the bypass rather than closing it.
+
+**Options, cheapest first:**
+
+1. **Reveal explanations only after the whole quiz is submitted**, not per question. Keeps the teaching, removes the answer key mid-run.
+2. **Reshuffle question and option order on retry.** `TrackQuizPageClient.retry()` already reshuffles; `Quiz.tsx` does not. Cheap consistency fix, and it raises the effort meaningfully.
+3. **Cooldown or attempt cap** before a retry counts toward passing. Heavier, and probably unnecessary if 1 and 2 land.
+
+Recommend 1 + 2. Note the tension honestly: instant per-question feedback is genuinely good pedagogy, and this is the one place where the teaching goal and the gating goal actually conflict. Option 1 is the compromise, since the explanation still arrives, just after the attempt is locked in.
+
+---
+
+### 0.1d P2: the track quiz can mark lessons complete that you failed entirely
+
+`TrackQuizPageClient` pools every question from every lesson in the track, shuffles, and passes at `PASS_THRESHOLD = 0.8`. On success `markAll()` marks **all** lessons complete.
+
+On a 13-lesson track with ~52 pooled questions, a learner can miss 10 and still pass at 80%. If those 10 happen to be every question from two lessons, **both lessons are marked complete despite a 0% score on them.**
+
+This is a design consequence rather than an oversight, and it may be acceptable. But it should be a decision, not an accident.
+
+**Options:**
+
+1. Keep 80% overall **and** require a minimum per-lesson score, e.g. at least half of each lesson's pooled questions.
+2. Mark complete only the lessons the learner actually scored well on, leaving the rest.
+3. Leave as is, and say plainly in the UI that the track quiz certifies the track, not each lesson.
+
+Recommend 1. It preserves the bulk path while stopping a total blank on a topic from being certified.
+
+---
+
+### 0.1e P3: `markIncomplete()` does not reverse XP, so completions can be farmed
+
+`src/lib/progress.ts` `markIncomplete()` deletes the id from the completed set and nothing else. `addXP()` deduplicates on `(action, id)` for 24 hours only.
+
+So: complete a lesson (+30 XP), un-complete it, wait out the 24-hour window, complete it again (+30 XP), repeat. XP, levels and any XP-derived achievement are farmable without limit.
+
+Low severity, since XP is self-motivational rather than competitive, and there is no leaderboard today. It becomes material the moment XP is shown socially or gates anything.
+
+**Fix when convenient:** either subtract the XP in `markIncomplete()`, or make the completion XP dedupe permanent per lesson rather than rolling 24 hours. The second is simpler and matches intent, a lesson is only completed for the first time once.
+
+---
+
+### 0.1f Summary of the integrity family
+
+Five defects, one root cause: **completion state is written from several places, and only one of them checks anything.**
+
+| # | Defect | Severity | Component |
+|---|---|---|---|
+| 0.1 | Track checkboxes bypass the quiz entirely | **P0** | `TrackLessonList.tsx` |
+| 0.1b | Certificates render and print with no gate | **P0** | `certificates/[slug]/page.tsx` |
+| 0.1c | Quiz reveals answers, then allows retry | P1 | `Quiz.tsx` |
+| 0.1d | 80% pooled pass marks failed lessons complete | P2 | `TrackQuizPageClient.tsx` |
+| 0.1e | `markIncomplete` does not reverse XP | P3 | `progress.ts` |
+
+**Fix them together, in that order.** They interlock: closing 0.1 alone pushes every learner onto the quiz, which 0.1c makes trivially defeatable, and 0.1b means the end reward was never gated in the first place. Fixing one in isolation moves the hole rather than closing it.
+
+The three `markComplete()` call sites (`MarkComplete.tsx`, `TrackLessonList.tsx`, `TrackQuizPageClient.tsx`) should be the *only* three, and Rule 36 now requires each to check `getQuizPassed()` first. Worth adding a lint rule or a test that fails on a fourth ungated call site.
 
 ---
 
