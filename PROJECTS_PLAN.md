@@ -4,7 +4,13 @@
 >
 > Status: PROPOSED, awaiting approval. **No code written yet, this document is the only deliverable so far.**
 >
-> ⚠️ **Contains a family of five live integrity bugs**, unrelated to the projects feature but found while planning it. Two are P0: track pages let a learner complete a whole track without opening a lesson (**0.1**), and the certificate page has **no eligibility gate whatsoever** (**0.1b**). See **0.1 through 0.1f**. Fix these as one batch before anything else in this document; they interlock, and fixing one alone moves the hole rather than closing it.
+> ⚠️ **This document now carries ~120 verified findings, 13 of them P0**, none implemented.
+>
+> Most are unrelated to the projects feature and were found while planning it: five interlocking completion-integrity bugs (**0.1 to 0.1f**), a 20-item lesson-quality backlog (**section 12**), and ~94 findings from a five-lens adversarial code audit (**section 14**) covering security, state integrity, accessibility, performance and new-learner UX.
+>
+> **The three most urgent, all confirmed in source:** `/api/groq` is an unauthenticated LLM proxy on your API key with **zero callers**; cloud sync writes every user to **one global KV key**, exposing private notes; and three unguarded `localStorage` calls crash **every page** for anyone with site data blocked.
+>
+> Section 0 carries the full execution order, ten stages, ordered by live harm rather than by topic.
 >
 > Decisions locked by the owner:
 > - **Projects on every lesson, present and future. Track lessons first** (0.2)
@@ -31,54 +37,133 @@
 
 This section is the **authoritative running order**. Sections 1-12 below are reference material, organised by topic rather than by importance; read them for detail, execute in the order here.
 
-Every known issue, in the order it should be executed. Nothing below is implemented yet.
+Every known issue, in execution order. **Nothing below is implemented.** Roughly 120 findings total: 20 from the lesson audit (section 12), ~94 from the five-lens code audit (section 14), and the 5 integrity bugs in 0.1.
 
-#### Stage 1, integrity. Ship as one batch, they interlock
+Ordering principle: **live harm to real users first**, then things that block other work, then everything else by leverage.
 
-| # | Item | Section | Why this rank |
+#### Stage 0, stop the bleeding. Ship first, independently
+
+Each of these is exploitable or breaking for someone right now.
+
+| # | Item | Where | Why first |
 |---|---|---|---|
-| **1** | Track checkboxes bypass the quiz entirely | **0.1** | Live P0. 13 lessons, 390 XP and a certificate in ~5 seconds without opening anything |
-| **2** | Certificates render and print with **no gate at all** | **0.1b** | Live P0. Needs no clicks, just the URL. Independent of item 1 |
-| **3** | Quiz reveals answers then allows retry | **0.1c** | Fixing 1 makes the quiz the only gate, and this makes that gate ~30 seconds to defeat |
-| **4** | 80% pooled pass marks failed lessons complete | **0.1d** | Needs a decision, not necessarily a fix |
-| **5** | `markIncomplete()` does not reverse XP | **0.1e** | Low severity, cheap to fix while in the file |
-| **6** | Lint or test that fails on a 4th ungated `markComplete()` | 0.1f | Stops the family regrowing. Rule 36 |
+| **0.1** | Delete `/api/groq` | `api/groq/route.ts:83` | Unauthenticated LLM proxy on your API key with **zero callers**. Uncapped billing. Deleting dead code is the cheapest P0 anyone will ever fix |
+| **0.2** | Fix or disable cloud sync | `api/sync-proxy/route.ts:25` | One global KV key means any visitor can read another user's **private notes** or wipe all progress. Disable the feature until it is per-user keyed |
+| **0.3** | Guard the 3 unguarded `localStorage` calls | `ThemeToggle.tsx:18`, `OnboardingModal.tsx:25`, `LessonNotes.tsx:15` | Blocked site data crashes **every page**. Three try/catch blocks |
+| **0.4** | Gate the certificate on 100% | `certificates/[slug]/page.tsx:249` | Prints "Certificate of Completion" at 0%. Found by 3 of 5 audits independently |
+| **0.5** | Fix quiz keyboard focus | `Quiz.tsx:266` | `disabled={answered}` drops focus to `<body>` on every question of every lesson |
+| **0.6** | Fix the invisible "Clear all" button | `tools/ToolsClient.tsx:163` | 1:1 contrast in **both** themes. One token swap |
 
-> Fix 1-3 together. Closing the track bypass alone pushes everyone onto a quiz that reveals its own answers, and the certificate at the end was never gated regardless. **Fixing one in isolation moves the hole rather than closing it.**
+#### Stage 1, the completion-integrity family. Ship as one batch
 
-#### Stage 2, blockers for the projects work
+They interlock; fixing one alone moves the hole rather than closing it.
 
-| # | Item | Section | Why this rank |
+| # | Item | Section |
+|---|---|---|
+| **1.1** | Track checkboxes bypass the quiz | 0.1 |
+| **1.2** | Quiz reveals answers, then allows retry | 0.1c |
+| **1.3** | Shuffle answer positions (Fisher-Yates, recompute `correct`) | 0.1c-i |
+| **1.4** | Track quiz never calls `setQuizPassed()`, so unticking re-locks permanently | 14.3 T4 |
+| **1.5** | 80% pooled pass marks failed lessons complete | 0.1d |
+| **1.6** | Align quiz thresholds: 100% per-lesson vs 80% per-track is backwards | 14.6 U7 |
+| **1.7** | `markIncomplete()` does not reverse XP | 0.1e |
+| **1.8** | Lint or test failing on a 4th ungated `markComplete()` | 0.1f |
+
+> Prerequisite for 1.3: rewrite the single "All of the above" option in `analytics/consent-mode`. It is the only position-dependent option in all 8,341 audited.
+
+#### Stage 2, correctness bugs users hit today
+
+| # | Item | Where | Impact |
 |---|---|---|---|
-| **7** | 10 lessons with zero `##` headings | 12.2 | No TOC renders, **and** hard-blocks projects and scenarios there, since steps must map to real headings |
-| **8** | Resolve 8 near-duplicate slug pairs | 12.6 | Must land **before** authoring or near-identical projects get written twice. 5 of the 8 are in `analytics` |
-| **9** | 4 sub-700-word stub lessons | 12.3 | Two are independently flagged unprojectable in 11.6 |
+| **2.1** | Resolve `sourceCategory ?? category` in all ID construction | `achievements.ts:85,108`, `SkillMapClient.tsx:31`, `CategoryProgress.tsx:18` | `fundamentals` capped at **27/40** forever; two achievements **mathematically unreachable** |
+| **2.2** | Preserve raw value on storage parse failure | `engagement.ts:63`, `progress.ts:26` | Silent permanent loss of all XP and progress |
+| **2.3** | Validate shape in `getEngagement()`, add `catch` to `addXP` | `engagement.ts:62,116` | A `null` field throws on every completion |
+| **2.4** | Surface storage write failures in the UI | `progress.ts:39`, `engagement.ts:85`, `bookmarks.ts:36` | Confetti fires and nothing persists |
+| **2.5** | Dedup `saveBookmarks()` | `bookmarks.ts:30` | "Bookworm" unlockable with one lesson in five tabs |
+| **2.6** | Decay `streak` on read | `engagement.ts:127` | Shows 🔥 7 months after the streak died |
+| **2.7** | Fix the reset sweep | `SettingsClient.tsx:248` | Leaves `ma_quiz__*` and `ma_recent` behind |
+| **2.8** | Delete or fix the dead write lock | `engagement.ts:101` | Multi-tab writes silently discard each other |
 
-#### Stage 3, reader-visible cleanup, parallelisable
+#### Stage 3, performance. Highest leverage per minute of work in the document
 
-| # | Item | Section | Why this rank |
+| # | Item | Where | Measured |
 |---|---|---|---|
-| **10** | `" ,  "` residue in 53 files, 200+ occurrences | 12.1 | Visible to every reader today. Scripted pass plus review |
-| **11** | UTF-8 BOM in 19 files | 12.7 | Silently breaks tooling anchored on `^export`. It broke this audit |
-| **12** | Single-quoted `lessonMeta` in 25 files | 12.8 | Same class: caused three phantom findings during the audit |
-| **13** | One bloated lesson | 12.9 | Optional |
+| **3.1** | Export `CATEGORY_INDEX`, import it in Nav | `Nav.tsx:12` | **−48 KB gzip on every route.** One import swap |
+| **3.2** | Move `dompurify` into the dynamic block | `Mermaid.tsx:100` | **−10 KB gzip on 642 pages.** Two lines |
+| **3.3** | Lazy-load `posthog-js` after the key check | `PostHogProvider.tsx:3` | −64 KB gzip on every route |
+| **3.4** | Paginate or collapse `/learn` | `learn/page.tsx:29` | 1.33 MB document, 5.7× the next largest page |
+| **3.5** | Gate Mermaid on `IntersectionObserver` | `Mermaid.tsx:99` | 135 KB gzip at hydration on 419 pages |
+| **3.6** | Add `@next/bundle-analyzer` + a CI size budget | `package.json:6` | 3.1-3.3 shipped precisely because nothing measures |
 
-#### Stage 4, the projects layer
+> 3.1 and 3.2 together are roughly **58 KB gzip off every route for about ten minutes of work**.
 
-| # | Item | Section | Why this rank |
-|---|---|---|---|
-| **14** | Phase 0, roster + datasets + types | 6 | Foundation for everything after |
-| **15** | Phase 1, pilot + hub + review gate | 6, 11.8 | Proves all six modes at 50 projects, not 600 |
-| **16** | Phase 2, track lessons (240 lessons, ~480 projects) | 6, 0.2 | The stated priority target |
-| **17** | Phase 2b, concept scenarios for track lessons | 10 | **Bundle with the 45 stale-year fixes (12.5)**, one evidence refresh not two |
+#### Stage 4, blockers for the projects layer
 
-#### Stage 5, long tail
+| # | Item | Section |
+|---|---|---|
+| **4.1** | 10 lessons with zero `##` headings | 12.2 |
+| **4.2** | Resolve 8 near-duplicate slug pairs | 12.6 |
+| **4.3** | 4 sub-700-word stub lessons | 12.3 |
 
-| # | Item | Section | Why this rank |
-|---|---|---|---|
-| **18** | Phase 3, career layer, `/portfolio`, certificates, `calibration` | 6, 11.5 | `calibration` needs persistence and scheduled re-prompting that do not exist |
-| **19** | Related Concepts, present in only 10% of lessons | 12.4 | Largest SEO win available, but blocks nobody. Generate from `curriculum.ts` |
-| **20** | Remaining 402 non-track lessons, ~804 projects | 0.2 | Runs indefinitely. Rule 38 stops the backlog regrowing |
+#### Stage 5, trust and honesty in user-facing copy
+
+| # | Item | Where |
+|---|---|---|
+| **5.1** | Warn that progress is browser-only, promote Export | `SettingsClient.tsx:279`, `page.tsx:197` |
+| **5.2** | Hide Cloud Sync unless configured, rewrite for learners | `SettingsClient.tsx:316` |
+| **5.3** | Fix stale counts on six pages: "393+", "15 disciplines", "22 tracks" | `learn/page.tsx:11`, `page.tsx:72`, +4 |
+| **5.4** | Fix the dead GitHub URL | `Footer.tsx:27` |
+| **5.5** | Remove the fake "Popular" badges | `TracksPageClient.tsx:116` |
+| **5.6** | Label `/compare` honestly, 7 of 112 pairs have real data | `compare/[slug]/page.tsx:324` |
+| **5.7** | `" ,  "` residue in 53 files | 12.1 |
+
+#### Stage 6, accessibility beyond the P0s
+
+| # | Item | Where |
+|---|---|---|
+| **6.1** | `aria-live` on quiz results, XP toasts, search counts, settings status | `Quiz.tsx:135`, `AchievementToast.tsx:82`, +3 |
+| **6.2** | Command palette combobox semantics | `CommandPalette.tsx:208` |
+| **6.3** | Icon plus text on wrong answers, not colour alone | `Quiz.tsx:255` |
+| **6.4** | Real text alternatives for Mermaid diagrams | `Mermaid.tsx:239` |
+| **6.5** | Global `:focus-visible` rule | `globals.css` |
+| **6.6** | `prefers-reduced-motion` guard, especially confetti | `MarkComplete.tsx:141` |
+| **6.7** | `aria-pressed` on all filter chips | 5 files |
+| **6.8** | Fix nested `<main>` landmarks in 9 pages | `layout.tsx:73` + 9 |
+
+#### Stage 7, UX quality
+
+| # | Item | Where |
+|---|---|---|
+| **7.1** | Paginate and persist the track quiz (84 questions, no save) | `TrackQuizPageClient.tsx:141` |
+| **7.2** | Empty states for Achievements and Skill Map | `AchievementsClient.tsx:65` |
+| **7.3** | Mobile XP badge and search affordance | `StreakBadge.tsx:30`, `Nav.tsx:310` |
+| **7.4** | Certificate print rule to hide nav and footer | `certificates/[slug]/page.tsx:73` |
+| **7.5** | Onboarding: add "totally new", suppress on lesson pages | `OnboardingModal.tsx:23` |
+| **7.6** | Collapse `/learn` categories on mobile | `learn/page.tsx:28` |
+| **7.7** | Reduce the 9 competing homepage entry points | `page.tsx:24-53` |
+| **7.8** | Mobile ToC `max-height`, quiz pill overflow at 375px | `TableOfContents.tsx:91`, `Quiz.tsx:224` |
+
+#### Stage 8, the projects layer
+
+| # | Item | Section |
+|---|---|---|
+| **8.1** | Phase 0, roster + datasets + types | 6 |
+| **8.2** | Phase 1, pilot + hub + review gate | 6, 11.8 |
+| **8.3** | Phase 2, track lessons (240 lessons, ~480 projects) | 6, 0.2 |
+| **8.4** | Phase 2b, concept scenarios, bundled with the 45 stale-year fixes | 10, 12.5 |
+
+#### Stage 9, long tail
+
+| # | Item | Section |
+|---|---|---|
+| **9.1** | Phase 3, career layer, `/portfolio`, `calibration` | 6, 11.5 |
+| **9.2** | Related Concepts, present in only 10% of lessons | 12.4 |
+| **9.3** | Remaining 402 non-track lessons | 0.2 |
+| **9.4** | Hygiene: 19 BOMs, 25 single-quoted `lessonMeta`, 1 bloated lesson | 12.7-12.9 |
+
+---
+
+**If only six things get done:** 0.1 (delete dead proxy), 0.2 (disable sync), 0.3 (three try/catch), 3.1 and 3.2 (58 KB off every route), and 2.1 (unbreak two achievements and a whole category). That is roughly a day of work and it removes the billing exposure, the data-leak, the crash, and the two most embarrassing correctness bugs.
 
 ---
 
@@ -1787,3 +1872,275 @@ Audited and found **zero** violations of:
 | 8 | 12.9, one bloated lesson | Trivial | Optional |
 
 Items 1, 3 and 5 have direct dependencies on the projects and scenarios work. The rest are independent and can be done any time.
+
+---
+
+## 13. Consumer personas: who this is actually for
+
+Five personas to design against and to test every project, scenario and UX decision against. They are derived from evidence already in the codebase, not invented: the `audience` field on all 24 tracks, the existence of `/interview-questions` and `/interview-prep`, the mandatory Hindi/Tamil/Telugu resources in every lesson (Rule 15), the free-tool ethos, and the fact that the site has **no accounts at all**, only localStorage.
+
+### 13.1 P1, Meera, the career switcher
+
+**28, Bengaluru. Ex-support, wants a marketing job in 6 months. No budget. Learns partly in Hindi.**
+
+- **Has:** a laptop, time in the evenings, high motivation, no employer
+- **Lacks:** a website, an ad account, a GA4 property, an email list, any professional data
+- **Wants:** proof she can do the job, and something to say in an interview
+- **Existing site support:** strong. `/interview-questions`, `/interview-prep`, and the Rule 15 multilingual resources exist for exactly her.
+
+**What she needs from projects:** `simulation`, `teardown` and `drill`, plus the starter datasets (9.2). The `/portfolio` output (9.3) is not a nice-to-have for her, it is the entire point.
+
+**What currently fails her:** every `diagnostic` project. She has nothing of her own to inspect. She is ~26% locked out by default.
+
+### 13.2 P2, Arjun, the solo founder
+
+**34, running a 2-person SaaS. Time-poor, not curious, wants outcomes.**
+
+- **Has:** a live site, GSC, GA4, a small ad budget he guards carefully, ~3 hours a week
+- **Lacks:** patience for theory, a team, tolerance for anything that does not move a number
+- **Wants:** to find what is broken on his own site tonight
+- **Existing site support:** the `solo-founder` track is the #1 track after the reorder
+
+**What he needs:** `diagnostic` above everything, on his own assets, with the `owner: you | developer` field (2.3a) so he knows what he can fix himself versus what needs his one engineer.
+
+**What currently fails him:** long lessons. He will skip to the project. This is the strongest argument for the concept map (2.3) sitting at the top of the projects section, and for the header time estimate.
+
+### 13.3 P3, Priya, the junior in-house marketer
+
+**24, first marketing job, 8-person team. Has access, lacks judgement.**
+
+- **Has:** GSC, GA4, an ad account, a CMS, a manager reviewing her work
+- **Lacks:** confidence, and any sense of what "normal" looks like
+- **Wants:** to not look stupid, and to know when a number is a problem
+- **Existing site support:** partial. Lessons teach concepts; nothing tells her what healthy looks like.
+
+**What she needs:** the `healthy` / `unhealthy` / `interpret` fields (2.3a) more than anyone. Her actual question is never "what is CTR", it is "is 1.4% bad?" She also needs `drill` mode, since her weakness is reps, not comprehension.
+
+**What currently fails her:** benchmarks appear inside lesson prose and are unfindable later. She will be looking at a dashboard, not reading a lesson.
+
+### 13.4 P4, Sameer, the freelancer
+
+**31, five clients across five channels. Sells deliverables.**
+
+- **Has:** client accounts, real budgets, breadth
+- **Lacks:** depth in any one channel, and time to build templates from scratch
+- **Wants:** something he can put his logo on and send to a client
+- **Existing site support:** the `freelancer-agency` track
+
+**What he needs:** `build` mode, specifically the artefacts with countable structure (11.2). A positioning doc, a UTM taxonomy, a content calendar, an audit report. He is also the main audience for the free-vs-paid tool split (2.4), because he has to justify tool spend to clients.
+
+**What currently fails him:** nothing produces a client-ready artefact today.
+
+### 13.5 P5, Tom, the curious beginner
+
+**19, student, no site, no job, no data, browsing on a phone at 11pm.**
+
+- **Has:** curiosity, a phone, zero context
+- **Lacks:** everything else, including a reason to come back tomorrow
+- **Wants:** to understand how marketing works, with no commitment
+- **Existing site support:** weakest of the five. He is the empty-state case throughout.
+
+**What he needs:** `simulation` and `teardown` exclusively, plus genuinely good empty states.
+
+**Why he matters most for design:** he is the hardest constraint. If a project works for Tom it works for everyone, because he has no site, no account, no budget and no data.
+
+### 13.6 Coverage matrix
+
+| Mode | Meera | Arjun | Priya | Sameer | Tom |
+|---|---|---|---|---|---|
+| `diagnostic` (~26%) | ❌ no assets | ✅ ideal | ✅ ideal | ✅ client assets | ❌ no assets |
+| `simulation` (~21%) | ✅ | ⚠️ time | ✅ | ✅ | ✅ ideal |
+| `build` (~26%) | ✅ | ⚠️ time | ✅ | ✅ ideal | ⚠️ no context |
+| `teardown` (~12%) | ✅ ideal | ✅ | ✅ | ✅ | ✅ ideal |
+| `drill` (~5%) | ✅ | ⚠️ | ✅ ideal | ✅ | ✅ |
+| `calibration` (~7%) | ❌ no live decisions | ✅ ideal | ⚠️ junior | ✅ | ❌ |
+
+### 13.7 What the matrix actually tells us
+
+**1. `diagnostic` locks out two of five personas, and they are the two with the least alternative.** Meera and Tom have nothing to inspect. That is roughly 26% of the library closed to the users who most need free education.
+
+**Fix:** every `diagnostic` project ships a **supplied-specimen fallback**, which is `teardown` machinery reused (11.3). The survey already found `seo/core-web-vitals` degrades gracefully this way, since PageSpeed Insights runs on any public URL, so the drill becomes "audit a competitor" instead of "audit your site". **Make that the rule, not the exception.** This is the single highest-value change the persona pass produces.
+
+**2. `teardown` is the only mode that works for all five.** It was the survey's fourth mode, discovered late and initially framed as an escape hatch for failing builds. The persona matrix says it is actually the most broadly valuable mode in the system. **Raise its priority in Phase 1 accordingly.**
+
+**3. `calibration` serves exactly one persona well.** It needs the most new infrastructure (persistence, scheduled re-prompting, a prediction log) and only Arjun and Sameer have real live decisions to predict against. Phase 3 placement is correct, and this justifies it.
+
+**4. Tom is the acceptance test.** Adopt as a standing check: **if a project cannot be completed by someone with no site, no account, no budget and no data, it needs a supplied-specimen path before it ships.**
+
+### 13.8 New rules
+
+41. **Every `diagnostic` project must ship a supplied-specimen fallback.** Two of five personas own no assets to inspect. Reuse the `teardown` answer-key machinery rather than building something new.
+42. **Tom is the acceptance test.** No site, no account, no budget, no data, on a phone. If a project cannot be finished under those constraints, it is not finished.
+43. **Benchmarks must live in project `healthy`/`unhealthy` fields, not only in lesson prose.** Priya's real question is never "what is CTR", it is "is 1.4% bad?", and she is looking at a dashboard, not a lesson.
+
+---
+
+## 14. Code audit: five adversarial lenses
+
+Five independent agents audited the codebase, one per lens: **security & abuse**, **state integrity**, **accessibility**, **performance**, and **new-learner UX**. Each was required to cite `file:line`, quote the offending line, and separate confirmed from unconfirmed. Roughly **94 findings**, of which **13 are P0**.
+
+Context for why this exists: the earlier "audit" in section 12 examined 642 `.mdx` files and **zero lines of application code**. Every integrity bug in section 0.1 was found by the owner, not by that audit. This section is the pass that should have happened first.
+
+### 14.1 P0 findings, all confirmed in source
+
+| # | Finding | Location |
+|---|---|---|
+| **S1** | Cloud sync writes **every user to one global KV key** | `api/sync-proxy/route.ts:25` |
+| **S2** | Sync auth secret is inlined into the public JS bundle | `settings/SettingsClient.tsx:141` |
+| **S3** | `/api/groq` is an unauthenticated LLM proxy with **no callers** | `api/groq/route.ts:83` |
+| **U1** | Blocked `localStorage` crashes **the entire site** | `ThemeToggle.tsx:18`, `OnboardingModal.tsx:25`, `LessonNotes.tsx:15` |
+| **U2** | Users never told progress is browser-only | `page.tsx:197`, `SettingsClient.tsx:279` |
+| **U3** | Cloud Sync UI instructs learners to set env vars | `SettingsClient.tsx:316-345` |
+| **U4** | Certificates issued at 0% completion | `certificates/[slug]/page.tsx:249` |
+| **A1** | Quiz answer buttons `disabled` on select, destroying keyboard focus | `Quiz.tsx:266` |
+| **A2** | Command palette is a broken combobox, silent to screen readers | `CommandPalette.tsx:208` |
+| **A3** | "Clear all" button is 1:1 contrast, invisible in **both** themes | `tools/ToolsClient.tsx:163` |
+| **P1** | `/learn` ships a **1.33 MB** HTML document | `learn/page.tsx:29-68` |
+| **P2** | Full `curriculum.ts` in the client bundle on **every** route | `Nav.tsx:12` |
+| **T1** | Corrupt storage silently replaced by defaults, then overwritten | `engagement.ts:63`, `progress.ts:26` |
+
+### 14.2 Security & abuse
+
+**S1, one global KV key.** `api/sync-proxy/route.ts:25`:
+```ts
+.../storage/kv/namespaces/${process.env.CF_KV_NAMESPACE_ID}/values/progress
+```
+The key is the literal string `progress`. No user identifier exists anywhere in the route; GET and POST hit the same key. The payload is not just checkmarks, `SettingsClient.tsx:12` includes `NOTE_KEY_PREFIX`, so every `ma_note_*` key, the learner's **private per-lesson notes**, goes into a shared global blob. Combined with S2, anyone can read the last syncing user's notes or destroy everyone's progress with one request.
+**Fix:** key by a per-user identifier issued as an httpOnly cookie.
+
+**S2, the secret is public.** `SettingsClient.tsx:141` sends `process.env.NEXT_PUBLIC_SYNC_SECRET`, which Next inlines literally into a static chunk. It is the route's only gate (`sync-proxy/route.ts:41`). AGENTS.md Rule 26 documents this as intentional. **The audit's assessment is that Rule 26 documents a vulnerability rather than a design.** It is also unthrottled, unlike `/api/groq` and `/api/geo-audit`.
+
+**S3, open LLM proxy.** `api/groq/route.ts:83` has no auth, no origin check, no referer check. `grep -rn "api/groq" src/` returns **no callers**. Dead code, live in production, forwarding attacker-chosen `system` messages (`:41` explicitly permits `role: "system"`) to Groq on `GROQ_API_KEY` and streaming results back. Uncapped billing exposure, and the domain becomes a laundered jailbreak endpoint.
+**Fix:** delete the route. It has no caller.
+
+**S4 (P1), in-memory rate limiting does nothing on Vercel.** `groq/route.ts:21`, `geo-audit/route.ts:115` use a module-scope `Map`. State is per-lambda-instance, so limits are per-cold-start, not per-IP. The Map is also never pruned.
+
+**S5 (P2), two conflicting CSP headers.** `vercel.json` and `next.config.ts` both emit one. Browsers enforce the **intersection**, so the stricter `vercel.json` policy wins and the documented `next.config.ts` policy, which whitelists PostHog, **is not what runs**. PostHog is likely blocked in production.
+
+**S6 (P2), `geo-audit` port oracle.** The SSRF guard is genuinely strong (verified against IP-literal, decimal/octal, IPv6 ULA, `::ffff:` mapping and redirect-to-internal), but filters addresses and never **ports**. `http://public-host:22/` is allowed and distinct error strings turn it into a port scanner running from Vercel egress IPs.
+
+### 14.3 State integrity
+
+**T1, silent permanent data loss.** `engagement.ts:63` and `progress.ts:26` both `catch { return defaultState() }`. Neither distinguishes "absent" from "unparseable", so the next write serialises defaults over still-recoverable data. A quota-truncated write or partial sync pull means a user opens the site, sees 0 XP, clicks one lesson, and 4,000 XP is gone forever.
+
+**T2, achievements are mathematically unreachable.** `achievements.ts:108` checks `completed.size >= flatLessons().length`.
+
+> **Numbers corrected during verification.** The agent reported 606 entries / 593 unique. Verified directly: `flatLessons()` returns **655**, unique writable IDs are **642**, matching the 642 `.mdx` files on disk exactly. The gap of **13** is right; the magnitudes were wrong by 49. Published figures below are the verified ones.
+
+So "Marketing Polymath" requires 655 and the maximum reachable is 642. **Unreachable by exactly 13, permanently.**
+
+**T3, `fundamentals` capped at 27/40 forever.** All 13 cross-listed lessons live in `fundamentals` (verified). `MarkComplete` writes `sourceCat` (`page.tsx:214`), but `achievements.ts:85`, `SkillMapClient.tsx:31` and `CategoryProgress.tsx:18` all look up `fundamentals/<slug>`. The category is stuck at **67.5%** and "Category Clear" never fires.
+
+**T4, the track quiz never sets the quiz-pass flag.** `TrackQuizPageClient.tsx:101` calls `markComplete()` and `addXP()` but `grep setQuizPassed` in that file returns **0 hits**. `MarkComplete.tsx:132` masks it only while `done` is true. Untick a lesson once and it **re-locks permanently**, despite the learner having passed the track quiz and the XP never being reversed. This compounds 0.1d.
+
+**T5, the engagement write lock is dead code.** `engagement.ts:149` clears `_writing` in a `finally` before `addXP` returns, so the next call always re-reads localStorage. The documented `markAll()` protection at `:91-99` actually comes from `saveEngagement` being synchronous, not from the lock. No `storage` event listener exists anywhere, so **multi-tab writes silently discard each other**.
+
+**T6, `getEngagement()` spread admits `null`.** `engagement.ts:62` spreads parsed JSON over defaults with no validation, and `addXP` has `try/finally` with **no `catch`** (`:116`, `:149`). An imported blob containing `{"xpLog": null}` makes every completion throw, after `markComplete()` has already persisted.
+
+**T7 (P2), bookmarks have no dedup.** `BookmarkButton.tsx:38` guards on mount-time state, not the freshly read array. Open one lesson in five tabs, click bookmark in each, and "Bookworm" unlocks with one lesson.
+
+**T8 (P2), streak never decays on read.** `engagement.ts:127` only recomputes inside `addXP`. Stop for two months and `StreakBadge` still renders 🔥 7 until an XP action silently resets it to 1.
+
+**T9 (P2), "Reset All Progress" leaves state behind.** `SettingsClient.tsx:248` sweeps `QUIZ_PASS_KEY_PREFIX` but not `QUIZ_STORAGE_PREFIX` (`ma_quiz__learn_*`) or `ma_recent`. After a reset, a previously-passed lesson renders a green "You've unlocked Mark as Complete" panel next to a **locked** button.
+
+### 14.4 Accessibility
+
+Zero `aria-live` regions, zero `tabIndex`, and zero `prefers-reduced-motion` in the entire codebase.
+
+**A1, `Quiz.tsx:266` `disabled={answered}`.** A keyboard user tabs to an option and presses Enter; all four buttons become `disabled`, leave the tab order, and focus drops to `<body>`. They must tab from the top of the document to reach "Next Question", **on every question, on every lesson**. Same defect at `TrackQuizPageClient.tsx:187`, where it disables every option across all 84 questions at once.
+
+**A2, `CommandPalette.tsx:208`.** The input has no `role="combobox"`, no `aria-expanded`, no `aria-controls`, no `aria-activedescendant`, and no `id` on any `<li role="option">`. Cmd+K is a keyboard power feature that is unusable by exactly the users who most need it.
+
+**A3, `tools/ToolsClient.tsx:163`.** "Clear all" uses `text-[var(--accent-foreground)]` on `var(--background)`. Those tokens are `#ffffff`/`#ffffff` in light and `#0a0a0b`/`#0a0a0b` in dark. **1:1 contrast in both themes**, invisible to every sighted user.
+
+**A4 (P1), quiz results never announced.** `Quiz.tsx:135` uses `role="region"`, which is not a live region. The single most important moment in the product is silent.
+
+**A5 (P1), wrong answers signalled by colour alone.** `Quiz.tsx:255` sets a red border on the user's incorrect pick with no icon and no text, while the correct option gets a `CheckCircle2`. `TrackQuizPageClient.tsx:159` does this correctly with an `XCircle`; `Quiz.tsx` does not.
+
+**A6 (P1), Mermaid diagrams have no text alternative.** `Mermaid.tsx:239` sets `role="img"` with `aria-label={caption ?? "Diagram"}`, collapsing the whole SVG into one node. With no `caption` prop, the accessible name is literally the word "Diagram". A blind learner gets zero content from a teaching diagram, on 419 lesson pages.
+
+**A7 (P1), locked "Mark as complete" scrolls without moving focus.** `MarkComplete.tsx:160`. A screen-reader user activates the gate and hears nothing.
+
+**A8 (P2), no focus-visible fallback.** Several inputs use `focus:outline-none` with only a 1px border hue change, and `globals.css` has no global `:focus-visible` rule to fall back on.
+
+**Clean:** `useFocusTrap` is genuinely correct, every image has `alt`, no unlabelled icon buttons, no clickable `<div>`s, skip link correct, modals trap focus and close on Escape.
+
+### 14.5 Performance, including a correction to this plan
+
+> ### ⚠️ 14.5.1 This plan's section 1.3 was wrong
+>
+> Section 1.3 asserted that a projects dataset would put "3-4 MB, larger than both combined" into the client, reasoning from `quizzes.ts` at 1.91 MB and `lesson-resources.ts` at 1.72 MB. **That premise is false and is now disproven by measurement.**
+>
+> Neither file reaches the client. Distinctive payload strings were grepped across all 105 chunks in `.next/static/chunks/` with **0 matches**, and found only in `.next/server/chunks/`. The boundary holds because `Quiz.tsx:29` takes questions as a **prop**, the lesson page is a server component, and `TrackQuizPageClient.tsx:29` uses `import type`. A learner downloads **~4 questions, not 2,252**.
+>
+> **The per-category split decision in 2.2 still stands, but for a different reason.** It was justified by a lesson-page bundle risk that does not exist. The real justification is the `/projects` hub (section 5), which **is** a client component and does need queryable data, which is exactly what the slim generated index in 5.1 solves. The 3.6 MB is a build-time and DX cost, not a user cost.
+>
+> Recording this because the original reasoning was asserted from file sizes without checking the module graph, which is the same failure mode as section 12's audit.
+
+**P1, `/learn` is a 1.33 MB document.** `learn/page.tsx:29-68` renders all 655 lesson rows with summaries. Measured: `learn.html` = **1,326,887 B raw / 136,226 B gzip**, of which 767,735 B is `<script>` because every summary appears twice (HTML plus the embedded `self.__next_f` RSC payload). The separate `learn.rsc` is another 700,746 B. The next largest page is 231,576 B, so this is **5.7× the runner-up**.
+
+**P2, `curriculum.ts` in every client bundle.** `Nav.tsx:1` is `"use client"` and `:12` imports `CATEGORIES`. Measured chunk **148,426 B raw / 48,020 B gzip**, containing 655 `summary:` fields, present in the script list of **every** prerendered page. Nav uses only `slug`, `title`, `emoji` and `lessons.length`.
+**Fix:** export a `CATEGORY_INDEX` of ~1 KB. **−48 KB gzip on every route for one import swap.**
+
+**P3 (P1), `posthog-js` eagerly bundled.** `PostHogProvider.tsx:3` static import, **195,735 B raw / 63,958 B gzip** on every page, downloaded and parsed even when `NEXT_PUBLIC_POSTHOG_KEY` is unset, because the guard at `:9` is inside the effect after the module already loaded.
+
+**P4 (P1), DOMPurify on 223 pages that have no diagram.** `Mermaid.tsx` statically imports `dompurify` (**27,135 B raw / 10,138 B gzip**) while mermaid itself is correctly dynamic. 419 of 642 lessons use `<Mermaid`; the other **223 pay for nothing**.
+**Fix:** move the import into the existing `await import()` block at `Mermaid.tsx:100`. **−10 KB gzip on 642 pages, two lines.**
+
+**P5 (P1), Mermaid loads at mount, not on visibility.** 135 KB gzip pulled during hydration on 419 pages even for a below-the-fold diagram.
+
+**Clean:** zero `useEffect` without a dep array across 39 sites, no `setInterval` anywhere, no O(n²) loops, Mermaid code-splitting verified working, CommandPalette correctly deferred with `ssr: false`, fonts self-hosted, service worker correct.
+
+**Contested:** the audit **could not reproduce** the theme hydration mismatch observed in the dev console earlier in this session, and reports the code as written is correct. Possibly dev-only or extension-induced. Needs one clean check before anyone "fixes" it.
+
+### 14.6 New-learner UX
+
+**U1, blocked storage crashes everything.** `ThemeToggle.tsx:18`, `OnboardingModal.tsx:25` and `LessonNotes.tsx:15` call raw `localStorage` with no try/catch. The first two render inside `layout.tsx`, a layout-level throw is not caught by `error.tsx`, and there is **no `global-error.tsx`**. A user with site data blocked gets Next's raw crash screen on every page. Every other storage module guards correctly.
+
+**U2, no warning that progress is browser-only.** `page.tsx:197` sells "No account needed" as a feature. `/settings` never states the risk and puts Export below the fold.
+
+**U4, certificates at 0%.** Confirmed independently by three of the five audits.
+
+**U5 (P1), the track quiz is 56-84 questions on one page with no persistence.** `TrackQuizPageClient.tsx:141` renders every question at once, `:61` disables Submit until all are answered, and `:47` keeps state in React only. `b2b-marketer` is **84 questions**, roughly a 60-screen scroll on a phone, and backgrounding the tab wipes it.
+
+**U6 (P1), the track page invites skipping the track.** `TrackLessonList.tsx:66` shows "Take track quiz to mark all complete" **because** `pct < 100`, so it is loudest for someone who has learned nothing.
+
+**U7 (P1), the stricter gate is on the easier task.** The per-lesson quiz demands **100%** (`Quiz.tsx:94`); the track quiz covering 21 lessons needs **80%**.
+
+**U8 (P1), mobile has no XP badge and no search.** `StreakBadge.tsx:30` is `hidden sm:flex`, the palette button is `hidden md:flex`, and `learn/page.tsx:21` tells phone users to "use Ctrl+K".
+
+**U9 (P1), Achievements and Skill Map are a wall of zeros.** No empty state, while `BookmarksList.tsx:41` has an excellent one. The pattern exists in the codebase and was not applied.
+
+**U10 (P1), silent write failures across the gamification loop.** `MarkComplete.handleComplete()` fires confetti, flips the button and dispatches the toast even when nothing persisted.
+
+**U11 (P2), stale numbers in user-visible copy on six pages.** "393+ lessons" and "15 disciplines" against the real **642** and **21**; `/tracks` says 22 against **24**. Meanwhile the hero computes 655 and the OG image hardcodes 642.
+
+**U12 (P2), certificate print includes nav and footer.** No global `@media print` rule; the sibling cheat-sheet page has one.
+
+**U13 (P2), `/compare` promises pros and cons for 112 tools; only 7 pairs have data.**
+
+**U14 (P2), dead GitHub URL.** `Footer.tsx:27` points at `Layruss98266`; the rest of the site uses `Surya8991`.
+
+**U15 (P2), `/interview-prep` is orphaned.** Nothing links to it.
+
+**Clean:** quiz coverage is complete across all 642 unique lessons with 0 orphans, no broken track links, no dead internal routes, the 404 page is genuinely helpful, and hydration is handled cleanly with `mounted` flags everywhere.
+
+### 14.7 Convergent findings
+
+Where lenses independently agreed, confidence is highest:
+
+| Finding | Found by |
+|---|---|
+| Certificates ungated | security, UX, and section 0.1b |
+| Cross-listing breaks achievements and progress | state, UX |
+| Track quiz reveals answers then allows retry | security, and section 0.1c |
+| localStorage failures are silent or fatal | UX, state, security |
+| `/learn` and `curriculum.ts` are oversized | performance, UX |
+
+### 14.8 New rules
+
+44. **Never add a `"use client"` file that imports a large data module.** `Nav.tsx` importing `CATEGORIES` costs 48 KB gzip on every route. Import a slim index instead. This is the shape that would have made the projects layer genuinely expensive.
+45. **Every `localStorage` access goes through its `src/lib` module.** `ThemeToggle`, `OnboardingModal` and `LessonNotes` bypass theirs and can crash the entire app. Rule 18 already required this; it is being violated in three places.
+46. **On a storage parse failure, preserve the raw value before writing defaults over it.** Currently a corrupt blob is silently replaced and then overwritten, destroying recoverable data.
+47. **Any ID built from a category must resolve `sourceCategory ?? category`.** Three separate progress UIs and two achievements are broken by this today.
+48. **No API route ships without auth and a shared-store rate limit.** `/api/groq` has neither and has no callers at all.

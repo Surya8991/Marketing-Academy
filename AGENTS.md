@@ -477,3 +477,25 @@ Three further constraints:
 - **Options may reshuffle any time; question order may only reshuffle on retry.** Saved quiz progress is `{ answers: boolean[], total }` indexed positionally, so reordering questions mid-session remaps saved answers onto the wrong questions. `handleRetry()` clears that state first, so retry is safe.
 
 Known blocker, one lesson only: `analytics/consent-mode` has an "All of the above" option. Rewrite it into a concrete statement before enabling shuffling. Audited all 8,341 option strings; it is the only position-dependent option in the library.
+
+### Rule 41 — Never import a large data module into a `"use client"` file
+`Nav.tsx` is `"use client"` and imports `CATEGORIES` from `curriculum.ts`. Measured cost: a **148,426 B raw / 48,020 B gzip** chunk containing all 655 lesson `summary:` fields, shipped on **every route**, when Nav only uses `slug`, `title`, `emoji` and `lessons.length`. Export a slim index instead.
+
+Verified counterexample worth knowing: `quizzes.ts` (1.91 MB) and `lesson-resources.ts` (1.72 MB) correctly do **not** reach the client, because `Quiz.tsx` takes questions as a **prop**, the lesson page is a server component, and `TrackQuizPageClient` uses `import type`. Preserve those boundaries. A learner downloads ~4 questions, not 2,252.
+
+### Rule 42 — Every `localStorage` access goes through its `src/lib` module
+`ThemeToggle.tsx:18`, `OnboardingModal.tsx:25` and `LessonNotes.tsx:15` call raw `localStorage` with no try/catch. The first two render inside `layout.tsx`, a layout-level throw is not caught by `error.tsx`, and there is no `global-error.tsx` — so blocked site data (common corporate/Android default) shows Next's raw crash screen on **every page**. Every other storage module guards correctly. Rule 18 already required this; three files violate it.
+
+Related: on a parse failure, **preserve the raw value** (`ma_engagement__corrupt_<ts>`) before writing defaults over it. `engagement.ts:63` and `progress.ts:26` currently replace unrecoverable-looking data with defaults and then overwrite the still-recoverable original.
+
+### Rule 43 — Any ID built from a category must resolve `sourceCategory ?? category`
+13 lessons are cross-listed (all in `fundamentals`, `sourceCategory: "mental-models"`). `MarkComplete` writes the `sourceCat` key, but `achievements.ts:85,108`, `SkillMapClient.tsx:31` and `CategoryProgress.tsx:18` all build `fundamentals/<slug>`. Consequences today:
+- `fundamentals` is permanently capped at **27/40 (67.5%)** and "Category Clear" never fires for it.
+- `all-lessons` checks `completed.size >= flatLessons().length` = **655**, but the maximum writable is **642**. "Marketing Polymath" is unreachable by exactly 13, for everyone, forever.
+
+Verified counts: 655 `flatLessons()` entries, 13 cross-listed, **642 unique**, matching the 642 `.mdx` files on disk. Any user-facing lesson count must use the deduped 642, not 655.
+
+### Rule 44 — No API route ships without auth and a shared-store rate limit
+`/api/groq` has neither, and has **no callers anywhere in the app**. In-memory `Map` rate limiters (`groq/route.ts:21`, `geo-audit/route.ts:115`) do nothing on Vercel: state is per-lambda-instance, so limits are per-cold-start, not per-IP. Use a shared store.
+
+Also: `NEXT_PUBLIC_SYNC_SECRET` (Rule 26) is inlined into a public JS chunk and is the **only** gate on `/api/sync-proxy`, which writes every user to one global KV key named `progress` — including their private `ma_note_*` content. Rule 26 documents a vulnerability, not a design. Treat it as such.
