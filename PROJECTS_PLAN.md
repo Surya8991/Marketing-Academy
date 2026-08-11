@@ -192,10 +192,75 @@ This matters more once 0.1 is fixed, because the quiz then becomes the *only* ga
 **Options, cheapest first:**
 
 1. **Reveal explanations only after the whole quiz is submitted**, not per question. Keeps the teaching, removes the answer key mid-run.
-2. **Reshuffle question and option order on retry.** `TrackQuizPageClient.retry()` already reshuffles; `Quiz.tsx` does not. Cheap consistency fix, and it raises the effort meaningfully.
+2. **Shuffle option order on every attempt.** See 0.1c-i below, this is the highest-value fix and it has a trap in it.
 3. **Cooldown or attempt cap** before a retry counts toward passing. Heavier, and probably unnecessary if 1 and 2 land.
 
 Recommend 1 + 2. Note the tension honestly: instant per-question feedback is genuinely good pedagogy, and this is the one place where the teaching goal and the gating goal actually conflict. Option 1 is the compromise, since the explanation still arrives, just after the attempt is locked in.
+
+---
+
+### 0.1c-i Shuffle answer positions on every attempt
+
+**Confirmed: `Quiz.tsx` shuffles nothing at all.** The whole file contains **zero** occurrences of `Math.random` or `sort(`. Line 76 reads straight from the prop:
+
+```tsx
+const question = questions[current];   // no shuffle, ever
+```
+
+and `handleRetry()` resets `current`, `selected`, `answers` and `finished` but **reorders nothing**.
+
+So question order *and* option order are byte-identical on every attempt. Combined with the answer reveal in 0.1c, the defeat is even cheaper than described above: memorise **"B, D, A, C"** on the first run and spam those four positions on the second. **You never read a word.** Position-spamming, not just answer-reading, is the actual exploit.
+
+#### ⚠️ The trap that would silently break all 2,252 questions
+
+`correct` is a **positional index**, not a value (line 88: `const isCorrect = selected === question.correct;`).
+
+Shuffling `options[]` without remapping `correct` would silently mis-grade **every question in the library**. No build error. No runtime error. No type error, since `correct` stays a valid `number`. Just wrong answers marked correct across 642 lessons, and right answers marked wrong. It is the most dangerous possible way to implement this, and the naive version looks completely correct in review.
+
+**Correct implementation, pair then shuffle then recompute:**
+
+```ts
+function shuffleOptions(q: Quiz): Quiz {
+  const paired = q.options.map((text, i) => ({ text, wasCorrect: i === q.correct }));
+  for (let i = paired.length - 1; i > 0; i--) {       // Fisher-Yates, not sort(() => Math.random() - 0.5)
+    const j = Math.floor(Math.random() * (i + 1));
+    [paired[i], paired[j]] = [paired[j], paired[i]];
+  }
+  return {
+    ...q,
+    options: paired.map((p) => p.text),
+    correct: paired.findIndex((p) => p.wasCorrect),   // recomputed, never carried over
+  };
+}
+```
+
+Use Fisher-Yates rather than `sort(() => Math.random() - 0.5)`. The sort-comparator trick is what `TrackQuizPageClient` currently uses; it is measurably biased and, on a 4-item array, leaves the original order far more often than chance. For a spam-resistance feature that bias is the whole point of failure.
+
+#### Second trap: hydration
+
+`Math.random()` during render produces different output on server and client. This site already carries a documented theme hydration warning, and a second source would be worse. **Shuffle after mount in `useEffect`**, holding the shuffled set in state, exactly as `TrackQuizPageClient` does. Never shuffle inline in the render path.
+
+#### Audited: only 1 question in the library blocks this
+
+Position-dependent options ("All of the above" and friends) break under shuffling. Scanned all 8,341 option strings across `quizzes.ts`:
+
+| Pattern | Count |
+|---|---|
+| "All of the above" | **1** |
+| "None of the above" | 0 |
+| "Both of the above" | 0 |
+| "A and B" style | 1 (false positive on inspection) |
+
+**One affected lesson: `analytics/consent-mode`.** Rewrite that single option into a concrete statement, then shuffling is safe for all 2,252 questions. This was the main risk to the whole change and it turns out to be a one-line fix.
+
+#### Scope: options always, questions on retry only
+
+- **Option order: reshuffle on every mount and every retry.** Always safe.
+- **Question order: reshuffle on retry only, not mid-session.** The saved resume state is `{ answers: boolean[], total }`, and `answers` is indexed positionally. Reordering questions inside a live session would remap a learner's saved answers onto the wrong questions. Retry is safe because `handleRetry()` already clears the stored state first.
+
+#### Rule to add
+
+**40. Never shuffle a `Quiz.options[]` array without recomputing `correct`.** It is a positional index. A naive shuffle silently mis-grades every question in the library with no error of any kind. Pair each option with a `wasCorrect` flag, shuffle the pairs, then derive the new index. Shuffle after mount, never during render.
 
 ---
 

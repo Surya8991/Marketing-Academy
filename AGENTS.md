@@ -457,3 +457,23 @@ Retrofitting practice material is what created a ~1.5M-word backlog across 642 l
 A full mechanical audit of all 642 lessons is recorded there with verified counts. Before starting any lesson-cleanup work, read it, both to avoid re-deriving the same findings and to avoid "fixing" the two recorded false positives.
 
 **The important false positive:** 165 files write Mermaid node labels as `A[Line one\nLine two]`. That is the **correct required pattern** per Rule 30. Changing it reintroduces a bug that already shipped to production.
+
+### Rule 40 — Never shuffle `Quiz.options[]` without recomputing `correct`
+`correct` in `src/lib/quizzes.ts` is a **positional index** into `options[]`, not a value (`Quiz.tsx`: `const isCorrect = selected === question.correct`). Shuffling the options array without remapping `correct` silently mis-grades **all 2,252 questions across 642 lessons**: no build error, no runtime error, no type error, since `correct` stays a valid number. Wrong answers get marked correct everywhere. The naive version looks correct in review, which is what makes it dangerous.
+
+```ts
+// CORRECT , pair, shuffle, recompute
+const paired = q.options.map((text, i) => ({ text, wasCorrect: i === q.correct }));
+// Fisher-Yates over paired ...
+return { ...q, options: paired.map(p => p.text), correct: paired.findIndex(p => p.wasCorrect) };
+
+// WRONG , correct now points at whatever landed in that slot
+return { ...q, options: shuffle(q.options) };
+```
+
+Three further constraints:
+- Use **Fisher-Yates**, not `sort(() => Math.random() - 0.5)`. The comparator trick is biased and on a 4-item array leaves the original order far more often than chance, which defeats the point when the goal is spam-resistance.
+- **Shuffle after mount in `useEffect`**, never during render. `Math.random()` in the render path causes an SSR/client hydration mismatch, and this site already carries one.
+- **Options may reshuffle any time; question order may only reshuffle on retry.** Saved quiz progress is `{ answers: boolean[], total }` indexed positionally, so reordering questions mid-session remaps saved answers onto the wrong questions. `handleRetry()` clears that state first, so retry is safe.
+
+Known blocker, one lesson only: `analytics/consent-mode` has an "All of the above" option. Rewrite it into a concrete statement before enabling shuffling. Audited all 8,341 option strings; it is the only position-dependent option in the library.
