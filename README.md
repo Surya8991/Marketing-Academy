@@ -142,9 +142,10 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 |---|---|
 | `src/lib/curriculum.ts` | Single source of truth, all lesson slugs, titles, levels |
 | `src/lib/tracks.ts` | 24 learning track definitions |
-| `src/lib/glossary.ts` | 216 marketing term definitions |
+| `src/lib/glossary.ts` | 158 marketing term definitions |
 | `src/lib/quizzes.ts` | Quiz questions (4 per lesson, all 642 lessons covered) |
-| `src/lib/tools-directory.ts` | 108 marketing tools with category/pricing data |
+| `src/lib/tools-directory.ts` | 111 marketing tools with category/pricing data |
+| `PROJECTS_PLAN.md` | **High-priority roadmap** for the hands-on projects layer, the `/projects` hub, and per-concept scenarios in lessons. Also carries the verified lesson-quality backlog (section 12) and one open P0 bug (section 0.1) |
 | `src/lib/bookmarks.ts` | Shared bookmark storage (BOOKMARK_KEY, getBookmarks, saveBookmarks) |
 | `src/lib/progress.ts` | Lesson completion helpers (COMPLETED_KEY exported, getCompleted, markComplete) |
 | `src/lib/engagement.ts` | XP/streak system (addXP, getEngagement, getCurrentLevel, ENGAGEMENT_EVENT) |

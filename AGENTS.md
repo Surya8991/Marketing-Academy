@@ -323,7 +323,15 @@ Before any `git push`, update ALL of the following that are affected by the chan
 "Mark all complete" on a `/tracks/[slug]` page is gated behind a full-page quiz at `/tracks/[slug]/quiz`. There is NO `TrackQuizGate.tsx` component, it does not exist.
 
 Architecture:
-- **`src/components/TrackLessonList.tsx`**, renders a Link to `/tracks/[slug]/quiz` when `pct < 100`. Individual per-lesson checkboxes are NOT gated.
+- **`src/components/TrackLessonList.tsx`**, renders a Link to `/tracks/[slug]/quiz` when `pct < 100`.
+
+> ⚠️ **CORRECTION (supersedes the previous wording of this rule).** This rule used to read *"Individual per-lesson checkboxes are NOT gated."* That was written before Rule 25 locked the lesson page behind a quiz, and the two rules then contradicted each other. The ungated checkbox let a learner mark every lesson in a track complete, and collect full XP plus a certificate, without opening a single lesson. See `PROJECTS_PLAN.md` section 0.1 for the full write-up and the fix.
+>
+> **Per-lesson checkboxes in `TrackLessonList` MUST use the same gate as `MarkComplete`:**
+> ```tsx
+> const locked = !getQuizPassed(lesson.category, lesson.slug) && !done;
+> ```
+> When locked, clicking navigates to `/learn/{category}/{slug}#quiz-section` instead of toggling. Pass `sourceCategory` for cross-listed lessons per Rule 31, or the 13 `mental-models` lessons surfaced under `fundamentals` read the wrong key and stay permanently locked.
 - **`src/components/TrackQuizPageClient.tsx`**, full-page client component at `/tracks/[slug]/quiz`. Pools ALL questions from every lesson in the track (shuffled), requires ≥80% correct to pass, then calls `markAll()` which calls `markComplete(lessonId)` for every lesson AND dispatches `ENGAGEMENT_EVENT` with XP for each completed lesson.
 - Do NOT create `TrackQuizGate.tsx`, `openGate()`, or `gateQuestions`, these do not exist.
 
@@ -413,3 +421,31 @@ Session 68 mined a user's private content-ops research doc (a personal LinkedIn/
 2. Strip every personal/proprietary specific: real names, employer names, financial targets, internal-only data, anything that reads as someone's private business strategy rather than a teachable, generalizable skill.
 3. Keep every genuine third-party citation (named study, sample size, date) — these are the actual value and are not proprietary just because they were found inside a private document.
 4. If a private doc's own illustrative example is useful, genericize it (a real handle like `@suryal` becomes a placeholder like `@yourhandle`; a specific person's SEO framework example stays as a generic teaching example since the technique itself, not the specific outcome, is what's being taught).
+
+### Rule 36 — Any component calling `markComplete()` MUST check `getQuizPassed()` first
+There are exactly two call sites today: `MarkComplete.tsx` (lesson page) and `TrackLessonList.tsx` (track page). A third that skips the check reopens the completion bypass documented in `PROJECTS_PLAN.md` 0.1, where a learner could mark a whole track complete, collect full XP and earn a certificate without opening a lesson.
+
+```tsx
+// REQUIRED before any markComplete() + addXP("complete", id) pair
+const locked = !getQuizPassed(category, slug) && !done;
+```
+
+Use `sourceCategory` for cross-listed lessons (Rule 31). Two components performing the same state change through two different gates is the bug class here, not a missing feature.
+
+### Rule 37 — The projects layer is planned in `PROJECTS_PLAN.md`, read it before touching projects
+`PROJECTS_PLAN.md` (root) is the active high-priority roadmap for the hands-on projects layer, the `/projects` hub, and concept scenarios in lessons. Section 0 carries the execution order. Do not design any part of that feature without reading it; a four-agent survey of 454 lessons is already recorded there and re-deriving it wastes a lot of effort.
+
+Key constraints it establishes, so they are not accidentally violated:
+- Projects ship as **per-category modules**, dynamically imported. Never one file (`quizzes.ts` at 1.91 MB is the precedent to avoid).
+- `src/lib/projects-index.ts` is **generated**, never hand-edited.
+- Projects have **six modes** plus an explicit `no-project` verdict. Forcing a mode onto a lesson that resists all of them certifies the wrong skill and is worse than shipping nothing.
+- Every project needs a complete **free-tool path**; paid tools are upgrades only.
+- Case companies need a **confirmed, cited exit**. Glossier, Away, CRED, Zerodha and Zoho are barred; none of them exited.
+
+### Rule 38 — Every new lesson ships with its projects and a concept scenario in the same commit
+Retrofitting practice material is what created a ~1.5M-word backlog across 642 lessons. From now on a lesson is not complete without at least one project (or an explicit, justified `no-project` mark) and one concept scenario showing where the concept was used and what it achieved.
+
+### Rule 39 — Known lesson-quality backlog lives in `PROJECTS_PLAN.md` section 12
+A full mechanical audit of all 642 lessons is recorded there with verified counts. Before starting any lesson-cleanup work, read it, both to avoid re-deriving the same findings and to avoid "fixing" the two recorded false positives.
+
+**The important false positive:** 165 files write Mermaid node labels as `A[Line one\nLine two]`. That is the **correct required pattern** per Rule 30. Changing it reintroduces a bug that already shipped to production.
