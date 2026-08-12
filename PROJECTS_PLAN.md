@@ -165,13 +165,21 @@ They interlock; fixing one alone moves the hole rather than closing it.
 
 #### Stage 8, the projects layer
 
-| # | Item | Section |
-|---|---|---|
-| **8.1** | Phase 0, roster + datasets + types | 6 |
-| **8.2** | Phase 1, pilot + hub + review gate | 6, 11.8 |
-| **8.2b** | Compute centrality bands + assign tiers/archetypes from the section 17 matrix | 17 |
-| **8.3** | Phase 2, track lessons (240 lessons, ~480 projects) | 6, 0.2 |
-| **8.4** | Phase 2b, concept scenarios, bundled with the 45 stale-year fixes | 10, 12.5 |
+| # | Item | Section | Status |
+|---|---|---|---|
+| **8.1** | Phase 0, roster + datasets + types | 6 | ✅ Done, Session 73. 77 verified companies (66/34 global/india, 38 mega/27 large/5 mid/7 small), 8 starter datasets, full type system in `src/lib/projects/types.ts` |
+| **8.2** | Phase 1, pilot + hub + review gate | 6, 11.8 | ✅ Done, Session 73. 19 pilot lessons (18 solo-founder + paid-ads-101), 34 projects, `/projects` hub, full component layer. Review-gate verdict: PASS-WITH-CONCERNS on first pass (backwards simulation economics, dead anchor links, unrendered teardown data) — all found defects fixed and re-verified live in browser. See session log below |
+| **8.2b** | Compute centrality bands + assign tiers/archetypes from the section 17 matrix | 17 | ⏸️ Not done. Pilot used ad hoc archetype/tier assignment (§17's matrix, not yet computed programmatically across all 642 lessons). Needed before Phase 2 scales past the pilot's 19 lessons |
+| **8.3** | Phase 2, track lessons (240 lessons, ~480 projects) | 6, 0.2 | ⏸️ Blocked on 8.2b. Do not start, per this plan's own gate, until the pilot has had a human walkthrough beyond the automated review-gate |
+| **8.4** | Phase 2b, concept scenarios, bundled with the 45 stale-year fixes | 10, 12.5 | ⏸️ Not started |
+
+**Session 73 pilot results, in detail:**
+- Roster (`src/lib/case-companies.ts`): 77 companies, every entry with a real cited `exit.source` URL. First research pass skewed 74%/26% global/India with zero mid/small-scale exits; a targeted gap-fill pass corrected this to 66%/34% and 38 mega/27 large/5 mid/7 small.
+- 8 starter datasets in `public/project-data/`, including an ad-account export whose day-3/9/14 cumulative numbers for the "Core Terms" ad group exactly reproduce this document's own §2.3b worked example.
+- Component layer: `ProjectList`/`ProjectCard`/`ProjectStep`/`SimulationRunner`/`SimulationDebrief`/`LiveTrackPanel`/`TeardownItemCard`/`ToolStack`/`OutputSample`, `src/lib/projects-progress.ts` (localStorage + XP, `project`=40/`bigProject`=100 added to `engagement.ts`'s `XPAction`), `TableOfContents.tsx` `extraSections` (also fixed the pre-existing Quiz-missing-from-ToC gap), `/projects` hub with search/filter/sort mirroring `ToolsClient.tsx`, `scripts/build-projects-index.mjs` generator.
+- Content: 34 projects across 9 category modules (`src/lib/projects/{fundamentals,mental-models,seo,content,email,copywriting,growth,analytics,paid-ads}.ts`) + `src/lib/track-projects.ts` (4 big projects for `solo-founder`). 2 explicit `no-project` verdicts (`what-is-marketing`, `opportunity-cost-thinking`), proving Rule 23 (§11.9) holds in practice.
+- **Review-gate findings, all fixed**: the paid-ads-101 simulation's "costly" terminal originally spent *less* and had a *better* cost-per-conversion than the "optimal" terminal (backwards) — rewritten into two distinct, genuinely-worse terminals (`day14-restart-penalty`: 2 conversions/£285.70 per conv/CTR below industry average vs. optimal's 4/£149.81/above average; `day14-wasted-spend`: flat conversions at a higher CPC). 5 `lessonAnchor` values pointed at prose text with no real heading id, fixed to real slugs or the containing section. 19 `conceptsCovered` entries were sentence fragments instead of concept names (Rule 46). One tool FK typo (`Semrush` → `SEMrush`). `TeardownItem` data (specimen/answerKey/distractors) was authored but never rendered by `ProjectCard`, fixed via new `TeardownItemCard.tsx` (Rule 48). All fixes verified live in the browser after re-running `npx tsc --noEmit`, `npm run build`, `npm run lint`, `npm test` (18/18 pass).
+- **Not yet done**: a human walkthrough of the pilot beyond what the automated review-gate covered. Per this plan's own gate ("if either fails, nothing downstream matters and Phase 2 does not start"), 8.3 should not begin until that happens.
 
 #### Stage 9, long tail
 

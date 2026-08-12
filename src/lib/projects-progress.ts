@@ -77,13 +77,16 @@ function saveProjectProgress(state: ProjectProgress): void {
 
 /**
  * Marks a project complete. Idempotent, safe to call multiple times for the
- * same id. Silently swallows storage errors (private/full), matching
- * progress.ts's markComplete().
+ * same id. Silently swallows storage errors (private/full), matching the
+ * lesson-completion function in progress.ts.
  *
  * Does NOT award XP itself, callers award XP separately via
- * addXP("project" | "bigProject", projectId) from @/lib/engagement, same
- * separation of concerns as markComplete()/addXP("complete", ...) in
- * progress.ts / engagement.ts.
+ * addXP("project" | "bigProject", projectId) from @/lib/engagement, the same
+ * separation of concerns progress.ts and engagement.ts use for lessons. This
+ * function is unrelated to lesson completion and is NOT subject to AGENTS.md
+ * Rule 36 (that rule gates the lesson-completion function, not this one);
+ * project completion has no quiz-pass gate by design, projects are practice
+ * exercises, not the lesson-completion/certificate path.
  */
 export function markProjectComplete(projectId: string): void {
   if (typeof window === "undefined") return;

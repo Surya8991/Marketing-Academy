@@ -49,7 +49,7 @@ export const PAID_ADS_PROJECTS: Record<string, Project[]> = {
           label: "Day 3, first look",
           elapsed: "Day 3 of 14",
           concept: "Recognizing when a sample is too small to act on",
-          lessonAnchor: "The Budget Question",
+          lessonAnchor: "the-budget-question",
           situation:
             "You launched \"Search - Remote PM Software\" three days ago and open the dashboard for the first time since. Nothing has been touched since launch.",
           dashboard:
@@ -71,7 +71,7 @@ export const PAID_ADS_PROJECTS: Record<string, Project[]> = {
                 label: "Note the numbers, close the dashboard, come back in 3-5 days",
                 verdict: "optimal",
                 outcome:
-                  "You let the learning phase run undisturbed. Three days and 405 clicks is nowhere near the 100-200 clicks the lesson says you need just to judge one keyword theme, let alone enough to judge the whole campaign.",
+                  "You let the learning phase run undisturbed. 405 clicks already clears the 100-200 the lesson cites for reading one keyword theme, but conversions, not clicks, are the actual bottleneck here, and one conversion in three days is still a coin flip, not a trend. The learning phase itself runs on a clock, 7-14 days, not a click count, and you're only three days into it.",
                 why:
                   "The algorithm is still calibrating who to show your ad to. Reacting to a single conversion is reacting to noise, not signal, and any edit right now restarts the clock you've already paid three days into.",
                 lessonRef: "The Budget Question: 100-200 clicks to know if a keyword or ad group is working",
@@ -86,18 +86,18 @@ export const PAID_ADS_PROJECTS: Record<string, Project[]> = {
                 why:
                   "This is Mistake 3 in its purest form: touching a campaign before it has had time to speak. A single day's low conversion count on a brand-new campaign is not a trend.",
                 lessonRef: "Mistake 3: touching campaigns too often (or not enough)",
-                nextStageId: "day14-bled-budget",
+                nextStageId: "day14-restart-penalty",
               },
               {
                 id: "pause-now",
                 label: "Pause the campaign, ROAS is basically zero",
                 verdict: "costly",
                 outcome:
-                  "You pause on day 3 having spent £105.30 to learn almost nothing. To get a real answer you'll have to relaunch, either now or later, and sit through this exact same three-day wait all over again.",
+                  "You pause on day 3 having spent £105.30 to learn almost nothing. To get a real answer you'll have to relaunch, and a relaunch is a brand-new learning phase, not a resumed one, so the account effectively restarts from zero anyway.",
                 why:
                   "A ROAS reading built on one conversion isn't a reading, it's a coin flip. The lesson's \"pause and diagnose\" advice assumes you have enough data to diagnose from; you don't yet.",
                 lessonRef: "Key Metrics table: ROAS below 1x means pause and diagnose",
-                nextStageId: "day14-bled-budget",
+                nextStageId: "day14-restart-penalty",
               },
             ],
           },
@@ -109,7 +109,7 @@ export const PAID_ADS_PROJECTS: Record<string, Project[]> = {
           label: "Day 9, scheduled check-in",
           elapsed: "Day 9 of 14",
           concept: "Diagnosing CTR-high / conversion-low with the metrics table",
-          lessonAnchor: "Key Metrics and What They Tell You",
+          lessonAnchor: "key-metrics-and-what-they-tell-you",
           situation:
             "Six days later. You're back on the 3-5 day check-in cadence the lesson recommends, not reacting to a notification or a bad feeling.",
           dashboard:
@@ -145,7 +145,7 @@ export const PAID_ADS_PROJECTS: Record<string, Project[]> = {
                 why:
                   "CTR at 7.1% against a 6.66% industry average says the targeting and copy are already working better than average. The gap is between click and conversion, not between impression and click.",
                 lessonRef: "Key Metrics table: CTR is low row does not apply here, CTR is already healthy",
-                nextStageId: "day14-bled-budget",
+                nextStageId: "day14-wasted-spend",
               },
               {
                 id: "fix-landing-page",
@@ -167,7 +167,7 @@ export const PAID_ADS_PROJECTS: Record<string, Project[]> = {
                 why:
                   "Even if performance moves after this, you will never know which change caused it, the keyword cut or the new copy. Diligence isn't the problem here, timing is.",
                 lessonRef: "Mistake 3: touching campaigns too often during the learning phase",
-                nextStageId: "day14-bled-budget",
+                nextStageId: "day14-restart-penalty",
               },
             ],
           },
@@ -179,7 +179,7 @@ export const PAID_ADS_PROJECTS: Record<string, Project[]> = {
           label: "Day 14, full learning phase intact",
           elapsed: "Day 14 of 14",
           concept: "Reading a full, undisturbed learning-phase cycle",
-          lessonAnchor: "The Budget Question",
+          lessonAnchor: "the-budget-question",
           situation:
             "You left the campaign alone on day 9 and routed the landing-page fix through engineering instead of the ad account. The learning phase has now run its full, uninterrupted 14 days.",
           dashboard:
@@ -228,7 +228,7 @@ export const PAID_ADS_PROJECTS: Record<string, Project[]> = {
           label: "Day 14, paused since day 9",
           elapsed: "Day 14 of 14 (campaign inactive since day 9)",
           concept: "The opportunity cost of a defensible-but-early pause",
-          lessonAnchor: "Key Metrics and What They Tell You",
+          lessonAnchor: "key-metrics-and-what-they-tell-you",
           situation:
             "The campaign has sat paused since day 9. £259.92 of the £600 budget was never spent, but nothing new has been learned in the five days since either.",
           dashboard:
@@ -272,34 +272,36 @@ export const PAID_ADS_PROJECTS: Record<string, Project[]> = {
             "In a real account: a paused campaign's historical data stays on the Campaigns tab under a date range covering when it was live, use it, don't start a fresh campaign from nothing.",
         },
         {
-          stageId: "day14-bled-budget",
-          label: "Day 14, budget gone, no clean answer",
+          stageId: "day14-restart-penalty",
+          label: "Day 14, learning phase restarted mid-run",
           elapsed: "Day 14 of 14",
-          concept: "What a mistimed or compounded change actually costs",
-          lessonAnchor: "Mistake 3: touching campaigns too often (or not enough)",
+          concept: "What restarting the learning phase actually costs, in numbers, not just delay",
+          lessonAnchor: "common-beginner-mistakes",
           situation:
-            "Whether it was an early copy change, a panic-pause-and-relaunch, extra bid spend, or a same-day keyword-and-copy overhaul, the campaign spent almost the whole £600 without ever producing a clean, trustworthy signal.",
+            "Whether it was an early copy change, a panic-pause-and-relaunch, or a same-day keyword-and-copy overhaul, the account got edited mid-flight and Google re-explored a broader, less-qualified audience for a while before re-converging. That re-exploration is not free.",
           dashboard:
-            "Search campaign · Core Terms ad group · Day 14 of 14\n\n" +
-            "  Impressions         ~29,800   (a mix of two partial, interrupted phases)\n" +
-            "  Clicks                1,958\n" +
-            "  Conversions               4\n" +
-            "  Cost per conv       £143.00\n" +
+            "Search campaign · Core Terms ad group · Day 14 of 14 (restarted mid-run)\n\n" +
+            "  Impressions         33,966\n" +
+            "  Clicks                1,970      CTR 5.8%     (industry avg 6.66%, now BELOW it)\n" +
+            "  CPC                   £0.29     (up from £0.26, Quality Score reset penalty)\n" +
+            "  Conversions               2      CVR 0.10%\n" +
+            "  Cost per conv       £285.70\n" +
             "  Spend               £571.40 of £600\n\n" +
             "  Note: the learning phase restarted mid-run, so no single 14-day\n" +
-            "  window of data exists to diagnose anything from.",
+            "  window of data exists to diagnose anything from, and the CTR that\n" +
+            "  was beating the industry average is now below it.",
           spendToDate: "£571.40 of £600",
           budgetRemaining: "£28.60",
           decision: {
             prompt:
-              "£571.40 spent, no 14-day window of clean data, and £28.60 left. What's the honest next move?",
+              "£571.40 spent for half the conversions and nearly double the cost-per-conversion of the clean run, and £28.60 left. What's the honest next move?",
             options: [
               {
                 id: "write-up-and-stop",
                 label: "Stop spending, write up exactly what changed and when, hand it to whoever tests this next",
                 verdict: "optimal",
                 outcome:
-                  "You can't buy back the clean signal this campaign should have produced, but you can make sure the next attempt doesn't repeat the same timing mistake. The £28.60 left is worth more unspent than blown proving a point.",
+                  "You can't buy back the clean signal this campaign should have produced, £600 for 2 conversions at a reset-penalty CPC instead of £600 for 4 at the account's real rate. But you can make sure the next attempt doesn't repeat the same timing mistake. The £28.60 left is worth more unspent than blown proving a point.",
                 why:
                   "The lesson's point about the learning phase isn't that mistakes are unrecoverable, it's that the fix is discipline next time, not more spend now.",
                 lessonRef: "Mistake 3: touching campaigns too often (or not enough)",
@@ -310,7 +312,7 @@ export const PAID_ADS_PROJECTS: Record<string, Project[]> = {
                 label: "Spend the last £28.60 trying one more tweak before the budget runs out",
                 verdict: "costly",
                 outcome:
-                  "£28.60 buys roughly 110 clicks at this campaign's CPC, well under the 100-200 the lesson says you need to judge even one keyword theme. It closes out the budget without producing anything you can act on.",
+                  "£28.60 buys roughly 100 clicks at this stage's £0.29 CPC, technically inside the 100-200 range the lesson cites, but that's 100 clicks landing on top of an account whose signal already restarted once. A borderline sample stacked on already-contaminated data isn't a clean read, it's noise on top of noise, and it closes out the budget without producing anything you can act on.",
                 why:
                   "The problem was never insufficient spend, it was insufficient patience. More of the same behavior at a smaller scale doesn't fix that.",
                 lessonRef: "The Budget Question: 100-200 clicks to know if a keyword or ad group is working",
@@ -320,6 +322,55 @@ export const PAID_ADS_PROJECTS: Record<string, Project[]> = {
           },
           liveVariant:
             "In a real account: Google Ads shows a \"Learning\" status pill on the campaign or ad group whenever a significant edit restarts it, if you see that pill more than once in one campaign's life, that's the tell this stage is describing.",
+        },
+        {
+          stageId: "day14-wasted-spend",
+          label: "Day 14, bids raised, same broken funnel",
+          elapsed: "Day 14 of 14",
+          concept: "Why buying more clicks doesn't fix a click-to-conversion problem",
+          lessonAnchor: "key-metrics-and-what-they-tell-you",
+          situation:
+            "You raised bids on day 9 to buy more volume. The auction did what auctions do when you bid more: it charged more per click. The landing page that was actually breaking the funnel was never touched.",
+          dashboard:
+            "Search campaign · Core Terms ad group · Day 14 of 14 (bids raised day 9)\n\n" +
+            "  Impressions         27,141\n" +
+            "  Clicks                1,927      (fewer than the £0.26-CPC run, despite spending the same money)\n" +
+            "  CPC                   £0.31     (up from £0.26 after the bid increase)\n" +
+            "  Conversions               3      CVR 0.16%    (industry avg 7.52%)\n" +
+            "  Cost per conv       £200.00\n" +
+            "  Spend               £600.00 of £600",
+          spendToDate: "£600.00 of £600",
+          budgetRemaining: "£0.00",
+          decision: {
+            prompt:
+              "£260 more spent since day 9 than the clean run needed, zero new conversions the higher bids actually bought, cost-per-conversion up from £113.33 to £200.00. What's the actual lesson here?",
+            options: [
+              {
+                id: "diagnose-not-scale",
+                label: "Write up that the conversion bottleneck was never solved, the extra spend just proved bidding higher doesn't fix a landing page",
+                verdict: "optimal",
+                outcome:
+                  "You correctly name what the £260 actually bought: proof that the auction was never the problem. The conversion rate barely moved because the thing suppressing it, the landing page, was never in the auction's control to begin with.",
+                why:
+                  "This is the lesson's own CTR-high/conversion-low row read correctly, one checkpoint too late. Raising bids only ever fixes a CTR-is-low problem.",
+                lessonRef: "Key Metrics table: CTR is high, conversions are low means fix the landing page or the offer",
+                nextStageId: "end",
+              },
+              {
+                id: "raise-bids-again",
+                label: "Conclude the campaign needs an even bigger budget next time to really test it",
+                verdict: "costly",
+                outcome:
+                  "You take away exactly the wrong lesson. A bigger budget spent the same way buys more of a conversion rate that was never going to move, because the constraint was never volume.",
+                why:
+                  "This repeats Mistake 2's underlying error at a larger scale: throwing more spend at a problem before diagnosing what's actually broken.",
+                lessonRef: "Key Metrics table: CTR is low row does not apply here, CTR is already healthy",
+                nextStageId: "end",
+              },
+            ],
+          },
+          liveVariant:
+            "In a real account: check the Auction Insights report before raising bids, if your impression share is already high, more bid budget buys expensive marginal clicks, not a fixed conversion problem.",
         },
       ],
       liveTrack: {
@@ -378,6 +429,144 @@ export const PAID_ADS_PROJECTS: Record<string, Project[]> = {
       portfolioReady: false,
       stretch:
         "Run the live variant: launch a real £300, 14-day Google Ads search campaign for a real product (yours or a client's), and check in on your own dashboard at the same day-3 and day-9 marks instead of the scripted ones above.",
+    },
+    {
+      id: "paid-ads-101-account-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Spot the Structural Mistakes: A Google Ads Account Teardown",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Given a synthetic-but-realistic Google Ads search account about to get a 8x budget increase, find the real structural mistakes hiding in it, and correctly leave alone the numbers that only look wrong.",
+      companyId: "hellofresh",
+      scenario:
+        "You're brought in to review a Google Ads search account for a meal-kit subscription startup modeling its go-to-market on HelloFresh's aggressive, always-on performance-marketing playbook, the same approach that let HelloFresh outspend rival Blue Apron on customer acquisition. The founder wants to raise the daily budget from $50 to $400 tomorrow. Before your manager signs off, they want your eyes on the account structure: is this built to scale, or is it quietly wasting money?",
+      brief:
+        "One account, two ad groups, four days of live data. Find every real structural mistake before the budget goes up, and don't flag the numbers that only look wrong.",
+      mode: "teardown",
+      conceptsCovered: [
+        "Mistake 1: sending ad traffic to your homepage",
+        "Ad Group / Ad Set level: one keyword theme per group (The Full Campaign Structure)",
+        "Ad level: run at least 2 ads per group to compare (The Full Campaign Structure)",
+        "Mistake 2: starting with too broad a target before narrowing",
+      ],
+      teardownItems: [
+        {
+          itemId: "mealkit-account-day4",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "Account: mealkitstartup.com — Search campaign, live for 4 days\n" +
+            "Campaign: Search - Meal Kit Subscription Launch          Budget: $400/day (raised today from a $50/day pilot)\n\n" +
+            "AD GROUP 1: Meal Kits - General\n" +
+            "  Keywords:\n" +
+            "    [Broad]   meal kit delivery\n" +
+            "    [Broad]   healthy dinner ideas\n" +
+            "    [Phrase]  \"vegan recipes free\"\n" +
+            "    [Exact]   blue apron alternative\n" +
+            "    [Broad]   subscription box food\n" +
+            "  Negative keywords: none configured\n" +
+            "  Ads running: 1\n" +
+            "    \"Meal Kits Delivered | Sign Up Today\" -> mealkitstartup.com (homepage)\n" +
+            "  4-day metrics: 8,200 impr · 484 clicks · CTR 5.9% · CPC $0.90 · 0 conversions\n\n" +
+            "AD GROUP 2: Competitor Conquest\n" +
+            "  Keywords:\n" +
+            "    [Exact]   blue apron promo code\n" +
+            "    [Exact]   hellofresh discount\n" +
+            "    [Phrase]  \"hellofresh vs blue apron\"\n" +
+            "  Negative keywords: none configured\n" +
+            "  Ads running: 1\n" +
+            "    \"Try Something New | Meal Kits\" -> mealkitstartup.com (homepage)\n" +
+            "  4-day metrics: 1,050 impr · 61 clicks · CTR 5.8% · CPC $2.15 · 0 conversions",
+          prompt:
+            "Before this account's budget goes from $50/day to $400/day tomorrow, list every real structural mistake you'd fix first, and explicitly name anything in the numbers that looks wrong but isn't.",
+          answerKey: [
+            {
+              defect: "Both ad groups send every click to the homepage, not a dedicated landing page",
+              severity: "critical",
+              whyItMatters:
+                "The lesson's Mistake 1 is exactly this: a homepage tries to do ten things at once, and dedicated landing pages convert 65% better (Digital Silk, 2025) than sending traffic to a general page. At $400/day this is the single most expensive unfixed problem in the account.",
+              lessonRef: "Mistake 1: Sending ad traffic to your homepage",
+              owner: "either",
+            },
+            {
+              defect:
+                "\"Meal Kits - General\" mixes three unrelated keyword themes in one ad group: a generic category term, a direct competitor brand term, and an unrelated informational term",
+              severity: "critical",
+              whyItMatters:
+                "The lesson's campaign-structure rule is explicit: keep each group tightly themed, one keyword theme per group. One ad trying to be relevant to \"healthy dinner ideas\", \"blue apron alternative\", and \"vegan recipes free\" at once will have a mediocre Quality Score against all three, raising CPC across the whole group.",
+              lessonRef: "The Full Campaign Structure: Ad Group / Ad Set level, keep each group tightly themed",
+              owner: "you",
+            },
+            {
+              defect: "Each ad group is running only one ad, with no second variant to compare it against",
+              severity: "moderate",
+              whyItMatters:
+                "The lesson is explicit that you should always run at least 2 ads per group so you can compare performance. With one ad each, there's no way to know if 5.9-5.8% CTR is the best this account can do or the floor.",
+              lessonRef: "The Full Campaign Structure: Ad level, run at least 2 ads per group",
+              owner: "you",
+            },
+            {
+              defect:
+                "Zero negative keywords configured on an ad group running broad match on generic terms (\"healthy dinner ideas\", \"subscription box food\")",
+              severity: "moderate",
+              whyItMatters:
+                "This is the practical form of the lesson's Mistake 2, starting too broad. Broad match without any exclusions on generic category terms is exactly how budget bleeds onto irrelevant searches before the account has even validated its narrowest, tightest theme.",
+              lessonRef: "Mistake 2: Starting with too broad an audience or too many keywords",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Ad Group 1's CTR is 5.9%, slightly under the lesson's cited 6.66% average Google Search CTR (WordStream, 2025), a small gap like this is normal variance, not a structural defect",
+            "Ad Group 2's CPC ($2.15) is more than double Ad Group 1's ($0.90), branded competitor-conquest terms routinely cost more because more advertisers bid on them, exactly the lesson's 'CPC is rising: more competitors entering your auction' row, this is expected, not broken",
+            "The account only has 2 ad groups total, the lesson's own fix for starting too broad is to begin with the tightest possible theme and expand later, 2 narrow groups is the healthy starting point, not a sign the account is too small",
+            "Zero conversions recorded after 4 days live, the lesson's own budget guidance says you need roughly 100-200 clicks to know if a keyword or ad group is working, at 484 and 61 clicks respectively neither group has reached that yet, so 0 conversions is too early to read, not a red flag",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Ads",
+            role: "Where you'd actually restructure ad groups, add negative keywords, and add a second ad variant",
+            why: "Free to browse and edit, this entire teardown is completable by reading and annotating the specimen above without opening an account at all.",
+            required: false,
+            lastVerified: "2026-08-12",
+          },
+          {
+            toolName: "Google Analytics 4",
+            role: "Confirm whether the homepage is actually bleeding clicks before recommending a dedicated landing page",
+            why: "Free tier shows bounce/engagement time on the homepage specifically from paid traffic, the evidence behind flagging defect 1.",
+            required: false,
+            lastVerified: "2026-08-12",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Optmyzr",
+            role: "Automated account-structure audits and negative-keyword suggestions at scale",
+            why: "The free path (manual review, exactly like this teardown) is complete for a 2-ad-group account; Optmyzr earns its cost once you're auditing accounts with dozens of ad groups on a recurring basis.",
+            required: false,
+            lastVerified: "2026-08-12",
+          },
+        ],
+        paidUpgradeNote:
+          "This teardown needs no paid tool at all, it's a structural read of an account export. Paid audit tools only save time once you're doing this across many accounts, not one.",
+      },
+      deliverable:
+        "A structural audit memo listing only the real mistakes you found (not the distractors), each with the specific fix and the exact lesson mistake/rule it violates.",
+      sampleOutput:
+        "Applying the same 4-point checklist to a Dollar Shave Club-style launch account: the audit flagged all ad traffic routing to the homepage instead of a dedicated razor-subscription landing page, a single \"Shaving\" ad group mixing brand-defense terms with unrelated grooming-tips searches, and only one ad live in each group. The account's slightly-below-average 6.1% CTR and its zero conversions after 3 days were both explicitly logged as non-issues, not enough data yet, exactly like the distractors in this teardown.",
+      successCriteria: [
+        "Flagged all 4 real defects: homepage-only landing pages, the mixed-theme ad group, the single-ad-per-group problem, and the missing negative keywords",
+        "Did not flag the 5.9% CTR as a defect on its own, correctly read it as normal variance against the 6.66% benchmark",
+        "Did not flag the higher competitor-conquest CPC as a mistake, correctly attributed it to normal auction competition",
+        "Did not flag the low click/conversion volume as a red flag, correctly identified it as too early to judge per the lesson's 100-200 click guidance",
+      ],
+      portfolioReady: false,
+      stretch:
+        "Pull a real Google Ads account (yours or a client's) that's about to get a budget increase and run this exact same 4-point structural checklist against it before the new budget goes live.",
     },
   ],
 };

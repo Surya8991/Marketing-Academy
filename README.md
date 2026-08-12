@@ -148,8 +148,13 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/glossary.ts` | 158 marketing term definitions |
 | `src/lib/quizzes.ts` | Quiz questions (4 per lesson, all 642 lessons covered) |
 | `src/lib/tools-directory.ts` | 111 marketing tools with category/pricing data |
-| `PROJECTS_PLAN.md` | **High-priority roadmap** — stages 0-7, 9.4 complete (safety, integrity, a11y, UX, perf, tests, CI, content hygiene). Remaining: projects layer (8), long tail (9), quiz expansion (10) |
+| `PROJECTS_PLAN.md` | **High-priority roadmap** — stages 0-7, 9.4 complete. Stage 8 Phase 0+1 pilot complete (34 projects, 19 lessons, `/projects` hub). Remaining: 8.2b (centrality bands), 8.3-8.4 (Phase 2 scale, concept scenarios), long tail (9), quiz expansion (10) |
 | `.github/workflows/ci.yml` | GitHub Actions CI: lint + test + build on push/PR to main |
+| `src/lib/projects/types.ts` | Practice-projects type system: `Project`, `ProjectStep`, `SimulationStage`, `TeardownItem`, `CaseCompany`, 6 modes + no-project verdict, 9 archetypes |
+| `src/lib/case-companies.ts` | 77 verified case companies with cited exits, backdrop for practice projects |
+| `src/lib/projects/*.ts` | Per-category practice project modules (dynamically imported, never one shared file — AGENTS.md Rule 37) |
+| `src/lib/projects-index.ts` | **Generated** slim card index for the `/projects` hub — regenerate with `node --import tsx scripts/build-projects-index.mjs` |
+| `src/lib/projects-progress.ts` | Practice-project completion + XP lib (localStorage, mirrors progress.ts/engagement.ts patterns) |
 | `src/lib/bookmarks.ts` | Shared bookmark storage (BOOKMARK_KEY, getBookmarks, saveBookmarks) |
 | `src/lib/progress.ts` | Lesson completion helpers (COMPLETED_KEY exported, getCompleted, markComplete) |
 | `src/lib/engagement.ts` | XP/streak system (addXP, getEngagement, getCurrentLevel, ENGAGEMENT_EVENT) |
@@ -201,6 +206,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/about` | About page: mission, builder profile, stats, tech stack, links |
 | `/certificates` | Track completion certificate index |
 | `/certificates/[slug]` | Printable track completion certificate |
+| `/projects` | Practice projects hub: search, tier/archetype/mode/category filters (Stage 8 Phase 1 pilot, 34 projects across 19 lessons) |
 | `/feed.xml` | RSS feed |
 | `/sitemap.xml` | Auto-generated sitemap (lessons with MDX only) |
 | `/api/og` | Dynamic OG image endpoint |

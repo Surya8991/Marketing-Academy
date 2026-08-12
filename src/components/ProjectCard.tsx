@@ -31,6 +31,7 @@ import { useState, useEffect } from "react";
 import { ChevronDown, ChevronUp, CheckCircle2, Circle, Download } from "lucide-react";
 import ProjectStep from "./ProjectStep";
 import SimulationRunner from "./SimulationRunner";
+import TeardownItemCard from "./TeardownItemCard";
 import ToolStack from "./ToolStack";
 import { CASE_COMPANIES } from "@/lib/case-companies";
 import type { Project, ProjectTier } from "@/lib/projects/types";
@@ -227,15 +228,11 @@ export default function ProjectCard({ project, id }: { project: Project; id?: st
           )}
 
           {project.teardownItems && project.teardownItems.length > 0 && (
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-3">
               <h4 className="text-sm font-bold text-[var(--foreground)] m-0">Specimens to review</h4>
-              <ul className="flex flex-col gap-1.5 m-0 pl-5">
-                {project.teardownItems.map((item) => (
-                  <li key={item.itemId} className="text-sm text-[var(--foreground)]">
-                    {item.prompt}
-                  </li>
-                ))}
-              </ul>
+              {project.teardownItems.map((item) => (
+                <TeardownItemCard key={item.itemId} item={item} />
+              ))}
             </div>
           )}
 

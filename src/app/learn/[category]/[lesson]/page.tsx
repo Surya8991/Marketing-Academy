@@ -7,6 +7,8 @@ import ReadingProgress from "@/components/ReadingProgress";
 import { TableOfContentsDesktop, TableOfContentsMobile } from "@/components/TableOfContents";
 import Quiz from "@/components/Quiz";
 import { QUIZZES } from "@/lib/quizzes";
+import ProjectList from "@/components/ProjectList";
+import type { Project } from "@/lib/projects/types";
 import ShareButtons from "@/components/ShareButtons";
 import BookmarkButton from "@/components/BookmarkButton";
 import RelatedLessons from "@/components/RelatedLessons";
@@ -108,10 +110,22 @@ export default async function LessonPage({ params }: Props) {
   const quizQuestions = QUIZZES[`${sourceCat}/${lesson}`];
   const hasQuiz = !!(quizQuestions && quizQuestions.length > 0);
 
-  // TODO(stage8-workflow-c): wire to real per-category project lookup once
-  // src/lib/projects/[category].ts modules exist. Hardcoded false for now so
-  // the Projects section and ToC entry stay dormant without breaking the build.
-  const hasProjects = false;
+  // Practice projects (PROJECTS_PLAN.md Stage 8): per-category modules under
+  // src/lib/projects/ are dynamically imported here, one at a time, so a
+  // category with no project module yet (most of them, in this Phase 1
+  // pilot) never breaks the build (AGENTS.md Rule 37: never statically
+  // import all category modules at once). Export name follows the
+  // <SLUG_AS_UPPER_SNAKE>_PROJECTS convention (see scripts/build-projects-index.mjs).
+  let lessonProjects: Project[] = [];
+  try {
+    const projectsMod = await import(`@/lib/projects/${sourceCat}`);
+    const exportName = `${sourceCat.toUpperCase().replace(/-/g, "_")}_PROJECTS`;
+    const projectsBySlug = projectsMod[exportName] as Record<string, Project[]> | undefined;
+    lessonProjects = projectsBySlug?.[lesson] ?? [];
+  } catch {
+    // No project module exists yet for this category, lessonProjects stays empty.
+  }
+  const hasProjects = lessonProjects.length > 0;
 
   // JSON-LD URLs always point to the canonical (sourceCat) location so schema
   // signals do not contradict the canonical link when the lesson is viewed via
@@ -209,7 +223,11 @@ export default async function LessonPage({ params }: Props) {
                   <Clock size={12} />
                   {readTime} min read
                 </span>
-                {/* TODO(stage8-workflow-c): add "· N projects" next to read time once hasProjects is real */}
+                {hasProjects && (
+                  <span className="text-xs text-[var(--muted-foreground)]">
+                    &middot; {lessonProjects.length} {lessonProjects.length === 1 ? "project" : "projects"}
+                  </span>
+                )}
                 <span className="text-xs text-[var(--muted-foreground)]">{cat.title}</span>
                 <span className="text-xs text-[var(--muted-foreground)]">Marketing Academy · Jun 2026</span>
               </div>
@@ -299,10 +317,11 @@ export default async function LessonPage({ params }: Props) {
               </div>
             )}
 
-            {/* Projects (Stage 8) */}
+            {/* Projects (Stage 8). ProjectList owns id="projects-section" itself, do not
+                duplicate the id on this wrapper, IDs must be unique for the ToC scroll-spy. */}
             {hasProjects && (
-              <div id="projects-section" className="mt-12 pt-8 border-t border-[var(--border)]">
-                {/* TODO(stage8-workflow-c): render <ProjectList projects={...} /> once project data is wired */}
+              <div className="mt-12 pt-8 border-t border-[var(--border)]">
+                <ProjectList projects={lessonProjects} />
               </div>
             )}
 

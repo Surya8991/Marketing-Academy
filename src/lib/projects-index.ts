@@ -33,6 +33,500 @@ export type ProjectCardData = {
 
 export const PROJECTS_INDEX: ProjectCardData[] = [
   {
+    "id": "analytics-101-instacart-tracking-audit",
+    "category": "analytics",
+    "lessonSlug": "analytics-101",
+    "lessonTitle": "Analytics 101",
+    "tier": "big",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Full GA4 Tracking Audit: Instacart's Marketing Funnel",
+    "timeMinutes": 70,
+    "companyId": "instacart",
+    "conceptsCovered": [
+      "Session",
+      "Engaged Session",
+      "User (vs. Active User)",
+      "Key Event",
+      "Actionable vs. Vanity Metrics"
+    ]
+  },
+  {
+    "id": "analytics-101-chewy-broken-tracking-rebuild",
+    "category": "analytics",
+    "lessonSlug": "analytics-101",
+    "lessonTitle": "Analytics 101",
+    "tier": "core",
+    "archetype": "rebuild",
+    "mode": "build",
+    "title": "Rebuild Chewy's Broken Analytics Setup from a Handoff Doc",
+    "timeMinutes": 45,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Event",
+      "Session",
+      "Key Event",
+      "Actionable vs. Vanity Metrics"
+    ]
+  },
+  {
+    "id": "what-is-content-marketing-teardown",
+    "category": "content",
+    "lessonSlug": "what-is-content-marketing",
+    "lessonTitle": "What Content Marketing Really Is",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Content Marketing or Disguised Ad? Three Specimens, One Test",
+    "timeMinutes": 20,
+    "companyId": "mailchimp",
+    "conceptsCovered": [
+      "What It Actually Is",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "what-is-content-marketing-brief-build",
+    "category": "content",
+    "lessonSlug": "what-is-content-marketing",
+    "lessonTitle": "What Content Marketing Really Is",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Write a One-Page Brief That Passes the Logo Test",
+    "timeMinutes": 35,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "What It Actually Is",
+      "How It Works / The Playbook"
+    ]
+  },
+  {
+    "id": "content-strategy-pillar-doc-build",
+    "category": "content",
+    "lessonSlug": "content-strategy",
+    "lessonTitle": "Content Strategy",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build Freshworks' Two-Page Content Strategy Document",
+    "timeMinutes": 75,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Step 1: Pick one primary audience",
+      "Step 2: Map their journey to three stages",
+      "Step 3: Choose two channels, maximum",
+      "Step 4: Define what \"worked\" looks like per format",
+      "Step 5: Commit to a cadence you can sustain for 12 months",
+      "Step 6: Write the \"will not publish\" list"
+    ]
+  },
+  {
+    "id": "content-strategy-channel-audit",
+    "category": "content",
+    "lessonSlug": "content-strategy",
+    "lessonTitle": "Content Strategy",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Audit PolicyBazaar's Content Channel Mix Against the Two-Channel Rule",
+    "timeMinutes": 50,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Checking whether content investment is actually running through 2 channels or quietly spread across more",
+      "Checking whether each channel is judged on its own metric or lumped into one blanket KPI",
+      "Checking how much published content never gets indexed, a sign the 'will not publish' list isn't being enforced"
+    ]
+  },
+  {
+    "id": "copywriting-101-landing-copy-teardown",
+    "category": "copywriting",
+    "lessonSlug": "copywriting-101",
+    "lessonTitle": "Copywriting 101",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Copy Killers: A Landing Page Teardown",
+    "timeMinutes": 35,
+    "companyId": "dollar-shave-club",
+    "conceptsCovered": [
+      "Step 1: Attention",
+      "Step 3: Desire",
+      "Step 4: Action",
+      "Mistake 1: Writing About Yourself Instead of the Reader",
+      "Mistake 3: Vague, Weak CTAs",
+      "Mistake 4: No Specificity",
+      "Mistake 5: Ignoring Skimmers"
+    ]
+  },
+  {
+    "id": "copywriting-101-rebuild-the-page",
+    "category": "copywriting",
+    "lessonSlug": "copywriting-101",
+    "lessonTitle": "Copywriting 101",
+    "tier": "core",
+    "archetype": "rebuild",
+    "mode": "build",
+    "title": "Rebuild It: Turn Weak Copy Into a Converting Page",
+    "timeMinutes": 40,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "How It Works: The AIDA Playbook",
+      "Step 1: Attention",
+      "Step 3: Desire",
+      "Step 4: Action",
+      "Mistake 1: Writing About Yourself Instead of the Reader",
+      "Mistake 2: Burying the Benefit",
+      "Mistake 4: No Specificity",
+      "Mistake 5: Ignoring Skimmers"
+    ]
+  },
+  {
+    "id": "headlines-head-to-head-scoring",
+    "category": "copywriting",
+    "lessonSlug": "headlines",
+    "lessonTitle": "Headline Writing",
+    "tier": "core",
+    "archetype": "head-to-head",
+    "mode": "build",
+    "title": "Head-to-Head: Score Four Term-Insurance Blog Headlines",
+    "timeMinutes": 30,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "How It Works",
+      "Psychological Triggers That Work",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "headlines-build-the-asset",
+    "category": "copywriting",
+    "lessonSlug": "headlines",
+    "lessonTitle": "Headline Writing",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Asset: Write 5 Original Headlines and Score Your Own Work",
+    "timeMinutes": 35,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "How It Works",
+      "Psychological Triggers That Work",
+      "Common Mistakes",
+      "Key Takeaways"
+    ]
+  },
+  {
+    "id": "email-marketing-101-ten-campaign-audit",
+    "category": "email",
+    "lessonSlug": "email-marketing-101",
+    "lessonTitle": "Email Marketing 101",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Ten Campaigns, One Real Problem: Auditing a Live Email Export",
+    "timeMinutes": 40,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Key Metrics to Track",
+      "Segmentation and Automation: Where the Money Is",
+      "Writing Emails That Get Opened and Clicked"
+    ]
+  },
+  {
+    "id": "email-marketing-101-trigger-vs-batch-headtohead",
+    "category": "email",
+    "lessonSlug": "email-marketing-101",
+    "lessonTitle": "Email Marketing 101",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "Triggered Send vs. Scheduled Batch: A Head-to-Head from the Same Export",
+    "timeMinutes": 25,
+    "companyId": "mailchimp",
+    "conceptsCovered": [
+      "Automation",
+      "Subject lines",
+      "Key Metrics to Track"
+    ]
+  },
+  {
+    "id": "welcome-series-draft-three-email-sequence",
+    "category": "email",
+    "lessonSlug": "welcome-series",
+    "lessonTitle": "The Welcome Series",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Draft a Real 3-Email Welcome Series",
+    "timeMinutes": 50,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "How the Series Works",
+      "Subject Line Strategy",
+      "Common Mistakes to Avoid",
+      "The Timing That Matters Most"
+    ]
+  },
+  {
+    "id": "welcome-series-teardown-specimen",
+    "category": "email",
+    "lessonSlug": "welcome-series",
+    "lessonTitle": "The Welcome Series",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: A Welcome Series That's Losing Money",
+    "timeMinutes": 35,
+    "companyId": "bonobos",
+    "conceptsCovered": [
+      "How the Series Works",
+      "Common Mistakes to Avoid",
+      "Conditional Splits: The Feature Most Brands Ignore",
+      "Subject Line Strategy",
+      "The Timing That Matters Most"
+    ]
+  },
+  {
+    "id": "value-proposition-seed-deck-build",
+    "category": "fundamentals",
+    "lessonSlug": "value-proposition",
+    "lessonTitle": "The Value Proposition",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The Seed Deck Value Prop: Writing One a VC Can't Poke Holes In",
+    "timeMinutes": 40,
+    "companyId": "native-deodorant",
+    "conceptsCovered": [
+      "How It Works",
+      "How to Write Your First Draft",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "value-proposition-two-drafts-head-to-head",
+    "category": "fundamentals",
+    "lessonSlug": "value-proposition",
+    "lessonTitle": "The Value Proposition",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "Two Drafts, One Board Meeting: Judging Value Props Against the Framework",
+    "timeMinutes": 20,
+    "companyId": "walker-and-company",
+    "conceptsCovered": [
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "marketing-math-cfo-unit-economics-audit",
+    "category": "fundamentals",
+    "lessonSlug": "marketing-math",
+    "lessonTitle": "Marketing Math: CAC, LTV, ROAS, Payback",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The CFO Meeting: Auditing a Paid Social Channel's Real Unit Economics",
+    "timeMinutes": 35,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "1. CAC, Customer Acquisition Cost",
+      "2. LTV, Lifetime Value (also called CLV or Customer Lifetime Value)",
+      "3. ROAS, Return on Ad Spend",
+      "4. Payback Period",
+      "How the Four Metrics Work Together"
+    ]
+  },
+  {
+    "id": "marketing-math-rapid-fire-drills",
+    "category": "fundamentals",
+    "lessonSlug": "marketing-math",
+    "lessonTitle": "Marketing Math: CAC, LTV, ROAS, Payback",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "drill",
+    "title": "Investor Q&A Drills: Six Rapid CAC/LTV/ROAS/Payback Reps",
+    "timeMinutes": 25,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "1. CAC, Customer Acquisition Cost",
+      "2. LTV, Lifetime Value (also called CLV or Customer Lifetime Value)",
+      "3. ROAS, Return on Ad Spend",
+      "4. Payback Period"
+    ]
+  },
+  {
+    "id": "pmf-retention-audit-signals",
+    "category": "fundamentals",
+    "lessonSlug": "product-market-fit",
+    "lessonTitle": "Product–Market Fit",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Reading the Three PMF Signals: A Real Retention-Curve and Survey Audit",
+    "timeMinutes": 40,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Signal 1: The Sean Ellis Test",
+      "Signal 2: Retention Curves That Flatten",
+      "Signal 3: Word-of-Mouth Without Prompting"
+    ]
+  },
+  {
+    "id": "pmf-vanity-growth-teardown",
+    "category": "fundamentals",
+    "lessonSlug": "product-market-fit",
+    "lessonTitle": "Product–Market Fit",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Vanity Growth or Real PMF? Tearing Down a Pre-Series-B Growth Memo",
+    "timeMinutes": 25,
+    "companyId": "winc-club-w",
+    "conceptsCovered": [
+      "Signal 1: The Sean Ellis Test",
+      "Signal 2: Retention Curves That Flatten",
+      "Common Mistakes to Avoid"
+    ]
+  },
+  {
+    "id": "what-is-growth-vanity-metrics-teardown",
+    "category": "growth",
+    "lessonSlug": "what-is-growth",
+    "lessonTitle": "What Growth Marketing Really Is",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Vanity Metrics Deck: Spot What's Actually Growth",
+    "timeMinutes": 30,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Choose Your North Star Metric",
+      "Map the AARRR Funnel",
+      "Measuring outputs instead of outcomes"
+    ]
+  },
+  {
+    "id": "what-is-growth-loop-plateau-forecast",
+    "category": "growth",
+    "lessonSlug": "what-is-growth",
+    "lessonTitle": "What Growth Marketing Really Is",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Loop or Funnel? Forecasting Whether Swiggy Instamart's Growth Holds",
+    "timeMinutes": 40,
+    "companyId": "swiggy",
+    "conceptsCovered": [
+      "Map the AARRR Funnel",
+      "Growth Loops vs. Linear Funnels",
+      "Measuring outputs instead of outcomes"
+    ]
+  },
+  {
+    "id": "north-star-metric-policybazaar-nsm-defense",
+    "category": "growth",
+    "lessonSlug": "north-star-metric",
+    "lessonTitle": "The North Star Metric",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "build",
+    "title": "Pick and Defend PolicyBazaar's North Star Metric",
+    "timeMinutes": 50,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Write the Value Statement",
+      "Test Against Three Criteria",
+      "Decompose into Input Metrics",
+      "Before Product-Market Fit: A Special Case"
+    ]
+  },
+  {
+    "id": "north-star-metric-zomato-head-to-head",
+    "category": "growth",
+    "lessonSlug": "north-star-metric",
+    "lessonTitle": "The North Star Metric",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "drill",
+    "title": "Orders Placed vs. App Opens: A Head-to-Head NSM Drill",
+    "timeMinutes": 20,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "The Three Games Your Product Can Play",
+      "Test Against Three Criteria"
+    ]
+  },
+  {
+    "id": "first-principles-thinking-memo-teardown",
+    "category": "mental-models",
+    "lessonSlug": "first-principles-thinking",
+    "lessonTitle": "First-Principles Thinking",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Borrowed Reasoning or Derived Truth? A Growth Memo Teardown",
+    "timeMinutes": 30,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "What It Actually Is",
+      "The Playbook: The Three-Step Method",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "first-principles-thinking-rebuild-assumption",
+    "category": "mental-models",
+    "lessonSlug": "first-principles-thinking",
+    "lessonTitle": "First-Principles Thinking",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Rebuild One Assumption-Driven Decision From Scratch",
+    "timeMinutes": 45,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "The Playbook: The Three-Step Method",
+      "Why It Matters",
+      "A Real Example"
+    ]
+  },
+  {
+    "id": "writing-to-think-decision-memo",
+    "category": "mental-models",
+    "lessonSlug": "writing-to-think",
+    "lessonTitle": "Writing to Think",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The Prose Test: Write a Real Decision Memo",
+    "timeMinutes": 40,
+    "companyId": "klaviyo",
+    "conceptsCovered": [
+      "The Playbook: The Prose Test",
+      "What Actually Improves From Writing",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "writing-to-think-memo-head-to-head",
+    "category": "mental-models",
+    "lessonSlug": "writing-to-think",
+    "lessonTitle": "Writing to Think",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "teardown",
+    "title": "Two Memos, Same Decision: Which One Actually Thought It Through?",
+    "timeMinutes": 25,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "The Playbook: The Prose Test",
+      "What It Actually Is",
+      "Common Mistakes"
+    ]
+  },
+  {
     "id": "paid-ads-101-learning-phase-sim",
     "category": "paid-ads",
     "lessonSlug": "paid-ads-101",
@@ -49,6 +543,95 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
       "the 7-14 day learning phase",
       "ROAS interpretation",
       "one-change-at-a-time discipline"
+    ]
+  },
+  {
+    "id": "paid-ads-101-account-teardown",
+    "category": "paid-ads",
+    "lessonSlug": "paid-ads-101",
+    "lessonTitle": "Paid Ads 101",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Structural Mistakes: A Google Ads Account Teardown",
+    "timeMinutes": 20,
+    "companyId": "hellofresh",
+    "conceptsCovered": [
+      "Mistake 1: sending ad traffic to your homepage",
+      "Ad Group / Ad Set level: one keyword theme per group (The Full Campaign Structure)",
+      "Ad level: run at least 2 ads per group to compare (The Full Campaign Structure)",
+      "Mistake 2: starting with too broad a target before narrowing"
+    ]
+  },
+  {
+    "id": "keyword-research-export-audit",
+    "category": "seo",
+    "lessonSlug": "keyword-research",
+    "lessonTitle": "Keyword Research",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Prioritization Call: Auditing a Real Keyword Export",
+    "timeMinutes": 40,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Filtering by search intent before filtering by anything else",
+      "Scoring realistic targets with the volume/difficulty/relevance table",
+      "Treating search volume as the only metric that matters (Mistake 2)",
+      "Fixing keywords you already rank for before chasing new ones (Mistake 3)"
+    ]
+  },
+  {
+    "id": "keyword-research-targeting-showdown",
+    "category": "seo",
+    "lessonSlug": "keyword-research",
+    "lessonTitle": "Keyword Research",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "One Page, Two Strategies: Broad Head Term vs. Long-Tail Cluster",
+    "timeMinutes": 20,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Comparing a head term against a long-tail cluster using the lesson's own realistic-target framework",
+      "Applying the Airbnb long-tail case to justify the cluster strategy"
+    ]
+  },
+  {
+    "id": "on-page-seo-title-tag-audit",
+    "category": "seo",
+    "lessonSlug": "on-page-seo",
+    "lessonTitle": "On-Page SEO",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Striking-Distance Audit: Fixing Titles Before Writing Anything New",
+    "timeMinutes": 35,
+    "companyId": "zillow",
+    "conceptsCovered": [
+      "Title tag length and keyword position",
+      "URL slug clarity",
+      "Meta description as a CTR lever, not a ranking factor",
+      "Connecting the fix to the lesson's CTR-by-position numbers"
+    ]
+  },
+  {
+    "id": "on-page-seo-rebuild-the-page",
+    "category": "seo",
+    "lessonSlug": "on-page-seo",
+    "lessonTitle": "On-Page SEO",
+    "tier": "mini",
+    "archetype": "rebuild",
+    "mode": "build",
+    "title": "Rebuild a Broken Page: Title, URL, H1, Meta, and Internal Links",
+    "timeMinutes": 30,
+    "companyId": "care-com",
+    "conceptsCovered": [
+      "Title Tag rules",
+      "URL Slug cleanliness",
+      "H1 Heading matching search intent",
+      "Meta Description as a CTR lever",
+      "Internal Links and descriptive anchor text"
     ]
   }
 ];
