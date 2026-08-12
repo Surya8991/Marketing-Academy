@@ -13,7 +13,13 @@
  *   window.dispatchEvent(new CustomEvent(ENGAGEMENT_EVENT, { detail: { state: newState, unlocked } }));
  *
  * XP values: complete=30, quiz=20, bookmark=5.
- * Deduplication: same (action, id) pair earns XP at most once per 24 hours.
+ * Deduplication:
+ *   - "complete" is deduped PERMANENTLY per id (PROJECTS_PLAN.md Stage 1.7,
+ *     decided): a lesson is only completed for the first time once. Without
+ *     this, markIncomplete() (progress.ts) never reverses XP, and the old
+ *     24h rolling dedupe meant complete → un-complete → wait a day →
+ *     re-complete farmed +30 XP indefinitely.
+ *   - "quiz" and "bookmark" keep the 24h rolling dedupe (unchanged).
  */
 
 export const ENGAGEMENT_KEY = "ma_engagement";
@@ -35,6 +41,13 @@ export type EngagementState = {
   xpByDay: Record<string, number>;
   achievements: string[]; // achievement IDs already unlocked
   xpLog: { action: XPAction; id: string; xp: number; ts: number }[];
+  /**
+   * Lesson ids that have ever earned "complete" XP, uncapped (unlike xpLog,
+   * which is pruned to 200 entries for storage size). This is what makes the
+   * "complete" dedupe in addXP() genuinely permanent: xpLog rotating out an
+   * old entry must never allow the same lesson to re-earn +30 XP.
+   */
+  completedXpIds: string[];
 };
 
 /** Returns a local "YYYY-MM-DD" string, avoids UTC/local timezone mismatch for streak tracking */
@@ -74,6 +87,7 @@ function defaultState(): EngagementState {
     xpByDay: {},
     achievements: [],
     xpLog: [],
+    completedXpIds: [],
   };
 }
 
@@ -117,11 +131,21 @@ export function addXP(action: XPAction, id: string): EngagementState {
     const amount = XP_VALUES[action];
     const t = today();
 
-    // 24-hour deduplication: same (action, id) pair can only earn XP once per day
-    const alreadyEarned = state.xpLog.some(
-      (e) => e.action === action && e.id === id && e.ts > Date.now() - 86_400_000
-    );
-    if (alreadyEarned) return state;
+    if (action === "complete") {
+      // Permanent per-lesson dedupe (PROJECTS_PLAN.md Stage 1.7, decided):
+      // a lesson only earns "complete" XP the first time it's ever completed,
+      // full stop. Checked against completedXpIds (uncapped), NOT xpLog
+      // (capped at 200, so a 24h or "ever in the log" check would eventually
+      // let old lessons re-earn XP once their entry rotates out).
+      if (state.completedXpIds.includes(id)) return state;
+      state.completedXpIds = [...state.completedXpIds, id];
+    } else {
+      // "quiz" and "bookmark" keep the original 24-hour rolling dedupe.
+      const alreadyEarned = state.xpLog.some(
+        (e) => e.action === action && e.id === id && e.ts > Date.now() - 86_400_000
+      );
+      if (alreadyEarned) return state;
+    }
 
     // Streak: increment if last activity was yesterday; reset to 1 if there was a gap
     if (state.lastActiveDay !== t) {
@@ -138,7 +162,9 @@ export function addXP(action: XPAction, id: string): EngagementState {
 
     state.xp += amount;
     state.xpByDay[t] = (state.xpByDay[t] ?? 0) + amount;
-    // Keep only the last 200 log entries to cap storage growth
+    // Keep only the last 200 log entries to cap storage growth. Safe to prune
+    // for "complete" now because completedXpIds (above), not this log, is
+    // the source of truth for permanent dedupe.
     state.xpLog = [
       { action, id, xp: amount, ts: Date.now() },
       ...state.xpLog.slice(0, 199),

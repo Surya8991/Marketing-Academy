@@ -29,6 +29,34 @@ export function setQuizPassed(category: string, slug: string): void {
   }
 }
 
+/**
+ * Track-level synthesis-quiz pass flag, separate from the per-lesson flag
+ * above. PROJECTS_PLAN.md Stage 0.4 / 16.6 (decided option B): certificates
+ * require 100% of lessons complete AND this flag, so completing every lesson
+ * via per-lesson quizzes alone (never visiting /tracks/[slug]/quiz) does not
+ * by itself earn a certificate.
+ */
+export function trackQuizPassKey(trackSlug: string): string {
+  return `ma_track_quiz_pass_${trackSlug}`;
+}
+
+export function getTrackQuizPassed(trackSlug: string): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    return localStorage.getItem(trackQuizPassKey(trackSlug)) === "1";
+  } catch {
+    return false;
+  }
+}
+
+export function setTrackQuizPassed(trackSlug: string): void {
+  try {
+    localStorage.setItem(trackQuizPassKey(trackSlug), "1");
+  } catch {
+    // storage unavailable
+  }
+}
+
 /** CustomEvent name dispatched by Quiz when user passes, canonical source: @/lib/events */
 export { QUIZ_PASSED_EVENT } from "@/lib/events";
 
@@ -3101,15 +3129,15 @@ export const QUIZZES: Record<string, Quiz[]> = {
       explanation: "Google requires a minimum volume of data for its machine learning models to train and calibrate accurately. The account must record at least 700 ad clicks over a 7-day period (per country/domain combination) to qualify for conversion modeling.",
     },
     {
-      question: "Which of the following is a common mistake when implementing Google Consent Mode v2?",
+      question: "Which of these is a common mistake when implementing Google Consent Mode v2?",
       options: [
-        "Using Consent Mode as a total replacement for a Consent Management Platform (CMP)",
-        "Setting default consent state to 'granted' before the user makes a choice",
-        "Omitting the ad_user_data and ad_personalization parameters",
-        "All of the above",
+        "Treating Consent Mode as a full replacement for a Consent Management Platform, when it only passes consent signals and never displays a banner itself",
+        "Waiting for the user's consent choice before loading any Google tags",
+        "Including both the ad_user_data and ad_personalization parameters for DMA compliance",
+        "Forwarding consent state changes to Google in real time as the user updates their preferences",
       ],
-      correct: 3,
-      explanation: "All three are common mistakes: Consent Mode is not a CMP (it doesn't show the banner; it just passes the signal to Google); loading tags with implicit consent before the user responds violates privacy laws like the DMA; and leaving out the new v2 parameters blocks modeling.",
+      correct: 0,
+      explanation: "Consent Mode is not a Consent Management Platform: it doesn't render the banner or collect consent itself, it only passes the signal to Google's tags, so a CMP is still required alongside it. Waiting for consent before firing tags, including the v2 ad_user_data/ad_personalization parameters, and forwarding consent updates in real time are all correct practices, not mistakes.",
     },
   ],
 

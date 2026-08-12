@@ -27,8 +27,22 @@ export default async function TrackQuizPage({ params }: Props) {
   const track = getTrack(slug);
   if (!track) notFound();
 
-  const lessonQuestions = track.lessons.flatMap((l) => QUIZZES[`${l.category}/${l.slug}`] ?? []);
-  const synthesisQuestions = TRACK_QUIZZES[slug] ?? [];
+  // Each pooled question is tagged with the lesson it came from (lessonKey
+  // null for track-level synthesis questions, which don't belong to any one
+  // lesson). PROJECTS_PLAN.md Stage 1.5 needs this per-question association
+  // to compute a per-lesson minimum score after the pooled set is shuffled,
+  // shuffling a plain Quiz[] would otherwise lose which question came from
+  // which lesson.
+  const lessonQuestions = track.lessons.flatMap((l) =>
+    (QUIZZES[`${l.category}/${l.slug}`] ?? []).map((quiz) => ({
+      lessonKey: `${l.category}/${l.slug}`,
+      quiz,
+    }))
+  );
+  const synthesisQuestions = (TRACK_QUIZZES[slug] ?? []).map((quiz) => ({
+    lessonKey: null as string | null,
+    quiz,
+  }));
   const questions = [...lessonQuestions, ...synthesisQuestions];
 
   return (

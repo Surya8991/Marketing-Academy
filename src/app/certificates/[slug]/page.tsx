@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { TRACKS } from "@/lib/tracks";
 import { getCompleted } from "@/lib/progress";
+import { getTrackQuizPassed } from "@/lib/quizzes";
 
 export default function CertificatePage() {
   const params = useParams();
@@ -14,6 +15,7 @@ export default function CertificatePage() {
   const [completedCount, setCompletedCount] = useState(0);
   const [today, setToday] = useState("");
   const [checked, setChecked] = useState(false);
+  const [trackQuizPassed, setTrackQuizPassedState] = useState(false);
 
   useEffect(() => {
     let completed = new Set<string>();
@@ -28,6 +30,11 @@ export default function CertificatePage() {
         completed.has(`${l.category}/${l.slug}`)
       ).length;
       setCompletedCount(count);
+      try {
+        setTrackQuizPassedState(getTrackQuizPassed(track.slug));
+      } catch {
+        setTrackQuizPassedState(false);
+      }
     }
     setChecked(true);
 
@@ -68,7 +75,11 @@ export default function CertificatePage() {
 
   const totalLessons = track.lessons.length;
   const pct = totalLessons > 0 ? Math.round((completedCount / totalLessons) * 100) : 0;
-  const eligible = pct === 100;
+  // PROJECTS_PLAN.md 16.6 (decided option B): 100% of lessons AND a passed
+  // track quiz, not lesson completion alone, now that Stage 1.1 closes the
+  // checkbox bypass and per-lesson quizzes can complete a track without ever
+  // visiting /tracks/[slug]/quiz.
+  const eligible = pct === 100 && trackQuizPassed;
 
   // Wait for the localStorage check before deciding eligibility, so a genuinely
   // eligible learner never sees a false "not eligible" flash on first paint.
@@ -104,9 +115,27 @@ export default function CertificatePage() {
           Not quite eligible yet
         </p>
         <p style={{ color: "var(--muted-foreground)", margin: 0, maxWidth: 420 }}>
-          Complete all {totalLessons} lessons in {track.title} to unlock this certificate.
-          You&apos;ve completed {completedCount} of {totalLessons} ({pct}%).
+          {pct === 100 && !trackQuizPassed
+            ? <>You&apos;ve completed all {totalLessons} lessons. Pass the track&apos;s knowledge check to unlock this certificate.</>
+            : <>Complete all {totalLessons} lessons in {track.title} and pass the track&apos;s knowledge check to unlock this certificate.
+                You&apos;ve completed {completedCount} of {totalLessons} ({pct}%).</>}
         </p>
+        {pct === 100 && !trackQuizPassed && (
+          <Link
+            href={`/tracks/${slug}/quiz`}
+            style={{
+              padding: "0.5rem 1.25rem",
+              background: "var(--accent)",
+              color: "var(--accent-foreground)",
+              borderRadius: "6px",
+              fontSize: "0.9rem",
+              fontWeight: 600,
+              textDecoration: "none",
+            }}
+          >
+            Take the knowledge check
+          </Link>
+        )}
         <div
           style={{
             background: "var(--muted)",
