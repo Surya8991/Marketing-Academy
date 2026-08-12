@@ -22,8 +22,12 @@ export default function OnboardingModal() {
 
   useEffect(() => {
     setMounted(true);
-    if (!localStorage.getItem(STORAGE_KEY)) {
-      setVisible(true);
+    try {
+      if (!localStorage.getItem(STORAGE_KEY)) {
+        setVisible(true);
+      }
+    } catch {
+      /* localStorage blocked, skip onboarding rather than crash the page */
     }
   }, []);
 
@@ -47,13 +51,21 @@ export default function OnboardingModal() {
   if (!mounted || !visible) return null;
 
   function handleGoal(href: string) {
-    localStorage.setItem(STORAGE_KEY, "1");
+    try {
+      localStorage.setItem(STORAGE_KEY, "1");
+    } catch {
+      /* localStorage blocked, modal will just reappear next visit */
+    }
     setVisible(false);
     router.push(href);
   }
 
   function handleSkip() {
-    localStorage.setItem(STORAGE_KEY, "1");
+    try {
+      localStorage.setItem(STORAGE_KEY, "1");
+    } catch {
+      /* localStorage blocked, modal will just reappear next visit */
+    }
     setVisible(false);
   }
 

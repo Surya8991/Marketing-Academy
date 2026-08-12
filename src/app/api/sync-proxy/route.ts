@@ -17,7 +17,17 @@
  * rather than throwing 500s. Check /api/sync/status for a boolean enabled flag.
  *
  * KV key: "progress" (single JSON blob per user, no per-lesson keys in KV).
+ *
+ * DISABLED as of PROJECTS_PLAN.md Stage 0.2: the KV key above is a single fixed
+ * string ("progress"), not scoped per user. SYNC_SECRET is also shipped to the
+ * client as NEXT_PUBLIC_SYNC_SECRET (AGENTS.md Rule 26), so every visitor to the
+ * site holds the same "auth" token. In practice this means ALL visitors read and
+ * write the exact same KV blob: any user can read another user's private notes,
+ * or overwrite/wipe another user's saved progress. Kill-switched here until the
+ * KV key is derived per-user (e.g. a per-browser random ID persisted locally and
+ * sent as part of the key). Keep this flag in sync with /api/sync/status/route.ts.
  */
+const SYNC_DISABLED = true;
 
 import { NextRequest, NextResponse } from "next/server";
 
@@ -43,6 +53,9 @@ function authenticate(req: NextRequest): boolean {
 
 /** GET /api/sync-proxy, pulls the user's saved progress blob from CF KV */
 export async function GET(req: NextRequest) {
+  if (SYNC_DISABLED) {
+    return NextResponse.json({ error: "Sync temporarily disabled" }, { status: 503 });
+  }
   if (!isConfigured()) {
     return NextResponse.json({ error: "Sync not configured" }, { status: 503 });
   }
@@ -65,6 +78,9 @@ export async function GET(req: NextRequest) {
 
 /** POST /api/sync-proxy, pushes the user's progress blob to CF KV (PUT semantics, full replace) */
 export async function POST(req: NextRequest) {
+  if (SYNC_DISABLED) {
+    return NextResponse.json({ error: "Sync temporarily disabled" }, { status: 503 });
+  }
   if (!isConfigured()) {
     return NextResponse.json({ error: "Sync not configured" }, { status: 503 });
   }

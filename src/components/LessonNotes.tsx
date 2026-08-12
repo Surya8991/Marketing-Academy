@@ -12,10 +12,14 @@ export default function LessonNotes({ category, slug }: { category: string; slug
   const pendingText = useRef<string | null>(null);
 
   useEffect(() => {
-    const stored = localStorage.getItem(getNoteKey(category, slug));
-    if (stored) {
-      setText(stored);
-      setOpen(true);
+    try {
+      const stored = localStorage.getItem(getNoteKey(category, slug));
+      if (stored) {
+        setText(stored);
+        setOpen(true);
+      }
+    } catch {
+      /* localStorage blocked, notes just won't persist this session */
     }
   }, [category, slug]);
 
@@ -26,10 +30,14 @@ export default function LessonNotes({ category, slug }: { category: string; slug
     pendingText.current = val;
     if (saveTimer.current) clearTimeout(saveTimer.current);
     saveTimer.current = setTimeout(() => {
-      if (val.trim()) {
-        localStorage.setItem(getNoteKey(category, slug), val);
-      } else {
-        localStorage.removeItem(getNoteKey(category, slug));
+      try {
+        if (val.trim()) {
+          localStorage.setItem(getNoteKey(category, slug), val);
+        } else {
+          localStorage.removeItem(getNoteKey(category, slug));
+        }
+      } catch {
+        /* localStorage blocked, note stays in memory for this session only */
       }
       pendingText.current = null;
       setSaved(true);
@@ -42,10 +50,14 @@ export default function LessonNotes({ category, slug }: { category: string; slug
       // Flush any pending text that hasn't been saved yet
       if (pendingText.current !== null) {
         const key = getNoteKey(category, slug);
-        if (pendingText.current.trim()) {
-          localStorage.setItem(key, pendingText.current);
-        } else {
-          localStorage.removeItem(key);
+        try {
+          if (pendingText.current.trim()) {
+            localStorage.setItem(key, pendingText.current);
+          } else {
+            localStorage.removeItem(key);
+          }
+        } catch {
+          /* localStorage blocked, unsaved note is lost on unmount, same as before this guard */
         }
       }
     };

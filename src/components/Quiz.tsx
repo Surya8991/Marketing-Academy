@@ -263,7 +263,7 @@ export default function Quiz({ questions, category, slug }: Props) {
             <button
               key={i}
               onClick={() => handleSelect(i)}
-              disabled={answered}
+              aria-disabled={answered}
               aria-pressed={selected === i}
               className="w-full text-left px-4 py-3 rounded-lg border text-sm transition-all"
               style={{

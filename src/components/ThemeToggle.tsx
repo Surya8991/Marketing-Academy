@@ -15,7 +15,12 @@ export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const stored = (localStorage.getItem(THEME_KEY) as Theme) ?? "system";
+    let stored: Theme = "system";
+    try {
+      stored = (localStorage.getItem(THEME_KEY) as Theme) ?? "system";
+    } catch {
+      /* localStorage blocked (privacy mode, disabled site data), fall back to system */
+    }
     setTheme(stored);
     setMounted(true);
   }, []);
@@ -24,10 +29,14 @@ export default function ThemeToggle() {
     if (!mounted) return;
     const effective = getEffective(theme);
     document.documentElement.setAttribute("data-theme", effective);
-    if (theme === "system") {
-      localStorage.removeItem(THEME_KEY);
-    } else {
-      localStorage.setItem(THEME_KEY, theme);
+    try {
+      if (theme === "system") {
+        localStorage.removeItem(THEME_KEY);
+      } else {
+        localStorage.setItem(THEME_KEY, theme);
+      }
+    } catch {
+      /* localStorage blocked, theme still applies for this session via data-theme */
     }
   }, [theme, mounted]);
 

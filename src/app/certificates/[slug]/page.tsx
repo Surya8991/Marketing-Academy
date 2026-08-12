@@ -13,6 +13,7 @@ export default function CertificatePage() {
   const track = TRACKS.find((t) => t.slug === slug);
   const [completedCount, setCompletedCount] = useState(0);
   const [today, setToday] = useState("");
+  const [checked, setChecked] = useState(false);
 
   useEffect(() => {
     let completed = new Set<string>();
@@ -28,6 +29,7 @@ export default function CertificatePage() {
       ).length;
       setCompletedCount(count);
     }
+    setChecked(true);
 
     const d = new Date();
     setToday(
@@ -66,6 +68,77 @@ export default function CertificatePage() {
 
   const totalLessons = track.lessons.length;
   const pct = totalLessons > 0 ? Math.round((completedCount / totalLessons) * 100) : 0;
+  const eligible = pct === 100;
+
+  // Wait for the localStorage check before deciding eligibility, so a genuinely
+  // eligible learner never sees a false "not eligible" flash on first paint.
+  if (!checked) {
+    return (
+      <div
+        style={{
+          minHeight: "100vh",
+          background: "var(--background)",
+        }}
+      />
+    );
+  }
+
+  if (!eligible) {
+    return (
+      <div
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "1rem",
+          padding: "2rem 1.5rem",
+          background: "var(--background)",
+          color: "var(--foreground)",
+          textAlign: "center",
+        }}
+      >
+        <span style={{ fontSize: "2.5rem" }}>{track.emoji}</span>
+        <p style={{ fontSize: "1.25rem", fontWeight: 700, margin: 0 }}>
+          Not quite eligible yet
+        </p>
+        <p style={{ color: "var(--muted-foreground)", margin: 0, maxWidth: 420 }}>
+          Complete all {totalLessons} lessons in {track.title} to unlock this certificate.
+          You&apos;ve completed {completedCount} of {totalLessons} ({pct}%).
+        </p>
+        <div
+          style={{
+            background: "var(--muted)",
+            borderRadius: "999px",
+            height: 10,
+            width: "100%",
+            maxWidth: 320,
+          }}
+        >
+          <div
+            style={{
+              height: 10,
+              borderRadius: "999px",
+              width: `${pct}%`,
+              background: "linear-gradient(90deg, #6366f1, #8b5cf6)",
+              transition: "width 0.4s ease",
+            }}
+          />
+        </div>
+        <Link
+          href={`/tracks/${slug}`}
+          style={{
+            marginTop: "0.5rem",
+            color: "var(--accent)",
+            textDecoration: "underline",
+          }}
+        >
+          Continue the track
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <>

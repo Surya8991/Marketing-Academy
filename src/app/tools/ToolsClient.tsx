@@ -160,7 +160,7 @@ export default function ToolsClient({ tools, categories, pricingTiers }: ToolsCl
               </span>
               <button
                 onClick={clearAll}
-                className="text-[var(--accent-foreground)] underline underline-offset-2 hover:opacity-70 transition-opacity"
+                className="text-[var(--accent)] underline underline-offset-2 hover:opacity-70 transition-opacity"
               >
                 Clear all
               </button>
