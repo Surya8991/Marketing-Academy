@@ -219,6 +219,7 @@ export default function Quiz({ questions, category, slug }: Props) {
             }}
             role="region"
             aria-label="Quiz passed"
+            aria-live="polite"
           >
             <div className="flex justify-center mb-3">
               <Trophy size={40} style={{ color: "#16a34a" }} />
@@ -250,6 +251,7 @@ export default function Quiz({ questions, category, slug }: Props) {
             className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6"
             role="region"
             aria-label="Quiz results"
+            aria-live="polite"
           >
             <div className="text-center mb-6">
               <div className="flex justify-center mb-3 text-[var(--muted-foreground)]">
@@ -287,8 +289,9 @@ export default function Quiz({ questions, category, slug }: Props) {
                           <div key={oi} className="flex items-center gap-1.5 text-sm" style={{ color }}>
                             <span className="font-medium">{String.fromCharCode(65 + oi)}.</span>
                             {opt}
-                            {isCorrectOpt && <CheckCircle2 size={13} className="shrink-0" />}
-                            {isUserPick && !isCorrectOpt && <XCircle size={13} className="shrink-0" />}
+                            {/* Stage 6.3: icon + text, not colour alone */}
+                            {isCorrectOpt && <><CheckCircle2 size={13} className="shrink-0" aria-hidden="true" /> <span className="text-xs font-semibold">(correct)</span></>}
+                            {isUserPick && !isCorrectOpt && <><XCircle size={13} className="shrink-0" aria-hidden="true" /> <span className="text-xs font-semibold">(your answer)</span></>}
                           </div>
                         );
                       })}

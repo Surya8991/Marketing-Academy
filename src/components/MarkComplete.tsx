@@ -30,8 +30,10 @@ import { LESSON_TOGGLE_EVENT } from "@/lib/events";
 import { checkAchievements } from "@/lib/achievements";
 import { CheckCircle, Circle, ArrowRight, Lock } from "lucide-react";
 
-/** Canvas-based confetti burst. Appends a temporary canvas and self-removes after animation. */
+/** Canvas-based confetti burst. Appends a temporary canvas and self-removes after animation.
+ *  Stage 6.6: respects prefers-reduced-motion — skips entirely when user requests it. */
 function fireConfetti() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const canvas = document.createElement("canvas");
   canvas.style.cssText =
     "position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999";
