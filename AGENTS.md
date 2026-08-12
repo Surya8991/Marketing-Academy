@@ -534,3 +534,22 @@ Turbopack's file watcher (this environment, Windows) intermittently does not tri
 The lesson reader page (`src/app/learn/[category]/[lesson]/page.tsx`) accumulates sections over time (ToC, Quiz, Projects, Notes, Related Lessons, prev/next). By Session 74 it had grown enough that a new full-weight section was flagged as clutter. `ProjectList.tsx` is the reference pattern for any future addition: it is `"use client"`, defaults to `useState(false)`, and renders a single-line summary button (title + count + a derived stat, e.g. "2 projects · ~70 min total") instead of the full content, with the section's real `id` staying on the outer wrapper so ToC scroll-spy and deep links (`#projects-section`) still resolve correctly whether the section is open or not. Do not add a new always-expanded section to this page without a specific reason it needs to be seen immediately (Quiz is the one exception, since passing it gates `MarkComplete`).
 
 Also: this page previously had THREE places showing "next lesson" (MarkComplete's own post-completion "Continue: {title}" CTA, a standalone "Up Next" card, and the Prev/Next nav grid at the bottom). The standalone card was removed as pure duplication. Before adding a new "what's next" or "related" affordance, check `MarkComplete.tsx`'s `nextHref`/`nextTitle` props and the bottom `<nav>` grid first, a third copy is very easy to add by accident since each was written in a different session.
+
+> ⚠️ **Superseded in part by Rule 52 (Session 75).** The lesson page moved from "each section collapses itself independently" to a docs-style accordion group for Quiz/Projects/Notes specifically. The collapse-by-default *principle* here still holds for any future section; the *mechanism* for Quiz specifically changed to a native `<details>` wrapper, see Rule 52.
+
+### Rule 52 — A gated `scrollIntoView` target must force-open its own collapsed container first, or the scroll silently does nothing
+The lesson page's "Test Your Knowledge" section is a native `<details id="quiz-accordion" open>` wrapping `Quiz.tsx`, which itself renders `<div id="quiz-section">` in every branch (loading/in-progress/finished). `MarkComplete.tsx`'s locked-state click handler does `document.getElementById("quiz-section")?.scrollIntoView(...)` (Rule 25). A closed `<details>` element hides its children the same way `display: none` does (no box, per the HTML spec's UA stylesheet), so `scrollIntoView()` on a hidden descendant is a silent no-op, not an error, the button just appears to do nothing.
+
+The quiz accordion defaults `open`, which covers the common case, but a learner can manually collapse it and then click the locked Mark Complete button. Fixed in `MarkComplete.tsx`'s `toggle()`:
+```tsx
+} else if (locked) {
+  const acc = document.getElementById("quiz-accordion") as HTMLDetailsElement | null;
+  if (acc) acc.open = true;
+  document.getElementById("quiz-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
+```
+Any future gate that scrolls to a target living inside a `<details>`, a tab panel, or any other collapsible must force that container open first. Do NOT just add the `open` attribute and assume it stays open, users can and do close things.
+
+### Rule 53 — `lessonMeta.relatedConcepts` is real, consumed data now, not a dead MDX field
+Roughly 65 lessons' MDX files set `relatedConcepts: [...]` in `lessonMeta` (same-category slugs). For most of this project's history nothing in `src/**/*.{ts,tsx}` ever read that field, it only existed because lessons also hand-write a "## Related Concepts" prose section referencing the same slugs (PROJECTS_PLAN.md 12.4 tracked this as "exists in only 10% of lessons"). `src/components/RelatedConcepts.tsx` (Session 75) now reads it, resolving each slug against `getCategory(sourceCat).lessons` and rendering cards on the lesson page. It silently returns `null` for the ~577 lessons without the field, or if a listed slug doesn't resolve, never force a section to render.
+
+This means the MDX-authored prose "## Related Concepts" section and the new card section can now both appear on the same lesson (duplicate information, not a bug, just unresolved content debt from before this field was wired up). Do not treat that duplication as something to silently "fix" by deleting either one without asking, the prose version is real lesson content and the card version is a separate structural affordance; reconciling them is a content cleanup task, not a quick edit.

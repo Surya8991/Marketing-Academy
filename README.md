@@ -152,6 +152,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/projects-assignment.ts` | **Generated**, PROJECTS_PLAN.md 17's centrality band + tier-pair computation for all 642 lessons — regenerate with `node --import tsx scripts/compute-project-assignment.mjs` |
 | `src/components/PageMasthead.tsx` | Shared "journal masthead" info-strip component used at the top of Home/Learn/Tracks/Projects/Tools/About |
 | `src/lib/classificationCodes.ts` | 2-4 letter discipline codes (SEO/ADS/PSY/AI/...) used as specimen-card eyebrows on redesigned pages |
+| `src/components/RelatedConcepts.tsx` | Renders `lessonMeta.relatedConcepts` (written into ~65 lessons' MDX, unused until Session 75) as cards on the lesson page, sourced from real `curriculum.ts` data |
 | `.github/workflows/ci.yml` | GitHub Actions CI: lint + test + build on push/PR to main |
 | `src/lib/projects/types.ts` | Practice-projects type system: `Project`, `ProjectStep`, `SimulationStage`, `TeardownItem`, `CaseCompany`, 6 modes + no-project verdict, 9 archetypes |
 | `src/lib/case-companies.ts` | 77 verified case companies with cited exits, backdrop for practice projects |
@@ -175,7 +176,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/storage-utils.ts` | Safe `localStorage` wrapper with try/catch, corrupt-value backup, and `StorageWarning` trigger |
 | `src/components/StorageWarning.tsx` | Client banner shown when localStorage is blocked (corporate/Android) |
 | `tests/*.test.ts` | 18 tests (Node.js built-in runner + tsx): data validation, quiz shuffle, integrity regression |
-| `AGENTS.md` | 51 non-negotiable build rules for AI agents (incl. Rule 23: pre-push doc checklist) |
+| `AGENTS.md` | 53 non-negotiable build rules for AI agents (incl. Rule 23: pre-push doc checklist) |
 | `src/lib/notes.ts` | Shared note storage (NOTE_KEY_PREFIX, getNoteKey, getNote, saveNote) |
 | `src/app/api/sync-proxy/route.ts` | Server-side CF KV proxy, secret never exposed to client |
 | `src/app/api/sync/status/route.ts` | Returns `{ enabled: boolean }` so client knows if sync is configured |
@@ -190,7 +191,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/` | Homepage: hero, category grid, 24 learning tracks, featured lessons |
 | `/learn` | All lessons browsable by category |
 | `/learn/[category]` | Category page: Beginner/Intermediate/Advanced grouping + progress |
-| `/learn/[category]/[lesson]` | Lesson reader: ToC, share, bookmark, related lessons, quiz, prev/next, practice projects (collapsed by default) |
+| `/learn/[category]/[lesson]` | Lesson reader (docs-style, Session 75): left scroll-spy ToC, Quiz/Projects/Notes as an accordion group, Related Concepts cards, prev/next, bottom action bar (Mark Complete/Bookmark/Share) |
 | `/search` | Fuzzy search with category + level filters |
 | `/tracks` | 24 learning tracks overview |
 | `/tracks/[slug]` | Track detail with ordered lesson list |
