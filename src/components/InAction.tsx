@@ -6,17 +6,21 @@ import { ExternalLink } from "lucide-react";
  * did it get them?"). A separate workstream from the practice-projects layer,
  * this changes lesson prose itself, not the practice surface.
  *
- * Design note (Session 76): the plan's preferred mechanism is a build-time
- * rehype plugin that injects this component after matching headings with
- * zero MDX edits (10.5). That was deliberately NOT built this session,
- * AGENTS.md Rule 10 already documents this repo's @next/mdx + Turbopack
- * setup breaking on non-string-tuple plugin forms, and a novel custom rehype
- * transform is real build-break risk with no test coverage to catch it. This
- * component is used the way Callout/Quiz already are: a global MDX component
- * (registered in the root mdx-components.tsx) called directly from the
- * lesson MDX, right after the heading, per the plan's own explicitly-
- * sanctioned fallback (10.5, "a one-time scripted insertion into the MDX").
- * Migrating to build-time injection remains a possible future upgrade.
+ * Design note (Session 76, see AGENTS.md Rule 54 for the full writeup): the
+ * plan's preferred mechanism is a build-time rehype plugin that injects this
+ * component after matching headings with zero MDX edits (10.5). That was
+ * deliberately NOT built this session, AGENTS.md Rule 10 already documents
+ * this repo's @next/mdx + Turbopack setup breaking on non-string-tuple
+ * plugin forms, and a novel custom rehype transform is real build-break risk
+ * with no test coverage to catch it. This component is used the way
+ * Callout/Quiz already are: a global MDX component (registered in the root
+ * mdx-components.tsx) called directly from the lesson MDX, right after the
+ * heading, per the plan's own explicitly-sanctioned fallback (10.5, "a
+ * one-time scripted insertion into the MDX"). Migrating to build-time
+ * injection remains a possible future upgrade.
+ *
+ * To author more of these for a new track, see PROJECTS_AUTHORING_GUIDE.md
+ * (step 1.2 covers InAction inserts alongside the practice-projects batch).
  *
  * Rule 20 (PROJECTS_PLAN.md 10.9): every scenario needs a cited, dated,
  * quantified outcome, no source, no ship. `source` is therefore required,

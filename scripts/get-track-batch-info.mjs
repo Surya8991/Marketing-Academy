@@ -27,6 +27,11 @@
  *   node --import tsx scripts/get-track-batch-info.mjs on-page-seo-mastery --category-only=seo
  *   node --import tsx scripts/get-track-batch-info.mjs off-page-seo-mastery --category-only=seo
  *   node --import tsx scripts/get-track-batch-info.mjs ai-search-optimization --category-only=seo
+ *
+ * Full playbook (this script is step 1.1): PROJECTS_AUTHORING_GUIDE.md.
+ * Next steps after this one: paste each batch into an agent prompt (guide
+ * section 2), then scripts/merge-projects-batch.mjs, then
+ * scripts/audit-projects.mjs.
  */
 
 import { readFileSync, existsSync } from "node:fs";

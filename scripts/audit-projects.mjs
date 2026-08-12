@@ -26,6 +26,10 @@
  *
  * Example:
  *   node --import tsx scripts/audit-projects.mjs seo --lessons=search-intent,image-seo-visual-search
+ *
+ * Full playbook (this script is step 1.4): PROJECTS_AUTHORING_GUIDE.md.
+ * Prior step: scripts/merge-projects-batch.mjs. Next step: the standard
+ * tsc/lint/test/build verify (guide section 1.5).
  */
 
 import { readFileSync, existsSync } from "node:fs";

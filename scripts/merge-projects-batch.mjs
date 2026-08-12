@@ -31,6 +31,10 @@
  * Example:
  *   node --import tsx scripts/merge-projects-batch.mjs seo \
  *     /tmp/batch-a-projects.ts /tmp/batch-b-projects.ts /tmp/batch-c-projects.ts
+ *
+ * Full playbook (this script is step 1.3): PROJECTS_AUTHORING_GUIDE.md.
+ * Prior step: scripts/get-track-batch-info.mjs (find the batch) + agent
+ * authoring (guide section 2). Next step: scripts/audit-projects.mjs.
  */
 
 import { readFileSync, writeFileSync, mkdtempSync, copyFileSync } from "node:fs";
