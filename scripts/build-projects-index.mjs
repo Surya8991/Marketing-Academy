@@ -9,6 +9,10 @@
  * projects-index.ts must never be hand-edited once this script is the
  * source of truth for it.
  *
+ * Part of the PROJECTS_AUTHORING_GUIDE.md playbook: this is step 1.5's
+ * final line, run right after a fresh npm run build following
+ * scripts/merge-projects-batch.mjs + scripts/audit-projects.mjs.
+ *
  * ---------------------------------------------------------------------
  * HOW THIS IS MEANT TO WORK, END STATE
  * ---------------------------------------------------------------------

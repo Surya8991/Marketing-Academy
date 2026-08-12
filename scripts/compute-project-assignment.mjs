@@ -6,6 +6,12 @@
  * track-budget-capped tier pair for every one of the 642 lessons, per the
  * mechanical steps 1-3 and 6 of section 17.6's authoring procedure.
  *
+ * This is a one-time/rarely-rerun generator (only needs re-running if
+ * curriculum.ts or tracks.ts changes). For the per-track authoring
+ * workflow that CONSUMES its output (src/lib/projects-assignment.ts), see
+ * PROJECTS_AUTHORING_GUIDE.md and scripts/get-track-batch-info.mjs, which
+ * reads this file's cappedTierPair for you, no need to open it by hand.
+ *
  * What this script does NOT do (deliberately, per 17.6 step 4-5 and 17.4):
  *   - Mode and archetype are chosen by reading what the lesson actually
  *     teaches, not derivable from track-reference counts alone. Those stay

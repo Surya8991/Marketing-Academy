@@ -18,6 +18,18 @@ Somewhere in your marketing Slack, someone asked "did we add that llms.txt thing
 
 ## What llms.txt Actually Is
 
+<InAction
+  concept="Publishing llms.txt as a low-cost hedge, even with patchy adoption"
+  companyName="Mintlify"
+  where="hosting documentation sites for thousands of developer-tools companies"
+  why="wanted every customer's docs to have an AI-readable site map the moment the convention existed, without each company building one by hand"
+  what="rolled out automatic /llms.txt generation across every documentation site it hosts, built directly from each customer's existing docs content"
+  benefit="over 5,000 Mintlify-hosted documentation sites, including Anthropic, Cursor, Pinecone, and Windsurf, gained a maintained llms.txt file instantly"
+  timeframe="immediately on rollout"
+  date="Nov 2024"
+  source="https://www.mintlify.com/blog/what-is-llms-txt"
+/>
+
 llms.txt is a plain markdown file you place at `yoursite.com/llms.txt`. It lists your most important pages with short descriptions, meant to give an AI model a clean map of your site instead of making it guess from raw HTML.
 
 The idea launched in 2024 as a proposal, similar in spirit to `sitemap.xml` but written for language models instead of search engine indexers. Tools like Cloudflare and some documentation platforms have built support for generating one.
@@ -31,6 +43,18 @@ As of Q1 2026, no major AI lab, not OpenAI, Google, Anthropic, or Meta, has publ
 That does not make it worthless. A well-written llms.txt still documents your priority pages for the day adoption catches up, and some smaller AI tools already parse it. Just do not confuse publishing the file with controlling anything.
 
 ## robots.txt: Where Real Control Lives
+
+<InAction
+  concept="Blocking an AI crawler's user-agent doesn't reliably stop AI citations"
+  companyName="BuzzStream"
+  where="researching whether robots.txt blocking actually keeps publishers out of AI-generated answers"
+  why="publishers were blocking bots like GPTBot and ChatGPT-User on the assumption it would keep them out of AI answers entirely"
+  what="analyzed roughly 4 million AI citations across 3,600 prompts in ChatGPT, Gemini, AI Overviews, and AI Mode spanning 10 industries, then checked which cited sites had blocking rules in place"
+  benefit="70.6% of sites blocking ChatGPT-User, and 88.2% of sites blocking GPTBot outright, still showed up in AI citations anyway"
+  timeframe="across the dataset analyzed"
+  date="Apr 2026"
+  source="https://www.buzzstream.com/blog/news-block-ai-bots-citations/"
+/>
 
 robots.txt is the actual lever. AI companies each run multiple bots under different names for different jobs, and most of them respect robots.txt disallow rules today.
 

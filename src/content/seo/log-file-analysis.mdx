@@ -27,6 +27,18 @@ This distinction matters more in 2026 than it ever has, because Search Console l
 
 ## What a Log File Actually Contains
 
+<InAction
+  concept="Verifying bot identity instead of trusting the user-agent string"
+  companyName="Cloudflare"
+  where="investigating widespread reports that an AI crawler kept fetching pages after site owners had blocked it"
+  why="publishers wanted proof of who was really behind requests claiming to be legitimate agents, not just what the User-Agent header said"
+  what="cross-referenced network-level signals, IP ranges, ASN ownership, and rotating user-agent behavior against declared crawler identities instead of trusting the User-Agent header alone"
+  benefit="found the stealth crawling activity spanned tens of thousands of domains and millions of requests per day, evidence strong enough to de-list the crawler as verified and block it network-wide"
+  timeframe="within days of opening the investigation"
+  date="Aug 2025"
+  source="https://blog.cloudflare.com/perplexity-is-using-stealth-undeclared-crawlers-to-evade-website-no-crawl-directives/"
+/>
+
 A single log line typically records the requesting IP address, timestamp, requested URL, HTTP status code returned, and the user-agent string claiming to identify the bot or browser making the request. Multiply that by every request your server handles in a day, and you have a complete, if overwhelming, record of who is actually visiting your site.
 
 **What you can learn that no other tool tells you:**
@@ -41,6 +53,18 @@ A single log line typically records the requesting IP address, timestamp, reques
 </Callout>
 
 ## The 2026 Reason This Matters More Than Ever
+
+<InAction
+  concept="Non-Google AI crawler traffic now large enough to matter for capacity planning"
+  companyName="Read the Docs"
+  where="running a community-funded documentation-hosting platform on a tight bandwidth budget"
+  why="AI crawlers were downloading huge volumes of built documentation files, some ignoring crawl-delay and re-fetching the same pages repeatedly"
+  what="analyzed server logs, found one crawler alone downloaded 73 TB of zipped HTML in a single month, then blocked abusive AI crawlers by user-agent and IP range"
+  benefit="bandwidth for downloaded files dropped 75%, from about 800GB/day to about 200GB/day, saving an estimated $1,500/month in bandwidth costs"
+  timeframe="within the month after the block went live"
+  date="Jul 2024"
+  source="https://about.readthedocs.com/blog/2024/07/ai-crawlers-abuse/"
+/>
 
 Before AI answer engines existed, log file analysis was a specialist's tool, useful mainly for very large sites worried about crawl budget. That has changed. A new category of crawler now visits every site on the web with real, measurable volume, and none of it shows up in Search Console.
 

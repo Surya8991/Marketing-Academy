@@ -666,5 +666,401 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
       "The Content Parity Problem",
       "Why Marketers Should Care, Not Just Developers"
     ]
+  },
+  {
+    "id": "how-search-works-outrank-reverse-engineer",
+    "category": "seo",
+    "lessonSlug": "how-search-works",
+    "lessonTitle": "How Search Engines Actually Work",
+    "tier": "mini",
+    "archetype": "reverse-engineer",
+    "mode": "diagnostic",
+    "title": "Why This Page Outranks Yours: Reverse-Engineering the Crawl-Index-Rank Gap",
+    "timeMinutes": 20,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Stage 2: Indexing",
+      "Stage 3: Ranking"
+    ]
+  },
+  {
+    "id": "how-search-works-crawl-budget-audit",
+    "category": "seo",
+    "lessonSlug": "how-search-works",
+    "lessonTitle": "How Search Engines Actually Work",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Crawl Budget Audit: Finding Where Snowflake's Docs Section Loses Google's Attention",
+    "timeMinutes": 40,
+    "companyId": "snowflake",
+    "conceptsCovered": [
+      "Crawl budget as a finite daily allocation",
+      "Orphan pages that crawlers rarely find",
+      "Not every crawled page gets indexed"
+    ]
+  },
+  {
+    "id": "technical-seo-indexability-triage",
+    "category": "seo",
+    "lessonSlug": "technical-seo",
+    "lessonTitle": "Technical SEO",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Indexability Triage: Reading a Real GSC Export Before Touching Code",
+    "timeMinutes": 20,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "robots.txt",
+      "Indexability"
+    ]
+  },
+  {
+    "id": "technical-seo-robots-canonical-teardown",
+    "category": "seo",
+    "lessonSlug": "technical-seo",
+    "lessonTitle": "Technical SEO",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The robots.txt & Canonical Teardown: Spot the Defect Before It Ships",
+    "timeMinutes": 20,
+    "companyId": "mapmyindia",
+    "conceptsCovered": [
+      "robots.txt",
+      "Canonical Tags"
+    ]
+  },
+  {
+    "id": "core-web-vitals-field-vs-lab-audit",
+    "category": "seo",
+    "lessonSlug": "core-web-vitals",
+    "lessonTitle": "Core Web Vitals",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Field-vs-Lab Audit: Finding Which Template Is Actually 'Poor'",
+    "timeMinutes": 20,
+    "companyId": "rategain-travel-technologies",
+    "conceptsCovered": [
+      "LCP, Largest Contentful Paint",
+      "CLS, Cumulative Layout Shift"
+    ]
+  },
+  {
+    "id": "core-web-vitals-lcp-business-case-forecast",
+    "category": "seo",
+    "lessonSlug": "core-web-vitals",
+    "lessonTitle": "Core Web Vitals",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "The Business Case: Forecasting What a Faster Currency Converter Is Worth",
+    "timeMinutes": 20,
+    "companyId": "wise",
+    "conceptsCovered": [
+      "How Google Actually Measures This",
+      "Nykaa, 28% more organic traffic from LCP improvement"
+    ]
+  },
+  {
+    "id": "https-security-seo-mixed-content-hsts-teardown",
+    "category": "seo",
+    "lessonSlug": "https-security-seo",
+    "lessonTitle": "HTTPS & Security Headers for SEO",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Mixed-Content & HSTS Teardown: Spot the Broken Padlock Before It Ships",
+    "timeMinutes": 20,
+    "companyId": "adyen",
+    "conceptsCovered": [
+      "HTTPS Migration, Done Right",
+      "Testing Your Setup"
+    ]
+  },
+  {
+    "id": "https-security-seo-migration-audit",
+    "category": "seo",
+    "lessonSlug": "https-security-seo",
+    "lessonTitle": "HTTPS & Security Headers for SEO",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The HTTPS Migration Audit: Verifying the Redirect Chain Didn't Leak Signal",
+    "timeMinutes": 40,
+    "companyId": "flipkart",
+    "conceptsCovered": [
+      "HTTPS Migration, Done Right",
+      "Security Headers That Actually Matter",
+      "Testing Your Setup"
+    ]
+  },
+  {
+    "id": "internal-linking-orphan-anchor-audit",
+    "category": "seo",
+    "lessonSlug": "internal-linking",
+    "lessonTitle": "Internal Linking & Site Architecture",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Finding the Ghost Pages: An Orphan Page & Anchor Text Audit",
+    "timeMinutes": 25,
+    "companyId": "thredup",
+    "conceptsCovered": [
+      "Orphaned pages",
+      "Anchor Text: The Overlooked Relevance Signal"
+    ]
+  },
+  {
+    "id": "internal-linking-pillar-cluster-map",
+    "category": "seo",
+    "lessonSlug": "internal-linking",
+    "lessonTitle": "Internal Linking & Site Architecture",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Web: A Pillar-Cluster Internal Linking Map",
+    "timeMinutes": 30,
+    "companyId": "klaviyo",
+    "conceptsCovered": [
+      "The Topic Cluster Model: The Best Architecture in 2025",
+      "The Three-Click Rule"
+    ]
+  },
+  {
+    "id": "schema-structured-data-broken-jsonld-teardown",
+    "category": "seo",
+    "lessonSlug": "schema-structured-data",
+    "lessonTitle": "Schema & Structured Data",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Schema Violations: A Broken Product JSON-LD Teardown",
+    "timeMinutes": 20,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Common Mistakes",
+      "How It Works"
+    ]
+  },
+  {
+    "id": "schema-structured-data-build-product-schema",
+    "category": "seo",
+    "lessonSlug": "schema-structured-data",
+    "lessonTitle": "Schema & Structured Data",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Ship It Right: Building a Valid Product Schema Block From Scratch",
+    "timeMinutes": 45,
+    "companyId": "firstcry-brainbees",
+    "conceptsCovered": [
+      "The Schema Types That Actually Move the Needle",
+      "How It Works",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "duplicate-thin-content-variant-teardown",
+    "category": "seo",
+    "lessonSlug": "duplicate-thin-content",
+    "lessonTitle": "Duplicate & Thin Content Cleanup",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "40 Pages, One Root Cause: A Duplicate & Thin Content Teardown",
+    "timeMinutes": 20,
+    "companyId": "rent-the-runway",
+    "conceptsCovered": [
+      "Where Duplicate Content Actually Comes From",
+      "Fixing It: Canonicalize, Noindex, or Consolidate",
+      "Word count is not the fix, added value is."
+    ]
+  },
+  {
+    "id": "duplicate-thin-content-gsc-coverage-audit",
+    "category": "seo",
+    "lessonSlug": "duplicate-thin-content",
+    "lessonTitle": "Duplicate & Thin Content Cleanup",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Reading the Warning Signs: A Search Console Coverage Audit",
+    "timeMinutes": 20,
+    "companyId": "hellofresh",
+    "conceptsCovered": [
+      "Watch for 'Crawled, currently not indexed'",
+      "Fixing It: Canonicalize, Noindex, or Consolidate"
+    ]
+  },
+  {
+    "id": "ecommerce-product-page-seo-variant-schema-audit",
+    "category": "seo",
+    "lessonSlug": "ecommerce-product-page-seo",
+    "lessonTitle": "SEO for Ecommerce Product Pages",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "One Page or Five? A Variant & Schema-Parity Audit",
+    "timeMinutes": 25,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Why variants cause duplication",
+      "Product Schema and Rich Results"
+    ]
+  },
+  {
+    "id": "ecommerce-product-page-seo-outofstock-teardown",
+    "category": "seo",
+    "lessonSlug": "ecommerce-product-page-seo",
+    "lessonTitle": "SEO for Ecommerce Product Pages",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Delete, Redirect, or Keep? An Out-of-Stock Decision Teardown",
+    "timeMinutes": 20,
+    "companyId": "honasa-mamaearth",
+    "conceptsCovered": [
+      "Handling Out-of-Stock and Discontinued Products"
+    ]
+  },
+  {
+    "id": "log-file-analysis-bot-verification-teardown",
+    "category": "seo",
+    "lessonSlug": "log-file-analysis",
+    "lessonTitle": "Log File Analysis for SEO",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Impostor Crawler: Verifying Bot Identity in Raw Log Lines",
+    "timeMinutes": 25,
+    "companyId": "tac-security",
+    "conceptsCovered": [
+      "Verify bot identity via reverse DNS, do not trust the user-agent string alone",
+      "Response codes served to bots specifically",
+      "Orphaned pages that bots reach only via the sitemap, never through an internal link"
+    ]
+  },
+  {
+    "id": "log-file-analysis-gsc-indexing-diagnostic",
+    "category": "seo",
+    "lessonSlug": "log-file-analysis",
+    "lessonTitle": "Log File Analysis for SEO",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Flat Traffic, Full Index? Diagnosing a Real Indexing Export",
+    "timeMinutes": 45,
+    "companyId": "yatra-online",
+    "conceptsCovered": [
+      "Which pages get crawled most and least often, revealing a mismatch between what you consider important and what bots actually prioritize",
+      "Exactly which AI crawlers visit, how often, and which pages they touch, data that exists nowhere else",
+      "Orphaned pages that bots reach only via the sitemap, never through an internal link",
+      "Crawl behavior shifts after every major release, a monthly cadence tells you whether things are trending right or quietly breaking"
+    ]
+  },
+  {
+    "id": "llms-txt-ai-crawler-management-robots-teardown",
+    "category": "seo",
+    "lessonSlug": "llms-txt-ai-crawler-management",
+    "lessonTitle": "llms.txt and AI Crawler Management",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Blocked Everything, Cited Nothing: A Broken robots.txt and llms.txt Pair",
+    "timeMinutes": 20,
+    "companyId": "coinbase",
+    "conceptsCovered": [
+      "Training bots and retrieval bots from the same company are different user-agents, you can block one and allow the other",
+      "What llms.txt actually is: a proposed convention, not an enforced standard"
+    ]
+  },
+  {
+    "id": "llms-txt-ai-crawler-management-bot-policy-audit",
+    "category": "seo",
+    "lessonSlug": "llms-txt-ai-crawler-management",
+    "lessonTitle": "llms.txt and AI Crawler Management",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Write the Policy, Then Prove It Holds: An AI Bot Access Audit",
+    "timeMinutes": 25,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "Training bots and retrieval bots from the same AI company are different user-agents, you can allow one and block the other",
+      "Revisit the whole setup quarterly, this space moves fast and last quarter's setup may already be outdated"
+    ]
+  },
+  {
+    "id": "international-seo-hreflang-teardown",
+    "category": "seo",
+    "lessonSlug": "international-seo",
+    "lessonTitle": "International SEO",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "48 Hours to Launch: A Broken hreflang Rollout",
+    "timeMinutes": 25,
+    "companyId": "grab",
+    "conceptsCovered": [
+      "Every tagged page must include tags pointing to ALL alternate versions (including itself)",
+      "Language codes use ISO 639-1 format and country codes use ISO 3166-1 alpha-2",
+      "The most common hreflang mistake: adding tags to a few top pages but leaving thousands of pages untagged"
+    ]
+  },
+  {
+    "id": "international-seo-market-expansion-audit",
+    "category": "seo",
+    "lessonSlug": "international-seo",
+    "lessonTitle": "International SEO",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "One Quarter, One Market: The Poland Expansion Call",
+    "timeMinutes": 50,
+    "companyId": "sea-limited",
+    "conceptsCovered": [
+      "Choose the right URL structure (ccTLD, subfolder, or subdomain) based on your budget and goals",
+      "Validate demand first: check Search Console for organic impressions from target countries before building anything",
+      "Localization means more than translation: keyword research must be done natively in each market",
+      "Hreflang must be implemented on every page consistently, partial rollouts create confusion"
+    ]
+  },
+  {
+    "id": "seo-site-migrations-redirect-and-noindex-teardown",
+    "category": "seo",
+    "lessonSlug": "seo-site-migrations",
+    "lessonTitle": "SEO for Site Migrations",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "30 Minutes to Go/No-Go: A Redirect Map and Staging Leftovers",
+    "timeMinutes": 25,
+    "companyId": "doordash",
+    "conceptsCovered": [
+      "Missing or many-to-one redirects",
+      "Build a 1:1 redirect map for every indexed URL",
+      "Leftover staging noindex tags, the single most common cause of a post-launch traffic cliff"
+    ]
+  },
+  {
+    "id": "seo-site-migrations-post-launch-gsc-diagnostic",
+    "category": "seo",
+    "lessonSlug": "seo-site-migrations",
+    "lessonTitle": "SEO for Site Migrations",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Week Six: Normal Volatility or Hangover in Progress?",
+    "timeMinutes": 45,
+    "companyId": "stoneco",
+    "conceptsCovered": [
+      "Build a 1:1 redirect map for every indexed URL; never redirect multiple pages to one destination",
+      "Leftover staging noindex tags or a robots.txt Disallow rule that was fine on staging but never got removed for production",
+      "A 10-30% dip that stabilizes within 2-6 weeks is normal volatility; still falling after 4 weeks is a hangover in progress",
+      "Use Google Search Console's Change of Address tool and add the new property alongside the old one, don't delete the old property"
+    ]
   }
 ];

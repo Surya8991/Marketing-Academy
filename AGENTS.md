@@ -553,3 +553,62 @@ Any future gate that scrolls to a target living inside a `<details>`, a tab pane
 Roughly 65 lessons' MDX files set `relatedConcepts: [...]` in `lessonMeta` (same-category slugs). For most of this project's history nothing in `src/**/*.{ts,tsx}` ever read that field, it only existed because lessons also hand-write a "## Related Concepts" prose section referencing the same slugs (PROJECTS_PLAN.md 12.4 tracked this as "exists in only 10% of lessons"). `src/components/RelatedConcepts.tsx` (Session 75) now reads it, resolving each slug against `getCategory(sourceCat).lessons` and rendering cards on the lesson page. It silently returns `null` for the ~577 lessons without the field, or if a listed slug doesn't resolve, never force a section to render.
 
 This means the MDX-authored prose "## Related Concepts" section and the new card section can now both appear on the same lesson (duplicate information, not a bug, just unresolved content debt from before this field was wired up). Do not treat that duplication as something to silently "fix" by deleting either one without asking, the prose version is real lesson content and the card version is a separate structural affordance; reconciling them is a content cleanup task, not a quick edit.
+
+### Rule 54 — Concept scenarios (`InAction`) are embedded directly in MDX, not build-time injected
+PROJECTS_PLAN.md section 10.5's preferred design for "concept scenarios" (Stage 8.4) is a build-time rehype plugin that walks heading nodes and injects the component with **zero MDX edits**. Session 76 deliberately did not build that. Rule 10 already documents this repo's `@next/mdx` + Turbopack setup breaking on non-string-tuple plugin forms, and a novel custom rehype transform is real build-break risk with no test covering it.
+
+Instead, `src/components/InAction.tsx` is a normal global MDX component (registered in root `mdx-components.tsx`, same pattern as `Callout`/`Quiz`), called directly from lesson MDX right after the heading it illustrates:
+
+```mdx
+## Crawlability
+
+<InAction
+  concept="Crawlability"
+  companyName="Airbnb"
+  where="..." why="..." what="..." benefit="..." timeframe="..." date="2017"
+  source="https://..."
+/>
+```
+
+This is PROJECTS_PLAN.md 10.5's own explicitly-sanctioned fallback ("a one-time scripted insertion into the MDX"), not an invented shortcut. `source` is required, never optional (10.9's Rule 20: every scenario needs a cited, dated, quantified outcome, no source, no ship). `companyId` is optional and does **not** require the company to be on the `case-companies.ts` roster, that exit-required rule is scoped to `Project.companyId` only (PROJECTS_PLAN.md 10.7). Migrating to build-time injection remains a possible future upgrade; do not attempt it without first confirming this repo's MDX toolchain actually supports a custom rehype plugin, the way Rule 28/29/30's Mermaid fixes each had to work around a real, verified toolchain constraint rather than an assumed one.
+
+### Rule 55 — Any `toolName`/tool reference informally reused across projects must be added to `tools-directory.ts` for real
+Session 76's structural audit found 4 projects using invented placeholder strings as `toolName` (`"Manual JSON-LD draft"`, `"Manual link map spreadsheet"`, `"Manual comparison sheet"`, `"Hosting or CDN bot-traffic dashboard"`), violating Rule 11 (project tools must reference `TOOLS` by name). Worse, fixing the obvious replacement (`"Google Sheets"`) revealed it wasn't in `tools-directory.ts` either, despite being used **20+ times already** across `email.ts`, `fundamentals.ts`, and even the original Session 73 pilot's `keyword-research` project, all of which passed review without anyone catching that the tool it names doesn't exist in the directory it's supposed to be a foreign key into.
+
+```ts
+// WRONG, invents a description instead of naming a real cataloged tool
+toolName: "Manual JSON-LD draft",
+
+// WRONG, "Google Sheets" is a real tool but isn't in TOOLS, so this still fails an FK check
+toolName: "Google Sheets",   // <- was used 20+ times before anyone added the TOOLS entry
+
+// CORRECT, add it to tools-directory.ts once, then every reference resolves
+{ name: "Google Sheets", category: "SEO", pricing: "Free", url: "https://sheets.google.com", ... }
+```
+
+If a project step genuinely needs a generic productivity tool (a spreadsheet, a plain-text draft) rather than a marketing-specific one, add it to `tools-directory.ts` the first time, don't invent a description string and don't assume a plausible-sounding name is already cataloged just because you've seen it used before. A grep for the exact `name: "..."` string before authoring a new `toolName` reference is the only way to know for sure.
+
+### Rule 56 — Content-authoring subagent fan-outs: inline a condensed reference pack, keep batches small
+Session 76's 3-agent fan-out (4 lessons each, full reference-file reads) cost ~67-70k tokens/lesson. Two root causes, both avoidable without touching output quality:
+
+1. **Duplicated reference reads.** Telling every agent to independently read `types.ts` (259 lines), `case-companies.ts` (2,230 lines), `tools-directory.ts` (1,115 lines) and 2 full example projects (~750 lines) means identical content gets read once per agent for no benefit. Inline a condensed version (trimmed type shape, one worked example, only the handful of companies actually relevant to that batch) directly into the prompt instead.
+2. **Context compounding.** Every tool call re-sends the whole conversation so far. An agent authoring 4 lessons sequentially pays for lessons 1-3's accumulated research again on every call by lesson 4. Smaller batches (2 lessons/agent, not 4) cut this more than they cost in repeated setup, once (1) has already shrunk that setup.
+
+Also: give research an explicit budget (e.g. 2 searches + 1 fetch per fact before moving to a better-sourced concept, not searching exhaustively), and skip agent-side `tsc --noEmit` self-checks, that compile is redundant with the one run once at merge time across the whole file. None of this is optional polish, it is the difference between ~830k tokens for 12 lessons (Session 76's actual cost) and a meaningfully lower number for the same quality bar on Stage 8.3a's next 18.
+
+**This rule is implemented, not just written down.** `PROJECTS_AUTHORING_GUIDE.md` is the operational playbook (fill-in-the-blanks agent prompt with the condensed pack this rule describes already inlined), backed by three scripts that also close the two mechanical-mistake gaps Session 76 hit by hand: `scripts/get-track-batch-info.mjs` (which lessons need projects + their tier), `scripts/merge-projects-batch.mjs` (safe merge, refuses duplicate keys, backs up outside `src/lib/projects/`), `scripts/audit-projects.mjs` (the structural checks Rules 3/11/12/13/15 require, generalized past the one-off `seo.ts`-only version Session 76 first wrote). Use these for every future batch instead of re-deriving the process by hand.
+
+### Rule 57 — `tests/projects-data.test.ts` is the gate for project data, and `tsc` is not
+Every invariant that matters for a project (`companyId` resolves, `toolName` resolves, `lessonAnchor` is a real heading, mode agrees with which array is populated, all five runbook parts present, unique ids, no archetype reuse in a lesson, simulation options route somewhere real) is a **valid string as far as TypeScript is concerned**. `tsc --noEmit` passes on all of them. That is exactly how the Session 73 pilot shipped invented `toolName` placeholders that survived three sessions of review.
+
+`tests/projects-data.test.ts` (added Session 76) enforces them on the real imported objects in `npm test`, which CI already runs. Extend it when a new invariant appears; do not add a new one-off script and rely on someone remembering to run it.
+
+Two things learned writing it, both worth not repeating:
+
+**1. The empty `no-project` array breaks terminator-based regex parsing.** A lesson with an explicit no-project verdict is written inline:
+```ts
+"what-is-marketing": [],
+```
+A regex that isolates a lesson body by scanning for a `\n  ],\n` terminator finds **no match** here, silently runs on into the *next* lesson's array, and then validates that lesson's projects against the wrong lesson's MDX headings. This produced confident, entirely false "lessonAnchor is not a real heading" failures. Any script parsing `src/lib/projects/*.ts` by text must slice from one top-level key to the **start of the next key**, never to a closing-bracket pattern. Better still, import the module and work on real objects.
+
+**2. Do not assert style heuristics as invariants.** Two stricter `conceptsCovered` checks were written and both had to be removed because they failed on legitimate content: "must not end with a period" flags valid short declarative concept names, and "must exactly match a step's `concept` value" fails 6 of the 33 step-bearing projects that reasonably shorten a long step concept into a readable card label. A test that fails on correct data is worse than no test, because it teaches everyone to ignore the failure or, worse, to "fix" content that was right. Assert what is objectively checkable (it resolves, it exists, it is non-empty, it is unique) and leave phrasing to review.
