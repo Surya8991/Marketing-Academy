@@ -1,0 +1,43 @@
+date,campaign,ad_group,impressions,clicks,ctr,cpc,conversions,cost,roas
+2026-06-01,Search - Remote PM Software,Competitor Terms,394,9,2.28,0.56,0,5.04,0.0
+2026-06-01,Search - Remote PM Software,Core Terms,1750,124,7.09,0.26,0,32.24,0.0
+2026-06-01,Social - Prospecting Lookalike,Interest Stack,11288,140,1.24,0.18,8,25.2,20.78
+2026-06-02,Search - Remote PM Software,Competitor Terms,538,12,2.23,0.77,1,9.24,5.26
+2026-06-02,Search - Remote PM Software,Core Terms,1934,137,7.08,0.26,0,35.62,0.0
+2026-06-02,Social - Prospecting Lookalike,Interest Stack,9810,140,1.43,0.22,8,30.8,15.96
+2026-06-03,Search - Remote PM Software,Competitor Terms,474,15,3.16,0.63,0,9.45,0.0
+2026-06-03,Search - Remote PM Software,Core Terms,2026,144,7.11,0.26,1,37.44,1.1
+2026-06-03,Social - Prospecting Lookalike,Interest Stack,9047,116,1.28,0.24,7,27.84,15.6
+2026-06-04,Search - Remote PM Software,Competitor Terms,588,15,2.55,0.77,1,11.55,4.25
+2026-06-04,Search - Remote PM Software,Core Terms,1842,131,7.11,0.26,0,34.06,0.0
+2026-06-04,Social - Prospecting Lookalike,Interest Stack,11654,118,1.01,0.18,9,21.24,29.03
+2026-06-05,Search - Remote PM Software,Competitor Terms,552,16,2.9,0.6,0,9.6,0.0
+2026-06-05,Search - Remote PM Software,Core Terms,2118,150,7.08,0.26,0,39.0,0.0
+2026-06-05,Social - Prospecting Lookalike,Interest Stack,11595,170,1.47,0.26,10,44.2,13.37
+2026-06-06,Search - Remote PM Software,Competitor Terms,552,17,3.08,0.61,0,10.37,0.0
+2026-06-06,Search - Remote PM Software,Core Terms,2210,157,7.1,0.26,1,40.82,1.19
+2026-06-06,Social - Prospecting Lookalike,Interest Stack,10153,130,1.28,0.22,8,28.6,19.68
+2026-06-07,Search - Remote PM Software,Competitor Terms,489,10,2.04,0.63,1,6.3,6.66
+2026-06-07,Search - Remote PM Software,Core Terms,1842,131,7.11,0.26,0,34.06,0.0
+2026-06-07,Social - Prospecting Lookalike,Interest Stack,8622,127,1.47,0.19,6,24.13,15.74
+2026-06-08,Search - Remote PM Software,Competitor Terms,531,13,2.45,0.66,0,8.58,0.0
+2026-06-08,Search - Remote PM Software,Core Terms,2118,150,7.08,0.26,0,39.0,0.0
+2026-06-08,Social - Prospecting Lookalike,Interest Stack,11726,125,1.07,0.27,5,33.75,9.39
+2026-06-09,Search - Remote PM Software,Competitor Terms,609,18,2.96,0.71,0,12.78,0.0
+2026-06-09,Search - Remote PM Software,Core Terms,2580,184,7.13,0.26,1,47.84,0.96
+2026-06-09,Social - Prospecting Lookalike,Interest Stack,9130,97,1.06,0.23,11,22.31,34.9
+2026-06-10,Search - Remote PM Software,Competitor Terms,538,16,2.97,0.76,1,12.16,3.4
+2026-06-10,Search - Remote PM Software,Core Terms,2432,179,7.36,0.29,0,51.91,0.0
+2026-06-10,Social - Prospecting Lookalike,Interest Stack,10429,94,0.9,0.21,6,19.74,21.27
+2026-06-11,Search - Remote PM Software,Competitor Terms,519,11,2.12,0.77,0,8.47,0.0
+2026-06-11,Search - Remote PM Software,Core Terms,2882,199,6.9,0.26,0,51.74,0.0
+2026-06-11,Social - Prospecting Lookalike,Interest Stack,11491,119,1.04,0.24,6,28.56,14.39
+2026-06-12,Search - Remote PM Software,Competitor Terms,422,11,2.61,0.56,1,6.16,7.06
+2026-06-12,Search - Remote PM Software,Core Terms,2975,207,6.96,0.25,0,51.75,0.0
+2026-06-12,Social - Prospecting Lookalike,Interest Stack,11661,182,1.56,0.22,8,40.04,13.12
+2026-06-13,Search - Remote PM Software,Competitor Terms,421,13,3.09,0.76,0,9.88,0.0
+2026-06-13,Search - Remote PM Software,Core Terms,2677,179,6.69,0.29,1,51.91,0.87
+2026-06-13,Social - Prospecting Lookalike,Interest Stack,9655,122,1.26,0.21,5,25.62,12.03
+2026-06-14,Search - Remote PM Software,Competitor Terms,394,11,2.79,0.85,0,9.35,0.0
+2026-06-14,Search - Remote PM Software,Core Terms,3041,216,7.1,0.24,0,51.84,0.0
+2026-06-14,Social - Prospecting Lookalike,Interest Stack,8709,131,1.5,0.22,4,28.82,9.55

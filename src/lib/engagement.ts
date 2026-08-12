@@ -28,12 +28,14 @@ import { STORAGE_WRITE_FAILED } from "@/lib/events";
 export const ENGAGEMENT_KEY = "ma_engagement";
 const KEY = ENGAGEMENT_KEY;
 
-export type XPAction = "complete" | "quiz" | "bookmark";
+export type XPAction = "complete" | "quiz" | "bookmark" | "project" | "bigProject";
 
 export const XP_VALUES: Record<XPAction, number> = {
   complete: 30,
   quiz: 20,
   bookmark: 5,
+  project: 40,
+  bigProject: 100,
 };
 
 export type EngagementState = {

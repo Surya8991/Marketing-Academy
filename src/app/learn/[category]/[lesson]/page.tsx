@@ -108,6 +108,11 @@ export default async function LessonPage({ params }: Props) {
   const quizQuestions = QUIZZES[`${sourceCat}/${lesson}`];
   const hasQuiz = !!(quizQuestions && quizQuestions.length > 0);
 
+  // TODO(stage8-workflow-c): wire to real per-category project lookup once
+  // src/lib/projects/[category].ts modules exist. Hardcoded false for now so
+  // the Projects section and ToC entry stay dormant without breaking the build.
+  const hasProjects = false;
+
   // JSON-LD URLs always point to the canonical (sourceCat) location so schema
   // signals do not contradict the canonical link when the lesson is viewed via
   // a cross-listed URL. The visible HTML breadcrumb still reflects the user's
@@ -166,7 +171,12 @@ export default async function LessonPage({ params }: Props) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="flex gap-12">
           {/* Desktop ToC (LEFT) */}
-          <TableOfContentsDesktop />
+          <TableOfContentsDesktop
+            extraSections={[
+              ...(hasQuiz ? [{ id: "quiz-section", text: "Test Your Knowledge" }] : []),
+              ...(hasProjects ? [{ id: "projects-section", text: "Practice Projects" }] : []),
+            ]}
+          />
 
           {/* Main column */}
           <div className="flex-1 min-w-0 max-w-3xl mx-auto xl:mx-0">
@@ -199,6 +209,7 @@ export default async function LessonPage({ params }: Props) {
                   <Clock size={12} />
                   {readTime} min read
                 </span>
+                {/* TODO(stage8-workflow-c): add "· N projects" next to read time once hasProjects is real */}
                 <span className="text-xs text-[var(--muted-foreground)]">{cat.title}</span>
                 <span className="text-xs text-[var(--muted-foreground)]">Marketing Academy · Jun 2026</span>
               </div>
@@ -220,7 +231,12 @@ export default async function LessonPage({ params }: Props) {
             </header>
 
             {/* Mobile ToC */}
-            <TableOfContentsMobile />
+            <TableOfContentsMobile
+              extraSections={[
+                ...(hasQuiz ? [{ id: "quiz-section", text: "Test Your Knowledge" }] : []),
+                ...(hasProjects ? [{ id: "projects-section", text: "Practice Projects" }] : []),
+              ]}
+            />
 
             {/* MDX content */}
             <article className="prose prose-slate max-w-none">
@@ -280,6 +296,13 @@ export default async function LessonPage({ params }: Props) {
               <div id="quiz-section" className="mt-12 pt-8 border-t border-[var(--border)]">
                 <h2 className="text-xl font-bold mb-4">Test Your Knowledge</h2>
                 <Quiz questions={quizQuestions!} category={sourceCat} slug={lesson} />
+              </div>
+            )}
+
+            {/* Projects (Stage 8) */}
+            {hasProjects && (
+              <div id="projects-section" className="mt-12 pt-8 border-t border-[var(--border)]">
+                {/* TODO(stage8-workflow-c): render <ProjectList projects={...} /> once project data is wired */}
               </div>
             )}
 

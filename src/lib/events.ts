@@ -37,6 +37,14 @@ export const LESSON_TOGGLE_EVENT = "lesson-toggle";
  */
 export const QUIZ_PASSED_EVENT = "quiz-passed";
 
+/**
+ * Fired when a project or project-step completion state is toggled.
+ * Payload: `{ id: string, done: boolean, kind: "project" | "step" }`
+ * Mirrors LESSON_TOGGLE_EVENT above, lets multiple project UI instances on
+ * the same page stay in sync without polling localStorage.
+ */
+export const PROJECT_TOGGLE_EVENT = "project-toggle";
+
 /** localStorage key: set to "1" after the first-visit onboarding modal is dismissed */
 export const ONBOARDED_KEY = "ma_onboarded";
 
@@ -50,6 +58,13 @@ export const THEME_KEY = "theme";
  * TrackLessonList.tsx, once.
  */
 export const GATE_NOTICE_KEY = "ma_seen_gate_notice";
+
+/**
+ * localStorage key: project + project-step completion state, see
+ * src/lib/projects-progress.ts. Format: `{ completedProjectIds: string[],
+ * completedStepIds: string[] }`.
+ */
+export const PROJECTS_PROGRESS_KEY = "ma_projects_progress";
 
 /**
  * Fired when a localStorage write fails (quota exceeded, private mode, etc.).

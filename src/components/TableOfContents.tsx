@@ -4,8 +4,9 @@ import { cn } from "@/lib/utils";
 import { List, ChevronDown } from "lucide-react";
 
 type Heading = { id: string; text: string; level: number };
+type ExtraSection = { id: string; text: string };
 
-function useHeadings() {
+function useHeadings(extraSections?: ExtraSection[]) {
   const [headings, setHeadings] = useState<Heading[]>([]);
   const [activeId, setActiveId] = useState<string>("");
 
@@ -23,8 +24,16 @@ function useHeadings() {
         level: node.tagName === "H2" ? 2 : 3,
       });
     });
+    // Stage 8: append non-heading page sections (e.g. quiz, projects) so they
+    // show up in the ToC and get scroll-spied like any other heading. These
+    // rely on real DOM elements with matching ids existing on the page.
+    if (extraSections && extraSections.length > 0) {
+      extraSections.forEach((s) => {
+        collected.push({ id: s.id, text: s.text, level: 2 });
+      });
+    }
     setHeadings(collected);
-  }, []);
+  }, [extraSections]);
 
   useEffect(() => {
     if (headings.length === 0) return;
@@ -47,8 +56,12 @@ function useHeadings() {
   return { headings, activeId };
 }
 
-export function TableOfContentsDesktop() {
-  const { headings, activeId } = useHeadings();
+export function TableOfContentsDesktop({
+  extraSections,
+}: {
+  extraSections?: ExtraSection[];
+} = {}) {
+  const { headings, activeId } = useHeadings(extraSections);
   if (headings.length < 2) return null;
 
   return (
@@ -77,8 +90,12 @@ export function TableOfContentsDesktop() {
   );
 }
 
-export function TableOfContentsMobile() {
-  const { headings } = useHeadings();
+export function TableOfContentsMobile({
+  extraSections,
+}: {
+  extraSections?: ExtraSection[];
+} = {}) {
+  const { headings } = useHeadings(extraSections);
   const [open, setOpen] = useState(false);
   if (headings.length < 2) return null;
 

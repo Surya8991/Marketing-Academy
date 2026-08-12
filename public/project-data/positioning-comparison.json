@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Flowbase",
+    "tagline": "Project management that thinks like your team does.",
+    "target_audience": "Distributed teams of 10-50 at Series A/B startups who outgrew spreadsheets",
+    "key_differentiator": "AI-generated weekly status summaries pulled automatically from task activity, no manual reporting",
+    "price_tier": "mid ($12-18/user/mo)",
+    "weaknesses": "Weak native time tracking; integrations limited to 15 apps versus competitors' 100+; mobile app frequently lags behind desktop feature releases"
+  },
+  {
+    "name": "Trellix Pro",
+    "tagline": "Visual work, organized.",
+    "target_audience": "Small creative and marketing teams (5-20 people) who think in boards, not tables",
+    "key_differentiator": "Deepest kanban customization on the market, including swimlanes, WIP limits, and per-card automation recipes",
+    "price_tier": "low ($6-9/user/mo)",
+    "weaknesses": "No native Gantt or timeline view; reporting is basic CSV export only; struggles past ~30 concurrent boards per workspace"
+  },
+  {
+    "name": "Orbitwork",
+    "tagline": "Enterprise delivery, without the enterprise drag.",
+    "target_audience": "IT and ops teams at 500+ employee companies managing cross-departmental programs",
+    "key_differentiator": "Resource capacity planning across departments with real-time overallocation warnings, built for PMO-level oversight",
+    "price_tier": "high ($35-55/user/mo)",
+    "weaknesses": "Steep learning curve, typical onboarding takes 4-6 weeks; requires a dedicated admin; no usable free tier"
+  },
+  {
+    "name": "Nudge",
+    "tagline": "The to-do list that manages itself.",
+    "target_audience": "Solo founders and freelancers juggling multiple client projects alone",
+    "key_differentiator": "Auto-prioritizes your daily task list using deadline proximity and client-value tags you set once",
+    "price_tier": "free tier + low paid ($5/mo for unlimited projects)",
+    "weaknesses": "No team collaboration features at all; single-user by design; cannot assign tasks to others even on paid tier"
+  },
+  {
+    "name": "Ridgeline",
+    "tagline": "Built for teams who ship on a schedule.",
+    "target_audience": "Engineering and product teams running sprint-based delivery at 20-200 person companies",
+    "key_differentiator": "Native two-way sync with Git commits and pull requests, so task status updates itself from code activity",
+    "price_tier": "mid-high ($20-28/user/mo)",
+    "weaknesses": "Overkill and confusing for non-technical teams; sprint/velocity features are unused dead weight for anyone outside engineering; support is community-forum only below the top pricing tier"
+  }
+]
