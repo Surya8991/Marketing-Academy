@@ -6,13 +6,17 @@
 
 ---
 
-## 0. The 3 scripts this playbook uses
+## 0. The scripts and tests this playbook uses
 
 | Script | Purpose |
 |---|---|
-| `scripts/get-track-batch-info.mjs` | Finds which lessons in a track still need projects + their mechanically-assigned tier pair. Replaces manually grepping `tracks.ts`/`projects-assignment.ts`. |
+| `scripts/get-track-batch-info.mjs` | Finds which lessons in a track still need projects + their mechanically-assigned tier pair. Replaces manually grepping `tracks.ts`/`projects-assignment.ts`. **Groups batches per category** so a batch never spans two, since each merge run targets one category file. |
 | `scripts/merge-projects-batch.mjs` | Merges subagents' scratch output into `src/lib/projects/{category}.ts` safely (refuses duplicate keys, verifies key count, backs up outside the project tree). |
-| `scripts/audit-projects.mjs` | Structural check: real `lessonAnchor`s, real `companyId`s, real `toolName`s, runbook completeness, no archetype reuse within a lesson. Run scoped to just the new batch, and unscoped against the whole file occasionally (Session 76 found this catches issues in *older*, previously-shipped content too). |
+| `scripts/audit-projects.mjs` | Fast per-category structural check during authoring. Run scoped to the new batch (`--lessons=`), and unscoped occasionally (this is how the Session 73 pilot's placeholder-`toolName` violations were finally caught, three sessions after they shipped). |
+| `scripts/build-projects-index.mjs` | Regenerates the slim `/projects` hub index. Run after every merge. |
+| `scripts/compute-project-assignment.mjs` | One-time/rare: recomputes tier assignment for all 642 lessons. Only needed if `curriculum.ts` or `tracks.ts` changes. |
+
+**`tests/projects-data.test.ts` is the real gate.** It runs in `npm test` (and therefore CI) and enforces the same invariants on the actual imported objects rather than a text scan: every `companyId`/`toolName`/`lessonAnchor` resolves, mode agrees with which array is populated, every step carries all five runbook parts, `toolStack.free` is non-empty, project ids are unique, no archetype reuse within a lesson, and simulation options route to a real stage or the `"end"` sentinel. The audit script is the fast feedback loop; this is the thing that actually blocks a bad merge.
 
 ---
 
@@ -50,6 +54,7 @@ npm test
 npm run build
 node --import tsx scripts/build-projects-index.mjs
 ```
+`npm test` is the one that matters here — `tests/projects-data.test.ts` will fail the build on any unresolved `companyId`/`toolName`/`lessonAnchor` or malformed project shape, with the offending project id in the message. `tsc` will NOT catch these: they're all valid strings as far as the type system is concerned.
 
 ### 1.6 Live-check + docs + push
 - Live-check one lesson page in the browser preview (confirm `InAction` renders + the project-count badge is right).
@@ -86,18 +91,32 @@ This is real production content. Follow every rule below exactly.
      never invent a company or use one without a confirmed exit.
    - Archetype: the 2 projects must use DIFFERENT archetypes (teardown/rebuild/audit/head-to-head/
      forecast/simulation/reverse-engineer/build-the-asset/ai-critique). Never repeat within a lesson.
-   - Mode: diagnostic if a beginner can check it free on something they own today; teardown if it's
-     a specimen with defects to find; build if it produces a real deliverable.
-   - Diagnostic steps need ALL of: concept, lessonAnchor (a REAL heading id, verify it), theoryRecap,
-     question, toolName (from the shortlist or tools-directory.ts — NEVER invent a placeholder
-     string like "Manual X", if nothing fits, that's a sign to add a real tool, ask first), where,
-     procedure[], outputSample (rendered TEXT/TABLE, never an image), healthy, unhealthy, interpret,
-     soWhat[] ({symptom, action, effort}), owner, stepId.
+   - Mode, DERIVE it, don't default everything to diagnostic:
+       * can a beginner check this free today on something they own? -> diagnostic (steps[])
+       * is it a supplied specimen with defects to find? -> teardown (teardownItems[])
+       * can it NOT be practised live for free (costs money, needs an audience/access you
+         lack, takes months)? -> simulation (stages[], see reference pack 3.2b)
+       * does it produce a real portfolio artifact? -> build (steps[])
+       * narrow repeatable reps -> drill; judgment vs. a known-good key -> calibration (steps[])
+       * genuinely no honest hands-on shape (pure mindset reframe, definition-only)?
+         -> "no-project", an explicit valid verdict. Do NOT force a mode onto such a lesson.
+     Populate the array that matches the mode. Wrong array = the project renders empty.
+   - Diagnostic/build/drill/calibration steps need ALL of: concept, lessonAnchor (a REAL heading id,
+     verify it), theoryRecap, question, toolName (from the shortlist or tools-directory.ts — NEVER
+     invent a placeholder string like "Manual X"/"Written justification", if nothing fits say so in
+     your final report instead of inventing), where, procedure[], outputSample (rendered TEXT/TABLE,
+     never an image), healthy, unhealthy, interpret, soWhat[] ({symptom, action, effort}), owner, stepId.
    - Teardown items need: itemId, specimen, specimenSource, prompt, answerKey[] ({defect, severity,
      whyItMatters, lessonRef, owner}), distractors[], partialCredit: true.
+   - Simulation stages: see reference pack 3.2b. Must be completable with zero spend and no account;
+     every "costly" option needs a lessonRef naming the passage it contradicts; a poor choice routes
+     to a genuinely worse stage (check the economics actually get worse), never a bare "incorrect".
    - toolStack.free must be a complete path alone. datasetUrl only if the mode needs supplied data
      (check public/project-data/ for a real fit, never invent one).
-   - sampleOutput references a DIFFERENT company than the project's own companyId.
+   - conceptsCovered must be derived from your steps'/stages'/items' own `concept` values — real
+     concept NAMES, never sentence fragments (Rule 46).
+   - sampleOutput must reference a DIFFERENT company than the project's own companyId, and contains
+     only the sample itself, never meta-commentary or instructions about what it should contain.
 3. Author 2 "concept scenario" InAction inserts per lesson, into the same MDX file, directly below
    the heading each one illustrates:
 
@@ -156,19 +175,51 @@ type TeardownItem = {
   distractors: string[]; partialCredit: true;
 };
 
+// simulation mode uses `stages`, NOT `steps`. Required for lessons that can't be
+// practised live (paid-ads above all: real practice costs $500-$1,500). See 3.2b.
+type Verdict = "optimal" | "acceptable" | "costly";
+type SimulationStage = {
+  stageId: string; label: string; elapsed: string; concept: string;
+  lessonAnchor: string; situation: string; dashboard: string;
+  spendToDate: string; budgetRemaining: string;
+  decision: {
+    prompt: string;
+    options: { id: string; label: string; verdict: Verdict; outcome: string;
+      why: string; lessonRef: string; nextStageId: string }[];
+  };
+  liveVariant?: string;
+};
+type LiveTrack = { minSpend: string; minDurationDays: number;
+  setupSteps: string[]; checkInSchedule: string };
+
 type ToolRef = { toolName: string; role: string; why: string; required: boolean;
-  fallback?: string; lastVerified: string };
+  fallback?: string; lastVerified: string; inlineUrl?: string; inlinePricing?: PricingTier };
 type ToolStack = { free: ToolRef[]; paid: ToolRef[]; paidUpgradeNote?: string };
 
 type Project = {
   id: string; tier: ProjectTier; archetype: Archetype; title: string;
   timeEstimate: string; timeMinutes: number; objective: string; companyId: string;
   scenario: string; brief: string; mode: ProjectMode; conceptsCovered: string[];
-  steps?: ProjectStep[]; teardownItems?: TeardownItem[];
+  steps?: ProjectStep[];            // diagnostic / build / drill / calibration
+  stages?: SimulationStage[];       // simulation ONLY
+  liveTrack?: LiveTrack;            // optional, simulation only, never required to finish
+  teardownItems?: TeardownItem[];   // teardown ONLY
   toolStack: ToolStack; datasetUrl?: string; deliverable: string; sampleOutput: string;
   successCriteria: string[]; portfolioReady: boolean; stretch?: string;
 };
 ```
+
+**Which array to populate, by mode** — getting this wrong means the project renders empty:
+
+| mode | populate | notes |
+|---|---|---|
+| `diagnostic` | `steps[]` | the default; a free check on something the learner owns |
+| `teardown` | `teardownItems[]` | supplied specimen + fixed answer key |
+| `simulation` | `stages[]` (+ optional `liveTrack`) | branching decisions over time; **never** `steps[]` |
+| `build` / `drill` / `calibration` | `steps[]` | or a bespoke shape per project |
+| `no-project` | none | a valid, explicit verdict — see below |
+
+**`no-project` is a legitimate answer.** If a lesson is a pure mindset reframe or definition-only concept with no honest hands-on shape, mark it `no-project` rather than forcing one of the other modes. Forcing a mode certifies a skill that was never exercised, which is worse than shipping no project (PROJECTS_PLAN.md 11.6, AGENTS.md Rule 37). Two shipped examples: `what-is-marketing`, `opportunity-cost-thinking`.
 
 ### 3.2 ONE worked example (trimmed to 1 step from the real `keyword-research` project)
 
@@ -215,11 +266,77 @@ type Project = {
     paid: [],
   },
   deliverable: "A prioritized content backlog split by intent, with the fastest existing-page win flagged first.",
-  sampleOutput: "keyword-export.csv sorted into 4 intent buckets with a top-3 action list (see a DIFFERENT company than this project's own, e.g. Nykaa, in the actual sampleOutput text).",
+  // sampleOutput shows a DIFFERENT company than companyId above (freshworks -> nykaa),
+  // and contains ONLY the sample itself, no meta-commentary about what it should contain.
+  sampleOutput:
+    "Nykaa, Q3 content backlog (excerpt)\n\n" +
+    "FUND NOW, commercial intent, realistic KD\n" +
+    "  1. best kajal for sensitive eyes    1,300 vol   KD 17   rank —    new landing page\n" +
+    "  2. matte lipstick long lasting        880 vol   KD 22   rank —    new landing page\n\n" +
+    "FASTEST WIN, already ranking, one page edit\n" +
+    "  3. liquid eyeliner waterproof       2,400 vol   KD 29   rank 6    refresh existing page\n\n" +
+    "DO NOT FUND, informational or out of reach this quarter\n" +
+    "  makeup tutorial for beginners     40,500 vol   KD 74   rank —    blog, not a sales page",
   successCriteria: ["Correctly buckets all 40 rows by intent", "Identifies the fastest existing-page win"],
   portfolioReady: true,
 }
 ```
+
+### 3.2b Simulation-mode example (trimmed to 1 stage from the real `paid-ads-101` project)
+
+Only needed when a batch has a lesson that can't be practised live for free. Paste this **in addition to** 3.2 for those batches, not instead of it.
+
+```ts
+{
+  id: "paid-ads-101-learning-phase-sim",
+  tier: "core",
+  archetype: "simulation",
+  mode: "simulation",                       // stages[], NOT steps[]
+  conceptsCovered: ["the 7-14 day learning phase", "CTR vs. conversion-rate diagnosis"],
+  stages: [
+    {
+      stageId: "day3-early-check",
+      label: "Day 3, first look",
+      elapsed: "Day 3 of 14",
+      concept: "Recognizing when a sample is too small to act on",
+      lessonAnchor: "the-budget-question",
+      situation: "You launched \"Search - Remote PM Software\" three days ago and open the dashboard for the first time. Nothing has been touched since launch.",
+      dashboard:
+        "Search campaign · Core Terms ad group · Day 3 of 14\n\n" +
+        "  Impressions          5,710\n" +
+        "  Clicks                 405      CTR 7.1%     (industry avg 6.66%)\n" +
+        "  Conversions               1      CVR 0.25%    (industry avg 7.52%)\n" +
+        "  Cost per conv       £105.30",
+      spendToDate: "£105.30 of £600",
+      budgetRemaining: "£494.70",
+      decision: {
+        prompt: "One conversion in three days on a campaign meant to validate real demand. What do you do?",
+        options: [
+          {
+            id: "wait",
+            label: "Note the numbers, close the dashboard, come back in 3-5 days",
+            verdict: "optimal",
+            outcome: "You let the learning phase run undisturbed. One conversion in three days is a coin flip, not a trend, and the learning phase runs on a 7-14 day clock, not a click count.",
+            why: "The algorithm is still calibrating. Any edit now restarts the clock you've already paid three days into.",
+            lessonRef: "The Budget Question: 100-200 clicks to know if a keyword or ad group is working",
+            nextStageId: "day9-diagnosis",
+          },
+          // ...3-4 options per stage. EVERY "costly" option needs a lessonRef naming
+          // the passage it contradicts — if a wrong answer isn't traceable to something
+          // the lesson taught, either the option is unfair or the lesson has a gap.
+        ],
+      },
+    },
+    // ...more stages; a "costly" choice routes to a materially WORSE stage, it never
+    // just prints "incorrect". The consequence is the teaching.
+  ],
+}
+```
+
+Three hard rules specific to simulations (PROJECTS_PLAN.md section 7, rules 17-19):
+- **Completable with zero spend and no account.** `liveTrack` is strictly optional and must never be required to finish or earn XP.
+- **Every `costly` option carries a `lessonRef`** naming the passage it contradicts.
+- **They branch, they don't grade.** A poor decision routes to a genuinely worse stage with internally-consistent economics. Session 73 shipped a simulation whose "costly" branch accidentally had *better* cost-per-conversion than the optimal one — check your terminals actually get worse.
 
 ### 3.3 Company shortlist (fill per batch)
 

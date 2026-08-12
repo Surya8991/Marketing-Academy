@@ -83,22 +83,47 @@ function headingIdsFor(slug) {
   );
 }
 
+// Isolate each lesson's array body by slicing from its own key to the START of
+// the next top-level key (or EOF). Do NOT terminate on a `\n  ],\n` match: an
+// empty `no-project` entry written inline as `"slug": [],` has no such
+// terminator, so a terminator-based regex silently swallows the NEXT lesson's
+// projects and then validates them against the wrong lesson's MDX headings.
+// That produced real false positives before this was fixed.
+const keyPositions = [...projectsSrc.matchAll(/^  "([a-z0-9-]+)":\s*\[/gm)].map((m) => ({
+  slug: m[1],
+  start: m.index + m[0].length,
+  keyStart: m.index,
+}));
+
+function bodyFor(slug) {
+  const i = keyPositions.findIndex((k) => k.slug === slug);
+  if (i === -1) return null;
+  const end = i + 1 < keyPositions.length ? keyPositions[i + 1].keyStart : projectsSrc.length;
+  return projectsSrc.slice(keyPositions[i].start, end);
+}
+
 const issues = [];
 let projectCount = 0;
+let noProjectCount = 0;
 
 for (const slug of targetSlugs) {
-  const re = new RegExp(`  "${slug}": \\[([\\s\\S]*?)\\n  \\],\\n`);
-  const m = projectsSrc.match(re);
-  if (!m) {
-    issues.push(`${slug}: could not isolate its array body (regex mismatch, check file formatting)`);
+  const body = bodyFor(slug);
+  if (body === null) {
+    issues.push(`${slug}: could not isolate its array body (check file formatting)`);
     continue;
   }
-  const body = m[1];
   const headingIds = headingIdsFor(slug);
   if (headingIds === null) issues.push(`${slug}: no MDX file found at src/content/${category}/${slug}.mdx`);
 
   const projectStarts = [...body.matchAll(/\n    \{\n      id: "([^"]+)"/g)];
   projectCount += projectStarts.length;
+
+  // An empty array is the explicit `no-project` verdict (PROJECTS_PLAN.md 11.6,
+  // AGENTS.md Rule 37), a deliberate decision and NOT a gap. Count it, don't flag it.
+  if (projectStarts.length === 0) {
+    noProjectCount++;
+    continue;
+  }
 
   const archetypesInLesson = [];
 
@@ -159,7 +184,11 @@ for (const slug of targetSlugs) {
   }
 }
 
-console.log(`Audited ${projectCount} project(s) across ${targetSlugs.length} lesson(s) in ${category}.ts.\n`);
+console.log(
+  `Audited ${projectCount} project(s) across ${targetSlugs.length} lesson(s) in ${category}.ts` +
+    (noProjectCount ? `, ${noProjectCount} of them an explicit no-project verdict.` : ".") +
+    "\n"
+);
 if (issues.length === 0) {
   console.log("NO STRUCTURAL ISSUES FOUND.");
 } else {

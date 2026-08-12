@@ -2,13 +2,11 @@
 
 > **PRIORITY: HIGH.** This is the active roadmap for the next major phase of the project. Section 0 is the running order.
 >
-> Status: PROPOSED, awaiting approval. **No code written yet, this document is the only deliverable so far.**
+> **Status as of Session 76: mostly IMPLEMENTED, not proposed.** Stages 0-7, 3b and 9.4 are complete (Sessions 71-72). Stage 8 (the projects layer) is in progress: Phase 0 + the Phase 1 pilot + 8.2b shipped in Sessions 73-74, and 8.3/8.4 shipped for the Technical SEO Mastery track in Session 76. **Stage 8.3a carries the owner-set priority order across all 24 tracks for what's next**, and `PROJECTS_AUTHORING_GUIDE.md` is the operational playbook for executing it. Stages 9 (long tail) and 10 (5-question quiz expansion) remain.
 >
-> ⚠️ **This document now carries ~120 verified findings, 13 of them P0**, none implemented.
+> ⚠️ **Historical note on everything below.** This document was written as a pre-implementation audit and still reads that way in places, describing bugs in the present tense that have since been fixed. It carried ~120 verified findings, 13 of them P0; **the great majority are now implemented.** Notably: `/api/groq` was deleted, cloud sync was disabled pending per-user keying, the three unguarded `localStorage` calls were guarded, and the whole completion-integrity family (0.1-0.1f) was closed in Session 71. Treat findings text below as a record of what was found and why it mattered, not as a live to-do list, and check the Stage tables in section 0 for actual current status before acting on anything.
 >
-> Most are unrelated to the projects feature and were found while planning it: five interlocking completion-integrity bugs (**0.1 to 0.1f**), a 20-item lesson-quality backlog (**section 12**), and ~94 findings from a five-lens adversarial code audit (**section 14**) covering security, state integrity, accessibility, performance and new-learner UX.
->
-> **The three most urgent, all confirmed in source:** `/api/groq` is an unauthenticated LLM proxy on your API key with **zero callers**; cloud sync writes every user to **one global KV key**, exposing private notes; and three unguarded `localStorage` calls crash **every page** for anyone with site data blocked.
+> Most findings were unrelated to the projects feature and were found while planning it: five interlocking completion-integrity bugs (**0.1 to 0.1f**), a 20-item lesson-quality backlog (**section 12**), and ~94 findings from a five-lens adversarial code audit (**section 14**) covering security, state integrity, accessibility, performance and new-learner UX.
 >
 > Section 0 carries the full execution order, twelve stages (0 through 10, with 3b as an eleventh inserted stage), ordered by live harm rather than by topic. Stage 10 (5-questions-per-lesson quiz expansion) was added during Stage 1 execution, see its own entry for why it's sequenced last.
 >

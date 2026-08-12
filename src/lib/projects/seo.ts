@@ -347,7 +347,7 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
             "The lesson's Airbnb case shows organic traffic growing approximately 400% between 2013 and 2016 after Airbnb targeted thousands of hyper-specific location phrases (like 'private room San Francisco Mission District') instead of competing head-on for 'hotels in New York', eventually ranking on page one for over 100,000 location-specific keywords.",
           question:
             "How does Airbnb's 100,000-keyword, ~400%-growth precedent translate into a one-paragraph justification for Strategy B in this brief?",
-          toolName: "Written justification",
+          toolName: "Notion",
           where: "One paragraph in the strategy memo, citing the lesson's Airbnb numbers directly.",
           procedure: [
             "Restate Airbnb's two real numbers: 100,000+ page-one long-tail rankings, ~400% organic traffic growth 2013-2016",
@@ -453,7 +453,7 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
             "The lesson's Title Tag rules: include the primary keyword in the first 3-4 words, keep it under 60 characters, and give a reason to click. Titles over 60 characters are 57% more likely to be rewritten by Google (Ahrefs, 2021).",
           question:
             "Pulled from a manual crawl of three pages in this export, which titles are Google-rewrite risks, and does that correlate with their current rank?",
-          toolName: "Manual page crawl",
+          toolName: "Screaming Frog SEO Spider",
           where: "View source (or Screaming Frog) on each ranking URL, read the <title> tag.",
           procedure: [
             "Pull the live <title> tag text for each URL in the rank-11-to-20 band",
@@ -499,7 +499,7 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
             "The lesson's URL Slug rule: keep it short, readable, and keyword-included, e.g. /blog/on-page-seo, not a query-string or version-suffixed path. Clean URLs earn 45% higher CTR than ones that aren't.",
           question:
             "Pulled alongside the same crawl, which URLs already follow the clean-slug pattern the lesson recommends, and which look like the query-string trap?",
-          toolName: "Manual page crawl",
+          toolName: "Screaming Frog SEO Spider",
           where: "Same crawl as Step 1, read the address bar for each URL.",
           procedure: [
             "Record the full URL for each of the three pages audited in Step 1",
@@ -541,7 +541,7 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
             "The lesson is explicit that the meta description is not a direct ranking factor, but it drives click-through rate. Google rewrites it 63% of the time (Ahrefs, 2020), but the original still influences what gets shown, so it's still worth writing well.",
           question:
             "Two meta descriptions from the crawl, one 19 characters, one 240. Which is more likely to survive as-written, and which is doing nothing for CTR either way?",
-          toolName: "Manual page crawl",
+          toolName: "Screaming Frog SEO Spider",
           where: "Same crawl, read the meta description tag in page source.",
           procedure: [
             "Pull the meta description for the rank-11 and rank-13 pages from Step 1",
@@ -581,7 +581,7 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
             "The lesson cites Backlinko 2022 data: position 1 gets a 27.6% average CTR, position 2 gets about 15%, and the top 3 results combined capture 54.4% of all organic clicks on a page.",
           question:
             "Using only the lesson's cited numbers, what's the honest click estimate if 'project management software comparison' (1,900 vol, rank 11) moves onto page 1 versus moves all the way to #1?",
-          toolName: "Manual calculation",
+          toolName: "Google Sheets",
           where: "Spreadsheet, applying the lesson's cited CTR figures directly to the export's volume column.",
           procedure: [
             "Take the keyword's monthly volume from the export (1,900)",
@@ -691,7 +691,7 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
             "The lesson's Title Tag rules: include the primary keyword in the first 3-4 words, keep it under 60 characters, and give a reason to click, written for a human first.",
           question:
             "The current title is just \"Babysitters\", 12 characters, matching nothing close to what a 'near me' searcher typed. Rewrite it under 60 characters with the keyword up front and a trust signal.",
-          toolName: "Manual rewrite",
+          toolName: "WordPress",
           where: "CMS title field for the page.",
           procedure: [
             "Read the current title and note what's missing: locality, keyword match to 'near me' intent, any reason to click",
@@ -725,7 +725,7 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
             "The lesson's URL rule: short, readable, keyword-included, no query strings or version suffixes. Clean URLs earn 45% higher CTR.",
           question:
             "The current URL is a query-string mess with a version suffix. Rewrite it as a clean, keyword-led path.",
-          toolName: "Manual rewrite",
+          toolName: "WordPress",
           where: "CMS URL/slug field, with a 301 redirect from the old path.",
           procedure: [
             "Read the current URL and identify every non-keyword element: query params, version tags, internal IDs",
@@ -758,7 +758,7 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
             "The lesson's H1 rule: the main on-page headline must clearly signal the same topic as the title, use the target keyword once, and read as a human headline, not a keyword string.",
           question:
             "The current H1, \"Welcome to Our Babysitter Finder Tool\", buries the keyword under a generic greeting. Rewrite it to lead with the keyword and mirror the searcher's actual intent.",
-          toolName: "Manual rewrite",
+          toolName: "WordPress",
           where: "Page template's H1 element.",
           procedure: [
             "Read the current H1 and identify the filler ('Welcome to Our', 'Tool')",
@@ -791,7 +791,7 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
             "The lesson's Meta Description rule: not a ranking factor, but write it like ad copy, keyword included, benefit stated, under 155 characters.",
           question:
             "The current meta description is \"Care.com helps you.\", 19 characters with no keyword and no reason to click. Rewrite it under 155 characters with a concrete call to action.",
-          toolName: "Manual rewrite",
+          toolName: "WordPress",
           where: "CMS meta description field.",
           procedure: [
             "Read the current description and note what's missing: the keyword, a concrete benefit, a call to action",
@@ -825,7 +825,7 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
             "The lesson's Internal Links rule: add 2-5 links per page to related content, using descriptive anchor text instead of \"click here\", since internal links both help discovery and pass ranking power between pages.",
           question:
             "The current page has zero internal links to related content (nannies, senior care, background checks). Add 3-5 with descriptive anchor text.",
-          toolName: "Manual edit",
+          toolName: "WordPress",
           where: "Page body, contextual links within the existing content.",
           procedure: [
             "Identify related pages that exist on the site (nannies, senior care, background-check guide, rate guide)",

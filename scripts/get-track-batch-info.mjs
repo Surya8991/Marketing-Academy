@@ -131,19 +131,48 @@ if (remaining.length === 0) {
   process.exit(0);
 }
 
-const batches = [];
-for (let i = 0; i < remaining.length; i += batchSize) batches.push(remaining.slice(i, i + batchSize));
+// Batches must NEVER span categories: merge-projects-batch.mjs takes exactly
+// one category and merges into that one src/lib/projects/{category}.ts file,
+// so a scratch file holding two categories' lessons is unmergeable without
+// hand-splitting it. Group by category first, then batch within each group.
+const byCategory = new Map();
+for (const l of remaining) {
+  if (!byCategory.has(l.category)) byCategory.set(l.category, []);
+  byCategory.get(l.category).push(l);
+}
 
-batches.forEach((batch, i) => {
-  const label = String.fromCharCode(65 + i); // A, B, C, ...
-  console.log(`--- Batch ${label} (${batch.length} lessons) ---`);
-  batch.forEach((l) => {
-    console.log(`  ${l.slug}`);
-    console.log(`    category: ${l.category}   level: ${l.level}   tier pair: [${l.cappedTierPair.join(", ")}]`);
-    console.log(`    mdx: ${l.mdxPath}`);
-    if (l.override) console.log(`    note: ${l.override}`);
+const categoryList = [...byCategory.keys()];
+if (categoryList.length > 1) {
+  console.log(`NOTE: this track spans ${categoryList.length} categories (${categoryList.join(", ")}).`);
+  console.log(`Batches below are grouped per category and never mix them, since each merge run targets one src/lib/projects/{category}.ts.\n`);
+}
+
+let batchIndex = 0;
+for (const [cat, catLessons] of byCategory) {
+  const catBatches = [];
+  for (let i = 0; i < catLessons.length; i += batchSize) catBatches.push(catLessons.slice(i, i + batchSize));
+
+  console.log(`########## category: ${cat} (${catLessons.length} lesson(s), ${catBatches.length} batch(es)) ##########\n`);
+
+  catBatches.forEach((batch) => {
+    const label = String.fromCharCode(65 + batchIndex); // A, B, C, ... across the whole run
+    batchIndex++;
+    console.log(`--- Batch ${label} (${batch.length} lessons, category ${cat}) ---`);
+    batch.forEach((l) => {
+      console.log(`  ${l.slug}`);
+      console.log(`    category: ${l.category}   level: ${l.level}   tier pair: [${l.cappedTierPair.join(", ")}]`);
+      console.log(`    mdx: ${l.mdxPath}`);
+      if (l.override) console.log(`    note: ${l.override}`);
+    });
+    console.log("");
   });
-  console.log("");
-});
+}
 
-console.log(`${batches.length} batch(es) of up to ${batchSize} lessons each. Paste each batch's lesson list directly into that batch's agent prompt.`);
+console.log(`${batchIndex} batch(es) of up to ${batchSize} lessons each, across ${categoryList.length} categor${categoryList.length === 1 ? "y" : "ies"}.`);
+console.log(`Paste each batch's lesson list into that batch's agent prompt (PROJECTS_AUTHORING_GUIDE.md section 2).`);
+if (categoryList.length > 1) {
+  console.log(`Then run merge-projects-batch.mjs ONCE PER CATEGORY, passing only that category's scratch files:`);
+  for (const cat of categoryList) {
+    console.log(`  node --import tsx scripts/merge-projects-batch.mjs ${cat} <its scratch files...>`);
+  }
+}

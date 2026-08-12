@@ -54,10 +54,10 @@ A free, structured marketing education site, from absolute beginner to advanced 
 - **Onboarding**, First-visit goal selector: pick a goal (including "totally new to marketing"), get routed to the right learning track. Suppressed on lesson pages so direct-link visitors aren't interrupted
 
 **Discovery**
-- **Command Palette**, Cmd/Ctrl+K fuzzy search across all 642 lessons, 158 glossary terms, 113 tools, and nav pages
+- **Command Palette**, Cmd/Ctrl+K fuzzy search across all 642 lessons, 158 glossary terms, 116 tools, and nav pages
 - **Search**, Client-side fuzzy search (Fuse.js) with category and level filter chips
-- **Glossary**, 216 marketing terms with A-Z index and individual term pages at `/glossary`
-- **Tools directory**, 108 marketing tools across 11 categories with search, category, and pricing filters at `/tools`
+- **Glossary**, 158 marketing terms with A-Z index and individual term pages at `/glossary`
+- **Tools directory**, 116 marketing tools across 11 categories with search, category, and pricing filters at `/tools`
 - **Cheat sheets**, Printable per-category quick reference cards at `/cheat-sheets/[category]`
 
 **Interview Prep**
@@ -104,7 +104,7 @@ npm run dev
 # Type check
 npx tsc --noEmit
 
-# Tests (18 tests: data validation, quiz shuffle property, integrity regression)
+# Tests (30 tests: data validation, projects data, quiz shuffle property, integrity regression)
 npm test
 
 # Build
@@ -147,7 +147,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/tracks.ts` | 24 learning track definitions |
 | `src/lib/glossary.ts` | 158 marketing term definitions |
 | `src/lib/quizzes.ts` | Quiz questions (4 per lesson, all 642 lessons covered) |
-| `src/lib/tools-directory.ts` | 113 marketing tools with category/pricing data |
+| `src/lib/tools-directory.ts` | 116 marketing tools with category/pricing data |
 | `PROJECTS_PLAN.md` | **High-priority roadmap** — stages 0-7, 9.4 complete. Stage 8 Phase 0+1 pilot complete (36 projects, 20 lessons, `/projects` hub), 8.2b (centrality/tier computation) complete. Session 76: 8.3+8.4 done for the Technical SEO Mastery track (12 lessons, 24 projects + 24 `InAction` concept scenarios). 8.3a now carries an owner-set priority order across all 24 tracks (not just SEO) for what's next; use `PROJECTS_AUTHORING_GUIDE.md` to work through it |
 | `src/components/InAction.tsx` | Global MDX component rendering one cited "concept scenario" inline after a lesson heading (PROJECTS_PLAN.md section 10 / Stage 8.4). Embedded directly in lesson MDX, not build-time-injected — see AGENTS.md Rule 54 |
 | `PROJECTS_AUTHORING_GUIDE.md` | Operational playbook for authoring a new track's Stage 8.3/8.4 batch: fill-in agent prompt template + condensed reference pack + the 3 scripts below, in order |
@@ -180,7 +180,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `vercel.json` | Security headers (CSP, HSTS, X-Frame-Options, etc.) |
 | `src/lib/storage-utils.ts` | Safe `localStorage` wrapper with try/catch, corrupt-value backup, and `StorageWarning` trigger |
 | `src/components/StorageWarning.tsx` | Client banner shown when localStorage is blocked (corporate/Android) |
-| `tests/*.test.ts` | 18 tests (Node.js built-in runner + tsx): data validation, quiz shuffle, integrity regression |
+| `tests/*.test.ts` | 30 tests (Node.js built-in runner + tsx): data validation, **projects data (Rule 57, the gate for project referential integrity)**, quiz shuffle, integrity regression |
 | `AGENTS.md` | 53 non-negotiable build rules for AI agents (incl. Rule 23: pre-push doc checklist) |
 | `src/lib/notes.ts` | Shared note storage (NOTE_KEY_PREFIX, getNoteKey, getNote, saveNote) |
 | `src/app/api/sync-proxy/route.ts` | Server-side CF KV proxy, secret never exposed to client |

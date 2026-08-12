@@ -597,3 +597,18 @@ Session 76's 3-agent fan-out (4 lessons each, full reference-file reads) cost ~6
 Also: give research an explicit budget (e.g. 2 searches + 1 fetch per fact before moving to a better-sourced concept, not searching exhaustively), and skip agent-side `tsc --noEmit` self-checks, that compile is redundant with the one run once at merge time across the whole file. None of this is optional polish, it is the difference between ~830k tokens for 12 lessons (Session 76's actual cost) and a meaningfully lower number for the same quality bar on Stage 8.3a's next 18.
 
 **This rule is implemented, not just written down.** `PROJECTS_AUTHORING_GUIDE.md` is the operational playbook (fill-in-the-blanks agent prompt with the condensed pack this rule describes already inlined), backed by three scripts that also close the two mechanical-mistake gaps Session 76 hit by hand: `scripts/get-track-batch-info.mjs` (which lessons need projects + their tier), `scripts/merge-projects-batch.mjs` (safe merge, refuses duplicate keys, backs up outside `src/lib/projects/`), `scripts/audit-projects.mjs` (the structural checks Rules 3/11/12/13/15 require, generalized past the one-off `seo.ts`-only version Session 76 first wrote). Use these for every future batch instead of re-deriving the process by hand.
+
+### Rule 57 — `tests/projects-data.test.ts` is the gate for project data, and `tsc` is not
+Every invariant that matters for a project (`companyId` resolves, `toolName` resolves, `lessonAnchor` is a real heading, mode agrees with which array is populated, all five runbook parts present, unique ids, no archetype reuse in a lesson, simulation options route somewhere real) is a **valid string as far as TypeScript is concerned**. `tsc --noEmit` passes on all of them. That is exactly how the Session 73 pilot shipped invented `toolName` placeholders that survived three sessions of review.
+
+`tests/projects-data.test.ts` (added Session 76) enforces them on the real imported objects in `npm test`, which CI already runs. Extend it when a new invariant appears; do not add a new one-off script and rely on someone remembering to run it.
+
+Two things learned writing it, both worth not repeating:
+
+**1. The empty `no-project` array breaks terminator-based regex parsing.** A lesson with an explicit no-project verdict is written inline:
+```ts
+"what-is-marketing": [],
+```
+A regex that isolates a lesson body by scanning for a `\n  ],\n` terminator finds **no match** here, silently runs on into the *next* lesson's array, and then validates that lesson's projects against the wrong lesson's MDX headings. This produced confident, entirely false "lessonAnchor is not a real heading" failures. Any script parsing `src/lib/projects/*.ts` by text must slice from one top-level key to the **start of the next key**, never to a closing-bracket pattern. Better still, import the module and work on real objects.
+
+**2. Do not assert style heuristics as invariants.** Two stricter `conceptsCovered` checks were written and both had to be removed because they failed on legitimate content: "must not end with a period" flags valid short declarative concept names, and "must exactly match a step's `concept` value" fails 6 of the 33 step-bearing projects that reasonably shorten a long step concept into a readable card label. A test that fails on correct data is worse than no test, because it teaches everyone to ignore the failure or, worse, to "fix" content that was right. Assert what is objectively checkable (it resolves, it exists, it is non-empty, it is unique) and leave phrasing to review.

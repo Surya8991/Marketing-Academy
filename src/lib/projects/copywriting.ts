@@ -365,7 +365,7 @@ export const COPYWRITING_PROJECTS: Record<string, Project[]> = {
             inlinePricing: "Free",
           },
           {
-            toolName: "AMINSTITUTE Headline Analyzer",
+            toolName: "Advanced Marketing Institute Headline Analyzer",
             role: "Optional cross-check of emotional marketing value against the specificity/benefit rows",
             why: "Free web tool that scores emotional pull, useful as a second opinion on the specificity and benefit-clarity rows, not a replacement for your own scoring.",
             required: false,
