@@ -99,6 +99,18 @@ They interlock; fixing one alone moves the hole rather than closing it.
 
 > 3.1 and 3.2 together are roughly **58 KB gzip off every route for about ten minutes of work**.
 
+#### Stage 3b, make the rules enforceable
+
+| # | Item | Section | Why here |
+|---|---|---|---|
+| **3b.1** | Add `"test": "node --test tests/"`, no new framework | 15.6 | There is currently **no test script and no test file in the repo** |
+| **3b.2** | Tier 1 data validation over curriculum, quizzes, roster | 15.3 | Turns this document's rules into something enforced rather than aspirational |
+| **3b.3** | Property test: shuffling preserves `correct` across all 2,252 questions | 15.3 | The single highest-value test here. Blocks the Rule 40 trap permanently |
+| **3b.4** | Tier 2 regression: no 4th ungated `markComplete()`, achievements satisfiable | 15.4 | Implements Stage 1.8, which is otherwise unimplementable |
+| **3b.5** | CI job: `lint && test && build` + the bundle-size assertion | 15.7 | Stops the 3.1-3.3 class of regression shipping again |
+
+> Sequenced after Stage 3 because 3b.2 and 3b.4 would have caught several Stage 2 bugs at authoring time, and everything from Stage 8 onward depends on invariants that nothing currently enforces.
+
 #### Stage 4, blockers for the projects layer
 
 | # | Item | Section |
@@ -2154,3 +2166,206 @@ Where lenses independently agreed, confidence is highest:
 46. **On a storage parse failure, preserve the raw value before writing defaults over it.** Currently a corrupt blob is silently replaced and then overwritten, destroying recoverable data.
 47. **Any ID built from a category must resolve `sourceCategory ?? category`.** Three separate progress UIs and two achievements are broken by this today.
 48. **No API route ships without auth and a shared-store rate limit.** `/api/groq` has neither and has no callers at all.
+
+---
+
+## 15. Testing and data validation
+
+### 15.1 Current state: there is none
+
+Verified: **no `test` script in `package.json`**, no test files anywhere in the repo, no CI test step. The only automated check is `next build` and `next lint`.
+
+That has been survivable because the site is mostly static content. It stops being survivable here, for a specific reason: **this plan adds ~1,284 project records whose correctness is entirely a matter of invariants that a human reviewer cannot hold in their head.** Every rule in this document is currently an aspiration with nothing enforcing it.
+
+The clearest case is Rule 40. Shuffling `Quiz.options[]` without remapping `correct` silently mis-grades all 2,252 questions with no build error, no runtime error and no type error. A five-line property test catches it instantly. Code review demonstrably does not, since the naive version looks correct.
+
+### 15.2 The important reframe: this needs data validation, not unit tests
+
+Most of the value here is **not** React component testing. It is assertions over static data files. That is cheaper, faster, and catches the things that actually go wrong in a content codebase.
+
+Three tiers, in order of value per hour:
+
+| Tier | What it covers | Effort |
+|---|---|---|
+| **1. Data validation** | Roster, projects, scenarios, quizzes, curriculum. ~80% of the value | Low |
+| **2. Integrity regression** | The gate bugs in 0.1-0.1f, so they cannot silently return | Low |
+| **3. Component tests** | Quiz, MarkComplete, TrackLessonList behaviour | Medium |
+
+### 15.3 Tier 1, data validation
+
+These are the assertions that turn this document's rules into something enforced.
+
+**Curriculum and content integrity** (would have caught findings the audits found by hand):
+
+- Every `LessonRef` resolves to an MDX file at `src/content/{sourceCategory ?? category}/{slug}.mdx`
+- No orphan MDX files, every file on disk is referenced by `curriculum.ts`
+- `flatLessons()` deduped count **equals** the `.mdx` file count. *This single assertion catches the 655 vs 642 drift that makes two achievements unreachable.*
+- Every lesson has at least two `##` headings. *Catches the 10 heading-less lessons in 12.2, which also block projects.*
+- No two slugs in a category normalise to the same string. *Catches the 8 near-duplicate pairs in 12.6.*
+
+**Quizzes** (existing data, no new feature required):
+
+- `correct` is an integer index within `options.length`, for all 2,252
+- Every registered lesson has a `QUIZZES` entry and vice versa
+- No option string is position-dependent (`/all of the above|none of the above/i`). *Catches `analytics/consent-mode`, the sole blocker for Rule 40's shuffling.*
+- **Property test for the shuffle**: for any question, after `shuffleOptions(q)`, `result.options[result.correct] === q.options[q.correct]`. Run it over all 2,252 with a seeded RNG. This is the single highest-value test in the document.
+
+**Roster** (`case-companies.ts`):
+
+- Every entry has a non-empty, well-formed `exit.source` URL and a parseable `exit.date`
+- The barred list is absent: Glossier, Away, CRED, Zerodha, Zoho
+- Region split within tolerance of the 60/40 target
+- Exit-scale quota within tolerance of the 30/30/25/15 target
+- Minimum 12 distinct sectors
+- No `companyId` appears in more than 4 projects
+
+**Projects**:
+
+- Every `companyId` resolves in `CASE_COMPANIES`
+- Every `toolName` resolves in `TOOLS`, or carries `inlineUrl` + `inlinePricing`
+- `toolStack.free` is non-empty (the free-path guarantee)
+- `mode: "simulation"` implies `stages` and no `steps`; other modes the reverse
+- `archetype` in `{simulation, forecast, audit}` implies `datasetUrl`, **and the referenced file exists in `public/project-data/`**
+- Every `ProjectStep` carries all five runbook parts: `where`, `procedure`, `outputSample`, `healthy`/`unhealthy`/`interpret`, `soWhat`, `owner`
+- `sampleOutput` references a different `companyId` than `scenario`
+- No lesson reuses an archetype within its own project set
+- Every `costly` simulation option has a non-empty `lessonRef`
+- **Every step's `concept` matches a real heading in the source lesson's MDX**, and `lessonAnchor` equals that heading's slugified id. This one requires parsing the MDX, and it is the assertion that stops projects drifting away from the lessons they operationalise.
+
+**Concept scenarios**: every entry has a cited `source`, a quantified `benefit`, and a `concept` matching a real lesson heading.
+
+### 15.4 Tier 2, integrity regression
+
+Small, targeted, and permanent:
+
+- **No component calls `markComplete()` without `getQuizPassed()` in the same file.** A grep-based assertion over `src/components/**` is sufficient and directly implements plan item 1.8, which is otherwise unimplementable. Currently three call sites; a fourth should fail the build.
+- `markIncomplete()` reverses the XP that `markComplete()` awarded
+- The certificate page returns null or a progress card below 100%
+- `getEngagement()` returns a valid shape when given `{"xpLog": null}`, `"garbage"`, `""`, and a truncated JSON string
+- Achievement `check` functions are satisfiable: for each, construct the maximal reachable state and assert it passes. *This is a general form of the bug that makes "Marketing Polymath" unreachable, and it would have caught it at authoring time.*
+
+### 15.5 Tier 3, component tests
+
+Only where behaviour is subtle. Not a coverage exercise.
+
+- `Quiz`: retry clears saved state; options reshuffle between attempts; question order is stable within a session
+- `MarkComplete`: locked when `!quizPassed && !done`; unlocks on `QUIZ_PASSED_EVENT`
+- `TrackLessonList`: locked checkbox navigates rather than toggling
+- `TableOfContents`: `extraSections` appear after article headings
+
+### 15.6 Tooling recommendation
+
+**Start with `node --test`, add nothing.** Node 20+ (already required by `engines`) ships a test runner. Tiers 1 and 2 are plain assertions over imported data and need no framework, no jsdom, no transform pipeline. That is ~80% of the value for one line in `package.json`:
+
+```json
+"test": "node --test tests/"
+```
+
+Add **Vitest** only when Tier 3 becomes necessary, since component tests do need a transform and a DOM. Do not add it preemptively.
+
+Caveat worth knowing: the data files are TypeScript. Either run validation against the built output, or add `--experimental-strip-types` (Node 22+), or keep a tiny `tsx` dev dependency. The last is the pragmatic choice.
+
+### 15.7 CI
+
+One GitHub Actions job on PR: `npm run lint && npm test && npm run build`. Add the bundle-size assertion from plan item 3.6 to the same job, so the `Nav.tsx` class of regression (48 KB gzip on every route) fails loudly rather than shipping.
+
+### 15.8 What not to do
+
+- **Do not chase coverage.** A static content site does not benefit from testing render output of 642 pages.
+- **Do not snapshot-test lesson MDX.** It changes constantly by design and snapshots would be pure noise.
+- **Do not test third-party behaviour.** Mermaid, DOMPurify and PostHog are not yours to verify.
+- **Do not write Tier 3 before Tiers 1 and 2.** Component tests are the most expensive and the least likely to catch what actually breaks here.
+
+---
+
+## 16. Open decisions blocking implementation
+
+Eleven decisions that need an answer before the work they gate can start. Recommendations given, but these are calls for the owner, not defaults to assume.
+
+### 16.1 `/api/groq`, delete or gate? — blocks Stage 0.1
+
+Unauthenticated LLM proxy on your API key with **zero callers anywhere in the app**.
+
+- **A. Delete it.** Nothing uses it, so nothing breaks.
+- B. Keep and gate behind a real session.
+
+**Recommend A.** If there is a planned use, B, but the route should not stay live while that plan is theoretical.
+
+### 16.2 Cloud sync, fix or remove? — blocks Stage 0.2
+
+Currently one global KV key for all users, exposing private notes, gated only by a secret published in the client bundle.
+
+- **A. Disable the feature now, fix properly later.** Removes the leak today.
+- B. Fix per-user keying immediately, which needs a user identity mechanism the site does not have.
+- C. Leave it, accepting that synced data is public.
+
+**Recommend A.** B is a real feature requiring auth, and this site has none by design. Note the UX audit found the feature is written for a developer anyway, so almost nobody is using it.
+
+### 16.3 Migration for completions earned via the bypass — blocks Stage 1.1
+
+Existing users hold completions and XP from the ungated track checkbox.
+
+- A. Leave them, existing certificates stay unearned.
+- B. Invalidate un-quizzed completions, correct but visibly resets people's progress.
+- **C. Grandfather with a one-time notice.**
+
+**Recommend C.** Honest about the change without punishing people for using an affordance the product offered.
+
+### 16.4 Track quiz pooled threshold — blocks Stage 1.5
+
+80% of a pooled set currently marks *all* lessons complete, so a learner can score 0% on two lessons and still have both certified.
+
+- **A. Keep 80% overall plus a per-lesson minimum** (say half of each lesson's questions).
+- B. Mark complete only the lessons scored well on.
+- C. Leave as is, and say plainly in the UI that the track quiz certifies the track, not each lesson.
+
+**Recommend A.**
+
+### 16.5 Per-lesson quiz threshold — blocks Stage 1.6
+
+Per-lesson demands **100%**; the track quiz covering 21 lessons needs **80%**. The stricter gate is on the easier task.
+
+- **A. Lower per-lesson to 80%**, consistent with the track.
+- B. Raise the track quiz to 100%, harsh at 84 questions.
+- C. Keep both, and justify the asymmetry in the UI.
+
+**Recommend A.**
+
+### 16.6 Certificate eligibility bar — blocks Stage 0.4
+
+- A. 100% of lessons complete.
+- **B. 100% of lessons plus a passed track quiz.**
+- C. A lower bar, e.g. 90%, with the percentage printed on the certificate.
+
+**Recommend B**, since it is the only option that makes the certificate mean something once Stage 1 closes the free paths.
+
+### 16.7 Quiz answer reveal timing — blocks Stage 1.2
+
+The genuine tension in this document: instant per-question feedback is good pedagogy, and it is also what makes the gate defeatable in thirty seconds.
+
+- **A. Reveal explanations after the whole quiz is submitted**, not per question.
+- B. Keep per-question reveal, rely on option shuffling alone.
+- C. Reveal per question only on a passing attempt.
+
+**Recommend A**, combined with the shuffling in 1.3. The explanation still arrives, just after the attempt is locked in.
+
+### 16.8 Projects per lesson, 2 or 3? — blocks Stage 8
+
+The runbook anatomy in 2.3 roughly tripled the depth of each project. At 2-3 per lesson the full library is ~1.5M words.
+
+- **A. Two per lesson**, one `mini` and one `core`. ~1,284 projects.
+- B. Three, accepting roughly 50% more authoring.
+
+**Recommend A**, as argued in 2.3. Depth per project is the point; breadth is negotiable.
+
+### 16.9 `analytics/consent-mode` rewrite — blocks Stage 1.3
+
+Its "All of the above" option is the sole position-dependent option in all 8,341 audited, and it blocks quiz shuffling library-wide. Needs one option rewritten into a concrete statement. Trivial, but someone has to decide the replacement wording.
+
+### 16.10 `/interview-prep` — orphaned route
+
+Nothing links to it. Delete, or wire it into the nav? **Recommend wiring it in**, given it is directly relevant to the Meera persona (13.1) and to the `/portfolio` work in 9.3.
+
+### 16.11 Rule renumbering at merge
+
+This plan's proposed rule numbers collide with `AGENTS.md`, which is already at Rule 44. Confirm they renumber from **45** upward when merged. No real tradeoff, just needs to be agreed so two people do not renumber differently.
