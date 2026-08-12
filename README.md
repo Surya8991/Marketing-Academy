@@ -148,7 +148,8 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/glossary.ts` | 158 marketing term definitions |
 | `src/lib/quizzes.ts` | Quiz questions (4 per lesson, all 642 lessons covered) |
 | `src/lib/tools-directory.ts` | 111 marketing tools with category/pricing data |
-| `PROJECTS_PLAN.md` | **High-priority roadmap** — stages 0-7 complete (safety, a11y, UX, tests). Remaining: perf (3.5-3.6), CI (3b.5), content fixes (4), projects layer (8), long tail (9), quiz expansion (10) |
+| `PROJECTS_PLAN.md` | **High-priority roadmap** — stages 0-7, 9.4 complete (safety, integrity, a11y, UX, perf, tests, CI, content hygiene). Remaining: projects layer (8), long tail (9), quiz expansion (10) |
+| `.github/workflows/ci.yml` | GitHub Actions CI: lint + test + build on push/PR to main |
 | `src/lib/bookmarks.ts` | Shared bookmark storage (BOOKMARK_KEY, getBookmarks, saveBookmarks) |
 | `src/lib/progress.ts` | Lesson completion helpers (COMPLETED_KEY exported, getCompleted, markComplete) |
 | `src/lib/engagement.ts` | XP/streak system (addXP, getEngagement, getCurrentLevel, ENGAGEMENT_EVENT) |
