@@ -54,6 +54,18 @@ The difference from the old metric: FID only measured the first click on a page.
 
 ### CLS, Cumulative Layout Shift
 
+<InAction
+  concept="CLS, Cumulative Layout Shift"
+  companyName="Telegraph Media Group"
+  where="a UK news publisher whose article pages were shifting more than desired as embedded tweets, videos, and widgets loaded in"
+  why="layout shifts from embedded content and ads were degrading the reading experience and dragging down real-user CLS scores"
+  what="using CrUX dashboards to measure real-user CLS, the team identified and fixed layout shifts caused by embedded code and custom widgets across article pages"
+  benefit="75th-percentile CLS improved from 0.25 to 0.1, and the share of pages passing the 'Good' CLS threshold grew from 57% to 72%"
+  timeframe="within a couple of months"
+  date="2021"
+  source="https://web.dev/case-studies/telegraph"
+/>
+
 CLS measures how much your page content moves around unexpectedly as it loads. The score runs from 0 (nothing moves) upward, anything under 0.1 is "Good," over 0.25 is "Poor."
 
 You have experienced bad CLS: you are about to tap a button and an ad appears above it, pushing everything down. You tap the wrong thing. That is a layout shift, and Google penalizes it.
@@ -139,6 +151,18 @@ flowchart LR
 ---
 
 ## Why This Matters for Marketers (Not Just Developers)
+
+<InAction
+  concept="Why This Matters for Marketers"
+  companyName="Vodafone"
+  where="a global telecom running paid landing-page traffic across display, search, and social"
+  why="the marketing team wanted to know whether Web Vitals optimization actually moved business metrics, not just lab scores"
+  what="Vodafone A/B tested a landing page optimized for Web Vitals (31% better LCP) against an unoptimized version, both receiving roughly 100K clicks and 34K visits a day"
+  benefit="the Web-Vitals-optimized version drove 8% more sales, a 15% lift in lead-to-visit rate, and an 11% improvement in cart-to-visit rate"
+  timeframe="over the course of the A/B test"
+  date="Mar 2021"
+  source="https://web.dev/case-studies/vodafone"
+/>
 
 Most marketing teams hand Core Web Vitals over to the dev team and never think about it again. That is a mistake. Here is why marketers specifically need to own these numbers.
 

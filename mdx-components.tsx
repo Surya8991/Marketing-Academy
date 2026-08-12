@@ -5,6 +5,7 @@ import Callout from "@/components/Callout";
 import ResourceList from "@/components/ResourceList";
 import Quiz from "@/components/Quiz";
 import DiagramBlock from "@/components/DiagramBlock";
+import InAction from "@/components/InAction";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -14,6 +15,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ResourceList,
     Quiz,
     DiagramBlock,
+    InAction,
     table: (props: ComponentPropsWithoutRef<"table">) => (
       <div className="overflow-x-auto my-6 rounded-lg border border-[var(--border)]">
         <table {...props} className="my-0 border-0 rounded-lg" />

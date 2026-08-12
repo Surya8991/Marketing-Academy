@@ -54,7 +54,7 @@ A free, structured marketing education site, from absolute beginner to advanced 
 - **Onboarding**, First-visit goal selector: pick a goal (including "totally new to marketing"), get routed to the right learning track. Suppressed on lesson pages so direct-link visitors aren't interrupted
 
 **Discovery**
-- **Command Palette**, Cmd/Ctrl+K fuzzy search across all 642 lessons, 158 glossary terms, 108 tools, and nav pages
+- **Command Palette**, Cmd/Ctrl+K fuzzy search across all 642 lessons, 158 glossary terms, 113 tools, and nav pages
 - **Search**, Client-side fuzzy search (Fuse.js) with category and level filter chips
 - **Glossary**, 216 marketing terms with A-Z index and individual term pages at `/glossary`
 - **Tools directory**, 108 marketing tools across 11 categories with search, category, and pricing filters at `/tools`
@@ -147,8 +147,9 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/tracks.ts` | 24 learning track definitions |
 | `src/lib/glossary.ts` | 158 marketing term definitions |
 | `src/lib/quizzes.ts` | Quiz questions (4 per lesson, all 642 lessons covered) |
-| `src/lib/tools-directory.ts` | 111 marketing tools with category/pricing data |
-| `PROJECTS_PLAN.md` | **High-priority roadmap** — stages 0-7, 9.4 complete. Stage 8 Phase 0+1 pilot complete (36 projects, 20 lessons, `/projects` hub), 8.2b (centrality/tier computation) complete. Remaining: 8.3 (Phase 2 scale, 225 of 226 lessons), 8.4 (concept scenarios), long tail (9), quiz expansion (10) |
+| `src/lib/tools-directory.ts` | 113 marketing tools with category/pricing data |
+| `PROJECTS_PLAN.md` | **High-priority roadmap** — stages 0-7, 9.4 complete. Stage 8 Phase 0+1 pilot complete (36 projects, 20 lessons, `/projects` hub), 8.2b (centrality/tier computation) complete. Session 76: 8.3+8.4 started for the Technical SEO Mastery track (12 lessons, 24 projects + 24 `InAction` concept scenarios). Remaining: 8.3/8.4 for the other 3 SEO tracks (18 lessons, next up) and the rest of the library (196 lessons), long tail (9), quiz expansion (10) |
+| `src/components/InAction.tsx` | Global MDX component rendering one cited "concept scenario" inline after a lesson heading (PROJECTS_PLAN.md section 10 / Stage 8.4). Embedded directly in lesson MDX, not build-time-injected — see AGENTS.md Rule 49 |
 | `src/lib/projects-assignment.ts` | **Generated**, PROJECTS_PLAN.md 17's centrality band + tier-pair computation for all 642 lessons — regenerate with `node --import tsx scripts/compute-project-assignment.mjs` |
 | `src/components/PageMasthead.tsx` | Shared "journal masthead" info-strip component used at the top of Home/Learn/Tracks/Projects/Tools/About |
 | `src/lib/classificationCodes.ts` | 2-4 letter discipline codes (SEO/ADS/PSY/AI/...) used as specimen-card eyebrows on redesigned pages |
@@ -210,7 +211,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/about` | About page: mission, builder profile, stats, tech stack, links |
 | `/certificates` | Track completion certificate index |
 | `/certificates/[slug]` | Printable track completion certificate |
-| `/projects` | Practice projects hub: search, tier/archetype/mode/category filters (Stage 8 Phase 1 pilot, 36 projects across 20 lessons) |
+| `/projects` | Practice projects hub: search, tier/archetype/mode/category filters (60 projects across 32 lessons: Phase 1 pilot + the Technical SEO Mastery track) |
 | `/feed.xml` | RSS feed |
 | `/sitemap.xml` | Auto-generated sitemap (lessons with MDX only) |
 | `/api/og` | Dynamic OG image endpoint |
