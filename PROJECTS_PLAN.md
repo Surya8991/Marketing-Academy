@@ -227,7 +227,7 @@ The owner reviewed the full 24-track list (all categories, not just SEO) and set
 | 22 | 🧭 Psychology of Marketing | `psychology-of-marketing` | 0/14 |
 | 23 | 📣 PR & Communications Mastery | `pr-communications-mastery` | 0/14 |
 
-Priorities 11-23 (everything after the owner's explicit 1-10) were proposed by the assistant, not owner-specified, weighted toward finishing near-complete tracks first (Solo Founder needs exactly 1 lesson) then cross-cutting/foundational skills (Mental Models, Copywriting) before more specialized ones (Brand Strategy, Psychology, PR). **Re-confirm or reorder this tail if it doesn't match actual priority.**
+Priorities 11-23 were proposed by the assistant (weighted toward finishing near-complete tracks first, then cross-cutting/foundational skills before more specialized ones) and **confirmed by the owner as-is**. The full 1-23 order is locked; work through it top to bottom.
 
 **Multi-category tracks need more than one category's projects/concept-scenarios files.** Several tracks in this list mix categories (e.g. `ai-search-optimization` = `seo`+`ai-marketing`; `b2b-marketer` = `fundamentals`+`mental-models`+`product-marketing`+`content`+`email`+`analytics`) — running `get-track-batch-info.mjs` without `--category-only` shows every category involved; batch and merge per category, not per track.
 
