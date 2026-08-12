@@ -6,7 +6,7 @@ import {
   Menu, X, Search, BookOpen, ChevronDown, Bookmark,
   GraduationCap, LayoutGrid, Brain, Map,
   BookMarked, FileText, Mic2, Wrench,
-  SlidersHorizontal, Trophy, Settings, Library, Zap,
+  SlidersHorizontal, Trophy, Settings, Library, Zap, ClipboardCheck,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CATEGORY_INDEX } from "@/lib/curriculum";
@@ -14,30 +14,70 @@ import ThemeToggle from "@/components/ThemeToggle";
 import StreakBadge from "@/components/StreakBadge";
 import { COMMAND_PALETTE_EVENT } from "@/lib/events";
 
-const LEARN_ITEMS = [
-  { href: "/tracks",       label: "Learning Tracks", icon: Map,           desc: "Structured paths by goal" },
-  { href: "/quizzes",      label: "Quizzes",         icon: Brain,         desc: "Test your knowledge" },
-  { href: "/cheat-sheets", label: "Cheat Sheets",    icon: FileText,      desc: "Quick-reference study aids" },
-  { href: "/certificates", label: "Certificates",    icon: GraduationCap, desc: "Prove your skills" },
+/**
+ * Nav reorganized: 5 top-level items -> 4 (Topics, Learn, Resources, About).
+ * "Progress" folded into "Learn" as a labeled section (its 3 items didn't
+ * justify a dedicated dropdown). "Bookmarks" and "Search" dropped from their
+ * dropdowns, both already have dedicated icon buttons in the Actions bar
+ * below, listing them twice was redundant. "Resources" split into Reference
+ * vs. Tools sections so GEO Auditor / Compare Tools (interactive utilities)
+ * read distinctly from Glossary / Interview Prep (study material).
+ */
+const LEARN_SECTIONS = [
+  {
+    label: null as string | null,
+    items: [
+      { href: "/projects",     label: "Practice Projects", icon: ClipboardCheck, desc: "Hands-on work for real companies" },
+      { href: "/tracks",       label: "Learning Tracks",   icon: Map,            desc: "Structured paths by goal" },
+      { href: "/quizzes",      label: "Quizzes",           icon: Brain,          desc: "Test your knowledge" },
+      { href: "/cheat-sheets", label: "Cheat Sheets",      icon: FileText,       desc: "Quick-reference study aids" },
+      { href: "/certificates", label: "Certificates",      icon: GraduationCap,  desc: "Prove your skills" },
+    ],
+  },
+  {
+    label: "Your Progress" as string | null,
+    items: [
+      { href: "/skill-map",    label: "Skill Map",    icon: LayoutGrid, desc: "See your progress by category" },
+      { href: "/achievements", label: "Achievements", icon: Trophy,     desc: "Badges and XP milestones" },
+    ],
+  },
 ];
 
-const PROGRESS_ITEMS = [
-  { href: "/skill-map",    label: "Skill Map",    icon: LayoutGrid, desc: "See your progress by category" },
-  { href: "/achievements", label: "Achievements", icon: Trophy,     desc: "Badges and XP milestones" },
-  { href: "/bookmarks",    label: "Bookmarks",    icon: BookMarked, desc: "Your saved lessons" },
+const RESOURCE_SECTIONS = [
+  {
+    label: "Reference" as string | null,
+    items: [
+      { href: "/glossary",            label: "Glossary",          icon: BookMarked, desc: "Marketing terms A-Z" },
+      { href: "/interview-questions", label: "Interview Prep",    icon: Mic2,       desc: "Ace your marketing interview" },
+      { href: "/resources",           label: "Curated Resources", icon: Library,    desc: "Newsletters, books, communities" },
+    ],
+  },
+  {
+    label: "Tools" as string | null,
+    items: [
+      { href: "/tools",           label: "Tools Directory", icon: Wrench,            desc: "Best marketing tools" },
+      { href: "/compare",         label: "Compare Tools",   icon: SlidersHorizontal, desc: "Side-by-side tool comparison" },
+      { href: "/tools/geo-audit", label: "GEO Auditor",     icon: Zap,               desc: "Score any URL for AI citability" },
+    ],
+  },
 ];
 
-const RESOURCE_ITEMS = [
-  { href: "/glossary",            label: "Glossary",        icon: BookMarked,        desc: "Marketing terms A-Z" },
-  { href: "/interview-questions", label: "Interview Prep",  icon: Mic2,              desc: "Ace your marketing interview" },
-  { href: "/tools",               label: "Tools Directory", icon: Wrench,            desc: "Best marketing tools" },
-  { href: "/tools/geo-audit",     label: "GEO Auditor",     icon: Zap,               desc: "Score any URL for AI citability" },
-  { href: "/resources",           label: "Curated Resources", icon: Library,         desc: "Newsletters, books, communities" },
-  { href: "/compare",             label: "Compare Tools",   icon: SlidersHorizontal, desc: "Side-by-side tool comparison" },
-  { href: "/search",              label: "Search",          icon: Search,            desc: "Find any lesson fast" },
+const MOBILE_TOPIC_GROUPS = [
+  { label: "Strategy", slugs: ["fundamentals", "psychology", "copywriting", "brand-strategy", "product-marketing", "mental-models"] },
+  { label: "Channels", slugs: ["seo", "paid-ads", "social", "content", "email"] },
+  { label: "Growth & Data", slugs: ["growth", "analytics", "tools", "cro", "ai-marketing"] },
+  { label: "Outreach", slugs: ["pr-communications", "events-experiential", "affiliate-marketing"] },
+  { label: "Career & Legal", slugs: ["marketing-leadership", "legal-compliance"] },
 ];
 
-type DropId = "topics" | "learn" | "progress" | "resources" | null;
+type DropId = "topics" | "learn" | "resources" | null;
+
+function isActiveHref(pathname: string, href: string) {
+  if (href === "/cheat-sheets") {
+    return pathname.startsWith("/cheat-sheets") || pathname.startsWith("/digital-marketing-cheat-sheet");
+  }
+  return pathname.startsWith(href);
+}
 
 export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -91,25 +131,8 @@ export default function Nav() {
 
   const onLearn = pathname.startsWith("/learn");
 
-  const learnActive =
-    pathname.startsWith("/tracks") ||
-    pathname.startsWith("/quizzes") ||
-    pathname.startsWith("/cheat-sheets") ||
-    pathname.startsWith("/digital-marketing-cheat-sheet") ||
-    pathname.startsWith("/certificates");
-
-  const progressActive =
-    pathname.startsWith("/skill-map") ||
-    pathname.startsWith("/achievements") ||
-    pathname.startsWith("/bookmarks");
-
-  const resourceActive =
-    pathname.startsWith("/glossary") ||
-    pathname.startsWith("/interview") ||
-    pathname.startsWith("/tools") ||
-    pathname.startsWith("/resources") ||
-    pathname.startsWith("/compare") ||
-    pathname.startsWith("/search");
+  const learnActive = LEARN_SECTIONS.some((s) => s.items.some((i) => isActiveHref(pathname, i.href)));
+  const resourceActive = RESOURCE_SECTIONS.some((s) => s.items.some((i) => isActiveHref(pathname, i.href)));
 
   const dropBtn = (id: DropId, label: string, active: boolean) => (
     <button
@@ -128,6 +151,42 @@ export default function Nav() {
         className={cn("transition-transform", openDrop === id && "rotate-180")}
       />
     </button>
+  );
+
+  const sectionDropdown = (sections: typeof LEARN_SECTIONS) => (
+    <div className="absolute left-0 top-full mt-2 w-64 rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-2xl p-2">
+      {sections.map((section, i) => (
+        <div key={section.label ?? i} className={i > 0 ? "mt-1 pt-1 border-t border-[var(--border)]" : ""}>
+          {section.label && (
+            <p className="px-3 pt-2 pb-1 text-[10px] font-semibold uppercase tracking-wider text-[var(--muted-foreground)]">
+              {section.label}
+            </p>
+          )}
+          {section.items.map((item) => {
+            const Icon = item.icon;
+            const active = isActiveHref(pathname, item.href);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "flex items-start gap-3 px-3 py-2.5 rounded-lg transition-colors",
+                  active
+                    ? "bg-[var(--accent)]/10 text-[var(--foreground)]"
+                    : "hover:bg-[var(--muted)] text-[var(--foreground)]"
+                )}
+              >
+                <Icon size={16} className="shrink-0 mt-0.5 text-[var(--accent)]" />
+                <div>
+                  <div className="text-sm font-medium">{item.label}</div>
+                  <div className="text-xs text-[var(--muted-foreground)]">{item.desc}</div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      ))}
+    </div>
   );
 
   return (
@@ -193,100 +252,16 @@ export default function Nav() {
             )}
           </div>
 
-          {/* Learn dropdown */}
+          {/* Learn dropdown (content + your progress) */}
           <div className="relative">
             {dropBtn("learn", "Learn", learnActive)}
-            {openDrop === "learn" && (
-              <div className="absolute left-0 top-full mt-2 w-64 rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-2xl p-2">
-                {LEARN_ITEMS.map((item) => {
-                  const Icon = item.icon;
-                  const active =
-                    item.href === "/cheat-sheets"
-                      ? pathname.startsWith("/cheat-sheets") || pathname.startsWith("/digital-marketing-cheat-sheet")
-                      : pathname.startsWith(item.href);
-                  return (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className={cn(
-                        "flex items-start gap-3 px-3 py-2.5 rounded-lg transition-colors",
-                        active
-                          ? "bg-[var(--accent)]/10 text-[var(--foreground)]"
-                          : "hover:bg-[var(--muted)] text-[var(--foreground)]"
-                      )}
-                    >
-                      <Icon size={16} className="shrink-0 mt-0.5 text-[var(--accent)]" />
-                      <div>
-                        <div className="text-sm font-medium">{item.label}</div>
-                        <div className="text-xs text-[var(--muted-foreground)]">{item.desc}</div>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
-            )}
+            {openDrop === "learn" && sectionDropdown(LEARN_SECTIONS)}
           </div>
 
-          {/* Progress dropdown */}
-          <div className="relative">
-            {dropBtn("progress", "Progress", progressActive)}
-            {openDrop === "progress" && (
-              <div className="absolute left-0 top-full mt-2 w-64 rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-2xl p-2">
-                {PROGRESS_ITEMS.map((item) => {
-                  const Icon = item.icon;
-                  const active = pathname.startsWith(item.href);
-                  return (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className={cn(
-                        "flex items-start gap-3 px-3 py-2.5 rounded-lg transition-colors",
-                        active
-                          ? "bg-[var(--accent)]/10 text-[var(--foreground)]"
-                          : "hover:bg-[var(--muted)] text-[var(--foreground)]"
-                      )}
-                    >
-                      <Icon size={16} className="shrink-0 mt-0.5 text-[var(--accent)]" />
-                      <div>
-                        <div className="text-sm font-medium">{item.label}</div>
-                        <div className="text-xs text-[var(--muted-foreground)]">{item.desc}</div>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
-            )}
-          </div>
-
-          {/* Resources dropdown */}
+          {/* Resources dropdown (reference + tools) */}
           <div className="relative">
             {dropBtn("resources", "Resources", resourceActive)}
-            {openDrop === "resources" && (
-              <div className="absolute left-0 top-full mt-2 w-64 rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-2xl p-2">
-                {RESOURCE_ITEMS.map((item) => {
-                  const Icon = item.icon;
-                  const active = pathname.startsWith(item.href);
-                  return (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className={cn(
-                        "flex items-start gap-3 px-3 py-2.5 rounded-lg transition-colors",
-                        active
-                          ? "bg-[var(--accent)]/10 text-[var(--foreground)]"
-                          : "hover:bg-[var(--muted)] text-[var(--foreground)]"
-                      )}
-                    >
-                      <Icon size={16} className="shrink-0 mt-0.5 text-[var(--accent)]" />
-                      <div>
-                        <div className="text-sm font-medium">{item.label}</div>
-                        <div className="text-xs text-[var(--muted-foreground)]">{item.desc}</div>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
-            )}
+            {openDrop === "resources" && sectionDropdown(RESOURCE_SECTIONS)}
           </div>
 
           {/* About */}
@@ -364,13 +339,7 @@ export default function Nav() {
         <div className="md:hidden border-t border-[var(--border)] bg-[var(--background)] px-4 pt-3 pb-5 max-h-[calc(100vh-4rem)] overflow-y-auto">
 
           {/* Topics grouped */}
-          {[
-            { label: "Strategy", slugs: ["fundamentals", "psychology", "copywriting", "brand-strategy", "product-marketing", "mental-models"] },
-            { label: "Channels", slugs: ["seo", "paid-ads", "social", "content", "email"] },
-            { label: "Growth & Data", slugs: ["growth", "analytics", "tools", "cro", "ai-marketing"] },
-            { label: "Outreach", slugs: ["pr-communications", "events-experiential", "affiliate-marketing"] },
-            { label: "Career & Legal", slugs: ["marketing-leadership", "legal-compliance"] },
-          ].map((group) => (
+          {MOBILE_TOPIC_GROUPS.map((group) => (
             <div key={group.label} className="mb-3">
               <p className="text-xs uppercase tracking-wider text-[var(--muted-foreground)] mb-1.5 px-1 font-semibold">
                 {group.label}
@@ -407,86 +376,65 @@ export default function Nav() {
             All Topics
           </Link>
 
-          {/* Learn */}
-          <p className="text-xs uppercase tracking-wider text-[var(--muted-foreground)] mb-2 px-1 font-semibold">
-            Learn
-          </p>
-          <div className="flex flex-col gap-1 mb-4">
-            {LEARN_ITEMS.map((item) => {
-              const Icon = item.icon;
-              const active =
-                item.href === "/cheat-sheets"
-                  ? pathname.startsWith("/cheat-sheets") || pathname.startsWith("/digital-marketing-cheat-sheet")
-                  : pathname.startsWith(item.href);
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
-                    active
-                      ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
-                      : "text-[var(--foreground)] hover:bg-[var(--muted)]"
-                  )}
-                >
-                  <Icon size={16} className="text-[var(--accent)]" />
-                  {item.label}
-                </Link>
-              );
-            })}
-          </div>
+          {/* Learn (content + your progress) */}
+          {LEARN_SECTIONS.map((section, i) => (
+            <div key={section.label ?? i}>
+              <p className="text-xs uppercase tracking-wider text-[var(--muted-foreground)] mb-2 px-1 font-semibold">
+                {section.label ?? "Learn"}
+              </p>
+              <div className="flex flex-col gap-1 mb-4">
+                {section.items.map((item) => {
+                  const Icon = item.icon;
+                  const active = isActiveHref(pathname, item.href);
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={cn(
+                        "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                        active
+                          ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
+                          : "text-[var(--foreground)] hover:bg-[var(--muted)]"
+                      )}
+                    >
+                      <Icon size={16} className="text-[var(--accent)]" />
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
 
-          {/* Progress */}
-          <p className="text-xs uppercase tracking-wider text-[var(--muted-foreground)] mb-2 px-1 font-semibold">
-            Progress
-          </p>
-          <div className="flex flex-col gap-1 mb-4">
-            {PROGRESS_ITEMS.map((item) => {
-              const Icon = item.icon;
-              const active = pathname.startsWith(item.href);
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
-                    active
-                      ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
-                      : "text-[var(--foreground)] hover:bg-[var(--muted)]"
-                  )}
-                >
-                  <Icon size={16} className="text-[var(--accent)]" />
-                  {item.label}
-                </Link>
-              );
-            })}
-          </div>
-
-          {/* Resources */}
-          <p className="text-xs uppercase tracking-wider text-[var(--muted-foreground)] mb-2 px-1 font-semibold">
-            Resources
-          </p>
-          <div className="flex flex-col gap-1 mb-4">
-            {RESOURCE_ITEMS.map((item) => {
-              const Icon = item.icon;
-              const active = pathname.startsWith(item.href);
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
-                    active
-                      ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
-                      : "text-[var(--foreground)] hover:bg-[var(--muted)]"
-                  )}
-                >
-                  <Icon size={16} className="text-[var(--accent)]" />
-                  {item.label}
-                </Link>
-              );
-            })}
-          </div>
+          {/* Resources (reference + tools) */}
+          {RESOURCE_SECTIONS.map((section, i) => (
+            <div key={section.label ?? i}>
+              <p className="text-xs uppercase tracking-wider text-[var(--muted-foreground)] mb-2 px-1 font-semibold">
+                {section.label ?? "Resources"}
+              </p>
+              <div className="flex flex-col gap-1 mb-4">
+                {section.items.map((item) => {
+                  const Icon = item.icon;
+                  const active = isActiveHref(pathname, item.href);
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={cn(
+                        "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                        active
+                          ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
+                          : "text-[var(--foreground)] hover:bg-[var(--muted)]"
+                      )}
+                    >
+                      <Icon size={16} className="text-[var(--accent)]" />
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
 
           {/* Footer links */}
           <div className="flex flex-col gap-2 pt-3 border-t border-[var(--border)]">

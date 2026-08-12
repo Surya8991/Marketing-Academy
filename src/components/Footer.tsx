@@ -4,39 +4,34 @@ import { CATEGORIES } from "@/lib/curriculum";
 
 const LEARN_LINKS = [
   { href: "/learn",         label: "Browse All Lessons" },
+  { href: "/projects",      label: "Practice Projects" },
   { href: "/tracks",        label: "Learning Tracks" },
   { href: "/quizzes",       label: "Quizzes" },
   { href: "/skill-map",     label: "Skill Map" },
-  { href: "/achievements",  label: "Achievements" },
   { href: "/certificates",  label: "Certificates" },
-  { href: "/bookmarks",     label: "Bookmarks" },
-  { href: "/settings",      label: "Settings" },
 ];
 
 const RESOURCE_LINKS = [
-  { href: "/glossary",                       label: "Glossary" },
-  { href: "/interview-questions",            label: "Interview Questions" },
-  { href: "/cheat-sheets",                   label: "Cheat Sheets" },
-  { href: "/tools",                          label: "Tools Directory" },
-  { href: "/compare",                        label: "Compare Tools" },
-  { href: "/search",                         label: "Search" },
-  { href: "/digital-marketing-cheat-sheet",  label: "Quick Reference Sheet" },
-  { href: "/about",                          label: "About" },
+  { href: "/glossary",             label: "Glossary" },
+  { href: "/interview-questions",  label: "Interview Questions" },
+  { href: "/cheat-sheets",         label: "Cheat Sheets" },
+  { href: "/tools",                label: "Tools Directory" },
+  { href: "/compare",              label: "Compare Tools" },
+  { href: "/about",                label: "About" },
 ];
 
 // Stage 5.4: was "Layruss98266", a dead URL. Correct owner is Surya8991.
 const GITHUB_URL = "https://github.com/Surya8991/Marketing-Academy";
 
 export default function Footer() {
-  const colA = CATEGORIES.slice(0, 8);
-  const colB = CATEGORIES.slice(8);
+  const topTopics = CATEGORIES.slice(0, 6);
 
   return (
     <footer className="border-t border-[var(--border)] bg-[var(--card)] mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Top grid */}
-        <div className="py-12 grid gap-8 grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
+        <div className="py-10 grid gap-8 grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
 
           {/* Brand */}
           <div className="col-span-2 lg:col-span-1">
@@ -107,32 +102,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Topics A */}
+          {/* Topics, top 6 + browse-all (full 21-category browse already lives in the Nav mega menu) */}
           <div>
             <p className="text-xs uppercase tracking-wider font-semibold text-[var(--foreground)] mb-4">
               Topics
             </p>
             <ul className="space-y-2.5 text-sm">
-              {colA.map((cat) => (
-                <li key={cat.slug}>
-                  <Link
-                    href={`/learn/${cat.slug}`}
-                    className="text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
-                  >
-                    {cat.emoji} {cat.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Topics B */}
-          <div>
-            <p className="text-xs uppercase tracking-wider font-semibold text-[var(--foreground)] mb-4 invisible select-none">
-              More
-            </p>
-            <ul className="space-y-2.5 text-sm">
-              {colB.map((cat) => (
+              {topTopics.map((cat) => (
                 <li key={cat.slug}>
                   <Link
                     href={`/learn/${cat.slug}`}
