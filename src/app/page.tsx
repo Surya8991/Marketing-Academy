@@ -109,7 +109,7 @@ export default function HomePage() {
           <h1 className="font-display font-semibold text-[clamp(2.2rem,5vw,3.75rem)] leading-[1.05] tracking-tight mb-6 text-balance">
             Marketing, indexed.
             <br />
-            Not <em className="italic text-[var(--accent)]">opinion</em> —
+            Not <em className="italic text-[var(--accent)]">opinion</em>,
             <br />
             cited, ordered, free.
           </h1>
