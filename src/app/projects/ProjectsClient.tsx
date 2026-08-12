@@ -156,75 +156,119 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
           className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:outline-none focus:border-[var(--accent)] transition-colors text-sm"
         />
 
-        {/* Tier filters */}
-        <div className="flex flex-wrap gap-2">
-          {(["All", ...tiers] as Array<ProjectTier | "All">).map((tier) => (
-            <button
-              key={tier}
-              onClick={() => handleFilterChange(setActiveTier, tier)}
-              aria-pressed={activeTier === tier}
-              className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-colors ${
-                activeTier === tier
-                  ? "bg-[var(--accent)] text-[var(--accent-foreground)] border-[var(--accent)]"
-                  : "bg-[var(--card)] text-[var(--muted-foreground)] border-[var(--border)] hover:border-[var(--accent)]"
-              }`}
-            >
-              {tier === "All" ? "All tiers" : TIER_LABELS[tier]}
-            </button>
-          ))}
-        </div>
+        {/* Filter panel: all four facets as labeled dropdowns in a responsive
+            grid, so the row count stays constant regardless of how many
+            options a facet has (a chip row of 9 archetypes read as noise,
+            not as options). */}
+        <div
+          className="rounded-2xl border p-4 sm:p-5 flex flex-col gap-4"
+          style={{ borderColor: "var(--border)", background: "var(--card)" }}
+        >
+          <div className="flex items-center justify-between gap-3 flex-wrap">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-[var(--muted-foreground)] m-0">
+              Filters
+            </h2>
+            {hasFilters && (
+              <button
+                onClick={clearAll}
+                className="text-xs font-medium text-[var(--accent)] underline underline-offset-2 hover:opacity-70 transition-opacity"
+              >
+                Clear all
+              </button>
+            )}
+          </div>
 
-        {/* Archetype filters */}
-        <div className="flex flex-wrap gap-2">
-          {(["All", ...archetypes] as Array<Archetype | "All">).map((archetype) => (
-            <button
-              key={archetype}
-              onClick={() => handleFilterChange(setActiveArchetype, archetype)}
-              aria-pressed={activeArchetype === archetype}
-              className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-colors ${
-                activeArchetype === archetype
-                  ? "bg-[var(--accent)] text-[var(--accent-foreground)] border-[var(--accent)]"
-                  : "bg-[var(--card)] text-[var(--muted-foreground)] border-[var(--border)] hover:border-[var(--accent)]"
-              }`}
-            >
-              {archetype === "All" ? "All archetypes" : ARCHETYPE_LABELS[archetype]}
-            </button>
-          ))}
-        </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div className="flex flex-col gap-1.5">
+              <label htmlFor="filter-tier" className="text-xs font-semibold text-[var(--muted-foreground)]">
+                Tier
+              </label>
+              <select
+                id="filter-tier"
+                value={activeTier}
+                onChange={(e) => handleFilterChange(setActiveTier, e.target.value as ProjectTier | "All")}
+                className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] text-sm focus:outline-none focus:border-[var(--accent)]"
+              >
+                <option value="All">All tiers</option>
+                {tiers.map((t) => (
+                  <option key={t} value={t}>
+                    {TIER_LABELS[t]}
+                  </option>
+                ))}
+              </select>
+            </div>
 
-        {/* Mode + category filters */}
-        <div className="flex flex-wrap gap-2">
-          {(["All", ...modes] as Array<ProjectMode | "All">).map((mode) => (
-            <button
-              key={mode}
-              onClick={() => handleFilterChange(setActiveMode, mode)}
-              aria-pressed={activeMode === mode}
-              className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-colors ${
-                activeMode === mode
-                  ? "bg-[var(--accent)] text-[var(--accent-foreground)] border-[var(--accent)]"
-                  : "bg-[var(--card)] text-[var(--muted-foreground)] border-[var(--border)] hover:border-[var(--accent)]"
-              }`}
-            >
-              {mode === "All" ? "All modes" : MODE_LABELS[mode]}
-            </button>
-          ))}
-        </div>
+            <div className="flex flex-col gap-1.5">
+              <label htmlFor="filter-mode" className="text-xs font-semibold text-[var(--muted-foreground)]">
+                Mode
+              </label>
+              <select
+                id="filter-mode"
+                value={activeMode}
+                onChange={(e) => handleFilterChange(setActiveMode, e.target.value as ProjectMode | "All")}
+                className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] text-sm focus:outline-none focus:border-[var(--accent)]"
+              >
+                <option value="All">All modes</option>
+                {modes.map((m) => (
+                  <option key={m} value={m}>
+                    {MODE_LABELS[m]}
+                  </option>
+                ))}
+              </select>
+            </div>
 
-        <div className="flex flex-wrap gap-2">
-          {(["All", ...categories] as Array<string | "All">).map((category) => (
-            <button
-              key={category}
-              onClick={() => handleFilterChange(setActiveCategory, category)}
-              aria-pressed={activeCategory === category}
-              className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-colors ${
-                activeCategory === category
-                  ? "bg-[var(--accent)] text-[var(--accent-foreground)] border-[var(--accent)]"
-                  : "bg-[var(--card)] text-[var(--muted-foreground)] border-[var(--border)] hover:border-[var(--accent)]"
-              }`}
-            >
-              {category === "All" ? "All categories" : titleCase(category)}
-            </button>
-          ))}
+            <div className="flex flex-col gap-1.5">
+              <label htmlFor="filter-archetype" className="text-xs font-semibold text-[var(--muted-foreground)]">
+                Archetype
+              </label>
+              <select
+                id="filter-archetype"
+                value={activeArchetype}
+                onChange={(e) => handleFilterChange(setActiveArchetype, e.target.value as Archetype | "All")}
+                className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] text-sm focus:outline-none focus:border-[var(--accent)]"
+              >
+                <option value="All">All archetypes</option>
+                {archetypes.map((a) => (
+                  <option key={a} value={a}>
+                    {ARCHETYPE_LABELS[a]}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="flex flex-col gap-1.5">
+              <label htmlFor="filter-category" className="text-xs font-semibold text-[var(--muted-foreground)]">
+                Category
+              </label>
+              <select
+                id="filter-category"
+                value={activeCategory}
+                onChange={(e) => handleFilterChange(setActiveCategory, e.target.value)}
+                className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] text-sm focus:outline-none focus:border-[var(--accent)]"
+              >
+                <option value="All">All categories</option>
+                {categories.map((c) => (
+                  <option key={c} value={c}>
+                    {titleCase(c)}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {hasFilters && (
+            <p className="text-xs text-[var(--muted-foreground)] m-0">
+              Active:{" "}
+              {[
+                activeTier !== "All" ? TIER_LABELS[activeTier] : null,
+                activeMode !== "All" ? MODE_LABELS[activeMode] : null,
+                activeArchetype !== "All" ? ARCHETYPE_LABELS[activeArchetype] : null,
+                activeCategory !== "All" ? titleCase(activeCategory) : null,
+              ]
+                .filter(Boolean)
+                .join(" · ")}
+            </p>
+          )}
         </div>
 
         {/* Sort + results count */}
@@ -234,41 +278,17 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
             {totalPages > 1 && ` (page ${safePage} of ${totalPages})`}
           </p>
 
-          <div className="flex items-center gap-3 flex-wrap">
-            {hasFilters && (
-              <div className="flex items-center gap-2 text-sm">
-                <span className="text-[var(--muted-foreground)]">
-                  Filtered:{" "}
-                  {[
-                    activeTier !== "All" ? TIER_LABELS[activeTier] : null,
-                    activeArchetype !== "All" ? ARCHETYPE_LABELS[activeArchetype] : null,
-                    activeMode !== "All" ? MODE_LABELS[activeMode] : null,
-                    activeCategory !== "All" ? titleCase(activeCategory) : null,
-                  ]
-                    .filter(Boolean)
-                    .join(" x ")}
-                </span>
-                <button
-                  onClick={clearAll}
-                  className="text-[var(--accent)] underline underline-offset-2 hover:opacity-70 transition-opacity"
-                >
-                  Clear all
-                </button>
-              </div>
-            )}
-
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as SortOption)}
-              className="px-3 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] text-sm focus:outline-none focus:border-[var(--accent)]"
-            >
-              {(Object.keys(SORT_LABELS) as SortOption[]).map((opt) => (
-                <option key={opt} value={opt}>
-                  {SORT_LABELS[opt]}
-                </option>
-              ))}
-            </select>
-          </div>
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value as SortOption)}
+            className="px-3 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] text-sm focus:outline-none focus:border-[var(--accent)]"
+          >
+            {(Object.keys(SORT_LABELS) as SortOption[]).map((opt) => (
+              <option key={opt} value={opt}>
+                {SORT_LABELS[opt]}
+              </option>
+            ))}
+          </select>
         </div>
 
         {/* Empty state */}
