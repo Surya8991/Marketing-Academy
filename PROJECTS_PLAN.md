@@ -194,19 +194,50 @@ They interlock; fixing one alone moves the hole rather than closing it.
   2. **Context compounding within a single agent session.** Every tool call re-sends the full conversation so far as input; an agent doing 4 lessons sequentially pays for lessons 1-3's accumulated research and output again on every call by lesson 4. Fix: drop batch size from 4 lessons/agent to 2, which more than offsets the fixed per-agent setup cost that (1) already reduces.
   Also recommended: an explicit research budget per concept (e.g. max 2 searches + 1 fetch before moving to a better-sourced concept instead of searching exhaustively) and dropping the agent-side `tsc --noEmit` self-check (redundant with the one compile I run once at merge time across the whole file). Estimated combined effect: 30-45% fewer tokens per lesson at equal or better quality (the condensed pack reduces reference ambiguity rather than adding it). **This analysis is now implemented, not just recorded**: `PROJECTS_AUTHORING_GUIDE.md` is the operational playbook (fill-in agent prompt template with the condensed pack inlined), backed by 3 tested scripts (`scripts/get-track-batch-info.mjs`, `scripts/merge-projects-batch.mjs`, `scripts/audit-projects.mjs`) that also fix the 2 mechanical mistakes from this session's hand-written merge/audit (see AGENTS.md Rule 56). Still not yet run against real content, no measured before/after number exists — the guide's section 4 has a placeholder to fill in once Stage 8.3a actually runs.
 
-#### Stage 8.3a — TODO, explicitly deferred to a future session
+#### Stage 8.3a — Owner-set priority order across all 24 tracks (set Session 76)
 
-**Use `PROJECTS_AUTHORING_GUIDE.md` for this, don't re-derive the process.** Start with `node --import tsx scripts/get-track-batch-info.mjs <track-slug> --category-only=seo` for each track below.
+**Use `PROJECTS_AUTHORING_GUIDE.md` for every track below, don't re-derive the process.** Run `node --import tsx scripts/get-track-batch-info.mjs <track-slug>` (add `--category-only=<cat>` only for a track you want to scope down, e.g. `seo`) to get that track's exact remaining-lesson list and tier pairs before authoring.
 
-The remaining `seo`-category scope, **corrected** (a first pass scoped only the 4 explicitly SEO-named tracks; re-running the check against every track that references a `seo`-category lesson at all found one more, `content-decay-refresh`, only reachable via the Content Strategy Mastery track):
+The owner reviewed the full 24-track list (all categories, not just SEO) and set this explicit order. **Supersedes the earlier SEO-only framing below it** — that detail is kept because it's still accurate for whichever SEO tracks come up in the queue.
 
+| Priority | Track | Slug | Status (lessons w/ projects / total) |
+|---|---|---|---|
+| — | ⚙️ Technical SEO Mastery | `technical-seo` | ✅ **13/13, done (Session 76)** |
+| 1 | 🤖 AI Search Optimization | `ai-search-optimization` | 0/14 |
+| 2 | 🤖 AI-First Marketer | `ai-first-marketer` | 0/14 |
+| 3 | 🔗 Off-Page SEO Mastery | `off-page-seo-mastery` | 0/13 |
+| 4 | 📄 On-Page SEO Mastery | `on-page-seo-mastery` | 8/13 |
+| 5 | 🏢 B2B Marketing | `b2b-marketer` | 5/21 |
+| 6 | 💸 Paid Ads Mastery | `paid-ads-mastery` | 1/15 |
+| 7 | 📊 Data-Driven Marketer | `data-driven-marketer` | 3/19 |
+| 8 | 🎯 CRO & Conversion Mastery | `cro-mastery` | 0/15 |
+| 9 | 📈 Analytics & Measurement Mastery | `analytics-mastery` | 1/15 |
+| 10 | 📧 Email & Lifecycle Mastery | `email-lifecycle-mastery` | 2/15 |
+| 11 | 🚀 Solo Founder | `solo-founder` | 17/18 (1 lesson from done) |
+| 12 | 🎯 Freelancer & Agency | `freelancer-agency` | 10/16 |
+| 13 | ✍️ Content Creator | `content-creator` | 9/18 |
+| 14 | 🧠 Marketing Mental Models | `mental-models` | 3/13 |
+| 15 | ✍️ Copywriting Mastery | `copywriting-mastery` | 1/15 |
+| 16 | 📝 Content Strategy Mastery | `content-strategy` | 2/14 |
+| 17 | 🚀 Growth Marketing Mastery | `growth-marketing-mastery` | 2/14 |
+| 18 | 🛒 E-commerce Growth | `ecommerce-growth` | 2/18 |
+| 19 | 📱 Social Media Manager | `social-media-manager` | 0/14 |
+| 20 | 🧩 Product Marketing Mastery | `product-marketing-mastery` | 0/14 |
+| 21 | 🎨 Brand Strategy Mastery | `brand-strategy-mastery` | 0/14 |
+| 22 | 🧭 Psychology of Marketing | `psychology-of-marketing` | 0/14 |
+| 23 | 📣 PR & Communications Mastery | `pr-communications-mastery` | 0/14 |
+
+Priorities 11-23 (everything after the owner's explicit 1-10) were proposed by the assistant, not owner-specified, weighted toward finishing near-complete tracks first (Solo Founder needs exactly 1 lesson) then cross-cutting/foundational skills (Mental Models, Copywriting) before more specialized ones (Brand Strategy, Psychology, PR). **Re-confirm or reorder this tail if it doesn't match actual priority.**
+
+**Multi-category tracks need more than one category's projects/concept-scenarios files.** Several tracks in this list mix categories (e.g. `ai-search-optimization` = `seo`+`ai-marketing`; `b2b-marketer` = `fundamentals`+`mental-models`+`product-marketing`+`content`+`email`+`analytics`) — running `get-track-batch-info.mjs` without `--category-only` shows every category involved; batch and merge per category, not per track.
+
+**SEO-specific detail, still valid for tracks 3/4 above and Content Strategy's one `seo` lesson:**
 - **On-Page SEO Mastery**: `search-intent`, `image-seo-visual-search`, `video-seo` (3 lessons; the rest of this track's `seo` lessons are already covered via Technical SEO Mastery's overlap)
 - **Off-Page SEO Mastery**: `link-building`, `entity-seo`, `eeat`, `local-seo`, `reddit-forum-seo`, `brand-serp-control` (6 lessons)
-- **AI Search Optimization**: `aeo`, `voice-search-seo`, `ai-overviews-geo`, `ai-mode-search-optimization`, `llmo`, `seo-for-ai-platforms`, `content-clusters`, `zero-click-search`, `ai-search-visibility-metrics` (9 lessons)
-- **Content Strategy Mastery**: `content-decay-refresh` (1 lesson; `search-intent` is already listed above via On-Page SEO Mastery)
-- **Total: 19 lessons, ~38 projects, ~38 concept scenarios.** Tier pairs for all 19 are already computed in `src/lib/projects-assignment.ts`, no re-derivation needed — `get-track-batch-info.mjs` reads them for you. Note `get-track-batch-info.mjs` takes one track at a time; run it once per track above (including `content-strategy`, easy to forget since it isn't SEO-named) rather than assuming the 4 SEO-named tracks are the complete set.
+- **AI Search Optimization**: `aeo`, `voice-search-seo`, `ai-overviews-geo`, `ai-mode-search-optimization`, `llmo`, `seo-for-ai-platforms`, `content-clusters`, `zero-click-search`, `ai-search-visibility-metrics` (9 `seo` lessons; the track also needs 2 `ai-marketing` lessons, `ai-search-ranking` + `rag-for-marketers`)
+- **Content Strategy Mastery**'s one remaining `seo` lesson: `content-decay-refresh` (`search-intent` is already listed above via On-Page SEO Mastery)
 - **Also outstanding, found by `scripts/audit-projects.mjs` but not fixed (out of Session 76's stated scope)**: the original Session 73 pilot's `keyword-research` and `on-page-seo` projects use invented placeholder `toolName` strings (`"Written justification"`, `"Manual page crawl"`, `"Manual calculation"`, `"Manual rewrite"`, `"Manual edit"`), the same Rule 55 issue fixed in this session's own new batch. Run `node --import tsx scripts/audit-projects.mjs seo` (unscoped) to see the current list.
-- **Explicitly out of scope until a separate decision**: the 11 cross-category lessons inside these same 4 tracks (`pr-communications` ×6, `content` ×2, `ai-marketing` ×2, `copywriting` ×1), and the remaining 196 track lessons across every other track.
+- **Explicitly out of scope until a separate decision**: the 11 cross-category lessons inside the 4 SEO-named tracks that aren't `seo`/`ai-marketing` (`pr-communications` ×6, `content` ×2, `copywriting` ×1) — these ARE now in scope via `b2b-marketer` etc. if those tracks pull in the same categories, check per-track when you get there.
 
 #### Stage 9, long tail
 

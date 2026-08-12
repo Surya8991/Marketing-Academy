@@ -1,6 +1,8 @@
 # Practice-Projects Authoring Guide — reusable process for Stage 8.3/8.4 batches
 
 > Companion to `PROJECTS_PLAN.md` (the spec) and `AGENTS.md` Rules 45-56 (the rules). This file is the **operational playbook** — copy/fill/run, not prose to re-derive each session. Built in Session 76 after the Technical SEO Mastery track batch; the goal is that authoring the next track costs less setup and fewer tokens for the same quality bar, per Rule 56.
+>
+> **Which track next?** `PROJECTS_PLAN.md` section "Stage 8.3a" has the owner-set priority order across all 24 tracks — work through it top to bottom, don't pick a track ad hoc.
 
 ---
 
@@ -18,8 +20,10 @@
 
 ### 1.1 Get the batch list
 ```bash
-node --import tsx scripts/get-track-batch-info.mjs <track-slug> --category-only=<category> --batch-size=2
+node --import tsx scripts/get-track-batch-info.mjs <track-slug> --batch-size=2
 ```
+Run WITHOUT `--category-only` first to see every category the track touches (most "mastery" tracks, slugs 9-24 in PROJECTS_PLAN.md's priority table, are single-category; mixed tracks like `ai-search-optimization` or `b2b-marketer` are not). Then run once per category, e.g. `--category-only=seo`, `--category-only=ai-marketing`, so each run's output maps to one `src/lib/projects/{category}.ts` file — batching/merging happens per category, not per track.
+
 This prints every remaining lesson with its MDX path and tier pair, pre-split into batches of 2 (Rule 56: 2 lessons/agent, not 4 — smaller batches cut context-compounding cost more than they add in repeated setup). Copy each batch's block straight into that batch's agent prompt (section 2 below).
 
 ### 1.2 Launch agents
