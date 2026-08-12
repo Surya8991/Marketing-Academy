@@ -163,6 +163,7 @@ They interlock; fixing one alone moves the hole rather than closing it.
 |---|---|---|
 | **8.1** | Phase 0, roster + datasets + types | 6 |
 | **8.2** | Phase 1, pilot + hub + review gate | 6, 11.8 |
+| **8.2b** | Compute centrality bands + assign tiers/archetypes from the section 17 matrix | 17 |
 | **8.3** | Phase 2, track lessons (240 lessons, ~480 projects) | 6, 0.2 |
 | **8.4** | Phase 2b, concept scenarios, bundled with the 45 stale-year fixes | 10, 12.5 |
 
@@ -2369,3 +2370,145 @@ Nothing links to it. Delete, or wire it into the nav? **Recommend wiring it in**
 ### 16.11 Rule renumbering at merge
 
 This plan's proposed rule numbers collide with `AGENTS.md`, which is already at Rule 44. Confirm they renumber from **45** upward when merged. No real tradeoff, just needs to be agreed so two people do not renumber differently.
+
+---
+
+## 17. How projects get assigned to lessons
+
+Until now this plan specified what a project *is* (2.3), what **mode** it takes (11.6), and how many per lesson (16.8). It never specified **which project a given lesson gets**. Left unspecified, authoring defaults to the intuitive rule "easy lesson gets an easy project", and the data says that rule is exactly backwards.
+
+### 17.1 The finding: lesson difficulty does not predict lesson importance. It inverts it.
+
+Measured across all 642 lessons, using track-reference count as the centrality proxy:
+
+| Level | Count | Avg track references | In ≥1 track |
+|---|---|---|---|
+| **Beginner** | 127 (20%) | **0.98** | 59/127 (46%) |
+| Intermediate | 315 (49%) | 0.46 | 111/315 (35%) |
+| Advanced | 200 (31%) | 0.47 | 70/200 (35%) |
+
+**Beginner lessons are referenced roughly twice as often as Intermediate or Advanced ones.**
+
+And the hub list is unanimous. Every one of the twelve most-referenced lessons in the entire curriculum is **Beginner**:
+
+| Tracks | Level | Lesson |
+|---|---|---|
+| 6 | Beginner | `analytics/analytics-101` |
+| 5 | Beginner | `email/email-marketing-101` |
+| 5 | Beginner | `analytics/utm-tagging` |
+| 4 | Beginner | `seo/keyword-research` |
+| 4 | Beginner | `seo/on-page-seo` |
+| 4 | Beginner | `content/content-strategy` |
+| 4 | Beginner | `copywriting/copywriting-101` |
+| 4 | Beginner | `copywriting/headlines` |
+| 4 | Beginner | `paid-ads/meta-ads` |
+| 3 | Beginner | `fundamentals/what-is-marketing`, `value-proposition`, `marketing-math` |
+
+**So mapping "Beginner → mini project" would give the most trivial treatment to the twelve lessons the entire curriculum rests on.** A learner who half-understands `utm-tagging` has a broken analytics foundation in five different tracks. That lesson deserves the deepest project in its category, and it is rated Beginner.
+
+### 17.2 The model: two orthogonal axes
+
+Difficulty and importance are different things, and the data above shows they are not merely independent but negatively correlated. So they drive different decisions.
+
+| Axis | Source | Decides |
+|---|---|---|
+| **Cognitive demand** | lesson `level` | *What the project asks you to do* |
+| **Investment weight** | centrality | *How much it asks of you* |
+
+**Cognitive demand** (from `level`):
+
+| Level | The project asks you to | Verb |
+|---|---|---|
+| Beginner | Apply the concept once, correctly, on something real | *do it* |
+| Intermediate | Diagnose, compare, or decide between options | *judge it* |
+| Advanced | Design, model, or defend a choice under constraints | *own it* |
+
+**Investment weight** (from centrality):
+
+| Band | Definition | Count |
+|---|---|---|
+| **Hub** | ≥3 track references, or a `-101`/`what-is-`/`how-` foundational slug | ~46 |
+| **Connector** | 1-2 track references | 214 |
+| **Leaf** | 0 track references | 402 |
+
+Note the fallback matters: **402 of 642 lessons appear in no track at all**, so track-reference count alone leaves 63% unscored. The 20 foundational-pattern slugs plus position within the category's authored lesson order are the fallback signals. Both need validating during the Phase 1 pilot before being trusted at scale.
+
+### 17.3 The assignment matrix
+
+Each lesson gets two projects (16.8 decision A). Tier is read off this grid:
+
+| | **Leaf** (0 tracks) | **Connector** (1-2) | **Hub** (3+ or foundational) |
+|---|---|---|---|
+| **Beginner** | mini + mini | mini + core | **core + core** |
+| **Intermediate** | mini + core | mini + core | core + core |
+| **Advanced** | mini + core | core + core | core + feeds a track big project |
+
+The load-bearing cell is **Beginner × Hub → core + core**. That is the cell the naive rule gets wrong, and it covers `analytics-101`, `utm-tagging`, `keyword-research`, `copywriting-101` and the rest of the top twelve.
+
+The inverse also matters: **Advanced × Leaf → mini + core**, not two heavy projects. An advanced lesson nobody's learning path depends on does not warrant eight hours, however sophisticated the topic.
+
+### 17.4 Archetype selection by topic shape
+
+Mode comes from the 11.6 decision tree. Archetype should come from **what shape of thing the lesson teaches**, not from rotating through the list.
+
+| If the lesson teaches... | Archetype | Example |
+|---|---|---|
+| A process with known failure modes | `audit` | `technical-seo` |
+| A choice between named options | `head-to-head` | `multivariate-vs-ab` |
+| A framework that outputs an artefact | `build-the-asset` | `positioning-doc` |
+| Numbers, thresholds, unit economics | `forecast` or `drill` | `marketing-math` |
+| A famous worked example | `reverse-engineer` | `paid-ads-101` |
+| A sequence where timing matters | `simulation` | `meta-ads` |
+| An anti-pattern or bias | `teardown` (planted defects) | `sunk-cost-fallacy` |
+| A judgement whose payoff is delayed | `calibration` | `second-order-thinking` |
+| Anything with a live AI angle | `ai-critique` | `ai-content-writing` |
+
+Rule 24 (draft) already forbids reusing an archetype within a lesson's own set. This table decides which one is *right*, rather than merely which is unused.
+
+### 17.5 Track-level budget, and a problem it exposes
+
+Sequencing within a track has to respect a total, not just per-lesson correctness.
+
+Measured: **24 tracks, 363 lesson references, 15.1 lessons per track, and an advertised duration averaging 15.4 hours.**
+
+Applying the matrix naively to an average track:
+
+```
+15 lessons × (1 mini ≈ 45min + 1 core ≈ 3h)   ≈ 56 hours
+4 big projects × ~8h                          ≈ 32 hours
+                                              ─────────
+                                                88 hours
+```
+
+**Against an advertised 15.4 hours.** That is a **5.7× overrun**, and every track page states its duration prominently.
+
+This is not an argument against the projects layer, it is an argument that the advertised number has to change. Three options:
+
+1. **Split the display**: "15 hours reading · 60+ hours practice". Honest, and the practice number is a selling point rather than a deterrent.
+2. **Mark projects optional** and keep the duration as reading time only, with a separate practice estimate per project.
+3. **Cap project load per track**: at most N core projects per track, the rest mini.
+
+**Recommend 1 plus 3.** Split the display so the number is honest, and cap the per-track budget so the ramp stays humane. A concrete cap: **no more than 6 core projects per track**, and never two consecutive lessons both carrying a core project. Under that cap an average track lands near 35 hours of practice, which is a real commitment stated honestly.
+
+This also feeds the reorder work in section 4: **project weight should ramp across a track**, light early to build momentum, heavier once the learner has the pieces. Big-project milestones already sit every 3-5 lessons, so core projects should cluster just before them, not immediately after a milestone when the learner has just spent eight hours.
+
+### 17.6 Assignment is derived, then reviewed. Never invented.
+
+The authoring procedure, in order:
+
+1. Compute **centrality band** from track references, with the foundational-slug fallback
+2. Read **cognitive demand** from `level`
+3. Look up **tier pair** in the 17.3 matrix
+4. Derive **mode** from the 11.6 decision tree
+5. Pick **archetype** from the 17.4 table by topic shape
+6. Check the **track budget** in 17.5 and demote a core to mini if the cap is exceeded
+7. **Only then** write the project
+
+Steps 1-6 are mechanical and belong in the data-validation suite (section 15), which should assert that every project's tier matches what the matrix predicts, or carries an explicit documented override. An override is fine; an unexamined mismatch is not.
+
+### 17.7 Draft rules
+
+- **Tier is derived from centrality, not from `level`.** Beginner hub lessons get the deepest projects in their category. Mapping difficulty to effort inverts the curriculum's actual dependency structure.
+- **Archetype is chosen by topic shape** from the 17.4 table, never rotated for variety alone. Rule 24 (draft) prevents repetition; this table decides correctness.
+- **Every track has a project budget.** Maximum 6 core projects, never two consecutive, and the advertised duration must state reading and practice separately.
+- **Any project whose tier departs from the 17.3 matrix must carry a written justification** in the data. Validation asserts the match and permits explicit overrides only.
