@@ -2,6 +2,7 @@ export const lessonMeta = {
   title: "RAG for Marketers",
   level: "Advanced",
   summary: "How Retrieval-Augmented Generation lets AI work from your brand docs, product data, and approved messaging instead of guessing.",
+  relatedConcepts: ["internal-gpt-knowledge-bases", "ai-search-ranking", "llm-fine-tuning-brand-voice", "prompt-engineering-marketers"],
 };
 
 # RAG for Marketers
@@ -13,7 +14,7 @@ In 2026, the gap between generic AI content and brand-accurate AI content has be
 - RAG connects an AI model to your private documents before it writes anything, so every output is grounded in your approved content.
 - Without RAG, AI tools have no access to your brand guidelines, current pricing, product specs, or compliance rules.
 - RAG reduces AI hallucination rates by 70-90% compared to standard large language models, according to enterprise deployment data.
-- The global RAG market was valued at roughly $1.94 billion in 2025 and is projected to reach $9.86 billion by 2030 at a 38.4% annual growth rate ([MarketsandMarkets, 2025](https://www.marketsandmarkets.com/PressReleases/retrieval-augmented-generation-rag.asp)).
+- The global RAG market was valued at roughly $1.94 billion in 2025 ([MarketsandMarkets, 2025](https://www.marketsandmarkets.com/PressReleases/retrieval-augmented-generation-rag.asp)), and a separate analysis puts the 2026 figure at $3.33 billion on the way to $81.51 billion by 2035 at a 42.7% CAGR ([Next Move Strategy Consulting, 2026](https://www.nextmsc.com/report/retrieval-augmented-generation-rag-market-ic3918)).
 - You do not need an engineering team to start: no-code RAG tools are mature and widely available in 2026.
 
 ## What It Actually Is
@@ -27,6 +28,18 @@ RAG is a technique that gives an AI model access to a private knowledge base bef
 </Callout>
 
 ## Why It Matters (with Data)
+
+<InAction
+  concept="Grounding retrieval in real documents reduces hallucination"
+  companyName="Uber"
+  where="Uber's internal engineering on-call support copilot, Genie, deployed across Slack"
+  why="Genie's early RAG-based answers to security and privacy policy questions were often incomplete or subtly wrong, the exact confident-but-mistaken failure mode this lesson warns about"
+  what="Uber's team rebuilt the retrieval layer into an enhanced agentic RAG architecture, adding a query-optimizer agent and a source-identifier agent, plus better document processing (structured table extraction, metadata tagging) before the model generated an answer"
+  benefit="A 27% relative increase in answers rated acceptable and a 60% relative reduction in incorrect advice, compared to the prior standard RAG setup"
+  timeframe="Reported in Uber's engineering blog"
+  date="2025-05-29"
+  source="https://www.uber.com/en-CA/blog/enhanced-agentic-rag/"
+/>
 
 Generic AI content has a consistency problem at scale. If five people on your team prompt the same AI to describe your product, you get five different versions of your brand voice, five different feature descriptions, and at least one factual error. Multiply that across dozens of campaigns and hundreds of assets and you have a brand trust problem.
 
@@ -100,11 +113,25 @@ A B2B SaaS company with a 12-person content team was producing 40+ pieces of con
 
 ### The Broader Enterprise Picture
 
+<InAction
+  concept="Document hygiene and quality controls preventing compliance failures"
+  companyName="DoorDash"
+  where="DoorDash's Dasher support automation system"
+  why="Dashers need accurate, compliant answers about delivery issues in the middle of an active order, where a wrong or non-compliant answer creates real operational and legal risk, not just an annoyed reader"
+  what="DoorDash paired a RAG pipeline, grounded in support knowledge-base articles and resolved historical cases, with an LLM Guardrail for real-time response validation and an LLM Judge for ongoing quality monitoring"
+  benefit="A 90% reduction in hallucinated responses and a 99% reduction in compliance issues compared to the prior flow-based automation, while serving thousands of Dashers daily"
+  timeframe="Documented in DoorDash's engineering blog on LLM-based Dasher support automation"
+  date="2024"
+  source="https://careersatdoordash.com/blog/large-language-modules-based-dasher-support-automation/"
+/>
+
 According to a 2024 analysis by [Glean](https://www.glean.com/blog/rag-models-enterprise-ai), enterprise teams using RAG for marketing and sales content are seeing three specific workflow improvements:
 
 - Sales reps surface real-time product specs and case studies to tailor outreach, shortening sales cycles.
 - Marketing teams auto-generate campaign briefs and onboarding guides grounded in the latest approved materials.
 - In retail and e-commerce, RAG-powered personalization generated the largest market revenue share among all RAG application segments in 2024.
+
+A 2026 hybrid-retrieval benchmark found combining keyword and semantic search, rather than semantic search alone, boosts retrieval precision by 30% and cuts irrelevant results by 40%. For a marketing knowledge base mixing exact product names with conceptual brand language, that hybrid approach is often the difference between a retrieval audit that passes and one that doesn't.
 
 ## Common Mistakes
 

@@ -16,10 +16,10 @@ LLMO is the work of becoming one of those companies.
 ## Quick Summary
 
 - LLMO means getting AI chatbots to mention your brand when users ask relevant questions, it's different from classic SEO.
-- Generative AI traffic grew 1,200% between July 2024 and February 2025 (Surfer SEO data).
+- AI-referred site visitors convert at roughly 9x the rate of traditional organic visitors, 15.9% versus 1.76%, per Seer Interactive's 2025 analysis.
 - 28.3% of pages cited most by ChatGPT have zero Google organic visibility, old SEO rules don't fully apply.
-- Adding statistics, quotes, and source citations to your content lifts AI visibility by up to 40% (Princeton/IIT Delhi research).
-- You must unblock AI crawlers (GPTBot, ClaudeBot, PerplexityBot) in your robots.txt file, or none of this matters.
+- Adding statistics, quotes, and source citations to your content lifts AI visibility by up to 40% (Princeton/IIT Delhi research, replicated by the 2026 GEO-bench study).
+- You must unblock AI crawlers (GPTBot, ClaudeBot, PerplexityBot) in your robots.txt file, or none of this matters, a 2025-2026 Rutgers/Wharton study found publishers who block them anyway still lose real human traffic.
 
 ## What is LLMO, Exactly?
 
@@ -31,15 +31,28 @@ Think of it this way: Google shows a menu. AI models write a recommendation. You
 LLMO sits next to two related disciplines. GEO (Generative Engine Optimization), formalized by Princeton and Georgia Tech researchers at KDD 2024, covers the page-level tactics, what to put in your document. AEO (Answer Engine Optimization) covers question-and-answer formatting. LLMO is the umbrella: brand presence, citation surface area, and machine-readable proof, optimized across every AI model a buyer might use.
 </Callout>
 
+### LLMO vs GEO vs AEO vs SEO
+
+The four terms get used almost interchangeably online, which is why brand-new marketers freeze up. They answer different questions.
+
+| Discipline | Question it answers | Primary surface |
+|---|---|---|
+| SEO | Will Google rank this page? | The 10 blue links |
+| AEO | Is this formatted as a direct answer? | Featured snippets, People Also Ask, voice |
+| GEO | Will an AI model quote this specific page? | The page itself, on-page tactics |
+| LLMO | Does the model know and trust my brand at all? | Every AI surface, training data and live retrieval combined |
+
+You need all four working together. GEO without LLMO gets one page cited once. LLMO without GEO means the model likes your brand but can't find anything current to quote.
+
 ## Why This Matters Right Now
 
 The numbers make a compelling case for acting now rather than later.
 
-- AI search referrals to U.S. retail sites increased 1,300% during the 2024 holiday season alone.
-- ChatGPT has 600 million monthly users as of March 2025. Google AI Overviews reaches 1.5 billion.
-- AI search visitors convert 4.4x better than traditional organic search visitors (Semrush research, 2025).
-- Semrush projects AI search traffic will surpass traditional search traffic by 2028.
-- 19% of marketers planned to add LLM optimization to their strategy in 2025, per HubSpot's State of Marketing report.
+- ChatGPT reached roughly 900 million weekly active users by early 2026, and Google AI Overviews now appear on 25-30% of U.S. informational queries, up from about 8% in early 2024.
+- AI-referred visitors generated 12.1% of signups on sites Ahrefs tracked in 2025, despite being just 0.5% of total traffic, a 23x higher conversion rate than average organic traffic.
+- Brands cited inside an AI answer see roughly 35% higher organic click-through-rate on the adjacent listing for that same query (Seer Interactive, 2025).
+- Only 11% of domains earn citations from both ChatGPT and Perplexity, per a 2026 analysis of 680 million citations, each platform is judging sources by a genuinely different rubric.
+- 92% of marketers now say they plan to implement GEO or LLMO, but only about 41% are actually executing on it, per 2026 industry benchmarking, the gap between planning and doing is the opportunity.
 
 The cost of doing nothing is asymmetric. Once an AI model "knows" a competitor as the default answer, that pattern repeats across millions of conversations before you even notice.
 
@@ -62,14 +75,14 @@ There are two stages you need to win.
 
 The Princeton/IIT Delhi GEO study tested 10,000 queries and nine different optimization strategies. Key findings:
 
-- Adding statistics, source citations, and direct quotations lifted visibility in AI-generated answers by up to 40%.
+- Adding statistics, source citations, and direct quotations lifted visibility in AI-generated answers by up to 40%. Broken down by tactic: quotations alone lifted visibility about 41%, statistics about 32%, and citations about 30% (2026 GEO-bench replication of the original study).
 - 44.2% of all LLM citations come from the first 30% of a page. Your intro and first section do most of the work.
 - Pages cited by ChatGPT use sequential heading structure (H1 then H2 then H3) nearly 3x more than average pages.
 - Nearly 80% of ChatGPT-cited articles include list sections, versus 28.6% of Google's top results.
 
 The third layer is cross-source agreement. AI models triangulate. If your positioning on your homepage matches what Reddit threads, G2 reviews, YouTube tutorials, and Wikipedia all say about you, the model's confidence rises and it names you.
 
-If those sources contradict each other, the model hedges or picks a competitor.
+If those sources contradict each other, the model hedges or picks a competitor. This is also why earned media matters so much, a December 2025 Muck Rack analysis found 82% of AI citations trace back to earned or third-party media rather than a brand's own website.
 
 ## Real Company Examples
 
@@ -104,13 +117,17 @@ User-agent: Google-Extended
 Allow: /
 ```
 
-Also consider creating an `llms.txt` file at your domain root. Similar to robots.txt, this file guides LLM crawlers with allowed paths, attribution requirements, and contact info. Early adoption may give a competitive edge.
+The blocking side of this has real, measured cost. A 2025-2026 study by Rutgers Business School and The Wharton School found publishers who blocked AI crawlers via robots.txt lost about 7% of weekly human traffic within six weeks (23% monthly among the largest publishers), with no measurable drop in how often they were still cited elsewhere. Blocking mostly just hurts you.
+
+<Callout type="warning">
+Set your expectations on `llms.txt` correctly. Adoption is real, Stripe, Zapier, Anthropic, Cloudflare, and Vercel all publish one, but measured impact so far is close to zero: one 2026 audit found 97% of published `llms.txt` files receive zero AI requests, and a separate OtterlyAI test recorded only 0.1% of AI bot visits targeting the file directly. Publish it if it's cheap for your stack, a curated Markdown map of your key pages is harmless, but treat robots.txt access and on-page structure as the two levers that actually move citations, not this one.
+</Callout>
 
 ### Step 2, Build a "machine-readable answer block" at the top of every page
 
 Put a 40-80 word direct answer to the buyer's question within the first 100 words of the page. Follow it with a comparison table and 2-3 cited statistics with linked sources. This single pattern lifts citation rate more than any other on-page change.
 
-Why? Because 44% of citations come from the first 30% of a page, and tables are extracted near-verbatim while prose comparisons rarely are.
+Why? Because 44% of citations come from the first 30% of a page, and tables are extracted near-verbatim while prose comparisons rarely are. One caveat worth knowing: a 2026 Ahrefs study of 1,885 pages that added FAQ schema markup (the JSON-LD code, not the visible text) found no statistically significant citation lift. The machine-readable answer block works because of what a reader (and a model) can actually see and parse as prose, not because of hidden markup.
 
 ### Step 3, Use entities consistently
 
@@ -129,11 +146,35 @@ Rewrite your headers as natural-language questions. Not "Email Marketing Feature
 
 Use AlsoAsked or AnswerThePublic to find the exact question forms people use.
 
+<InAction
+  concept="Answer question-shaped queries"
+  companyName="HubSpot"
+  where="HubSpot's own marketing blog, on a new FAQ glossary covering top-of-funnel terms like 'what is marketing automation?'"
+  why="Their AEO team noticed awareness-stage buyers phrase every query as a direct question, and generic feature pages weren't shaped to answer any of them."
+  what="Built a dedicated FAQ glossary with concise definitions, related questions, and links into relevant product features for each entry."
+  benefit="Citation share for these terms rose 60 percentage points and brand visibility for awareness-stage prompts increased 35 percentage points"
+  timeframe="June-December 2025"
+  date="2026-04-14"
+  source="https://blog.hubspot.com/marketing/hubspot-aeo-case-study"
+/>
+
 ### Step 5, Seed authentic off-site conversation
 
 AI models trust Reddit threads, YouTube videos, and review sites more than brand websites. Encourage honest reviews on G2, Reddit, and Stack Overflow.
 
 Build a YouTube presence or support creators who cover your category. Ahrefs' 2025 data found YouTube mentions correlate 0.737 with AI search appearances.
+
+<InAction
+  concept="Seed authentic off-site conversation"
+  companyName="HubSpot"
+  where="Localized Reddit community campaigns in the French and German markets"
+  why="Reddit is co-cited alongside brand websites in most AI-generated answers, but HubSpot had almost no organic presence there outside English-language subreddits."
+  what="Ran a deliberate, localized Reddit growth push in each market rather than relying on their existing English-language community presence."
+  benefit="Reddit-driven citations grew from 178 in May 2025 to 146,000 by December 2025; France's brand mention rate went from 0% to 33.5%"
+  timeframe="May-December 2025"
+  date="2026-04-14"
+  source="https://blog.hubspot.com/marketing/hubspot-aeo-case-study"
+/>
 
 ### Step 6, Publish original research
 
@@ -151,12 +192,12 @@ If your brand qualifies for a Wikipedia article, build it. Claim your Google Bus
 
 One strategy does not cover all four platforms equally.
 
-- **ChatGPT** leans heavily on Reddit, Wikipedia, and high-domain-authority publications.
-- **Perplexity** does real-time retrieval, so crawlability and freshness matter most.
-- **Gemini** blends Google's search index, so classic SEO and Google entity signals carry more weight.
+- **ChatGPT** leans heavily on Reddit, Wikipedia, and high-domain-authority publications. It holds roughly 60% of the global AI-chat assistant market by early 2026, and processes 250-500 million weekly search queries.
+- **Perplexity** does real-time retrieval, so crawlability and freshness matter most. It's smaller in raw volume, around 50 million weekly queries, but grew about 370% year-over-year by positioning itself purely as an AI-first search engine.
+- **Gemini** blends Google's search index, so classic SEO and Google entity signals carry more weight. It holds roughly 15% of the AI-chat assistant market.
 - **Claude** (the AI behind this platform) leans toward high-trust editorial sources and structured, cited content.
 
-A full LLMO strategy covers all four with a shared foundation: entity clarity, crawl access, and structured content.
+A full LLMO strategy covers all four with a shared foundation: entity clarity, crawl access, and structured content. Worth remembering: only 11% of domains get cited by both ChatGPT and Perplexity, so optimizing for one does not automatically win you the other.
 
 ## How to Measure LLMO Performance
 
@@ -187,6 +228,8 @@ Track your LLM visibility with these methods:
   { title: "2025 State of AI Discovery Report - Previsible", url: "https://previsible.io/seo-strategy/ai-seo-study-2025/", type: "article", note: "Analysis of 1.96 million LLM sessions. Solid data on how users interact with AI search and what gets cited.", free: true },
   { title: "Ahrefs Brand Radar - cited domains and pages docs", url: "https://ahrefs.com/academy/how-to-use-brand-radar/cited-domains", type: "docs", note: "How to measure your LLM visibility using Ahrefs. Tracks which prompts cite your brand versus competitors.", free: true },
   { title: "Best LLMO Software Guide 2025 - NoGood", url: "https://nogood.io/blog/best-llmo-software/", type: "tool", note: "Comparison of LLMO tracking and optimization tools including Profound, Otterly, AthenaHQ, and Goodie.", free: true },
+  { title: "How HubSpot Became the #1 CRM in AI Search - HubSpot AEO Case Study (2026)", url: "https://blog.hubspot.com/marketing/hubspot-aeo-case-study", type: "article", note: "The exact tactics behind a 433% increase in AI citations and 1,850% increase in AI-sourced qualified leads, broken down by content type.", free: true },
+  { title: "5 AI Search Trends for 2026 - Ahrefs", url: "https://ahrefs.com/blog/ai-search-trends/", type: "article", note: "Ahrefs' own 2026 data on AI Overview growth, citation volatility, and what correlates with getting cited.", free: true },
   { title: "WsCube Tech - LLM Optimization (LLMO) (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
   { title: "Mr Digital Marketing Tamil - LLM Optimization (LLMO)", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
   { title: "ODMT Telugu - LLM Optimization (LLMO) (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },

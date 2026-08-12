@@ -35,7 +35,7 @@ The practical effect: Google now ranks based on *which entity a page is about* a
 
 ## Why This Matters Right Now
 
-The stakes for entity SEO have jumped in 2024-2025 for three reasons.
+The stakes for entity SEO have jumped since 2024, and stayed high through 2026, for five reasons.
 
 **AI Overviews and AI chat cite entities, not URLs.** When Google's AI Overview answers a question, it doesn't scan pages, it retrieves trusted entities. A 2025 BrightEdge study found that 74% of AI Overview citations went to brands with Knowledge Graph presence. If your brand isn't in the graph, AI search effectively doesn't know you exist.
 
@@ -45,10 +45,12 @@ The stakes for entity SEO have jumped in 2024-2025 for three reasons.
 
 **It defends you against AI hallucination.** If your brand is not a recognized entity, AI assistants will guess about who you are, what you do, and who founded you, and they often guess wrong. Being in the Knowledge Graph is the closest thing to fact-checking your own brand across the internet.
 
+**Gemini is trained on the graph itself.** Google's Knowledge Graph has grown past its original 500 million objects to an industry-estimated 5 billion-plus entities and 500 billion-plus facts, and Google has confirmed Gemini draws on that same graph when grounding answers. A brand with a thin or nonexistent entity record isn't just invisible to Knowledge Panels, it's starting from a structural disadvantage inside the model doing the answering.
+
 ## Real-World Example: HubSpot's Entity Moat
 
 <Callout type="example">
-HubSpot didn't just rank for "inbound marketing", they *became* the entity that Google associates with the concept. By 2024, HubSpot had a Wikidata entry (Q5928322), a Wikipedia page, a full Knowledge Panel, and over 12,000 co-citation mentions across authoritative domains. Their `/about` page carries a complete Organization JSON-LD block linking founders Brian Halligan and Dharmesh Shah as named Person entities, each with their own Knowledge Panels.
+HubSpot didn't just rank for "inbound marketing", they *became* the entity that Google associates with the concept. By 2024, HubSpot had a Wikidata entry (Q5926631), a Wikipedia page, a full Knowledge Panel, and over 12,000 co-citation mentions across authoritative domains. Their `/about` page carries a complete Organization JSON-LD block linking founders Brian Halligan and Dharmesh Shah as named Person entities, each with their own Knowledge Panels.
 
 Result: HubSpot ranks number 1 for the head term "inbound marketing" (1.2M+ monthly US searches per Ahrefs, 2024), captures the AI Overview citation for that term, and sits in the top 0.1% of B2B SaaS companies for unlinked brand mentions according to SparkToro's 2024 brand-strength index. Unlinked mentions are a primary signal Google uses to verify entity authority.
 </Callout>
@@ -103,6 +105,18 @@ Wikidata accepts any company with verifiable third-party sources. You do not nee
 
 ### Step 3: Build Person entities for founders and executives
 
+<InAction
+  concept="Founder Person Entities"
+  companyName="HubSpot"
+  where="HubSpot's Organization JSON-LD names Brian Halligan and Dharmesh Shah as founders, each linked out to their own verified Wikidata items and Person schema."
+  why="A founder with a corroborated, standalone Person entity feeds authority back into the parent Organization entity through the founder property, which is exactly what the lesson's Step 3 describes."
+  what="Both co-founders carry their own Google Knowledge Panels, distinct from HubSpot's company panel, each cross-referencing the other."
+  benefit="HubSpot's own entity record (Wikidata Q5926631) carries a full Knowledge Panel and over 12,000 co-citation mentions across authoritative domains."
+  timeframe="as of 2024"
+  date="2024"
+  source="https://www.wikidata.org/wiki/Q5926631"
+/>
+
 Founder and executive Person entities feed directly back into the parent Organization through `founder` and `employee` schema properties. A CEO with their own Knowledge Panel measurably increases the company's entity confidence score.
 
 This is why YC-backed founders increasingly publish a Person schema on their bio page with `sameAs` linking to:
@@ -113,6 +127,19 @@ This is why YC-backed founders increasingly publish a Person schema on their bio
 - Conference talk URLs
 
 ### Step 4: Earn third-party co-citations
+
+<InAction
+  concept="Co-citation & Entity Specificity"
+  companyName="Klaviyo"
+  companyId="klaviyo"
+  where="Backlinko's 2025 co-citation study ran 15 email-marketing query variations through Google AI Mode, comparing Klaviyo against Omnisend."
+  why="Klaviyo had stronger Organization schema declaring multiple named software products, giving Google a more specific entity to cite for commerce-heavy queries."
+  what="Klaviyo dominated every ecommerce-specific query in the test, while Omnisend's strength showed up instead in general email-marketing and deliverability discussions where its unstructured co-citation was stronger."
+  benefit="Klaviyo won 5 of 5 ecommerce-specific queries outright; Omnisend still appeared in 12 of 15 total queries by owning a different, more general entity space."
+  timeframe="2025 study"
+  date="2025"
+  source="https://backlinko.com/entity-seo"
+/>
 
 Co-citations are mentions of your brand alongside other known entities in your space, even without a link. An appearance on a respected industry podcast mentioning you alongside your main competitors is worth more to entity authority than 20 low-quality backlinks. Target:
 

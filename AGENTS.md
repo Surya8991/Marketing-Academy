@@ -612,3 +612,21 @@ Two things learned writing it, both worth not repeating:
 A regex that isolates a lesson body by scanning for a `\n  ],\n` terminator finds **no match** here, silently runs on into the *next* lesson's array, and then validates that lesson's projects against the wrong lesson's MDX headings. This produced confident, entirely false "lessonAnchor is not a real heading" failures. Any script parsing `src/lib/projects/*.ts` by text must slice from one top-level key to the **start of the next key**, never to a closing-bracket pattern. Better still, import the module and work on real objects.
 
 **2. Do not assert style heuristics as invariants.** Two stricter `conceptsCovered` checks were written and both had to be removed because they failed on legitimate content: "must not end with a period" flags valid short declarative concept names, and "must exactly match a step's `concept` value" fails 6 of the 33 step-bearing projects that reasonably shorten a long step concept into a readable card label. A test that fails on correct data is worse than no test, because it teaches everyone to ignore the failure or, worse, to "fix" content that was right. Assert what is objectively checkable (it resolves, it exists, it is non-empty, it is unique) and leave phrasing to review.
+
+### Rule 58 — A lesson's top-level project key must be quoted, even though `aeo: [` is valid JS
+Every existing key in `src/lib/projects/*.ts` is written as `"lesson-slug": [`. An authoring agent (Session 77, AI Search Optimization batch) wrote its first lesson's key unquoted instead, `aeo: [`, because `aeo` happens to be a legal JS identifier and the object-literal shorthand is syntactically fine. `tsc`, `npm run build`, and the actual runtime `Record<string, Project[]>` all work correctly either way, JavaScript does not care.
+
+The problem is everything downstream that parses these files by **regex instead of importing the module**: `scripts/merge-projects-batch.mjs`'s key-counter and `scripts/audit-projects.mjs`'s lesson-body slicer both match `^\s*"([a-z0-9-]+)":\s*\[`, quotes required. An unquoted key still gets its content merged correctly (the merge script copies raw text between markers, not key-by-key), but it silently drops out of the key COUNT the merge script prints and out of anything that lists "existing keys" by that regex, no error, no warning. Caught here only because the printed "N new lesson keys" total didn't match the number of lessons actually assigned to the batch.
+
+```ts
+// WRONG — valid JS, invisible to every regex-based script in this codebase
+export const SEO_PROJECTS: Record<string, Project[]> = {
+  aeo: [ /* ... */ ],
+};
+
+// CORRECT — matches every other key in every projects/*.ts file
+export const SEO_PROJECTS: Record<string, Project[]> = {
+  "aeo": [ /* ... */ ],
+};
+```
+When authoring or reviewing a new batch, grep the merged file for an unquoted top-level key (`grep -nE '^\s{2}[a-z][a-z0-9-]*:\s*\[' src/lib/projects/*.ts`) as a matter of course, the same way Rule 57's empty-array trap gets checked. Fix by adding quotes; never rewrite the merge/audit scripts to also accept unquoted keys, that just adds a second valid style for the same field and reopens Rule 56's "cheap to introduce, expensive to catch" problem for something else.

@@ -2,6 +2,9 @@ export const lessonMeta = {
   title: "SEO for AI Platforms: Getting Cited in Perplexity, ChatGPT and Claude",
   level: "Intermediate",
   summary: "Learn how to optimise your content for AI answer engines like Perplexity, ChatGPT, and Claude so they cite you, the new currency of brand visibility.",
+  category: "seo",
+  slug: "seo-for-ai-platforms",
+  relatedConcepts: ["llmo", "eeat", "ai-search-visibility-metrics"],
 };
 
 ## The New Backlink Is a Citation
@@ -10,7 +13,7 @@ When Perplexity answers a question about marketing attribution, it cites three o
 
 That is not a failure. It is a new kind of win.
 
-AI answer engines like Perplexity, ChatGPT Browse, and Claude now handle an estimated 12–18% of English-language informational queries as of Q1 2026. That share is growing fast, and it converts at higher rates than organic search because users arrive with sharp, specific intent.
+AI answer engines have moved fast. Google AI Overviews alone now appear on roughly 25-30% of U.S. informational queries, up from about 8% in early 2024, while ChatGPT Search handles an estimated 250-500 million queries a week and Perplexity around 50 million, growing about 370% year-over-year. That share converts at dramatically higher rates than organic search, because users arrive with sharp, specific intent.
 
 The discipline of earning those citations has a name: **Generative Engine Optimisation (GEO)**. It sits on top of traditional SEO rather than replacing it, and it requires a different mental model.
 
@@ -50,11 +53,35 @@ Put your answer in the first sentence of each section, not at the end after thre
 
 Use H2 and H3 headers that mirror how users phrase questions. A section titled "How does Perplexity choose sources?" is far more citable than one titled "Our Approach to Research."
 
+<InAction
+  concept="Structured Headers and Direct Answers"
+  companyName="HubSpot"
+  where="A batch of existing product pages across HubSpot's site"
+  why="Product pages ranked fine on Google but read like marketing copy, not like something an AI engine could extract a clean answer from."
+  what="Added FAQ sections answering real buyer questions, rewrote headlines into question form, improved table and list formatting, and added structured data."
+  benefit="Citations on those pages rose 56%, and average AI-answer position improved from 1.5 to 1"
+  timeframe="June-December 2025"
+  date="2026-04-14"
+  source="https://blog.hubspot.com/marketing/hubspot-aeo-case-study"
+/>
+
 ---
 
 ## Practical Tactics You Can Apply This Week
 
-**Add an FAQ section to every major article.** Structure each Q&A so the question is a real user query and the answer fits in two to three sentences. FAQ blocks are disproportionately cited across all AI platforms because they map directly to how users ask questions.
+**Add an FAQ section to every major article.** Structure each Q&A so the question is a real user query and the answer fits in two to three sentences. FAQ blocks are disproportionately cited across all AI platforms because they map directly to how users ask questions. One important nuance from 2026 research: it is the visible Q&A prose that gets cited, not the invisible schema markup behind it. Ahrefs tracked 1,885 pages that added FAQPage JSON-LD schema between August 2025 and March 2026 against 4,000 matched control pages and found no statistically significant citation lift from the markup alone. Write the FAQ for a human reader first; add the schema as a bonus, not the fix.
+
+<InAction
+  concept="Add an FAQ section to every major article"
+  companyName="HubSpot"
+  where="A new set of software comparison articles for target industries, e.g. 'best CRMs for construction businesses'"
+  why="Buyers researching category comparisons ask AI engines direct comparative questions, and generic listicle formatting wasn't answering them cleanly."
+  what="Published comparison articles built specifically around real buyer questions, with breadcrumb and FAQ schema layered on top of properly structured Q&A prose."
+  benefit="Citations on this content type rose 642%, with a 58% increase in overall brand mentions"
+  timeframe="June-December 2025"
+  date="2026-04-14"
+  source="https://blog.hubspot.com/marketing/hubspot-aeo-case-study"
+/>
 
 **Cite your sources explicitly.** When you include a statistic, link to the original study and name it inline. AI engines trust content that demonstrates its own epistemics, showing where your data came from signals you are a reliable node in the information graph.
 
@@ -84,6 +111,8 @@ The good news: the foundations overlap. Strong E-E-A-T, technical accessibility,
 ## How to Monitor AI Citations
 
 Traditional analytics cannot see most AI citations. Only about 20% of ChatGPT mentions include a clickable link that shows up in GA4. Perplexity is the exception, every citation is a clickable link, so it appears cleanly as referral traffic.
+
+Platform overlap is smaller than most teams assume. A 2026 analysis of 680 million citations found only 11% of domains are cited by both ChatGPT and Perplexity, so a dashboard tracking just one platform is telling you less than half the story.
 
 For the full picture, use dedicated AI visibility tools. **Otterly.ai** and **LLMrefs** track brand mentions across ChatGPT, Perplexity, Gemini, Claude, and Grok. **Finseo** and **Frizerly** offer AI share-of-voice reporting. Brandwatch and Semrush have added AI mention tracking to their enterprise tiers.
 
@@ -131,6 +160,8 @@ Before publishing any content you want AI engines to cite:
   { title: "LLMrefs, AI Visibility Analytics", url: "https://llmrefs.com/generative-engine-optimization", type: "tool", free: false, note: "Used by 10,000+ marketers to track AI search visibility" },
   { title: "GEO vs SEO: What Changes and What Stays, AI Magicx", url: "https://www.aimagicx.com/blog/generative-engine-optimization-chatgpt-perplexity-2026", type: "article", free: true },
   { title: "Perplexity and AI SEO: How to Rank in Perplexity Answers", url: "https://www.seo.com/ai/perplexity/", type: "article", free: true },
+  { title: "How HubSpot Became the #1 CRM in AI Search - HubSpot AEO Case Study (2026)", url: "https://blog.hubspot.com/marketing/hubspot-aeo-case-study", type: "article", free: true, note: "The tactics behind a 433% AI-citation increase, broken down by content type and market" },
+  { title: "Study Says Adding Schema Did Not Improve AI Citations - Search Engine Roundtable", url: "https://www.seroundtable.com/study-schema-citations-study-41311.html", type: "article", free: true, note: "Covers the 2026 Ahrefs finding that FAQ schema markup alone does not move AI citations" },
   { title: "WsCube Tech - AI Platform SEO (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
   { title: "Mr Digital Marketing Tamil - AI Platform SEO", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
   { title: "ODMT Telugu - AI Platform SEO", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },

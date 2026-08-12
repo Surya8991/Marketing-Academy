@@ -215,7 +215,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/about` | About page: mission, builder profile, stats, tech stack, links |
 | `/certificates` | Track completion certificate index |
 | `/certificates/[slug]` | Printable track completion certificate |
-| `/projects` | Practice projects hub: search, tier/archetype/mode/category filters (60 projects across 32 lessons: Phase 1 pilot + the Technical SEO Mastery track) |
+| `/projects` | Practice projects hub: search, tier/archetype/mode/category filters (88 projects across 45 lessons: Phase 1 pilot + the Technical SEO Mastery and AI Search Optimization tracks) |
 | `/feed.xml` | RSS feed |
 | `/sitemap.xml` | Auto-generated sitemap (lessons with MDX only) |
 | `/api/og` | Dynamic OG image endpoint |
