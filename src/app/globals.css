@@ -1,6 +1,14 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/**
+ * Colors: UNCHANGED from the original site (explicit user decision, 2026-08-12
+ * redesign pass: keep the existing indigo accent + white/near-black neutrals
+ * exactly as they were). The redesign work is layout/typography/structure
+ * only — see layout.tsx for the new --font-display/--font-ui-sans/--font-data
+ * type system, used on Home/Learn/Tracks/Projects/Tools/About + Nav/Footer
+ * chrome. Lesson-reading prose stays on Geist Sans, out of scope.
+ */
 :root {
   --background: #ffffff;
   --foreground: #0a0a0a;
@@ -25,6 +33,9 @@
   --color-card: var(--card);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display);
+  --font-ui-sans: var(--font-ui-sans);
+  --font-data: var(--font-data);
 }
 
 @media (prefers-color-scheme: dark) {

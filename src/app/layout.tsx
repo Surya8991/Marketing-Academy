@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Fraunces, Public_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import { PostHogProvider } from "@/components/PostHogProvider";
@@ -12,6 +12,19 @@ import StorageWarning from "@/components/StorageWarning";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+
+// Redesign type system (Home/Learn/Tracks/Projects/Tools/About + shared Nav/Footer chrome
+// only — lesson-reading prose stays on Geist Sans, out of scope for this pass).
+// Fraunces: display serif, high-contrast/sharp optical setting for editorial authority.
+// Public Sans: body/UI sans, a considered "document register" alternative to Inter/Space Grotesk.
+// IBM Plex Mono: every number, classification code, and citation mark.
+const fraunces = Fraunces({
+  variable: "--font-display",
+  subsets: ["latin"],
+  axes: ["opsz", "SOFT", "WONK"],
+});
+const publicSans = Public_Sans({ variable: "--font-ui-sans", subsets: ["latin"] });
+const plexMono = IBM_Plex_Mono({ variable: "--font-data", subsets: ["latin"], weight: ["400", "500", "600"] });
 
 const BASE = "https://marketing-academy-roan.vercel.app";
 
@@ -62,7 +75,11 @@ try {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} ${publicSans.variable} ${plexMono.variable} h-full antialiased`}
+      suppressHydrationWarning
+    >
       <head>
         {/* Theme detection runs before first paint to prevent dark/light flash.
             suppressHydrationWarning on <html> covers the data-theme attribute mismatch. */}

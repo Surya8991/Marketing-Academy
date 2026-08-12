@@ -143,7 +143,7 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: cardCss }} />
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 font-ui-sans">
         {/* Search */}
         <input
           type="text"
@@ -153,7 +153,7 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
             setPage(1);
           }}
           placeholder="Search projects by title or concept..."
-          className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:outline-none focus:border-[var(--accent)] transition-colors text-sm"
+          className="w-full px-4 py-3 rounded-lg border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:outline-none focus:border-[var(--accent)] transition-colors text-sm"
         />
 
         {/* Filter panel: all four facets as labeled dropdowns in a responsive
@@ -315,7 +315,7 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
                     style={{
                       background: "var(--card)",
                       border: "1px solid var(--border)",
-                      borderRadius: "14px",
+                      borderRadius: "8px",
                       padding: "1.5rem",
                       display: "flex",
                       flexDirection: "column",
@@ -343,7 +343,7 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
                       <span className="text-xs text-[var(--muted-foreground)]">&middot; {MODE_LABELS[project.mode]}</span>
                     </div>
 
-                    <h3 className="text-base font-bold text-[var(--foreground)] m-0 leading-snug">{project.title}</h3>
+                    <h3 className="font-display text-base font-semibold text-[var(--foreground)] m-0 leading-snug">{project.title}</h3>
 
                     {/* Lesson link */}
                     <a
@@ -355,7 +355,7 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
 
                     {/* Meta row: time + company */}
                     <div className="flex items-center gap-3 flex-wrap text-xs text-[var(--muted-foreground)] mt-1">
-                      <span className="inline-flex items-center gap-1">
+                      <span className="inline-flex items-center gap-1 font-data tabular-nums">
                         <Clock size={12} />
                         {project.timeMinutes} min
                       </span>

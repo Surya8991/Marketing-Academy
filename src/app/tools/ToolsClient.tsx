@@ -97,14 +97,14 @@ export default function ToolsClient({ tools, categories, pricingTiers }: ToolsCl
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: toolCardCss }} />
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 font-ui-sans">
         {/* Search */}
         <input
           type="text"
           value={search}
           onChange={(e) => { setSearch(e.target.value); setPage(1); }}
           placeholder="Search tools by name, description, or tag..."
-          className="w-full px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:outline-none focus:border-[var(--accent)] transition-colors text-sm"
+          className="w-full px-4 py-3 rounded-lg border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:outline-none focus:border-[var(--accent)] transition-colors text-sm"
         />
 
         {/* Category filters */}
@@ -192,7 +192,7 @@ export default function ToolsClient({ tools, categories, pricingTiers }: ToolsCl
                   style={{
                     background: "var(--card)",
                     border: "1px solid var(--border)",
-                    borderRadius: "14px",
+                    borderRadius: "8px",
                     padding: "1.5rem",
                     display: "flex",
                     flexDirection: "column",
@@ -203,10 +203,11 @@ export default function ToolsClient({ tools, categories, pricingTiers }: ToolsCl
                   <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", flexWrap: "wrap" }}>
                     <span style={{ fontSize: "1.75rem", lineHeight: 1 }}>{tool.emoji}</span>
                     <span
+                      className="font-display"
                       style={{
-                        fontWeight: 700,
+                        fontWeight: 600,
                         color: "var(--foreground)",
-                        fontSize: "1rem",
+                        fontSize: "1.05rem",
                         lineHeight: 1.3,
                         flex: 1,
                       }}
