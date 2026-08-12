@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useEffect, useState } from "react";
-import { CATEGORIES } from "@/lib/curriculum";
+import { CATEGORIES, canonicalLessonId } from "@/lib/curriculum";
 import { getCompleted } from "@/lib/progress";
 
 type CategoryWithProgress = {
@@ -27,8 +27,11 @@ export default function SkillMapClient() {
   const sorted = useMemo<CategoryWithProgress[]>(() => {
     const rows = CATEGORIES.map((cat, idx) => {
       const total = cat.lessons.length;
+      // Stage 2.1: resolve canonicalLessonId so cross-listed lessons (13 in
+      // fundamentals, sourced from mental-models) check the key that's
+      // actually written, instead of an id nothing ever completes.
       const done = cat.lessons.filter((l) =>
-        completed.has(`${cat.slug}/${l.slug}`)
+        completed.has(canonicalLessonId(cat.slug, l))
       ).length;
       return {
         slug: cat.slug,
@@ -50,7 +53,7 @@ export default function SkillMapClient() {
   }, [completed]);
 
   return (
-    <main
+    <div
       style={{
         maxWidth: "960px",
         margin: "0 auto",
@@ -75,9 +78,34 @@ export default function SkillMapClient() {
             fontSize: "1rem",
           }}
         >
-          Track your progress across all 15 disciplines.
+          Track your progress across all {CATEGORIES.length} disciplines.
         </p>
       </div>
+
+      {/* Empty-state nudge for first-time visitors */}
+      {mounted && completed.size === 0 && (
+        <div
+          style={{
+            padding: "1.25rem 1.5rem",
+            borderRadius: "0.75rem",
+            background: "var(--muted)",
+            border: "1px solid var(--border)",
+            marginBottom: "1.5rem",
+            textAlign: "center",
+          }}
+        >
+          <p style={{ fontSize: "1.5rem", margin: "0 0 0.5rem" }}>🗺️</p>
+          <p style={{ fontWeight: 600, color: "var(--foreground)", margin: "0 0 0.25rem" }}>
+            All {CATEGORIES.length} disciplines at 0% — pick one to start!
+          </p>
+          <p style={{ fontSize: "0.85rem", color: "var(--muted-foreground)", margin: 0 }}>
+            Progress bars fill as you complete lessons.{" "}
+            <Link href="/learn" style={{ color: "var(--accent)", textDecoration: "underline" }}>
+              Browse all lessons →
+            </Link>
+          </p>
+        </div>
+      )}
 
       <div
         style={{
@@ -197,6 +225,6 @@ export default function SkillMapClient() {
           );
         })}
       </div>
-    </main>
+    </div>
   );
 }

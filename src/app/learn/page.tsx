@@ -1,15 +1,21 @@
 import Link from "next/link";
-import { CATEGORIES } from "@/lib/curriculum";
+import { CATEGORIES, uniqueLessonCount } from "@/lib/curriculum";
 import LevelBadge from "@/components/LevelBadge";
 import SurpriseMeButton from "@/components/SurpriseMeButton";
 import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 
+// Stage 5.3: was hardcoded "393+ ... 15 disciplines"
 export const metadata: Metadata = {
   title: "All Marketing Lessons | Marketing Academy",
   description:
-    "Browse all 393+ marketing lessons across 15 disciplines: SEO, paid ads, growth, email, analytics, AI marketing, copywriting, CRO, and more. Free, structured Beginner to Advanced.",
+    `Browse all ${uniqueLessonCount()}+ marketing lessons across ${CATEGORIES.length} disciplines: SEO, paid ads, growth, email, analytics, AI marketing, copywriting, CRO, and more. Free, structured Beginner to Advanced.`,
 };
+
+/** Stage 3.4: show only the first PREVIEW_COUNT lessons per category to keep
+ *  the HTML under ~250 KB (was 1.33 MB rendering all 655). Each category page
+ *  already has the full listing; "View all →" links there. */
+const PREVIEW_COUNT = 5;
 
 export default function LearnPage() {
   return (
@@ -18,14 +24,17 @@ export default function LearnPage() {
         <div>
           <h1 className="text-4xl font-bold mb-3">All Marketing Lessons</h1>
           <p className="text-[var(--muted-foreground)] text-lg max-w-2xl">
-            15 disciplines, Beginner to Advanced. Browse every category or use Ctrl+K to search.
+            {CATEGORIES.length} disciplines, Beginner to Advanced. Browse every category or use Ctrl+K to search.
           </p>
         </div>
         <SurpriseMeButton />
       </div>
 
       <div className="space-y-8">
-        {CATEGORIES.map((cat) => (
+        {CATEGORIES.map((cat) => {
+          const preview = cat.lessons.slice(0, PREVIEW_COUNT);
+          const remaining = cat.lessons.length - PREVIEW_COUNT;
+          return (
           <div key={cat.slug} className="rounded-2xl border border-[var(--border)] overflow-hidden">
             {/* Category header */}
             <div className={`bg-gradient-to-r ${cat.color} border-b border-[var(--border)] p-6`}>
@@ -41,14 +50,14 @@ export default function LearnPage() {
                   href={`/learn/${cat.slug}`}
                   className="shrink-0 flex items-center gap-1 text-sm font-medium text-[var(--accent)] hover:underline"
                 >
-                  View all <ArrowRight size={14} />
+                  View all {cat.lessons.length} <ArrowRight size={14} />
                 </Link>
               </div>
             </div>
 
-            {/* Lessons list */}
+            {/* Lessons list — first PREVIEW_COUNT only */}
             <div className="divide-y divide-[var(--border)]">
-              {cat.lessons.map((lesson, i) => (
+              {preview.map((lesson, i) => (
                 <Link
                   key={lesson.slug}
                   href={`/learn/${cat.slug}/${lesson.slug}`}
@@ -64,9 +73,18 @@ export default function LearnPage() {
                   <LevelBadge level={lesson.level} className="shrink-0" />
                 </Link>
               ))}
+              {remaining > 0 && (
+                <Link
+                  href={`/learn/${cat.slug}`}
+                  className="flex items-center justify-center gap-1.5 px-6 py-3 text-sm font-medium text-[var(--accent)] hover:bg-[var(--muted)] transition-colors"
+                >
+                  +{remaining} more lesson{remaining !== 1 ? "s" : ""} <ArrowRight size={14} />
+                </Link>
+              )}
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

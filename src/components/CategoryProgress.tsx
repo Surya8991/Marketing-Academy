@@ -1,28 +1,29 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { getCompleted, lessonId } from "@/lib/progress";
+import { getCompleted } from "@/lib/progress";
 
 export default function CategoryProgress({
-  categorySlug,
-  slugs,
+  lessonIds,
 }: {
-  categorySlug: string;
-  slugs: string[];
+  /** Canonical `category/slug` storage ids, pre-resolved by the caller via
+   *  canonicalLessonId() (Stage 2.1) so cross-listed lessons check the key
+   *  that's actually written instead of one nothing ever completes. */
+  lessonIds: string[];
 }) {
   const [count, setCount] = useState(0);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const completed = getCompleted();
-    const done = slugs.filter((s) => completed.has(lessonId(categorySlug, s))).length;
+    const done = lessonIds.filter((id) => completed.has(id)).length;
     setCount(done);
     setMounted(true);
-  }, [categorySlug, slugs]);
+  }, [lessonIds]);
 
-  if (!mounted || count === 0 || slugs.length === 0) return null;
+  if (!mounted || count === 0 || lessonIds.length === 0) return null;
 
-  const pct = Math.round((count / slugs.length) * 100);
+  const pct = Math.round((count / lessonIds.length) * 100);
 
   return (
     <div className="flex items-center gap-3 mt-2">
@@ -33,7 +34,7 @@ export default function CategoryProgress({
         />
       </div>
       <span className="text-xs text-[var(--muted-foreground)] whitespace-nowrap">
-        {count}/{slugs.length} done
+        {count}/{lessonIds.length} done
       </span>
     </div>
   );

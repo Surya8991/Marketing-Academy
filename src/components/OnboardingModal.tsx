@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { ONBOARDED_KEY as STORAGE_KEY } from "@/lib/events";
 import { useFocusTrap } from "@/lib/useFocusTrap";
 
 const GOALS = [
+  { emoji: "🌱", label: "Totally new to marketing", href: "/learn" },
   { emoji: "🚀", label: "Grow a B2B startup", href: "/tracks/b2b-marketer" },
   { emoji: "🛒", label: "Scale an e-commerce store", href: "/tracks/ecommerce-growth" },
   { emoji: "👤", label: "Market my own product/service", href: "/tracks/solo-founder" },
@@ -16,16 +17,26 @@ const GOALS = [
 
 export default function OnboardingModal() {
   const router = useRouter();
+  const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
 
+  // Suppress on lesson pages — a learner who arrived via a direct link
+  // (e.g. from Google) is already engaged; the modal is just in the way.
+  const isLessonPage = /^\/learn\/[^/]+\/[^/]+/.test(pathname);
+
   useEffect(() => {
     setMounted(true);
-    if (!localStorage.getItem(STORAGE_KEY)) {
-      setVisible(true);
+    if (isLessonPage) return;
+    try {
+      if (!localStorage.getItem(STORAGE_KEY)) {
+        setVisible(true);
+      }
+    } catch {
+      /* localStorage blocked, skip onboarding rather than crash the page */
     }
-  }, []);
+  }, [isLessonPage]);
 
   // Traps Tab focus inside the modal and restores focus to the trigger on close.
   useFocusTrap(dialogRef, visible);
@@ -47,13 +58,21 @@ export default function OnboardingModal() {
   if (!mounted || !visible) return null;
 
   function handleGoal(href: string) {
-    localStorage.setItem(STORAGE_KEY, "1");
+    try {
+      localStorage.setItem(STORAGE_KEY, "1");
+    } catch {
+      /* localStorage blocked, modal will just reappear next visit */
+    }
     setVisible(false);
     router.push(href);
   }
 
   function handleSkip() {
-    localStorage.setItem(STORAGE_KEY, "1");
+    try {
+      localStorage.setItem(STORAGE_KEY, "1");
+    } catch {
+      /* localStorage blocked, modal will just reappear next visit */
+    }
     setVisible(false);
   }
 

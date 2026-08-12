@@ -4,12 +4,16 @@ import { useEffect, useRef, useState } from "react";
 import { BOOKMARK_KEY } from "@/lib/bookmarks";
 import { COMPLETED_KEY } from "@/lib/progress";
 import { ENGAGEMENT_KEY, ENGAGEMENT_EVENT } from "@/lib/engagement";
-import { ONBOARDED_KEY } from "@/lib/events";
-import { QUIZ_PASS_KEY_PREFIX } from "@/lib/quizzes";
+import { ONBOARDED_KEY, GATE_NOTICE_KEY } from "@/lib/events";
+import { QUIZ_PASS_KEY_PREFIX, TRACK_QUIZ_PASS_PREFIX, QUIZ_STORAGE_PREFIX } from "@/lib/quizzes";
 import { NOTE_KEY_PREFIX } from "@/lib/notes";
+import { RECENT_KEY } from "@/lib/recentlyViewed";
 
-const EXPORT_KEYS = [COMPLETED_KEY, BOOKMARK_KEY, ENGAGEMENT_KEY, ONBOARDED_KEY];
-const ALLOWED_KEY_PREFIXES = [QUIZ_PASS_KEY_PREFIX, NOTE_KEY_PREFIX];
+/** Fixed-name keys that get exported/imported/reset verbatim */
+const EXPORT_KEYS = [COMPLETED_KEY, BOOKMARK_KEY, ENGAGEMENT_KEY, ONBOARDED_KEY, RECENT_KEY, GATE_NOTICE_KEY];
+/** Prefixed keys that are swept during export/import/reset (Stage 2.7: was missing
+ *  TRACK_QUIZ_PASS_PREFIX and QUIZ_STORAGE_PREFIX — reset left quiz state behind) */
+const ALLOWED_KEY_PREFIXES = [QUIZ_PASS_KEY_PREFIX, TRACK_QUIZ_PASS_PREFIX, QUIZ_STORAGE_PREFIX, NOTE_KEY_PREFIX];
 
 function collectAllKeys(): Record<string, unknown> {
   const data: Record<string, unknown> = {};
@@ -242,10 +246,12 @@ export default function SettingsClient() {
       for (const key of EXPORT_KEYS) {
         localStorage.removeItem(key);
       }
-      // Clear quiz pass keys and note keys
+      // Stage 2.7: sweep ALL prefixed keys (was missing track quiz pass, quiz
+      // in-progress state, and recently-viewed). Uses ALLOWED_KEY_PREFIXES so
+      // any new prefix added there is automatically covered.
       const allKeys = Array.from({ length: localStorage.length }, (_, i) => localStorage.key(i)).filter(Boolean) as string[];
       for (const key of allKeys) {
-        if (key.startsWith(QUIZ_PASS_KEY_PREFIX) || key.startsWith(NOTE_KEY_PREFIX)) {
+        if (ALLOWED_KEY_PREFIXES.some((p) => key.startsWith(p))) {
           localStorage.removeItem(key);
         }
       }
@@ -258,7 +264,7 @@ export default function SettingsClient() {
   }
 
   return (
-    <main
+    <div
       style={{
         maxWidth: "640px",
         margin: "0 auto",
@@ -276,8 +282,22 @@ export default function SettingsClient() {
       >
         Settings
       </h1>
-      <p style={{ color: "var(--muted-foreground)", marginBottom: "2rem", fontSize: "0.95rem" }}>
+      <p style={{ color: "var(--muted-foreground)", marginBottom: "0.75rem", fontSize: "0.95rem" }}>
         Manage your learning progress data.
+      </p>
+      {/* Stage 5.1: honest warning that progress is browser-only */}
+      <p style={{
+        color: "var(--muted-foreground)",
+        marginBottom: "2rem",
+        fontSize: "0.8rem",
+        padding: "0.625rem 0.875rem",
+        borderRadius: "0.5rem",
+        background: "rgba(234, 179, 8, 0.08)",
+        border: "1px solid rgba(234, 179, 8, 0.2)",
+        lineHeight: 1.5,
+      }}>
+        ⚠️ Your progress is stored in this browser only. Clearing site data or switching browsers will lose it.
+        Use <strong>Export</strong> below to save a backup you can import later.
       </p>
 
       {/* Export */}
@@ -311,40 +331,34 @@ export default function SettingsClient() {
         <StatusBanner status={importStatus} />
       </section>
 
-      {/* Cloud Sync */}
+      {/* Cloud Sync — Stage 5.2: hidden entirely unless the server reports it as enabled.
+          Sync is disabled (Stage 0) due to a security vulnerability (single shared KV key).
+          Showing a permanently-disabled section with env-var instructions confuses learners. */}
+      {syncEnabled === true && (
       <section style={cardStyle}>
         <h2 style={headingStyle}>Cloud Sync</h2>
         <p style={descStyle}>
-          Push your progress to Cloudflare KV to restore it on another device. Requires{" "}
-          <code style={{ fontSize: "0.8rem" }}>CF_KV_*</code> env vars to be set.
+          Sync your progress across devices. Push saves your data to the cloud; Pull restores it here.
         </p>
         <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
           <button
             style={primaryBtn}
             onClick={handlePush}
-            disabled={syncing || syncEnabled === false}
-            title={syncEnabled === false ? "CF KV env vars not configured" : undefined}
+            disabled={syncing}
           >
             {syncing ? "…" : "↑ Push to cloud"}
           </button>
           <button
             style={{ ...primaryBtn, background: "var(--muted)", color: "var(--muted-foreground)", border: "1px solid var(--border)" }}
             onClick={handlePull}
-            disabled={syncing || syncEnabled === false}
-            title={syncEnabled === false ? "CF KV env vars not configured" : undefined}
+            disabled={syncing}
           >
             {syncing ? "…" : "↓ Pull from cloud"}
           </button>
         </div>
-        {syncEnabled === false && (
-          <p style={{ marginTop: "0.5rem", fontSize: "0.8rem", color: "var(--muted-foreground)" }}>
-            Add <code>SYNC_SECRET</code>, <code>CF_ACCOUNT_ID</code>, <code>CF_KV_NAMESPACE_ID</code>,{" "}
-            and <code>CF_KV_API_TOKEN</code> to your env vars to enable sync.
-            See <code>.env.local.example</code> for setup instructions.
-          </p>
-        )}
         <StatusBanner status={syncStatus} />
       </section>
+      )}
 
       {/* Reset */}
       <section style={cardStyle}>
@@ -357,6 +371,6 @@ export default function SettingsClient() {
         </button>
         <StatusBanner status={resetStatus} />
       </section>
-    </main>
+    </div>
   );
 }

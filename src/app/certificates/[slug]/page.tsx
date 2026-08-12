@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { TRACKS } from "@/lib/tracks";
 import { getCompleted } from "@/lib/progress";
+import { getTrackQuizPassed } from "@/lib/quizzes";
 
 export default function CertificatePage() {
   const params = useParams();
@@ -13,6 +14,8 @@ export default function CertificatePage() {
   const track = TRACKS.find((t) => t.slug === slug);
   const [completedCount, setCompletedCount] = useState(0);
   const [today, setToday] = useState("");
+  const [checked, setChecked] = useState(false);
+  const [trackQuizPassed, setTrackQuizPassedState] = useState(false);
 
   useEffect(() => {
     let completed = new Set<string>();
@@ -27,7 +30,13 @@ export default function CertificatePage() {
         completed.has(`${l.category}/${l.slug}`)
       ).length;
       setCompletedCount(count);
+      try {
+        setTrackQuizPassedState(getTrackQuizPassed(track.slug));
+      } catch {
+        setTrackQuizPassedState(false);
+      }
     }
+    setChecked(true);
 
     const d = new Date();
     setToday(
@@ -66,13 +75,107 @@ export default function CertificatePage() {
 
   const totalLessons = track.lessons.length;
   const pct = totalLessons > 0 ? Math.round((completedCount / totalLessons) * 100) : 0;
+  // PROJECTS_PLAN.md 16.6 (decided option B): 100% of lessons AND a passed
+  // track quiz, not lesson completion alone, now that Stage 1.1 closes the
+  // checkbox bypass and per-lesson quizzes can complete a track without ever
+  // visiting /tracks/[slug]/quiz.
+  const eligible = pct === 100 && trackQuizPassed;
+
+  // Wait for the localStorage check before deciding eligibility, so a genuinely
+  // eligible learner never sees a false "not eligible" flash on first paint.
+  if (!checked) {
+    return (
+      <div
+        style={{
+          minHeight: "100vh",
+          background: "var(--background)",
+        }}
+      />
+    );
+  }
+
+  if (!eligible) {
+    return (
+      <div
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "1rem",
+          padding: "2rem 1.5rem",
+          background: "var(--background)",
+          color: "var(--foreground)",
+          textAlign: "center",
+        }}
+      >
+        <span style={{ fontSize: "2.5rem" }}>{track.emoji}</span>
+        <p style={{ fontSize: "1.25rem", fontWeight: 700, margin: 0 }}>
+          Not quite eligible yet
+        </p>
+        <p style={{ color: "var(--muted-foreground)", margin: 0, maxWidth: 420 }}>
+          {pct === 100 && !trackQuizPassed
+            ? <>You&apos;ve completed all {totalLessons} lessons. Pass the track&apos;s knowledge check to unlock this certificate.</>
+            : <>Complete all {totalLessons} lessons in {track.title} and pass the track&apos;s knowledge check to unlock this certificate.
+                You&apos;ve completed {completedCount} of {totalLessons} ({pct}%).</>}
+        </p>
+        {pct === 100 && !trackQuizPassed && (
+          <Link
+            href={`/tracks/${slug}/quiz`}
+            style={{
+              padding: "0.5rem 1.25rem",
+              background: "var(--accent)",
+              color: "var(--accent-foreground)",
+              borderRadius: "6px",
+              fontSize: "0.9rem",
+              fontWeight: 600,
+              textDecoration: "none",
+            }}
+          >
+            Take the knowledge check
+          </Link>
+        )}
+        <div
+          style={{
+            background: "var(--muted)",
+            borderRadius: "999px",
+            height: 10,
+            width: "100%",
+            maxWidth: 320,
+          }}
+        >
+          <div
+            style={{
+              height: 10,
+              borderRadius: "999px",
+              width: `${pct}%`,
+              background: "linear-gradient(90deg, #6366f1, #8b5cf6)",
+              transition: "width 0.4s ease",
+            }}
+          />
+        </div>
+        <Link
+          href={`/tracks/${slug}`}
+          style={{
+            marginTop: "0.5rem",
+            color: "var(--accent)",
+            textDecoration: "underline",
+          }}
+        >
+          Continue the track
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <>
       <style>{`
         @media print {
-          .no-print { display: none !important; }
+          .no-print, nav, footer, header { display: none !important; }
           body { background: white !important; margin: 0; }
+          main { padding-top: 0 !important; }
           .certificate {
             box-shadow: none !important;
             border: 6px double #1a1a2e !important;

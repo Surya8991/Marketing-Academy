@@ -10,7 +10,7 @@
 >
 > **The three most urgent, all confirmed in source:** `/api/groq` is an unauthenticated LLM proxy on your API key with **zero callers**; cloud sync writes every user to **one global KV key**, exposing private notes; and three unguarded `localStorage` calls crash **every page** for anyone with site data blocked.
 >
-> Section 0 carries the full execution order, eleven stages, ordered by live harm rather than by topic.
+> Section 0 carries the full execution order, twelve stages (0 through 10, with 3b as an eleventh inserted stage), ordered by live harm rather than by topic. Stage 10 (5-questions-per-lesson quiz expansion) was added during Stage 1 execution, see its own entry for why it's sequenced last.
 >
 > 🔍 **This document has been audited against itself, see section 18.** Two agents found 62 findings including 8 P0; six factual errors are fixed inline and the rest are recorded. **Read 18.7 before starting Phase 1** — two P0 gaps would ship defects this plan exists to prevent, and the mode-distribution percentages are a 5% sample presented as measurement.
 >
@@ -23,6 +23,10 @@
 > - A dedicated `/projects` hub with search, filters and labels (section 5)
 > - Every project carries a free-and-paid Recommended Tools section (section 2.3)
 > - Projects appear on both the lesson page and the hub, from one definition (section 5A)
+> - **Bypass-completion migration: grandfather with a one-time notice** (16.3, option C)
+> - **Per-lesson quiz threshold lowered to 75% (3 of 4 correct)** — the plan's stated "80%" is unreachable for a 4-question quiz (only 0/25/50/75/100% are possible scores), so 75% is the actual threshold that delivers the plan's own "one miss shouldn't force a retry" intent (16.5, option A, corrected during implementation)
+> - **Certificate eligibility: 100% of lessons plus a passed track quiz** (16.6, option B)
+> - **Quiz answer reveal moves to after full submission**, not per-question (16.7, option A)
 >
 > UX reference: **ToolForge** (`master-tools-hub.vercel.app`), the owner's own tools hub. Patterns adopted and rejected are itemised in 5.9.
 >
@@ -177,6 +181,17 @@ They interlock; fixing one alone moves the hole rather than closing it.
 | **9.2** | Related Concepts, present in only 10% of lessons | 12.4 |
 | **9.3** | Remaining 402 non-track lessons | 0.2 |
 | **9.4** | Hygiene: 19 BOMs, 25 single-quoted `lessonMeta`, 1 bloated lesson | 12.7-12.9 |
+
+#### Stage 10, expand every lesson quiz to 5 questions
+
+| # | Item | Where | Why last |
+|---|---|---|---|
+| **10.1** | Author one new, lesson-accurate question (correct answer + 3 plausible distractors + explanation) for all 642 lessons, 4 → 5 questions each | `src/lib/quizzes.ts` | 642 net-new questions is a content-authoring project, not a code change, each one needs to be factually grounded in its specific lesson (can't be bulk-generated safely per this repo's content-quality rules) |
+| **10.2** | Update `PASS_THRESHOLD` in `Quiz.tsx` and `TrackQuizPageClient.tsx` from 0.75 (3 of 4) to 0.8 (4 of 5) | `Quiz.tsx`, `TrackQuizPageClient.tsx` | With 5 questions, 80% is exactly reachable (4/5) and delivers the same "one wrong answer is forgiven" behavior the 75%/4-question fix already gives today, this is why 10.1 is not itself blocking Stage 1 |
+| **10.3** | Update `PER_LESSON_MIN`-adjacent counts, `TRACK_QUIZZES` pooling math, and every "4 questions"/"4/4" reference in code comments and AGENTS.md (Rule 25 among them) | repo-wide grep | Stale references would misdescribe the quiz shape once this ships |
+| **10.4** | Re-run the position-dependent-option scan (18.7 / F10) against the expanded ~10,300-option set before enabling shuffling on the new questions | `quizzes.ts` | The Stage 1.3 scan only covers the original 4-question set; new questions could introduce a fresh "All of the above" |
+
+**Origin:** raised during Stage 1 execution (2026-08-12) as an alternative to the 75%/4-question threshold fix. Decided to ship the 4-question/75% fix immediately (zero content risk, functionally equivalent forgiveness: exactly one wrong answer passes either way) and treat the question-count expansion as this separate, explicitly-scoped stage rather than block Stage 1 on writing 642 new quiz questions.
 
 ---
 
@@ -2327,6 +2342,8 @@ Existing users hold completions and XP from the ungated track checkbox.
 
 **Recommend C.** Honest about the change without punishing people for using an affordance the product offered.
 
+**✅ DECIDED: C.** Owner confirmed. Implemented as part of Stage 1.1.
+
 ### 16.4 Track quiz pooled threshold — blocks Stage 1.5
 
 80% of a pooled set currently marks *all* lessons complete, so a learner can score 0% on two lessons and still have both certified.
@@ -2336,6 +2353,8 @@ Existing users hold completions and XP from the ungated track checkbox.
 - C. Leave as is, and say plainly in the UI that the track quiz certifies the track, not each lesson.
 
 **Recommend A.**
+
+**✅ DECIDED: A.** Following the plan's recommendation (not separately re-asked; directly implied by 16.5's decision to align both thresholds). Implemented as part of Stage 1.5.
 
 ### 16.5 Per-lesson quiz threshold — blocks Stage 1.6
 
@@ -2347,6 +2366,8 @@ Per-lesson demands **100%**; the track quiz covering 21 lessons needs **80%**. T
 
 **Recommend A.**
 
+**✅ DECIDED: A, with a correction found during implementation.** Every lesson quiz has exactly 4 questions (verified: 642 lessons × 4 = 2,568, which also confirms 18.2/F10's finding that this document's "2,252 questions" figure elsewhere is wrong). With exactly 4 questions, scores only land on 0/25/50/75/100%, so a literal 80% threshold is mathematically identical to today's 100% (75% still fails either way) — it would not actually change behavior. **Owner confirmed the real threshold should be 75% (3 of 4 correct)**, which is what the "one missed question shouldn't force a retry" rationale actually requires. Implemented as part of Stage 1.6.
+
 ### 16.6 Certificate eligibility bar — blocks Stage 0.4
 
 - A. 100% of lessons complete.
@@ -2354,6 +2375,8 @@ Per-lesson demands **100%**; the track quiz covering 21 lessons needs **80%**. T
 - C. A lower bar, e.g. 90%, with the percentage printed on the certificate.
 
 **Recommend B**, since it is the only option that makes the certificate mean something once Stage 1 closes the free paths.
+
+**✅ DECIDED: B.** Owner confirmed. Stage 0.4 originally shipped as pct===100 only (option A); upgrading to B as part of Stage 1 now that Stage 1.1 closes the checkbox bypass and Stage 1.4 makes the track-quiz-pass flag reliable.
 
 ### 16.7 Quiz answer reveal timing — blocks Stage 1.2
 
@@ -2364,6 +2387,8 @@ The genuine tension in this document: instant per-question feedback is good peda
 - C. Reveal per question only on a passing attempt.
 
 **Recommend A**, combined with the shuffling in 1.3. The explanation still arrives, just after the attempt is locked in.
+
+**✅ DECIDED: A.** Owner confirmed. Implemented as part of Stage 1.2.
 
 ### 16.8 Projects per lesson, 2 or 3? — blocks Stage 8
 

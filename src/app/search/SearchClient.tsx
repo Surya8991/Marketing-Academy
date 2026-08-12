@@ -34,6 +34,7 @@ function Chip({ active, onClick, children }: ChipProps) {
     <button
       type="button"
       onClick={onClick}
+      aria-pressed={active}
       className={[
         "rounded-full px-3 py-1 text-sm font-medium cursor-pointer transition-colors whitespace-nowrap shrink-0",
         active

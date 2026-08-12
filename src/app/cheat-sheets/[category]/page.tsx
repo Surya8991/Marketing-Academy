@@ -81,7 +81,7 @@ export default async function CategoryCheatSheetPage({ params }: Props) {
     <>
       <style dangerouslySetInnerHTML={{ __html: printCSS }} />
 
-      <main style={{ maxWidth: "1200px", margin: "0 auto", padding: "2rem 1.5rem" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "2rem 1.5rem" }}>
         <div
           style={{
             display: "flex",
@@ -213,7 +213,7 @@ export default async function CategoryCheatSheetPage({ params }: Props) {
             Back to all cheat sheets
           </Link>
         </div>
-      </main>
+      </div>
     </>
   );
 }

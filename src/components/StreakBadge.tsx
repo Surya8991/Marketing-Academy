@@ -27,7 +27,7 @@ export default function StreakBadge() {
   return (
     <Link
       href="/achievements"
-      className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-[var(--muted)] transition-colors text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+      className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-[var(--muted)] transition-colors text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
       title="Your achievements"
     >
       {streak >= 1 && (
@@ -38,7 +38,8 @@ export default function StreakBadge() {
       <span className="text-xs font-medium">
         Lv{level}
       </span>
-      <span className="text-xs text-[var(--muted-foreground)]">
+      {/* XP label hidden on mobile to save space */}
+      <span className="hidden sm:inline text-xs text-[var(--muted-foreground)]">
         {xp} XP
       </span>
     </Link>

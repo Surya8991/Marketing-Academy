@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ExternalLink, BookOpen, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
-import { flatLessons, CATEGORIES } from "@/lib/curriculum";
+import { CATEGORIES, uniqueLessonCount } from "@/lib/curriculum";
 import { GLOSSARY_TERMS } from "@/lib/glossary";
 import { TOOLS } from "@/lib/tools-directory";
 import { TRACKS } from "@/lib/tracks";
@@ -9,7 +9,9 @@ import { TRACKS } from "@/lib/tracks";
 export const metadata: Metadata = {
   title: "About | Marketing Academy",
   description:
-    `Marketing Academy is a free, structured marketing education site built by Surya L from Bangalore. ${flatLessons().length} lessons across ${CATEGORIES.length} disciplines, no paywalls, no email required.`,
+    // uniqueLessonCount() (642), not flatLessons().length (655, double-counts
+    // the 13 cross-listed lessons), per AGENTS.md Rule 43 (Stage 2.1).
+    `Marketing Academy is a free, structured marketing education site built by Surya L from Bangalore. ${uniqueLessonCount()} lessons across ${CATEGORIES.length} disciplines, no paywalls, no email required.`,
 };
 
 const hoverCSS = `
@@ -52,7 +54,7 @@ const PROJECTS = [
 
 export default function AboutPage() {
   const STATS = [
-    { value: String(flatLessons().length), label: "Free lessons" },
+    { value: String(uniqueLessonCount()), label: "Free lessons" },
     { value: String(CATEGORIES.length), label: "Disciplines" },
     { value: String(GLOSSARY_TERMS.length), label: "Glossary terms" },
     { value: String(TOOLS.length), label: "Tools catalogued" },

@@ -24,7 +24,8 @@ const RESOURCE_LINKS = [
   { href: "/about",                          label: "About" },
 ];
 
-const GITHUB_URL = "https://github.com/Layruss98266/Marketing-Academy";
+// Stage 5.4: was "Layruss98266", a dead URL. Correct owner is Surya8991.
+const GITHUB_URL = "https://github.com/Surya8991/Marketing-Academy";
 
 export default function Footer() {
   const colA = CATEGORIES.slice(0, 8);

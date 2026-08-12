@@ -74,7 +74,7 @@ export default async function InterviewCategoryPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <style dangerouslySetInnerHTML={{ __html: pageCss }} />
-      <main style={{ maxWidth: "860px", margin: "0 auto", padding: "2rem 1.5rem 4rem", color: "var(--foreground)" }}>
+      <div style={{ maxWidth: "860px", margin: "0 auto", padding: "2rem 1.5rem 4rem", color: "var(--foreground)" }}>
         {/* Breadcrumb */}
         <nav style={{ marginBottom: "1.5rem", fontSize: "0.875rem", color: "var(--muted-foreground)" }}>
           <Link href="/interview-questions" style={{ color: "var(--muted-foreground)", textDecoration: "none" }}>
@@ -411,7 +411,7 @@ export default async function InterviewCategoryPage({ params }: Props) {
         >
           &larr; All interview question categories
         </Link>
-      </main>
+      </div>
     </>
   );
 }

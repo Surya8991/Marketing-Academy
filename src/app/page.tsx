@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CATEGORIES, flatLessons } from "@/lib/curriculum";
+import { CATEGORIES, uniqueLessonCount } from "@/lib/curriculum";
 import { TRACKS } from "@/lib/tracks";
 import TrackCard from "@/components/TrackCard";
 import RecentlyViewed from "@/components/RecentlyViewed";
@@ -69,7 +69,8 @@ const websiteLd = {
   "@type": "WebSite",
   name: "Marketing Academy",
   url: BASE,
-  description: "393+ free marketing lessons across 15 disciplines. No account required.",
+  // Stage 5.3: was hardcoded "393+" — use template literal with live count.
+  description: `${uniqueLessonCount()}+ free marketing lessons across ${CATEGORIES.length} disciplines. No account required.`,
   potentialAction: {
     "@type": "SearchAction",
     target: { "@type": "EntryPoint", urlTemplate: `${BASE}/search?q={search_term_string}` },
@@ -85,7 +86,8 @@ const RECENT_LESSONS = [
 ];
 
 export default function HomePage() {
-  const totalLessons = flatLessons().length;
+  // uniqueLessonCount() (642), not flatLessons().length (655), per Rule 43 (Stage 2.1).
+  const totalLessons = uniqueLessonCount();
 
   const featuredLessons = FEATURED.flatMap((f) => {
     const cat = CATEGORIES.find((c) => c.slug === f.category);

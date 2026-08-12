@@ -322,8 +322,13 @@ export default async function ComparisonDetailPage({ params }: Props) {
           </div>
         </div>
       ) : (
-        /* Fallback Dynamic Comparison Layout */
+        /* Fallback Dynamic Comparison Layout — Stage 5.6: honestly labelled.
+           These are auto-generated from the tools directory, not hand-written reviews. */
         <div className="space-y-8">
+          {/* Stage 5.6: label auto-generated comparisons honestly */}
+          <p className="text-sm text-[var(--muted-foreground)] px-1 py-2 rounded-lg bg-[var(--muted)] text-center">
+            ℹ️ This comparison is auto-generated from our tools directory. Hand-written, in-depth comparisons are coming soon.
+          </p>
           <div>
             <h3 className="text-xl font-bold mb-4">Feature Comparison</h3>
             <div className="overflow-x-auto border border-[var(--border)] rounded-xl bg-[var(--card)]">

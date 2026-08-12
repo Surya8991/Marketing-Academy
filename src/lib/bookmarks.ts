@@ -6,6 +6,7 @@
  * Both import from here to guarantee they use the same key and serialization format.
  * (Rule 18: shared localStorage logic lives in src/lib/, never duplicated in components.)
  */
+import { STORAGE_WRITE_FAILED } from "@/lib/events";
 
 export type BookmarkEntry = {
   category: string;
@@ -27,13 +28,22 @@ export function getBookmarks(): BookmarkEntry[] {
   }
 }
 
-/** Replaces the entire bookmark list. Caller is responsible for deduplication.
- *  Silently swallows storage errors (private/full), matching getBookmarks(). */
+/** Replaces the entire bookmark list. Deduplicates by category+slug before
+ *  writing (Stage 2.5: prevents Bookworm achievement farming via multi-tab).
+ *  Dispatches STORAGE_WRITE_FAILED on error (Stage 2.4). */
 export function saveBookmarks(entries: BookmarkEntry[]): void {
+  // Stage 2.5: dedup — keep the first occurrence of each category/slug pair
+  const seen = new Set<string>();
+  entries = entries.filter((e) => {
+    const key = `${e.category}/${e.slug}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
   if (typeof window === "undefined") return;
   try {
     localStorage.setItem(BOOKMARK_KEY, JSON.stringify(entries));
   } catch {
-    // storage unavailable (private mode, quota exceeded)
+    window.dispatchEvent(new CustomEvent(STORAGE_WRITE_FAILED, { detail: { key: BOOKMARK_KEY } }));
   }
 }

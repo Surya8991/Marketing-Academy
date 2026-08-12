@@ -5,62 +5,153 @@
  *
  * Architecture (see AGENTS.md Rule 24):
  *   - This is the client component rendered at /tracks/[slug]/quiz.
- *   - Pools ALL quiz questions from every lesson in the track (shuffled once on mount).
- *   - Requires ≥80% correct (PASS_THRESHOLD) to pass.
- *   - On pass: the "Mark all complete" button calls markAll(), which:
- *       1. Marks every lesson complete in localStorage
- *       2. Loops addXP("complete", id) for each lesson (write lock in engagement.ts handles concurrency)
- *       3. Dispatches ENGAGEMENT_EVENT once with the final accumulated state
- *       4. Navigates back to /tracks/[slug] after 800ms
+ *   - Pools ALL quiz questions from every lesson in the track (shuffled once on mount),
+ *     each question tagged with the lessonKey it came from (null for track-level
+ *     synthesis questions) so a per-lesson score can be computed after shuffling.
+ *   - Requires ≥80% correct overall (PASS_THRESHOLD) to pass.
+ *   - PROJECTS_PLAN.md Stage 1.5 (decided): passing overall is necessary but not
+ *     sufficient to mark every lesson complete. A lesson is only marked complete
+ *     if the learner also scored ≥50% (PER_LESSON_MIN) on THAT lesson's own
+ *     pooled questions. A learner who scores 0% on two lessons' questions but
+ *     80%+ overall no longer gets those two lessons certified for free.
+ *   - On pass: the "Mark complete" button calls markAll(), which:
+ *       1. Marks each ELIGIBLE lesson complete in localStorage
+ *       2. Loops addXP("complete", id) for each eligible lesson (write lock in
+ *          engagement.ts handles concurrency)
+ *       3. Calls setQuizPassed(category, slug) for each eligible lesson too
+ *          (PROJECTS_PLAN.md Stage 1.4, decided): without this, un-completing a
+ *          lesson once and re-completing it hits TrackLessonList's/MarkComplete's
+ *          getQuizPassed() gate and permanently re-locks it, since this was the
+ *          only path that ever marked it complete in the first place.
+ *       4. Calls setTrackQuizPassed(trackSlug) once, the flag the certificate
+ *          page (Stage 0.4 / 16.6) checks alongside 100% lesson completion.
+ *       5. Dispatches ENGAGEMENT_EVENT once with the final accumulated state
+ *       6. Navigates back to /tracks/[slug] after 800ms
  *
  * There is NO TrackQuizGate.tsx modal, do NOT create one.
  * The per-lesson Quiz.tsx component is separate and lives at the bottom of each lesson page.
  *
  * Props:
- *   trackSlug: used for the post-pass redirect URL
+ *   trackSlug: used for the post-pass redirect URL and the track-quiz-pass flag
  *   lessons: ordered list of lessons in this track; passed to markAll()
- *   questions: already-pooled Quiz[] from all lessons (assembled by the server page)
+ *   questions: already-pooled { lessonKey, quiz }[] from all lessons plus any
+ *     track-level synthesis questions (lessonKey null), assembled by the server page
  */
 
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { CheckCircle2, XCircle, Trophy, RotateCcw, ChevronRight } from "lucide-react";
+import { CheckCircle2, XCircle, Trophy, RotateCcw, ChevronRight, AlertCircle } from "lucide-react";
 import { markComplete, lessonId } from "@/lib/progress";
 import type { Quiz } from "@/lib/quizzes";
+import { setQuizPassed, setTrackQuizPassed } from "@/lib/quizzes";
 import { addXP, ENGAGEMENT_EVENT, type EngagementState } from "@/lib/engagement";
 import { checkAchievements } from "@/lib/achievements";
 
 type Lesson = { category: string; slug: string; title: string };
+type PooledQuestion = { lessonKey: string | null; quiz: Quiz };
 
 type Props = {
   trackSlug: string;
   lessons: Lesson[];
-  questions: Quiz[];
+  questions: PooledQuestion[];
 };
 
-/** ≥80% correct required to pass and unlock "Mark all complete" */
+/** ≥80% correct overall required to pass and unlock "Mark complete" */
 const PASS_THRESHOLD = 0.8;
+
+/** A lesson's own pooled-question subset must score ≥50% for THAT lesson to
+ *  be marked complete, even when the overall pooled score clears 80%. */
+const PER_LESSON_MIN = 0.5;
+
+/** Questions per page — keeps the page manageable for large tracks. */
+const PAGE_SIZE = 10;
+
+/** sessionStorage key for persisting in-progress answers across accidental navigations */
+function sessionKey(trackSlug: string) { return `ma_track_quiz_${trackSlug}`; }
+
+/** Fisher-Yates, not sort(() => Math.random() - 0.5): the comparator trick is
+ *  measurably biased, see AGENTS.md Rule 40. */
+function shuffle<T>(arr: T[]): T[] {
+  const out = [...arr];
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
+}
 
 export default function TrackQuizPageClient({ trackSlug, lessons, questions }: Props) {
   const router = useRouter();
   // Shuffle once on mount, array is stable for the lifetime of this page visit
-  const [shuffled, setShuffled] = useState<Quiz[]>([]);
+  const [shuffled, setShuffled] = useState<PooledQuestion[]>([]);
   // Map of question index → chosen option index (sparse, only answered Qs present)
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [submitted, setSubmitted] = useState(false);
   const [score, setScore] = useState(0);
   const [marking, setMarking] = useState(false); // true while markAll() is running
+  const [page, setPage] = useState(0); // current page index (0-based)
   const resultsRef = useRef<HTMLDivElement>(null);
+  const pageTopRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setShuffled([...questions].sort(() => Math.random() - 0.5));
-  }, [questions]);
+    // Restore in-progress session if available
+    try {
+      const saved = sessionStorage.getItem(sessionKey(trackSlug));
+      if (saved) {
+        const parsed = JSON.parse(saved) as { shuffled: PooledQuestion[]; answers: Record<number, number>; page: number };
+        if (Array.isArray(parsed.shuffled) && parsed.shuffled.length === questions.length) {
+          setShuffled(parsed.shuffled);
+          setAnswers(parsed.answers ?? {});
+          setPage(parsed.page ?? 0);
+          return;
+        }
+      }
+    } catch { /* ignore corrupt session */ }
+    setShuffled(shuffle(questions));
+  }, [questions, trackSlug]);
+
+  // Persist answers to sessionStorage on every change (cheap for the data size)
+  useEffect(() => {
+    if (shuffled.length === 0) return;
+    try {
+      sessionStorage.setItem(sessionKey(trackSlug), JSON.stringify({ shuffled, answers, page }));
+    } catch { /* storage full or unavailable */ }
+  }, [answers, page, shuffled, trackSlug]);
 
   const total = shuffled.length;
+  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  const pageStart = page * PAGE_SIZE;
+  const pageEnd = Math.min(pageStart + PAGE_SIZE, total);
+  const pageQuestions = shuffled.slice(pageStart, pageEnd);
   const answeredCount = Object.keys(answers).length;
   const allAnswered = total > 0 && answeredCount === total;
+  const pageAllAnswered = pageQuestions.every((_, i) => answers[pageStart + i] !== undefined);
   const passed = submitted && score / total >= PASS_THRESHOLD;
   const pct = total > 0 ? Math.round((score / total) * 100) : 0;
+
+  /** Per-lesson score once submitted: { [lessonKey]: { correct, total } } */
+  function perLessonScores(): Record<string, { correct: number; total: number }> {
+    const map: Record<string, { correct: number; total: number }> = {};
+    shuffled.forEach((pq, i) => {
+      if (!pq.lessonKey) return; // synthesis questions aren't attributed to a lesson
+      const bucket = map[pq.lessonKey] ?? { correct: 0, total: 0 };
+      bucket.total += 1;
+      if (answers[i] === pq.quiz.correct) bucket.correct += 1;
+      map[pq.lessonKey] = bucket;
+    });
+    return map;
+  }
+
+  /** Lessons that meet the per-lesson minimum, only meaningful once submitted+passed. */
+  function eligibleLessons(): Lesson[] {
+    const scores = perLessonScores();
+    return lessons.filter((l) => {
+      const key = `${l.category}/${l.slug}`;
+      const s = scores[key];
+      if (!s || s.total === 0) return false;
+      return s.correct / s.total >= PER_LESSON_MIN;
+    });
+  }
 
   function pick(idx: number, opt: number) {
     if (submitted) return; // prevent changing answers after submit
@@ -68,7 +159,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
   }
 
   function submit() {
-    const correct = shuffled.filter((q, i) => answers[i] === q.correct).length;
+    const correct = shuffled.filter((pq, i) => answers[i] === pq.quiz.correct).length;
     setScore(correct);
     setSubmitted(true);
     // Small delay so the submit button press is visible before scroll
@@ -79,15 +170,24 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
 
   function retry() {
     // Re-shuffle on retry so users see different question ordering
-    setShuffled([...questions].sort(() => Math.random() - 0.5));
+    setShuffled(shuffle(questions));
     setAnswers({});
     setSubmitted(false);
     setScore(0);
+    setPage(0);
+    try { sessionStorage.removeItem(sessionKey(trackSlug)); } catch { /* ignore */ }
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
+  function goToPage(p: number) {
+    setPage(p);
+    pageTopRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
   /**
-   * Marks every lesson in the track complete and awards XP.
+   * Marks every ELIGIBLE lesson in the track complete and awards XP. A lesson
+   * that didn't clear PER_LESSON_MIN on its own questions is skipped even
+   * though the overall pooled score passed (Stage 1.5).
    * XP loop uses the module-level write lock in engagement.ts, all addXP() calls
    * in the same tick accumulate on the same base state, so no XP is lost.
    * Only dispatches ENGAGEMENT_EVENT once (with the final accumulated state) to
@@ -95,16 +195,20 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
    */
   function markAll() {
     setMarking(true);
+    const eligible = eligibleLessons();
     let latestState: EngagementState | null = null;
-    for (const l of lessons) {
+    for (const l of eligible) {
       const id = lessonId(l.category, l.slug);
       markComplete(id);
+      setQuizPassed(l.category, l.slug); // Stage 1.4: keeps TrackLessonList/MarkComplete's gate unlocked
       latestState = addXP("complete", id);
     }
+    setTrackQuizPassed(trackSlug); // Stage 0.4/16.6: certificate gate checks this
     if (latestState) {
       const unlocked = checkAchievements(latestState);
       window.dispatchEvent(new CustomEvent(ENGAGEMENT_EVENT, { detail: { state: latestState, unlocked } }));
     }
+    try { sessionStorage.removeItem(sessionKey(trackSlug)); } catch { /* ignore */ }
     // Brief delay so the user sees the "Marking complete…" button state before redirect
     setTimeout(() => router.push(`/tracks/${trackSlug}`), 800);
   }
@@ -115,15 +219,22 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
     );
   }
 
+  const scores = submitted ? perLessonScores() : {};
+  const eligible = submitted ? eligibleLessons() : [];
+  const heldBack = submitted ? lessons.filter((l) => !eligible.includes(l)) : [];
+
   return (
     <div>
-      {/* Sticky answer-progress bar, shows how many of the total questions have been answered */}
+      {/* Sticky progress bar + page indicator */}
       <div
+        ref={pageTopRef}
         className="sticky top-0 z-10 mb-8 px-4 py-3 rounded-xl border border-[var(--border)]"
         style={{ background: "var(--background)" }}
       >
         <div className="flex items-center justify-between text-sm mb-2">
-          <span className="font-medium text-[var(--foreground)]">Progress</span>
+          <span className="font-medium text-[var(--foreground)]">
+            {submitted ? "Review" : `Page ${page + 1} of ${totalPages}`}
+          </span>
           <span className="text-[var(--muted-foreground)]">{answeredCount} / {total} answered</span>
         </div>
         <div className="h-2 rounded-full overflow-hidden" style={{ background: "var(--muted)" }}>
@@ -137,9 +248,11 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
         </div>
       </div>
 
-      {/* All questions rendered at once (no pagination), answers are tracked by index */}
+      {/* Questions for the current page (or all questions when reviewing after submit) */}
       <ol className="flex flex-col gap-8">
-        {shuffled.map((q, qi) => {
+        {(submitted ? shuffled : pageQuestions).map((pq, localIdx) => {
+          const qi = submitted ? localIdx : pageStart + localIdx;
+          const q = pq.quiz;
           const userAnswer = answers[qi];
           const isAnswered = userAnswer !== undefined;
 
@@ -156,7 +269,6 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
 
               <div className="flex flex-col gap-2">
                 {q.options.map((opt, oi) => {
-                  // Colour coding: only applied after the user submits the full quiz
                   let border = "1px solid var(--border)";
                   let bg = "transparent";
                   let color = "var(--foreground)";
@@ -175,7 +287,6 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
                       opacity = "0.4";
                     }
                   } else if (isAnswered && userAnswer === oi) {
-                    // Highlight user's selection before submit
                     border = "1px solid var(--accent)";
                     bg = "color-mix(in srgb, var(--accent) 10%, transparent)";
                   }
@@ -184,7 +295,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
                     <button
                       key={oi}
                       onClick={() => pick(qi, oi)}
-                      disabled={submitted}
+                      aria-disabled={submitted}
                       className="w-full text-left px-4 py-3 rounded-xl text-sm transition-all"
                       style={{ border, background: bg, color, opacity, cursor: submitted ? "default" : "pointer" }}
                     >
@@ -203,7 +314,6 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
                 })}
               </div>
 
-              {/* Per-question explanation, only visible after submit */}
               {submitted && (
                 <div
                   className="mt-4 px-4 py-3 rounded-lg text-sm leading-relaxed"
@@ -220,13 +330,51 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
         })}
       </ol>
 
-      {/* Submit bar, disabled until all questions answered */}
-      {!submitted && (
+      {/* Pagination nav, visible when not submitted and more than one page */}
+      {!submitted && totalPages > 1 && (
+        <div className="mt-8 flex items-center justify-center gap-3">
+          <button
+            onClick={() => goToPage(page - 1)}
+            disabled={page === 0}
+            className="px-4 py-2 rounded-lg text-sm font-medium border border-[var(--border)]"
+            style={{
+              background: page === 0 ? "var(--muted)" : "var(--card)",
+              color: page === 0 ? "var(--muted-foreground)" : "var(--foreground)",
+              cursor: page === 0 ? "default" : "pointer",
+              opacity: page === 0 ? 0.5 : 1,
+            }}
+          >
+            ← Previous
+          </button>
+          <span className="text-sm text-[var(--muted-foreground)]">
+            {page + 1} / {totalPages}
+          </span>
+          {page < totalPages - 1 ? (
+            <button
+              onClick={() => goToPage(page + 1)}
+              disabled={!pageAllAnswered}
+              className="px-4 py-2 rounded-lg text-sm font-medium border"
+              style={{
+                background: pageAllAnswered ? "var(--accent)" : "var(--muted)",
+                color: pageAllAnswered ? "var(--accent-foreground)" : "var(--muted-foreground)",
+                borderColor: pageAllAnswered ? "var(--accent)" : "var(--border)",
+                cursor: pageAllAnswered ? "pointer" : "default",
+                opacity: pageAllAnswered ? 1 : 0.5,
+              }}
+            >
+              Next →
+            </button>
+          ) : null}
+        </div>
+      )}
+
+      {/* Submit bar, visible on the last page when all questions are answered */}
+      {!submitted && (page === totalPages - 1 || totalPages === 1) && (
         <div className="mt-10 flex items-center justify-between gap-4 p-5 rounded-2xl border border-[var(--border)]" style={{ background: "var(--card)" }}>
           <p className="text-sm text-[var(--muted-foreground)]">
             {allAnswered
               ? "All questions answered, ready to submit."
-              : `${total - answeredCount} question${total - answeredCount !== 1 ? "s" : ""} remaining.`}
+              : `${total - answeredCount} question${total - answeredCount !== 1 ? "s" : ""} remaining across all pages.`}
           </p>
           <button
             onClick={submit}
@@ -261,18 +409,48 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
               <p className="text-[var(--muted-foreground)] mb-6">
                 You passed! {Math.round(PASS_THRESHOLD * 100)}% required · you scored {pct}%.
               </p>
+
+              {/* Stage 1.5: show which lessons will actually be marked complete */}
+              {heldBack.length > 0 && (
+                <div
+                  className="text-left mb-6 p-4 rounded-xl text-sm"
+                  style={{ background: "rgba(234,179,8,0.1)", border: "1px solid rgba(234,179,8,0.3)" }}
+                >
+                  <p className="flex items-center gap-2 font-medium mb-2" style={{ color: "var(--foreground)" }}>
+                    <AlertCircle size={15} style={{ color: "rgb(202,138,4)" }} />
+                    {heldBack.length} lesson{heldBack.length !== 1 ? "s" : ""} need more review
+                  </p>
+                  <p className="text-[var(--muted-foreground)] mb-2">
+                    You passed the track overall, but scored under {Math.round(PER_LESSON_MIN * 100)}%
+                    on these lessons&apos; own questions, so they won&apos;t be marked complete yet:
+                  </p>
+                  <ul className="list-disc list-inside text-[var(--muted-foreground)]">
+                    {heldBack.map((l) => {
+                      const key = `${l.category}/${l.slug}`;
+                      const s = scores[key];
+                      return (
+                        <li key={key}>
+                          {l.title}
+                          {s ? ` (${s.correct}/${s.total})` : ""}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              )}
+
               <button
                 onClick={markAll}
-                disabled={marking}
+                disabled={marking || eligible.length === 0}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all"
                 style={{
-                  background: marking ? "var(--muted)" : "var(--accent)",
-                  color: marking ? "var(--muted-foreground)" : "var(--accent-foreground)",
-                  cursor: marking ? "default" : "pointer",
+                  background: marking || eligible.length === 0 ? "var(--muted)" : "var(--accent)",
+                  color: marking || eligible.length === 0 ? "var(--muted-foreground)" : "var(--accent-foreground)",
+                  cursor: marking || eligible.length === 0 ? "default" : "pointer",
                 }}
               >
                 <CheckCircle2 size={16} />
-                {marking ? "Marking complete…" : `Mark all ${lessons.length} lessons complete`}
+                {marking ? "Marking complete…" : `Mark ${eligible.length} lesson${eligible.length !== 1 ? "s" : ""} complete`}
               </button>
             </div>
           ) : (

@@ -42,3 +42,19 @@ export const ONBOARDED_KEY = "ma_onboarded";
 
 /** localStorage key: persists the user's chosen color theme ("light" | "dark" | "system") */
 export const THEME_KEY = "theme";
+
+/**
+ * localStorage key: set to "1" after a returning learner (one with existing
+ * completions) has dismissed the PROJECTS_PLAN.md 16.3 grandfather notice
+ * explaining that track-page checkboxes now require a passed quiz. Shown by
+ * TrackLessonList.tsx, once.
+ */
+export const GATE_NOTICE_KEY = "ma_seen_gate_notice";
+
+/**
+ * Fired when a localStorage write fails (quota exceeded, private mode, etc.).
+ * Payload: `{ key: string }` — the storage key that failed.
+ * Stage 2.4: lets a single UI component surface a warning instead of
+ * silently dropping data while the user sees confetti.
+ */
+export const STORAGE_WRITE_FAILED = "ma_storage_write_failed";

@@ -22,7 +22,7 @@ export default function CheatSheetsPage() {
   return (
     <>
     <style dangerouslySetInnerHTML={{ __html: hoverCSS }} />
-    <main style={{ maxWidth: "1200px", margin: "0 auto", padding: "2rem 1.5rem" }}>
+    <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "2rem 1.5rem" }}>
       {/* Hero */}
       <div style={{ textAlign: "center", marginBottom: "3rem" }}>
         <h1
@@ -172,7 +172,7 @@ export default function CheatSheetsPage() {
           </Link>
         ))}
       </div>
-    </main>
+    </div>
     </>
   );
 }

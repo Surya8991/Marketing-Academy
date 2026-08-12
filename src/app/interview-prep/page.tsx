@@ -65,7 +65,7 @@ export default function InterviewPrepPage() {
       dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
     />
     <style dangerouslySetInnerHTML={{ __html: hoverCSS }} />
-    <main
+    <div
       style={{
         background: "var(--background)",
         color: "var(--foreground)",
@@ -470,7 +470,7 @@ export default function InterviewPrepPage() {
           </div>
         </section>
       </div>
-    </main>
+    </div>
     </>
   );
 }

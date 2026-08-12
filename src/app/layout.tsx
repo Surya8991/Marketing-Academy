@@ -8,6 +8,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import AchievementToast from "@/components/AchievementToast";
 import OnboardingModal from "@/components/OnboardingModal";
 import CommandPaletteLoader from "@/components/CommandPaletteLoader";
+import StorageWarning from "@/components/StorageWarning";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -76,6 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <AchievementToast />
           <OnboardingModal />
           <CommandPaletteLoader />
+          <StorageWarning />
           <script dangerouslySetInnerHTML={{ __html: `if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}` }} />
         </PostHogProvider>
       </body>
