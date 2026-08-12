@@ -33,6 +33,74 @@ export type ProjectCardData = {
 
 export const PROJECTS_INDEX: ProjectCardData[] = [
   {
+    "id": "ai-search-ranking-citation-trigger-teardown",
+    "category": "ai-marketing",
+    "lessonSlug": "ai-search-ranking",
+    "lessonTitle": "Ranking Inside AI Answers",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Would an AI Actually Cite This? Three Paragraphs, One Test",
+    "timeMinutes": 25,
+    "companyId": "ola-electric",
+    "conceptsCovered": [
+      "Step 2: Write With Citation Triggers",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "ai-search-ranking-citation-gap-audit",
+    "category": "ai-marketing",
+    "lessonSlug": "ai-search-ranking",
+    "lessonTitle": "Ranking Inside AI Answers",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Citation Gap Audit: Why the Top Google Result Isn't the AI's Answer",
+    "timeMinutes": 45,
+    "companyId": "beyond-meat",
+    "conceptsCovered": [
+      "Why AI Citation Differs From SEO Rankings",
+      "Write With Citation Triggers",
+      "Update Content Within 30 Days of Major Events",
+      "Monitor Citation Share and Iterate"
+    ]
+  },
+  {
+    "id": "rag-for-marketers-knowledge-base-teardown",
+    "category": "ai-marketing",
+    "lessonSlug": "rag-for-marketers",
+    "lessonTitle": "RAG for Marketers",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Would You Feed This to Your RAG System? Three Documents, One Decision",
+    "timeMinutes": 20,
+    "companyId": "awfis-space-solutions",
+    "conceptsCovered": [
+      "What NOT to Include",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "rag-for-marketers-retrieval-audit",
+    "category": "ai-marketing",
+    "lessonSlug": "rag-for-marketers",
+    "lessonTitle": "RAG for Marketers",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Retrieval Audit: Catching a Stale Knowledge Base Before a Customer Does",
+    "timeMinutes": 45,
+    "companyId": "slack",
+    "conceptsCovered": [
+      "Document quality beats document quantity (Mistake 1)",
+      "Skipping retrieval audits (Mistake 3)",
+      "No document versioning or review cadence (Mistake 2)",
+      "Ignoring chunk size and document structure (Mistake 5)"
+    ]
+  },
+  {
     "id": "analytics-101-instacart-tracking-audit",
     "category": "analytics",
     "lessonSlug": "analytics-101",
@@ -139,6 +207,38 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "blog-seo-content-glossybox-serp-checklist-audit",
+    "category": "content",
+    "lessonSlug": "blog-seo-content",
+    "lessonTitle": "Blog & SEO Content",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Pre-Publish Check: Auditing a Glossybox Draft Against the SERP",
+    "timeMinutes": 25,
+    "companyId": "glossybox",
+    "conceptsCovered": [
+      "Matching content format to what the live SERP already shows"
+    ]
+  },
+  {
+    "id": "blog-seo-content-framebridge-draft-teardown",
+    "category": "content",
+    "lessonSlug": "blog-seo-content",
+    "lessonTitle": "Blog & SEO Content",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Defects: Tearing Down a Framebridge Blog Draft Before It Publishes",
+    "timeMinutes": 25,
+    "companyId": "framebridge",
+    "conceptsCovered": [
+      "Step 4: Lead with the answer in the first 100 words",
+      "Step 5: Add unmistakable human signal",
+      "Step 6: Internal link to commercial pages deliberately"
+    ]
+  },
+  {
     "id": "copywriting-101-landing-copy-teardown",
     "category": "copywriting",
     "lessonSlug": "copywriting-101",
@@ -214,6 +314,40 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
       "Psychological Triggers That Work",
       "Common Mistakes",
       "Key Takeaways"
+    ]
+  },
+  {
+    "id": "headlines-teardown-specimen-score",
+    "category": "copywriting",
+    "lessonSlug": "headlines",
+    "lessonTitle": "Headline Writing",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Would It Win the Test? Score Three Headline Specimens",
+    "timeMinutes": 20,
+    "companyId": "drunk-elephant",
+    "conceptsCovered": [
+      "How It Works",
+      "Common Mistakes",
+      "Psychological Triggers That Work"
+    ]
+  },
+  {
+    "id": "headlines-reverse-engineer-real-winners",
+    "category": "copywriting",
+    "lessonSlug": "headlines",
+    "lessonTitle": "Headline Writing",
+    "tier": "core",
+    "archetype": "reverse-engineer",
+    "mode": "build",
+    "title": "Reverse-Engineer Three Real Winning Headlines, Then Apply the Pattern",
+    "timeMinutes": 35,
+    "companyId": "ustraa",
+    "conceptsCovered": [
+      "How It Works",
+      "Psychological Triggers That Work",
+      "Real Company Examples"
     ]
   },
   {
@@ -1061,6 +1195,492 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
       "Leftover staging noindex tags or a robots.txt Disallow rule that was fine on staging but never got removed for production",
       "A 10-30% dip that stabilizes within 2-6 weeks is normal volatility; still falling after 4 weeks is a hangover in progress",
       "Use Google Search Console's Change of Address tool and add the new property alongside the old one, don't delete the old property"
+    ]
+  },
+  {
+    "id": "aeo-airbnb-citation-visibility-check",
+    "category": "seo",
+    "lessonSlug": "aeo",
+    "lessonTitle": "Answer Engine Optimization (AEO)",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Citation Check: Does Airbnb's Own Content Show Up When AI Answers Travel Questions?",
+    "timeMinutes": 25,
+    "companyId": "airbnb",
+    "conceptsCovered": [
+      "Filtering for answer-engine citations vs. organic rank",
+      "The Answer Unit framework applied to owned content"
+    ]
+  },
+  {
+    "id": "aeo-peloton-answer-unit-teardown",
+    "category": "seo",
+    "lessonSlug": "aeo",
+    "lessonTitle": "Answer Engine Optimization (AEO)",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Answer Unit Teardown: Grading 5 Real AI-Cited Passages",
+    "timeMinutes": 50,
+    "companyId": "peloton",
+    "conceptsCovered": [
+      "The Answer Unit framework (question heading, 40-60 word answer, supporting detail)",
+      "Freshness as a citation signal",
+      "Schema markup as a citation signal",
+      "Multi-channel authority vs. content structure"
+    ]
+  },
+  {
+    "id": "voice-search-yelp-near-me-diagnostic",
+    "category": "seo",
+    "lessonSlug": "voice-search-seo",
+    "lessonTitle": "Voice Search SEO",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The 'Near Me' Test: Auditing Content for Voice Answer Eligibility",
+    "timeMinutes": 20,
+    "companyId": "yelp",
+    "conceptsCovered": [
+      "Local intent as the dominant voice search pattern",
+      "The 25-35 word plain-prose answer shape"
+    ]
+  },
+  {
+    "id": "voice-search-delhivery-order-status-teardown",
+    "category": "seo",
+    "lessonSlug": "voice-search-seo",
+    "lessonTitle": "Voice Search SEO",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Spoken Answer Teardown: Grading 5 'Where's My Order' Voice Transcripts",
+    "timeMinutes": 45,
+    "companyId": "delhivery",
+    "conceptsCovered": [
+      "Question-format headings for voice eligibility",
+      "The 25-35 word plain-prose answer shape",
+      "Technical fundamentals as a voice-ranking gate",
+      "Local intent resolution in voice answers"
+    ]
+  },
+  {
+    "id": "nubank-ai-overview-citation-audit",
+    "category": "seo",
+    "lessonSlug": "ai-overviews-geo",
+    "lessonTitle": "AI Overviews & Generative Engine Optimization",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Citation Check: Auditing Nubank's Odds of Being Quoted in AI Overviews",
+    "timeMinutes": 20,
+    "companyId": "nubank",
+    "conceptsCovered": [
+      "Answer-first structure"
+    ]
+  },
+  {
+    "id": "trade-desk-ai-overview-citation-teardown",
+    "category": "seo",
+    "lessonSlug": "ai-overviews-geo",
+    "lessonTitle": "AI Overviews & Generative Engine Optimization",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: Why a Rival's Programmatic Glossary Beat The Trade Desk's Into the AI Overview",
+    "timeMinutes": 45,
+    "companyId": "trade-desk",
+    "conceptsCovered": [
+      "Answer-first structure",
+      "Structured formatting",
+      "Credibility signals",
+      "Brand mentions over backlinks"
+    ]
+  },
+  {
+    "id": "ola-electric-ai-mode-structure-audit",
+    "category": "seo",
+    "lessonSlug": "ai-mode-search-optimization",
+    "lessonTitle": "Optimizing for Google AI Mode",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Structure Test: Auditing an Ola Electric Comparison Page for AI Mode Citations",
+    "timeMinutes": 20,
+    "companyId": "ola-electric",
+    "conceptsCovered": [
+      "Structured formatting"
+    ]
+  },
+  {
+    "id": "yeti-ai-mode-citation-reverse-engineer",
+    "category": "seo",
+    "lessonSlug": "ai-mode-search-optimization",
+    "lessonTitle": "Optimizing for Google AI Mode",
+    "tier": "mini",
+    "archetype": "reverse-engineer",
+    "mode": "diagnostic",
+    "title": "Reverse-Engineering Why AI Mode Cited a Buying Guide Over Yeti's Own Product Page",
+    "timeMinutes": 25,
+    "companyId": "yeti",
+    "conceptsCovered": [
+      "Specific data points"
+    ]
+  },
+  {
+    "id": "llmo-slack-robots-txt-teardown",
+    "category": "seo",
+    "lessonSlug": "llmo",
+    "lessonTitle": "LLM Optimization (LLMO)",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Locked Door: Auditing Slack's robots.txt for AI Crawler Access",
+    "timeMinutes": 25,
+    "companyId": "slack",
+    "conceptsCovered": [
+      "Step 1, Open your doors to AI crawlers",
+      "Step 2, Build a \"machine-readable answer block\" at the top of every page"
+    ]
+  },
+  {
+    "id": "llmo-goto-answer-block-audit",
+    "category": "seo",
+    "lessonSlug": "llmo",
+    "lessonTitle": "LLM Optimization (LLMO)",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Built to Be Quoted: Auditing GoTo's Content for LLM Citation",
+    "timeMinutes": 60,
+    "companyId": "goto-gojek-tokopedia",
+    "conceptsCovered": [
+      "Machine-readable answer blocks in the first 100 words",
+      "Using entities consistently across the page",
+      "Answering question-shaped queries in headers"
+    ]
+  },
+  {
+    "id": "seo-ai-platforms-beyond-meat-citation-reverse-engineer",
+    "category": "seo",
+    "lessonSlug": "seo-for-ai-platforms",
+    "lessonTitle": "SEO for AI Platforms: Getting Cited in Perplexity, ChatGPT and Claude",
+    "tier": "mini",
+    "archetype": "reverse-engineer",
+    "mode": "diagnostic",
+    "title": "Why Did Perplexity Skip Us? Reverse-Engineering a Citation Snapshot",
+    "timeMinutes": 30,
+    "companyId": "beyond-meat",
+    "conceptsCovered": [
+      "Freshness and Specificity",
+      "Structured Headers and Direct Answers"
+    ]
+  },
+  {
+    "id": "seo-ai-platforms-delhivery-article-teardown",
+    "category": "seo",
+    "lessonSlug": "seo-for-ai-platforms",
+    "lessonTitle": "SEO for AI Platforms: Getting Cited in Perplexity, ChatGPT and Claude",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Uncitable Article: Teardown of a Delhivery Blog Draft",
+    "timeMinutes": 25,
+    "companyId": "delhivery",
+    "conceptsCovered": [
+      "Structured Headers and Direct Answers",
+      "Freshness and Specificity",
+      "Practical Tactics You Can Apply This Week"
+    ]
+  },
+  {
+    "id": "eeat-ymyl-claims-guide-audit",
+    "category": "seo",
+    "lessonSlug": "eeat",
+    "lessonTitle": "E-E-A-T",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The YMYL Author Audit: Scoring a Claims-Process Guide for E-E-A-T",
+    "timeMinutes": 25,
+    "companyId": "go-digit-insurance",
+    "conceptsCovered": [
+      "Scoring content against the four E-E-A-T letters under a YMYL bar"
+    ]
+  },
+  {
+    "id": "eeat-host-safety-guide-teardown",
+    "category": "seo",
+    "lessonSlug": "eeat",
+    "lessonTitle": "E-E-A-T",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Trust & Safety Content Teardown: Missing E-E-A-T Signals in a Host Guide",
+    "timeMinutes": 45,
+    "companyId": "airbnb",
+    "conceptsCovered": [
+      "Author Entity Building (Highest Leverage)",
+      "Trustworthiness: The Most Important Letter"
+    ]
+  },
+  {
+    "id": "entity-seo-peloton-about-page-audit",
+    "category": "seo",
+    "lessonSlug": "entity-seo",
+    "lessonTitle": "Entity SEO & Knowledge Graph",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Entity Home Audit: Does This /about Page Give Google Enough to Merge?",
+    "timeMinutes": 25,
+    "companyId": "peloton",
+    "conceptsCovered": [
+      "Creating a complete entity home with Organization JSON-LD and sameAs corroboration"
+    ]
+  },
+  {
+    "id": "entity-seo-stitch-fix-knowledge-graph-teardown",
+    "category": "seo",
+    "lessonSlug": "entity-seo",
+    "lessonTitle": "Entity SEO & Knowledge Graph",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Knowledge Graph Teardown: Diagnosing a Weak Entity Record",
+    "timeMinutes": 45,
+    "companyId": "stitch-fix",
+    "conceptsCovered": [
+      "How Google Builds an Entity Record",
+      "Step 4: Earn third-party co-citations"
+    ]
+  },
+  {
+    "id": "content-clusters-tbo-tek-archive-audit",
+    "category": "seo",
+    "lessonSlug": "content-clusters",
+    "lessonTitle": "Content Clusters & Pillar Pages",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Auditing TBO Tek's Blog Archive for Cluster Candidates",
+    "timeMinutes": 20,
+    "companyId": "tbo-tek",
+    "conceptsCovered": [
+      "Auditing existing content for cluster candidates before writing anything new"
+    ]
+  },
+  {
+    "id": "content-clusters-nubank-pillar-teardown",
+    "category": "seo",
+    "lessonSlug": "content-clusters",
+    "lessonTitle": "Content Clusters & Pillar Pages",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: Is This Actually a Pillar Page?",
+    "timeMinutes": 25,
+    "companyId": "nubank",
+    "conceptsCovered": [
+      "Building clusters around audience questions, not products",
+      "Internal linking as the load-bearing structure of a cluster"
+    ]
+  },
+  {
+    "id": "zero-click-search-yeti-serp-feature-audit",
+    "category": "seo",
+    "lessonSlug": "zero-click-search",
+    "lessonTitle": "Zero-Click Search",
+    "tier": "mini",
+    "archetype": "reverse-engineer",
+    "mode": "diagnostic",
+    "title": "Reverse-Engineering Which SERP Feature Is Eating YETI's Clicks",
+    "timeMinutes": 20,
+    "companyId": "yeti",
+    "conceptsCovered": [
+      "Identifying zero-click risk using the impressions-high/CTR-low signal"
+    ]
+  },
+  {
+    "id": "zero-click-search-blue-apron-snippet-bait-build",
+    "category": "seo",
+    "lessonSlug": "zero-click-search",
+    "lessonTitle": "Zero-Click Search",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Building a Snippet-Bait Recipe FAQ for Blue Apron",
+    "timeMinutes": 45,
+    "companyId": "blue-apron",
+    "conceptsCovered": [
+      "Writing a 40-60 word snippet-bait answer",
+      "Adding FAQPage schema to make an answer machine-extractable"
+    ]
+  },
+  {
+    "id": "trade-desk-brand-serp-audit",
+    "category": "seo",
+    "lessonSlug": "brand-serp-control",
+    "lessonTitle": "Brand SERP Optimisation: Control What Google Shows for Your Name",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The First Impression Audit: Scoring The Trade Desk's Brand SERP",
+    "timeMinutes": 25,
+    "companyId": "trade-desk",
+    "conceptsCovered": [
+      "Correcting Knowledge Panel facts through Google Business Profile and Wikidata",
+      "Prioritizing which review platforms matter based on audience"
+    ]
+  },
+  {
+    "id": "yelp-brand-serp-teardown",
+    "category": "seo",
+    "lessonSlug": "brand-serp-control",
+    "lessonTitle": "Brand SERP Optimisation: Control What Google Shows for Your Name",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Screenshot Teardown: Finding What's Broken on a Client's Brand SERP",
+    "timeMinutes": 45,
+    "companyId": "yelp",
+    "conceptsCovered": [
+      "The 10 Elements of a Brand SERP",
+      "Managing Review Aggregate Scores",
+      "Suppressing Negative Results",
+      "Brand Keyword Strategy"
+    ]
+  },
+  {
+    "id": "go-digit-ai-citation-head-to-head",
+    "category": "seo",
+    "lessonSlug": "ai-search-visibility-metrics",
+    "lessonTitle": "Measuring AI Search Visibility",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "Three Engines, One Brand: Comparing AI Citation Rates Head-to-Head",
+    "timeMinutes": 35,
+    "companyId": "go-digit-insurance",
+    "conceptsCovered": [
+      "Building a repeatable prompt panel to measure citation rate and share of voice",
+      "Normalizing citation rate against each model's own baseline mention rate before comparing"
+    ]
+  },
+  {
+    "id": "tbo-tek-ai-measurement-teardown",
+    "category": "seo",
+    "lessonSlug": "ai-search-visibility-metrics",
+    "lessonTitle": "Measuring AI Search Visibility",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Measurement Report Teardown: Spotting a Flawed AI-Visibility Readout",
+    "timeMinutes": 30,
+    "companyId": "tbo-tek",
+    "conceptsCovered": [
+      "Rank Tracking Was Built for a World That Is Disappearing",
+      "Brand Mention Tracking Across Models",
+      "AI-Referral Traffic in GA4"
+    ]
+  },
+  {
+    "id": "jet-com-intent-triage",
+    "category": "seo",
+    "lessonSlug": "search-intent",
+    "lessonTitle": "Search Intent",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Triage the Query List: Sorting Jet.com's Content Backlog by Intent",
+    "timeMinutes": 20,
+    "companyId": "jet-com",
+    "conceptsCovered": [
+      "Classifying queries by the four intent types before recommending content"
+    ]
+  },
+  {
+    "id": "modcloth-serp-mismatch-teardown",
+    "category": "seo",
+    "lessonSlug": "search-intent",
+    "lessonTitle": "Search Intent",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Why This Page Won't Rank: A ModCloth Content Teardown",
+    "timeMinutes": 25,
+    "companyId": "modcloth",
+    "conceptsCovered": [
+      "The 4 Types of Search Intent",
+      "Why Intent Mismatch Is a Silent Killer"
+    ]
+  },
+  {
+    "id": "trunk-club-image-audit",
+    "category": "seo",
+    "lessonSlug": "image-seo-visual-search",
+    "lessonTitle": "Image SEO & Visual Search Optimization",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Audit Trunk Club's Product Photos Before the Visual-Search Rollout",
+    "timeMinutes": 25,
+    "companyId": "trunk-club",
+    "conceptsCovered": [
+      "Auditing filenames, alt text, and framing against the image SEO checklist"
+    ]
+  },
+  {
+    "id": "blue-bottle-visual-search-teardown",
+    "category": "seo",
+    "lessonSlug": "image-seo-visual-search",
+    "lessonTitle": "Image SEO & Visual Search Optimization",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Will This Product Shot Survive a Visual Search Match? A Blue Bottle Teardown",
+    "timeMinutes": 20,
+    "companyId": "blue-bottle-coffee",
+    "conceptsCovered": [
+      "How Visual Search Actually Works",
+      "Practical Image Optimization Checklist"
+    ]
+  },
+  {
+    "id": "video-seo-launch-draft-teardown",
+    "category": "seo",
+    "lessonSlug": "video-seo",
+    "lessonTitle": "Video SEO: Ranking on YouTube and TikTok Search",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Defects: A Launch Video's YouTube and TikTok Drafts",
+    "timeMinutes": 20,
+    "companyId": "mvmt-watches",
+    "conceptsCovered": [
+      "YouTube Ranking Factors: The Holy Trinity",
+      "YouTube-Specific Optimisation",
+      "The Thumbnail-Title CTR Loop",
+      "TikTok Search Optimisation"
+    ]
+  },
+  {
+    "id": "video-seo-upload-audit",
+    "category": "seo",
+    "lessonSlug": "video-seo",
+    "lessonTitle": "Video SEO: Ranking on YouTube and TikTok Search",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Diagnostic Pass: Auditing a Real YouTube Upload for Search Signals",
+    "timeMinutes": 45,
+    "companyId": "birchbox",
+    "conceptsCovered": [
+      "Title Keyword Match",
+      "Chapters and Timestamps",
+      "Video Schema Markup for Google Search",
+      "Click-Through Rate (CTR)"
     ]
   }
 ];

@@ -168,8 +168,8 @@ They interlock; fixing one alone moves the hole rather than closing it.
 | **8.1** | Phase 0, roster + datasets + types | 6 | ✅ Done, Session 73. 77 verified companies (66/34 global/india, 38 mega/27 large/5 mid/7 small), 8 starter datasets, full type system in `src/lib/projects/types.ts` |
 | **8.2** | Phase 1, pilot + hub + review gate | 6, 11.8 | ✅ Done, Session 73. 19 pilot lessons (18 solo-founder + paid-ads-101), 34 projects, `/projects` hub, full component layer. Review-gate verdict: PASS-WITH-CONCERNS on first pass (backwards simulation economics, dead anchor links, unrendered teardown data) — all found defects fixed and re-verified live in browser. See session log below |
 | **8.2b** | Compute centrality bands + assign tiers/archetypes from the section 17 matrix | 17 | ⏸️ Not done. Pilot used ad hoc archetype/tier assignment (§17's matrix, not yet computed programmatically across all 642 lessons). Needed before Phase 2 scales past the pilot's 19 lessons |
-| **8.3** | Phase 2, track lessons (240 lessons, ~480 projects) | 6, 0.2 | 🔄 In progress, Session 76. Technical SEO Mastery track (12 of its 13 lessons — `mobile-first-indexing` was already done in Session 74) ✅ done: 24 new projects. Owner explicitly directed starting Phase 2 before a separate human pilot-walkthrough occurred, superseding this row's prior gate for the SEO scope; the gate still applies to the rest of the library. **TODO, not started**: the other 3 SEO-named tracks (On-Page SEO Mastery, Off-Page SEO Mastery, AI Search Optimization — 18 more `seo`-category lessons, scoped in detail in 8.3a below) and the remaining 196 track lessons across all other categories |
-| **8.4** | Phase 2b, concept scenarios, bundled with the 45 stale-year fixes | 10, 12.5 | 🔄 In progress, Session 76. Infra built from scratch (none existed before this session) + 24 scenarios shipped for the Technical SEO Mastery track. Design deviates from this section's preferred build-time rehype injection — see 8.4a. **TODO, not started**: the other 18 SEO-track lessons + the rest of the library (~600-700 more scenarios per this section's original estimate) |
+| **8.3** | Phase 2, track lessons (240 lessons, ~480 projects) | 6, 0.2 | 🔄 In progress, Session 76-77. Technical SEO Mastery (13/13 ✅) + AI Search Optimization (14/14 ✅) + On-Page SEO Mastery (13/13 ✅, Session 77: 5 lessons got new projects across `seo.ts`/`copywriting.ts`/`content.ts`, 2 already-done lessons got a rewrite-only pass). **Stage 8.3b is fully done.** Owner explicitly directed starting Phase 2 before a separate human pilot-walkthrough occurred, superseding this row's prior gate for these tracks' scope; the gate still applies to the rest of the library. **TODO, not started**: the rest of the 24-track priority order in 8.3a, starting with AI-First Marketer |
+| **8.4** | Phase 2b, concept scenarios, bundled with the 45 stale-year fixes | 10, 12.5 | 🔄 In progress, Session 76-77. Infra built from scratch in Session 76 + 24 scenarios (Technical SEO) + 28 scenarios (AI Search Optimization) + 14 scenarios (On-Page SEO Mastery) = 66 shipped. Design deviates from this section's preferred build-time rehype injection — see 8.4a. **TODO, not started**: the rest of the library (~530-630 more scenarios per this section's original estimate) |
 
 **Session 73 pilot results, in detail:**
 - Roster (`src/lib/case-companies.ts`): 77 companies, every entry with a real cited `exit.source` URL. First research pass skewed 74%/26% global/India with zero mid/small-scale exits; a targeted gap-fill pass corrected this to 66%/34% and 38 mega/27 large/5 mid/7 small.
@@ -201,10 +201,10 @@ The owner reviewed the full 24-track list (all categories, not just SEO) and set
 | Priority | Track | Slug | Status (lessons w/ projects / total) |
 |---|---|---|---|
 | — | ⚙️ Technical SEO Mastery | `technical-seo` | ✅ **13/13, done (Session 76)** |
-| 1 | 🤖 AI Search Optimization | `ai-search-optimization` | 0/14 — **scoped in 8.3b, ready to run** |
-| 2 | 🤖 AI-First Marketer | `ai-first-marketer` | 0/14 |
+| — | 🤖 AI Search Optimization | `ai-search-optimization` | ✅ **14/14, done (Session 77)** |
+| — | 📄 On-Page SEO Mastery | `on-page-seo-mastery` | ✅ **13/13, done (Session 77)** |
+| 1 | 🤖 AI-First Marketer | `ai-first-marketer` | 0/14 — next up |
 | 3 | 🔗 Off-Page SEO Mastery | `off-page-seo-mastery` | 0/13 |
-| 4 | 📄 On-Page SEO Mastery | `on-page-seo-mastery` | 8/13 — **scoped in 8.3b, ready to run** |
 | 5 | 🏢 B2B Marketing | `b2b-marketer` | 5/21 |
 | 6 | 💸 Paid Ads Mastery | `paid-ads-mastery` | 1/15 |
 | 7 | 📊 Data-Driven Marketer | `data-driven-marketer` | 3/19 |
@@ -239,9 +239,12 @@ Priorities 11-23 were proposed by the assistant (weighted toward finishing near-
 
 ---
 
-#### Stage 8.3b — AI Search Optimization + On-Page SEO Mastery: SCOPED AND MEASURED, ready to execute
+#### Stage 8.3b — AI Search Optimization + On-Page SEO Mastery: DONE (Session 77)
 
-> **Status: not started. Every number below is measured, not estimated** — run in Session 76 against live source. Scope was expanded by the owner beyond projects/scenarios to include a **full content-quality rewrite pass on all 27 lessons**, plus adding any genuinely missing related lessons. Owner-chosen sequencing: **AI Search Optimization end-to-end first, then On-Page SEO Mastery.**
+> **Status: ✅ both tracks fully done.** AI Search Optimization: all 14 lessons rewritten + 2 projects + 2 `InAction` scenarios each. On-Page SEO Mastery: 5 lessons got new projects (`search-intent`, `image-seo-visual-search`, `video-seo` in `seo.ts`; `headlines` in `copywriting.ts`; `blog-seo-content` in `content.ts`), 2 already-projected lessons (`on-page-seo`, `keyword-research`) got a rewrite + `InAction` pass only. All 27 lessons verified (`tsc`/`lint`/`npm test` 30/30/`npm run build` all clean) and pushed. Scope was expanded by the owner beyond projects/scenarios to include a **full content-quality rewrite pass on all 27 lessons**, done. Owner-chosen sequencing (AI Search Optimization end-to-end first, then On-Page SEO Mastery) followed. Three things learned executing this stage, worth carrying into every future batch:
+> 1. An authoring agent can write a lesson's top-level object key unquoted (`aeo: [` — valid JS, since `aeo` is a legal identifier) instead of quoted (`"aeo": [`) like every other key in the file; harmless to `tsc` but silently invisible to `merge-projects-batch.mjs`'s and `audit-projects.mjs`'s regex-based key detection. This happened **twice** in this stage: once newly (the AI Search batch's `aeo` key) and once as a **pre-existing** bug discovered by accident (`copywriting.ts`'s `headlines` key had been unquoted since an earlier session, which is why `get-track-batch-info.mjs` wrongly listed it as needing new projects — an authoring agent caught the conflict by reading the file directly rather than trusting the script's count). See AGENTS.md Rule 58. Run `grep -nE '^\s{2}[a-zA-Z][a-zA-Z0-9-]*:\s*\[' src/lib/projects/*.ts` before trusting any "already has projects" count.
+> 2. A rewrite agent flagged (but did not fix, out of its scope) a **pre-existing** quiz/lesson mismatch: `seo/zero-click-search`'s quiz option text says "~75-80% of searches" while the lesson itself has always said ~68% — still needs a `quizzes.ts` edit.
+> 3. When a lesson's project key already exists (found mid-batch, not upfront), don't run the merge script against it — it refuses duplicate keys by design. Manually append the new project objects into the existing array instead, and re-verify the archetype-reuse rule still holds across the combined set (`headlines` ended up with 4 projects across 4 distinct archetypes, confirmed by `npm test`).
 
 **27 unique lessons across the two tracks, no overlap between them.**
 

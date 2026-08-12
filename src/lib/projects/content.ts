@@ -521,4 +521,222 @@ export const CONTENT_PROJECTS: Record<string, Project[]> = {
       portfolioReady: false,
     },
   ],
+
+  "blog-seo-content": [
+    {
+      id: "blog-seo-content-glossybox-serp-checklist-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Pre-Publish Check: Auditing a Glossybox Draft Against the SERP",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a real target keyword, a scan of what Google's actual top-10 results look like for it, and Glossybox's draft blog post, run the lesson's Step 1 checklist and reach a pass or fail verdict backed by evidence, not a vibe.",
+      companyId: "glossybox",
+      scenario:
+        "You're a freelance SEO editor on retainer for Glossybox's content team ahead of a launch push. Editors keep asking 'is this ready to publish?' with no consistent way to answer it, that consistency is now your job on every draft before it goes live.",
+      brief:
+        "Scan the live SERP for the draft's target keyword, identify the dominant format among the top 10, then compare that format against the actual draft structure below. Reach PASS or FAIL with a one-line, evidence-based reason.",
+      mode: "diagnostic",
+      conceptsCovered: ["Matching content format to what the live SERP already shows"],
+      steps: [
+        {
+          stepId: "step-1-serp-format-audit",
+          concept: "Matching content format to what the live SERP already shows",
+          lessonAnchor: "step-1-start-with-the-serp-not-the-keyword",
+          theoryRecap:
+            "The lesson's Step 1 says to scan the actual top-10 SERP for your target keyword before writing a word, and match whatever format already dominates, listicle, guide, comparison, or essay, rather than fighting Google's own expressed preference.",
+          question:
+            "7 of the top 10 results for this keyword are comparison listicles with testing notes. Glossybox's draft is a 1,400-word narrative essay on the history and science of the product category. Does the draft pass the format-match check?",
+          toolName: "Google Sheets",
+          where: "A blank sheet with columns: Checklist Item, SERP Evidence, Pass/Fail, Reason",
+          procedure: [
+            "Search the exact target keyword in an incognito browser tab and record the format of each of the top 10 organic results (guide, listicle, comparison, review, essay).",
+            "Tally how many of the 10 share one dominant format.",
+            "Compare that dominant format against the draft's actual structure, not against a generic 'good content' standard.",
+            "Mark PASS if the draft's format matches the dominant SERP format, FAIL if it does not, and name the specific mismatch.",
+          ],
+          outputSample:
+            "Target keyword: 'best drugstore setting spray for oily skin'\n\n" +
+            "SERP scan (incognito, top 10):\n" +
+            "  7 of 10 = comparison listicles, numbered, with tester notes and a comparison table\n" +
+            "  2 of 10 = single-product review pages\n" +
+            "  1 of 10 = ingredient explainer (informational)\n\n" +
+            "Dominant format: comparison listicle (7/10)\n\n" +
+            "Glossybox draft: 1,400-word narrative essay, 'The History and Science of Setting Sprays.' No numbered list, no product comparison, no testing notes.\n\n" +
+            "Verdict: FAIL, format mismatch.",
+          healthy:
+            "The draft's format matches the SERP's dominant format, for example a numbered comparison listicle when 7 of 10 results are comparison listicles.",
+          unhealthy:
+            "The draft is written as a different format entirely, a narrative essay when the SERP is dominated by numbered comparison listicles, or a bare listicle when the SERP is dominated by in-depth single-product guides.",
+          interpret:
+            "Glossybox's history-and-science essay is fighting the exact format Google has already rewarded 7 out of 10 times for this keyword. No amount of line-editing fixes a format mismatch, the draft needs restructuring into a tested comparison listicle before it goes anywhere near publish.",
+          soWhat: [
+            {
+              symptom: "Draft format doesn't match the SERP's dominant format",
+              action:
+                "Restructure into the dominant format, here a numbered comparison listicle with a comparison table and testing notes, before the final line edit, not after",
+              effort: "half day",
+            },
+            {
+              symptom: "No SERP scan happens before a draft gets assigned to a writer",
+              action: "Add a 'SERP scan' line to the brief template so format mismatches get caught at outline stage, not at pre-publish review",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Log the SERP scan and score the pass/fail checklist verdict",
+            why: "Free, no signup friction, holds a simple checklist table just as well as a paid audit tool for one draft at a time",
+            required: true,
+            lastVerified: "2026-08-12",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Surfer SEO",
+            role: "Automates the SERP-format and content-structure comparison instead of a manual scan",
+            why: "Worth it once you're auditing dozens of drafts a week and manual SERP scanning stops scaling",
+            required: false,
+            lastVerified: "2026-08-12",
+          },
+        ],
+        paidUpgradeNote:
+          "A manual SERP scan plus a Google Sheet is a complete audit path for one draft at a time. Surfer SEO only pays for itself once this checklist is running across real publishing volume.",
+      },
+      deliverable:
+        "A completed pre-publish checklist (Sheet) with a pass/fail verdict and evidence for the SERP-format-match item on Glossybox's draft.",
+      sampleOutput:
+        "Target keyword audit: 'best anti-frizz hair serum for humid weather' (a different brand's haircare blog draft)\n\n" +
+        "SERP scan: 8 of 10 top results are comparison listicles with tester photos and a ranked table.\n" +
+        "Draft: a numbered 'Top 7' comparison listicle with tester notes already included.\n\n" +
+        "Verdict: PASS, format matches the dominant SERP pattern, no restructuring needed before publish.",
+      successCriteria: [
+        "Correctly identifies the dominant SERP format for the target keyword from the scan data given",
+        "Compares that dominant format specifically against the actual draft structure, not against a generic quality standard",
+        "Reaches a PASS or FAIL verdict with a one-line, evidence-based reason, not a vague judgment",
+        "Names the specific restructuring action needed when the verdict is FAIL",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "blog-seo-content-framebridge-draft-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Spot the Defects: Tearing Down a Framebridge Blog Draft Before It Publishes",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given one realistic Framebridge blog draft, find every SEO defect the lesson's playbook would flag, buried answers, missing human signal, missing internal links, without flagging things that only look like defects.",
+      companyId: "framebridge",
+      scenario:
+        "You're the freelance content editor for Framebridge's blog. A draft on framing a college diploma just landed in your queue an hour before its scheduled publish slot, and you're the last check before it goes live.",
+      brief:
+        "Read the specimen once. List every real defect you find, citing the specific lesson step it violates. If something looks off but isn't actually a defect per the lesson's own rules, don't flag it.",
+      mode: "teardown",
+      conceptsCovered: [
+        "Step 4: Lead with the answer in the first 100 words",
+        "Step 5: Add unmistakable human signal",
+        "Step 6: Internal link to commercial pages deliberately",
+      ],
+      teardownItems: [
+        {
+          itemId: "item-1-diploma-frame-draft",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "How to Frame a College Diploma: A Complete Guide\n\n" +
+            "Graduating college is one of life's biggest milestones, a moment that deserves to be celebrated and remembered for years to come. Diplomas come in many shapes, sizes, and paper types depending on the institution, and choosing the right way to preserve yours is an important decision that many graduates and their families think carefully about. There are many factors to consider when framing important documents, including the material of the frame, the type of glass or acrylic used, matting choices, and how the piece will ultimately be displayed in a home or office. This guide will walk you through everything you need to know about the diploma-framing process from start to finish.\n\n" +
+            "First, measure your diploma carefully. Most diplomas are either 8.5x11 or 11x14 inches, but some universities use custom sizes, so measure before doing anything else.\n\n" +
+            "Next, think about matting. A mat can add visual breathing room around the document and is a popular choice among people who frame important papers.\n\n" +
+            "Finally, choose a frame style that matches the room where it will hang. Wood frames tend to look traditional, while metal frames look more modern.\n\n" +
+            "Properly preserving your diploma helps protect it from sun damage, humidity, and general wear over time, ensuring it remains a lasting keepsake for years to come.",
+          prompt:
+            "Find every SEO defect in this draft per the lesson's playbook. Name the specific defect and which lesson step it violates.",
+          answerKey: [
+            {
+              defect:
+                "The direct answer (how to actually frame the diploma) doesn't start until the fourth paragraph, roughly 160 words in, after a full paragraph of generic graduation sentiment and a second paragraph of unstructured background on framing factors.",
+              severity: "critical",
+              whyItMatters:
+                "Step 4 says the direct how-to answer needs to land before the end of the first two paragraphs for featured-snippet and AI Overview eligibility; this draft buries it under throat-clearing that answers nothing.",
+              lessonRef: "Step 4: Lead with the answer in the first 100 words",
+              owner: "you",
+            },
+            {
+              defect:
+                "Zero internal links anywhere in the piece, including no link to Framebridge's own diploma-frame product page, despite this being a clearly commercial-adjacent informational post.",
+              severity: "moderate",
+              whyItMatters:
+                "Step 6 requires at least one deliberate internal link from an informational post toward a commercial page; without it, a reader who's convinced has nowhere to click to actually buy a frame.",
+              lessonRef: "Step 6: Internal link to commercial pages deliberately",
+              owner: "you",
+            },
+            {
+              defect:
+                "No first-person testing signal, specific product names, sizes tested, or dated detail anywhere, every sentence reads as generic advice that could describe any framing site's blog.",
+              severity: "moderate",
+              whyItMatters:
+                "Step 5's human-signal checklist (first-person notes, specific dates, named specifics) is the exact signal Google's E-E-A-T evaluation looks for; a draft with none of it reads as templated output even if a human wrote it.",
+              lessonRef: "Step 5: Add unmistakable human signal",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "It's written in second person ('measure your diploma'), that's a normal, reader-friendly voice for a how-to guide, not a defect on its own.",
+            "It's under 300 words, length by itself isn't the defect, Step 1 says match the SERP's format and depth, a short post can still fail entirely on burying the answer, which is the real issue here.",
+            "It uses a loose sequence (first, next, finally), sequencing steps is fine, the defect is where the direct answer starts, not whether the steps are numbered.",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Mark up the draft inline with defect comments before it goes back to the writer",
+            why: "Free, and comments anchor directly to the exact sentence each defect lives in",
+            required: true,
+            lastVerified: "2026-08-12",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Optional defect-tracking log across many drafts, one row per defect found",
+            why: "Free fallback if you'd rather track defects in a running list than inline comments",
+            required: false,
+            lastVerified: "2026-08-12",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Clearscope",
+            role: "Automated content grading against top-ranking competitor structure and terms",
+            why: "Catches some structural gaps faster than a manual read once you're grading drafts by the dozen",
+            required: false,
+            lastVerified: "2026-08-12",
+          },
+        ],
+        paidUpgradeNote:
+          "A manual read with inline comments catches all three defects here for free. Clearscope becomes worth it once you're grading drafts by the dozen, not the one.",
+      },
+      deliverable:
+        "A defect list for the diploma-framing draft, each defect naming the specific lesson step it violates, delivered as inline Google Docs comments or a defect log.",
+      sampleOutput:
+        "Defect 1 (buried answer): the 'how to word a wedding invitation' answer doesn't appear until paragraph 5, after two paragraphs of etiquette history. Violates Step 4.\n" +
+        "Defect 2 (no internal link): zero links to the invitation-template product page despite clear commercial intent. Violates Step 6.\n" +
+        "Defect 3 (no human signal): no first-person notes on which templates were actually tested, reads as generic AI output. Violates Step 5.\n" +
+        "Not flagged: the post uses a friendly second-person voice and loosely numbered steps, neither is a defect.",
+      successCriteria: [
+        "Flags the buried-answer defect and correctly ties it to Step 4",
+        "Flags the missing internal link and correctly ties it to Step 6",
+        "Flags the missing human-signal defect and correctly ties it to Step 5",
+        "Does not flag second-person voice, short length, or loose step sequencing as defects on their own",
+      ],
+      portfolioReady: true,
+    },
+  ],
 };

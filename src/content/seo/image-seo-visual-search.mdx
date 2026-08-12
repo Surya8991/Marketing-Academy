@@ -2,6 +2,9 @@ export const lessonMeta = {
   title: "Image SEO & Visual Search Optimization",
   level: "Intermediate",
   summary: "Master the fundamentals that get images ranked, and prepare your catalog for the shift toward searching with cameras instead of keywords.",
+  category: "seo",
+  slug: "image-seo-visual-search",
+  relatedConcepts: ["core-web-vitals", "schema-structured-data", "ecommerce-product-page-seo"],
 };
 
 Google Lens now handles roughly 20 billion visual searches a month, with about 4 billion of those tied to shopping. Pinterest Lens processes 1.5 billion queries a month, up 40% year over year. People aren't just typing 'blue running shoes' anymore, they're pointing a phone at a pair they saw on the street.
@@ -30,7 +33,43 @@ For purely decorative images (a background texture, a divider), use `alt=""`. An
 
 Heavy, unoptimized images are one of the most common Largest Contentful Paint (LCP) killers, and LCP is a ranking factor. An image that looks identical but loads in 200ms instead of 2 seconds is a win nobody sees, except the algorithm.
 
+## Format Comparison: JPEG vs. WebP vs. AVIF
+
+<InAction
+  concept="Compression Driving Core Web Vitals and SEO Gains"
+  companyName="Pinterest"
+  where="Pinterest's engineering team, rebuilding its web app's loading pipeline (including image weight) around performance"
+  why="Slow perceived load times were costing Pinterest signups and search visibility, page weight, much of it images, was the biggest lever available"
+  what="Rebuilt the page-loading experience to cut perceived wait time, trimming image and asset weight as part of a broader performance overhaul"
+  benefit="Cut perceived wait time by 40%, which came with a 15% increase in SEO traffic and a 15% lift in signup conversion rate"
+  timeframe="measured after the rebuild shipped"
+  date="2017"
+  source="https://medium.com/pinterest-engineering/driving-user-growth-with-performance-improvements-cfc50dafadd7"
+/>
+
+You don't need to memorize codec specs, you need to know which format to reach for by default. Here's the tradeoff in one table:
+
+| Format | Size vs. JPEG | Transparency | Browser support (2026) | Best use |
+|---|---|---|---|---|
+| JPEG | Baseline | No | Universal | Fallback only, not a first choice anymore |
+| WebP | 25-35% smaller | Yes | Universal in modern browsers | Default for everything |
+| AVIF | Up to 50% smaller | Yes | Most modern browsers; a few older Safari versions fail | Hero/LCP images, always with a fallback |
+
+The practical rule: serve AVIF first inside a `<picture>` element, WebP second, JPEG last as the safety net. Browsers pick the first format they support, so nothing ever breaks for an older visitor, it just costs them a slightly bigger download.
+
 ## How Visual Search Actually Works
+
+<InAction
+  concept="Visual Search Matching Driving Purchase Value"
+  companyName="Forever 21"
+  where="Forever 21's iOS app, via a visual search feature called 'Discover Your Style' built with Donde Search"
+  why="Shoppers browsing dresses and tops wanted to search by look (a neckline, a fit, a color) rather than type keywords that don't describe what they're picturing"
+  what="Let customers tap icons describing an item's attributes, silhouette, neckline, fit, to visually filter the catalog instead of typing a text query"
+  benefit="Average purchase value in the two test categories rose 20% within one month of launch"
+  timeframe="one month post-launch"
+  date="2018"
+  source="https://www.retaildive.com/news/forever-21-visual-search-tool-boosted-purchase-value-by-20/530770"
+/>
 
 Visual search doesn't read your page. It reads the pixels.
 
@@ -61,6 +100,22 @@ Run every new image (and a batch of your top pages' existing images) through thi
 <Callout type="tip">
 Visual search rewards clean, well-lit, single-subject photography the same way voice search rewards clear pronunciation. You can't caption your way out of a blurry, cluttered product shot, fix the photo first, then optimize the metadata around it.
 </Callout>
+
+## Worked Example: One Product Photo, Start to Finish
+
+Here's the checklist above applied to a single real file, a pair of loafers a photographer just handed off.
+
+**Before:** `IMG_4821.HEIC`, 4.2MB, shot on a cluttered desk with a phone charger visible in the background, no alt text, not on any sitemap.
+
+1. **Crop and reshoot the background.** Move the shoe to a neutral surface, single subject, side angle. This step alone determines whether the visual match model can lock onto the product at all.
+2. **Rename the file.** `IMG_4821.HEIC` becomes `blue-suede-loafers-side-view.jpg`.
+3. **Export three formats.** AVIF (~58KB), WebP (~82KB), JPEG fallback (~145KB), all served through one `<picture>` element.
+4. **Write the alt text.** `"Blue suede loafers, side view, tan rubber sole"`, 8 words, describes what's in frame and nothing else.
+5. **Add `width`/`height`.** Locks the layout so the image doesn't cause a late shift as it loads.
+6. **Add ImageObject structured data.** `contentUrl`, `name: "Blue Suede Loafers"`, `license` pointing to the brand's usage terms.
+7. **Add it to the image sitemap.** So Google's crawl picks it up even if the product page itself is buried deep in the catalog.
+
+**After:** a 145KB JPEG shrinks to a 58KB AVIF (a 96% file-size cut from the original HEIC), the file has a real name and alt text a screen reader can use, and the image is now eligible for both a Google Images click and a Lens visual match, where the original cluttered, unnamed photo was eligible for neither.
 
 ## Key Takeaways
 

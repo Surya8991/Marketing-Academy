@@ -4,7 +4,7 @@ export const lessonMeta = {
   summary: "Rank tracking measures a position in a list of 10 links, AI answers have no fixed position, so the KPIs have to change too.",
   category: "seo",
   slug: "ai-search-visibility-metrics",
-  relatedConcepts: ["ai-overviews-geo", "llmo", "zero-click-search"],
+  relatedConcepts: ["ai-overviews-geo", "llmo", "zero-click-search", "brand-serp-control"],
 }
 
 # Measuring AI Search Visibility
@@ -14,6 +14,18 @@ export const lessonMeta = {
 Every classic SEO tool answers one question: where does this URL sit in a list of ten blue links. AI Overviews, AI Mode, ChatGPT, and Perplexity do not produce a list. They produce a synthesized answer that might cite you, mention you by name without a link, or leave you out entirely, and the same prompt can return a different answer the next time someone asks it.
 
 That means the entire measurement toolkit has to shift, from rank position to presence, share, and sentiment. Teams that keep reporting classic rank and organic CTR as their only KPIs are increasingly measuring a shrinking slice of what actually matters.
+
+<InAction
+  concept="Rank Tracking Was Built for a World That Is Disappearing"
+  companyName="HubSpot"
+  where="HubSpot's own marketing blog, across its ranking keyword set"
+  why="HubSpot's SEO team needed to know whether a traffic decline on a subsection of blog keywords came from losing rank position or from something AI-specific, since the two require completely different fixes."
+  what="Compared keyword-level ranking data against AI Overview appearance data for the same keyword set, instead of reading rank position alone."
+  benefit="Found that 46.7% of the affected keyword subset had simultaneously lost ranking position AND gained an AI Overview, meaning classic rank tracking alone could not isolate which factor actually caused the traffic drop."
+  timeframe="2025 analysis, alongside a rise from under 10% to nearly 50% of HubSpot's ranking keywords showing an AI Overview"
+  date="2025"
+  source="https://blog.hubspot.com/marketing/is-ai-killing-web-traffic"
+/>
 
 ## Quick Summary
 
@@ -41,9 +53,39 @@ Different models mention brands at wildly different baseline rates. One large-sc
 **Normalize before you compare.** If you get cited by Claude in 40% of your test prompts but only 10% by Google AI Overviews, that does not necessarily mean Claude likes you more, it might just mean Claude cites more brands overall for every query type. Always compare your rate against that model's own baseline mention rate for the category, not against your rate on a different model.
 </Callout>
 
+### Don't Confuse a Tactic with the Cause of a Citation
+
+Measuring citation rate is only useful if you can tell what actually moved it. A rigorous 2026 Ahrefs study tracked 1,885 pages that added JSON-LD schema markup against 4,000 matched control pages that didn't, using a difference-in-differences design specifically to strip out platform-wide trends.
+
+<Callout type="example">
+**The result contradicted a popular assumption.** Adding schema moved AI Mode citations by +2.4% and ChatGPT citations by +2.2%, both statistically indistinguishable from zero across thousands of tracked pages. Google AI Overview citations actually fell 4.6%, a real decline. The lesson isn't "schema is useless", it's that a single before-and-after number on your own site proves nothing without a control group, since page-level and platform-wide swings can easily look like a tactic working when they aren't related at all.
+</Callout>
+
+### Classic KPI vs. AI-Search KPI
+
+| Classic SEO question | Classic KPI | AI-search equivalent question | AI-search KPI |
+|---|---|---|---|
+| Where do I rank for this keyword? | Rank position (1-10) | Do I get named or linked in the answer? | Citation rate |
+| How much of the SERP do I own vs. competitors? | Share of impressions | How much of the conversation do I own vs. competitors? | Share of voice |
+| How many clicks did this page get? | Organic CTR | How many attributable sessions came from an AI platform? | AI-referral sessions (GA4) |
+| Is my listing accurate and appealing? | SERP snippet / rich result | Is the AI's summary of me accurate and favorable? | Sentiment score |
+| Is my page indexed and crawlable? | Search Console coverage | Can AI crawlers even reach the page? | Bot-access log audit (GPTBot, ClaudeBot, PerplexityBot) |
+
 ## AI-Referral Traffic in GA4
 
 GA4 added a native "AI Assistant" channel to its Default Channel Group in 2026, automatically tagging sessions from a recognized AI domain with `medium: ai-assistant`. This is the first real first-party proof point most teams get that AI search sends attributable traffic, before this existed, that traffic was invisibly bucketed as generic Referral or Direct.
+
+<InAction
+  concept="AI-Referral Traffic in GA4"
+  companyName="Ahrefs"
+  where="Ahrefs' own website analytics"
+  why="AI search made up a tiny sliver of total visits, small enough that most teams would dismiss it as noise rather than tag and track it separately."
+  what="Isolated AI-search sessions as their own segment in analytics instead of letting them blend into generic Referral or Direct traffic, then compared their signup conversion rate against organic search."
+  benefit="AI search drove just 0.5% of total visitors in a 30-day window but accounted for 12.1% of signups, a conversion rate roughly 23 times higher than traditional organic search visitors."
+  timeframe="Trailing 30 days, with a supporting 12-month trend"
+  date="2025-06-16"
+  source="https://ahrefs.com/blog/ai-search-traffic-conversions-ahrefs/"
+/>
 
 **The gap:** the native channel only recognizes ChatGPT, Gemini, and Claude. Perplexity and Copilot referrals still fall into generic Referral unless you build your own custom channel group.
 

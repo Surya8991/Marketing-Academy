@@ -5040,4 +5040,3476 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       stretch: "Pull your own site's real GSC Pages export mid-migration and run this same reason-by-reason triage against your own not-indexed buckets.",
     },
   ],
+
+  "aeo": [
+    {
+      id: "aeo-airbnb-citation-visibility-check",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Citation Check: Does Airbnb's Own Content Show Up When AI Answers Travel Questions?",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Test whether a real page's content is being pulled into AI-generated answers, and diagnose why or why not using the Answer Unit framework.",
+      companyId: "airbnb",
+      scenario:
+        "You're a content strategist on Airbnb's SEO team. Leadership wants to know whether Airbnb's Host guides are being cited in ChatGPT and Google AI Overviews answers, or whether competitors are winning those citations instead.",
+      brief:
+        "Query 5 real travel-hosting questions across 2 AI answer engines, log whether Airbnb is cited, and diagnose the content-structure gap on the queries where it isn't.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Filtering for answer-engine citations vs. organic rank",
+        "The Answer Unit framework applied to owned content",
+      ],
+      steps: [
+        {
+          stepId: "step-1-citation-presence-audit",
+          concept: "Filtering for answer-engine citations vs. organic rank",
+          lessonAnchor: "how-answer-engines-actually-work",
+          theoryRecap:
+            "The lesson's 'How Answer Engines Actually Work' section explains that a citation requires two things at once: ranking well enough to be a candidate, and containing a passage that fits the answer format with no rewriting needed.",
+          question:
+            "Given 5 host-related queries run through ChatGPT and Google, Airbnb's own Help Center ranks in Google's top 10 for all 5, but is only cited by name in 2 of the 5 AI answers. What does that gap tell you?",
+          toolName: "ChatGPT",
+          where: "Open ChatGPT (free tier) and Google Search side by side.",
+          procedure: [
+            "Pick 5 real questions a new host would ask, e.g. 'how much does Airbnb take in host fees', 'what is Airbnb superhost status', 'how do I set a cancellation policy on Airbnb'",
+            "Run each question in ChatGPT (with browsing/search enabled) and note whether Airbnb.com is named as a source",
+            "Run the same 5 queries in Google and note whether Airbnb ranks top 10 and whether an AI Overview appears",
+            "Build a table: query | Google rank | AI Overview cites Airbnb? | ChatGPT cites Airbnb?",
+            "For every 'ranks but not cited' row, open the Airbnb page and check: does the first paragraph under the relevant heading answer the question in under 60 words?",
+          ],
+          outputSample:
+            "Query                                      | Google rank | AI Overview cites Airbnb | ChatGPT cites Airbnb\nHost fees percentage                       | #3          | No (cites NerdWallet)    | No\nSuperhost status requirements               | #1          | Yes                      | Yes\nHow to set cancellation policy               | #2          | No (cites a blog)        | No\nHost payout schedule                        | #4          | No                        | No\nHost insurance coverage (AirCover)           | #1          | Yes                      | Yes",
+          healthy:
+            "Airbnb ranks top 3 AND is cited by the AI answer on the same query, meaning the passage under the heading is snippet-shaped.",
+          unhealthy:
+            "Airbnb ranks top 3 but a third-party blog gets cited instead, meaning the content ranks on authority but the actual paragraph isn't extractable.",
+          interpret:
+            "A rank-without-citation gap almost always means the answer is buried in paragraph 3 or 4, not paragraph 1, under the matching heading.",
+          soWhat: [
+            {
+              symptom: "Airbnb ranks #1-4 but loses the citation to a smaller competitor or blog",
+              action:
+                "Rewrite the first paragraph under the matching H2 into a 40-60 word direct answer, move supporting detail below it",
+              effort: "30 min",
+            },
+            {
+              symptom: "None of the 5 pages have a heading that matches the literal question phrasing",
+              action: "Add question-phrased H2/H3s using the exact wording from People Also Ask or AlsoAsked.com",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "ChatGPT",
+            role: "Run the 5 test queries and check whether Airbnb is named as a source",
+            why: "Free tier is enough to test real citation behavior",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Log the query-by-query comparison table",
+            why: "Free, no account friction",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A 5-row citation-gap table with a specific rewrite recommendation for each 'ranked but not cited' row.",
+      sampleOutput:
+        "Peloton citation-gap log (excerpt)\n\nQuery: how does the Peloton Bike Plus differ from the original Bike\nGoogle rank: #2\nAI Overview: cites Wirecutter, not Peloton\nDiagnosis: Peloton's own comparison page opens with 3 paragraphs of brand history before stating the rotating-screen difference\nFix: move the 1-sentence comparison to the first sentence under the H2",
+      successCriteria: [
+        "Logs at least 5 real queries across Google + 1 AI engine",
+        "Correctly identifies which ranked pages are NOT cited",
+        "Produces a specific first-paragraph rewrite recommendation for at least 2 gap rows",
+      ],
+      portfolioReady: true,
+      stretch: "Repeat the same 5 queries in Perplexity and compare citation overlap with ChatGPT.",
+    },
+    {
+      id: "aeo-peloton-answer-unit-teardown",
+      tier: "core",
+      archetype: "teardown",
+      title: "The Answer Unit Teardown: Grading 5 Real AI-Cited Passages",
+      timeEstimate: "50 minutes",
+      timeMinutes: 50,
+      objective:
+        "Given 5 specimen passages that won or lost an AI citation, correctly diagnose which structural defect caused each outcome using the Answer Unit framework and the freshness and schema signals from the lesson.",
+      companyId: "peloton",
+      scenario:
+        "You're auditing Peloton's blog and support content ahead of a content refresh sprint. Your manager wants a defect list, not just a rewrite, so the writing team understands exactly what wins and loses AI citations.",
+      brief:
+        "Score 5 specimen passages against the Answer Unit framework, flag the specific defect in each losing passage, and don't get fooled by the 2 distractor prompts per item that look like defects but aren't.",
+      mode: "teardown",
+      conceptsCovered: [
+        "The Answer Unit framework (question heading, 40-60 word answer, supporting detail)",
+        "Freshness as a citation signal",
+        "Schema markup as a citation signal",
+        "Multi-channel authority vs. content structure",
+      ],
+      teardownItems: [
+        {
+          itemId: "item-1-buried-answer",
+          specimen:
+            "H2: 'Everything to Know About the Peloton Bike Plus Rotating Screen'\n\nPeloton has always been at the forefront of connected fitness innovation, bringing together world-class instructors and cutting-edge hardware. Since the original Bike launched in 2014, the company has continued to refine the at-home cycling experience for millions of members worldwide. The Bike Plus builds on this legacy with several thoughtful upgrades designed around member feedback. One of the most requested upgrades was screen rotation, which lets members pivot the 23.8-inch HD touchscreen 180 degrees to follow along with floor-based strength and stretching classes without leaving the bike.",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "This passage ranks #4 on Google for 'peloton bike plus rotating screen' but is never cited in AI Overviews or ChatGPT answers for that query. Identify the structural defect.",
+          answerKey: [
+            {
+              defect:
+                "The direct answer (screen rotates 180 degrees for floor workouts) doesn't appear until the fifth sentence, after 80+ words of brand history.",
+              severity: "critical",
+              whyItMatters:
+                "Engines extract the first matching passage under a heading; by the time the actual answer appears, the passage has already exceeded snippet length.",
+              lessonRef: "the-answer-unit-framework",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The heading isn't phrased as a literal question",
+            "The passage doesn't mention the price of the Bike Plus",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-stale-price",
+          specimen:
+            "H2: 'How Much Does a Peloton Membership Cost?'\n\nA Peloton All-Access Membership costs $44 per month (data from our 2021 pricing page) and includes unlimited classes across Bike, Tread, and Row equipment for the whole household.",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "This page used to win the featured snippet for 'peloton membership cost' but stopped appearing in AI Overviews eighteen months ago. What's the defect?",
+          answerKey: [
+            {
+              defect:
+                "The passage cites a 2021 price with no visible update; Peloton's actual pricing has changed since, and engines deprioritize passages that read as stale even when the heading still matches.",
+              severity: "critical",
+              whyItMatters:
+                "83% of AI citations for commercial queries come from pages updated within the past 12 months; a visibly dated price is a strong staleness signal.",
+              lessonRef: "4-prioritize-freshness",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The dollar amount is not bolded",
+            "The heading uses 'How Much Does' instead of 'What Is the Cost Of'",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-3-authority-not-structure",
+          specimen:
+            "H2: 'What Is the Peloton Output Bike Metric?'\n\nOutput is Peloton's blended score for how hard you worked in a class, combining your cadence and resistance to estimate power in watts and total calories burned. It updates in real time on your Bike or Bike Plus screen so you can pace effort against your own past rides.",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "This passage is structurally a clean 40-60 word answer unit under a matching question heading, no fluff, no staleness. Yet a smaller fitness blog with the identical structure wins the citation instead. Is this a structural defect?",
+          answerKey: [
+            {
+              defect:
+                "No structural defect exists here; the loss is a domain-authority gap, not an Answer Unit failure. The Answer Unit framework fixes extractability, not authority.",
+              severity: "moderate",
+              whyItMatters:
+                "Teams that blame every AI citation loss on content structure waste time rewriting passages that were already citation-ready, when the real fix is backlinks or brand mentions elsewhere.",
+              lessonRef: "5-build-multi-channel-authority",
+              owner: "either",
+            },
+          ],
+          distractors: [
+            "The answer paragraph should have been under 40 words instead of over",
+            "The heading should have used 'Peloton Output Score' instead of 'Peloton Output Bike Metric'",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-4-missing-schema",
+          specimen:
+            "H2: 'What Cadence Should I Ride at for a Peloton Beginner Class?'\n\nBeginners should aim for a cadence of 60 to 80 RPM at low-to-moderate resistance, which builds cardio endurance without overloading the knees. This range is called out directly by instructors in every Peloton beginner-labeled class.",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "This is a clean answer unit on an FAQ page with 12 other Q&A pairs formatted identically, but none of them carry FAQPage schema. Google's featured snippet shows the passage; ChatGPT never cites it. What's the fix?",
+          answerKey: [
+            {
+              defect:
+                "The page has no FAQPage schema. The plain-text structure is good enough for a Google featured snippet, but some AI crawlers rely on the machine-readable schema signal to confirm the Q&A grouping before citing it.",
+              severity: "moderate",
+              whyItMatters:
+                "Schema is the fallback signal when extraction is ambiguous, per the lesson's 42%-more-citations schema stat.",
+              lessonRef: "3-use-schema-markup",
+              owner: "developer",
+            },
+          ],
+          distractors: ["The cadence range should be in bold text", "The class name should be a hyperlink"],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-5-answer-after-specs",
+          specimen:
+            "H2: 'Is the Peloton Row Worth It for Small Apartments?'\n\n- Weighs 145 lbs, foldable footprint\n- Costs $3,195 plus membership\n- Includes a 23.8-inch swivel screen\n- Offers over 20 workout types\n- Ships fully assembled in most metros\n\nFor apartment dwellers with limited space, the Peloton Row folds vertically to roughly 20 inches wide when stored, making it one of the more compact rowers in its price class.",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "The actual yes/no answer to 'is it worth it for small apartments' is buried after 5 unrelated spec bullets. What's the fix, beyond just deleting the bullets?",
+          answerKey: [
+            {
+              defect:
+                "The direct answer (yes, because of the compact 20-inch folded footprint) is placed after a specs list that doesn't answer the question asked. Specs belong in supporting detail, not ahead of the direct answer.",
+              severity: "moderate",
+              whyItMatters:
+                "The Answer Unit framework requires the direct answer to come first; supporting detail, even useful detail, must come after it, not before.",
+              lessonRef: "the-answer-unit-framework",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The bullets should be turned into a numbered list instead of a bulleted list",
+            "The screen size spec is inaccurate",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Log the defect table across all 5 specimens",
+            why: "Free, no account friction",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "ChatGPT",
+            role: "Cross-check whether the specimen's real-world equivalent page is currently cited",
+            why: "Free tier confirms the diagnosis against live behavior",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A defect log for all 5 specimens: defect, severity, and a one-line fix recommendation, with item 3 correctly flagged as a non-structural authority gap.",
+      sampleOutput:
+        "Yelp answer-unit defect log (excerpt)\n\nItem | Verdict | Defect | Fix\n1 | Buried answer | Direct answer arrives after 80 words of brand history | Move the 1-sentence definition to the first sentence\n2 | Stale content | 2021 price with no update | Refresh price + add visible last-updated date\n3 | No defect (authority gap) | N/A | Build backlinks/mentions, not a rewrite\n4 | Missing schema | No FAQPage schema | Add FAQPage schema wrapping the Q&A\n5 | Buried answer | Specs list precedes the yes/no verdict | Lead with verdict, move specs below",
+      successCriteria: [
+        "Correctly diagnoses at least 4 of 5 specimen defects",
+        "Correctly identifies item 3 as a non-structural (authority) issue rather than misdiagnosing it as a content defect",
+        "Correctly rejects at least 8 of the 10 distractor prompts across all 5 items",
+      ],
+      portfolioReady: true,
+      stretch: "Pull 5 real passages from your own company's blog and run the same teardown.",
+    },
+  ],
+  "voice-search-seo": [
+    {
+      id: "voice-search-yelp-near-me-diagnostic",
+      tier: "mini",
+      archetype: "audit",
+      title: "The 'Near Me' Test: Auditing Content for Voice Answer Eligibility",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Test 5 real 'near me' style voice queries against a business's Google Business Profile and on-page content to diagnose whether it's structured to win the spoken answer.",
+      companyId: "yelp",
+      scenario:
+        "You're a local SEO consultant helping a Yelp-listed restaurant chain understand why competitors get picked when customers ask their phone 'best sushi near me'. You need a diagnostic, not a redesign, this week.",
+      brief:
+        "Run 5 local voice-style queries, check whether the business's Google Business Profile and site content answer them in the 25-35 word plain-prose shape voice assistants extract, and flag the gap.",
+      mode: "diagnostic",
+      conceptsCovered: ["Local intent as the dominant voice search pattern", "The 25-35 word plain-prose answer shape"],
+      steps: [
+        {
+          stepId: "step-1-near-me-answer-shape-check",
+          concept: "The 25-35 word plain-prose answer shape",
+          lessonAnchor: "how-voice-search-actually-works",
+          theoryRecap:
+            "The lesson's 'How Voice Search Actually Works' section explains that assistants read one short passage aloud, usually 25-35 words in plain prose with no bullets or bold text, pulled from a featured snippet or a page's own content.",
+          question:
+            "You ask Google Assistant 'what sushi restaurant is open near me right now' for a Yelp-listed client and a competitor's answer gets read aloud instead. The client's About page has 3 paragraphs about their restaurant's history and philosophy but never states hours or location in plain sentences. What's the fix, in order?",
+          toolName: "AnswerThePublic",
+          where:
+            "AnswerThePublic.com (free tier) to source real local question phrasings, then Google Search on mobile to test which business gets the voice answer, plus the client's Google Business Profile.",
+          procedure: [
+            "Use AnswerThePublic to pull 5 realistic 'near me' or local voice queries for the business category (hours, cuisine, price range, parking, delivery)",
+            "Speak or type each query into Google Search on mobile and note which business gets the voice/snippet answer",
+            "Open the Google Business Profile and check hours, category, and attributes are complete and accurate",
+            "Open the site's About or Contact page and check for a plain-prose sentence stating name, cuisine, city, and hours (not just a hidden schema block)",
+            "Log a gap table: query | who gets the answer today | is GBP complete? | does on-page prose answer it in plain sentences?",
+          ],
+          outputSample:
+            "Query                                    | Answer goes to      | GBP complete? | Plain-prose answer on-site?\nBest sushi near me open now              | Competitor          | Yes           | No (history only)\nSushi restaurant with parking nearby     | Competitor           | No (missing attribute) | No\nDoes [client] deliver sushi              | Neither (no answer)  | Yes           | No\nWhat time does [client] close tonight    | [Client]             | Yes           | Yes (hours in footer text)\nCheapest sushi near downtown             | Competitor           | Yes           | No",
+          healthy:
+            "The one query the client wins ('what time does it close') is also the one query with a plain-prose hours sentence on the page, that's not a coincidence.",
+          unhealthy:
+            "4 of 5 queries go to a competitor, and in every losing row the client's GBP or on-page prose is incomplete or missing the specific fact being asked.",
+          interpret:
+            "Voice answers go to whichever source states the fact in a complete sentence; GBP data and on-page prose need to say the same thing in plain language, not just live in a hidden schema block.",
+          soWhat: [
+            {
+              symptom: "A GBP attribute (parking, delivery) is missing or unchecked",
+              action: "Complete every relevant GBP attribute this week, it's free and takes under 10 minutes",
+              effort: "5 min",
+            },
+            {
+              symptom: "On-page copy has no plain-sentence answer to a commonly asked fact",
+              action:
+                "Add a one-sentence answer for each fact (hours, delivery, parking) directly in page prose, not just in schema",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "AnswerThePublic",
+            role: "Source real local, 'near me' style question phrasings",
+            why: "Free tier covers enough queries for a 5-query diagnostic",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Log the query-by-query gap table",
+            why: "Free, no account friction",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A 5-row local-voice gap table with a specific GBP or on-page fix for each losing row.",
+      sampleOutput:
+        "Delhivery pickup-point voice check (excerpt)\n\nQuery: nearest Delhivery drop-off point\nAnswer goes to: a directory site, not Delhivery\nGBP complete: No (service-area attribute missing)\nFix: complete the GBP service-area attribute and add a plain-prose sentence naming the nearest hub per city page",
+      successCriteria: [
+        "Tests at least 5 real local voice-style queries",
+        "Correctly links each losing query to a specific GBP or on-page gap",
+        "Produces at least 2 concrete, same-week fixes",
+      ],
+      portfolioReady: true,
+      stretch: "Repeat the test a week after applying the fixes and compare which queries flip.",
+    },
+    {
+      id: "voice-search-delhivery-order-status-teardown",
+      tier: "core",
+      archetype: "teardown",
+      title: "The Spoken Answer Teardown: Grading 5 'Where's My Order' Voice Transcripts",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given 5 transcript-style specimens of how an assistant would read a delivery-status answer aloud, diagnose which structural or technical defect kept each one from winning voice or AI answer placement.",
+      companyId: "delhivery",
+      scenario:
+        "You're on Delhivery's content team ahead of a push into voice-assistant order-tracking answers ('Alexa, where's my Delhivery package'). Support content exists but nobody has audited it against the voice-answer shape.",
+      brief:
+        "Score 5 specimen support-page passages against the lesson's 25-35 word plain-prose answer shape, question-format heading rule, and technical fundamentals, correctly separating real defects from the 2 distractor prompts per item.",
+      mode: "teardown",
+      conceptsCovered: [
+        "Question-format headings for voice eligibility",
+        "The 25-35 word plain-prose answer shape",
+        "Technical fundamentals as a voice-ranking gate",
+        "Local intent resolution in voice answers",
+      ],
+      teardownItems: [
+        {
+          itemId: "item-1-keyword-heading",
+          specimen:
+            "H2: 'Delhivery Order Tracking Methods'\n\nYou can track a Delhivery order using the tracking ID sent via SMS and email, entering it on the Delhivery Track page, or through the Delhivery mobile app's 'My Orders' section.",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "This page ranks in Google's top 5 for tracking-related searches but has never appeared in a voice assistant's spoken answer. What's the defect?",
+          answerKey: [
+            {
+              defect:
+                "The heading is a keyword phrase ('Order Tracking Methods'), not a question a person would actually say to an assistant, like 'how do I track my Delhivery order'.",
+              severity: "critical",
+              whyItMatters:
+                "Voice assistants match spoken questions to question-phrased headings first; a heading that would never be spoken aloud rarely gets selected as the matching passage.",
+              lessonRef: "the-keyword-difference-typed-vs-spoken",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The answer paragraph is too short at 28 words",
+            "The page lacks an image of the tracking screen",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-bulleted-answer",
+          specimen:
+            "H2: 'How Do I Track My Delhivery Package?'\n\nTracking your Delhivery package is simple and there are several ways to do it depending on your preference:\n- Use the tracking ID from your SMS confirmation\n- Visit delhivery.com/track\n- Open the Delhivery app\n- Contact customer support if the ID doesn't work\n- Check your email for a tracking link",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "The heading is a perfect voice question, but this passage still never gets read aloud by Google Assistant. Why?",
+          answerKey: [
+            {
+              defect:
+                "The answer is a 5-item bulleted list instead of a 25-35 word plain-prose sentence. Assistants read prose aloud, not bullet fragments, so the passage doesn't fit the spoken answer format even though the heading is right.",
+              severity: "critical",
+              whyItMatters:
+                "The lesson's snippet-block template requires plain prose immediately under the heading, with lists and detail moved below that first paragraph.",
+              lessonRef: "how-voice-search-actually-works",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The heading should ask 'How Can I Track' instead of 'How Do I Track'",
+            "The word 'simple' is not needed",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-3-slow-page",
+          specimen:
+            "H2: 'How Long Does Delhivery Delivery Take?'\n\nMost Delhivery shipments arrive within 3 to 7 business days depending on distance, with express options delivering in 24 to 48 hours in serviceable metro areas.",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "This is a textbook 25-35 word plain-prose answer under a perfect question heading. It still isn't read aloud, and a page-speed test shows the page takes 7.8 seconds to load on mobile. Is the content the problem?",
+          answerKey: [
+            {
+              defect:
+                "No content defect exists; the passage is well-shaped, but the page fails the lesson's technical fundamentals gate (voice-ranked pages average 4.6 second load times), so it never becomes a candidate passage regardless of how well it's written.",
+              severity: "critical",
+              whyItMatters:
+                "Content structure and technical performance are both required; a perfect answer unit on a slow page still loses to a mediocre answer on a fast one.",
+              lessonRef: "technical-checklist-for-voice-seo",
+              owner: "developer",
+            },
+          ],
+          distractors: [
+            "The answer should specify exact days instead of a range",
+            "The heading should include the word 'Delhivery' twice",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-4-missing-howto-schema",
+          specimen:
+            "H2: 'How Do I Reschedule a Delhivery Delivery?'\n\nOpen the tracking link in your delivery SMS, tap Reschedule, choose a new date within the next 5 days, and confirm. The courier receives the update automatically.",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "This 27-word answer sits under a perfect question heading, loads fast, and still isn't read by Alexa's web-fallback search even though it wins the Google featured snippet. What's the likely gap?",
+          answerKey: [
+            {
+              defect:
+                "The page has no HowTo schema marking up the 4-step process. Some voice-assistant pipelines rely on machine-readable step markup to confirm and format a procedural answer for a different underlying index (Bing, which powers Alexa's web fallback) than the one that awarded the Google snippet.",
+              severity: "moderate",
+              whyItMatters:
+                "Different assistants draw from different underlying indexes; a page can win Google's snippet and still lose Alexa's answer if it isn't marked up for the index Alexa actually queries.",
+              lessonRef: "how-voice-search-actually-works",
+              owner: "developer",
+            },
+          ],
+          distractors: [
+            "The steps should be numbered 1-4 in the visible text",
+            "The word 'automatically' should be removed",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-5-non-local-answer",
+          specimen:
+            "H2: 'Where Is My Nearest Delhivery Service Center?'\n\nDelhivery operates over 24 fulfillment and service touchpoints across India's major metro clusters, forming one of the country's largest logistics networks by footprint.",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "This passage answers a nearby-location-style question but never wins the voice answer, even in cities where Delhivery has a real center. What's missing?",
+          answerKey: [
+            {
+              defect:
+                "The passage answers with a national footprint statistic instead of the one fact the local query actually needs: an address or a way to find the nearest center for the specific city being asked about. It never actually answers 'where'.",
+              severity: "critical",
+              whyItMatters:
+                "'Near me' voice queries are location-specific; a passage has to resolve to a place, not a company-wide statistic, or it fails the query regardless of how well-formatted it is.",
+              lessonRef: "local-voice-search-the-biggest-opportunity",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The number '24' should be spelled out as 'twenty-four'",
+            "The heading should drop the word 'Nearest'",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Log the defect table across all 5 specimens",
+            why: "Free, no account friction",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Search Console",
+            role: "Confirm which of the real equivalent pages already rank for the matching queries",
+            why: "Free, shows real query and impression data",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A defect log across all 5 specimens with defect type, severity, and whether the fix is a content edit (owner: you) or a technical or schema fix (owner: developer).",
+      sampleOutput:
+        "Yelp voice-answer defect log (excerpt)\n\nItem | Verdict | Defect | Owner\n1 | Keyword heading | Not phrased as a spoken question | You\n2 | Bulleted answer | List instead of 25-35 word prose | You\n3 | No defect (technical gap) | Page loads in 7.8s, fails the speed gate | Developer\n4 | Missing schema | No HowTo markup for Alexa's index | Developer\n5 | Non-local answer | Footprint stat instead of a specific location | You",
+      successCriteria: [
+        "Correctly diagnoses at least 4 of 5 specimen defects",
+        "Correctly identifies item 3 as a technical-performance gap rather than a content-structure defect",
+        "Correctly separates content-owner fixes from developer-owner fixes for all 5 items",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Run a real page-speed test against your own site's top voice-eligible page and compare its load time to the lesson's 4.6-second benchmark.",
+    },
+  ],
+
+  "ai-overviews-geo": [
+    {
+      id: "nubank-ai-overview-citation-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Citation Check: Auditing Nubank's Odds of Being Quoted in AI Overviews",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Given a real Google AI Overview response and your own page's opening paragraph, score whether the page could realistically earn citation using the lesson's answer-first framework, then rewrite the sentence most likely blocking it.",
+      companyId: "nubank",
+      scenario:
+        "You're a content marketer at Nubank. A rival neobank's help-center article gets quoted in Google's AI Overview for 'what is a digital bank', while Nubank's own explainer page, which ranks on page one organically, never appears in the AI Overview at all.",
+      brief:
+        "Run the target query, capture the AI Overview's citations, then score Nubank's own opening paragraph against the answer-first criteria from the lesson before rewriting it.",
+      mode: "diagnostic",
+      conceptsCovered: ["Answer-first structure"],
+      steps: [
+        {
+          stepId: "step-1-answer-first-scoring",
+          concept: "Answer-first structure",
+          lessonAnchor: "how-geo-actually-works",
+          theoryRecap:
+            "The lesson's answer-first principle says every major section should open with a direct, quotable sentence under 20 words, or AI retrieval systems will lift a competitor's opening line instead.",
+          question:
+            "Nubank's current explainer opens with: 'When people talk about banking today, there's a lot to unpack, and the landscape has shifted dramatically in the last decade.' The cited competitor's paragraph opens with: 'A digital bank is a financial institution that operates entirely online, with no physical branches.' Which one gets excerpted by the AI Overview, and why?",
+          toolName: "Google Sheets",
+          where:
+            "Search 'what is a digital bank' in an incognito Google window, screenshot the AI Overview and its Sources list, then paste both opening paragraphs into a 2-column Sheet for side-by-side scoring.",
+          procedure: [
+            "Run the target query in an incognito browser window and screenshot the AI Overview plus its cited Sources list",
+            "Open the top cited competitor page and copy its first two sentences verbatim",
+            "Copy Nubank's own first two sentences from the equivalent explainer page",
+            "Score both openers against 3 criteria: does it answer directly, is it under 20 words, does it name the exact term being searched",
+          ],
+          outputSample:
+            "SCORING TABLE\n                        Direct answer?  Under 20 words?  Names the term?\nCompetitor opener       Yes             Yes              Yes\nNubank opener           No              No (31 words)    No\n\nCited in AI Overview: Competitor only",
+          healthy:
+            "The opener states a direct definition in the first sentence, under 20 words, naming the exact term being searched.",
+          unhealthy:
+            "The opener spends a full sentence on scene-setting or context before ever naming or defining the term.",
+          interpret:
+            "AI retrieval systems extract the clearest available sentence in a passage; a scene-setting opener forces the model to skip ahead, or skip the page entirely in favor of a competitor.",
+          soWhat: [
+            {
+              symptom: "Nubank ranks on page one organically but is never cited in the AI Overview for its core definitional query",
+              action: "Rewrite the first sentence of the explainer as a direct, under-20-word definition naming the exact term, then republish",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Score both openers side by side against the 3 answer-first criteria",
+            why: "Free, no account friction, and fast enough for a single-page audit",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A 2-column scoring sheet comparing your opener against the cited competitor's opener, plus a rewritten first sentence.",
+      sampleOutput:
+        "YETI, 'what is a hard cooler' explainer, before/after:\n\nBEFORE (0/3): 'Coolers have come a long way over the years, and there's a lot to consider when picking the right one for your next trip.'\n\nAFTER (3/3): 'A hard cooler is an insulated, rigid-shell cooler built to keep ice frozen for multiple days in high heat.' (14 words)",
+      successCriteria: [
+        "Correctly identifies which opener would be excerpted by the AI Overview and explains why using the 3 criteria",
+        "Produces a rewritten opening sentence under 20 words that directly names the term being searched",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "trade-desk-ai-overview-citation-teardown",
+      tier: "core",
+      archetype: "teardown",
+      title: "Teardown: Why a Rival's Programmatic Glossary Beat The Trade Desk's Into the AI Overview",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given two competing 'What Is Programmatic Advertising?' page specimens, only one of which is cited in Google's AI Overview, identify every real GEO defect in the uncited page without flagging cosmetic non-issues.",
+      companyId: "trade-desk",
+      scenario:
+        "You're on The Trade Desk's content team. Google's AI Overview for 'what is programmatic advertising' cites a smaller ad-tech blog's glossary page instead of The Trade Desk's own page, even though The Trade Desk's page ranks higher organically and has more backlinks.",
+      brief:
+        "Compare the two page specimens and the brand-mention snapshot, flag every real GEO defect, and map each one to the lesson concept it violates.",
+      mode: "teardown",
+      conceptsCovered: ["Answer-first structure", "Structured formatting", "Credibility signals", "Brand mentions over backlinks"],
+      teardownItems: [
+        {
+          itemId: "programmatic-glossary-opening-defects",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "Below are the opening sections of two 'What Is Programmatic Advertising?' pages. Only Page B is cited in Google's AI Overview for the query. Identify every GEO defect in Page A (The Trade Desk's version).",
+          specimen:
+            "=== PAGE A: The Trade Desk (NOT cited) ===\n" +
+            "H1: Understanding the World of Programmatic\n" +
+            "By: Marketing Team\n\n" +
+            "Advertising has changed enormously over the past two decades. What began as a handshake business between media buyers and publishers has evolved into a complex, automated ecosystem that operates in fractions of a second. Programmatic is at the center of that shift, and understanding it requires looking at where the industry has been.\n\n" +
+            "## Why It Matters\n" +
+            "Marketers today can't afford to ignore automation, and the numbers back that up...\n\n" +
+            "[No structured data present in page source. No dateModified visible.]\n\n" +
+            "=== PAGE B: Competitor (cited in AI Overview) ===\n" +
+            "H1: What Is Programmatic Advertising? (Definition + How It Works)\n" +
+            "By: Jane Torres, Head of AdTech Research — Updated March 2026\n\n" +
+            "Programmatic advertising is the automated buying and selling of digital ad space using software and real-time bidding, instead of manual insertion orders.\n\n" +
+            "## How It Works (4 Steps)\n" +
+            "1. An ad exchange auctions available impressions in real time.\n" +
+            "2. A demand-side platform bids on behalf of the advertiser.\n" +
+            "3. The winning bid's creative is served instantly.\n" +
+            "4. Performance data flows back for the next auction.\n\n" +
+            "[Page source contains: <script type=\"application/ld+json\">{\"@type\":\"Article\",\"author\":\"Jane Torres\",\"datePublished\":\"2026-03-02\"}</script>]",
+          answerKey: [
+            {
+              defect: "Page A's H1 and opening paragraph never state a definition of 'programmatic advertising'",
+              severity: "critical",
+              whyItMatters:
+                "AI retrieval needs a direct, quotable answer in the first 1-2 sentences; Page A spends its entire opening on industry history instead of defining the term.",
+              lessonRef: "Answer-first structure: 'If your direct answer is buried in paragraph four, the AI will use paragraph one from a competitor instead.'",
+              owner: "you",
+            },
+            {
+              defect: "Page A has no named author or byline; the byline reads 'Marketing Team'",
+              severity: "moderate",
+              whyItMatters:
+                "Named authors with credentials are one of the credibility signals AI Overviews draw on; an anonymous team byline provides zero E-E-A-T signal.",
+              lessonRef: "Credibility signals: 'named authors with credentials, links to primary research, current publication dates.'",
+              owner: "you",
+            },
+            {
+              defect: "Page A has no structured data (no JSON-LD Article schema, no visible dateModified)",
+              severity: "critical",
+              whyItMatters: "Without schema, AI systems have no machine-readable signal for content type, authorship, or freshness.",
+              lessonRef: "Credibility signals: schema markup (machine-readable labels that tell the AI what type of content a page contains).",
+              owner: "developer",
+            },
+            {
+              defect: "Page A's process explanation is written as flowing prose instead of the numbered list Page B uses",
+              severity: "moderate",
+              whyItMatters: "Structured formatting (numbered lists, definition blocks) is dramatically easier for AI retrieval to excerpt cleanly than prose.",
+              lessonRef: "Structured formatting: 'A numbered how-to list is trivially easy [to excerpt].'",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Page A's H1 is shorter than Page B's H1 by roughly 20 characters",
+            "Page B's URL slug is a few characters shorter than Page A's",
+            "Page A includes 2 outbound links and Page B includes 3",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "programmatic-glossary-brand-signals",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "The Trade Desk's SEO team also pulled a 90-day brand-mention snapshot for both companies. Identify the GEO defect this snapshot reveals.",
+          specimen:
+            "THE TRADE DESK, 90-DAY SNAPSHOT\n  New backlinks: 340\n  Reddit/forum mentions of \"The Trade Desk\": 4\n  Review-site mentions: 2\n\nCOMPETITOR, 90-DAY SNAPSHOT\n  New backlinks: 85\n  Reddit/forum mentions: 61\n  Review-site mentions: 28",
+          answerKey: [
+            {
+              defect: "The Trade Desk earned 4x more backlinks than the competitor but 15x fewer Reddit/forum mentions",
+              severity: "critical",
+              whyItMatters:
+                "Web mentions predict AI Overview citation roughly 3x better than backlinks (Ahrefs, 2026); The Trade Desk is over-investing in the weaker signal and under-investing in the stronger one.",
+              lessonRef: "Brand mentions over backlinks: 'getting your brand name mentioned in context...is now more valuable for AI visibility than collecting backlinks.'",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The competitor has fewer total backlinks than The Trade Desk",
+            "The Trade Desk's homepage has a higher Domain Rating than the competitor's",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Log every defect found, its severity, and its lesson mapping",
+            why: "Free and sufficient for a single-page comparison and defect log",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Search Console",
+            role: "Confirm Page A's current indexing status and organic position for the target query",
+            why: "Free, first-party data on whether the page is even eligible to be crawled and re-evaluated",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Ahrefs",
+            role: "Pull the real backlink and Domain Rating numbers behind the brand-mention snapshot",
+            why: "Faster than manually compiling backlink counts, but not required to complete the teardown",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+      },
+      deliverable: "A defect log flagging every real GEO issue in Page A, each mapped to a lesson concept, plus a prioritized fix list.",
+      sampleOutput:
+        "Applying the same teardown to Ola Electric's 'What Is Regenerative Braking?' page: 3 critical defects found (buried definition, no schema, prose-only steps) and 1 moderate defect (no named author). Fix priority: rewrite opener (30 min) > add Article schema (dev ticket) > convert steps to a numbered list (30 min).",
+      successCriteria: [
+        "Flags all 5 real defects across both specimens",
+        "Does not flag any of the 5 distractors as defects",
+        "Correctly identifies the brand-mentions defect as the least obvious but highest-leverage fix",
+      ],
+      portfolioReady: true,
+      stretch: "Run this same 2-specimen comparison against your own company's lowest-citation-rate glossary page and a competitor's cited equivalent.",
+    },
+  ],
+  "ai-mode-search-optimization": [
+    {
+      id: "ola-electric-ai-mode-structure-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Structure Test: Auditing an Ola Electric Comparison Page for AI Mode Citations",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Given a real page that fails to get cited in Google AI Mode, identify the missing structural element (a comparison table) and rebuild the section using the lesson's formatting rules.",
+      companyId: "ola-electric",
+      scenario:
+        "You're on Ola Electric's content team. AI Mode never cites the company's 'S1 Pro vs S1 Air' comparison page, even though a review site's near-identical, lower-authority comparison gets cited on the same query.",
+      brief: "Diagnose why the review site's page wins the citation, then rebuild Ola Electric's comparison section to match the structure AI Mode actually pulls from.",
+      mode: "diagnostic",
+      conceptsCovered: ["Structured formatting"],
+      steps: [
+        {
+          stepId: "step-1-table-vs-prose",
+          concept: "Structured formatting",
+          lessonAnchor: "how-to-structure-content-for-ai-mode-citations",
+          theoryRecap:
+            "The lesson notes AI Mode frequently pulls tables verbatim, and a clean comparison table is more citable than paragraphs describing the same differences.",
+          question:
+            "Ola Electric's page describes the S1 Pro and S1 Air differences in three separate paragraphs of prose. The cited review site presents the same comparison as a 5-row table. Which format does AI Mode extract, and what should Ola Electric's page do about it?",
+          toolName: "Google Sheets",
+          where: "View the live page's source or rendered output, then draft the replacement table in a Sheet before handing it to the CMS editor.",
+          procedure: [
+            "Open Ola Electric's live comparison page and confirm the spec differences are written as prose, not a table",
+            "Open the cited review site's page and copy the exact rows and columns of its comparison table",
+            "Draft a matching table in Google Sheets using Ola Electric's own spec data (range, top speed, price, battery, warranty)",
+            "Flag the table for the CMS team to replace the three prose paragraphs",
+          ],
+          outputSample:
+            "PROPOSED TABLE\n|              | S1 Pro       | S1 Air       |\n|--------------|--------------|--------------|\n| Range        | 195 km       | 151 km       |\n| Top speed    | 116 km/h     | 90 km/h      |\n| Battery      | 4 kWh        | 3 kWh        |\n| Price        | Rs 1.4L      | Rs 1.1L      |\n| Warranty     | 3 years      | 3 years      |",
+          healthy: "The same 5 comparison points render as a table with clear row and column labels, ready to be pulled verbatim.",
+          unhealthy: "The same 5 comparison points are scattered across three paragraphs, each mixing multiple specs into one sentence.",
+          interpret: "AI Mode's retrieval favors formats it can lift without re-parsing sentence structure, a table is the lowest-effort extraction for the model.",
+          soWhat: [
+            {
+              symptom: "A lower-authority review site outranks your own comparison page inside AI Mode despite worse domain authority",
+              action: "Convert the prose comparison into a table with the same row/column structure the competitor uses",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Draft the replacement comparison table before handoff to the CMS",
+            why: "Free, and the table structure translates directly into an HTML table",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A drafted comparison table matching the cited competitor's row/column structure, using your own product's real spec data.",
+      sampleOutput:
+        "YETI, 'Tundra 45 vs Tundra 65' page: converting 4 prose paragraphs into a 6-row table (capacity, ice retention, weight, price, dimensions, warranty) restored table-format parity with the cited competitor page on the same query.",
+      successCriteria: [
+        "Correctly identifies the table-vs-prose gap as the citation blocker",
+        "Produces a table using the page's own real spec data with clear row and column labels",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "yeti-ai-mode-citation-reverse-engineer",
+      tier: "mini",
+      archetype: "reverse-engineer",
+      title: "Reverse-Engineering Why AI Mode Cited a Buying Guide Over Yeti's Own Product Page",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given AI Mode's cited answer and Yeti's own uncited product copy, reverse-engineer which of the lesson's 4 citation signals the cited source has that Yeti's page lacks.",
+      companyId: "yeti",
+      scenario:
+        "You're on Yeti's content team. For the query 'best cooler for keeping ice frozen a week', AI Mode cites a third-party outdoor-gear lab's buying guide instead of Yeti's own Tundra 45 product page, which ranks higher organically.",
+      brief: "Work backward from what AI Mode actually quoted to identify the missing citation signal, then draft the fix.",
+      mode: "diagnostic",
+      conceptsCovered: ["Specific data points"],
+      steps: [
+        {
+          stepId: "step-1-vague-vs-specific-claims",
+          concept: "Specific data points",
+          lessonAnchor: "content-signals-that-win-citations",
+          theoryRecap:
+            "The lesson lists 'specific data points, named sources, percentages, years' as one of the four signals AI Mode favors, over vague, unsupported claims.",
+          question:
+            "Yeti's product page says: 'Our coolers are built to keep ice cold for days.' The cited buying guide says: 'In an independent 90 degrees Fahrenheit ambient test, the YETI Tundra 45 kept ice frozen for 4.5 days.' Which claim does AI Mode quote, and what is missing from Yeti's own version?",
+          toolName: "Perplexity",
+          where: "Perplexity.ai search bar, to cross-check what specific, sourced data points already exist publicly about your own product.",
+          procedure: [
+            "Search Perplexity for the exact buying-guide claim and confirm the named test source it cites",
+            "Compare that specific data point against Yeti's own page's vague 'keeps ice cold for days' claim",
+            "Identify the missing elements: a named test source, a specific temperature, and a specific day count",
+            "Draft a replacement sentence for Yeti's page that includes all three missing elements",
+          ],
+          outputSample:
+            "GAP LOG\nMissing element         Yeti's page        Cited buying guide\nNamed test source       Absent             \"independent 90°F ambient test\"\nSpecific temperature    Absent             \"90 degrees Fahrenheit\"\nSpecific day count      \"days\" (vague)     \"4.5 days\"",
+          healthy: "The claim names a specific test condition, a specific temperature, and a specific, sourced number of days.",
+          unhealthy: "The claim uses an unquantified adjective ('days', 'a long time') with no named source behind it.",
+          interpret:
+            "AI Mode favors original, sourced data points over marketing adjectives, because a vague claim gives the model nothing concrete to quote or verify.",
+          soWhat: [
+            {
+              symptom: "A third-party buying guide with lower domain authority gets cited over your own product page on your own product's core claim",
+              action: "Commission or cite an independent test result and replace the vague adjective with the specific, sourced number",
+              effort: "half day",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Perplexity",
+            role: "Cross-check what specific, sourced data points about your product already exist publicly",
+            why: "Free tier is sufficient for a single-claim lookup, and it surfaces the exact source AI Mode-style retrieval is already citing",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A gap log naming the missing test source, condition, and specific number, plus a rewritten claim sentence.",
+      sampleOutput:
+        "Ola Electric, range claim: 'Our scooters go far on a single charge' rewritten to 'The S1 Pro covers 195 km on a single charge under ARAI's standardized test cycle,' after the gap log flagged the missing named test source and specific figure.",
+      successCriteria: [
+        "Correctly names all 3 missing elements: source, condition, specific number",
+        "Produces a rewritten claim that includes a named source and a specific figure",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "llmo": [
+    {
+      id: "llmo-slack-robots-txt-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "The Locked Door: Auditing Slack's robots.txt for AI Crawler Access",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a real-style robots.txt snippet with a mix of AI-crawler directives, correctly identify which rules block LLM citation, which merely throttle it, and which are already fine, before recommending fixes.",
+      companyId: "slack",
+      scenario:
+        "You're a growth marketer at Slack. ChatGPT and Perplexity almost never mention Slack when users ask for the best team-chat tool, even though Slack ranks on page one of Google for the same query. Your first hypothesis: something in robots.txt is blocking the AI crawlers that would otherwise find and cite Slack's help center and comparison pages.",
+      brief:
+        "Read each robots.txt block, decide whether it's a critical defect, a moderate defect, or fine as-is, referencing the lesson's Step 1 checklist.",
+      mode: "teardown",
+      conceptsCovered: [
+        "Step 1, Open your doors to AI crawlers",
+        'Step 2, Build a "machine-readable answer block" at the top of every page',
+      ],
+      teardownItems: [
+        {
+          itemId: "item-1-gptbot-block",
+          specimen: "User-agent: GPTBot\nDisallow: /",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "Slack's robots.txt has this block. What does it mean for LLMO, and is it a defect?",
+          answerKey: [
+            {
+              defect: "GPTBot is disallowed sitewide",
+              severity: "critical",
+              whyItMatters:
+                "GPTBot powers both ChatGPT's training crawl and its live web-search retrieval; blocking it removes Slack from consideration in both stages the lesson describes.",
+              lessonRef: "step-1-open-your-doors-to-ai-crawlers",
+              owner: "developer",
+            },
+          ],
+          distractors: [
+            "The 'User-agent: GPTBot' line itself, correct syntax naming the bot",
+            "Using 'Disallow' as the directive keyword, valid robots.txt syntax",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-claudebot-crawl-delay",
+          specimen: "User-agent: ClaudeBot\nCrawl-delay: 300\nAllow: /",
+          specimenSource: "synthetic-realistic",
+          prompt: "ClaudeBot is technically allowed here. Is there still a problem?",
+          answerKey: [
+            {
+              defect:
+                "Crawl-delay of 300 seconds limits ClaudeBot to one request every 5 minutes, so new or updated pages take far longer to be discovered",
+              severity: "moderate",
+              whyItMatters:
+                "Slow discovery means Slack's newest comparison pages and updated stats sit uncrawled for weeks, missing the freshness window the lesson's Step 2 depends on.",
+              lessonRef: "step-1-open-your-doors-to-ai-crawlers",
+              owner: "developer",
+            },
+          ],
+          distractors: [
+            "Allow: /, correctly grants site-wide access",
+            "The bot name 'ClaudeBot', correctly spelled",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-3-wildcard-blog-disallow",
+          specimen: "User-agent: *\nDisallow: /blog/\nDisallow: /customer-stories/",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "This wildcard rule applies to every crawler, including every AI bot not listed by name above. Is it a defect?",
+          answerKey: [
+            {
+              defect:
+                "A wildcard Disallow blocks /blog/ and /customer-stories/ from every AI crawler that isn't explicitly named elsewhere in the file, exactly the pages most likely to carry the stats and quotes the lesson's Step 2 and Step 6 rely on",
+              severity: "critical",
+              whyItMatters:
+                "Named allow-rules for GPTBot, ClaudeBot, or PerplexityBot do not override a wildcard Disallow for those same paths under standard robots.txt precedence, so citation-worthy content stays invisible.",
+              lessonRef: "step-2-build-a-machine-readable-answer-block-at-the-top-of-every-page",
+              owner: "developer",
+            },
+          ],
+          distractors: [
+            "Disallow: /admin/ elsewhere in the file, correctly protects an internal path",
+            "User-agent: * as a fallback rule, standard and expected",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Screaming Frog SEO Spider",
+            role: "Test how each named user-agent is actually treated against real URLs before publishing the fix",
+            why: "Its custom user-agent switcher and robots.txt checker let you simulate GPTBot, ClaudeBot, and PerplexityBot crawls for free",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Log every rule with severity and proposed fix",
+            why: "Free, shareable audit trail for the dev handoff",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A corrected robots.txt file with every AI-crawler block resolved or justified, plus a one-page severity-ranked defect log for the dev handoff.",
+      sampleOutput:
+        "Mailchimp robots.txt audit\n\nCRITICAL\n  User-agent: GPTBot / Disallow: / -> fix: change to Allow: /\n  User-agent: * / Disallow: /blog/ -> fix: scope wildcard disallow to /blog/drafts/ only, keep published posts open\n\nMODERATE\n  User-agent: ClaudeBot / Crawl-delay: 300 -> fix: lower to Crawl-delay: 10 or remove\n\nNOT A DEFECT\n  User-agent: * / Disallow: /admin/ -> leave as-is",
+      successCriteria: [
+        "Correctly assigns severity to all 3 defects",
+        "Does not flag either distractor line as a defect in any item",
+        "Proposes a specific, actionable fix for each defect",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "llmo-goto-answer-block-audit",
+      tier: "core",
+      archetype: "audit",
+      title: "Built to Be Quoted: Auditing GoTo's Content for LLM Citation",
+      timeEstimate: "60 minutes",
+      timeMinutes: 60,
+      objective:
+        "Given three real-style GoTo (Gojek + Tokopedia) page drafts, apply the lesson's on-page LLMO checklist, answer-block placement, entity consistency, and question-shaped headers, to score which pages are citation-ready and which need rework before publish.",
+      companyId: "goto-gojek-tokopedia",
+      scenario:
+        "You're a content strategist on GoTo's brand team. Leadership wants GoTo named whenever someone asks an AI assistant 'what's the leading super app in Southeast Asia', and you've been asked to sign off on three page drafts before they go live.",
+      brief:
+        "Score each draft's answer-block placement, entity consistency, and header phrasing against the lesson's checklist, then rank the drafts by citation-readiness.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Machine-readable answer blocks in the first 100 words",
+        "Using entities consistently across the page",
+        "Answering question-shaped queries in headers",
+      ],
+      steps: [
+        {
+          stepId: "step-1-answer-block-placement",
+          concept: "Machine-readable answer blocks in the first 100 words",
+          lessonAnchor: "step-2-build-a-machine-readable-answer-block-at-the-top-of-every-page",
+          theoryRecap:
+            "The lesson's Step 2 says 44% of citations come from the first 30% of a page, so a 40-80 word direct answer belongs in the first 100 words, followed by a comparison table or cited stats.",
+          question:
+            "Draft A opens with three paragraphs of GoTo's 2021 merger history before ever mentioning what GoPay is. Draft B opens with a 55-word direct answer to 'what is GoPay' followed by a feature table. Which is citation-ready, and what's the fix for the other?",
+          toolName: "Google Sheets",
+          where: "A shared scoring sheet with one row per draft and a word-count column for 'words before the direct answer appears'",
+          procedure: [
+            "Paste the opening 150 words of each draft into its own row",
+            "Count words before a direct, complete answer to the page's core question appears",
+            "Flag any draft where that count exceeds 100 words",
+            "For flagged drafts, draft a replacement 40-80 word answer using only facts already in the page",
+          ],
+          outputSample:
+            "Draft | Words before direct answer | Verdict\nA (GoPay history) | 187 | FAIL, rewrite opening\nB (GoPay features) | 42 | PASS\nC (GoTo super app) | 96 | PASS, borderline, trim by 20 words for safety margin",
+          healthy:
+            "A direct, complete answer appears within the first 100 words, comparison table or cited stats follow immediately after.",
+          unhealthy:
+            "Company history, funding timeline, or brand narrative occupies the opening paragraphs before the reader's actual question is answered.",
+          interpret:
+            "Position, not just presence, of the answer determines whether an AI model's passage-extraction step ever reaches it.",
+          soWhat: [
+            {
+              symptom: "A page answers the question correctly but buries it past word 150",
+              action: "Move the existing answer sentence to the first paragraph, cut the narrative lead entirely",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-entity-consistency",
+          concept: "Using entities consistently across the page",
+          lessonAnchor: "step-3-use-entities-consistently",
+          theoryRecap:
+            "The lesson's Step 3 says AI models track entities (brand name, founders, product names) and inconsistent naming confuses the model's entity graph.",
+          question:
+            "Across the 3 drafts, the merged company is called 'GoTo', 'GoTo Group', 'Gojek-Tokopedia', and once just 'Gojek'. Which of these is the one entity name GoTo should standardize on, and how many inconsistent mentions need fixing?",
+          toolName: "Google Sheets",
+          where: "Same scoring sheet, new tab for entity mentions",
+          procedure: [
+            "Search each draft for every mention of the parent company name",
+            "List each variant found and its count",
+            "Pick the single canonical form, matching GoTo's own investor-relations and press materials",
+            "Flag every non-canonical mention for a find-and-replace pass",
+          ],
+          outputSample:
+            "Variant | Count across 3 drafts | Canonical?\nGoTo | 11 | YES, keep\nGoTo Group | 4 | NO, replace with GoTo\nGojek-Tokopedia | 2 | NO, replace with GoTo\nGojek (referring to the parent) | 3 | NO, replace with GoTo (Gojek stays only when naming the ride-hailing product specifically)",
+          healthy:
+            "One canonical entity name for the parent company, used identically across every page and matching the NAP used on GoTo's own investor and press pages.",
+          unhealthy:
+            "The same company referred to four different ways across three pages, with 'Gojek' ambiguously meaning both the parent and the ride-hailing product.",
+          interpret:
+            "Entity inconsistency doesn't just look sloppy, it splits the model's confidence about which name to associate with which facts.",
+          soWhat: [
+            {
+              symptom: "9 of 20 parent-company mentions use a non-canonical name",
+              action: "Run a site-wide find-and-replace to the canonical form, add a style-guide entry",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-question-shaped-headers",
+          concept: "Answering question-shaped queries in headers",
+          lessonAnchor: "step-4-answer-question-shaped-queries",
+          theoryRecap:
+            "The lesson's Step 4 says headers rewritten as natural-language questions match how users ask AI chatbots, and recommends AnswerThePublic or AlsoAsked to find the real question forms.",
+          question:
+            "Draft C's headers read 'GoPay Overview', 'Ecosystem Benefits', 'Merchant Network'. What should each become, and how do you confirm the new phrasing matches real user questions rather than guessing?",
+          toolName: "AnswerThePublic",
+          where: "AnswerThePublic, searching the seed terms 'GoPay' and 'GoTo super app'",
+          procedure: [
+            "Run each header's core topic through AnswerThePublic to see the actual question phrasings people search",
+            "Match each existing header to the closest real question form returned",
+            "Rewrite the header as that question",
+            "Confirm the section's first sentence directly answers the new question-header",
+          ],
+          outputSample:
+            "Old header | AnswerThePublic top match | New header\nGoPay Overview | 'what is gopay used for' | What Is GoPay and How Does It Work?\nEcosystem Benefits | 'why use gojek and tokopedia together' | Why Use GoPay Across Both Gojek and Tokopedia?\nMerchant Network | 'how many merchants accept gopay' | How Many Merchants Accept GoPay?",
+          healthy:
+            "Headers phrased as the exact questions AnswerThePublic or AlsoAsked show real users asking, with the answer immediately following.",
+          unhealthy:
+            "Headers written as internal product-team labels ('Ecosystem Benefits') that no user would ever type into a search bar or ask a chatbot.",
+          interpret:
+            "A header that doesn't match a real question form is invisible to both featured-snippet extraction and LLM passage retrieval.",
+          soWhat: [
+            {
+              symptom: "All 3 headers on Draft C are internal labels, not questions",
+              action: "Rewrite using AnswerThePublic's top match per header before this draft ships",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Score and track all 3 drafts across the checklist",
+            why: "Free, shareable, no setup",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "AnswerThePublic",
+            role: "Find the real question phrasing users search for each topic",
+            why: "Free tier covers a handful of searches a day, enough for a 3-page audit",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A scored citation-readiness ranking of the 3 drafts with specific line-edit fixes for each failing check.",
+      sampleOutput:
+        "Wise page-draft audit, citation-readiness scorecard\n\nDraft: 'Sending Money Abroad' page\n  Answer-block placement: PASS (38 words to answer)\n  Entity consistency: FAIL (3 uses of 'TransferWise', should be 'Wise')\n  Question-shaped headers: FAIL (2 of 4 headers are labels, not questions)\n  Overall: NOT citation-ready, fix entity + headers before publish",
+      successCriteria: [
+        "Correctly scores all 3 drafts on all 3 checklist dimensions",
+        "Identifies the specific non-canonical entity mentions",
+        "Produces question-form rewrites for each internal-label header",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Re-run the 3 corrected drafts through a manual ChatGPT/Perplexity prompt test (per the lesson's 'How to Measure LLMO Performance' section) two weeks after publish and log whether any of the 3 pages get cited.",
+    },
+  ],
+  "seo-for-ai-platforms": [
+    {
+      id: "seo-ai-platforms-beyond-meat-citation-reverse-engineer",
+      tier: "mini",
+      archetype: "reverse-engineer",
+      title: "Why Did Perplexity Skip Us? Reverse-Engineering a Citation Snapshot",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given a real-style Perplexity answer snapshot that cites two smaller competitor blogs but not Beyond Meat, apply the lesson's content-signal checklist to identify exactly which signals the cited sources have that Beyond Meat's page lacks.",
+      companyId: "beyond-meat",
+      scenario:
+        "A teammate on Beyond Meat's content team ran the query 'what's the healthiest plant-based meat brand' in Perplexity three times this week. Two independent nutrition blogs get cited every time. Beyond Meat's own comparison page, which ranks on page one of Google, never appears.",
+      brief:
+        "Compare Beyond Meat's page against the two cited sources on freshness/specificity and structured headers, then identify the two highest-leverage fixes.",
+      mode: "diagnostic",
+      conceptsCovered: ["Freshness and Specificity", "Structured Headers and Direct Answers"],
+      steps: [
+        {
+          stepId: "step-1-freshness-specificity-gap",
+          concept: "Freshness and Specificity",
+          lessonAnchor: "freshness-and-specificity",
+          theoryRecap:
+            "The lesson says a statistic from 2022 is almost never cited when a newer figure exists, and generic statements are invisible to retrieval systems, specific numbers with a source and year are the signal.",
+          question:
+            "Beyond Meat's page says 'plant-based meat has a smaller environmental footprint than beef.' One cited competitor blog says 'producing a plant-based burger patty generates 90% fewer greenhouse gas emissions than a beef patty, per a peer-reviewed 2024 lifecycle assessment.' Which sentence wins the citation, and why exactly?",
+          toolName: "Perplexity",
+          where: "Run the exact target query in Perplexity, screenshot the citations, then open Beyond Meat's page and the two cited pages side by side",
+          procedure: [
+            "Run the query in Perplexity and record which 3-4 sources it cites",
+            "Open each cited source and copy its core environmental-impact claim verbatim",
+            "Copy Beyond Meat's equivalent claim verbatim",
+            "Mark each claim as specific-and-dated or generic-and-undated",
+          ],
+          outputSample:
+            "Source | Claim | Specific + dated?\nCited blog #1 | '90% fewer greenhouse gas emissions than beef, 2024 lifecycle study' | YES\nCited blog #2 | '3x less land use than beef, per USDA 2023 data' | YES\nBeyond Meat page | 'a smaller environmental footprint than beef' | NO, no number, no year, no source",
+          healthy: "Every environmental or nutritional claim carries a specific number, a named source, and a year.",
+          unhealthy:
+            "Claims use comparative adjectives (smaller, healthier, better) with no number attached, forcing the retrieval system to treat them as unverifiable.",
+          interpret: "A retrieval system cannot quote a claim it cannot verify, and 'smaller' verifies nothing.",
+          soWhat: [
+            {
+              symptom: "The page's core claim has no number, source, or year",
+              action: "Replace with Beyond Meat's own published environmental-impact data, with the year attached",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-header-phrasing-gap",
+          concept: "Structured Headers and Direct Answers",
+          lessonAnchor: "structured-headers-and-direct-answers",
+          theoryRecap:
+            "The lesson says retrieval systems extract passages, not full articles, so the answer must sit in the first sentence of a section titled as the question users actually ask.",
+          question:
+            "Beyond Meat's page uses the header 'Our Commitment to Sustainability'. The top-cited competitor blog uses 'Is Plant-Based Meat Actually Better for the Environment?' with the answer in the first sentence. Rewrite Beyond Meat's header and opening sentence to match the pattern.",
+          toolName: "Google Sheets",
+          where: "A simple before/after tracking sheet for header and first-sentence pairs",
+          procedure: [
+            "List each of Beyond Meat's section headers next to the cited competitors' equivalent headers",
+            "Identify which of Beyond Meat's headers are brand-voice labels rather than user questions",
+            "Rewrite each flagged header as the matching question form",
+            "Write a one-sentence direct answer to sit immediately below the new header",
+          ],
+          outputSample:
+            "Old header: 'Our Commitment to Sustainability'\nNew header: 'Is Plant-Based Meat Actually Better for the Environment?'\nNew opening sentence: 'Yes, plant-based meat from Beyond Meat generates roughly 90% fewer greenhouse gas emissions than the beef patty it replaces, per its 2024 lifecycle assessment.'",
+          healthy:
+            "The header is phrased as the exact question a buyer or journalist would type, and the very next sentence answers it in full.",
+          unhealthy:
+            "The header is an internal brand-voice phrase ('Our Commitment to...') that answers nothing and matches no real search query.",
+          interpret:
+            "A header that doesn't match how the question was asked is functionally invisible to passage extraction, no matter how good the content beneath it is.",
+          soWhat: [
+            {
+              symptom: "3 of 5 section headers are brand-voice labels, not questions",
+              action: "Rewrite all 3 before the next content refresh cycle",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Perplexity",
+            role: "Run the actual target query and see live citations",
+            why: "Free tier runs enough queries for a spot-check audit",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Track before/after claims and headers",
+            why: "Free, shareable",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A side-by-side comparison table plus rewritten header-and-opening-sentence pairs for every flagged section.",
+      sampleOutput:
+        "Warby Parker page audit, citation-readiness gaps\n\nHeader: 'Our Approach to Eye Care' -> 'Are Warby Parker Glasses Actually Good Quality?'\nClaim: 'affordable, stylish eyewear' -> 'prescription glasses starting at $95, per Warby Parker's 2025 price list'",
+      successCriteria: [
+        "Correctly identifies the specificity gap between Beyond Meat's claim and the cited competitors' claims",
+        "Rewrites at least 2 headers into real question form with a direct-answer opening sentence",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "seo-ai-platforms-delhivery-article-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "The Uncitable Article: Teardown of a Delhivery Blog Draft",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a specimen blog-post draft aimed at D2C brands, apply the lesson's GEO content checklist to find every structural defect stopping it from ever being cited by an AI answer engine.",
+      companyId: "delhivery",
+      scenario:
+        "Delhivery's content team published 'How to Reduce Last-Mile Delivery Costs' six weeks ago, aimed at D2C brands researching logistics partners. Manual weekly spot-checks in Perplexity and ChatGPT show zero citations so far, while a competitor's shorter article on the same topic gets cited regularly.",
+      brief:
+        "Read the specimen draft's opening, structure, and one core claim, then flag every GEO defect using the lesson's checklist.",
+      mode: "teardown",
+      conceptsCovered: [
+        "Structured Headers and Direct Answers",
+        "Freshness and Specificity",
+        "Practical Tactics You Can Apply This Week",
+      ],
+      teardownItems: [
+        {
+          itemId: "item-1-buried-lead",
+          specimen:
+            "Logistics has always been the backbone of commerce, connecting sellers to buyers across every corner of the country. Delhivery has spent over a decade building infrastructure that powers this connection, from Gurugram to the smallest pin codes. In this article, we'll explore several dimensions of last-mile delivery cost and share our perspective on the levers available to D2C brands today.",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "This is the article's opening paragraph. Does it answer the implied question, 'how do you reduce last-mile delivery costs', anywhere in these three sentences?",
+          answerKey: [
+            {
+              defect:
+                "The direct answer to the article's own title question does not appear anywhere in the opening paragraph, three sentences of company narrative precede any actionable content",
+              severity: "critical",
+              whyItMatters:
+                "The lesson's Structured Headers and Direct Answers section says retrieval systems extract passages from the opening, not the whole article, if the answer isn't there, it isn't found.",
+              lessonRef: "structured-headers-and-direct-answers",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The sentence mentions 'Gurugram to the smallest pin codes', a specific and accurate detail about Delhivery's network",
+            "The paragraph is grammatically correct and on-topic for a logistics blog",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-generic-undated-claim",
+          specimen: "Shipping costs are a major expense for D2C brands, and reducing them can meaningfully improve margins.",
+          specimenSource: "synthetic-realistic",
+          prompt: "Is this claim, which appears mid-article, citation-worthy as written?",
+          answerKey: [
+            {
+              defect:
+                "The claim has no number, no year, and no source, it's true but too generic for a retrieval system to treat as verifiable evidence",
+              severity: "moderate",
+              whyItMatters:
+                "The lesson's Freshness and Specificity section shows generic claims lose to specific, dated, sourced ones almost every time.",
+              lessonRef: "freshness-and-specificity",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The sentence is factually accurate",
+            "The claim uses the phrase 'D2C brands', matching the target audience's own vocabulary",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-3-newsletter-interstitial",
+          specimen:
+            "A full-screen newsletter signup modal appears 2 seconds after the page loads, covering the article body. It has no visible close button on mobile until the user scrolls.",
+          specimenSource: "synthetic-realistic",
+          prompt: "Does this page element affect whether AI crawlers can cite the article?",
+          answerKey: [
+            {
+              defect:
+                "An interstitial that blocks the article body from rendering, especially one a crawler's headless renderer can't dismiss, can prevent the page's actual content from being read at all",
+              severity: "critical",
+              whyItMatters:
+                "The lesson's Practical Tactics section says paywalls and aggressive interstitials prevent AI crawlers from reading content, if a bot cannot access the page, it cannot cite the page.",
+              lessonRef: "practical-tactics-you-can-apply-this-week",
+              owner: "developer",
+            },
+          ],
+          distractors: [
+            "The modal collects email addresses, a legitimate lead-gen tactic",
+            "The modal appears on both desktop and mobile, consistent behavior across devices",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Perplexity",
+            role: "Confirm the article's actual citation status with real queries before and after fixes",
+            why: "Free, and it's the platform where every citation shows up as a clickable link per the lesson",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Log defects and severity for the content team",
+            why: "Free, shareable defect log",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A severity-ranked defect list for the draft plus a rewritten opening paragraph and one rewritten claim.",
+      sampleOutput:
+        "Zillow blog-draft teardown\n\nCRITICAL: Opening paragraph buries the answer to 'how to estimate home value' behind 2 paragraphs of company history -> rewrite: lead with the direct method in sentence 1\nMODERATE: 'Home values can fluctuate significantly' (no number, no year) -> rewrite: 'Median home values shifted 4.2% year-over-year in Q2 2025, per Zillow's own home value index'\nNOT A DEFECT: Author byline with 12 years real-estate experience listed, correctly reinforces E-E-A-T",
+      successCriteria: [
+        "Correctly identifies all 3 defects with accurate severity",
+        "Does not flag either distractor per item as a defect",
+        "Produces a rewritten opening paragraph that leads with a direct answer",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "eeat": [
+    {
+      id: "eeat-ymyl-claims-guide-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The YMYL Author Audit: Scoring a Claims-Process Guide for E-E-A-T",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Apply the lesson's four E-E-A-T letters plus the stricter YMYL bar to a real-style insurance claims guide, and decide which single gap is the highest-priority fix before publish.",
+      companyId: "go-digit-insurance",
+      scenario:
+        "You're a content associate at Go Digit General Insurance reviewing a 'How to File a Motor Claim' guide before it goes live. Insurance is YMYL: a vague or wrong claims explainer can cost a policyholder real money at the worst possible moment.",
+      brief:
+        "Score the byline and article body against Experience, Expertise, Authoritativeness, and Trustworthiness, then flag the single gap Google's raters would weigh most heavily under the YMYL bar.",
+      mode: "diagnostic",
+      conceptsCovered: ["Scoring content against the four E-E-A-T letters under a YMYL bar"],
+      steps: [
+        {
+          stepId: "step-1-score-the-four-letters",
+          concept: "Scoring content against the four E-E-A-T letters under a YMYL bar",
+          lessonAnchor: "why-it-matters-ymyl-and-the-stakes-of-getting-it-wrong",
+          theoryRecap:
+            "The lesson's YMYL section applies Google's strictest E-E-A-T bar to health, finance, legal, and safety content because bad advice causes real-world harm, and Trustworthiness is the umbrella letter the other three feed into.",
+          question:
+            "The byline reads 'By Team Digit' with no name, no license number, and no link. The body cites 'as per IRDAI norms' with no clause number or source link, but does include a first-person line: 'When my own claim was processed in 2024, the surveyor visit took two days.' Which single fix closes the biggest E-E-A-T gap here?",
+          toolName: "Google Sheets",
+          where: "A shared E-E-A-T scoring rubric, one row per article, one column per letter",
+          procedure: [
+            "List the four letters as columns: Experience, Expertise, Authoritativeness, Trustworthiness",
+            "Score the byline: 'Team Digit' with no name or license number scores 0 on Expertise and Authoritativeness",
+            "Score the body: the first-person 2024 claim story is a genuine Experience signal, mark it present",
+            "Score sourcing: 'as per IRDAI norms' with no clause number or link scores 0 on Trustworthiness, an unverifiable claim on a YMYL page",
+            "Rank the four scores and flag the lowest as the highest-priority fix",
+          ],
+          outputSample:
+            "E-E-A-T scoring, 'How to File a Motor Claim'\n" +
+            "  Experience        PRESENT   first-person 2024 claim narrative\n" +
+            "  Expertise         MISSING   byline 'Team Digit', no name, no license number\n" +
+            "  Authoritativeness MISSING   no author page, no external credential links\n" +
+            "  Trustworthiness   WEAK      'as per IRDAI norms' cited with no clause number or source link\n" +
+            "  Priority fix: name a licensed claims specialist as author before touching sourcing",
+          healthy:
+            "A named claims specialist with a linked bio, plus a direct link to the specific IRDAI circular being paraphrased.",
+          unhealthy:
+            "An anonymous 'Team' byline paired with an unverifiable regulatory citation on a page that determines whether someone gets their claim money.",
+          interpret:
+            "Expertise and Authoritativeness both collapse to zero without a named, credentialed author, so that is the fix that unblocks the other two letters, not the sourcing gap.",
+          soWhat: [
+            {
+              symptom: "Byline says 'Team Digit' with no name",
+              action: "Assign a named claims specialist with title and license number to the byline",
+              effort: "30 min",
+            },
+            {
+              symptom: "'As per IRDAI norms' has no link or clause number",
+              action: "Add a direct link to the specific IRDAI circular being referenced",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Score the article against the four E-E-A-T letters",
+            why: "Free, shareable, no account friction for a lightweight rubric",
+            required: true,
+            lastVerified: "2026-08-12",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A completed 4-letter E-E-A-T scorecard for the claims guide with one ranked priority fix.",
+      sampleOutput:
+        "NerdWallet, 'How Credit Utilization Affects Your Score' scorecard (excerpt)\n" +
+        "  Experience        PRESENT   author includes screenshots of their own credit report utilization change\n" +
+        "  Expertise         PRESENT   named CFP with linked credentials\n" +
+        "  Authoritativeness PRESENT   cited by 40+ finance sites per Ahrefs\n" +
+        "  Trustworthiness   WEAK      no visible last-reviewed date on a page about a number that changes monthly\n" +
+        "  Priority fix: add a visible 'last reviewed' date before the byline",
+      successCriteria: [
+        "Scores all four E-E-A-T letters using evidence found in the byline and body text, not assumptions",
+        "Correctly identifies Expertise/Authoritativeness as the highest-priority gap, not the sourcing weakness",
+        "Names a concrete fix for the flagged gap",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "eeat-host-safety-guide-teardown",
+      tier: "core",
+      archetype: "teardown",
+      title: "The Trust & Safety Content Teardown: Missing E-E-A-T Signals in a Host Guide",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given two specimen sections of an Airbnb Host Resource Center safety article, find the real E-E-A-T defects against a fixed answer key without flagging cosmetic non-issues.",
+      companyId: "airbnb",
+      scenario:
+        "You're a content QA reviewer for Airbnb's Host Resource Center, checking a 'What To Do If a Guest Reports an Injury' article before it replaces the current version.",
+      brief:
+        "Read each specimen's byline block and body excerpt, then list every real E-E-A-T defect, not every difference you notice.",
+      mode: "teardown",
+      conceptsCovered: ["Author Entity Building (Highest Leverage)", "Trustworthiness: The Most Important Letter"],
+      teardownItems: [
+        {
+          itemId: "host-injury-guide-byline-block",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "Review the byline block and opening paragraph of Airbnb's draft 'What To Do If a Guest Reports an Injury' host guide.",
+          specimen:
+            "=== BYLINE BLOCK ===\n" +
+            "Written by the Airbnb Content Team\n" +
+            "Reviewed by: Trust & Safety\n\n" +
+            "=== OPENING PARAGRAPH ===\n" +
+            "Guest injuries can happen even in the safest homes. This guide walks hosts through the immediate steps, from documenting the incident to understanding AirCover protections. Following these steps helps protect both you and your guest.",
+          answerKey: [
+            {
+              defect:
+                "Byline names a department ('Airbnb Content Team', 'Trust & Safety') instead of a named, credentialed individual",
+              severity: "critical",
+              whyItMatters:
+                "Without a named author, Google's raters cannot connect the page to a verifiable off-site entity (LinkedIn, published work), collapsing both Expertise and Authoritativeness to near zero on a page that touches guest safety and insurance coverage.",
+              lessonRef: "Author Entity Building (Highest Leverage)",
+              owner: "either",
+            },
+            {
+              defect:
+                "The opening paragraph makes a coverage claim ('understanding AirCover protections') with no link to the actual AirCover policy terms",
+              severity: "moderate",
+              whyItMatters:
+                "A vague reference to a real insurance-like product without a source link is exactly the kind of unverifiable claim that fails Trustworthiness on content adjacent to financial and physical safety outcomes.",
+              lessonRef: "Trustworthiness: The Most Important Letter",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The byline lists 'Reviewed by' on a separate line from 'Written by' instead of combining them into one line.",
+            "The opening paragraph is two sentences long instead of three.",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "host-injury-guide-body-excerpt",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "Review the body excerpt covering what a host should do immediately after a guest reports an injury.",
+          specimen:
+            "=== BODY EXCERPT ===\n" +
+            "Step 1: Check on the guest and offer first aid if you're comfortable doing so.\n" +
+            "Step 2: Document the scene with photos and a written timeline.\n" +
+            "Step 3: Report the incident through your Airbnb app within 24 hours.\n" +
+            "Step 4: Most injury-related costs are covered, so hosts rarely need to worry about liability.\n\n" +
+            "Last updated: (no date shown)",
+          answerKey: [
+            {
+              defect:
+                "Step 4 makes a blanket reassurance ('most injury-related costs are covered... rarely need to worry') without citing AirCover's actual coverage limits or exclusions",
+              severity: "critical",
+              whyItMatters:
+                "This is precisely the kind of overconfident, unsourced claim Google's raters flag on YMYL-adjacent content, since a host who relies on it for a real liability decision could be wrong in a way that costs them money.",
+              lessonRef: "Trustworthiness: The Most Important Letter",
+              owner: "you",
+            },
+            {
+              defect: "No 'last updated' or review date shown anywhere on the page",
+              severity: "moderate",
+              whyItMatters:
+                "Insurance-adjacent policies change; a page with no visible freshness signal cannot show raters or readers that the coverage claim was checked recently.",
+              lessonRef: "Trustworthiness: The Most Important Letter",
+              owner: "developer",
+            },
+          ],
+          distractors: [
+            "The steps are numbered 1 through 4 instead of using bullet points.",
+            "Step 3 specifies a 24-hour reporting window instead of a 48-hour window.",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Log each defect with severity and the E-E-A-T letter it violates",
+            why: "Free, shareable defect-tracking log",
+            required: true,
+            lastVerified: "2026-08-12",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A defect log for both specimens, each entry tagged with severity and which E-E-A-T letter it violates.",
+      sampleOutput:
+        "Peloton 'Bike Safety Recall FAQ' defect log (excerpt)\n" +
+        "  [CRITICAL] Byline: 'Peloton Support Team', no named safety engineer or licensed professional named -> Author Entity Building\n" +
+        "  [MODERATE] No visible 'last reviewed' date despite referencing an active recall -> Trustworthiness",
+      successCriteria: [
+        "Correctly flags both critical defects across the two specimens",
+        "Does not flag either distractor as a defect",
+        "Ties each real defect to the correct E-E-A-T letter",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "entity-seo": [
+    {
+      id: "entity-seo-peloton-about-page-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Entity Home Audit: Does This /about Page Give Google Enough to Merge?",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Apply the lesson's Step 1 checklist to a described /about page JSON-LD snapshot and decide what's missing before Google can confidently merge it into a stable entity record.",
+      companyId: "peloton",
+      scenario:
+        "You're auditing Peloton Interactive's /about page structured data ahead of a redesign, checking whether it gives Google's Knowledge Graph enough to merge the page into one authoritative entity record.",
+      brief:
+        "Read the JSON-LD snapshot against the lesson's Entity Home checklist, flag missing properties, and identify the one gap that would most block Knowledge Graph merging.",
+      mode: "diagnostic",
+      conceptsCovered: ["Creating a complete entity home with Organization JSON-LD and sameAs corroboration"],
+      steps: [
+        {
+          stepId: "step-1-audit-the-entity-home",
+          concept: "Creating a complete entity home with Organization JSON-LD and sameAs corroboration",
+          lessonAnchor: "step-1-create-your-entity-home",
+          theoryRecap:
+            "The lesson's Step 1 says the entity home needs a complete Organization JSON-LD block with a stable @id, and a sameAs array linking to Wikidata, Wikipedia, LinkedIn, Crunchbase, and official social profiles.",
+          question:
+            "This JSON-LD snapshot has name, url, logo, and foundingDate filled in, an empty sameAs array, and no @id property at all. Which single addition unlocks the most entity-merging value?",
+          toolName: "Screaming Frog SEO Spider",
+          where: "Custom Extraction tab, configured to pull the Organization JSON-LD block from /about",
+          procedure: [
+            "Crawl the /about URL and extract the raw JSON-LD block via Custom Extraction",
+            "Check for a stable @id property, a permanent URL fragment like https://onepeloton.com/#organization",
+            "Check the sameAs array for links to Wikidata, Wikipedia, LinkedIn, and Crunchbase",
+            "Flag any property present on-page but missing from the JSON-LD block",
+          ],
+          outputSample:
+            "Peloton /about JSON-LD audit\n" +
+            "  name           PRESENT   'Peloton Interactive, Inc.'\n" +
+            "  url            PRESENT\n" +
+            "  logo           PRESENT\n" +
+            "  foundingDate   PRESENT   '2012'\n" +
+            "  @id            MISSING   no stable entity identifier\n" +
+            "  sameAs         EMPTY     [] , no Wikidata, Wikipedia, or LinkedIn links\n" +
+            "  Highest-value fix: populate sameAs with a Wikidata Q-number link first",
+          healthy:
+            "A populated sameAs array with a Wikidata Q-number link plus a stable @id every other page on the site can reference via mainEntityOfPage.",
+          unhealthy:
+            "Correct on-page fields (name, logo, foundingDate) but an empty sameAs array, which gives Google nothing to corroborate the entity against.",
+          interpret:
+            "On-page fields alone describe the brand to a crawler; sameAs is what lets Google confirm the brand is a real, already-recognized thing, which is the harder-to-fake signal.",
+          soWhat: [
+            {
+              symptom: "sameAs array is empty",
+              action:
+                "Add links to the company's Wikidata item, Wikipedia page (if one exists), LinkedIn company page, and Crunchbase profile",
+              effort: "30 min",
+            },
+            {
+              symptom: "No @id property on the Organization block",
+              action:
+                "Add a stable @id fragment URL and reference it from every other page via mainEntityOfPage instead of redefining Organization",
+              effort: "half day",
+            },
+          ],
+          owner: "either",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Screaming Frog SEO Spider",
+            role: "Extract and inspect the live JSON-LD block",
+            why: "Free up to 500 URLs, enough for a single /about page audit",
+            required: true,
+            lastVerified: "2026-08-12",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Log which properties are present vs missing",
+            why: "Free tracking sheet",
+            required: false,
+            lastVerified: "2026-08-12",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A property-by-property audit of the /about page's Organization JSON-LD with one ranked highest-value fix.",
+      sampleOutput:
+        "HubSpot /about JSON-LD audit (reference example)\n" +
+        "  @id      PRESENT   https://hubspot.com/#organization\n" +
+        "  sameAs   PRESENT   Wikidata Q5926631, Wikipedia, LinkedIn, Crunchbase\n" +
+        "  founder  PRESENT   Brian Halligan (Person), Dharmesh Shah (Person)\n" +
+        "  Result: fully mergeable entity record, feeds Knowledge Panel",
+      successCriteria: [
+        "Correctly identifies the empty sameAs array as the highest-value gap over the missing @id",
+        "Names at least 3 specific sameAs targets to add",
+        "Does not flag correctly-populated fields as problems",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "entity-seo-stitch-fix-knowledge-graph-teardown",
+      tier: "core",
+      archetype: "teardown",
+      title: "The Knowledge Graph Teardown: Diagnosing a Weak Entity Record",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given two specimen snapshots of Stitch Fix's entity signals, find the real defects blocking Knowledge Panel and AI Overview visibility, without flagging cosmetic non-issues.",
+      companyId: "stitch-fix",
+      scenario:
+        "You're a growth marketer at Stitch Fix investigating why a competitor's styling-subscription brand shows up in AI Overview answers about 'personal styling services' and Stitch Fix does not, despite ranking higher on-page.",
+      brief:
+        "Review the schema snapshot and the off-site mentions snapshot, then list every entity defect against a fixed answer key.",
+      mode: "teardown",
+      conceptsCovered: ["How Google Builds an Entity Record", "Step 4: Earn third-party co-citations"],
+      teardownItems: [
+        {
+          itemId: "stitch-fix-schema-snapshot",
+          specimenSource: "synthetic-realistic",
+          prompt: "Review this Organization JSON-LD snapshot pulled from Stitch Fix's homepage and /about page.",
+          specimen:
+            "=== HOMEPAGE JSON-LD ===\n" +
+            "{\n" +
+            '  "@type": "Organization",\n' +
+            '  "name": "Stitch Fix",\n' +
+            '  "url": "https://www.stitchfix.com"\n' +
+            "}\n\n" +
+            "=== /ABOUT PAGE JSON-LD ===\n" +
+            "{\n" +
+            '  "@type": "Organization",\n' +
+            '  "name": "Stitch Fix, Inc.",\n' +
+            '  "url": "https://www.stitchfix.com/about",\n' +
+            '  "founder": "Katrina Lake"\n' +
+            "}",
+          answerKey: [
+            {
+              defect:
+                "Two different Organization blocks defined on two different pages (homepage and /about), with no @id tying them together and slightly different name strings ('Stitch Fix' vs 'Stitch Fix, Inc.')",
+              severity: "critical",
+              whyItMatters:
+                "Redefining Organization on multiple pages without a shared @id creates duplicate, competing entity signals instead of one entity Google can confidently merge, exactly the mistake the lesson's Step 1 callout warns against.",
+              lessonRef: "How Google Builds an Entity Record",
+              owner: "developer",
+            },
+            {
+              defect:
+                "The founder property lists 'Katrina Lake' as a plain string instead of a nested Person entity with her own sameAs links",
+              severity: "moderate",
+              whyItMatters:
+                "A string value gives Google a name with no way to connect it to a corroborated Person entity, losing the founder-authority boost the lesson describes in Step 3.",
+              lessonRef: "How Google Builds an Entity Record",
+              owner: "developer",
+            },
+          ],
+          distractors: [
+            "The /about page URL includes '/about' as a path segment instead of being the root domain.",
+            "The homepage JSON-LD block appears before the visible page content in the HTML source instead of after it.",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "stitch-fix-off-site-mentions-snapshot",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "Review this snapshot of Stitch Fix's off-site presence compared to a competitor's, both in the 'personal styling subscription' space.",
+          specimen:
+            "=== STITCH FIX OFF-SITE SNAPSHOT ===\n" +
+            "Wikidata: no item found\n" +
+            "Wikipedia: page exists, last edited 2019\n" +
+            "Podcast mentions (last 12 months): 2\n" +
+            "Roundup articles ('best styling subscription services'): appears in 3 of 10 checked\n\n" +
+            "=== COMPETITOR OFF-SITE SNAPSHOT ===\n" +
+            "Wikidata: item exists, 14 properties filled\n" +
+            "Wikipedia: page exists, last edited this year\n" +
+            "Podcast mentions (last 12 months): 19\n" +
+            "Roundup articles: appears in 9 of 10 checked",
+          answerKey: [
+            {
+              defect: "No Wikidata item exists for Stitch Fix at all",
+              severity: "critical",
+              whyItMatters:
+                "Wikidata is one of the three signal sources Google triangulates for entity records; with zero entry, Stitch Fix is missing an entire corroboration channel the competitor has fully populated.",
+              lessonRef: "How Google Builds an Entity Record",
+              owner: "either",
+            },
+            {
+              defect:
+                "Only 2 podcast mentions and 3 of 10 roundup appearances in the last 12 months, versus 19 and 9-of-10 for the competitor",
+              severity: "critical",
+              whyItMatters:
+                "Co-citations are unstructured corroboration Google weighs alongside structured data; a large gap here means the competitor's brand shows up alongside category peers far more often, which is exactly the signal AI Overviews pull from.",
+              lessonRef: "Step 4: Earn third-party co-citations",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Stitch Fix's Wikipedia page was last edited in 2019 rather than being deleted or flagged for removal.",
+            "The competitor's Wikidata item has 14 properties filled rather than the maximum possible number of properties.",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the side-by-side schema and off-site comparison",
+            why: "Free, no account friction for a single comparison table",
+            required: true,
+            lastVerified: "2026-08-12",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Ahrefs",
+            role: "Track unlinked brand mentions and co-citations over time via Content Explorer",
+            why: "Paid tier needed for ongoing mention-volume tracking beyond a one-time manual check",
+            required: false,
+            lastVerified: "2026-08-12",
+          },
+        ],
+        paidUpgradeNote:
+          'The teardown itself needs no paid tool, manual search-operator checks ("Brand Name" -site:brand.com) approximate the same off-site mention count Ahrefs automates.',
+      },
+      deliverable:
+        "A defect log across both specimens, each entry tagged with severity and which entity-building concept it violates.",
+      sampleOutput:
+        "Rent the Runway entity defect log (excerpt)\n" +
+        "  [CRITICAL] No Wikidata item found despite 8 years of press coverage -> How Google Builds an Entity Record\n" +
+        "  [MODERATE] founder listed as plain string, not a linked Person entity -> How Google Builds an Entity Record",
+      successCriteria: [
+        "Correctly flags both critical defects (missing Wikidata item, low co-citation volume) across the two specimens",
+        "Does not flag either distractor as a defect",
+        "Ties each real defect to the correct lesson concept",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "content-clusters": [
+    {
+      id: "content-clusters-tbo-tek-archive-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "Auditing TBO Tek's Blog Archive for Cluster Candidates",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Given a 16-post blog archive export with URL, current rank, and monthly traffic, group the posts into pillar/cluster candidates using the lesson's Step 2 (audit what exists) framework, then flag which posts are orphans that belong to no coherent cluster.",
+      companyId: "tbo-tek",
+      scenario:
+        "You're the content marketer at TBO Tek, the B2B travel distribution platform serving 147,000+ travel agents worldwide. Eighteen months of ad-hoc blogging produced 16 posts with no cluster structure. Before your team writes a single new article this quarter, leadership wants to know how many real clusters already exist in that archive, and what's just noise.",
+      brief:
+        "Tag every post by the subtopic it actually addresses, group subtopics with enough posts into cluster candidates, and flag the orphans in writing.",
+      mode: "diagnostic",
+      conceptsCovered: ["Auditing existing content for cluster candidates before writing anything new"],
+      steps: [
+        {
+          stepId: "step-1-audit-existing-archive",
+          concept: "Auditing existing content for cluster candidates before writing anything new",
+          lessonAnchor: "step-2-audit-what-you-already-have",
+          theoryRecap:
+            "The lesson's Step 2 says most sites already have the raw material for 2-3 clusters buried in old posts, and retrofitting existing content into clusters often delivers faster gains than publishing brand-new articles.",
+          question:
+            "Sixteen posts, no structure. Which subtopics already have enough posts to call a cluster, and which posts are orphans with no siblings at all?",
+          toolName: "Google Sheets",
+          where: "Import the blog archive export, add a 'subtopic tag' column, then sort and group by that tag.",
+          procedure: [
+            "Import the 16-row export into Sheets and freeze the header row",
+            "Read each title and tag it with the broad subtopic it addresses (API integration, agent onboarding, distribution pricing, etc.)",
+            "Sort by the tag column and count how many posts share each tag",
+            "Mark any tag with 3+ posts as a cluster candidate; mark any tag with exactly 1 post as an orphan",
+          ],
+          outputSample:
+            "TBO Tek blog archive audit (16 posts)\n\n" +
+            "TAG: API integration (5 posts) -> CLUSTER CANDIDATE\n" +
+            "  How to Connect Your Booking Engine to a Travel API\n" +
+            "  API Rate Limits Explained for Travel Agents\n" +
+            "  Sandbox vs. Production: Testing Your TBO Integration\n" +
+            "  3 Common API Integration Errors and How to Fix Them\n" +
+            "  Webhooks vs. Polling for Real-Time Inventory Updates\n\n" +
+            "TAG: agent onboarding (4 posts) -> CLUSTER CANDIDATE\n" +
+            "  Getting Started as a TBO Travel Agent Partner\n" +
+            "  Agent Verification: What Documents You'll Need\n" +
+            "  Your First 30 Days on the TBO Platform\n" +
+            "  How Agent Tiers and Commission Structures Work\n\n" +
+            "TAG: distribution pricing (3 posts) -> CLUSTER CANDIDATE\n" +
+            "  Net Rate vs. Markup: A Quick Primer\n" +
+            "  Currency Conversion Fees, Explained\n" +
+            "  Dynamic Pricing in B2B Travel Distribution\n\n" +
+            "ORPHANS (1 post each, no cluster): 'TBO Tek Wins Travel Innovation Award',\n" +
+            "'Our Office Holiday Schedule', 'Meet the Team: Engineering Spotlight',\n" +
+            "'5 Travel Documentaries Worth Watching', 'A Note on Our New Logo'",
+          healthy:
+            "Two clear cluster candidates (API integration, agent onboarding) go into this quarter's content brief; the pricing tag needs 2-3 more posts before it's a full cluster; the 5 orphans get left alone, not retrofitted into a cluster they don't belong to.",
+          unhealthy:
+            "Forcing the 5 orphan posts into the nearest cluster just to make the numbers look tidier, or starting new clusters from scratch while ignoring the 5 posts already sitting one subtopic away from being one.",
+          interpret:
+            "A subtopic with 3+ existing posts is a retrofit opportunity, not a blank page. The orphans aren't failures, they're just posts that were never meant to be part of a cluster (an award announcement has no cluster to join).",
+          soWhat: [
+            {
+              symptom: "Leadership wants a content calendar for next quarter and assumes everything starts from zero",
+              action: "Show the audit table first, retrofit the API integration and agent onboarding tags into pillar-cluster structures before commissioning new articles",
+              effort: "30 min",
+            },
+            {
+              symptom: "The pricing tag has only 3 posts, barely a cluster",
+              action: "Brief 2-3 new articles to round it out (e.g. 'How Multi-Currency Settlement Works') before calling it done",
+              effort: "half day",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Import the archive export and tag/group posts by subtopic",
+            why: "Free, no account friction, sufficient for a 16-row sort-and-group exercise",
+            required: true,
+            lastVerified: "2026-08-12",
+          },
+          {
+            toolName: "Google Search Console",
+            role: "Confirm which of the tagged posts are actually getting impressions before prioritizing a retrofit",
+            why: "Free, shows real search demand rather than guessing which cluster to build first",
+            required: false,
+            lastVerified: "2026-08-12",
+          },
+        ],
+        paid: [],
+        paidUpgradeNote:
+          "This audit is fully completable on the free path. A paid crawler only earns its keep once the archive is in the hundreds of posts, not 16.",
+      },
+      deliverable:
+        "A tagged archive sheet plus a one-paragraph recommendation: which 2 subtopics to retrofit into clusters this quarter, and which posts to leave alone.",
+      sampleOutput:
+        "YETI blog archive audit (excerpt)\n\n" +
+        "TAG: cooler care (4 posts) -> CLUSTER CANDIDATE, recommend retrofit first\n" +
+        "TAG: campfire cooking (3 posts) -> CLUSTER CANDIDATE, needs 1-2 more posts\n" +
+        "ORPHANS: 'YETI Ambassador Spotlight: Q3', 'Our New Colorway Drop' -> leave alone, no cluster fit",
+      successCriteria: [
+        "Correctly tags all 16 posts by subtopic",
+        "Identifies exactly the 2 tags with 3+ posts as cluster candidates",
+        "Does not force the 5 single-post orphans into an artificial cluster",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Pull a real Search Console export for a blog you have access to and run this same tag-and-count audit against it.",
+    },
+    {
+      id: "content-clusters-nubank-pillar-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Teardown: Is This Actually a Pillar Page?",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given two draft 'pillar page' outlines, identify which structural defects (per the lesson's Common Mistakes) disqualify them from being real pillar pages, without flagging normal editorial choices as defects.",
+      companyId: "nubank",
+      scenario:
+        "Nubank's content team drafted two 'pillar pages' for its financial-education blog, the same content arm that turns demystifying Brazil's confusing banking fees into a growth engine. Before either ships, you're asked to check both drafts against the lesson's own definition of what a real pillar page is.",
+      brief:
+        "Review both outlines against the pillar-page definition and the lesson's two named Common Mistakes. Flag genuine structural defects; do not flag normal formatting or length choices as problems.",
+      mode: "teardown",
+      conceptsCovered: [
+        "Building clusters around audience questions, not products",
+        "Internal linking as the load-bearing structure of a cluster",
+      ],
+      teardownItems: [
+        {
+          itemId: "nubank-product-page-disguise",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "Draft 1 is titled 'Nu Business Banking Features' and was submitted as the pillar page for a new small-business content cluster. Review its outline against the lesson's definition of a pillar page.",
+          specimen:
+            "=== DRAFT 1 OUTLINE: 'Nu Business Banking Features' (820 words) ===\n" +
+            "H1: Nu Business Banking Features\n" +
+            "H2: Zero monthly fees on your business account\n" +
+            "H2: Instant Pix transfers for your business\n" +
+            "H2: Free business debit card\n" +
+            "H2: 24/7 in-app support\n" +
+            "H2: Sign up in under 10 minutes\n" +
+            "[No links to any other blog content. No mention of clusters, subtopics, or\n" +
+            "further reading. Page ends with a 'Sign Up Now' button.]",
+          answerKey: [
+            {
+              defect: "The page is a product-features page, not a pillar page: every H2 sells a feature instead of answering a question a business owner would search before ever hearing of Nubank",
+              severity: "critical",
+              whyItMatters: "A pillar page must have standalone value to a reader who has never heard of the brand. A features list has zero value to someone who isn't already a customer, so it won't attract links or rank for informational searches, which defeats the entire purpose of building a cluster around it.",
+              lessonRef: "Common Mistakes: Building clusters around your products, not your audience's questions",
+              owner: "you",
+            },
+            {
+              defect: "At 820 words with no links to cluster content, it cannot function as a hub even if the topic were reframed",
+              severity: "moderate",
+              whyItMatters: "The lesson's target for a pillar page is 3,000-5,000 words introducing every subtopic and linking out to its cluster article. An 820-word page with zero outbound links has nothing for a cluster to attach to.",
+              lessonRef: "Step 4, Write the pillar page first: length target 3,000-5,000 words, one H2 per subtopic linking to its cluster article",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The page ends with a 'Sign Up Now' call-to-action button.",
+            "The H2 headings are written as short noun phrases rather than full questions.",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "nubank-unlinked-cluster",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "Draft 2 is a genuine pillar page, 'How Credit Scores Work in Brazil' (3,400 words), alongside a list of 9 cluster articles the team says are 'ready to publish.' Review the linking plan and the article list.",
+          specimen:
+            "=== DRAFT 2: PILLAR PAGE ===\n" +
+            "Title: How Credit Scores Work in Brazil (3,400 words)\n" +
+            "Structure: 9 H2 sections, one per subtopic, each 250-400 words, no outbound\n" +
+            "links included in the draft ('links will be added after all 9 cluster\n" +
+            "articles are live,' per the editor's note).\n\n" +
+            "=== CLUSTER ARTICLE LIST (9 articles) ===\n" +
+            "1. What Is a Credit Score and Why It Matters\n" +
+            "2. How Payment History Affects Your Score\n" +
+            "3. Credit Utilization: What It Means and How to Lower It\n" +
+            "4. How to Check Your Credit Score for Free in Brazil\n" +
+            "5. Common Credit Score Myths, Debunked\n" +
+            "6. How Long Negative Marks Stay on Your Record\n" +
+            "7. Building Credit From Zero: A Beginner's Guide\n" +
+            "8. Nubank Q3 2025 Earnings Highlights\n" +
+            "9. How Joint Accounts Affect Your Credit Score",
+          answerKey: [
+            {
+              defect: "The pillar page ships with zero outbound links, 'add links later' means the pillar and its clusters are two disconnected sets of pages until someone remembers to go back and link them",
+              severity: "critical",
+              whyItMatters: "The lesson is explicit that internal links are the entire value of a cluster: without them, Google cannot understand how the pages relate, and link authority earned by a cluster article never flows to the pillar.",
+              lessonRef: "Common Mistakes: Publishing the content but skipping the internal links",
+              owner: "developer",
+            },
+            {
+              defect: "Article 8, 'Nubank Q3 2025 Earnings Highlights,' does not belong in this cluster: it answers no question a reader researching credit scores would ever ask",
+              severity: "moderate",
+              whyItMatters: "A cluster proves topical depth by covering every real subtopic of one question. An unrelated corporate-news post diluting the cluster signals scattered, not authoritative, coverage to Google.",
+              lessonRef: "Common Mistakes: Building clusters around your products, not your audience's questions",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The 9 cluster articles range from 250-400 words each within the pillar's own sections.",
+            "The article list has 9 entries, within the lesson's recommended 8-22 range.",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Track each draft's defects and severity in a shared review sheet",
+            why: "Free, easy to share with the editor who owns the fix",
+            required: true,
+            lastVerified: "2026-08-12",
+          },
+        ],
+        paid: [],
+        paidUpgradeNote: "This teardown is a structural read of two outlines; no paid tool is needed to complete it.",
+      },
+      deliverable: "A completed review sheet marking every defect, its severity, and which non-issues were correctly left unflagged.",
+      sampleOutput:
+        "=== PILLAR PAGE REVIEW: BLUE APRON RECIPE HUB (illustrative) ===\n\n" +
+        "DRAFT REVIEWED: 'Blue Apron Meal Kit Benefits' (pillar candidate)\n" +
+        "DEFECT: Product-features framing, not an audience question, severity: critical\n" +
+        "DEFECT: No outbound links to any cluster article, severity: critical\n" +
+        "NON-DEFECT (correctly not flagged): Page includes 3 customer testimonial quotes",
+      successCriteria: [
+        "Identifies the product-page framing defect in Draft 1",
+        "Identifies the missing-internal-links defect in Draft 2",
+        "Identifies the off-topic cluster article (Q3 earnings) in Draft 2",
+        "Does not flag either distractor in either item as a defect",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "zero-click-search": [
+    {
+      id: "zero-click-search-yeti-serp-feature-audit",
+      tier: "mini",
+      archetype: "reverse-engineer",
+      title: "Reverse-Engineering Which SERP Feature Is Eating YETI's Clicks",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Given a 12-keyword Search Console export with impressions, clicks, and CTR, identify which queries show the high-impressions/low-CTR signature of a zero-click SERP feature, and infer which feature is most likely intercepting each one.",
+      companyId: "yeti",
+      scenario:
+        "You're the SEO analyst at YETI, the outdoor gear and coolers brand known for its 'YETI Presents' documentary-style content over discounting. Your informational how-to guides (ice retention tips, campfire cooking) rank well but traffic feels flat. Search Console has the answer, if you know what to look for.",
+      brief:
+        "Sort the export by the impressions-to-CTR gap, flag the queries most likely being intercepted by a SERP feature, and name which feature type each one probably faces.",
+      mode: "diagnostic",
+      conceptsCovered: ["Identifying zero-click risk using the impressions-high/CTR-low signal"],
+      steps: [
+        {
+          stepId: "step-1-serp-feature-audit",
+          concept: "Identifying zero-click risk using the impressions-high/CTR-low signal",
+          lessonAnchor: "step-1-identify-which-queries-are-zero-click-risks",
+          theoryRecap:
+            "The lesson's Step 1 says to find keywords where impressions are high but CTR is under 1%, that gap almost always signals a SERP feature is intercepting the click, and different feature types (AI Overview, featured snippet, PAA, local pack) carry different typical zero-click rates.",
+          question:
+            "Of these 12 queries, which ones show the impressions-high/CTR-low signature, and which SERP feature is each one most likely facing given its query phrasing?",
+          toolName: "Google Search Console",
+          where: "Performance report, Queries tab, sorted by impressions descending with a CTR column visible.",
+          procedure: [
+            "Export the 12-row query list with impressions, clicks, and CTR",
+            "Sort by impressions descending and scan the CTR column for anything under 1%",
+            "For each flagged query, read its phrasing to infer the likely SERP feature (a 'how long does X last' phrasing suggests a direct answer box; a 'best way to X' phrasing suggests a featured snippet or AI Overview)",
+            "List the flagged queries with their inferred feature and estimated zero-click rate from the lesson's table",
+          ],
+          outputSample:
+            "YETI Search Console export (12 queries, excerpt)\n\n" +
+            "how long does ice last in a yeti cooler       14,200 impr   62 clicks   CTR 0.44%  -> FLAG\n" +
+            "  Inferred feature: Direct answer box (~100% zero-click per lesson table)\n\n" +
+            "best way to organize a cooler for camping      9,800 impr   340 clicks  CTR 3.47%  -> not flagged\n\n" +
+            "what temperature does dry ice freeze at         8,600 impr   51 clicks   CTR 0.59%  -> FLAG\n" +
+            "  Inferred feature: Direct answer box / AI Overview (~83-100% zero-click)\n\n" +
+            "yeti tundra 45 vs 65 comparison                 3,100 impr   290 clicks  CTR 9.35%  -> not flagged\n" +
+            "  (transactional/comparison intent, still converts per the lesson's Step 3)",
+          healthy:
+            "The two flagged queries ('how long does ice last', 'what temperature does dry ice freeze') get rewritten as snippet-bait content or accepted as brand-impression-only wins; the comparison query gets protected and invested in further because it still converts.",
+          unhealthy:
+            "Treating all 12 queries the same and pouring effort into 'improving rankings' for the direct-answer-box queries, when the real problem isn't rank, it's that no rank fixes a 100% zero-click feature.",
+          interpret:
+            "A CTR under 1% at high impressions is not a ranking problem, it's a SERP-feature-interception problem. The fix is different: snippet-bait content and accepting the brand impression, not chasing position 1.",
+          soWhat: [
+            {
+              symptom: "Two how-to queries have huge impressions but almost no clicks",
+              action: "Stop trying to 'improve rankings' on these; rewrite the opening paragraph as a 40-60 word direct answer instead, per Step 2",
+              effort: "30 min",
+            },
+            {
+              symptom: "Leadership is only looking at total sessions and thinks the blog is failing",
+              action: "Show them the impressions-vs-clicks split so the SERP-feature explanation, not 'bad content,' gets the credit for the gap",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Search Console",
+            role: "Pull the impressions/clicks/CTR export that reveals the zero-click gap",
+            why: "Free, official, the only tool that shows this exact impressions-vs-clicks relationship per query",
+            required: true,
+            lastVerified: "2026-08-12",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Sort and annotate the export with inferred SERP feature per query",
+            why: "Free, sufficient for a 12-row sort",
+            required: true,
+            lastVerified: "2026-08-12",
+          },
+        ],
+        paid: [],
+        paidUpgradeNote:
+          "SEMrush or Ahrefs Position Tracking can show the actual SERP feature per keyword instead of inferring it from phrasing, worth it once you're auditing hundreds of queries instead of 12.",
+      },
+      deliverable: "A flagged query list with inferred SERP feature per query and a one-line recommendation for each flag.",
+      sampleOutput:
+        "Blue Apron Search Console audit (illustrative excerpt)\n\n" +
+        "how long to marinate chicken thighs   11,400 impr   58 clicks   CTR 0.51%  -> FLAG\n" +
+        "  Inferred feature: Direct answer box, recommend snippet-bait rewrite",
+      successCriteria: [
+        "Correctly flags both queries with CTR under 1% at high impressions",
+        "Does not flag the comparison query, which has a healthy CTR",
+        "Assigns a plausible SERP feature to each flagged query based on its phrasing",
+      ],
+      portfolioReady: true,
+      stretch: "Pull your own Search Console export and run the same impressions-vs-CTR scan against real data.",
+    },
+    {
+      id: "zero-click-search-blue-apron-snippet-bait-build",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "Building a Snippet-Bait Recipe FAQ for Blue Apron",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given a rambling recipe-guide introduction, rewrite it as a 40-60 word snippet-bait answer and add the correct schema type, producing a portfolio-ready before/after pair that follows the lesson's Step 2 and Step 3 exactly.",
+      companyId: "blue-apron",
+      scenario:
+        "You're a content writer at Blue Apron, the meal-kit company whose recipe cards live or die on how quickly a cook can get an answer mid-recipe. Your 'How Long to Cook Chicken Thighs' guide ranks on page one but shows the impressions-high/CTR-low signature of a lost featured snippet. It needs a rewrite, not a ranking fix.",
+      brief:
+        "Rewrite the opening as direct snippet-bait, then add the FAQPage schema markup that makes the rewritten Q&A eligible for a featured snippet and AI Overview citation.",
+      mode: "build",
+      conceptsCovered: [
+        "Writing a 40-60 word snippet-bait answer",
+        "Adding FAQPage schema to make an answer machine-extractable",
+      ],
+      steps: [
+        {
+          stepId: "step-1-snippet-bait-rewrite",
+          concept: "Writing a 40-60 word snippet-bait answer",
+          lessonAnchor: "step-2-write-snippet-bait-paragraphs",
+          theoryRecap:
+            "The lesson's Step 2 says every informational page needs a concise 40-60 word direct answer immediately below the question heading, with no preamble, because that is the block Google extracts into featured snippets and AI Overviews.",
+          question:
+            "The current opening is 94 words of scene-setting before it ever answers the question. Rewrite it as a single 40-60 word direct answer.",
+          toolName: "Google Sheets",
+          where: "A before/after doc, original paragraph in column A, rewritten answer in column B with a live word count.",
+          procedure: [
+            "Paste the current 94-word opening paragraph into column A",
+            "Identify the actual answer buried in sentence 3 ('bake at 425°F for 22-25 minutes')",
+            "Rewrite it as a direct answer in the first sentence, add one supporting data point, and stop",
+            "Count words in the rewrite and trim until it lands in the 40-60 word range",
+          ],
+          outputSample:
+            "BEFORE (94 words):\n" +
+            "'Chicken thighs are one of our most requested proteins here at Blue Apron, and\n" +
+            "for good reason, they're forgiving, flavorful, and hard to overcook compared to\n" +
+            "chicken breast. In this guide we'll walk you through everything you need to know\n" +
+            "about getting perfectly cooked chicken thighs every time, whether you're baking,\n" +
+            "grilling, or pan-searing, so let's dive in and explore the many ways...'\n\n" +
+            "AFTER (52 words):\n" +
+            "'Bake bone-in chicken thighs at 425°F for 22-25 minutes, or until internal\n" +
+            "temperature reaches 165°F. Boneless thighs cook faster, 18-20 minutes at the same\n" +
+            "temperature. Let them rest 3 minutes before serving. This method works for both\n" +
+            "oven-baked and sheet-pan chicken thigh recipes.'",
+          healthy:
+            "The rewritten paragraph answers the question in sentence one, includes the specific temperature and time, and stays under 60 words with zero preamble.",
+          unhealthy:
+            "Keeping the brand-voice intro sentence ('Chicken thighs are one of our most requested proteins...') above the answer, which is exactly the preamble the lesson's Step 2 says to cut.",
+          interpret:
+            "Google and AI Overviews extract the first clear answer block they find. A 94-word preamble means a competitor's 52-word direct answer gets extracted instead, even if your recipe is better.",
+          soWhat: [
+            {
+              symptom: "A recipe guide ranks page one but gets almost no clicks",
+              action: "Move the direct answer to sentence one, keep the brand-voice intro but push it below the answer",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-faq-schema-markup",
+          concept: "Adding FAQPage schema to make an answer machine-extractable",
+          lessonAnchor: "step-3-add-schema-markup",
+          theoryRecap:
+            "The lesson's Step 3 says FAQPage schema tells Google explicitly what your content is about for question-and-answer content, and that Yoast, RankMath, and Schema Pro can generate it without hand-coding.",
+          question:
+            "Given the rewritten 52-word answer from Step 1, write the FAQPage JSON-LD block that wraps it correctly.",
+          toolName: "Google Sheets",
+          where: "A plain-text JSON-LD block, drafted by hand then validated before it goes to a developer to implement.",
+          procedure: [
+            "Take the exact question as it appears in the H2 ('How Long to Cook Chicken Thighs?')",
+            "Take the exact 52-word rewritten answer from Step 1 as the acceptedAnswer text",
+            "Wrap both in a minimal FAQPage JSON-LD block with @context and @type set correctly",
+            "Hand the block to a developer to implement, or validate it with Google's Rich Results Test before shipping",
+          ],
+          outputSample:
+            '{\n' +
+            '  "@context": "https://schema.org",\n' +
+            '  "@type": "FAQPage",\n' +
+            '  "mainEntity": [{\n' +
+            '    "@type": "Question",\n' +
+            '    "name": "How Long to Cook Chicken Thighs?",\n' +
+            '    "acceptedAnswer": {\n' +
+            '      "@type": "Answer",\n' +
+            '      "text": "Bake bone-in chicken thighs at 425F for 22-25 minutes, or until internal temperature reaches 165F. Boneless thighs cook faster, 18-20 minutes at the same temperature. Let them rest 3 minutes before serving."\n' +
+            '    }\n' +
+            '  }]\n' +
+            '}',
+          healthy:
+            "The schema's question text matches the visible H2 exactly, and the answer text matches the visible rewritten paragraph exactly, word for word.",
+          unhealthy:
+            "Writing schema markup that says something different from what's visible on the page, Google's guidelines treat mismatched schema as a spam signal and can disqualify the page from rich results entirely.",
+          interpret:
+            "Schema doesn't add new information, it labels information that's already visible so machines can parse it reliably. Mismatched schema is worse than no schema.",
+          soWhat: [
+            {
+              symptom: "A developer says schema markup 'doesn't seem to do anything'",
+              action: "Validate the exact page URL in Google's Rich Results Test before concluding it's not working; most failures are a text mismatch, not a missing feature",
+              effort: "5 min",
+            },
+          ],
+          owner: "either",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Draft the before/after rewrite and the JSON-LD block before handoff",
+            why: "Free, keeps the rewrite and the schema draft in one reviewable place",
+            required: true,
+            lastVerified: "2026-08-12",
+          },
+          {
+            toolName: "Google Search Console",
+            role: "Confirm which recipe pages already show the zero-click impressions-high/CTR-low pattern worth rewriting first",
+            why: "Free, prioritizes which of dozens of recipe guides to rewrite first instead of guessing",
+            required: false,
+            lastVerified: "2026-08-12",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Surfer SEO",
+            role: "Score the rewritten answer against top-ranking snippet competitors before publishing",
+            why: "Speeds up iterating on word count and phrasing at scale once you're rewriting dozens of pages, not one",
+            required: false,
+            lastVerified: "2026-08-12",
+          },
+        ],
+        paidUpgradeNote:
+          "This project is fully completable on the free path. Surfer SEO only earns its cost once you're rewriting recipe guides by the dozen instead of one at a time.",
+      },
+      deliverable:
+        "A before/after rewrite pair (94-word original vs. 40-60 word snippet-bait answer) plus a validated FAQPage JSON-LD block ready for developer handoff.",
+      sampleOutput:
+        "YETI cooler-care FAQ rewrite (illustrative)\n\n" +
+        "BEFORE (88 words): long brand-voice intro before the actual ice-retention answer\n" +
+        "AFTER (48 words): 'A YETI Tundra cooler keeps ice frozen for 4-6 days at 90°F\n" +
+        "ambient temperature with a 2:1 ice-to-contents ratio. Pre-chilling the cooler for 30\n" +
+        "minutes before packing extends retention by roughly 1 additional day.'\n\n" +
+        "FAQPage schema: question and answer text match the visible page exactly.",
+      successCriteria: [
+        "Rewritten answer lands within the 40-60 word range",
+        "The direct answer appears in sentence one, with no preamble above it",
+        "The FAQPage schema's question and answer text match the visible page content exactly, word for word",
+      ],
+      portfolioReady: true,
+      stretch: "Rewrite 3 more recipe-guide openings from the same site using this exact before/after process, then batch-validate all 4 schema blocks in Google's Rich Results Test.",
+    },
+  ],
+
+  "brand-serp-control": [
+    {
+      id: "trade-desk-brand-serp-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The First Impression Audit: Scoring The Trade Desk's Brand SERP",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a research packet describing what shows up when someone Googles a company's brand name, score the Knowledge Panel and review-score elements against the lesson's framework and decide which one to fix first.",
+      companyId: "trade-desk",
+      scenario:
+        "You're a brand marketing coordinator at The Trade Desk. A sales rep just flagged that a prospect said 'your Google results looked off' mid-call, and you've been handed a research packet of what actually shows up.",
+      brief:
+        "Read the packet, check the Knowledge Panel facts against the correct source of truth, score the review situation, then rank what needs fixing first.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Correcting Knowledge Panel facts through Google Business Profile and Wikidata",
+        "Prioritizing which review platforms matter based on audience",
+      ],
+      steps: [
+        {
+          stepId: "step-1-knowledge-panel-check",
+          concept: "Correcting Knowledge Panel facts through Google Business Profile and Wikidata",
+          lessonAnchor: "winning-the-knowledge-panel",
+          theoryRecap:
+            "The lesson's Knowledge Panel section says Google pulls structured company facts primarily from Google Business Profile, Wikipedia, and Wikidata, and a wrong panel is wrong for millions of searchers since it's the first thing shown on both desktop and mobile.",
+          question:
+            "The research packet shows the Knowledge Panel lists an office The Trade Desk moved out of two years ago, and the 'website' link resolves through an old redirect chain. Which two sources should you actually go fix, and in what order?",
+          toolName: "Google Sheets",
+          where: "A shared research-tracking sheet the marketing team uses for SERP audits",
+          procedure: [
+            "Log every visible Knowledge Panel field (address, website, description, social links) into one row per fact",
+            "Mark each field as correct, outdated, or missing against the company's real current facts",
+            "Check whether the outdated fact traces back to Google Business Profile, Wikidata, or an old Wikipedia edit",
+            "Fix Google Business Profile first since it updates fastest, then submit the Wikidata correction since it feeds Google directly",
+          ],
+          outputSample:
+            "KNOWLEDGE PANEL FIELD AUDIT\nField            Shown                          Correct                        Source to fix\nAddress          Old Ventura office (2019)     Current Ventura HQ            Google Business Profile\nWebsite link     Redirect chain (3 hops)       thetradedesk.com direct       Organization schema + GBP\nDescription      'Ad tech startup'             'Programmatic advertising DSP' Wikidata + Wikipedia",
+          healthy:
+            "Every visible fact matches the company's current, real-world status, and the website link resolves in a single hop.",
+          unhealthy:
+            "An outdated address or broken redirect chain sits in the very first thing a prospect sees after Googling your name.",
+          interpret:
+            "The Knowledge Panel is a five-minute-to-days fix once you know which of the three feeder sources actually owns the wrong fact.",
+          soWhat: [
+            {
+              symptom: "A prospect says your Google results 'look off' after a sales call",
+              action: "Audit and correct Google Business Profile and Wikidata within the week, don't wait for a pattern of complaints",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-review-score-check",
+          concept: "Prioritizing which review platforms matter based on audience",
+          lessonAnchor: "managing-review-aggregate-scores",
+          theoryRecap:
+            "The lesson splits review platforms by audience: Google Reviews for general trust, G2 and Capterra for B2B software buyers specifically, and says a B2B SaaS should treat G2 as seriously as Google Reviews.",
+          question:
+            "The Trade Desk is a B2B adtech platform selling to media buyers, not consumers. The packet shows a 4.7-star Google rating from 12 reviews and no G2 profile at all. Which gap actually matters more for this business?",
+          toolName: "Google Sheets",
+          where: "Same tracking sheet, a new tab for review-platform coverage",
+          procedure: [
+            "List every review platform appearing on the Brand SERP and its star rating and review count",
+            "Match each platform to the buyer type it actually influences (consumer vs. B2B buyer)",
+            "Flag the platform gap that matches this company's real buyer, not the platform with the most visible star rating",
+            "Recommend the review-collection push that targets that platform specifically",
+          ],
+          outputSample:
+            "REVIEW PLATFORM COVERAGE\nPlatform         Rating    Reviews   Buyer it influences\nGoogle Reviews   4.7       12        General public / office visitors\nG2               —         0         B2B media-buying decision makers\nCapterra         —         0         B2B media-buying decision makers",
+          healthy:
+            "The platform with the most review volume is the one your actual buyer reads before a purchase decision.",
+          unhealthy:
+            "A strong consumer review score masks a total absence on the B2B platforms the real buyer actually checks.",
+          interpret:
+            "12 Google reviews look fine at a glance, but a B2B adtech company with zero G2 presence is invisible at the exact moment a media buyer is validating the purchase.",
+          soWhat: [
+            {
+              symptom: "Google rating looks healthy but the company has no G2 or Capterra presence",
+              action: "Launch a G2 review-collection campaign targeting recent enterprise customers this quarter",
+              effort: "half day",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Log and score every Brand SERP element found in the research packet", why: "Free, no account friction, shareable with the team", required: true, lastVerified: "2026-08" },
+          { toolName: "Google Search Console", role: "Confirm actual branded query volume and current indexing status", why: "First-party data on which branded queries are actually being searched", required: false, lastVerified: "2026-08" },
+        ],
+        paid: [
+          { toolName: "Brandwatch", role: "Ongoing monitoring of review-score trends and negative mentions", why: "Automates the manual tracking this exercise does by hand", required: false, fallback: "Google Sheets with a monthly manual check", lastVerified: "2026-08" },
+        ],
+      },
+      deliverable: "A scored Brand SERP audit sheet covering the Knowledge Panel and review situation, with a ranked one-item fix-first recommendation.",
+      sampleOutput:
+        "TBO Tek, Brand SERP quick audit (excerpt)\n\nKNOWLEDGE PANEL: description reads 'travel agency' instead of 'B2B travel distribution platform' — fix via Wikidata, 30 min\nREVIEWS: 0 reviews on G2/Capterra despite 147,000+ registered B2B buyers — this is the real gap, not the 4.2-star Google rating from walk-in office visitors\nFIX FIRST: Launch a G2 review push targeting top 50 active agency accounts this month",
+      successCriteria: [
+        "Correctly identifies which feeder source (GBP, Wikidata, Wikipedia) owns each wrong Knowledge Panel fact",
+        "Matches the review-platform gap to the company's actual B2B buyer, not the platform with the highest visible star rating",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "yelp-brand-serp-teardown",
+      tier: "core",
+      archetype: "teardown",
+      title: "The Screenshot Teardown: Finding What's Broken on a Client's Brand SERP",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given a described specimen of a client's brand-name search results, separate genuine Brand SERP defects from plausible-looking but harmless quirks, using the lesson's 10-element framework and suppression tactics.",
+      companyId: "yelp",
+      scenario:
+        "You're a reputation-management consultant on Yelp's enterprise partnerships team, brought in to review a mid-size retail client's brand search presence ahead of a renewal pitch.",
+      brief: "Read the specimen, mark every real defect against the answer key, and don't get fooled by the distractors.",
+      mode: "teardown",
+      conceptsCovered: [
+        "The 10 Elements of a Brand SERP",
+        "Managing Review Aggregate Scores",
+        "Suppressing Negative Results",
+        "Brand Keyword Strategy",
+      ],
+      teardownItems: [
+        {
+          itemId: "item-1-northloop-serp",
+          specimen:
+            "Google search results for 'NorthLoop Outdoor' (a mid-size outdoor-gear retailer):\n1. Knowledge Panel: logo present, 'Founded: 2015' shown (actual founding year is 2012), phone number listed rings disconnected, website link correct.\n2. Sitelinks (4): Home, Blog, Careers, Store Locator.\n3. Aggregate review score: 3.2 stars from 340 Google reviews, most recent negative review from last week has no business reply.\n4. Image pack: six photos, four from a 2016 product catalog, one blurry storefront photo, one stock hiking image with no NorthLoop branding.\n5. People Also Ask: 'Is NorthLoop Outdoor legit?', 'NorthLoop Outdoor lawsuit', 'NorthLoop Outdoor return policy'.\n6. Organic position 4: a 2019 Reddit thread titled 'Never buying from NorthLoop again', no NorthLoop-published response found anywhere online.\n7. Organic position 6: 'NorthLoop Outdoor Reviews — Trustpilot', showing 4.6 out of 5 from 210 reviews.\n8. No page on the NorthLoop site or elsewhere addresses '[NorthLoop] vs [competitor]' comparisons; a competitor's own comparison page ranks for 'NorthLoop Outdoor vs TrailPro'.\n9. No video carousel appears in the results.\n10. No Google Ads run against the brand name; all top results are organic.",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "Using the lesson's 10-element framework and suppression tactics, list every genuine Brand SERP defect in this specimen, explain why each one matters, and note who should own the fix.",
+          answerKey: [
+            {
+              defect: "Knowledge Panel founding year is wrong and the listed phone number is disconnected",
+              severity: "critical",
+              whyItMatters: "Wrong contact info actively frustrates or loses customers trying to reach the business, and it's the first thing shown on desktop and mobile.",
+              lessonRef: "winning-the-knowledge-panel",
+              owner: "you",
+            },
+            {
+              defect: "3.2-star aggregate rating with no visible response to the most recent negative review",
+              severity: "critical",
+              whyItMatters: "Potential customers see the star number before reading a single review, and an unanswered recent complaint signals nobody is monitoring feedback.",
+              lessonRef: "managing-review-aggregate-scores",
+              owner: "you",
+            },
+            {
+              defect: "A 2019 negative Reddit thread ranks in the top 4 organic results with zero published counter-content since",
+              severity: "critical",
+              whyItMatters: "A single unaddressed negative thread sitting this high for over five years means it has never been challenged with fresher, more authoritative content.",
+              lessonRef: "suppressing-negative-results",
+              owner: "you",
+            },
+            {
+              defect: "The 'NorthLoop Outdoor lawsuit' People Also Ask question has no owned content answering it anywhere",
+              severity: "moderate",
+              whyItMatters: "An unanswered reputational question in People Also Ask lets competitors or critics define the narrative instead of the brand.",
+              lessonRef: "the-10-elements-of-a-brand-serp",
+              owner: "you",
+            },
+            {
+              defect: "Image pack is dominated by a 2016 product catalog and one blurry, unbranded storefront photo",
+              severity: "moderate",
+              whyItMatters: "Outdated, low-quality images signal an abandoned or neglected brand to anyone scanning the results visually.",
+              lessonRef: "controlling-the-image-pack",
+              owner: "either",
+            },
+            {
+              defect: "No '[Brand] vs [competitor]' page exists, so a competitor's own comparison page ranks for that exact brand-adjacent search",
+              severity: "moderate",
+              whyItMatters: "Ceding a comparison query to a competitor means they get to frame the comparison in their own favor at a high-intent decision moment.",
+              lessonRef: "brand-keyword-strategy",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "No Google Ads campaign is running against the brand name — this is optional 'cheap insurance' per the lesson, not a defect on its own.",
+            "A 'Careers' sitelink shows up instead of a product category page — ranking for brand-adjacent hiring searches is a recommended win, not a flaw.",
+            "A third-party Trustpilot page (4.6/5, 210 reviews) ranks at position 6 — a strong third-party review score reinforcing trust is healthy, not a defect.",
+            "No video carousel appears in the results — the lesson notes video engagement is rare on Brand SERPs generally, so its absence alone isn't a real problem.",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Build the scored teardown report and severity ranking", why: "Free, easy to hand off as a client-facing deliverable", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable: "A written teardown report listing every real defect with severity and owner, clearly separated from the distractors that looked like problems but weren't.",
+      sampleOutput:
+        "Client: Riverbend Cycles, Brand SERP teardown (excerpt)\n\nCRITICAL: Knowledge Panel shows a closed second location as the primary address — fix via Google Business Profile, owner: client\nCRITICAL: 2.9-star rating, 6 unanswered 1-star reviews from the last 90 days — owner: client\nMODERATE: No 'Riverbend Cycles vs [competitor]' page exists — owner: consultant, draft this quarter\nNOT A DEFECT: A LinkedIn company page ranks at position 5 — this is a healthy trust signal, leave it alone",
+      successCriteria: [
+        "Identifies all 6 answer-key defects with correct severity",
+        "Does not flag any of the 4 distractors as genuine defects",
+      ],
+      portfolioReady: true,
+      stretch: "Draft the actual '[Brand] vs [competitor]' page outline that would close the gap identified in defect 6.",
+    },
+  ],
+  "ai-search-visibility-metrics": [
+    {
+      id: "go-digit-ai-citation-head-to-head",
+      tier: "mini",
+      archetype: "head-to-head",
+      title: "Three Engines, One Brand: Comparing AI Citation Rates Head-to-Head",
+      timeEstimate: "35 minutes",
+      timeMinutes: 35,
+      objective:
+        "Given citation results from the same prompt set run across three AI engines, correctly interpret the differences without falling into the raw-comparison trap the lesson warns against.",
+      companyId: "go-digit-insurance",
+      scenario:
+        "You're a digital marketing analyst at Go Digit General Insurance, and leadership wants a monthly readout on whether the brand shows up when people ask AI assistants about buying car or health insurance in India.",
+      brief: "Build a small prompt panel, log citation results across three engines, then normalize before concluding which engine 'likes' the brand least.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Building a repeatable prompt panel to measure citation rate and share of voice",
+        "Normalizing citation rate against each model's own baseline mention rate before comparing",
+      ],
+      steps: [
+        {
+          stepId: "step-1-build-prompt-panel",
+          concept: "Building a repeatable prompt panel to measure citation rate and share of voice",
+          lessonAnchor: "the-core-metrics",
+          theoryRecap:
+            "The lesson defines citation rate as the percent of a defined prompt set where an engine links to your content, and recommends 20-30 real buyer-style prompts run weekly to build a trend line rather than a single snapshot.",
+          question:
+            "You ran the same 15 buyer-style prompts ('best car insurance for a first-time driver in India', etc.) across ChatGPT, Perplexity, and Google AI Overviews. Go Digit was cited 6/15 times by ChatGPT, 3/15 by Perplexity, and 2/15 by Google AI Overviews. What's the one thing you should NOT conclude yet?",
+          toolName: "Google Sheets",
+          where: "A shared prompt-tracking sheet, one row per prompt per engine",
+          procedure: [
+            "Write 15-30 full-sentence buyer questions, not keyword fragments",
+            "Run each prompt against ChatGPT, Perplexity, and Google AI Overviews and log whether Go Digit is cited, named-only, or absent",
+            "Calculate citation rate per engine (cited count / total prompts)",
+            "Hold off on any 'engine X likes us least' conclusion until baseline rates are checked (next step)",
+          ],
+          outputSample:
+            "CITATION RATE BY ENGINE (15 prompts)\nEngine                ChatGPT   Perplexity   Google AI Overviews\nCited                 6         3            2\nCitation rate         40%       20%          13%",
+          healthy: "A rising citation rate trend across repeated weekly runs of the same prompt set.",
+          unhealthy: "Treating one week's raw citation count as a final verdict on an engine's attitude toward the brand.",
+          interpret: "40% vs 13% looks like Google is ignoring Go Digit, but that comparison is meaningless until you know each engine's own baseline citation rate for the insurance category.",
+          soWhat: [
+            {
+              symptom: "One engine's raw citation rate looks much lower than another's",
+              action: "Hold the comparison and check each engine's baseline mention rate for the category before reporting a conclusion",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-normalize-baseline",
+          concept: "Normalizing citation rate against each model's own baseline mention rate before comparing",
+          lessonAnchor: "brand-mention-tracking-across-models",
+          theoryRecap:
+            "The lesson warns that different models mention brands at very different baseline rates, and that raw citation counts must be normalized against each model's own baseline for the category before concluding anything.",
+          question:
+            "A quick baseline check across 15 generic insurance-category prompts (no brand name mentioned) shows ChatGPT names some insurer 90% of the time, Perplexity 45% of the time, and Google AI Overviews names any insurer only 20% of the time. Given Go Digit's 40% / 20% / 13% citation rates, which engine is actually underperforming its own baseline the most?",
+          toolName: "Google Sheets",
+          where: "Same tracking sheet, add a baseline column per engine",
+          procedure: [
+            "Run 15 generic category prompts with no brand name and log whether ANY insurer is named per engine",
+            "Divide Go Digit's citation rate by each engine's baseline rate to get a normalized share",
+            "Rank engines by normalized share, not raw citation rate",
+            "Flag the engine with the biggest gap between its baseline and Go Digit's actual share as the real priority",
+          ],
+          outputSample:
+            "NORMALIZED COMPARISON\nEngine                Go Digit rate   Engine baseline   Normalized share\nChatGPT               40%             90%               44%\nPerplexity             20%             45%               44%\nGoogle AI Overviews    13%             20%               65%",
+          healthy: "A normalized share roughly in line with, or above, the brand's fair share of the category conversation.",
+          unhealthy: "Reading raw citation rate as the final answer and deprioritizing the engine with the lowest baseline, which may actually be the strongest relative performer.",
+          interpret: "Once normalized, Google AI Overviews is actually Go Digit's best-performing engine (65% of its own baseline), while ChatGPT and Perplexity are tied at a weaker 44% share, the opposite of what the raw numbers suggested.",
+          soWhat: [
+            {
+              symptom: "Raw citation numbers suggest one engine is hostile to the brand",
+              action: "Recalculate as a share of that engine's own baseline mention rate before reporting to leadership",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "ChatGPT", role: "Run the buyer prompt panel and log citations", why: "Free tier covers a 15-30 prompt weekly panel", required: true, lastVerified: "2026-08" },
+          { toolName: "Perplexity", role: "Run the same prompt panel for cross-engine comparison", why: "Free tier available, different citation behavior than ChatGPT", required: true, lastVerified: "2026-08" },
+          { toolName: "Google Sheets", role: "Log citations, calculate citation rate and normalized share", why: "Free, no account friction", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [
+          { toolName: "Brandwatch", role: "Automate prompt-panel runs and baseline tracking at scale", why: "Removes the manual weekly re-run once the panel grows past 30 prompts", required: false, fallback: "Manual weekly Google Sheets panel", lastVerified: "2026-08" },
+        ],
+      },
+      deliverable: "A citation-rate comparison sheet with both raw and baseline-normalized numbers, and a one-line recommendation on which engine actually needs attention.",
+      sampleOutput:
+        "TBO Tek, AI citation head-to-head (excerpt)\n\nRaw citation rate: ChatGPT 33%, Perplexity 27%, Google AI Overviews 7%\nCategory baseline: ChatGPT 80%, Perplexity 50%, Google AI Overviews 10%\nNormalized share: ChatGPT 41%, Perplexity 54%, Google AI Overviews 70%\nRecommendation: ChatGPT is the real priority despite having the highest raw number, its normalized share is the weakest",
+      successCriteria: [
+        "Calculates both raw citation rate and baseline-normalized share correctly for all three engines",
+        "Does not recommend deprioritizing the engine with the lowest raw citation rate without checking its baseline first",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "tbo-tek-ai-measurement-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "The Measurement Report Teardown: Spotting a Flawed AI-Visibility Readout",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective: "Given a contractor's draft AI-visibility report, identify the methodology mistakes that make its conclusions unreliable before it reaches leadership.",
+      companyId: "tbo-tek",
+      scenario: "You're a growth marketer at TBO Tek reviewing a contractor's first monthly 'AI Search Visibility Report' before it goes to your VP of Marketing.",
+      brief: "Read the report excerpt and flag every real measurement mistake, without flagging the parts that are actually fine.",
+      mode: "teardown",
+      conceptsCovered: [
+        "Rank Tracking Was Built for a World That Is Disappearing",
+        "Brand Mention Tracking Across Models",
+        "AI-Referral Traffic in GA4",
+      ],
+      teardownItems: [
+        {
+          itemId: "item-1-flawed-report",
+          specimen:
+            "TBO Tek AI Search Visibility Report, Month 1 (draft excerpt):\n1. 'We ran a single ChatGPT query for \"best B2B travel distribution platform\" this morning and TBO Tek was not mentioned. Recommend immediate action.'\n2. 'Citation rate across engines this week: ChatGPT 45%, Claude 92%, Google AI Overviews 12%. Conclusion: Google actively deprioritizes TBO Tek and should be dropped from the monitoring plan.'\n3. 'GA4 shows 0 sessions under the native \"AI Assistant\" channel this month, so we conclude AI search is sending TBO Tek zero traffic.'\n4. 'ChatGPT named TBO Tek in 3 of 20 travel-agent prompts this week, each time as one line inside a longer list of platforms — logged as 3 positive citations.'\n5. 'Perplexity and Copilot sessions currently show up bucketed as generic \"Referral\" traffic in GA4; the report treats this as confirmed zero AI-driven traffic from those two platforms.'\n6. 'Recommend adding FAQ schema to the homepage as the single fix expected to double AI citations next month.'\n7. 'Recommends re-running the same 20-prompt panel weekly going forward to build a trend line.'",
+          specimenSource: "synthetic-realistic",
+          prompt: "List every genuine measurement flaw in this report excerpt, citing which lesson concept each one violates, and note which line items are actually fine.",
+          answerKey: [
+            {
+              defect: "Conclusion #1 is drawn from a single query run, not a rolling window across a defined prompt set",
+              severity: "critical",
+              whyItMatters: "AI answers are non-deterministic; the lesson's core rule is to never trust a single query's result, always measure on a rolling window.",
+              lessonRef: "rank-tracking-was-built-for-a-world-that-is-disappearing",
+              owner: "you",
+            },
+            {
+              defect: "Conclusion #2 compares raw citation rate across ChatGPT, Claude, and Google without normalizing for each model's own baseline mention rate",
+              severity: "critical",
+              whyItMatters: "Different models mention brands at very different baseline rates, comparing raw counts leads to the wrong conclusion about which engine is actually underperforming.",
+              lessonRef: "brand-mention-tracking-across-models",
+              owner: "you",
+            },
+            {
+              defect: "Conclusion #3 assumes GA4's native AI Assistant channel showing 0 sessions means zero AI traffic, without checking Direct or Referral for AI domains",
+              severity: "critical",
+              whyItMatters: "The native channel only recognizes ChatGPT, Gemini, and Claude; Perplexity and Copilot traffic still needs a custom channel group or it hides in Referral or Direct.",
+              lessonRef: "ai-referral-traffic-in-ga4",
+              owner: "you",
+            },
+            {
+              defect: "Item #5 treats Perplexity and Copilot's unbucketed Referral traffic as confirmed zero instead of building the recommended custom channel group",
+              severity: "moderate",
+              whyItMatters: "The lesson's fix for exactly this gap is a custom channel group explicitly bucketing perplexity.ai and copilot.microsoft.com, not writing the traffic off.",
+              lessonRef: "ai-referral-traffic-in-ga4",
+              owner: "developer",
+            },
+            {
+              defect: "Recommendation #6 predicts FAQ schema will double citations next month, treating an unverified tactic as guaranteed causation",
+              severity: "moderate",
+              whyItMatters: "A rigorous controlled study found schema additions were statistically indistinguishable from zero for AI Mode and ChatGPT citations, so this prediction is not backed by controlled evidence.",
+              lessonRef: "the-core-metrics",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Item #2's raw numbers themselves (ChatGPT 45%, Claude 92%, Google 12%) — reporting the raw numbers is fine, the flaw is only the unnormalized conclusion drawn from them.",
+            "Item #4's count of '3 of 20 prompts' — the raw count is accurate reporting; the real issue (not listed as a defect here) would be missing a sentiment/prominence check, not the count itself.",
+            "Item #7's plan to re-run the same 20-prompt panel weekly — this matches the lesson's own recommendation for a rolling window and is a healthy practice, not a flaw.",
+            "The report being labeled a 'draft' — a draft label is a process detail, not a measurement methodology flaw.",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Analytics 4", role: "Verify the AI-referral traffic claims against actual channel and source data", why: "Free, first-party data on where sessions actually originate", required: true, lastVerified: "2026-08" },
+          { toolName: "Google Sheets", role: "Build the annotated teardown response to send back to the contractor", why: "Free, easy to share internally", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable: "An annotated response to the contractor's report, listing each real methodology flaw with the lesson concept it violates and a corrected recommendation.",
+      sampleOutput:
+        "Go Digit Insurance, AI report review (excerpt)\n\nFLAW: 'Perplexity shows 0 citations' based on one Tuesday-morning check — re-run across a 2-week rolling window before concluding anything\nFLAW: Report ranks engines by raw citation count only — recalculate as normalized share against each engine's category baseline\nOK AS-IS: Report's plan to log sentiment (positive/neutral/negative) per citation going forward",
+      successCriteria: [
+        "Identifies all 5 answer-key flaws with the correct lesson concept cited",
+        "Does not flag any of the 4 distractors as genuine flaws",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "search-intent": [
+    {
+      id: "jet-com-intent-triage",
+      tier: "mini",
+      archetype: "audit",
+      title: "Triage the Query List: Sorting Jet.com's Content Backlog by Intent",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Given a mixed batch of 10 real-style search queries for Jet.com's bulk-goods marketplace, correctly classify each by intent and decide which pages get built this sprint.",
+      companyId: "jet-com",
+      scenario:
+        "You're a growth marketer on Jet.com's content team in 2016, days after a 'basket size' pricing engine launch. Leadership handed you a raw list of ten queries pulled from early keyword research and wants a one-sprint content plan, no page gets built until every query is sorted by intent.",
+      brief:
+        "Sort every query into one of the four intent types before recommending a single page. Use the SERP-detective method from the lesson, not a guess from the keyword text alone.",
+      mode: "diagnostic",
+      conceptsCovered: ["Classifying queries by the four intent types before recommending content"],
+      steps: [
+        {
+          stepId: "step-1-classify-queries",
+          concept: "Classifying queries by the four intent types before recommending content",
+          lessonAnchor: "the-4-types-of-search-intent",
+          theoryRecap:
+            "The lesson splits every query into informational, navigational, commercial, or transactional intent, and warns that guessing from the keyword text alone is Mistake 2, always check what's actually ranking.",
+          question:
+            "Given these 10 queries pulled for Jet.com's bulk household-goods vertical, which 3 are safe to build a dedicated landing page for this sprint, and which need a blog post or no page at all?",
+          toolName: "Google Sheets",
+          where: "A 10-row spreadsheet: query, your intent label, and a one-line reasoning note.",
+          procedure: [
+            "List all 10 queries in a spreadsheet with an empty 'Intent' column",
+            "Google each query and note what format dominates the top 5 results",
+            "Label each query informational, navigational, commercial, or transactional based on the SERP, not the wording",
+            "Flag only the commercial and transactional rows as landing-page candidates this sprint",
+          ],
+          outputSample:
+            "Query                                          Top SERP format              Intent\n" +
+            "'bulk toilet paper for office'                 Product/category pages       Transactional\n" +
+            "'how much toilet paper does an office need'    Blog/how-to articles         Informational\n" +
+            "'Jet.com bulk pricing login'                   Brand login page             Navigational\n" +
+            "'best bulk paper towel supplier 2016'          Comparison/review articles   Commercial\n" +
+            "'paper towel vs napkin absorbency'              Blog/how-to articles         Informational\n" +
+            "'buy bulk hand sanitizer wholesale'             Product/category pages       Transactional\n" +
+            "'Jet.com vs Amazon Business pricing'            Comparison articles          Commercial\n" +
+            "'office supply budget template'                Blog/downloadable template   Informational\n" +
+            "'Jet.com customer service'                      Brand support page           Navigational\n" +
+            "'wholesale hand sanitizer suppliers near me'    Product/category pages       Transactional\n\n" +
+            "Landing-page candidates this sprint: the 2 transactional + 1 commercial rows flagged above.",
+          healthy:
+            "The sprint plan builds 3 pages, 2 product/category pages for the transactional queries and 1 comparison page for the commercial query, and routes the 4 informational queries to the blog backlog instead.",
+          unhealthy:
+            "Building a landing page for 'how much toilet paper does an office need' because it has decent volume, when the SERP is entirely how-to articles.",
+          interpret:
+            "The SERP told you the format before you wrote a word: product-page SERPs mean build a page, article SERPs mean write a post. Guessing from the query text alone would have gotten the 'best bulk paper towel supplier' query wrong, it reads generic but the SERP is clearly commercial comparison content.",
+          soWhat: [
+            {
+              symptom: "The backlog mixes landing-page and blog-post ideas with no clear priority",
+              action: "Sort by intent first using the SERP, then assign format",
+              effort: "30 min",
+            },
+            {
+              symptom: "A stakeholder wants a landing page for a high-volume informational query",
+              action: "Show them the top-5 SERP screenshot, no product pages rank there, so a new one won't either",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Track the query list and intent labels",
+            why: "Free, and enough structure for a 10-row sort",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Ahrefs",
+            role: "Pull real search volume and see the SERP overview for each query in one screen",
+            why: "Speeds up the SERP check across a larger query list",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+      },
+      deliverable:
+        "A 10-row intent-sorted spreadsheet with a one-sprint build recommendation: which queries get a new page, which get a blog post, which get nothing yet.",
+      sampleOutput:
+        "Applying the same sort to ModCloth's early content queries (illustrative): 'vintage dress size chart' sorted informational (blog), 'ModCloth plus size dresses' sorted commercial (needs a category landing page), 'ModCloth return policy' sorted navigational (support page, no new content needed). Three queries, three different outputs, zero guessing from keyword length alone.",
+      successCriteria: [
+        "Correctly labels at least 8 of 10 queries by checking the SERP, not the keyword wording",
+        "Recommends new landing pages only for the transactional/commercial rows",
+        "Explicitly routes informational rows to the blog backlog instead of a landing page",
+      ],
+      portfolioReady: true,
+      stretch: "Re-run this sort against 10 real queries from your own site's Search Console export.",
+    },
+    {
+      id: "modcloth-serp-mismatch-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Why This Page Won't Rank: A ModCloth Content Teardown",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a specimen, a real-style page brief and its target query, spot which of the stated properties are genuine intent-mismatch defects versus reasonable choices, and explain why.",
+      companyId: "modcloth",
+      scenario:
+        "ModCloth's 'Be The Buyer' community-voting program generated a flood of content ideas. A junior writer at ModCloth drafted a brief for a new page targeting 'vintage-inspired work dresses' and is ready to publish. You're reviewing it before it goes live.",
+      brief:
+        "Read the specimen brief and the SERP context supplied with it, then separate genuine intent-mismatch defects from choices that are actually fine.",
+      mode: "teardown",
+      conceptsCovered: ["The 4 Types of Search Intent", "Why Intent Mismatch Is a Silent Killer"],
+      teardownItems: [
+        {
+          itemId: "modcloth-dress-brief-teardown",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "TARGET QUERY: 'vintage-inspired work dresses'\n\n" +
+            "SERP CHECK (top 5 results): 3 ecommerce category pages with filterable dress grids, prices, and 'add to bag' buttons. 1 'best vintage work dress brands 2026' roundup article. 1 Pinterest board.\n\n" +
+            "DRAFT PAGE BRIEF:\n" +
+            "- Format: a 2,200-word blog post titled 'The History of Vintage Workwear: From the 1950s to Today'\n" +
+            "- Includes: a timeline graphic, 3 designer interviews, zero product links\n" +
+            "- CTA: 'Subscribe to our style newsletter'\n" +
+            "- Target keyword repeated 6 times in the body text\n" +
+            "- Publish date: end of this week, before the roundup competitor's next content refresh",
+          prompt:
+            "Which elements of this brief are real intent-mismatch defects that will keep the page from ranking or converting, and which are reasonable choices that don't need to change?",
+          answerKey: [
+            {
+              defect: "The format is a history article when the SERP is dominated by shoppable category pages",
+              severity: "critical",
+              whyItMatters:
+                "The query has commercial/transactional intent (people want to shop, filter, and buy), not learn history. A history essay will pogo-stick even if it ranks briefly.",
+              lessonRef:
+                "The 4 Types of Search Intent: transactional and commercial intent expect a shoppable page, not an article",
+              owner: "you",
+            },
+            {
+              defect: "Zero product links on a page targeting a shopping query",
+              severity: "critical",
+              whyItMatters:
+                "Even if the page somehow ranks, it can't convert or satisfy the searcher's actual goal, which is finding dresses to buy, not reading about them.",
+              lessonRef:
+                "Why Intent Mismatch Is a Silent Killer: pogo-sticking signals Google your page didn't satisfy the query",
+              owner: "you",
+            },
+            {
+              defect: "The CTA pushes a newsletter signup instead of the product grid",
+              severity: "moderate",
+              whyItMatters:
+                "The CTA should match the query's intent. A shopping-intent visitor is closer to 'add to bag' than 'subscribe', the wrong CTA wastes intent-matched traffic if the format gets fixed but the CTA doesn't.",
+              lessonRef: "The Three Cs Framework (from Ahrefs): Content Type must match what's already ranking",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Keyword repeated 6 times in the body text, over-repetition is a minor readability issue, not the reason this page will fail; a correctly-formatted category page can repeat a keyword this often without penalty",
+            "Publishing before a competitor's content refresh, timing relative to a competitor doesn't affect whether the page matches search intent",
+            "Including 3 designer interviews, interviews aren't inherently wrong content, they're just misplaced on a page that should be a shoppable category grid instead of an essay",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Score each brief element as defect or non-issue with reasoning",
+            why: "Enough structure for a short review checklist",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A short review memo: which defects block this page from ranking or converting, which flagged items are actually fine, and the one format change that fixes the brief.",
+      sampleOutput:
+        "Review memo, illustrative:\nCRITICAL: Format is a history essay, target query is shopping intent. Rebuild as a filterable category page.\nCRITICAL: No product links on a shopping-intent page. Add direct add-to-bag links per dress.\nMODERATE: CTA pushes a newsletter, not a purchase. Swap to 'Shop the collection'.\nNOT A DEFECT: Keyword repeated 6 times, non-issue once the format itself is fixed.\nNOT A DEFECT: Publish timing vs. competitor refresh, irrelevant to intent match.",
+      successCriteria: [
+        "Correctly flags the format mismatch and missing product links as the critical defects",
+        "Does not flag the keyword-repetition or publish-timing items as real defects",
+        "Names the one format change (category/product grid) that fixes the brief",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "image-seo-visual-search": [
+    {
+      id: "trunk-club-image-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "Audit Trunk Club's Product Photos Before the Visual-Search Rollout",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a 6-image export of Trunk Club product photos with filenames, alt text, and format metadata, apply the lesson's image SEO checklist to flag which images are visual-search-ready and which need rework.",
+      companyId: "trunk-club",
+      scenario:
+        "Trunk Club is prepping its catalog for a Pinterest Lens shopping pilot. Before greenlighting the pilot, you've been handed a 6-image export from the menswear catalog to audit against the lesson's checklist.",
+      brief:
+        "Score each image against the checklist (filename, alt text, format, single-subject framing) and flag the ones that need rework before the pilot launches.",
+      mode: "diagnostic",
+      conceptsCovered: ["Auditing filenames, alt text, and framing against the image SEO checklist"],
+      steps: [
+        {
+          stepId: "step-1-image-audit",
+          concept: "Auditing filenames, alt text, and framing against the image SEO checklist",
+          lessonAnchor: "practical-image-optimization-checklist",
+          theoryRecap:
+            "The lesson's checklist calls for descriptive hyphenated filenames, alt text under 15 words describing content and purpose, WebP/AVIF formats, and clean single-subject framing, since visual search matches pixels, not metadata.",
+          question:
+            "Given this 6-image export, which images are ready for the Lens pilot, and which need rework before launch?",
+          toolName: "Google Sheets",
+          where: "A 6-row spreadsheet: filename, alt text, format, framing note, pass/fail.",
+          procedure: [
+            "List all 6 images with their current filename, alt text, and format",
+            "Score each against the checklist: descriptive filename, real alt text, WebP/AVIF, single-subject framing",
+            "Flag any image missing 2 or more checklist items as 'needs rework' before the pilot",
+            "Approve only images that pass on framing, since that's the one visual search can't compensate for",
+          ],
+          outputSample:
+            "File                                  Alt text                            Format   Framing              Verdict\n" +
+            "IMG_5510.jpg                          (none)                              JPEG     Cluttered desk bg   FAIL, rework\n" +
+            "navy-wool-blazer-front.webp           'Navy wool blazer, front view'      WebP     Neutral bg, single  PASS\n" +
+            "IMG_5512.jpg                          (none)                              JPEG     Model + 2 products  FAIL, rework\n" +
+            "brown-leather-belt-detail.webp        'Brown leather belt, buckle detail' WebP     Neutral bg, single  PASS\n" +
+            "grey-chinos-side-view.jpg             'Grey chinos'                       JPEG     Neutral bg, single  PARTIAL, convert format\n" +
+            "IMG_5515.jpg                          'image123'                          JPEG     Cluttered rack bg   FAIL, rework",
+          healthy:
+            "3 of 6 images are flagged for rework before the pilot (missing filenames, alt text, or clean framing), and the pilot launches on the 3 that pass.",
+          unhealthy:
+            "Approving all 6 images for the pilot because 'they'll get indexed eventually', shipping cluttered, unnamed photos into a visual-search pilot wastes the launch on images the matching model can't reliably use.",
+          interpret:
+            "Framing is the one item on this list a caption can't fix. A perfectly named, perfectly tagged photo of a cluttered rack still confuses the visual match model, filename and alt text only affect whether Google indexes the image at all.",
+          soWhat: [
+            {
+              symptom: "Half the catalog export has generic IMG_ filenames and no alt text",
+              action: "Batch-rename and add alt text before the pilot, not after",
+              effort: "half day",
+            },
+            {
+              symptom: "One image is well-tagged but shot with 2 products in frame",
+              action: "Reshoot single-subject before approving, tagging can't fix framing",
+              effort: "half day",
+            },
+          ],
+          owner: "either",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Track the audit scorecard across the image export",
+            why: "Free, enough structure for a 6-row scorecard",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Screaming Frog SEO Spider",
+            role: "Crawl the live catalog to pull every image's current alt text and filename at scale",
+            why: "Manual review doesn't scale past a handful of images",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+      },
+      deliverable:
+        "A scored 6-row audit sheet with a pass/rework verdict per image and the specific fix needed for each rework flag.",
+      sampleOutput:
+        "Applying the same scorecard to a Blue Bottle Coffee bag photo export (illustrative): 'ceramic-dripper-single-origin-pour.webp' passed on all 4 checklist items. 'IMG_9021.jpg' failed on filename, alt text, and format, all three fixed in one export pass before it went back on the sheet.",
+      successCriteria: [
+        "Flags at least the 3 images missing filename or alt text as needing rework",
+        "Does not approve the cluttered/multi-product framing images despite otherwise-good tagging",
+        "Names framing as the one defect tagging alone can't fix",
+      ],
+      portfolioReady: true,
+      stretch: "Run Screaming Frog against your own site's image directory and build the same scorecard from real data.",
+    },
+    {
+      id: "blue-bottle-visual-search-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Will This Product Shot Survive a Visual Search Match? A Blue Bottle Teardown",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Given a specimen describing one Blue Bottle Coffee product photo and its metadata, identify which properties are genuine visual-search blockers versus non-issues.",
+      companyId: "blue-bottle-coffee",
+      scenario:
+        "Blue Bottle Coffee wants a bag of its New Orleans-style iced coffee to show up when a customer points Google Lens at a bag they saw at a cafe. Before resubmitting the image sitemap, you're reviewing the current product photo.",
+      brief:
+        "Read the specimen's photo description and current metadata, then separate real visual-search blockers from properties that don't actually matter for the match.",
+      mode: "teardown",
+      conceptsCovered: ["How Visual Search Actually Works", "Practical Image Optimization Checklist"],
+      teardownItems: [
+        {
+          itemId: "blue-bottle-bag-photo-teardown",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "PRODUCT: Blue Bottle New Orleans Iced Coffee, 32oz bottle\n\n" +
+            "PHOTO DESCRIPTION: Shot on a wooden cafe table with a half-eaten croissant, a second unrelated coffee mug, and a hand holding a phone in the corner of the frame. Bottle is angled at 45 degrees, label partially in shadow. Warm Instagram-style filter applied.\n\n" +
+            "CURRENT METADATA:\n" +
+            "- Filename: blue-bottle-nola-iced-coffee-32oz.webp\n" +
+            "- Alt text: 'Blue Bottle New Orleans style iced coffee, 32oz glass bottle on a cafe table'\n" +
+            "- Format: WebP, 340KB\n" +
+            "- No structured data added yet",
+          prompt:
+            "Which properties of this photo will actually block a Google Lens or Pinterest Lens visual match, and which are fine as-is?",
+          answerKey: [
+            {
+              defect: "Multiple competing objects in frame (croissant, second mug, a hand and phone)",
+              severity: "critical",
+              whyItMatters:
+                "Visual search matches shapes and objects. A cluttered frame with 3-4 competing objects confuses the matching model far more reliably than a clean single-subject shot.",
+              lessonRef: "How Visual Search Actually Works: image quality and framing become ranking factors in their own right",
+              owner: "you",
+            },
+            {
+              defect: "Label partially in shadow at a steep angle",
+              severity: "moderate",
+              whyItMatters:
+                "The label and bottle shape are the two features a visual match model relies on most; obscuring the label reduces match confidence even if the object shape itself is recognizable.",
+              lessonRef: "How Visual Search Actually Works: clean, well-lit, single-subject product shots match far more reliably",
+              owner: "you",
+            },
+            {
+              defect: "No structured data added yet",
+              severity: "moderate",
+              whyItMatters:
+                "Without ImageObject/Product structured data, even a successful visual match can't be turned into a shoppable result with price and availability attached.",
+              lessonRef: "Practical Image Optimization Checklist: Add ImageObject or Product structured data",
+              owner: "developer",
+            },
+          ],
+          distractors: [
+            "The warm Instagram-style filter, a filter shifts color slightly but isn't the reason a visual match would fail, framing and occlusion matter far more than color grading",
+            "File size at 340KB, this is a reasonably compressed WebP file already and isn't a visual-search blocker; it's a Core Web Vitals concern, a separate issue from match accuracy",
+            "The filename and alt text, both are already descriptive and correctly formatted per the checklist, they help indexing but don't affect whether the pixel match itself succeeds",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "List each photo property and mark it as a visual-search blocker or a non-issue with reasoning",
+            why: "Enough structure for a short teardown checklist",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A short teardown memo separating real visual-search blockers from non-issues, with the one reshoot instruction that fixes the photo.",
+      sampleOutput:
+        "Teardown memo, illustrative:\nCRITICAL: cluttered frame, 3 competing objects. Reshoot single-subject on a neutral surface.\nMODERATE: label obscured by angle/shadow. Reshoot straight-on, label fully lit.\nMODERATE: no structured data. Add ImageObject before resubmitting sitemap.\nNOT A BLOCKER: Instagram filter, filename, alt text, and file size are all fine as-is.",
+      successCriteria: [
+        "Flags the cluttered frame as the critical defect",
+        "Does not flag filename, alt text, or file size as visual-search blockers",
+        "Correctly separates a metadata gap (structured data) from a pixel-level defect (framing)",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "video-seo": [
+    {
+      id: "video-seo-launch-draft-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Spot the Defects: A Launch Video's YouTube and TikTok Drafts",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Given an intern's YouTube upload draft and TikTok caption draft for the same product launch, apply the lesson's platform-specific ranking rules to find every metadata choice that will suppress search visibility, without flagging a stylistic choice as a defect just because it looks unusual.",
+      companyId: "mvmt-watches",
+      scenario:
+        "You're the video marketing coordinator at MVMT, the DTC watch brand, reviewing an intern's first two drafts, a YouTube upload and a TikTok caption, for the new chronograph launch before either goes live.",
+      brief:
+        "Two specimens: one YouTube upload record, one TikTok caption draft. Find the defects using the lesson's Holy Trinity, YouTube-Specific Optimisation, and TikTok Search Optimisation rules as your answer key, and don't invent a defect out of a choice that isn't actually one.",
+      mode: "teardown",
+      conceptsCovered: [
+        "YouTube Ranking Factors: The Holy Trinity",
+        "YouTube-Specific Optimisation",
+        "The Thumbnail-Title CTR Loop",
+        "TikTok Search Optimisation",
+      ],
+      teardownItems: [
+        {
+          itemId: "item-1-youtube-upload-draft",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "YouTube upload draft, submitted for review\n\n" +
+            "Title: 'Our New Chronograph Collection Is Here!!'\n\n" +
+            "Description (first 200 characters, shown before 'Show More'):\n" +
+            "'We are so excited to finally share this with you all. It has been a long journey working on this collection and we cannot wait for you to see everything that went into it. Follow us for more!'\n\n" +
+            "Tags: mvmt, watches, new collection, fashion, style, ootd, accessories\n\n" +
+            "Thumbnail: a wide product-catalog shot of six watches laid flat on a table, no text overlay, no face.\n\n" +
+            "Chapters: none added, despite the video walking through all six watches back-to-back.\n\n" +
+            "End screen: blank, the video just ends on the last product shot.",
+          prompt:
+            "Using the lesson's Holy Trinity and YouTube-Specific Optimisation rules, list every metadata choice here that will suppress this video's search visibility, ranked by how much visibility each one costs.",
+          answerKey: [
+            {
+              defect: "Title contains no search keyword, only a brand announcement",
+              severity: "critical",
+              whyItMatters:
+                "Someone searching 'chronograph watch review' or 'best chronograph watches 2026' will never see this video, because Title Keyword Match, the first of the Holy Trinity signals, never fires.",
+              lessonRef: "YouTube Ranking Factors: The Holy Trinity",
+              owner: "you",
+            },
+            {
+              defect: "Thumbnail has no face, no text overlay, and low contrast, a flat catalog shot",
+              severity: "critical",
+              whyItMatters:
+                "The thumbnail is one half of the CTR loop; a low-contrast catalog photo with nothing to read gives a cold searcher no reason to click over a competitor's video, and CTR from cold impressions is the number YouTube weighs most heavily.",
+              lessonRef: "The Thumbnail-Title CTR Loop",
+              owner: "you",
+            },
+            {
+              defect: "No chapters added despite covering six distinct products in one video",
+              severity: "moderate",
+              whyItMatters:
+                "Chapters lift average view duration 5-10%; with six products and zero chapters, a viewer who wants only the flagship model can't jump to it and is more likely to drop off before reaching it.",
+              lessonRef: "YouTube-Specific Optimisation",
+              owner: "you",
+            },
+            {
+              defect: "No end screen or card added at the close of the video",
+              severity: "cosmetic",
+              whyItMatters:
+                "End screens reduce drop-off at the exact moment viewers are most likely to leave; skipping this loses a low-cost chance to add watch time to the next video in the session.",
+              lessonRef: "YouTube-Specific Optimisation",
+              owner: "either",
+            },
+          ],
+          distractors: [
+            "The description opens with 'We are so excited to finally share this', an enthusiastic tone isn't the defect, plenty of high-ranking videos open warmly; the defect is that none of those 200 characters contain a keyword, link, or CTA.",
+            "Tags list 'mvmt' before 'watches', tag order inside a reasonable tag list isn't a ranking factor the lesson calls out; the real gaps are the title and thumbnail, not tag sequencing.",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-tiktok-caption-draft",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "TikTok draft, submitted for review\n\n" +
+            "Caption: 'ITS FINALLY HERE 🖤⌚️ #newdrop #mvmt #ootd #accessories'\n\n" +
+            "On-screen text: none, just b-roll of the watch spinning on a turntable.\n\n" +
+            "Voiceover/audio: trending sound, no spoken words.\n\n" +
+            "Hashtags: #newdrop #mvmt #ootd #accessories",
+          prompt:
+            "Using the lesson's TikTok Search Optimisation rules, name every choice here that will keep this video out of TikTok search results for someone actually looking for a chronograph watch.",
+          answerKey: [
+            {
+              defect: "Caption has no searchable keyword describing the product, only an announcement and hashtags",
+              severity: "critical",
+              whyItMatters:
+                "TikTok searches captions directly; someone searching 'chronograph watch' or 'mens watch new release' will never match this caption, no matter how strong the video itself is.",
+              lessonRef: "TikTok Search Optimisation",
+              owner: "you",
+            },
+            {
+              defect: "No on-screen text naming the product or its features",
+              severity: "moderate",
+              whyItMatters:
+                "On-screen text is searchable and keeps viewers engaged who are watching on mute; a spinning product shot with zero text gives TikTok's search index nothing to read.",
+              lessonRef: "TikTok Search Optimisation",
+              owner: "you",
+            },
+            {
+              defect: "Trending sound with no spoken words means voice-to-text captioning has nothing to transcribe",
+              severity: "moderate",
+              whyItMatters:
+                "TikTok auto-captions every video via voice-to-text and that transcript feeds search; a silent voiceover leaves this entire signal empty.",
+              lessonRef: "TikTok Search Optimisation",
+              owner: "either",
+            },
+          ],
+          distractors: [
+            "The caption uses emojis (🖤⌚️) next to the hashtags, emojis alongside real keywords aren't a defect on their own; the actual problem is that no keyword is present anywhere in the caption, emoji or not.",
+            "There are only 4 hashtags instead of a longer list, hashtag count isn't the issue the lesson flags, hashtags are explicitly secondary to caption and audio quality, and none of these 4 name the product either way.",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Log each defect found, its severity, and which lesson section it maps to",
+            why: "Free, no account friction, enough structure for a 2-item findings list",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+        paidUpgradeNote:
+          "This exercise needs nothing beyond a place to log findings, the free path is already complete.",
+      },
+      deliverable:
+        "A findings memo listing every defect, with severity, across both the YouTube and TikTok drafts, sent back to the intern before either goes live.",
+      sampleOutput:
+        "Birchbox findings memo (excerpt)\n\n" +
+        "YOUTUBE DRAFT\n" +
+        "  CRITICAL: Title 'Get Ready With Us: October Box!' has no keyword match for 'beauty subscription box'.\n" +
+        "  MODERATE: No chapters despite 8 products unboxed back-to-back.\n\n" +
+        "TIKTOK DRAFT\n" +
+        "  CRITICAL: Caption 'so excited for this box 🎀 #birchbox #beauty' names no product, no searchable term.\n" +
+        "  MODERATE: No on-screen text naming any of the 3 products shown on camera.",
+      successCriteria: [
+        "Correctly names the missing keyword as the highest-severity defect on both the YouTube title and the TikTok caption",
+        "Does not flag the emoji, tag order, or hashtag count as defects on their own",
+        "Assigns the correct lessonRef section to each defect found",
+      ],
+      portfolioReady: false,
+    },
+    {
+      id: "video-seo-upload-audit",
+      tier: "core",
+      archetype: "audit",
+      title: "The Diagnostic Pass: Auditing a Real YouTube Upload for Search Signals",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given a published video's title, chapter status, Search Console video-type data, and CTR breakdown, apply all four Holy Trinity and platform-optimisation checks from the lesson to decide what to fix first, and defend it with the specific number that justifies it.",
+      companyId: "birchbox",
+      scenario:
+        "You're the video content lead at Birchbox, the beauty-sample subscription pioneer, auditing the YouTube video embedded in the blog post 'What's In Our October Box' before green-lighting more video spend for November. The numbers below are a composite audit built for this exercise, not Birchbox's disclosed production metrics.",
+      brief:
+        "Four checks over one upload: does the title match a keyword anyone actually searches, do chapters exist on a multi-product video, does the blog embed actually reach Google's Video search results, and is the CTR even in a defensible range once you separate cold traffic from loyal subscribers.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Title Keyword Match",
+        "Chapters and Timestamps",
+        "Video Schema Markup for Google Search",
+        "Click-Through Rate (CTR)",
+      ],
+      steps: [
+        {
+          stepId: "step-1-title-keyword-match",
+          concept: "Title Keyword Match",
+          lessonAnchor: "youtube-ranking-factors-the-holy-trinity",
+          theoryRecap:
+            "The lesson's Holy Trinity opens with Title Keyword Match: a title containing the exact search term in its first 3 words ranks ahead of a better video that doesn't, because keyword match is the first relevance signal YouTube checks.",
+          question:
+            "The video is titled 'Our October Beauty Box Reveal!' and the team wants it to rank for 'best beauty subscription box'. Does this title pass the Title Keyword Match test, and if not, what's the fix?",
+          toolName: "Google Sheets",
+          where: "A two-column sheet: current title in column A, target keyword in column B.",
+          procedure: [
+            "Write the current title and the target keyword phrase side by side",
+            "Check whether the keyword phrase appears anywhere in the title",
+            "Check whether it appears specifically in the first 3 words",
+            "If it fails either check, draft a replacement using the lesson's '[Keyword], [benefit or curiosity gap]' format",
+          ],
+          outputSample:
+            "Current title: 'Our October Beauty Box Reveal!'\n" +
+            "Target keyword: 'best beauty subscription box'\n" +
+            "Keyword in title? No\n" +
+            "Keyword in first 3 words? No\n\n" +
+            "Revised: 'Best Beauty Subscription Box? We Unbox October's Box Live'",
+          healthy:
+            "The revised title puts the exact keyword phrase in the first few words, then adds the curiosity gap ('We Unbox... Live') after it.",
+          unhealthy:
+            "Publishing 'Our October Beauty Box Reveal!' and expecting search traffic, the phrase 'beauty box reveal' does not match how anyone actually searches for a subscription box.",
+          interpret:
+            "A title can be on-brand and still be search-invisible; brand voice and keyword match are different jobs, and keyword match has to win in the first 3 words or the video never surfaces for that query.",
+          soWhat: [
+            {
+              symptom: "Video gets views only from existing subscribers and near-zero from search",
+              action: "Rewrite the title with the keyword phrase in the first 3 words, keep the brand voice for the second half",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-chapters-signal",
+          concept: "Chapters and Timestamps",
+          lessonAnchor: "youtube-specific-optimisation",
+          theoryRecap:
+            "The lesson notes a video with chapters gets 5-10% higher average view duration, and the Arc'teryx case shows chapters as one input into a 386% jump in Google Search video views when paired with the rest of a metadata cleanup.",
+          question:
+            "This 9-minute unboxing video covers 8 products back-to-back with zero chapter markers, and average view duration sits at 34%. What's the fastest fix, and what result should the team expect, a plausible range, not a guarantee?",
+          toolName: "Google Sheets",
+          where: "Log the video's current AVD and product order, then draft chapter timestamps against it.",
+          procedure: [
+            "List each of the 8 products in the order they appear with a rough timestamp",
+            "Add those 8 timestamps as YouTube chapters",
+            "Record the current 34% average view duration as the baseline",
+            "Re-check average view duration after 2 weeks against the lesson's 5-10% lift range",
+          ],
+          outputSample:
+            "8 products, 0 chapters, AVD 34% (about 3 of 9 minutes)\n\n" +
+            "Proposed chapters:\n" +
+            "0:00 Intro\n0:42 Product 1, cleansing balm\n1:55 Product 2, vitamin C serum\n...\n7:40 Product 8, overnight mask\n8:20 Final thoughts",
+          healthy:
+            "Adding chapters lets a viewer who only wants Product 6 jump straight there instead of scrubbing the timeline or abandoning at minute 3.",
+          unhealthy:
+            "Leaving all 8 products in one unbroken block and attributing the 34% AVD to 'people not caring about beauty content', when the real issue is nobody can navigate to the part they want.",
+          interpret:
+            "34% AVD on a multi-product video is a structure problem before it's a content problem; chapters are a 30-minute fix the lesson's own benchmark makes worth doing before touching anything else.",
+          soWhat: [
+            {
+              symptom: "AVD sits well under 50% on any video covering more than one product or topic",
+              action: "Add chapter timestamps at every topic change before the next upload, retrofit the existing one too",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-schema-search-console",
+          concept: "Video Schema Markup for Google Search",
+          lessonAnchor: "video-schema-markup-for-google-search",
+          theoryRecap:
+            "VideoObject schema on a blog page that embeds a YouTube video makes that page eligible for a video rich result in Google web search, a separate placement from ranking inside YouTube itself. The Vidio case shows what's at stake done well: roughly 3x more video impressions and 2x more clicks within a year.",
+          question:
+            "The blog post 'What's In Our October Box' embeds this video but has no VideoObject schema. Filtering Search Console's Performance report to search type 'Video' for this URL, what do you expect to see, and what's the fix?",
+          toolName: "Google Search Console",
+          where: "Search Console > Performance > Search results, filter Search type to 'Video'.",
+          procedure: [
+            "Open the Performance report and filter Search type to Video",
+            "Check impressions and clicks for the blog URL specifically",
+            "Confirm via page source or a rich results test that no VideoObject block is present",
+            "Add the VideoObject block with name, description, thumbnailUrl, uploadDate, and duration",
+          ],
+          outputSample:
+            "Search type: Video, filtered to /blog/whats-in-our-october-box\n" +
+            "Impressions: 0\n  Clicks: 0\n" +
+            "(Compare: the same URL under search type 'Web' shows 1,240 impressions, 38 clicks)",
+          healthy:
+            "After adding VideoObject schema, the URL starts appearing in the Video search type report within a few weeks, a second placement for a query the page already ranks for on text alone.",
+          unhealthy:
+            "Assuming the embedded YouTube video is 'already doing SEO' for the blog page just because it's visible on the page, schema is what tells Google the video is there at all.",
+          interpret:
+            "Zero in the Video row while the Web row shows real traffic means the page ranks on text content alone and leaves an entire second placement unclaimed, a pure schema gap, not a content problem.",
+          soWhat: [
+            {
+              symptom: "Video search type shows 0 impressions on a page with an embedded video and real Web traffic",
+              action: "Add VideoObject schema with all 5 required fields to the page template",
+              effort: "dev ticket",
+            },
+          ],
+          owner: "developer",
+        },
+        {
+          stepId: "step-4-ctr-benchmark",
+          concept: "Click-Through Rate (CTR)",
+          lessonAnchor: "youtube-ranking-factors-the-holy-trinity",
+          theoryRecap:
+            "The lesson sets 6% CTR on real impressions as solid and flags 2% as a sign the title or thumbnail is weak. The 2026 refinement adds that cold, non-subscriber impressions matter more than subscriber CTR, since that's the audience YouTube is actually trying to grow.",
+          question:
+            "YouTube Studio shows 14,000 impressions and 310 clicks on this video; 11,000 of those impressions are non-subscribers. What's the blended CTR, what's the cold CTR, and does the blended number alone tell the full story?",
+          toolName: "Google Sheets",
+          where: "Two columns, impressions and clicks, split subscriber vs non-subscriber using the source data.",
+          procedure: [
+            "Divide total clicks by total impressions for the blended CTR",
+            "Estimate non-subscriber clicks and divide by non-subscriber impressions for the cold CTR",
+            "Compare both figures against the lesson's 6% solid / 2% weak benchmarks",
+            "Flag whichever number is weaker as the one to fix first",
+          ],
+          outputSample:
+            "Blended CTR: 310 / 14,000 = 2.2%\n" +
+            "Non-subscriber impressions: 11,000 (~230 of the 310 clicks estimated non-subscriber)\n" +
+            "Cold CTR: 230 / 11,000 = 2.1%",
+          healthy:
+            "A cold CTR near or above 6% means the title and thumbnail are doing their job on searchers who have never seen the channel before.",
+          unhealthy:
+            "Looking only at the blended 2.2% and concluding 'the channel is fine' because loyal subscribers click anyway, which masks a weak thumbnail that cold searchers are scrolling past.",
+          interpret:
+            "2.1% cold CTR sits squarely in the lesson's weak range, this is a thumbnail/title problem to fix before spending more on production, not a content problem.",
+          soWhat: [
+            {
+              symptom: "Cold CTR sits at or below 2% while blended CTR looks acceptable",
+              action: "A/B test 2 new thumbnail concepts (face plus text overlay) against the current flat-lay thumbnail",
+              effort: "half day",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Log title/keyword checks, chapter timestamps, and the CTR math",
+            why: "Free, no paid plan needed to run all four checks",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Search Console",
+            role: "Check the Video search type report for the blog page",
+            why: "Free, and the only tool that shows whether a page is actually eligible for the Video rich result",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Ahrefs",
+            role: "Pull search volume for keyword candidates before committing to a replacement title",
+            why: "Confirms the replacement keyword has real search demand instead of relying on intuition alone",
+            required: false,
+            fallback: "Free YouTube search-suggest and Google autocomplete for the same keyword phrase",
+            lastVerified: "2026-08",
+          },
+        ],
+        paidUpgradeNote:
+          "Every step above is completable with the two free tools alone; Ahrefs only adds keyword-volume confidence before the rewrite.",
+      },
+      deliverable:
+        "A 4-item audit memo (title, chapters, schema, CTR) with the specific fix and expected impact for each, ready to hand to whoever owns the next upload.",
+      sampleOutput:
+        "MVMT YouTube audit memo (excerpt)\n\n" +
+        "1. TITLE: 'New Drop: Chrono Series' has no keyword match for 'minimalist watches for men' (target). Fix: retitle to lead with the keyword.\n" +
+        "2. CHAPTERS: none on a 7-product video, AVD 29%. Fix: add 7 chapter timestamps.\n" +
+        "3. SCHEMA: blog embed shows 0 Video-type impressions in Search Console despite 900 Web impressions. Fix: add VideoObject schema.\n" +
+        "4. CTR: cold CTR 1.8% against a 6% benchmark. Fix: A/B test 2 thumbnails with a model wearing the watch.",
+      successCriteria: [
+        "Correctly identifies that the title fails Title Keyword Match and rewrites it in the lesson's [Keyword], [benefit] format",
+        "Flags the missing chapters as the fastest fix for the 34% AVD",
+        "Distinguishes the Video search type gap from the Web search type traffic in Search Console",
+        "Isolates cold-audience CTR from blended CTR before judging the thumbnail",
+      ],
+      portfolioReady: true,
+      stretch: "Run the same 4 checks on 3 more videos and build a one-page video-SEO health scorecard for the whole channel.",
+    },
+  ],
 };
