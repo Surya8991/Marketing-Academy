@@ -10,7 +10,9 @@
 >
 > **The three most urgent, all confirmed in source:** `/api/groq` is an unauthenticated LLM proxy on your API key with **zero callers**; cloud sync writes every user to **one global KV key**, exposing private notes; and three unguarded `localStorage` calls crash **every page** for anyone with site data blocked.
 >
-> Section 0 carries the full execution order, ten stages, ordered by live harm rather than by topic.
+> Section 0 carries the full execution order, eleven stages, ordered by live harm rather than by topic.
+>
+> 🔍 **This document has been audited against itself, see section 18.** Two agents found 62 findings including 8 P0; six factual errors are fixed inline and the rest are recorded. **Read 18.7 before starting Phase 1** — two P0 gaps would ship defects this plan exists to prevent, and the mode-distribution percentages are a 5% sample presented as measurement.
 >
 > Decisions locked by the owner:
 > - **Projects on every lesson, present and future. Track lessons first** (0.2)
@@ -41,7 +43,7 @@ Every known issue, in execution order. **Nothing below is implemented.** Roughly
 
 Ordering principle: **live harm to real users first**, then things that block other work, then everything else by leverage.
 
-> ⚠️ **Rule numbers inside this document are PROPOSED and currently collide with `AGENTS.md`.** This plan proposes rules numbered 20-28 and 41-48; `AGENTS.md` already uses **1 through 44** for real, different rules. Renumber every proposed rule from **45 upward** at merge time. The only ones already merged and therefore authoritative are `AGENTS.md` Rules **36-40** (integrity gates, quiz shuffling) and **41-44** (client bundles, localStorage, `sourceCategory`, API auth). Treat inline numbers below as draft labels, not references.
+> ⚠️ **Rule numbers inside this document are PROPOSED and currently collide with `AGENTS.md`.** This plan proposes rules numbered **1-19** (section 7), **20-22** (10.9), **23-28** (11.9), **29** (0.2), **40** (0.1c-i), **41-43** (13.8) and **44-48** (14.8), plus four unnumbered drafts in 17.7. `AGENTS.md` already uses **1 through 44** for real, different rules. **The section 7 block collides head-on with AGENTS.md 1-19, and those are the rules most often cited by number elsewhere in this document** (5, 13, 14, 15, 16, 18, 19), so a citation like "per Rule 15" is currently ambiguous between two different rules. Renumber every proposed rule from **45 upward** at merge time, and re-resolve every in-document rule citation. The only ones already merged and therefore authoritative are `AGENTS.md` Rules **36-40** (integrity gates, quiz shuffling) and **41-44** (client bundles, localStorage, `sourceCategory`, API auth). Treat inline numbers below as draft labels, not references.
 
 #### Stage 0, stop the bleeding. Ship first, independently
 
@@ -550,7 +552,7 @@ India feasibility is confirmed, there is a deep verified pool across eras and se
 | Freshworks | NASDAQ IPO | Sep 2021 | SaaS |
 | Delhivery | IPO | May 2022 | Logistics |
 | Honasa (Mamaearth) | IPO | Nov 2023 | D2C beauty |
-| Swiggy | IPO | Nov 2024 | ₹11,327 Cr raise, ~$11.3B |
+| Swiggy | IPO | Nov 2024 | ₹11,327 Cr raise (~$1.36B); ~$11.3B valuation |
 | Ola Electric | IPO | Aug 2024 | ₹6,146 Cr raise |
 | FirstCry | IPO | Aug 2024 | ₹4,194 Cr raise |
 | Lenskart | IPO | listed 10 Nov 2025 | ~₹70,000 Cr (~$8B) |
@@ -580,7 +582,9 @@ Indian figures are reported in ₹ crore/lakh, global ones in $. Mixing them sil
 
 Rule: **always give the native figure first, then a USD approximation and the as-of date**, e.g. `₹11,327 Cr (~$1.36B, Nov 2024)`. Never silently convert, and never present a stale conversion as current.
 
-Target: **~60 companies for the pilot, ~150 for full rollout**, spread so no company appears in more than ~4 projects.
+Target: **~60 companies for the pilot, ~150 by the end of Wave 2**.
+
+> ⚠️ **The "no company in more than 4 projects" cap does not survive full scope.** 150 companies × 4 = 600 projects, but the confirmed target is ~1,284 lesson projects plus ~90 big ones. Holding the cap at full scope needs **≥350 companies**, more than double the stated ceiling. Either the roster grows to ~350, or the cap relaxes to ~8 for Wave 3, or full scope is reconsidered. **This is an open decision, not a settled number**, and the Tier-1 validation assertion in 15.3 must not be written against 4 until it is resolved.
 
 ### 2.2 Project data, `src/lib/projects/[category].ts`
 
@@ -1179,12 +1183,12 @@ A first-class browse surface for the whole project database, modelled on the exi
 
 ### 5.1 The data problem this creates, and the fix
 
-Section 2.2 splits projects into per-category modules precisely so a lesson page never loads 3-4 MB. But a hub needs **every** project at once, which walks straight back into the bundle problem.
+Section 2.2 splits projects into per-category modules. ~~precisely so a lesson page never loads 3-4 MB~~ *(that premise was disproven, see 1.3 and 14.5.1)*. The real constraint is this: a hub needs **every** project at once, and unlike the lesson page the hub **is** a client component, so it has no server boundary protecting it.
 
 Fix: **a slim card projection, generated at build time.** The hub never loads project bodies.
 
 ```ts
-// src/lib/projects-index.ts , GENERATED, all projects, ~120 KB at 600 entries
+// src/lib/projects-index.ts , GENERATED, all projects. SIZE: see the correction below
 export type ProjectIndexEntry = {
   id: string;
   title: string;
@@ -1210,7 +1214,18 @@ export type ProjectIndexEntry = {
 };
 ```
 
-Heavy fields (`scenario`, `steps`, `sampleOutput`, `successCriteria`) stay in the per-category modules and load only on the lesson page. **~120 KB instead of ~3-4 MB**, and the index stays automatically in sync because it is generated, never hand-maintained.
+Heavy fields (`scenario`, `steps`, `sampleOutput`, `successCriteria`) stay in the per-category modules and load only on the lesson page. The index stays automatically in sync because it is generated, never hand-maintained.
+
+> ⚠️ **The original "~120 KB" estimate was wrong by ~3×, measured.** Building a realistic entry from the shape above:
+>
+> | Scope | Full facet index | Minimal index |
+> |---|---|---|
+> | 600 projects | 367 KB raw / ~81 KB gzip | 129 KB / ~28 KB |
+> | **1,284 (confirmed scope)** | **786 KB raw / ~173 KB gzip** | 276 KB / ~61 KB |
+>
+> For comparison, the `curriculum.ts` chunk that section 14.5 flags as **P0** is 148 KB raw / 48 KB gzip. At full scope this index would be **3.6× the payload already called a P0**, and even a stripped version is 1.3× it. It would also directly violate draft Rule 44 (never import a large data module into a `"use client"` file), which the hub is.
+>
+> **Therefore the index must not be a JS import at all.** Ship it as a **separately-fetched static JSON asset** (`public/projects-index.json`), fetched on the hub route after first paint and cached by the existing service worker. That keeps it out of the JS bundle entirely and makes its size largely irrelevant. Revised from the original design.
 
 ### 5.2 Search
 
@@ -2512,3 +2527,102 @@ Steps 1-6 are mechanical and belong in the data-validation suite (section 15), w
 - **Archetype is chosen by topic shape** from the 17.4 table, never rotated for variety alone. Rule 24 (draft) prevents repetition; this table decides correctness.
 - **Every track has a project budget.** Maximum 6 core projects, never two consecutive, and the advertised duration must state reading and practice separately.
 - **Any project whose tier departs from the 17.3 matrix must carry a written justification** in the data. Validation asserts the match and permits explicit overrides only.
+
+---
+
+## 18. Plan self-audit
+
+Two agents audited this document itself, one for **internal contradictions and unverified claims**, one for **missing specifications**. Both had to cite line numbers. **62 findings, 8 of them P0.** Six factual errors have been fixed inline; the rest are recorded here.
+
+This section exists because the document had reached 2,500 lines written incrementally, and later sections were silently invalidating earlier ones.
+
+### 18.1 Fixed inline
+
+| # | Error | Fix |
+|---|---|---|
+| **F2** | **Swiggy's figure was wrong by 8.3×.** The India table read "₹11,327 Cr raise, ~$11.3B", conflating the *raise* (₹11,327 Cr ≈ $1.36B) with the *valuation* ($11.3B). The two numbers coinciding at "11.3" made it look like a conversion. **Inside the section whose purpose is proving currency discipline**, and contradicting the plan's own Rule 6 example three lines away | Split into raise and valuation |
+| **F1** | **The "no company in more than 4 projects" cap is arithmetically impossible.** 150 companies × 4 = 600, against a confirmed scope of ~1,284. Holding it needs **≥350 companies**. The cap and the 150 ceiling were both set when the target was ~600 projects and never revisited after scope doubled. Load-bearing twice: a shipped validation assertion *and* the sole mitigation for the "formulaic projects" risk | Flagged as an open decision; validation must not be written against 4 until resolved |
+| **F16** | **Hub index sized for the wrong scope and underestimated 3×.** Measured: **786 KB raw / 173 KB gzip** at 1,284 projects, versus the claimed "~120 KB". That is **3.6× the `curriculum.ts` chunk section 14.5 calls a P0**, and it would violate draft Rule 44 in the hub, which is a client component | Redesigned: ship as a separately-fetched static JSON asset, not a JS import |
+| **F15** | The disproven "3-4 MB to the client" premise survived in 5.1 after being retracted in 1.3 and 14.5.1 | Struck, replaced with the real constraint |
+| **F4** | The rule-collision note was itself incomplete. The document also proposes **Rules 1-19** in section 7, colliding head-on with AGENTS.md 1-19, and those are the ones most cited by number | Inventory corrected |
+| **F3** | "Rule 24" denotes three different things, and section 17 twice cites it for archetype uniqueness, which is actually section 7's Rule 4 | Covered by the F4 fix; every in-document rule citation needs re-resolving at merge |
+
+### 18.2 P0, not yet fixed
+
+**GAP 1, project completion is ungated.** `ProjectCard` is specified as a "completion toggle" worth 40 XP, feeding `/portfolio` and certificates, with no gate. **This is bug 0.1 rebuilt on a new surface.** Stage 1 exists entirely because "completion state is written from several places and only one checks anything", and projects add a fourth writer with zero checks. The graded modes already have graders sitting unused: `teardown` has an `answerKey` with partial credit, `drill` has tolerance bands, `simulation` has a scored debrief.
+
+**Required:** completion for graded modes must come from the grader, not a tick. `build` and `diagnostic` are honestly self-assessed and therefore **must not feed certificates**. Add to section 16 as a blocking decision.
+
+**GAP 2, no verification standard for project facts.** `CaseCompany.exit.source` is REQUIRED. `ConceptScenario.source` is REQUIRED, "no source, no ship". `Project` and `ProjectStep` have **no `source` field at all**. An author generates the tool navigation path, the `outputSample` numbers and the `healthy`/`unhealthy` thresholds from memory, and all of it passes validation because every assertion in 15.3 is structural.
+
+Section 1.1 already proved this failure mode on companies and responded with a mandatory cited roster. The identical exposure on tool paths and thresholds is unaddressed. A hallucinated menu path is a broken project; **a hallucinated threshold is a learner making a wrong call at work**, which is the exact value the feature claims to add. `lastVerified` is author-set with no defined verifier and no staleness assertion.
+
+**Required:** a `source` field on any step asserting a threshold or a tool path, mandatory before ship, plus a staleness assertion in the validation suite.
+
+**F6, the mode distribution table double-counts ~56 lessons.** Section 11.7's percentages are stated as *after* converting failing builds to teardown. Section 0.2 applies those percentages to 642 and then annotates build with "~1 in 3 convert to teardown" and teardown with "plus the converted builds". Either build is 167 pre-conversion, or it is 167 post-conversion and both notes are false. The arithmetic sums to exactly 642, which makes it read as more settled than it is.
+
+**F7, section 11's percentages are n≈34 presented as a survey of 454.** Four agents "audited 454 lessons, sampling 34 in depth". The distribution table is built on the 34 and then applied to 642, using the vocabulary of measurement throughout: "audited", "surveyed", "Measured", "Revised distribution". The one hedge appears once, in an opening sentence, and is never carried forward.
+
+**Assessment: the document is not honest about this**, and it is conspicuously less honest here than elsewhere. Section 10.2 is literally titled "Measured, not assumed"; section 14.3 carries an explicit self-correction. Section 11 gets neither, despite a much longer inferential chain: 34 → 454 → 642. These numbers are load-bearing for the 642-lesson mode table, Rule 28, the decision to build the simulation engine for two categories only, the "~26% locked out" persona figure, and the deferral of `calibration`.
+
+**Required:** relabel every figure in 11.7 and 0.2 as an **estimate from a 5% sample**, and re-derive after Phase 1 with real data.
+
+**F10, three incompatible quiz counts.** "2,252 questions" appears six times. "8,341 option strings" implies 2,085. 642 lessons × 4 questions implies 2,568. The 8,341 figure is load-bearing for the claim that `analytics/consent-mode` is *the only* position-dependent option, which is what makes Rule 40's shuffle a one-line unblock. **If the option scan missed ~670 options, that result is not established.** Re-run the scan before relying on it.
+
+**F11, the `Project` type never gained four of the seven modes.** It defines `steps?` (diagnostic + build) and `stages?` (simulation). `teardown` has a wholly different payload (`TeardownItem[]`) defined 600 lines later; `drill` needs parameterised scenarios; `calibration` needs stored predictions. The validation rule then says "simulation implies stages, other modes the reverse", forcing four modes into a shape that cannot hold them.
+
+### 18.3 P1, recorded
+
+| # | Finding |
+|---|---|
+| **GAP 3** | No versioning or migration for per-step progress. Content edits are certain (12.5 refreshes 45 lessons, 12.6 deletes one side of 8 slug pairs, 17.5 demotes core→mini), and saved progress would silently mis-map. The plan diagnosed this exact class for quizzes and did not apply the lesson |
+| **GAP 4** | ~10 new interactive components with **no accessibility requirements**. The implementer's nearest precedent is `Quiz.tsx`, which section 14.4 documents as having P0 focus and announcement defects. Fixing 3 components while shipping 10 that repeat them is net-negative |
+| **GAP 5** | New storage specified only as a filename. A key not registered in `SettingsClient`'s `EXPORT_KEYS` is **silently dropped from Export/Import and survives Reset**, reproducing bug 2.7 on day one in the same file being fixed |
+| **GAP 6** | No instrumentation. Zero event definitions for a 1.5M-word commitment whose only quality signal is a review of two hand-picked artefacts. Compounded by S5: the effective CSP likely blocks PostHog in production already |
+| **GAP 7** | Pilot failure has no rollback. Grep for "feature flag", "kill switch", "revert" returns nothing. The pilot ships to production with XP awarded, so a failed gate is permanent |
+| **F9** | The "near 35 hours" track budget does not follow from its own cap. Recomputing with the document's own inputs: 6 core (18h) + 9 mini (6.75h) + 4 big (32h) = **56.75h**. It also contradicts the "60+ hours practice" display string recommended in the same section. Both per-project durations are invented constants appearing nowhere else |
+| **F14** | `no-project` is defined two incompatible ways, and the near-term count is **~64, not ~19**, because the ~45 `calibration` lessons are deferred to Phase 3 and have nothing in the interim |
+| **F18** | Personas are framed as "derived from evidence, not invented". The artefacts cited exist; the five named individuals, their budgets and the 30-cell coverage matrix are asserted. Three shipped rules rest on this, including "Tom is the acceptance test" |
+| **F19** | Section 1.1's "half the obvious picks are wrong" is **n=4**, described as "evidence-backed, not opinion". The conclusion is probably right; the framing oversells a sample of four |
+| **F13** | The pilot assigns `fundamentals/marketing-math` to `diagnostic` **and** `drill` in the same table, and 11.4 says diagnostic is structurally impossible for that lesson class |
+| **F12** | Stage numbers collide with section numbers. "0.1", "0.2", "2.4", "5.1" and "9.3" each denote two different things, and the document cross-references both namespaces |
+
+### 18.4 P2 and P3, summarised
+
+Stale scope survivals: "2-3 projects per lesson" in 3 places after the decision to ship 2; "240 lesson `.mdx` files" in 3 places after scope moved to 642; "8 archetypes" against 9; "11 filters" against 15 listed; "ten stages" against 11; "sections 1-12 are reference material" when the document runs to 17; the risk register still sized at 550k words against 1.5M.
+
+Arithmetic: wave columns sum to 661 against a stated 642; centrality bands sum to 662 because 20 foundational slugs are counted in both Hub and Leaf; Phase 2 says 222/~444 while Stage 8.3 says 240/~480; the ~90 big projects are excluded from the "~1,284 total".
+
+Cross-references: five pointers to "2.3" that should be 2.4, three to "11.6" that should be 2.3c. The `markComplete()` call-site count is given as both two and three in the same document, and the grep assertion in 15.4 is specified against it.
+
+Also flagged: ad-budget minimums stated five ways, all attributed to "the lesson"; the "Most completed" badge has no data source and re-commits the fake-"Popular" dishonesty Stage 5.5 removes; `no-project` lessons would render a TOC link to a nonexistent anchor; simulation stage graphs have no reachability or termination validation; specimen provenance is unspecified so a real client export could land in a public directory; multilingual is absent for projects despite Rule 15 and persona P1.
+
+### 18.5 What the auditors found consistent
+
+Worth recording, since it says which parts to trust:
+
+- **Section 17.1's level data is the most rigorously constructed in the document.** 127+315+200 = 642; the in-track counts reproduce the independently derived 363 track references exactly.
+- **Section 10.2's audit numbers are internally airtight**, every derived figure checks out, and it states its method.
+- **Section 14.3's self-correction** (655 vs 642, "the magnitudes were wrong by 49") is named as the model the rest of the document should follow.
+- **Bundle measurements agree to the byte** between Stage 3 and section 14.5.
+- **Section 12 is the best-disciplined section**, because it labels its own limits and records false positives to prevent re-derivation.
+
+### 18.6 The pattern
+
+Three failure modes recur, and all three are the same mistake:
+
+1. **Estimates written in the vocabulary of measurement.** F7 and F19 both assert conclusions from small samples using words like "found" and "evidence-backed".
+2. **Numbers set early and never revisited after scope changed.** F1, F16, F22, F25, F26 all date from when the target was ~600 projects.
+3. **Lessons diagnosed and then not applied to new work.** GAP 1 rebuilds bug 0.1; GAP 3 repeats the positional-progress bug the plan documents for quizzes; GAP 4 would reproduce the `Quiz.tsx` a11y defects in ten new components.
+
+The third is the most serious, because the document's whole value is that it diagnosed those things.
+
+### 18.7 Required before Phase 1
+
+- Resolve GAP 1 and GAP 2. Both are P0 and both would ship a defect the plan exists to prevent.
+- Relabel section 11.7 and 0.2 as sample-derived estimates.
+- Re-run the 8,341-option scan (F10) before relying on the one-blocker result.
+- Extend the `Project` type to cover all seven modes (F11).
+- Resolve the company-quota decision (F1).
+- Add rollback for the pilot (GAP 7).
+- Reconcile the stage/section numbering collision (F12) before anyone follows a cross-reference.
