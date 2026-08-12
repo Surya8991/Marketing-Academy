@@ -899,4 +899,358 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Take one real underperforming page from your own site or a client's, and run this exact 5-layer rebuild against its real current title, URL, H1, meta description, and internal links.",
     },
   ],
+  "mobile-first-indexing": [
+    {
+      id: "mobile-first-indexing-parity-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Mobile-First Content Parity Teardown: Care.com Profile Templates",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective: "Identify and flag critical mobile-first indexing and content parity violations between desktop and mobile templates of caregiver profiles.",
+      companyId: "care-com",
+      scenario: "You are auditing the profile templates for Care.com, the online family care marketplace. Since Google transitioned to a global mobile-first index, any information missing from your mobile template is invisible to search engine crawlers. Following a template update, caregiver profile pages experienced a 15% drop in organic visibility. You need to inspect two mobile template specimens against their desktop equivalents to isolate the defects.",
+      brief: "Analyze two specimens of mobile code/interface designs against their desktop baselines. Identify critical indexing and parity defects (such as dropped navigation nodes and missing schema markup) while avoiding false flags for normal responsive design behaviors.",
+      mode: "teardown",
+      conceptsCovered: [
+        "The Content Parity Problem",
+        "Why Marketers Should Care, Not Just Developers"
+      ],
+      teardownItems: [
+        {
+          itemId: "caregiver-profile-schema-parity",
+          specimenSource: "synthetic-realistic",
+          prompt: "Compare the desktop caregiver profile page template with the mobile template specimen. The desktop page lists full credentials, badges, reviews, and embeds a JSON-LD structured data block. The mobile version features a simplified layout.",
+          specimen:
+            "=== DESKTOP TEMPLATE HTML ===\n" +
+            "<div id=\"caregiver-header\">\n" +
+            "  <h1>Sarah M. - Certified Child Care Provider</h1>\n" +
+            "  <div class=\"badges\">\n" +
+            "    <span class=\"badge-verified\">Background Checked</span>\n" +
+            "    <span class=\"badge-cpr\">CPR Certified</span>\n" +
+            "  </div>\n" +
+            "</div>\n" +
+            "<script type=\"application/ld+json\">\n" +
+            "{\n" +
+            "  \"@context\": \"https://schema.org\",\n" +
+            "  \"@type\": \"LocalBusiness\",\n" +
+            "  \"name\": \"Sarah M. Child Care\",\n" +
+            "  \"description\": \"Certified child care provider with 5 years experience.\",\n" +
+            "  \"aggregateRating\": {\n" +
+            "    \"@type\": \"AggregateRating\",\n" +
+            "    \"ratingValue\": \"4.9\",\n" +
+            "    \"reviewCount\": \"24\"\n" +
+            "  }\n" +
+            "}\n" +
+            "</script>\n\n" +
+            "=== MOBILE TEMPLATE HTML ===\n" +
+            "<div id=\"caregiver-header\">\n" +
+            "  <h1>Sarah M.</h1>\n" +
+            "  <!-- Badges and schema omitted to improve mobile load speed -->\n" +
+            "</div>",
+          answerKey: [
+            {
+              defect: "Omission of structured data (JSON-LD) schema from the mobile template",
+              severity: "critical",
+              whyItMatters: "Because Google uses the mobile page for indexing and ranking, structured data missing from the mobile version is ignored, causing Care.com caregiver profiles to lose review stars and local rich snippets in search results.",
+              lessonRef: "The Content Parity Problem: Structured data added only to desktop templates",
+              owner: "developer"
+            },
+            {
+              defect: "Removal of credentials and safety badges ('Background Checked', 'CPR Certified') from the mobile HTML",
+              severity: "moderate",
+              whyItMatters: "Important topical trust signals and keyword-rich terms ('CPR Certified') present in the desktop HTML are completely missing from the mobile page's DOM, meaning Google cannot see or use these signals for ranking.",
+              lessonRef: "The Content Parity Problem: Not a summary. The same text, the same images.",
+              owner: "you"
+            }
+          ],
+          distractors: [
+            "The caregiver's profile photo uses a different aspect ratio (1:1 square on mobile, 4:3 landscape on desktop) via CSS.",
+            "Reviews are collapsed behind an accordion toggle on mobile, requiring a user tap to display visually."
+          ],
+          partialCredit: true
+        },
+        {
+          itemId: "caregiver-navigation-parity",
+          specimenSource: "synthetic-realistic",
+          prompt: "Compare the primary navigation links between the desktop navigation bar and the mobile drawer menu. The desktop layout lists links to child care, senior care, pet care, housekeeping, tutoring, and special needs. The mobile menu uses a hamburger toggle.",
+          specimen:
+            "=== DESKTOP NAVIGATION HTML ===\n" +
+            "<nav id=\"main-nav\">\n" +
+            "  <a href=\"/child-care\">Child Care</a>\n" +
+            "  <a href=\"/senior-care\">Senior Care</a>\n" +
+            "  <a href=\"/pet-care\">Pet Care</a>\n" +
+            "  <a href=\"/housekeeping\">Housekeeping</a>\n" +
+            "  <a href=\"/tutoring\">Tutoring</a>\n" +
+            "  <a href=\"/special-needs\">Special Needs</a>\n" +
+            "</nav>\n\n" +
+            "=== MOBILE DRAWER MENU HTML ===\n" +
+            "<div id=\"mobile-menu\" style=\"display: none;\">\n" +
+            "  <a href=\"/child-care\">Child Care</a>\n" +
+            "  <a href=\"/senior-care\">Senior Care</a>\n" +
+            "  <a href=\"/pet-care\">Pet Care</a>\n" +
+            "  <!-- Housekeeping, tutoring, and special needs pages removed from DOM navigation list to save vertical space -->\n" +
+            "</div>",
+          answerKey: [
+            {
+              defect: "Omission of primary categories (Housekeeping, Tutoring, Special Needs) from the mobile menu HTML",
+              severity: "critical",
+              whyItMatters: "When links are dropped from the mobile navigation DOM, the mobile crawler cannot discover or pass page rank (link equity) to those subpages. This will severely tank the crawl frequency and ranking authority of the omitted categories.",
+              lessonRef: "The Content Parity Problem: Simplified mobile navigation that drops links to save space",
+              owner: "you"
+            }
+          ],
+          distractors: [
+            "The mobile menu container uses a style of 'display: none' by default and is only toggled visible on click.",
+            "The mobile navigation items use larger tap targets (48px) than the desktop version (32px) to prevent usability errors."
+          ],
+          partialCredit: true
+        }
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Search Console",
+            role: "Inspect rendered HTML via URL Inspection",
+            why: "Allows checking what Google actually indexes from mobile templates",
+            required: false,
+            lastVerified: "2026-08-12"
+          }
+        ],
+        paid: [],
+        paidUpgradeNote:
+          "This teardown needs no paid tool at all, it's a structural read of two HTML specimens. GSC is free and only worth opening to confirm a finding against a real site."
+      },
+      deliverable: "A completed audit sheet marking all content parity defects and structured data violations between the mobile and desktop templates.",
+      sampleOutput:
+        "=== MOBILE PARITY AUDIT: AIRBNB PROPERTY LISTINGS ===\n" +
+        "Item Audited: Airbnb property details template (/rooms/12345)\n\n" +
+        "DEFECT 1: MISSING STRUCTURED DATA\n" +
+        "- Severity: Critical\n" +
+        "- Finding: Product and AggregateRating schema are absent in the mobile HTML, though loaded via client-side JavaScript on desktop.\n" +
+        "- Impact: Missing rich snippets (rating stars, price badges) in mobile search results.\n" +
+        "- Action: Render the JSON-LD schema blocks directly in the server-response mobile HTML template.\n\n" +
+        "DEFECT 2: SIMPLIFIED NAVIGATION DROPPING LINKS\n" +
+        "- Severity: Critical\n" +
+        "- Finding: The mobile site footer omits the 'Explore Nearby Properties' list (12 internal links to local search pages) that exists on desktop.\n" +
+        "- Impact: Drops crawl depth and page authority of local property search pages.\n" +
+        "- Action: Keep links in the mobile DOM; style them inside a collapsible accordion if they clutter the view.\n\n" +
+        "NON-DEFECT 1 (DISTRACTOR CHECK)\n" +
+        "- Finding: The 'House Rules' text block is hidden behind a read-more toggle on mobile.\n" +
+        "- Analysis: Pass. The full text is present in the mobile HTML DOM, merely styled as hidden until clicked. Googlebot can read it.",
+      successCriteria: [
+        "Identify that structured data must exist on both desktop and mobile templates.",
+        "Spot that dropping internal links from mobile menus reduces search crawl efficiency.",
+        "Recognize that visually hidden text (like read-more toggles) is still indexed by Google if it exists in the HTML."
+      ],
+      portfolioReady: true
+    },
+    {
+      id: "mobile-first-indexing-gsc-audit",
+      tier: "core",
+      archetype: "audit",
+      title: "Mobile-First Indexing Audit: Diagnosing Chewy's Redesign Regression",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective: "Diagnose a 22% organic traffic drop for Chewy following a responsive site redesign. Run a Search Console indexing audit, a content parity check, and structured data validation to isolate crawling and indexing bottlenecks.",
+      companyId: "chewy",
+      scenario: "You are the Senior Technical SEO specialist at Chewy (CHWY). Shortly after launching a major site-wide responsive redesign aimed at improving load speeds, organic traffic to Chewy's core product category pages dropped by 22%. Search Console logs indicate that Google transitioned the crawl agent to mobile-first indexing. You have been handed a Search Console indexing export and the HTML source of a sample product page from both desktop and mobile layouts. You must identify why organic rankings collapsed.",
+      brief: "Analyze Chewy's Google Search Console page indexing data and compare the desktop vs. mobile HTML source code. Identify the parity and indexing defects that led to ranking losses, verify schema validation failures, and write engineering tickets to resolve them.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "How to Check Your Own Site",
+        "The Content Parity Problem",
+        "Why Marketers Should Care, Not Just Developers"
+      ],
+      steps: [
+        {
+          stepId: "gsc-page-indexing-analysis",
+          concept: "How to Check Your Own Site",
+          lessonAnchor: "how-to-check-your-own-site",
+          theoryRecap: "Google Search Console's page indexing reports track why pages fail to enter the index. Under mobile-first indexing, Google crawls using the mobile user-agent. If your mobile user-agent is blocked by robots.txt rules, or if mobile parameters create duplicate canonical confusion, pages will drop out of Google's index entirely.",
+          question: "Review the Search Console page indexing export data (gsc-indexing-export.csv). Isolate the two primary reasons that explain why pages were blocked from indexing after the redesign, citing specific numbers for each, and explain their impact on the mobile crawler.",
+          toolName: "Google Search Console",
+          where: "Open the Indexing > Pages report in Google Search Console, or load the exported 'gsc-indexing-export.csv' file in a spreadsheet.",
+          procedure: [
+            "Open the exported gsc-indexing-export.csv file in a spreadsheet.",
+            "Examine the 'reason' column and note the page counts for 'Blocked by robots.txt' and 'Duplicate, no user-selected canonical'.",
+            "Identify if the 412 pages blocked by robots.txt are due to mobile crawler rules and trace if they overlap with high-value category pages.",
+            "Examine the 182 canonical duplication errors to see if mobile tracking parameters on the links are causing index fragmentation."
+          ],
+          outputSample:
+            "Google Search Console Indexing Audit - Chewy\n" +
+            "------------------------------------------\n" +
+            "Total Pages Audited: 5,280\n" +
+            "Indexed: 3,891\n" +
+            "Not Indexed: 1,389\n\n" +
+            "Top Issues:\n" +
+            "1. Blocked by robots.txt: 412 pages\n" +
+            "   - Cause: Legacy 'Disallow: /m/*' and mobile-specific user-agent rules block mobile crawlers from product category pages.\n" +
+            "2. Duplicate, no user-selected canonical: 182 pages\n" +
+            "   - Cause: Navigation links on mobile insert '?ref=mobile-nav' dynamically, but these lack self-referential canonical tags.\n" +
+            "3. Crawled - currently not indexed: 690 pages\n" +
+            "   - Cause: Product tabs are loaded via client-side JavaScript on mobile but server-rendered on desktop.",
+          healthy: "All high-value search pages are 'Indexed'. No robots.txt directives restrict Googlebot-Mobile from accessing resource directories. Canonical URLs are identical and self-referential on both mobile and desktop views.",
+          unhealthy: "412 pages are blocked due to legacy robots.txt rules that restrict mobile user-agents, and 182 pages are flagged as duplicate because mobile-specific parameters confuse the canonical definition.",
+          interpret: "Under mobile-first indexing, robots.txt blocks targeting the mobile user-agent are critical errors. If Googlebot-Mobile is disallowed from crawling a directory, that content is permanently excluded from indexation, even if desktop search crawlers are allowed.",
+          soWhat: [
+            {
+              symptom: "412 product category pages are excluded from index due to robots.txt blocks on mobile agents",
+              action: "Update robots.txt to remove legacy mobile-agent exclusions and allow Googlebot to crawl all user-facing directories",
+              effort: "5 min"
+            },
+            {
+              symptom: "182 pages are flagged as duplicate because mobile navigation appends query parameters without canonical targets",
+              action: "Add a self-referential canonical tag on all product detail page variations to resolve parameter duplicates",
+              effort: "30 min"
+            }
+          ],
+          owner: "you"
+        },
+        {
+          stepId: "mobile-desktop-html-comparison",
+          concept: "The Content Parity Problem",
+          lessonAnchor: "the-content-parity-problem",
+          theoryRecap: "Google ranks and indexes based on the mobile page. If your mobile page drops copy or links that exist on desktop, those items are invisible to Google. Common parity errors include removing navigation links or truncating description copy for mobile readability.",
+          question: "Compare the HTML source code of the desktop page against the mobile viewport layout. Identify which content components and internal links were removed from the mobile DOM and calculate the word count discrepancy.",
+          toolName: "Screaming Frog SEO Spider",
+          where: "Run a comparative crawl on Screaming Frog or inspect the page source in your browser using the Chrome user-agent override for Googlebot-Mobile.",
+          procedure: [
+            "Crawl the URL using Screaming Frog, setting the user-agent to Googlebot-Desktop and then Googlebot-Mobile.",
+            "Compare the word counts for the '#product-info' container in both crawls.",
+            "Examine the list of outlinks from the main header and footer navigation on the mobile DOM compared to desktop.",
+            "Identify any missing blocks of text or navigation links on the mobile version."
+          ],
+          outputSample:
+            "HTML Parity Comparison: Chewy Dog Food Page\n" +
+            "------------------------------------------\n" +
+            "DESKTOP CONTENT METRICS:\n" +
+            "  - Word Count: 420 words (includes full feeding guide, nutritional chart, ingredients)\n" +
+            "  - Internal Outlinks: 48 links (including sub-categories: Dry Food, Wet Food, Treats)\n\n" +
+            "MOBILE CONTENT METRICS:\n" +
+            "  - Word Count: 120 words (description is truncated; displays a 'Read details on desktop' fallback)\n" +
+            "  - Internal Outlinks: 12 links (hamburger menu drops 36 sub-category links from mobile DOM)\n\n" +
+            "PARITY GAP ANALYSIS:\n" +
+            "  - Missing words: 300 words (71% text reduction)\n" +
+            "  - Missing links: 36 internal links (75% navigation reduction)",
+          healthy: "Text, description modules, and internal links match exactly in the HTML of both desktop and mobile page layouts.",
+          unhealthy: "The mobile layout removes 300 words of description and drops 36 internal links from the DOM, causing search engines to miss these keywords and crawl pathways.",
+          interpret: "Google's indexing engine reads ONLY the mobile HTML. If you truncate descriptions or drop category links on mobile to save layout space, search engines cannot index those terms or pass link equity to those category targets.",
+          soWhat: [
+            {
+              symptom: "300 words of keyword-rich product description are missing from the mobile template DOM",
+              action: "Add the full product description to the mobile HTML; use a CSS-based visual expander to keep the UI clean if needed",
+              effort: "30 min"
+            },
+            {
+              symptom: "36 sub-category links are omitted from the mobile hamburger menu HTML",
+              action: "Ensure the mobile navigation template renders all 36 sub-category links in the DOM, even if hidden visually before tap",
+              effort: "half day"
+            }
+          ],
+          owner: "you"
+        },
+        {
+          stepId: "mobile-schema-validation",
+          concept: "How to Check Your Own Site",
+          lessonAnchor: "how-to-check-your-own-site",
+          theoryRecap: "Structured data markup (schema) must exist on both desktop and mobile templates. If schema is only injected on desktop, Google will fail to read it on mobile-first indexing, stripping star ratings, reviews, and prices from search engine results pages.",
+          question: "Validate the structured data on Chewy's mobile version. Identify which schema properties are missing from the mobile HTML block that exist in the desktop version.",
+          toolName: "Google Search Console",
+          where: "Open the Rich Results Test tool (integrated into GSC URL Inspection), enter the mobile URL, and verify the output.",
+          procedure: [
+            "Input the product URL into Google's Rich Results Test tool, selecting the mobile user-agent.",
+            "Compare the identified schema types and properties against the desktop validator output.",
+            "Flag any schema blocks that are missing or incomplete on the mobile view."
+          ],
+          outputSample:
+            "Rich Results Audit: Chewy Product Page\n" +
+            "-------------------------------------\n" +
+            "DESKTOP SCHEMA RESULTS:\n" +
+            "  - Product (Name, Brand, SKU, Image)\n" +
+            "  - Offer (Price: $24.99, Currency: USD, Availability: InStock)\n" +
+            "  - AggregateRating (RatingValue: 4.8, ReviewCount: 312)\n\n" +
+            "MOBILE SCHEMA RESULTS:\n" +
+            "  - Product (Name, Brand)\n" +
+            "  - [MISSING] Offer schema block\n" +
+            "  - [MISSING] AggregateRating schema block\n\n" +
+            "Parity Status: FAILED. Prices and reviews are missing from the mobile schema payload.",
+          healthy: "Identical JSON-LD schema blocks (Product, Offer, and AggregateRating) are present in the HTML header of both desktop and mobile views.",
+          unhealthy: "Offer and AggregateRating schema blocks are omitted from the mobile template, stripping stars and pricing from mobile search results.",
+          interpret: "Because Google indexing is mobile-first, any schema missing from the mobile HTML is ignored. Rich snippets on search results pages will be stripped if rating and offer schemas are absent on mobile.",
+          soWhat: [
+            {
+              symptom: "Stars and price details disappeared from mobile search result snippets",
+              action: "Modify the template file to inject complete Offer and AggregateRating schema blocks into the mobile head HTML",
+              effort: "dev ticket"
+            }
+          ],
+          owner: "developer"
+        }
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Search Console",
+            role: "Run URL Inspection and Rich Results verification tests",
+            why: "Provides direct diagnostic confirmation of how Google's mobile crawler parses the page",
+            required: false,
+            lastVerified: "2026-08-12"
+          },
+          {
+            toolName: "Screaming Frog SEO Spider",
+            role: "Perform site-wide crawls emulating desktop vs. mobile user-agents",
+            why: "Quickly extracts content word counts and navigation links across both templates in bulk",
+            required: false,
+            lastVerified: "2026-08-12"
+          }
+        ],
+        paid: [
+          {
+            toolName: "Ahrefs",
+            role: "Monitor organic traffic trends and keyword rankings",
+            why: "Useful to correlate index parity fixes with recovery in organic traffic over time",
+            required: false,
+            lastVerified: "2026-08-12"
+          }
+        ],
+        paidUpgradeNote:
+          "This audit is complete on the free path: the GSC export and a Screaming Frog crawl are both free-tier. Ahrefs is worth it only for ongoing trend-monitoring after the fix ships, never for finishing the audit itself."
+      },
+      datasetUrl: "/project-data/gsc-indexing-export.csv",
+      deliverable: "A technical specification document for developers listing all mobile-first content parity bugs and GSC indexing problems, along with the corrected code snippets.",
+      sampleOutput:
+        "=== MOBILE-FIRST SEO FIX SPECIFICATION: SQUARESPACE ===\n" +
+        "Audited Domain: Squarespace.com Portfolio Pages\n" +
+        "Issue: Redesign dropped portfolio metadata and schema on mobile.\n\n" +
+        "TICKET 1: RESTORE CONTENT PARITY IN HTML DESCRIPTION\n" +
+        "- Problem: Desktop page description has 350 words of copy describing design features. Mobile page drops this to a 50-word summary to make room for images.\n" +
+        "- Fix: Inject the full 350-word description into the mobile HTML DOM. Wrap it in a collapsible container if visual space is needed:\n" +
+        "  <div class=\"mobile-accordion-content\" style=\"display:none;\">[Full Description]</div>\n" +
+        "- Priority: High\n\n" +
+        "TICKET 2: ADD OFFER & RATING SCHEMA TO MOBILE HEAD\n" +
+        "- Problem: Product rating schema is generated dynamically by a desktop-only widget, omitting markup on mobile.\n" +
+        "- Fix: Update the mobile template head to inject schema:\n" +
+        "  <script type=\"application/ld+json\">\n" +
+        "  {\n" +
+        "    \"@context\": \"https://schema.org\",\n" +
+        "    \"@type\": \"Product\",\n" +
+        "    \"name\": \"Squarespace Custom Portfolio Theme\",\n" +
+        "    \"aggregateRating\": {\n" +
+        "      \"@type\": \"AggregateRating\",\n" +
+        "      \"ratingValue\": \"4.7\",\n" +
+        "      \"reviewCount\": \"148\"\n" +
+        "    }\n" +
+        "  }\n" +
+        "  </script>\n" +
+        "- Priority: Critical",
+      successCriteria: [
+        "Identify specific indexing blockages and duplicate pages from Search Console data.",
+        "Compare mobile and desktop DOMs to locate dropped links and compute word count parity discrepancies.",
+        "Verify structured data presence on the mobile template.",
+        "Translate SEO parity issues into structured developer tasks with clear fixes."
+      ],
+      portfolioReady: true
+    }
+  ],
 };

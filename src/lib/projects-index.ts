@@ -633,5 +633,38 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
       "Meta Description as a CTR lever",
       "Internal Links and descriptive anchor text"
     ]
+  },
+  {
+    "id": "mobile-first-indexing-parity-teardown",
+    "category": "seo",
+    "lessonSlug": "mobile-first-indexing",
+    "lessonTitle": "Mobile-First Indexing",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Mobile-First Content Parity Teardown: Care.com Profile Templates",
+    "timeMinutes": 25,
+    "companyId": "care-com",
+    "conceptsCovered": [
+      "The Content Parity Problem",
+      "Why Marketers Should Care, Not Just Developers"
+    ]
+  },
+  {
+    "id": "mobile-first-indexing-gsc-audit",
+    "category": "seo",
+    "lessonSlug": "mobile-first-indexing",
+    "lessonTitle": "Mobile-First Indexing",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Mobile-First Indexing Audit: Diagnosing Chewy's Redesign Regression",
+    "timeMinutes": 45,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "How to Check Your Own Site",
+      "The Content Parity Problem",
+      "Why Marketers Should Care, Not Just Developers"
+    ]
   }
 ];
