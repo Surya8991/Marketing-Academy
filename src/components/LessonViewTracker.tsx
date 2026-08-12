@@ -1,7 +1,6 @@
 "use client";
 import { useEffect } from "react";
 import { trackLesson } from "@/lib/recentlyViewed";
-import posthog from "posthog-js";
 
 type Props = {
   categorySlug: string;
@@ -14,7 +13,10 @@ type Props = {
 export default function LessonViewTracker({ categorySlug, slug, title, categoryTitle, level }: Props) {
   useEffect(() => {
     trackLesson({ categorySlug, slug, title, categoryTitle });
-    posthog.capture("lesson_viewed", { category: categorySlug, slug, title, level: level ?? "Unknown" });
+    // PostHog loaded via CDN snippet (see layout.tsx) — use global, not npm import.
+    // When no key is set (dev), window.posthog is undefined and this is a no-op.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (window as any).posthog?.capture("lesson_viewed", { category: categorySlug, slug, title, level: level ?? "Unknown" });
   }, [categorySlug, slug, title, categoryTitle, level]);
 
   return null;

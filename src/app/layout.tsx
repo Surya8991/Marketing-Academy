@@ -44,6 +44,11 @@ export const viewport: Viewport = {
 
 // Inline script runs before React hydration (no-flash theme detection).
 // Cannot import THEME_KEY here, raw string only. Must stay in sync with THEME_KEY in src/lib/events.ts ("theme").
+//
+// Dev note: React emits a "Encountered a script tag" console warning for ANY <script> in the
+// component tree — both raw <script> and <Script> from next/script produce it. The warning is
+// dev-only, harmless, and cannot be avoided for inline scripts that must run before hydration.
+// See: https://github.com/vercel/next.js/discussions/49506
 const themeScript = `
 try {
   var t = localStorage.getItem('theme');
@@ -57,8 +62,10 @@ try {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`} suppressHydrationWarning>
       <head>
+        {/* Theme detection runs before first paint to prevent dark/light flash.
+            suppressHydrationWarning on <html> covers the data-theme attribute mismatch. */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <link rel="alternate" type="application/rss+xml" title="Marketing Academy" href={`${BASE}/feed.xml`} />
       </head>
@@ -78,8 +85,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <OnboardingModal />
           <CommandPaletteLoader />
           <StorageWarning />
-          <script dangerouslySetInnerHTML={{ __html: `if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}` }} />
         </PostHogProvider>
+        {/* Service worker registration */}
+        <script dangerouslySetInnerHTML={{ __html: `if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(function(){});}` }} />
+        {/* PostHog analytics — CDN snippet loads only when the env key is set.
+            Uses the CDN instead of the posthog-js npm package because Turbopack
+            statically traces all import() expressions and crashes on posthog-js's
+            module factory in dev mode. See PostHogProvider.tsx for details. */}
+        {process.env.NEXT_PUBLIC_POSTHOG_KEY && (
+          <script dangerouslySetInnerHTML={{ __html: `
+            !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(/\\/$/, "")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onFeatureFlags onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+            posthog.init('${process.env.NEXT_PUBLIC_POSTHOG_KEY}',{api_host:'${process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://us.i.posthog.com"}',capture_pageview:false,capture_pageleave:true,persistence:'localStorage'});
+          ` }} />
+        )}
       </body>
     </html>
   );
