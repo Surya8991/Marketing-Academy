@@ -9,9 +9,6 @@ import {
   Layers,
   Zap,
   Sparkles,
-  Compass,
-  Briefcase,
-  Rocket,
 } from "lucide-react";
 
 const FEATURED = [
@@ -19,37 +16,6 @@ const FEATURED = [
   { category: "fundamentals", slug: "what-is-marketing", emoji: "🎯", reason: "Start here" },
   { category: "seo", slug: "keyword-research", emoji: "🔎", reason: "Quick win" },
   { category: "fundamentals", slug: "brand-vs-performance", emoji: "⚡", reason: "Advanced" },
-];
-
-const PATHS = [
-  {
-    title: "For B2B marketers",
-    href: "/tracks/b2b-marketer",
-    icon: <Briefcase size={18} />,
-    desc: "Pipeline, ABM, demand gen, LinkedIn ads, attribution.",
-    topics: ["fundamentals", "paid-ads", "analytics", "content"],
-  },
-  {
-    title: "For solo founders",
-    href: "/tracks/solo-founder",
-    icon: <Rocket size={18} />,
-    desc: "Learn just enough to ship growth with no team.",
-    topics: ["fundamentals", "seo", "growth", "ai-marketing"],
-  },
-  {
-    title: "For agencies & freelancers",
-    href: "/tracks/freelancer-agency",
-    icon: <Compass size={18} />,
-    desc: "Master every channel you'll be asked to deliver.",
-    topics: ["seo", "paid-ads", "social", "email"],
-  },
-  {
-    title: "For content creators",
-    href: "/tracks/content-creator",
-    icon: <Sparkles size={18} />,
-    desc: "Build an audience with SEO, social, email, and great copy.",
-    topics: ["content", "social", "copywriting", "seo"],
-  },
 ];
 
 const BASE = "https://marketing-academy-roan.vercel.app";
@@ -401,54 +367,6 @@ export default function HomePage() {
             <Link href="/tracks" className="text-sm text-[var(--accent)] font-medium">
               See all {TRACKS.length} tracks
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Learning paths */}
-      <section className="bg-[var(--muted)]/40 border-y border-[var(--border)]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="mb-10 text-center">
-            <h2 className="text-3xl font-bold mb-3">Learning paths</h2>
-            <p className="text-[var(--muted-foreground)] max-w-xl mx-auto">
-              Not sure where to start? Pick the path that matches your role.
-            </p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {PATHS.map((p) => (
-              <Link
-                key={p.title}
-                href={p.href}
-                className="group flex flex-col p-6 rounded-2xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] hover:shadow-lg transition-all"
-              >
-                <div className="flex items-center gap-2 mb-3 text-[var(--accent)]">
-                  {p.icon}
-                  <span className="text-xs uppercase tracking-wider font-semibold">
-                    Path
-                  </span>
-                </div>
-                <h3 className="text-lg font-semibold mb-2 group-hover:text-[var(--accent)] transition-colors">
-                  {p.title}
-                </h3>
-                <p className="text-sm text-[var(--muted-foreground)] mb-4 flex-1">
-                  {p.desc}
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {p.topics.map((slug) => {
-                    const cat = CATEGORIES.find((c) => c.slug === slug);
-                    if (!cat) return null;
-                    return (
-                      <span
-                        key={slug}
-                        className="text-xs px-2 py-0.5 rounded-full bg-[var(--muted)] text-[var(--muted-foreground)]"
-                      >
-                        {cat.emoji} {cat.title.split(" ")[0]}
-                      </span>
-                    );
-                  })}
-                </div>
-              </Link>
-            ))}
           </div>
         </div>
       </section>

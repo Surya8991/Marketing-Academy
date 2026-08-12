@@ -13,6 +13,7 @@
 
 import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
+import withBundleAnalyzer from "@next/bundle-analyzer";
 
 const nextConfig: NextConfig = {
   // Treat .md and .mdx files as page routes / importable components
@@ -89,4 +90,7 @@ const withMDX = createMDX({
   },
 });
 
-export default withMDX(nextConfig);
+// Stage 3.6: bundle analyzer — run with ANALYZE=true to visualize chunk sizes
+const withAnalyzer = withBundleAnalyzer({ enabled: process.env.ANALYZE === "true" });
+
+export default withAnalyzer(withMDX(nextConfig));

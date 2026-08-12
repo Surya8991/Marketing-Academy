@@ -101,7 +101,8 @@ export function TableOfContentsMobile() {
             className={cn("transition-transform", open && "rotate-180")}
           />
         </summary>
-        <nav className="px-4 pb-3 space-y-1 border-t border-[var(--border)] pt-3">
+        {/* Stage 7.8: cap mobile ToC height so it doesn't consume the whole viewport on long lessons */}
+        <nav className="px-4 pb-3 space-y-1 border-t border-[var(--border)] pt-3 max-h-[50vh] overflow-y-auto">
           {headings.map((h) => (
             <a
               key={h.id}

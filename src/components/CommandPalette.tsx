@@ -208,6 +208,11 @@ export default function CommandPalette() {
           <input
             ref={inputRef}
             type="text"
+            role="combobox"
+            aria-expanded={true}
+            aria-controls="cmd-palette-listbox"
+            aria-activedescendant={results[activeIndex] ? `cmd-option-${results[activeIndex].id}` : undefined}
+            aria-autocomplete="list"
             placeholder="Search lessons, glossary, tools…"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -239,7 +244,9 @@ export default function CommandPalette() {
         {/* Results */}
         <ul
           ref={listRef}
+          id="cmd-palette-listbox"
           role="listbox"
+          aria-label="Search results"
           style={{
             listStyle: "none",
             margin: 0,
@@ -266,6 +273,7 @@ export default function CommandPalette() {
               return (
                 <li
                   key={entry.id}
+                  id={`cmd-option-${entry.id}`}
                   role="option"
                   aria-selected={isActive}
                   onMouseEnter={() => setActiveIndex(i)}

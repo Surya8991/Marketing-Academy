@@ -86,12 +86,33 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState(true);
   const [fullscreen, setFullscreen] = useState(false);
+  const [visible, setVisible] = useState(false);
   const overlayRef = useRef<HTMLDivElement>(null);
+  const sentinelRef = useRef<HTMLDivElement>(null);
 
   // Traps Tab focus inside the fullscreen overlay and restores focus to the trigger on close.
   useFocusTrap(overlayRef, fullscreen);
 
+  // Stage 3.5: IntersectionObserver gates the heavy Mermaid + DOMPurify import (~135 KB gzip)
+  // until the diagram placeholder scrolls into the viewport (with 200px margin).
   useEffect(() => {
+    const el = sentinelRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!visible) return;
     let cancelled = false;
 
     async function render(isDark: boolean) {
@@ -199,7 +220,7 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
       observer.disconnect();
       mq.removeEventListener("change", onChange);
     };
-  }, [chart, mermaidId]); // re-runs whenever the chart string (or the stable per-instance id) changes
+  }, [visible, chart, mermaidId]); // re-runs when visible, or when chart/id changes
 
   // Fullscreen overlay: lock body scroll and handle Esc to close
   useEffect(() => {
@@ -217,7 +238,7 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
 
   if (loading && !svg && !error) {
     return (
-      <div className="not-prose my-8 rounded-xl border border-[var(--border)] bg-[var(--muted)] p-6 animate-pulse" aria-label="Loading diagram">
+      <div ref={sentinelRef} className="not-prose my-8 rounded-xl border border-[var(--border)] bg-[var(--muted)] p-6 animate-pulse" aria-label="Loading diagram">
         <div className="h-4 w-1/3 rounded bg-[var(--border)] mb-4" />
         <div className="h-32 w-full rounded bg-[var(--border)]" />
       </div>
@@ -244,6 +265,13 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
             className="w-full overflow-x-auto rounded-xl border border-[var(--border)] bg-[var(--muted)] p-6 [&_svg]:max-w-full [&_svg]:h-auto [&_svg]:mx-auto"
             dangerouslySetInnerHTML={{ __html: svg }} // DOMPurify-sanitized above
           />
+          {/* Stage 6.4: visually-hidden chart source as a text alternative for screen readers.
+              The Mermaid syntax is readable as pseudocode (node labels, arrows, relationships)
+              and conveys the diagram's content far better than aria-label="Diagram". */}
+          <details className="sr-only">
+            <summary>Diagram source (text description)</summary>
+            <pre>{chart.trim()}</pre>
+          </details>
           {/* Fullscreen button: always visible on mobile, hover-visible on desktop */}
           <button
             type="button"

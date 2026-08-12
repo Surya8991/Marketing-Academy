@@ -342,11 +342,12 @@ export default function Quiz({ questions, category, slug }: Props) {
         <span className="text-sm text-[var(--muted-foreground)]">
           Question {current + 1} of {totalQuestions}
         </span>
-        <div className="flex gap-1.5">
+        {/* Stage 7.8: flex-wrap + min-w so pills don't overflow at 375px */}
+        <div className="flex flex-wrap gap-1.5 justify-end">
           {shuffled.map((_, i) => (
             <div
               key={i}
-              className="h-2.5 w-8 sm:w-7 rounded-full transition-colors"
+              className="h-2.5 min-w-5 flex-1 max-w-8 sm:max-w-7 rounded-full transition-colors"
               style={{
                 background:
                   i < selections.length
