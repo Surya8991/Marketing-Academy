@@ -264,7 +264,7 @@ export default function SettingsClient() {
   }
 
   return (
-    <main
+    <div
       style={{
         maxWidth: "640px",
         margin: "0 auto",
@@ -371,6 +371,6 @@ export default function SettingsClient() {
         </button>
         <StatusBanner status={resetStatus} />
       </section>
-    </main>
+    </div>
   );
 }

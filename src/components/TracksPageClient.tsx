@@ -66,6 +66,7 @@ export default function TracksPageClient({ tracks }: { tracks: Track[] }) {
             <button
               key={btn.key}
               onClick={() => setFilter(btn.key)}
+              aria-pressed={filter === btn.key}
               className="px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-150 cursor-pointer whitespace-nowrap"
               style={{
                 background:

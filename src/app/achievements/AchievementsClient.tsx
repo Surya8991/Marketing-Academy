@@ -29,7 +29,7 @@ export default function AchievementsClient() {
     : 100;
 
   return (
-    <main
+    <div
       style={{
         maxWidth: "720px",
         margin: "0 auto",
@@ -213,6 +213,6 @@ export default function AchievementsClient() {
       >
         Keep Learning →
       </Link>
-    </main>
+    </div>
   );
 }

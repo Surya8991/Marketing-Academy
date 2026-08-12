@@ -53,7 +53,7 @@ export default function SkillMapClient() {
   }, [completed]);
 
   return (
-    <main
+    <div
       style={{
         maxWidth: "960px",
         margin: "0 auto",
@@ -225,6 +225,6 @@ export default function SkillMapClient() {
           );
         })}
       </div>
-    </main>
+    </div>
   );
 }

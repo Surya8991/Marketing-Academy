@@ -119,7 +119,7 @@ export default function InterviewQuestionsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <main style={{ maxWidth: "1200px", margin: "0 auto", padding: "2rem 1.5rem 4rem" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "2rem 1.5rem 4rem" }}>
         {/* Hero */}
         <div style={{ marginBottom: "2.5rem" }}>
           <h1
@@ -313,7 +313,7 @@ export default function InterviewQuestionsPage() {
             Start Learning Free
           </Link>
         </div>
-      </main>
+      </div>
     </>
   );
 }

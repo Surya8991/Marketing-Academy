@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function BookmarksPage() {
   return (
-    <main
+    <div
       style={{
         maxWidth: "720px",
         margin: "0 auto",
@@ -34,6 +34,6 @@ export default function BookmarksPage() {
       </p>
 
       <BookmarksList />
-    </main>
+    </div>
   );
 }

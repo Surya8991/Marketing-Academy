@@ -129,7 +129,7 @@ export default function GeoAuditClient() {
   const scoreKeys = Object.keys(SCORE_LABELS) as (keyof ScoreMap)[];
 
   return (
-    <main className="min-h-screen bg-[var(--background)]">
+    <div className="min-h-screen bg-[var(--background)]">
       {/* Hero */}
       <section className="border-b border-[var(--border)] bg-[var(--muted)] py-14 px-4">
         <div className="max-w-3xl mx-auto">
@@ -329,6 +329,6 @@ export default function GeoAuditClient() {
           </p>
         </section>
       )}
-    </main>
+    </div>
   );
 }

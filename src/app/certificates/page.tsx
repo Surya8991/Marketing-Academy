@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function CertificatesIndexPage() {
   return (
-    <main
+    <div
       style={{
         maxWidth: "720px",
         margin: "0 auto",
@@ -105,6 +105,6 @@ export default function CertificatesIndexPage() {
           &larr; Back to Tracks
         </Link>
       </div>
-    </main>
+    </div>
   );
 }

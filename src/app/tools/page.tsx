@@ -26,7 +26,7 @@ export default function ToolsPage() {
   ).length;
 
   return (
-    <main className="min-h-screen bg-[var(--background)]">
+    <div className="min-h-screen bg-[var(--background)]">
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-10">
         <div className="text-center mb-8">
@@ -132,6 +132,6 @@ export default function ToolsPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

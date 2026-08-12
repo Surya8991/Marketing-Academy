@@ -45,7 +45,7 @@ export const metadata = {
 
 export default function CheatSheetPage() {
   return (
-    <main
+    <div
       style={{
         maxWidth: "900px",
         margin: "0 auto",
@@ -759,6 +759,6 @@ export default function CheatSheetPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

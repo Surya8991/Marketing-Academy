@@ -70,6 +70,7 @@ export default function GlossaryClient() {
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
+            aria-pressed={activeCategory === cat}
             className={`px-3 py-1 rounded-full text-xs font-medium border transition-colors ${
               activeCategory === cat
                 ? "bg-[var(--accent)] text-[var(--accent-foreground)] border-[var(--accent)]"

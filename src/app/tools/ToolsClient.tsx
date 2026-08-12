@@ -113,6 +113,7 @@ export default function ToolsClient({ tools, categories, pricingTiers }: ToolsCl
             <button
               key={cat}
               onClick={() => handleFilterChange(setActiveCategory, cat)}
+              aria-pressed={activeCategory === cat}
               className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-colors ${
                 activeCategory === cat
                   ? "bg-[var(--accent)] text-[var(--accent-foreground)] border-[var(--accent)]"
@@ -130,6 +131,7 @@ export default function ToolsClient({ tools, categories, pricingTiers }: ToolsCl
             <button
               key={tier}
               onClick={() => handleFilterChange(setActivePricing, tier)}
+              aria-pressed={activePricing === tier}
               className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-colors ${
                 activePricing === tier
                   ? "bg-[var(--accent)] text-[var(--accent-foreground)] border-[var(--accent)]"
