@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     "Browse all 393+ marketing lessons across 15 disciplines: SEO, paid ads, growth, email, analytics, AI marketing, copywriting, CRO, and more. Free, structured Beginner to Advanced.",
 };
 
+/** Stage 3.4: show only the first PREVIEW_COUNT lessons per category to keep
+ *  the HTML under ~250 KB (was 1.33 MB rendering all 655). Each category page
+ *  already has the full listing; "View all →" links there. */
+const PREVIEW_COUNT = 5;
+
 export default function LearnPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -25,7 +30,10 @@ export default function LearnPage() {
       </div>
 
       <div className="space-y-8">
-        {CATEGORIES.map((cat) => (
+        {CATEGORIES.map((cat) => {
+          const preview = cat.lessons.slice(0, PREVIEW_COUNT);
+          const remaining = cat.lessons.length - PREVIEW_COUNT;
+          return (
           <div key={cat.slug} className="rounded-2xl border border-[var(--border)] overflow-hidden">
             {/* Category header */}
             <div className={`bg-gradient-to-r ${cat.color} border-b border-[var(--border)] p-6`}>
@@ -41,14 +49,14 @@ export default function LearnPage() {
                   href={`/learn/${cat.slug}`}
                   className="shrink-0 flex items-center gap-1 text-sm font-medium text-[var(--accent)] hover:underline"
                 >
-                  View all <ArrowRight size={14} />
+                  View all {cat.lessons.length} <ArrowRight size={14} />
                 </Link>
               </div>
             </div>
 
-            {/* Lessons list */}
+            {/* Lessons list — first PREVIEW_COUNT only */}
             <div className="divide-y divide-[var(--border)]">
-              {cat.lessons.map((lesson, i) => (
+              {preview.map((lesson, i) => (
                 <Link
                   key={lesson.slug}
                   href={`/learn/${cat.slug}/${lesson.slug}`}
@@ -64,9 +72,18 @@ export default function LearnPage() {
                   <LevelBadge level={lesson.level} className="shrink-0" />
                 </Link>
               ))}
+              {remaining > 0 && (
+                <Link
+                  href={`/learn/${cat.slug}`}
+                  className="flex items-center justify-center gap-1.5 px-6 py-3 text-sm font-medium text-[var(--accent)] hover:bg-[var(--muted)] transition-colors"
+                >
+                  +{remaining} more lesson{remaining !== 1 ? "s" : ""} <ArrowRight size={14} />
+                </Link>
+              )}
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

@@ -913,6 +913,21 @@ export const CATEGORIES: Category[] = [
   },
 ];
 
+/**
+ * Stage 3.1: slim index for "use client" components (Nav, CommandPalette).
+ * Drops lessons[].summary (the bulk of the payload) so the client chunk
+ * carries only what it renders: slug, title, emoji, lessonCount.
+ * Rule 41: never import CATEGORIES (148 KB raw) into a client component.
+ */
+export type CategoryIndex = { slug: string; title: string; emoji: string; lessonCount: number };
+
+export const CATEGORY_INDEX: CategoryIndex[] = CATEGORIES.map((c) => ({
+  slug: c.slug,
+  title: c.title,
+  emoji: c.emoji,
+  lessonCount: c.lessons.length,
+}));
+
 export function getCategory(slug: string): Category | undefined {
   return CATEGORIES.find((c) => c.slug === slug);
 }

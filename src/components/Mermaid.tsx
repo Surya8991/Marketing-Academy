@@ -54,7 +54,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { Maximize2, X } from "lucide-react";
-import DOMPurify from "dompurify";
+// DOMPurify is dynamically imported inside useEffect (Stage 3.2: −10 KB gzip on 642 pages)
 import { useFocusTrap } from "@/lib/useFocusTrap";
 
 /**
@@ -96,8 +96,11 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
 
     async function render(isDark: boolean) {
       try {
-        // Dynamic import, keeps Mermaid out of the initial JS bundle
-        const mermaid = (await import("mermaid")).default;
+        // Dynamic import, keeps Mermaid + DOMPurify out of the initial JS bundle
+        const [{ default: mermaid }, { default: DOMPurify }] = await Promise.all([
+          import("mermaid"),
+          import("dompurify"),
+        ]);
 
         // Read current theme tokens so the diagram colours match globals.css variables
         const css = getComputedStyle(document.documentElement);

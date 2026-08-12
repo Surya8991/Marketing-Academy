@@ -9,7 +9,7 @@ import {
   SlidersHorizontal, Trophy, Settings, Library, Zap,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { CATEGORIES } from "@/lib/curriculum";
+import { CATEGORY_INDEX } from "@/lib/curriculum";
 import ThemeToggle from "@/components/ThemeToggle";
 import StreakBadge from "@/components/StreakBadge";
 import { COMMAND_PALETTE_EVENT } from "@/lib/events";
@@ -152,7 +152,7 @@ export default function Nav() {
             {dropBtn("topics", "Topics", onLearn)}
             {openDrop === "topics" && (
               <div className="absolute left-0 top-full mt-2 w-[min(740px,90vw)] rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-2xl p-3 grid grid-cols-2 gap-1">
-                {CATEGORIES.map((cat) => {
+                {CATEGORY_INDEX.map((cat) => {
                   const active = pathname.startsWith(`/learn/${cat.slug}`);
                   return (
                     <Link
@@ -169,7 +169,7 @@ export default function Nav() {
                       <div className="min-w-0">
                         <div className="text-sm font-medium truncate">{cat.title}</div>
                         <div className="text-xs text-[var(--muted-foreground)]">
-                          {cat.lessons.length} lessons
+                          {cat.lessonCount} lessons
                         </div>
                       </div>
                     </Link>
@@ -377,7 +377,7 @@ export default function Nav() {
               </p>
               <div className="grid grid-cols-2 gap-1">
                 {group.slugs.map((slug) => {
-                  const cat = CATEGORIES.find((c) => c.slug === slug);
+                  const cat = CATEGORY_INDEX.find((c) => c.slug === slug);
                   if (!cat) return null;
                   const active = pathname.startsWith(`/learn/${slug}`);
                   return (
