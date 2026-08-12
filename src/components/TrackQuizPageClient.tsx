@@ -63,6 +63,12 @@ const PASS_THRESHOLD = 0.8;
  *  be marked complete, even when the overall pooled score clears 80%. */
 const PER_LESSON_MIN = 0.5;
 
+/** Questions per page — keeps the page manageable for large tracks. */
+const PAGE_SIZE = 10;
+
+/** sessionStorage key for persisting in-progress answers across accidental navigations */
+function sessionKey(trackSlug: string) { return `ma_track_quiz_${trackSlug}`; }
+
 /** Fisher-Yates, not sort(() => Math.random() - 0.5): the comparator trick is
  *  measurably biased, see AGENTS.md Rule 40. */
 function shuffle<T>(arr: T[]): T[] {
@@ -83,15 +89,43 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
   const [submitted, setSubmitted] = useState(false);
   const [score, setScore] = useState(0);
   const [marking, setMarking] = useState(false); // true while markAll() is running
+  const [page, setPage] = useState(0); // current page index (0-based)
   const resultsRef = useRef<HTMLDivElement>(null);
+  const pageTopRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Restore in-progress session if available
+    try {
+      const saved = sessionStorage.getItem(sessionKey(trackSlug));
+      if (saved) {
+        const parsed = JSON.parse(saved) as { shuffled: PooledQuestion[]; answers: Record<number, number>; page: number };
+        if (Array.isArray(parsed.shuffled) && parsed.shuffled.length === questions.length) {
+          setShuffled(parsed.shuffled);
+          setAnswers(parsed.answers ?? {});
+          setPage(parsed.page ?? 0);
+          return;
+        }
+      }
+    } catch { /* ignore corrupt session */ }
     setShuffled(shuffle(questions));
-  }, [questions]);
+  }, [questions, trackSlug]);
+
+  // Persist answers to sessionStorage on every change (cheap for the data size)
+  useEffect(() => {
+    if (shuffled.length === 0) return;
+    try {
+      sessionStorage.setItem(sessionKey(trackSlug), JSON.stringify({ shuffled, answers, page }));
+    } catch { /* storage full or unavailable */ }
+  }, [answers, page, shuffled, trackSlug]);
 
   const total = shuffled.length;
+  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  const pageStart = page * PAGE_SIZE;
+  const pageEnd = Math.min(pageStart + PAGE_SIZE, total);
+  const pageQuestions = shuffled.slice(pageStart, pageEnd);
   const answeredCount = Object.keys(answers).length;
   const allAnswered = total > 0 && answeredCount === total;
+  const pageAllAnswered = pageQuestions.every((_, i) => answers[pageStart + i] !== undefined);
   const passed = submitted && score / total >= PASS_THRESHOLD;
   const pct = total > 0 ? Math.round((score / total) * 100) : 0;
 
@@ -140,7 +174,14 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
     setAnswers({});
     setSubmitted(false);
     setScore(0);
+    setPage(0);
+    try { sessionStorage.removeItem(sessionKey(trackSlug)); } catch { /* ignore */ }
     window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function goToPage(p: number) {
+    setPage(p);
+    pageTopRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   /**
@@ -167,6 +208,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
       const unlocked = checkAchievements(latestState);
       window.dispatchEvent(new CustomEvent(ENGAGEMENT_EVENT, { detail: { state: latestState, unlocked } }));
     }
+    try { sessionStorage.removeItem(sessionKey(trackSlug)); } catch { /* ignore */ }
     // Brief delay so the user sees the "Marking complete…" button state before redirect
     setTimeout(() => router.push(`/tracks/${trackSlug}`), 800);
   }
@@ -183,13 +225,16 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
 
   return (
     <div>
-      {/* Sticky answer-progress bar, shows how many of the total questions have been answered */}
+      {/* Sticky progress bar + page indicator */}
       <div
+        ref={pageTopRef}
         className="sticky top-0 z-10 mb-8 px-4 py-3 rounded-xl border border-[var(--border)]"
         style={{ background: "var(--background)" }}
       >
         <div className="flex items-center justify-between text-sm mb-2">
-          <span className="font-medium text-[var(--foreground)]">Progress</span>
+          <span className="font-medium text-[var(--foreground)]">
+            {submitted ? "Review" : `Page ${page + 1} of ${totalPages}`}
+          </span>
           <span className="text-[var(--muted-foreground)]">{answeredCount} / {total} answered</span>
         </div>
         <div className="h-2 rounded-full overflow-hidden" style={{ background: "var(--muted)" }}>
@@ -203,9 +248,10 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
         </div>
       </div>
 
-      {/* All questions rendered at once (no pagination), answers are tracked by index */}
+      {/* Questions for the current page (or all questions when reviewing after submit) */}
       <ol className="flex flex-col gap-8">
-        {shuffled.map((pq, qi) => {
+        {(submitted ? shuffled : pageQuestions).map((pq, localIdx) => {
+          const qi = submitted ? localIdx : pageStart + localIdx;
           const q = pq.quiz;
           const userAnswer = answers[qi];
           const isAnswered = userAnswer !== undefined;
@@ -223,7 +269,6 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
 
               <div className="flex flex-col gap-2">
                 {q.options.map((opt, oi) => {
-                  // Colour coding: only applied after the user submits the full quiz
                   let border = "1px solid var(--border)";
                   let bg = "transparent";
                   let color = "var(--foreground)";
@@ -242,7 +287,6 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
                       opacity = "0.4";
                     }
                   } else if (isAnswered && userAnswer === oi) {
-                    // Highlight user's selection before submit
                     border = "1px solid var(--accent)";
                     bg = "color-mix(in srgb, var(--accent) 10%, transparent)";
                   }
@@ -270,7 +314,6 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
                 })}
               </div>
 
-              {/* Per-question explanation, only visible after submit */}
               {submitted && (
                 <div
                   className="mt-4 px-4 py-3 rounded-lg text-sm leading-relaxed"
@@ -287,13 +330,51 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
         })}
       </ol>
 
-      {/* Submit bar, disabled until all questions answered */}
-      {!submitted && (
+      {/* Pagination nav, visible when not submitted and more than one page */}
+      {!submitted && totalPages > 1 && (
+        <div className="mt-8 flex items-center justify-center gap-3">
+          <button
+            onClick={() => goToPage(page - 1)}
+            disabled={page === 0}
+            className="px-4 py-2 rounded-lg text-sm font-medium border border-[var(--border)]"
+            style={{
+              background: page === 0 ? "var(--muted)" : "var(--card)",
+              color: page === 0 ? "var(--muted-foreground)" : "var(--foreground)",
+              cursor: page === 0 ? "default" : "pointer",
+              opacity: page === 0 ? 0.5 : 1,
+            }}
+          >
+            ← Previous
+          </button>
+          <span className="text-sm text-[var(--muted-foreground)]">
+            {page + 1} / {totalPages}
+          </span>
+          {page < totalPages - 1 ? (
+            <button
+              onClick={() => goToPage(page + 1)}
+              disabled={!pageAllAnswered}
+              className="px-4 py-2 rounded-lg text-sm font-medium border"
+              style={{
+                background: pageAllAnswered ? "var(--accent)" : "var(--muted)",
+                color: pageAllAnswered ? "var(--accent-foreground)" : "var(--muted-foreground)",
+                borderColor: pageAllAnswered ? "var(--accent)" : "var(--border)",
+                cursor: pageAllAnswered ? "pointer" : "default",
+                opacity: pageAllAnswered ? 1 : 0.5,
+              }}
+            >
+              Next →
+            </button>
+          ) : null}
+        </div>
+      )}
+
+      {/* Submit bar, visible on the last page when all questions are answered */}
+      {!submitted && (page === totalPages - 1 || totalPages === 1) && (
         <div className="mt-10 flex items-center justify-between gap-4 p-5 rounded-2xl border border-[var(--border)]" style={{ background: "var(--card)" }}>
           <p className="text-sm text-[var(--muted-foreground)]">
             {allAnswered
               ? "All questions answered, ready to submit."
-              : `${total - answeredCount} question${total - answeredCount !== 1 ? "s" : ""} remaining.`}
+              : `${total - answeredCount} question${total - answeredCount !== 1 ? "s" : ""} remaining across all pages.`}
           </p>
           <button
             onClick={submit}

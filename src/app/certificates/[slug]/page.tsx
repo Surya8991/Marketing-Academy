@@ -173,8 +173,9 @@ export default function CertificatePage() {
     <>
       <style>{`
         @media print {
-          .no-print { display: none !important; }
+          .no-print, nav, footer, header { display: none !important; }
           body { background: white !important; margin: 0; }
+          main { padding-top: 0 !important; }
           .certificate {
             box-shadow: none !important;
             border: 6px double #1a1a2e !important;

@@ -82,6 +82,31 @@ export default function SkillMapClient() {
         </p>
       </div>
 
+      {/* Empty-state nudge for first-time visitors */}
+      {mounted && completed.size === 0 && (
+        <div
+          style={{
+            padding: "1.25rem 1.5rem",
+            borderRadius: "0.75rem",
+            background: "var(--muted)",
+            border: "1px solid var(--border)",
+            marginBottom: "1.5rem",
+            textAlign: "center",
+          }}
+        >
+          <p style={{ fontSize: "1.5rem", margin: "0 0 0.5rem" }}>🗺️</p>
+          <p style={{ fontWeight: 600, color: "var(--foreground)", margin: "0 0 0.25rem" }}>
+            All {CATEGORIES.length} disciplines at 0% — pick one to start!
+          </p>
+          <p style={{ fontSize: "0.85rem", color: "var(--muted-foreground)", margin: 0 }}>
+            Progress bars fill as you complete lessons.{" "}
+            <Link href="/learn" style={{ color: "var(--accent)", textDecoration: "underline" }}>
+              Browse all lessons →
+            </Link>
+          </p>
+        </div>
+      )}
+
       <div
         style={{
           display: "grid",

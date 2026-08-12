@@ -120,6 +120,31 @@ export default function AchievementsClient() {
         </div>
       )}
 
+      {/* Empty-state nudge for first-time visitors */}
+      {xp === 0 && achievements.length === 0 && (
+        <div
+          style={{
+            padding: "1.25rem 1.5rem",
+            borderRadius: "0.75rem",
+            background: "var(--muted)",
+            border: "1px solid var(--border)",
+            marginBottom: "2rem",
+            textAlign: "center",
+          }}
+        >
+          <p style={{ fontSize: "1.5rem", margin: "0 0 0.5rem" }}>🚀</p>
+          <p style={{ fontWeight: 600, color: "var(--foreground)", margin: "0 0 0.25rem" }}>
+            Your journey starts here
+          </p>
+          <p style={{ fontSize: "0.85rem", color: "var(--muted-foreground)", margin: 0 }}>
+            Complete lessons and pass quizzes to earn XP and unlock badges.{" "}
+            <Link href="/learn" style={{ color: "var(--accent)", textDecoration: "underline" }}>
+              Start your first lesson →
+            </Link>
+          </p>
+        </div>
+      )}
+
       {/* Achievements grid */}
       <h2
         style={{
