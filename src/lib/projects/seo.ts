@@ -7771,4 +7771,745 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
     },
   ],
+
+  "search-intent": [
+    {
+      id: "jet-com-intent-triage",
+      tier: "mini",
+      archetype: "audit",
+      title: "Triage the Query List: Sorting Jet.com's Content Backlog by Intent",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Given a mixed batch of 10 real-style search queries for Jet.com's bulk-goods marketplace, correctly classify each by intent and decide which pages get built this sprint.",
+      companyId: "jet-com",
+      scenario:
+        "You're a growth marketer on Jet.com's content team in 2016, days after a 'basket size' pricing engine launch. Leadership handed you a raw list of ten queries pulled from early keyword research and wants a one-sprint content plan, no page gets built until every query is sorted by intent.",
+      brief:
+        "Sort every query into one of the four intent types before recommending a single page. Use the SERP-detective method from the lesson, not a guess from the keyword text alone.",
+      mode: "diagnostic",
+      conceptsCovered: ["Classifying queries by the four intent types before recommending content"],
+      steps: [
+        {
+          stepId: "step-1-classify-queries",
+          concept: "Classifying queries by the four intent types before recommending content",
+          lessonAnchor: "the-4-types-of-search-intent",
+          theoryRecap:
+            "The lesson splits every query into informational, navigational, commercial, or transactional intent, and warns that guessing from the keyword text alone is Mistake 2, always check what's actually ranking.",
+          question:
+            "Given these 10 queries pulled for Jet.com's bulk household-goods vertical, which 3 are safe to build a dedicated landing page for this sprint, and which need a blog post or no page at all?",
+          toolName: "Google Sheets",
+          where: "A 10-row spreadsheet: query, your intent label, and a one-line reasoning note.",
+          procedure: [
+            "List all 10 queries in a spreadsheet with an empty 'Intent' column",
+            "Google each query and note what format dominates the top 5 results",
+            "Label each query informational, navigational, commercial, or transactional based on the SERP, not the wording",
+            "Flag only the commercial and transactional rows as landing-page candidates this sprint",
+          ],
+          outputSample:
+            "Query                                          Top SERP format              Intent\n" +
+            "'bulk toilet paper for office'                 Product/category pages       Transactional\n" +
+            "'how much toilet paper does an office need'    Blog/how-to articles         Informational\n" +
+            "'Jet.com bulk pricing login'                   Brand login page             Navigational\n" +
+            "'best bulk paper towel supplier 2016'          Comparison/review articles   Commercial\n" +
+            "'paper towel vs napkin absorbency'              Blog/how-to articles         Informational\n" +
+            "'buy bulk hand sanitizer wholesale'             Product/category pages       Transactional\n" +
+            "'Jet.com vs Amazon Business pricing'            Comparison articles          Commercial\n" +
+            "'office supply budget template'                Blog/downloadable template   Informational\n" +
+            "'Jet.com customer service'                      Brand support page           Navigational\n" +
+            "'wholesale hand sanitizer suppliers near me'    Product/category pages       Transactional\n\n" +
+            "Landing-page candidates this sprint: the 2 transactional + 1 commercial rows flagged above.",
+          healthy:
+            "The sprint plan builds 3 pages, 2 product/category pages for the transactional queries and 1 comparison page for the commercial query, and routes the 4 informational queries to the blog backlog instead.",
+          unhealthy:
+            "Building a landing page for 'how much toilet paper does an office need' because it has decent volume, when the SERP is entirely how-to articles.",
+          interpret:
+            "The SERP told you the format before you wrote a word: product-page SERPs mean build a page, article SERPs mean write a post. Guessing from the query text alone would have gotten the 'best bulk paper towel supplier' query wrong, it reads generic but the SERP is clearly commercial comparison content.",
+          soWhat: [
+            {
+              symptom: "The backlog mixes landing-page and blog-post ideas with no clear priority",
+              action: "Sort by intent first using the SERP, then assign format",
+              effort: "30 min",
+            },
+            {
+              symptom: "A stakeholder wants a landing page for a high-volume informational query",
+              action: "Show them the top-5 SERP screenshot, no product pages rank there, so a new one won't either",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Track the query list and intent labels",
+            why: "Free, and enough structure for a 10-row sort",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Ahrefs",
+            role: "Pull real search volume and see the SERP overview for each query in one screen",
+            why: "Speeds up the SERP check across a larger query list",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+      },
+      deliverable:
+        "A 10-row intent-sorted spreadsheet with a one-sprint build recommendation: which queries get a new page, which get a blog post, which get nothing yet.",
+      sampleOutput:
+        "Applying the same sort to ModCloth's early content queries (illustrative): 'vintage dress size chart' sorted informational (blog), 'ModCloth plus size dresses' sorted commercial (needs a category landing page), 'ModCloth return policy' sorted navigational (support page, no new content needed). Three queries, three different outputs, zero guessing from keyword length alone.",
+      successCriteria: [
+        "Correctly labels at least 8 of 10 queries by checking the SERP, not the keyword wording",
+        "Recommends new landing pages only for the transactional/commercial rows",
+        "Explicitly routes informational rows to the blog backlog instead of a landing page",
+      ],
+      portfolioReady: true,
+      stretch: "Re-run this sort against 10 real queries from your own site's Search Console export.",
+    },
+    {
+      id: "modcloth-serp-mismatch-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Why This Page Won't Rank: A ModCloth Content Teardown",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a specimen, a real-style page brief and its target query, spot which of the stated properties are genuine intent-mismatch defects versus reasonable choices, and explain why.",
+      companyId: "modcloth",
+      scenario:
+        "ModCloth's 'Be The Buyer' community-voting program generated a flood of content ideas. A junior writer at ModCloth drafted a brief for a new page targeting 'vintage-inspired work dresses' and is ready to publish. You're reviewing it before it goes live.",
+      brief:
+        "Read the specimen brief and the SERP context supplied with it, then separate genuine intent-mismatch defects from choices that are actually fine.",
+      mode: "teardown",
+      conceptsCovered: ["The 4 Types of Search Intent", "Why Intent Mismatch Is a Silent Killer"],
+      teardownItems: [
+        {
+          itemId: "modcloth-dress-brief-teardown",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "TARGET QUERY: 'vintage-inspired work dresses'\n\n" +
+            "SERP CHECK (top 5 results): 3 ecommerce category pages with filterable dress grids, prices, and 'add to bag' buttons. 1 'best vintage work dress brands 2026' roundup article. 1 Pinterest board.\n\n" +
+            "DRAFT PAGE BRIEF:\n" +
+            "- Format: a 2,200-word blog post titled 'The History of Vintage Workwear: From the 1950s to Today'\n" +
+            "- Includes: a timeline graphic, 3 designer interviews, zero product links\n" +
+            "- CTA: 'Subscribe to our style newsletter'\n" +
+            "- Target keyword repeated 6 times in the body text\n" +
+            "- Publish date: end of this week, before the roundup competitor's next content refresh",
+          prompt:
+            "Which elements of this brief are real intent-mismatch defects that will keep the page from ranking or converting, and which are reasonable choices that don't need to change?",
+          answerKey: [
+            {
+              defect: "The format is a history article when the SERP is dominated by shoppable category pages",
+              severity: "critical",
+              whyItMatters:
+                "The query has commercial/transactional intent (people want to shop, filter, and buy), not learn history. A history essay will pogo-stick even if it ranks briefly.",
+              lessonRef:
+                "The 4 Types of Search Intent: transactional and commercial intent expect a shoppable page, not an article",
+              owner: "you",
+            },
+            {
+              defect: "Zero product links on a page targeting a shopping query",
+              severity: "critical",
+              whyItMatters:
+                "Even if the page somehow ranks, it can't convert or satisfy the searcher's actual goal, which is finding dresses to buy, not reading about them.",
+              lessonRef:
+                "Why Intent Mismatch Is a Silent Killer: pogo-sticking signals Google your page didn't satisfy the query",
+              owner: "you",
+            },
+            {
+              defect: "The CTA pushes a newsletter signup instead of the product grid",
+              severity: "moderate",
+              whyItMatters:
+                "The CTA should match the query's intent. A shopping-intent visitor is closer to 'add to bag' than 'subscribe', the wrong CTA wastes intent-matched traffic if the format gets fixed but the CTA doesn't.",
+              lessonRef: "The Three Cs Framework (from Ahrefs): Content Type must match what's already ranking",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Keyword repeated 6 times in the body text, over-repetition is a minor readability issue, not the reason this page will fail; a correctly-formatted category page can repeat a keyword this often without penalty",
+            "Publishing before a competitor's content refresh, timing relative to a competitor doesn't affect whether the page matches search intent",
+            "Including 3 designer interviews, interviews aren't inherently wrong content, they're just misplaced on a page that should be a shoppable category grid instead of an essay",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Score each brief element as defect or non-issue with reasoning",
+            why: "Enough structure for a short review checklist",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A short review memo: which defects block this page from ranking or converting, which flagged items are actually fine, and the one format change that fixes the brief.",
+      sampleOutput:
+        "Review memo, illustrative:\nCRITICAL: Format is a history essay, target query is shopping intent. Rebuild as a filterable category page.\nCRITICAL: No product links on a shopping-intent page. Add direct add-to-bag links per dress.\nMODERATE: CTA pushes a newsletter, not a purchase. Swap to 'Shop the collection'.\nNOT A DEFECT: Keyword repeated 6 times, non-issue once the format itself is fixed.\nNOT A DEFECT: Publish timing vs. competitor refresh, irrelevant to intent match.",
+      successCriteria: [
+        "Correctly flags the format mismatch and missing product links as the critical defects",
+        "Does not flag the keyword-repetition or publish-timing items as real defects",
+        "Names the one format change (category/product grid) that fixes the brief",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "image-seo-visual-search": [
+    {
+      id: "trunk-club-image-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "Audit Trunk Club's Product Photos Before the Visual-Search Rollout",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a 6-image export of Trunk Club product photos with filenames, alt text, and format metadata, apply the lesson's image SEO checklist to flag which images are visual-search-ready and which need rework.",
+      companyId: "trunk-club",
+      scenario:
+        "Trunk Club is prepping its catalog for a Pinterest Lens shopping pilot. Before greenlighting the pilot, you've been handed a 6-image export from the menswear catalog to audit against the lesson's checklist.",
+      brief:
+        "Score each image against the checklist (filename, alt text, format, single-subject framing) and flag the ones that need rework before the pilot launches.",
+      mode: "diagnostic",
+      conceptsCovered: ["Auditing filenames, alt text, and framing against the image SEO checklist"],
+      steps: [
+        {
+          stepId: "step-1-image-audit",
+          concept: "Auditing filenames, alt text, and framing against the image SEO checklist",
+          lessonAnchor: "practical-image-optimization-checklist",
+          theoryRecap:
+            "The lesson's checklist calls for descriptive hyphenated filenames, alt text under 15 words describing content and purpose, WebP/AVIF formats, and clean single-subject framing, since visual search matches pixels, not metadata.",
+          question:
+            "Given this 6-image export, which images are ready for the Lens pilot, and which need rework before launch?",
+          toolName: "Google Sheets",
+          where: "A 6-row spreadsheet: filename, alt text, format, framing note, pass/fail.",
+          procedure: [
+            "List all 6 images with their current filename, alt text, and format",
+            "Score each against the checklist: descriptive filename, real alt text, WebP/AVIF, single-subject framing",
+            "Flag any image missing 2 or more checklist items as 'needs rework' before the pilot",
+            "Approve only images that pass on framing, since that's the one visual search can't compensate for",
+          ],
+          outputSample:
+            "File                                  Alt text                            Format   Framing              Verdict\n" +
+            "IMG_5510.jpg                          (none)                              JPEG     Cluttered desk bg   FAIL, rework\n" +
+            "navy-wool-blazer-front.webp           'Navy wool blazer, front view'      WebP     Neutral bg, single  PASS\n" +
+            "IMG_5512.jpg                          (none)                              JPEG     Model + 2 products  FAIL, rework\n" +
+            "brown-leather-belt-detail.webp        'Brown leather belt, buckle detail' WebP     Neutral bg, single  PASS\n" +
+            "grey-chinos-side-view.jpg             'Grey chinos'                       JPEG     Neutral bg, single  PARTIAL, convert format\n" +
+            "IMG_5515.jpg                          'image123'                          JPEG     Cluttered rack bg   FAIL, rework",
+          healthy:
+            "3 of 6 images are flagged for rework before the pilot (missing filenames, alt text, or clean framing), and the pilot launches on the 3 that pass.",
+          unhealthy:
+            "Approving all 6 images for the pilot because 'they'll get indexed eventually', shipping cluttered, unnamed photos into a visual-search pilot wastes the launch on images the matching model can't reliably use.",
+          interpret:
+            "Framing is the one item on this list a caption can't fix. A perfectly named, perfectly tagged photo of a cluttered rack still confuses the visual match model, filename and alt text only affect whether Google indexes the image at all.",
+          soWhat: [
+            {
+              symptom: "Half the catalog export has generic IMG_ filenames and no alt text",
+              action: "Batch-rename and add alt text before the pilot, not after",
+              effort: "half day",
+            },
+            {
+              symptom: "One image is well-tagged but shot with 2 products in frame",
+              action: "Reshoot single-subject before approving, tagging can't fix framing",
+              effort: "half day",
+            },
+          ],
+          owner: "either",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Track the audit scorecard across the image export",
+            why: "Free, enough structure for a 6-row scorecard",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Screaming Frog SEO Spider",
+            role: "Crawl the live catalog to pull every image's current alt text and filename at scale",
+            why: "Manual review doesn't scale past a handful of images",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+      },
+      deliverable:
+        "A scored 6-row audit sheet with a pass/rework verdict per image and the specific fix needed for each rework flag.",
+      sampleOutput:
+        "Applying the same scorecard to a Blue Bottle Coffee bag photo export (illustrative): 'ceramic-dripper-single-origin-pour.webp' passed on all 4 checklist items. 'IMG_9021.jpg' failed on filename, alt text, and format, all three fixed in one export pass before it went back on the sheet.",
+      successCriteria: [
+        "Flags at least the 3 images missing filename or alt text as needing rework",
+        "Does not approve the cluttered/multi-product framing images despite otherwise-good tagging",
+        "Names framing as the one defect tagging alone can't fix",
+      ],
+      portfolioReady: true,
+      stretch: "Run Screaming Frog against your own site's image directory and build the same scorecard from real data.",
+    },
+    {
+      id: "blue-bottle-visual-search-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Will This Product Shot Survive a Visual Search Match? A Blue Bottle Teardown",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Given a specimen describing one Blue Bottle Coffee product photo and its metadata, identify which properties are genuine visual-search blockers versus non-issues.",
+      companyId: "blue-bottle-coffee",
+      scenario:
+        "Blue Bottle Coffee wants a bag of its New Orleans-style iced coffee to show up when a customer points Google Lens at a bag they saw at a cafe. Before resubmitting the image sitemap, you're reviewing the current product photo.",
+      brief:
+        "Read the specimen's photo description and current metadata, then separate real visual-search blockers from properties that don't actually matter for the match.",
+      mode: "teardown",
+      conceptsCovered: ["How Visual Search Actually Works", "Practical Image Optimization Checklist"],
+      teardownItems: [
+        {
+          itemId: "blue-bottle-bag-photo-teardown",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "PRODUCT: Blue Bottle New Orleans Iced Coffee, 32oz bottle\n\n" +
+            "PHOTO DESCRIPTION: Shot on a wooden cafe table with a half-eaten croissant, a second unrelated coffee mug, and a hand holding a phone in the corner of the frame. Bottle is angled at 45 degrees, label partially in shadow. Warm Instagram-style filter applied.\n\n" +
+            "CURRENT METADATA:\n" +
+            "- Filename: blue-bottle-nola-iced-coffee-32oz.webp\n" +
+            "- Alt text: 'Blue Bottle New Orleans style iced coffee, 32oz glass bottle on a cafe table'\n" +
+            "- Format: WebP, 340KB\n" +
+            "- No structured data added yet",
+          prompt:
+            "Which properties of this photo will actually block a Google Lens or Pinterest Lens visual match, and which are fine as-is?",
+          answerKey: [
+            {
+              defect: "Multiple competing objects in frame (croissant, second mug, a hand and phone)",
+              severity: "critical",
+              whyItMatters:
+                "Visual search matches shapes and objects. A cluttered frame with 3-4 competing objects confuses the matching model far more reliably than a clean single-subject shot.",
+              lessonRef: "How Visual Search Actually Works: image quality and framing become ranking factors in their own right",
+              owner: "you",
+            },
+            {
+              defect: "Label partially in shadow at a steep angle",
+              severity: "moderate",
+              whyItMatters:
+                "The label and bottle shape are the two features a visual match model relies on most; obscuring the label reduces match confidence even if the object shape itself is recognizable.",
+              lessonRef: "How Visual Search Actually Works: clean, well-lit, single-subject product shots match far more reliably",
+              owner: "you",
+            },
+            {
+              defect: "No structured data added yet",
+              severity: "moderate",
+              whyItMatters:
+                "Without ImageObject/Product structured data, even a successful visual match can't be turned into a shoppable result with price and availability attached.",
+              lessonRef: "Practical Image Optimization Checklist: Add ImageObject or Product structured data",
+              owner: "developer",
+            },
+          ],
+          distractors: [
+            "The warm Instagram-style filter, a filter shifts color slightly but isn't the reason a visual match would fail, framing and occlusion matter far more than color grading",
+            "File size at 340KB, this is a reasonably compressed WebP file already and isn't a visual-search blocker; it's a Core Web Vitals concern, a separate issue from match accuracy",
+            "The filename and alt text, both are already descriptive and correctly formatted per the checklist, they help indexing but don't affect whether the pixel match itself succeeds",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "List each photo property and mark it as a visual-search blocker or a non-issue with reasoning",
+            why: "Enough structure for a short teardown checklist",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A short teardown memo separating real visual-search blockers from non-issues, with the one reshoot instruction that fixes the photo.",
+      sampleOutput:
+        "Teardown memo, illustrative:\nCRITICAL: cluttered frame, 3 competing objects. Reshoot single-subject on a neutral surface.\nMODERATE: label obscured by angle/shadow. Reshoot straight-on, label fully lit.\nMODERATE: no structured data. Add ImageObject before resubmitting sitemap.\nNOT A BLOCKER: Instagram filter, filename, alt text, and file size are all fine as-is.",
+      successCriteria: [
+        "Flags the cluttered frame as the critical defect",
+        "Does not flag filename, alt text, or file size as visual-search blockers",
+        "Correctly separates a metadata gap (structured data) from a pixel-level defect (framing)",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "video-seo": [
+    {
+      id: "video-seo-launch-draft-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Spot the Defects: A Launch Video's YouTube and TikTok Drafts",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Given an intern's YouTube upload draft and TikTok caption draft for the same product launch, apply the lesson's platform-specific ranking rules to find every metadata choice that will suppress search visibility, without flagging a stylistic choice as a defect just because it looks unusual.",
+      companyId: "mvmt-watches",
+      scenario:
+        "You're the video marketing coordinator at MVMT, the DTC watch brand, reviewing an intern's first two drafts, a YouTube upload and a TikTok caption, for the new chronograph launch before either goes live.",
+      brief:
+        "Two specimens: one YouTube upload record, one TikTok caption draft. Find the defects using the lesson's Holy Trinity, YouTube-Specific Optimisation, and TikTok Search Optimisation rules as your answer key, and don't invent a defect out of a choice that isn't actually one.",
+      mode: "teardown",
+      conceptsCovered: [
+        "YouTube Ranking Factors: The Holy Trinity",
+        "YouTube-Specific Optimisation",
+        "The Thumbnail-Title CTR Loop",
+        "TikTok Search Optimisation",
+      ],
+      teardownItems: [
+        {
+          itemId: "item-1-youtube-upload-draft",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "YouTube upload draft, submitted for review\n\n" +
+            "Title: 'Our New Chronograph Collection Is Here!!'\n\n" +
+            "Description (first 200 characters, shown before 'Show More'):\n" +
+            "'We are so excited to finally share this with you all. It has been a long journey working on this collection and we cannot wait for you to see everything that went into it. Follow us for more!'\n\n" +
+            "Tags: mvmt, watches, new collection, fashion, style, ootd, accessories\n\n" +
+            "Thumbnail: a wide product-catalog shot of six watches laid flat on a table, no text overlay, no face.\n\n" +
+            "Chapters: none added, despite the video walking through all six watches back-to-back.\n\n" +
+            "End screen: blank, the video just ends on the last product shot.",
+          prompt:
+            "Using the lesson's Holy Trinity and YouTube-Specific Optimisation rules, list every metadata choice here that will suppress this video's search visibility, ranked by how much visibility each one costs.",
+          answerKey: [
+            {
+              defect: "Title contains no search keyword, only a brand announcement",
+              severity: "critical",
+              whyItMatters:
+                "Someone searching 'chronograph watch review' or 'best chronograph watches 2026' will never see this video, because Title Keyword Match, the first of the Holy Trinity signals, never fires.",
+              lessonRef: "YouTube Ranking Factors: The Holy Trinity",
+              owner: "you",
+            },
+            {
+              defect: "Thumbnail has no face, no text overlay, and low contrast, a flat catalog shot",
+              severity: "critical",
+              whyItMatters:
+                "The thumbnail is one half of the CTR loop; a low-contrast catalog photo with nothing to read gives a cold searcher no reason to click over a competitor's video, and CTR from cold impressions is the number YouTube weighs most heavily.",
+              lessonRef: "The Thumbnail-Title CTR Loop",
+              owner: "you",
+            },
+            {
+              defect: "No chapters added despite covering six distinct products in one video",
+              severity: "moderate",
+              whyItMatters:
+                "Chapters lift average view duration 5-10%; with six products and zero chapters, a viewer who wants only the flagship model can't jump to it and is more likely to drop off before reaching it.",
+              lessonRef: "YouTube-Specific Optimisation",
+              owner: "you",
+            },
+            {
+              defect: "No end screen or card added at the close of the video",
+              severity: "cosmetic",
+              whyItMatters:
+                "End screens reduce drop-off at the exact moment viewers are most likely to leave; skipping this loses a low-cost chance to add watch time to the next video in the session.",
+              lessonRef: "YouTube-Specific Optimisation",
+              owner: "either",
+            },
+          ],
+          distractors: [
+            "The description opens with 'We are so excited to finally share this', an enthusiastic tone isn't the defect, plenty of high-ranking videos open warmly; the defect is that none of those 200 characters contain a keyword, link, or CTA.",
+            "Tags list 'mvmt' before 'watches', tag order inside a reasonable tag list isn't a ranking factor the lesson calls out; the real gaps are the title and thumbnail, not tag sequencing.",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-tiktok-caption-draft",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "TikTok draft, submitted for review\n\n" +
+            "Caption: 'ITS FINALLY HERE 🖤⌚️ #newdrop #mvmt #ootd #accessories'\n\n" +
+            "On-screen text: none, just b-roll of the watch spinning on a turntable.\n\n" +
+            "Voiceover/audio: trending sound, no spoken words.\n\n" +
+            "Hashtags: #newdrop #mvmt #ootd #accessories",
+          prompt:
+            "Using the lesson's TikTok Search Optimisation rules, name every choice here that will keep this video out of TikTok search results for someone actually looking for a chronograph watch.",
+          answerKey: [
+            {
+              defect: "Caption has no searchable keyword describing the product, only an announcement and hashtags",
+              severity: "critical",
+              whyItMatters:
+                "TikTok searches captions directly; someone searching 'chronograph watch' or 'mens watch new release' will never match this caption, no matter how strong the video itself is.",
+              lessonRef: "TikTok Search Optimisation",
+              owner: "you",
+            },
+            {
+              defect: "No on-screen text naming the product or its features",
+              severity: "moderate",
+              whyItMatters:
+                "On-screen text is searchable and keeps viewers engaged who are watching on mute; a spinning product shot with zero text gives TikTok's search index nothing to read.",
+              lessonRef: "TikTok Search Optimisation",
+              owner: "you",
+            },
+            {
+              defect: "Trending sound with no spoken words means voice-to-text captioning has nothing to transcribe",
+              severity: "moderate",
+              whyItMatters:
+                "TikTok auto-captions every video via voice-to-text and that transcript feeds search; a silent voiceover leaves this entire signal empty.",
+              lessonRef: "TikTok Search Optimisation",
+              owner: "either",
+            },
+          ],
+          distractors: [
+            "The caption uses emojis (🖤⌚️) next to the hashtags, emojis alongside real keywords aren't a defect on their own; the actual problem is that no keyword is present anywhere in the caption, emoji or not.",
+            "There are only 4 hashtags instead of a longer list, hashtag count isn't the issue the lesson flags, hashtags are explicitly secondary to caption and audio quality, and none of these 4 name the product either way.",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Log each defect found, its severity, and which lesson section it maps to",
+            why: "Free, no account friction, enough structure for a 2-item findings list",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+        paidUpgradeNote:
+          "This exercise needs nothing beyond a place to log findings, the free path is already complete.",
+      },
+      deliverable:
+        "A findings memo listing every defect, with severity, across both the YouTube and TikTok drafts, sent back to the intern before either goes live.",
+      sampleOutput:
+        "Birchbox findings memo (excerpt)\n\n" +
+        "YOUTUBE DRAFT\n" +
+        "  CRITICAL: Title 'Get Ready With Us: October Box!' has no keyword match for 'beauty subscription box'.\n" +
+        "  MODERATE: No chapters despite 8 products unboxed back-to-back.\n\n" +
+        "TIKTOK DRAFT\n" +
+        "  CRITICAL: Caption 'so excited for this box 🎀 #birchbox #beauty' names no product, no searchable term.\n" +
+        "  MODERATE: No on-screen text naming any of the 3 products shown on camera.",
+      successCriteria: [
+        "Correctly names the missing keyword as the highest-severity defect on both the YouTube title and the TikTok caption",
+        "Does not flag the emoji, tag order, or hashtag count as defects on their own",
+        "Assigns the correct lessonRef section to each defect found",
+      ],
+      portfolioReady: false,
+    },
+    {
+      id: "video-seo-upload-audit",
+      tier: "core",
+      archetype: "audit",
+      title: "The Diagnostic Pass: Auditing a Real YouTube Upload for Search Signals",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given a published video's title, chapter status, Search Console video-type data, and CTR breakdown, apply all four Holy Trinity and platform-optimisation checks from the lesson to decide what to fix first, and defend it with the specific number that justifies it.",
+      companyId: "birchbox",
+      scenario:
+        "You're the video content lead at Birchbox, the beauty-sample subscription pioneer, auditing the YouTube video embedded in the blog post 'What's In Our October Box' before green-lighting more video spend for November. The numbers below are a composite audit built for this exercise, not Birchbox's disclosed production metrics.",
+      brief:
+        "Four checks over one upload: does the title match a keyword anyone actually searches, do chapters exist on a multi-product video, does the blog embed actually reach Google's Video search results, and is the CTR even in a defensible range once you separate cold traffic from loyal subscribers.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Title Keyword Match",
+        "Chapters and Timestamps",
+        "Video Schema Markup for Google Search",
+        "Click-Through Rate (CTR)",
+      ],
+      steps: [
+        {
+          stepId: "step-1-title-keyword-match",
+          concept: "Title Keyword Match",
+          lessonAnchor: "youtube-ranking-factors-the-holy-trinity",
+          theoryRecap:
+            "The lesson's Holy Trinity opens with Title Keyword Match: a title containing the exact search term in its first 3 words ranks ahead of a better video that doesn't, because keyword match is the first relevance signal YouTube checks.",
+          question:
+            "The video is titled 'Our October Beauty Box Reveal!' and the team wants it to rank for 'best beauty subscription box'. Does this title pass the Title Keyword Match test, and if not, what's the fix?",
+          toolName: "Google Sheets",
+          where: "A two-column sheet: current title in column A, target keyword in column B.",
+          procedure: [
+            "Write the current title and the target keyword phrase side by side",
+            "Check whether the keyword phrase appears anywhere in the title",
+            "Check whether it appears specifically in the first 3 words",
+            "If it fails either check, draft a replacement using the lesson's '[Keyword], [benefit or curiosity gap]' format",
+          ],
+          outputSample:
+            "Current title: 'Our October Beauty Box Reveal!'\n" +
+            "Target keyword: 'best beauty subscription box'\n" +
+            "Keyword in title? No\n" +
+            "Keyword in first 3 words? No\n\n" +
+            "Revised: 'Best Beauty Subscription Box? We Unbox October's Box Live'",
+          healthy:
+            "The revised title puts the exact keyword phrase in the first few words, then adds the curiosity gap ('We Unbox... Live') after it.",
+          unhealthy:
+            "Publishing 'Our October Beauty Box Reveal!' and expecting search traffic, the phrase 'beauty box reveal' does not match how anyone actually searches for a subscription box.",
+          interpret:
+            "A title can be on-brand and still be search-invisible; brand voice and keyword match are different jobs, and keyword match has to win in the first 3 words or the video never surfaces for that query.",
+          soWhat: [
+            {
+              symptom: "Video gets views only from existing subscribers and near-zero from search",
+              action: "Rewrite the title with the keyword phrase in the first 3 words, keep the brand voice for the second half",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-chapters-signal",
+          concept: "Chapters and Timestamps",
+          lessonAnchor: "youtube-specific-optimisation",
+          theoryRecap:
+            "The lesson notes a video with chapters gets 5-10% higher average view duration, and the Arc'teryx case shows chapters as one input into a 386% jump in Google Search video views when paired with the rest of a metadata cleanup.",
+          question:
+            "This 9-minute unboxing video covers 8 products back-to-back with zero chapter markers, and average view duration sits at 34%. What's the fastest fix, and what result should the team expect, a plausible range, not a guarantee?",
+          toolName: "Google Sheets",
+          where: "Log the video's current AVD and product order, then draft chapter timestamps against it.",
+          procedure: [
+            "List each of the 8 products in the order they appear with a rough timestamp",
+            "Add those 8 timestamps as YouTube chapters",
+            "Record the current 34% average view duration as the baseline",
+            "Re-check average view duration after 2 weeks against the lesson's 5-10% lift range",
+          ],
+          outputSample:
+            "8 products, 0 chapters, AVD 34% (about 3 of 9 minutes)\n\n" +
+            "Proposed chapters:\n" +
+            "0:00 Intro\n0:42 Product 1, cleansing balm\n1:55 Product 2, vitamin C serum\n...\n7:40 Product 8, overnight mask\n8:20 Final thoughts",
+          healthy:
+            "Adding chapters lets a viewer who only wants Product 6 jump straight there instead of scrubbing the timeline or abandoning at minute 3.",
+          unhealthy:
+            "Leaving all 8 products in one unbroken block and attributing the 34% AVD to 'people not caring about beauty content', when the real issue is nobody can navigate to the part they want.",
+          interpret:
+            "34% AVD on a multi-product video is a structure problem before it's a content problem; chapters are a 30-minute fix the lesson's own benchmark makes worth doing before touching anything else.",
+          soWhat: [
+            {
+              symptom: "AVD sits well under 50% on any video covering more than one product or topic",
+              action: "Add chapter timestamps at every topic change before the next upload, retrofit the existing one too",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-schema-search-console",
+          concept: "Video Schema Markup for Google Search",
+          lessonAnchor: "video-schema-markup-for-google-search",
+          theoryRecap:
+            "VideoObject schema on a blog page that embeds a YouTube video makes that page eligible for a video rich result in Google web search, a separate placement from ranking inside YouTube itself. The Vidio case shows what's at stake done well: roughly 3x more video impressions and 2x more clicks within a year.",
+          question:
+            "The blog post 'What's In Our October Box' embeds this video but has no VideoObject schema. Filtering Search Console's Performance report to search type 'Video' for this URL, what do you expect to see, and what's the fix?",
+          toolName: "Google Search Console",
+          where: "Search Console > Performance > Search results, filter Search type to 'Video'.",
+          procedure: [
+            "Open the Performance report and filter Search type to Video",
+            "Check impressions and clicks for the blog URL specifically",
+            "Confirm via page source or a rich results test that no VideoObject block is present",
+            "Add the VideoObject block with name, description, thumbnailUrl, uploadDate, and duration",
+          ],
+          outputSample:
+            "Search type: Video, filtered to /blog/whats-in-our-october-box\n" +
+            "Impressions: 0\n  Clicks: 0\n" +
+            "(Compare: the same URL under search type 'Web' shows 1,240 impressions, 38 clicks)",
+          healthy:
+            "After adding VideoObject schema, the URL starts appearing in the Video search type report within a few weeks, a second placement for a query the page already ranks for on text alone.",
+          unhealthy:
+            "Assuming the embedded YouTube video is 'already doing SEO' for the blog page just because it's visible on the page, schema is what tells Google the video is there at all.",
+          interpret:
+            "Zero in the Video row while the Web row shows real traffic means the page ranks on text content alone and leaves an entire second placement unclaimed, a pure schema gap, not a content problem.",
+          soWhat: [
+            {
+              symptom: "Video search type shows 0 impressions on a page with an embedded video and real Web traffic",
+              action: "Add VideoObject schema with all 5 required fields to the page template",
+              effort: "dev ticket",
+            },
+          ],
+          owner: "developer",
+        },
+        {
+          stepId: "step-4-ctr-benchmark",
+          concept: "Click-Through Rate (CTR)",
+          lessonAnchor: "youtube-ranking-factors-the-holy-trinity",
+          theoryRecap:
+            "The lesson sets 6% CTR on real impressions as solid and flags 2% as a sign the title or thumbnail is weak. The 2026 refinement adds that cold, non-subscriber impressions matter more than subscriber CTR, since that's the audience YouTube is actually trying to grow.",
+          question:
+            "YouTube Studio shows 14,000 impressions and 310 clicks on this video; 11,000 of those impressions are non-subscribers. What's the blended CTR, what's the cold CTR, and does the blended number alone tell the full story?",
+          toolName: "Google Sheets",
+          where: "Two columns, impressions and clicks, split subscriber vs non-subscriber using the source data.",
+          procedure: [
+            "Divide total clicks by total impressions for the blended CTR",
+            "Estimate non-subscriber clicks and divide by non-subscriber impressions for the cold CTR",
+            "Compare both figures against the lesson's 6% solid / 2% weak benchmarks",
+            "Flag whichever number is weaker as the one to fix first",
+          ],
+          outputSample:
+            "Blended CTR: 310 / 14,000 = 2.2%\n" +
+            "Non-subscriber impressions: 11,000 (~230 of the 310 clicks estimated non-subscriber)\n" +
+            "Cold CTR: 230 / 11,000 = 2.1%",
+          healthy:
+            "A cold CTR near or above 6% means the title and thumbnail are doing their job on searchers who have never seen the channel before.",
+          unhealthy:
+            "Looking only at the blended 2.2% and concluding 'the channel is fine' because loyal subscribers click anyway, which masks a weak thumbnail that cold searchers are scrolling past.",
+          interpret:
+            "2.1% cold CTR sits squarely in the lesson's weak range, this is a thumbnail/title problem to fix before spending more on production, not a content problem.",
+          soWhat: [
+            {
+              symptom: "Cold CTR sits at or below 2% while blended CTR looks acceptable",
+              action: "A/B test 2 new thumbnail concepts (face plus text overlay) against the current flat-lay thumbnail",
+              effort: "half day",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Log title/keyword checks, chapter timestamps, and the CTR math",
+            why: "Free, no paid plan needed to run all four checks",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Search Console",
+            role: "Check the Video search type report for the blog page",
+            why: "Free, and the only tool that shows whether a page is actually eligible for the Video rich result",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Ahrefs",
+            role: "Pull search volume for keyword candidates before committing to a replacement title",
+            why: "Confirms the replacement keyword has real search demand instead of relying on intuition alone",
+            required: false,
+            fallback: "Free YouTube search-suggest and Google autocomplete for the same keyword phrase",
+            lastVerified: "2026-08",
+          },
+        ],
+        paidUpgradeNote:
+          "Every step above is completable with the two free tools alone; Ahrefs only adds keyword-volume confidence before the rewrite.",
+      },
+      deliverable:
+        "A 4-item audit memo (title, chapters, schema, CTR) with the specific fix and expected impact for each, ready to hand to whoever owns the next upload.",
+      sampleOutput:
+        "MVMT YouTube audit memo (excerpt)\n\n" +
+        "1. TITLE: 'New Drop: Chrono Series' has no keyword match for 'minimalist watches for men' (target). Fix: retitle to lead with the keyword.\n" +
+        "2. CHAPTERS: none on a 7-product video, AVD 29%. Fix: add 7 chapter timestamps.\n" +
+        "3. SCHEMA: blog embed shows 0 Video-type impressions in Search Console despite 900 Web impressions. Fix: add VideoObject schema.\n" +
+        "4. CTR: cold CTR 1.8% against a 6% benchmark. Fix: A/B test 2 thumbnails with a model wearing the watch.",
+      successCriteria: [
+        "Correctly identifies that the title fails Title Keyword Match and rewrites it in the lesson's [Keyword], [benefit] format",
+        "Flags the missing chapters as the fastest fix for the 34% AVD",
+        "Distinguishes the Video search type gap from the Web search type traffic in Search Console",
+        "Isolates cold-audience CTR from blended CTR before judging the thumbnail",
+      ],
+      portfolioReady: true,
+      stretch: "Run the same 4 checks on 3 more videos and build a one-page video-SEO health scorecard for the whole channel.",
+    },
+  ],
 };

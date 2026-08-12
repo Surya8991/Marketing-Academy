@@ -207,6 +207,38 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "blog-seo-content-glossybox-serp-checklist-audit",
+    "category": "content",
+    "lessonSlug": "blog-seo-content",
+    "lessonTitle": "Blog & SEO Content",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Pre-Publish Check: Auditing a Glossybox Draft Against the SERP",
+    "timeMinutes": 25,
+    "companyId": "glossybox",
+    "conceptsCovered": [
+      "Matching content format to what the live SERP already shows"
+    ]
+  },
+  {
+    "id": "blog-seo-content-framebridge-draft-teardown",
+    "category": "content",
+    "lessonSlug": "blog-seo-content",
+    "lessonTitle": "Blog & SEO Content",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Defects: Tearing Down a Framebridge Blog Draft Before It Publishes",
+    "timeMinutes": 25,
+    "companyId": "framebridge",
+    "conceptsCovered": [
+      "Step 4: Lead with the answer in the first 100 words",
+      "Step 5: Add unmistakable human signal",
+      "Step 6: Internal link to commercial pages deliberately"
+    ]
+  },
+  {
     "id": "copywriting-101-landing-copy-teardown",
     "category": "copywriting",
     "lessonSlug": "copywriting-101",
@@ -282,6 +314,40 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
       "Psychological Triggers That Work",
       "Common Mistakes",
       "Key Takeaways"
+    ]
+  },
+  {
+    "id": "headlines-teardown-specimen-score",
+    "category": "copywriting",
+    "lessonSlug": "headlines",
+    "lessonTitle": "Headline Writing",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Would It Win the Test? Score Three Headline Specimens",
+    "timeMinutes": 20,
+    "companyId": "drunk-elephant",
+    "conceptsCovered": [
+      "How It Works",
+      "Common Mistakes",
+      "Psychological Triggers That Work"
+    ]
+  },
+  {
+    "id": "headlines-reverse-engineer-real-winners",
+    "category": "copywriting",
+    "lessonSlug": "headlines",
+    "lessonTitle": "Headline Writing",
+    "tier": "core",
+    "archetype": "reverse-engineer",
+    "mode": "build",
+    "title": "Reverse-Engineer Three Real Winning Headlines, Then Apply the Pattern",
+    "timeMinutes": 35,
+    "companyId": "ustraa",
+    "conceptsCovered": [
+      "How It Works",
+      "Psychological Triggers That Work",
+      "Real Company Examples"
     ]
   },
   {
@@ -1517,6 +1583,104 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
       "Rank Tracking Was Built for a World That Is Disappearing",
       "Brand Mention Tracking Across Models",
       "AI-Referral Traffic in GA4"
+    ]
+  },
+  {
+    "id": "jet-com-intent-triage",
+    "category": "seo",
+    "lessonSlug": "search-intent",
+    "lessonTitle": "Search Intent",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Triage the Query List: Sorting Jet.com's Content Backlog by Intent",
+    "timeMinutes": 20,
+    "companyId": "jet-com",
+    "conceptsCovered": [
+      "Classifying queries by the four intent types before recommending content"
+    ]
+  },
+  {
+    "id": "modcloth-serp-mismatch-teardown",
+    "category": "seo",
+    "lessonSlug": "search-intent",
+    "lessonTitle": "Search Intent",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Why This Page Won't Rank: A ModCloth Content Teardown",
+    "timeMinutes": 25,
+    "companyId": "modcloth",
+    "conceptsCovered": [
+      "The 4 Types of Search Intent",
+      "Why Intent Mismatch Is a Silent Killer"
+    ]
+  },
+  {
+    "id": "trunk-club-image-audit",
+    "category": "seo",
+    "lessonSlug": "image-seo-visual-search",
+    "lessonTitle": "Image SEO & Visual Search Optimization",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Audit Trunk Club's Product Photos Before the Visual-Search Rollout",
+    "timeMinutes": 25,
+    "companyId": "trunk-club",
+    "conceptsCovered": [
+      "Auditing filenames, alt text, and framing against the image SEO checklist"
+    ]
+  },
+  {
+    "id": "blue-bottle-visual-search-teardown",
+    "category": "seo",
+    "lessonSlug": "image-seo-visual-search",
+    "lessonTitle": "Image SEO & Visual Search Optimization",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Will This Product Shot Survive a Visual Search Match? A Blue Bottle Teardown",
+    "timeMinutes": 20,
+    "companyId": "blue-bottle-coffee",
+    "conceptsCovered": [
+      "How Visual Search Actually Works",
+      "Practical Image Optimization Checklist"
+    ]
+  },
+  {
+    "id": "video-seo-launch-draft-teardown",
+    "category": "seo",
+    "lessonSlug": "video-seo",
+    "lessonTitle": "Video SEO: Ranking on YouTube and TikTok Search",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Defects: A Launch Video's YouTube and TikTok Drafts",
+    "timeMinutes": 20,
+    "companyId": "mvmt-watches",
+    "conceptsCovered": [
+      "YouTube Ranking Factors: The Holy Trinity",
+      "YouTube-Specific Optimisation",
+      "The Thumbnail-Title CTR Loop",
+      "TikTok Search Optimisation"
+    ]
+  },
+  {
+    "id": "video-seo-upload-audit",
+    "category": "seo",
+    "lessonSlug": "video-seo",
+    "lessonTitle": "Video SEO: Ranking on YouTube and TikTok Search",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Diagnostic Pass: Auditing a Real YouTube Upload for Search Signals",
+    "timeMinutes": 45,
+    "companyId": "birchbox",
+    "conceptsCovered": [
+      "Title Keyword Match",
+      "Chapters and Timestamps",
+      "Video Schema Markup for Google Search",
+      "Click-Through Rate (CTR)"
     ]
   }
 ];

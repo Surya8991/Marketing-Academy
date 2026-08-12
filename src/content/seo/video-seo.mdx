@@ -2,6 +2,7 @@ export const lessonMeta = {
   title: "Video SEO: Ranking on YouTube and TikTok Search",
   level: "Intermediate",
   summary: "Learn the algorithms that rank videos on the world's second-largest search engine and Gen Z's fastest-growing platform.",
+  relatedConcepts: ["schema-structured-data", "search-intent", "keyword-research"],
 };
 
 Video is no longer a content format. It's a search engine. YouTube processes more searches than Bing; TikTok's search function is becoming Gen Z's Google. If your competitors are ranking videos for topics your audience is searching for, you're losing visibility on platforms where you already have production capacity.
@@ -12,7 +13,7 @@ This lesson teaches you the ranking factors, optimisation tactics, and platform-
 
 YouTube is the world's second-largest search engine after Google, with 2.5 billion logged-in users and 1 billion hours watched daily. People don't just browse YouTube, they search it. 'How to', 'tutorial', 'best', and 'review' queries on YouTube outnumber those same queries on Google.
 
-TikTok search is newer but exploding. Gen Z, Gen Alpha, and increasingly Gen X use TikTok's search bar instead of Google. A 2024 study found that 40% of Gen Z chooses TikTok or Instagram search over Google for discovering products. The platform's search algorithm is still evolving, but early signs show it heavily weights watch time, engagement velocity, and captions over traditional SEO signals.
+TikTok search has moved from emerging to mainstream. A 2026 Adobe Express survey of US consumers found 49% now use TikTok as a search engine, up from 41% in 2024, and among Gen Z that figure reaches 65%. There's a nuance worth knowing: the share of Gen Z who say they *prefer* TikTok over Google actually fell by half over the same period (8% down to 4%), even as raw usage climbed. TikTok isn't replacing Google, it's a parallel channel people reach for on discovery-first queries, product reviews, how-tos, recommendations, where a video answer beats ten blue links.
 
 If you're a B2B company, YouTube search drives qualified leads. If you're DTC, TikTok search drives brand discovery. Both are non-negotiable.
 
@@ -22,9 +23,9 @@ YouTube's algorithm optimises for one goal: maximise watch time. Everything else
 
 **Title Keyword Match**, does your title include the exact search term? YouTube searches are keyword-heavy. A video titled 'How to Use Airtable' ranks higher for 'how to use airtable' than a video titled 'Airtable Beginner's Guide', even if the second is better content. Keyword match signals relevance immediately. Put your primary keyword in the first 3 words of the title; put your second keyword within the first 20 characters.
 
-**Click-Through Rate (CTR)**, the percentage of searchers who click your video when they see it. YouTube shows impressions (how many search results show your video) and clicks (how many people click through). A 6% CTR on 1,000 impressions is solid; 2% suggests your title or thumbnail is weak. YouTube rewards high CTR videos with more impressions, creating a positive feedback loop.
+**Click-Through Rate (CTR)**, the percentage of searchers who click your video when they see it. YouTube shows impressions (how many search results show your video) and clicks (how many people click through). A 6% CTR on 1,000 impressions is solid; 2% suggests your title or thumbnail is weak. There's a wrinkle in how YouTube weighs this in 2026: CTR from your existing subscribers is discounted (they already know and like you, so a click proves less), while CTR from cold, non-subscriber impressions is weighted more heavily, since that's the audience YouTube is actually trying to grow.
 
-**Watch Time %**, how much of the video people watch. A 10-minute video with a 60% average view duration (people watch 6 minutes on average) is stronger than a 5-minute video with a 50% average view duration (2.5 minutes watched). YouTube measures absolute watch time in seconds, not percentage. A 30-minute video with 40% average view duration generates more watch time than a 5-minute video with 80%.
+**Watch Time %**, how much of the video people watch. A 10-minute video with a 60% average view duration (people watch 6 minutes on average) is stronger than a 5-minute video with a 50% average view duration (2.5 minutes watched). YouTube measures absolute watch time in seconds, not percentage. A 30-minute video with 40% average view duration generates more watch time than a 5-minute video with 80%. The 2026 refinement goes further: YouTube now credits *session* watch time, the total time a viewer stays on YouTube after your video, not just the minutes spent on your video alone. A video that hands viewers off to another great watch scores better than one that ends the session.
 
 **Engagement Velocity**, the speed of engagement in the first 24 hours. A video that gets 1,000 likes, 200 comments, and 50 shares in the first day signals quality to the algorithm, even if it has 100,000 views. This is why creators strategically release videos, pin comments asking questions, and create call-to-actions in the first 30 seconds.
 
@@ -38,6 +39,18 @@ These three factors compound. A strong title keyword match brings searchers. A g
 
 **Chapters and Timestamps**, break your video into chapters. YouTube shows these in the timeline, helps viewers jump to sections they want, and signals to the algorithm that your video is well-structured. A video with chapters gets 5-10% higher average view duration.
 
+<InAction
+  concept="Chapters and Timestamps"
+  companyName="Arc'teryx"
+  where="Arc'teryx's YouTube channel, working with agency elk marketing"
+  why="Product videos had strong production value but weak metadata, no chapters, inconsistent titles, no structured playlists, so YouTube's algorithm had little to signal relevance for outdoor-gear search queries like 'climbing' or 'mountaineering'"
+  what="elk standardized every upload with chapters and timestamps, keyword-aligned titles and descriptions, and grouped videos into topical playlists, plus video schema markup recommendations for the videos embedded on Arc'teryx's own site"
+  benefit="Google Search video views grew 386% and YouTube search traffic rose 204%, with Search Console recording over 415,000 new video impressions and nearly 5,000 additional clicks"
+  timeframe="Six months"
+  date="2025"
+  source="https://elkhq.com/case-studies/seo/arcteryx-youtube/"
+/>
+
 **End Screens and Cards**, link to your next video or playlist in the final 20 seconds. End screens are underrated. They reduce viewer drop-off when the video ends and boost your channel's average watch time per session.
 
 **Community Tab**, if you have 1,000 subscribers, use the Community Tab to post polls, images, and text. This keeps viewers engaged between uploads and signals activity to the algorithm.
@@ -46,11 +59,11 @@ These three factors compound. A strong title keyword match brings searchers. A g
 
 TikTok's search algorithm is opaque, but emerging patterns show three strong signals:
 
-**Caption Keywords**, TikTok searches captions, video text, and hashtags. A video about 'ClickUp vs Asana' needs that comparison in the caption. TikTok doesn't weight older captions less; if your video is old but the caption is tight, it can still rank.
+**Caption Keywords**, TikTok searches captions, video text, and hashtags. A video about 'ClickUp vs Asana' needs that comparison in the caption. TikTok doesn't weight older captions less; if your video is old but the caption is tight, it can still rank. Videos with search-optimised captions and on-screen text see 300-500% more views from TikTok search than videos without them.
 
 **On-Screen Text**, text overlaid on the video is searchable. If you're showing a product walkthrough, spell out the product name and key features. This is both searchable and keeps viewers engaged (people watch videos on mute).
 
-**Hashtags and Voice-to-Text Matching**, TikTok captions every video automatically via voice-to-text. A video where you clearly speak your keywords ranks better than one where you mumble or whisper. Hashtags carry weight (hashtag hashtags relevant to your topic), but they're secondary to caption and audio quality.
+**Hashtags and Voice-to-Text Matching**, TikTok captions every video automatically via voice-to-text. A video where you clearly speak your keywords ranks better than one where you mumble or whisper. Hashtags carry weight (use hashtags relevant to your topic), but they're secondary to caption and audio quality.
 
 Unlike YouTube, TikTok's algorithm doesn't release watch time metrics. But engagement velocity (likes, comments, shares within the first hour) is the clearest proxy for ranking. Post your TikTok when your audience is most active, engage heavily with comments and duets in the first 60 minutes, and your video gets a boost.
 
@@ -74,9 +87,20 @@ The same video concept doesn't work everywhere. YouTube rewards long-form depth;
 
 **Cross-Platform Strategy**, film the core content once (your tutorial, interview, or idea). Extract 30-second highlights for TikTok, Instagram Reels, and YouTube Shorts. Create a 10-minute deep-dive for YouTube. The same IP becomes three formats, three searches, three audiences.
 
+Here's the two platforms side by side, so you know which lever to pull on which one:
+
+| Signal | YouTube | TikTok |
+|---|---|---|
+| Primary ranking metric | Watch time (session-level, 2026) | Engagement velocity (first hour) |
+| Where keywords matter most | Title (first 3 words), description | Caption, on-screen text |
+| CTR visibility | Reported in YouTube Studio | Not disclosed |
+| Structure signal | Chapters and timestamps | None equivalent |
+| Ideal length | 8-15 minutes | 15-60 seconds |
+| Search-to-Google reach | Yes, via VideoObject schema | No |
+
 ## Video Schema Markup for Google Search
 
-YouTube videos can appear in Google web search results as 'Video' rich results if you add VideoSchema markup to your website.
+YouTube videos can appear in Google web search results as 'Video' rich results if you add VideoObject schema markup to your website.
 
 If you embed a YouTube video on your blog or website, add this schema:
 
@@ -94,6 +118,18 @@ If you embed a YouTube video on your blog or website, add this schema:
 
 Google then surfaces that video in web search results, not just YouTube search. A blog post with an embedded video + schema markup can earn both a web result and a video rich result for the same query.
 
+<InAction
+  concept="Video Schema Markup for Google Search"
+  companyName="Vidio"
+  where="Vidio, Indonesia's largest video streaming platform"
+  why="Vidio's catalog was served through an HLS/M3U8 format that Googlebot often failed to crawl, since the format is a map referencing many small file segments, and one broken reference could fail the entire video fetch, leaving most of the Bahasa Indonesia catalog invisible to video search"
+  what="Vidio added VideoObject structured data to its existing catalog without changing its underlying file format, and made sure every referenced video file had a stable, Googlebot-accessible URL"
+  benefit="Video impressions on Google Search grew roughly 3x and video clicks grew roughly 2x, while the video catalog itself grew only about 30% over the same period"
+  timeframe="One year"
+  date="2024"
+  source="https://developers.google.com/search/case-studies/vidio-case-study"
+/>
+
 ## Bringing It All Together
 
 Video search is where cold searchers become warm leads. On YouTube, a person searching 'Airtable tutorial' is ready to learn your product. On TikTok, someone searching 'no-code database for startups' is exploring an idea. Both are high-intent moments.
@@ -104,7 +140,7 @@ Title keyword match + strong CTR + deep watch time + fast engagement = top ranki
   { title: "YouTube Creator Academy: Optimizing for Search", url: "https://creatoracademy.youtube.com/", type: "course", free: true },
   { title: "TikTok Creator Center: Search and Discovery", url: "https://creatorhub.tiktok.com/", type: "docs", free: true },
   { title: "VideoSchema.org Documentation", url: "https://schema.org/VideoObject", type: "docs", free: true },
-  { title: "YouTube CTR Benchmarks 2025: What's a Good Click-Through Rate?", url: "https://www.tubularinsights.com/youtube-ctr-benchmarks/", type: "article", free: true },
+  { title: "Google Search Central: Vidio Video SEO Case Study", url: "https://developers.google.com/search/case-studies/vidio-case-study", type: "article", free: true },
   { title: "TikTok SEO: The Essential Guide for Brands", url: "https://sproutsocial.com/insights/tiktok-seo/", type: "article", free: true },
   { title: "A/B Testing YouTube Thumbnails and Titles for Better CTR", url: "https://www.youtube.com/watch?v=u2TfZOzFZjw", type: "video", free: true, note: "Creator deep dive on thumbnail optimization" },
   { title: "WsCube Tech - Video SEO and YouTube Search (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },

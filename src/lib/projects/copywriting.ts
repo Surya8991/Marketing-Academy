@@ -326,7 +326,7 @@ export const COPYWRITING_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
     },
   ],
-  headlines: [
+  "headlines": [
     {
       id: "headlines-head-to-head-scoring",
       tier: "core",
@@ -474,6 +474,224 @@ export const COPYWRITING_PROJECTS: Record<string, Project[]> = {
         "At least one headline in the set contains a specific, provable number or named fact, not just adjectives",
       ],
       portfolioReady: true,
+    },
+    {
+      id: "headlines-teardown-specimen-score",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Would It Win the Test? Score Three Headline Specimens",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Given three synthetic-realistic headline candidates drafted for the same blog brief, decide whether each would win an A/B test, name every real defect using the lesson's own vocabulary, and correctly recognize which near-defect is actually a deliberate, effective choice.",
+      companyId: "drunk-elephant",
+      scenario:
+        "You're doing a one-day trial task for a clean-beauty content team modeled on Drunk Elephant's ingredient-education positioning. They've drafted three headline candidates for a blog post about their 'Suspicious 6' ingredient-exclusion list and want a scored teardown before anything reaches the editorial calendar.",
+      brief:
+        "Three specimens, one prompt each: read the headline, decide whether it would win an A/B test, and name every real defect, tying each one to a specific Step, Mistake, or Trigger from the lesson (not a vague opinion). Rate each defect's severity. For the third specimen, do the harder part too: name at least one thing you almost flagged as a defect but correctly recognized was not one.",
+      mode: "teardown",
+      conceptsCovered: ["How It Works", "Common Mistakes", "Psychological Triggers That Work"],
+      teardownItems: [
+        {
+          itemId: "specimen-1-vague-topic-opener",
+          specimen: "Why Ingredients Matter",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "Headline candidate #1 for the Suspicious 6 blog post. Would this win the test? Name every real defect.",
+          answerKey: [
+            {
+              defect:
+                "Names a topic ('ingredients') with no benefit and no specific claim, it never tells the reader what they get for clicking.",
+              severity: "critical",
+              whyItMatters:
+                "A topic-only headline gives a skimmer nothing to act on. It fails at the benefit-or-fear test before formula or length even matter.",
+              lessonRef: "Step 1: Identify the Single Biggest Benefit or Fear",
+              owner: "you",
+            },
+            {
+              defect:
+                "Uses none of the lesson's six formulas, no number, no how-to, no question, no promise, no secret, no social proof.",
+              severity: "moderate",
+              whyItMatters:
+                "Formula-free headlines rely entirely on topic interest, which is the hardest way to earn a click and the easiest one to ignore.",
+              lessonRef: "Step 2: Choose Your Formula",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "It is short, at 22 characters, that alone is not the defect, the 40-60 rule protects against truncation, it does not set a hard minimum.",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "specimen-2-overclaim-vague-hook",
+          specimen: "This One Ingredient Swap Will Change Your Skin Forever",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "Headline candidate #2 for the same post. Would this win the test? Name every real defect.",
+          answerKey: [
+            {
+              defect:
+                "'Change Your Skin Forever' is a sweeping, unfalsifiable claim with no real number or timeframe behind it.",
+              severity: "critical",
+              whyItMatters:
+                "This is the exact shape of the lesson's own 'Make $10,000 This Weekend' warning, credibility breaks the moment the reader's real experience does not match.",
+              lessonRef: "Mistake 3: Over-Promising",
+              owner: "you",
+            },
+            {
+              defect:
+                "'This one ingredient' names no ingredient and no source, a vague qualifier where the lesson calls for a real number or named fact.",
+              severity: "moderate",
+              whyItMatters:
+                "Specificity is what makes a claim believable. An unnamed 'one ingredient' invites skepticism instead of clicks.",
+              lessonRef: "Psychological Triggers That Work, Specificity",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Using a curiosity gap is not itself the defect, curiosity gaps work fine when paired with a credible promise, the problem here is that the promise underneath is not credible.",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "specimen-3-strong-with-trap",
+          specimen: "The 6 Ingredients We Will Never Put In Your Skincare (And Why)",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "Headline candidate #3 for the same post. Would this win the test? Name every real defect, then name at least one thing you almost flagged that is not actually a defect.",
+          answerKey: [
+            {
+              defect:
+                "At 63 characters this runs a few characters past the 40-60 sweet spot and may truncate in some email clients, worth trimming before it ships to an email send.",
+              severity: "cosmetic",
+              whyItMatters:
+                "Step 3's rule exists specifically to avoid channel truncation. A few characters over is a real, if minor, risk worth a quick edit.",
+              lessonRef: "Step 3: Apply the 40-60 Character Rule",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The parenthetical '(And Why)' is not a defect, it is a legitimate curiosity-gap extension of the Number List formula, not clutter to cut.",
+            "'Never' is not the same over-promise as 'Forever' in specimen 2, it is a specific, falsifiable exclusion claim tied to the brand's real ingredient policy, exactly the kind of specificity the lesson rewards.",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the 3-specimen defect table with severity and lesson reference columns",
+            why: "Free spreadsheet tool, more than enough for a 3-row scoring table.",
+            required: true,
+            lastVerified: "2026-08-12",
+            inlineUrl: "https://sheets.google.com",
+            inlinePricing: "Free",
+          },
+          {
+            toolName: "CoSchedule Headline Analyzer",
+            role: "Optional character-count cross-check on specimen 3's borderline length",
+            why: "Free web tool, useful only to confirm the exact character count, not to find the defects themselves.",
+            required: false,
+            lastVerified: "2026-08-12",
+            inlineUrl: "https://coschedule.com/headline-analyzer",
+            inlinePricing: "Free",
+          },
+        ],
+        paid: [],
+        paidUpgradeNote:
+          "Scoring three given headlines against the lesson's own concepts needs nothing beyond a spreadsheet and your own judgment. No paid tool adds anything here.",
+      },
+      deliverable:
+        "A completed defect list for all three specimens (defect, severity, lesson reference for each) plus a short written note on the specimen-3 issue you correctly did not flag as a defect.",
+      sampleOutput:
+        "Sample scoring format from a different brief, not the Suspicious 6 post, to show what 'done' looks like. For a men's grooming brand's candidate 'The Beard Oil Ingredient Most Brands Skip (And Why It Matters)': no critical defect found, one cosmetic note that at 61 characters it sits one over the sweet spot, and the parenthetical correctly left unflagged since it extends the curiosity gap rather than clutters it.",
+      successCriteria: [
+        "Correctly identifies the critical defect in specimen 1 (topic-only opener, no benefit, no formula)",
+        "Correctly identifies both the over-promising defect and the specificity defect in specimen 2, as two separate issues",
+        "Does not mark the parenthetical or the word 'Never' in specimen 3 as defects",
+        "Every defect named is tied to a specific lesson Step, Mistake, or Trigger, not a personal opinion",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Write a fourth headline candidate for the same Suspicious 6 brief that would score highest against Steps 2-6, then explain which formula and which psychological trigger you deliberately chose.",
+    },
+    {
+      id: "headlines-reverse-engineer-real-winners",
+      tier: "core",
+      archetype: "reverse-engineer",
+      title: "Reverse-Engineer Three Real Winning Headlines, Then Apply the Pattern",
+      timeEstimate: "35 minutes",
+      timeMinutes: 35,
+      objective:
+        "Analyze three real, cited headline and subject-line wins to name exactly which formula and psychological trigger drove each result, then apply the same reverse-engineered patterns, not the same words, to write three original headlines for a new brief.",
+      companyId: "ustraa",
+      scenario:
+        "A men's grooming content team modeled on Ustraa's category-education content strategy is planning a new blog post, 'Why Your Beard Itches in Humid Indian Summers (And How to Stop It),' and wants headline options built on patterns proven to work in real campaigns, not guesses.",
+      brief:
+        "THREE REAL, CITED HEADLINE WINS TO REVERSE-ENGINEER:\n\n" +
+        "1. Microsoft Bing's advertising interface: the feature-focused 'New Tab Features' was rewritten to the benefit-focused 'Open Tabs Faster.' The change contributed to a documented $100 million revenue increase for Bing's ad platform.\n\n" +
+        "2. AwayFind's homepage, May 2012: 'Let us find your urgent messages' was rewritten to 'Get AWAY from your inbox, let urgent emails cut through the clutter and FIND you...instantly.' Trial registrations increased 91% and clicks to the sign-up page increased 42%. Source: MarketingSherpa, https://www.marketingsherpa.com/article/case-study/91-conversion-lift-from-new.\n\n" +
+        "3. Obama for America, June 26, 2012: the fundraising email subject line 'I will be outspent' raised $2.5 million in a single send, one of the campaign's best-performing emails. Source: ABC News, https://abcnews.com/blogs/politics/2012/11/odd-obama-email-subject-lines-drew-huge-cash.\n\n" +
+        "FOR EACH of the three, name the formula (if any, from the lesson's six) and the psychological trigger (from the lesson's five) that best explains why the rewrite outperformed the original.\n\n" +
+        "THEN, for the Ustraa-style beard-care brief above, write THREE original headlines. Each one must deliberately apply one of the three patterns you just identified, the underlying technique, not the same wording. Label every headline with the real example its pattern borrows from, plus the formula and trigger it uses.",
+      mode: "build",
+      conceptsCovered: ["How It Works", "Psychological Triggers That Work", "Real Company Examples"],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the 3-row reverse-engineering table and the 3-headline output table",
+            why: "Free spreadsheet tool, handles both small tables easily.",
+            required: true,
+            lastVerified: "2026-08-12",
+            inlineUrl: "https://sheets.google.com",
+            inlinePricing: "Free",
+          },
+          {
+            toolName: "CoSchedule Headline Analyzer",
+            role: "Optional character-count and clarity cross-check on your three finished headlines",
+            why: "Free web tool, a useful sanity check after you have written your three headlines, not a substitute for the pattern analysis.",
+            required: false,
+            lastVerified: "2026-08-12",
+            inlineUrl: "https://coschedule.com/headline-analyzer",
+            inlinePricing: "Free",
+          },
+          {
+            toolName: "ChatGPT",
+            role: "Optional second opinion on whether your three headlines actually apply three genuinely different patterns",
+            why: "Free tier is enough to sanity-check pattern variety, it should not write the headlines for you.",
+            required: false,
+            lastVerified: "2026-08-12",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Jasper",
+            role: "Generating additional headline variants at scale for teams testing many patterns a week",
+            why: "Not needed to reverse-engineer three examples and write three headlines by hand.",
+            required: false,
+            lastVerified: "2026-08-12",
+          },
+        ],
+        paidUpgradeNote:
+          "The full task, analyzing three real examples and writing three original headlines, needs nothing beyond a spreadsheet and the lesson itself. Every tool above is an optional cross-check.",
+      },
+      deliverable:
+        "A 3-row reverse-engineering table (real example, formula identified, trigger identified) plus 3 original headlines for the beard-care brief, each labeled with the real example its pattern borrows from and the formula/trigger it uses.",
+      sampleOutput:
+        "Sample format using a different real example, not one of the three in the brief, to show what 'done' looks like. Optimizely's documented personalization work (a 20-30% conversion lift on enterprise SaaS pages, cited earlier in this lesson) reverse-engineers to: pattern = matching the headline to the reader's specific situation rather than a generic claim; trigger = Specificity. Applied to a men's grooming brief, a headline borrowing that same pattern might read: 'Beard Care for Humid Indian Summers: The 4-Step Routine That Actually Works' (Specific Promise formula, Specificity trigger, borrowing the same 'name the specific situation' move Optimizely's personalization relies on).",
+      successCriteria: [
+        "Correctly identifies 'Open Tabs Faster' as a benefit-led rewrite rather than naming an unrelated formula",
+        "Correctly identifies the AwayFind rewrite as benefit-anchored copy, not a Number List or Question formula",
+        "Correctly identifies 'I will be outspent' as using the Fear of Loss (loss-aversion) trigger, not Curiosity Gap",
+        "All three new headlines are genuinely different from each other, not the same idea restated three times",
+        "Each new headline is explicitly labeled with the real example it borrows its pattern from and the formula/trigger it uses",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Score all three of your new headlines against the 40-60 character rule and the odd-number rule, then revise any headline that fails either check.",
     },
   ],
 };
