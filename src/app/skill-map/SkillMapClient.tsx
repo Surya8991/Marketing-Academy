@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useEffect, useState } from "react";
-import { CATEGORIES } from "@/lib/curriculum";
+import { CATEGORIES, canonicalLessonId } from "@/lib/curriculum";
 import { getCompleted } from "@/lib/progress";
 
 type CategoryWithProgress = {
@@ -27,8 +27,11 @@ export default function SkillMapClient() {
   const sorted = useMemo<CategoryWithProgress[]>(() => {
     const rows = CATEGORIES.map((cat, idx) => {
       const total = cat.lessons.length;
+      // Stage 2.1: resolve canonicalLessonId so cross-listed lessons (13 in
+      // fundamentals, sourced from mental-models) check the key that's
+      // actually written, instead of an id nothing ever completes.
       const done = cat.lessons.filter((l) =>
-        completed.has(`${cat.slug}/${l.slug}`)
+        completed.has(canonicalLessonId(cat.slug, l))
       ).length;
       return {
         slug: cat.slug,

@@ -36,8 +36,10 @@ export function setQuizPassed(category: string, slug: string): void {
  * via per-lesson quizzes alone (never visiting /tracks/[slug]/quiz) does not
  * by itself earn a certificate.
  */
+export const TRACK_QUIZ_PASS_PREFIX = "ma_track_quiz_pass_";
+
 export function trackQuizPassKey(trackSlug: string): string {
-  return `ma_track_quiz_pass_${trackSlug}`;
+  return `${TRACK_QUIZ_PASS_PREFIX}${trackSlug}`;
 }
 
 export function getTrackQuizPassed(trackSlug: string): boolean {

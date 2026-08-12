@@ -929,6 +929,35 @@ export function flatLessons(): FlatLesson[] {
   );
 }
 
+/**
+ * PROJECTS_PLAN.md Stage 2.1 / AGENTS.md Rule 43: the canonical category a
+ * lesson's completion/progress data is actually stored under. Cross-listed
+ * lessons (Rule 31, the 13 mental-models lessons surfaced under fundamentals)
+ * always write and read localStorage under sourceCategory, never the display
+ * category. Any code building a completion/progress ID from a category+lesson
+ * pair MUST resolve through this, not use the raw category slug directly, or
+ * it silently checks a key that's never written.
+ */
+export function canonicalCategory(categorySlug: string, lesson: LessonRef): string {
+  return lesson.sourceCategory ?? categorySlug;
+}
+
+/** Canonical `category/slug` storage id for a lesson, see canonicalCategory(). */
+export function canonicalLessonId(categorySlug: string, lesson: LessonRef): string {
+  return `${canonicalCategory(categorySlug, lesson)}/${lesson.slug}`;
+}
+
+/**
+ * Count of DISTINCT completable lessons (642), not flatLessons().length (655).
+ * flatLessons() counts each of the 13 cross-listed lessons twice, once under
+ * mental-models and once again under fundamentals, but completing one only
+ * ever writes a single canonical storage key. Use this for any "all lessons
+ * complete" check or lesson-count copy shown to users, never flatLessons().length.
+ */
+export function uniqueLessonCount(): number {
+  return new Set(flatLessons().map((l) => canonicalLessonId(l.categorySlug, l))).size;
+}
+
 export function getLessonNav(categorySlug: string, lessonSlug: string) {
   const cat = getCategory(categorySlug);
   if (!cat) return { prev: null, next: null };

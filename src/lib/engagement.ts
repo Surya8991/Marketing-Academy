@@ -22,6 +22,9 @@
  *   - "quiz" and "bookmark" keep the 24h rolling dedupe (unchanged).
  */
 
+import { preserveCorruptValue } from "@/lib/storage-utils";
+import { STORAGE_WRITE_FAILED } from "@/lib/events";
+
 export const ENGAGEMENT_KEY = "ma_engagement";
 const KEY = ENGAGEMENT_KEY;
 
@@ -72,8 +75,32 @@ export function getEngagement(): EngagementState {
     const raw = localStorage.getItem(KEY);
     if (!raw) return defaultState();
     // Spread over defaultState so new fields added in future releases don't break old saved data
-    return { ...defaultState(), ...(JSON.parse(raw) as Partial<EngagementState>) };
+    const parsed = { ...defaultState(), ...(JSON.parse(raw) as Partial<EngagementState>) };
+    // Stage 2.3: coerce null / wrong-type fields back to defaults so downstream
+    // code (e.g. completedXpIds.includes()) never throws on a corrupted shape.
+    const d = defaultState();
+    if (!Array.isArray(parsed.xpLog)) parsed.xpLog = d.xpLog;
+    if (!Array.isArray(parsed.achievements)) parsed.achievements = d.achievements;
+    if (!Array.isArray(parsed.completedXpIds)) parsed.completedXpIds = d.completedXpIds;
+    if (typeof parsed.xp !== "number" || Number.isNaN(parsed.xp)) parsed.xp = d.xp;
+    if (typeof parsed.streak !== "number") parsed.streak = d.streak;
+    if (typeof parsed.longestStreak !== "number") parsed.longestStreak = d.longestStreak;
+    if (typeof parsed.xpByDay !== "object" || parsed.xpByDay === null) parsed.xpByDay = d.xpByDay;
+
+    // Stage 2.6: decay streak on read. If lastActiveDay is not today or
+    // yesterday, the streak is dead — reset to 0 so the 🔥 badge doesn't
+    // show "7-day streak" months after the user stopped visiting.
+    if (parsed.lastActiveDay && parsed.lastActiveDay !== today() && parsed.lastActiveDay !== yesterday()) {
+      parsed.streak = 0;
+    }
+
+    return parsed;
   } catch {
+    // Stage 2.2: preserve the unparseable value before defaults overwrite it
+    try {
+      const corrupt = localStorage.getItem(KEY);
+      if (corrupt) preserveCorruptValue(KEY, corrupt);
+    } catch { /* storage read itself failed — nothing to preserve */ }
     return defaultState();
   }
 }
@@ -91,41 +118,31 @@ function defaultState(): EngagementState {
   };
 }
 
-/** Persists engagement state to localStorage. Silently swallows storage errors (private/full). */
+/** Persists engagement state to localStorage. Dispatches STORAGE_WRITE_FAILED on error (Stage 2.4). */
 export function saveEngagement(state: EngagementState): void {
   if (typeof window === "undefined") return;
   try {
     localStorage.setItem(KEY, JSON.stringify(state));
   } catch {
-    // storage unavailable (private mode, quota exceeded)
+    window.dispatchEvent(new CustomEvent(STORAGE_WRITE_FAILED, { detail: { key: KEY } }));
   }
 }
-
-/**
- * Module-level write lock.
- *
- * Problem: two XP-earning calls in the same synchronous tick (e.g. markAll()
- * loops over 20 lessons) both call getEngagement() before either write lands,
- * so they read the same stale base state and only the last write survives.
- *
- * Fix: the first call sets _writing=true and caches its in-progress state in
- * _pendingState. Subsequent calls in the same tick read _pendingState instead
- * of re-reading localStorage, so XP accumulates correctly.
- */
-let _writing = false;
-let _pendingState: EngagementState | null = null;
 
 /**
  * Awards XP for an action, updates streak, and saves to localStorage.
  * Returns the new state. Caller is responsible for dispatching ENGAGEMENT_EVENT
  * and calling checkAchievements(), those are NOT done here because they need
  * cross-cutting data (completions, bookmarks) that addXP doesn't own.
+ *
+ * Stage 2.8: removed the _writing/_pendingState "write lock" — it was dead
+ * code because `finally` cleared it before `addXP()` returned, so the next
+ * synchronous call always re-read localStorage anyway. The documented
+ * `markAll()` protection actually comes from saveEngagement() being
+ * synchronous (localStorage.setItem lands before the next getEngagement reads).
+ * Multi-tab coordination would need `storage` events, a separate concern.
  */
 export function addXP(action: XPAction, id: string): EngagementState {
-  // If a write is already in progress, continue accumulating on that state
-  const state = (_writing && _pendingState) ? _pendingState : getEngagement();
-  _writing = true;
-  _pendingState = state;
+  const state = getEngagement();
 
   try {
     const amount = XP_VALUES[action];
@@ -172,9 +189,10 @@ export function addXP(action: XPAction, id: string): EngagementState {
 
     saveEngagement(state);
     return state;
-  } finally {
-    _writing = false;
-    _pendingState = null;
+  } catch {
+    // Stage 2.3: never let a shape error in addXP crash the calling component.
+    // Return current state as-is so callers still get a valid EngagementState.
+    return state;
   }
 }
 

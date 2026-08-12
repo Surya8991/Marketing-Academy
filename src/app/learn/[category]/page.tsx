@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import fs from "fs";
 import path from "path";
-import { CATEGORIES, getCategory } from "@/lib/curriculum";
+import { CATEGORIES, getCategory, canonicalLessonId } from "@/lib/curriculum";
 import LevelBadge from "@/components/LevelBadge";
 import CategoryProgress from "@/components/CategoryProgress";
 import { ArrowRight, ChevronLeft, Clock } from "lucide-react";
@@ -148,8 +148,7 @@ export default async function CategoryPage({ params }: Props) {
           </span>
         </div>
         <CategoryProgress
-          categorySlug={cat.slug}
-          slugs={cat.lessons.map((l) => l.slug)}
+          lessonIds={cat.lessons.map((l) => canonicalLessonId(cat.slug, l))}
         />
       </div>
 

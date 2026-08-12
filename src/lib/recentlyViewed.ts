@@ -5,7 +5,8 @@ export type RecentLesson = {
   categoryTitle: string;
 };
 
-const KEY = "ma_recent";
+export const RECENT_KEY = "ma_recent";
+const KEY = RECENT_KEY;
 const MAX = 6;
 
 export function getRecentLessons(): RecentLesson[] {

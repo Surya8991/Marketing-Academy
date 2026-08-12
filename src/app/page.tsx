@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CATEGORIES, flatLessons } from "@/lib/curriculum";
+import { CATEGORIES, uniqueLessonCount } from "@/lib/curriculum";
 import { TRACKS } from "@/lib/tracks";
 import TrackCard from "@/components/TrackCard";
 import RecentlyViewed from "@/components/RecentlyViewed";
@@ -85,7 +85,8 @@ const RECENT_LESSONS = [
 ];
 
 export default function HomePage() {
-  const totalLessons = flatLessons().length;
+  // uniqueLessonCount() (642), not flatLessons().length (655), per Rule 43 (Stage 2.1).
+  const totalLessons = uniqueLessonCount();
 
   const featuredLessons = FEATURED.flatMap((f) => {
     const cat = CATEGORIES.find((c) => c.slug === f.category);

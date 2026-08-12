@@ -18,7 +18,7 @@
 
 import { getCompleted } from "@/lib/progress";
 import { getBookmarks, type BookmarkEntry } from "@/lib/bookmarks";
-import { flatLessons, CATEGORIES } from "@/lib/curriculum";
+import { CATEGORIES, canonicalLessonId, uniqueLessonCount } from "@/lib/curriculum";
 import type { EngagementState } from "@/lib/engagement";
 import { saveEngagement } from "@/lib/engagement";
 
@@ -79,10 +79,13 @@ export const ACHIEVEMENTS: Achievement[] = [
     label: "Category Clear",
     description: "Complete all lessons in any one category",
     emoji: "🏆",
-    // Checks each category independently, pass as soon as ANY category is 100%
+    // Checks each category independently, pass as soon as ANY category is 100%.
+    // Resolves canonicalLessonId (Stage 2.1) so cross-listed lessons (13 in
+    // fundamentals, sourced from mental-models) check the key that's actually
+    // written, instead of an id nothing ever completes.
     check: (_, completed) =>
       CATEGORIES.some((c) =>
-        c.lessons.every((l) => completed.has(`${c.slug}/${l.slug}`))
+        c.lessons.every((l) => completed.has(canonicalLessonId(c.slug, l)))
       ),
   },
   {
@@ -102,10 +105,13 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "all-lessons",
     label: "Marketing Polymath",
-    // getter so description stays accurate if curriculum.ts lesson count changes
-    get description() { return `Complete all ${flatLessons().length} lessons`; },
+    // getter so description stays accurate if curriculum.ts lesson count changes.
+    // uniqueLessonCount() (642), NOT flatLessons().length (655): the latter
+    // double-counts the 13 cross-listed lessons, which made this achievement
+    // mathematically unreachable by exactly 13 (Stage 2.1).
+    get description() { return `Complete all ${uniqueLessonCount()} lessons`; },
     emoji: "🎓",
-    check: (_, completed) => completed.size >= flatLessons().length,
+    check: (_, completed) => completed.size >= uniqueLessonCount(),
   },
 ];
 

@@ -9,6 +9,9 @@
  * checkAchievements() sees the updated completion count when it fires.
  */
 
+import { preserveCorruptValue } from "@/lib/storage-utils";
+import { STORAGE_WRITE_FAILED } from "@/lib/events";
+
 export const COMPLETED_KEY = "ma-completed";
 const KEY = COMPLETED_KEY;
 
@@ -24,6 +27,11 @@ export function getCompleted(): Set<string> {
     const raw = localStorage.getItem(KEY);
     return new Set(raw ? (JSON.parse(raw) as string[]) : []);
   } catch {
+    // Stage 2.2: preserve the unparseable value before defaults overwrite it
+    try {
+      const corrupt = localStorage.getItem(KEY);
+      if (corrupt) preserveCorruptValue(KEY, corrupt);
+    } catch { /* storage read itself failed — nothing to preserve */ }
     return new Set();
   }
 }
@@ -48,7 +56,7 @@ export function markComplete(id: string): void {
   try {
     localStorage.setItem(KEY, JSON.stringify([...completed]));
   } catch {
-    // storage unavailable (private mode, quota exceeded)
+    window.dispatchEvent(new CustomEvent(STORAGE_WRITE_FAILED, { detail: { key: KEY } }));
   }
 }
 
@@ -61,6 +69,6 @@ export function markIncomplete(id: string): void {
   try {
     localStorage.setItem(KEY, JSON.stringify([...completed]));
   } catch {
-    // storage unavailable (private mode, quota exceeded)
+    window.dispatchEvent(new CustomEvent(STORAGE_WRITE_FAILED, { detail: { key: KEY } }));
   }
 }
