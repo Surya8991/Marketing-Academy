@@ -282,8 +282,22 @@ export default function SettingsClient() {
       >
         Settings
       </h1>
-      <p style={{ color: "var(--muted-foreground)", marginBottom: "2rem", fontSize: "0.95rem" }}>
+      <p style={{ color: "var(--muted-foreground)", marginBottom: "0.75rem", fontSize: "0.95rem" }}>
         Manage your learning progress data.
+      </p>
+      {/* Stage 5.1: honest warning that progress is browser-only */}
+      <p style={{
+        color: "var(--muted-foreground)",
+        marginBottom: "2rem",
+        fontSize: "0.8rem",
+        padding: "0.625rem 0.875rem",
+        borderRadius: "0.5rem",
+        background: "rgba(234, 179, 8, 0.08)",
+        border: "1px solid rgba(234, 179, 8, 0.2)",
+        lineHeight: 1.5,
+      }}>
+        ⚠️ Your progress is stored in this browser only. Clearing site data or switching browsers will lose it.
+        Use <strong>Export</strong> below to save a backup you can import later.
       </p>
 
       {/* Export */}
@@ -317,40 +331,34 @@ export default function SettingsClient() {
         <StatusBanner status={importStatus} />
       </section>
 
-      {/* Cloud Sync */}
+      {/* Cloud Sync — Stage 5.2: hidden entirely unless the server reports it as enabled.
+          Sync is disabled (Stage 0) due to a security vulnerability (single shared KV key).
+          Showing a permanently-disabled section with env-var instructions confuses learners. */}
+      {syncEnabled === true && (
       <section style={cardStyle}>
         <h2 style={headingStyle}>Cloud Sync</h2>
         <p style={descStyle}>
-          Push your progress to Cloudflare KV to restore it on another device. Requires{" "}
-          <code style={{ fontSize: "0.8rem" }}>CF_KV_*</code> env vars to be set.
+          Sync your progress across devices. Push saves your data to the cloud; Pull restores it here.
         </p>
         <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
           <button
             style={primaryBtn}
             onClick={handlePush}
-            disabled={syncing || syncEnabled === false}
-            title={syncEnabled === false ? "CF KV env vars not configured" : undefined}
+            disabled={syncing}
           >
             {syncing ? "…" : "↑ Push to cloud"}
           </button>
           <button
             style={{ ...primaryBtn, background: "var(--muted)", color: "var(--muted-foreground)", border: "1px solid var(--border)" }}
             onClick={handlePull}
-            disabled={syncing || syncEnabled === false}
-            title={syncEnabled === false ? "CF KV env vars not configured" : undefined}
+            disabled={syncing}
           >
             {syncing ? "…" : "↓ Pull from cloud"}
           </button>
         </div>
-        {syncEnabled === false && (
-          <p style={{ marginTop: "0.5rem", fontSize: "0.8rem", color: "var(--muted-foreground)" }}>
-            Add <code>SYNC_SECRET</code>, <code>CF_ACCOUNT_ID</code>, <code>CF_KV_NAMESPACE_ID</code>,{" "}
-            and <code>CF_KV_API_TOKEN</code> to your env vars to enable sync.
-            See <code>.env.local.example</code> for setup instructions.
-          </p>
-        )}
         <StatusBanner status={syncStatus} />
       </section>
+      )}
 
       {/* Reset */}
       <section style={cardStyle}>

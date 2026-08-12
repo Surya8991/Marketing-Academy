@@ -78,7 +78,7 @@ export default function SkillMapClient() {
             fontSize: "1rem",
           }}
         >
-          Track your progress across all 15 disciplines.
+          Track your progress across all {CATEGORIES.length} disciplines.
         </p>
       </div>
 

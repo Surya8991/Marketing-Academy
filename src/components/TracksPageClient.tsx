@@ -113,18 +113,8 @@ export default function TracksPageClient({ tracks }: { tracks: Track[] }) {
             <div className="flex items-start justify-between gap-4 mb-4">
               <div className="flex items-center gap-3">
                 <span className="text-4xl">{track.emoji}</span>
-                {filter === "all" && i < 8 && !search.trim() && (
-                  <span
-                    className="text-[10px] px-2 py-0.5 rounded-full font-semibold uppercase tracking-wide"
-                    style={{
-                      background: "rgba(99, 102, 241, 0.12)",
-                      color: "var(--accent)",
-                      border: "1px solid rgba(99, 102, 241, 0.25)",
-                    }}
-                  >
-                    Popular
-                  </span>
-                )}
+                {/* Stage 5.5: removed fake "Popular" badge — was based on
+                    array position (first 8), not actual usage data. */}
               </div>
               <span
                 className="text-xs px-2.5 py-1 rounded-full font-medium shrink-0"

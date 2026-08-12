@@ -9,7 +9,7 @@
  *   done    (done=true)                     → shows CheckCircle icon, click un-marks
  *
  * There is NO modal here. The quiz gate is purely a scroll, see AGENTS.md Rule 25.
- * Do NOT add a hasQuiz prop, all 393 lessons have quizzes.
+ * Do NOT add a hasQuiz prop, all lessons have quizzes.
  *
  * Events emitted:
  *   LESSON_TOGGLE_EVENT: keeps other MarkComplete instances on the same page in sync

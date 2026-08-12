@@ -5,7 +5,7 @@
  * that receives the current EngagementState, the completion Set, and the bookmarks array.
  *
  * Why checkAchievements() lives here and NOT inside addXP():
- *   addXP() only owns XP/streak state. Achievements like "complete all 393 lessons" or
+ *   addXP() only owns XP/streak state. Achievements like "complete all lessons" or
  *   "bookmark 5 lessons" need cross-cutting data (completions, bookmarks) that addXP()
  *   doesn't read. Keeping them separate avoids circular imports and side effects inside
  *   the XP write path.

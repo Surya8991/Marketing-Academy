@@ -1,14 +1,15 @@
 import Link from "next/link";
-import { CATEGORIES } from "@/lib/curriculum";
+import { CATEGORIES, uniqueLessonCount } from "@/lib/curriculum";
 import LevelBadge from "@/components/LevelBadge";
 import SurpriseMeButton from "@/components/SurpriseMeButton";
 import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 
+// Stage 5.3: was hardcoded "393+ ... 15 disciplines"
 export const metadata: Metadata = {
   title: "All Marketing Lessons | Marketing Academy",
   description:
-    "Browse all 393+ marketing lessons across 15 disciplines: SEO, paid ads, growth, email, analytics, AI marketing, copywriting, CRO, and more. Free, structured Beginner to Advanced.",
+    `Browse all ${uniqueLessonCount()}+ marketing lessons across ${CATEGORIES.length} disciplines: SEO, paid ads, growth, email, analytics, AI marketing, copywriting, CRO, and more. Free, structured Beginner to Advanced.`,
 };
 
 /** Stage 3.4: show only the first PREVIEW_COUNT lessons per category to keep
@@ -23,7 +24,7 @@ export default function LearnPage() {
         <div>
           <h1 className="text-4xl font-bold mb-3">All Marketing Lessons</h1>
           <p className="text-[var(--muted-foreground)] text-lg max-w-2xl">
-            15 disciplines, Beginner to Advanced. Browse every category or use Ctrl+K to search.
+            {CATEGORIES.length} disciplines, Beginner to Advanced. Browse every category or use Ctrl+K to search.
           </p>
         </div>
         <SurpriseMeButton />
