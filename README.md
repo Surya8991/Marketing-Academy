@@ -44,14 +44,14 @@ A free, structured marketing education site, from absolute beginner to advanced 
 **Learning**
 - **Lesson reader**, Left-side table of contents, reading progress bar, reading time estimate, prev/next navigation
 - **Related lessons**, "You might also like" section at the bottom of every lesson
-- **Lesson quizzes**, 4 questions at the bottom of 642 lessons; quiz must be passed (100%) to unlock Mark Complete
+- **Lesson quizzes**, 4 questions at the bottom of 642 lessons; quiz must be passed (75%, 3 of 4) to unlock Mark Complete. Questions and options are Fisher-Yates shuffled on every attempt. Answers revealed only after full submission
 - **Progress tracking**, Mark lessons complete, per-category progress bar, bookmarks (all localStorage)
 - **Learning tracks**, 24 curated paths: B2B Marketer, E-commerce Growth, Solo Founder, AI-First Marketer, Content Creator, Social Media Manager, Data-Driven Marketer, Freelancer & Agency, Marketing Mental Models, Technical SEO Mastery, AI Search Optimization, Content Strategy Mastery, On-Page SEO Mastery, Off-Page SEO Mastery, Paid Ads Mastery, Email & Lifecycle Mastery, CRO & Conversion Mastery, Analytics & Measurement Mastery, Copywriting Mastery, Brand Strategy Mastery, Psychology of Marketing, PR & Communications Mastery, Growth Marketing Mastery, Product Marketing Mastery
-- **Progress certificates**, Printable completion certificate per track at `/certificates/[slug]`
+- **Progress certificates**, Printable completion certificate per track at `/certificates/[slug]` (requires 100% lesson completion + track quiz pass)
 - **XP + Streak system**, Earn XP for completing lessons (30), passing quizzes (20), bookmarking (5). Daily streak. 7 levels (Marketing Newcomer → Certified Polymath). Live badge in nav.
 - **Achievements**, 10 unlockable badges with toast notification on unlock. Full gallery at `/achievements`
 - **Skill Map**, `/skill-map`: 21 category cards sorted by your % complete with animated progress bars
-- **Onboarding**, First-visit goal selector: pick a goal, get routed to the right learning track
+- **Onboarding**, First-visit goal selector: pick a goal (including "totally new to marketing"), get routed to the right learning track. Suppressed on lesson pages so direct-link visitors aren't interrupted
 
 **Discovery**
 - **Command Palette**, Cmd/Ctrl+K fuzzy search across all 642 lessons, 158 glossary terms, 108 tools, and nav pages
@@ -104,6 +104,9 @@ npm run dev
 # Type check
 npx tsc --noEmit
 
+# Tests (18 tests: data validation, quiz shuffle property, integrity regression)
+npm test
+
 # Build
 npm run build
 ```
@@ -145,7 +148,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/glossary.ts` | 158 marketing term definitions |
 | `src/lib/quizzes.ts` | Quiz questions (4 per lesson, all 642 lessons covered) |
 | `src/lib/tools-directory.ts` | 111 marketing tools with category/pricing data |
-| `PROJECTS_PLAN.md` | **High-priority roadmap** for the hands-on projects layer, the `/projects` hub, and per-concept scenarios in lessons. Also carries the verified lesson-quality backlog (section 12) and one open P0 bug (section 0.1) |
+| `PROJECTS_PLAN.md` | **High-priority roadmap** — stages 0-7 complete (safety, a11y, UX, tests). Remaining: perf (3.5-3.6), CI (3b.5), content fixes (4), projects layer (8), long tail (9), quiz expansion (10) |
 | `src/lib/bookmarks.ts` | Shared bookmark storage (BOOKMARK_KEY, getBookmarks, saveBookmarks) |
 | `src/lib/progress.ts` | Lesson completion helpers (COMPLETED_KEY exported, getCompleted, markComplete) |
 | `src/lib/engagement.ts` | XP/streak system (addXP, getEngagement, getCurrentLevel, ENGAGEMENT_EVENT) |
@@ -160,7 +163,10 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `public/manifest.json` | PWA Web App Manifest |
 | `public/sw.js` | Service worker: network-first for HTML, cache-first for hashed static assets |
 | `vercel.json` | Security headers (CSP, HSTS, X-Frame-Options, etc.) |
-| `AGENTS.md` | 25 non-negotiable build rules for AI agents (incl. Rule 23: pre-push doc checklist) |
+| `src/lib/storage-utils.ts` | Safe `localStorage` wrapper with try/catch, corrupt-value backup, and `StorageWarning` trigger |
+| `src/components/StorageWarning.tsx` | Client banner shown when localStorage is blocked (corporate/Android) |
+| `tests/*.test.ts` | 18 tests (Node.js built-in runner + tsx): data validation, quiz shuffle, integrity regression |
+| `AGENTS.md` | 44 non-negotiable build rules for AI agents (incl. Rule 23: pre-push doc checklist) |
 | `src/lib/notes.ts` | Shared note storage (NOTE_KEY_PREFIX, getNoteKey, getNote, saveNote) |
 | `src/app/api/sync-proxy/route.ts` | Server-side CF KV proxy, secret never exposed to client |
 | `src/app/api/sync/status/route.ts` | Returns `{ enabled: boolean }` so client knows if sync is configured |
