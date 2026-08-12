@@ -41,7 +41,7 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
   const totalMinutes = projects.reduce((sum, p) => sum + p.timeMinutes, 0);
 
   return (
-    <section id="projects-section" className="mt-10">
+    <section id="projects-section">
       <button
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}

@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { CATEGORIES, getCategory, getLessonNav } from "@/lib/curriculum";
-import LevelBadge from "@/components/LevelBadge";
 import MarkComplete from "@/components/MarkComplete";
 import ReadingProgress from "@/components/ReadingProgress";
 import { TableOfContentsDesktop, TableOfContentsMobile } from "@/components/TableOfContents";
@@ -12,10 +11,11 @@ import type { Project } from "@/lib/projects/types";
 import ShareButtons from "@/components/ShareButtons";
 import BookmarkButton from "@/components/BookmarkButton";
 import RelatedLessons from "@/components/RelatedLessons";
+import RelatedConcepts from "@/components/RelatedConcepts";
 import LessonNotes from "@/components/LessonNotes";
 import LessonResources from "@/components/LessonResources";
 import LessonViewTracker from "@/components/LessonViewTracker";
-import { ChevronLeft, ChevronRight, ArrowLeft, Clock } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { Metadata } from "next";
 import fs from "fs";
 import path from "path";
@@ -78,7 +78,7 @@ export default async function LessonPage({ params }: Props) {
   const sourceCat = lessonRef?.sourceCategory ?? category;
 
   let LessonContent!: React.ComponentType;
-  let lessonMeta: { title: string; level: string; summary: string } | undefined;
+  let lessonMeta: { title: string; level: string; summary: string; relatedConcepts?: string[] } | undefined;
   try {
     const mod = await import(`@/content/${sourceCat}/${lesson}.mdx`);
     LessonContent = mod.default;
@@ -211,40 +211,34 @@ export default async function LessonPage({ params }: Props) {
               <span className="text-[var(--foreground)] truncate">{lessonMeta?.title}</span>
             </nav>
 
-            {/* Title block */}
-            <header className="mb-8 pb-6 border-b border-[var(--border)]">
-              <div className="flex items-center gap-3 mb-4 flex-wrap">
-                {lessonMeta?.level && (
-                  <LevelBadge
-                    level={lessonMeta.level as "Beginner" | "Intermediate" | "Advanced"}
-                  />
-                )}
-                <span className="flex items-center gap-1 text-xs text-[var(--muted-foreground)]">
-                  <Clock size={12} />
-                  {readTime} min read
-                </span>
-                {hasProjects && (
-                  <span className="text-xs text-[var(--muted-foreground)]">
-                    &middot; {lessonProjects.length} {lessonProjects.length === 1 ? "project" : "projects"}
-                  </span>
-                )}
-                <span className="text-xs text-[var(--muted-foreground)]">{cat.title}</span>
-                <span className="text-xs text-[var(--muted-foreground)]">Marketing Academy · Jun 2026</span>
-              </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] mb-4">
+            {/* Title block — docs-style single meta line instead of scattered
+                badges/pills; Mark Complete/Bookmark/Share moved to the bottom
+                action bar (see the end of this page), matching the approved
+                redesign (Session 75). */}
+            <header className="mb-8">
+              <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.1] mb-4">
                 {lessonMeta?.title}
               </h1>
               {lessonMeta?.summary && (
-                <p className="text-lg text-[var(--muted-foreground)] leading-relaxed">
+                <p className="text-lg text-[var(--muted-foreground)] leading-relaxed mb-4">
                   {lessonMeta.summary}
                 </p>
               )}
-              <div className="mt-5 flex flex-wrap items-center gap-3">
-                <MarkComplete category={sourceCat} slug={lesson} />
-                <BookmarkButton category={sourceCat} slug={lesson} title={lessonMeta?.title ?? lesson} />
-              </div>
-              <div className="mt-4">
-                <ShareButtons title={lessonMeta?.title ?? lesson} url={`${BASE}/learn/${category}/${lesson}`} />
+              <div className="flex items-center gap-2 flex-wrap font-data text-xs tracking-wide text-[var(--muted-foreground)]">
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
+                <span>{lessonMeta?.level?.toUpperCase()}</span>
+                <span>&middot;</span>
+                <span>{readTime} MIN READ</span>
+                {hasProjects && (
+                  <>
+                    <span>&middot;</span>
+                    <span>{lessonProjects.length} PROJECT{lessonProjects.length === 1 ? "" : "S"}</span>
+                  </>
+                )}
+                <span>&middot;</span>
+                <span>{cat.title.toUpperCase()}</span>
+                <span>&middot;</span>
+                <span>UPDATED JUN 2026</span>
               </div>
             </header>
 
@@ -263,103 +257,108 @@ export default async function LessonPage({ params }: Props) {
 
             <LessonResources slug={lesson} />
 
-            {/* Bottom Mark Complete — its own "Continue: {next}" CTA appears
-                here on completion, so there's no separate "Up Next" card
-                (that was a 3rd copy of the same information, alongside the
-                Prev/Next nav below; removed as part of decluttering this
-                page, see AGENTS.md redesign notes). */}
-            <div className="mt-10 pt-8 border-t border-[var(--border)]">
+            {/* Practice: Quiz / Projects / Notes as a matched set of
+                accordion cards (docs-style redesign, Session 75). Quiz has no
+                self-collapse of its own, so it gets a native <details> shell;
+                ProjectList and LessonNotes already own their open/close state
+                and are styled to match. Quiz defaults open since it gates
+                MarkComplete (see MarkComplete's locked-click handler, which
+                force-opens #quiz-accordion before scrolling to it). */}
+            <div className="mt-10 flex flex-col gap-3">
+              {hasQuiz && (
+                <details
+                  id="quiz-accordion"
+                  open
+                  className="rounded-xl border border-[var(--border)] bg-[var(--card)] overflow-hidden"
+                >
+                  <summary className="flex items-center justify-between gap-3 px-5 py-4 cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden font-semibold text-sm">
+                    <span>Test Your Knowledge</span>
+                    <ChevronRight
+                      size={16}
+                      className="details-chevron shrink-0 text-[var(--muted-foreground)] transition-transform"
+                    />
+                  </summary>
+                  <div className="px-5 pb-5 pt-1 border-t border-[var(--border)]">
+                    <Quiz questions={quizQuestions!} category={sourceCat} slug={lesson} />
+                  </div>
+                </details>
+              )}
+
+              {hasProjects && <ProjectList projects={lessonProjects} />}
+
+              <LessonNotes category={sourceCat} slug={lesson} />
+            </div>
+
+            {/* Related Concepts (curated, when the lesson has them) sits above
+                the broader "You Might Also Like" pick, as its own cards
+                rather than folded into an accordion — it's where the reader
+                goes next, not a practice action. */}
+            <RelatedConcepts category={sourceCat} slugs={lessonMeta?.relatedConcepts} />
+
+            {category === "tools" && (
+              <div className="mt-10 p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] transition-colors">
+                <h3 className="font-semibold text-sm mb-1 flex items-center gap-2">
+                  <span>⚖️</span> Comparing platforms for your stack?
+                </h3>
+                <p className="text-xs text-[var(--muted-foreground)] mb-2">
+                  Compare features, pricing, and pros/cons side-by-side.
+                </p>
+                <Link
+                  href="/compare"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--accent)] hover:underline"
+                >
+                  Compare Tools <ChevronRight size={14} />
+                </Link>
+              </div>
+            )}
+
+            <RelatedLessons currentCategory={category} currentSlug={lesson} level={lessonMeta?.level ?? "Beginner"} />
+
+            <nav className="grid grid-cols-2 gap-3 mt-10">
+              {prev ? (
+                <Link
+                  href={`/learn/${prev.categorySlug}/${prev.slug}`}
+                  className="lesson-nav-card group flex flex-col p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)]/50 transition-all col-span-1"
+                >
+                  <span className="flex items-center gap-1 text-xs text-[var(--muted-foreground)] mb-1">
+                    <ChevronLeft size={12} /> Previous
+                  </span>
+                  <span className="font-medium text-sm group-hover:text-[var(--accent)] transition-colors line-clamp-2">
+                    {prev.title}
+                  </span>
+                </Link>
+              ) : (
+                <div />
+              )}
+              {next ? (
+                <Link
+                  href={`/learn/${next.categorySlug}/${next.slug}`}
+                  className="lesson-nav-card group flex flex-col p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)]/50 transition-all col-span-1 text-right"
+                >
+                  <span className="flex items-center justify-end gap-1 text-xs text-[var(--muted-foreground)] mb-1">
+                    Next <ChevronRight size={12} />
+                  </span>
+                  <span className="font-medium text-sm group-hover:text-[var(--accent)] transition-colors line-clamp-2">
+                    {next.title}
+                  </span>
+                </Link>
+              ) : (
+                <div />
+              )}
+            </nav>
+
+            {/* Bottom action bar — Mark Complete / Bookmark / Share moved out
+                of the header (docs-style redesign, Session 75). Its own
+                "Continue: {next}" CTA appears here on completion. */}
+            <div className="mt-10 pt-6 border-t border-[var(--border)] flex flex-wrap items-center gap-3">
               <MarkComplete
                 category={sourceCat}
                 slug={lesson}
                 nextHref={next ? `/learn/${next.categorySlug}/${next.slug}` : undefined}
                 nextTitle={next?.title}
               />
-            </div>
-
-            {/* Quiz — the primary "work" section, kept prominent */}
-            {hasQuiz && (
-              <div id="quiz-section" className="mt-10 pt-8 border-t border-[var(--border)]">
-                <h2 className="text-xl font-bold mb-4">Test Your Knowledge</h2>
-                <Quiz questions={quizQuestions!} category={sourceCat} slug={lesson} />
-              </div>
-            )}
-
-            {/* Projects (Stage 8) — collapsed by default, ProjectList owns its
-                own id="projects-section" and toggle, do not duplicate the id
-                on this wrapper (IDs must be unique for the ToC scroll-spy). */}
-            {hasProjects && (
-              <div className="mt-10 pt-8 border-t border-[var(--border)]">
-                <ProjectList projects={lessonProjects} />
-              </div>
-            )}
-
-            {/* Wrap-up cluster: notes, tool comparison (tools category only),
-                related lessons, and prev/next nav grouped under one lighter
-                heading instead of each having its own full-weight section,
-                since none of these gate completion the way Quiz/Projects do. */}
-            <div className="mt-10 pt-8 border-t border-[var(--border)] flex flex-col gap-8">
-              <LessonNotes category={sourceCat} slug={lesson} />
-
-              {category === "tools" && (
-                <div className="p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] transition-colors">
-                  <h3 className="font-semibold text-sm mb-1 flex items-center gap-2">
-                    <span>⚖️</span> Comparing platforms for your stack?
-                  </h3>
-                  <p className="text-xs text-[var(--muted-foreground)] mb-2">
-                    Compare features, pricing, and pros/cons side-by-side.
-                  </p>
-                  <Link
-                    href="/compare"
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--accent)] hover:underline"
-                  >
-                    Compare Tools <ChevronRight size={14} />
-                  </Link>
-                </div>
-              )}
-
-              <RelatedLessons currentCategory={category} currentSlug={lesson} level={lessonMeta?.level ?? "Beginner"} />
-
-              <nav className="grid grid-cols-2 gap-3">
-                {prev ? (
-                  <Link
-                    href={`/learn/${prev.categorySlug}/${prev.slug}`}
-                    className="lesson-nav-card group flex flex-col p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)]/50 transition-all col-span-1"
-                  >
-                    <span className="flex items-center gap-1 text-xs text-[var(--muted-foreground)] mb-1">
-                      <ChevronLeft size={12} /> Previous
-                    </span>
-                    <span className="font-medium text-sm group-hover:text-[var(--accent)] transition-colors line-clamp-2">
-                      {prev.title}
-                    </span>
-                  </Link>
-                ) : (
-                  <div />
-                )}
-                {next ? (
-                  <Link
-                    href={`/learn/${next.categorySlug}/${next.slug}`}
-                    className="lesson-nav-card group flex flex-col p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)]/50 transition-all col-span-1 text-right"
-                  >
-                    <span className="flex items-center justify-end gap-1 text-xs text-[var(--muted-foreground)] mb-1">
-                      Next <ChevronRight size={12} />
-                    </span>
-                    <span className="font-medium text-sm group-hover:text-[var(--accent)] transition-colors line-clamp-2">
-                      {next.title}
-                    </span>
-                  </Link>
-                ) : (
-                  <div />
-                )}
-              </nav>
-
-              <Link
-                href={`/learn/${category}`}
-                className="inline-flex items-center gap-1 text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors self-start"
-              >
-                <ArrowLeft size={14} />
-                Back to {cat.title}
-              </Link>
+              <BookmarkButton category={sourceCat} slug={lesson} title={lessonMeta?.title ?? lesson} />
+              <ShareButtons title={lessonMeta?.title ?? lesson} url={`${BASE}/learn/${category}/${lesson}`} />
             </div>
           </div>
 

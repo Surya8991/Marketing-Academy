@@ -65,23 +65,29 @@ export function TableOfContentsDesktop({
   if (headings.length < 2) return null;
 
   return (
-    <aside className="hidden xl:block sticky top-24 self-start w-60 shrink-0">
+    <aside className="hidden xl:block sticky top-24 self-start w-44 shrink-0">
       <p className="text-xs uppercase tracking-wider text-[var(--muted-foreground)] font-semibold mb-3">
         On this page
       </p>
-      <nav className="space-y-1 border-l border-[var(--border)]">
+      <nav className="flex flex-col gap-0.5">
         {headings.map((h) => (
           <a
             key={h.id}
             href={`#${h.id}`}
             className={cn(
-              "block text-sm py-1 -ml-px border-l-2 transition-colors",
-              h.level === 3 ? "pl-6" : "pl-4",
+              "flex items-baseline gap-2 text-sm py-1 leading-snug transition-colors",
+              h.level === 3 && "pl-3",
               activeId === h.id
-                ? "border-[var(--accent)] text-[var(--accent)] font-medium"
-                : "border-transparent text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                ? "text-[var(--accent)] font-medium"
+                : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
             )}
           >
+            <span
+              className={cn(
+                "inline-block w-1 h-1 rounded-full shrink-0 translate-y-[-1px]",
+                activeId === h.id ? "bg-[var(--accent)]" : "bg-[var(--border)]"
+              )}
+            />
             {h.text}
           </a>
         ))}

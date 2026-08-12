@@ -159,7 +159,12 @@ export default function MarkComplete({
       setJustCompleted(false);
       window.dispatchEvent(new CustomEvent(LESSON_TOGGLE_EVENT, { detail: { id, done: false } }));
     } else if (locked) {
-      // Scroll to the quiz instead of opening a modal, see AGENTS.md Rule 25
+      // Scroll to the quiz instead of opening a modal, see AGENTS.md Rule 25.
+      // The quiz now lives inside a <details id="quiz-accordion"> (docs-style
+      // redesign) — force it open first, otherwise scrollIntoView targets a
+      // collapsed element with no box and silently does nothing.
+      const acc = document.getElementById("quiz-accordion") as HTMLDetailsElement | null;
+      if (acc) acc.open = true;
       document.getElementById("quiz-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
     } else {
       handleComplete();

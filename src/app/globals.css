@@ -70,6 +70,13 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Lesson page quiz accordion (docs-style redesign, Session 75): rotates the
+   chevron on the native <details> used for "Test Your Knowledge" without
+   needing client JS. */
+details[open] > summary .details-chevron {
+  transform: rotate(90deg);
+}
+
 /* Stage 6.5: global focus-visible ring so keyboard users can always see
    where focus is. Uses outline, not box-shadow, to stay visible on all
    background colours. Only fires for keyboard navigation (not mouse clicks). */

@@ -65,56 +65,46 @@ export default function LessonNotes({ category, slug }: { category: string; slug
 
   return (
     <div
-      style={{
-        marginTop: "2.5rem",
-        paddingTop: "2rem",
-        borderTop: "1px solid var(--border)",
-      }}
+      className="rounded-xl border border-[var(--border)] bg-[var(--card)] overflow-hidden"
     >
       <button
         onClick={() => setOpen((v) => !v)}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem",
-          background: "none",
-          border: "none",
-          cursor: "pointer",
-          color: "var(--muted-foreground)",
-          fontSize: "0.9rem",
-          fontWeight: 500,
-          padding: 0,
-        }}
+        className="w-full flex items-center justify-between gap-3 text-left px-5 py-4"
+        style={{ background: "none", border: "none", cursor: "pointer" }}
       >
+        <span className="flex items-center gap-2 font-semibold text-sm text-[var(--foreground)]">
+          Notes
+          {text.trim() && !open && (
+            <span
+              style={{
+                fontSize: "0.7rem",
+                fontWeight: 500,
+                color: "var(--accent)",
+                background: "color-mix(in srgb, var(--accent) 15%, transparent)",
+                border: "1px solid color-mix(in srgb, var(--accent) 30%, transparent)",
+                borderRadius: "9999px",
+                padding: "1px 7px",
+              }}
+            >
+              saved
+            </span>
+          )}
+        </span>
         <span
           style={{
             display: "inline-block",
             transition: "transform 0.2s",
             transform: open ? "rotate(90deg)" : "rotate(0deg)",
-            fontSize: "0.75rem",
+            color: "var(--muted-foreground)",
+            fontSize: "0.8rem",
           }}
         >
           ▶
         </span>
-        My Notes
-        {text.trim() && !open && (
-          <span
-            style={{
-              fontSize: "0.75rem",
-              color: "var(--accent)",
-              background: "color-mix(in srgb, var(--accent) 15%, transparent)",
-              border: "1px solid color-mix(in srgb, var(--accent) 30%, transparent)",
-              borderRadius: "9999px",
-              padding: "1px 7px",
-            }}
-          >
-            saved
-          </span>
-        )}
       </button>
 
       {open && (
-        <div style={{ marginTop: "0.875rem" }}>
+        <div style={{ padding: "0 1.25rem 1.25rem" }}>
           <textarea
             value={text}
             onChange={handleChange}
