@@ -3,6 +3,10 @@
 > Companion to `PROJECTS_PLAN.md` (the spec) and `AGENTS.md` Rules 45-56 (the rules). This file is the **operational playbook** — copy/fill/run, not prose to re-derive each session. Built in Session 76 after the Technical SEO Mastery track batch; the goal is that authoring the next track costs less setup and fewer tokens for the same quality bar, per Rule 56.
 >
 > **Which track next?** `PROJECTS_PLAN.md` section "Stage 8.3a" has the owner-set priority order across all 24 tracks — work through it top to bottom, don't pick a track ad hoc.
+>
+> **The next two tracks are already scoped and measured in "Stage 8.3b"** (AI Search Optimization, then On-Page SEO Mastery): batch lists, tier pairs, a content-quality audit of all 27 lessons, the Rule 34 verdict on new lessons, and four hazards specific to that batch. Read 8.3b before starting either one — the measurement work is already done, don't redo it.
+>
+> ⚠️ **8.3b is a wider job than the Technical SEO batch this guide was written for.** It adds a **full content-quality rewrite** of each lesson on top of projects + scenarios. When a batch includes a content rewrite, do the rewrite **first** and author projects/`InAction` against the final headings in the same agent, or `lessonAnchor` values will point at headings that no longer exist. Also re-check each rewritten lesson against its existing 4-question `QUIZZES` entry, which nothing currently tests.
 
 ---
 
