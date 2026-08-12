@@ -41,6 +41,8 @@ Every known issue, in execution order. **Nothing below is implemented.** Roughly
 
 Ordering principle: **live harm to real users first**, then things that block other work, then everything else by leverage.
 
+> ⚠️ **Rule numbers inside this document are PROPOSED and currently collide with `AGENTS.md`.** This plan proposes rules numbered 20-28 and 41-48; `AGENTS.md` already uses **1 through 44** for real, different rules. Renumber every proposed rule from **45 upward** at merge time. The only ones already merged and therefore authoritative are `AGENTS.md` Rules **36-40** (integrity gates, quiz shuffling) and **41-44** (client bundles, localStorage, `sourceCategory`, API auth). Treat inline numbers below as draft labels, not references.
+
 #### Stage 0, stop the bleeding. Ship first, independently
 
 Each of these is exploitable or breaking for someone right now.
@@ -464,14 +466,22 @@ The 24 tracks reference 363 lesson slots, but only **240 unique lessons** across
 
 ### 1.3 A single projects data file would be the biggest file in the repo
 
+> ## ❌ THIS SECTION WAS WRONG. See 14.5.1 for the measurement that disproved it.
+>
+> The claim below, that a projects dataset would put 3-4 MB into the **client**, is false. `quizzes.ts` and `lesson-resources.ts` do not reach the client at all: their payload strings were grepped across all 105 chunks in `.next/static/chunks/` with **0 matches**. `Quiz.tsx` takes questions as a prop and the lesson page is a server component. A learner downloads ~4 questions, not 2,252.
+>
+> **The decision below still stands, but the reasoning does not.** The real justification is the `/projects` hub (section 5), which *is* a client component and does need queryable data. That is what the slim generated index in 5.1 solves. The 3.6 MB is a build-time and DX cost, not a user cost.
+>
+> Kept rather than deleted because the error is instructive: it was asserted from file sizes without checking the module graph, which is the same failure mode as section 12's audit.
+
 Existing single-module data files carry no code splitting:
 
 - `quizzes.ts` = **1.91 MB**, 25,723 lines
 - `lesson-resources.ts` = **1.72 MB**
 
-600 projects at the depth you asked for (brief + steps + tools + sample filled version) lands around **3-4 MB**, larger than both combined. Following the `quizzes.ts` pattern would make an existing problem materially worse.
+~~600 projects at the depth you asked for lands around **3-4 MB**, larger than both combined.~~ *(Disproven, see banner above.)*
 
-**Decision: projects ship as per-category modules, dynamically imported per route.** A lesson page loads only its own category's projects.
+**Decision: projects ship as per-category modules, dynamically imported per route**, and the hub reads a generated slim index. Still correct, for the reason in the banner.
 
 ---
 
