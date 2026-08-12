@@ -201,10 +201,10 @@ The owner reviewed the full 24-track list (all categories, not just SEO) and set
 | Priority | Track | Slug | Status (lessons w/ projects / total) |
 |---|---|---|---|
 | — | ⚙️ Technical SEO Mastery | `technical-seo` | ✅ **13/13, done (Session 76)** |
-| 1 | 🤖 AI Search Optimization | `ai-search-optimization` | 0/14 |
+| 1 | 🤖 AI Search Optimization | `ai-search-optimization` | 0/14 — **scoped in 8.3b, ready to run** |
 | 2 | 🤖 AI-First Marketer | `ai-first-marketer` | 0/14 |
 | 3 | 🔗 Off-Page SEO Mastery | `off-page-seo-mastery` | 0/13 |
-| 4 | 📄 On-Page SEO Mastery | `on-page-seo-mastery` | 8/13 |
+| 4 | 📄 On-Page SEO Mastery | `on-page-seo-mastery` | 8/13 — **scoped in 8.3b, ready to run** |
 | 5 | 🏢 B2B Marketing | `b2b-marketer` | 5/21 |
 | 6 | 💸 Paid Ads Mastery | `paid-ads-mastery` | 1/15 |
 | 7 | 📊 Data-Driven Marketer | `data-driven-marketer` | 3/19 |
@@ -236,6 +236,67 @@ Priorities 11-23 were proposed by the assistant (weighted toward finishing near-
 - **Content Strategy Mastery**'s one remaining `seo` lesson: `content-decay-refresh` (`search-intent` is already listed above via On-Page SEO Mastery)
 - **Also outstanding, found by `scripts/audit-projects.mjs` but not fixed (out of Session 76's stated scope)**: the original Session 73 pilot's `keyword-research` and `on-page-seo` projects use invented placeholder `toolName` strings (`"Written justification"`, `"Manual page crawl"`, `"Manual calculation"`, `"Manual rewrite"`, `"Manual edit"`), the same Rule 55 issue fixed in this session's own new batch. Run `node --import tsx scripts/audit-projects.mjs seo` (unscoped) to see the current list.
 - **Explicitly out of scope until a separate decision**: the 11 cross-category lessons inside the 4 SEO-named tracks that aren't `seo`/`ai-marketing` (`pr-communications` ×6, `content` ×2, `copywriting` ×1) — these ARE now in scope via `b2b-marketer` etc. if those tracks pull in the same categories, check per-track when you get there.
+
+---
+
+#### Stage 8.3b — AI Search Optimization + On-Page SEO Mastery: SCOPED AND MEASURED, ready to execute
+
+> **Status: not started. Every number below is measured, not estimated** — run in Session 76 against live source. Scope was expanded by the owner beyond projects/scenarios to include a **full content-quality rewrite pass on all 27 lessons**, plus adding any genuinely missing related lessons. Owner-chosen sequencing: **AI Search Optimization end-to-end first, then On-Page SEO Mastery.**
+
+**27 unique lessons across the two tracks, no overlap between them.**
+
+##### Per-lesson work required
+
+| Work | Lessons | Output |
+|---|---|---|
+| Practice projects (Stage 8.3) | **19** (AI Search 14, On-Page's 5 remaining) | ~38 projects |
+| Concept scenarios (Stage 8.4) | **22** (5 already have them from the Technical SEO batch) | ~44 `InAction` blocks |
+| Full content rewrite pass | **all 27** | fresh 2026 research, added depth |
+
+##### AI Search Optimization (14 lessons, 0 currently have projects) — batches and tier pairs
+
+Tier pairs are already computed in `projects-assignment.ts`; `get-track-batch-info.mjs` prints them. Batches are grouped per category (the track spans two, so **merge once per category**).
+
+| Batch | Lessons | Tier pairs |
+|---|---|---|
+| A | `seo/aeo`, `seo/voice-search-seo` | [mini, core] ×2 |
+| B | `seo/ai-overviews-geo`, `seo/ai-mode-search-optimization` | [mini, core], [mini, mini] |
+| C | `seo/llmo`, `seo/seo-for-ai-platforms` | [mini, core], [mini, mini] |
+| D | `seo/eeat`, `seo/entity-seo` | [mini, core] ×2 |
+| E | `seo/content-clusters`, `seo/zero-click-search` | [mini, mini], [mini, core] |
+| F | `seo/brand-serp-control`, `seo/ai-search-visibility-metrics` | [mini, core], [mini, mini] |
+| G | `ai-marketing/ai-search-ranking`, `ai-marketing/rag-for-marketers` | [mini, core] ×2 |
+
+##### On-Page SEO Mastery (13 lessons, 8 already have projects)
+
+Remaining 5 for projects: `seo/search-intent`, `seo/image-seo-visual-search`, `seo/video-seo`, `copywriting/headlines`, `content/blog-seo-content`. **Note the last two are cross-category** — they merge into `copywriting.ts` and `content.ts`, not `seo.ts`.
+
+##### Measured content-quality audit (all 27 lessons)
+
+| Finding | Detail |
+|---|---|
+| ✅ No stubs | Every lesson clears Rule 16's ~700-word floor. Range 1,092-2,183 words |
+| ⚠️ Stale year | `keyword-research` cites 2024 and never 2025/2026 (section 12.5's issue) |
+| ⚠️ Thinnest structure | `image-seo-visual-search`: 1,092 words, only **5** `##` headings |
+| ⚠️ Missing `relatedConcepts` | **9 lessons**: `ai-mode-search-optimization`, `seo-for-ai-platforms`, `brand-serp-control`, `ai-search-ranking`, `rag-for-marketers`, `headlines`, `image-seo-visual-search`, `video-seo`, `blog-seo-content` |
+| Existing `InAction` coverage | Only 5 of 27 (`internal-linking`, `schema-structured-data`, `core-web-vitals`, `ecommerce-product-page-seo`, `duplicate-thin-content`), all from the Session 76 Technical SEO batch |
+
+##### Rule 34 audit result: no new lessons needed, one existing lesson should join a track
+
+All 74 `seo` + `ai-marketing` lessons were listed and checked. Both tracks are already saturated — AI Search alone covers AEO, GEO, LLMO, AI Mode, voice, entity, E-E-A-T, zero-click, brand SERP, RAG and visibility metrics. **No genuine content gap justifies a new lesson.** One real finding: **`seo/agentic-commerce-seo` ("SEO for Agentic Commerce: Getting Found by AI Shopping Agents") exists but is not referenced by the AI Search Optimization track**, and topically belongs there. Adding it to `tracks.ts` is the correct Rule 34 outcome (curate what exists) rather than authoring anything new.
+
+##### Four hazards this batch carries that the Technical SEO batch did not
+
+1. **Rewriting good lessons can degrade them.** These are not stubs; most are 1,600-2,200 words with sound structure. The instruction to agents must be *improve and deepen* (refresh stats, add worked examples/tables, fix thin sections) and explicitly **never wholesale-replace working prose**. Rule 16's own recalibration applies: don't pad to hit a number, don't trim a genuinely rich lesson.
+2. **All 14 AI Search lessons have a 4-question quiz in `QUIZZES`** (verified). A content rewrite can silently invalidate a quiz question whose answer no longer appears in the lesson. Every rewritten lesson must be re-checked against its existing 4 questions, and any break either fixed in the lesson or reported for a quiz edit. Nothing currently tests this.
+3. **Changing a heading breaks any `lessonAnchor` pointing at it.** Harmless for AI Search (0 existing projects) but a live hazard for On-Page's 8 already-done lessons, whose shipped projects reference their current headings. `tests/projects-data.test.ts` now catches this, so run `npm test` after any heading change rather than trusting review.
+4. **Company roster is over-concentrated.** `freshworks` is used **9×** and `chewy` **5×**, both well past the "no company beyond ~4 projects" quota in section 8's risk table. **35 of 77 roster companies are still completely unused** — draw from those. Fixing the existing over-use is separate, unscheduled work.
+
+##### Execution order when this runs
+
+Content rewrite **first**, then projects and `InAction` scenarios authored against the **final** headings, by the same agent, so anchors can't drift. Then per-category merge, `audit-projects.mjs`, `npm test`, build, live check, docs. Full procedure in `PROJECTS_AUTHORING_GUIDE.md`.
+
+---
 
 #### Stage 9, long tail
 
