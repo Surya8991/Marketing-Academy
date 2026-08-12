@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * ProjectList: renders a lesson's practice projects (typically 2 per lesson,
  * PROJECTS_PLAN.md 2.1).
@@ -6,16 +8,22 @@
  * page header link to (mirrors the id="quiz-section" pattern in Quiz.tsx /
  * MarkComplete.tsx, AGENTS.md Rule 25).
  *
- * Server component: no client-only APIs are used directly in this file.
- * ProjectCard (its child) is "use client", Next.js allows a server
- * component to import a client component without the parent needing the
- * directive itself.
+ * Collapsed by default: the lesson page accumulated a lot of post-content
+ * sections (resources, quiz, projects, notes, related, prev/next), so this
+ * section starts closed behind a one-line summary + toggle rather than
+ * rendering both full project cards open on page load. Each ProjectCard's
+ * own internal expand/collapse state (its "Open project" button) is
+ * unaffected by this outer toggle.
  */
 
+import { useState } from "react";
+import { ChevronDown, ChevronUp, ClipboardList } from "lucide-react";
 import ProjectCard from "./ProjectCard";
 import type { Project } from "@/lib/projects/types";
 
 export default function ProjectList({ projects }: { projects: Project[] }) {
+  const [open, setOpen] = useState(false);
+
   if (!projects || projects.length === 0) return null;
 
   // Small "concept map" nice-to-have: concepts covered by 2+ projects in
@@ -30,22 +38,39 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
     .filter(([, count]) => count > 1)
     .map(([concept]) => concept);
 
-  return (
-    <section id="projects-section" className="flex flex-col gap-5 mt-10">
-      <div className="flex flex-col gap-1.5">
-        <h2 className="text-xl font-bold text-[var(--foreground)] m-0">Practice Projects</h2>
-        {overlapping.length > 0 && (
-          <p className="text-xs text-[var(--muted-foreground)] m-0">
-            Reinforced across both projects: {overlapping.join(", ")}
-          </p>
-        )}
-      </div>
+  const totalMinutes = projects.reduce((sum, p) => sum + p.timeMinutes, 0);
 
-      <div className="flex flex-col gap-4">
-        {projects.map((p) => (
-          <ProjectCard project={p} key={p.id} id={`project-${p.id}`} />
-        ))}
-      </div>
+  return (
+    <section id="projects-section" className="mt-10">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="w-full flex items-center justify-between gap-3 text-left rounded-xl border border-[var(--border)] bg-[var(--card)] px-5 py-4 hover:border-[var(--accent)] transition-colors"
+      >
+        <div className="flex items-center gap-3 min-w-0">
+          <ClipboardList size={18} className="shrink-0 text-[var(--accent)]" />
+          <div className="min-w-0">
+            <h2 className="text-base font-bold text-[var(--foreground)] m-0">Practice Projects</h2>
+            <p className="text-xs text-[var(--muted-foreground)] m-0 truncate">
+              {projects.length} project{projects.length === 1 ? "" : "s"} · ~{totalMinutes} min total
+              {overlapping.length > 0 && ` · reinforces ${overlapping[0]}`}
+            </p>
+          </div>
+        </div>
+        {open ? (
+          <ChevronUp size={18} className="shrink-0 text-[var(--muted-foreground)]" />
+        ) : (
+          <ChevronDown size={18} className="shrink-0 text-[var(--muted-foreground)]" />
+        )}
+      </button>
+
+      {open && (
+        <div className="flex flex-col gap-4 mt-4">
+          {projects.map((p) => (
+            <ProjectCard project={p} key={p.id} id={`project-${p.id}`} />
+          ))}
+        </div>
+      )}
     </section>
   );
 }

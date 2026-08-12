@@ -42,7 +42,7 @@ A free, structured marketing education site, from absolute beginner to advanced 
 ## Features
 
 **Learning**
-- **Lesson reader**, Left-side table of contents, reading progress bar, reading time estimate, prev/next navigation
+- **Lesson reader**, Left-side table of contents, reading progress bar, reading time estimate, prev/next navigation, practice projects (collapsed behind a one-line summary by default)
 - **Related lessons**, "You might also like" section at the bottom of every lesson
 - **Lesson quizzes**, 4 questions at the bottom of 642 lessons; quiz must be passed (75%, 3 of 4) to unlock Mark Complete. Questions and options are Fisher-Yates shuffled on every attempt. Answers revealed only after full submission
 - **Progress tracking**, Mark lessons complete, per-category progress bar, bookmarks (all localStorage)
@@ -148,7 +148,10 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/glossary.ts` | 158 marketing term definitions |
 | `src/lib/quizzes.ts` | Quiz questions (4 per lesson, all 642 lessons covered) |
 | `src/lib/tools-directory.ts` | 111 marketing tools with category/pricing data |
-| `PROJECTS_PLAN.md` | **High-priority roadmap** — stages 0-7, 9.4 complete. Stage 8 Phase 0+1 pilot complete (34 projects, 19 lessons, `/projects` hub). Remaining: 8.2b (centrality bands), 8.3-8.4 (Phase 2 scale, concept scenarios), long tail (9), quiz expansion (10) |
+| `PROJECTS_PLAN.md` | **High-priority roadmap** — stages 0-7, 9.4 complete. Stage 8 Phase 0+1 pilot complete (36 projects, 20 lessons, `/projects` hub), 8.2b (centrality/tier computation) complete. Remaining: 8.3 (Phase 2 scale, 225 of 226 lessons), 8.4 (concept scenarios), long tail (9), quiz expansion (10) |
+| `src/lib/projects-assignment.ts` | **Generated**, PROJECTS_PLAN.md 17's centrality band + tier-pair computation for all 642 lessons — regenerate with `node --import tsx scripts/compute-project-assignment.mjs` |
+| `src/components/PageMasthead.tsx` | Shared "journal masthead" info-strip component used at the top of Home/Learn/Tracks/Projects/Tools/About |
+| `src/lib/classificationCodes.ts` | 2-4 letter discipline codes (SEO/ADS/PSY/AI/...) used as specimen-card eyebrows on redesigned pages |
 | `.github/workflows/ci.yml` | GitHub Actions CI: lint + test + build on push/PR to main |
 | `src/lib/projects/types.ts` | Practice-projects type system: `Project`, `ProjectStep`, `SimulationStage`, `TeardownItem`, `CaseCompany`, 6 modes + no-project verdict, 9 archetypes |
 | `src/lib/case-companies.ts` | 77 verified case companies with cited exits, backdrop for practice projects |
@@ -162,7 +165,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/commandIndex.ts` | Fuse.js index builder for Cmd+K palette |
 | `src/lib/events.ts` | Shared CustomEvent name constants (COMMAND_PALETTE_EVENT) |
 | `mdx-components.tsx` | Global MDX component registry at project root: Callout, Mermaid, ResourceList, Quiz, DiagramBlock |
-| `src/app/globals.css` | Tailwind v4 + CSS variable design system |
+| `src/app/globals.css` | Tailwind v4 + CSS variable design system. Colors are the original white/near-black/indigo palette (deliberately unchanged in the 2026-08-12 redesign); `--font-display`/`--font-ui-sans`/`--font-data` (Fraunces/Public Sans/IBM Plex Mono, registered in layout.tsx) are the new type system used on Home/Learn/Tracks/Projects/Tools/About — lesson prose stays on Geist Sans |
 | `src/components/ThemeToggle.tsx` | Dark/light/system toggle with no-flash inline script |
 | `src/app/api/og/route.tsx` | Edge function for dynamic OG images |
 | `src/app/feed.xml/route.ts` | RSS feed |
@@ -172,7 +175,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/storage-utils.ts` | Safe `localStorage` wrapper with try/catch, corrupt-value backup, and `StorageWarning` trigger |
 | `src/components/StorageWarning.tsx` | Client banner shown when localStorage is blocked (corporate/Android) |
 | `tests/*.test.ts` | 18 tests (Node.js built-in runner + tsx): data validation, quiz shuffle, integrity regression |
-| `AGENTS.md` | 44 non-negotiable build rules for AI agents (incl. Rule 23: pre-push doc checklist) |
+| `AGENTS.md` | 51 non-negotiable build rules for AI agents (incl. Rule 23: pre-push doc checklist) |
 | `src/lib/notes.ts` | Shared note storage (NOTE_KEY_PREFIX, getNoteKey, getNote, saveNote) |
 | `src/app/api/sync-proxy/route.ts` | Server-side CF KV proxy, secret never exposed to client |
 | `src/app/api/sync/status/route.ts` | Returns `{ enabled: boolean }` so client knows if sync is configured |
@@ -187,7 +190,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/` | Homepage: hero, category grid, 24 learning tracks, featured lessons |
 | `/learn` | All lessons browsable by category |
 | `/learn/[category]` | Category page: Beginner/Intermediate/Advanced grouping + progress |
-| `/learn/[category]/[lesson]` | Lesson reader: ToC, share, bookmark, related lessons, quiz, prev/next |
+| `/learn/[category]/[lesson]` | Lesson reader: ToC, share, bookmark, related lessons, quiz, prev/next, practice projects (collapsed by default) |
 | `/search` | Fuzzy search with category + level filters |
 | `/tracks` | 24 learning tracks overview |
 | `/tracks/[slug]` | Track detail with ordered lesson list |
@@ -206,7 +209,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/about` | About page: mission, builder profile, stats, tech stack, links |
 | `/certificates` | Track completion certificate index |
 | `/certificates/[slug]` | Printable track completion certificate |
-| `/projects` | Practice projects hub: search, tier/archetype/mode/category filters (Stage 8 Phase 1 pilot, 34 projects across 19 lessons) |
+| `/projects` | Practice projects hub: search, tier/archetype/mode/category filters (Stage 8 Phase 1 pilot, 36 projects across 20 lessons) |
 | `/feed.xml` | RSS feed |
 | `/sitemap.xml` | Auto-generated sitemap (lessons with MDX only) |
 | `/api/og` | Dynamic OG image endpoint |

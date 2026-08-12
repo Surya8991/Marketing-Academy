@@ -263,7 +263,11 @@ export default async function LessonPage({ params }: Props) {
 
             <LessonResources slug={lesson} />
 
-            {/* Bottom Mark Complete */}
+            {/* Bottom Mark Complete — its own "Continue: {next}" CTA appears
+                here on completion, so there's no separate "Up Next" card
+                (that was a 3rd copy of the same information, alongside the
+                Prev/Next nav below; removed as part of decluttering this
+                page, see AGENTS.md redesign notes). */}
             <div className="mt-10 pt-8 border-t border-[var(--border)]">
               <MarkComplete
                 category={sourceCat}
@@ -273,102 +277,85 @@ export default async function LessonPage({ params }: Props) {
               />
             </div>
 
-            {/* Up Next CTA */}
-            {next && (
-              <div className="mt-10 p-5 rounded-2xl border border-[var(--accent)]/40 bg-[var(--accent)]/5">
-                <p className="text-xs font-semibold text-[var(--accent)] uppercase tracking-wider mb-2">
-                  Up Next
-                </p>
-                <Link
-                  href={`/learn/${next.categorySlug}/${next.slug}`}
-                  className="group flex items-center justify-between gap-4"
-                >
-                  <span className="font-semibold text-base group-hover:text-[var(--accent)] transition-colors">
-                    {next.title}
-                  </span>
-                  <ChevronRight size={20} className="shrink-0 text-[var(--accent)]" />
-                </Link>
-              </div>
-            )}
-
-            {/* Tool Comparison Callout */}
-            {category === "tools" && (
-              <div className="mt-8 p-5 rounded-2xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] transition-colors">
-                <h3 className="font-semibold text-lg mb-1 flex items-center gap-2">
-                  <span>⚖️</span> Tool Comparison Engine
-                </h3>
-                <p className="text-sm text-[var(--muted-foreground)] mb-4">
-                  Evaluating different platforms for your stack? Compare features, pricing, and pros/cons side-by-side using our interactive comparison tool.
-                </p>
-                <Link
-                  href="/compare"
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--accent)] hover:underline"
-                >
-                  Compare Tools <ChevronRight size={14} />
-                </Link>
-              </div>
-            )}
-
-            {/* Quiz */}
+            {/* Quiz — the primary "work" section, kept prominent */}
             {hasQuiz && (
-              <div id="quiz-section" className="mt-12 pt-8 border-t border-[var(--border)]">
+              <div id="quiz-section" className="mt-10 pt-8 border-t border-[var(--border)]">
                 <h2 className="text-xl font-bold mb-4">Test Your Knowledge</h2>
                 <Quiz questions={quizQuestions!} category={sourceCat} slug={lesson} />
               </div>
             )}
 
-            {/* Projects (Stage 8). ProjectList owns id="projects-section" itself, do not
-                duplicate the id on this wrapper, IDs must be unique for the ToC scroll-spy. */}
+            {/* Projects (Stage 8) — collapsed by default, ProjectList owns its
+                own id="projects-section" and toggle, do not duplicate the id
+                on this wrapper (IDs must be unique for the ToC scroll-spy). */}
             {hasProjects && (
-              <div className="mt-12 pt-8 border-t border-[var(--border)]">
+              <div className="mt-10 pt-8 border-t border-[var(--border)]">
                 <ProjectList projects={lessonProjects} />
               </div>
             )}
 
-            {/* Notes */}
-            <LessonNotes category={sourceCat} slug={lesson} />
+            {/* Wrap-up cluster: notes, tool comparison (tools category only),
+                related lessons, and prev/next nav grouped under one lighter
+                heading instead of each having its own full-weight section,
+                since none of these gate completion the way Quiz/Projects do. */}
+            <div className="mt-10 pt-8 border-t border-[var(--border)] flex flex-col gap-8">
+              <LessonNotes category={sourceCat} slug={lesson} />
 
-            {/* Related Lessons */}
-            <RelatedLessons currentCategory={category} currentSlug={lesson} level={lessonMeta?.level ?? "Beginner"} />
-
-            {/* Prev / Next nav */}
-            <nav className="mt-16 pt-8 border-t border-[var(--border)] grid grid-cols-2 gap-3">
-              {prev ? (
-                <Link
-                  href={`/learn/${prev.categorySlug}/${prev.slug}`}
-                  className="lesson-nav-card group flex flex-col p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)]/50 transition-all col-span-1"
-                >
-                  <span className="flex items-center gap-1 text-xs text-[var(--muted-foreground)] mb-1">
-                    <ChevronLeft size={12} /> Previous
-                  </span>
-                  <span className="font-medium text-sm group-hover:text-[var(--accent)] transition-colors line-clamp-2">
-                    {prev.title}
-                  </span>
-                </Link>
-              ) : (
-                <div />
+              {category === "tools" && (
+                <div className="p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] transition-colors">
+                  <h3 className="font-semibold text-sm mb-1 flex items-center gap-2">
+                    <span>⚖️</span> Comparing platforms for your stack?
+                  </h3>
+                  <p className="text-xs text-[var(--muted-foreground)] mb-2">
+                    Compare features, pricing, and pros/cons side-by-side.
+                  </p>
+                  <Link
+                    href="/compare"
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--accent)] hover:underline"
+                  >
+                    Compare Tools <ChevronRight size={14} />
+                  </Link>
+                </div>
               )}
-              {next ? (
-                <Link
-                  href={`/learn/${next.categorySlug}/${next.slug}`}
-                  className="lesson-nav-card group flex flex-col p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)]/50 transition-all col-span-1 text-right"
-                >
-                  <span className="flex items-center justify-end gap-1 text-xs text-[var(--muted-foreground)] mb-1">
-                    Next <ChevronRight size={12} />
-                  </span>
-                  <span className="font-medium text-sm group-hover:text-[var(--accent)] transition-colors line-clamp-2">
-                    {next.title}
-                  </span>
-                </Link>
-              ) : (
-                <div />
-              )}
-            </nav>
 
-            <div className="mt-10">
+              <RelatedLessons currentCategory={category} currentSlug={lesson} level={lessonMeta?.level ?? "Beginner"} />
+
+              <nav className="grid grid-cols-2 gap-3">
+                {prev ? (
+                  <Link
+                    href={`/learn/${prev.categorySlug}/${prev.slug}`}
+                    className="lesson-nav-card group flex flex-col p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)]/50 transition-all col-span-1"
+                  >
+                    <span className="flex items-center gap-1 text-xs text-[var(--muted-foreground)] mb-1">
+                      <ChevronLeft size={12} /> Previous
+                    </span>
+                    <span className="font-medium text-sm group-hover:text-[var(--accent)] transition-colors line-clamp-2">
+                      {prev.title}
+                    </span>
+                  </Link>
+                ) : (
+                  <div />
+                )}
+                {next ? (
+                  <Link
+                    href={`/learn/${next.categorySlug}/${next.slug}`}
+                    className="lesson-nav-card group flex flex-col p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)]/50 transition-all col-span-1 text-right"
+                  >
+                    <span className="flex items-center justify-end gap-1 text-xs text-[var(--muted-foreground)] mb-1">
+                      Next <ChevronRight size={12} />
+                    </span>
+                    <span className="font-medium text-sm group-hover:text-[var(--accent)] transition-colors line-clamp-2">
+                      {next.title}
+                    </span>
+                  </Link>
+                ) : (
+                  <div />
+                )}
+              </nav>
+
               <Link
                 href={`/learn/${category}`}
-                className="inline-flex items-center gap-1 text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+                className="inline-flex items-center gap-1 text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors self-start"
               >
                 <ArrowLeft size={14} />
                 Back to {cat.title}
