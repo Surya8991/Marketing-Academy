@@ -21,6 +21,19 @@
  *     successCriteria checklist. Used only by the dedicated project page
  *     (src/app/projects/[category]/[slug]/page.tsx).
  *
+ * VISUAL LANGUAGE (Session 80 redesign): the "full" body deliberately does
+ * NOT wrap every section in its own rounded card box, that was the original
+ * v1 shape and reads as a stack of identical widgets. Instead it follows the
+ * site's existing "field manual" identity (PageMasthead.tsx, homepage): thin
+ * hairline `border-t` dividers between sections, font-data mono eyebrows,
+ * font-display (Fraunces) for section subheads, restrained color. Only two
+ * things stay genuinely boxed: <DecisionBox> (an interactive control needs a
+ * contained hit-area) and <ProjectStep>/<TeardownItemCard>/<SimulationRunner>
+ * (other components, own their own established style, not touched here).
+ * The one deliberate signature move: Professional Recommendation and Key
+ * Takeaway both get a large Fraunces pull-quote treatment with a thick
+ * left accent rule, the two moments in the page actually worth weight.
+ *
  * NOTE ON DEPENDENCIES BUILT IN PARALLEL:
  *   - `./ProjectStep` was being built by another agent at the same time this
  *     file was written; it landed mid-session with the expected contract
@@ -35,11 +48,13 @@
  */
 
 import { useState, useEffect } from "react";
-import { ArrowUpRight, CheckCircle2, Circle, Download } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, Circle, Download, HelpCircle } from "lucide-react";
 import ProjectStep from "./ProjectStep";
 import SimulationRunner from "./SimulationRunner";
 import TeardownItemCard from "./TeardownItemCard";
 import ToolStack from "./ToolStack";
+import DecisionBox from "./DecisionBox";
+import OutputSample from "./OutputSample";
 import { CASE_COMPANIES } from "@/lib/case-companies";
 import type { Project, ProjectTier } from "@/lib/projects/types";
 import {
@@ -100,6 +115,29 @@ function companyAvatar(name: string) {
   );
 }
 
+/** Mono, tracked-out eyebrow label, the section-heading device used everywhere
+ *  else in the "field manual" identity (PageMasthead, homepage section labels). */
+function Eyebrow({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="font-data text-[0.68rem] tracking-[0.08em] uppercase text-[var(--accent)] m-0">
+      {children}
+    </p>
+  );
+}
+
+/** A section wrapped in a hairline top rule instead of a card box, the
+ *  default section shell for everything except genuinely interactive/
+ *  contained pieces (DecisionBox, ProjectStep, TeardownItemCard). */
+function Section({ eyebrow, title, children }: { eyebrow: string; title?: string; children: React.ReactNode }) {
+  return (
+    <div className="pt-6 border-t flex flex-col gap-3" style={{ borderColor: "var(--border)" }}>
+      <Eyebrow>{eyebrow}</Eyebrow>
+      {title && <h4 className="font-display font-semibold text-lg text-[var(--foreground)] m-0">{title}</h4>}
+      {children}
+    </div>
+  );
+}
+
 type Props = {
   project: Project;
   id?: string;
@@ -146,6 +184,7 @@ export default function ProjectCard({ project, id, category, variant = "preview"
   }
 
   const company = CASE_COMPANIES.find((c) => c.id === project.companyId);
+  const stepCount = project.steps?.length ?? 0;
 
   return (
     <div
@@ -154,7 +193,7 @@ export default function ProjectCard({ project, id, category, variant = "preview"
       style={{ borderColor: "var(--border)", background: "var(--card)" }}
     >
       {/* Header, always visible */}
-      <div className="p-5 flex flex-col gap-3">
+      <div className="p-5 sm:p-6 flex flex-col gap-3">
         <div className="flex items-start justify-between gap-3 flex-wrap">
           <div className="flex items-center gap-2 flex-wrap">
             <span
@@ -170,10 +209,10 @@ export default function ProjectCard({ project, id, category, variant = "preview"
             >
               {tierLabels[project.tier]}
             </span>
-            <span className="text-xs font-medium text-[var(--muted-foreground)]">
+            <span className="font-data text-xs text-[var(--muted-foreground)]">
               {archetypeLabels[project.archetype]}
             </span>
-            <span className="text-xs text-[var(--muted-foreground)]">&middot; {project.timeEstimate}</span>
+            <span className="font-data text-xs text-[var(--muted-foreground)]">&middot; {project.timeEstimate}</span>
           </div>
 
           <button
@@ -191,7 +230,9 @@ export default function ProjectCard({ project, id, category, variant = "preview"
           </button>
         </div>
 
-        <h3 className="text-lg font-bold text-[var(--foreground)] m-0">{project.title}</h3>
+        <h3 className="font-display font-semibold text-xl sm:text-2xl leading-tight text-[var(--foreground)] m-0">
+          {project.title}
+        </h3>
 
         {company && (
           <div className="flex items-center gap-2">
@@ -209,6 +250,24 @@ export default function ProjectCard({ project, id, category, variant = "preview"
 
         <p className="text-sm text-[var(--foreground)] leading-relaxed m-0">{project.brief}</p>
 
+        {project.keyQuestion && (
+          <div className="flex items-start gap-2 pl-3" style={{ borderLeft: "2px solid var(--accent)" }}>
+            <HelpCircle size={15} className="shrink-0 mt-0.5" style={{ color: "var(--accent)" }} aria-hidden="true" />
+            <p className="font-display italic text-base text-[var(--foreground)] m-0 leading-snug">{project.keyQuestion}</p>
+          </div>
+        )}
+
+        {project.skills && project.skills.length > 0 && (
+          <div className="flex flex-wrap gap-x-3 gap-y-1 font-data text-[0.7rem] tracking-[0.03em] text-[var(--muted-foreground)]">
+            {project.skills.map((skill, i) => (
+              <span key={skill}>
+                {skill}
+                {i < project.skills!.length - 1 && <span className="ml-3 text-[var(--border)]">/</span>}
+              </span>
+            ))}
+          </div>
+        )}
+
         {variant === "preview" && category && (
           <a
             href={`/projects/${category}/${project.id}`}
@@ -225,54 +284,135 @@ export default function ProjectCard({ project, id, category, variant = "preview"
 
       {/* Full body, always rendered in the "full" variant (the dedicated project page) */}
       {variant === "full" && (
-        <div
-          className="p-5 flex flex-col gap-6 border-t"
-          style={{ borderColor: "var(--border)", background: "var(--muted)" }}
-        >
+        <div className="px-5 sm:px-6 pb-6 sm:pb-8 flex flex-col gap-0">
+          {/* Before You Start: everything needed before touching a tool, in one place. */}
+          <Section eyebrow="Before you start" title="What you'll need">
+            {project.prerequisites && project.prerequisites.length > 0 && (
+              <ul className="flex flex-col gap-1.5 m-0 p-0" style={{ listStyle: "none" }}>
+                {project.prerequisites.map((p, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-[var(--foreground)]">
+                    <span className="font-data text-[var(--muted-foreground)] mt-0.5">&mdash;</span>
+                    {p}
+                  </li>
+                ))}
+              </ul>
+            )}
+            {project.terminology && project.terminology.length > 0 && (
+              <dl className="grid gap-x-6 gap-y-2 m-0 sm:grid-cols-2">
+                {project.terminology.map((t, i) => (
+                  <div key={i}>
+                    <dt className="text-sm font-semibold text-[var(--foreground)]">{t.term}</dt>
+                    <dd className="text-sm text-[var(--muted-foreground)] leading-relaxed m-0">{t.definition}</dd>
+                  </div>
+                ))}
+              </dl>
+            )}
+            <ToolStack stack={project.toolStack} />
+            {project.datasetUrl && (
+              <a
+                href={project.datasetUrl}
+                download
+                className="inline-flex items-center gap-2 self-start px-3.5 py-2 rounded-lg text-sm font-medium"
+                style={{ background: "var(--muted)", color: "var(--foreground)", border: "1px solid var(--border)" }}
+              >
+                <Download size={14} />
+                Download project dataset
+              </a>
+            )}
+          </Section>
+
           {project.steps && project.steps.length > 0 && (
-            <div className="flex flex-col gap-3">
-              <h4 className="text-sm font-bold text-[var(--foreground)] m-0">Steps</h4>
-              {project.steps.map((s) => (
-                <ProjectStep key={s.stepId} step={s} />
+            <Section eyebrow="The process" title={`${stepCount} step${stepCount !== 1 ? "s" : ""}`}>
+              {project.steps.map((s, i) => (
+                <div key={s.stepId} className="flex flex-col gap-2">
+                  <p className="font-data text-[0.7rem] tracking-[0.06em] uppercase text-[var(--muted-foreground)] m-0">
+                    Step {String(i + 1).padStart(2, "0")} of {String(stepCount).padStart(2, "0")}
+                  </p>
+                  <ProjectStep step={s} />
+                </div>
               ))}
-            </div>
+            </Section>
           )}
 
           {project.stages && project.stages.length > 0 && (
-            <div className="flex flex-col gap-3">
-              <h4 className="text-sm font-bold text-[var(--foreground)] m-0">Simulation</h4>
+            <Section eyebrow="The process" title="Simulation">
               <SimulationRunner stages={project.stages} liveTrack={project.liveTrack} />
-            </div>
+            </Section>
           )}
 
           {project.teardownItems && project.teardownItems.length > 0 && (
-            <div className="flex flex-col gap-3">
-              <h4 className="text-sm font-bold text-[var(--foreground)] m-0">Specimens to review</h4>
+            <Section eyebrow="The process" title="Specimens to review">
               {project.teardownItems.map((item) => (
                 <TeardownItemCard key={item.itemId} item={item} />
               ))}
+            </Section>
+          )}
+
+          {project.whatToLookFor && project.whatToLookFor.length > 0 && (
+            <Section eyebrow="Analyze your findings" title="What to look for">
+              <dl className="grid gap-x-6 gap-y-3 m-0 sm:grid-cols-2">
+                {project.whatToLookFor.map((w, i) => (
+                  <div key={i}>
+                    <dt className="text-sm font-semibold text-[var(--foreground)]">{w.label}</dt>
+                    <dd className="text-sm text-[var(--muted-foreground)] leading-relaxed m-0">{w.detail}</dd>
+                  </div>
+                ))}
+              </dl>
+            </Section>
+          )}
+
+          {project.decision && (
+            <div className="pt-6 border-t" style={{ borderColor: "var(--border)" }}>
+              <DecisionBox decision={project.decision} />
             </div>
           )}
 
-          <div className="flex flex-col gap-3">
-            <h4 className="text-sm font-bold text-[var(--foreground)] m-0">Recommended tools</h4>
-            <ToolStack stack={project.toolStack} />
-          </div>
-
-          {project.datasetUrl && (
-            <a
-              href={project.datasetUrl}
-              download
-              className="inline-flex items-center gap-2 self-start px-3.5 py-2 rounded-lg text-sm font-medium"
-              style={{ background: "var(--card)", color: "var(--foreground)", border: "1px solid var(--border)" }}
-            >
-              <Download size={14} />
-              Download project dataset
-            </a>
+          {project.professionalRecommendation && (
+            <div className="pt-6 border-t flex flex-col gap-2" style={{ borderColor: "var(--border)" }}>
+              <Eyebrow>Recommendation &middot; Priority: {project.professionalRecommendation.priority}</Eyebrow>
+              <p
+                className="font-display italic text-lg sm:text-xl leading-snug text-[var(--foreground)] m-0 pl-4"
+                style={{ borderLeft: "3px solid var(--accent)" }}
+              >
+                &ldquo;{project.professionalRecommendation.text}&rdquo;
+              </p>
+            </div>
           )}
 
-          <div className="flex flex-col gap-2">
-            <h4 className="text-sm font-bold text-[var(--foreground)] m-0">Success criteria</h4>
+          {project.commonMistakes && project.commonMistakes.length > 0 && (
+            <Section eyebrow="Common mistakes" title="What trips people up">
+              <ul className="flex flex-col m-0 p-0" style={{ listStyle: "none" }}>
+                {project.commonMistakes.map((m, i) => (
+                  <li
+                    key={i}
+                    className="flex items-start gap-3 py-2.5"
+                    style={{ borderTop: i > 0 ? "1px solid var(--border)" : "none" }}
+                  >
+                    <span className="font-data text-xs shrink-0 mt-0.5" style={{ color: "rgb(220 38 38)" }} aria-hidden="true">
+                      &times;
+                    </span>
+                    <p className="text-sm text-[var(--foreground)] leading-relaxed m-0">
+                      <span className="font-semibold">{m.mistake}</span> &mdash; {m.explanation}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </Section>
+          )}
+
+          <Section eyebrow="Final deliverable">
+            <p className="text-sm text-[var(--foreground)] leading-relaxed m-0">{project.deliverable}</p>
+            <details>
+              <summary className="cursor-pointer font-data text-xs uppercase tracking-wide text-[var(--accent)]">
+                See a reference example
+              </summary>
+              <div className="mt-2">
+                <OutputSample content={project.sampleOutput} />
+              </div>
+            </details>
+          </Section>
+
+          <Section eyebrow="Success criteria" title="You're done when you can:">
             <ul className="flex flex-col gap-1.5 m-0 p-0" style={{ listStyle: "none" }}>
               {project.successCriteria.map((c, i) => (
                 <li key={i} className="flex items-start gap-2 text-sm text-[var(--foreground)]">
@@ -281,7 +421,16 @@ export default function ProjectCard({ project, id, category, variant = "preview"
                 </li>
               ))}
             </ul>
-          </div>
+          </Section>
+
+          {project.keyTakeaway && (
+            <div className="pt-6 border-t flex flex-col gap-2" style={{ borderColor: "var(--border)" }}>
+              <Eyebrow>Key takeaway</Eyebrow>
+              <p className="font-display italic text-xl sm:text-2xl leading-snug text-[var(--foreground)] m-0">
+                {project.keyTakeaway}
+              </p>
+            </div>
+          )}
         </div>
       )}
     </div>

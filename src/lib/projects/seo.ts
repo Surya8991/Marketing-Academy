@@ -41,6 +41,23 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Treating search volume as the only metric that matters (Mistake 2)",
         "Fixing keywords you already rank for before chasing new ones (Mistake 3)",
       ],
+      skills: ["Keyword Research", "Search Intent", "Content Prioritization", "Google Search Console"],
+      keyQuestion:
+        "Given a real keyword export, which terms deserve a new page, which need a quick on-page fix, and which should be declined this quarter?",
+      prerequisites: [
+        "Basic familiarity with spreadsheets (sorting and filtering columns)",
+        "Access to a Google Search Console property, for the quick-win step",
+      ],
+      terminology: [
+        {
+          term: "Keyword Difficulty (KD)",
+          definition: "a 0-100 score estimating how hard it would be to rank on page one for a term, based on the backlink strength of pages currently ranking.",
+        },
+        {
+          term: "Search Intent",
+          definition: "the underlying goal behind a search, informational, navigational, commercial, or transactional, which determines what kind of page should target it.",
+        },
+      ],
       steps: [
         {
           stepId: "step-1-intent-filter",
@@ -269,6 +286,37 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
       stretch:
         "Pull your own site's real Search Console export and run this exact four-step framework against it instead of the sample sheet.",
+      whatToLookFor: [
+        { label: "Intent", detail: "Does the keyword's intent match a landing page, or is it blog/help-center fodder?" },
+        { label: "Difficulty vs authority", detail: "Is the keyword difficulty score realistic for a site with the marketer's current backlink profile?" },
+        { label: "Commercial signal beyond volume", detail: "Does CPC suggest advertisers are paying for clicks that convert, even though the raw volume looks modest?" },
+        { label: "Existing rank", detail: "Is there a page already ranking on page two that a light on-page fix could push to page one?" },
+      ],
+      decision: {
+        prompt:
+          "The export contains 'free project management tools' (18,100 vol, KD 58, not ranking) and 'project management software comparison' (1,900 vol, KD 38, already ranking #11). Leadership has budget for exactly one action this sprint. Which is it?",
+        options: [
+          { id: "a", label: "Write a new page targeting 'free project management tools' because of its huge volume", correct: false },
+          { id: "b", label: "Rewrite the title, H1, and opening paragraph of the page already ranking #11", correct: true },
+          { id: "c", label: "Split the sprint evenly across both keywords", correct: false },
+          { id: "d", label: "Wait until a paid tool confirms the difficulty score before doing anything", correct: false },
+        ],
+        explanation:
+          "The rank-11 page already has Google's trust for this topic and is one on-page fix away from page one. The 18,100-volume term is KD 58, which this project's framework treats as a 12-18 month authority build, not a one-sprint deliverable. Splitting effort under-resources the achievable win, and the free Search Console and spreadsheet data already used here doesn't need a paid tool to confirm.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "This quarter's content budget should fund the pricing page (880 vol, KD 29) and the agencies page (480 vol, KD 34) as new landing pages, both realistic targets for a site without established authority. In parallel, the 'project management software comparison' page already ranking #11 should get an immediate title, H1, and opening-paragraph rewrite, the fastest ranking gain available in this sheet. 'Free project management tools' (18,100 vol, KD 58) should be explicitly declined for this quarter and logged as a 12-18 month goal once the site has a stronger backlink profile.",
+      },
+      commonMistakes: [
+        { mistake: "Prioritizing by raw search volume alone", explanation: "the 40,500-volume flagship term (KD 78) is a multi-year authority play, not a Q1 deliverable, while a 480-volume term with the right intent and CPC is winnable now." },
+        { mistake: "Writing a sales page for an informational query", explanation: "a searcher looking up 'project management methodology' wants a definition, not a demo request form, no matter how large the volume is." },
+        { mistake: "Skipping the Search Console quick-win check", explanation: "commissioning brand-new content while a page already ranks #11 wastes budget on the hardest way to gain the same ranking territory." },
+        { mistake: "Treating every unranked commercial keyword as equally realistic", explanation: "KD 29 and KD 62 both look like 'commercial, not yet ranking' rows in a filtered view, but only one is winnable this quarter." },
+      ],
+      keyTakeaway:
+        "Keyword research isn't about finding the biggest numbers, it's about matching each keyword's intent, difficulty, and buying signal to the right action: a new page, an existing-page fix, or a deliberate decline. The four-step lens in this project, intent first, then difficulty, then CPC, then existing rank, turns a flat spreadsheet into a defensible quarterly plan.",
     },
     {
       id: "keyword-research-targeting-showdown",
@@ -288,6 +336,19 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       conceptsCovered: [
         "Comparing a head term against a long-tail cluster using the lesson's own realistic-target framework",
         "Applying the Airbnb long-tail case to justify the cluster strategy",
+      ],
+      skills: ["Keyword Strategy", "Long-Tail SEO", "Competitive Analysis"],
+      keyQuestion:
+        "Should a new page with no existing authority target one high-volume head term or a cluster of long-tail phrases?",
+      prerequisites: [
+        "Understanding of keyword difficulty (KD) and search volume basics",
+        "Familiarity with the realistic-target framework from the keyword-research lesson",
+      ],
+      terminology: [
+        {
+          term: "Long-Tail Keyword",
+          definition: "a longer, more specific search phrase with lower individual volume but, collectively, a higher traffic share and lower competition than a broad head term.",
+        },
       ],
       steps: [
         {
@@ -419,6 +480,37 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
       stretch:
         "Take a real head term from your own niche, build a real 6-phrase long-tail cluster for it using a free keyword tool, and write the same comparison memo with real numbers instead of illustrative ones.",
+      whatToLookFor: [
+        { label: "Total addressable volume", detail: "Does the cluster's combined volume come close to the head term's, even though each phrase alone looks small?" },
+        { label: "Difficulty ceiling", detail: "Is the head term's KD realistically winnable for a page with no existing authority?" },
+        { label: "Incumbent occupation", detail: "Who already owns the head term, and does the strategy need to beat them head-on or route around them?" },
+        { label: "Precedent evidence", detail: "Is there a cited case study with real numbers backing the strategy, not just a name-drop?" },
+      ],
+      decision: {
+        prompt:
+          "Strategy A targets 'term insurance' (~74,000 vol, KD 71). Strategy B's six-phrase cluster totals 7,230 vol at an average KD 25. Which should the memo recommend for a page with no existing authority?",
+        options: [
+          { id: "a", label: "Strategy A, because 74,000 is a much bigger number", correct: false },
+          { id: "b", label: "Strategy B, or a cluster-first hybrid", correct: true },
+          { id: "c", label: "Neither, wait until the site has more authority before building any page", correct: false },
+          { id: "d", label: "Strategy A, since incumbents already ranking there proves the term converts", correct: false },
+        ],
+        explanation:
+          "KD 71 needs a backlink profile a new page doesn't have; KD 25 is inside the realistic-target range, and the cluster's combined volume plus the 'also rank for' effect of one thorough page make it winnable within months, the same way Airbnb's long-tail approach worked around Booking.com and Expedia. Picking the bigger number ignores difficulty, and waiting entirely wastes the specific gap the cluster is built to exploit.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Recommend Strategy B, or a cluster-first hybrid: one comprehensive page built around all six long-tail phrases (7,230 combined vol/mo, avg KD 25), with the broad head term 'term insurance' held as an aspirational internal-linking target for a future pillar page once the cluster page has earned some authority. This mirrors Airbnb's own precedent of 100,000+ page-one long-tail rankings and roughly 400% organic traffic growth between 2013 and 2016, achieved by avoiding a head-on fight with Booking.com and Expedia for 'hotels in New York'.",
+      },
+      commonMistakes: [
+        { mistake: "Comparing strategies by headline volume alone", explanation: "ignoring KD makes 74,000 look like the obvious winner when it's actually the less realistic option for a page with no authority." },
+        { mistake: "Treating the cluster as six separate small bets", explanation: "the stronger play is one comprehensive page covering the whole cluster, which also captures the 'also rank for' effect on related phrases." },
+        { mistake: "Citing a case study by name without its numbers", explanation: "'the Airbnb example' alone isn't evidence a stakeholder can evaluate; the specific 100,000-keyword and ~400%-growth figures are what make the citation checkable." },
+        { mistake: "Assuming the head term must be abandoned entirely", explanation: "keep it as a longer-term target once the cluster page has built authority, this isn't a permanent either/or choice." },
+      ],
+      keyTakeaway:
+        "Choosing between a head term and a long-tail cluster isn't about which number looks bigger, it's about matching the target to the authority the site actually has. A comprehensive cluster page can out-earn a single head-term page in the near term and still leave the door open to the head term later, once the site has earned the right to compete for it.",
     },
   ],
 
@@ -443,6 +535,23 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "URL slug clarity",
         "Meta description as a CTR lever, not a ranking factor",
         "Connecting the fix to the lesson's CTR-by-position numbers",
+      ],
+      skills: ["Title Tags", "URL Structure", "Meta Descriptions", "CTR Optimization"],
+      keyQuestion:
+        "Which page-2 pages can be pushed to page 1 with a title, URL, or meta fix alone, and what is that fix honestly worth in clicks?",
+      prerequisites: [
+        "Basic HTML/page-source familiarity, viewing a <title> tag",
+        "Access to a crawler tool or the ability to view page source manually",
+      ],
+      terminology: [
+        {
+          term: "Title Rewrite",
+          definition: "when Google ignores a page's authored <title> tag and generates its own version in search results, common with titles over roughly 60 characters.",
+        },
+        {
+          term: "CTR (Click-Through Rate)",
+          definition: "the percentage of people who see a result in search and click it, driven heavily by title and meta description, not by ranking position alone.",
+        },
       ],
       steps: [
         {
@@ -659,6 +768,37 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
       stretch:
         "Run Screaming Frog's free crawl (up to 500 URLs) against your own site, export every title over 60 characters, and fix the top 3 by search volume first.",
+      whatToLookFor: [
+        { label: "Length risk", detail: "Is the title or meta description long enough to be truncated or entirely rewritten by Google?" },
+        { label: "Keyword placement", detail: "Does the target keyword appear early, in the title and the URL path, rather than buried at the end?" },
+        { label: "URL cleanliness", detail: "Is the path readable and keyword-led, or does it carry query strings, tracking parameters, or version suffixes?" },
+        { label: "Sourced vs estimated", detail: "Is a click estimate backed by a cited CTR figure, or is it an honest range where no precise number exists?" },
+      ],
+      decision: {
+        prompt:
+          "The rank-11 page has a 103-character title with the keyword buried mid-sentence. The rank-13 page has a clean 55-character title but the keyword isn't in the first 3-4 words. Which fix should be prioritized first?",
+        options: [
+          { id: "a", label: "The rank-11 title, since it's both the highest rewrite risk and closer to page 1", correct: true },
+          { id: "b", label: "The rank-13 title, since keyword position matters more than character count", correct: false },
+          { id: "c", label: "Neither, fix the URL slugs first since they carry more ranking weight", correct: false },
+          { id: "d", label: "Both equally, since they're both close to page 1", correct: false },
+        ],
+        explanation:
+          "The audit's own priority formula is proximity to page 1 times defect severity. The rank-11 title scores highest on both: it's a high rewrite-risk (103 characters, Google is likely already showing a version the team never approved) and sits closer to page 1. The rank-13 title is a real but lower-severity issue, borderline length with the keyword just misplaced, and can follow once the higher-severity fix ships.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Prioritize the rank-11 'project management software comparison' page first: a 103-character title puts it at high risk of a Google-generated rewrite, and at 1,900 monthly searches, moving into position 1 would yield an estimated 524 clicks per month based on the lesson's cited 27.6% CTR figure. Trim the title to under 60 characters with the keyword in the first 3-4 words, then correct the URL and meta description issues on the rank-13 page in the same sprint, since none of these fixes require a backlink or new content, only a rewrite and a redirect.",
+      },
+      commonMistakes: [
+        { mistake: "Trimming an oversized title from the end instead of rewriting it", explanation: "a mechanical trim leaves filler words in place and often still buries the keyword; the rule requires the keyword in the first 3-4 words, not just under 60 characters." },
+        { mistake: "Redirecting a query-string URL without updating internal links", explanation: "the crawl alone doesn't fix ranking if internal navigation still points at the old, unclean URL." },
+        { mistake: "Presenting a page-2 CTR estimate with false precision", explanation: "the lesson only cites hard numbers for positions 1, 2, and the top-3-combined; inventing a specific percentage for rank 11 misrepresents how confident the estimate really is." },
+        { mistake: "Assuming a title or meta fix alone will move ranking position", explanation: "these changes improve CTR at whatever position a page holds; actual rank movement still needs Google to re-crawl and re-evaluate the fixed page." },
+      ],
+      keyTakeaway:
+        "A page sitting on page 2 or 3 often needs cleanup, not new content: a shorter title with the keyword up front, a clean URL, and a meta description written for a click can be the fastest available SEO win. The real skill is honest measurement, cite the CTR numbers you actually have and flag the rest as a range, not a guess dressed up as data.",
     },
     {
       id: "on-page-seo-rebuild-the-page",
@@ -681,6 +821,23 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "H1 Heading matching search intent",
         "Meta Description as a CTR lever",
         "Internal Links and descriptive anchor text",
+      ],
+      skills: ["On-Page SEO", "CMS Editing", "Internal Linking", "Content Rewriting"],
+      keyQuestion:
+        "What does a correct, page-1-ready on-page rebuild look like, layer by layer, for a page that ranks nowhere?",
+      prerequisites: [
+        "Comfort editing a CMS field (title, URL slug, meta description)",
+        "Basic HTML heading structure, the difference between an H1 and body text",
+      ],
+      terminology: [
+        {
+          term: "301 Redirect",
+          definition: "a permanent server-side redirect from an old URL to a new one, preserving existing backlinks and search authority when a URL changes.",
+        },
+        {
+          term: "Anchor Text",
+          definition: "the clickable, visible text of a link; descriptive anchor text tells both visitors and search engines what the destination page is about.",
+        },
       ],
       steps: [
         {
@@ -897,6 +1054,37 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
       stretch:
         "Take one real underperforming page from your own site or a client's, and run this exact 5-layer rebuild against its real current title, URL, H1, meta description, and internal links.",
+      whatToLookFor: [
+        { label: "Keyword-intent match", detail: "Does every rewritten element (title, H1, URL) lead with the actual search intent, not generic branding?" },
+        { label: "Length discipline", detail: "Does the new title and meta description stay inside the character limits that avoid truncation or rewriting?" },
+        { label: "Redirect hygiene", detail: "Is a 301 redirect specified whenever a live URL changes, so existing links and bookmarks aren't broken?" },
+        { label: "Link quality over count", detail: "Do new internal links use descriptive anchor text pointing to genuinely related pages, not a generic list added just to hit a number?" },
+      ],
+      decision: {
+        prompt:
+          "The current URL is /s/babysitter-search-page-v3-final?ref=nav and already has some backlinks pointing at it. What's the correct way to ship the new clean URL /babysitters/near-me?",
+        options: [
+          { id: "a", label: "Change the URL in the CMS and let the old links 404", correct: false },
+          { id: "b", label: "Change the URL and set up a 301 redirect from the old path to the new one", correct: true },
+          { id: "c", label: "Keep the old URL to avoid losing backlinks, and skip the rebuild", correct: false },
+          { id: "d", label: "Create the new URL as a duplicate page and leave the old one live too", correct: false },
+        ],
+        explanation:
+          "A 301 redirect lets the page earn the clean-URL CTR benefit while passing along the existing, if modest, authority and traffic from any backlinks or bookmarks pointing at the old path. Letting old links 404 throws that authority away, keeping the messy URL forfeits the CTR gain entirely, and a duplicate live page creates a content-duplication problem the rebuild wasn't asked to solve.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Ship all five rebuilt elements together as one page spec: title ('Find a Babysitter Near You | Verified Sitters, Care.com', 58 chars), URL (/babysitters/near-me with a 301 redirect from the old query-string path), H1 ('Find a Babysitter Near You'), meta description (131 chars with a concrete call to action), and three contextual internal links to the rates guide, nannies page, and senior-care page. Shipping the layers together, rather than one at a time, avoids a page that half-matches search intent while the rest of the rebuild is still pending.",
+      },
+      commonMistakes: [
+        { mistake: "Rewriting the title without checking the H1 matches the same topic", explanation: "a title and H1 that point at different topics confuses both searchers and search engines about what the page is actually for." },
+        { mistake: "Changing the URL without a 301 redirect", explanation: "breaks every existing backlink and bookmark pointing at the old path, losing whatever authority the page had already earned." },
+        { mistake: "Adding internal links just to hit a count", explanation: "a link to an unrelated page or a generic 'click here' anchor wastes the internal-linking opportunity entirely." },
+        { mistake: "Treating the meta description as a ranking lever", explanation: "it's a CTR lever, not a ranking factor; rewriting it well won't move the page's position, only its click volume once it's shown." },
+      ],
+      keyTakeaway:
+        "A page that ranks nowhere often has all the same on-page problems at once, generic title, messy URL, buried H1, empty meta, zero internal links, and fixing them together as one coherent spec, not piecemeal, is what turns a page that converts fine once found into one that's actually findable.",
     },
   ],
   "mobile-first-indexing": [
@@ -915,6 +1103,23 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       conceptsCovered: [
         "The Content Parity Problem",
         "Why Marketers Should Care, Not Just Developers"
+      ],
+      skills: ["Mobile-First Indexing", "Content Parity Auditing", "Structured Data", "HTML Teardown"],
+      keyQuestion:
+        "Which differences between a desktop and mobile template are real indexing defects, and which are just normal responsive design?",
+      prerequisites: [
+        "Basic HTML reading ability (recognizing tags, attributes, and JSON-LD blocks)",
+        "Understanding that Google indexes and ranks using the mobile version of a page",
+      ],
+      terminology: [
+        {
+          term: "Mobile-First Indexing",
+          definition: "Google's practice of using the mobile version of a page as the primary source for indexing and ranking, meaning content missing from mobile HTML is effectively invisible to Google.",
+        },
+        {
+          term: "Structured Data (JSON-LD)",
+          definition: "a standardized code block describing a page's content to search engines, used to generate rich snippets like star ratings in search results.",
+        },
       ],
       teardownItems: [
         {
@@ -1043,7 +1248,38 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Spot that dropping internal links from mobile menus reduces search crawl efficiency.",
         "Recognize that visually hidden text (like read-more toggles) is still indexed by Google if it exists in the HTML."
       ],
-      portfolioReady: true
+      portfolioReady: true,
+      whatToLookFor: [
+        { label: "DOM presence, not visual display", detail: "Is the content actually missing from the HTML, or just hidden with CSS (which Google can still read)?" },
+        { label: "Structured data location", detail: "Does the JSON-LD schema block appear in the mobile HTML, not only the desktop version?" },
+        { label: "Link survival", detail: "Do every desktop nav link and category page still exist somewhere in the mobile DOM, even if visually collapsed?" },
+        { label: "Severity vs cosmetic change", detail: "Does the difference change what a crawler can discover or index, or is it purely a layout/styling choice?" },
+      ],
+      decision: {
+        prompt:
+          "The mobile navigation drops links to Housekeeping, Tutoring, and Special Needs, while the desktop keeps them. The mobile menu also uses 48px tap targets versus 32px on desktop. Which is the real indexing defect?",
+        options: [
+          { id: "a", label: "The larger tap targets, since they change the layout the most", correct: false },
+          { id: "b", label: "The dropped navigation links, since they remove pages from the mobile crawler's discovery path", correct: true },
+          { id: "c", label: "Both are equally serious defects", correct: false },
+          { id: "d", label: "Neither, since the desktop version still has the full navigation", correct: false },
+        ],
+        explanation:
+          "Because Google indexes using the mobile version, links removed from the mobile DOM stop passing link equity and discovery to those category pages, regardless of what desktop still shows. Tap target size is a usability choice with no indexing consequence. Treating both as equally serious, or assuming desktop's completeness protects mobile-only content, misunderstands how mobile-first indexing actually works.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Two critical defects should be fixed before the next template release: restore the JSON-LD structured data block to the mobile caregiver-profile template (currently desktop-only, costing review-star rich snippets), and restore the Housekeeping, Tutoring, and Special Needs links to the mobile navigation DOM (currently dropped, cutting off crawl discovery to those category pages). Both defects plausibly explain the 15% organic visibility drop that followed the template update, since mobile-first indexing means Google only sees what exists in the mobile HTML.",
+      },
+      commonMistakes: [
+        { mistake: "Flagging visually hidden content as a defect", explanation: "an accordion-collapsed review section is still present in the HTML DOM and fully indexable; only content actually removed from the markup is a real parity problem." },
+        { mistake: "Assuming desktop content protects mobile rankings", explanation: "under mobile-first indexing, Google largely ignores what exists only on desktop when the mobile version is what gets crawled and ranked." },
+        { mistake: "Treating every mobile/desktop difference as equally severe", explanation: "a different image aspect ratio via CSS is cosmetic, while a missing schema block or dropped nav link changes what Google can index or discover." },
+        { mistake: "Missing that dropped links affect more than the current page", explanation: "removing a category link from mobile navigation cuts off crawl discovery and link equity to that entire destination page, not just the menu item." },
+      ],
+      keyTakeaway:
+        "Mobile-first indexing means the mobile HTML is the only version that matters to Google, so a content parity teardown has to separate real defects (content or links missing from the DOM) from harmless responsive design choices (things merely hidden or restyled). Getting that distinction right is what prevents both under-reacting to a real ranking risk and over-flagging normal mobile UX patterns.",
     },
     {
       id: "mobile-first-indexing-gsc-audit",
@@ -1061,6 +1297,23 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "How to Check Your Own Site",
         "The Content Parity Problem",
         "Why Marketers Should Care, Not Just Developers"
+      ],
+      skills: ["Technical SEO", "Google Search Console", "Structured Data Validation", "Crawl Diagnostics"],
+      keyQuestion:
+        "Which of several plausible causes actually explains a 22% organic traffic drop after a mobile-responsive redesign?",
+      prerequisites: [
+        "Familiarity with Google Search Console's indexing reports",
+        "Basic understanding of robots.txt, canonical tags, and structured data (schema)",
+      ],
+      terminology: [
+        {
+          term: "Canonical Tag",
+          definition: "an HTML tag telling search engines which URL is the definitive version of a page when duplicate or near-duplicate URLs exist.",
+        },
+        {
+          term: "Rich Results",
+          definition: "enhanced search listings (star ratings, prices, availability) generated from a page's structured data markup.",
+        },
       ],
       steps: [
         {
@@ -1250,7 +1503,38 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Verify structured data presence on the mobile template.",
         "Translate SEO parity issues into structured developer tasks with clear fixes."
       ],
-      portfolioReady: true
+      portfolioReady: true,
+      whatToLookFor: [
+        { label: "Scale of impact", detail: "How many pages does each indexing issue affect (412 versus 182 versus 690)?" },
+        { label: "Mobile-only vs both", detail: "Does the problem exist only on mobile, or does it affect desktop too?" },
+        { label: "Root cause vs symptom", detail: "Is a robots.txt rule or missing schema the actual cause, or just where the symptom shows up?" },
+        { label: "Fix complexity", detail: "Is this a 5-minute config change or a dev-ticket-level template fix?" },
+      ],
+      decision: {
+        prompt:
+          "Search Console shows 412 pages blocked by robots.txt, 182 flagged as duplicate with no user-selected canonical, and 690 'crawled - currently not indexed'. Which issue should be fixed first?",
+        options: [
+          { id: "a", label: "The 690 'crawled - currently not indexed' pages, since it's the largest number", correct: false },
+          { id: "b", label: "The 412 robots.txt-blocked pages, since Googlebot-Mobile can't even crawl them", correct: true },
+          { id: "c", label: "The 182 canonical duplicates, since duplicate content is always the worst SEO problem", correct: false },
+          { id: "d", label: "All three simultaneously in one ticket, priority doesn't matter", correct: false },
+        ],
+        explanation:
+          "A robots.txt block is the most severe of the three: it prevents Googlebot-Mobile from crawling the page at all, so nothing downstream, content, links, schema, can be indexed regardless of quality. The 690 'crawled not indexed' pages were at least reached, and the 182 duplicates were at least crawled and just need canonical clarification. Fixing the total block first removes the hardest ceiling on visibility, even though its page count is smaller than the other two combined.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "The redesign's mobile-first indexing collapse traces to three separate defects, all needing developer tickets: legacy robots.txt rules blocking Googlebot-Mobile from 412 category pages, 182 pages fragmented by mobile-only tracking parameters lacking self-referential canonicals, and Offer and AggregateRating schema present on desktop but missing from the mobile HTML head, stripping stars and pricing from mobile search results. Fix the robots.txt block first, since it prevents any crawling at all; the canonical and schema fixes can proceed in parallel once crawling is restored.",
+      },
+      commonMistakes: [
+        { mistake: "Assuming a traffic drop after a redesign is caused by one thing", explanation: "the Chewy case has three independent, compounding causes; fixing only one leaves the others suppressing traffic." },
+        { mistake: "Treating a robots.txt block the same priority as a content parity gap", explanation: "a full crawl block is more severe than a content or schema gap, since nothing can be indexed at all until crawling is restored." },
+        { mistake: "Confusing 'crawled - currently not indexed' with a robots.txt block", explanation: "these are distinct problems in the Search Console report requiring different fixes, not interchangeable line items." },
+        { mistake: "Validating schema only with a desktop user-agent", explanation: "checking structured data on desktop misses exactly the failure mobile-first indexing causes; the mobile user-agent must be checked directly." },
+      ],
+      keyTakeaway:
+        "A single traffic drop after a redesign can have multiple independent causes stacked on top of each other, a crawl block, a canonicalization gap, and a schema gap, each needing its own fix. Reading the Search Console data by root cause, not just by page count, is what turns a vague 'traffic dropped' report into a prioritized set of developer tickets.",
     }
   ],
 
@@ -1271,6 +1555,23 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Two passes: confirm both pages actually reached Stage 2 (Indexing), then compare the Stage 3 (Ranking) signals that would explain the gap once indexing is ruled out.",
       mode: "diagnostic",
       conceptsCovered: ["Stage 2: Indexing", "Stage 3: Ranking"],
+      skills: ["Search Fundamentals", "Competitive SEO Analysis", "Backlink Analysis", "Diagnostic Reasoning"],
+      keyQuestion:
+        "Is a competitor outranking you because your page never cleared indexing, or because of a genuine ranking-signal gap?",
+      prerequisites: [
+        "Understanding of the crawl-index-rank pipeline",
+        "Access to Google Search Console for the page being diagnosed",
+      ],
+      terminology: [
+        {
+          term: "Referring Domains",
+          definition: "the number of unique websites linking to a page, used as a proxy for how much external authority that page has earned.",
+        },
+        {
+          term: "URL Inspection",
+          definition: "a Google Search Console tool that reports a specific URL's live indexing and crawl status.",
+        },
+      ],
       steps: [
         {
           stepId: "step-1-confirm-indexed",
@@ -1401,6 +1702,37 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       ],
       portfolioReady: true,
       stretch: "Run this same two-step check on a page of your own that underperforms a known competitor.",
+      whatToLookFor: [
+        { label: "Indexing status first", detail: "Has the underperforming page actually cleared Stage 2 indexing before any ranking analysis begins?" },
+        { label: "Signal family", detail: "Which of the five ranking-signal families (relevance, authority, experience, quality, intent match) shows the biggest gap?" },
+        { label: "Magnitude of the gap", detail: "Is the difference in referring domains or content depth large enough to plausibly explain months of underranking?" },
+        { label: "Fix type", detail: "Does the evidence point to a content brief, a link-outreach brief, or a technical ticket?" },
+      ],
+      decision: {
+        prompt:
+          "Zendesk's page is confirmed indexed and recently crawled. The competitor's page has 22 referring domains and 1,450 words versus Zendesk's 3 referring domains and 340 words. What should the diagnostic verdict recommend?",
+        options: [
+          { id: "a", label: "Request a manual ranking review from Google, since indexing is fine", correct: false },
+          { id: "b", label: "Brief a content-depth expansion and a targeted link outreach campaign", correct: true },
+          { id: "c", label: "Rewrite the page's title tag only, since indexing already confirms the technical setup is fine", correct: false },
+          { id: "d", label: "Conclude nothing can be done since the competitor has 7x more referring domains", correct: false },
+        ],
+        explanation:
+          "With indexing ruled out, a roughly 7x referring-domain gap and 4x word-count gap point squarely at Stage 3's authority and content-quality signals, exactly the two most fixable levers here. A manual review request doesn't apply since there's no indexing or penalty issue. A title tag alone doesn't address a real content-depth and authority gap this large, and 'nothing can be done' ignores that both authority and content depth are gaps a team can close with effort.",
+      },
+      professionalRecommendation: {
+        priority: "Medium",
+        text:
+          "Zendesk's help-center page is fully indexed, so the six-month ranking gap against the competitor is a genuine Stage 3 signal gap, not a crawl or index problem. The competitor page carries roughly 7x the referring domains (22 versus 3) and 4x the word count (1,450 versus 340), with in-depth screenshots covering 4 integration platforms where Zendesk's page offers a single paragraph. Recommend a two-part brief: expand the page's content depth to match the competitor's coverage, and pursue outreach to 3-5 relevant sites to begin closing the backlink gap.",
+      },
+      commonMistakes: [
+        { mistake: "Jumping straight to content rewrites without confirming indexing", explanation: "the most common wasted-effort mistake in SEO, weeks of content work can't fix a page that was never truly competing in the ranking stage at all." },
+        { mistake: "Blaming 'the algorithm' for a plainly visible gap", explanation: "a 7x referring-domain and 4x word-count difference is a measurable, explainable gap, not a mysterious penalty." },
+        { mistake: "Comparing word count without checking content depth", explanation: "a longer page padded with filler isn't the same signal as a page genuinely covering more topics in detail; check subheadings and coverage, not just word count." },
+        { mistake: "Treating authority and content depth as the same fix", explanation: "a content brief and a link-outreach brief are different deliverables with different timelines; conflating them produces a vague action plan." },
+      ],
+      keyTakeaway:
+        "Before diagnosing why a page underperforms, rule out the boring explanation first: confirm it's actually indexed. Once that's confirmed, a ranking gap almost always traces to a measurable signal, backlink authority or content depth, that points to a specific, fixable brief rather than a mysterious algorithm problem.",
     },
     {
       id: "how-search-works-crawl-budget-audit",
@@ -1421,6 +1753,23 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Crawl budget as a finite daily allocation",
         "Orphan pages that crawlers rarely find",
         "Not every crawled page gets indexed",
+      ],
+      skills: ["Crawl Budget Management", "Orphan Page Detection", "Google Search Console", "Site Architecture"],
+      keyQuestion:
+        "Where is Google's limited daily crawl budget being wasted on a large site, and how does that connect to pages not getting indexed?",
+      prerequisites: [
+        "Familiarity with Google Search Console's Crawl Stats and Indexing reports",
+        "Basic understanding of internal linking and sitemaps",
+      ],
+      terminology: [
+        {
+          term: "Crawl Budget",
+          definition: "the rough daily limit on how many pages Googlebot will crawl on a given site, which can be consumed by low-value pages at the expense of important ones.",
+        },
+        {
+          term: "Orphan Page",
+          definition: "a published page that no other page on the site links to, making it much harder for crawlers to discover even if it's listed in a sitemap.",
+        },
       ],
       steps: [
         {
@@ -1602,6 +1951,37 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       ],
       portfolioReady: true,
       stretch: "Run the Crawl Stats + orphan-page cross-reference on your own site and see if any of your own recent posts are silently orphaned.",
+      whatToLookFor: [
+        { label: "Budget allocation", detail: "Is crawl budget going disproportionately to low-value paths (deprecated, legacy) instead of current content?" },
+        { label: "Discovery signal strength", detail: "Does a new page have a real internal link, or only a sitemap listing?" },
+        { label: "Causal chain", detail: "Do the findings from separate reports (Crawl Stats, orphan check, Indexing report) point to the same root cause?" },
+        { label: "Intentional vs accidental exclusion", detail: "Is a page not indexed because of a deliberate robots.txt or noindex rule, or an accidental orphaning?" },
+      ],
+      decision: {
+        prompt:
+          "Crawl Stats shows 33% of budget going to deprecated/legacy paths. The orphan check finds 93 sitemap URLs with zero internal links. The Indexing report shows 41 of those same 93 pages stuck in 'Discovered, currently not indexed'. What's the single highest-leverage fix?",
+        options: [
+          { id: "a", label: "Request indexing for the 41 stuck pages via URL Inspection and stop there", correct: false },
+          { id: "b", label: "Add internal links to the new docs and noindex the deprecated paths, addressing both root causes together", correct: true },
+          { id: "c", label: "Increase the sitemap submission frequency to make Google recrawl faster", correct: false },
+          { id: "d", label: "Wait for Google to naturally reprioritize crawling over the next few months", correct: false },
+        ],
+        explanation:
+          "The three checks tell one consistent story: crawl budget is being drained by legacy paths, and new docs are undiscoverable because they lack real internal links, which is exactly why they land in 'Discovered, currently not indexed'. Fixing internal linking and reclaiming budget from deprecated paths addresses the root cause for all 93 orphan candidates, not just the 41 already flagged. Requesting indexing one by one treats the symptom without fixing discovery, resubmitting the sitemap doesn't add a missing internal link, and waiting leaves new feature docs invisible for weeks.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Reclaim Snowflake's crawl budget with three parallel fixes: noindex or 410 the deprecated and legacy doc paths currently consuming 33% of daily crawl requests, add each new feature doc to its category index page and a related-docs sidebar at publish time to eliminate orphaning, and add explicit canonical tags to the 210 legacy pages currently flagged as duplicate with a Google-chosen canonical. These three fixes address the full causal chain found in this audit, wasted budget, undiscoverable new pages, and unindexed duplicates, rather than treating each report finding as an isolated issue.",
+      },
+      commonMistakes: [
+        { mistake: "Treating each Search Console report in isolation", explanation: "Crawl Stats, orphan detection, and the Indexing report describe the same underlying problem here; reading them separately misses the causal chain." },
+        { mistake: "Requesting indexing for stuck pages without fixing internal linking", explanation: "a manual index request can nudge one URL, but the same orphaning problem recurs for every future doc published the same way." },
+        { mistake: "Assuming a sitemap listing is enough to guarantee discovery", explanation: "a sitemap is a hint, not a guarantee; an actual internal link is a much stronger discovery signal." },
+        { mistake: "Fixing only the highest-percentage finding", explanation: "the 33% crawl-budget stat looks like the biggest number, but leaving orphaning and duplicate-canonical issues unaddressed means new content keeps landing in the same limbo." },
+      ],
+      keyTakeaway:
+        "A crawl budget problem rarely shows up as one clean finding, it surfaces as related symptoms across multiple Search Console reports: wasted budget on stale paths, undiscoverable new pages, and pages stuck unindexed. Connecting those symptoms into one causal chain, then fixing the root cause, internal linking and budget reclamation, rather than patching individual URLs, is what actually closes the gap.",
     },
   ],
 
@@ -1622,6 +2002,23 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Two passes over the same export: quantify the robots.txt-blocked bucket and its likely one-line fix, then quantify the 'crawled but not indexed' bucket and explain why that one can't be fixed with a config change alone.",
       mode: "diagnostic",
       conceptsCovered: ["robots.txt", "Indexability"],
+      skills: ["Technical SEO", "robots.txt", "Indexability Diagnosis", "Content Consolidation"],
+      keyQuestion:
+        "Given a real GSC indexing export, which non-indexed bucket is a same-day config fix and which needs a content decision?",
+      prerequisites: [
+        "Basic spreadsheet filtering and sorting",
+        "Familiarity with reading a robots.txt file",
+      ],
+      terminology: [
+        {
+          term: "robots.txt",
+          definition: "a text file at a site's root that tells crawlers which paths they may or may not request; a Disallow rule blocks Google from crawling matching URLs entirely.",
+        },
+        {
+          term: "Crawled, Currently Not Indexed",
+          definition: "a Search Console status meaning Google successfully crawled a page but chose not to store it in the index, usually due to thin or duplicate content.",
+        },
+      ],
       steps: [
         {
           stepId: "step-1-robots-block",
@@ -1741,6 +2138,37 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       ],
       portfolioReady: true,
       stretch: "Pull your own site's Search Console Pages report and run the same two-bucket triage on your real data.",
+      whatToLookFor: [
+        { label: "Fix type", detail: "Is the cause a binary technical block (robots.txt) or a quality judgment Google is making (thin or duplicate content)?" },
+        { label: "Intent behind the block", detail: "Was the robots.txt rule intentional and still correct, or a stale leftover from an old reorganization?" },
+        { label: "Sample before generalizing", detail: "Does a real sample of URLs in the largest bucket actually confirm the suspected pattern (thin, superseded content)?" },
+        { label: "Fix vs delete", detail: "Should superseded content be redirected to its replacement, or simply removed?" },
+      ],
+      decision: {
+        prompt:
+          "412 pages are blocked by robots.txt, tracing to a 14-month-old /help/archived/* rule. 690 pages are 'crawled, currently not indexed', sampled as thin, superseded articles. Leadership wants the fastest win logged first. Which is it?",
+        options: [
+          { id: "a", label: "The 690-page bucket, since it's the largest number", correct: false },
+          { id: "b", label: "The 412-page bucket, since removing one stale robots.txt line is a same-day fix", correct: true },
+          { id: "c", label: "Both are equally fast to fix", correct: false },
+          { id: "d", label: "Neither, since indexing issues can't be fixed without new content", correct: false },
+        ],
+        explanation:
+          "A robots.txt block is binary and total: removing one stale Disallow line unblocks all 412 pages at once, a same-day config change. The 690-page bucket needs a content decision, sampling, confirming duplication, then redirecting each superseded article, inherently slower work spread across many individual pages. The 690 number being larger doesn't make it faster to fix, and the robots.txt fix needs zero new content, just removing an incorrect restriction.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Ship the robots.txt fix first: audit the /help/archived/* directory and remove the Disallow line for any subpath still receiving organic traffic or backlinks, unblocking all 412 pages in a single same-day change. In parallel, begin a content consolidation plan for the 690 'crawled, currently not indexed' pages. Sampled evidence shows they skew toward thin, superseded articles; 301 redirect each to its replacement rather than leaving both versions live, since Google has already signaled it won't index the older version anyway.",
+      },
+      commonMistakes: [
+        { mistake: "Treating both buckets as the same type of problem", explanation: "a robots.txt block and a content-quality exclusion have completely different fixes and timelines; bundling them into one 'fix indexing' ticket obscures which one is actually fast." },
+        { mistake: "Assuming a robots.txt Disallow rule is still correct just because it exists", explanation: "a 14-month-old rule from a past reorganization can silently block content that's since become valuable again." },
+        { mistake: "Generalizing the crawled-not-indexed cause without sampling real URLs", explanation: "the pattern of thin, superseded articles only becomes clear by opening several sample pages, not by assuming from the bucket name alone." },
+        { mistake: "Deleting superseded pages instead of redirecting them", explanation: "a 301 redirect preserves any existing backlinks and traffic pointing at the old URL; outright deletion throws that away." },
+      ],
+      keyTakeaway:
+        "Not every 'not indexed' page has the same cause or the same fix. Separating a binary technical block from a content-quality judgment, and sizing each bucket from the real export instead of guessing, is what turns a vague 1,389-page problem into two clearly prioritized workstreams.",
     },
     {
       id: "technical-seo-robots-canonical-teardown",
@@ -1758,6 +2186,23 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Two specimens, one robots.txt file and one pair of canonical tags. Find the defect in each and explain what it would do to the site if it shipped as-is.",
       mode: "teardown",
       conceptsCovered: ["robots.txt", "Canonical Tags"],
+      skills: ["robots.txt", "Canonical Tags", "Pre-Launch QA", "Technical SEO Teardown"],
+      keyQuestion:
+        "Which pre-launch defects would silently damage indexing if they shipped as-is?",
+      prerequisites: [
+        "Ability to read a robots.txt file's User-agent, Disallow, and Allow syntax",
+        "Understanding of what a canonical tag does",
+      ],
+      terminology: [
+        {
+          term: "Canonical Tag",
+          definition: "an HTML tag (<link rel=\"canonical\">) declaring which URL is the authoritative version of a page's content, consolidating ranking signals to that one URL.",
+        },
+        {
+          term: "Disallow Directive",
+          definition: "a robots.txt rule telling a crawler it may not request matching paths; a bare 'Disallow: /' blocks an entire site for that user-agent.",
+        },
+      ],
       teardownItems: [
         {
           itemId: "staging-disallow-left-in",
@@ -1842,6 +2287,37 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Explained the specific index consequence (Enterprise page dropped, not just 'ranking loss')",
       ],
       portfolioReady: true,
+      whatToLookFor: [
+        { label: "Scope of the block", detail: "Does an Allow rule for one crawler actually cover every path, or only a subset?" },
+        { label: "Self-reference vs cross-reference", detail: "Does each page's canonical tag point to itself, or accidentally to a different page?" },
+        { label: "Consequence, not just presence", detail: "What specifically happens (deindexed, dropped from results, blocked entirely) if the defect ships?" },
+        { label: "Distractor discipline", detail: "Is a stylistic difference (URL format, rule ordering) being mistaken for a functional defect?" },
+      ],
+      decision: {
+        prompt:
+          "The robots.txt has 'Disallow: /' under 'User-agent: *' and then 'Allow: /docs/' and 'Allow: /pricing/' under 'User-agent: Googlebot'. What's the actual scope of what stays blocked?",
+        options: [
+          { id: "a", label: "Nothing is blocked, since the Googlebot-specific rules override the wildcard block entirely", correct: false },
+          { id: "b", label: "Every path except /docs/ and /pricing/ stays blocked for Googlebot, and the entire site stays blocked for every other crawler", correct: true },
+          { id: "c", label: "Only non-Googlebot crawlers are affected; Googlebot sees the whole site", correct: false },
+          { id: "d", label: "Only the homepage is blocked, since Allow rules are only for subdirectories", correct: false },
+        ],
+        explanation:
+          "The Googlebot-specific block only carves out Allow exceptions for /docs/ and /pricing/, it doesn't cancel the wildcard 'Disallow: /' for everything else Googlebot might try to crawl, and every other crawler has no Allow exceptions at all and stays fully blocked. Assuming the specific rule fully overrides the wildcard, or that only one crawler type is affected, both underestimate how much of the site would actually be shut out if this shipped.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Block this deploy until both defects are fixed. The staging robots.txt's global 'Disallow: /' combined with narrow Googlebot-only Allow rules for /docs/ and /pricing/ would shut out every other crawler entirely and block Googlebot from every path outside those two, including the homepage, exactly the 'block Google from your entire site overnight' scenario. Separately, the Enterprise plan page's canonical tag incorrectly points at the Starter plan page instead of self-referencing, which would cause Google to treat it as a duplicate and drop it from the index, leaving no distinct page to rank for enterprise-tier pricing searches.",
+      },
+      commonMistakes: [
+        { mistake: "Assuming a crawler-specific Allow rule fully cancels a wildcard Disallow", explanation: "the Allow only applies to the specific paths listed; every other path remains blocked for that crawler too." },
+        { mistake: "Flagging the sitemap's URL format or rule ordering as the defect", explanation: "these are cosmetic and don't affect crawling or indexing; the real defect is the scope of the Disallow rule." },
+        { mistake: "Missing which direction a canonical points", explanation: "the defect is the Enterprise page pointing at the Starter page, not the reverse; misreading the direction leads to fixing the wrong page." },
+        { mistake: "Describing the canonical defect only as 'a ranking issue'", explanation: "the actual consequence is more severe, the Enterprise page gets dropped from the index entirely as a perceived duplicate, not merely ranked lower." },
+      ],
+      keyTakeaway:
+        "A pre-launch technical SEO review exists to catch defects that look like small syntax details but have site-wide or page-wide consequences if they ship. Reading exactly what a robots.txt rule's scope covers, and exactly which direction a canonical tag points, is the difference between catching a catastrophic block before launch and finding out about it in a traffic report weeks later.",
     },
   ],
 
@@ -1862,6 +2338,16 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Two passes: read the Search Console URL-groups breakdown to find which template is still 'Poor', then crawl that template to spot the most likely CLS culprit.",
       mode: "diagnostic",
       conceptsCovered: ["LCP, Largest Contentful Paint", "CLS, Cumulative Layout Shift"],
+      skills: ["Core Web Vitals", "Technical SEO", "Performance Analysis"],
+      keyQuestion: "Is the performance problem caused by individual pages, or by a shared page template?",
+      prerequisites: [
+        "Basic understanding of what Core Web Vitals measures",
+        "Access to Google Search Console for the property being audited",
+      ],
+      terminology: [
+        { term: "Largest Contentful Paint (LCP)", definition: "measures how quickly the largest visible content element loads." },
+        { term: "Cumulative Layout Shift (CLS)", definition: "measures unexpected movement of visible content while a page loads." },
+      ],
       steps: [
         {
           stepId: "step-1-url-groups",
@@ -1981,6 +2467,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       ],
       portfolioReady: true,
       stretch: "Check your own site's Core Web Vitals URL-groups breakdown, most sites have at least one 'silent' Poor template hiding behind a passing homepage.",
+      whatToLookFor: [
+        { label: "Severity", detail: "How poor is the performance for this template?" },
+        { label: "Scale", detail: "How many URLs share the same template?" },
+        { label: "Business importance", detail: "How much traffic or business value does the template represent?" },
+        { label: "Repeatability", detail: "Does the same problem appear across many pages using the same template, or is it isolated to one or two?" },
+      ],
+      decision: {
+        prompt: "Based on the evidence gathered so far, what should the SEO team recommend?",
+        options: [
+          { id: "a", label: "Optimize the homepage again", correct: false },
+          { id: "b", label: "Prioritize the hotel case-study template", correct: true },
+          { id: "c", label: "Manually fix the 38 case-study pages one by one", correct: false },
+          { id: "d", label: "Ignore the issue since the homepage passes", correct: false },
+        ],
+        explanation:
+          "The problem affects 38 URLs sharing one template and 61% of site traffic, so a template-level fix addresses it everywhere at once. Manually patching each page treats a shared-component bug as 38 separate content errors, and another homepage pass ignores where the real traffic and risk actually sit.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "The hotel case-study template should be prioritized for Core Web Vitals optimization. The template carries a Poor LCP result (4.6s) and affects 38 URLs representing 61% of site traffic. A crawl confirms a repeated image-implementation issue, missing width/height attributes on the hero banner and client logo grid, consistent across every affected URL. Development should correct the shared components rather than modifying individual pages.",
+      },
+      commonMistakes: [
+        { mistake: "Checking only the homepage", explanation: "a passing homepage does not prove that other page templates perform well." },
+        { mistake: "Choosing the worst score automatically", explanation: "a severe problem on one low-traffic page can matter less than a moderate problem spread across hundreds of high-traffic pages." },
+        { mistake: "Assuming the first technical issue found is the root cause", explanation: "confirm the pattern repeats across the affected URLs before declaring a root cause." },
+        { mistake: "Treating every affected URL as a separate problem", explanation: "if the same issue appears across a shared template, fix the template, not each page one by one." },
+      ],
+      keyTakeaway:
+        "A professional technical SEO audit does more than identify a poor score. It answers where the problem is, how widespread it is, what's causing it, and what the business should do next. The goal isn't to find errors, it's to turn technical evidence into a prioritized action that improves the site at scale.",
     },
     {
       id: "core-web-vitals-lcp-business-case-forecast",
@@ -1998,6 +2514,16 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Pull today's real field-data baseline, then apply the lesson's cited Nykaa case (40% LCP cut, 28% organic traffic gain) as a conservative benchmark multiplier to build a defensible forecast.",
       mode: "diagnostic",
       conceptsCovered: ["How Google Actually Measures This", "Nykaa, 28% more organic traffic from LCP improvement"],
+      skills: ["Core Web Vitals", "Business Case Building", "Forecasting"],
+      keyQuestion: "What is a defensible, dollar-figure forecast for fixing a Poor LCP template, built on real baseline data and a discounted named benchmark?",
+      prerequisites: [
+        "Access to Google Search Console field data for the property being forecast",
+        "Access to Google Analytics 4 conversion data for the same property",
+      ],
+      terminology: [
+        { term: "Field data", definition: "real-user Chrome performance data, as opposed to a single lab test run, and what Google actually uses to grade a page." },
+        { term: "Benchmark discount", definition: "deliberately applying a fraction of a cited case study's result to account for differences in market, product, or traffic mix." },
+      ],
       steps: [
         {
           stepId: "step-1-field-baseline",
@@ -2110,6 +2636,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       ],
       portfolioReady: true,
       stretch: "Pull your own site's Core Web Vitals baseline and build the same discounted forecast using whichever cited case study in the lesson best matches your traffic mix.",
+      whatToLookFor: [
+        { label: "Baseline recency", detail: "Is the field-data LCP and organic click number dated and pulled from real Search Console data, not estimated?" },
+        { label: "Benchmark relevance", detail: "Does the cited case study share a similar mechanism, an LCP fix causing a traffic lift, even if the market differs?" },
+        { label: "Discount applied", detail: "Has the cited result been conservatively scaled down rather than promised in full?" },
+        { label: "Revenue translation", detail: "Is the traffic forecast converted into a dollar range using real conversion data, not left as a raw click number?" },
+      ],
+      decision: {
+        prompt: "Leadership asks why the forecast uses 14% instead of Nykaa's actual 28% traffic lift. What's the right answer?",
+        options: [
+          { id: "a", label: "14% is a typo, it should say 28%", correct: false },
+          { id: "b", label: "The 28% figure is unreliable and should be dropped entirely", correct: false },
+          { id: "c", label: "14% is a conservative discount applied because Wise's market and product differ from Nykaa's", correct: true },
+          { id: "d", label: "14% was chosen because Wise's current LCP is worse than Nykaa's was", correct: false },
+        ],
+        explanation:
+          "The forecast deliberately applies half of Nykaa's cited 28% lift to account for Wise operating in a different market and product category, which is what makes the number credible to a skeptical engineering lead. Dropping the benchmark entirely would leave the request with no evidence at all, and promising the full 28% would overclaim a result from a different business.",
+      },
+      professionalRecommendation: {
+        priority: "Medium",
+        text:
+          "The currency-converter template's dev sprint request should be submitted with the attached forecast memo: a documented Poor field-data LCP baseline of 4.9s across 23 URLs and 38,400 monthly organic clicks, a conservative 14% traffic-lift projection (half of the cited Nykaa 40% LCP cut to 28% traffic gain benchmark), and a resulting revenue estimate of roughly $38,400/month using GA4's actual conversion rate and revenue-per-session for that path. This gives engineering leadership a specific, discounted, cited number rather than an open-ended SEO promise.",
+      },
+      commonMistakes: [
+        { mistake: "Forecasting without a real baseline", explanation: "a projected lift means nothing without a documented starting LCP and traffic number to lift from." },
+        { mistake: "Applying a cited benchmark at full strength", explanation: "a different company, market, and product category rarely produces an identical result, so citing the number without discounting it overclaims." },
+        { mistake: "Leaving the forecast in clicks instead of revenue", explanation: "engineering leadership evaluates a dev sprint against dollar impact, not raw traffic numbers." },
+        { mistake: "Citing a benchmark vaguely instead of by name and number", explanation: "'Core Web Vitals fixes help traffic' is not persuasive, 'Nykaa saw a 28% organic lift from a 40% LCP cut' is." },
+      ],
+      keyTakeaway:
+        "A business case for a technical fix needs three things: a real dated baseline, a named benchmark applied at a credible discount, and a translation into the metric leadership actually cares about. Skipping any one of the three turns a forecast back into a guess.",
     },
   ],
 
@@ -2130,6 +2686,17 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Two specimens: an HTML snippet with an embedded asset, and an HSTS header rollout plan against a list of live subdomains. Find the defect in each.",
       mode: "teardown",
       conceptsCovered: ["HTTPS Migration, Done Right", "Testing Your Setup"],
+      skills: ["HTTPS Security", "Mixed Content Auditing", "HSTS Configuration"],
+      keyQuestion: "Which line in each specimen would break the padlock or lock out a legitimate subdomain, and why does it matter more than the distractors around it?",
+      prerequisites: [
+        "Basic understanding of how HTTPS and the browser padlock indicator work",
+        "Familiarity with reading HTML head tags and HTTP response headers",
+      ],
+      terminology: [
+        { term: "Mixed content", definition: "an HTTPS page that loads at least one resource, image, script, or stylesheet, over plain HTTP, which breaks or hides the browser's padlock." },
+        { term: "HSTS (Strict-Transport-Security)", definition: "a header that tells browsers to only ever connect to a domain over HTTPS, refusing HTTP entirely once set." },
+        { term: "HSTS preload", definition: "a browser-maintained list that hard-codes HSTS enforcement before the first visit, with slow removal if a mistake ships." },
+      ],
       teardownItems: [
         {
           itemId: "chat-widget-mixed-content",
@@ -2214,6 +2781,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Explained the hard-failure consequence (subdomain becomes completely inaccessible, not just 'less secure')",
       ],
       portfolioReady: true,
+      whatToLookFor: [
+        { label: "Protocol consistency", detail: "Does every embedded resource on the HTTPS page also load over HTTPS, with no exceptions?" },
+        { label: "Subdomain coverage", detail: "If a policy applies domain-wide, does every live subdomain actually support what the policy assumes?" },
+        { label: "Failure mode", detail: "Does the defect degrade gracefully (a warning) or fail hard (the resource or subdomain becomes inaccessible)?" },
+        { label: "Distractor plausibility", detail: "Is the flagged line actually the defect, or does it just look unusual next to correctly-configured neighbors?" },
+      ],
+      decision: {
+        prompt: "The HSTS specimen lists includeSubDomains and preload alongside a subdomain that has never had HTTPS configured. What should happen before submission?",
+        options: [
+          { id: "a", label: "Submit as planned, since max-age and syntax are both correct", correct: false },
+          { id: "b", label: "Remove includeSubDomains only, keep preload", correct: false },
+          { id: "c", label: "Configure HTTPS on legacy-support.adyen-example.com first, or exclude it from includeSubDomains, before submitting", correct: true },
+          { id: "d", label: "Submit, then fix the subdomain afterward since preload updates instantly", correct: false },
+        ],
+        explanation:
+          "includeSubDomains applies the policy to every subdomain including the HTTP-only one, and once preloaded, browsers refuse to load it at all with no click-through and slow removal. The header syntax being correct doesn't matter if the underlying infrastructure isn't ready, and preload lists update on a slow, browser-vendor-controlled cadence, not instantly.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Both specimens should be blocked from launch. The merchant landing page's legacy chat widget script must be updated to load over HTTPS before deploy, since a single HTTP resource breaks the padlock on the entire page at the exact moment merchants are evaluating trust. The HSTS preload submission should be held until legacy-support.adyen-example.com either supports HTTPS or is explicitly excluded from includeSubDomains, since preload removal is slow and the failure mode is a hard, unrecoverable connection error, not a warning.",
+      },
+      commonMistakes: [
+        { mistake: "Assuming a same-domain resource is automatically safe", explanation: "the protocol (http:// vs https://) matters independently of which domain a resource loads from." },
+        { mistake: "Treating correct header syntax as proof the header is safe to ship", explanation: "a syntactically valid HSTS header can still be operationally dangerous if the subdomain inventory isn't ready for it." },
+        { mistake: "Missing the domain-wide blast radius of includeSubDomains", explanation: "a policy written for the main domain silently applies to every subdomain, including ones the reviewer didn't check." },
+        { mistake: "Confusing a soft warning with a hard failure", explanation: "mixed content shows a broken padlock (soft); an HSTS-enforced HTTP-only subdomain refuses to load at all (hard), and the review priority should reflect that difference." },
+      ],
+      keyTakeaway:
+        "A pre-launch HTTPS review has to check both the page's own resources and the domain-wide policies that will apply after launch. The mixed-content bug and the HSTS blast radius look unrelated but share the same root cause: a change that's correct in isolation but wasn't checked against every dependency it actually touches.",
     },
     {
       id: "https-security-seo-migration-audit",
@@ -2231,6 +2828,16 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Three checks: confirm every old HTTP URL 301-redirects in a single hop, confirm the response carries the expected security headers, and confirm no mixed content is quietly breaking the padlock on migrated pages.",
       mode: "diagnostic",
       conceptsCovered: ["HTTPS Migration, Done Right", "Security Headers That Actually Matter", "Testing Your Setup"],
+      skills: ["HTTPS Migration Auditing", "Security Headers", "Technical SEO"],
+      keyQuestion: "Six weeks after an HTTPS migration, is flat traffic explained by a redirect, header, or mixed-content gap the migration itself introduced?",
+      prerequisites: [
+        "Access to Google Search Console for the migrated property",
+        "Basic familiarity with reading HTTP response headers and redirect chains",
+      ],
+      terminology: [
+        { term: "Redirect chain", definition: "when a URL redirects through more than one hop before reaching its final destination, diluting link equity and slowing navigation at each extra hop." },
+        { term: "Security headers", definition: "response headers like HSTS, CSP, and X-Content-Type-Options that don't move rankings directly but support the trust signals that feed conversion." },
+      ],
       steps: [
         {
           stepId: "step-1-redirect-check",
@@ -2393,6 +3000,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       ],
       portfolioReady: true,
       stretch: "Run the same three-part audit on any HTTPS migration you've been part of, or on a competitor's recently redesigned subdomain.",
+      whatToLookFor: [
+        { label: "Redirect hop count", detail: "Does each old URL resolve in a single 301 hop, or does it chain through an intermediate step?" },
+        { label: "Header parity", detail: "Does the migrated property carry the same security headers as its parent domain or comparable properties?" },
+        { label: "Mixed-content concentration", detail: "Are HTTP resources scattered randomly, or concentrated on one high-consequence template?" },
+        { label: "Consequence, not just count", detail: "Does the volume of affected URLs match the business risk, or is a small number of URLs disproportionately important?" },
+      ],
+      decision: {
+        prompt: "Traffic to the seller-help microsite is flat six weeks post-migration. Which finding should be prioritized first?",
+        options: [
+          { id: "a", label: "The 6 pages with mixed content on the PDF-viewer widget", correct: false },
+          { id: "b", label: "The 28 URLs returning 404 instead of redirecting", correct: true },
+          { id: "c", label: "The missing Referrer-Policy header", correct: false },
+          { id: "d", label: "The 2-hop redirect chains on 3 of 10 sampled URLs", correct: false },
+        ],
+        explanation:
+          "404s mean the old URL simply stops working, losing both users and any remaining link equity outright, which is the most direct explanation for flat rather than recovering traffic. The mixed-content and redirect-chain issues degrade quality but don't break access, and the missing Referrer-Policy header has no direct traffic impact at all.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "The seller-help microsite migration requires a three-part remediation before traffic can be expected to recover. First, fix the 28 old URLs currently returning 404 and collapse the 2-hop redirect chains on the 3 of 10 sampled URLs where an HTTPS switch was bundled with an unrelated URL restructure. Second, add the microsite subdomain explicitly to the parent flipkart.com HSTS policy, since it currently carries no HSTS despite the parent domain having had it configured for over a year. Third, update the PDF-viewer widget's HTTP embed on the six Seller Agreement template pages, since a broken padlock on a legal-document download page carries disproportionate trust risk relative to its small resource count.",
+      },
+      commonMistakes: [
+        { mistake: "Assuming a migration is complete once the protocol switches", explanation: "redirect integrity, header configuration, and mixed content all need separate verification after the switch, not just before it." },
+        { mistake: "Bundling a URL restructure into the same deploy as an HTTPS migration", explanation: "combining two changes at once makes each extra redirect hop and each 404 harder to isolate and debug." },
+        { mistake: "Assuming a subdomain inherits the parent domain's security headers automatically", explanation: "a microsite migrated separately from the main domain's server config can be missing headers the parent has had for years." },
+        { mistake: "Prioritizing by resource count instead of consequence", explanation: "6 of 1,240 resources sounds negligible until you notice they sit on the page where sellers download a legal agreement." },
+      ],
+      keyTakeaway:
+        "A migration audit isn't finished when the protocol switches, it's finished when redirects, headers, and embedded resources are all verified post-launch. Flat traffic after a migration is a symptom with several possible causes, and the fix is to isolate which specific gap, not just confirm 'the migration happened'.",
     },
   ],
 
@@ -2415,6 +3052,16 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       conceptsCovered: [
         "Orphaned pages",
         "Anchor Text: The Overlooked Relevance Signal",
+      ],
+      skills: ["Internal Linking", "Site Crawling", "Content Audit"],
+      keyQuestion: "How many published guide pages are actually invisible to Google because nothing links to them, and how much anchor text is wasting its relevance signal?",
+      prerequisites: [
+        "Ability to run and export a crawl in Screaming Frog SEO Spider",
+        "Basic spreadsheet skills (VLOOKUP or equivalent, filtering, pivoting)",
+      ],
+      terminology: [
+        { term: "Orphaned page", definition: "a page with zero internal links pointing to it, making it hard for crawlers to find or treat as important, even if it's in the sitemap." },
+        { term: "Anchor text", definition: "the clickable text of a link; descriptive anchor text tells Google and readers what the destination page covers, generic text like 'click here' tells them nothing." },
       ],
       steps: [
         {
@@ -2557,6 +3204,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
       stretch:
         "Run the same sitemap-vs-crawl diff against your own site's XML sitemap and fix the top 5 orphans by estimated traffic potential.",
+      whatToLookFor: [
+        { label: "Confirmation, not assumption", detail: "Does the crawl-diff gap actually mean zero inbound links, or could it be a temporary crawl-budget miss?" },
+        { label: "Scale of the gap", detail: "What share of the total library is affected, a handful of pages or a meaningful chunk?" },
+        { label: "Anchor text pattern", detail: "Is generic anchor text scattered randomly, or concentrated on a few repeated phrases worth fixing first?" },
+        { label: "Actionability", detail: "Does each finding point to a specific fix (which page should link to the orphan, which phrase to replace), not just a general problem statement?" },
+      ],
+      decision: {
+        prompt: "The sitemap lists 214 URLs but the homepage-following crawl only discovers 187. What's the correct next step before flagging anything to the content team?",
+        options: [
+          { id: "a", label: "Report all 27 as orphans immediately based on the crawl diff alone", correct: false },
+          { id: "b", label: "Manually confirm a sample of the 27 in a browser to rule out a crawl-budget miss before reporting", correct: true },
+          { id: "c", label: "Ignore the gap since the sitemap is the authoritative source", correct: false },
+          { id: "d", label: "Re-run the crawl with a higher crawl-budget setting and assume that fixes it", correct: false },
+        ],
+        explanation:
+          "The crawl diff is a strong signal but not proof by itself, manually checking a sample confirms these are genuinely unlinked pages rather than an artifact of crawl depth or budget settings. The sitemap being authoritative is exactly the trap the lesson warns about, a sitemap listing does not mean Google treats the page as discoverable or important."
+      },
+      professionalRecommendation: {
+        priority: "Medium",
+        text:
+          "The guide library has 27 confirmed orphan pages (12.6% of the 214-page sitemap) receiving zero internal links, and 25.6% of contextual internal links (318 of 1,240) use generic anchor text like 'read more' or 'click here'. Before any new content is written, the content team should add at least one contextual link to each orphan from a topically related, already-linked page, and rewrite the 20 highest-traffic generic anchors with descriptive text naming the destination topic. Both fixes are low-effort and recover existing content value rather than requiring new production.",
+      },
+      commonMistakes: [
+        { mistake: "Treating sitemap inclusion as proof of discoverability", explanation: "the sitemap is a hint, not a guarantee, a page can sit in the sitemap for years while receiving zero internal links and functioning as invisible to crawlers." },
+        { mistake: "Flagging a crawl-diff gap as an orphan without manual confirmation", explanation: "a temporary crawl-budget miss can produce the same gap as a true orphan, and reporting the wrong pages wastes the content team's time." },
+        { mistake: "Fixing anchor text without measuring the actual percentage first", explanation: "'a lot of our links say click here' is not actionable, a precise count (25.6%, 318 links) is what gets prioritized against other work." },
+        { mistake: "Recommending a generic 'add more links' fix", explanation: "each orphan needs a specific, named source page, and each generic anchor needs a specific descriptive replacement, not a vague instruction to link more." },
+      ],
+      keyTakeaway:
+        "Internal linking value is often wasted, not missing. A sitemap full of good content can still function as invisible to Google if nothing links to it, and a quarter of a site's link equity can leak away through generic anchor text alone. Both problems are fixable in an afternoon once they're actually measured.",
     },
     {
       id: "internal-linking-pillar-cluster-map",
@@ -2576,6 +3253,17 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       conceptsCovered: [
         "The Topic Cluster Model: The Best Architecture in 2025",
         "The Three-Click Rule",
+      ],
+      skills: ["Content Architecture", "Internal Linking", "Site Structure Planning"],
+      keyQuestion: "How should five cluster posts and a pillar page link together, in both directions, so they form one dense topical web instead of five disconnected articles?",
+      prerequisites: [
+        "A defined pillar topic and its planned cluster subtopics",
+        "Basic spreadsheet skills for planning a link map",
+      ],
+      terminology: [
+        { term: "Pillar page", definition: "a comprehensive page covering a broad topic, linking out to narrower cluster posts that each cover one subtopic in depth." },
+        { term: "Topic cluster model", definition: "a content architecture where cluster posts link back to a pillar, the pillar links out to every cluster post, and related clusters link to each other." },
+        { term: "Three-click rule", definition: "the guideline that any important page should be reachable within 3 clicks of the homepage, since link distance affects crawl priority and authority flow." },
       ],
       steps: [
         {
@@ -2707,6 +3395,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
       stretch:
         "Take a real topic your own site or client covers with 3+ existing loosely-related posts, retroactively map them into a pillar-cluster structure, and add the missing links.",
+      whatToLookFor: [
+        { label: "Bidirectionality", detail: "Does every cluster post both link to and receive a link from the pillar, not just one direction?" },
+        { label: "Anchor text variety", detail: "Does anchor text vary across posts, or does the same phrase repeat identically everywhere?" },
+        { label: "Topical cluster-to-cluster links", detail: "Are cross-links between clusters based on genuine topical overlap, not added just to hit a count?" },
+        { label: "Click depth", detail: "Does every post resolve within 3 clicks of the homepage, and if not, what's the specific fix?" },
+      ],
+      decision: {
+        prompt: "Win-back flows and A/B testing automation currently sit 4 clicks from the homepage. What's the correct fix?",
+        options: [
+          { id: "a", label: "Redesign the site's main navigation to add both posts directly", correct: false },
+          { id: "b", label: "Add both posts to the pillar page's outbound link list, since the pillar sits close to the homepage", correct: true },
+          { id: "c", label: "Leave them at 4 clicks since the three-click rule is only a guideline", correct: false },
+          { id: "d", label: "Move both posts to the homepage's blog roll", correct: false },
+        ],
+        explanation:
+          "The pillar page is already close to the homepage, so linking the deep posts from the pillar shortens their path to 2 clicks without touching the site's navigation structure at all. A navigation redesign is far more effort than necessary, and leaving posts at 4 clicks ignores the lesson's point that crawl priority and authority flow both drop off with link distance.",
+      },
+      professionalRecommendation: {
+        priority: "Medium",
+        text:
+          "Before the five cluster posts publish, the linking map should be finalized as specified: every cluster post links to the pillar and receives a link from it, using distinct anchor text per post rather than repeating the same phrase. Two cluster-to-cluster links (segmentation into welcome flows, A/B testing into abandoned cart) should ship alongside the pillar links, since these reflect genuine topical overlap rather than arbitrary cross-linking. Win-back flows and A/B testing automation should be added to the pillar's outbound link list before publish, since their current path resolves at 4 clicks and this single addition brings both to 2 clicks.",
+      },
+      commonMistakes: [
+        { mistake: "Linking clusters to the pillar but not the pillar back to clusters", explanation: "the topic cluster model requires links in both directions, a one-way link chain doesn't build the same topical density." },
+        { mistake: "Reusing identical anchor text across every cluster-to-pillar link", explanation: "varied, descriptive anchor text carries more relevance signal than the same phrase repeated five times." },
+        { mistake: "Adding cluster-to-cluster links without genuine topical overlap", explanation: "a forced cross-link between unrelated posts doesn't strengthen the topical web and can confuse readers about the post's actual focus." },
+        { mistake: "Fixing click depth with a navigation redesign instead of the pillar's link list", explanation: "the pillar page is usually the fastest lever for reducing click depth, a full navigation change is unnecessary effort for the same result." },
+      ],
+      keyTakeaway:
+        "A topic cluster isn't just a group of related posts, it's a deliberately built link structure where every connection, pillar to cluster, cluster to pillar, and cluster to cluster, is planned before publish. Getting the map right up front avoids shipping posts that technically cover related topics but never actually reinforce each other.",
     },
   ],
 
@@ -2727,6 +3445,17 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Two specimens, two teardowns: a Product block with a type mismatch and a missing property, and an FAQ block copied from an unrelated page with a syntax error baked in.",
       mode: "teardown",
       conceptsCovered: ["Common Mistakes", "How It Works"],
+      skills: ["Structured Data", "JSON-LD Validation", "Schema Markup"],
+      keyQuestion: "Which errors in each JSON-LD specimen would block rich results outright, versus which are guideline violations that risk a manual penalty?",
+      prerequisites: [
+        "Basic familiarity with JSON syntax",
+        "Understanding of what schema.org structured data is used for",
+      ],
+      terminology: [
+        { term: "JSON-LD", definition: "a JSON-based format for embedding schema.org structured data in a page, read by Google to power rich results." },
+        { term: "Rich results", definition: "enhanced search listings, star ratings, prices, FAQ dropdowns, generated from valid structured data matching what's visibly on the page." },
+        { term: "Guideline violation", definition: "structured data that is technically valid JSON but violates Google's content rules, such as marking up content not visible on the page, risking a manual action." },
+      ],
       teardownItems: [
         {
           itemId: "lenskart-product-schema-specimen",
@@ -2867,6 +3596,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
       stretch:
         "Paste one of your own site's live JSON-LD blocks into Google's Rich Results Test and fix every error and warning it returns.",
+      whatToLookFor: [
+        { label: "Type match", detail: "Does @type actually describe what's on the page, or is it borrowed from a different content type?" },
+        { label: "Visibility match", detail: "Does every marked-up value actually appear on the rendered page, or is something declared that isn't shown?" },
+        { label: "Syntax validity", detail: "Is the JSON itself well-formed, no trailing commas, matching braces, before checking anything else?" },
+        { label: "Value provenance", detail: "Do the specific values (price, ratings, policy text) belong to this exact product, or were they copied from elsewhere?" },
+      ],
+      decision: {
+        prompt: "Both specimens have multiple issues. Which single defect should be fixed first across both blocks?",
+        options: [
+          { id: "a", label: "The decimal ratingValue of 4.6 in specimen 1", correct: false },
+          { id: "b", label: "The @type mismatch (Article instead of Product) in specimen 1", correct: true },
+          { id: "c", label: "The single-sentence Answer text in specimen 2", correct: false },
+          { id: "d", label: "The question phrasing in specimen 2", correct: false },
+        ],
+        explanation:
+          "The @type mismatch prevents Google from considering Product rich results at all, no other fix in that block matters until the type is corrected. The decimal rating, answer length, and question phrasing are all valid per schema.org and are the distractors placed to look suspicious without being real defects.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Neither specimen should ship as drafted. Specimen 1's @type must change from Article to Product, its aggregateRating block must be removed until the reviews section actually ships (marking up invisible content risks a sitewide manual action), and priceCurrency must be added to the offers object. Specimen 2's trailing comma is a hard JSON syntax error that silently voids the entire block, and its FAQ content must be rewritten to reflect this product's actual return policy rather than the copied RayCon reference.",
+      },
+      commonMistakes: [
+        { mistake: "Only checking JSON syntax, not content accuracy", explanation: "syntactically valid JSON can still violate Google's content guidelines, like an aggregateRating for reviews that aren't visible on the page." },
+        { mistake: "Missing a mismatched @type because the rest of the fields look complete", explanation: "a wrong @type disqualifies the entire block from its intended rich-result type regardless of how complete the other fields are." },
+        { mistake: "Overlooking a trailing comma as a minor issue", explanation: "invalid JSON is silently ignored by Google entirely, it isn't a partial failure, it's zero rich-result eligibility." },
+        { mistake: "Assuming copied-and-edited schema is safe once the type and product name are updated", explanation: "every value inside the block, not just the headline fields, needs to be verified against this exact page, not the page it was copied from." },
+      ],
+      keyTakeaway:
+        "A schema teardown has two separate failure classes: syntax errors that silently kill eligibility, and guideline violations that are syntactically fine but risk a manual penalty. Catching only one class isn't enough, both specimens needed a full read against the actual rendered page, not just a JSON linter.",
     },
     {
       id: "schema-structured-data-build-product-schema",
@@ -2887,6 +3646,16 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "The Schema Types That Actually Move the Needle",
         "How It Works",
         "Common Mistakes",
+      ],
+      skills: ["Structured Data", "JSON-LD Authoring", "Schema Validation"],
+      keyQuestion: "What does a complete, valid Product JSON-LD block look like when built from a real page's exact visible facts, and how do you confirm it passes Google's own validator?",
+      prerequisites: [
+        "Basic familiarity with JSON syntax",
+        "Access to a text editor and the target product page",
+      ],
+      terminology: [
+        { term: "Offer object", definition: "the nested schema.org block declaring price, priceCurrency, and availability, all three required for Google to render a price badge." },
+        { term: "Availability", definition: "a schema.org URL value (e.g. https://schema.org/InStock) telling Google the current stock state of the product." },
       ],
       steps: [
         {
@@ -3079,6 +3848,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
       stretch:
         "Build the same Product schema block for your own site's real top-selling page and run it through the Rich Results Test until it passes clean.",
+      whatToLookFor: [
+        { label: "Type correctness", detail: "Is @type Product, matching what the lesson's table says triggers price, rating, and availability rich results?" },
+        { label: "Field completeness", detail: "Are all three offer fields, price, priceCurrency, and availability, present, not just price alone?" },
+        { label: "Page match", detail: "Does every declared value match exactly what's visibly rendered on the page, no rounding, no invented fields?" },
+        { label: "Clean validation", detail: "Does the finished block pass Google's Rich Results Test with zero errors, not just zero syntax errors?" },
+      ],
+      decision: {
+        prompt: "The draft's offers object has price and availability filled in but priceCurrency is missing. What's the consequence of shipping it as-is?",
+        options: [
+          { id: "a", label: "Nothing, Google infers the currency from the page's locale", correct: false },
+          { id: "b", label: "Google may reject the entire Offer block, since all three offer fields are required, not just recommended", correct: true },
+          { id: "c", label: "Only a cosmetic warning appears, price still renders correctly", correct: false },
+          { id: "d", label: "The block still validates, but the price shows without a currency symbol", correct: false },
+        ],
+        explanation:
+          "The lesson's minimal example treats price, priceCurrency, and availability as the required baseline for the offers object, a partial block is treated the same as a missing one for rich-result eligibility. Google's parser does not infer currency from page locale or context.",
+      },
+      professionalRecommendation: {
+        priority: "Medium",
+        text:
+          "The FirstCry stroller PDP's Product schema block is ready to ship: @type is correctly set to Product, all four identity fields are filled from the real page, the offers object includes price (8999), priceCurrency (INR), and availability (InStock), and the aggregateRating values (4.4, 87 reviews) match exactly what's visibly rendered. The block passed Google's Rich Results Test with zero errors and zero warnings, making it a safe template to replicate across the rest of the baby-gear catalog.",
+      },
+      commonMistakes: [
+        { mistake: "Leaving priceCurrency out because the price seems obviously local", explanation: "Google's parser doesn't infer currency, an incomplete offers object can be rejected entirely." },
+        { mistake: "Copying identity fields from a different product's template", explanation: "name, image, description, and brand all need to be rebuilt from this exact product's real page content, not reused from a similar listing." },
+        { mistake: "Skipping the page-vs-schema cross-check", explanation: "technically valid JSON can still violate content guidelines if a value like reviewCount doesn't match what's actually displayed." },
+        { mistake: "Treating a clean validator pass as a guarantee of the rich result appearing", explanation: "passing validation is a prerequisite, not a promise, Google still independently decides whether to show the rich result." },
+      ],
+      keyTakeaway:
+        "Building schema from scratch is less about JSON syntax and more about discipline: choosing the right type, filling every required field completely, and verifying each value against what the page actually shows before ever running the validator. A clean Rich Results Test pass is the finish line, not the starting point.",
     },
   ],
 
@@ -3102,6 +3901,16 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Where Duplicate Content Actually Comes From",
         "Fixing It: Canonicalize, Noindex, or Consolidate",
         "Word count is not the fix, added value is.",
+      ],
+      skills: ["Duplicate Content Auditing", "Content Quality Evaluation", "Canonicalization"],
+      keyQuestion: "Is a set of near-identical size-variant URLs and a recently 'expanded' page actually fixed, or do both still carry the same underlying defect?",
+      prerequisites: [
+        "Understanding of what a canonical tag does",
+        "Basic familiarity with reading page titles, H1s, and meta descriptions",
+      ],
+      terminology: [
+        { term: "Canonical tag", definition: "an HTML tag telling search engines which URL is the preferred version among duplicates or near-duplicates." },
+        { term: "Thin content", definition: "a page with too little unique, useful information to satisfy a search query, regardless of its word count." },
       ],
       teardownItems: [
         {
@@ -3219,6 +4028,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
       stretch:
         "Pull three real variant URLs (size, color, or quantity) from your own site's product catalog and check whether a canonical tag actually exists on each.",
+      whatToLookFor: [
+        { label: "Canonical presence", detail: "Do near-identical URLs point to a single preferred version, or is there no canonical signal at all?" },
+        { label: "Genuine differentiation", detail: "Does each variant carry unique content that justifies its own URL, or is it identical copy behind a different parameter?" },
+        { label: "Value added, not length added", detail: "Did a content revision add new information, or just restate the same points in more words?" },
+        { label: "Secondary defects", detail: "Beyond the headline issue, does the page have other real problems, like missing internal links, that word count alone wouldn't fix?" },
+      ],
+      decision: {
+        prompt: "The style-guide page grew from 210 to 1,450 words but still repeats the same three points. What's the correct verdict?",
+        options: [
+          { id: "a", label: "The thin-content flag is resolved because the page now exceeds typical word-count guidelines", correct: false },
+          { id: "b", label: "The thin-content flag is not resolved, since no genuinely new information was added", correct: true },
+          { id: "c", label: "The page needs a canonical tag pointing to a different URL", correct: false },
+          { id: "d", label: "The flag is resolved for search but not for users", correct: false },
+        ],
+        explanation:
+          "Google's Helpful Content evaluation judges whether a page genuinely satisfies the query, not its length, so repeating the same three generic points six times instead of three does not add value. A canonical tag is irrelevant here since there's no duplicate URL involved, this is a single page with a content-quality problem.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Both specimens need real fixes, not just monitoring. The three size-variant URLs should get a self-referential and cross-referencing canonical tag pointing to a single preferred size URL, since Google currently has no signal for which of the three near-identical pages to rank. The style-guide page's October revision did not resolve the July thin-content flag: the word count tripled but the actual content is the same three points restated, and the page still has zero product links. It should be rewritten with specific curated looks and direct links into the catalog rather than expanded further with restated generalities.",
+      },
+      commonMistakes: [
+        { mistake: "Assuming query-parameter URLs are automatically fine because they're 'just filters'", explanation: "without a canonical tag, size or sort parameters still create genuinely competing duplicate URLs that split ranking signals." },
+        { mistake: "Treating word count as a proxy for content quality", explanation: "a page can triple in length while adding zero new information, and Google's Helpful Content evaluation judges substance, not length." },
+        { mistake: "Fixing the headline defect and missing a secondary one", explanation: "the style guide's missing product links are a real, separate problem from the thin-content flag, both need addressing." },
+        { mistake: "Assuming a query parameter itself is the defect", explanation: "the URL structure (?size=) isn't inherently wrong, the missing canonical signal is what actually causes the problem." },
+      ],
+      keyTakeaway:
+        "Duplicate and thin content are two different defects that require two different fixes: canonicalization signals which URL should rank among near-identical versions, while genuine content quality requires new, specific information, not more words. A revision that only addresses length without addressing substance hasn't actually fixed anything.",
     },
     {
       id: "duplicate-thin-content-gsc-coverage-audit",
@@ -3238,6 +4077,16 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       conceptsCovered: [
         "Watch for 'Crawled, currently not indexed'",
         "Fixing It: Canonicalize, Noindex, or Consolidate",
+      ],
+      skills: ["Search Console Auditing", "Content Quality Diagnosis", "Data Triage"],
+      keyQuestion: "Of the hundreds of pages sitting outside the index, which are a real content-quality problem, and which fix, canonical, noindex, or consolidate, applies to each?",
+      prerequisites: [
+        "Access to a Google Search Console Coverage/Indexing report or export",
+        "Basic spreadsheet skills for sorting and sampling",
+      ],
+      terminology: [
+        { term: "Crawled, currently not indexed", definition: "Google's indexing status for a page it has read but chosen not to add to the index, often an early content-quality signal." },
+        { term: "Duplicate, no user-selected canonical", definition: "an indexing status meaning Google found multiple similar URLs and no canonical tag told it which one to prefer." },
       ],
       steps: [
         {
@@ -3373,6 +4222,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
       stretch:
         "Pull your own site's real Search Console Coverage report, isolate 'Crawled, currently not indexed' and duplicate-canonical counts, and sample 10 real URLs from each before deciding a fix.",
+      whatToLookFor: [
+        { label: "Reason classification", detail: "Is each Coverage exclusion reason actually about content quality, or a routine technical/crawl issue?" },
+        { label: "Scale relative to the site", detail: "How large is the content-quality group relative to total indexed pages and to the technical-issue groups?" },
+        { label: "Sample before deciding", detail: "Has a real sample of URLs from each group been read, not just the reason label and count?" },
+        { label: "Fix differentiation", detail: "Does each sampled sub-group get the fix that matches its actual cause, rather than one blanket fix applied to everything?" },
+      ],
+      decision: {
+        prompt: "690 pages sit in 'Crawled, currently not indexed' and 182 in 'Duplicate, no user-selected canonical'. What's the correct approach?",
+        options: [
+          { id: "a", label: "Noindex all 872 pages immediately since neither reason indicates a technical error", correct: false },
+          { id: "b", label: "Sample real URLs from each group separately, since the two reasons likely need different fixes", correct: true },
+          { id: "c", label: "Apply canonical tags to all 872 pages as the universal fix", correct: false },
+          { id: "d", label: "Ignore both since 5,280 total pages means these are a small fraction", correct: false },
+        ],
+        explanation:
+          "The two reasons represent different underlying problems, legitimate technical duplicates versus a genuine content-strategy gap, so sampling real URLs from each is what reveals the correct differentiated fix. A single blanket fix, whether noindex or canonical, risks either hiding pages worth consolidating into something stronger or mislabeling genuine duplicates.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "HelloFresh's 872 content-quality-flagged pages need two different remediation paths, not one. The 182 'Duplicate, no user-selected canonical' pages sampled as legitimate sort/filter parameter duplicates on the same recipe, add self-referential and parameter canonical tags this sprint. The 690 'Crawled, currently not indexed' pages are a mixed group: roughly 60% sampled as near-duplicate seasonal recipe variants that should be consolidated into single comprehensive recipe pages with 301 redirects from the thin variants, while the remainder are internal-use pages (old A/B test landing variants) that should be noindexed rather than deleted.",
+      },
+      commonMistakes: [
+        { mistake: "Treating all six Coverage exclusion reasons as one undifferentiated 'indexing problem'", explanation: "robots.txt blocks, 404s, and server errors are technical issues, distinct from the content-quality signal 'Crawled, currently not indexed' actually represents." },
+        { mistake: "Applying one fix to an entire flagged group without sampling", explanation: "the 690 'not indexed' pages contained two genuinely different sub-groups, seasonal duplicates and internal test pages, that needed opposite fixes." },
+        { mistake: "Defaulting to noindex as the fast universal fix", explanation: "noindexing near-duplicate seasonal recipes throws away pages that could have been consolidated into one stronger, more valuable resource." },
+        { mistake: "Ignoring 'Crawled, currently not indexed' because it isn't a hard error", explanation: "the lesson treats this specific status as an early content-quality warning sign, not a benign technicality to deprioritize." },
+      ],
+      keyTakeaway:
+        "A Search Console Coverage report mixes technical issues and content-quality signals under one list, and treating them the same wastes effort. Sampling real URLs from each flagged group, rather than acting on the reason label and count alone, is what reveals whether a canonical tag, a noindex, or a genuine consolidation is the right fix.",
     },
   ],
 
@@ -3395,6 +4274,23 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       conceptsCovered: [
         "Why variants cause duplication",
         "Product Schema and Rich Results",
+      ],
+      skills: ["Duplicate Content Diagnosis", "Canonical Tags", "Product Schema (JSON-LD)", "Rich Results"],
+      keyQuestion:
+        "Is this frame family's five-color variant setup a deliberate, complete strategy, or an unfinished one leaking duplicate content and stale schema?",
+      prerequisites: [
+        "Basic familiarity with crawling a site in Screaming Frog and reading Title/Canonical columns",
+        "Understanding of what JSON-LD structured data is used for on a product page",
+      ],
+      terminology: [
+        {
+          term: "Canonical Tag",
+          definition: "an HTML tag that tells search engines which URL is the preferred version among near-duplicate pages, so authority isn't split between them.",
+        },
+        {
+          term: "JSON-LD Offer Block",
+          definition: "the structured-data snippet on a product page that tells Google the price and stock availability, which Google uses to power rich results like star ratings and stock badges in search.",
+        },
       ],
       steps: [
         {
@@ -3515,6 +4411,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
       stretch:
         "Pick a real product with 3+ color or size variants on any site you use, crawl the URLs, and check whether they share identical copy with no canonical tag.",
+      whatToLookFor: [
+        { label: "Copy uniqueness", detail: "Is the description genuinely different per variant, or just the color word swapped inside an identical paragraph?" },
+        { label: "Canonical presence", detail: "Does any of the near-duplicate URLs point to a single preferred version, or is the field empty on all of them?" },
+        { label: "Schema-to-page match", detail: "Does the JSON-LD availability value match what a shopper actually sees rendered on the page right now?" },
+        { label: "Update source", detail: "Is the schema generated from the same live inventory feed as the visible stock badge, or built once and left stale?" },
+      ],
+      decision: {
+        prompt:
+          "The five Percey color URLs share identical copy apart from the color word, carry no canonical tags, and the Rye Tortoise variant's schema says InStock while the page visibly shows Out of Stock. What's the correct fix to recommend?",
+        options: [
+          { id: "a", label: "Add a canonical tag pointing all five URLs at the crystal color as the primary version, and leave the schema alone since it will update itself eventually", correct: false },
+          { id: "b", label: "Write unique descriptions and add canonicals for the variant strategy, and separately automate schema generation from the live inventory feed so availability can never drift from the page", correct: true },
+          { id: "c", label: "Delete four of the five color URLs and keep only one, since duplicate content is always resolved by removing pages", correct: false },
+          { id: "d", label: "Leave the canonical issue alone since Google will pick one automatically, and manually correct just the Rye Tortoise schema value this one time", correct: false },
+        ],
+        explanation:
+          "Two separate defects need two separate fixes. The variant duplication needs either genuinely unique copy plus canonicals or consolidation, a one-off canonical pointing at an arbitrary color doesn't fix the missing content differentiation. The schema mismatch is a data-pipeline problem, not a one-time value swap, manually fixing Rye Tortoise today leaves every future stock change free to drift again, and the lesson is explicit that a misleading schema can cost rich-result eligibility sitewide.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Formally adopt one variant strategy for the Percey frame family: either write genuinely distinct copy per color with self-referential canonicals, or consolidate to a single URL with a color-swatch selector. In parallel, automate the JSON-LD availability field from the same inventory feed that drives the visible stock badge so schema and page state can never disagree, this is the fix that prevents the sitewide rich-result risk the lesson warns about, not a one-time correction to the Rye Tortoise listing.",
+      },
+      commonMistakes: [
+        { mistake: "Treating five near-identical URLs as automatically fine because each has a unique color name", explanation: "a swapped color word inside an otherwise identical paragraph is not meaningfully different content; the lesson requires genuinely different descriptions and images for the separate-pages strategy to work." },
+        { mistake: "Fixing only the visible mismatch and not the pipeline that created it", explanation: "correcting the Rye Tortoise schema value by hand solves today's problem but leaves the same drift ready to happen on the next stock change." },
+        { mistake: "Assuming a schema mismatch is a minor, page-level issue", explanation: "the lesson is explicit that Google can strip rich-result eligibility sitewide, not just on the one offending URL, once it detects a pattern of misleading structured data." },
+      ],
+      keyTakeaway:
+        "A variant family and its schema can look fine at a glance while hiding two unrelated but equally serious defects: incomplete duplicate-content handling and stale structured data. Checking both, side-by-side crawl comparison and a live schema-versus-page check, catches problems a single-angle audit would miss.",
     },
     {
       id: "ecommerce-product-page-seo-outofstock-teardown",
@@ -3532,6 +4458,19 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Two specimens, four products: grade each team decision against the lesson's four out-of-stock scenarios and name what should have happened instead.",
       mode: "teardown",
       conceptsCovered: ["Handling Out-of-Stock and Discontinued Products"],
+      skills: ["Out-of-Stock Decision Framework", "301 Redirects", "Backlink Equity Preservation", "Soft-404 Avoidance"],
+      keyQuestion:
+        "For each out-of-stock or discontinued product, does keep-live, redirect, or delete match what the traffic and backlink data actually says to do?",
+      prerequisites: [
+        "Familiarity with reading Search Console's Links and Performance reports per URL",
+        "Basic understanding of what a 301 redirect and a soft-404 are",
+      ],
+      terminology: [
+        {
+          term: "Soft-404",
+          definition: "a page that returns a normal 200 OK status but has effectively no unique content for the query, such as a discontinued product mass-redirected to a homepage; Google detects and devalues these even though the server didn't return an error code.",
+        },
+      ],
       teardownItems: [
         {
           itemId: "mamaearth-restock-and-discontinued-with-replacement",
@@ -3650,6 +4589,37 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
       stretch:
         "Pull 5 real discontinued or out-of-stock URLs from a site you manage or shop on, check each one's Search Console traffic and backlink numbers, and grade the site's actual handling against this same framework.",
+      whatToLookFor: [
+        { label: "Restock timeline", detail: "Is the product genuinely gone, or restocking soon, which changes the correct action entirely?" },
+        { label: "Traffic and backlink value", detail: "Does the URL carry real organic sessions or referring domains worth protecting?" },
+        { label: "Replacement availability", detail: "Is there a direct, live replacement product to redirect to, or would a redirect be forcing a mismatch?" },
+        { label: "Redirect target relevance", detail: "Does the redirect target actually match user intent, or does it dump traffic onto an unrelated page like the homepage?" },
+      ],
+      decision: {
+        prompt:
+          "Product C is discontinued with no direct replacement but still earns 1,100 organic sessions/month and 90 referring domains. The team 301 redirected it to the homepage. What should have happened instead?",
+        options: [
+          { id: "a", label: "The redirect to the homepage was correct, since the product is truly gone and something has to happen to the URL", correct: false },
+          { id: "b", label: "The page should have been left live, marked discontinued, with a link to the closest current alternative", correct: true },
+          { id: "c", label: "The page should have been 404'd immediately since there's no replacement product to redirect to", correct: false },
+          { id: "d", label: "The redirect target should be changed to the category page instead of the homepage, which fixes the mismatch", correct: false },
+        ],
+        explanation:
+          "The lesson names redirecting a discontinued, no-replacement product to the homepage or a generic category page as exactly the move to avoid, Google's soft-404 detection flags it because the destination doesn't answer the original query. With 1,100 sessions and 90 referring domains still active, the page has real value worth protecting: keeping it live, clearly marked discontinued, with a link to the closest current alternative preserves both the user experience and the accumulated authority, which neither a homepage redirect nor a 404 does.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Correct all four products against the lesson's framework: restore Product A live with a restock date (340 backlinks and 8,200 monthly sessions were being thrown away by the 404), add a 301 from Product B to its live replacement, replace Product C's homepage redirect with a live discontinued-notice page linking to the closest alternative, and leave Product D's 404/410 as acceptable given it has zero traffic and zero backlinks. Applying the wrong action to a URL with real traffic or backlink equity is the costliest mistake in this batch, and it happened twice.",
+      },
+      commonMistakes: [
+        { mistake: "Treating every discontinued product the same way", explanation: "the lesson's framework branches on restock timeline, replacement availability, and existing traffic/backlink value, a single default action ignores all three." },
+        { mistake: "Redirecting to the homepage or a broad category page as a catch-all", explanation: "this is the specific pattern Google's soft-404 detection flags, since the destination doesn't match the original page's intent." },
+        { mistake: "404'ing a page just because stock hit zero", explanation: "a temporary stock-out with a known restock date should stay live; 404'ing it throws away backlinks and traffic that will be needed again in weeks." },
+        { mistake: "Assuming 'the redirect works' (200 status code) means the decision was correct", explanation: "a redirect can be technically functional and still be the wrong destination for user intent and search relevance." },
+      ],
+      keyTakeaway:
+        "Out-of-stock and discontinued products aren't a single decision, they're four different decisions depending on restock timeline, replacement availability, and how much traffic or backlink equity the URL has already earned. Applying one default action, whether that's always redirecting or always deleting, gets roughly half of any real product catalog wrong.",
     },
   ],
 
@@ -3673,6 +4643,23 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Verify bot identity via reverse DNS, do not trust the user-agent string alone",
         "Response codes served to bots specifically",
         "Orphaned pages that bots reach only via the sitemap, never through an internal link",
+      ],
+      skills: ["Log File Analysis", "Reverse DNS Verification", "Bot Spoofing Detection", "Robots.txt Enforcement Gaps"],
+      keyQuestion:
+        "Which of these bot requests are genuine, which are spoofed, and what else is hiding in the same raw log lines?",
+      prerequisites: [
+        "Basic comfort reading raw access-log lines (IP, timestamp, request, status, user-agent)",
+        "Understanding that a user-agent string is self-declared and can be faked",
+      ],
+      terminology: [
+        {
+          term: "Reverse DNS Verification",
+          definition: "looking up which hostname an IP address resolves to (e.g. crawl-66-249-66-1.googlebot.com) to confirm a bot's real identity, since anyone can set their user-agent string to claim to be Googlebot.",
+        },
+        {
+          term: "Rotating-Identity Bypass",
+          definition: "when the same IP address that was just blocked under one bot's user-agent returns moments later under a different, unblocked user-agent to fetch the same disallowed URL.",
+        },
       ],
       teardownItems: [
         {
@@ -3798,6 +4785,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
       stretch:
         "Ask your own host or CDN for a real 7-day raw log sample and run `dig -x` (or an online reverse-DNS tool) by hand on the top 10 IPs claiming to be Googlebot.",
+      whatToLookFor: [
+        { label: "DNS mismatch", detail: "Does the IP's reverse DNS actually resolve to a company-owned host, or to an unrelated network like a Tor relay or residential ISP?" },
+        { label: "Response codes under bot load", detail: "Is a verified bot receiving errors (500s) that a human visitor never sees?" },
+        { label: "User-agent switching from the same IP", detail: "Does a blocked IP return minutes later under a different declared identity to fetch the same URL?" },
+        { label: "Discovery path", detail: "Is a URL reachable only via the sitemap, with zero internal links pointing to it?" },
+      ],
+      decision: {
+        prompt:
+          "185.220.101.44 sends requests with a genuine Googlebot user-agent string, but reverse DNS resolves it to a Tor exit relay, not a googlebot.com host. What's the correct classification and next step?",
+        options: [
+          { id: "a", label: "Treat it as Googlebot, since the user-agent string is the standard way to identify a crawler", correct: false },
+          { id: "b", label: "Treat it as unverified/spoofed traffic, since it fails reverse-DNS confirmation, and flag it for the security or dev team to review separately from real Googlebot activity", correct: true },
+          { id: "c", label: "Ignore it, since a single mismatched IP is not worth investigating", correct: false },
+          { id: "d", label: "Block all future requests carrying a Googlebot user-agent string sitewide to be safe", correct: false },
+        ],
+        explanation:
+          "The lesson's core method is to verify bot identity via reverse DNS rather than trusting the self-declared user-agent string, and a Tor-relay resolution is a clear fail. This is exactly the kind of traffic worth flagging, not ignoring, since a spoofed 'Googlebot' can scrape pages under a trusted-looking identity. Blocking every Googlebot-claiming request sitewide would also block the genuinely verified 66.249.66.1 traffic, throwing out real Google crawl activity to catch one impostor.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Flag 185.220.101.44 to the security team as spoofed Googlebot traffic based on its Tor-relay reverse-DNS resolution, distinct from the legitimate 66.249.66.1 activity. Separately, route the verified Googlebot 500 error on /research/vulnerability-scoring-methodology/ to the dev team, since a page that errors only under crawler load can quietly suppress indexing without ever showing an error to a human visitor. Both findings need different owners and neither should wait on the other.",
+      },
+      commonMistakes: [
+        { mistake: "Trusting the user-agent string as proof of identity", explanation: "anyone can set a request header to say 'Googlebot'; only a reverse-DNS lookup back to a company-owned host confirms it." },
+        { mistake: "Missing the rotating-identity bypass because each individual request looks unremarkable", explanation: "the pattern only becomes visible when comparing the same IP's requests across a few minutes, not reading one log line in isolation." },
+        { mistake: "Dismissing a verified-bot 500 error as a one-off blip", explanation: "an error that appears only for crawler traffic, never for human visitors, is easy to miss in a standard uptime dashboard and can quietly suppress indexing." },
+      ],
+      keyTakeaway:
+        "Raw log lines carry more evidence than they first appear to: a user-agent string alone can't prove identity, but cross-referencing it against reverse DNS, response codes, and repeat visits from the same IP under different names surfaces spoofing and enforcement gaps a summary dashboard would never show.",
     },
     {
       id: "log-file-analysis-gsc-indexing-diagnostic",
@@ -3819,6 +4836,19 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Exactly which AI crawlers visit, how often, and which pages they touch, data that exists nowhere else",
         "Orphaned pages that bots reach only via the sitemap, never through an internal link",
         "Crawl behavior shifts after every major release, a monthly cadence tells you whether things are trending right or quietly breaking",
+      ],
+      skills: ["Search Console Indexing Reports", "Log-Based Prioritization", "Robots.txt Scope Auditing", "Orphan Page Diagnosis"],
+      keyQuestion:
+        "Across five different not-indexed reasons on a 5,280-page export, which ones actually deserve this week's attention, and which are normal churn?",
+      prerequisites: [
+        "Comfort working with a CSV export in a spreadsheet (summing and grouping a column)",
+        "Familiarity with Search Console's indexing-reason categories",
+      ],
+      terminology: [
+        {
+          term: "Crawled, Currently Not Indexed",
+          definition: "a Search Console status meaning Google fetched the page but chose not to add it to the index, usually a content-quality or discoverability signal rather than a technical block.",
+        },
       ],
       steps: [
         {
@@ -4031,6 +5061,37 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       ],
       portfolioReady: true,
       stretch: "Pull your own site's real Search Console Pages export and run this exact four-step breakdown against your own not-indexed reasons.",
+      whatToLookFor: [
+        { label: "Share of problem, not raw count", detail: "Does a reason's percentage of the total, not just its headline number, actually justify the priority given to it?" },
+        { label: "Rule scope vs. rule intent", detail: "Does a robots.txt rule written for one bot (Googlebot) accidentally cover bots it was never meant to affect?" },
+        { label: "Root cause behind a shared symptom", detail: "Within one large bucket, are all the pages failing for the same reason, or do they split into an architecture problem and a content problem?" },
+        { label: "Trend, not just snapshot", detail: "Is a small bucket actually stable, or growing month over month toward becoming next quarter's biggest problem?" },
+      ],
+      decision: {
+        prompt:
+          "The 690-page 'Crawled, currently not indexed' bucket is the largest of five reasons. A sample shows some URLs have zero internal links (sitemap-only) while others have 14+ internal links but are still unindexed. What's the correct next step?",
+        options: [
+          { id: "a", label: "Run a single blanket 'request indexing' pass in Search Console for all 690 pages", correct: false },
+          { id: "b", label: "Split the bucket: route the zero-internal-link pages to an internal-linking fix and the well-linked-but-unindexed pages to a content-depth review", correct: true },
+          { id: "c", label: "Rewrite all 690 pages, since 'currently not indexed' always signals a content-quality problem", correct: false },
+          { id: "d", label: "Deprioritize the whole bucket since it's a single Search Console category and therefore one problem", correct: false },
+        ],
+        explanation:
+          "The sample evidence shows two distinct root causes sharing one Search Console label: pages with zero internal links are an architecture problem (nobody links to them), while well-linked pages that still aren't indexed point to a content-depth issue instead. A blanket indexing request or a blanket rewrite ignores that split and wastes effort on the wrong fix for roughly half the bucket.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Prioritize the two largest not-indexed reasons first, 'Crawled, currently not indexed' (49.7%) and 'Blocked by robots.txt' (29.7%), which together explain 79.4% of the gap. Within the first, split the fix by root cause using the internal-link sample evidence: an internal-linking sprint for the orphaned subset, a content-depth review for the well-linked subset. For the robots.txt bucket, rewrite the wildcard 'User-agent: *' rule to name Googlebot specifically once log evidence confirms AI bots are also being blocked by it. Treat the remaining 287 pages as a monthly-tracker item, not this week's fire drill.",
+      },
+      commonMistakes: [
+        { mistake: "Spreading effort evenly across all five not-indexed reasons", explanation: "two reasons account for 79.4% of the problem; equal effort across all five wastes most of a sprint on the smallest 20.6%." },
+        { mistake: "Assuming a robots.txt rule written for Googlebot only affects Googlebot", explanation: "a wildcard 'User-agent: *' rule blocks every bot, including AI retrieval crawlers nobody intended to exclude, unless the log evidence is actually checked." },
+        { mistake: "Treating 'Crawled, currently not indexed' as always a content-quality problem", explanation: "the sample evidence here shows a real architecture-vs-content split; assuming one cause for the whole bucket misdirects the fix for half of it." },
+        { mistake: "Noting a small bucket's number without tracking it over time", explanation: "a small reason like 404s can grow 50% in a single month and become next quarter's dominant problem if nobody is watching the trend." },
+      ],
+      keyTakeaway:
+        "A single indexing export contains at least three different diagnostic questions in one table: which reasons matter most by share, whether a rule meant for one bot is silently affecting others, and whether a large bucket is actually one problem or two disguised as one. Answering all three, not just reading the top-line numbers, is what turns an export into a prioritized fix list.",
     },
   ],
 
@@ -4053,6 +5114,23 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       conceptsCovered: [
         "Training bots and retrieval bots from the same company are different user-agents, you can block one and allow the other",
         "What llms.txt actually is: a proposed convention, not an enforced standard",
+      ],
+      skills: ["AI Bot Access Policy", "robots.txt Rule Scoping", "llms.txt Auditing", "Training vs Retrieval Bot Distinction"],
+      keyQuestion:
+        "Do this site's actual robots.txt and llms.txt files achieve the AI-visibility goal the team says it wants, or work against it?",
+      prerequisites: [
+        "Understanding that different AI companies run separate training and retrieval crawlers under different user-agent names",
+        "Basic familiarity with reading a robots.txt Disallow/Allow block",
+      ],
+      terminology: [
+        {
+          term: "Training Bot vs Retrieval Bot",
+          definition: "a training bot (e.g. GPTBot) collects content to train a model on; a retrieval bot (e.g. OAI-SearchBot) fetches a page live to answer a specific user question. The same AI company runs both under different user-agent names, and blocking one does not block the other.",
+        },
+        {
+          term: "llms.txt",
+          definition: "a proposed (not officially enforced) markdown file at a site's root listing its most important pages with short descriptions, meant to give AI systems a clean map of the site.",
+        },
       ],
       teardownItems: [
         {
@@ -4168,6 +5246,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       ],
       portfolioReady: true,
       stretch: "Fetch your own site's real /robots.txt and /llms.txt (or note that llms.txt doesn't exist yet) and run this same two-part check on real files.",
+      whatToLookFor: [
+        { label: "Bot grouping", detail: "Are training and retrieval bots from the same company grouped under one shared rule, or scoped individually?" },
+        { label: "Rule scope vs. stated goal", detail: "Does a Disallow rule accidentally block a page the team explicitly wants cited?" },
+        { label: "Link freshness", detail: "Do the links inside llms.txt actually resolve, or point at renamed/removed pages?" },
+        { label: "Content selection", detail: "Does llms.txt list the pages that actually matter (by real traffic), or whatever someone thought to add?" },
+      ],
+      decision: {
+        prompt:
+          "Coinbase's robots.txt groups GPTBot, OAI-SearchBot, and ChatGPT-User under one shared Disallow rule for /research/. The stated goal is: block AI training, stay citable when a user asks a live question. What's the correct fix?",
+        options: [
+          { id: "a", label: "Leave the rule as-is, since blocking all three is the safest way to protect proprietary research content", correct: false },
+          { id: "b", label: "Split the rule: Disallow GPTBot (training) for /research/, but Allow OAI-SearchBot and ChatGPT-User (retrieval) so live citation still works", correct: true },
+          { id: "c", label: "Remove the Disallow rule entirely so all three bots can access /research/", correct: false },
+          { id: "d", label: "Move the rule from /research/ to /learn/ instead, since /learn/ is the hub the team wants cited", correct: false },
+        ],
+        explanation:
+          "The lesson's core distinction is that training bots and retrieval bots from the same AI company are different user-agents that can be controlled independently. Grouping all three under one Disallow rule blocks live citation along with training, the opposite of the stated goal. Leaving the rule as-is or removing it entirely both fail to serve both goals at once; only naming each bot separately achieves 'block training, stay citable.'",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Split the robots.txt rule for /research/ so GPTBot remains disallowed for training while OAI-SearchBot and ChatGPT-User are explicitly allowed for retrieval, and remove the site-wide PerplexityBot block since it currently disallows the very /learn/ pages the team wants cited. Separately, fix the dead link in llms.txt and add the #1-traffic 2FA setup page, which is currently missing entirely. Both files currently work against the stated AI-visibility goal rather than for it.",
+      },
+      commonMistakes: [
+        { mistake: "Grouping all bots from one AI company under a single rule", explanation: "training and retrieval crawlers serve different purposes and can be controlled independently; grouping them collapses a nuanced policy into an all-or-nothing block." },
+        { mistake: "Missing a site-wide block buried among page-specific rules", explanation: "the PerplexityBot 'Disallow: /' rule is easy to skim past next to the more detailed /research/-scoped rules, but it silently blocks the entire site including the pages the team most wants cited." },
+        { mistake: "Treating llms.txt tone (marketing copy vs. plain description) as the main defect", explanation: "a dead link and a missing top-traffic page are functionally worse than promotional language, since they actively mislead or omit rather than just read oddly." },
+      ],
+      keyTakeaway:
+        "A robots.txt and llms.txt pair can look deliberately configured while quietly working against the team's own stated goal. Checking each rule and each link against what the team actually wants, not just whether the files are syntactically valid, is what catches a policy that defeats itself.",
     },
     {
       id: "llms-txt-ai-crawler-management-bot-policy-audit",
@@ -4187,6 +5295,13 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       conceptsCovered: [
         "Training bots and retrieval bots from the same AI company are different user-agents, you can allow one and block the other",
         "Revisit the whole setup quarterly, this space moves fast and last quarter's setup may already be outdated",
+      ],
+      skills: ["AI Bot Policy Design", "robots.txt Authoring", "Quarterly Compliance Recheck", "Log-Based Bot Discovery"],
+      keyQuestion:
+        "What does a defensible, bot-by-bot AI access policy look like from scratch, and what keeps it from going stale within a quarter?",
+      prerequisites: [
+        "Familiarity with editing a robots.txt file's User-agent/Disallow/Allow syntax",
+        "Understanding of the training-vs-retrieval bot distinction (see llms-txt-ai-crawler-management-robots-teardown)",
       ],
       steps: [
         {
@@ -4313,6 +5428,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       ],
       portfolioReady: true,
       stretch: "Check your own site's real robots.txt against the 8-bot list and note which ones are currently uncovered.",
+      whatToLookFor: [
+        { label: "Individual bot naming", detail: "Does the policy name each of the 8 bots explicitly, or rely on a wildcard that can't distinguish training from retrieval?" },
+        { label: "Stance consistency", detail: "Does every training bot get the same Disallow decision, and every retrieval bot get the same Allow decision, based on one clear stance?" },
+        { label: "Silence as a default", detail: "Is the absence of AI-bot rules being treated as a real decision, or as an accident nobody noticed?" },
+        { label: "Recheck evidence", detail: "Does the quarterly process check actual log traffic for new bot user-agents, or just re-read the same static file?" },
+      ],
+      decision: {
+        prompt:
+          "Robinhood's robots.txt currently has zero AI-bot-specific rules. What does that silence actually mean for AI training access to the investing-education blog?",
+        options: [
+          { id: "a", label: "It means AI bots are blocked by default until an explicit Allow rule is added", correct: false },
+          { id: "b", label: "It means every bot, training and retrieval alike, is fully allowed by default, an unintentional decision rather than a deliberate one", correct: true },
+          { id: "c", label: "It has no effect either way since robots.txt only applies to Googlebot", correct: false },
+          { id: "d", label: "It means the site is automatically opted out of AI training under current industry norms", correct: false },
+        ],
+        explanation:
+          "robots.txt works on an opt-out basis: without an explicit Disallow rule, a bot is free to crawl. Robinhood's empty AI-bot section means every training and retrieval bot currently has full access by omission, not by choice. That's the gap the 8-bot split closes, turning an accidental default into a documented, defensible policy.",
+      },
+      professionalRecommendation: {
+        priority: "Medium",
+        text:
+          "Publish the 8-bot training-vs-retrieval split (Disallow GPTBot, ClaudeBot, PerplexityBot, and Google-Extended; Allow OAI-SearchBot, Claude-User, Perplexity-User, and ChatGPT-User) scoped to the education blog, so the current silent-allow-by-default state becomes a documented, defensible policy. Pair it with a recurring quarterly calendar reminder to check server logs for new, uncovered AI-bot user-agents, since this space adds new bots and sub-agents faster than a policy written once can track.",
+      },
+      commonMistakes: [
+        { mistake: "Assuming no AI-bot rules means AI bots are already blocked", explanation: "robots.txt is opt-out, not opt-in; an empty AI-bot section means full access by default, not protection." },
+        { mistake: "Using a single wildcard rule instead of naming each bot", explanation: "a wildcard can't express 'block training but allow retrieval' from the same company; only naming each user-agent individually can." },
+        { mistake: "Publishing the policy once and treating it as permanent", explanation: "new AI bots and sub-agents appear regularly; a policy that isn't rechecked quarterly against real log traffic goes stale within months." },
+      ],
+      keyTakeaway:
+        "An AI bot access policy isn't just a file to publish once, it's a stance (which bots get training access, which get retrieval access) that has to be explicit rather than left to robots.txt's silent opt-out default, and rechecked on a schedule since the bot landscape changes faster than most teams remember to look.",
     },
   ],
 
@@ -4336,6 +5481,23 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Every tagged page must include tags pointing to ALL alternate versions (including itself)",
         "Language codes use ISO 639-1 format and country codes use ISO 3166-1 alpha-2",
         "The most common hreflang mistake: adding tags to a few top pages but leaving thousands of pages untagged",
+      ],
+      skills: ["hreflang Implementation", "ISO Language/Country Codes", "Reciprocity Validation", "Site-Wide Rollout Auditing"],
+      keyQuestion:
+        "Does this hreflang rollout actually meet Google's reciprocity and consistency requirements before the 48-hour launch deadline?",
+      prerequisites: [
+        "Basic familiarity with reading an hreflang <link rel=\"alternate\"> block",
+        "Understanding that hreflang requires every version to reciprocally reference every other version",
+      ],
+      terminology: [
+        {
+          term: "Reciprocity",
+          definition: "the requirement that if Page A's hreflang block references Page B, Page B's hreflang block must also reference Page A, including a self-referencing tag; a one-way reference is treated as invalid by Google.",
+        },
+        {
+          term: "x-default",
+          definition: "a special hreflang value marking which page version to show visitors whose language or country doesn't match any of the tagged alternates.",
+        },
       ],
       teardownItems: [
         {
@@ -4448,6 +5610,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       ],
       portfolioReady: true,
       stretch: "Run Merkle's free hreflang tags testing tool (technicalseo.com/tools/hreflang) against a real multi-locale site you have access to.",
+      whatToLookFor: [
+        { label: "Self-reference", detail: "Does every tagged page include a tag pointing back to itself, not just to its alternates?" },
+        { label: "Valid codes", detail: "Is each language code a real ISO 639-1 code, not a plausible-looking but invalid one?" },
+        { label: "Reciprocity", detail: "If Page A references Page B, does Page B reference Page A back?" },
+        { label: "Rollout coverage", detail: "Is hreflang present site-wide, or only on a small sample of pages while the rest are untagged?" },
+      ],
+      decision: {
+        prompt:
+          "With 48 hours to launch, the homepage and both regional pages have hreflang issues, but a site crawl also shows only 1 of 2,848 total pages carries any hreflang tags at all. What's the single highest-priority fix before the go/no-go call?",
+        options: [
+          { id: "a", label: "Fix the 'in-TH' invalid language code first, since an invalid code is silently ignored by Google", correct: false },
+          { id: "b", label: "Add the missing self-referencing tag to the Indonesia page first, since reciprocity is the most fundamental requirement", correct: false },
+          { id: "c", label: "Treat the 2,847-page rollout gap as the top priority, since the lesson calls partial rollouts worse than no hreflang at all, and the individual page defects don't matter if the rollout itself doesn't happen", correct: true },
+          { id: "d", label: "Launch as planned and fix all three issues in a post-launch patch within the first week", correct: false },
+        ],
+        explanation:
+          "The individual defects (missing self-reference, invalid language code) matter, but they affect two pages. The 2,847-page rollout gap affects the entire site and is the exact pattern the lesson warns is worse than having no hreflang at all, since it sends conflicting signals rather than a clean absence of signals. Fixing the two-page defects without addressing rollout scope still leaves the site in the higher-risk partial-rollout state; launching as-is risks the estimated 20-30% international traffic hit the lesson describes.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Recommend holding the 48-hour launch, or narrowing it to only the pages with correct hreflang, until the rollout gap closes. Fix the Indonesia page's missing self-reference and the Thailand page's invalid 'in-TH' code as immediate two-page corrections, but treat the 2,847-page missing-hreflang gap as the primary go/no-go blocker, since a partial rollout risks the estimated 20-30% international traffic loss the lesson describes, worse than shipping with no hreflang at all.",
+      },
+      commonMistakes: [
+        { mistake: "Fixing the two visible page-level defects and declaring the audit done", explanation: "the 2,847-page rollout gap is the larger risk by far and is easy to miss if the review stops at the pages already reviewed by hand." },
+        { mistake: "Treating an invalid language code as a minor typo", explanation: "an invalid ISO code isn't corrected automatically by Google, it's typically ignored entirely, silently dropping that page from the cluster." },
+        { mistake: "Flagging cosmetic differences like tag order as defects", explanation: "the order tags appear in the block has no effect on how Google parses hreflang; time spent flagging it is time not spent on the reciprocity and coverage issues that actually matter." },
+      ],
+      keyTakeaway:
+        "hreflang defects come in two very different sizes: a missing self-reference or invalid code breaks one page's cluster, but a partial site-wide rollout risks the whole migration's international traffic. Checking rollout scope, not just tag correctness on the pages already in front of you, is what catches the bigger risk before a launch deadline.",
     },
     {
       id: "international-seo-market-expansion-audit",
@@ -4469,6 +5661,23 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Validate demand first: check Search Console for organic impressions from target countries before building anything",
         "Localization means more than translation: keyword research must be done natively in each market",
         "Hreflang must be implemented on every page consistently, partial rollouts create confusion",
+      ],
+      skills: ["International URL Structure Strategy", "Demand Validation", "Native Keyword Research", "hreflang Rollout Auditing"],
+      keyQuestion:
+        "Given real budget, demand, and staging-crawl evidence, should Shopee launch in Poland this quarter, and under what structure and content plan?",
+      prerequisites: [
+        "Familiarity with Search Console's Performance report filtered by country",
+        "Basic comfort with Google Keyword Planner or a similar keyword-volume tool",
+      ],
+      terminology: [
+        {
+          term: "ccTLD",
+          definition: "a country-code top-level domain (e.g. shopee.pl) that sends the strongest geographic signal to search engines but starts with zero domain authority and typically needs its own local SEO team.",
+        },
+        {
+          term: "Latent Demand",
+          definition: "search interest that already exists for a market before any localized content is built, evidenced by organic impressions on existing (often English-language) pages from that country in Search Console.",
+        },
       ],
       steps: [
         {
@@ -4684,6 +5893,37 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       ],
       portfolioReady: true,
       stretch: "Pull your own site's real Search Console country-impressions data and apply the same demand-validation threshold to a market you're considering.",
+      whatToLookFor: [
+        { label: "Fit to constraint, not abstract best option", detail: "Does the recommended URL structure actually fit this quarter's budget and team, not just theoretically outperform the alternatives?" },
+        { label: "Real demand evidence", detail: "Is the market prioritized because of a measured impressions threshold, or a subjective sense of which market 'feels' bigger?" },
+        { label: "Native vs. literal", detail: "Was the core commercial keyword validated against native search volume, or just translated?" },
+        { label: "Coverage percentage vs. plan", detail: "Does the staging hreflang coverage match the full launch scope, or only a fraction of it?" },
+      ],
+      decision: {
+        prompt:
+          "Poland shows 6,400 monthly impressions with zero Polish content (clearing the 5,000+ threshold); Portugal shows 900. The team has budget for one market this quarter. Which market should get it, and why?",
+        options: [
+          { id: "a", label: "Portugal, because launching in a smaller market first reduces risk", correct: false },
+          { id: "b", label: "Poland, because it clears the lesson's 5,000+ impressions latent-demand threshold while Portugal does not", correct: true },
+          { id: "c", label: "Split the budget evenly across both markets to hedge the bet", correct: false },
+          { id: "d", label: "Neither, since impressions on English-language pages don't indicate real demand for localized content", correct: false },
+        ],
+        explanation:
+          "The lesson's demand-validation step treats organic impressions from a target country on existing (unlocalized) pages as the clearest signal of latent demand, and sets 5,000+ as the threshold worth investing in. Poland's 6,400 clears it; Portugal's 900 does not. Splitting the budget ignores the evidence in favor of hedging, and dismissing impressions data entirely throws away the strongest signal available before any content exists.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Launch Poland this quarter under a subfolder structure (shopee.com/pl/), which fits the current budget and team without requiring a new local SEO team a ccTLD would demand. Target 'wysyłka gratis' as the primary commercial phrase over the literally-translated 'darmowa wysyłka', which carries 2.6x less search volume. Hold full launch until hreflang coverage moves well beyond the current 11.8% (40 of 340 pages), either by delaying to complete the rollout or narrowing initial scope to the 40 ready pages.",
+      },
+      commonMistakes: [
+        { mistake: "Choosing a URL structure based on what looks most 'official' rather than what fits the budget", explanation: "a ccTLD sends the strongest geo signal in theory, but starting from zero authority without a dedicated team is a cost this quarter's budget doesn't support." },
+        { mistake: "Prioritizing a market by gut feel about its size or importance", explanation: "the lesson's impressions threshold is a measurable, evidence-based test; skipping it in favor of intuition risks investing in the market with weaker latent demand." },
+        { mistake: "Trusting a literal translation for the core commercial keyword", explanation: "as the 2.6x volume gap between 'darmowa wysyłka' and 'wysyłka gratis' shows, translation and native usage frequently diverge on exactly the highest-value commercial phrase." },
+        { mistake: "Treating 11.8% hreflang coverage as 'in progress, close enough'", explanation: "the lesson is explicit that a partial rollout is worse than none at all; launching with most pages untagged risks sending conflicting signals rather than a clean absence of signals." },
+      ],
+      keyTakeaway:
+        "A market-expansion decision isn't one choice, it's four: the right URL structure for your actual resources, the market with proven demand, the keyword natives actually search for, and hreflang coverage that's genuinely ready. Skipping any one of the four turns a well-evidenced launch plan into a costly guess on that dimension.",
     },
   ],
 
@@ -4707,6 +5947,23 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Missing or many-to-one redirects",
         "Build a 1:1 redirect map for every indexed URL",
         "Leftover staging noindex tags, the single most common cause of a post-launch traffic cliff",
+      ],
+      skills: ["Redirect Map Auditing", "Migration Go/No-Go Review", "noindex/robots.txt Verification", "301 Chain Detection"],
+      keyQuestion:
+        "Does this redirect map and production configuration actually protect the migrated section's rankings, or does it silently kill them at launch?",
+      prerequisites: [
+        "Understanding of what a 301 redirect does and why a 1:1 mapping matters",
+        "Basic ability to read a robots.txt file and an HTML <head> block",
+      ],
+      terminology: [
+        {
+          term: "Many-to-One Redirect",
+          definition: "redirecting several distinct old URLs to a single new destination (often the homepage), which tells Google those specific pages no longer exist and forfeits the ranking value each one built individually.",
+        },
+        {
+          term: "Redirect Chain",
+          definition: "a URL that redirects to another URL that itself redirects again, instead of pointing directly at the final destination; each extra hop adds crawl latency and dilutes link equity.",
+        },
       ],
       teardownItems: [
         {
@@ -4812,6 +6069,37 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       ],
       portfolioReady: true,
       stretch: "If you have access to a real staging environment ahead of a launch, run this exact head-tag and robots.txt check against it before go-live.",
+      whatToLookFor: [
+        { label: "Redirect specificity", detail: "Does each old URL redirect to a genuinely relevant new page, or do multiple distinct pages funnel into one generic destination?" },
+        { label: "Redirect hop count", detail: "Does an old URL point directly to its final destination, or through an intermediate URL that itself redirects?" },
+        { label: "Staging leftovers in production", detail: "Does the live production page still carry a noindex tag or Disallow rule that was only ever meant for staging?" },
+        { label: "Independent blockers", detail: "Are there multiple, separate reasons a page might not get indexed, each needing its own fix?" },
+      ],
+      decision: {
+        prompt:
+          "The production page carries both a leftover 'noindex, follow' meta tag and a robots.txt rule disallowing the entire /city-guides/ directory. The dev says removing the noindex tag is enough to fix indexing. Is that correct?",
+        options: [
+          { id: "a", label: "Yes, removing the noindex tag is sufficient since that's the primary indexing signal", correct: false },
+          { id: "b", label: "No, both the noindex tag and the robots.txt Disallow rule must be removed, since either one alone would keep the section from being indexed", correct: true },
+          { id: "c", label: "No, only the robots.txt rule needs to be removed, the noindex tag doesn't affect indexing", correct: false },
+          { id: "d", label: "It depends on which one Google checks first", correct: false },
+        ],
+        explanation:
+          "These are two independent blockers, not one issue with two symptoms. A noindex tag tells Google not to index a page it can crawl; a robots.txt Disallow tells Google not to crawl the page at all. Removing only the noindex tag still leaves the entire /city-guides/ directory disallowed from crawling, so the section would remain invisible to Google even after that fix. Both must be removed for the migrated section to be indexed.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Do not approve launch until three fixes ship: redirect the three Austin sub-guides to their actual topical equivalents instead of the homepage, collapse the Denver two-hop chain into a direct 1:1 redirect, and remove both the leftover noindex meta tag and the /city-guides/ robots.txt Disallow rule from production. The noindex tag and the Disallow rule are independent blockers, fixing only one still leaves the entire migrated section unindexed.",
+      },
+      commonMistakes: [
+        { mistake: "Treating the noindex tag and the robots.txt block as the same issue", explanation: "they're independent mechanisms; removing only one still leaves the other blocking the entire section from being indexed." },
+        { mistake: "Flagging only one of the three homepage-redirected Austin pages", explanation: "all three distinct sub-guides lose their individual accumulated ranking value the same way; missing two of three understates the defect's real scope." },
+        { mistake: "Treating a redirect chain the same severity as a many-to-one redirect", explanation: "a chain dilutes equity and adds latency but still eventually reaches the right destination; a many-to-one redirect tells Google the original page is simply gone." },
+        { mistake: "Trusting a dev's verbal assurance ('staging is basically done') over checking the actual production head tags and robots.txt", explanation: "the specific defects here (noindex tag, Disallow rule) are invisible from a quick visual check of the live page and only surface by inspecting the actual source and robots.txt file." },
+      ],
+      keyTakeaway:
+        "A migration go/no-go review has to check two different layers: is every old URL redirected to a genuinely relevant destination, and does production actually differ from staging where it needs to. Both the redirect map and the leftover-config check caught real, independent, launch-blocking defects here, missing either one would have shipped a migration that quietly deindexes the whole section.",
     },
     {
       id: "seo-site-migrations-post-launch-gsc-diagnostic",
@@ -4833,6 +6121,19 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Leftover staging noindex tags or a robots.txt Disallow rule that was fine on staging but never got removed for production",
         "A 10-30% dip that stabilizes within 2-6 weeks is normal volatility; still falling after 4 weeks is a hangover in progress",
         "Use Google Search Console's Change of Address tool and add the new property alongside the old one, don't delete the old property",
+      ],
+      skills: ["Post-Migration Health Triage", "Search Console Trend Analysis", "Canonical Conflict Diagnosis", "Migration Volatility Thresholds"],
+      keyQuestion:
+        "Six weeks after this migration, which of four not-indexed problem buckets is normal settling and which needs escalation today?",
+      prerequisites: [
+        "Familiarity with reading a Search Console indexing export broken down by reason",
+        "Understanding of the difference between a redirect problem, a blocking problem, and a canonical/duplication problem",
+      ],
+      terminology: [
+        {
+          term: "Change of Address Tool",
+          definition: "a Search Console feature used when a site moves domains or subdomains, that tells Google explicitly which property is the new home; the old property should stay registered, not be deleted, since Google still needs to see it.",
+        },
       ],
       steps: [
         {
@@ -5038,6 +6339,37 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       ],
       portfolioReady: true,
       stretch: "Pull your own site's real GSC Pages export mid-migration and run this same reason-by-reason triage against your own not-indexed buckets.",
+      whatToLookFor: [
+        { label: "Trend, not snapshot", detail: "Is a bucket shrinking meaningfully week over week, or has it plateaued while still being called 'normal volatility'?" },
+        { label: "Confirmed vs. assumed intent", detail: "Has a robots.txt rule actually been confirmed as intentional or leftover, or is that just being assumed?" },
+        { label: "Mapped vs. unmapped 404s", detail: "Within a 404 bucket, does the URL trace back to being missed from the redirect map entirely, or to a redirect that points at another broken URL?" },
+        { label: "Old-domain live status", detail: "Does the old subdomain still serve live content in parallel with the new location, or does it fully redirect?" },
+      ],
+      decision: {
+        prompt:
+          "At week 6, the 'Crawled, currently not indexed' bucket has declined only 6.8% since week 2 (740 to 690 pages) and is still the largest bucket in the export. The team has been calling this normal migration volatility. Is that assessment correct?",
+        options: [
+          { id: "a", label: "Yes, any dip after a migration is expected and doesn't need escalation until at least 3 months have passed", correct: false },
+          { id: "b", label: "No, the lesson's threshold is that a dip still falling or not meaningfully improving after 4 weeks is a hangover in progress needing escalation now", correct: true },
+          { id: "c", label: "Yes, since the bucket did shrink slightly (from 740 to 690), any decrease at all counts as normal settling", correct: false },
+          { id: "d", label: "No, but the fix is to wait one more month before doing anything, since migrations typically take 8 weeks to settle", correct: false },
+        ],
+        explanation:
+          "The lesson sets an explicit threshold: a 10-30% dip settling within 2-6 weeks is normal, but a bucket still falling (or barely moving) after 4 weeks is a hangover in progress that needs intervention now. A 6.8% decline over four weeks on a bucket still 49.7% of the whole not-indexed total misses that threshold by a wide margin. Any nonzero shrinkage isn't the same as being on track, and waiting passively for another month contradicts the lesson's guidance to escalate once the 4-week mark is crossed without real progress.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Escalate today: the 690-page 'Crawled, currently not indexed' bucket has crossed from normal volatility into a hangover in progress by the lesson's own 4-week threshold, and needs a content-quality sample check this week. In parallel, remove the confirmed staging-leftover robots.txt Disallow rule blocking 412 pages (the single highest-priority fix, since dev has already confirmed it was never meant to reach production), close the 94-page 404 gap starting with the 70% that were never in the original redirect map, and deploy the missing 301 redirects from the old subdomain, which is still resolving live and causing the 182-page canonical conflict.",
+      },
+      commonMistakes: [
+        { mistake: "Calling any decline in a bucket's size 'on track', regardless of pace", explanation: "the lesson's threshold is about the rate and timing of the decline, not whether the number went down at all; 6.8% over four weeks on the largest bucket is a hangover, not progress." },
+        { mistake: "Assuming a robots.txt Disallow rule is intentional without confirming with the team that wrote it", explanation: "a blanket rule blocking an entire migrated section is exactly the pattern the lesson calls the most common fatal migration mistake, and needs explicit confirmation, not an assumption either way." },
+        { mistake: "Treating all 94 of the 404 pages as the same problem", explanation: "URLs never included in the redirect map at all need a different fix (add them) than URLs whose redirect target itself now 404s (fix the destination)." },
+        { mistake: "Deleting the old subdomain's Search Console property once the new one is set up", explanation: "the lesson is explicit that the old property should stay registered since Google still needs to see the redirects coming from it." },
+      ],
+      keyTakeaway:
+        "A post-migration health check across four buckets each needs a different verification: is a decline actually on pace against a real threshold, is a block confirmed intentional or just assumed, does a 404 trace back to a mapping gap or a broken target, and is the old domain actually gone or still live. Treating any one bucket's raw count as self-explanatory, without this deeper check, misses the difference between normal settling and an active problem.",
     },
   ],
 
@@ -5060,6 +6392,16 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       conceptsCovered: [
         "Filtering for answer-engine citations vs. organic rank",
         "The Answer Unit framework applied to owned content",
+      ],
+      skills: ["AI search auditing", "Content structure diagnosis", "Competitive citation analysis"],
+      keyQuestion: "When a page ranks well in Google but is never named as a source in an AI-generated answer, what in the content is causing that gap?",
+      prerequisites: [
+        "Access to ChatGPT (free tier is enough) and a browser for Google Search",
+        "Familiarity with basic on-page structure: headings, paragraphs",
+      ],
+      terminology: [
+        { term: "Answer engine", definition: "a tool like ChatGPT or Google AI Overviews that generates a direct written answer to a question instead of just listing links." },
+        { term: "Citation", definition: "when an answer engine names a specific source (e.g. Airbnb.com) as where its answer came from, distinct from ranking in organic search results." },
       ],
       steps: [
         {
@@ -5133,6 +6475,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       ],
       portfolioReady: true,
       stretch: "Repeat the same 5 queries in Perplexity and compare citation overlap with ChatGPT.",
+      whatToLookFor: [
+        { label: "Rank vs. citation gap", detail: "Does the page rank top 3-4 in Google but get skipped by the AI answer entirely?" },
+        { label: "Answer placement", detail: "Does the direct answer to the query sit in the first paragraph under the matching heading, or later?" },
+        { label: "Heading phrasing", detail: "Does an H2/H3 use the literal question wording a user would type or say?" },
+        { label: "Who wins the citation instead", detail: "Is a smaller competitor or blog cited on the same query, and does its passage read as more extractable?" },
+      ],
+      decision: {
+        prompt: "Airbnb ranks #3 in Google for a host-fees query, but the AI Overview cites NerdWallet instead. The Airbnb page's first paragraph under the matching H2 is 90 words of general host-onboarding context before the fee percentage appears. What's the highest-leverage fix?",
+        options: [
+          { id: "a", label: "Rewrite the first paragraph under that H2 into a 40-60 word direct answer, then move the onboarding context below it", correct: true },
+          { id: "b", label: "Add more internal links pointing to the page to boost its domain authority", correct: false },
+          { id: "c", label: "Change the page's meta description to match the query more closely", correct: false },
+          { id: "d", label: "Leave the page as-is, since it already ranks in the top 3", correct: false },
+        ],
+        explanation:
+          "Airbnb already ranks well enough to be a citation candidate, so the gap is extractability, not authority or metadata, the fee percentage is buried 90 words deep instead of leading the paragraph. Meta descriptions and internal links don't change what the answer engine extracts from the body copy, and 'already ranks top 3' is exactly the rank-without-citation trap the audit is designed to catch.",
+      },
+      professionalRecommendation: {
+        priority: "Medium",
+        text:
+          "Prioritize a first-paragraph rewrite on every 'ranks but not cited' row before touching anything else. This is a content-structure fix, not a technical or authority fix, so it can ship in the same sprint without dev involvement: move the direct 40-60 word answer to the first sentence under the matching heading, and only rewrite headings that don't already match a real question phrasing.",
+      },
+      commonMistakes: [
+        { mistake: "Treating any AI Overview appearance as proof the page is doing fine", explanation: "an AI Overview can appear on a query while citing a competitor entirely; check who is named, not just whether the feature exists." },
+        { mistake: "Assuming a citation loss always means a content problem", explanation: "sometimes the gap is a genuine authority gap rather than a structural one, check whether the winning source is a much larger or more topically authoritative site before rewriting." },
+        { mistake: "Testing only one AI engine", explanation: "ChatGPT and Google AI Overviews can cite different sources for the same query, so a single-engine test understates the real gap." },
+        { mistake: "Rewriting the whole page instead of just the first paragraph under the matching heading", explanation: "the fix is surgical: answer engines extract from the passage directly under the matching heading, not the page as a whole." },
+      ],
+      keyTakeaway:
+        "Ranking well in Google and being cited by an AI answer engine are two different outcomes measuring two different things: rank measures authority and relevance, citation measures whether a passage is extractable without rewriting. A page can win one and lose the other, and the fix for a citation loss is almost always a first-paragraph rewrite, not a ranking push.",
     },
     {
       id: "aeo-peloton-answer-unit-teardown",
@@ -5154,6 +6526,16 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Freshness as a citation signal",
         "Schema markup as a citation signal",
         "Multi-channel authority vs. content structure",
+      ],
+      skills: ["AI search content auditing", "Answer Unit diagnosis", "Distractor rejection"],
+      keyQuestion: "For each losing passage, which specific defect (buried answer, stale data, missing schema, or an authority gap that no rewrite fixes) caused the citation loss?",
+      prerequisites: [
+        "Completion of, or familiarity with, the Answer Unit framework: a question heading, a 40-60 word direct answer, then supporting detail",
+        "Understanding that freshness and schema are separate signals from content structure",
+      ],
+      terminology: [
+        { term: "Answer Unit", definition: "the framework of a question-phrased heading immediately followed by a 40-60 word direct answer, with supporting detail placed after it, not before." },
+        { term: "Schema markup", definition: "structured, machine-readable code (like FAQPage schema) added to a page that explicitly labels content, such as a Q&A pair, for crawlers." },
       ],
       teardownItems: [
         {
@@ -5304,6 +6686,37 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       ],
       portfolioReady: true,
       stretch: "Pull 5 real passages from your own company's blog and run the same teardown.",
+      whatToLookFor: [
+        { label: "Answer position", detail: "Does the direct answer appear in the first sentence under the heading, or after unrelated context?" },
+        { label: "Freshness signals", detail: "Does the passage cite a date, price, or figure that looks outdated with no visible update?" },
+        { label: "Schema presence", detail: "Is the Q&A wrapped in machine-readable schema (e.g. FAQPage), or is it plain text only?" },
+        { label: "Structural vs. authority cause", detail: "Is the passage already a clean Answer Unit, meaning the loss might be a domain-authority gap instead?" },
+        { label: "Distractor plausibility", detail: "Does a suggested defect actually break extraction, or is it a cosmetic detail (bolding, list style) that doesn't matter?" },
+      ],
+      decision: {
+        prompt: "Item 3 (the Output metric passage) is a clean 40-60 word Answer Unit under a matching question heading, with no staleness and no missing schema, yet a smaller blog with an identically structured passage wins the citation. What should the writing team do?",
+        options: [
+          { id: "a", label: "Rewrite the passage into a shorter answer, since something in the structure must be wrong", correct: false },
+          { id: "b", label: "Accept it as a non-structural authority gap and pursue backlinks or brand mentions instead of a rewrite", correct: true },
+          { id: "c", label: "Add FAQPage schema, since that's the only signal not yet tested", correct: false },
+          { id: "d", label: "Change the heading to a different question phrasing and re-test", correct: false },
+        ],
+        explanation:
+          "The passage already satisfies every structural requirement the Answer Unit framework checks for, so rewriting it, adding schema, or rephrasing the heading treats a non-existent structural problem as if it were the cause. When a competitor with the same structure wins instead, the lesson is explicit that the remaining variable is domain or topical authority, which content rewrites don't fix.",
+      },
+      professionalRecommendation: {
+        priority: "Medium",
+        text:
+          "Fix items 1, 2, 4, and 5 in the next content sprint: move buried answers to the first sentence, refresh the stale price with a visible update date, and add FAQPage schema to the cadence FAQ page. Do not assign a rewrite to item 3, flag it for the authority/PR team instead, since the Answer Unit framework has nothing left to fix there.",
+      },
+      commonMistakes: [
+        { mistake: "Assuming every citation loss has a content-structure cause", explanation: "item 3 proves a passage can be structurally perfect and still lose on authority; misdiagnosing it wastes a rewrite that won't change the outcome." },
+        { mistake: "Flagging cosmetic details (bolding, list format, hyperlinks) as the defect", explanation: "these don't affect what an answer engine extracts; the distractors in each item exist specifically to test this." },
+        { mistake: "Missing a stale-data signal because the content otherwise reads as high-quality", explanation: "a visibly outdated price or figure is deprioritized even when the surrounding writing and structure are strong." },
+        { mistake: "Treating a Google featured snippet win as proof AI engines will cite the same passage", explanation: "item 4 shows a passage can win a Google snippet on structure alone while still losing an AI citation to a missing schema signal." },
+      ],
+      keyTakeaway:
+        "Not every citation loss has the same cause: a buried answer, stale data, and missing schema are all fixable with a rewrite or a dev ticket, but a structurally clean passage losing to a smaller competitor is usually an authority gap that no amount of rewriting solves. Diagnosing which one you're looking at, before recommending a fix, is the actual skill.",
     },
   ],
   "voice-search-seo": [
@@ -5323,6 +6736,16 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Run 5 local voice-style queries, check whether the business's Google Business Profile and site content answer them in the 25-35 word plain-prose shape voice assistants extract, and flag the gap.",
       mode: "diagnostic",
       conceptsCovered: ["Local intent as the dominant voice search pattern", "The 25-35 word plain-prose answer shape"],
+      skills: ["Local SEO auditing", "Voice search diagnostics", "Google Business Profile review"],
+      keyQuestion: "Is the business's Google Business Profile and on-page content structured to win the spoken answer for common local voice queries?",
+      prerequisites: [
+        "A Google Business Profile to audit (existing or a public example)",
+        "Access to Google Search on a mobile device or Google Assistant",
+      ],
+      terminology: [
+        { term: "Google Business Profile (GBP)", definition: "the free Google-hosted listing showing a business's hours, location, and attributes, a primary data source voice assistants pull from for local answers." },
+        { term: "Plain-prose answer shape", definition: "a 25-35 word answer written as a normal spoken sentence, with no bullets or bold text, matching how a voice assistant reads answers aloud." },
+      ],
       steps: [
         {
           stepId: "step-1-near-me-answer-shape-check",
@@ -5395,6 +6818,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       ],
       portfolioReady: true,
       stretch: "Repeat the test a week after applying the fixes and compare which queries flip.",
+      whatToLookFor: [
+        { label: "GBP completeness", detail: "Are hours, category, and relevant attributes (parking, delivery) fully filled in?" },
+        { label: "Plain-prose presence", detail: "Does the page state the fact being asked (hours, delivery, parking) in a full sentence, not just a schema block?" },
+        { label: "Answer-to-win correlation", detail: "Does the one query the business wins line up with the one fact stated in plain prose on the page?" },
+        { label: "Competitor pattern", detail: "Is the competitor winning because their GBP or on-page prose is more complete, not because of unrelated factors?" },
+      ],
+      decision: {
+        prompt: "The client wins the voice answer only for 'what time does it close tonight', the one query where hours appear as plain-prose text in the footer. Every other query goes to a competitor. What's the highest-priority next step?",
+        options: [
+          { id: "a", label: "Add plain-prose sentences answering the other tested facts (parking, delivery, price range) directly in page copy", correct: true },
+          { id: "b", label: "Rewrite the About page's brand history to be shorter", correct: false },
+          { id: "c", label: "Switch the business's primary GBP category to a broader one", correct: false },
+          { id: "d", label: "Wait and re-test in a month since GBP data can take time to update", correct: false },
+        ],
+        explanation:
+          "The one correlation the audit surfaces is that the only query won had a matching plain-prose sentence on the page, so the fix that directly targets the pattern is adding the same kind of plain-sentence answers for the other tested facts. Shortening unrelated brand copy, changing the GBP category, or waiting passively don't address the actual gap the data points to.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Complete the missing GBP attribute (parking) this week, it takes minutes and is free, then add one plain-prose sentence per fact (delivery, price range) to the site's About or Contact page. Both fixes are low-effort and directly address the pattern the diagnostic surfaced, that the client only wins when a fact exists as plain prose on the page.",
+      },
+      commonMistakes: [
+        { mistake: "Assuming a complete GBP alone is enough to win the voice answer", explanation: "one losing row shows a complete GBP with no on-page prose match still loses; both signals need to independently confirm the same fact." },
+        { mistake: "Fixing on-page prose but ignoring an incomplete GBP attribute", explanation: "a missing attribute like parking can be the sole reason a query is lost even when everything else is in order." },
+        { mistake: "Treating unrelated brand-history content as the problem", explanation: "the defect isn't that the About page has history, it's that it never also states the specific fact being asked in plain sentences." },
+        { mistake: "Testing only queries the business is likely to win", explanation: "a representative 5-query set needs to include facts (parking, delivery) the business hasn't optimized for yet, not just easy wins." },
+      ],
+      keyTakeaway:
+        "Winning a local voice answer requires the same fact to exist in two places: a complete Google Business Profile attribute and a plain-prose sentence in on-page copy. A gap in either one is enough to lose the query to a competitor, even a smaller one, that has both.",
     },
     {
       id: "voice-search-delhivery-order-status-teardown",
@@ -5416,6 +6869,16 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "The 25-35 word plain-prose answer shape",
         "Technical fundamentals as a voice-ranking gate",
         "Local intent resolution in voice answers",
+      ],
+      skills: ["Voice search content auditing", "Technical SEO gating", "Cross-index diagnosis"],
+      keyQuestion: "For each specimen, is the defect in the content's structure, in the page's technical performance, or in missing schema, and which owner should fix it?",
+      prerequisites: [
+        "Familiarity with the 25-35 word plain-prose answer shape and question-format headings",
+        "Basic understanding of page speed and schema markup as separate technical signals",
+      ],
+      terminology: [
+        { term: "HowTo schema", definition: "structured markup that labels a page's step-by-step instructions so search and voice systems can identify and format them as a procedure." },
+        { term: "Technical fundamentals gate", definition: "the baseline requirement that a page must load fast enough to be considered a voice-answer candidate at all, regardless of how well the content itself is written." },
       ],
       teardownItems: [
         {
@@ -5570,6 +7033,37 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
       stretch:
         "Run a real page-speed test against your own site's top voice-eligible page and compare its load time to the lesson's 4.6-second benchmark.",
+      whatToLookFor: [
+        { label: "Heading phrasing", detail: "Is the heading a question a person would actually speak aloud, or a keyword phrase?" },
+        { label: "Answer format", detail: "Is the answer written as 25-35 words of plain prose, or as a bulleted/numbered list?" },
+        { label: "Technical gate", detail: "Does the page load fast enough to be a candidate at all, independent of how the content reads?" },
+        { label: "Schema markup", detail: "Is a procedural answer marked up with HowTo schema for indexes (like Bing/Alexa) that rely on it?" },
+        { label: "Local resolution", detail: "Does a 'where' question actually resolve to a specific place, or answer with an unrelated company-wide statistic?" },
+      ],
+      decision: {
+        prompt: "Item 3's passage is a textbook 25-35 word plain-prose answer under a perfect question heading, yet it's never read aloud, and the page takes 7.8 seconds to load on mobile. What should the team fix first?",
+        options: [
+          { id: "a", label: "Rewrite the answer to be even more concise", correct: false },
+          { id: "b", label: "Fix the page's load speed, since the content itself already meets the answer-shape requirement", correct: true },
+          { id: "c", label: "Change the heading to include the word 'Delhivery' more often", correct: false },
+          { id: "d", label: "Add a bulleted breakdown of delivery times by region", correct: false },
+        ],
+        explanation:
+          "The content passes every structural check the lesson defines, so the blocking issue is the page's 7.8-second load time failing the technical fundamentals gate voice-ranked pages need to clear before being considered at all. Rewriting already-correct content, adding keyword repetition, or adding bullets (which would actually break the required plain-prose shape) don't address the actual bottleneck.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Route items 1, 2, and 5 to the content team for rewrites this sprint (question-phrased headings, plain-prose answers, and location-specific responses), and route items 3 and 4 to development as a page-speed fix and a HowTo schema addition. Content and technical fixes are independent tracks and can ship in parallel.",
+      },
+      commonMistakes: [
+        { mistake: "Assuming a well-written answer guarantees voice eligibility", explanation: "item 3 shows a page can meet every content requirement and still lose entirely to a technical gate like page speed." },
+        { mistake: "Treating a Google featured-snippet win as proof every assistant will use the same passage", explanation: "item 4 shows Alexa's web fallback can query a different index than the one that awarded Google's snippet, and miss the passage without schema support." },
+        { mistake: "Assigning a content fix to a technical defect or vice versa", explanation: "misrouting item 3 (a developer fix) to the content team, or item 4's schema gap to a copywriter, wastes the sprint on the wrong owner." },
+        { mistake: "Answering a local 'where' question with a national statistic", explanation: "a footprint or scale statistic doesn't resolve the specific location the query needs, no matter how confident or well-written it sounds." },
+      ],
+      keyTakeaway:
+        "A voice-answer defect can live in three different layers: content structure (heading and answer shape), technical performance (page speed), or machine-readable markup (schema for a specific index). Diagnosing which layer is broken, and routing the fix to the right owner, matters as much as spotting that something is wrong at all.",
     },
   ],
 
@@ -5590,6 +7084,13 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Run the target query, capture the AI Overview's citations, then score Nubank's own opening paragraph against the answer-first criteria from the lesson before rewriting it.",
       mode: "diagnostic",
       conceptsCovered: ["Answer-first structure"],
+      skills: ["Generative Engine Optimization (GEO)", "Comparative content scoring", "Sentence-level rewriting"],
+      keyQuestion: "Why does a competitor's opening sentence get excerpted into the AI Overview instead of a page that ranks higher organically?",
+      prerequisites: ["Access to Google Search in an incognito browser window", "Familiarity with basic sentence-length editing"],
+      terminology: [
+        { term: "AI Overview", definition: "Google's AI-generated summary shown above traditional search results, which quotes and cites specific pages rather than just linking to them." },
+        { term: "Answer-first structure", definition: "writing the direct, quotable answer to a query in the opening sentence of a section, before any context or scene-setting." },
+      ],
       steps: [
         {
           stepId: "step-1-answer-first-scoring",
@@ -5646,6 +7147,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Produces a rewritten opening sentence under 20 words that directly names the term being searched",
       ],
       portfolioReady: true,
+      whatToLookFor: [
+        { label: "Directness", detail: "Does the opening sentence state a definition immediately, or does it build up to one?" },
+        { label: "Length", detail: "Is the opening sentence under 20 words?" },
+        { label: "Term match", detail: "Does the sentence name the exact term someone searched for?" },
+        { label: "Citation outcome", detail: "Which of the two openers actually appears in the AI Overview's citation?" },
+      ],
+      decision: {
+        prompt: "Nubank's opener is 31 words and opens with 'When people talk about banking today, there's a lot to unpack.' The competitor's opener is 14 words and states a direct definition. Both pages rank on page one organically. What explains the citation gap?",
+        options: [
+          { id: "a", label: "The AI Overview extracts the clearest, most direct sentence available, and the competitor's opener is the only one that qualifies", correct: true },
+          { id: "b", label: "Nubank's page must have lower domain authority, since organic rank alone doesn't fully explain citations", correct: false },
+          { id: "c", label: "The AI Overview always prefers newer pages, and Nubank's page is likely older", correct: false },
+          { id: "d", label: "Google randomly rotates which competitor gets cited each time the query is run", correct: false },
+        ],
+        explanation:
+          "The scoring table shows both pages rank organically, so the variable isolated by the audit is opener quality, not authority, freshness, or randomness, none of which were tested or shown to differ. The lesson's answer-first principle explains this directly: AI retrieval extracts the clearest available sentence, and a scene-setting opener forces the system to look elsewhere.",
+      },
+      professionalRecommendation: {
+        priority: "Medium",
+        text:
+          "Rewrite Nubank's opening sentence into a direct, under-20-word definition that names 'digital bank' explicitly, then republish and re-check the AI Overview within a few weeks. This is a one-sentence, same-day fix with no dependency on backlinks, schema, or a content overhaul.",
+      },
+      commonMistakes: [
+        { mistake: "Assuming organic rank predicts AI Overview citation", explanation: "the audit shows both pages rank on page one, yet only one gets cited, proving rank and citation are separate outcomes." },
+        { mistake: "Rewriting the whole page instead of just the opening sentence", explanation: "the defect identified is isolated to the opener; a full rewrite is unnecessary effort for what the scoring table shows is a single-sentence problem." },
+        { mistake: "Keeping scene-setting context in the first sentence for 'brand voice' reasons", explanation: "even well-written context delays the direct answer past the point AI retrieval systems will excerpt from." },
+        { mistake: "Not checking word count", explanation: "an opener can sound direct while still running well past 20 words, exactly what happened with the original Nubank sentence." },
+      ],
+      keyTakeaway:
+        "Organic ranking and AI Overview citation are graded on different criteria: rank rewards overall relevance and authority, citation rewards whichever opening sentence is clearest and most quotable. A page can win one and lose the other over something as small as its first sentence.",
     },
     {
       id: "trade-desk-ai-overview-citation-teardown",
@@ -5663,6 +7194,16 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Compare the two page specimens and the brand-mention snapshot, flag every real GEO defect, and map each one to the lesson concept it violates.",
       mode: "teardown",
       conceptsCovered: ["Answer-first structure", "Structured formatting", "Credibility signals", "Brand mentions over backlinks"],
+      skills: ["GEO teardown", "Page-vs-page competitive diagnosis", "E-E-A-T signal auditing"],
+      keyQuestion: "Which of the losing page's real defects, across structure, credibility signals, and off-page brand mentions, actually explain why a smaller competitor won the AI Overview citation?",
+      prerequisites: [
+        "Familiarity with the GEO concepts: answer-first structure, structured formatting, and credibility signals",
+        "Basic understanding of what schema markup and E-E-A-T signals are",
+      ],
+      terminology: [
+        { term: "E-E-A-T", definition: "Experience, Expertise, Authoritativeness, Trustworthiness, Google's framework for judging content credibility, reflected here in named authorship and cited dates." },
+        { term: "Brand mentions", definition: "unlinked references to a company's name across the web (forums, reviews, social), distinct from backlinks and shown by recent data to correlate more strongly with AI citation." },
+      ],
       teardownItems: [
         {
           itemId: "programmatic-glossary-opening-defects",
@@ -5787,6 +7328,37 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       ],
       portfolioReady: true,
       stretch: "Run this same 2-specimen comparison against your own company's lowest-citation-rate glossary page and a competitor's cited equivalent.",
+      whatToLookFor: [
+        { label: "Opening definition", detail: "Does the H1 and opening paragraph state a direct definition, or build up to one through history/context?" },
+        { label: "Authorship signal", detail: "Is there a named author with credentials, or a generic team byline?" },
+        { label: "Structured data", detail: "Is there JSON-LD schema and a visible publish/update date?" },
+        { label: "Formatting", detail: "Is a process explained as a numbered list, or as flowing prose?" },
+        { label: "Brand mentions vs. backlinks", detail: "Which signal is actually larger, and which one does the data show correlates more strongly with citation?" },
+      ],
+      decision: {
+        prompt: "The Trade Desk has 4x more backlinks than the competitor but 15x fewer Reddit/forum mentions. Both companies rank similarly well organically. What should the team prioritize?",
+        options: [
+          { id: "a", label: "Continue investing in backlinks, since The Trade Desk already leads there", correct: false },
+          { id: "b", label: "Shift effort toward earning brand mentions in forums and reviews, since that signal correlates more strongly with AI citation", correct: true },
+          { id: "c", label: "Ignore both signals since organic rank is already strong", correct: false },
+          { id: "d", label: "Match the competitor's backlink count exactly before addressing anything else", correct: false },
+        ],
+        explanation:
+          "The lesson-cited data shows web mentions predict AI Overview citation roughly 3x better than backlinks, so the underinvested signal, not the one already winning, is the higher-leverage fix. Organic rank being strong doesn't explain the citation gap, since the two outcomes are shown to be separate throughout this teardown.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Fix Page A's four content-level defects first (add a direct opening definition, a named author byline, Article schema with a visible date, and convert the process explanation to a numbered list), all achievable within a sprint. In parallel, start a brand-mention campaign (contributing to relevant forum threads, seeking review-site presence) since it's the single highest-leverage, most under-invested signal the data reveals.",
+      },
+      commonMistakes: [
+        { mistake: "Flagging shorter H1s, URL slugs, or outbound-link counts as defects", explanation: "these are the specimen's built-in distractors; none of them affect AI extraction or citation." },
+        { mistake: "Assuming more backlinks should mean better AI visibility", explanation: "the brand-mention snapshot shows the opposite pattern here, more backlinks did not prevent the citation loss." },
+        { mistake: "Missing the schema/structured-data defect because the page 'looks fine' visually", explanation: "JSON-LD and dateModified are invisible in the rendered page but are exactly what AI systems check for machine-readable freshness and authorship." },
+        { mistake: "Treating the brand-mentions defect as separate from the content-structure defects instead of prioritizing it", explanation: "it's the least visible defect in the specimens but the one the data shows matters most, deprioritizing it under-serves the actual fix." },
+      ],
+      keyTakeaway:
+        "A losing page can have real defects at multiple levels: buried definitions, missing schema, prose instead of structured lists, and a weaker off-page signal profile. Identifying every real defect while correctly rejecting cosmetic distractors, then weighting the fix list by which signal the data shows matters most, is what separates a useful teardown from a surface-level content critique.",
     },
   ],
   "ai-mode-search-optimization": [
@@ -5805,6 +7377,13 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       brief: "Diagnose why the review site's page wins the citation, then rebuild Ola Electric's comparison section to match the structure AI Mode actually pulls from.",
       mode: "diagnostic",
       conceptsCovered: ["Structured formatting"],
+      skills: ["AI Mode content structuring", "Competitive format diagnosis", "Table drafting"],
+      keyQuestion: "Why does a lower-authority competitor page get cited in AI Mode over a higher-authority page covering the same comparison?",
+      prerequisites: ["Basic spreadsheet skills to draft a comparison table", "Access to the product's real spec data"],
+      terminology: [
+        { term: "AI Mode", definition: "Google's conversational search experience that generates a synthesized answer and cites specific sources, distinct from traditional ranked search results." },
+        { term: "Structured formatting", definition: "presenting information as a table, numbered list, or other clearly labeled format rather than as flowing prose, making it easier for AI systems to extract verbatim." },
+      ],
       steps: [
         {
           stepId: "step-1-table-vs-prose",
@@ -5857,6 +7436,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Produces a table using the page's own real spec data with clear row and column labels",
       ],
       portfolioReady: true,
+      whatToLookFor: [
+        { label: "Format used", detail: "Is the comparison presented as a table, or as paragraphs of prose covering the same specs?" },
+        { label: "Row/column clarity", detail: "Does the cited competitor's table have clear labels AI Mode can lift without re-parsing sentences?" },
+        { label: "Authority vs. format", detail: "Does the citation gap track with domain authority, or with which page uses the more extractable format?" },
+        { label: "Data completeness", detail: "Does your own page have the same underlying spec data as the competitor's table, just presented differently?" },
+      ],
+      decision: {
+        prompt: "Ola Electric's page has higher domain authority than the cited review site, but loses the AI Mode citation on the same comparison query. What does this indicate?",
+        options: [
+          { id: "a", label: "AI Mode citation is unrelated to domain authority here; the format (table vs. prose) is the deciding factor for this query", correct: true },
+          { id: "b", label: "The review site must have paid for placement in AI Mode", correct: false },
+          { id: "c", label: "Ola Electric's page needs more backlinks to win the citation back", correct: false },
+          { id: "d", label: "AI Mode citations are randomized and this result will change on its own", correct: false },
+        ],
+        explanation:
+          "The lesson's finding is that AI Mode favors formats it can extract with minimal effort, and a table beats prose describing the same data regardless of which page has more authority; the diagnostic isolates format as the variable since both pages cover identical specs. There's no evidence of paid placement or randomness, and backlinks address a different problem (organic rank) than citation extraction.",
+      },
+      professionalRecommendation: {
+        priority: "Medium",
+        text:
+          "Replace the three prose paragraphs with a table using the same row/column structure as the cited competitor (range, top speed, battery, price, warranty), using Ola Electric's own accurate spec data. This is a low-effort CMS change with no dependency on backlinks or domain authority work.",
+      },
+      commonMistakes: [
+        { mistake: "Assuming higher domain authority should guarantee the citation", explanation: "the diagnostic specifically shows a lower-authority page winning on format alone; authority doesn't override extractability for this signal." },
+        { mistake: "Rewriting the prose to be shorter instead of converting it to a table", explanation: "the defect is the format itself, not the prose length; shorter prose is still prose." },
+        { mistake: "Inventing spec numbers instead of using the page's own real data", explanation: "the fix is a format change only, the underlying data should stay accurate to the actual product specs." },
+        { mistake: "Copying the competitor's exact numbers instead of your own product's numbers", explanation: "match their row/column structure, not their data, using your own real specs." },
+      ],
+      keyTakeaway:
+        "AI Mode's citation choice can hinge entirely on format, not authority: the same information presented as a table is dramatically easier to extract verbatim than the identical information spread across paragraphs. Matching a competitor's row/column structure with your own accurate data is often a faster fix than any authority-building work.",
     },
     {
       id: "yeti-ai-mode-citation-reverse-engineer",
@@ -5873,6 +7482,13 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       brief: "Work backward from what AI Mode actually quoted to identify the missing citation signal, then draft the fix.",
       mode: "diagnostic",
       conceptsCovered: ["Specific data points"],
+      skills: ["Reverse-engineering AI citations", "Claim auditing", "Sourced-data rewriting"],
+      keyQuestion: "What specific, sourced element does the cited third-party claim have that the brand's own vaguer claim is missing?",
+      prerequisites: ["Familiarity with the difference between a marketing adjective and a quantified, sourced claim"],
+      terminology: [
+        { term: "Reverse-engineering (in GEO)", definition: "working backward from what an AI system actually cited to identify which content signal caused the win, rather than guessing at fixes upfront." },
+        { term: "Specific data point", definition: "a quantified, sourced claim (a percentage, a named test, a year) that an AI system can quote and verify, as opposed to a vague adjective." },
+      ],
       steps: [
         {
           stepId: "step-1-vague-vs-specific-claims",
@@ -5926,6 +7542,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Produces a rewritten claim that includes a named source and a specific figure",
       ],
       portfolioReady: true,
+      whatToLookFor: [
+        { label: "Quantification", detail: "Does the claim include a specific number, or a vague adjective like 'a long time'?" },
+        { label: "Named source", detail: "Is the claim attributed to a named or independent test, or unsourced?" },
+        { label: "Test condition", detail: "Does the claim specify the condition it was measured under (e.g. temperature)?" },
+        { label: "Which version gets quoted", detail: "Does AI Mode quote the vague or the specific version, and does that match the lesson's stated preference?" },
+      ],
+      decision: {
+        prompt: "Yeti's page says 'built to keep ice cold for days.' The cited buying guide says 'kept ice frozen for 4.5 days in an independent 90°F ambient test.' What's the single highest-leverage fix?",
+        options: [
+          { id: "a", label: "Replace the vague claim with a specific, sourced version naming the test condition and exact day count", correct: true },
+          { id: "b", label: "Add more marketing adjectives to make the claim sound more impressive", correct: false },
+          { id: "c", label: "Remove the claim from the page entirely to avoid comparison", correct: false },
+          { id: "d", label: "Increase the page's word count so it ranks higher organically", correct: false },
+        ],
+        explanation:
+          "The gap log isolates exactly three missing elements, a named test source, a specific temperature, and a specific day count, so the fix that directly closes the gap is rewriting the claim to include all three, matching what the cited source already does. More adjectives, removing the claim, or unrelated word-count changes don't address the actual missing signal.",
+      },
+      professionalRecommendation: {
+        priority: "Medium",
+        text:
+          "Commission or source an independent ice-retention test (or cite an existing one if it already exists internally) and replace the vague 'keeps ice cold for days' claim with a specific, sourced sentence stating the test condition, temperature, and exact day count. This directly targets the one signal the reverse-engineering exercise identified as missing.",
+      },
+      commonMistakes: [
+        { mistake: "Assuming a page's own brand authority substitutes for a sourced claim", explanation: "the diagnostic shows a lower-authority third party winning the citation purely because its claim was specific and sourced." },
+        { mistake: "Adding more descriptive language instead of a quantified figure", explanation: "adjectives like 'exceptional' or 'long-lasting' don't give an AI system anything concrete to quote or verify." },
+        { mistake: "Citing a number without naming the source or test condition", explanation: "a bare number without context is still weaker than a claim that states who tested it and under what conditions." },
+        { mistake: "Treating this as an SEO ranking problem rather than a citation problem", explanation: "Yeti's page already ranks higher organically; the issue is specifically about what gets quoted in the AI answer, not about search rank." },
+      ],
+      keyTakeaway:
+        "AI Mode consistently favors claims it can verify and quote precisely over confident-sounding marketing language, even when the vaguer claim comes from a page with far more domain authority. Reverse-engineering exactly which specific element (source, condition, number) a winning claim has is a repeatable way to find the fix.",
     },
   ],
 
@@ -5948,6 +7594,16 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       conceptsCovered: [
         "Step 1, Open your doors to AI crawlers",
         'Step 2, Build a "machine-readable answer block" at the top of every page',
+      ],
+      skills: ["robots.txt auditing", "AI crawler access diagnosis", "Directive precedence reasoning"],
+      keyQuestion: "Which robots.txt rules actually block AI crawlers from citing the site, which merely slow them down, and which are unrelated and fine as-is?",
+      prerequisites: [
+        "Basic familiarity with robots.txt syntax (User-agent, Disallow, Allow, Crawl-delay)",
+        "Understanding that named-crawler rules and wildcard rules can interact",
+      ],
+      terminology: [
+        { term: "robots.txt", definition: "a text file at a site's root that tells web crawlers, including AI crawlers like GPTBot and ClaudeBot, which paths they may or may not access." },
+        { term: "Crawl-delay", definition: "a directive that limits how often a crawler may request pages, slowing discovery of new or updated content without fully blocking it." },
       ],
       teardownItems: [
         {
@@ -6047,6 +7703,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Proposes a specific, actionable fix for each defect",
       ],
       portfolioReady: true,
+      whatToLookFor: [
+        { label: "Sitewide vs. scoped blocks", detail: "Is an AI crawler disallowed entirely, or only from a specific path?" },
+        { label: "Crawl-delay severity", detail: "Does a crawl-delay value meaningfully slow discovery of new content, or is it negligible?" },
+        { label: "Wildcard precedence", detail: "Does a wildcard Disallow silently block AI crawlers not named elsewhere in the file, even if named-bot rules look fine?" },
+        { label: "Path relevance", detail: "Are the blocked paths ones that actually carry citation-worthy content (blog, comparison pages), or unrelated internal paths?" },
+      ],
+      decision: {
+        prompt: "The file has a named 'Allow: /' rule for GPTBot, but also a separate 'User-agent: *' block with 'Disallow: /blog/'. Does GPTBot get to crawl /blog/?",
+        options: [
+          { id: "a", label: "Yes, the named GPTBot Allow rule overrides the wildcard block for all bots including GPTBot", correct: false },
+          { id: "b", label: "It depends on whether GPTBot has its own explicit rule for /blog/ specifically, otherwise standard precedence still applies per-bot per-path", correct: true },
+          { id: "c", label: "No, GPTBot is always blocked from every path if any wildcard Disallow exists anywhere in the file", correct: false },
+          { id: "d", label: "Yes, because 'Allow: /' was declared first in the file", correct: false },
+        ],
+        explanation:
+          "As item 3 establishes, a named allow-rule for one crawler does not automatically override a separate wildcard Disallow for that same path, since robots.txt directives are evaluated per user-agent block, not merged across blocks. Rule order in the file doesn't determine precedence either, and a single wildcard rule doesn't blanket-block a bot from every unrelated path.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Fix all three defects before the next deploy: change the sitewide GPTBot Disallow to Allow, lower or remove the 300-second ClaudeBot crawl-delay, and scope the wildcard Disallow so it no longer silently blocks /blog/ and /customer-stories/ from every AI crawler not named elsewhere in the file. The wildcard fix is the most urgent since it affects the widest set of citation-worthy content.",
+      },
+      commonMistakes: [
+        { mistake: "Assuming a named Allow rule for one bot cancels a wildcard Disallow elsewhere in the file", explanation: "robots.txt directives don't merge across separate user-agent blocks this way; the wildcard rule still applies to any crawler without its own explicit exception." },
+        { mistake: "Treating a crawl-delay as harmless since the bot is technically 'allowed'", explanation: "a long crawl-delay can functionally block fresh content from being discovered in any useful timeframe, even without a literal Disallow." },
+        { mistake: "Flagging correct, standard syntax as a defect", explanation: "the distractors (a correctly spelled bot name, a valid Allow: / line) exist specifically to test this; only flag lines that actually change crawler behavior for the worse." },
+        { mistake: "Fixing only the sitewide GPTBot block and missing the wildcard rule", explanation: "the wildcard Disallow is easy to miss since it doesn't name any AI crawler directly, but it blocks the widest range of citation-worthy paths." },
+      ],
+      keyTakeaway:
+        "A robots.txt file can look mostly fine at a glance while still blocking AI crawlers through indirect means: a wildcard rule with no named exception, or a crawl-delay so long it functionally prevents fresh content discovery. Reading each rule for its actual effect on each specific crawler, not just scanning for an obvious sitewide block, is what a real audit requires.",
     },
     {
       id: "llmo-goto-answer-block-audit",
@@ -6067,6 +7753,16 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Machine-readable answer blocks in the first 100 words",
         "Using entities consistently across the page",
         "Answering question-shaped queries in headers",
+      ],
+      skills: ["LLMO content auditing", "Entity consistency review", "Question-header rewriting"],
+      keyQuestion: "Across three dimensions, answer placement, entity naming, and header phrasing, which of the three drafts are actually citation-ready, and what specifically needs fixing in the ones that aren't?",
+      prerequisites: [
+        "Familiarity with the concept of a machine-readable answer block",
+        "Access to a free question-research tool like AnswerThePublic",
+      ],
+      terminology: [
+        { term: "Entity consistency", definition: "using one standardized name for a brand or product throughout a page and site, since AI models track entities and inconsistent naming weakens the model's confidence about which facts belong to which name." },
+        { term: "Question-shaped header", definition: "a heading written as the literal question a user would type or ask a chatbot, rather than an internal product-team label." },
       ],
       steps: [
         {
@@ -6200,6 +7896,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
       stretch:
         "Re-run the 3 corrected drafts through a manual ChatGPT/Perplexity prompt test (per the lesson's 'How to Measure LLMO Performance' section) two weeks after publish and log whether any of the 3 pages get cited.",
+      whatToLookFor: [
+        { label: "Answer position", detail: "How many words appear before a direct, complete answer to the page's core question?" },
+        { label: "Entity naming", detail: "Is the parent company or product named consistently, or does it vary across mentions?" },
+        { label: "Header phrasing", detail: "Are headers written as real user questions, or as internal product labels?" },
+        { label: "Borderline cases", detail: "Does a draft pass a check but sit close enough to the threshold that it needs a safety-margin trim?" },
+      ],
+      decision: {
+        prompt: "Draft C's answer appears at word 96, just under the 100-word threshold, but its headers are all internal labels ('Ecosystem Benefits') rather than questions. Should Draft C be marked citation-ready as-is?",
+        options: [
+          { id: "a", label: "Yes, since it passes the answer-placement check, which is the most important of the three dimensions", correct: false },
+          { id: "b", label: "No, it needs the header rewrite fixed too; passing one of three checklist dimensions doesn't make a draft citation-ready overall", correct: true },
+          { id: "c", label: "Yes, but only after trimming the answer placement further, headers don't matter for citation", correct: false },
+          { id: "d", label: "No, but only because 96 words is too close to the 100-word limit for comfort", correct: false },
+        ],
+        explanation:
+          "The checklist has three independent dimensions, and Draft C fails the header-phrasing check even though it passes (barely) on answer placement, so it isn't citation-ready as a whole. Headers matter because a header that doesn't match a real question form is invisible to passage retrieval regardless of how well-placed the answer beneath it is, and the borderline word count is a secondary concern, not the disqualifying one.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Hold Draft A for a full rewrite (187 words before the answer, far past threshold), fix Draft C's three internal-label headers using the AnswerThePublic-sourced question forms before publish, and run a site-wide entity find-and-replace across all three drafts to standardize on 'GoTo' as the canonical parent-company name. Draft B is the only one that can ship as-is.",
+      },
+      commonMistakes: [
+        { mistake: "Grading a draft as ready after passing only one of the three checklist dimensions", explanation: "Draft C shows a draft can pass answer-placement and still fail on headers; all three dimensions need to pass independently." },
+        { mistake: "Treating 'Gojek' as always non-canonical", explanation: "the lesson distinguishes using 'Gojek' correctly when naming the ride-hailing product specifically from using it incorrectly to refer to the parent company; context determines which is correct." },
+        { mistake: "Guessing at question-header rewrites instead of checking a research tool", explanation: "an invented question phrasing may not match how real users actually ask, defeating the purpose of the rewrite." },
+        { mistake: "Ranking drafts only by their weakest score instead of noting every failing dimension", explanation: "a full sign-off needs the specific fix for each failing check, not just an overall pass/fail label." },
+      ],
+      keyTakeaway:
+        "Citation-readiness isn't a single pass/fail gate, it's three independent checks (answer placement, entity consistency, question-shaped headers) that all need to pass for a page to be genuinely ready. A draft can look strong on one dimension and still be invisible to AI citation because of a gap on another.",
     },
   ],
   "seo-for-ai-platforms": [
@@ -6219,6 +7945,15 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Compare Beyond Meat's page against the two cited sources on freshness/specificity and structured headers, then identify the two highest-leverage fixes.",
       mode: "diagnostic",
       conceptsCovered: ["Freshness and Specificity", "Structured Headers and Direct Answers"],
+      skills: ["Generative Engine Optimization (GEO)", "Content Auditing", "Competitive Analysis"],
+      keyQuestion: "What specific content signals do the cited competitor sources have that Beyond Meat's page lacks?",
+      prerequisites: [
+        "Basic familiarity with how AI answer engines like Perplexity generate cited responses",
+      ],
+      terminology: [
+        { term: "Generative Engine Optimization (GEO)", definition: "optimizing content so AI answer engines like Perplexity or ChatGPT cite it as a source, rather than optimizing purely for traditional search rankings." },
+        { term: "Retrieval system", definition: "the part of an AI answer engine that finds and extracts relevant passages from web pages to build its answer." },
+      ],
       steps: [
         {
           stepId: "step-1-freshness-specificity-gap",
@@ -6313,6 +8048,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Rewrites at least 2 headers into real question form with a direct-answer opening sentence",
       ],
       portfolioReady: true,
+      whatToLookFor: [
+        { label: "Number, source, year", detail: "Does the claim carry a specific figure, a named source, and a date, or just a comparative adjective?" },
+        { label: "Header phrasing", detail: "Is the header written as the exact question a user would type, or as an internal brand-voice label?" },
+        { label: "Answer placement", detail: "Does the direct answer sit in the first sentence after the header, or several sentences later?" },
+        { label: "Verifiability", detail: "Could a retrieval system quote this claim as evidence, or is it too vague to cite?" },
+      ],
+      decision: {
+        prompt:
+          "Beyond Meat's page says 'a smaller environmental footprint than beef' while a cited competitor says '90% fewer greenhouse gas emissions than beef, per a peer-reviewed 2024 lifecycle assessment.' What's the single highest-leverage fix?",
+        options: [
+          { id: "a", label: "Add more adjectives to make the claim sound more confident", correct: false },
+          { id: "b", label: "Replace the vague claim with Beyond Meat's own specific, dated, sourced data point", correct: true },
+          { id: "c", label: "Remove the claim entirely since it can't be improved", correct: false },
+          { id: "d", label: "Move the claim earlier in the article without changing its wording", correct: false },
+        ],
+        explanation:
+          "The defect isn't the claim's position or tone, it's that it has no number, source, or year attached, which makes it unverifiable to a retrieval system. Rewording with more confident adjectives or simply relocating the same vague sentence doesn't fix the underlying specificity gap; only swapping in a real dated figure does.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Rewrite Beyond Meat's core environmental claim to match the specificity of the cited competitors, a real number, a named source, and a year, and convert at least the top 3 brand-voice headers into question-shaped headers with direct-answer opening sentences. Both cited competitors win citations on these two signals alone; matching them is the fastest path to appearing in the answer.",
+      },
+      commonMistakes: [
+        { mistake: "Assuming Google page-one ranking guarantees AI citation", explanation: "traditional ranking and AI citation depend on different signals; a page can rank well and still be skipped by retrieval systems." },
+        { mistake: "Treating brand-voice headers as acceptable because they read well", explanation: "a header that doesn't match how users phrase the question is functionally invisible to passage extraction, regardless of writing quality." },
+        { mistake: "Leaving a true claim unsourced because it 'sounds' credible", explanation: "retrieval systems can't verify comparative adjectives like 'smaller' or 'better'; only claims with a number, source, and year get cited." },
+      ],
+      keyTakeaway:
+        "AI answer engines cite specific, verifiable, well-labeled content, not confident-sounding prose. Closing the gap between Beyond Meat's page and its cited competitors took exactly two fixes: attach real numbers to claims, and phrase headers as the questions users actually ask.",
     },
     {
       id: "seo-ai-platforms-delhivery-article-teardown",
@@ -6333,6 +8098,14 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Structured Headers and Direct Answers",
         "Freshness and Specificity",
         "Practical Tactics You Can Apply This Week",
+      ],
+      skills: ["Generative Engine Optimization (GEO)", "Content Teardown", "Editorial Review"],
+      keyQuestion: "What structural defects in this draft are stopping AI answer engines from ever citing it?",
+      prerequisites: [
+        "Basic familiarity with GEO content signals (specificity, direct answers, crawler accessibility)",
+      ],
+      terminology: [
+        { term: "Interstitial", definition: "an overlay (like a newsletter signup modal) that covers page content, which can block a crawler's headless renderer from reading the article body." },
       ],
       teardownItems: [
         {
@@ -6433,6 +8206,37 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Produces a rewritten opening paragraph that leads with a direct answer",
       ],
       portfolioReady: true,
+      whatToLookFor: [
+        { label: "Answer placement", detail: "Does the opening paragraph answer the article's own title question, or open with company narrative?" },
+        { label: "Claim specificity", detail: "Does each factual claim carry a number, source, and year, or just a general statement?" },
+        { label: "Crawler accessibility", detail: "Can a headless renderer actually reach the article body, or does an interstitial block it?" },
+        { label: "Distractor discipline", detail: "Is a genuinely good detail (an accurate fact, correct grammar, matching audience vocabulary) being mistaken for a defect?" },
+      ],
+      decision: {
+        prompt:
+          "The article gets zero AI citations after six weeks while a competitor's shorter piece on the same topic is cited regularly. Given the three specimens reviewed, what is the single most severe defect blocking citation entirely?",
+        options: [
+          { id: "a", label: "The mid-article claim about shipping costs having no number or year attached", correct: false },
+          { id: "b", label: "The full-screen newsletter modal that can prevent a crawler from ever reading the article body", correct: true },
+          { id: "c", label: "The opening paragraph's three sentences of company narrative before any actionable content", correct: false },
+          { id: "d", label: "The article's use of the phrase 'D2C brands' throughout", correct: false },
+        ],
+        explanation:
+          "All three specimens are real defects, but only the interstitial is a hard access blocker: if a crawler's headless renderer can't dismiss it, the crawler may never read the article content at all, regardless of how well the opening or claims are written. The buried lead and the generic claim both reduce citation-worthiness, but they assume the crawler can reach the content in the first place.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Fix the newsletter interstitial first, since it risks blocking crawler access to the entire article regardless of content quality. Then rewrite the opening paragraph to lead with the direct answer to the title question, and replace the generic shipping-cost claim with a specific, dated, sourced figure. All three fixes are needed, but the interstitial is the one that can zero out citation potential on its own.",
+      },
+      commonMistakes: [
+        { mistake: "Flagging the interstitial as only a UX annoyance", explanation: "for AI citation purposes it's a potential hard blocker, a crawler that can't dismiss it may never read the article body at all." },
+        { mistake: "Missing the buried lead because the opening paragraph is well-written", explanation: "prose quality doesn't matter if the direct answer to the title question never appears in the passage a retrieval system extracts." },
+        { mistake: "Flagging factually accurate but generic claims as fine", explanation: "true isn't the bar for citation, verifiable is; a claim needs a number, source, and year to be usable as evidence." },
+        { mistake: "Marking a specific, accurate detail (like a named location) as a defect", explanation: "distractors are designed to look suspicious; only defects that actually block citation-readiness should be flagged." },
+      ],
+      keyTakeaway:
+        "A citation teardown checks three independent things: can the crawler even reach the content, does the opening answer the implied question, and are the claims specific enough to quote. A draft can fail on any one of these while looking fine on the others, which is why each needs its own check rather than a single overall read.",
     },
   ],
 
@@ -6453,6 +8257,15 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Score the byline and article body against Experience, Expertise, Authoritativeness, and Trustworthiness, then flag the single gap Google's raters would weigh most heavily under the YMYL bar.",
       mode: "diagnostic",
       conceptsCovered: ["Scoring content against the four E-E-A-T letters under a YMYL bar"],
+      skills: ["E-E-A-T Evaluation", "YMYL Content Review", "Editorial Auditing"],
+      keyQuestion: "Which single E-E-A-T gap should be fixed first on a YMYL claims guide before it publishes?",
+      prerequisites: [
+        "Familiarity with the four E-E-A-T letters (Experience, Expertise, Authoritativeness, Trustworthiness)",
+      ],
+      terminology: [
+        { term: "YMYL (Your Money or Your Life)", definition: "Google's classification for content that could impact a reader's finances, health, safety, or well-being, held to a stricter E-E-A-T bar." },
+        { term: "E-E-A-T", definition: "Experience, Expertise, Authoritativeness, Trustworthiness, the four signals Google's raters use to judge content quality, with Trustworthiness as the umbrella letter." },
+      ],
       steps: [
         {
           stepId: "step-1-score-the-four-letters",
@@ -6525,6 +8338,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Names a concrete fix for the flagged gap",
       ],
       portfolioReady: true,
+      whatToLookFor: [
+        { label: "Byline specificity", detail: "Does the byline name a real, credentialed individual, or a generic team label?" },
+        { label: "Genuine experience signal", detail: "Is there a first-person detail that proves the author actually did the thing described?" },
+        { label: "Source verifiability", detail: "Can a cited regulation or fact be checked via a direct link or clause number?" },
+        { label: "Downstream dependency", detail: "Does fixing one letter unblock the others, or are the gaps independent?" },
+      ],
+      decision: {
+        prompt:
+          "The byline reads 'Team Digit' with no name, the body includes a genuine first-person 2024 claim story, and 'as per IRDAI norms' is cited with no link. Which fix should happen first?",
+        options: [
+          { id: "a", label: "Add a clause number and direct link to the IRDAI citation", correct: false },
+          { id: "b", label: "Name a licensed claims specialist as the byline author", correct: true },
+          { id: "c", label: "Remove the first-person claim story since it's anecdotal", correct: false },
+          { id: "d", label: "Shorten the article since YMYL content should be concise", correct: false },
+        ],
+        explanation:
+          "Expertise and Authoritativeness both collapse to zero without a named, credentialed author, so that gap blocks the most value and should be fixed first. The sourcing gap matters too, but it's a separate, smaller fix; the first-person story is already a genuine Experience signal worth keeping, not a liability.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Assign a named, licensed claims specialist to the byline before publish, this is the single fix that unblocks both Expertise and Authoritativeness, the two letters currently scoring zero. Follow with a direct link to the specific IRDAI circular being paraphrased to close the Trustworthiness gap. The existing first-person claim narrative is a genuine Experience signal and should stay as-is.",
+      },
+      commonMistakes: [
+        { mistake: "Treating the sourcing gap as the top priority", explanation: "an unverifiable citation matters, but an anonymous byline zeroes out two full E-E-A-T letters at once, a bigger structural problem." },
+        { mistake: "Dismissing the first-person claim story as filler", explanation: "on a YMYL page, a genuine personal experience detail is a real Experience signal and should be preserved, not cut for brevity." },
+        { mistake: "Scoring 'Team Digit' as adequate because the company is legitimate", explanation: "Google's raters look for a named, verifiable individual, a real company name behind a generic team label doesn't substitute for a credentialed author." },
+      ],
+      keyTakeaway:
+        "On YMYL content, an anonymous byline is often the single biggest E-E-A-T gap because it blocks two letters (Expertise, Authoritativeness) at once, not just one. Score all four letters with evidence from the actual text, then fix the gap that unblocks the most value first.",
     },
     {
       id: "eeat-host-safety-guide-teardown",
@@ -6542,6 +8385,14 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Read each specimen's byline block and body excerpt, then list every real E-E-A-T defect, not every difference you notice.",
       mode: "teardown",
       conceptsCovered: ["Author Entity Building (Highest Leverage)", "Trustworthiness: The Most Important Letter"],
+      skills: ["E-E-A-T Evaluation", "Trust & Safety Content Review", "Editorial QA"],
+      keyQuestion: "Which real E-E-A-T defects in this host safety guide put readers or the business at risk, and which differences are just cosmetic?",
+      prerequisites: [
+        "Completion of, or familiarity with, the E-E-A-T four-letter scoring framework",
+      ],
+      terminology: [
+        { term: "Author entity", definition: "a named individual whose credentials and published work can be independently verified off-site, the strongest lever for Expertise and Authoritativeness." },
+      ],
       teardownItems: [
         {
           itemId: "host-injury-guide-byline-block",
@@ -6642,6 +8493,37 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Ties each real defect to the correct E-E-A-T letter",
       ],
       portfolioReady: true,
+      whatToLookFor: [
+        { label: "Named vs. departmental byline", detail: "Is the author a specific, verifiable individual, or a team/department label?" },
+        { label: "Overconfident reassurance", detail: "Does the copy make a blanket coverage or safety claim without citing specific limits or exclusions?" },
+        { label: "Freshness signal", detail: "Is there a visible 'last updated' or review date on content tied to a policy that can change?" },
+        { label: "Cosmetic vs. structural difference", detail: "Is a formatting choice (numbering style, line breaks) being confused with an actual trust defect?" },
+      ],
+      decision: {
+        prompt:
+          "Step 4 of the body excerpt says 'Most injury-related costs are covered, so hosts rarely need to worry about liability,' with no link to AirCover's actual coverage terms. What's the core problem with this sentence?",
+        options: [
+          { id: "a", label: "It's too short compared to the other numbered steps", correct: false },
+          { id: "b", label: "It makes an unsourced blanket reassurance about coverage that could be wrong for a specific host's situation", correct: true },
+          { id: "c", label: "It uses the word 'covered' instead of 'insured'", correct: false },
+          { id: "d", label: "It doesn't mention the Airbnb app", correct: false },
+        ],
+        explanation:
+          "The defect is substantive, not stylistic: an overconfident, unsourced reassurance about coverage is exactly the kind of claim that can mislead a host into a costly liability decision. Word choice and step length are cosmetic and don't affect whether the claim is trustworthy or verifiable.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Do not ship this draft as-is. Replace both departmental bylines with a named, credentialed individual, and rewrite the Step 4 coverage reassurance to cite AirCover's actual limits and exclusions with a link, rather than a blanket 'rarely need to worry' claim. Add a visible last-updated date given that coverage terms can change.",
+      },
+      commonMistakes: [
+        { mistake: "Flagging the 'Reviewed by' formatting as the defect instead of the missing name", explanation: "the real problem is that neither 'Written by' nor 'Reviewed by' names a verifiable individual; how the two lines are laid out doesn't matter." },
+        { mistake: "Missing the overconfident coverage claim because it sounds reassuring", explanation: "a friendly tone doesn't make an unsourced claim trustworthy; 'rarely need to worry' is exactly the kind of overconfidence Google's raters flag on safety-adjacent content." },
+        { mistake: "Treating a numbering or reporting-window detail as a real defect", explanation: "these are the distractors in this exercise; they're differences, not E-E-A-T violations." },
+        { mistake: "Not connecting the missing update date to the coverage claim's risk", explanation: "the freshness gap matters specifically because the page discusses a policy (AirCover) that can change, not as a generic best practice." },
+      ],
+      keyTakeaway:
+        "A trust-and-safety content teardown separates real defects (unverifiable authorship, unsourced reassurances, missing freshness signals) from cosmetic differences that don't affect reader trust. On safety- and money-adjacent content, an overconfident unsourced claim is often the most damaging defect because it can directly mislead a reader's decision.",
     },
   ],
   "entity-seo": [
@@ -6661,6 +8543,15 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Read the JSON-LD snapshot against the lesson's Entity Home checklist, flag missing properties, and identify the one gap that would most block Knowledge Graph merging.",
       mode: "diagnostic",
       conceptsCovered: ["Creating a complete entity home with Organization JSON-LD and sameAs corroboration"],
+      skills: ["Entity SEO", "Structured Data Auditing", "Knowledge Graph Optimization"],
+      keyQuestion: "What is the single highest-value addition to this JSON-LD block for Google to merge the page into a stable entity record?",
+      prerequisites: [
+        "Basic familiarity with reading JSON-LD structured data",
+      ],
+      terminology: [
+        { term: "sameAs", definition: "a JSON-LD property listing links to other authoritative profiles of the same entity (Wikidata, Wikipedia, LinkedIn), which Google uses to corroborate that the entity is real." },
+        { term: "@id", definition: "a stable identifier fragment URL for an entity, allowing other pages to reference the same entity via mainEntityOfPage instead of redefining it." },
+      ],
       steps: [
         {
           stepId: "step-1-audit-the-entity-home",
@@ -6743,6 +8634,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Does not flag correctly-populated fields as problems",
       ],
       portfolioReady: true,
+      whatToLookFor: [
+        { label: "Stable identifier", detail: "Does the Organization block have an @id that other pages can reference, rather than redefining Organization each time?" },
+        { label: "Corroboration links", detail: "Does sameAs point to independent, authoritative sources like Wikidata, Wikipedia, and LinkedIn?" },
+        { label: "On-page vs. off-page signal", detail: "Is the audit distinguishing fields the brand controls (name, logo) from fields that corroborate the brand externally (sameAs)?" },
+        { label: "Leverage of the fix", detail: "Which missing property unlocks the most entity-merging value, not just which is easiest to add?" },
+      ],
+      decision: {
+        prompt:
+          "The JSON-LD block has name, url, logo, and foundingDate filled in correctly, but an empty sameAs array and no @id property. Which single addition unlocks the most entity-merging value?",
+        options: [
+          { id: "a", label: "Add a more detailed logo image with higher resolution", correct: false },
+          { id: "b", label: "Populate the sameAs array with links to Wikidata, Wikipedia, and LinkedIn", correct: true },
+          { id: "c", label: "Rewrite the name field to include additional keywords", correct: false },
+          { id: "d", label: "Add a longer founding history to the foundingDate field", correct: false },
+        ],
+        explanation:
+          "On-page fields like name and logo only describe the brand to a crawler; sameAs is what lets Google corroborate that the entity is a real, already-recognized thing against independent sources, which is the harder-to-fake signal Google weighs most for merging. Improving already-correct on-page fields adds little when the corroboration channel is completely empty.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Populate the sameAs array first, with links to Peloton's Wikidata item, Wikipedia page, LinkedIn company page, and Crunchbase profile, since this is the corroboration signal currently missing entirely. Follow with a stable @id fragment URL so every other page on the site can reference the same entity via mainEntityOfPage instead of redefining Organization.",
+      },
+      commonMistakes: [
+        { mistake: "Assuming correctly-filled on-page fields mean the entity is complete", explanation: "name, logo, and foundingDate describe the brand but don't corroborate it; an empty sameAs array still blocks confident entity merging." },
+        { mistake: "Prioritizing the @id fix over the empty sameAs array", explanation: "sameAs is the harder-to-fake external corroboration signal; without it, even a stable @id has little to merge against." },
+        { mistake: "Treating any single social link as sufficient for sameAs", explanation: "the lesson's checklist expects multiple independent corroboration sources (Wikidata, Wikipedia, LinkedIn, Crunchbase), not just one." },
+      ],
+      keyTakeaway:
+        "A complete entity home needs both self-described fields (name, logo, foundingDate) and externally corroborated ones (sameAs, @id). The corroboration signals are what let Google confidently merge a page into one authoritative entity record, and they're usually the gap worth fixing first.",
     },
     {
       id: "entity-seo-stitch-fix-knowledge-graph-teardown",
@@ -6760,6 +8681,15 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Review the schema snapshot and the off-site mentions snapshot, then list every entity defect against a fixed answer key.",
       mode: "teardown",
       conceptsCovered: ["How Google Builds an Entity Record", "Step 4: Earn third-party co-citations"],
+      skills: ["Entity SEO", "Knowledge Graph Diagnostics", "Competitive Entity Analysis"],
+      keyQuestion: "What entity defects are blocking Stitch Fix from Knowledge Panel and AI Overview visibility that a higher-ranking competitor already has fixed?",
+      prerequisites: [
+        "Familiarity with Organization JSON-LD and the concept of sameAs corroboration",
+      ],
+      terminology: [
+        { term: "Co-citation", definition: "an unstructured mention of a brand alongside category peers (in a roundup article or podcast), which Google weighs as corroboration alongside structured data." },
+        { term: "Wikidata", definition: "a structured, machine-readable knowledge base Google triangulates against when building an entity record, distinct from Wikipedia's prose pages." },
+      ],
       teardownItems: [
         {
           itemId: "stitch-fix-schema-snapshot",
@@ -6881,6 +8811,37 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Ties each real defect to the correct lesson concept",
       ],
       portfolioReady: true,
+      whatToLookFor: [
+        { label: "Entity consistency", detail: "Do all Organization blocks across pages share a single @id and identical name string?" },
+        { label: "Structured vs. unstructured corroboration", detail: "Is the gap in schema (Wikidata, sameAs) or in off-site mentions (podcasts, roundups), or both?" },
+        { label: "Magnitude of the gap", detail: "How large is the difference from the competitor's numbers, not just whether a gap exists?" },
+        { label: "Distractor discipline", detail: "Is a cosmetic detail (URL path, HTML ordering, edit date alone) being mistaken for a structural defect?" },
+      ],
+      decision: {
+        prompt:
+          "Stitch Fix has no Wikidata item, 2 podcast mentions and 3-of-10 roundup appearances in 12 months, versus the competitor's fully populated Wikidata item, 19 podcast mentions, and 9-of-10 roundups. Which factor most directly explains why the competitor appears in AI Overview answers and Stitch Fix does not?",
+        options: [
+          { id: "a", label: "Stitch Fix ranks lower on-page for the target query", correct: false },
+          { id: "b", label: "Stitch Fix is missing both structured (Wikidata) and unstructured (co-citation) corroboration signals the competitor has", correct: true },
+          { id: "c", label: "Stitch Fix's Wikipedia page was last edited in 2019", correct: false },
+          { id: "d", label: "The competitor's Wikidata item has more properties filled than the maximum needed", correct: false },
+        ],
+        explanation:
+          "The scenario states Stitch Fix ranks higher on-page already, ruling out ranking as the explanation. The real gap is that Google and AI Overviews triangulate entity confidence from both structured data (Wikidata) and unstructured co-citations (podcasts, roundups), and Stitch Fix has neither at competitive volume; a stale-but-existing Wikipedia page or a competitor's property count aren't the deciding factors.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Unify the Organization JSON-LD across homepage and /about under one @id with a single consistent name string, and nest the founder as a linked Person entity. In parallel, create a Wikidata item, since Stitch Fix currently has none, and pursue placements in styling-subscription roundup articles and podcast mentions to close the co-citation gap versus the competitor's 19 mentions and 9-of-10 roundup presence.",
+      },
+      commonMistakes: [
+        { mistake: "Treating two separately-defined Organization blocks as a minor duplication", explanation: "without a shared @id, this creates competing entity signals rather than one entity Google can confidently merge, a critical defect, not cosmetic." },
+        { mistake: "Overlooking the founder as a plain string", explanation: "a string value gives Google a name with no way to connect it to a corroborated Person entity, losing the founder-authority boost." },
+        { mistake: "Assuming ranking higher on-page should guarantee AI Overview visibility", explanation: "AI Overviews and Knowledge Panels draw on entity corroboration signals (Wikidata, co-citations) that are independent of on-page ranking strength." },
+        { mistake: "Flagging the Wikipedia page's 2019 edit date as equivalent to having no Wikidata item", explanation: "an existing-but-stale Wikipedia page is a smaller gap than a completely missing Wikidata item, which is an entire missing corroboration channel." },
+      ],
+      keyTakeaway:
+        "Entity strength comes from two separate channels: structured data (a unified Organization block with a stable @id and a populated Wikidata item) and unstructured co-citations (roundups, podcasts, press). A brand can out-rank a competitor on-page and still lose AI Overview visibility if either channel is significantly weaker.",
     },
   ],
 
@@ -6901,6 +8862,15 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Tag every post by the subtopic it actually addresses, group subtopics with enough posts into cluster candidates, and flag the orphans in writing.",
       mode: "diagnostic",
       conceptsCovered: ["Auditing existing content for cluster candidates before writing anything new"],
+      skills: ["Content Auditing", "Topic Clustering", "Editorial Planning"],
+      keyQuestion: "How many real content clusters already exist buried in this archive, and which posts are orphans with no cluster fit?",
+      prerequisites: [
+        "Basic spreadsheet sorting and grouping",
+      ],
+      terminology: [
+        { term: "Cluster candidate", definition: "a subtopic with enough existing posts (3 or more) to be retrofitted into a pillar-and-cluster structure, rather than requiring brand-new content." },
+        { term: "Orphan post", definition: "a post whose subtopic has no siblings in the archive, and therefore doesn't belong to any coherent cluster." },
+      ],
       steps: [
         {
           stepId: "step-1-audit-existing-archive",
@@ -6995,6 +8965,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
       stretch:
         "Pull a real Search Console export for a blog you have access to and run this same tag-and-count audit against it.",
+      whatToLookFor: [
+        { label: "Subtopic consistency", detail: "Does each post's tag reflect what it actually covers, not just a keyword in the title?" },
+        { label: "Cluster threshold", detail: "Does a subtopic have 3 or more posts, the minimum to call it a cluster candidate?" },
+        { label: "Genuine orphans", detail: "Is a single-post subtopic really unrelated to every other post, or does it belong to a cluster that just needs a different tag?" },
+        { label: "Retrofit vs. new content", detail: "Can the cluster be built from what already exists, or does it need 2-3 new posts to round it out?" },
+      ],
+      decision: {
+        prompt:
+          "The archive audit shows API integration (5 posts), agent onboarding (4 posts), distribution pricing (3 posts), and 5 single-post orphans (an award announcement, an office holiday note, etc.). What should this quarter's content plan prioritize?",
+        options: [
+          { id: "a", label: "Write brand-new pillar pages for all subtopics, ignoring the existing 16 posts", correct: false },
+          { id: "b", label: "Retrofit the API integration and agent onboarding tags into pillar-cluster structures first, since they already have enough posts", correct: true },
+          { id: "c", label: "Force the 5 orphan posts into the nearest cluster to make the numbers look complete", correct: false },
+          { id: "d", label: "Wait until all tags reach 5+ posts before building any cluster", correct: false },
+        ],
+        explanation:
+          "The two tags with 3+ posts already are retrofit opportunities that deliver faster gains than starting from a blank page, exactly what the lesson's Step 2 recommends checking first. Writing everything from scratch ignores existing raw material, forcing orphans into a cluster they don't belong to dilutes topical coherence, and waiting for an arbitrary higher post count delays action for no real benefit.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Retrofit the API integration (5 posts) and agent onboarding (4 posts) subtopics into pillar-and-cluster structures this quarter, since both already clear the 3-post cluster threshold. Brief 2-3 additional articles for the distribution pricing subtopic to round it out to a full cluster, and leave the 5 single-post orphans alone rather than forcing them into a cluster they don't fit.",
+      },
+      commonMistakes: [
+        { mistake: "Treating every existing post as needing a new cluster written around it", explanation: "the lesson's Step 2 point is that most of the raw material already exists; auditing first avoids commissioning duplicate content." },
+        { mistake: "Forcing orphan posts into the nearest cluster tag", explanation: "an award announcement or office holiday post has no genuine subtopic overlap with a cluster; forcing the fit signals scattered, not authoritative, coverage." },
+        { mistake: "Ignoring a 3-post tag because it's not yet a large cluster", explanation: "3 posts already clears the cluster-candidate threshold; treating it as too small to matter misses a fast retrofit opportunity." },
+      ],
+      keyTakeaway:
+        "Before commissioning new content, audit what already exists: most archives already contain the raw material for 2-3 real clusters. Tagging and grouping by subtopic surfaces genuine retrofit opportunities and keeps true orphans from being force-fit into clusters they don't belong to.",
     },
     {
       id: "content-clusters-nubank-pillar-teardown",
@@ -7014,6 +9014,14 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       conceptsCovered: [
         "Building clusters around audience questions, not products",
         "Internal linking as the load-bearing structure of a cluster",
+      ],
+      skills: ["Content Auditing", "Editorial Review", "Content Cluster Strategy"],
+      keyQuestion: "Which structural defects actually disqualify these drafts from being real pillar pages, versus normal editorial choices?",
+      prerequisites: [
+        "Familiarity with the pillar-and-cluster content model",
+      ],
+      terminology: [
+        { term: "Pillar page", definition: "a comprehensive page (typically 3,000-5,000 words) that introduces every subtopic of a broad question and links out to a dedicated cluster article for each one." },
       ],
       teardownItems: [
         {
@@ -7124,6 +9132,37 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Does not flag either distractor in either item as a defect",
       ],
       portfolioReady: true,
+      whatToLookFor: [
+        { label: "Audience question vs. product feature", detail: "Does each H2 answer a question a reader would search, or sell a product feature?" },
+        { label: "Standalone value", detail: "Would the page have value to someone who has never heard of the brand?" },
+        { label: "Link presence, not just plan", detail: "Are the outbound links actually in the draft, or deferred to 'add later'?" },
+        { label: "Topical fit", detail: "Does every cluster article answer a real subtopic of the pillar's question, with nothing off-topic mixed in?" },
+      ],
+      decision: {
+        prompt:
+          "Draft 2's pillar page ships with zero outbound links because 'links will be added after all 9 cluster articles are live.' What's the actual consequence of this plan?",
+        options: [
+          { id: "a", label: "None, since the links will exist eventually once all articles are published", correct: false },
+          { id: "b", label: "The pillar and its clusters function as disconnected pages until someone manually adds the links, and link authority can't flow between them until then", correct: true },
+          { id: "c", label: "It's fine because Google can infer the relationship from the shared topic without explicit links", correct: false },
+          { id: "d", label: "Only the pillar page is affected; the cluster articles work normally", correct: false },
+        ],
+        explanation:
+          "The lesson is explicit that internal links are the entire value of a cluster: without them, Google cannot understand how the pages relate, and link authority earned by cluster articles never flows to the pillar. 'Add links later' is a real defect, not a scheduling detail, because it leaves both the pillar and the cluster underperforming until someone remembers to close the loop, and topical proximity alone does not substitute for an actual link.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Reject Draft 1 as a product-features page in pillar-page disguise, it needs to be reframed around a real audience question and expanded to 3,000-5,000 words with links to genuine cluster content before it can serve as a pillar. Hold Draft 2 from publishing until the outbound links to all 9 cluster articles are actually in place, not deferred, and remove Article 8 (Q3 earnings) from the cluster since it answers no question a credit-score researcher would ask.",
+      },
+      commonMistakes: [
+        { mistake: "Approving a page as a pillar because it's long and well-organized", explanation: "structure and length alone don't make a pillar page; every H2 needs to answer an audience question, not sell a feature." },
+        { mistake: "Accepting 'links will be added later' as an acceptable publishing plan", explanation: "internal links are the load-bearing structure of a cluster; a pillar with no links is functionally disconnected from its cluster until the links exist." },
+        { mistake: "Missing an off-topic article buried in an otherwise-relevant list", explanation: "one unrelated article (like a corporate earnings post) dilutes topical depth and signals scattered coverage, even if the other 8 articles are correct." },
+        { mistake: "Flagging a CTA button or word-count-per-section as a defect", explanation: "these are the distractors in both items; a call-to-action or per-section length choice is a normal editorial decision, not a structural disqualifier." },
+      ],
+      keyTakeaway:
+        "A real pillar page has standalone value to a reader who's never heard of the brand and ships with its internal links already in place, not planned for later. Reviewing a draft against this definition, rather than its polish or length, is what separates a genuine cluster hub from a features page or an unlinked set of articles.",
     },
   ],
   "zero-click-search": [
@@ -7143,6 +9182,15 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Sort the export by the impressions-to-CTR gap, flag the queries most likely being intercepted by a SERP feature, and name which feature type each one probably faces.",
       mode: "diagnostic",
       conceptsCovered: ["Identifying zero-click risk using the impressions-high/CTR-low signal"],
+      skills: ["Zero-Click Search Analysis", "Search Console Auditing", "SERP Feature Diagnosis"],
+      keyQuestion: "Which queries are losing clicks to a SERP feature rather than a ranking problem, and which SERP feature is most likely intercepting each?",
+      prerequisites: [
+        "Basic familiarity with Google Search Console's Performance report",
+      ],
+      terminology: [
+        { term: "Zero-click search", definition: "a search where the user gets their answer directly on the results page (via a featured snippet, AI Overview, or similar feature) without clicking through to any website." },
+        { term: "Impressions-high/CTR-low signature", definition: "a query pattern where a page appears frequently in search results but rarely gets clicked, almost always signaling a SERP feature is intercepting the click, not a ranking problem." },
+      ],
       steps: [
         {
           stepId: "step-1-serp-feature-audit",
@@ -7223,6 +9271,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       ],
       portfolioReady: true,
       stretch: "Pull your own Search Console export and run the same impressions-vs-CTR scan against real data.",
+      whatToLookFor: [
+        { label: "CTR threshold", detail: "Is CTR under roughly 1% while impressions are high, the specific signature of SERP-feature interception?" },
+        { label: "Query phrasing", detail: "Does the query's phrasing suggest a direct answer box, featured snippet, or AI Overview is likely being triggered?" },
+        { label: "Intent match", detail: "Is the query informational (at risk of zero-click) or transactional/comparison (less likely to be intercepted)?" },
+        { label: "Business impact", detail: "Does the flagged query represent enough impression volume to be worth acting on?" },
+      ],
+      decision: {
+        prompt:
+          "Two queries show CTR under 1% at high impressions ('how long does ice last', 'what temperature does dry ice freeze'), while 'yeti tundra 45 vs 65 comparison' has a healthy 9.35% CTR. What should the team do differently for the comparison query versus the two flagged ones?",
+        options: [
+          { id: "a", label: "Treat all three the same and try to improve rankings for each", correct: false },
+          { id: "b", label: "Rewrite the two flagged queries as snippet-bait content, and protect and invest further in the comparison query since it still converts", correct: true },
+          { id: "c", label: "Deprioritize the comparison query since its impressions are lower", correct: false },
+          { id: "d", label: "Assume the two flagged queries have a content-quality problem and rewrite the entire guide from scratch", correct: false },
+        ],
+        explanation:
+          "The comparison query's high CTR shows it isn't being intercepted by a zero-click feature, so it deserves continued investment, not deprioritization based on impression count alone. The two flagged queries have a SERP-feature-interception problem, not a content-quality or ranking problem, so the fix is a targeted snippet-bait rewrite of the answer, not a full rewrite or an attempt to 'rank higher' for a query already at position one against a 100% zero-click feature.",
+      },
+      professionalRecommendation: {
+        priority: "Medium",
+        text:
+          "Rewrite the opening paragraphs of the two flagged how-to queries as 40-60 word direct answers per the lesson's Step 2, since no ranking improvement will fix a direct-answer-box interception. Leave the comparison query's content as-is and continue investing in it, its 9.35% CTR confirms it converts and is not being intercepted by a zero-click feature.",
+      },
+      commonMistakes: [
+        { mistake: "Treating a low CTR as a ranking problem and trying to 'improve position'", explanation: "position 1 with a 100% zero-click feature still yields near-zero clicks; the fix is content restructuring, not rank chasing." },
+        { mistake: "Flagging the comparison query because its impressions are lower than the informational ones", explanation: "CTR, not raw impressions, is the signal that matters here; the comparison query's healthy CTR means it isn't being intercepted." },
+        { mistake: "Guessing the SERP feature without checking query phrasing", explanation: "a 'how long does X last' phrasing suggests a direct answer box while a 'best way to X' suggests a snippet or AI Overview; matching phrasing to feature type keeps the inference grounded, not arbitrary." },
+      ],
+      keyTakeaway:
+        "A high-impressions, low-CTR query is a SERP-feature-interception problem, not a ranking problem, and needs a different fix: rewriting the answer to be snippet-bait, or accepting the brand impression. Queries with healthy CTR at any impression volume should be protected and invested in, not lumped in with the zero-click queries.",
     },
     {
       id: "zero-click-search-blue-apron-snippet-bait-build",
@@ -7242,6 +9320,15 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       conceptsCovered: [
         "Writing a 40-60 word snippet-bait answer",
         "Adding FAQPage schema to make an answer machine-extractable",
+      ],
+      skills: ["Snippet-Bait Writing", "FAQPage Schema Markup", "Zero-Click Search Optimization"],
+      keyQuestion: "How do you rewrite an existing page's opening into a machine-extractable direct answer, and mark it up so Google can reliably parse it?",
+      prerequisites: [
+        "Basic JSON syntax familiarity",
+      ],
+      terminology: [
+        { term: "Snippet-bait", definition: "a concise 40-60 word direct answer placed immediately below a question heading, with no preamble, written specifically to be the block Google extracts into featured snippets and AI Overviews." },
+        { term: "FAQPage schema", definition: "a JSON-LD structured data type that labels visible question-and-answer content so search engines can parse it reliably; its text must match the visible page exactly." },
       ],
       steps: [
         {
@@ -7377,6 +9464,37 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       ],
       portfolioReady: true,
       stretch: "Rewrite 3 more recipe-guide openings from the same site using this exact before/after process, then batch-validate all 4 schema blocks in Google's Rich Results Test.",
+      whatToLookFor: [
+        { label: "Answer position", detail: "Does the direct answer appear in sentence one, with zero preamble above it?" },
+        { label: "Word count discipline", detail: "Does the rewritten answer land within the 40-60 word range, not just 'shorter than before'?" },
+        { label: "Schema-content match", detail: "Does the FAQPage schema's question and answer text match the visible page exactly, word for word?" },
+        { label: "Specificity retained", detail: "Does the rewrite keep the concrete numbers (temperature, time) that made the original answer useful?" },
+      ],
+      decision: {
+        prompt:
+          "The rewritten answer is complete and the FAQPage schema is drafted. Before handoff to a developer, what's the most important check to run?",
+        options: [
+          { id: "a", label: "Confirm the schema's question and answer text match the visible page content exactly, word for word", correct: true },
+          { id: "b", label: "Confirm the schema uses as many additional properties as possible for richness", correct: false },
+          { id: "c", label: "Confirm the rewritten answer is under 40 words to be as concise as possible", correct: false },
+          { id: "d", label: "Confirm the brand-voice intro sentence is deleted entirely rather than moved", correct: false },
+        ],
+        explanation:
+          "Google's guidelines treat mismatched schema (text in the markup that differs from what's visible on the page) as a spam signal that can disqualify the page from rich results entirely, making this the single most important check. Extra unrelated schema properties don't help and can add noise, going under the 40-word floor risks losing necessary specificity, and the brand-voice intro doesn't need to be deleted, just moved below the answer per the lesson's Step 2.",
+      },
+      professionalRecommendation: {
+        priority: "Medium",
+        text:
+          "Ship the rewritten 40-60 word direct answer with the brand-voice intro moved below it, not deleted, and hand off the FAQPage JSON-LD block to a developer only after validating in Google's Rich Results Test that the schema's question and answer text match the visible page exactly. A text mismatch is the most common reason this kind of schema silently fails to produce rich results.",
+      },
+      commonMistakes: [
+        { mistake: "Leaving the brand-voice intro sentence above the rewritten answer", explanation: "any preamble above the direct answer, even a short one, pushes the extractable answer out of the first sentence, defeating the rewrite's purpose." },
+        { mistake: "Writing schema text that paraphrases the visible answer instead of matching it exactly", explanation: "Google's guidelines treat mismatched schema as a spam signal, which can disqualify the page from rich results, not just fail to help it." },
+        { mistake: "Trimming the rewrite below 40 words to seem more concise", explanation: "the target range exists to keep essential specifics (temperature, time) intact; cutting too aggressively can drop the details that made the answer citable in the first place." },
+        { mistake: "Assuming schema markup alone will fix a zero-click problem without the on-page rewrite", explanation: "schema labels what's already visible, it doesn't add new information; the underlying answer still has to be direct and complete." },
+      ],
+      keyTakeaway:
+        "Winning back a lost featured snippet takes two matched pieces of work: a concise, specific, no-preamble answer in the first sentence, and schema markup whose text mirrors that answer exactly. Either piece alone is incomplete, a great answer buried in preamble or a mismatched schema block both fail to earn the rich result.",
     },
   ],
 
@@ -7399,6 +9517,16 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       conceptsCovered: [
         "Correcting Knowledge Panel facts through Google Business Profile and Wikidata",
         "Prioritizing which review platforms matter based on audience",
+      ],
+      skills: ["Brand SERP Auditing", "Online Reputation Management", "Prioritization"],
+      keyQuestion: "Which Brand SERP problem, an outdated fact or a missing review presence, actually costs this company deals?",
+      prerequisites: [
+        "Familiarity with what a Google Knowledge Panel is",
+        "Basic understanding of B2B vs. consumer buyer research habits",
+      ],
+      terminology: [
+        { term: "Knowledge Panel", definition: "the structured info box Google shows next to search results for a recognized company, pulled from sources like Google Business Profile and Wikidata." },
+        { term: "Brand SERP", definition: "the search results page that appears when someone searches a company's own name." },
       ],
       steps: [
         {
@@ -7485,6 +9613,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Matches the review-platform gap to the company's actual B2B buyer, not the platform with the highest visible star rating",
       ],
       portfolioReady: true,
+      whatToLookFor: [
+        { label: "Feeder source", detail: "Which of the three sources, Google Business Profile, Wikidata, or Wikipedia, actually owns the wrong fact?" },
+        { label: "Buyer match", detail: "Does the review platform with the biggest gap actually match who this company's real buyer is?" },
+        { label: "Visible vs real risk", detail: "Is the most visually prominent number (a high star rating) hiding a bigger structural gap (zero B2B reviews)?" },
+        { label: "Fix order", detail: "Which correction updates fastest, and which one feeds into Google indirectly and takes longer?" },
+      ],
+      decision: {
+        prompt:
+          "The Knowledge Panel has an outdated address and broken redirect, and the company has a 4.7-star Google rating but zero G2/Capterra presence, while selling B2B software. Which should be fixed first?",
+        options: [
+          { id: "a", label: "The Knowledge Panel address, since it's the most visible element on the page", correct: false },
+          { id: "b", label: "Both matter, but for a B2B seller the missing G2/Capterra presence is the bigger risk since it's invisible at the buyer's actual validation moment", correct: true },
+          { id: "c", label: "Neither, since a 4.7-star rating already proves the brand reputation is healthy", correct: false },
+          { id: "d", label: "The redirect chain, since broken links always outrank review gaps in priority", correct: false },
+        ],
+        explanation:
+          "The Knowledge Panel fix matters, but it's a fast, low-effort correction. The real risk is that a strong-looking consumer rating masks total invisibility on the platforms B2B buyers actually check before purchasing, that gap costs deals, not just polish.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Fix the Knowledge Panel facts within the week since they're quick wins, but treat the G2/Capterra review gap as the priority project: launch a review-collection push targeting recent enterprise customers, since that's where this company's actual buyer looks before deciding.",
+      },
+      commonMistakes: [
+        { mistake: "Fixing only the most visible SERP element", explanation: "a wrong address is obvious, but an invisible review gap on the platform your actual buyer checks can be more costly and easy to miss." },
+        { mistake: "Judging brand health by a single star rating", explanation: "a strong consumer rating on one platform says nothing about presence on the B2B-specific platforms that matter for this buyer." },
+        { mistake: "Fixing Wikidata before Google Business Profile", explanation: "Google Business Profile updates fastest, doing it first buys time while the slower Wikidata correction propagates." },
+      ],
+      keyTakeaway:
+        "A Brand SERP audit has to weigh visibility against relevance, the most eye-catching element isn't always the one costing the company deals. Matching each platform to the audience it actually influences is what turns a scored checklist into a real prioritization call.",
     },
     {
       id: "yelp-brand-serp-teardown",
@@ -7505,6 +9663,16 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Managing Review Aggregate Scores",
         "Suppressing Negative Results",
         "Brand Keyword Strategy",
+      ],
+      skills: ["Brand SERP Auditing", "Reputation Triage", "Client Reporting"],
+      keyQuestion: "Which elements on this Brand SERP are genuine defects that need fixing, and which just look suspicious but are actually fine?",
+      prerequisites: [
+        "Understanding of the 10 elements that make up a Brand SERP",
+        "Familiarity with negative-result suppression tactics",
+      ],
+      terminology: [
+        { term: "Suppression", definition: "the practice of pushing negative or outdated content further down a Brand SERP by publishing fresher, more authoritative owned or earned content." },
+        { term: "Sitelinks", definition: "the extra links Google sometimes shows beneath a main result, usually pointing to key pages on the same site." },
       ],
       teardownItems: [
         {
@@ -7582,6 +9750,37 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       ],
       portfolioReady: true,
       stretch: "Draft the actual '[Brand] vs [competitor]' page outline that would close the gap identified in defect 6.",
+      whatToLookFor: [
+        { label: "Contact accuracy", detail: "Are Knowledge Panel facts, address, phone, founding year, actually correct and current?" },
+        { label: "Review responsiveness", detail: "Are recent negative reviews answered, or left sitting unaddressed?" },
+        { label: "Content freshness", detail: "Is old negative content still ranking with nothing newer published to counter it?" },
+        { label: "Neutral or positive signals mistaken for defects", detail: "Does a healthy element, like a strong third-party review score, get incorrectly flagged as a problem?" },
+      ],
+      decision: {
+        prompt:
+          "The specimen shows a Trustpilot page ranking at position 6 with 4.6/5 from 210 reviews, and a 'Careers' sitelink instead of a product page. Should either be flagged as a defect?",
+        options: [
+          { id: "a", label: "Yes, both should be flagged since neither is a core Brand SERP element the company controls directly", correct: false },
+          { id: "b", label: "No, both are healthy signals, a strong third-party review score builds trust and a Careers sitelink is a recognized win, not a flaw", correct: true },
+          { id: "c", label: "Only the Trustpilot page should be flagged, since third-party sites dilute owned-domain authority", correct: false },
+          { id: "d", label: "Only the Careers sitelink should be flagged, since it should be a product category page instead", correct: false },
+        ],
+        explanation:
+          "The lesson's framework treats a strong third-party review score as reinforcing trust, not undermining it, and ranking for brand-adjacent hiring searches is called out as a recommended win. Flagging either as a defect would be treating a healthy signal as a problem, exactly the trap the distractors are designed to test.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Prioritize the three critical defects first: correct the Knowledge Panel's founding year and disconnected phone number, respond to the unanswered recent negative review, and begin suppression work against the five-year-old Reddit thread with fresh, authoritative published content. The moderate-severity gaps, the unanswered lawsuit question and missing comparison page, follow once the critical fixes are underway.",
+      },
+      commonMistakes: [
+        { mistake: "Flagging a strong third-party review score as a defect", explanation: "a healthy Trustpilot or similar rating reinforces trust; it's a distractor designed to test whether every unfamiliar element gets treated as a problem." },
+        { mistake: "Missing an unanswered negative review because the aggregate score looks acceptable", explanation: "a 3.2-star average can still hide a very recent, unanswered complaint that signals the business isn't monitoring feedback." },
+        { mistake: "Treating all defects as equal priority", explanation: "a disconnected phone number and a missing comparison page are not the same severity; sorting by real business impact matters more than listing everything found." },
+        { mistake: "Assuming the absence of an element, like a video carousel, is itself a defect", explanation: "some elements are optional or rare for a category; their absence alone isn't automatically a problem." },
+      ],
+      keyTakeaway:
+        "A Brand SERP teardown succeeds by separating genuine defects, wrong facts, unanswered complaints, unaddressed negative content, from elements that only look suspicious at first glance. The distractors exist because over-flagging is as costly to a client relationship as under-flagging.",
     },
   ],
   "ai-search-visibility-metrics": [
@@ -7602,6 +9801,16 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       conceptsCovered: [
         "Building a repeatable prompt panel to measure citation rate and share of voice",
         "Normalizing citation rate against each model's own baseline mention rate before comparing",
+      ],
+      skills: ["AI Search Measurement", "Data Normalization", "Cross-Engine Comparison"],
+      keyQuestion: "Which AI engine actually needs attention once citation rate is compared against each engine's own baseline, not the raw numbers?",
+      prerequisites: [
+        "Understanding of what a citation rate measures",
+        "Basic comfort building and reading a comparison table in a spreadsheet",
+      ],
+      terminology: [
+        { term: "Citation rate", definition: "the percent of a defined prompt set where an AI engine links to or names your content." },
+        { term: "Baseline mention rate", definition: "how often an engine names any brand at all for a category, used to normalize citation rate before comparing engines." },
       ],
       steps: [
         {
@@ -7683,6 +9892,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Does not recommend deprioritizing the engine with the lowest raw citation rate without checking its baseline first",
       ],
       portfolioReady: true,
+      whatToLookFor: [
+        { label: "Raw vs normalized", detail: "Is the comparison based on raw citation counts, or each engine's own baseline mention rate for the category?" },
+        { label: "Sample size", detail: "Is the prompt panel large enough (15-30 prompts) to be a reasonable trend snapshot, not a single query?" },
+        { label: "Trend, not snapshot", detail: "Is this framed as one week's reading, with a plan to re-run weekly, or treated as a final verdict?" },
+        { label: "Direction of the gap", detail: "Does normalizing the numbers actually flip which engine looks like the real priority?" },
+      ],
+      decision: {
+        prompt:
+          "Raw citation rates are ChatGPT 40%, Perplexity 20%, Google AI Overviews 13%. Category baselines are ChatGPT 90%, Perplexity 45%, Google AI Overviews 20%. Which engine should leadership actually prioritize?",
+        options: [
+          { id: "a", label: "Google AI Overviews, since it has the lowest raw citation rate", correct: false },
+          { id: "b", label: "ChatGPT and Perplexity, since both are tied at a 44% normalized share, weaker than Google's 65% normalized share", correct: true },
+          { id: "c", label: "None of them, since all three raw rates are already reasonably close together", correct: false },
+          { id: "d", label: "Perplexity, since its raw rate sits exactly in the middle of the other two", correct: false },
+        ],
+        explanation:
+          "Once each engine's rate is divided by its own baseline, ChatGPT and Perplexity both land at 44% of their baseline, while Google AI Overviews reaches 65%, the opposite of what the raw numbers suggest. Raw citation rate alone would have pointed leadership at the wrong engine.",
+      },
+      professionalRecommendation: {
+        priority: "Medium",
+        text:
+          "Report both raw and normalized numbers to leadership, but base the actual prioritization on normalized share: focus improvement work on ChatGPT and Perplexity, not Google AI Overviews, and re-run this same prompt panel weekly to confirm the pattern holds before committing further resources.",
+      },
+      commonMistakes: [
+        { mistake: "Comparing raw citation rates across engines without normalizing", explanation: "different models mention any brand at very different baseline rates, so a low raw number can still represent strong relative performance." },
+        { mistake: "Drawing a conclusion from a single week's run", explanation: "AI answers are non-deterministic; one week's numbers are a data point, not a trend, until repeated." },
+        { mistake: "Skipping the baseline check because it takes extra time", explanation: "the baseline run is the step that prevents a completely backwards conclusion about which engine is underperforming." },
+      ],
+      keyTakeaway:
+        "Raw citation counts across AI engines are not directly comparable, each engine has its own baseline rate for how often it names any brand in a category. Normalizing against that baseline before ranking engines can completely reverse which one actually needs attention.",
     },
     {
       id: "tbo-tek-ai-measurement-teardown",
@@ -7700,6 +9939,16 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Rank Tracking Was Built for a World That Is Disappearing",
         "Brand Mention Tracking Across Models",
         "AI-Referral Traffic in GA4",
+      ],
+      skills: ["AI Search Measurement", "Methodology Review", "GA4 Analysis"],
+      keyQuestion: "Which conclusions in this draft report are backed by sound methodology, and which are drawn from flawed measurement?",
+      prerequisites: [
+        "Familiarity with citation rate and baseline normalization",
+        "Basic understanding of GA4 channel groupings",
+      ],
+      terminology: [
+        { term: "Rolling window", definition: "measuring a metric across repeated runs over time instead of trusting a single snapshot, since AI answers vary run to run." },
+        { term: "Channel group", definition: "a GA4 configuration that buckets traffic sources under a label; AI referral sources not natively recognized fall into generic Referral or Direct unless a custom group is built." },
       ],
       teardownItems: [
         {
@@ -7769,6 +10018,38 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Does not flag any of the 4 distractors as genuine flaws",
       ],
       portfolioReady: true,
+      whatToLookFor: [
+        { label: "Sample size", detail: "Is a conclusion drawn from a single query, or a rolling window across a defined prompt set?" },
+        { label: "Normalization", detail: "Are citation rates compared raw, or against each engine's own category baseline?" },
+        { label: "GA4 channel coverage", detail: "Does the report account for AI referral traffic hiding in Referral or Direct when it isn't in the native AI Assistant channel?" },
+        { label: "Causal overreach", detail: "Does a recommendation claim a tactic will produce a specific result without controlled evidence?" },
+        { label: "False positives", detail: "Is a genuinely sound practice, like a raw number report or a rolling weekly panel, mistakenly flagged as a flaw?" },
+      ],
+      decision: {
+        prompt:
+          "Item #3 says GA4's native AI Assistant channel shows 0 sessions, so the report concludes AI search sends zero traffic. What's the correct read?",
+        options: [
+          { id: "a", label: "The conclusion is correct, since GA4's native channel is the authoritative source for all AI referral traffic", correct: false },
+          { id: "b", label: "The conclusion is flawed, since the native channel only recognizes ChatGPT, Gemini, and Claude, so Perplexity and Copilot traffic can be hiding in Referral or Direct", correct: true },
+          { id: "c", label: "The conclusion is flawed, but only because the report should have checked Search Console instead of GA4", correct: false },
+          { id: "d", label: "The conclusion is correct, but the report should have run it over a longer date range first", correct: false },
+        ],
+        explanation:
+          "GA4's native AI Assistant channel does not recognize every AI engine. Perplexity and Copilot traffic lands in generic Referral or Direct unless a custom channel group is built to bucket those domains explicitly, so a 0-session reading from the native channel alone understates real AI traffic.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Send this report back to the contractor before it reaches the VP. Require a rolling-window re-measurement instead of the single-query check, a normalized citation comparison instead of raw counts, and a custom GA4 channel group for Perplexity and Copilot before any 'zero AI traffic' claim is repeated.",
+      },
+      commonMistakes: [
+        { mistake: "Accepting a one-query result as a finished measurement", explanation: "AI answers vary between runs; a single check is a spot-check, not a report-ready conclusion." },
+        { mistake: "Trusting GA4's native AI channel as complete", explanation: "it only recognizes a subset of engines; unrecognized ones need an explicit custom channel group or their traffic hides in Referral or Direct." },
+        { mistake: "Flagging accurate raw-number reporting as a flaw", explanation: "reporting the raw numbers is fine; the actual problem is the unnormalized conclusion drawn from them, not the numbers themselves." },
+        { mistake: "Predicting a specific tactic's impact without controlled evidence", explanation: "a recommendation like 'this will double citations' needs a cited study or test, not an assumption." },
+      ],
+      keyTakeaway:
+        "A methodology teardown means separating what's actually wrong, unnormalized comparisons, single-snapshot conclusions, incomplete GA4 coverage, from what only looks suspicious, like reporting raw numbers or planning a weekly re-run. Both an under-caught flaw and an over-flagged non-issue weaken the review's credibility.",
     },
   ],
 
@@ -7789,6 +10070,15 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Sort every query into one of the four intent types before recommending a single page. Use the SERP-detective method from the lesson, not a guess from the keyword text alone.",
       mode: "diagnostic",
       conceptsCovered: ["Classifying queries by the four intent types before recommending content"],
+      skills: ["Search Intent Classification", "Content Prioritization", "SERP Analysis"],
+      keyQuestion: "Which of these queries deserve a dedicated landing page this sprint, and which would waste the build?",
+      prerequisites: [
+        "Familiarity with the four search intent types: informational, navigational, commercial, transactional",
+      ],
+      terminology: [
+        { term: "Search intent", definition: "the underlying goal behind a query, whether the searcher wants to learn, find a specific site, compare options, or buy." },
+        { term: "SERP-detective method", definition: "determining a query's real intent by checking what format actually ranks, rather than guessing from the keyword's wording alone." },
+      ],
       steps: [
         {
           stepId: "step-1-classify-queries",
@@ -7871,6 +10161,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       ],
       portfolioReady: true,
       stretch: "Re-run this sort against 10 real queries from your own site's Search Console export.",
+      whatToLookFor: [
+        { label: "SERP format, not keyword wording", detail: "Does the top-5 SERP show product pages, articles, or a brand page, regardless of how the query is phrased?" },
+        { label: "Generic-sounding queries", detail: "Does a query that reads generic actually have a clearly commercial or transactional SERP underneath it?" },
+        { label: "Build discipline", detail: "Is a landing page only recommended for commercial/transactional queries, with informational queries routed to the blog backlog instead?" },
+        { label: "Navigational queries", detail: "Are brand-specific queries correctly routed to an existing support/login page instead of new content?" },
+      ],
+      decision: {
+        prompt:
+          "'best bulk paper towel supplier 2016' reads like a generic research query, but its top-5 SERP is comparison/review articles. Should this get a dedicated landing page this sprint?",
+        options: [
+          { id: "a", label: "No, skip it entirely since it sounds too generic to convert", correct: false },
+          { id: "b", label: "Yes, build it as a product category page since it mentions a specific product", correct: false },
+          { id: "c", label: "Yes, but as a comparison page matching the commercial-intent SERP, not a product category page", correct: true },
+          { id: "d", label: "No, route it to the informational blog backlog since it reads like a research question", correct: false },
+        ],
+        explanation:
+          "The SERP shows comparison and review articles ranking, which signals commercial intent, someone comparing suppliers before buying, not simply researching a topic. The query text alone reads generic, but the SERP-detective method reveals it belongs in this sprint as a comparison page, not a plain product page or the blog backlog.",
+      },
+      professionalRecommendation: {
+        priority: "Medium",
+        text:
+          "Build the 2 transactional queries as product/category pages and the 1 commercial query as a comparison page this sprint. Route the 4 informational queries to the blog backlog and treat the 2 navigational queries as already served by existing brand pages, no new content needed for those.",
+      },
+      commonMistakes: [
+        { mistake: "Classifying intent from the keyword wording instead of the SERP", explanation: "a query can sound generic or specific and still mislead; only the actual ranking format reveals real intent." },
+        { mistake: "Building a landing page for a high-volume informational query", explanation: "volume doesn't override intent; a page competing against how-to articles for a shopping-intent format won't rank or convert." },
+        { mistake: "Treating navigational queries as content opportunities", explanation: "queries like brand-plus-login or brand-plus-support usually just need the existing page found, not new content built." },
+      ],
+      keyTakeaway:
+        "Search intent is revealed by what's actually ranking, not by how a query reads. Sorting a backlog by checking the SERP first, then assigning format, prevents building pages that can never win against what's already satisfying that intent.",
     },
     {
       id: "modcloth-serp-mismatch-teardown",
@@ -7888,6 +10208,16 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Read the specimen brief and the SERP context supplied with it, then separate genuine intent-mismatch defects from choices that are actually fine.",
       mode: "teardown",
       conceptsCovered: ["The 4 Types of Search Intent", "Why Intent Mismatch Is a Silent Killer"],
+      skills: ["Search Intent Classification", "Content Brief Review", "SERP Analysis"],
+      keyQuestion: "Which parts of this page brief will actually keep it from ranking or converting, and which are harmless choices?",
+      prerequisites: [
+        "Understanding of the four search intent types",
+        "Familiarity with how pogo-sticking signals a content-format mismatch to Google",
+      ],
+      terminology: [
+        { term: "Pogo-sticking", definition: "when a searcher clicks a result, immediately bounces back to the SERP, and clicks a different result, a signal that the page didn't satisfy their intent." },
+        { term: "Intent mismatch", definition: "when a page's format doesn't match what the SERP shows searchers actually want for that query." },
+      ],
       teardownItems: [
         {
           itemId: "modcloth-dress-brief-teardown",
@@ -7961,6 +10291,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Names the one format change (category/product grid) that fixes the brief",
       ],
       portfolioReady: true,
+      whatToLookFor: [
+        { label: "Format match", detail: "Does the brief's page format match what's actually ranking, shoppable pages vs. an essay or article?" },
+        { label: "Conversion path", detail: "Does the page include the elements a shopping-intent visitor needs, like product links, or only content?" },
+        { label: "CTA alignment", detail: "Does the call-to-action match what the query's intent suggests the visitor wants to do next?" },
+        { label: "Cosmetic vs structural issues", detail: "Is a flagged item, like keyword repetition or publish timing, actually a structural intent problem, or just a minor style choice?" },
+      ],
+      decision: {
+        prompt:
+          "The brief includes 3 designer interviews as part of the 2,200-word history essay. Is including designer interviews itself a defect?",
+        options: [
+          { id: "a", label: "Yes, interviews are never appropriate content for an ecommerce site", correct: false },
+          { id: "b", label: "No, the interviews aren't inherently wrong, they're just misplaced on a page that should be a shoppable category grid instead of an essay", correct: true },
+          { id: "c", label: "Yes, because interviews always increase word count past what ranks for shopping queries", correct: false },
+          { id: "d", label: "No, and no other changes are needed once the interviews are removed", correct: false },
+        ],
+        explanation:
+          "The answer key treats the interviews as a placement problem, not a content problem, the same way it separates real defects (format, missing product links, wrong CTA) from surface details that don't matter (keyword count, publish timing). Removing the interviews alone wouldn't fix the deeper mismatch between an essay format and a shopping-intent query.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Send the brief back before publishing. Rebuild it as a filterable product/category page matching the ranking SERP, add direct add-to-bag links per dress, and swap the newsletter CTA for a purchase-oriented one. The designer interviews and history angle can survive as a separate blog post, just not as this page.",
+      },
+      commonMistakes: [
+        { mistake: "Flagging keyword repetition as the main problem", explanation: "over-repetition is a minor readability issue; the real failure is a whole-page format mismatch that repetition can't fix." },
+        { mistake: "Assuming any well-written content will eventually rank", explanation: "quality writing on the wrong format still won't satisfy shopping intent, and pogo-sticking will follow even a brief initial ranking." },
+        { mistake: "Missing the CTA mismatch because the bigger format issue overshadows it", explanation: "even after the format is corrected, a CTA still pointed at newsletter signup instead of purchase wastes the intent-matched traffic." },
+      ],
+      keyTakeaway:
+        "A content brief can be well-written and still fail if its format doesn't match the SERP's demonstrated intent. Distinguishing structural defects, format, missing product links, wrong CTA, from cosmetic non-issues is what turns a review into an actionable fix.",
     },
   ],
   "image-seo-visual-search": [
@@ -7980,6 +10340,15 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Score each image against the checklist (filename, alt text, format, single-subject framing) and flag the ones that need rework before the pilot launches.",
       mode: "diagnostic",
       conceptsCovered: ["Auditing filenames, alt text, and framing against the image SEO checklist"],
+      skills: ["Image SEO Auditing", "Visual Search Readiness", "Content QA"],
+      keyQuestion: "Which of these product photos are actually ready for a visual-search pilot, and which need rework first?",
+      prerequisites: [
+        "Familiarity with basic image SEO fundamentals, filenames and alt text",
+      ],
+      terminology: [
+        { term: "Visual search", definition: "search where the query is an image, not text, matched by the pixels and shapes in the photo itself rather than its metadata." },
+        { term: "Single-subject framing", definition: "a photo composition showing one clear product with no competing objects or clutter in frame." },
+      ],
       steps: [
         {
           stepId: "step-1-image-audit",
@@ -8057,6 +10426,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       ],
       portfolioReady: true,
       stretch: "Run Screaming Frog against your own site's image directory and build the same scorecard from real data.",
+      whatToLookFor: [
+        { label: "Filename quality", detail: "Is the filename descriptive and hyphenated, or a generic camera-generated name like IMG_5510.jpg?" },
+        { label: "Alt text substance", detail: "Does the alt text actually describe the content and purpose, or is it missing or a placeholder like 'image123'?" },
+        { label: "Framing", detail: "Is the shot single-subject on a clean background, or cluttered with multiple products or a busy backdrop?" },
+        { label: "Format", detail: "Is the image in a modern format like WebP/AVIF, or an unconverted JPEG?" },
+      ],
+      decision: {
+        prompt:
+          "'grey-chinos-side-view.jpg' has a good filename and alt text, a clean single-subject frame, but is still a JPEG, not WebP/AVIF. Should it be approved for the pilot as-is?",
+        options: [
+          { id: "a", label: "Yes, approve it, filename and alt text are the two things that matter most for visual search", correct: false },
+          { id: "b", label: "No, mark it PARTIAL, convert the format before approving, since framing already passes but format doesn't", correct: true },
+          { id: "c", label: "No, reject it outright and require a full reshoot", correct: false },
+          { id: "d", label: "Yes, approve it, format doesn't affect visual search at all", correct: false },
+        ],
+        explanation:
+          "The reference scorecard treats this exact case as PARTIAL, convert format: the image passes the harder-to-fix criteria (framing, naming, alt text) and only needs a format conversion, not a reshoot. Approving it outright skips a real checklist item, and a full reshoot wastes effort on an image that's otherwise already correct.",
+      },
+      professionalRecommendation: {
+        priority: "Medium",
+        text:
+          "Approve the images that already pass framing and format, reshoot the cluttered or multi-product images since tagging can't fix framing, and batch-convert the otherwise-good JPEGs to WebP before greenlighting the Lens pilot. Framing is the one gate that determines the reshoot list.",
+      },
+      commonMistakes: [
+        { mistake: "Approving images because metadata looks fine", explanation: "good filenames and alt text help indexing, but a cluttered or multi-subject frame still confuses the visual match model regardless of tagging quality." },
+        { mistake: "Treating every failing image the same way", explanation: "a missing alt text is a quick fix; a cluttered frame requires a reshoot, mixing these into one bucket wastes time on the wrong fix." },
+        { mistake: "Skipping the format check because the photo looks fine visually", explanation: "an unconverted JPEG can still pass framing and tagging but should be flagged and converted before launch." },
+      ],
+      keyTakeaway:
+        "Visual search matches pixels, not metadata, so framing is the one checklist item a caption or filename fix can never repair. Sorting each image by which specific checklist item it fails, not a single pass/fail, is what makes the rework list actionable.",
     },
     {
       id: "blue-bottle-visual-search-teardown",
@@ -8074,6 +10473,15 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Read the specimen's photo description and current metadata, then separate real visual-search blockers from properties that don't actually matter for the match.",
       mode: "teardown",
       conceptsCovered: ["How Visual Search Actually Works", "Practical Image Optimization Checklist"],
+      skills: ["Visual Search Auditing", "Image QA", "Structured Data Awareness"],
+      keyQuestion: "Which properties of this photo will actually block a visual-search match, versus properties that just look imperfect?",
+      prerequisites: [
+        "Understanding of how visual search matches pixels and object shapes, not just metadata",
+      ],
+      terminology: [
+        { term: "ImageObject / Product structured data", definition: "schema markup that lets a matched image be turned into a shoppable result with price and availability attached." },
+        { term: "Occlusion", definition: "when part of a product, like its label, is hidden or obscured by shadow, angle, or another object, reducing match confidence." },
+      ],
       teardownItems: [
         {
           itemId: "blue-bottle-bag-photo-teardown",
@@ -8144,6 +10552,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Correctly separates a metadata gap (structured data) from a pixel-level defect (framing)",
       ],
       portfolioReady: true,
+      whatToLookFor: [
+        { label: "Frame clutter", detail: "How many competing objects are in the shot, and does that risk confusing the visual-match model?" },
+        { label: "Product visibility", detail: "Is the label or key identifying feature clearly visible, well-lit, and unobscured?" },
+        { label: "Shoppability readiness", detail: "Is structured data present so a successful visual match can become a shoppable result?" },
+        { label: "Cosmetic vs match-blocking", detail: "Does a stylistic choice, like a filter or file size, actually affect match accuracy, or is it unrelated?" },
+      ],
+      decision: {
+        prompt:
+          "The photo has a warm Instagram-style filter applied and is a 340KB WebP file. Should either be flagged as a visual-search blocker?",
+        options: [
+          { id: "a", label: "Yes, both should be flagged since anything nonstandard about the image risks the match", correct: false },
+          { id: "b", label: "No, neither blocks the match, the filter is a color-grading choice and the file size is a Core Web Vitals concern, not a match-accuracy issue", correct: true },
+          { id: "c", label: "Only the filter should be flagged, since color shifts always reduce match confidence", correct: false },
+          { id: "d", label: "Only the file size should be flagged, since larger files always match better", correct: false },
+        ],
+        explanation:
+          "The lesson's framework treats framing and occlusion as the dominant match factors, not color grading or file size. A filter shifts hue slightly but doesn't obscure shape or identifying features, and file size is a page-speed concern unrelated to whether the pixel match itself succeeds.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Reshoot the bottle on a clean, single-subject background with the label fully lit and facing the camera before resubmitting the image sitemap. Add ImageObject/Product structured data in the same pass so a successful match can surface as a shoppable result, and leave the filter, filename, and file size as-is, none of them block the match.",
+      },
+      commonMistakes: [
+        { mistake: "Flagging a color filter as a visual-search blocker", explanation: "framing and occlusion affect match accuracy far more than color grading; a filter is a cosmetic choice." },
+        { mistake: "Treating file size as a visual-match issue", explanation: "compression affects page speed and Core Web Vitals, a separate concern from whether the pixel match itself succeeds." },
+        { mistake: "Missing the structured data gap because the photo itself looks fine", explanation: "even a clean, well-matched photo can't become a shoppable result without ImageObject/Product markup." },
+      ],
+      keyTakeaway:
+        "A visual-search teardown separates what actually confuses the matching model, clutter, occlusion, obscured labels, from what only affects style or page speed. Getting that distinction right prevents wasted reshoots on things that were never the problem.",
     },
   ],
 
@@ -8168,6 +10606,16 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "YouTube-Specific Optimisation",
         "The Thumbnail-Title CTR Loop",
         "TikTok Search Optimisation",
+      ],
+      skills: ["Video SEO Review", "Platform-Specific Optimization", "Metadata QA"],
+      keyQuestion: "Which metadata choices across these two drafts will actually suppress search visibility, and which just look unusual?",
+      prerequisites: [
+        "Familiarity with the YouTube Holy Trinity ranking factors",
+        "Basic understanding of how TikTok's search index reads captions and on-screen text",
+      ],
+      terminology: [
+        { term: "Holy Trinity (YouTube)", definition: "the three core YouTube ranking signals: Title Keyword Match, Click-Through Rate, and Average View Duration." },
+        { term: "Voice-to-text captioning", definition: "TikTok's automatic transcription of a video's spoken audio, which feeds directly into what the platform's search index can match." },
       ],
       teardownItems: [
         {
@@ -8298,6 +10746,36 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Assigns the correct lessonRef section to each defect found",
       ],
       portfolioReady: false,
+      whatToLookFor: [
+        { label: "Keyword presence", detail: "Does the title or caption contain an actual searchable keyword, not just a brand announcement?" },
+        { label: "Thumbnail/on-screen text strength", detail: "Does the thumbnail or on-screen text give a cold viewer a reason to click, or is it a flat, unlabeled shot?" },
+        { label: "Navigation aids", detail: "Are chapters added on a multi-product video so viewers can jump to what they want?" },
+        { label: "Style vs substance", detail: "Is a stylistic choice, like emoji use or tag order, being mistaken for an actual ranking defect?" },
+      ],
+      decision: {
+        prompt:
+          "The TikTok caption reads 'ITS FINALLY HERE 🖤⌚️ #newdrop #mvmt #ootd #accessories' with only 4 hashtags. Is the low hashtag count itself a defect?",
+        options: [
+          { id: "a", label: "Yes, more hashtags always improve TikTok search visibility", correct: false },
+          { id: "b", label: "No, hashtag count isn't the issue, the real problem is that none of the caption or hashtags name the product at all", correct: true },
+          { id: "c", label: "Yes, but only because none of the 4 hashtags are trending", correct: false },
+          { id: "d", label: "No, and no other defects exist in this caption once hashtag count is dismissed", correct: false },
+        ],
+        explanation:
+          "The lesson treats hashtags as secondary to caption and audio quality, hashtag count isn't a defect the lesson calls out. The real, critical defect is that neither the caption nor any hashtag names the product, so a search for 'chronograph watch' would never match this video regardless of hashtag count.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Send both drafts back before publishing. Rewrite the YouTube title to lead with a real search keyword, replace the flat catalog thumbnail with one showing a face and text overlay, add chapters for the six products, and rewrite the TikTok caption to name the product and its category instead of only an announcement and hashtags.",
+      },
+      commonMistakes: [
+        { mistake: "Flagging emoji use or tag order as defects", explanation: "these are stylistic details the lesson doesn't call out as ranking factors; the actual problem is the missing keyword itself." },
+        { mistake: "Missing the thumbnail defect because the video content is strong", explanation: "a flat, low-contrast thumbnail loses cold viewers before they ever see the content, regardless of video quality." },
+        { mistake: "Treating all defects as equal severity", explanation: "a missing keyword is critical since it blocks discovery entirely, while a missing end screen is a lower-cost, cosmetic loss." },
+      ],
+      keyTakeaway:
+        "Video metadata defects fall into two buckets: choices that block discovery entirely, like a missing keyword, and choices that only reduce engagement at the margins, like a missing end screen. Separating real ranking-blockers from stylistic non-issues is what makes a review useful before a video launches.",
     },
     {
       id: "video-seo-upload-audit",
@@ -8319,6 +10797,16 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Chapters and Timestamps",
         "Video Schema Markup for Google Search",
         "Click-Through Rate (CTR)",
+      ],
+      skills: ["Video SEO Auditing", "Search Console Analysis", "CTR Diagnostics"],
+      keyQuestion: "Across four separate checks, which single fix should this video get first, and what number justifies that choice?",
+      prerequisites: [
+        "Familiarity with the YouTube Holy Trinity ranking factors",
+        "Basic Search Console navigation",
+      ],
+      terminology: [
+        { term: "VideoObject schema", definition: "structured data on a webpage that makes it eligible for a video rich result in Google web search, separate from ranking inside YouTube itself." },
+        { term: "Cold CTR", definition: "click-through rate measured only on non-subscriber impressions, isolating how well a title and thumbnail perform on viewers who've never seen the channel before." },
       ],
       steps: [
         {
@@ -8510,6 +10998,37 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       ],
       portfolioReady: true,
       stretch: "Run the same 4 checks on 3 more videos and build a one-page video-SEO health scorecard for the whole channel.",
+      whatToLookFor: [
+        { label: "Keyword placement", detail: "Does the title contain the target keyword phrase, and specifically within the first 3 words?" },
+        { label: "Navigation vs content problem", detail: "Is a low average view duration actually a structure problem (no chapters) rather than a content-quality problem?" },
+        { label: "Placement coverage", detail: "Does the page rank in both Web and Video search types, or is an entire placement unclaimed due to missing schema?" },
+        { label: "Blended vs cold metrics", detail: "Does a metric like CTR look acceptable blended across all viewers, but reveal a real problem once isolated to cold, non-subscriber traffic?" },
+      ],
+      decision: {
+        prompt:
+          "Blended CTR is 2.2% (310/14,000) and cold CTR is 2.1% (230/11,000). The lesson benchmarks are 6% solid, 2% weak. What's the correct read?",
+        options: [
+          { id: "a", label: "The channel is fine overall since 2.2% is close to acceptable once rounded", correct: false },
+          { id: "b", label: "Both numbers sit in the weak range, and the cold CTR is the one that matters most since it reflects performance with new, unfamiliar viewers", correct: true },
+          { id: "c", label: "Only the blended number matters, since it reflects total video performance", correct: false },
+          { id: "d", label: "Neither number is meaningful without knowing the video's total view count", correct: false },
+        ],
+        explanation:
+          "Both the blended and cold CTR sit near the lesson's 2% weak benchmark, well below the 6% solid mark. The cold CTR matters most because it isolates performance with viewers who've never seen the channel before, exactly the audience YouTube is trying to grow, and it points squarely at a thumbnail/title problem rather than a content problem.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text:
+          "Fix all four gaps, but sequence them by cost and impact: rewrite the title with the keyword in the first 3 words first (5-minute fix), add the 8 chapter timestamps next (30-minute fix), then hand off VideoObject schema to a developer, and A/B test 2 new thumbnails to address the 2.1% cold CTR, since that's the number that determines whether new viewers click at all.",
+      },
+      commonMistakes: [
+        { mistake: "Judging the CTR fix as unnecessary because blended CTR looks close to acceptable", explanation: "blended CTR can mask a much weaker cold CTR; the cold number is what governs growth beyond existing subscribers." },
+        { mistake: "Assuming an embedded YouTube video automatically helps a blog page rank for Video search", explanation: "without VideoObject schema, Google doesn't know the video is eligible for the Video search type, leaving that placement at zero regardless of Web-type ranking." },
+        { mistake: "Attributing low average view duration to weak content instead of missing navigation", explanation: "a multi-product video with zero chapters can't be scrubbed to the part a viewer wants, which drives dropout independent of content quality." },
+        { mistake: "Fixing only the highest-severity issue and stopping", explanation: "all four checks here are independent gaps; skipping the schema or chapter fix leaves real visibility on the table even after the title is corrected." },
+      ],
+      keyTakeaway:
+        "A thorough video SEO audit runs multiple independent checks, title, chapters, schema, and CTR, because each targets a different point of failure, discovery, retention, placement, and click appeal. Isolating cold-audience metrics from blended ones, and connecting a weak number to its specific root cause, is what turns a scorecard into a prioritized fix list.",
     },
   ],
 };

@@ -165,6 +165,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/projects-index.ts` | **Generated** slim card index for the `/projects` hub — regenerate with `node --import tsx scripts/build-projects-index.mjs` |
 | `src/lib/projects-progress.ts` | Practice-project completion + XP lib (localStorage, mirrors progress.ts/engagement.ts patterns) |
 | `src/lib/projects/lookup.ts` | Server-safe `getProjectByCategoryAndId()` — dynamically imports one category module and finds a project by its `id`, used by the dedicated `/projects/[category]/[slug]` page |
+| `src/components/DecisionBox.tsx` | Renders a `Project.decision` multiple-choice checkpoint on the project detail page, answer hidden until picked (same reveal timing as `Quiz.tsx`, AGENTS.md Rule 25) — see Rules 63-65 for the full "Learn vs Do" content architecture (9 new optional `Project` fields). `seo.ts` fully migrated (60/60) as of Session 81; the other 8 category files (53 projects) not yet migrated |
 | `src/lib/bookmarks.ts` | Shared bookmark storage (BOOKMARK_KEY, getBookmarks, saveBookmarks) |
 | `src/lib/progress.ts` | Lesson completion helpers (COMPLETED_KEY exported, getCompleted, markComplete) |
 | `src/lib/engagement.ts` | XP/streak system (addXP, getEngagement, getCurrentLevel, ENGAGEMENT_EVENT) |
