@@ -43,19 +43,31 @@ function FunnelDiagram({ items }: { items: string[] }) {
                 strokeWidth: 3,
               }}
             />
-            <text
-              x={W / 2}
-              y={y + stepH / 2}
-              textAnchor="middle"
-              dominantBaseline="middle"
-              style={{
-                fill: "var(--accent-foreground)",
-                fontSize: 14,
-                fontWeight: 600,
-              }}
+            <foreignObject
+              x={xBotLeft + 10}
+              y={y + 4}
+              width={wBottom - 20}
+              height={stepH - 12}
             >
-              {label}
-            </text>
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textAlign: "center",
+                  fontSize: "13px",
+                  fontWeight: 600,
+                  color: "var(--accent-foreground)",
+                  lineHeight: "1.2",
+                  wordBreak: "break-word",
+                  overflow: "hidden",
+                }}
+              >
+                {label}
+              </div>
+            </foreignObject>
           </g>
         );
       })}
@@ -86,15 +98,30 @@ function BarsDiagram({ items, values }: { items: string[]; values?: number[] }) 
         const y = 10 + i * (barH + gap);
         return (
           <g key={i}>
-            <text
-              x={labelW - 8}
-              y={y + barH / 2}
-              textAnchor="end"
-              dominantBaseline="middle"
-              style={{ fill: "var(--foreground)", fontSize: 13 }}
+            <foreignObject
+              x={0}
+              y={y}
+              width={labelW - 10}
+              height={barH}
             >
-              {label}
-            </text>
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "flex-end",
+                  textAlign: "right",
+                  fontSize: "12px",
+                  color: "var(--foreground)",
+                  lineHeight: "1.2",
+                  wordBreak: "break-word",
+                  overflow: "hidden",
+                }}
+              >
+                {label}
+              </div>
+            </foreignObject>
             <rect
               x={labelW}
               y={y}
@@ -159,20 +186,36 @@ function TimelineDiagram({ items }: { items: string[] }) {
             </text>
             <rect
               x={cx + 26}
-              y={cy - 18}
+              y={cy - 22}
               width={W - cx - 36}
-              height={36}
+              height={44}
               rx={6}
               style={{ fill: "var(--card)", stroke: "var(--border)", strokeWidth: 1 }}
             />
-            <text
+            <foreignObject
               x={cx + 36}
-              y={cy}
-              dominantBaseline="middle"
-              style={{ fill: "var(--foreground)", fontSize: 13 }}
+              y={cy - 22}
+              width={W - cx - 56}
+              height={44}
             >
-              {label}
-            </text>
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "flex-start",
+                  textAlign: "left",
+                  fontSize: "12px",
+                  color: "var(--foreground)",
+                  lineHeight: "1.2",
+                  wordBreak: "break-word",
+                  overflow: "hidden",
+                }}
+              >
+                {label}
+              </div>
+            </foreignObject>
           </g>
         );
       })}
@@ -247,15 +290,31 @@ function CycleDiagram({ items }: { items: string[] }) {
             ry={nodeRy}
             style={{ fill: "var(--card)", stroke: "var(--accent)", strokeWidth: 2 }}
           />
-          <text
-            x={x}
-            y={y}
-            textAnchor="middle"
-            dominantBaseline="middle"
-            style={{ fill: "var(--foreground)", fontSize: 12, fontWeight: 600 }}
+          <foreignObject
+            x={x - nodeRx + 10}
+            y={y - nodeRy + 5}
+            width={nodeRx * 2 - 20}
+            height={nodeRy * 2 - 10}
           >
-            {capped[i].length > 14 ? capped[i].slice(0, 13) + "…" : capped[i]}
-          </text>
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+                fontSize: "11px",
+                fontWeight: 600,
+                color: "var(--foreground)",
+                lineHeight: "1.1",
+                wordBreak: "break-word",
+                overflow: "hidden",
+              }}
+            >
+              {capped[i]}
+            </div>
+          </foreignObject>
         </g>
       ))}
     </svg>
@@ -298,15 +357,31 @@ function FlowDiagram({ items }: { items: string[] }) {
               rx={8}
               style={{ fill: "var(--card)", stroke: "var(--accent)", strokeWidth: 2 }}
             />
-            <text
-              x={W / 2}
-              y={y + boxH / 2}
-              textAnchor="middle"
-              dominantBaseline="middle"
-              style={{ fill: "var(--foreground)", fontSize: 13, fontWeight: 600 }}
+            <foreignObject
+              x={bx + 10}
+              y={y}
+              width={boxW - 20}
+              height={boxH}
             >
-              {label}
-            </text>
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textAlign: "center",
+                  fontSize: "12px",
+                  fontWeight: 600,
+                  color: "var(--foreground)",
+                  lineHeight: "1.2",
+                  wordBreak: "break-word",
+                  overflow: "hidden",
+                }}
+              >
+                {label}
+              </div>
+            </foreignObject>
             {i < items.length - 1 && (
               <line
                 x1={W / 2}

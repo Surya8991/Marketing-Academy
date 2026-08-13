@@ -73,6 +73,57 @@ function insertLabelBreaks(chart: string): string {
   return out;
 }
 
+/**
+ * Mermaid v11's computed `viewBox` for a flowchart is sometimes several
+ * times larger than the diagram's actual rendered content, e.g. a viewBox
+ * of ~2150x2150 user units around content (`g.root`'s real bbox) of only
+ * ~700x1050 — over 60% of the SVG canvas is blank. Rewrites the viewBox
+ * to tightly fit the real content so the CSS `w-full`/`h-auto` sizing
+ * (which scales to the viewBox, not the visible drawing) actually fills
+ * the container with diagram instead of mostly empty space.
+ *
+ * getBBox() requires layout, so this needs a real (if hidden) DOM node —
+ * it can't be computed from the SVG string alone.
+ */
+function tightenViewBox(svgString: string): string {
+  const container = document.createElement("div");
+  container.style.cssText = "position:absolute; visibility:hidden; top:-9999px; left:-9999px;";
+  document.body.appendChild(container);
+  try {
+    container.innerHTML = svgString;
+    const svgEl = container.querySelector("svg");
+    let content = svgEl?.querySelector("g.root") ?? null;
+    if (!content && svgEl) {
+      for (let i = 0; i < svgEl.children.length; i++) {
+        const child = svgEl.children[i];
+        if (child.tagName.toLowerCase() === "g") {
+          content = child as SVGGraphicsElement;
+          break;
+        }
+      }
+    }
+    if (!content) {
+      content = svgEl?.querySelector("g") ?? null;
+    }
+    if (!svgEl || !content || !("getBBox" in content)) return svgString;
+
+    const bbox = (content as unknown as SVGGraphicsElement).getBBox();
+    if (!(bbox.width > 0) || !(bbox.height > 0)) return svgString;
+
+    const pad = 10;
+    svgEl.setAttribute(
+      "viewBox",
+      `${bbox.x - pad} ${bbox.y - pad} ${bbox.width + pad * 2} ${bbox.height + pad * 2}`
+    );
+    svgEl.removeAttribute("style"); // drop the now-stale max-width; CSS `w-full` handles sizing
+    return svgEl.outerHTML;
+  } catch {
+    return svgString;
+  } finally {
+    document.body.removeChild(container);
+  }
+}
+
 interface MermaidProps {
   chart: string;
   caption?: string;
@@ -82,6 +133,7 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
   const rawId = useId();
   const mermaidId = rawId.replace(/:/g, "");
   const ref = useRef<HTMLDivElement>(null);
+  const fullscreenContainerRef = useRef<HTMLDivElement>(null);
   const [svg, setSvg] = useState<string>("");
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState(true);
@@ -183,7 +235,7 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
             FORBID_ATTR: ["onerror", "onload", "onclick", "onmouseover"],
             SANITIZE_DOM: true,
           });
-          setSvg(clean);
+          setSvg(tightenViewBox(clean));
           setError("");
         }
       } catch (e) {
@@ -235,6 +287,58 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
       document.body.style.overflow = ""; // restore scroll when overlay closes
     };
   }, [fullscreen]);
+
+  // Synchronously or via requestAnimationFrame, tighten the viewBox of the rendered SVGs in the DOM.
+  // This handles the case where getBBox() returned 0 during the string-based tightenViewBox
+  // phase because the element was not in the active document layout tree yet.
+  useEffect(() => {
+    if (!svg) return;
+
+    const adjustViewBox = (container: HTMLDivElement | null) => {
+      if (!container) return;
+      const svgEl = container.querySelector("svg");
+      if (!svgEl) return;
+
+      // Find the main content group
+      let content = svgEl.querySelector("g.root");
+      if (!content) {
+        for (let i = 0; i < svgEl.children.length; i++) {
+          const child = svgEl.children[i];
+          if (child.tagName.toLowerCase() === "g") {
+            content = child;
+            break;
+          }
+        }
+      }
+      if (!content) {
+        content = svgEl.querySelector("g");
+      }
+
+      if (!content || !("getBBox" in content)) return;
+
+      try {
+        const bbox = (content as unknown as SVGGraphicsElement).getBBox();
+        if (bbox.width > 0 && bbox.height > 0) {
+          const pad = 10;
+          svgEl.setAttribute(
+            "viewBox",
+            `${bbox.x - pad} ${bbox.y - pad} ${bbox.width + pad * 2} ${bbox.height + pad * 2}`
+          );
+          svgEl.removeAttribute("style");
+        }
+      } catch (e) {
+        console.error("DOM-based viewBox tightening failed:", e);
+      }
+    };
+
+    // Run layout-dependent adjustment on the next frame to ensure rendering has completed
+    const handle = requestAnimationFrame(() => {
+      adjustViewBox(ref.current);
+      adjustViewBox(fullscreenContainerRef.current);
+    });
+
+    return () => cancelAnimationFrame(handle);
+  }, [svg, fullscreen]);
 
   if (loading && !svg && !error) {
     return (
@@ -309,6 +413,7 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
           </button>
           {/* stopPropagation prevents diagram click from closing the overlay */}
           <div
+            ref={fullscreenContainerRef}
             onClick={(e) => e.stopPropagation()}
             className="max-w-7xl w-full max-h-full overflow-auto rounded-xl border border-[var(--border)] bg-[var(--muted)] p-8 [&_svg]:w-full [&_svg]:h-auto [&_svg]:mx-auto"
             // svg is already DOMPurify-sanitized from the main render path (same state)
