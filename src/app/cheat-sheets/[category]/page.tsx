@@ -162,6 +162,8 @@ export default async function CategoryCheatSheetPage({ params }: Props) {
               {/* Title */}
               <Link
                 href={`/learn/${cat.slug}/${lesson.slug}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   fontSize: "1.05rem",
                   fontWeight: 700,
@@ -189,6 +191,8 @@ export default async function CategoryCheatSheetPage({ params }: Props) {
               {/* CTA */}
               <Link
                 href={`/learn/${cat.slug}/${lesson.slug}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="cs-read-btn no-print"
               >
                 Read lesson &rarr;

@@ -120,6 +120,8 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <Link
               href="/learn/fundamentals/what-is-marketing"
+              target="_blank"
+              rel="noopener noreferrer"
               className="font-ui-sans flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] font-semibold hover:opacity-90 transition-opacity text-sm"
             >
               <BookOpen size={16} />
@@ -235,6 +237,8 @@ export default function HomePage() {
             <Link
               key={f.slug}
               href={`/learn/${f.category}/${f.slug}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group flex flex-col p-5 hover:bg-[var(--muted)] transition-colors"
             >
               <div className="flex items-center justify-between mb-3">
@@ -280,6 +284,8 @@ export default function HomePage() {
             <Link
               key={r.slug}
               href={`/learn/${r.category}/${r.slug}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group flex flex-col p-5 hover:bg-[var(--muted)] transition-colors"
             >
               <div className="flex items-center justify-between mb-3">
@@ -418,6 +424,8 @@ export default function HomePage() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 font-ui-sans">
           <Link
             href="/learn/fundamentals/what-is-marketing"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] font-medium hover:opacity-90 transition-opacity"
           >
             <BookOpen size={16} />

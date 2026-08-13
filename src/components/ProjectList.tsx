@@ -21,7 +21,7 @@ import { ChevronDown, ChevronUp, ClipboardList } from "lucide-react";
 import ProjectCard from "./ProjectCard";
 import type { Project } from "@/lib/projects/types";
 
-export default function ProjectList({ projects }: { projects: Project[] }) {
+export default function ProjectList({ projects, category }: { projects: Project[]; category: string }) {
   const [open, setOpen] = useState(false);
 
   if (!projects || projects.length === 0) return null;
@@ -67,7 +67,7 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
       {open && (
         <div className="flex flex-col gap-4 mt-4">
           {projects.map((p) => (
-            <ProjectCard project={p} key={p.id} id={`project-${p.id}`} />
+            <ProjectCard project={p} category={category} key={p.id} id={`project-${p.id}`} />
           ))}
         </div>
       )}

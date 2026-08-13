@@ -164,6 +164,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/projects/*.ts` | Per-category practice project modules (dynamically imported, never one shared file — AGENTS.md Rule 37) |
 | `src/lib/projects-index.ts` | **Generated** slim card index for the `/projects` hub — regenerate with `node --import tsx scripts/build-projects-index.mjs` |
 | `src/lib/projects-progress.ts` | Practice-project completion + XP lib (localStorage, mirrors progress.ts/engagement.ts patterns) |
+| `src/lib/projects/lookup.ts` | Server-safe `getProjectByCategoryAndId()` — dynamically imports one category module and finds a project by its `id`, used by the dedicated `/projects/[category]/[slug]` page |
 | `src/lib/bookmarks.ts` | Shared bookmark storage (BOOKMARK_KEY, getBookmarks, saveBookmarks) |
 | `src/lib/progress.ts` | Lesson completion helpers (COMPLETED_KEY exported, getCompleted, markComplete) |
 | `src/lib/engagement.ts` | XP/streak system (addXP, getEngagement, getCurrentLevel, ENGAGEMENT_EVENT) |
@@ -196,7 +197,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/` | Homepage: hero, category grid, 24 learning tracks, featured lessons |
 | `/learn` | All lessons browsable by category |
 | `/learn/[category]` | Category page: Beginner/Intermediate/Advanced grouping + progress |
-| `/learn/[category]/[lesson]` | Lesson reader (docs-style, Session 75): left scroll-spy ToC, Quiz/Projects/Notes as an accordion group, Related Concepts cards, prev/next, bottom action bar (Mark Complete/Bookmark/Share) |
+| `/learn/[category]/[lesson]` | Lesson reader (docs-style, Session 75): left scroll-spy ToC, Quiz/Projects/Notes as an accordion group, Related Concepts cards, prev/next, bottom action bar (Mark Complete/Bookmark/Share). Every outbound link to another lesson (prev/next, Related Concepts, Related Lessons, Continue CTA) opens in a new tab (Session 78) |
 | `/search` | Fuzzy search with category + level filters |
 | `/tracks` | 24 learning tracks overview |
 | `/tracks/[slug]` | Track detail with ordered lesson list |
@@ -215,7 +216,8 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/about` | About page: mission, builder profile, stats, tech stack, links |
 | `/certificates` | Track completion certificate index |
 | `/certificates/[slug]` | Printable track completion certificate |
-| `/projects` | Practice projects hub: search, tier/archetype/mode/category filters (98 projects across 50 lessons: Phase 1 pilot + the Technical SEO Mastery, AI Search Optimization, and On-Page SEO Mastery tracks) |
+| `/projects` | Practice projects hub: search, tier/archetype/mode/category filters (98 projects across 50 lessons: Phase 1 pilot + the Technical SEO Mastery, AI Search Optimization, and On-Page SEO Mastery tracks). "View details" opens the project's own dedicated page in a new tab (Session 78, replaces the old slide-over drawer) |
+| `/projects/[category]/[slug]` | Dedicated single-project page (Session 78) — the full project (steps/stages/teardown items, tool stack, success criteria) always expanded, no inline toggle. Statically generated for all projects. Opened in a new tab from both the lesson page's Project List and the `/projects` hub, so a project always opens in its own page + tab regardless of entry point |
 | `/feed.xml` | RSS feed |
 | `/sitemap.xml` | Auto-generated sitemap (lessons with MDX only) |
 | `/api/og` | Dynamic OG image endpoint |

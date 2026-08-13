@@ -262,7 +262,7 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
             ref={ref}
             role="img"
             aria-label={caption ?? "Diagram"}
-            className="w-full overflow-x-auto rounded-xl border border-[var(--border)] bg-[var(--muted)] p-6 [&_svg]:max-w-full [&_svg]:h-auto [&_svg]:mx-auto"
+            className="w-full overflow-x-auto rounded-xl border border-[var(--border)] bg-[var(--muted)] p-6 [&_svg]:w-full [&_svg]:h-auto [&_svg]:mx-auto"
             dangerouslySetInnerHTML={{ __html: svg }} // DOMPurify-sanitized above
           />
           {/* Stage 6.4: visually-hidden chart source as a text alternative for screen readers.
@@ -310,7 +310,7 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
           {/* stopPropagation prevents diagram click from closing the overlay */}
           <div
             onClick={(e) => e.stopPropagation()}
-            className="max-w-7xl w-full max-h-full overflow-auto rounded-xl border border-[var(--border)] bg-[var(--muted)] p-8 [&_svg]:max-w-full [&_svg]:h-auto [&_svg]:mx-auto"
+            className="max-w-7xl w-full max-h-full overflow-auto rounded-xl border border-[var(--border)] bg-[var(--muted)] p-8 [&_svg]:w-full [&_svg]:h-auto [&_svg]:mx-auto"
             // svg is already DOMPurify-sanitized from the main render path (same state)
             dangerouslySetInnerHTML={{ __html: svg }}
           />

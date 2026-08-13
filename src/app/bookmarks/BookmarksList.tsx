@@ -127,6 +127,8 @@ export default function BookmarksList() {
               >
                 <Link
                   href={`/learn/${b.category}/${b.slug}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
                     color: "var(--foreground)",
                     textDecoration: "none",

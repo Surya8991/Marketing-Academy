@@ -57,6 +57,8 @@ export default function RelatedLessons({ currentCategory, currentSlug, level }: 
             <Link
               key={`${lesson.categorySlug}-${lesson.slug}`}
               href={`/learn/${lesson.categorySlug}/${lesson.slug}`}
+              target="_blank"
+              rel="noopener noreferrer"
               style={{ textDecoration: "none" }}
             >
               <div

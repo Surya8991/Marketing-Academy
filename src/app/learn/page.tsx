@@ -74,6 +74,8 @@ export default function LearnPage() {
                   <Link
                     key={lesson.slug}
                     href={`/learn/${cat.slug}/${lesson.slug}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-4 px-5 py-3 hover:bg-[var(--muted)] transition-colors group"
                   >
                     <span className="shrink-0 w-6 font-data text-xs text-[var(--muted-foreground)] tabular-nums">

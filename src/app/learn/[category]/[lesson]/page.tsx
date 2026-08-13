@@ -294,7 +294,7 @@ export default async function LessonPage({ params }: Props) {
                 </details>
               )}
 
-              {hasProjects && <ProjectList projects={lessonProjects} />}
+              {hasProjects && <ProjectList projects={lessonProjects} category={sourceCat} />}
 
               <LessonNotes category={sourceCat} slug={lesson} />
             </div>
@@ -328,6 +328,8 @@ export default async function LessonPage({ params }: Props) {
               {prev ? (
                 <Link
                   href={`/learn/${prev.categorySlug}/${prev.slug}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="lesson-nav-card group flex flex-col p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)]/50 transition-all col-span-1"
                 >
                   <span className="flex items-center gap-1 text-xs text-[var(--muted-foreground)] mb-1">
@@ -343,6 +345,8 @@ export default async function LessonPage({ params }: Props) {
               {next ? (
                 <Link
                   href={`/learn/${next.categorySlug}/${next.slug}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="lesson-nav-card group flex flex-col p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)]/50 transition-all col-span-1 text-right"
                 >
                   <span className="flex items-center justify-end gap-1 text-xs text-[var(--muted-foreground)] mb-1">

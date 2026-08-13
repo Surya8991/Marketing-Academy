@@ -37,6 +37,8 @@ export default function RelatedConcepts({
           <Link
             key={c.slug}
             href={`/learn/${category}/${c.slug}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="block rounded-xl border border-[var(--border)] p-4 hover:border-[var(--accent)] transition-colors"
           >
             <p className="font-semibold text-sm mb-1.5">{c.title}</p>

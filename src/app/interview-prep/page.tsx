@@ -298,6 +298,8 @@ export default function InterviewPrepPage() {
                   </div>
                   <Link
                     href={`/learn/${categorySlug}/${lessonSlug}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{
                       fontSize: "0.8rem",
                       color: "var(--accent)",

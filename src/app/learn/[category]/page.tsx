@@ -173,6 +173,8 @@ export default async function CategoryPage({ params }: Props) {
                 <Link
                   key={lesson.slug}
                   href={`/learn/${cat.slug}/${lesson.slug}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group flex items-start gap-4 p-5 rounded-2xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] hover:shadow-md hover:-translate-y-0.5 transition-all"
                 >
                   <span className="shrink-0 mt-0.5 w-8 h-8 rounded-full bg-[var(--muted)] text-[var(--muted-foreground)] text-sm font-semibold flex items-center justify-center group-hover:bg-[var(--accent)] group-hover:text-[var(--accent-foreground)] transition-colors">
@@ -205,6 +207,8 @@ export default async function CategoryPage({ params }: Props) {
       <div className="mt-16 text-center">
         <Link
           href={`/learn/${cat.slug}/${cat.lessons[0].slug}`}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] font-medium hover:opacity-90 transition-opacity shadow-lg shadow-[var(--accent)]/20 max-w-full"
         >
           <span className="truncate max-w-[16rem] sm:max-w-none">

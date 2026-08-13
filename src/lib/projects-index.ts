@@ -9,8 +9,9 @@
  * category module directly (AGENTS.md Rule 41: never ship a large data
  * module, including long strings like outputSample/dashboard, to a
  * "use client" file that every hub visitor downloads). Full Project objects
- * are dynamically imported one category at a time, on demand, by
- * ProjectDrawer.tsx when a learner opens a specific card.
+ * are dynamically imported one category at a time, on demand, by the
+ * dedicated project page (src/app/projects/[category]/[slug]/page.tsx) via
+ * src/lib/projects/lookup.ts when a learner opens a specific project.
  *
  * Regenerate with: node --import tsx scripts/build-projects-index.mjs
  */

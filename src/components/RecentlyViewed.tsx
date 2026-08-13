@@ -26,6 +26,8 @@ export default function RecentlyViewed() {
           <Link
             key={`${l.categorySlug}/${l.slug}`}
             href={`/learn/${l.categorySlug}/${l.slug}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 px-3 py-2 rounded-xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] transition-all group"
           >
             <span className="text-xs text-[var(--muted-foreground)]">{l.categoryTitle}</span>

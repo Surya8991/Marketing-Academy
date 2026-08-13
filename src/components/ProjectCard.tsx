@@ -3,16 +3,23 @@
 /**
  * ProjectCard: renders ONE Project (src/lib/projects/types.ts).
  *
- * Expand/collapse card. Collapsed state shows the summary (title, tier
- * badge, archetype, timeEstimate, objective, scenario, brief, a completion
- * toggle). Expanded state adds the mode-specific body:
- *   - project.steps        -> one <ProjectStep step={s} /> row per step
- *                              (diagnostic/audit/teardown-as-steps projects)
- *   - project.stages        -> <SimulationRunner stages liveTrack />
- *   - project.teardownItems -> a simple list of item prompts (placeholder,
- *                              a full teardown UI is a follow-up)
- * plus, always: <ToolStack>, a dataset download link if present, and a
- * successCriteria checklist.
+ * Two variants:
+ *   - "preview" (default): the summary (title, tier badge, archetype,
+ *     timeEstimate, objective, scenario, brief, a completion toggle) plus an
+ *     "Open project" link that navigates to the project's own dedicated page
+ *     (/projects/{category}/{id}) in a new tab. Used inside ProjectList on
+ *     the lesson page. Every project ALWAYS opens in its own page and tab
+ *     from here, never expands inline, so behavior matches the /projects hub
+ *     regardless of entry point.
+ *   - "full": the same summary header, but instead of the link, the
+ *     mode-specific body always renders:
+ *       - project.steps        -> one <ProjectStep step={s} /> row per step
+ *                                  (diagnostic/audit/teardown-as-steps)
+ *       - project.stages        -> <SimulationRunner stages liveTrack />
+ *       - project.teardownItems -> <TeardownItemCard item={item} /> per item
+ *     plus, always: <ToolStack>, a dataset download link if present, and a
+ *     successCriteria checklist. Used only by the dedicated project page
+ *     (src/app/projects/[category]/[slug]/page.tsx).
  *
  * NOTE ON DEPENDENCIES BUILT IN PARALLEL:
  *   - `./ProjectStep` was being built by another agent at the same time this
@@ -28,7 +35,7 @@
  */
 
 import { useState, useEffect } from "react";
-import { ChevronDown, ChevronUp, CheckCircle2, Circle, Download } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, Circle, Download } from "lucide-react";
 import ProjectStep from "./ProjectStep";
 import SimulationRunner from "./SimulationRunner";
 import TeardownItemCard from "./TeardownItemCard";
@@ -93,8 +100,16 @@ function companyAvatar(name: string) {
   );
 }
 
-export default function ProjectCard({ project, id }: { project: Project; id?: string }) {
-  const [expanded, setExpanded] = useState(false);
+type Props = {
+  project: Project;
+  id?: string;
+  /** Needed to build the "Open project" link (/projects/{category}/{id}). Unused in "full" variant. */
+  category?: string;
+  /** "preview" (default) links out to the dedicated page; "full" renders the body inline, no link. */
+  variant?: "preview" | "full";
+};
+
+export default function ProjectCard({ project, id, category, variant = "preview" }: Props) {
   // Initial false matches SSR output exactly (localStorage is client-only),
   // so no mount-guard is needed here, only the read is deferred to an effect.
   const [done, setDone] = useState(false);
@@ -194,19 +209,22 @@ export default function ProjectCard({ project, id }: { project: Project; id?: st
 
         <p className="text-sm text-[var(--foreground)] leading-relaxed m-0">{project.brief}</p>
 
-        <button
-          onClick={() => setExpanded((e) => !e)}
-          aria-expanded={expanded}
-          className="inline-flex items-center gap-1.5 self-start text-sm font-semibold mt-1"
-          style={{ color: "var(--accent)" }}
-        >
-          {expanded ? "Hide details" : "Open project"}
-          {expanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-        </button>
+        {variant === "preview" && category && (
+          <a
+            href={`/projects/${category}/${project.id}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 self-start text-sm font-semibold mt-1"
+            style={{ color: "var(--accent)" }}
+          >
+            Open project
+            <ArrowUpRight size={16} />
+          </a>
+        )}
       </div>
 
-      {/* Expanded body */}
-      {expanded && (
+      {/* Full body, always rendered in the "full" variant (the dedicated project page) */}
+      {variant === "full" && (
         <div
           className="p-5 flex flex-col gap-6 border-t"
           style={{ borderColor: "var(--border)", background: "var(--muted)" }}

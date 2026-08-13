@@ -8,17 +8,18 @@
  * multiple filter facets over a data array.
  *
  * Reads ONLY the slim ProjectCardData rows from projects-index.ts, never a
- * full Project (AGENTS.md Rule 41). Clicking "View details" opens
- * ProjectDrawer, which dynamically imports the one category module it
- * needs to render the full project.
+ * full Project (AGENTS.md Rule 41). Clicking "View details" navigates to the
+ * project's own dedicated page (/projects/{category}/{id}) in a new tab,
+ * same destination as the "Open project" link on a lesson page's
+ * ProjectList, so a project always opens in its own page + tab regardless
+ * of entry point.
  */
 
 import React, { useState } from "react";
-import { Clock, Building2 } from "lucide-react";
+import { Clock, Building2, ArrowUpRight } from "lucide-react";
 import type { ProjectCardData } from "@/lib/projects-index";
 import type { ProjectTier, Archetype, ProjectMode } from "@/lib/projects/types";
 import { CASE_COMPANIES } from "@/lib/case-companies";
-import ProjectDrawer from "@/components/ProjectDrawer";
 
 type SortOption = "time-asc" | "time-desc" | "alpha";
 
@@ -90,7 +91,6 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
   const [activeCategory, setActiveCategory] = useState<string | "All">("All");
   const [sortBy, setSortBy] = useState<SortOption>("time-asc");
   const [page, setPage] = useState(1);
-  const [openProject, setOpenProject] = useState<{ id: string; category: string } | null>(null);
 
   const categories = Array.from(new Set(projects.map((p) => p.category))).sort();
   const archetypes = Array.from(new Set(projects.map((p) => p.archetype))).sort();
@@ -348,6 +348,8 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
                     {/* Lesson link */}
                     <a
                       href={`/learn/${project.category}/${project.lessonSlug}#project-${project.id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-xs text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors"
                     >
                       From: {project.lessonTitle}
@@ -390,13 +392,16 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
                     {/* Spacer */}
                     <div style={{ flex: 1 }} />
 
-                    <button
-                      onClick={() => setOpenProject({ id: project.id, category: project.category })}
+                    <a
+                      href={`/projects/${project.category}/${project.id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 self-start mt-1 px-3.5 py-2 rounded-lg text-sm font-medium transition-colors"
                       style={{ background: "var(--accent)", color: "var(--accent-foreground)" }}
                     >
                       View details
-                    </button>
+                      <ArrowUpRight size={14} />
+                    </a>
                   </div>
                 );
               })}
@@ -475,15 +480,6 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
           </>
         )}
       </div>
-
-      {/* Drawer, dynamically imports the full Project for openProject on open */}
-      {openProject && (
-        <ProjectDrawer
-          projectId={openProject.id}
-          category={openProject.category}
-          onClose={() => setOpenProject(null)}
-        />
-      )}
     </>
   );
 }

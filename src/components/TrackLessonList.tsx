@@ -175,6 +175,8 @@ export default function TrackLessonList({ track }: { track: Track }) {
               {/* Lesson link */}
               <Link
                 href={`/learn/${lesson.category}/${lesson.slug}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`flex-1 min-w-0 text-sm font-medium truncate transition-colors ${
                   done
                     ? "line-through text-[var(--muted-foreground)]"

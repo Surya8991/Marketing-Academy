@@ -175,6 +175,8 @@ export default function SearchClient() {
                 <li key={`${lesson.categorySlug}/${lesson.slug}`}>
                   <Link
                     href={`/learn/${lesson.categorySlug}/${lesson.slug}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-start justify-between gap-4 py-4 group"
                   >
                     <div className="min-w-0">

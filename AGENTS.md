@@ -632,3 +632,30 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
 When authoring or reviewing a new batch, grep the merged file for an unquoted top-level key (`grep -nE '^\s{2}[a-z][a-z0-9-]*:\s*\[' src/lib/projects/*.ts`) as a matter of course, the same way Rule 57's empty-array trap gets checked. Fix by adding quotes; never rewrite the merge/audit scripts to also accept unquoted keys, that just adds a second valid style for the same field and reopens Rule 56's "cheap to introduce, expensive to catch" problem for something else.
 
 **This bit twice in the same session, the second time pre-existing.** Immediately after documenting the case above, `copywriting.ts`'s `headlines` key turned out to already be unquoted from an earlier session, which is exactly why `get-track-batch-info.mjs`'s "already has projects" check missed it and listed `headlines` as one of the On-Page SEO Mastery track's "5 remaining" lessons needing new projects. An authoring agent caught it anyway by reading the target file directly instead of trusting the script's count, and flagged the conflict for a manual merge (append into the existing array, re-verify archetype-reuse across the combined set) rather than duplicating the key. Treat any "N lessons already have projects" count from tooling as a claim to spot-check against the real file when something about the count looks surprising, not as ground truth on its own.
+
+### Rule 59 — A user-reported rendering bug may be the site's own service worker, not the code; check before diagnosing further
+
+Session 78: a user reported a Mermaid diagram rendering too small to read on the live site. A fresh browser tab against the actual production deployment rendered the diagram correctly (SVG filled 93.5% of its container, matching local dev exactly), yet the tab that showed the bug had a live `ma-v2` service-worker cache registered for that origin. `public/sw.js` (Rule 50) caches JS/CSS bundles per-origin and does not distinguish `localhost` from production, so **any tab left open across a deploy, on any host, can silently keep serving a stale bundle indefinitely** — a plain reload or hard reload does not reliably fix it (Rule 50 already documents this for local dev; this confirms the same mechanism reproduces in a real user's browser against the live site).
+
+Before spending time diagnosing a rendering bug a user reports that doesn't reproduce in a fresh load:
+
+```js
+// Run in the reporting tab's console (or via javascript_tool) before assuming the code is wrong
+const regs = await navigator.serviceWorker.getRegistrations();
+const cacheNames = await caches.keys();
+// If regs/cacheNames are non-empty and a FRESH tab doesn't show the bug, it's the service worker, not the code.
+```
+
+Fix for the user: unregister the service worker and clear Cache Storage in that tab (DevTools → Application), or simply close it and open the page in a brand-new tab. Do not "fix" working code because one stale tab shows old behavior.
+
+### Rule 60 — A practice project's own detail page, and the "always open in a new tab + own page" convention
+
+Every practice project has its own statically-generated page at `/projects/[category]/[id]` (`src/app/projects/[category]/[slug]/page.tsx`, `generateStaticParams` from `PROJECTS_INDEX`). `src/lib/projects/lookup.ts`'s `getProjectByCategoryAndId()` does the server-side lookup — same dynamic-import + `<CATEGORY>_PROJECTS`-export-name-with-fallback logic the old `ProjectDrawer.tsx` used client-side (that file is deleted; this is its server-side replacement).
+
+`ProjectCard.tsx` now takes a `variant: "preview" | "full"` prop (default `"preview"`):
+- `"preview"` (used by `ProjectList.tsx` on the lesson page): renders the header/summary only, with an "Open project" link to `/projects/{category}/{id}` — requires a `category` prop, threaded down from the lesson page's `sourceCat`. Never expands inline anymore.
+- `"full"` (used only by the dedicated project page): renders the header plus the complete body (steps/stages/teardownItems, tool stack, dataset link, success criteria), always expanded, no toggle.
+
+**Every path that lets a learner open a specific project must link to `/projects/{category}/{id}` with `target="_blank" rel="noopener noreferrer"`, never open an inline expand or a modal/drawer.** This applies regardless of entry point — the lesson page's Project List and the `/projects` hub both link to the exact same page. Do not reintroduce a drawer or inline-expand pattern for projects; it was deliberately removed by explicit user request so a project always opens in its own page and tab.
+
+**Adding a third page that opens a lesson or a project only counts as done once the link target is confirmed, not once the href looks right.** This session's lesson-link `target="_blank"` sweep (17 links across `/learn`, homepage, search, cheat-sheets, interview-prep, bookmarks, recently-viewed, track lists, and both projects-page lesson backlinks) deliberately excluded the primary nav's "Start Learning"/Learn dropdown and every category-only link (`/learn/{category}` with no lesson slug) — those still navigate in the same tab. Before adding a new lesson-destination link anywhere in the app, check whether it belongs in the "opens in a new tab" set (a listing/hub page, or an in-lesson link to another lesson) or the excluded set (primary site navigation, category-only links) — grep for `href=\`/learn/` across `src/` and check the `target` attribute on the match rather than assuming a new link matches its neighbors.

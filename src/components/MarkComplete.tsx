@@ -211,6 +211,8 @@ export default function MarkComplete({
       {justCompleted && nextHref && nextTitle && (
         <Link
           href={nextHref}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold w-fit"
           style={{
             background: "rgba(22,163,74,0.12)",
