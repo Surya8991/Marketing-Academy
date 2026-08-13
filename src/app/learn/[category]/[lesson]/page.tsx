@@ -212,9 +212,9 @@ export default async function LessonPage({ params }: Props) {
             </nav>
 
             {/* Title block — docs-style single meta line instead of scattered
-                badges/pills; Mark Complete/Bookmark/Share moved to the bottom
-                action bar (see the end of this page), matching the approved
-                redesign (Session 75). */}
+                badges/pills. Mark Complete/Bookmark/Share moved back into the
+                header, right under the meta line (user feedback, Session 75
+                follow-up). */}
             <header className="mb-8">
               <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.1] mb-4">
                 {lessonMeta?.title}
@@ -239,6 +239,16 @@ export default async function LessonPage({ params }: Props) {
                 <span>{cat.title.toUpperCase()}</span>
                 <span>&middot;</span>
                 <span>UPDATED JUN 2026</span>
+              </div>
+              <div className="mt-5 flex flex-wrap items-center gap-3">
+                <MarkComplete
+                  category={sourceCat}
+                  slug={lesson}
+                  nextHref={next ? `/learn/${next.categorySlug}/${next.slug}` : undefined}
+                  nextTitle={next?.title}
+                />
+                <BookmarkButton category={sourceCat} slug={lesson} title={lessonMeta?.title ?? lesson} />
+                <ShareButtons title={lessonMeta?.title ?? lesson} url={`${BASE}/learn/${category}/${lesson}`} />
               </div>
             </header>
 
@@ -346,20 +356,6 @@ export default async function LessonPage({ params }: Props) {
                 <div />
               )}
             </nav>
-
-            {/* Bottom action bar — Mark Complete / Bookmark / Share moved out
-                of the header (docs-style redesign, Session 75). Its own
-                "Continue: {next}" CTA appears here on completion. */}
-            <div className="mt-10 pt-6 border-t border-[var(--border)] flex flex-wrap items-center gap-3">
-              <MarkComplete
-                category={sourceCat}
-                slug={lesson}
-                nextHref={next ? `/learn/${next.categorySlug}/${next.slug}` : undefined}
-                nextTitle={next?.title}
-              />
-              <BookmarkButton category={sourceCat} slug={lesson} title={lessonMeta?.title ?? lesson} />
-              <ShareButtons title={lessonMeta?.title ?? lesson} url={`${BASE}/learn/${category}/${lesson}`} />
-            </div>
           </div>
 
         </div>
