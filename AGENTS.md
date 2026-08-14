@@ -673,3 +673,72 @@ Standard SVG `<text>` elements do not automatically wrap text and will overflow 
 - **ForeignObject boundaries**: Set explicit `x`, `y`, `width`, and `height` properties on the `<foreignObject>` container to bounds-check and keep it fully aligned within the parent shape (e.g. rectangles, ellipses, trapezoids).
 - **CSS styling**: Apply CSS flexbox centering (`display: flex; align-items: center; justify-content: center; text-align: center;`) and word wrapping (`word-break: break-word; line-height: 1.2; overflow: hidden;`) to the HTML elements inside the `<foreignObject>` to ensure the browser handles font metrics and line wrapping natively.
 
+
+### Rule 63 — Project content architecture: 9 new optional fields on `Project`, "Learn vs Do" separation
+
+Session 2026-08-13: `Project` (src/lib/projects/types.ts) gained 9 new **optional** fields so existing 113 projects keep rendering unchanged while each is migrated to a richer "Learn vs Do" structure:
+
+```ts
+skills?: string[];                 // header tags, e.g. ["Core Web Vitals", "Technical SEO"]
+prerequisites?: string[];          // "Before You Start" checklist
+terminology?: { term: string; definition: string }[]; // first-mention definitions, same section
+keyQuestion?: string;               // the single question the project answers, shown under Objective
+whatToLookFor?: { label: string; detail: string }[];   // "Analyze" framing before/alongside steps
+decision?: { prompt: string; options: { id: string; label: string; correct: boolean }[]; explanation: string };
+professionalRecommendation?: { priority: "High" | "Medium" | "Low"; text: string };
+commonMistakes?: { mistake: string; explanation: string }[];
+keyTakeaway?: string;                // 2-3 sentence closing synthesis
+```
+
+Rendered by `ProjectCard.tsx` ("full" variant only) and the new `DecisionBox.tsx` component. Every field is conditionally rendered (`{project.field && ...}`), so an unmigrated project simply omits those sections, nothing breaks and no test needs updating for a project that has not been migrated yet.
+
+**`decision` follows the same answer-reveal-after-pick pattern as `Quiz.tsx`** (AGENTS.md Rule 25): the correct option and explanation are hidden until the learner picks one, never before. Do not add a version that shows the correct answer up front.
+
+**Reference migration**: `seo.ts`, project `core-web-vitals-field-vs-lab-audit`, has all 9 fields populated end-to-end, verified rendering correctly (Decision box reveal, Professional Recommendation, Common Mistakes, Key Takeaway all confirmed live in the browser). Use it as the template when migrating the remaining 112 projects, not an invented shape.
+
+**Do not treat the new fields as required.** `tests/projects-data.test.ts` intentionally does not assert their presence (Rule 57's "no style heuristics as invariants" lesson applies here too, forcing every project through the same 9 fields before content actually supports them would produce filler, not quality). Populate them only with real, lesson-grounded content.
+
+### Rule 64 — `ProjectCard.tsx` "full" variant section order matches the "Learn vs Do" page architecture
+
+The dedicated project page (`/projects/{category}/{id}`) renders sections in this fixed order, decided in the 2026-08-13 redesign session:
+
+1. Header (tier/archetype/time badges, title, company, objective, scenario, brief, key question, skill tags)
+2. **Before you start** — prerequisites, terminology, `<ToolStack>`, dataset download link (tools moved here from their own bottom-of-page section, so a learner sees what they need before starting, not after finishing)
+3. **The process** — `project.steps` via `<ProjectStep>`, or `<SimulationRunner>` for `stages`, or `<TeardownItemCard>` per `teardownItems`
+4. **What to look for** (`whatToLookFor`)
+5. Decision checkpoint (`<DecisionBox>`, only if `project.decision` is set)
+6. **Professional recommendation** (`professionalRecommendation`)
+7. **Common mistakes** (`commonMistakes`)
+8. **Final deliverable** — renders `project.deliverable` (the required field that existed since the original type but was never actually rendered anywhere until this session) plus `project.sampleOutput` behind a `<details>` "See a reference example" disclosure
+9. **Success criteria** (`successCriteria`, pre-existing)
+10. **Key takeaway** (`keyTakeaway`)
+
+**Do not reintroduce a separate "Recommended tools" section near the bottom of the page.** It used to sit there (right before the success-criteria checklist); moving `<ToolStack>` into "Before you start" was a deliberate fix, tools belong before the process starts, not after. If you add a new tools-adjacent field, put it in the "Before you start" block.
+
+**`project.deliverable` and `project.sampleOutput` were silently dropped by `ProjectCard.tsx` for the entire lifetime of the projects feature until this session** — both are non-optional fields on `Project` that every one of the 113 projects has always populated, but nothing ever rendered them. Found while implementing the "Final deliverable" section. If a future refactor of `ProjectCard.tsx` removes a field's render call, add a quick manual check (open one project page, confirm every non-optional `Project` field appears somewhere in the DOM) rather than assuming the type system would have caught a silently-unrendered-but-still-valid field, it doesn't, this is not a type error.
+
+### Rule 65 — `ProjectCard.tsx` "full" body uses hairline dividers, not stacked card boxes; only genuinely interactive/complex pieces stay boxed
+
+The first pass of the "Learn vs Do" redesign (Rule 64) wrapped every new section in its own `rounded-lg border` box, which reads as a stack of identical widgets, not an editorial page. Restyled to match the site's existing "field manual" identity (`PageMasthead.tsx`, homepage section labels): a `font-data` mono uppercase eyebrow + optional `font-display` (Fraunces) subhead, separated by a plain `border-t` hairline rule, no background tint, no border-radius box.
+
+**What stays boxed, and why:** `<DecisionBox>` (an interactive multiple-choice control needs a contained hit-area), `<ProjectStep>`/`<TeardownItemCard>`/`<SimulationRunner>` (separate components with their own established, more complex internal structure, not touched by this pass). Everything else — Before You Start, What To Look For, Common Mistakes, Final Deliverable, Success Criteria — is a `Section` shell (defined at the top of `ProjectCard.tsx`) with a hairline top border only.
+
+**The one deliberate signature move**: Professional Recommendation and Key Takeaway both render as a Fraunces italic pull-quote (`font-display italic`), the former with a thick `border-left: 3px solid var(--accent)` rule and a `"..."` wrap, the latter larger and unbordered as the page's closing statement. These are the two moments in a project worth typographic weight, everything else stays quiet by comparison. Do not add a third pull-quote-style treatment elsewhere on the page, spend that visual weight in exactly these two places or it stops reading as a signature.
+
+`ToolStack` moved fully into "Before You Start" (Rule 64) keeps its own "Free path"/"Paid upgrades" sub-headings unchanged, they read fine as sub-labels under the section's "What you'll need" heading, no need to touch `ToolStack.tsx` itself.
+
+### Rule 66 — The site's own service worker must never register outside production, or every dev session inherits Rule 50/59's staleness bug by default
+
+`public/sw.js` registration in `layout.tsx` used to run unconditionally (`if ('serviceWorker' in navigator)`, no environment check). Rules 50 and 59 both independently rediscovered the same root cause, a registered SW caches JS/CSS bundles per-origin and doesn't distinguish `localhost` from production, so any dev tab that had ever loaded the site keeps serving stale chunks after every subsequent edit, indistinguishable from a real bug (chunk-loading errors, stale rendered output, hydration mismatches) until someone thinks to check `navigator.serviceWorker.getRegistrations()`. This shipped bugs to two different sessions and to a real end user's browser (Rule 59) before being fixed at the root in Session 80.
+
+**Fixed**: the registration script now only calls `.register()` when `process.env.NODE_ENV === "production"` (inlined at build time by Next.js). In every other environment it proactively unregisters any SW the tab already has, so a tab that picked one up before this fix self-heals on next load instead of needing a manual DevTools trip.
+
+```ts
+// layout.tsx, the registration script (inlined, not a separate file)
+if ('serviceWorker' in navigator) {
+  if (IS_PRODUCTION) { navigator.serviceWorker.register('/sw.js').catch(function(){}); }
+  else { navigator.serviceWorker.getRegistrations().then(function(rs){ rs.forEach(function(r){ r.unregister(); }); }); }
+}
+```
+
+Rule 50's "full restart + fresh tab" sequence is still correct advice for the rarer Turbopack-file-watcher-didn't-recompile case, but the SW half of that problem should no longer occur in local dev at all going forward. If a stale-chunk/hydration-mismatch bug reappears in dev after this fix, check `navigator.serviceWorker.getRegistrations()` first anyway, don't assume this rule fixed it forever, a browser extension or an old registration from before this fix can still be present in an already-open tab.

@@ -242,6 +242,33 @@ export type Project = {
   successCriteria: string[];
   portfolioReady: boolean;
   stretch?: string;
+
+  // --- "Learn vs Do" content architecture (added 2026-08-13, all optional so
+  // the existing library keeps rendering unchanged until each project is
+  // migrated; see ProjectCard.tsx for how each is rendered/omitted). ---
+
+  /** Short skill tags shown in the header, e.g. ["Core Web Vitals", "Technical SEO"]. */
+  skills?: string[];
+  /** What the learner should already know/have before starting; renders as a "Before You Start" checklist. */
+  prerequisites?: string[];
+  /** First-mention term + plain-English definition, shown in "Before You Start". */
+  terminology?: { term: string; definition: string }[];
+  /** The single question the whole project is answering, shown prominently under Objective. */
+  keyQuestion?: string;
+  /** What to actively look for while working through the steps/evidence (the "how to think about it" list). */
+  whatToLookFor?: { label: string; detail: string }[];
+  /** A multiple-choice checkpoint: given the evidence gathered, which action is correct and why. */
+  decision?: {
+    prompt: string;
+    options: { id: string; label: string; correct: boolean }[];
+    explanation: string;
+  };
+  /** The polished, stakeholder-ready recommendation paragraph (Priority + finding + action, in professional register). */
+  professionalRecommendation?: { priority: "High" | "Medium" | "Low"; text: string };
+  /** Mistakes learners commonly make on this exact project, each with why it's wrong. */
+  commonMistakes?: { mistake: string; explanation: string }[];
+  /** 2-3 sentence closing synthesis, what the exercise was really teaching. */
+  keyTakeaway?: string;
 };
 
 /**

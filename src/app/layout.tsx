@@ -103,8 +103,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <CommandPaletteLoader />
           <StorageWarning />
         </PostHogProvider>
-        {/* Service worker registration */}
-        <script dangerouslySetInnerHTML={{ __html: `if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(function(){});}` }} />
+        {/* Service worker registration, PRODUCTION ONLY (AGENTS.md Rule 50/59): the
+            SW caches JS/CSS bundles per-origin regardless of localhost vs prod, so a
+            dev tab that registers it starts silently serving stale chunks after every
+            hot-reload restart, indistinguishable from a real bug (hit repeatedly across
+            Sessions 50/59/80). Registering only in prod removes the dev-mode failure
+            mode entirely; production still gets the caching behavior it's meant for.
+            Also unregisters any SW a dev tab may have already registered pre-fix. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if('serviceWorker' in navigator){if(${JSON.stringify(process.env.NODE_ENV === "production")}){navigator.serviceWorker.register('/sw.js').catch(function(){});}else{navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister();});});}}`,
+          }}
+        />
         {/* PostHog analytics — CDN snippet loads only when the env key is set.
             Uses the CDN instead of the posthog-js npm package because Turbopack
             statically traces all import() expressions and crashes on posthog-js's
