@@ -1651,7 +1651,7 @@ export const PR_COMMUNICATIONS_PROJECTS: Record<string, Project[]> = {
             {
               symptom: "Query submissions yield zero reporter replies or mentions",
               action: "Shorten response to 2 clear sentences of insight plus 1 quote; eliminate all corporate background fluff",
-              effort: "15 min",
+              effort: "30 min",
             },
           ],
           owner: "you",

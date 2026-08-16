@@ -12070,7 +12070,7 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
             {
               symptom: "FAQ answers are vague and fail to provide exact numbers or pricing",
               action: "Rewrite first sentence of each FAQ answer with specific figures, meters, and hours",
-              effort: "15 min",
+              effort: "30 min",
             },
             {
               symptom: "Competitor captures the Google AI Overview snippet for 'coworking with parking Indiranagar'",
@@ -12119,7 +12119,7 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
             {
               symptom: "Review conversion rate drops below 10%",
               action: "Shorten message text and test sending via WhatsApp rather than email",
-              effort: "15 min",
+              effort: "30 min",
             },
             {
               symptom: "Customer leaves a 3-star review citing Wi-Fi speed during peak hours",
