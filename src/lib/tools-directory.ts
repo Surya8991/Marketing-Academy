@@ -471,6 +471,26 @@ export const TOOLS: MarketingTool[] = [
     emoji: "📊",
     tags: ["data visualization", "charts", "infographics"],
   },
+  {
+    name: "Zoom",
+    description: "Video communication and webinar platform supporting live interactive presentations, Q&A, and recording.",
+    category: "Content Marketing",
+    pricing: "Freemium",
+    url: "https://zoom.us",
+    emoji: "📹",
+    tags: ["webinars", "video conferencing", "live events"],
+    popular: true,
+  },
+  {
+    name: "YouTube",
+    description: "Video hosting, live streaming, and video discovery platform for publishing recordings and hosting YouTube Live events.",
+    category: "Content Marketing",
+    pricing: "Free",
+    url: "https://youtube.com",
+    emoji: "▶️",
+    tags: ["video hosting", "live streaming", "video SEO"],
+    popular: true,
+  },
 
   // ── Email & CRM ───────────────────────────────────────────────────────────
   {
@@ -962,6 +982,16 @@ export const TOOLS: MarketingTool[] = [
     url: "https://figma.com",
     emoji: "✏️",
     tags: ["UI design", "prototyping", "collaboration"],
+    popular: true,
+  },
+  {
+    name: "Miro",
+    description: "Visual workspace and collaborative whiteboard for customer journey mapping, diagrams, and strategy workshops.",
+    category: "Design & Brand",
+    pricing: "Freemium",
+    url: "https://miro.com",
+    emoji: "🗺️",
+    tags: ["whiteboard", "journey mapping", "collaboration", "diagrams"],
     popular: true,
   },
   {

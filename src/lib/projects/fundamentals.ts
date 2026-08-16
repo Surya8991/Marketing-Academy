@@ -904,4 +904,1087 @@ export const FUNDAMENTALS_PROJECTS: Record<string, Project[]> = {
         "Rewrite the memo's Sean Ellis and retention lines the way an honest founder would present them, stale data flagged as stale, declining retention stated plainly, and decide whether you'd still fund this company.",
     },
   ],
+
+  "stp": [
+    {
+      id: "stp-segment-scoring-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Market Selection Matrix: Auditing and Scoring Three B2B Segments",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Evaluate three prospective B2B market segments using the lesson's four-question targeting score (Size, Reach, Advantage, Growth) to decide which segment to dominate first and which high-risk trap to eliminate.",
+      companyId: "freshworks",
+      scenario:
+        "You're the product marketing manager at Freshworks evaluating three prospective customer segments for a new customer service automation add-on: 1) Enterprise Financial Services (5,000+ employees), 2) Rapidly Scaling E-commerce Brands (50-250 employees), and 3) Solopreneur Agencies. Leadership is tempted to pursue the enterprise banks because of high ACV, but the sales cycle is 12 months and customization demands are massive.",
+      brief:
+        "Score all three candidate segments across Size, Reach, Advantage, and Growth in a comparison matrix. Flag the single segment with the highest 'winnable-to-value' ratio, and write a one-paragraph justification killing the enterprise bank push.",
+      mode: "diagnostic",
+      conceptsCovered: ["Step 1: Segmentation", "Step 2: Targeting"],
+      steps: [
+        {
+          stepId: "stp-audit-segmentation-matrix",
+          concept: "Step 1: Segmentation",
+          lessonAnchor: "step-1-segmentation",
+          theoryRecap:
+            "The lesson divides markets across demographic/firmographic (company size, industry), geographic, psychographic, and behavioral dimensions. The sharpest B2B segments combine firmographic scale with a shared urgent pain.",
+          question:
+            "Which candidate segment has a unified, acute Sunday-night worry versus fragmented feature wishlists?",
+          toolName: "Google Sheets",
+          where: "Segment Candidate Tab in your GTM Planning Sheet",
+          procedure: [
+            "List the three candidate segments with their firmographic criteria and current software stack.",
+            "Document the primary 'Sunday-night worry' for each group based on sales discovery notes.",
+            "Verify that each group has a clear behavioral filter (e.g., currently overwhelmed by ticket spikes on Shopify) rather than a loose demographic bucket.",
+          ],
+          outputSample:
+            "Segment A: Enterprise Banks (5000+ seats, legacy on-premise, security review 9+ mos)\nSegment B: Scaling DTC Brands (50-250 seats, Shopify Plus, 40% holiday ticket surges)\nSegment C: Solo Agencies (1-3 seats, free tools, high churn)",
+          healthy:
+            "Segment definition combines firmographic bounds with a specific operational friction.",
+          unhealthy:
+            "Defining a target as 'any company that needs customer support automation.'",
+          interpret:
+            "Segment B has an acute, time-bound behavioral pain (Black Friday ticket spikes) that Freshworks' out-of-the-box setup solves in days, whereas Segment A requires custom SOC2 audits and custom integrations.",
+          soWhat: [
+            {
+              symptom:
+                "candidate segments are defined only by employee count without an operational trigger",
+              action:
+                "add a behavioral filter before scoring targeting viability",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "stp-audit-targeting-score",
+          concept: "Step 2: Targeting",
+          lessonAnchor: "step-2-targeting",
+          theoryRecap:
+            "Score candidate segments against four criteria: Size (is it worth it?), Reach (can you acquire them efficiently?), Advantage (do you have an edge over incumbents?), and Growth (is the segment expanding?). Dominate a small pond first.",
+          question:
+            "Which segment yields the highest combined score on Advantage + Reach rather than raw market size?",
+          toolName: "Google Sheets",
+          where:
+            "Targeting Evaluation Matrix (Columns: Size 1-5, Reach 1-5, Advantage 1-5, Growth 1-5)",
+          procedure: [
+            "Score each segment from 1 to 5 across Size, Reach, Advantage, and Growth.",
+            "Multiply Advantage by Reach to calculate the acquisition feasibility index.",
+            "Identify the winning segment that balances high product fit with low acquisition friction.",
+            "Draft the one-paragraph executive summary recommending which segment to fund.",
+          ],
+          outputSample:
+            "Scoring Summary (Scale 1-5):\n- Enterprise Banks: Size 5, Reach 2, Advantage 2, Growth 3 (Total: 12/20, Feasibility: 4)\n- Scaling DTC Brands: Size 4, Reach 5, Advantage 5, Growth 5 (Total: 19/20, Feasibility: 25)\n- Solo Agencies: Size 2, Reach 4, Advantage 3, Growth 2 (Total: 11/20, Feasibility: 12)\n\nVerdict: Dominate Scaling DTC Brands first.",
+          healthy:
+            "Targeting selection favors high advantage and efficient reach over pure raw market size.",
+          unhealthy:
+            "Chasing a low-advantage segment simply because the total addressable market dollar figure looks large in a pitch deck.",
+          interpret:
+            "Scaling DTC brands score 19/20 because Freshworks has an immediate time-to-value advantage over Salesforce and Zendesk in this bracket, and acquisition via app ecosystems (Shopify App Store) is self-serve.",
+          soWhat: [
+            {
+              symptom:
+                "sales leadership wants to chase low-feasibility enterprise accounts with 12-month cycles",
+              action:
+                "present the 19/20 vs 12/20 targeting scorecard showing payback velocity",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Model the 4-part targeting scorecard and feasibility weighting",
+            why: "Zero-cost spreadsheet for multi-attribute segment scoring",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "HubSpot CRM",
+            role: "Filter historical deals by company size and sales cycle length to validate win rates",
+            why: "Enriches scoring with historical CRM closed-won data",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paidUpgradeNote:
+          "The spreadsheet template completes this project in full. A CRM is only useful for historical deal validation.",
+      },
+      deliverable:
+        "A completed 4-question targeting scorecard for all three segments and a one-paragraph recommendation selecting the primary target.",
+      sampleOutput:
+        "Targeting Evaluation Matrix — Klaviyo SMS Add-on Expansion\n\nCandidate Segments:\n1. Enterprise Retailers ($50M+ GMV, custom headless stacks): Size 5/5, Reach 2/5, Advantage 2/5, Growth 3/5 -> Total: 12/20\n2. Mid-Market DTC ($2M-$20M GMV, Shopify/BigCommerce): Size 4/5, Reach 5/5, Advantage 5/5, Growth 5/5 -> Total: 19/20\n3. Boutique Brick-and-Mortar (<$250k revenue, POS-only): Size 2/5, Reach 3/5, Advantage 2/5, Growth 2/5 -> Total: 9/20\n\nExecutive Recommendation:\nFund Mid-Market DTC exclusively for Q3 GTM. Klaviyo's 1-click Shopify SMS integration and shared email/SMS profiles provide an unbeatable product advantage against single-point SMS tools (Attentive) and generic enterprise clouds (Salesforce Marketing Cloud). While Enterprise Retailers have larger list sizes, their 9-month custom integration timelines and procurement red tape will tie up engineering. Win 35% market share in the mid-market DTC tier before building custom enterprise adapters.",
+      successCriteria: [
+        "Correctly breaks down three segments using firmographic and behavioral attributes",
+        "Scores each segment across all four targeting dimensions (Size, Reach, Advantage, Growth)",
+        "Selects the segment with highest advantage and distribution efficiency rather than raw market size alone",
+        "Provides a defensible one-paragraph executive rationale",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "stp-positioning-statement-rebuild",
+      tier: "mini",
+      archetype: "rebuild",
+      title: "The Positioning Overhaul: Rebuilding a Fluffy Feature Pitch into an Internal Compass",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Transform a vague, feature-heavy homepage draft into a disciplined, four-part internal positioning statement (For / Who / Product / Unlike) that clearly differentiates against the category incumbent.",
+      companyId: "slack",
+      scenario:
+        "You're a product marketer at Slack during its early breakout phase. The current marketing draft says: 'Slack is a revolutionary real-time messaging, file sharing, and team collaboration platform with powerful search and hundreds of native app integrations.' It reads like a laundry list of features that Microsoft and Skype could also claim. You need to rewrite it into a sharp internal positioning statement that guides sales and copy.",
+      brief:
+        "Dissect the weak feature pitch, map the target segment's specific friction, isolate the primary differentiator against email and legacy chat, and write the final four-part positioning statement.",
+      mode: "build",
+      conceptsCovered: ["Step 3: Positioning", "Common Mistakes"],
+      steps: [
+        {
+          stepId: "stp-positioning-teardown-fluff",
+          concept: "Common Mistakes",
+          lessonAnchor: "common-mistakes",
+          theoryRecap:
+            "Positioning in features ('we have more integrations') fails because features are easily copied. Effective positioning describes a feeling of fit and an emotional or operational outcome that competitors cannot easily match.",
+          question:
+            "What makes the draft sentence 'Slack is a real-time messaging and file sharing platform' vulnerable to competitors?",
+          toolName: "Google Docs",
+          where: "Marketing Positioning Document (Draft Review Section)",
+          procedure: [
+            "Identify every feature noun in the draft (messaging, file sharing, search, integrations).",
+            "Test if an incumbent (e.g. Microsoft Skype/Lync or HipChat) could put the exact same sentence on their homepage.",
+            "Isolate the emotional/operational transformation: moving from chaotic inbox silos to transparent, searchable channels.",
+          ],
+          outputSample:
+            "Weak Draft: 'A real-time messaging and file sharing tool with searchable archives.'\nCompetitor Test: Skype, Google Hangouts, and HipChat can make the exact same claim.\nMissing Core Value: Eliminating email silo anxiety and fragmented communication across fast-moving product teams.",
+          healthy:
+            "Identifies that feature-led claims create zero differentiation against incumbents.",
+          unhealthy:
+            "Trying to fix a positioning statement by simply adding more feature adjectives (e.g. 'faster, smarter, AI-driven').",
+          interpret:
+            "A positioning statement that can be copied by an incumbent is invalid. It must stake a claim on a specific problem and point of view.",
+          soWhat: [
+            {
+              symptom:
+                "positioning draft describes what the product contains instead of why the customer switches",
+              action:
+                "strip all feature nouns and rewrite the customer before/after state",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "stp-positioning-statement-assembly",
+          concept: "Step 3: Positioning",
+          lessonAnchor: "step-3-positioning",
+          theoryRecap:
+            "Follow the classic four-part positioning framework: For [target], who [need/problem], [Product] is a [category] that [key benefit]. Unlike [main alternative], we [key differentiator].",
+          question:
+            "How do you structure the four components into a single guiding statement?",
+          toolName: "Google Docs",
+          where: "Internal Strategic Positioning Compass",
+          procedure: [
+            "Define the exact target segment and their acute friction in the 'For / Who' clauses.",
+            "Define the category and primary emotional/operational benefit in the '[Product] is a [category] that' clause.",
+            "Name the primary alternative (email/silos) and the uncompromising differentiator in the 'Unlike / We' clause.",
+            "Verify that the statement serves as an internal decision filter for product and copywriting.",
+          ],
+          outputSample:
+            "For modern product and engineering teams who are drowning in fragmented email threads and missed updates, Slack is a channel-based collaboration hub that makes team communication transparent, searchable, and effortless. Unlike internal email and legacy chat tools that trap information in private inboxes, we organize conversations into open channels so knowledge flows automatically across the entire company.",
+          healthy:
+            "Statement clearly defines target, category, primary benefit, and distinct competitive alternative.",
+          unhealthy:
+            "Omits the alternative or writes a vague differentiator like 'we provide better customer service.'",
+          interpret:
+            "This statement clearly stakes out 'channel-based transparency vs private email silos', giving designers, writers, and sales reps an unmistakable standard for what belongs in Slack's messaging.",
+          soWhat: [
+            {
+              symptom: "landing page copy drifts into generic tech jargon",
+              action:
+                "compare new headlines directly against the 'Unlike' clause of the positioning statement",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Draft, critique, and version the 4-part positioning statement",
+            why: "Collaborative drafting workspace with revision history",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+        paidUpgradeNote:
+          "No paid tools needed. This strategic exercise requires clear thinking and structured drafting.",
+      },
+      deliverable:
+        "A deconstructed analysis of the flawed feature draft and the finished 4-part internal positioning statement.",
+      sampleOutput:
+        "Positioning Statement Overhaul — Squarespace (vs WordPress)\n\nFlawed Feature Draft:\n'Squarespace is a cloud-based content management system with drag-and-drop templates, hosting, domain registration, and e-commerce capabilities.'\n\nFlaw Breakdown:\nLists six technical features that WordPress + Bluehost also provide. Fails to articulate the emotional relief of never having to update PHP plugins or fix broken server configurations.\n\nFinished Internal Positioning Statement:\nFor creative entrepreneurs and boutique business owners who want a stunning digital storefront without hiring a web developer, Squarespace is an all-in-one website publishing platform that guarantees design-grade visual polish in hours. Unlike WordPress and open-source CMSs that require managing brittle plugins, hosting servers, and security patches, we combine award-winning curated design templates with fully managed infrastructure so your site never breaks.",
+      successCriteria: [
+        "Isolates why feature-heavy positioning fails the competitor copy test",
+        "Follows the exact 4-part framework (For, Who, Product/Category, Unlike/Differentiator)",
+        "Positions against a specific alternative (status quo or legacy incumbent)",
+        "Produces an internal standard that informs copywriting and marketing creative",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "buyer-personas": [
+    {
+      id: "buyer-personas-fluff-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "The Fluff Teardown: Stripping Demographic Wallpaper from a B2B Persona",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Audit a typical 'demographic wallpaper' buyer persona profile, identify 4 critical defects (useless lifestyle details, missing trigger events, fabricated pain points, lack of direct quotes), and extract the few actionable insights that actually influence copy and product.",
+      companyId: "zendesk",
+      scenario:
+        "An external branding agency handed Zendesk's customer service marketing team a 15-page buyer persona for 'Support Manager Susan'. It contains stock photos, her favorite Starbucks drinks, and generic statements like 'values efficiency.' Before the team wastes budget writing campaigns to this profile, you need to tear it down, flag the decorative fluff, and extract the real operational buying signals.",
+      brief:
+        "Review the provided persona profile specimen. Identify all defects that violate the lesson's rules, distinguish genuine buying signals from demographic wallpaper, and provide the graded teardown.",
+      mode: "teardown",
+      conceptsCovered: ["What Goes Wrong", "The Quote Test"],
+      teardownItems: [
+        {
+          itemId: "bp-teardown-item-1",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "PERSONA PROFILE: Support Manager Susan (Age 36)\n\nDEMOGRAPHICS & LIFESTYLE:\n- Married with 2 golden retrievers, drives a Subaru Outback\n- Enjoys weekend yoga and listens to NPR podcasts on her commute\n- Holds a Bachelor's in Communications\n\nGOALS & PAINS:\n- Goals: 'Wants to be an effective leader and optimize team efficiency'\n- Pain Points: 'Doesn't like inefficient processes; feels stressed when tools are slow'\n- Tech Stack: 'Uses a laptop and smartphone daily'\n- Preferred Channels: 'Active on LinkedIn and Facebook'\n\nBUYING MOTIVATION:\n- 'Looking for modern software that helps her team succeed and scales with company growth.'",
+          prompt:
+            "Identify all critical and moderate defects in 'Support Manager Susan' where demographic fluff or vague generalities replace real operational buying triggers.",
+          answerKey: [
+            {
+              defect:
+                "Demographic and lifestyle wallpaper (Subaru, yoga, dogs, NPR) that has zero connection to customer service software evaluation or purchasing behavior",
+              severity: "critical",
+              whyItMatters:
+                "Forces copywriters and media buyers to make arbitrary creative assumptions based on irrelevant personal hobbies rather than work context",
+              lessonRef:
+                "Demographic wallpaper is the second trap. 'Sarah, 34, likes yoga and reads HBR' is harmless but useless unless those traits connect to how she makes purchasing decisions.",
+              owner: "you",
+            },
+            {
+              defect:
+                "Vague, meaningless goal ('optimize team efficiency') and generic pain ('feels stressed when tools are slow') without specific operational metrics",
+              severity: "critical",
+              whyItMatters:
+                "Every software buyer on earth wants efficiency; without specific friction (e.g., ticket volume surges, missed SLAs, duplicate responses), marketing cannot write landing page copy that resonates",
+              lessonRef:
+                "The primary problem they are trying to solve and what they have already tried that did not work.",
+              owner: "you",
+            },
+            {
+              defect:
+                "Complete absence of a trigger event (the specific catalyst that made her start searching for a new helpdesk today)",
+              severity: "critical",
+              whyItMatters:
+                "The trigger is the most useful detail in a persona—without knowing what broke, ad targeting and lifecycle messaging have no timing relevance",
+              lessonRef:
+                "The most useful detail in a persona is the trigger: what moment made the customer start looking for a solution.",
+              owner: "you",
+            },
+            {
+              defect:
+                "Zero customer verbatim quotes or specific objections to purchasing",
+              severity: "moderate",
+              whyItMatters:
+                "Without real quotes, the persona is an internal hypothesis rather than verified customer reality (fails the Quote Test)",
+              lessonRef:
+                "The Quote Test: A direct quote from a real customer interview, in their exact words. 'I was drowning in spreadsheets' is more useful than 'values efficiency.'",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The persona mentions she uses a laptop and smartphone instead of naming specific operating system version numbers",
+            "The profile should include Susan's Myers-Briggs personality type (MBTI) to help writers choose adjectives",
+            "The persona has only one role title instead of combining four different job levels into a single profile",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Annotate and document the persona teardown findings",
+            why: "Clean workspace for highlighting defects and writing corrections",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+        paidUpgradeNote:
+          "No paid tools needed. This is an analytical critique of a persona artifact.",
+      },
+      deliverable:
+        "A graded teardown report categorizing each element of the persona profile as Actionable Signal, Decorative Fluff, or Dangerous Assumption.",
+      sampleOutput:
+        "Persona Teardown Audit — Mailchimp SMB Profile ('Boutique Owner Brenda')\n\nFLAGGED DEFECTS:\n1. Fluff: 'Loves vintage flea markets and artisanal bakery pastries' -> Severity: Critical. Zero impact on email marketing tool selection.\n2. Vague Pain: 'Wants to communicate better with shoppers' -> Severity: Critical. Replaced real operational friction (e.g., 'Manually sending individual sale emails took 6 hours every Sunday night').\n3. Missing Trigger: Does not specify what forced the switch (e.g., customer email list crossed 1,000 contacts and Gmail blocked outgoing messages for spam).\n4. Missing Verbatim: No direct customer quote explaining why prior tools failed.\n\nACTIONABLE RECONSTRUCTION:\n- Role: Owner/Sole Operator, 1-location retail boutique\n- Trigger: Reached 1,200 newsletter subscribers; Gmail threw delivery throttle errors during Black Friday promo\n- Failed Alternative: Batch emailing via BCC in Apple Mail / Gmail\n- Primary Fear: Accidental data leak (putting 500 customer emails in CC instead of BCC) and looking unprofessional\n- Verified Quote: 'I almost cried when my email was blocked on Small Business Saturday because Google thought I was a spam bot.'",
+      successCriteria: [
+        "Identifies demographic wallpaper and explains why it fails the decision-filter test",
+        "Flags the missing trigger event as the primary structural defect",
+        "Notes the absence of customer verbatim quotes and specific objections",
+        "Correctly distinguishes distractors from genuine persona defects",
+      ],
+      portfolioReady: false,
+    },
+    {
+      id: "buyer-personas-interview-synthesis-build",
+      tier: "mini",
+      archetype: "build-the-asset",
+      title: "From Call Recording to Decision Filter: Building a Trigger-First B2B Persona",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Synthesize three raw B2B customer interview transcripts into a single 1-page, trigger-first buyer persona featuring the 5 mandatory components: Core Problem, Failed Alternatives, Trust Triggers, Primary Objection, and Verbatim Customer Quotes.",
+      companyId: "freshworks",
+      scenario:
+        "Freshworks just launched Freshsales for scaling B2B agencies. You conducted 3 discovery calls with recent buyers who switched from spreadsheets and legacy CRMs. Your task is to extract the recurring patterns, discard irrelevant personal banter, and assemble a 1-page persona that product managers, copywriters, and paid ad marketers can immediately use to guide campaigns.",
+      brief:
+        "Analyze the 3 customer transcripts, identify the shared catalyst/trigger moment, extract the exact customer words for their biggest objection, and build the final 1-page persona asset.",
+      mode: "build",
+      conceptsCovered: [
+        "How to Build a Persona That Actually Works",
+        "The Quote Test",
+      ],
+      steps: [
+        {
+          stepId: "bp-build-transcript-extraction",
+          concept: "How to Build a Persona That Actually Works",
+          lessonAnchor: "how-to-build-a-persona-that-actually-works",
+          theoryRecap:
+            "Aim for interviews with recent buyers, listen for: 1) exact language describing their problem, 2) the trigger moment that made them search, and 3) what almost made them not buy. Layer interview 'why' over CRM 'who'.",
+          question:
+            "Across the three buyer transcripts below, what was the common breaking point (trigger) that forced them to search for a dedicated CRM?",
+          toolName: "Google Docs",
+          where: "Customer Discovery Notes (3 Transcript Excerpts)",
+          procedure: [
+            "Read Transcript 1 (Agency Founder, 18 staff): 'We were tracking 40 deals in Notion and Google Sheets. Then two reps double-pitched the same $60k client with conflicting discounts.'",
+            "Read Transcript 2 (Ops Lead, 25 staff): 'Our founder forgot to follow up with a warm referral for three weeks because the spreadsheet row was marked in yellow instead of green.'",
+            "Read Transcript 3 (Sales Director, 30 staff): 'I spent 4 hours every Friday manually reconciling who owned which lead across three different spreadsheets.'",
+            "Identify the unified trigger: Spreadsheet tracking broke at 15-30 employees, leading to public lead collisions and lost revenue.",
+          ],
+          outputSample:
+            "Shared Trigger: Deal collisions and missed follow-ups caused by shared spreadsheets breaking at >15 employees.\nShared Failed Solution: Color-coded Google Sheets and Notion tables.\nShared Fear: Buying enterprise CRM (Salesforce) that takes 6 months to set up and requires full-time admins.",
+          healthy:
+            "Synthesizes a concrete operational breaking point shared across multiple real customer accounts.",
+          unhealthy:
+            "Creating separate personas for each individual interviewee rather than finding the structural common trigger.",
+          interpret:
+            "The common catalyst is not company age or founder background—it is the operational chaos of multi-rep lead collision in spreadsheets once pipeline exceeds 30 concurrent deals.",
+          soWhat: [
+            {
+              symptom:
+                "marketing team drafts ad copy about 'streamlining workflows'",
+              action:
+                "rewrite the ad hook to target the exact trigger: 'Stop two reps from pitching the same client with different quotes'",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "bp-build-persona-asset-assembly",
+          concept: "The Quote Test",
+          lessonAnchor: "the-quote-test",
+          theoryRecap:
+            "Build the 1-page persona around 5 core elements: Primary Problem, Failed Alternatives, Trust Triggers, Biggest Objection, and Direct Customer Verbatim Quotes. If it doesn't change a decision, cut it.",
+          question:
+            "How do you structure the final 1-page persona so every section acts as a decision filter for copy, product, and channel choice?",
+          toolName: "Notion",
+          where: "GTM Persona Repository",
+          procedure: [
+            "Assign a functional persona name (e.g. 'Scaling Agency Founder Alex').",
+            "Summarize the Primary Problem in terms of felt commercial risk (reputation damage from lead collisions).",
+            "Document What Was Tried Before (Google Sheets, Notion, HubSpot Free Tier).",
+            "List What Builds Trust (2-minute self-serve setup, no credit card required, instant CSV import).",
+            "State the Biggest Objection ('My reps will refuse to log data if it takes more than 3 clicks').",
+            "Insert at least two verbatim customer quotes verified from the interview transcripts.",
+          ],
+          outputSample:
+            "BUYER PERSONA: Scaling Agency Alex\n- Role: Founder / Managing Director (15-35 employees)\n- Trigger: Two account managers double-emailed a $50k prospect with conflicting price proposals from an outdated Google Sheet.\n- Primary Problem: Loss of revenue and agency credibility from chaotic, uncoordinated deal handoffs.\n- Tried Before: Color-coded Google Sheets, Notion pipeline boards (broke when team grew past 3 reps).\n- Trust Factors: 14-day full-feature free trial, 5-minute CSV lead import, zero implementation consultant fees.\n- Biggest Objection: 'My team hates admin; if this takes more than 30 seconds per call update, they'll go back to their private notes.'\n- Real Quotes: 'We lost a $60k deal because nobody knew who was supposed to send the revised contract.' / 'I don't need a spaceship CRM, I just need to know who owns what.'",
+          healthy:
+            "Persona contains zero decorative fluff and provides instant clarity for ad copy hooks, feature prioritization, and onboarding flows.",
+          unhealthy:
+            "Including lifestyle details or vague corporate slogans that fail to guide concrete copy or UX decisions.",
+          interpret:
+            "Every line in this completed profile directly dictates a marketing action: the homepage headline must speak to lead ownership and speed, onboarding must feature instant CSV import, and product must minimize click-depth for daily logging.",
+          soWhat: [
+            {
+              symptom:
+                "product team plans a complex 10-step deal configuration wizard",
+              action:
+                "cite Alex's biggest objection ('takes more than 30 seconds') to simplify the flow to 2 steps",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Notion",
+            role: "Format and store the 1-page buyer persona decision card",
+            why: "Clean database/page format for team-wide sharing",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Docs",
+            role: "Review raw customer interview transcripts",
+            why: "Standard transcript reading and highlighting tool",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "HubSpot CRM",
+            role: "Validate customer deal sizes and sales cycle lengths against interview claims",
+            why: "Enriches qualitative interview insights with closed-won CRM data",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paidUpgradeNote:
+          "Notion and Google Docs complete this project in full without any paid subscriptions.",
+      },
+      deliverable:
+        "A complete 1-page trigger-first buyer persona document containing the 5 core elements and verified customer quotes.",
+      sampleOutput:
+        "1-Page Persona: Data Engineering Lead David (Snowflake)\n\nProfile & Context:\n- Role: VP / Director of Data Engineering (Mid-Market B2B SaaS, 200-800 employees)\n- The Trigger: Nightly ETL batch jobs took 7 hours and crashed at 4 AM, delaying executive reporting dashboards for the 3rd time in one month.\n- Primary Problem: Legacy on-premise data warehouses require constant manual compute tuning, locking engineering into maintenance instead of building user-facing features.\n- Tried Before: Optimizing Hadoop clusters and scaling Redshift nodes (resulted in spiraling idle compute costs and maintenance overhead).\n- Trust Factors: Instant 30-day trial with preloaded sample workloads, separation of storage and compute pricing, SOC2 compliance out of the box.\n- Biggest Objection: 'Will running ad-hoc queries from our analytics team blow through our quarterly cloud budget in two weeks?'\n- Verified Quotes:\n  1. 'I spent my entire Sunday fixing a crashed nightly aggregation pipeline while our CEO was waiting for board metrics.'\n  2. 'I don't want my senior engineers spending half their week managing cluster indexing; we need query compute that turns off when it's done.'\n\nMarketing Application:\n- Homepage Headline: 'Run queries in seconds, not hours—without managing infrastructure.'\n- Primary Proof Asset: Architecture comparison showing automatic compute suspension.",
+      successCriteria: [
+        "Extracts a unified operational trigger event across multiple customer interview transcripts",
+        "Builds the complete 5-element persona framework (Problem, Failed Solutions, Trust Factors, Objection, Quotes)",
+        "Contains zero demographic fluff or irrelevant personal lifestyle traits",
+        "Every section provides a direct decision filter for copy, product, or sales",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  // -------------------------------------------------------------------
+  // positioning
+  // -------------------------------------------------------------------
+  "positioning": [
+    {
+      id: "positioning-copy-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "The Category Trap: Tearing Down 3 Broken Positioning Statements",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Evaluate three synthetic B2B SaaS positioning statements against the lesson's core rules (avoiding 'better', framing the category, establishing defensibility, and passing the 'only' test), pinpointing fatal positioning defects and distinguishing genuine flaws from cosmetic copy choices.",
+      companyId: "slack",
+      scenario:
+        "You are advising an early-stage B2B enterprise collaboration startup built during the rise of team chat (in the spirit of Slack's 2013 launch phase). The founder has drafted three alternative positioning angles for their landing page and pitch deck, but every draft triggers investor skepticism. You need to identify which fundamental positioning errors each specimen makes before they spend budget on paid traffic.",
+      brief:
+        "Review 3 positioning specimens. For each specimen, identify whether it falls into the 'better' trap, lacks a clear frame of reference, makes non-defensible feature claims, or fails the 'Only' test. Flag genuine defects against the answer key while rejecting cosmetic distractors.",
+      mode: "teardown",
+      conceptsCovered: [
+        "Why Better Is a Losing Strategy",
+        "Common Mistakes",
+        "The Only Test",
+      ],
+      teardownItems: [
+        {
+          itemId: "teardown-pos-specimen-1",
+          specimen:
+            "Specimen A (B2B Project Tracker):\n\"The world's best, fastest project management platform with 50+ cutting-edge features, AI-powered automation, and superior UI designed to help all teams collaborate better than Asana or Monday.com.\"",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "Identify the critical strategic flaws in Specimen A's positioning statement.",
+          answerKey: [
+            {
+              defect:
+                "Competes on 'better' inside an incumbent's established category instead of claiming a distinct point of difference",
+              severity: "critical",
+              whyItMatters:
+                "Claiming to be 'better, faster' invites direct comparison against well-funded incumbents (Asana, Monday.com) who already own category mindshare, reviews, and trust.",
+              lessonRef:
+                "Why 'Better' Is a Losing Strategy: Comparisons favor whoever already owns the category",
+              owner: "you",
+            },
+            {
+              defect:
+                "Targets 'all teams' with a generic feature laundry list rather than a specific, well-defined audience with an acute pain point",
+              severity: "critical",
+              whyItMatters:
+                "Positioning to everyone means owning no one; lack of segmentation makes the product the first choice for nobody.",
+              lessonRef:
+                "Common Mistakes: Positioning to everyone means owning no one",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Mentions competitor names directly in the positioning draft",
+            "Sentence is grammatically complex with too many clauses",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "teardown-pos-specimen-2",
+          specimen:
+            "Specimen B (Customer Feedback Tool):\n\"We are an innovative, all-in-one AI platform that synergizes customer insights and transforms cross-functional business growth across every touchpoint.\"",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "Identify the core positioning failure in Specimen B.",
+          answerKey: [
+            {
+              defect:
+                "Fails the 'Only' test by using empty placeholder jargon ('innovative all-in-one platform') without naming a recognizable frame of reference or concrete point of difference",
+              severity: "critical",
+              whyItMatters:
+                "Without a clear category frame, prospective buyers have no mental anchor to understand what problem this solves or what budget it comes from.",
+              lessonRef:
+                "The 'Only' Test: If you cannot fill in category and point of difference, you have a direction, not a position",
+              owner: "you",
+            },
+            {
+              defect:
+                "Confuses internal aspirational messaging with strategic positioning",
+              severity: "moderate",
+              whyItMatters:
+                "Buzzwords like 'synergizes' and 'transforms business growth' fail to communicate the single defensible truth the company aligns around.",
+              lessonRef:
+                "Common Mistakes: Confusing positioning with messaging",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Mentions AI in the description",
+            "Lacks a customer testimonial quote in the statement",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "teardown-pos-specimen-3",
+          specimen:
+            "Specimen C (DevOps Alert System):\n\"The only incident alert tool with customizable dark-mode dashboard themes and 12 distinct notification beep sounds for cloud engineering teams.\"",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "Identify the structural defect in Specimen C's differentiator.",
+          answerKey: [
+            {
+              defect:
+                "Point of difference is anchored on superficial features (dark mode, sound alerts) rather than a defensible business model, structural workflow advantage, or core customer value",
+              severity: "critical",
+              whyItMatters:
+                "Superficial feature differences can be copied by rivals in days; defensible positions require structural, workflow, or business-model moats.",
+              lessonRef:
+                "Step 3: Make It Defensible: Tie your position to business model, story, distribution, or technology moat, not just an easily copied feature",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Target customer is too narrowly restricted to cloud engineering teams",
+            "Does not state the monthly subscription pricing in the statement",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Notion",
+            role: "Document and score teardown specimens",
+            why: "Structured notes and side-by-side comparison",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+        paidUpgradeNote:
+          "This teardown requires only analytical evaluation against the lesson framework. No paid tooling required.",
+      },
+      deliverable:
+        "A scored teardown report classifying 3 positioning statements with root-cause diagnoses for their category, differentiation, and defensibility errors.",
+      sampleOutput:
+        "Positioning Teardown Audit (Worked Reference: Early Mailchimp Challenger)\n\nSpecimen Evaluated:\n\"The most advanced, high-power email automation suite with 200+ enterprise integrations designed to help all marketers send better campaigns than Mailchimp.\"\n\nDefect Diagnosis:\n1. Category Trap: Claims 'better email suite' vs Mailchimp, anchoring on an incumbent's turf where Mailchimp holds 60%+ SMB mindshare.\n2. Target Vagueness: 'All marketers' dilutes focus; fails to segment high-volume transactional senders from boutique creators.\n3. Indefensible Moat: '200+ integrations' is a feature checklist easily matched by rivals rather than a structural advantage.\n\nRemedy ('Only' Test Restructure):\n\"Postmark is the only transactional email service that guarantees zero inbox delay for web application developers who cannot risk password-reset emails landing in spam.\"",
+      successCriteria: [
+        "Correctly flags competing on 'better' in Specimen A",
+        "Identifies lack of category frame and placeholder jargon in Specimen B",
+        "Identifies cosmetic feature trap versus defensible moat in Specimen C",
+        "Distinguishes core positioning failures from superficial copy distractors",
+      ],
+      portfolioReady: false,
+    },
+    {
+      id: "positioning-dunford-five-step-rebuild",
+      tier: "core",
+      archetype: "rebuild",
+      title:
+        "From Feature List to Category Dominance: Rebuilding B2B Positioning with Dunford's 5-Step Framework",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Apply April Dunford's five-component positioning framework (competitive alternatives, unique attributes, customer value, target segment, and market category) to reposition a crowded B2B software product, formulating an airtight 'Only' statement and a defensibility audit.",
+      companyId: "freshworks",
+      scenario:
+        "You are the product marketing lead at Freshworks (FRSH) during the early expansion of Freshdesk. The customer service software market is fiercely competitive: Zendesk dominates mid-market tech companies, Salesforce Service Cloud dominates legacy enterprise, and hundreds of SMBs still manage support out of a shared Gmail inbox. Sales reps report prospects asking 'how are you different from Zendesk?', and your homepage is slipping into generic feature-comparison territory.",
+      brief:
+        "Rebuild Freshworks' core customer-support positioning from the ground up using the lesson's three-step positioning process and Dunford's 5-part framework. Map competitive alternatives (including 'doing nothing / shared inbox'), isolate the single authentic point of difference, define the ideal customer profile, choose the winning frame of reference, and validate defensibility against the 'Only' test.",
+      mode: "build",
+      conceptsCovered: [
+        "Choose Your Frame of Reference",
+        "Find Your Point of Difference",
+        "Make It Defensible",
+        "The Only Test",
+      ],
+      steps: [
+        {
+          stepId: "step-1-frame-of-reference",
+          concept: "Choose Your Frame of Reference",
+          lessonAnchor: "step-1-choose-your-frame-of-reference",
+          theoryRecap:
+            "The lesson's Step 1 establishes that your market category (frame of reference) dictates who your competitors are, what price you can charge, and which features matter. Slack succeeded by framing against email rather than enterprise chat.",
+          question:
+            "What frame of reference allows Freshdesk to avoid a direct head-on slugfest with heavyweight enterprise suites while standing miles above shared email inboxes?",
+          toolName: "Notion",
+          where:
+            "Positioning workspace table -> Section 1: Frame of Reference & Competitive Alternatives",
+          procedure: [
+            "List the primary competitive alternatives prospects use when they do not buy your product: (1) Shared Gmail/Outlook inbox, (2) Heavy enterprise suites like Salesforce/ServiceNow, (3) Complex mid-market helpdesks like Zendesk.",
+            "Identify what baggage and pricing expectations each frame carries for a 20-person support team.",
+            "Define the category frame that highlights fast time-to-value and low administrative overhead rather than endless enterprise customization.",
+          ],
+          outputSample:
+            "Frame Analysis:\n- Alternative A: Shared Gmail/Outlook (Free, zero setup, but chaotic, collisions, no ticket routing)\n- Alternative B: Salesforce Service Cloud (Enterprise, $150+/agent/mo, requires full-time admin and 6-month rollout)\n- Target Frame: 'Modern, setup-in-minutes customer support software for fast-growing teams who refuse enterprise bloat'",
+          healthy:
+            "Category frame immediately positions the product against both chaotic inboxes and bloated enterprise tools.",
+          unhealthy:
+            "Selecting 'Enterprise Customer Relationship Management Platform', forcing direct RFP comparisons with Salesforce on enterprise feature checkboxes.",
+          interpret:
+            "Your category frame must make your strengths obvious and your competitors' strengths irrelevant for your chosen segment.",
+          soWhat: [
+            {
+              symptom:
+                "Prospects compare your product to $50k enterprise platforms",
+              action:
+                "Refocus the category frame on 'frictionless setup and lightweight agility'",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-point-of-difference",
+          concept: "Find Your Point of Difference",
+          lessonAnchor: "step-2-find-your-point-of-difference",
+          theoryRecap:
+            "Step 2 requires identifying the single point of difference that delivers distinct customer value. April Dunford's framework links unique attributes directly to business outcomes for the customer, not a feature list.",
+          question:
+            "Which unique capability translates into the single highest-value business outcome for high-velocity support teams?",
+          toolName: "Notion",
+          where:
+            "Positioning workspace table -> Section 2: Attribute-to-Value Mapping",
+          procedure: [
+            "List 3 candidate features (e.g., intuitive multi-channel ticketing UI, built-in phone channel, transparent per-agent pricing with zero setup fee).",
+            "Convert each feature input into a tangible customer outcome (e.g., agents onboard in 15 minutes without certification; team saves 60% on total cost of ownership).",
+            "Select the single primary point of difference that competitors cannot claim without undermining their own enterprise business model.",
+          ],
+          outputSample:
+            "Feature: Zero-configuration omnichannel inbox with transparent self-serve pricing.\nOutcome: Support teams launch full ticketing, chat, and phone in under one day with zero IT assistance, cutting response time by 45%.\nPoint of Difference: 'The only omnichannel helpdesk that delivers instant agent productivity without implementation consultants or multi-month contracts.'",
+          healthy:
+            "Point of difference names one clear, demonstrable customer outcome tied directly to product design.",
+          unhealthy:
+            "Listing 10 generic features ('AI, reporting, macros, integrations') as the differentiator.",
+          interpret:
+            "If your point of difference requires a bulleted list, you have not isolated your core strategic advantage.",
+          soWhat: [
+            {
+              symptom:
+                "Sales deck lists 15 bullet points on the 'Why Choose Us' slide",
+              action:
+                "Consolidate to the one core outcome that addresses the customer's primary frustration",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-defensibility-audit",
+          concept: "Make It Defensible",
+          lessonAnchor: "step-3-make-it-defensible",
+          theoryRecap:
+            "Step 3 tests whether the position is anchored in structural advantages—such as business model, distribution, or architecture—that competitors cannot copy in a single quarter.",
+          question:
+            "Why can legacy enterprise incumbents not easily clone this positioning without cannibalizing their core revenue?",
+          toolName: "Google Sheets",
+          where: "Competitive Moat Matrix -> Defensibility Audit Tab",
+          procedure: [
+            "Evaluate the incumbent's revenue model: enterprise vendors rely heavily on professional services fees, multi-year lock-in, and tiered enterprise addons.",
+            "Assess the competitor's innovator dilemma: if an enterprise competitor attempts to simplify setup and slash prices, they cannibalize their lucrative implementation partner ecosystem.",
+            "Document how Freshworks' self-serve, cloud-native architecture creates a durable structural cost advantage.",
+          ],
+          outputSample:
+            "Defensibility Moat Audit:\n- Competitor Constraint: Legacy enterprise vendors earn 20-30% of revenue from professional implementation services.\n- Incumbent Dilemma: Sponsoring a 'self-serve 10-minute setup' narrative alienates their partner network.\n- Structural Edge: Freshworks' bottom-up trial model and intuitive UI creates viral land-and-expand adoption at a fraction of legacy customer acquisition cost.",
+          healthy:
+            "Position is protected by the incumbent's economic model and organizational inertia.",
+          unhealthy:
+            "Assuming UI cleanliness alone is a permanent moat without business model defensibility.",
+          interpret:
+            "The strongest positions leverage the competitor's own business model against them.",
+          soWhat: [
+            {
+              symptom:
+                "Competitor launches a promotional campaign copying your headline",
+              action:
+                "Double down on self-serve product trials where their sales-heavy model cannot follow",
+              effort: "half day",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-4-the-only-test",
+          concept: "The Only Test",
+          lessonAnchor: "the-only-test",
+          theoryRecap:
+            "The 'Only' Test forces rigorous positioning discipline: '[Brand] is the only [category] that [point of difference] for [target customer].'",
+          question:
+            "How do you synthesize the frame, differentiator, and target customer into an airtight, defensible positioning statement?",
+          toolName: "Notion",
+          where:
+            "Positioning Synthesis -> Final One-Sentence Position Statement",
+          procedure: [
+            "Fill in all four components: Brand, Category Frame, Point of Difference, and Target Customer.",
+            "Run the substitution test: replace 'Freshdesk' with 'Zendesk' or 'Salesforce'—the statement must become false or absurd.",
+            "Run the exclusion test: ensure the statement clearly repels massive Fortune 500 legacy RFP procurement buyers who demand 12-month on-prem custom consulting.",
+          ],
+          outputSample:
+            "Positioning Statement:\n'Freshdesk is the only customer support platform that provides complete multi-channel ticketing with zero-day setup and transparent pricing for fast-growing companies that need immediate agent productivity without enterprise complexity or consulting overhead.'\n\nSubstitution Check: Fails if Zendesk or Salesforce is inserted (neither offers zero-day setup with zero enterprise overhead).\nExclusion Check: Clearly excludes companies seeking customized multi-million dollar on-prem legacy deployments.",
+          healthy:
+            "Statement passes the substitution test and gives sales, marketing, and product a single unifying anchor.",
+          unhealthy:
+            "Writing a fluffy slogan ('The smart way to delight customers') that fails all four 'Only' test blanks.",
+          interpret:
+            "An effective positioning statement is an internal strategic compass, not a public tagline.",
+          soWhat: [
+            {
+              symptom:
+                "Marketing copy drifts into generic claims across different landing pages",
+              action:
+                "Benchmark every headline against the core 'Only' statement before publishing",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Notion",
+            role: "Draft the 5-component Dunford framework and synthesize the Only Test statement",
+            why: "Structured document templates with version comparison",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Conduct the competitor defensibility and moat audit",
+            why: "Tabular evaluation of incumbent constraints and unit economics",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+        paidUpgradeNote:
+          "Strategic positioning exercises require no paid software; standard collaborative doc and spreadsheet tooling is completely sufficient.",
+      },
+      deliverable:
+        "A complete 5-component B2B positioning dossier containing competitive alternative mapping, point of difference breakdown, incumbent defensibility matrix, and a validated 'Only' positioning statement.",
+      sampleOutput:
+        "B2B Product Positioning Dossier (Worked Example: Postman API Platform)\n\n1. Market Category (Frame of Reference):\n   API Collaboration Platform (repositioned away from 'simple HTTP testing utility')\n\n2. Competitive Alternatives:\n   - cURL scripts and command-line tools (free, but siloed, non-shareable, high friction for non-devs)\n   - Heavy API management gateways like Apigee/MuleSoft (enterprise-governed, rigid, disconnected from daily developer workflows)\n\n3. Point of Difference & Customer Value:\n   - Unique Attribute: Shared team workspaces with automated mocking, documentation, and live test collections.\n   - Core Customer Value: Eliminates cross-team API integration friction, reducing API development lifecycle from weeks to hours.\n\n4. Target Customer:\n   Engineering teams and product developers building modular, microservices-driven web and cloud applications.\n\n5. Defensibility Moat:\n   Network effects of public/private API workspaces and developer bottom-up adoption; enterprise API gateways cannot replicate grassroots developer workflow affinity.\n\n6. Synthesized 'Only' Statement:\n   \"Postman is the only collaborative API platform that unites the entire API development lifecycle in shared workspaces for software teams who need to design, test, and ship reliable APIs at high velocity.\"",
+      successCriteria: [
+        "Identifies real competitive alternatives beyond direct software rivals (including 'doing nothing')",
+        "Extracts a single, value-driven point of difference rather than a feature checklist",
+        "Evaluates structural competitor constraints to prove positioning defensibility",
+        "Passes the 'Only' test with a non-interchangeable position statement",
+        "Passes the substitution and exclusion checks",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Conduct 3 mock customer-objection teardowns: write the exact 2-sentence script sales reps should use when a prospect asks 'Why shouldn't we just stick with our shared Gmail inbox?' and 'Why shouldn't we upgrade to Salesforce Service Cloud?'",
+    },
+  ],
+
+  // -------------------------------------------------------------------
+  // customer-journey
+  // -------------------------------------------------------------------
+  "customer-journey": [
+    {
+      id: "customer-journey-touchpoint-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The 5-Stage Funnel Audit: Finding Dropoffs in a SaaS Journey Map",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Audit a multi-channel SaaS customer touchpoint map across Awareness, Consideration, Decision, Retention, and Advocacy in Google Analytics 4 and Miro, identifying stage mismatches, missing bridge content, and post-purchase neglect.",
+      companyId: "zendesk",
+      scenario:
+        "You are the growth marketing manager at a B2B SaaS customer communication platform (modeled after Zendesk's mid-market support suite). The executive team is puzzled: top-of-funnel web traffic is up 40%, but trial-to-paid conversion is down 22% and 90-day logo churn has ticked up. You must map all existing marketing assets against the 5 journey stages to diagnose where prospects and new customers are stalling.",
+      brief:
+        "Audit 12 marketing touchpoints across the 5 journey stages. Categorize each asset, evaluate whether its messaging matches the customer's core question at that stage, identify where top-of-funnel traffic is being prematurely pitched with Decision-stage discounts, and flag the post-purchase retention void.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "The Five Stages in Plain English",
+        "Stage 4: Retention",
+      ],
+      steps: [
+        {
+          stepId: "cj-audit-stage-alignment",
+          concept: "The Five Stages in Plain English",
+          lessonAnchor: "the-five-stages-in-plain-english",
+          theoryRecap:
+            "The lesson breaks the journey into 5 stages with distinct customer questions: Awareness ('Do I have a problem?'), Consideration ('What are my options?'), Decision ('Why pick you?'), Retention ('Did I choose right?'), and Advocacy ('Who else should know?'). Mismatching message and stage destroys conversion.",
+          question:
+            "Which touchpoints in the marketing audit suffer from severe stage mismatch, such as pushing hard discounts to cold awareness traffic?",
+          toolName: "Google Analytics 4",
+          where:
+            "Reports -> Engagement -> Pages and screens (cross-referenced with Campaign Acquisition)",
+          procedure: [
+            "Review the list of 12 current marketing campaigns and landing pages.",
+            "Assign each asset to its intended journey stage and inspect its primary Call to Action (CTA).",
+            "Identify cold paid search ads sending Awareness-level 'how to reduce support tickets' searchers directly to a 'Buy Annual Plan Now - 20% Off' checkout page with an 88% bounce rate.",
+            "Flag the lack of Consideration-stage comparison guides or product interactive tours.",
+          ],
+          outputSample:
+            "Touchpoint Stage Audit Table:\n1. Ad: 'Best Support Tips 2026' (Search) -> Landing: /checkout-annual (CTA: Buy Now) | Verdict: CRITICAL MISMATCH (Awareness traffic sent to Decision checkout)\n2. Blog: 'What is Omnichannel Support?' -> CTA: 'Download Free Architecture Blueprint' | Verdict: HEALTHY (Awareness aligned)\n3. Comparison Page: 'Our Platform vs Intercom vs Zendesk' -> CTA: 'Start 14-Day Free Sandbox' | Verdict: HEALTHY (Consideration aligned)\n4. Post-signup Trial: 0 automated onboarding emails sent between Day 2 and Day 14 | Verdict: CRITICAL GAP (Retention void)",
+          healthy:
+            "Every touchpoint's CTA directly answers the question corresponding to the buyer's current stage.",
+          unhealthy:
+            "Routing cold discovery traffic to hard-close sales pages or offering top-of-funnel ebooks to buyers ready for a pricing demo.",
+          interpret:
+            "Sending Decision-stage messages to Awareness visitors burns ad spend and creates high bounce rates without intent.",
+          soWhat: [
+            {
+              symptom:
+                "Paid acquisition bounce rate exceeds 80% on search campaigns",
+              action:
+                "Redirect Awareness search queries to educational problem-solving hubs with soft newsletter or guide CTAs",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "cj-audit-retention-gap",
+          concept: "Stage 4: Retention",
+          lessonAnchor: "stage-4-retention",
+          theoryRecap:
+            "Stage 4 addresses buyer's remorse and early adoption: 'Did I make the right choice?' Acquiring a customer costs 5-7x more than retaining one, yet post-purchase onboarding is the most frequently neglected phase in marketing.",
+          question:
+            "How does the absence of post-purchase onboarding touchpoints explain the 90-day churn spike, and what milestone trigger should be implemented immediately?",
+          toolName: "Miro",
+          where: "Customer Journey Board -> Retention & Onboarding Swimlane",
+          procedure: [
+            "Map the touchpoints that occur immediately after the credit card or trial activation event.",
+            "Track the time gap between signup and the user's 'first ticket resolved' activation moment.",
+            "Design a 3-part onboarding milestone sequence (Day 1: Quick-start template, Day 3: Channel integration check, Day 7: First report review) to eliminate the post-sale communication void.",
+          ],
+          outputSample:
+            "Retention Touchpoint Diagnosis:\n- Current State: 1 automated receipt email at Day 0, then radio silence until Day 30 renewal billing reminder.\n- Customer Dropoff: 41% of trial accounts never connect an email/chat channel because they encounter setup friction on Day 2.\n- Remediation Plan: Trigger in-app Slackbot/email helper when an account reaches Day 3 without connecting an inbox, guiding them to first ticket resolution.",
+          healthy:
+            "A structured onboarding sequence guides the user to their first meaningful product win within 48 hours.",
+          unhealthy:
+            "Treating conversion as the end of marketing and abandoning new users until renewal time.",
+          interpret:
+            "Retention is active marketing, not passive customer support. Early post-purchase touchpoints cement product value before doubt sets in.",
+          soWhat: [
+            {
+              symptom: "New user 30-day dropoff exceeds 35%",
+              action:
+                "Implement an automated milestone-triggered onboarding email sequence tied to first-run setup actions",
+              effort: "half day",
+            },
+          ],
+          owner: "either",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Analytics 4",
+            role: "Analyze bounce rates, user acquisition funnels, and stage dropoffs",
+            why: "Standard free platform for measuring web traffic and conversion paths",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Miro",
+            role: "Visualize the 5-stage touchpoint journey map and map gap remediation",
+            why: "Collaborative whiteboard template for customer journey mapping",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+        paidUpgradeNote:
+          "GA4 and Miro provide full free tiers capable of end-to-end customer journey tracking and touchpoint diagramming.",
+      },
+      deliverable:
+        "A complete 5-stage customer journey audit matrix in Miro highlighting touchpoint stage mismatches, conversion leakages, and a post-purchase onboarding blueprint.",
+      sampleOutput:
+        "SaaS Journey Audit & Gap Matrix (Worked Example: Early Slack Expansion)\n\nStage 1: Awareness (Question: 'Do I have a problem?')\n- Current Touchpoint: Blog post 'Why Team Inboxes Become Black Holes'\n- CTA: 'Read the 5 signs of communication breakdown'\n- Audit Verdict: ALIGNED. Engages reader around shared frustration without hard-pitching software.\n\nStage 2: Consideration (Question: 'What are my options?')\n- Current Touchpoint: Interactive tool 'Team Communication Time-Waste Calculator'\n- CTA: 'See how your team compares to industry benchmarks'\n- Audit Verdict: ALIGNED. Provides objective evaluation criteria.\n\nStage 3: Decision (Question: 'Why pick you specifically?')\n- Current Touchpoint: 3-minute self-guided interactive product tour + SOC2 Security Whitepaper\n- CTA: 'Create a Free Team Workspace in 60 Seconds'\n- Audit Verdict: ALIGNED. Removes friction and addresses IT compliance objections.\n\nStage 4: Retention (Question: 'Did I make the right choice?')\n- Current Touchpoint: Slackbot automated onboarding prompts driving toward the 2,000-message milestone\n- CTA: 'Invite 3 teammates to join your #general channel'\n- Audit Verdict: CRITICAL ASSET. Directly drives team activation to the 93% retention threshold.\n\nStage 5: Advocacy (Question: 'Who else should know about this?')\n- Current Touchpoint: 'Share your team's weekly focus stats' export graphic\n- CTA: 'Tweet your team's zero-unread celebration'\n- Audit Verdict: HIGH LEVERAGE. Loops organic advocacy back into top-of-funnel Awareness.",
+      successCriteria: [
+        "Accurately classifies touchpoints into the 5 core journey stages",
+        "Identifies stage-mismatched CTAs that push premature purchase commitments",
+        "Identifies retention and onboarding gaps in the post-purchase lifecycle",
+        "Produces an actionable remediation roadmap to fix high-leakage stages",
+      ],
+      portfolioReady: false,
+    },
+    {
+      id: "customer-journey-messy-middle-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title:
+        "The Messy Middle Teardown: Dissecting 3 B2B Mid-Funnel Re-entry Failures",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Diagnose three real-world mid-funnel campaign failures where B2B buyers stalled between exploration and evaluation loops, spotting fatal behavioral friction and identifying missing cognitive bias anchors.",
+      companyId: "slack",
+      scenario:
+        "You are analyzing mid-funnel campaign data for a B2B collaboration platform (modeled after Slack's self-serve team expansion). Marketing data reveals that over 65% of evaluators visit the website, compare feature plans, and then vanish into a 45-day exploration/evaluation loop without taking action. You need to inspect three marketing campaign specimens aimed at this 'messy middle' audience and flag their structural defects.",
+      brief:
+        "Evaluate 3 campaign specimens targeting mid-funnel buyers stuck in exploration and evaluation loops. Spot defects such as lack of social proof, missing category heuristics, absence of re-entry retargeting, or forcing a rigid linear path, against the answer key.",
+      mode: "teardown",
+      conceptsCovered: [
+        "The Messy Middle, Why the Journey Is Not Linear",
+        "Stage 2: Consideration",
+        "Stage 3: Decision",
+      ],
+      teardownItems: [
+        {
+          itemId: "teardown-mm-specimen-1",
+          specimen:
+            "Specimen 1 (Retargeting Ad Sequence):\n\"A prospect visits the pricing page, looks at the Enterprise tier, and leaves without signing up. Over the next 14 days, they receive 8 identical retargeting display banner ads that read: 'BUY NOW: Limited Time 10% Off Your First Year!'\"",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "Identify the core flaw in Specimen 1's messy-middle retargeting approach.",
+          answerKey: [
+            {
+              defect:
+                "Treats an evaluation-loop stall as a pricing discount problem rather than resolving information and comparison uncertainty",
+              severity: "critical",
+              whyItMatters:
+                "Enterprise evaluators rarely stall over a 10% discount; they stall because they cannot evaluate security compliance, implementation effort, or team buy-in.",
+              lessonRef:
+                "The 'Messy Middle', Why the Journey Is Not Linear: Real buyers get stuck in a loop between exploration and evaluation",
+              owner: "you",
+            },
+            {
+              defect:
+                "Repeats identical low-information banners instead of providing category heuristics or customer case study proof",
+              severity: "moderate",
+              whyItMatters:
+                "Buyers cycling through evaluation need social proof and concrete differentiation to build purchase confidence, not repetitive ad fatigue.",
+              lessonRef:
+                "Stage 2: Consideration: Good Consideration content includes comparison pages, case studies, and detailed guides",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The 10% discount percentage is too small to appeal to enterprise buyers",
+            "Ad banner dimensions should be vertical rather than display rectangles",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "teardown-mm-specimen-2",
+          specimen:
+            "Specimen 2 (Mid-Funnel Comparison Asset):\n\"A SaaS vendor creates a comparison page titled 'Us vs. Competitor X'. The page awards the vendor 5 green checkmarks in every category and gives Competitor X 5 red crosses, claiming the vendor is 100% superior across all dimensions with zero concessions or neutral third-party benchmark citations.\"",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "Identify why Specimen 2 fails to help buyers navigate the evaluation loop.",
+          answerKey: [
+            {
+              defect:
+                "Lacks credibility and objective evaluation heuristics, destroying trust during the buyer's critical research phase",
+              severity: "critical",
+              whyItMatters:
+                "Buyers do 57-70% of research independently; one-sided 'all-green vs all-red' matrices are dismissed as biased propaganda, pushing buyers back to Reddit and third-party review sites.",
+              lessonRef:
+                "Why the Customer Journey Exists: Buyers do 57-70% of their research before ever contacting a company; they read reviews and check comparisons",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Comparison pages should never mention a direct competitor by name",
+            "The page should require an email address before revealing comparison rows",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "teardown-mm-specimen-3",
+          specimen:
+            "Specimen 3 (Nurture Sequence Flow):\n\"A user downloads a top-of-funnel whitepaper on 'The Future of Remote Work'. The automated CRM immediately enrolls them in a 5-day daily email drip from an Account Executive asking: 'When are you free for a 30-minute demo this Thursday or Friday?'\"",
+          specimenSource: "synthetic-realistic",
+          prompt: "Identify the journey failure in Specimen 3.",
+          answerKey: [
+            {
+              defect:
+                "Prematurely escalates an early Awareness/Exploration interaction into a high-friction Decision sales pitch",
+              severity: "critical",
+              whyItMatters:
+                "Sending Decision-stage sales calls to early exploration readers damages trust and causes immediate unsubscribes before the customer has even evaluated options.",
+              lessonRef:
+                "The two most common mistakes brands make: Sending Decision-stage messages to Awareness-stage audiences",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The Account Executive should have called the prospect on the phone instead of emailing",
+            "Email drips should always be sent at 9:00 AM local time",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Notion",
+            role: "Review and score mid-funnel marketing teardown specimens",
+            why: "Documenting evaluation criteria and answer key checks",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+        paidUpgradeNote:
+          "Teardown analysis is fully supported with free collaborative note and documentation tools.",
+      },
+      deliverable:
+        "A diagnostic teardown report analyzing 3 flawed mid-funnel campaign specimens with behavioral science remedies for the messy middle.",
+      sampleOutput:
+        "Messy Middle Teardown Scorecard (Worked Example: Notion Enterprise Evaluation)\n\nSpecimen Diagnosed:\nCold retargeting campaign offering $50 Amazon gift cards for booking an enterprise workspace demo after a user viewed a public template gallery page.\n\nFlaw Analysis:\n1. Stage Disconnect: Viewing a community template is an Exploration activity (problem-discovery). A $50 gift card demo pitch is a forced Decision intervention that creates transactional resistance.\n2. Missing Evaluation Anchor: The evaluator needs to know if Notion can import their team's existing Trello boards and Google Docs without data loss, not a sales presentation.\n3. Remediation: Replace the demo ad with a modular migration guide: \"How Engineering Teams Move from Confluence to Notion in 3 Steps (with Migration Checklist).\"",
+      successCriteria: [
+        "Identifies improper discount escalations during evaluation-loop stalls in Specimen 1",
+        "Identifies credibility collapse in one-sided comparison pages in Specimen 2",
+        "Identifies premature sales demo escalation on top-of-funnel readers in Specimen 3",
+        "Rejects superficial format and timing distractors in favor of journey-stage diagnosis",
+      ],
+      portfolioReady: false,
+    },
+  ],
 };

@@ -419,6 +419,41 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "attribution-walled-garden-reconciliation-teardown",
+    "category": "analytics",
+    "lessonSlug": "attribution",
+    "lessonTitle": "Attribution Models",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Multi-Platform Overlap Teardown: Resolving Attribution Double-Counting",
+    "timeMinutes": 25,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Walled Garden Double-Counting",
+      "View-Through Attribution Inflation",
+      "Lookback Window Truncation"
+    ]
+  },
+  {
+    "id": "attribution-multi-touch-budget-reallocation-audit",
+    "category": "analytics",
+    "lessonSlug": "attribution",
+    "lessonTitle": "Attribution Models",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The 7-Model Multi-Touch Attribution Audit: Reallocating B2B Marketing Spend",
+    "timeMinutes": 50,
+    "companyId": "trade-desk",
+    "conceptsCovered": [
+      "Last-Click vs. First-Click Channel Bias",
+      "Multi-Touch Model Credit Distribution",
+      "W-Shaped Attribution for B2B Milestones",
+      "Data-Driven Attribution & Incrementality Reconciliation"
+    ]
+  },
+  {
     "id": "what-is-content-marketing-teardown",
     "category": "content",
     "lessonSlug": "what-is-content-marketing",
@@ -551,6 +586,71 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
       "Designing a Survey That Produces Citable Stats",
       "The Tool Stack",
       "Distribution Playbook"
+    ]
+  },
+  {
+    "id": "case-studies-snapshot-teardown",
+    "category": "content",
+    "lessonSlug": "case-studies",
+    "lessonTitle": "Case Studies",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The 3-Second Test: Deconstructing Flawed B2B Case Study Snapshots",
+    "timeMinutes": 20,
+    "companyId": "slack",
+    "conceptsCovered": [
+      "Build the Snapshot Box",
+      "What Buyers Actually Want to Read",
+      "Five Common Mistakes"
+    ]
+  },
+  {
+    "id": "case-studies-interview-to-snapshot-build",
+    "category": "content",
+    "lessonSlug": "case-studies",
+    "lessonTitle": "Case Studies",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "From 30-Minute Interview to High-Converting Snapshot Box",
+    "timeMinutes": 25,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Build the Snapshot Box",
+      "Write the Narrative Arc"
+    ]
+  },
+  {
+    "id": "webinars-funnel-conversion-audit",
+    "category": "content",
+    "lessonSlug": "webinars",
+    "lessonTitle": "Webinars and Live Content",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The 5-Phase Webinar Funnel Audit: Diagnosing Registration, Attendance, and Pipeline Drop-Off",
+    "timeMinutes": 20,
+    "companyId": "snowflake",
+    "conceptsCovered": [
+      "The Reminder Sequence",
+      "Follow-Up and Repurposing"
+    ]
+  },
+  {
+    "id": "webinars-repurposing-playbook-build",
+    "category": "content",
+    "lessonSlug": "webinars",
+    "lessonTitle": "Webinars and Live Content",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The 1-to-10 Webinar Repurposing Engine: From 45-Minute Recording to Multi-Channel Campaign",
+    "timeMinutes": 25,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Follow-Up and Repurposing",
+      "Topic Selection"
     ]
   },
   {
@@ -772,6 +872,72 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "automation-flows-lifecycle-architecture-audit",
+    "category": "email",
+    "lessonSlug": "automation-flows",
+    "lessonTitle": "Automation & Drip Flows",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Lifecycle Flow Architecture: Trigger and Exit Condition Audit",
+    "timeMinutes": 20,
+    "companyId": "klaviyo",
+    "conceptsCovered": [
+      "Building a Flow: The Four-Part Structure",
+      "Flow 4: Re-engagement (Win-back)"
+    ]
+  },
+  {
+    "id": "automation-flows-teardown-flawed-sequences",
+    "category": "email",
+    "lessonSlug": "automation-flows",
+    "lessonTitle": "Automation & Drip Flows",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Lifecycle Logic Bugs: Flawed Flow Teardown",
+    "timeMinutes": 20,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Common Mistakes",
+      "Flow 3: Post-Purchase Onboarding",
+      "Flow 1: Welcome Series"
+    ]
+  },
+  {
+    "id": "cold-email-infrastructure-deliverability-audit",
+    "category": "email",
+    "lessonSlug": "cold-email",
+    "lessonTitle": "Cold Email",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Outbound Infrastructure & Deliverability Health Check",
+    "timeMinutes": 20,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "How It Works",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "cold-email-copy-sequence-teardown",
+    "category": "email",
+    "lessonSlug": "cold-email",
+    "lessonTitle": "Cold Email",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Spam Triggers: Cold Email Copy & Sequence Teardown",
+    "timeMinutes": 20,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Common Mistakes",
+      "What It Is",
+      "How It Works"
+    ]
+  },
+  {
     "id": "value-proposition-seed-deck-build",
     "category": "fundamentals",
     "lessonSlug": "value-proposition",
@@ -872,6 +1038,138 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
       "Signal 1: The Sean Ellis Test",
       "Signal 2: Retention Curves That Flatten",
       "Common Mistakes to Avoid"
+    ]
+  },
+  {
+    "id": "stp-segment-scoring-audit",
+    "category": "fundamentals",
+    "lessonSlug": "stp",
+    "lessonTitle": "Segmentation, Targeting, Positioning",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Market Selection Matrix: Auditing and Scoring Three B2B Segments",
+    "timeMinutes": 20,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Step 1: Segmentation",
+      "Step 2: Targeting"
+    ]
+  },
+  {
+    "id": "stp-positioning-statement-rebuild",
+    "category": "fundamentals",
+    "lessonSlug": "stp",
+    "lessonTitle": "Segmentation, Targeting, Positioning",
+    "tier": "mini",
+    "archetype": "rebuild",
+    "mode": "build",
+    "title": "The Positioning Overhaul: Rebuilding a Fluffy Feature Pitch into an Internal Compass",
+    "timeMinutes": 20,
+    "companyId": "slack",
+    "conceptsCovered": [
+      "Step 3: Positioning",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "buyer-personas-fluff-teardown",
+    "category": "fundamentals",
+    "lessonSlug": "buyer-personas",
+    "lessonTitle": "Buyer Personas (without the fluff)",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Fluff Teardown: Stripping Demographic Wallpaper from a B2B Persona",
+    "timeMinutes": 20,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "What Goes Wrong",
+      "The Quote Test"
+    ]
+  },
+  {
+    "id": "buyer-personas-interview-synthesis-build",
+    "category": "fundamentals",
+    "lessonSlug": "buyer-personas",
+    "lessonTitle": "Buyer Personas (without the fluff)",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "From Call Recording to Decision Filter: Building a Trigger-First B2B Persona",
+    "timeMinutes": 25,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "How to Build a Persona That Actually Works",
+      "The Quote Test"
+    ]
+  },
+  {
+    "id": "positioning-copy-teardown",
+    "category": "fundamentals",
+    "lessonSlug": "positioning",
+    "lessonTitle": "Positioning",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Category Trap: Tearing Down 3 Broken Positioning Statements",
+    "timeMinutes": 20,
+    "companyId": "slack",
+    "conceptsCovered": [
+      "Why Better Is a Losing Strategy",
+      "Common Mistakes",
+      "The Only Test"
+    ]
+  },
+  {
+    "id": "positioning-dunford-five-step-rebuild",
+    "category": "fundamentals",
+    "lessonSlug": "positioning",
+    "lessonTitle": "Positioning",
+    "tier": "core",
+    "archetype": "rebuild",
+    "mode": "build",
+    "title": "From Feature List to Category Dominance: Rebuilding B2B Positioning with Dunford's 5-Step Framework",
+    "timeMinutes": 45,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Choose Your Frame of Reference",
+      "Find Your Point of Difference",
+      "Make It Defensible",
+      "The Only Test"
+    ]
+  },
+  {
+    "id": "customer-journey-touchpoint-audit",
+    "category": "fundamentals",
+    "lessonSlug": "customer-journey",
+    "lessonTitle": "The Customer Journey",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The 5-Stage Funnel Audit: Finding Dropoffs in a SaaS Journey Map",
+    "timeMinutes": 25,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "The Five Stages in Plain English",
+      "Stage 4: Retention"
+    ]
+  },
+  {
+    "id": "customer-journey-messy-middle-teardown",
+    "category": "fundamentals",
+    "lessonSlug": "customer-journey",
+    "lessonTitle": "The Customer Journey",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Messy Middle Teardown: Dissecting 3 B2B Mid-Funnel Re-entry Failures",
+    "timeMinutes": 20,
+    "companyId": "slack",
+    "conceptsCovered": [
+      "The Messy Middle, Why the Journey Is Not Linear",
+      "Stage 2: Consideration",
+      "Stage 3: Decision"
     ]
   },
   {
@@ -1007,6 +1305,76 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     "conceptsCovered": [
       "The Playbook: The Prose Test",
       "What It Actually Is",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "second-order-thinking-promo-teardown",
+    "category": "mental-models",
+    "lessonSlug": "second-order-thinking",
+    "lessonTitle": "Second-Order Thinking",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Discount Trap: Teardown of a 'Quick Fix' Growth Strategy",
+    "timeMinutes": 20,
+    "companyId": "ola-electric",
+    "conceptsCovered": [
+      "What It Actually Is",
+      "The Playbook: The \"And Then What?\" Drill",
+      "Applying It to Common Marketing Traps"
+    ]
+  },
+  {
+    "id": "second-order-thinking-impact-matrix",
+    "category": "mental-models",
+    "lessonSlug": "second-order-thinking",
+    "lessonTitle": "Second-Order Thinking",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The 'And Then What?' Matrix: Auditing a Referral Growth Campaign",
+    "timeMinutes": 20,
+    "companyId": "grab",
+    "conceptsCovered": [
+      "The Playbook: The \"And Then What?\" Drill",
+      "Applying It to Common Marketing Traps",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "base-rates-forecasting-expansion-model",
+    "category": "mental-models",
+    "lessonSlug": "base-rates-forecasting",
+    "lessonTitle": "Base Rates and Reference-Class Forecasting",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "The Outside-View Forecast: Reference-Class Modeling for a New Market Launch",
+    "timeMinutes": 45,
+    "companyId": "ola-electric",
+    "conceptsCovered": [
+      "The Playbook: Four Steps",
+      "What It Actually Is",
+      "Why It Matters",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "base-rates-forecasting-campaign-audit",
+    "category": "mental-models",
+    "lessonSlug": "base-rates-forecasting",
+    "lessonTitle": "Base Rates and Reference-Class Forecasting",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "teardown",
+    "title": "Inside View vs. Outside View: Auditing Overconfident Campaign Forecasts",
+    "timeMinutes": 35,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "What It Actually Is",
+      "Why It Matters",
+      "The Playbook: Four Steps",
       "Common Mistakes"
     ]
   },
@@ -1253,6 +1621,184 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
       "Suppression Mechanics & E-A-T Standards",
       "Owned & Earned Authority Signals",
       "AI Search & Sentiment Insulation"
+    ]
+  },
+  {
+    "id": "pmm-101-pitch-specimen-teardown",
+    "category": "product-marketing",
+    "lessonSlug": "pmm-101",
+    "lessonTitle": "Product Marketing 101",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Spec Sheet Teardown: Finding the Flawed Inside-Out Launch Pitch",
+    "timeMinutes": 20,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Confusing features with benefits",
+      "Positioning is an internal document",
+      "Writing for the product team instead of for the customer"
+    ]
+  },
+  {
+    "id": "pmm-101-sales-battlecard-build",
+    "category": "product-marketing",
+    "lessonSlug": "pmm-101",
+    "lessonTitle": "Product Marketing 101",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The Competitive Battle Card: Arming Sales Against Legacy Rivals",
+    "timeMinutes": 40,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Core PMM Deliverables",
+      "Battle card structure",
+      "Discovery and customer interviews",
+      "Launch enablement"
+    ]
+  },
+  {
+    "id": "icp-firmographic-scoring-audit",
+    "category": "product-marketing",
+    "lessonSlug": "icp",
+    "lessonTitle": "Ideal Customer Profile (ICP)",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The ICP Scoring Audit: Qualifying Outbound Accounts",
+    "timeMinutes": 20,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Firmographics",
+      "Technographics",
+      "Behavioral Signals"
+    ]
+  },
+  {
+    "id": "icp-definition-template-rebuild",
+    "category": "product-marketing",
+    "lessonSlug": "icp",
+    "lessonTitle": "Ideal Customer Profile (ICP)",
+    "tier": "mini",
+    "archetype": "rebuild",
+    "mode": "build",
+    "title": "The 5-Dimension ICP Blueprint: Codifying Your Target Account",
+    "timeMinutes": 20,
+    "companyId": "slack",
+    "conceptsCovered": [
+      "Firmographics",
+      "Psychographics",
+      "Success Indicators (Value Realization Signals)"
+    ]
+  },
+  {
+    "id": "positioning-doc-five-component-teardown",
+    "category": "product-marketing",
+    "lessonSlug": "positioning-doc",
+    "lessonTitle": "The Positioning Doc",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Positioning Doc Teardown: Spotting Aspirational vs. Evidenced Positioning",
+    "timeMinutes": 20,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Competitive Alternatives",
+      "Unique Attributes",
+      "Value, Not Features",
+      "Target Customer",
+      "Market Category"
+    ]
+  },
+  {
+    "id": "positioning-doc-matrix-build",
+    "category": "product-marketing",
+    "lessonSlug": "positioning-doc",
+    "lessonTitle": "The Positioning Doc",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The 5-Step Positioning Matrix: Building a One-Page Positioning Doc",
+    "timeMinutes": 25,
+    "companyId": "slack",
+    "conceptsCovered": [
+      "Competitive Alternatives",
+      "Unique Attributes",
+      "Value, Not Features",
+      "Target Customer",
+      "Market Category"
+    ]
+  },
+  {
+    "id": "messaging-hierarchy-channel-audit",
+    "category": "product-marketing",
+    "lessonSlug": "messaging-hierarchy",
+    "lessonTitle": "Messaging Hierarchy",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The 4-Level Messaging Audit: Diagnosing Copy Alignment from Hero to Sales Deck",
+    "timeMinutes": 20,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "What It Actually Is",
+      "Why It Matters in Product Marketing",
+      "Validate Each Proof Point",
+      "Map Pillars to Channels"
+    ]
+  },
+  {
+    "id": "messaging-hierarchy-pyramid-rebuild",
+    "category": "product-marketing",
+    "lessonSlug": "messaging-hierarchy",
+    "lessonTitle": "Messaging Hierarchy",
+    "tier": "mini",
+    "archetype": "rebuild",
+    "mode": "build",
+    "title": "Rebuilding a Fractured Messaging Hierarchy: From Feature List to 3-Pillar Pyramid",
+    "timeMinutes": 25,
+    "companyId": "klaviyo",
+    "conceptsCovered": [
+      "Brand Promise",
+      "Extract Your Three to Five Pillars",
+      "Validate Each Proof Point",
+      "Map Pillars to Channels"
+    ]
+  },
+  {
+    "id": "launches-tier-audit",
+    "category": "product-marketing",
+    "lessonSlug": "launches",
+    "lessonTitle": "Product Launches",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Launch Tier Audit: Classifying a Release Pipeline",
+    "timeMinutes": 20,
+    "companyId": "slack",
+    "conceptsCovered": [
+      "The Five Tier-Assignment Questions",
+      "The Four Tiers",
+      "Launch Timelines by Tier"
+    ]
+  },
+  {
+    "id": "launches-release-fatigue-teardown",
+    "category": "product-marketing",
+    "lessonSlug": "launches",
+    "lessonTitle": "Product Launches",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Over-Tiered Launch Teardown: Spotting Release Fatigue",
+    "timeMinutes": 20,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "The Four Tiers",
+      "Treating every release as a Tier 3 launch",
+      "Assigning tier based on engineering effort, not strategic impact",
+      "Treating launch day as the finish line"
     ]
   },
   {

@@ -676,4 +676,603 @@ export const EMAIL_PROJECTS: Record<string, Project[]> = {
         "Rewrite the specimen into a corrected 3-email sequence fixing every flagged defect, then compare it against your own Project 1 draft for a different company.",
     },
   ],
+
+  "automation-flows": [
+    {
+      id: "automation-flows-lifecycle-architecture-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "Lifecycle Flow Architecture: Trigger and Exit Condition Audit",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Given an ecommerce merchant's multi-flow lifecycle setup, audit triggers, segment filters, and exit rules to eliminate conflicting sends and protect sender reputation.",
+      companyId: "klaviyo",
+      scenario:
+        "You are a lifecycle marketing specialist at Klaviyo reviewing an ecommerce merchant's automated flow configuration. The merchant is running all five core flows, but customer support reports that buyers who completed checkout are still receiving 'You left items in your cart' reminders, while 90-day inactive subscribers are being hit with standard promotional blasts.",
+      brief:
+        "Audit the merchant's flow trigger definitions, segment filters, and exit rules across their core flows. Identify where missing exit conditions cause overlapping sends and configure the correct flow filters.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Building a Flow: The Four-Part Structure",
+        "Flow 4: Re-engagement (Win-back)",
+      ],
+      steps: [
+        {
+          stepId: "step-1-exit-condition-check",
+          concept: "Building a Flow: The Four-Part Structure",
+          lessonAnchor: "building-a-flow-the-four-part-structure",
+          theoryRecap:
+            "Every automation flow requires four structural elements: Trigger, Segment Filter, Email Sequence, and Exit Conditions. Missing exit conditions mean customers who convert or churn remain trapped in conflicting sequences.",
+          question:
+            "Review the cart abandonment configuration: Trigger is 'Started Checkout', Delay is 1 hour / 24 hours / 48 hours. Exit condition is currently empty. What happens when a shopper buys within 3 hours?",
+          toolName: "Klaviyo",
+          where: "Flow builder canvas, Flow Filters & Exit Rules settings panel",
+          procedure: [
+            "Open the flow builder canvas for the 3-part Cart Abandonment sequence.",
+            "Inspect the Flow Triggers and Additional Filters configuration.",
+            "Add a flow filter: 'Placed Order zero times since starting this flow'.",
+            "Verify that placed orders trigger an immediate exit across all downstream delays.",
+          ],
+          outputSample:
+            "FLOW: Abandoned Cart (3-part sequence)\nTRIGGER: Started Checkout (Shopify metric)\nFLOW FILTER: Has Placed Order 0 times since starting this flow [MISSING -> ADDED]\nEMAIL 1 (T+1h) -> EMAIL 2 (T+24h) -> EMAIL 3 (T+48h)\nEXIT STATUS: Active buyers suppressed immediately upon order confirmation",
+          healthy:
+            "Flow filters evaluate in real-time before each scheduled message; buyers who complete checkout exit immediately without receiving post-purchase cart reminders.",
+          unhealthy:
+            "Static timer-only triggers without exit conditions, resulting in paying customers receiving discounted cart abandonment prompts for items they already purchased.",
+          interpret:
+            "Triggering on an event without an exit filter creates catastrophic customer experience bugs. Real-time event filters ensure message relevance.",
+          soWhat: [
+            {
+              symptom:
+                "Customers complaining about cart reminder emails after ordering",
+              action:
+                "Add 'Placed Order 0 times since starting flow' as a mandatory flow filter",
+              effort: "5 min",
+            },
+            {
+              symptom:
+                "Discount code leakage to buyers who were already going to purchase",
+              action:
+                "Restrict discount codes to Email 3 only with a 24-hour expiration window",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-winback-suppression",
+          concept: "Flow 4: Re-engagement (Win-back)",
+          lessonAnchor: "flow-4-re-engagement-win-back",
+          theoryRecap:
+            "The lesson specifies a 3-part re-engagement flow triggered at 90 days of inactivity: compelling return incentive, specific bonus, and final breakup email before suppressing non-responders to protect domain sender reputation.",
+          question:
+            "The merchant's win-back flow sends 3 emails over 14 days to contacts with 0 opens/clicks in 90 days. If a subscriber fails to engage with all 3 emails, what action must occur?",
+          toolName: "Google Sheets",
+          where: "Subscriber list suppression settings and automated segment rules",
+          procedure: [
+            "Define the win-back segment: Last Opened Email > 90 days AND Last Clicked Email > 90 days AND Placed Order > 90 days.",
+            "Configure the 3-email sequence (Day 1: We miss you, Day 5: 15% VIP credit, Day 12: Final notice).",
+            "Add an automated webhook or profile property update after Email 3: 'Set Status = Suppressed' if unengaged.",
+            "Exclude suppressed profiles from all weekly campaign broadcasts.",
+          ],
+          outputSample:
+            "SEGMENT: 90-Day Inactive Subscribers (12,450 profiles)\nFLOW: Win-Back Sequence (3 emails / 14 days)\nENGAGEMENT RESULTS:\n  - Re-engaged (Opened/Clicked): 3,735 profiles (30.0%) -> Moved to Engaged 30-Day Segment\n  - Non-responsive: 8,715 profiles (70.0%) -> Auto-suppressed from marketing sends\nDELIVERABILITY IMPACT: Spam complaint rate dropped from 0.18% to 0.03%",
+          healthy:
+            "Unresponsive subscribers are automatically suppressed after the win-back sequence, keeping the active broadcast list clean and inbox deliverability high.",
+          unhealthy:
+            "Keeping inactive subscribers on broadcast lists indefinitely, causing open rates to drop below 20% and triggering ISP spam filters.",
+          interpret:
+            "Re-engagement flows recover ~30% of inactive users; the remaining 70% must be suppressed, not repeatedly emailed.",
+          soWhat: [
+            {
+              symptom:
+                "Campaign open rates declining month-over-month across full list",
+              action:
+                "Run win-back automation and suppress all profiles that fail to respond after 14 days",
+              effort: "30 min",
+            },
+            {
+              symptom:
+                "High bounce and spam complaint rates on holiday sale broadcasts",
+              action:
+                "Create a strict 'Engaged 90 Days' master segment for all promotional sends",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Map flow triggers, filters, and exit condition matrices",
+            why: "Free and accessible for journey mapping",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Klaviyo",
+            role: "Visual flow canvas builder and behavioral trigger engine",
+            why: "Industry-standard ecommerce automation platform",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+      },
+      deliverable:
+        "A complete flow logic specification document detailing triggers, segment filters, message timings, and exit conditions for abandoned cart and win-back automations.",
+      sampleOutput:
+        "Chewy — Lifecycle Automation Specification (Excerpt)\n\n" +
+        "FLOW 1: Abandoned Cart Recovery\n" +
+        "  Trigger: Added to Cart (No checkout within 60 min)\n" +
+        "  Flow Filter: Placed Order zero times since starting flow AND Started Autoship zero times\n" +
+        "  Email 1 (T+1 hour): 'Your pet's favorites are waiting' + direct cart link (No discount)\n" +
+        "  Email 2 (T+24 hours): Customer reviews + low stock alert for saved item\n" +
+        "  Email 3 (T+48 hours): '$5 off your first order over $35' + 24-hr countdown timer\n" +
+        "  Exit Rule: Immediate suppression upon 'Placed Order' event at any step\n\n" +
+        "FLOW 2: 90-Day Inactive Win-Back\n" +
+        "  Trigger: Zero opens, clicks, or orders in 90 days\n" +
+        "  Email 1 (Day 1): 'Is your pet still loving their food? Top health tips inside'\n" +
+        "  Email 2 (Day 6): 'Enjoy free 1-2 day shipping on your next restock'\n" +
+        "  Email 3 (Day 12): 'Last call: We are pausing your emails to keep your inbox clean'\n" +
+        "  Exit Action: Auto-tag as 'Inactive-Suppressed' if zero clicks after Day 14",
+      successCriteria: [
+        "Defines explicit exit conditions for the cart abandonment flow that prevent post-purchase sends",
+        "Specifies automated suppression logic for unengaged contacts following the 3-email win-back flow",
+        "Correctly maps triggers and segment filters using behavioral events rather than time-only timers",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "automation-flows-teardown-flawed-sequences",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Spot the Lifecycle Logic Bugs: Flawed Flow Teardown",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Evaluate two lifecycle automation blueprints (a B2B SaaS trial onboarding flow and an ecommerce post-purchase sequence) to identify missing exit conditions, premature review requests, and static timing errors.",
+      companyId: "freshworks",
+      scenario:
+        "You are auditing marketing automation configurations at Freshworks. A junior email specialist built two automated flow blueprints in the CRM: a B2B product-trial onboarding flow and an ecommerce post-purchase sequence for an affiliated merchandise shop. Both blueprints contain critical architectural flaws that risk subscriber churn and deliverability penalties.",
+      brief:
+        "Inspect the two flow configuration specimens. Spot every logic defect (missing exit conditions, static time drips, discounting too early, sending broadcasts to suppressed segments), categorize severity, and explain the conversion breakdown.",
+      mode: "teardown",
+      conceptsCovered: [
+        "Common Mistakes",
+        "Flow 3: Post-Purchase Onboarding",
+        "Flow 1: Welcome Series",
+      ],
+      teardownItems: [
+        {
+          itemId: "b2b-trial-onboarding-blueprint",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "FLOW SPECIFICATION: 14-Day Free Trial SaaS Onboarding\n" +
+            "TRIGGER: Free Trial Sign-up Created\n" +
+            "FILTERS: None\n" +
+            "SEQUENCE:\n" +
+            "  - Email 1 (Immediate): 'Welcome to Freshworks + Schedule Enterprise Demo'\n" +
+            "  - Delay: 3 Days\n" +
+            "  - Email 2: 'Feature Highlight: Advanced Kanban Board Setup'\n" +
+            "  - Delay: 3 Days\n" +
+            "  - Email 3: 'Special Offer: 30% off Annual Plan if you upgrade today'\n" +
+            "  - Delay: 3 Days\n" +
+            "  - Email 4: 'Did you invite your team yet?'\n" +
+            "EXIT RULES: None (All subscribers receive all 4 emails)",
+          prompt:
+            "Review this B2B trial onboarding automation flow specification. Identify all logic defects, rate their severity, and link them to the lesson's automation rules.",
+          answerKey: [
+            {
+              defect:
+                "Zero exit conditions: Paid conversions and activated enterprise accounts remain in the trial onboarding sequence, receiving aggressive 30% discount prompts after already paying.",
+              severity: "critical",
+              whyItMatters:
+                "Customers who already upgraded feel buyers' remorse seeing subsequent discount offers, while receiving irrelevant setup nudges degrades product trust.",
+              lessonRef: "Common Mistakes: Mistake 2, No exit conditions between flows",
+              owner: "you",
+            },
+            {
+              defect:
+                "Email 1 pushes an enterprise demo CTA before the user has experienced core product value or activated their workspace.",
+              severity: "moderate",
+              whyItMatters:
+                "Welcome emails should deliver immediate utility (activation instructions) rather than high-friction sales calls before value realization.",
+              lessonRef: "The Five Core Flows: Flow 1: Welcome Series",
+              owner: "you",
+            },
+            {
+              defect:
+                "Static time-based delays without behavioral branching: Email 4 asks 'Did you invite your team?' on Day 9 regardless of whether the user already invited 10 team members on Day 1.",
+              severity: "moderate",
+              whyItMatters:
+                "Sending onboarding prompts that ignore user actions frustrates active power users and fails to intervene with stuck users who need help.",
+              lessonRef: "Common Mistakes: Mistake 1, Triggering on time alone, not behaviour",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The flow uses a 14-day total duration for a 14-day trial",
+            "Email 2 introduces Kanban boards as a core product feature",
+            "The sequence contains 4 total emails",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "ecommerce-post-purchase-blueprint",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "FLOW SPECIFICATION: Post-Purchase Customer Journey\n" +
+            "TRIGGER: Order Placed (Online Store)\n" +
+            "FILTERS: Send to all buyers\n" +
+            "SEQUENCE:\n" +
+            "  - Email 1 (Immediate): Order Confirmation + Receipt\n" +
+            "  - Delay: 24 Hours\n" +
+            "  - Email 2: 'Review your purchase! Tell us what you think on Trustpilot'\n" +
+            "  - Delay: 3 Days\n" +
+            "  - Email 3: 'Buy again: 20% off your next order (Expires in 48h)'\n" +
+            "EXIT RULES: If user unsubscribes",
+          prompt:
+            "Analyze this ecommerce post-purchase flow blueprint. Identify the timing and sequencing defects that harm customer satisfaction and review ratings.",
+          answerKey: [
+            {
+              defect:
+                "Review request sent 24 hours after order placement, days before physical product delivery.",
+              severity: "critical",
+              whyItMatters:
+                "Asking for product reviews before delivery confuses customers, generates 1-star complaints ('I haven't even received it yet!'), and wastes the review opportunity.",
+              lessonRef: "The Five Core Flows: Flow 3: Post-Purchase Onboarding",
+              owner: "you",
+            },
+            {
+              defect:
+                "Missing shipping confirmation and usage onboarding steps between receipt and cross-sell.",
+              severity: "moderate",
+              whyItMatters:
+                "Post-purchase flows must reduce buyer's remorse and provide care/usage instructions before pivoting to repeat monetization.",
+              lessonRef: "The Five Core Flows: Flow 3: Post-Purchase Onboarding",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Email 1 delivers the transactional order receipt immediately",
+            "Email 3 offers a time-limited 20% discount coupon",
+            "The flow includes an unsubscribe exit condition",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Document flow defects, severity scores, and corrected logic branches",
+            why: "Universal spreadsheet tool for audit matrices",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A structured flow teardown scorecard grading both specimens with prioritized remediation steps for flow triggers, filters, and delays.",
+      sampleOutput:
+        "Glossybox — Flow Teardown Audit (Specimen Review)\n\n" +
+        "SPECIMEN AUDIT: Welcome & Onboarding Sequence\n" +
+        "  Defect 1 [CRITICAL]: Review request fired at T+48h before beauty box dispatch.\n" +
+        "    Fix: Tie review trigger to carrier delivery webhook + 7-day usage delay.\n" +
+        "  Defect 2 [CRITICAL]: No exit condition when subscriber upgrades from monthly to annual.\n" +
+        "    Fix: Add filter 'Subscription Type != Annual' to prevent duplicate upsell emails.\n" +
+        "  Defect 3 [MODERATE]: Email 2 sent 2 hours after Email 1, flooding inbox.\n" +
+        "    Fix: Extend delay between Welcome 1 and Content 2 to 48 hours.",
+      successCriteria: [
+        "Identifies the premature review request flaw in the post-purchase sequence",
+        "Catches the absence of paid-upgrade exit conditions in the SaaS onboarding blueprint",
+        "Distinguishes real architectural errors from valid baseline parameters (distractors)",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "cold-email": [
+    {
+      id: "cold-email-infrastructure-deliverability-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "Outbound Infrastructure & Deliverability Health Check",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Audit a B2B outbound email setup to isolate primary domains, establish secondary domain warmup protocols, enforce daily inbox quotas, and verify list deliverability below a 2% bounce threshold.",
+      companyId: "freshworks",
+      scenario:
+        "You are an outbound sales strategist at Freshworks preparing a new SDR team for cold outreach to IT directors. The team wants to send 500 emails a day immediately from the primary company domain. You must audit their technical setup, domain warm-up status, daily volume caps, and list verification hygiene before any campaign goes live.",
+      brief:
+        "Audit the technical infrastructure against the lesson's four-stage outbound model: separate sending domains, mailbox warmup protocols, bounce rate thresholds, and daily inbox send limits.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "How It Works",
+        "Common Mistakes",
+      ],
+      steps: [
+        {
+          stepId: "step-1-domain-isolation-check",
+          concept: "How It Works",
+          lessonAnchor: "how-it-works",
+          theoryRecap:
+            "The lesson specifies using secondary sending domains (e.g., getacme.com instead of acme.com), warming them over 4-6 weeks, and keeping daily send volume under 30-50 emails per inbox to prevent domain blacklisting.",
+          question:
+            "The SDR team proposes sending 250 cold emails per day directly from sdr@freshworks.com on day one. What risk does this create, and what is the required infrastructure fix?",
+          toolName: "Google Sheets",
+          where: "Outbound domain configuration and DNS record registry (SPF, DKIM, DMARC)",
+          procedure: [
+            "Audit sending domain: verify that outreach originates from dedicated secondary domains (e.g., tryfreshworks.com).",
+            "Check authentication records: ensure SPF, DKIM, and DMARC policies are configured and passing.",
+            "Verify warmup schedule: confirm 4-6 weeks of peer-to-peer mailbox warmup with gradual ramp-up.",
+            "Set hard inbox throttling: cap daily volume at 30-40 cold emails per mailbox.",
+          ],
+          outputSample:
+            "INFRASTRUCTURE AUDIT REPORT\nPrimary Domain: freshworks.com (PROTECTED - Zero outbound cold email allowed)\nOutbound Domains Configured:\n  1. tryfreshworks.com (Inboxes: 3 | SPF: PASS | DKIM: PASS | DMARC: PASS | Warmup: Week 5 (98% health score))\n  2. getfreshdesk.io (Inboxes: 3 | SPF: PASS | DKIM: PASS | DMARC: PASS | Warmup: Week 6 (99% health score))\nDaily Capacity: 6 inboxes x 35 emails/day = 210 emails/day total\nRisk Status: GREEN (Primary domain fully isolated)",
+          healthy:
+            "Secondary domain usage with SPF/DKIM/DMARC authenticated, 4+ weeks warmup completed, and daily sends capped at ≤40 per inbox.",
+          unhealthy:
+            "Blasting cold emails from primary corporate domain without warmup or exceeding 50 sends per inbox daily.",
+          interpret:
+            "Primary domains carry business-critical transactional and client communications; risking primary domain reputation with cold email can blackball company-wide email operations.",
+          soWhat: [
+            {
+              symptom: "SDR proposes sending from primary corporate domain",
+              action:
+                "Block sending and provision secondary domains with automated warmup before launching",
+              effort: "30 min",
+            },
+            {
+              symptom: "Deliverability drop or emails landing in spam",
+              action:
+                "Pause sending, check DMARC/DKIM records, and reduce volume to 20 emails/day during re-warmup",
+              effort: "half day",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-list-verification-bounce-audit",
+          concept: "Common Mistakes",
+          lessonAnchor: "common-mistakes",
+          theoryRecap:
+            "Hard bounces must stay strictly below 2% per campaign. Unverified lists with stale or invalid addresses rapidly trigger spam flags from Google and Microsoft.",
+          question:
+            "An export of 1,200 prospect emails from an online directory shows 140 unverified addresses and 60 invalid syntax errors. What must you do before importing this list to the sending tool?",
+          toolName: "Google Sheets",
+          where: "List cleaning spreadsheet and email verification API results",
+          procedure: [
+            "Import the prospect export into Google Sheets and check for syntax anomalies.",
+            "Run the list through an email verification tool (e.g. MX record validation, SMTP handshake).",
+            "Filter out all 'invalid', 'catch-all', and 'unverified' rows.",
+            "Calculate estimated bounce rate: must be under 2.0% of delivered contacts.",
+          ],
+          outputSample:
+            "LIST HYGIENE AUDIT: Q3 IT Director Prospect List\nTotal Raw Contacts: 1,200\nVerification Results:\n  - Valid (Deliverable): 984 (82.0%)\n  - Catch-All / Risky: 156 (13.0% - QUARANTINED)\n  - Invalid / Hard Bounce: 60 (5.0% - PURGED)\nApproved Outbound Batch: 984 verified contacts\nProjected Bounce Rate: < 0.8% (Target: < 2.0%)",
+          healthy:
+            "List verification performed prior to upload; bounce rate stays below 1.5% and spam complaints remain under 0.05%.",
+          unhealthy:
+            "Importing unverified raw lead lists with >3% bounce rate, leading to ISP rate-limiting and domain reputation degradation.",
+          interpret:
+            "Verification protects domain health. Discarding 15% risky emails preserves the deliverability of the remaining 85%.",
+          soWhat: [
+            {
+              symptom: "Campaign bounce rate exceeds 2%",
+              action:
+                "Immediately pause campaign, purge remaining unverified contacts, and re-verify list",
+              effort: "30 min",
+            },
+            {
+              symptom: "Spam complaint rate approaches 0.1%",
+              action:
+                "Tighten ICP criteria and remove scraped directories with poor data accuracy",
+              effort: "half day",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Verify lead exports, calculate bounce rates, and map mailbox send capacities",
+            why: "Zero cost spreadsheet for hygiene verification",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Customer.io",
+            role: "B2B messaging and sequence orchestrator",
+            why: "Enterprise-grade message delivery and tracking",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+      },
+      deliverable:
+        "A complete Outbound Infrastructure & Deliverability Checklist verifying domain authentication, warmup status, inbox quotas, and list verification metrics.",
+      sampleOutput:
+        "Zendesk — Outbound Infrastructure Audit (Pre-Flight)\n\n" +
+        "DOMAIN STATUS:\n" +
+        "  Primary: zendesk.com (Protected - No cold outreach)\n" +
+        "  Secondary 1: try-zendesk.com (SPF: Valid, DKIM: Valid, DMARC: p=quarantine, Warmup: 32 days, Health: 99%)\n" +
+        "  Secondary 2: get-zendesk.com (SPF: Valid, DKIM: Valid, DMARC: p=quarantine, Warmup: 28 days, Health: 97%)\n\n" +
+        "SENDING PROTOCOL:\n" +
+        "  Max per inbox: 35 emails/day\n" +
+        "  Sending window: Mon-Thu, 8:30 AM - 11:30 AM recipient local time\n" +
+        "  List Verification: 100% verified via SMTP check, bounce threshold set to auto-kill at 2.0%",
+      successCriteria: [
+        "Ensures complete domain isolation separating primary business domain from outreach domains",
+        "Enforces daily sending limits of under 50 emails per inbox with 4+ weeks warmup",
+        "Establishes pre-send verification ensuring bounce rates remain strictly below 2%",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "cold-email-copy-sequence-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Spot the Spam Triggers: Cold Email Copy & Sequence Teardown",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Teardown two flawed outbound cold email specimens to identify selfish company-centric pitches, high-friction CTAs, spam-trigger attachments, and rapid-fire follow-up cadences.",
+      companyId: "zendesk",
+      scenario:
+        "You are reviewing outbound sales enablement collateral at Zendesk. Two SDRs drafted 3-touch cold email sequences targeting VP of Customer Support prospects. Both sequences are experiencing 0.5% reply rates and high spam complaint flags. You must teardown each specimen against the lesson's cold email copywriting rules (under 100 words, pain-first, low-friction CTA, personalized opening, spaced follow-ups).",
+      brief:
+        "Audit the two cold email sequence specimens. Spot every copywriting and sequencing defect (feature dumping, selfish framing, high-friction CTAs, excessive length, spam trigger words), rate severity, and explain why the prospect ignores or flags the email.",
+      mode: "teardown",
+      conceptsCovered: [
+        "Common Mistakes",
+        "What It Is",
+        "How It Works",
+      ],
+      teardownItems: [
+        {
+          itemId: "enterprise-support-cold-email-pitch",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "SUBJECT: Introducing our award-winning AI customer service platform for enterprise companies!\n\n" +
+            "Dear Sir/Madam,\n\n" +
+            "I hope this email finds you well. My name is Alex and I am an Enterprise Account Executive at Zendesk. We are an industry-leading provider of omnichannel customer service software with over 100,000 customers worldwide. Our platform offers 500+ integrations, AI ticketing, sentiment analysis, workforce management, and SLA tracking.\n\n" +
+            "I would love to set up a 45-minute demo next Tuesday at 2 PM to walk you through our product deck and explore how we can completely overhaul your support department.\n\n" +
+            "Are you the right person to speak with regarding customer service software procurement?\n\n" +
+            "Best regards,\n" +
+            "Alex\n" +
+            "[Attached: Product_Brochure_2026.pdf (14MB)]",
+          prompt:
+            "Teardown this cold email specimen against the lesson's copy and deliverability guidelines. Spot all defects that kill reply rates and trigger spam filters.",
+          answerKey: [
+            {
+              defect:
+                "Heavy company-centric pitch ('We are an industry-leading provider...') instead of leading with the recipient's specific pain point.",
+              severity: "critical",
+              whyItMatters:
+                "Prospects delete emails that talk about the seller's features rather than solving their urgent problem.",
+              lessonRef:
+                "Common Mistakes: A close second: writing emails that are too long and too focused on you",
+              owner: "you",
+            },
+            {
+              defect:
+                "High-friction CTA asking for a 45-minute demo and complex procurement question instead of a low-friction conversation starter.",
+              severity: "critical",
+              whyItMatters:
+                "Cold email goals are to start a conversation, not close a deal or demand a 45-minute calendar block on the first touch.",
+              lessonRef:
+                "What It Is: The goal is not to close a deal in one message. It is to earn a reply",
+              owner: "you",
+            },
+            {
+              defect:
+                "Generic opening ('Dear Sir/Madam', 'I hope this email finds you well') with zero personalization or ICP relevance.",
+              severity: "moderate",
+              whyItMatters:
+                "Generic greetings signal mass automated spam, driving immediate deletes without reading.",
+              lessonRef:
+                "How It Works: Copy follows a simple structure: one personalized opening line",
+              owner: "you",
+            },
+            {
+              defect:
+                "14MB PDF attachment on a cold outbound email to a new contact.",
+              severity: "critical",
+              whyItMatters:
+                "Large attachments from unknown senders trigger spam filters and security quarantines in enterprise email gateways.",
+              lessonRef: "How It Works: Infrastructure and deliverability",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The email mentions the sender's job title in the signature",
+            "The subject line mentions AI and customer service",
+            "The message ends with a professional sign-off",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "follow-up-sequence-teardown",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "TOUCH 2 (Sent 4 hours after Touch 1):\n" +
+            "SUBJECT: Did you see my email earlier today?\n\n" +
+            "Just bubbling this to the top of your inbox since I haven't heard back from you yet. Let me know when we can jump on a 30-min call.\n\n" +
+            "---\n" +
+            "TOUCH 3 (Sent 24 hours after Touch 2):\n" +
+            "SUBJECT: Following up again...\n\n" +
+            "I know you are busy, but I really think you are missing out if you don't look at our AI tool. Can you connect me with your boss if you aren't the decision maker?",
+          prompt:
+            "Evaluate this 2-touch follow-up sequence for cadence, tone, and value delivery.",
+          answerKey: [
+            {
+              defect:
+                "Aggressive, rapid-fire follow-up cadence (4 hours and 24 hours apart) instead of proper 2-4 business day spacing.",
+              severity: "critical",
+              whyItMatters:
+                "Rapid follow-ups annoy busy executives and lead directly to manual 'Mark as Spam' clicks that harm domain sender reputation.",
+              lessonRef:
+                "How It Works: Sequences are follow-up emails sent 2-4 days apart",
+              owner: "you",
+            },
+            {
+              defect:
+                "Zero incremental value in follow-ups: empty 'bumping this' and passive-aggressive guilt ('missing out', 'connect me with your boss').",
+              severity: "critical",
+              whyItMatters:
+                "Effective follow-ups provide a new angle, case study, or micro-insight; passive-aggressive nagging destroys credibility.",
+              lessonRef: "How It Works: Sequence management",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Touch 2 keeps the message under 50 words",
+            "The emails thread into the same conversation topic",
+            "Touch 3 mentions AI as a tool capability",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Log copy defects, measure word counts, and calculate spam risk scores",
+            why: "Standard audit framework tool",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A comprehensive Cold Outreach Teardown Scorecard evaluating copy length, personalization quality, CTA friction, and follow-up spacing.",
+      sampleOutput:
+        "Slack — Outbound Copy Teardown Scorecard\n\n" +
+        "SPECIMEN 1: Engineering Lead Cold Pitch\n" +
+        "  Word Count: 68 words (PASS - Target: < 100 words)\n" +
+        "  Personalization: Cites recipient's GitHub open-source repo (PASS)\n" +
+        "  Pain Focus: Highlights context-switching costs in distributed sprints (PASS)\n" +
+        "  CTA: 'Worth a 2-line reply if this is top of mind?' (PASS - Low friction)\n\n" +
+        "SPECIMEN 2: Defective Follow-up Draft\n" +
+        "  Defect: 'Bumping this' after 6 hours with no new value. Rated CRITICAL.\n" +
+        "  Remediation: Space follow-up by 3 business days and share relevant engineering latency benchmark.",
+      successCriteria: [
+        "Identifies selfish/product-centric framing and high-friction demo CTAs",
+        "Catches aggressive follow-up cadences that violate the 2-4 day spacing rule",
+        "Flags technical deliverability hazards like large attachments on cold outreach",
+      ],
+      portfolioReady: true,
+    },
+  ],
 };

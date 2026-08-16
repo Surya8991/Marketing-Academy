@@ -1067,4 +1067,639 @@ export const ANALYTICS_PROJECTS: Record<string, Project[]> = {
         "B2B buyers share content that makes them look smart to their team. Make your assets easy to quote, ungate the best insights, and embed clean tracking mechanisms to capture the resulting word-of-mouth.",
     },
   ],
+
+  "attribution": [
+    {
+      id: "attribution-walled-garden-reconciliation-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "The Multi-Platform Overlap Teardown: Resolving Attribution Double-Counting",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Tear down 3 multi-channel B2B campaign reporting specimens across Google Ads, Meta Ads, LinkedIn Ads, and CRM data to identify double-counting, post-view attribution inflation, and lookback window mismatch defects.",
+      companyId: "freshworks",
+      scenario:
+        "Freshworks scaled digital acquisition across Google Search, LinkedIn Ads, Meta Ads, and email marketing. In Q2, ad platform dashboards reported 1,420 total demo conversions across channels, but CRM ground truth recorded only 820 unique new pipeline opportunities—a 600-conversion (73.2%) discrepancy. You are auditing 3 campaign tracking setups to diagnose the attribution and tagging defects creating this massive double-counting gap.",
+      brief:
+        "Analyze 3 distinct campaign tracking specimens. Identify the specific technical defects—such as 1-day post-view attribution inflation, un-deduplicated pixel firing, and truncated lookback windows—that cause ad networks to claim credit for conversions they did not drive.",
+      mode: "teardown",
+      conceptsCovered: [
+        "Walled Garden Double-Counting",
+        "View-Through Attribution Inflation",
+        "Lookback Window Truncation",
+      ],
+      teardownItems: [
+        {
+          itemId: "attribution-teardown-specimen-1",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "SPECIMEN A: Cross-Channel Paid Demand Gen Dashboard (Q2 Performance Review)\n" +
+            "--------------------------------------------------------------------------------\n" +
+            "Target Action: Book a Product Demo (/demo-booked confirmation page)\n" +
+            "Total Actual CRM Demo Opportunities Created: 820\n\n" +
+            "Platform Reported Conversions:\n" +
+            "1. Google Search Ads: 450 conversions reported (Google Ads Conversion Tag, Last-Click, 30-day window)\n" +
+            "2. LinkedIn Sponsored Content: 380 conversions reported (Insight Tag, 30-day click / 7-day view)\n" +
+            "3. Meta Ads (B2B Retargeting): 340 conversions reported (Meta Pixel + CAPI, 7-day click / 1-day view)\n" +
+            "4. Lifecycle Email (Nurture): 250 conversions reported (ESP Link Tracking, Last-Click)\n" +
+            "Total Platform Claims: 1,420 conversions (Over-reporting error: +600 / +73.2% vs. CRM actuals)\n\n" +
+            "Tracking Configuration Notes:\n" +
+            "- Google Ads and Meta Ads both track conversions using native client-side pixels.\n" +
+            "- Meta Ads campaign setting: Optimization for Conversions with 7-day click / 1-day view attribution window active.\n" +
+            "- LinkedIn campaign setting: 30-day click and 7-day view attribution active.\n" +
+            "- Email links use ESP auto-tagging, but redirect through a vanity tracking domain before landing on the demo page without consistent UTM parameters.\n" +
+            "- No unified server-side identity or centralized multi-touch deduplication layer is active.",
+          prompt:
+            "Review Specimen A (Cross-Channel Paid Demand Gen Dashboard). Identify the 3 critical attribution defects causing the 73.2% double-counting discrepancy between platform claims and CRM actuals.",
+          answerKey: [
+            {
+              defect:
+                "Walled garden ad networks (Google, LinkedIn, Meta) operate in silos and each claim 100% credit for overlapping multi-touch paths",
+              severity: "critical",
+              whyItMatters:
+                "When a prospect views a LinkedIn post, clicks a Meta retargeting ad, and finally converts via a Google Search ad, all three ad platforms record a full conversion, creating 300% inflation for that single user journey.",
+              lessonRef: "the-modern-problem-walled-gardens",
+              owner: "you",
+            },
+            {
+              defect:
+                "Active view-through attribution (1-day on Meta, 7-day on LinkedIn) credits ads that users merely scrolled past without clicking",
+              severity: "critical",
+              whyItMatters:
+                "View-through attribution claims pipeline that was actually driven by organic search or high-intent direct visits, artificially inflating social ROAS and misleading budget allocation.",
+              lessonRef: "the-modern-problem-walled-gardens",
+              owner: "you",
+            },
+            {
+              defect:
+                "Email links redirect through an ESP domain without standardized UTM parameters, causing email touches to be overwritten by active ad tracking cookies",
+              severity: "moderate",
+              whyItMatters:
+                "When email clicks lack clean UTM campaign headers, the final conversion gets claimed by whichever ad platform has an active click-through cookie in the prospect's browser.",
+              lessonRef: "1-last-click-attribution",
+              owner: "developer",
+            },
+          ],
+          distractors: [
+            "The demo booking page has 4 form fields instead of a single work email input",
+            "LinkedIn Sponsored Content used single image ads instead of carousel video creative",
+            "The overall conversion rate on the demo landing page was 3.2% instead of the B2B average of 4.5%",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "attribution-teardown-specimen-2",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "SPECIMEN B: Enterprise Deal Attribution & Lookback Window Configuration\n" +
+            "--------------------------------------------------------------------------------\n" +
+            "Deal Size: $84,000 Annual Contract Value (ACV)\n" +
+            "Sales Cycle Duration: 114 days from initial anonymous website visit to contract signature\n\n" +
+            "Observed Journey Milestones (Extracted from Server Logs & CRM):\n" +
+            "- Day 1: Chief Technology Officer reads ungated 'Microservices Architecture Guide' via Organic Search.\n" +
+            "- Day 18: VP of Engineering attends live technical webinar via LinkedIn Sponsored Content registration.\n" +
+            "- Day 42: Senior Architect downloads 'Enterprise Security Whitepaper' via Google Non-Branded Search ad.\n" +
+            "- Day 88: Inbound demo request submitted via direct visit.\n" +
+            "- Day 114: Procurement team clicks a Google Branded Search ad ('Freshworks login') to access the contract portal and execute the DocuSign agreement.\n\n" +
+            "Current Analytics Property Configuration:\n" +
+            "- GA4 Property Reporting Model: Last-Click Attribution\n" +
+            "- Key Event Lookback Window: 30 days for acquisition events, 30 days for all other key events\n" +
+            "- Attribution Report Result: Google Branded Search awarded 100% of the $84,000 ACV deal credit ($84,000 / 1.0 conversion). Organic Search, LinkedIn webinar, and Non-Branded Search awarded $0.",
+          prompt:
+            "Review Specimen B (Enterprise Deal Attribution & Lookback Configuration). Identify the 2 critical measurement defects that erase top-of-funnel marketing contributions.",
+          answerKey: [
+            {
+              defect:
+                "A 30-day lookback window truncates a 114-day B2B sales cycle, erasing discovery and evaluation touchpoints that occurred before Day 84",
+              severity: "critical",
+              whyItMatters:
+                "GA4's default 30-day window is built for short transactional ecommerce. In enterprise B2B with 3-6 month sales cycles, it makes early-stage webinars and technical guides look like total failures.",
+              lessonRef: "common-mistakes-to-avoid",
+              owner: "you",
+            },
+            {
+              defect:
+                "Last-click attribution model awards 100% credit to a transactional branded search navigational touch at the moment of closing",
+              severity: "critical",
+              whyItMatters:
+                "The prospect was already purchasing; clicking a branded search ad on Day 114 was just a convenient navigation shortcut to the sign-in page. Last-click steals credit from the 3 previous months of marketing.",
+              lessonRef: "1-last-click-attribution",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The webinar on Day 18 was hosted on Zoom instead of ON24",
+            "The CTO read the architecture guide on mobile instead of desktop",
+            "The whitepaper was formatted as a PDF instead of an interactive web page",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "attribution-teardown-specimen-3",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "SPECIMEN C: Confirmation Page Pixel & Tag Architecture\n" +
+            "--------------------------------------------------------------------------------\n" +
+            "Page URL: https://freshworks.com/demo-confirmation\n" +
+            "Trigger: User completes the 3-step demo scheduling workflow\n\n" +
+            "Frontend Implementation (Page Header Code):\n" +
+            "<script>\n" +
+            "  // Google tag (gtag.js) key event\n" +
+            "  gtag('event', 'generate_lead', { 'value': 250, 'currency': 'USD' });\n" +
+            "  \n" +
+            "  // Meta Pixel conversion\n" +
+            "  fbq('track', 'Lead', { value: 250, currency: 'USD' });\n" +
+            "  \n" +
+            "  // LinkedIn Insight Tag conversion\n" +
+            "  window.lintrk('track', { conversion_id: 1289401 });\n" +
+            "</script>\n\n" +
+            "Observed User Behavior & Log Patterns:\n" +
+            "- When a user bookmarks the confirmation page and opens the browser tab next morning, all three tags re-execute.\n" +
+            "- When a user clicks 'Back' in browser and returns to the confirmation page, all three tags re-execute.\n" +
+            "- Meta Conversions API (CAPI) sends a server-side 'Lead' event on CRM form submission with event_id: 'lead_94821'.\n" +
+            "- Frontend fbq('track', 'Lead') sends payload WITHOUT event_id parameter.",
+          prompt:
+            "Review Specimen C (Confirmation Page Pixel & Tag Architecture). Identify the 2 technical implementation defects causing duplicate conversion reporting.",
+          answerKey: [
+            {
+              defect:
+                "Conversion tags fire unconditionally on every page load without unique transaction ID or local session deduplication guards",
+              severity: "critical",
+              whyItMatters:
+                "Page refreshes, tab restores, and back-button navigation refire conversion pixels into Google, Meta, and LinkedIn, falsely inflating conversion counts by 15-25%.",
+              lessonRef: "the-modern-problem-walled-gardens",
+              owner: "developer",
+            },
+            {
+              defect:
+                "Frontend Meta pixel payload lacks the matching event_id sent by server-side CAPI, preventing Meta from deduplicating client and server events",
+              severity: "moderate",
+              whyItMatters:
+                "Without matching event_id keys, Meta treats the browser pixel ping and the server CAPI payload as two separate leads, doubling the reported conversion count.",
+              lessonRef: "the-modern-problem-walled-gardens",
+              owner: "developer",
+            },
+          ],
+          distractors: [
+            "The currency code is set to USD instead of INR for Indian visitors",
+            "The script uses inline JavaScript rather than loading via Google Tag Manager",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Reconciliation analysis and defect logging",
+            why: "Zero-cost spreadsheet reconciliation for cross-platform conversion deduplication",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Google Analytics 4",
+            role: "Cross-channel attribution reporting",
+            why: "Evaluate multi-channel paths against platform-reported totals",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+      },
+      deliverable:
+        "A complete Walled Garden Attribution Teardown Log classifying 7 defects across 3 specimens with severity ratings, root cause mechanisms, and deduplication fixes.",
+      sampleOutput:
+        "ROCKERBOX / SEGMENT ATTRIBUTION TEARDOWN REFERENCE REPORT\n\n" +
+        "1. Cross-Platform Double-Counting Audit (E-Commerce Multi-Channel Blitz):\n" +
+        "   - CRM Actual Orders: 1,200 | Total Ad Platform Claims: 2,140 (+78.3% inflation)\n" +
+        "   - Primary Cause: Facebook 1-day view-through claims 420 orders that also converted via Google Brand Search.\n" +
+        "   - Remediation: Turn off view-through attribution in ad managers for automated bidding; reconcile against first-party order IDs in warehouse.\n\n" +
+        "2. Lookback Window Calibration:\n" +
+        "   - B2B Sales Cycle: 90 days. Old GA4 Window: 30 days.\n" +
+        "   - Finding: 64% of high-ACV closed deals had first touch on Organic or LinkedIn Ads >45 days before conversion.\n" +
+        "   - Remediation: Extend GA4 reporting lookback to maximum 90 days and implement multi-touch first-party tracking via Segment.\n\n" +
+        "3. Pixel Deduplication Architecture:\n" +
+        "   - Added unique order_id to dataLayer and mapped to both browser pixel and server CAPI.\n" +
+        "   - Implemented cookie-based deduplication flag on /thank-you page to suppress duplicate fires on page reloads.",
+      successCriteria: [
+        "Correctly identifies walled garden double-counting and view-through attribution inflation across self-attributing networks",
+        "Explains the mathematical impact of 30-day lookback window truncation in 90+ day B2B sales cycles",
+        "Identifies missing transaction IDs and event_id mismatch defects causing conversion pixel duplication",
+      ],
+      portfolioReady: true,
+      skills: ["Attribution Auditing", "Walled Gardens", "Pixel Deduplication", "Conversion Tracking"],
+      prerequisites: [
+        "Understanding of single-touch vs. multi-touch attribution",
+        "Familiarity with ad platform conversion tags (Google Ads, Meta Pixel, LinkedIn Insight Tag)",
+        "Basic knowledge of URL tracking parameters (UTMs)",
+      ],
+      terminology: [
+        {
+          term: "Walled Garden",
+          definition:
+            "A closed platform (like Google, Meta, or LinkedIn) that controls its own user data and advertising measurement, unable to see interactions occurring on rival networks.",
+        },
+        {
+          term: "View-Through Attribution",
+          definition:
+            "Assigning conversion credit to an ad impression that a user saw but did not click, provided the user converts within a set window (e.g., 1 or 7 days).",
+        },
+        {
+          term: "Lookback Window",
+          definition:
+            "The time period prior to a conversion during which previous ad impressions or clicks are eligible to receive attribution credit.",
+        },
+      ],
+      keyQuestion:
+        "Why do ad platform dashboards report 70%+ more conversions than your CRM actually received, and how do you fix the underlying tracking defects?",
+      whatToLookFor: [
+        {
+          label: "View-Through Settings",
+          detail: "Check whether ad networks are counting passive 1-day or 7-day impressions as conversions.",
+        },
+        {
+          label: "Lookback Mismatch",
+          detail: "Ensure the tracking window matches your true sales cycle length rather than default 30-day settings.",
+        },
+        {
+          label: "Tag Deduplication",
+          detail: "Verify unique transaction/event IDs across client pixels and server APIs to prevent reload duplication.",
+        },
+      ],
+      decision: {
+        prompt:
+          "Your Meta Ads campaign reports 340 demo conversions with a $110 CPA, but CRM data shows that 210 of those leads also clicked a Google Search ad or email link on the same day. How should you adjust your reporting and bidding setup?",
+        options: [
+          {
+            id: "keep-view-through",
+            label: "Keep 7-day click / 1-day view attribution active because Meta's algorithm needs maximum volume to optimize bidding.",
+            correct: false,
+          },
+          {
+            id: "switch-to-first-party",
+            label: "Switch bidding and executive reporting to deduplicated first-party CRM conversions and turn off view-through window credit for performance reporting.",
+            correct: true,
+          },
+          {
+            id: "pause-google",
+            label: "Pause Google Search ads to let Meta Ads capture all conversions cleanly without cross-channel overlap.",
+            correct: false,
+          },
+        ],
+        explanation:
+          "Relying on platform-reported view-through numbers masks channel cannibalization. Switching reporting to deduplicated CRM conversions reveals true incremental performance, while removing view-through inflation prevents over-allocating budget to passive impressions.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text: "Never trust self-attributing ad network totals as financial ground truth. Always reconcile platform conversions against first-party CRM opportunity IDs, disable view-through attribution for budget decisions, and enforce strict server-side event deduplication.",
+      },
+      commonMistakes: [
+        {
+          mistake: "Summing conversion counts across Google, LinkedIn, and Meta dashboards.",
+          explanation:
+            "Because each network claims 100% credit for multi-touch journeys, summing platform totals creates massive double-counting and grossly exaggerates marketing ROI.",
+        },
+        {
+          mistake: "Leaving GA4 on the default 30-day lookback window for 90-day B2B sales cycles.",
+          explanation:
+            "Truncating long sales cycles erases early awareness touchpoints (webinars, organic content) and falsely credits 100% of pipeline to final branded searches.",
+        },
+      ],
+      keyTakeaway:
+        "Walled gardens are designed to claim maximum credit for every conversion. True marketing efficiency requires independent cross-channel deduplication, lookback windows calibrated to your real sales cycle, and strict first-party reconciliation against your CRM.",
+    },
+    {
+      id: "attribution-multi-touch-budget-reallocation-audit",
+      tier: "core",
+      archetype: "audit",
+      title: "The 7-Model Multi-Touch Attribution Audit: Reallocating B2B Marketing Spend",
+      timeEstimate: "50 minutes",
+      timeMinutes: 50,
+      objective:
+        "Audit a multi-touch B2B marketing pipeline dataset across 7 attribution models (Last-Click, First-Click, Linear, Time-Decay, U-Shaped, W-Shaped, and Data-Driven) in Google Sheets and GA4 to uncover channel cannibalization and reallocate a quarterly media budget.",
+      companyId: "trade-desk",
+      scenario:
+        "You are the growth analytics lead at The Trade Desk (TTD), auditing acquisition efficiency across five core channels: Paid Search (Branded & Non-Branded), LinkedIn Sponsored Content, Industry Podcasts/PR, SEO/Content Hub, and Lifecycle Email. Leadership currently allocates budget using last-click reporting, which suggests cutting podcast and top-of-funnel content spend. Your job is to run a full 7-model comparative audit to demonstrate the true pipeline contribution of every touchpoint.",
+      brief:
+        "Analyze a dataset of 120 multi-touch customer journeys leading to $1,800,000 in closed-won enterprise ACV. Run 4 diagnostic steps: (1) Last-Click vs. First-Click Channel Bias Diagnostic, (2) Multi-Touch Model Credit Distribution (Linear vs. Time-Decay vs. U-Shaped vs. W-Shaped), (3) W-Shaped B2B Milestone Attribution, and (4) Data-Driven Attribution & Incrementality Budget Reallocation Plan.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Last-Click vs. First-Click Channel Bias",
+        "Multi-Touch Model Credit Distribution",
+        "W-Shaped Attribution for B2B Milestones",
+        "Data-Driven Attribution & Incrementality Reconciliation",
+      ],
+      steps: [
+        {
+          stepId: "attribution-audit-step-1",
+          concept: "Last-Click vs. First-Click Channel Bias",
+          lessonAnchor: "1-last-click-attribution",
+          theoryRecap:
+            "Last-click gives 100% credit to the final touchpoint (heavily biasing toward branded search and email), while first-click gives 100% to discovery channels (YouTube, PR, organic search). Comparing both reveals which channels create demand vs. which simply harvest it.",
+          question:
+            "What percentage of total pipeline revenue is captured by Branded Search under Last-Click compared to First-Click, and what does this reveal about its true demand-generation role?",
+          toolName: "Google Sheets",
+          where:
+            "Open multi-touch-export.csv in Google Sheets, create pivot tables for 'First Touch Channel' vs 'Last Touch Channel' weighted by Deal Value.",
+          procedure: [
+            "Import the 120-journey multi-touch dataset into Google Sheets.",
+            "Calculate total pipeline attributed to each channel under 100% First-Touch vs. 100% Last-Touch.",
+            "Compute the Ratio of Last-Touch to First-Touch attribution for Branded Search, Non-Branded Search, Paid Social, Content/SEO, and Email.",
+            "Isolate channels with a Ratio > 3.0 (Demand Harvesters) and Ratio < 0.5 (Demand Creators).",
+          ],
+          outputSample:
+            "ATTRIBUTION BIAS ANALYSIS ($1,800,000 Total ACV Pipeline):\n\n" +
+            "Channel              First-Click ACV    Last-Click ACV    L/F Ratio    Classification\n" +
+            "Branded Search       $90,000 (5%)       $720,000 (40%)    8.0x         Demand Harvester\n" +
+            "Lifecycle Email      $54,000 (3%)       $450,000 (25%)    8.3x         Demand Harvester\n" +
+            "LinkedIn Ads / PR    $630,000 (35%)     $180,000 (10%)    0.28x        Demand Creator\n" +
+            "SEO / Content Hub    $756,000 (42%)     $270,000 (15%)    0.35x        Demand Creator\n" +
+            "Non-Branded Search   $270,000 (15%)     $180,000 (10%)    0.66x        Hybrid Discovery",
+          healthy:
+            "First-click and last-click models are compared side-by-side to expose demand creation vs. demand harvesting roles across channels.",
+          unhealthy:
+            "Allocating top-of-funnel budgets exclusively based on last-click numbers, causing demand generation channels to be starved and shrinking overall pipeline.",
+          interpret:
+            "Branded Search claims 40% of revenue under last-click but initiates only 5% of deals. Cutting LinkedIn Ads or Content because of low last-click ROI would dismantle the top-of-funnel engine that feeds branded searches 60 days later.",
+          soWhat: [
+            {
+              symptom:
+                "Executive leadership proposes reducing content and paid social budgets based on low last-click conversion rates",
+              action:
+                "Present the First-Click vs. Last-Click comparison matrix proving that 77% of all won revenue originated from content and social discovery",
+              effort: "30 min",
+            },
+            {
+              symptom: "Branded search budget uncapped while top-of-funnel spend is constrained",
+              action:
+                "Cap branded search spend to match incremental demand and reallocate surplus to high-first-touch channels",
+              effort: "half day",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "attribution-audit-step-2",
+          concept: "Multi-Touch Model Credit Distribution",
+          lessonAnchor: "3-linear-attribution",
+          theoryRecap:
+            "Multi-touch models distribute credit across the entire path. Linear splits credit equally, while Time-Decay weights recent interactions. Position-based models (U-shaped) give 40% to first and last touches with 20% in the middle.",
+          question:
+            "How does shifting from Linear to Time-Decay attribution alter the valuation of mid-funnel content downloads and product webinars relative to late-stage sales demo requests?",
+          toolName: "Google Sheets",
+          where:
+            "Apply weighted formula columns in Google Sheets for Linear (1/N), Time-Decay (half-life 7 days), and U-Shaped (40/20/40) credit rules.",
+          procedure: [
+            "Assign fractional credit to each of the 450 total touchpoints across the 120 customer journeys.",
+            "Calculate total attributed revenue per channel under Linear, Time-Decay, and U-Shaped models.",
+            "Quantify the credit shift between 30+ day old awareness touches and 7-day conversion touches.",
+          ],
+          outputSample:
+            "MULTI-TOUCH ATTRIBUTION COMPARISON ($1,800,000 Pipeline):\n\n" +
+            "Channel              Linear (Equal)    Time-Decay (7d)   U-Shaped (40/20/40)\n" +
+            "LinkedIn Ads / PR    $432,000 (24%)    $252,000 (14%)    $468,000 (26%)\n" +
+            "SEO / Content Hub    $504,000 (28%)    $324,000 (18%)    $486,000 (27%)\n" +
+            "Non-Branded Search   $324,000 (18%)    $288,000 (16%)    $288,000 (16%)\n" +
+            "Lifecycle Email      $270,000 (15%)    $414,000 (23%)    $270,000 (15%)\n" +
+            "Branded Search       $270,000 (15%)    $522,000 (29%)    $288,000 (16%)",
+          healthy:
+            "Model choice reflects the specific sales cycle duration: U-shaped properly credits both discovery and final action in multi-stakeholder B2B deals.",
+          unhealthy:
+            "Using Time-Decay for a 6-month enterprise sales cycle, which artificially mimics last-click bias by devaluing long-term nurturing.",
+          interpret:
+            "Linear and U-shaped models recognize that content and social drive over 50% of value, while Time-Decay heavily concentrates credit into the final 7 days.",
+          soWhat: [
+            {
+              symptom: "Time-decay model shows low ROI on quarterly industry research reports",
+              action:
+                "Switch B2B executive reporting to U-shaped or W-shaped models that reward top-of-funnel lead creation",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "attribution-audit-step-3",
+          concept: "W-Shaped Attribution for B2B Milestones",
+          lessonAnchor: "6-w-shaped-attribution",
+          theoryRecap:
+            "W-shaped attribution allocates 30% to First Touch (awareness), 30% to Lead Creation (form fill), 30% to Opportunity Creation (sales stage validation), and 10% to intermediate nurturing touches.",
+          question:
+            "Which channels emerge as the primary drivers of the Opportunity Creation milestone (the second 30% W-anchor) compared to First Touch and Opportunity Close?",
+          toolName: "Google Analytics 4",
+          where:
+            "GA4 Explore > Path Exploration & Custom Funnel / Segment integration mapping CRM lifecycle milestones to web touchpoints.",
+          procedure: [
+            "Map each touchpoint in the journey to its closest CRM milestone: First Touch, Lead Creation, Opportunity Creation, Opportunity Close.",
+            "Apply 30/30/30/10 weighting to calculate channel revenue shares across the 4 key milestones.",
+            "Identify the top channel for each of the three major 30% anchors.",
+          ],
+          outputSample:
+            "W-SHAPED MILESTONE ATTRIBUTION BREAKDOWN:\n\n" +
+            "Milestone Anchor            Top Contributing Channel        Attributed Revenue\n" +
+            "1. First Touch (30%)        SEO / Content Hub (52%)         $280,800\n" +
+            "2. Lead Creation (30%)      LinkedIn Sponsored Content (44%)$237,600\n" +
+            "3. Opp Creation (30%)       Product Webinars & Case Studies $259,200\n" +
+            "4. Middle Nurturing (10%)  Email Sequences & Retargeting   $180,000\n\n" +
+            "W-Shaped Channel Totals: Content/SEO: $486,000 (27%) | LinkedIn/PR: $450,000 (25%) | Non-Branded: $306,000 (17%) | Email: $270,000 (15%) | Branded: $288,000 (16%)",
+          healthy:
+            "W-shaped modeling reflects the distinct operational roles of discovery content (first touch), targeted lead-gen (lead creation), and deep product proof (opp creation).",
+          unhealthy:
+            "Treating all middle touches as homogeneous instead of isolating the specific asset that converted an MQL into a validated sales opportunity.",
+          interpret:
+            "Content and SEO dominate top-of-funnel discovery, LinkedIn dominates lead capture, and webinar/case-study content drives pipeline qualification. Every channel plays a clear, complementary role.",
+          soWhat: [
+            {
+              symptom:
+                "Sales team complains that MQLs from social ads fail to convert into qualified pipeline",
+              action:
+                "Invest in mid-funnel case study content and product webinars to strengthen the Opportunity Creation milestone",
+              effort: "half day",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "attribution-audit-step-4",
+          concept: "Data-Driven Attribution & Incrementality Reconciliation",
+          lessonAnchor: "the-three-layer-measurement-framework",
+          theoryRecap:
+            "Attribution models show observed paths, but incrementality testing and MMM prove causality. Combining attribution with holdout tests prevents over-investing in channels with zero incremental lift.",
+          question:
+            "When reconciling W-shaped attribution against a 4-week geo-holdout test on Branded Search and LinkedIn Ads, what is the true incremental ROI of each channel?",
+          toolName: "Google Sheets",
+          where:
+            "Google Sheets Incrementality Model tab, comparing test vs. control market conversion lift against model-attributed revenue.",
+          procedure: [
+            "Review 4-week geo-holdout results (15% control market with ads paused vs. 85% test market).",
+            "Calculate Incremental Lift Factor for Branded Search (12% lift when ads ON) vs. LinkedIn Ads (84% lift when ads ON).",
+            "Adjust W-shaped attribution revenue by channel incrementality factors to compute True Incremental Revenue.",
+            "Formulate the finalized Q3 budget reallocation recommendation.",
+          ],
+          outputSample:
+            "INCREMENTALITY RECONCILIATION & BUDGET REALLOCATION:\n\n" +
+            "Channel            W-Shaped ACV    Incrementality Factor   True Incremental ACV   Old Budget   Recommended Q3\n" +
+            "Content / SEO      $486,000        95% (Organic Baseline)  $461,700               $40,000      $65,000 (+63%)\n" +
+            "LinkedIn Ads / PR  $450,000        84% (High Causality)    $378,000               $50,000      $75,000 (+50%)\n" +
+            "Non-Branded Search $306,000        72% (Moderate Lift)     $220,320               $45,000      $40,000 (-11%)\n" +
+            "Lifecycle Email    $270,000        65% (Customer Nurture)  $175,500               $15,000      $20,000 (+33%)\n" +
+            "Branded Search     $288,000        12% (High Cannibalism)  $34,560                $50,000      $20,000 (-60%)\n" +
+            "TOTALS             $1,800,000      --                      $1,270,080             $200,000     $220,000",
+          healthy:
+            "Attribution models are audited against real incrementality testing before reallocating major budget lines.",
+          unhealthy:
+            "Treating 100% of attributed branded search revenue as net-new growth when 88% of users would have navigated organically anyway.",
+          interpret:
+            "Branded search has high attributed revenue but low incremental lift (12%). Reallocating $30,000 from Branded Search to Content/SEO and LinkedIn Ads increases overall incremental pipeline by an estimated 28% without increasing total marketing budget.",
+          soWhat: [
+            {
+              symptom: "Branded search consuming 25% of total paid media budget with diminishing returns",
+              action:
+                "Reduce branded search target impression share from 99% to 80% and divert freed budget to LinkedIn awareness and SEO",
+              effort: "30 min",
+            },
+            {
+              symptom: "Lack of incrementality data causing ongoing debates between performance and brand teams",
+              action:
+                "Establish a quarterly geo-holdout testing cadence on the largest paid channels",
+              effort: "dev ticket",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Attribution model formulas and budget reallocation modeling",
+            why: "Transparent multi-touch credit calculation and incrementality reconciliation",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Analytics 4",
+            role: "Touchpoint extraction and path exploration",
+            why: "Pull multi-channel funnels and user pathing data",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Segment",
+            role: "Cross-platform identity resolution and event stream routing",
+            why: "Unify anonymous web touchpoints with CRM sales pipeline milestones",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+      },
+      deliverable:
+        "A comprehensive 7-Model Attribution Audit & Budget Reallocation Plan containing channel bias ratios, multi-touch credit comparison tables, W-shaped milestone allocations, and an incrementality-adjusted quarterly budget model.",
+      sampleOutput:
+        "KLAVIYO / SEGMENT ATTRIBUTION AUDIT REFERENCE REPORT\n\n" +
+        "1. Touchpoint Bias Analysis ($2.4M E-Commerce Revenue):\n" +
+        "   - Email Last-Click Revenue: $1,200,000 (50%) | First-Click Revenue: $120,000 (5%)\n" +
+        "   - Meta Ads Last-Click: $360,000 (15%) | First-Click: $1,080,000 (45%)\n" +
+        "   - Insight: Meta creates 45% of customer discovery; Email captures 50% of conversions.\n\n" +
+        "2. W-Shaped Milestone Modeling:\n" +
+        "   - Discovery Anchor (30%): Meta Ads & Influencer PR (62% share)\n" +
+        "   - Lead Capture Anchor (30%): Welcome Quiz & Popups via Segment (48% share)\n" +
+        "   - Purchase Anchor (30%): Abandoned Cart Flows & SMS (58% share)\n\n" +
+        "3. Incrementality Reconciliation & Spend Adjustment:\n" +
+        "   - Branded Search Holdout Test: 8% incremental lift -> Cut spend from $40k/mo to $15k/mo.\n" +
+        "   - Meta Prospecting Holdout Test: 78% incremental lift -> Scale spend from $60k/mo to $85k/mo.\n" +
+        "   - Net Outcome: +22% incremental revenue with flat total ad spend.",
+      successCriteria: [
+        "Quantifies demand creation vs. demand harvesting across channels using first vs. last-click ratios",
+        "Calculates multi-touch revenue attribution across Linear, Time-Decay, U-Shaped, and W-Shaped models",
+        "Maps channel contributions to specific B2B buying milestones using W-shaped attribution",
+        "Reconciles attribution models with incrementality holdout tests to formulate a waste-free quarterly budget reallocation plan",
+      ],
+      portfolioReady: true,
+      skills: ["Multi-Touch Attribution", "W-Shaped Modeling", "Incrementality Testing", "Media Budget Allocation"],
+      prerequisites: [
+        "Knowledge of the 7 major attribution models and their mathematical weighting",
+        "Experience building pivot tables and weighted formulas in Google Sheets",
+        "Understanding of B2B CRM sales stages (Lead, MQL, SQL, Opportunity, Closed Won)",
+      ],
+      terminology: [
+        {
+          term: "Demand Creation vs. Harvesting",
+          definition:
+            "Demand creation introduces new prospects to your brand (social, PR, content), while demand harvesting captures high-intent prospects who are already actively searching to buy (branded search, retargeting).",
+        },
+        {
+          term: "W-Shaped Attribution",
+          definition:
+            "A position-based multi-touch model that allocates 30% to First Touch, 30% to Lead Creation, 30% to Opportunity Creation, and 10% evenly across remaining touches.",
+        },
+        {
+          term: "Incrementality Testing",
+          definition:
+            "Controlled experimentation (such as geo-holdout tests) that measures the true net-new conversion lift caused by an advertising channel compared to a baseline where ads are paused.",
+        },
+      ],
+      keyQuestion:
+        "How do you mathematically evaluate channel performance across multi-touch B2B journeys to prevent last-click attribution from defunding your most effective top-of-funnel channels?",
+      whatToLookFor: [
+        {
+          label: "Last/First Ratio",
+          detail: "Identify channels with L/F > 3.0 (harvesters) vs L/F < 0.5 (creators) to understand true channel roles.",
+        },
+        {
+          label: "Milestone Anchors",
+          detail: "Verify which specific channels drive First Touch, Lead Creation, and Opportunity Qualification in W-shaped models.",
+        },
+        {
+          label: "Holdout Lift",
+          detail: "Reconcile attributed revenue against experimental holdout data before shifting budget.",
+        },
+      ],
+      decision: {
+        prompt:
+          "Your CFO notices that Branded Search generated $720,000 in last-click revenue with a 14x ROAS, while Top-of-Funnel Content generated only $180,000 with a 2.5x ROAS. She proposes shifting 50% of the content budget into Branded Search. How do you respond?",
+        options: [
+          {
+            id: "agree-with-cfo",
+            label: "Agree and move 50% of content budget to Branded Search to maximize the immediate reported 14x ROAS.",
+            correct: false,
+          },
+          {
+            id: "present-w-shaped-audit",
+            label: "Present the W-shaped attribution and incrementality audit proving that 88% of branded search conversions are non-incremental navigation clicks originating from content discovery.",
+            correct: true,
+          },
+          {
+            id: "cut-branded-search-entirely",
+            label: "Immediately shut off Branded Search entirely to force all traffic through organic search links.",
+            correct: false,
+          },
+        ],
+        explanation:
+          "Branded search is a demand harvesting channel with low incrementality (often only 10-15% net-new lift). Starving top-of-funnel content to fund branded search creates a short-term ROAS illusion while permanently shrinking future inbound search volume.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text: "Adopt W-shaped attribution for B2B pipeline reporting and calibrate all channel allocations against quarterly incrementality holdout tests. Cap branded search spend to capture legitimate competitive conquesting, and reinvest the surplus into high-first-touch content and targeted social channels.",
+      },
+      commonMistakes: [
+        {
+          mistake: "Treating branded search as a standalone growth driver rather than a navigational touchpoint.",
+          explanation:
+            "Branded search has high last-click conversion rates because buyers already decided to visit; crediting it with 100% of deal value leads to over-bidding on existing brand equity.",
+        },
+        {
+          mistake: "Using Linear attribution without separating milestone touches from routine page views.",
+          explanation:
+            "Equal weighting overvalues inconsequential middle page views while undervaluing the critical content assets that generated the lead or qualified the opportunity.",
+        },
+      ],
+      keyTakeaway:
+        "Attribution models explain the journey, but incrementality proves causality. By pairing W-shaped milestone attribution with holdout testing, growth teams can protect vital awareness channels, eliminate wasted spend on non-incremental clicks, and maximize true pipeline growth.",
+    },
+  ],
 };

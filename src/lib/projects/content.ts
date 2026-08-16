@@ -1184,4 +1184,577 @@ export const CONTENT_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
     },
   ],
+
+  // ---------------------------------------------------------------------
+  // case-studies
+  // ---------------------------------------------------------------------
+  "case-studies": [
+    {
+      id: "case-studies-snapshot-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "The 3-Second Test: Deconstructing Flawed B2B Case Study Snapshots",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Evaluate two candidate B2B case study snapshot summaries against the lesson's three buyer requirements (problem mirroring, specific metrics, and time-to-value speed), identifying structural defects that cause prospective buyers to bounce.",
+      companyId: "slack",
+      scenario:
+        "You are reviewing case study drafts for Slack's enterprise customer marketing team. Two draft case study snapshot boxes were submitted by freelance writers, but both violate core buyer requirements. Your task is to diagnose the defects before they go to executive review.",
+      brief:
+        "Examine each specimen snapshot box below. Identify missing time-to-value indicators, vague non-quantified claims, vendor-centric framing, and lack of customer ICP context. Name the exact defects and distinguish them from acceptable formatting variations.",
+      mode: "teardown",
+      conceptsCovered: [
+        "Build the Snapshot Box",
+        "What Buyers Actually Want to Read",
+        "Five Common Mistakes",
+      ],
+      teardownItems: [
+        {
+          itemId: "item-1-vague-outcomes-snapshot",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "CUSTOMER SUCCESS SNAPSHOT\n" +
+            "Customer: Global Logistics Inc. | Industry: Transportation\n" +
+            "Challenge: Inefficient communication systems causing delays across operations teams.\n" +
+            "Solution: Deployed Slack Enterprise Grid across all corporate and field units.\n" +
+            "Result: Dramatically improved workflow efficiency, enhanced team alignment, and transformed operational productivity.",
+          prompt:
+            "Diagnose the structural and content defects in this case study snapshot box. What makes it ineffective for a B2B buyer?",
+          answerKey: [
+            {
+              defect:
+                "Contains zero quantified metrics in the Result section ('dramatically improved workflow efficiency', 'enhanced alignment') — vague claims are ignored by B2B buyers.",
+              severity: "critical",
+              whyItMatters:
+                "The lesson states that buyers want specific numbers (e.g. 'reduced onboarding from 14 days to 3 days') because vague adjectives convey zero credibility to CFOs and buying committees.",
+              lessonRef: "What Buyers Actually Want to Read",
+              owner: "you",
+            },
+            {
+              defect:
+                "Missing the Time-to-Value metric entirely, failing to state how quickly the customer saw their first measurable operational result.",
+              severity: "critical",
+              whyItMatters:
+                "Time-to-Value is the king KPI in modern B2B buying decisions: buyers need to know speed to first value (e.g. 'first results in 3 weeks'), not just hypothetical end-state outcomes.",
+              lessonRef: "Build the Snapshot Box",
+              owner: "you",
+            },
+            {
+              defect:
+                "Missing customer size firmographics (employee count / revenue tier) and a specific, mirrored challenge description.",
+              severity: "moderate",
+              whyItMatters:
+                "A buyer must immediately identify whether the customer's scale and operational reality match their own before committing to read the full narrative.",
+              lessonRef: "Build the Snapshot Box",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "It includes a 'Solution' line in the snapshot box — while Step 3 focuses on Customer, Industry, Size, Challenge, Result, and Time-to-Value, having an extra line is a minor layout variation, not the root credibility defect.",
+            "It names a transportation company rather than a software company — industry selection is fine as long as the story targets that specific vertical ICP.",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-vendor-centric-snapshot",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "CUSTOMER SPOTLIGHT\n" +
+            "Customer: FinTech Core (450 employees, Series C)\n" +
+            "Why They Love Us: FinTech Core chose our platform for our AI-powered canvas workflows, SOC2 compliance, 99.99% uptime SLA, and native Salesforce integrations.\n" +
+            "Result: 34% reduction in weekly status meetings and 40% faster cross-functional project delivery.\n" +
+            "Timeline: Final enterprise security review completed in 90 days.",
+          prompt:
+            "Identify the buyer-friction and framing defects in this second snapshot specimen.",
+          answerKey: [
+            {
+              defect:
+                "Vendor-centric framing in place of a customer problem ('Why They Love Us' listing product features instead of the customer's urgent operational friction).",
+              severity: "critical",
+              whyItMatters:
+                "The lesson emphasizes that writing for the vendor rather than the buyer is the root cause of case study failure. Buyers seek a problem that mirrors their own pain, not vendor self-praise.",
+              lessonRef: "Five Common Mistakes",
+              owner: "you",
+            },
+            {
+              defect:
+                "The Timeline field reports internal vendor procurement milestones ('security review completed in 90 days') rather than Time-to-Value for the customer.",
+              severity: "moderate",
+              whyItMatters:
+                "Procurement timeframes highlight vendor friction rather than customer achievement. Time-to-Value should quantify how fast the customer achieved adoption or realized initial savings.",
+              lessonRef: "What Buyers Actually Want to Read",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The Result section has two specific percentages (34% and 40%) — these metrics are actually healthy proof points; the defect is in the surrounding problem context.",
+            "Listing company size as '450 employees, Series C' is too specific — firmographic precision is actually a best practice for ICP matching.",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Review and annotate case study drafts",
+            why: "Collaborative editing and annotation for marketing teams",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A structured teardown scorecard diagnosing defect severity across two case study snapshot boxes with actionable rewrite guidelines.",
+      sampleOutput:
+        "Freshworks Snapshot Box Quality Teardown (Sample Evaluation)\n\n" +
+        "Specimen Evaluated: 'How PayFlow Modernized Support With Freshdesk'\n\n" +
+        "1. Defect Audit:\n" +
+        "   - [Critical] Missing Time-to-Value: Result states '200 hours saved monthly' but provides zero timeframe for deployment speed or initial ROI milestone.\n" +
+        "   - [Moderate] Vague ICP Description: Lists size as 'Mid-market fintech' without specifying employee count (e.g. 350 seats) or ticket volume.\n" +
+        "   - [Cosmetic] Challenge line exceeds two sentences, burying the core operational trigger.\n\n" +
+        "2. Recommended Snapshot Revision:\n" +
+        "   Customer: PayFlow | Industry: Fintech Payments | Size: 350 employees\n" +
+        "   Challenge: Support queues overloaded with 1,200 daily manual routing requests\n" +
+        "   Result: First-response time dropped 72% (from 4h to 18m); CSAT increased to 94%\n" +
+        "   Time-to-Value: Deployment live in 48 hours; first 500 tickets automated by Day 5",
+      successCriteria: [
+        "Correctly identifies missing or misframed Time-to-Value metrics across both specimens",
+        "Separates unquantified claims from verified numerical proof points",
+        "Distinguishes vendor-centric feature lists from customer-problem framing",
+      ],
+      portfolioReady: false,
+    },
+    {
+      id: "case-studies-interview-to-snapshot-build",
+      tier: "mini",
+      archetype: "build-the-asset",
+      title: "From 30-Minute Interview to High-Converting Snapshot Box",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Transform a raw customer interview transcript into a structured B2B case study asset featuring an above-the-fold Snapshot Box, a 3-act narrative outline, and verified proof quotes.",
+      companyId: "zendesk",
+      scenario:
+        "You just completed a 30-minute customer interview with the VP of Customer Experience at PayNova (a 450-person fintech startup using Zendesk). Sales reps are demanding a 1-page case study asset they can attach to mid-market enterprise proposals this week.",
+      brief:
+        "Extract the customer profile, quantify the baseline problem and turnaround metrics, extract the critical Time-to-Value milestone, and format the exact Snapshot Box and narrative arc following the lesson's Seven-Step Playbook.",
+      mode: "build",
+      conceptsCovered: [
+        "Build the Snapshot Box",
+        "Write the Narrative Arc",
+      ],
+      steps: [
+        {
+          stepId: "step-1-extract-snapshot-box",
+          concept: "Build the Snapshot Box",
+          lessonAnchor: "step-3----build-the-snapshot-box",
+          theoryRecap:
+            "Step 3 establishes the Snapshot Box as the above-the-fold anchor containing: Customer name/size, Industry, Challenge (1 sentence), Result (1-3 numbers), and Time-to-Value (speed to first outcome).",
+          question:
+            "Given raw interview notes ('We were drowning in 800 daily tickets and took 4 hours to reply... we got the new routing live in 10 days and first response time dropped to 18 minutes by week 3'), how do you structure the above-the-fold Snapshot Box?",
+          toolName: "Google Docs",
+          where: "Create a 2-column callout table at the top of your Google Doc titled Customer Snapshot Box.",
+          procedure: [
+            "Create a structured 2-column callout box at the top of the case study document",
+            "Populate Customer, Industry, and Company Size firmographics in the header row",
+            "Condense the customer's pre-purchase pain into a single declarative Challenge sentence",
+            "Extract 2-3 specific quantified outcome metrics (e.g. percentage response drop, CSAT score)",
+            "Isolate the exact Time-to-Value milestone (days to deployment and days to first measurable result)",
+          ],
+          outputSample:
+            "CUSTOMER SNAPSHOT BOX\n" +
+            "--------------------------------------------------\n" +
+            "Customer: PayNova | Industry: Fintech SaaS | Size: 450 employees\n" +
+            "Challenge: Siloed support queues causing 4-hour response times and 18% customer churn\n" +
+            "Result: First response time reduced by 92% (18 min avg); CSAT increased from 74% to 96%\n" +
+            "Time-to-Value: Routing engine deployed in 10 days; first response time drop recorded by Day 21",
+          healthy:
+            "Snapshot box leads with verified numbers and states Time-to-Value explicitly within the top 4 lines.",
+          unhealthy:
+            "Vague claims like 'drastically improved support speed' without stating baseline vs current numbers or deployment duration.",
+          interpret:
+            "If the snapshot box cannot be understood and verified in 3 seconds, a CFO or VP reviewing the proposal will skip the case study entirely.",
+          soWhat: [
+            {
+              symptom:
+                "Sales reps say prospects skim past case studies without reading",
+              action:
+                "Move the Snapshot Box to the very top of page 1 above all intro paragraphs",
+              effort: "5 min",
+            },
+            {
+              symptom:
+                "Case study reads like a generic product tutorial",
+              action:
+                "Rewrite the Challenge line using the customer's direct interview words",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-draft-narrative-arc",
+          concept: "Write the Narrative Arc",
+          lessonAnchor: "step-4----write-the-narrative-arc",
+          theoryRecap:
+            "Step 4 defines the three-act structure: Act 1 (Problem in customer's words), Act 2 (The Turning Point and implementation friction/candour), and Act 3 (The Result leading with Time-to-Value).",
+          question:
+            "How do you structure the three-act narrative arc and embed authentic customer quotes to maximize peer credibility?",
+          toolName: "Google Docs",
+          where: "Format three distinct H2 sections directly below the Snapshot Box in Google Docs.",
+          procedure: [
+            "Draft Act 1 (The Problem) using customer vocabulary from interview Question 1 and 2",
+            "Draft Act 2 (The Turning Point) detailing why alternatives failed and how implementation was rolled out",
+            "Draft Act 3 (The Result) starting with the Time-to-Value metric followed by long-term business impact",
+            "Embed one verified customer quotation with full speaker name and title",
+          ],
+          outputSample:
+            "ACT 1 — THE PROBLEM: 'We were losing high-tier enterprise clients because support tickets fell through the cracks.'\n" +
+            "ACT 2 — THE TURNING POINT: Evaluated 3 legacy ticketing tools; selected Zendesk for omnichannel routing; completed sandbox testing in 7 business days.\n" +
+            "ACT 3 — THE RESULT: Within 3 weeks of rollout, first-touch resolution rose 34%, eliminating over 200 hours of monthly manual triage.\n" +
+            "PROOF QUOTE: 'Our reps went from fighting backlog fires to proactively solving tickets in under 20 minutes. The ROI was clear within month one.' — Sarah Lin, Head of Support, PayNova",
+          healthy:
+            "Act 2 candidly describes implementation timeline; Act 3 begins with speed to value before listing total volume metrics.",
+          unhealthy:
+            "Act 1 sounds like marketing copy; Act 2 skips implementation details; quote feels fabricated by copywriters.",
+          interpret:
+            "B2B buyers evaluate Act 2 to assess implementation risk and Act 3 to defend the purchase budget to internal stakeholders.",
+          soWhat: [
+            {
+              symptom:
+                "Prospects express fear that software setup will take 6+ months",
+              action:
+                "Highlight Act 2's step-by-step rollout timeline with exact day counts",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Draft Snapshot Box and narrative structure",
+            why: "Standard word processing and team collaboration",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A complete 1-page B2B case study brief with above-the-fold Snapshot Box, 3-act narrative summary, and attributed customer quote.",
+      sampleOutput:
+        "Snowflake Enterprise Customer Case Study (One-Page Brief)\n\n" +
+        "SNAPSHOT BOX\n" +
+        "Customer: HealthMetrics | Industry: Healthcare Analytics | Size: 1,800 employees\n" +
+        "Challenge: Legacy on-premise data warehouse queries took 14 hours, delaying clinical compliance reporting\n" +
+        "Result: Query processing time reduced by 94% (from 14 hours to 48 minutes); compute costs decreased 32%\n" +
+        "Time-to-Value: Data pipeline migrated in 18 days; first automated report delivered on Day 24\n\n" +
+        "NARRATIVE OVERVIEW\n" +
+        "Act 1 (Problem): Nightly ETL jobs routinely failed, forcing 6 data engineers into emergency weekend maintenance.\n" +
+        "Act 2 (Turning Point): Evaluated Snowflake vs legacy SQL appliances; deployed multi-cluster warehouse architecture in under 3 weeks.\n" +
+        "Act 3 (Result): 14-hour query jobs now run in 48 minutes with zero maintenance downtime.\n" +
+        "Quote: 'Snowflake gave our data science team 20 hours back every single week.' — Marcus Vance, VP Data Engineering",
+      successCriteria: [
+        "Snapshot Box contains all 6 required fields including Time-to-Value",
+        "Narrative follows strict 3-act progression without vendor jargon",
+        "Proof elements include attributed spokesperson name and title",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  // ---------------------------------------------------------------------
+  // webinars
+  // ---------------------------------------------------------------------
+  "webinars": [
+    {
+      id: "webinars-funnel-conversion-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The 5-Phase Webinar Funnel Audit: Diagnosing Registration, Attendance, and Pipeline Drop-Off",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Audit a B2B webinar program against industry benchmarks (33% attendance rate, 20-40% opportunity conversion, 45% on-demand consumption) to isolate where registrants and pipeline are leaking.",
+      companyId: "snowflake",
+      scenario:
+        "You are auditing the quarterly webinar performance for Snowflake's developer marketing program. Over the last quarter, three webinars attracted 1,200 total registrants, but only 8 sales opportunities were created. You need to diagnose whether the leak is topic fit, reminder cadence, live session engagement, or post-event follow-up.",
+      brief:
+        "Analyze funnel telemetry across registration, reminder show-up rates, attendee duration, and 24-hour follow-up response. Identify the underperforming phases and specify precise corrective actions for the next event.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "The Reminder Sequence",
+        "Follow-Up and Repurposing",
+      ],
+      steps: [
+        {
+          stepId: "step-1-attendance-leak-diagnosis",
+          concept: "The Reminder Sequence",
+          lessonAnchor: "phase-3-the-reminder-sequence",
+          theoryRecap:
+            "Phase 3 details the 3-touch reminder sequence (1 week out, 1 day out, 1 hour before) with value-add teasers to lift the average 33% attendance benchmark by 10-15 percentage points.",
+          question:
+            "Your webinar had 600 registrants but only 108 showed up live (18% attendance rate, far below the 33% benchmark). The reminder log shows only 1 generic calendar invite was sent 2 hours before. How do you diagnose and fix the reminder workflow?",
+          toolName: "Google Sheets",
+          where: "In Google Sheets, calculate registrant drop-off by reminder touchpoint and compare with the 33% benchmark.",
+          procedure: [
+            "Log total registrants, confirmation emails sent, and reminder delivery times",
+            "Calculate the baseline attendance rate (live attendees / total registrants * 100)",
+            "Audit reminder email copy: flag generic 'webinar starting soon' messages lacking content teasers or speaker sneak peeks",
+            "Build a 3-touch reminder sequence scheduled for T-7 days, T-24 hours, and T-1 hour with slide previews and question prompts",
+          ],
+          outputSample:
+            "WEBINAR ATTENDANCE AUDIT\n" +
+            "Metric                 Actual    Benchmark    Variance    Status\n" +
+            "Total Registrants      600       —            —           —\n" +
+            "Live Attendees         108       198 (33%)    -90 (-45%)  CRITICAL DEFICIT\n" +
+            "Reminder Cadence       1 touch   3 touches    -2 touches  ROOT CAUSE\n" +
+            "Reminder Open Rate     24.1%     42.0%        -17.9%      Subject line too generic",
+          healthy:
+            "Attendance rate reaches 30-38% supported by a 3-touch reminder sequence with >40% open rates.",
+          unhealthy:
+            "Attendance drops below 20% due to single-touch reminder or missing calendar invites.",
+          interpret:
+            "A drop-off in live attendance is rarely caused by content disinterest; it is almost always caused by friction in reminder timing and generic messaging that fails to build anticipation.",
+          soWhat: [
+            {
+              symptom: "Attendance rate is stuck below 22%",
+              action:
+                "Implement 3-touch reminder sequence with teaser slides and calendar attachments",
+              effort: "30 min",
+            },
+            {
+              symptom: "Registrants drop out in first 10 minutes",
+              action:
+                "Cut introductory housekeeping and jump straight into core data within 3 minutes",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-followup-pipeline-segmentation",
+          concept: "Follow-Up and Repurposing",
+          lessonAnchor: "phase-5-follow-up-and-repurposing",
+          theoryRecap:
+            "Phase 5 emphasizes that 20-40% of attendees convert into pipeline when segmented follow-ups occur within 24 hours: high-engagement (attended >80%, asked question) get direct sales outreach; medium (40-80%) get case studies; no-shows get recording links.",
+          question:
+            "Post-event reporting shows 108 attendees and 492 no-shows received the identical generic 'Thanks for registering, here is the recording' email. How do you segment this list into 3 tiered follow-up streams?",
+          toolName: "Google Sheets",
+          where: "Filter webinar attendee CSV by duration (minutes viewed) and Q&A participation flag.",
+          procedure: [
+            "Export attendee engagement log with columns: Name, Email, Minutes Attended, Poll Responses, Q&A Asked",
+            "Segment 1 (High Intent): Filter attendees with >35 mins watched OR who submitted a Q&A question; route directly to sales SDRs within 4 hours",
+            "Segment 2 (Medium Intent): Filter attendees with 15-35 mins watched; queue a 3-part case study nurture sequence",
+            "Segment 3 (On-Demand / No-Shows): Filter 0 mins watched; send recording link with punchy key-takeaways summary within 24 hours",
+          ],
+          outputSample:
+            "FOLLOW-UP ROUTING TABLE\n" +
+            "Segment          Count  Criteria                     Follow-up Action                     Owner\n" +
+            "Tier 1 (Hot)     26     >35 min + asked Q&A          Personalized SDR demo outreach (4h)  Sales\n" +
+            "Tier 2 (Warm)    82     15-35 min attended           Relevant customer case study (24h)   Marketing\n" +
+            "Tier 3 (No-Show) 492    0 min attended (registrant)  Full recording + 3 key takeaways     Automation",
+          healthy:
+            "Tier 1 leads routed to sales within 4-24 hours; on-demand viewers directed into an active nurture sequence.",
+          unhealthy:
+            "Single unsegmented blast email sent 4 days after the event with zero SDR engagement.",
+          interpret:
+            "Webinar pipeline is created in the 24-48 hours after the live event. Delaying outreach or sending generic emails wastes 80% of the intent generated during the session.",
+          soWhat: [
+            {
+              symptom: "Zero sales meetings booked post-webinar",
+              action:
+                "Set up automated webhook to push Tier 1 attendees directly into SDR CRM task queues",
+              effort: "half day",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Analyze attendance metrics and segment follow-up lists",
+            why: "Fast data filtering and tabular calculations",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A complete 2-part Webinar Funnel Audit diagnostic report containing attendance leakage analysis and a 3-tier post-event routing matrix.",
+      sampleOutput:
+        "Freshworks Q2 Webinar Telemetry & Lead Routing Audit\n\n" +
+        "1. Funnel Performance Metrics:\n" +
+        "   - Total Registrants: 840\n" +
+        "   - Live Attendees: 294 (35.0% show-up rate — healthy vs 33% benchmark)\n" +
+        "   - Average View Time: 38.4 minutes (out of 45-minute broadcast)\n" +
+        "   - Live Q&A Questions Asked: 41 questions\n\n" +
+        "2. Post-Event Routing Breakdown:\n" +
+        "   - Tier 1 High Intent (74 leads): Assigned to BDRs within 2 hours; 18 discovery calls booked (24.3% conversion rate)\n" +
+        "   - Tier 2 Nurture (220 leads): Received IT Service Management case study; 12% click-through rate to product tour\n" +
+        "   - Tier 3 On-Demand (546 no-shows): 186 watched recording within 7 days (34.0% on-demand conversion)",
+      successCriteria: [
+        "Accurately diagnoses attendance gap against the 33% industry benchmark",
+        "Builds a 3-tier post-event segmentation strategy with distinct lead actions",
+        "Establishes a rapid 24-hour response SLA for high-intent attendees",
+      ],
+      portfolioReady: false,
+    },
+    {
+      id: "webinars-repurposing-playbook-build",
+      tier: "mini",
+      archetype: "build-the-asset",
+      title: "The 1-to-10 Webinar Repurposing Engine: From 45-Minute Recording to Multi-Channel Campaign",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Build a post-webinar content repurposing plan that turns a single 45-minute master recording into 10 high-leverage marketing assets (video clips, LinkedIn posts, email nurtures, and a blog recap).",
+      companyId: "freshworks",
+      scenario:
+        "Freshworks just hosted a high-performing 45-minute webinar titled 'How Enterprise IT Teams Cut Ticket Resolution by 50%'. As the content lead, you must build the repurposing playbook to ensure the recording continues generating inbound pipeline over the next 6 months.",
+      brief:
+        "Extract timestamped highlight moments, draft 3 short-form video clip scripts with hooks, write a 200-word LinkedIn recap post, and outline a 3-part mid-funnel email nurture sequence.",
+      mode: "build",
+      conceptsCovered: [
+        "Follow-Up and Repurposing",
+        "Topic Selection",
+      ],
+      steps: [
+        {
+          stepId: "step-1-timestamp-clip-extraction",
+          concept: "Follow-Up and Repurposing",
+          lessonAnchor: "phase-5-follow-up-and-repurposing",
+          theoryRecap:
+            "Phase 5 notes that repurposing multiplies webinar ROI: turning master recordings into short video clips, email series, and social snippets captures the 45% of audience consumption that happens asynchronously on-demand.",
+          question:
+            "How do you review a 45-minute webinar recording to identify 3 high-impact, standalone 60-second video clips that hook social audiences?",
+          toolName: "Loom",
+          where: "Review the recording timeline in Loom or your video editor, logging start/end timestamps and hook concepts.",
+          procedure: [
+            "Review the 5-35 minute core content section and identify counter-intuitive insights or strong data claims",
+            "Clip 1 (The Data Hook): Isolate a 45-60s segment citing a surprising benchmark or KPI shift",
+            "Clip 2 (The Tactical How-To): Isolate a 60s segment explaining a step-by-step workflow",
+            "Clip 3 (The Live Q&A Golden Nugget): Isolate a spontaneous speaker answer to a tough buyer objection",
+            "Draft a compelling 1-line on-screen headline hook for each video asset",
+          ],
+          outputSample:
+            "VIDEO CLIP REPURPOSING MATRIX\n" +
+            "Clip ID  Timestamp      Headline Hook                                      Core Takeaway\n" +
+            "Clip 1   12:15 - 13:10  'Why 70% of IT helpdesk tickets are pure waste'    Automating tier-1 password resets frees up 15h/week\n" +
+            "Clip 2   24:40 - 25:35  'The 3-step routing rule that slashed SLA breaches' Dynamic skill-based ticket assignment\n" +
+            "Clip 3   38:10 - 39:05  'What to do when legacy systems resist API sync'   Webhooks + middleware workaround",
+          healthy:
+            "Clips are strictly under 60-90 seconds, start with zero fluff or intro, and deliver a complete standalone lesson.",
+          unhealthy:
+            "Clips start with 'so as I was saying earlier' or require viewing the rest of the webinar to make sense.",
+          interpret:
+            "Short-form video clips act as the top-of-funnel discovery vehicle that drives prospects back to the full on-demand webinar landing page.",
+          soWhat: [
+            {
+              symptom: "Social video clips get views but zero click-throughs",
+              action:
+                "Add pinned comment with direct link to gated full recording and transcript",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-email-social-repurposing",
+          concept: "Topic Selection",
+          lessonAnchor: "phase-1-topic-selection",
+          theoryRecap:
+            "Phase 1 and Phase 5 emphasize that specific, problem-centered topics provide the exact language needed for high-converting social posts and mid-funnel nurture emails.",
+          question:
+            "How do you convert the core thesis of the webinar into a 200-word LinkedIn thought leadership post and a 3-part email nurture sequence for attendees?",
+          toolName: "Google Docs",
+          where: "Open Google Docs, draft the LinkedIn post copy and 3 nurture email outlines with clear CTAs.",
+          procedure: [
+            "Draft a 200-word organic LinkedIn post highlighting the single biggest data point from the webinar with a link to the on-demand recording",
+            "Draft Email 1 (Day 1): Key takeaway summary + link to on-demand recording and slide deck",
+            "Draft Email 2 (Day 4): Deep-dive on Clip 2's workflow + relevant customer case study",
+            "Draft Email 3 (Day 8): Direct invitation for a customized 15-minute product demonstration or technical audit",
+          ],
+          outputSample:
+            "LINKEDIN POST DRAFT:\n" +
+            "Most IT teams spend 40% of their day resetting passwords and routing tickets manually.\n\n" +
+            "During our live session yesterday with 300+ IT leaders, we broke down how modern service desks cut resolution time by 50% in under 30 days.\n\n" +
+            "The 3 biggest levers:\n" +
+            "1. Skill-based auto-routing on ingest\n" +
+            "2. Pre-approved self-service catalog workflows\n" +
+            "3. Live slack/teams integration for ticket creation\n\n" +
+            "Missed the live broadcast? Catch the full 45-minute breakdown + workflow template here: [On-Demand Link]\n\n" +
+            "EMAIL NURTURE CADENCE:\n" +
+            "Email 1 (Day +1): 'Here is your recording + IT automation checklist'\n" +
+            "Email 2 (Day +4): 'How Hamleys cut support tickets by 50% (Case Study)'\n" +
+            "Email 3 (Day +8): 'See how your service desk scores: Free 15-min workflow audit'",
+          healthy:
+            "Every email provides standalone educational value while progressively increasing commercial intent toward the demo CTA.",
+          unhealthy:
+            "Emails merely repeat 'book a demo now' without reinforcing the webinar's teaching.",
+          interpret:
+            "A structured repurposing sequence turns an ephemeral 45-minute event into an evergreen demand generation asset.",
+          soWhat: [
+            {
+              symptom: "Nurture sequence unsubscribe rate exceeds 1%",
+              action:
+                "Increase educational value in Email 2 and soften the sales ask",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Draft email sequences and social copy",
+            why: "Collaborative drafting and formatting",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Loom",
+            role: "Review and clip recording highlights",
+            why: "Screen recording and quick video segmentation",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A complete 10-asset Webinar Repurposing Playbook including 3 timestamped video clip scripts, 1 LinkedIn authority post, and a 3-part mid-funnel nurture sequence.",
+      sampleOutput:
+        "Slack Enterprise Webinar Repurposing Suite (Sample Output)\n\n" +
+        "Master Session: 'Eliminating Internal Email: How High-Growth Teams Scale on Slack'\n\n" +
+        "1. Video Clip Breakdown:\n" +
+        "   - Clip A (08:20-09:15): 'The 4-hour daily email tax' (Hook: 'Why your best engineers hate email')\n" +
+        "   - Clip B (19:45-20:30): 'Setting up channel naming conventions in 10 minutes'\n" +
+        "   - Clip C (34:10-35:00): 'How Sandwich Video eliminated 90% of internal email'\n\n" +
+        "2. Social Repurposing:\n" +
+        "   - 1x LinkedIn carousel post summarising the 5-step Channel Architecture framework (12 slides)\n" +
+        "   - 3x video snippet posts with on-screen burned-in captions\n\n" +
+        "3. Nurture Flow:\n" +
+        "   - Email 1 (T+24h): Full on-demand recording + Channel Setup PDF Guide\n" +
+        "   - Email 2 (T+72h): Sandwich Video Customer Case Study breakdown\n" +
+        "   - Email 3 (T+7d): 'Ready to optimize your team's workspace? Connect with a Slack solutions specialist'",
+      successCriteria: [
+        "Identifies 3 standalone video clips with specific timestamps and hooks",
+        "Drafts high-engagement LinkedIn post summarizing core data",
+        "Builds a 3-touch post-webinar email nurture sequence with progressive CTAs",
+      ],
+      portfolioReady: true,
+    },
+  ],
 };
