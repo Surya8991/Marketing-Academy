@@ -739,4 +739,449 @@ export const CONTENT_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
     },
   ],
+
+  "original-research-content": [
+    {
+      id: "original-research-survey-bias-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Survey Methodology Teardown: Catching Bias and Flawed Data Before Publication",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Evaluate three research survey instruments and methodology notes against the lesson's credibility criteria (neutral question framing, minimum viable sample sizes, explicit screening criteria, and margin-of-error transparency) to identify why two specimens fail editorial standards and why one produces citable data.",
+      companyId: "freshworks",
+      scenario:
+        "You're the lead content strategist at Freshworks preparing to commission an annual customer-support industry benchmark. Before sending survey briefs to external research partners or approving internal draft questionnaires, you must audit three survey proposals to ensure the resulting data will withstand journalistic fact-checking.",
+      brief:
+        "Review three survey draft specimens. For each specimen, identify all critical and moderate methodology defects—such as leading question bias, undersized panels, and missing screening notes—or confirm if the specimen meets publication standards.",
+      mode: "teardown",
+      conceptsCovered: [
+        "Designing a Survey That Produces Citable Stats",
+        "Why Original Research Wins",
+      ],
+      teardownItems: [
+        {
+          itemId: "item-1-leading-questions-vendor-bias",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "Proposal A: 2026 State of Omnichannel Support Survey\n\n" +
+            "Target Audience: General Customer Service Workers\n" +
+            "Sample Goal: n=120 respondents recruited via LinkedIn personal network\n\n" +
+            "Key Survey Questions:\n" +
+            "Q1: Do you agree that legacy, disconnected helpdesks cause burnout among support agents? (Options: Strongly Agree, Agree, Neutral)\n" +
+            "Q2: How much time does your team waste every day toggling between different support tools? (Options: 1-2 hours, 2-4 hours, 4+ hours)\n" +
+            "Q3: Wouldn't an AI-first unified workspace significantly improve your team's first-contact resolution rate? (Options: Yes, Absolutely, Maybe)\n\n" +
+            "Planned Methodology Note: 'Data based on an independent study of customer service professionals conducted in Q1 2026.'",
+          prompt:
+            "Evaluate Proposal A's survey questions and methodology. Name every defect that would prevent a credible journalist or industry analyst from citing these statistics.",
+          answerKey: [
+            {
+              defect:
+                "Every question uses leading, biased framing with unbalanced response options (e.g. Q1 and Q3 omit disagreement options; Q2 assumes wasted time with no 'zero hours' option).",
+              severity: "critical",
+              whyItMatters:
+                "As taught in the lesson, neutral question framing is non-negotiable. Biased questions prime the respondent and generate untrustworthy statistics that journalists will immediately discard.",
+              lessonRef: "Designing a Survey That Produces Citable Stats",
+              owner: "you",
+            },
+            {
+              defect:
+                "Sample size target (n=120) falls far below the lesson's minimum viable sample threshold of n=300 for B2B research.",
+              severity: "critical",
+              whyItMatters:
+                "Journalists fact-check sample sizes. A B2B study with n=120 carries an unacceptable margin of error (>8.9%) and lacks statistical significance for industry-wide claims.",
+              lessonRef: "Designing a Survey That Produces Citable Stats",
+              owner: "you",
+            },
+            {
+              defect:
+                "Methodology description is opaque, omitting recruitment criteria, panel screening, collection dates, and margin of error.",
+              severity: "moderate",
+              whyItMatters:
+                "Transparency is a trust signal; vague methodology statements signal promotional vendor content rather than legitimate research.",
+              lessonRef: "Designing a Survey That Produces Citable Stats",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The survey has only three questions; research studies must have at least 25 questions to be considered valid.",
+            "The survey targets customer service workers instead of C-level executives.",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-skewed-averages-unscreened-panel",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "Proposal B: SaaS Support Budget & Tooling Benchmark\n\n" +
+            "Sample Collected: n=450 responses via an open Twitter/X poll and website popup widget\n\n" +
+            "Summary Stat Drafts for Press Release:\n" +
+            "- 'The average B2B support department spends $84,200 annually on customer messaging software.'\n" +
+            "- 'Support teams resolve an average of 420 tickets per rep per day.'\n\n" +
+            "Methodology Draft:\n" +
+            "'Survey conducted online between Jan 10 and Jan 25, 2026. Data reflects arithmetic mean across all 450 submissions with no data exclusion.'",
+          prompt:
+            "Identify the statistical reporting and panel qualification defects in Proposal B.",
+          answerKey: [
+            {
+              defect:
+                "Open-web sampling (Twitter poll and popup widget) lacks role and company-size screening, allowing unqualified respondents and duplicate entries to distort results.",
+              severity: "critical",
+              whyItMatters:
+                "Without verified panel screening criteria and IP/email deduplication, raw open polls are vulnerable to spam, bots, and self-selection bias.",
+              lessonRef: "Designing a Survey That Produces Citable Stats",
+              owner: "you",
+            },
+            {
+              defect:
+                "Reporting simple arithmetic means on skewed metric distributions without cleaning extreme outliers or reporting medians.",
+              severity: "moderate",
+              whyItMatters:
+                "Support metrics (e.g. 420 tickets/rep/day) are heavily right-skewed by enterprise outliers or bad data inputs; reporting uncleaned means produces implausible stats that undermine report credibility.",
+              lessonRef: "The Tool Stack",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The sample size of n=450 is insufficient for a B2B survey.",
+            "The survey was conducted in January when response rates are seasonally low.",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-3-compliant-benchmark-specimen",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "Proposal C: 2026 Customer Experience Tech Stack & AI Benchmark\n\n" +
+            "Target Panel: Verified CX Directors and VPs at B2B companies with 50–5,000 employees\n" +
+            "Sample Size: n=520 qualified completes (screened from 780 initial responses; 260 disqualified for non-CX roles or company size)\n" +
+            "Fielding Dates: November 12 – December 5, 2025\n" +
+            "Margin of Error: ±4.2% at a 95% confidence interval\n\n" +
+            "Question Specimen:\n" +
+            "'Which of the following best describes your organization's primary customer support channel by resolution volume in 2025?'\n" +
+            "[ ] Email / Shared Inbox\n" +
+            "[ ] Live Chat / In-App Messaging\n" +
+            "[ ] Phone / Voice Support\n" +
+            "[ ] Self-Service Knowledge Base\n" +
+            "[ ] Social Media / Community Forums\n" +
+            "[ ] Other (Please specify)\n\n" +
+            "Deliverable: Published data table and methodology appendix with downloadable anonymized CSV.",
+          prompt:
+            "Evaluate Proposal C. Name any defects found, or verify that the specimen adheres to publication and citation standards.",
+          answerKey: [],
+          distractors: [
+            "The screening disqualified 260 respondents, indicating flawed survey design.",
+            "The question uses multiple-choice options with a single selection instead of a Likert rating scale.",
+            "The survey was fielded in Q4 rather than Q1.",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Audit survey question phrasing, sample size math, and methodology validation checklist",
+            why: "Zero-cost structured audit sheet",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A methodology audit report assessing three survey proposals against B2B sample size minimums (n>=300), neutral question construction, panel screening protocols, and margin-of-error reporting standards.",
+      sampleOutput:
+        "Audit Summary: CX Industry Research Specimen Review (Client: Zendesk)\n\n" +
+        "Specimen 1 (Agent Burnout Survey Draft): REJECTED\n" +
+        "- Critical Defect: Leading question framing ('How much time do you waste...').\n" +
+        "- Critical Defect: Sample size n=85 is below n=300 B2B threshold (Margin of error: ±10.6%).\n" +
+        "- Action: Rewrite with neutral multi-select categorical choices and expand panel to n=350.\n\n" +
+        "Specimen 2 (Global Response Time Poll): REJECTED\n" +
+        "- Critical Defect: Unscreened open-web poll; extreme outliers (e.g. 5,000 hr FRT) skewing arithmetic mean.\n" +
+        "- Action: Enforce job-title screening filter and report median response times with interquartile range.\n\n" +
+        "Specimen 3 (Enterprise Helpdesk Benchmark): APPROVED FOR FIELDING\n" +
+        "- Validated: n=620 verified IT leaders, neutral single-select question framing, explicit ±3.9% margin of error, full methodology disclosure.",
+      successCriteria: [
+        "Identifies all leading and unbalanced question framing in Proposal A",
+        "Flags the sample size violation below n=300 B2B threshold",
+        "Recognizes uncleaned outliers and open-poll sampling bias in Proposal B",
+        "Correctly validates Proposal C as compliant with publication methodology standards",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "original-research-link-magnet-blueprint",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "The Link Magnet Blueprint: Designing an Annual Benchmark Study & 4-Week Distribution Engine",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Design a complete original research campaign blueprint for an industry benchmark report—including research format selection, a 10-question neutral survey instrument, a data cleaning and AI analysis workflow, and a 4-week multi-channel distribution plan engineered to earn high-authority editorial backlinks.",
+      companyId: "freshworks",
+      scenario:
+        "You are the Senior Content Marketing Manager at Freshworks (Nasdaq: FRSH). To break through AI-generated content clutter and establish category authority against legacy competitors like Salesforce and Zendesk, your leadership has funded the '2026 State of Customer Service & AI Adoption Report.' You need to deliver an execution-ready blueprint that guides the research from survey design to press distribution.",
+      brief:
+        "Create the complete research campaign blueprint across four structured stages: (1) Format & hook selection, (2) 10-question neutral survey instrument, (3) Data cleaning & AI clustering protocol, and (4) 4-week multi-channel distribution roadmap with press angles and repurposing assets.",
+      mode: "build",
+      conceptsCovered: [
+        "4 Research Formats Worth Building",
+        "Designing a Survey That Produces Citable Stats",
+        "The Tool Stack",
+        "Distribution Playbook",
+      ],
+      steps: [
+        {
+          stepId: "step-1-format-and-hook-selection",
+          concept: "4 Research Formats Worth Building",
+          lessonAnchor: "4-research-formats-worth-building",
+          theoryRecap:
+            "The lesson outlines four high-impact research formats: Annual Survey Reports, Proprietary Data Studies, Benchmark Reports, and Trend/Prediction Reports. Combining an annual cadence with category benchmarks provides compounding year-over-year link equity and creates a recurring hook for journalists.",
+          question:
+            "Which research format and primary hook should you select to position your brand as the authoritative industry benchmark while providing fresh seasonal pickup for press?",
+          toolName: "Google Docs",
+          where:
+            "In your research brief document, define the report title, core research format, target audience, and primary newsworthy angle.",
+          procedure: [
+            "Select the primary research format: an Annual Benchmark Report focused on AI adoption, response times, and team headcount in customer support.",
+            "Establish the target audience criteria: B2B Support Managers, CX Directors, and Helpdesk Admins at companies with 20–2,000 employees.",
+            "Define the minimum viable sample size: n=400 qualified completes to ensure statistical validity (exceeding the n=300 B2B threshold).",
+            "Formulate the lead newsworthy hypothesis: 'Are support teams using generative AI seeing measurable ticket deflation or are they redeploying saved hours into complex omnichannel escalations?'",
+          ],
+          outputSample:
+            "REPORT CHARTER: 2026 State of B2B Customer Support & AI Maturity\n" +
+            "Format: Annual Benchmark Report (Year 1 Baseline for longitudinal tracking)\n" +
+            "Target Panel: n=450 B2B CX Directors, Support Team Leads, and VP Operations\n" +
+            "Target Margin of Error: ±4.5% at 95% confidence level\n" +
+            "Core Narrative Hook: Moving beyond AI hype—quantifying real resolution times, cost-per-ticket shifts, and agent retention.",
+          healthy:
+            "Report format combines evergreen category benchmarks with a timely, controversial news hook that journalists actively seek data on.",
+          unhealthy:
+            "Choosing an ad-hoc opinion survey with no annual repeatability and a narrow, product-centric pitch that media outlets will ignore.",
+          interpret:
+            "An annual benchmark creates compounding link authority because journalists will return to update their cited statistics year after year.",
+          soWhat: [
+            {
+              symptom: "Report scope is too broad and tries to cover every aspect of business operations",
+              action: "Narrow the scope to 3 core thematic pillars: tech stack adoption, operational efficiency benchmarks, and future headcount plans",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-survey-instrument-architecture",
+          concept: "Designing a Survey That Produces Citable Stats",
+          lessonAnchor: "designing-a-survey-that-produces-citable-stats",
+          theoryRecap:
+            "Survey questions must use neutral phrasing and balanced options to prevent priming respondents. Explicit screening questions and structured demographic buckets ensure the data is representative and citable.",
+          question:
+            "How do you structure a 10-question survey instrument in Typeform or Google Forms that maximizes completion rates while eliminating question bias?",
+          toolName: "Typeform",
+          where:
+            "In Typeform or Google Forms, construct the 10-question survey instrument with logic branching and required screening gates.",
+          procedure: [
+            "Add two initial screening questions: (1) Primary job function (CX/Support leadership), (2) Company employee count (20–2,000). Disqualify non-target respondents automatically.",
+            "Draft 3 quantitative operational benchmark questions (e.g. median first-response time, monthly ticket volume per agent, average cost per ticket).",
+            "Draft 3 categorical strategy questions using neutral single-select or multi-select options (e.g. AI tools deployed, primary support channels, top operational challenge).",
+            "Add 1 qualitative open-text question: 'What is the single biggest bottleneck preventing your team from adopting AI automation this year?'",
+            "Add 1 optional compensation/budget bracket question to enable industry salary and tool-spend benchmarking.",
+          ],
+          outputSample:
+            "QUESTIONNAIRE OUTLINE (Sample Excerpt):\n" +
+            "Q1 [Screening]: Which best describes your primary role? [Director/VP of CX | Support Manager | Frontline Agent (Exit) | Other (Exit)]\n" +
+            "Q2 [Benchmark]: What was your team's median First Response Time (FRT) for email tickets in Q4? [<15 min | 15-60 min | 1-4 hrs | 4-24 hrs | >24 hrs]\n" +
+            "Q3 [Strategy - Neutral Phrasing]: How has your team's total support headcount changed over the past 12 months? [Increased by >20% | Increased by 5-20% | Remained flat | Decreased by 5-20% | Decreased by >20%]\n" +
+            "Q4 [Open Text]: What unexpected operational challenge arose after deploying your first customer-facing AI agent?",
+          healthy:
+            "Questions are neutrally framed with mutually exclusive response brackets and explicit screening criteria that filter out unverified respondents.",
+          unhealthy:
+            "Using leading phrasing like 'Do you agree AI tools are essential?' with binary Yes/No options that prime the respondent.",
+          interpret:
+            "Unbiased categorical and quantitative brackets yield clear percentage stats (e.g. '62% of B2B support teams maintain FRT under 1 hour') that slide directly into press releases.",
+          soWhat: [
+            {
+              symptom: "Survey drop-off rate exceeds 40% on test fielding",
+              action: "Reduce open-ended text fields from 3 to 1 and implement Typeform logic jumps to bypass irrelevant tool questions",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-data-cleaning-and-ai-clustering",
+          concept: "The Tool Stack",
+          lessonAnchor: "the-tool-stack",
+          theoryRecap:
+            "Raw survey responses must be exported to Google Sheets for cleaning: deduplicating by IP/email, trimming extreme statistical outliers, and calculating medians. Cleaned response subsets are then analyzed using AI prompts to cluster qualitative open-text themes.",
+          question:
+            "What data cleaning protocol and AI analysis workflow should be applied to transform 450 raw responses into verified, high-impact research findings?",
+          toolName: "Google Sheets",
+          where:
+            "In Google Sheets, import the raw CSV export, freeze header rows, run outlier formulas, and prepare structured text batches for AI synthesis.",
+          procedure: [
+            "Export raw survey data from Typeform/Google Forms into Google Sheets.",
+            "Run deduplication across respondent emails, IP addresses, and completion timestamps (flag responses completed in under 90 seconds as speeders).",
+            "Calculate interquartile ranges (IQR) on numeric columns to filter extreme outliers (e.g., ticket volumes exceeding 50,000/rep/month).",
+            "Generate summary pivot tables displaying distributions, medians, and percentages for each quantitative question.",
+            "Export the open-text response column (e.g. 350 qualitative entries) as a text file and prompt an LLM: 'Cluster these 350 responses into 5 distinct thematic barriers with count frequencies and verbatim quotes.'",
+          ],
+          outputSample:
+            "DATA CLEANING & SYNTHESIS LOG:\n" +
+            "Total Submissions: 512 | Disqualified/Incomplete: 62 | Cleaned Sample: n=450\n\n" +
+            "Top Finding 1 [Operational]: 58.2% of support teams with <500 employees maintain median FRT under 45 minutes; teams with >1,000 employees average 3.2 hours.\n" +
+            "Top Finding 2 [AI Impact]: Teams deploying AI agents reported a 28% drop in tier-1 ticket volume, but a 41% increase in average handle time (AHT) for escalated tier-2 tickets.\n" +
+            "AI Qualitative Clusters: #1 Hallucination liability concerns (34% of open-text mentions), #2 Legacy knowledge base fragmentation (28%), #3 Lack of developer bandwidth (19%).",
+          healthy:
+            "Data cleaning removes bad entries and separates findings into clear quantitative benchmarks and clustered qualitative themes.",
+          unhealthy:
+            "Publishing raw averages without checking for bot entries, speeders, or extreme statistical outliers that distort the findings.",
+          interpret:
+            "Combining robust quantitative percentages with clustered qualitative sentiment provides journalists both the headline number and the human context.",
+          soWhat: [
+            {
+              symptom: "A single respondent reports a $10M tool budget in an SMB cohort, skewing the group average",
+              action: "Report median budget instead of mean, and note the interquartile range in the methodology appendix",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-4-press-distribution-and-repurposing-engine",
+          concept: "Distribution Playbook",
+          lessonAnchor: "distribution-playbook",
+          theoryRecap:
+            "Publishing the research report is just the starting line. A successful campaign executes a multi-week distribution playbook: Week 1 pitching front-loaded stats to targeted journalists, Week 2 releasing visual data snippets on LinkedIn, Week 3 distributing through industry communities, and ongoing gating for lead generation.",
+          question:
+            "How do you structure the 4-week multi-channel distribution campaign and repurposing roadmap to maximize both editorial backlinks and qualified leads?",
+          toolName: "Canva",
+          where:
+            "In Canva and your campaign management doc, build embeddable chart assets, the press pitch email template, and the 12-month repurposing schedule.",
+          procedure: [
+            "Design 5 high-contrast 1200x675px chart graphics in Canva / Datawrapper ready for media downloads and LinkedIn post carousels.",
+            "Draft a targeted media pitch email leading with the top 3 counter-intuitive findings, offering journalists exclusive access under embargo 48 hours prior to launch.",
+            "Build the ungated HTML report landing page with clean anchor links per finding, plus a gated PDF version offering extended methodology and benchmark calculator tools.",
+            "Map a 12-month repurposing schedule: 4 in-depth blog posts expanding on individual stats, a webinar walking through benchmarks, and a slide deck for the sales team.",
+          ],
+          outputSample:
+            "DISTRIBUTION CAMPAIGN BLUEPRINT:\n\n" +
+            "1. PRESS PITCH TEMPLATE (Excerpt):\n" +
+            "Subject: New Data: 58% of B2B support teams cut tier-1 tickets with AI, but complex escalation times jump 41%\n" +
+            "Hi [Journalist Name],\n" +
+            "We surveyed 450 verified B2B customer support directors to benchmark real-world AI deployment in 2026. Three key findings your readers at [Publication] might find timely:\n" +
+            "1. AI ticket deflation is real (28% drop in tier-1 volume), but average handle time on escalations rose 41%.\n" +
+            "2. 64% of teams still struggle with knowledge base fragmentation as the #1 blocker.\n" +
+            "3. Only 18% of support teams reduced headcount; 72% redeployed saved hours to proactive outreach.\n" +
+            "Full interactive data and high-res chart embeds available here: [Report URL]\n\n" +
+            "2. 4-WEEK ROLLOUT SCHEDULE:\n" +
+            "- Week 1: Embargoed journalist outreach + HTML report launch with downloadable press kit.\n" +
+            "- Week 2: Executive LinkedIn carousel series breaking down one chart per day.\n" +
+            "- Week 3: Niche community seeding (Support Driven Slack, CX Reddit, Hacker News) sharing raw data tables.\n" +
+            "- Week 4: Gated 32-page executive PDF and benchmark webinar registration launch.",
+          healthy:
+            "Pitch leads with the newsworthy story and verified stats rather than promoting the brand or the PDF download.",
+          unhealthy:
+            "Sending generic mass press releases asking journalists to 'download our new whitepaper' with no front-loaded data.",
+          interpret:
+            "Journalists write stories around surprising data points. Giving them the angle, the number, and the embeddable chart makes their job easy and guarantees high-authority editorial citations.",
+          soWhat: [
+            {
+              symptom: "Journalists copy the statistics but forget to link back to the source URL",
+              action: "Send a polite follow-up thanking them for the coverage and providing the exact interactive benchmark chart link for reader reference",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Draft the research charter, survey questions, and press pitch copy",
+            why: "Free collaborative workspace",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Clean raw response data, remove outliers, and run descriptive statistics",
+            why: "No-cost data analysis and pivot tables",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Forms",
+            role: "Free survey collection platform with Google Sheets live sync",
+            why: "Zero-cost survey fielding alternative",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Datawrapper",
+            role: "Create embeddable interactive data charts and press kit assets",
+            why: "Generous free tier with newsroom-ready SVG/PNG chart exports",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Canva",
+            role: "Design visual report covers, social media carousels, and infographic banners",
+            why: "Free design templates for research presentation",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Typeform",
+            role: "Survey builder with logic branching and interactive UX",
+            why: "Increases survey completion rates and filters out unqualified respondents",
+            required: false,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "SurveyMonkey",
+            role: "Enterprise panel recruitment and sentiment analysis",
+            why: "Access to pre-profiled B2B decision-maker panels when owned list is small",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+      },
+      deliverable:
+        "A complete 4-part research campaign blueprint containing the report charter and newsworthy hook, a 10-question unbiased survey instrument, data cleaning and AI synthesis protocols in Google Sheets, and a 4-week multi-channel press distribution and repurposing roadmap.",
+      sampleOutput:
+        "CAMPAIGN BLUEPRINT: The 2026 State of Ecommerce Email Deliverability (Client: Klaviyo)\n\n" +
+        "1. RESEARCH CHARTER:\n" +
+        "- Format: Annual Industry Benchmark Report (n=500 Ecommerce Marketing Directors, $1M–$50M GMV)\n" +
+        "- Margin of Error: ±4.3% at 95% confidence level\n" +
+        "- Core Hook: Inbox placement rates following 2024–2025 Gmail/Yahoo authentication rule changes.\n\n" +
+        "2. SURVEY INSTRUMENT (10-Question Architecture):\n" +
+        "- Screening: Q1 Role verification (Ecommerce Marketing Lead), Q2 Annual GMV bracket.\n" +
+        "- Operational Benchmarks: Q3 Average spam complaint rate, Q4 Domain authentication status (DMARC policy level), Q5 List scrubbing frequency.\n" +
+        "- Performance Metrics: Q6 Primary promotion-tab placement rate, Q7 Revenue per recipient shift YoY.\n" +
+        "- Qualitative: Q8 Biggest obstacle in maintaining sender reputation across high-volume holiday peaks.\n" +
+        "- Demographics: Q9 ESP provider, Q10 Monthly email send volume.\n\n" +
+        "3. DATA CLEANING & AI WORKFLOW:\n" +
+        "- Sheet Cleaning: Removed 48 speeder/duplicate responses; filtered spam complaint rates >10% as outlier misentries.\n" +
+        "- Core Stat Extracted: 43% of mid-market ecommerce brands still lack a DMARC 'reject' policy, suffering a 19% lower inbox placement rate.\n" +
+        "- AI Theme Clustering: 320 open-text comments clustered into 4 themes: Shared IP volatility (38%), aggressive discount email fatigue (31%), unengaged subscriber pruning hesitation (21%), automated spam bot signups (10%).\n\n" +
+        "4. DISTRIBUTION ROADMAP:\n" +
+        "- Week 1 (Press): Exclusive pitch to Retail Dive and Marketing Brew leading with the 43% DMARC gap stat; 18 media placements earned.\n" +
+        "- Week 2 (Social): 5-slide visual carousel breaking down inbox placement rates by industry sector.\n" +
+        "- Week 3 (Community): AMA hosted in Ecommerce Fuel and DTC Twitter Spaces sharing raw benchmark distributions.\n" +
+        "- Week 4 (Gating): 24-page PDF benchmark guide launched with interactive deliverability ROI calculator.",
+      successCriteria: [
+        "Defines a clear research format, target panel criteria (n>=300), and newsworthy angle",
+        "Constructs a 10-question survey instrument with neutral phrasing and screening filters",
+        "Outlines a structured data cleaning and AI qualitative clustering protocol in Google Sheets",
+        "Builds a 4-week multi-channel distribution roadmap with press templates and repurposing channels",
+      ],
+      portfolioReady: true,
+    },
+  ],
 };

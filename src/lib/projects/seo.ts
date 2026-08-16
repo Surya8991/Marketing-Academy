@@ -11031,4 +11031,1639 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "A thorough video SEO audit runs multiple independent checks, title, chapters, schema, and CTR, because each targets a different point of failure, discovery, retention, placement, and click appeal. Isolating cold-audience metrics from blended ones, and connecting a weak number to its specific root cause, is what turns a scorecard into a prioritized fix list.",
     },
   ],
+
+  "link-building": [
+    {
+      id: "link-building-quality-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Quality Gate: Auditing a Competitor Backlink Profile",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Audit a 30-domain backlink export for an email marketing guide using Domain Rating (DR), topical relevance, organic traffic, and anchor text distribution to filter toxic link networks and identify high-value editorial targets.",
+      companyId: "mailchimp",
+      scenario:
+        "Mailchimp (Intuit acquisition, $12B exit) is expanding its organic search footprint for transactional email and marketing automation guides. You've been handed a raw 30-domain backlink export from a competitor's top-ranking resource. Before the marketing team spends weeks sending outreach pitches, you need to triage the prospect list: separate genuine editorial authority from low-grade link farms and over-optimized directory spam that could trigger a Google manual action.",
+      brief:
+        "Evaluate the prospect backlink pool across three quality gates: authority & traffic thresholds, anchor text safety ratios, and outreach prospect scoring. Produce a clean 5-target outreach queue ready for personalized pitches.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Evaluating link quality with Domain Rating and organic traffic",
+        "Detecting anchor text over-optimization and penalty risks",
+        "Prioritizing personalized outreach for linkable assets",
+      ],
+      skills: ["Backlink Analysis", "Link Triage", "Anchor Text Optimization", "Ahrefs"],
+      keyQuestion:
+        "Which backlink prospects carry genuine editorial equity that moves rankings, and which pose algorithmic penalty risks?",
+      prerequisites: [
+        "Understanding of Domain Rating (DR) and PageRank fundamentals",
+        "Basic spreadsheet filtering and sorting skills",
+      ],
+      terminology: [
+        {
+          term: "Domain Rating (DR)",
+          definition: "A proprietary 0-100 metric by Ahrefs predicting a website's ranking power based on the quality and size of its unique referring domain profile.",
+        },
+        {
+          term: "Anchor Text Over-Optimization",
+          definition: "Using exact-match commercial keywords as clickable link text in an unnaturally high proportion (>20%), which triggers Google Penguin spam filters.",
+        },
+      ],
+      steps: [
+        {
+          stepId: "step-1-dr-traffic-filter",
+          concept: "Evaluating link quality with Domain Rating and organic traffic",
+          lessonAnchor: "what-makes-a-good-link",
+          theoryRecap:
+            "A high-quality backlink requires more than a high Domain Rating (DR 40+). It must have real organic monthly traffic (at least 1,000 monthly visits) and topical relevance to your niche. High-DR sites with zero organic traffic are frequently expired domains turned into link networks (PBNs) that pass zero real equity.",
+          question:
+            "In this 30-domain export, which domains satisfy both the DR 40+ threshold AND prove active organic traffic (>1,000 visits/month), and which high-DR domains fail the traffic health check?",
+          toolName: "Ahrefs",
+          where: "Site Explorer > Backlink Profile > Referring Domains export filtered in Google Sheets.",
+          procedure: [
+            "Import the competitor referring domains export into Google Sheets and freeze the header row",
+            "Filter the 'Domain Rating' column for values >= 40",
+            "Filter the 'Organic Traffic' column for values >= 1,000 visits/month",
+            "Flag any domain with DR > 50 but Organic Traffic < 200 as a potential private blog network (PBN) or link farm",
+          ],
+          outputSample:
+            "DOMAIN TRIAGE REPORT (Sample of 6 from 30 prospects)\n\n" +
+            "PASSED QUALITY GATE (High Authority + Live Traffic):\n" +
+            "  martechseries.com          DR 74   Monthly Traffic: 84,200   Category: Martech / SaaS      [PASS]\n" +
+            "  emailvendorselection.com   DR 58   Monthly Traffic: 21,500   Category: Email Marketing     [PASS]\n" +
+            "  benchmarkemail.com/blog    DR 72   Monthly Traffic: 65,000   Category: B2B Marketing       [PASS]\n\n" +
+            "FAILED QUALITY GATE (High DR / Zero Traffic Trap):\n" +
+            "  the-daily-tech-hub.biz     DR 52   Monthly Traffic: 42       Category: General Directory   [REJECT - PBN Sign]\n" +
+            "  global-saas-awards.net     DR 48   Monthly Traffic: 110      Category: Expired Domain Farm [REJECT - Inactive]\n" +
+            "  freemarketinglinks.xyz     DR 14   Monthly Traffic: 0        Category: Spam Directory      [REJECT - Low DR]",
+          healthy:
+            "Discarding low-traffic and spam domains immediately; keeping only topically relevant domains with DR 40+ and verified organic search visitors.",
+          unhealthy:
+            "Pitching every DR 40+ domain indiscriminately without checking organic traffic, wasting team outreach hours on dead sites or penalizing the brand with link farm associations.",
+          interpret:
+            "A high DR score without organic search traffic indicates a domain penalized or abandoned by Google. Real authority flows through pages Google actively indexes and serves to searchers.",
+          soWhat: [
+            {
+              symptom: "Outreach list contains high-DR sites with under 500 monthly organic visits",
+              action: "Purge zero-traffic domains from the prospect sheet before enriching contact emails",
+              effort: "5 min",
+            },
+            {
+              symptom: "Stakeholders ask why a DR 60 site was excluded from the campaign",
+              action: "Show the organic traffic graph demonstrating zero keyword visibility in Google",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-anchor-text-audit",
+          concept: "Detecting anchor text over-optimization and penalty risks",
+          lessonAnchor: "common-mistakes",
+          theoryRecap:
+            "Google's Penguin algorithm monitors anchor text distribution. Natural backlink profiles feature a healthy blend: 50-70% branded ('Mailchimp'), 20-30% URL/naked ('mailchimp.com'), 10-15% topical/partial-match ('email automation guide'), and under 5% exact-match commercial keywords ('best email marketing software').",
+          question:
+            "Reviewing the existing incoming anchor text profile for the target landing page, what is the exact-match commercial keyword percentage, and does it exceed the safe 5-10% threshold?",
+          toolName: "Google Sheets",
+          where: "Google Sheets anchor text classification sheet derived from Ahrefs Anchors report.",
+          procedure: [
+            "Export the target URL's current anchor text breakdown from Ahrefs or Google Search Console",
+            "Group anchors into four standard buckets: Branded, Naked URL, Partial Match / Editorial, and Exact Match Commercial",
+            "Calculate the percentage share of each anchor category against total referring domains",
+            "Flag if exact-match commercial keywords exceed 10% of total links",
+          ],
+          outputSample:
+            "ANCHOR TEXT PROFILE AUDIT\n\n" +
+            "Category                     Count    Share      Benchmark Range     Status\n" +
+            "--------------------------------------------------------------------------\n" +
+            "Branded (e.g. 'Mailchimp')     142    54.6%      50% - 70%           HEALTHY\n" +
+            "Naked URL (e.g. 'domain.com')   64    24.6%      20% - 30%           HEALTHY\n" +
+            "Editorial / Contextual          38    14.6%      10% - 20%           HEALTHY\n" +
+            "Exact Commercial Keyword        16     6.2%      < 10%               SAFE (< 10%)\n" +
+            "--------------------------------------------------------------------------\n" +
+            "Total Referring Domains:       260   100.0%\n\n" +
+            "Recommendation: In new outreach campaigns, request editorial partial-match or branded anchors ('Mailchimp research', 'according to this email study') rather than commercial anchors.",
+          healthy:
+            "Exact-match anchors remain under 10%, keeping the profile natural and safe from Google spam filters.",
+          unhealthy:
+            "Over-optimizing anchor text by asking every outreach partner to use the exact keyword 'best transactional email software', triggering algorithmic devaluation.",
+          interpret:
+            "Google expects organic citations to describe the company or content naturally. A spike in identical commercial anchor text signals paid or manipulated links.",
+          soWhat: [
+            {
+              symptom: "Exact match commercial anchors climb above 15% of the backlink profile",
+              action: "Shift upcoming outreach instructions to request branded and natural publication anchors",
+              effort: "30 min",
+            },
+            {
+              symptom: "A publishing partner asks what anchor text you want for an editorial citation",
+              action: "Provide the brand name or asset title ('Mailchimp Benchmark Report') instead of a money keyword",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-asset-outreach-prioritization",
+          concept: "Prioritizing personalized outreach for linkable assets",
+          lessonAnchor: "the-outreach-numbers-you-need-to-know",
+          theoryRecap:
+            "Personalized outreach yields a 33% response rate compared to just 8.5% for mass generic blasts. To maximize ROI, prioritize editors and content managers who recently covered related topics (within 6 months) and have demonstrated a history of citing external data.",
+          question:
+            "From the verified DR 40+ domains, which 5 editorial prospects represent the highest expected value based on topical fit, author recency, and contextual link placement opportunities?",
+          toolName: "Google Sheets",
+          where: "Spreadsheet outreach queue with author name, verified email, recent article URL, and pitch angle.",
+          procedure: [
+            "Isolate the vetted DR 40+ domains that passed Step 1 and Step 2",
+            "Identify the specific writer or managing editor responsible for the email marketing column",
+            "Find an article published within the last 90 days that mentions email metrics or deliverability",
+            "Draft a 2-sentence value-add hook offering relevant proprietary benchmark data to enrich their guide",
+          ],
+          outputSample:
+            "PRIORITIZED OUTREACH QUEUE (Top 3 of 5)\n\n" +
+            "1. Domain: martechseries.com (DR 74, 84.2k traffic)\n" +
+            "   Contact: Editorial Director (Tech Columns)\n" +
+            "   Context: Published 'Top Marketing Automation Bottlenecks in 2025' on Feb 12\n" +
+            "   Angle: Offer proprietary data on open rate variance across B2B vs B2C transactional flows\n\n" +
+            "2. Domain: emailvendorselection.com (DR 58, 21.5k traffic)\n" +
+            "   Contact: Lead Reviewer & Analyst\n" +
+            "   Context: Updating their 'Email Deliverability Benchmark Guide'\n" +
+            "   Angle: Provide updated SMTP throughput benchmarks and sender reputation metrics\n\n" +
+            "3. Domain: benchmarkemail.com/blog (DR 72, 65k traffic)\n" +
+            "   Contact: Managing Content Strategist\n" +
+            "   Context: Has resource page citing 2021 email deliverability stats\n" +
+            "   Angle: Broken/outdated data replacement with fresh 2025 deliverability statistics",
+          healthy:
+            "Targeting a tight list of 10-20 highly qualified authors with unique, context-specific hooks that add value to their existing content.",
+          unhealthy:
+            "Blasting a generic template to 500 'info@' or 'contact@' email addresses, burning the domain's email deliverability and achieving <1% placement rates.",
+          interpret:
+            "Editorial links cannot be demanded; they are earned by supplying journalists and writers with timely evidence that improves their published work.",
+          soWhat: [
+            {
+              symptom: "Outreach campaign response rate is tracking below 10%",
+              action: "Pause send queue; rewrite pitch intros with specific references to the author's recent articles",
+              effort: "30 min",
+            },
+            {
+              symptom: "Writer replies requesting $300 for a link insertion",
+              action: "Decline paid link schemes per Google guidelines; archive prospect to preserve clean profile",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Prospect filtering and anchor text distribution calculation",
+            why: "Enables multi-variable filtering (DR, traffic, relevance) and custom percentage calculations without subscription tools.",
+            required: true,
+            lastVerified: "2026-08-16",
+          },
+          {
+            toolName: "Google Search Console",
+            role: "Extract existing backlink and anchor text data",
+            why: "Free source of all Google-indexed backlinks and referring domains for your property.",
+            required: true,
+            lastVerified: "2026-08-16",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Ahrefs",
+            role: "Competitor backlink export and Domain Rating validation",
+            why: "Industry-standard database for competitor referring domain intelligence and broken link discovery.",
+            required: false,
+            lastVerified: "2026-08-16",
+          },
+        ],
+        paidUpgradeNote: "Ahrefs Free Backlink Checker and Google Sheets cover basic domain auditing; a paid Ahrefs or SEMrush seat accelerates bulk 1,000+ domain exports.",
+      },
+      deliverable:
+        "A prioritized Backlink Quality Audit Sheet containing 30 audited prospects, categorized anchor text distribution ratios, and a 5-contact personalized outreach queue.",
+      sampleOutput:
+        "BACKLINK AUDIT SUMMARY & ACTION PLAN\nTarget Asset: Klaviyo Ecommerce Benchmark Report\n\n1. AUDIT FINDINGS:\n- Total referring domains reviewed: 30\n- Qualified (DR >= 40, Monthly Traffic >= 1,000, Niche Relevant): 12 domains (40.0%)\n- Rejected (DR < 40, Traffic < 500, or PBN/Spam Indicators): 18 domains (60.0%)\n- Anchor Text Profile: 61% Branded ('Klaviyo'), 22% Naked URL, 11% Editorial Context, 6% Commercial Keyword (HEALTHY)\n\n2. TOP OUTREACH TARGETS:\n- retailtouchpoints.com (DR 77, 110k traffic) - Target: Senior Retail Tech Editor\n- practicalecommerce.com (DR 75, 95k traffic) - Target: Contributing Analytics Writer\n- modernretail.co (DR 72, 140k traffic) - Target: E-commerce Columnist\n\n3. ACTION ITEMS:\n- Outreach batch size: 15 personalized pitches (expected response: 5 replies, 2-3 links)\n- Preferred anchor format: 'Klaviyo ecommerce benchmarks' or 'data from Klaviyo'",
+      successCriteria: [
+        "All 30 domains audited against both authority (DR 40+) and traffic (>1,000 visits) thresholds",
+        "Zero low-traffic link farms or PBNs present in the final outreach queue",
+        "Anchor text breakdown calculated and verified safe (<10% exact match commercial)",
+        "Every approved prospect includes a specific author contact and contextual article reference",
+      ],
+      portfolioReady: true,
+      decision: {
+        prompt:
+          "During your audit, you find a DR 68 domain that has 45,000 backlinks but only 38 monthly organic visits in Google Search. What is the correct decision?",
+        options: [
+          {
+            id: "opt-1",
+            label: "Pitch them immediately because DR 68 passes high-authority ranking thresholds.",
+            correct: false,
+          },
+          {
+            id: "opt-2",
+            label: "Reject the domain; high DR with zero search traffic is a classic footprint of a de-indexed or penalized link network.",
+            correct: true,
+          },
+          {
+            id: "opt-3",
+            label: "Offer to buy a sponsored link with an exact-match keyword anchor.",
+            correct: false,
+          },
+        ],
+        explanation:
+          "Domain Rating measures backlink quantity and strength, but Google's algorithm devalues or penalizes sites that lose search visibility. A site with DR 68 and zero organic traffic has likely been demoted by Google spam updates, meaning links from it pass zero positive ranking power.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text: "Enforce a strict two-factor qualification gate (DR 40+ AND minimum 1,000 monthly organic search visitors) before adding any prospect to the outreach CRM. Never evaluate backlink opportunities on Domain Rating alone.",
+      },
+      commonMistakes: [
+        {
+          mistake: "Treating DR/DA as the sole metric for link quality",
+          explanation: "Domain metrics are third-party estimates that can be artificially inflated with automated link loops. Real organic search traffic is the true indicator of Google's trust.",
+        },
+        {
+          mistake: "Sending generic blast pitches to unverified contact addresses",
+          explanation: "Mass cold outreach achieves an 8.5% response rate and risks blacklisting your sending domain. Personalizing pitches to specific articles raises response rates to ~33%.",
+        },
+      ],
+      keyTakeaway:
+        "Quality beats quantity in modern link building: 5 editorial links from active, high-traffic industry publications move rankings further than 100 links from dead directories and low-grade link farms.",
+    },
+    {
+      id: "link-building-asset-pitch-build",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "The Link Magnet: Proprietary Industry Study & Digital PR Pitch",
+      timeEstimate: "50 minutes",
+      timeMinutes: 50,
+      objective:
+        "Structure an original data-driven research report from restaurant ordering trends, design citable data tables and visual soundbites, identify broken industry citations for replacement, and draft a high-converting digital PR pitch sequence.",
+      companyId: "zomato",
+      scenario:
+        "Zomato (publicly listed on NSE/BSE, ₹981 Cr+ issue) wants to build lasting organic search authority for its B2B restaurant partner hub and cloud kitchen solutions. Rather than paying for sponsored placements or relying on short-lived guest posts, leadership has greenlit an annual 'State of Indian Dining & Cloud Kitchen Economics' research report. Your task is to turn proprietary platform trends into a citable linkable asset and execute a digital PR outreach sequence that earns top-tier media and industry backlinks.",
+      brief:
+        "Build the complete link acquisition asset and outreach workflow: define 3 unique proprietary data hooks, identify competitor broken link opportunities in the hospitality tech space, craft a personalized 3-part journalist pitch, and establish a backlink tracking sheet.",
+      mode: "build",
+      conceptsCovered: [
+        "Creating original research and linkable assets",
+        "Personalizing digital PR pitches for high response rates",
+        "Executing broken link reclamation on industry resources",
+        "Monitoring backlink velocity and compounding authority",
+      ],
+      skills: ["Digital PR", "Linkable Asset Creation", "Broken Link Building", "Outreach Copywriting"],
+      keyQuestion:
+        "How do you package proprietary platform data into an authoritative industry benchmark that journalists and bloggers naturally cite as primary evidence?",
+      prerequisites: [
+        "Familiarity with digital PR news angles and journalist outreach beats",
+        "Understanding of broken link building mechanisms and 301/404 triage",
+      ],
+      terminology: [
+        {
+          term: "Linkable Asset",
+          definition: "A high-value, comprehensive piece of content (such as an original survey, industry dataset, or free tool) specifically built to attract natural backlinks from external publishers.",
+        },
+        {
+          term: "Digital PR",
+          definition: "The practice of pitching journalists, industry editors, and bloggers with newsworthy data, trends, or expert commentary to secure high-authority editorial citations.",
+        },
+      ],
+      steps: [
+        {
+          stepId: "step-1-data-hook-definition",
+          concept: "Creating original research and linkable assets",
+          lessonAnchor: "strategy-1-linkable-asset-creation",
+          theoryRecap:
+            "Original research is the highest-leverage linkable asset. Articles longer than 3,000 words with proprietary data attract 3.5x more backlinks than opinion pieces. Writers and journalists constantly seek credible, primary statistics to validate their stories.",
+          question:
+            "What three specific, quantified data hooks from food delivery and restaurant operations provide the strongest citation value for business journalists and trade publications?",
+          toolName: "Google Sheets",
+          where: "Research Outline in Google Sheets with metric definitions, sample sizes, and headline stats.",
+          procedure: [
+            "Select 3 high-interest themes: Cloud Kitchen Profitability, Delivery Radius vs Order Volume, and Digital Ordering Adoption in Tier-2/Tier-3 Cities",
+            "Structure clear sample size boundaries (e.g., 'Analysis of 125,000 restaurant partner orders across 45 cities')",
+            "Formulate 3 citable 'soundbite statistics' that journalists can quote directly in one sentence",
+            "Format data into a standalone summary table ready for web embedding",
+          ],
+          outputSample:
+            "LINKABLE ASSET DATA HOOKS & HEADLINE FINDINGS\n\n" +
+            "Hook 1: Cloud Kitchen Unit Economics (Target: Tech & Financial Media)\n" +
+            "  Statistic: 'Cloud kitchens in Tier-2 Indian hubs achieved operating profitability in 4.2 months vs 11.8 months for traditional dine-in restaurants in 2025.'\n" +
+            "  Citation format: 'According to Zomato's 2025 Restaurant Industry Benchmark Study...'\n\n" +
+            "Hook 2: Late-Night Ordering Surge (Target: Lifestyle & Urban Trends Press)\n" +
+            "  Statistic: 'Post-11 PM orders grew by 78% year-over-year in non-metro capitals, led by Jaipur, Lucknow, and Chandigarh.'\n\n" +
+            "Hook 3: Digital Menu Engineering (Target: Hospitality B2B & Trade Blogs)\n" +
+            "  Statistic: 'Restaurants with localized item descriptions and high-res photography saw a 24.3% lift in checkout completion.'",
+          healthy:
+            "Producing specific, quantified benchmarks with transparent sample sizes and dates that give journalists immediate evidence for news articles.",
+          unhealthy:
+            "Publishing generic thought-leadership essays with no original data, leaving writers nothing concrete to cite or link back to.",
+          interpret:
+            "Journalists don't link to opinions; they link to primary data sources that substantiate their claims. Clear, single-sentence statistics turn articles into citable link magnets.",
+          soWhat: [
+            {
+              symptom: "Draft asset contains broad qualitative commentary without clear numbers",
+              action: "Add definitive sample size and percentage changes to each key takeaway section",
+              effort: "30 min",
+            },
+            {
+              symptom: "Data points are buried deep in dense paragraph text",
+              action: "Pull out key statistics into highlighted callout boxes and embeddable comparison tables",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-broken-link-prospecting",
+          concept: "Executing broken link reclamation on industry resources",
+          lessonAnchor: "strategy-3-broken-link-building",
+          theoryRecap:
+            "Broken link building is a low-friction tactic: identify resources that link to dead 404 URLs on defunct industry blogs, then notify the site owner and offer your fresh, updated research as a working replacement.",
+          question:
+            "Using backlink analysis tools, how do you locate broken resource links pointing to defunct restaurant industry reports and map them to sections of your new benchmark report?",
+          toolName: "Ahrefs",
+          where: "Ahrefs Site Explorer > Best by Links > Filter 404 Not Found > Export Referring Domains.",
+          procedure: [
+            "Enter URLs of defunct foodtech blogs or outdated 2019-2021 restaurant research reports into Ahrefs",
+            "Filter the 'Best by Links' report for HTTP response code 404",
+            "Export referring domains linking to those dead pages (filtered for DR 40+)",
+            "Map each broken link's original topic to the corresponding chapter in your new 2025 benchmark study",
+          ],
+          outputSample:
+            "BROKEN LINK RECLAMATION MAP\n\n" +
+            "Dead URL: https://eateryinsights-defunct-blog.com/2021-cloud-kitchen-margins (404)\n" +
+            "Target Referring Domains:\n" +
+            "  1. restauranttimes.in/operations (DR 54) -> Links to dead margin study via anchor 'kitchen profit margins'\n" +
+            "     Replacement target: /insights/2025-cloud-kitchen-economics#margins\n" +
+            "  2. foodserviceindia.com/trends (DR 46) -> Links to dead 2021 delivery data\n" +
+            "     Replacement target: /insights/2025-cloud-kitchen-economics#delivery-radius\n" +
+            "  3. hospitalitytechweekly.org (DR 62) -> Links to 404 survey on kitchen tech\n" +
+            "     Replacement target: /insights/2025-cloud-kitchen-economics#tech-adoption",
+          healthy:
+            "Offering a 1-to-1 topical replacement for a verified dead link, framing the outreach as a helpful notification to fix broken user experience.",
+          unhealthy:
+            "Pitching an unrelated generic home page to replace a specific dead research study, resulting in instant spam deletion.",
+          interpret:
+            "Site owners appreciate broken link notifications because broken links harm SEO and user trust. Providing an exact, updated replacement solves their problem instantly.",
+          soWhat: [
+            {
+              symptom: "Outreach email suggests replacing a dead calculator with a broad text article",
+              action: "Ensure your suggested replacement content directly matches the format and topic of the dead link",
+              effort: "30 min",
+            },
+            {
+              symptom: "Webmaster replies saying they removed the link instead of replacing it",
+              action: "Acknowledge politely; log the domain for future digital PR pitches",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-personalized-pitch-crafting",
+          concept: "Personalizing digital PR pitches for high response rates",
+          lessonAnchor: "strategy-2-digital-pr",
+          theoryRecap:
+            "Effective digital PR pitches are brief (under 150 words), personalized to the journalist's recent coverage beat, and lead directly with the newsworthy insight rather than promotional company fluff.",
+          question:
+            "How do you draft a 3-paragraph personalized pitch for a hospitality business journalist that achieves the benchmark 33% response rate?",
+          toolName: "Google Docs",
+          where: "Google Docs digital PR outreach template document.",
+          procedure: [
+            "Paragraph 1 (Hook): Reference a specific piece the journalist published within the last 30 days",
+            "Paragraph 2 (Data): Present 2 bulleted headline findings from the study directly relevant to their beat",
+            "Paragraph 3 (Offer & Link): Provide a clean link to the full study, offer an exclusive executive quote, and propose a low-friction call-to-action",
+            "Verify the email length is between 100 and 150 words with no marketing buzzwords",
+          ],
+          outputSample:
+            "DIGITAL PR OUTREACH PITCH SPECIMEN\n\n" +
+            "Subject: Data: Tier-2 cloud kitchen margins growing 2.8x faster than dine-in (2025)\n\n" +
+            "Hi [First Name],\n\n" +
+            "Loved your recent piece in Livemint on restaurant margin pressures across NCR.\n\n" +
+            "We just analyzed data across 125,000 restaurant partner orders for our 2025 State of Dining report, and two numbers stood out for your retail coverage:\n\n" +
+            "• Cloud kitchens in non-metro hubs (Jaipur, Lucknow) reached operating break-even in 4.2 months vs. 11.8 months for traditional dine-in.\n" +
+            "• Late-night delivery orders (post-11 PM) surged 78% YoY in Tier-2 markets, driving 35% of total cloud kitchen profitability.\n\n" +
+            "The full benchmark dataset and interactive city charts are live here: [Link to Study].\n\n" +
+            "Happy to share raw city-level breakdown data or connect you with our lead analyst if you're exploring this trend for an upcoming column.\n\n" +
+            "Best,\n" +
+            "[Your Name]\n" +
+            "Marketing Insights Team",
+          healthy:
+            "Concise, highly relevant pitch leading with unique data and referencing genuine recent reporting by the target writer.",
+          unhealthy:
+            "A 500-word corporate press release full of marketing jargon sent as a blind mass email to 200 journalists simultaneously.",
+          interpret:
+            "Journalists face tight daily deadlines. When you hand them a pre-packaged, verified data insight that matches their beat, you make their job easier and earn editorial links naturally.",
+          soWhat: [
+            {
+              symptom: "Pitch draft exceeds 200 words or starts with company history",
+              action: "Cut the first two paragraphs; start immediately with the journalist's article reference and the primary data point",
+              effort: "5 min",
+            },
+            {
+              symptom: "Journalist opens email but does not reply within 4 business days",
+              action: "Send a polite 1-sentence follow-up with one additional data angle, then close the thread",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-4-link-tracking-and-velocity",
+          concept: "Monitoring backlink velocity and compounding authority",
+          lessonAnchor: "real-company-results",
+          theoryRecap:
+            "Link building authority compounds over time: industry data shows it takes an average of 3.1 months to see substantial ranking improvements from new backlinks. Tracking monthly link velocity and referring domain acquisition ensures campaigns stay on track.",
+          question:
+            "How do you structure a backlink monitoring sheet to track earned links, referral traffic, and keyword ranking movement over the 90-day post-launch window?",
+          toolName: "SEMrush",
+          where: "SEMrush Backlink Audit / Link Building Tracker synced to a master campaign sheet in Google Sheets.",
+          procedure: [
+            "Set up weekly tracking for new referring domains acquired by the research asset URL",
+            "Log the source domain, DR score, anchor text used, and link placement type (editorial body vs footer)",
+            "Track target commercial keyword rankings (e.g. 'cloud kitchen business model', 'restaurant POS system') at 30, 60, and 90-day marks",
+            "Calculate cost per acquired referring domain and overall link velocity (new domains per month)",
+          ],
+          outputSample:
+            "CAMPAIGN VELOCITY & OUTCOME DASHBOARD (90-Day Post Launch)\n\n" +
+            "Metric                          Month 1     Month 2     Month 3     Total\n" +
+            "--------------------------------------------------------------------------\n" +
+            "Outreach Pitches Sent                45          30          15        90\n" +
+            "Responses Received                   16          11           4        31 (34.4%)\n" +
+            "Earned Referring Domains             11           8           6        25\n" +
+            "Average Domain Rating (DR)           64          59          68        63.6 avg\n" +
+            "Top Tier Placements:            Livemint, YourStory, Inc42, BW Hotelier\n" +
+            "--------------------------------------------------------------------------\n" +
+            "Target Keyword Ranking Movement:\n" +
+            "- 'cloud kitchen economics'           #18         #7          #2       (+16 pos)\n" +
+            "- 'restaurant industry benchmarks'    #24         #11         #3       (+21 pos)\n" +
+            "- 'food delivery trends India'        #14         #5          #1       (+13 pos)\n" +
+            "Total Organic Traffic Lift to B2B Hub: +214% (from 4,200 to 13,200/mo)",
+          healthy:
+            "Consistent acquisition of 5-10 high-quality referring domains per month leading to compounded keyword ranking gains across 90 days.",
+          unhealthy:
+            "Expecting overnight ranking jumps within 7 days and abandoning outreach after 3 weeks before authority can compound.",
+          interpret:
+            "Link equity takes approximately 12-14 weeks to fully propagate through Google's index. Measuring month-over-month referring domain velocity confirms whether authority is accumulating.",
+          soWhat: [
+            {
+              symptom: "No ranking change after 4 weeks despite earning 8 new DR 60+ backlinks",
+              action: "Maintain strategy; explain the 3-month propagation cycle to stakeholders without altering URLs",
+              effort: "5 min",
+            },
+            {
+              symptom: "Earned links are clustering on the research URL but target product pages aren't moving",
+              action: "Add contextual internal links from the research asset to the commercial product pages",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Research data structuring, outreach tracking, and campaign dashboard",
+            why: "Centralizes dataset hooks, journalist contact lists, and week-by-week link velocity tracking.",
+            required: true,
+            lastVerified: "2026-08-16",
+          },
+          {
+            toolName: "Google Docs",
+            role: "Digital PR pitch writing and editorial template refinement",
+            why: "Collaborative drafting of personalized outreach emails and press commentary.",
+            required: true,
+            lastVerified: "2026-08-16",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Ahrefs",
+            role: "Broken link prospecting and referring domain discovery",
+            why: "Identifies 404 broken links on competitor research pages with historical authority.",
+            required: false,
+            lastVerified: "2026-08-16",
+          },
+          {
+            toolName: "SEMrush",
+            role: "Backlink audit and keyword rank tracking",
+            why: "Monitors organic search ranking progress and link velocity over 90 days.",
+            required: false,
+            lastVerified: "2026-08-16",
+          },
+        ],
+        paidUpgradeNote: "Ahrefs and SEMrush automate bulk broken link discovery and daily rank tracking; manual Google search operators and Google Search Console provide a complete free alternative.",
+      },
+      deliverable:
+        "A complete Linkable Research Asset package: 3 proprietary data hooks, a broken link reclamation map, a personalized digital PR pitch email template, and a 90-day campaign tracking dashboard.",
+      sampleOutput:
+        "DIGITAL PR CAMPAIGN SPECIFICATION\nAsset: DoorDash Restaurant Industry Economic Pulse (2025)\n\n1. PRIMARY DATA ASSET:\n- Sample: 85,000 independent restaurant partner order records across 30 US metro markets\n- Core Finding: Delivery radius expansion of 2 miles increased off-peak order volume by 38.4% with zero cannibalization of dine-in revenue.\n\n2. DIGITAL PR OUTREACH PLAN:\n- Target Publications: Nation's Restaurant News, QSR Magazine, Restaurant Business Online, TechCrunch\n- Pitch Lead: 'Data: How suburban restaurants are unlocking $4k/mo in off-peak delivery revenue'\n\n3. BROKEN LINK CAMPAIGN:\n- Defunct 2020 delivery report URLs identified: 4\n- Qualified replacement targets (DR 50+): 14 domains\n\n4. PROJECTED OUTCOMES:\n- Target links: 20-30 editorial referring domains across 90 days\n- Target ranking impact: Top 3 for 'restaurant delivery analytics' and 'food delivery benchmarks'",
+      successCriteria: [
+        "Three distinct, quantified data hooks formulated with sample sizes and citable soundbites",
+        "Broken link table mapping at least 3 dead competitor assets to exact replacement sections",
+        "Personalized digital PR pitch drafted within the 100-150 word limit with no generic marketing fluff",
+        "90-day tracking dashboard established with weekly link velocity and keyword ranking indicators",
+      ],
+      portfolioReady: true,
+      decision: {
+        prompt:
+          "You publish your research asset and want to maximize its ranking boost on commercial product pages. How should you structure internal links?",
+        options: [
+          {
+            id: "opt-1",
+            label: "Keep the research page isolated so all external backlink juice stays on the research URL.",
+            correct: false,
+          },
+          {
+            id: "opt-2",
+            label: "Add prominent, contextual in-content links from the high-authority research asset to your related commercial service and product pages.",
+            correct: true,
+          },
+          {
+            id: "opt-3",
+            label: "Add 50 exact-match anchor links in the footer to every page on your website.",
+            correct: false,
+          },
+        ],
+        explanation:
+          "Linkable assets naturally attract external authority. By placing contextual internal links within the research body pointing to commercial landing pages, you pass PageRank and topical authority throughout your site structure.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text: "Invest in one high-depth proprietary research study per year rather than monthly low-grade guest posts. Original data provides an evergreen link magnet that earns continuous passive citations and high-DR media coverage.",
+      },
+      commonMistakes: [
+        {
+          mistake: "Publishing data studies without single-sentence, citable summary statistics",
+          explanation: "If a busy journalist has to read 4,000 words to find the main takeaway, they will cite a competitor with a clear summary bullet instead.",
+        },
+        {
+          mistake: "Giving up on link building campaigns after 4 weeks",
+          explanation: "Backlinks require an average of 3.1 months for search engines to crawl, index, and recalculate ranking weights across target queries.",
+        },
+      ],
+      keyTakeaway:
+        "Building things genuinely worth citing—backed by proprietary numbers and pitched to relevant journalists—creates a compounding backlink moat that competitors cannot easily duplicate.",
+    },
+  ],
+  "local-seo": [
+    {
+      id: "local-seo-nap-citation-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Multi-Location NAP & Citation Diagnostic",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Audit physical cafe location records across Google Business Profile, Apple Maps, Yelp, and Bing Places to find Name-Address-Phone (NAP) formatting conflicts, suite mismatches, and category errors suppressing Local 3-Pack rankings.",
+      companyId: "blue-bottle-coffee",
+      scenario:
+        "Blue Bottle Coffee (Nestle acquisition, $700M+ valuation) operates specialty cafes across major urban centers. Following several retail relocations and brand acquisitions, store managers report that key locations have slipped out of the Google Maps '3-Pack' for queries like 'specialty coffee near me' and 'cold brew cafe downtown'. You must perform a multi-channel NAP citation audit to locate identity splits and formatting discrepancies that confuse Google's local ranking algorithms.",
+      brief:
+        "Examine 3 location records across 4 major directories, catalog character-by-character NAP inconsistencies, audit Google Business Profile completeness, and establish an automated review response workflow.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Enforcing exact Name Address Phone consistency across directories",
+        "Optimizing Google Business Profile primary categories and features",
+        "Auditing review velocity and algorithmic response rates",
+      ],
+      skills: ["Local SEO", "NAP Consistency", "Google Business Profile", "Citation Audit"],
+      keyQuestion:
+        "Where are inconsistent addresses, mismatched categories, and duplicate listings eroding search engines' confidence in your physical store locations?",
+      prerequisites: [
+        "Understanding of the Google Local Pack (3-pack) vs organic search results",
+        "Basic familiarity with online directories (Yelp, Apple Maps, Google Maps)",
+      ],
+      terminology: [
+        {
+          term: "NAP Consistency",
+          definition: "Character-for-character uniformity across a business's Name, Address, and Phone number on every public directory and map listing across the web.",
+        },
+        {
+          term: "Local 3-Pack",
+          definition: "The prominent map display featuring three local business listings that appears at the top of Google search results for local intent queries, capturing over 40% of all clicks.",
+        },
+      ],
+      steps: [
+        {
+          stepId: "step-1-nap-consistency-check",
+          concept: "Enforcing exact Name Address Phone consistency across directories",
+          lessonAnchor: "pillar-2-nap-consistency",
+          theoryRecap:
+            "Google cross-references dozens of web sources to verify a local business's physical identity. Discrepancies as minor as 'Suite 200' vs '#200' or differing local phone numbers create algorithmic uncertainty, reducing local pack visibility.",
+          question:
+            "Comparing directory listings for the flagship cafe across Google, Yelp, Apple Maps, and Bing, what specific character-level NAP discrepancies and duplicate listings are present?",
+          toolName: "Google Sheets",
+          where: "Master NAP Comparison Sheet in Google Sheets.",
+          procedure: [
+            "Establish the canonical Master NAP record based on business registration and official storefront signage",
+            "Record the Name, Address, and Phone listed on Google Business Profile, Apple Maps, Yelp, and Bing Places",
+            "Flag discrepancies in street abbreviations (e.g. 'St' vs 'Street'), suite formatting, and tracking vs local numbers",
+            "Check for rogue duplicate listings created by past customers or automatic directory scrapers",
+          ],
+          outputSample:
+            "MULTI-DIRECTORY NAP AUDIT (Flagship Location: San Francisco - Mint Plaza)\n\n" +
+            "CANONICAL MASTER RECORD:\n" +
+            "  Name: Blue Bottle Coffee\n" +
+            "  Address: 66 Mint St, San Francisco, CA 94103\n" +
+            "  Phone: (510) 653-3394\n\n" +
+            "DIRECTORY DISCREPANCY MATRIX:\n" +
+            "Platform      Listed Name                 Listed Address                      Phone           Status\n" +
+            "----------------------------------------------------------------------------------------------------------\n" +
+            "Google GBP    Blue Bottle Coffee          66 Mint St, San Francisco, CA 94103 (510) 653-3394   [CANONICAL]\n" +
+            "Apple Maps    Blue Bottle Coffee - Mint   66 Mint Street, Ste 1, SF, CA 94103 (510) 653-3394   [MISMATCH - Name/Ste]\n" +
+            "Yelp          Blue Bottle Coffee Company  66 Mint St, San Francisco, CA 94103 (415) 555-0199   [MISMATCH - Name/Phone]\n" +
+            "Bing Places   Blue Bottle Cafe            66 Mint St, Suite 100, SF, CA 94103 (510) 653-3394   [MISMATCH - Name/Ste]\n" +
+            "Rogue Yelp    Blue Bottle Kiosk (Mint)    Mint Plaza, San Francisco, CA 94103 None             [DUPLICATE - Delete]",
+          healthy:
+            "100% character-for-character alignment across all directory platforms matching the canonical Master NAP record.",
+          unhealthy:
+            "Allowing multiple name variations ('Blue Bottle Cafe', 'Blue Bottle Coffee Company') and differing suite numbers across platforms, splitting ranking authority.",
+          interpret:
+            "When directories present conflicting information, Google cannot confidently verify the exact storefront location, resulting in lower proximity and prominence scoring in the Local 3-Pack.",
+          soWhat: [
+            {
+              symptom: "Directory lists a modified brand name like 'Brand Name - Best Coffee'",
+              action: "Update name to exact storefront branding; keyword-stuffed names risk Google suspension",
+              effort: "5 min",
+            },
+            {
+              symptom: "Rogue duplicate listing exists on Yelp or Google Maps",
+              action: "Submit a merge/claim request to remove duplicate and consolidate existing reviews",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-gbp-completeness-audit",
+          concept: "Optimizing Google Business Profile primary categories and features",
+          lessonAnchor: "pillar-1-google-business-profile-gbp",
+          theoryRecap:
+            "Your Google Business Profile is the primary data source for Google Maps. Profiles with complete attributes, 15+ verified photos, and specific primary categories ('Coffee Shop' instead of general 'Restaurant') receive 70% more location visits and 42% more direction requests.",
+          question:
+            "Auditing the current Google Business Profile, what missing primary/secondary categories, photo attributes, and business hour gaps need immediate remediation?",
+          toolName: "Google Business Profile",
+          where: "Google Business Profile Manager dashboard under 'Edit Profile'.",
+          procedure: [
+            "Verify primary category specificity ('Coffee Shop' vs generic 'Food & Beverage')",
+            "Audit secondary categories (e.g. 'Coffee Roasters', 'Cafe', 'Espresso Bar')",
+            "Check photo count across Exterior, Interior, Product, and Team categories (minimum 15 required)",
+            "Confirm operating hours, holiday schedules, and direct messaging functionality are enabled",
+          ],
+          outputSample:
+            "GOOGLE BUSINESS PROFILE HEALTH AUDIT\n\n" +
+            "Field                   Current Setting            Recommended Action              Priority\n" +
+            "--------------------------------------------------------------------------------------------\n" +
+            "Primary Category        Restaurant                 Change to 'Coffee Shop'         CRITICAL\n" +
+            "Secondary Categories    None                       Add: 'Coffee Roasters', 'Cafe'  HIGH\n" +
+            "Photo Count             4 photos (uploaded 2021)   Upload 15+ fresh photos         HIGH\n" +
+            "Menu Link               Missing                    Link to canonical /menu URL     MEDIUM\n" +
+            "Special Hours           Unconfigured (Holidays)    Add upcoming holiday hours      HIGH\n" +
+            "Q&A Section             0 answered                 Pre-populate 5 core FAQs        MEDIUM\n" +
+            "Attributes              Wi-Fi, Outdoor Seating     Add 'Wheelchair accessible'     LOW",
+          healthy:
+            "Hyper-specific primary category with full secondary categories, regular photo uploads, and zero unpopulated core fields.",
+          unhealthy:
+            "Using a generic top-level category and neglecting holiday hours, causing customers to see 'Hours may differ' warnings that drive them to competitors.",
+          interpret:
+            "Google tests category relevance first. A business categorised as 'Restaurant' loses relevance for 'specialty coffee' searches against a competitor explicitly set as 'Coffee Shop'.",
+          soWhat: [
+            {
+              symptom: "Primary category is set too broadly (e.g. 'Retail Store' instead of 'Coffee Shop')",
+              action: "Switch primary category to the most precise descriptive category in GBP dashboard",
+              effort: "5 min",
+            },
+            {
+              symptom: "Profile has under 10 photos or photos are older than 12 months",
+              action: "Schedule monthly photo uploads showing seasonal drinks, storefront entrance, and cafe interior",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-review-velocity-and-response",
+          concept: "Auditing review velocity and algorithmic response rates",
+          lessonAnchor: "pillar-3-reviews",
+          theoryRecap:
+            "Reviews drive 15-17% of local ranking weight. Google evaluates volume, average star rating (minimum 4.3 benchmark), recency (steady weekly velocity), and owner response rate. Responding to at least 32% of reviews correlates with an 80% higher local conversion rate.",
+          question:
+            "Analyzing the location's review metrics over the last 90 days, what is the current response rate to negative reviews, and how does review velocity compare to top local 3-pack competitors?",
+          toolName: "Google Business Profile",
+          where: "Google Business Profile > Reviews tab & Performance Insights.",
+          procedure: [
+            "Calculate total review count and 90-day review acquisition velocity (reviews per month)",
+            "Measure average star rating and compare against the 4.3 consumer threshold",
+            "Calculate business owner response rate across all 1-star, 2-star, and 3-star reviews",
+            "Draft standardized response guidelines that de-escalate negative feedback and offer offline resolution",
+          ],
+          outputSample:
+            "REVIEW SIGNAL & RESPONSE AUDIT (Last 90 Days)\n\n" +
+            "Metric                          Current Store      Top 3-Pack Competitor    Status\n" +
+            "--------------------------------------------------------------------------------------\n" +
+            "Average Star Rating             4.4 Stars          4.6 Stars                HEALTHY (>4.3)\n" +
+            "Total Reviews                   312 Reviews        540 Reviews              MODERATE\n" +
+            "90-Day Review Velocity          3 reviews/mo       18 reviews/mo            LAGGING (Need 10+/mo)\n" +
+            "Owner Response Rate (Overall)   18.2%              92.0%                    CRITICAL GAP\n" +
+            "1-Star Review Response Rate     0.0% (0 of 6)      100.0%                   CRITICAL GAP\n" +
+            "Average Review Recency          41 days ago        2 days ago               UNHEALTHY\n\n" +
+            "Action Plan: Respond to all 6 unaddressed 1-star reviews within 48 hours; implement in-store QR code review prompts on receipts.",
+          healthy:
+            "Consistent weekly stream of new reviews with a 100% response rate on critical reviews and >80% overall response rate.",
+          unhealthy:
+            "Ignoring negative reviews publicly and allowing review velocity to stall for months, signaling to Google that the business may be inactive.",
+          interpret:
+            "A competitor with 50 recent reviews from the last two months will outrank a business with 300 stale reviews from three years ago. Google prioritizes recency and active owner engagement.",
+          soWhat: [
+            {
+              symptom: "1-star or 2-star review sits unanswered on the profile for over 7 days",
+              action: "Post a calm, professional response acknowledging the issue and providing a direct email to resolve offline",
+              effort: "5 min",
+            },
+            {
+              symptom: "Review velocity has dropped below 2 new reviews per month",
+              action: "Deploy automated SMS or digital receipt prompts inviting recent customers to share feedback",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Multi-directory NAP discrepancy matrix and citation tracker",
+            why: "Enables character-by-character comparison across Google, Apple Maps, Yelp, and Bing Places.",
+            required: true,
+            lastVerified: "2026-08-16",
+          },
+          {
+            toolName: "Google Business Profile",
+            role: "Direct profile management, category selection, and review response monitoring",
+            why: "Free primary platform to control local map listings, attributes, and customer engagement.",
+            required: true,
+            lastVerified: "2026-08-16",
+          },
+        ],
+        paid: [
+          {
+            toolName: "SEMrush",
+            role: "Automated listing management and multi-directory citation synchronization",
+            why: "Distributes and locks NAP data across 50+ secondary directories automatically.",
+            required: false,
+            lastVerified: "2026-08-16",
+          },
+        ],
+        paidUpgradeNote: "Google Business Profile and manual directory claiming are 100% free; automated aggregators like Moz Local or BrightLocal save time for brands with 50+ locations.",
+      },
+      deliverable:
+        "A Multi-Location NAP Audit Matrix with identified discrepancies, an optimized Google Business Profile configuration checklist, and a standardized Review Response Protocol.",
+      sampleOutput:
+        "LOCAL SEO AUDIT & CITATION CLEANUP REPORT\nBrand: Third Wave Coffee (Koramangala, Bangalore Location)\n\n1. NAP CONSISTENCY SUMMARY:\n- Master Record: Third Wave Coffee, 12th Main Rd, 4th Block, Koramangala, Bengaluru 560034\n- Google Maps: Matches canonical record [OK]\n- Zomato: Listed as 'Third Wave Coffee Roasters' with missing pincode [CORRECTED]\n- Apple Maps: Listed with old phone number [CORRECTED]\n\n2. GOOGLE BUSINESS PROFILE ACTIONS:\n- Changed primary category from 'Cafe' to 'Coffee Shop'\n- Added secondary categories: 'Coffee Roasters', 'Dessert Restaurant'\n- Uploaded 20 high-res photos of indoor seating, coffee menu, and workspace amenities\n\n3. REVIEW MANAGEMENT:\n- Current Rating: 4.5 Stars (480 reviews)\n- 30-Day Review Velocity: 24 new reviews\n- Response rate improved from 25% to 95% across all customer feedback",
+      successCriteria: [
+        "Canonical Master NAP defined and verified against legal business identity",
+        "Directory comparison matrix completed across at least 4 major map/directory platforms",
+        "All name variations, suite discrepancies, and duplicate listings documented with resolution steps",
+        "Google Business Profile categories and review response protocols audited with specific action items",
+      ],
+      portfolioReady: true,
+      decision: {
+        prompt:
+          "To rank higher for 'best coffee downtown', a store manager suggests changing the GBP business name from 'Blue Bottle Coffee' to 'Blue Bottle Coffee - Best Espresso & Pour Over Cafe Downtown'. What should you do?",
+        options: [
+          {
+            id: "opt-1",
+            label: "Approve the change because adding keywords directly to the business name boosts local relevance.",
+            correct: false,
+          },
+          {
+            id: "opt-2",
+            label: "Reject the change; keyword stuffing the GBP business name violates Google guidelines and risks immediate listing suspension.",
+            correct: true,
+          },
+          {
+            id: "opt-3",
+            label: "Add the keywords to the street address field instead.",
+            correct: false,
+          },
+        ],
+        explanation:
+          "Google strictly prohibits adding keywords or promotional phrases to business names on Google Business Profile. The name must match your real-world signage. Keyword stuffing is one of the most common causes of profile suspensions.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text: "Fix character-level NAP discrepancies across the top four primary platforms (Google, Apple Maps, Yelp, Bing) before investing in secondary citation aggregators. Maintain 100% exact-match consistency with physical storefront branding.",
+      },
+      commonMistakes: [
+        {
+          mistake: "Keyword stuffing the business name in Google Business Profile",
+          explanation: "Adding keywords like 'Best Plumber' or 'Top Cafe' to your official name violates Google terms and leads to hard profile suspensions.",
+        },
+        {
+          mistake: "Ignoring negative customer reviews or responding defensively",
+          explanation: "Public review responses are seen by all prospective customers. A polite, solution-oriented response restores customer trust, while defensive replies repel new visitors.",
+        },
+      ],
+      keyTakeaway:
+        "Local SEO success is built on clear, uncorrupted trust signals: exact NAP consistency across the web, a meticulously maintained Google Business Profile, and steady, responded-to customer reviews.",
+    },
+    {
+      id: "local-seo-landing-page-schema-rebuild",
+      tier: "core",
+      archetype: "rebuild",
+      title: "The Hyperlocal Hub: City Landing Page & LocalBusiness Schema Rebuild",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Rebuild an underperforming multi-location coworking landing page by architecting neighborhood-specific keyword headings, embedding structured LocalBusiness JSON-LD markup, crafting conversational voice-search FAQ copy, and establishing an automated review capture flow.",
+      companyId: "awfis-space-solutions",
+      scenario:
+        "Awfis Space Solutions (IPO on NSE/BSE, ₹2,928 Cr listing) operates over 200 flexible workspace centres across 18 Indian cities. To win competitive search queries like 'coworking space in Indiranagar Bangalore' and 'private office near me' against WeWork and local competitors, Awfis needs high-performing city and centre landing pages. Currently, their location pages use generic corporate text and lack structured schema, missing out on rich snippets and local 3-pack prominence.",
+      brief:
+        "Rebuild the complete on-page local architecture for a flagship centre: draft localized H1/H2 and meta copy, construct a valid LocalBusiness JSON-LD schema payload, write natural voice-search conversational FAQ copy, and design a post-tour review capture workflow.",
+      mode: "build",
+      conceptsCovered: [
+        "Structuring on-page local keyword and neighborhood signals",
+        "Implementing LocalBusiness JSON-LD structured data markup",
+        "Optimizing landing copy for voice search and near me queries",
+        "Designing an automated post-visit review acquisition system",
+      ],
+      skills: ["Local Landing Pages", "LocalBusiness Schema", "JSON-LD", "Voice Search SEO"],
+      keyQuestion:
+        "How do you build a local landing page that delivers both machine-readable structured data to search bots and frictionless conversion paths to nearby mobile searchers?",
+      prerequisites: [
+        "Basic understanding of HTML and JSON-LD syntax",
+        "Knowledge of local search intent and neighborhood geographic landmarks",
+      ],
+      terminology: [
+        {
+          term: "LocalBusiness Schema",
+          definition: "A structured data vocabulary (Schema.org) formatted in JSON-LD that provides search engines with explicit data about a business's address, geo-coordinates, opening hours, and price range.",
+        },
+        {
+          term: "Hyperlocal Content",
+          definition: "Web copy that references specific neighborhoods, nearby transit hubs, landmarks, and street intersections to signal deep geographical relevance to local search algorithms.",
+        },
+      ],
+      steps: [
+        {
+          stepId: "step-1-local-keyword-and-h1-architecture",
+          concept: "Structuring on-page local keyword and neighborhood signals",
+          lessonAnchor: "pillar-4-on-page-local-signals-and-citations",
+          theoryRecap:
+            "Dedicated location pages need explicit geographical signals in the Title Tag, H1, H2, and body copy. Mentioning specific neighborhoods, nearby metro stations, and driving landmarks proves to Google that the page is genuinely localized, not thin programmatic spam.",
+          question:
+            "How do you structure the title tag, meta description, H1, and neighborhood context for the Indiranagar, Bangalore coworking location to maximize local relevance?",
+          toolName: "Google Sheets",
+          where: "On-Page Local SEO Wireframe in Google Sheets.",
+          procedure: [
+            "Draft the Title Tag following the pattern: [Primary Service] in [Neighborhood, City] | [Brand]",
+            "Draft Meta Description under 155 characters with clear CTA, address reference, and local amenities",
+            "Structure H1 with explicit neighborhood naming ('Coworking Space in Indiranagar, Bangalore')",
+            "Add an H2 section detailing proximity to local landmarks (e.g. '200m from 100 Feet Road & Indiranagar Metro Station')",
+          ],
+          outputSample:
+            "LOCAL LANDING PAGE ON-PAGE ARCHITECTURE\n\n" +
+            "Title Tag (56 chars):\n" +
+            "  Coworking Space in Indiranagar, Bangalore | Awfis\n\n" +
+            "Meta Description (148 chars):\n" +
+            "  Flexible shared desks & private offices in Indiranagar, Bangalore. 200m from 100 Feet Road. High-speed Wi-Fi, meeting rooms & day passes. Book a tour!\n\n" +
+            "Heading Structure:\n" +
+            "  H1: Coworking Space in Indiranagar, Bangalore\n" +
+            "  H2: Premium Shared Desks & Private Cabins on 100 Feet Road\n" +
+            "  H2: Location & Commute: Steps from Indiranagar Metro Station\n" +
+            "  H2: Centre Amenities & Enterprise Meeting Facilities\n" +
+            "  H2: Frequently Asked Questions about Awfis Indiranagar\n\n" +
+            "Hyperlocal Context Copy:\n" +
+            "  'Located in the heart of East Bangalore's primary business hub, Awfis Indiranagar sits just off 100 Feet Road, a 3-minute walk from Indiranagar Metro Station (Purple Line). Surrounded by top cafes, banks, and tech startups, our centre provides seamless accessibility for teams from Koramangala, Domlur, and Whitefield.'",
+          healthy:
+            "Clear, natural inclusion of city, neighborhood, nearby transit, and local landmarks without artificial keyword repetition.",
+          unhealthy:
+            "Keyword-stuffed copy repeating 'cheap coworking space Bangalore coworking near me best coworking' with no real local transit or neighborhood information.",
+          interpret:
+            "Google's algorithms reward landing pages that provide genuine local utility. Referencing transit hubs and neighborhood landmarks validates physical proximity to local searchers.",
+          soWhat: [
+            {
+              symptom: "Location page ranks for branded terms but fails to appear for neighborhood queries",
+              action: "Add explicit neighborhood, metro station, and landmark references to H1, H2, and body copy",
+              effort: "30 min",
+            },
+            {
+              symptom: "Meta description exceeds 160 characters and truncates on mobile SERPs",
+              action: "Trim copy to 145-150 characters, ensuring the neighborhood and CTA remain front-loaded",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-localbusiness-schema-construction",
+          concept: "Implementing LocalBusiness JSON-LD structured data markup",
+          lessonAnchor: "pillar-4-on-page-local-signals-and-citations",
+          theoryRecap:
+            "LocalBusiness schema provides search engine crawlers with an unambiguous, machine-readable declaration of your business name, street address, geographic coordinates (latitude/longitude), telephone number, operating hours, and price range.",
+          question:
+            "Construct a validated JSON-LD LocalBusiness (CoworkingSpace) schema payload for the location containing full address, geo-coordinates, hours, and aggregate rating.",
+          toolName: "Google Search Console",
+          where: "Google Rich Results Test / Schema Markup Validator.",
+          procedure: [
+            "Set '@type' to specific LocalBusiness subtype 'CoworkingSpace' (or 'LocalBusiness' / 'OfficeEquipmentStore')",
+            "Populate 'name', 'url', 'telephone', and canonical 'image' URLs",
+            "Structure 'address' using PostalAddress format (streetAddress, addressLocality, addressRegion, postalCode, addressCountry)",
+            "Add exact 'geo' coordinates (latitude and longitude) matching the physical storefront entrance",
+            "Validate code using the Schema.org validator to ensure zero syntax or missing-field warnings",
+          ],
+          outputSample:
+            "LOCALBUSINESS JSON-LD SCHEMA PAYLOAD\n\n" +
+            "{\n" +
+            "  \"@context\": \"https://schema.org\",\n" +
+            "  \"@type\": \"LocalBusiness\",\n" +
+            "  \"name\": \"Awfis Space Solutions - Indiranagar\",\n" +
+            "  \"image\": \"https://www.awfis.com/assets/images/indiranagar-exterior.jpg\",\n" +
+            "  \"@id\": \"https://www.awfis.com/location/bangalore/indiranagar\",\n" +
+            "  \"url\": \"https://www.awfis.com/location/bangalore/indiranagar\",\n" +
+            "  \"telephone\": \"+91-80-6900-1234\",\n" +
+            "  \"priceRange\": \"₹₹\",\n" +
+            "  \"address\": {\n" +
+            "    \"@type\": \"PostalAddress\",\n" +
+            "    \"streetAddress\": \"777, 100 Feet Road, HAL 2nd Stage, Indiranagar\",\n" +
+            "    \"addressLocality\": \"Bengaluru\",\n" +
+            "    \"addressRegion\": \"Karnataka\",\n" +
+            "    \"postalCode\": \"560038\",\n" +
+            "    \"addressCountry\": \"IN\"\n" +
+            "  },\n" +
+            "  \"geo\": {\n" +
+            "    \"@type\": \"GeoCoordinates\",\n" +
+            "    \"latitude\": 12.9784,\n" +
+            "    \"longitude\": 77.6408\n" +
+            "  },\n" +
+            "  \"openingHoursSpecification\": [\n" +
+            "    {\n" +
+            "      \"@type\": \"OpeningHoursSpecification\",\n" +
+            "      \"dayOfWeek\": [\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\", \"Saturday\"],\n" +
+            "      \"opens\": \"08:00\",\n" +
+            "      \"closes\": \"20:00\"\n" +
+            "    }\n" +
+            "  ]\n" +
+            "}",
+          healthy:
+            "Clean, fully validated JSON-LD schema with zero errors in Google Rich Results Test, declaring exact geo-coordinates and address formatting.",
+          unhealthy:
+            "Deploying broken schema with missing postalCode or mismatched phone numbers that contradict on-page text.",
+          interpret:
+            "Structured data gives Google 100% confidence in your entity data. Matching geo-coordinates and NAP in schema directly reinforces Local Pack positioning.",
+          soWhat: [
+            {
+              symptom: "Schema validator returns an error on missing 'address' or 'telephone' fields",
+              action: "Add the required PostalAddress properties and re-test in the Rich Results Test tool",
+              effort: "5 min",
+            },
+            {
+              symptom: "Geo-coordinates point to general city center rather than actual building entrance",
+              action: "Extract precise latitude/longitude from Google Maps pinpoint and update schema payload",
+              effort: "5 min",
+            },
+          ],
+          owner: "developer",
+        },
+        {
+          stepId: "step-3-conversational-voice-faq-rebuild",
+          concept: "Optimizing landing copy for voice search and near me queries",
+          lessonAnchor: "voice-search-and-near-me-queries",
+          theoryRecap:
+            "Over 58% of consumers use voice queries weekly to find local businesses. Voice searches use complete conversational questions ('What is the nearest coworking space with parking open now?') rather than shorthand keywords. FAQ sections optimized with natural phrasing capture voice assistants and AI summary snippets.",
+          question:
+            "Draft a 4-question conversational FAQ section answering real voice and mobile search queries regarding parking, day passes, nearest metro access, and operating hours.",
+          toolName: "Google Docs",
+          where: "Google Docs FAQ Copy Draft.",
+          procedure: [
+            "Identify the top 4 operational questions asked by prospective visitors during site visits",
+            "Write question headings in natural, conversational spoken English",
+            "Provide direct, concise answers in the first sentence (under 35 words for voice assistant snippets)",
+            "Elaborate with practical details in secondary sentences",
+          ],
+          outputSample:
+            "CONVERSATIONAL VOICE & NEAR-ME FAQ SECTION\n\n" +
+            "Q1: Is parking available at Awfis Indiranagar on 100 Feet Road?\n" +
+            "A1: Yes, dedicated two-wheeler and four-wheeler basement parking is available on-site for members and day pass visitors. Additional paid parking is located 100 meters away along 100 Feet Road.\n\n" +
+            "Q2: How do I get to Awfis Indiranagar by Bangalore Metro?\n" +
+            "A2: Awfis Indiranagar is a 3-minute walk (250 meters) from Indiranagar Metro Station on the Purple Line. Take Exit A towards 100 Feet Road.\n\n" +
+            "Q3: Can I book a single day coworking pass in Indiranagar without a monthly contract?\n" +
+            "A3: Yes, flexible day passes can be booked instantly online or on arrival at reception, starting at ₹499/day including high-speed Wi-Fi and complimentary beverages.\n\n" +
+            "Q4: What are the opening hours for Awfis Indiranagar?\n" +
+            "A4: Awfis Indiranagar is open Monday through Saturday from 8:00 AM to 8:00 PM for regular members, with 24/7 keycard access available for dedicated enterprise cabin clients.",
+          healthy:
+            "Direct, concise answers that immediately answer spoken queries within the first 30 words, formatted with FAQPage structured data markup.",
+          unhealthy:
+            "Long, evasive answers requiring users to 'contact our sales team' to learn basic hours or parking availability.",
+          interpret:
+            "Voice assistants (Google Assistant, Siri) extract short, authoritative sentences as spoken answers. Front-loading direct facts secures featured snippets and voice results.",
+          soWhat: [
+            {
+              symptom: "FAQ answers are vague and fail to provide exact numbers or pricing",
+              action: "Rewrite first sentence of each FAQ answer with specific figures, meters, and hours",
+              effort: "15 min",
+            },
+            {
+              symptom: "Competitor captures the Google AI Overview snippet for 'coworking with parking Indiranagar'",
+              action: "Refine FAQ question heading to match the exact phrasing and add FAQ schema markup",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-4-post-service-review-engine",
+          concept: "Designing an automated post-visit review acquisition system",
+          lessonAnchor: "pillar-3-reviews",
+          theoryRecap:
+            "Review volume and recency are decisive local ranking signals. Designing an automated post-visit follow-up sequence via WhatsApp or SMS delivers a steady flow of verified customer reviews, keeping profile velocity ahead of local competitors.",
+          question:
+            "How do you configure a 2-step post-tour review capture sequence that sends a direct Google review link within 2 hours of a completed workspace visit?",
+          toolName: "Google Sheets",
+          where: "Review Automation Workflow in Google Sheets.",
+          procedure: [
+            "Generate a direct Google Review shortlink from the GBP dashboard ('Ask for reviews')",
+            "Trigger an automated follow-up message 2 hours after a visitor completes a centre tour or day-pass checkout",
+            "Draft a 2-sentence frictionless message thanking them and providing the 1-click review link",
+            "Set up internal alerting to notify the community manager whenever a new review is posted",
+          ],
+          outputSample:
+            "POST-VISIT REVIEW AUTOMATION SEQUENCE\n\n" +
+            "Trigger: Day Pass Checkout OR Tour Completed in CRM\n" +
+            "Delay: +2 Hours Post-Visit\n" +
+            "Channel: WhatsApp / SMS\n\n" +
+            "Message Specimen:\n" +
+            "\"Hi [First Name], thanks for working with us today at Awfis Indiranagar! If you enjoyed the workspace and coffee, could you take 30 seconds to share your experience on Google? It helps other local founders find us: [g.page/r/direct-review-link] - Team Awfis\"\n\n" +
+            "Conversion Metrics (30-Day Pilot):\n" +
+            "- Messages Sent: 140\n" +
+            "- Link Clicks: 58 (41.4% CTR)\n" +
+            "- New Reviews Logged: 32 (22.8% Conversion Rate)\n" +
+            "- Average Star Rating: 4.8 Stars\n" +
+            "- Community Manager Response Time: < 4 Hours across all reviews",
+          healthy:
+            "Automated, timed requests sent while the positive experience is fresh, yielding a continuous stream of authentic 5-star reviews.",
+          unhealthy:
+            "Relying on staff to remember to ask in person, resulting in sporadic review bursts followed by months of zero review activity.",
+          interpret:
+            "A predictable review engine protects rankings from natural decay and consistently signals to Google that the location is active, popular, and trusted by the community.",
+          soWhat: [
+            {
+              symptom: "Review conversion rate drops below 10%",
+              action: "Shorten message text and test sending via WhatsApp rather than email",
+              effort: "15 min",
+            },
+            {
+              symptom: "Customer leaves a 3-star review citing Wi-Fi speed during peak hours",
+              action: "Community manager responds within 2 hours and upgrades bandwidth in that specific zone",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "On-page content wireframe and review automation workflow design",
+            why: "Organizes heading hierarchy, metadata limits, and CRM trigger timing in one shared sheet.",
+            required: true,
+            lastVerified: "2026-08-16",
+          },
+          {
+            toolName: "Google Search Console",
+            role: "Structured data validation and mobile usability testing",
+            why: "Free testing tool to verify LocalBusiness JSON-LD markup and indexation status.",
+            required: true,
+            lastVerified: "2026-08-16",
+          },
+          {
+            toolName: "Google Docs",
+            role: "Drafting conversational voice-search FAQ copy",
+            why: "Enables precise word count tracking and collaborative review of customer-facing copy.",
+            required: true,
+            lastVerified: "2026-08-16",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Screaming Frog SEO Spider",
+            role: "Crawl inspection and schema syntax validation across 200+ location pages",
+            why: "Automates bulk extraction of JSON-LD data and missing heading tags across multi-location websites.",
+            required: false,
+            lastVerified: "2026-08-16",
+          },
+        ],
+        paidUpgradeNote: "Google's Rich Results Test and manual page inspection provide full free validation; Screaming Frog or Sitebulb is recommended for scaling audits across 50+ store locations.",
+      },
+      deliverable:
+        "A complete Local Landing Page Rebuild Blueprint: localized heading & meta architecture, validated LocalBusiness JSON-LD schema payload, voice-search conversational FAQ copy, and an automated review capture workflow.",
+      sampleOutput:
+        "HYPERLOCAL LANDING PAGE BLUEPRINT\nLocation: WeWork Galaxy, Residency Road, Bangalore\n\n1. ON-PAGE TARGETING:\n- Title: Coworking Space on Residency Road, Bangalore | WeWork Galaxy\n- H1: Shared Office Space & Coworking on Residency Road, Bangalore\n- Landmark Reference: 400m from MG Road Metro, opposite Mayo Hall\n\n2. STRUCTURED DATA PAYLOAD:\n- Schema Type: LocalBusiness (CoworkingSpace)\n- GeoCoordinates: lat 12.9719, long 77.6070\n- Opening Hours: Mon-Sat 08:00 - 20:00\n- Status: Validated with 0 errors in Google Rich Results Test\n\n3. CONVERSATIONAL VOICE FAQ:\n- Covers: Valet parking, Metro Purple Line exit, Day pass instant booking, Meeting room credits\n\n4. REVIEW VELOCITY SYSTEM:\n- Automated SMS/WhatsApp trigger 3 hours post-tour\n- Expected monthly review run-rate: 20-25 verified local reviews",
+      successCriteria: [
+        "Localized Title, Meta, and H1/H2 architecture with explicit neighborhood and transit references",
+        "Valid LocalBusiness JSON-LD schema payload with exact geo-coordinates and PostalAddress fields",
+        "Four conversational voice-search FAQ pairs with concise direct-answer lead sentences",
+        "Automated post-visit review acquisition sequence designed with specific timing and copy",
+      ],
+      portfolioReady: true,
+      decision: {
+        prompt:
+          "You manage 20 coworking locations across 5 cities. Should you use a single shared template with swapped city names, or customize each page with distinct neighborhood and transit content?",
+        options: [
+          {
+            id: "opt-1",
+            label: "Use identical copy across all 20 pages, only replacing the city name in the H1 to save time.",
+            correct: false,
+          },
+          {
+            id: "opt-2",
+            label: "Customize each page with unique neighborhood landmarks, nearby transit stations, specific photos, and localized FAQ answers.",
+            correct: true,
+          },
+          {
+            id: "opt-3",
+            label: "Create no location pages and redirect all local queries to the homepage.",
+            correct: false,
+          },
+        ],
+        explanation:
+          "Google's helpful content systems penalize thin programmatic 'doorway pages' that swap only city names. Truly localized pages with unique transit directions, neighborhood context, and real location photography rank significantly higher in local search.",
+      },
+      professionalRecommendation: {
+        priority: "High",
+        text: "Embed valid LocalBusiness JSON-LD schema on every physical location landing page and link it directly to your verified Google Business Profile. Treat each city centre as an autonomous local search entity.",
+      },
+      commonMistakes: [
+        {
+          mistake: "Creating duplicate doorway pages with only the city name changed",
+          explanation: "Search engines detect template spam and demote all location pages. Every location page must feature unique transit guidance, neighborhood context, and real photos.",
+        },
+        {
+          mistake: "Omitting geo-coordinates from LocalBusiness schema",
+          explanation: "Latitude and longitude coordinates provide unambiguous mathematical confirmation of your storefront location to Google Maps algorithms.",
+        },
+      ],
+      keyTakeaway:
+        "Winning local organic search requires bridging human and machine signals: rich, neighborhood-specific on-page copy for searchers, paired with validated JSON-LD schema and consistent citations for search engines.",
+    },
+  ],
+
+  "reddit-forum-seo": [
+    {
+      id: "reddit-forum-seo-serp-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "High-Intent Forum SERP Opportunity Audit: Uncovering Community Search Footprints",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Audit 10 high-intent commercial and comparison search queries in your SaaS category, map which Reddit threads and community forums rank on Google page one, evaluate competitor visibility within those discussions, and prioritize actionable, value-first response targets under the 9:1 community rule.",
+      companyId: "slack",
+      scenario:
+        "You are an SEO and Community Growth Strategist at Slack (Salesforce). Following Google's Helpful Content Updates and multi-million dollar AI licensing deals with Reddit, leadership noticed that traditional product landing pages are being outranked on Google page one by Reddit threads for queries like 'Slack vs Microsoft Teams for startups', 'best async communication tools', and 'Slack pricing worth it'. You have been assigned to audit these high-impact SERPs, assess where competitors are mentioned, and prioritize high-leverage community participation targets.",
+      brief:
+        "Conduct a 3-step diagnostic audit in Google Sheets: isolate search queries with community intent modifiers, audit the top-ranking Reddit/forum threads for competitor presence and engagement health, and build a moderation-safe 9:1 engagement response plan.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Which Queries Surface Reddit Results",
+        "Getting Your Brand Mentioned in High-Ranking Threads",
+        "Building Presence Without Getting Banned",
+      ],
+      steps: [
+        {
+          stepId: "step-1-query-intent-discovery",
+          concept: "Which Queries Surface Reddit Results",
+          lessonAnchor: "which-queries-surface-reddit-results",
+          theoryRecap:
+            "The lesson highlights that Reddit dominates SERPs for intent signals of lived experience: 'best X for Y', 'X vs Y', 'is X worth it', 'X experiences', and 'X review', where Google prioritizes first-person human consensus over corporate product landing pages.",
+          question:
+            "Which 10 high-intent search queries in your SaaS category trigger page-one Reddit or community forum results, and what proportion of page-one real estate do community threads occupy vs traditional landing pages?",
+          toolName: "Google Sheets",
+          where:
+            "Open a spreadsheet and create columns: Target Keyword, Query Intent Modifier, Page 1 Forum Presence (Yes/No), Forum URL Ranking Position, and Forum Domain (Reddit / Quora / HN).",
+          procedure: [
+            "List 10 commercial, comparison, and review keywords relevant to your product category in Column A",
+            "Run Google searches in an incognito window for each keyword and check for Reddit/forum discussions in top 10 results",
+            "Run 'site:reddit.com [keyword]' queries to verify if dedicated high-karma threads exist for terms that don't yet rank on page one",
+            "Record the exact ranking position (1-10) and URL of every forum result appearing on page one",
+          ],
+          outputSample:
+            "NOTION COMMUNITY SERP AUDIT (Sample Rows):\n" +
+            "1. 'Notion vs Obsidian for project management' -> Page 1 Pos #2 | r/Notion & Pos #4 | r/ObsidianMD\n" +
+            "2. 'Is Notion worth it for small teams' -> Page 1 Pos #1 | r/productivity\n" +
+            "3. 'Best workspace software for engineering' -> Page 1 Pos #3 | r/softwarearchitecture\n" +
+            "4. 'Notion alternatives open source' -> Page 1 Pos #2 | r/selfhosted\n" +
+            "5. 'Notion pricing team review' -> Page 1 Pos #5 | r/startups",
+          healthy:
+            "Identifying 3–5 high-ranking forum threads occupying top-5 SERP positions where organic user discussions determine product evaluation.",
+          unhealthy:
+            "Assuming corporate landing pages can outrank community threads for 'best X for Y' or 'X vs Y' queries without checking live SERP composition.",
+          interpret:
+            "When Google ranks 2-3 forum threads on page one for a commercial term, the search algorithm has determined that users demand unfiltered peer opinions. Participating in ranking threads captures searchers that landing pages cannot reach.",
+          soWhat: [
+            {
+              symptom:
+                "Competitor mentions dominate the top 3 Google results because their users actively participate in ranking Reddit threads",
+              action:
+                "Prioritize contributing objective, in-depth comparison insights to existing ranking threads rather than building another unranked blog post",
+              effort: "30 min",
+            },
+            {
+              symptom:
+                "Paid search CPCs are rising ($12-$18/click) for comparison keywords while organic forum threads capture 40%+ of clicks",
+              action:
+                "Reallocate 15% of demand gen time from paid ad tweaks to organic community presence in ranking subreddits",
+              effort: "half day",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-thread-footprint-analysis",
+          concept: "Getting Your Brand Mentioned in High-Ranking Threads",
+          lessonAnchor: "getting-your-brand-mentioned-in-high-ranking-threads",
+          theoryRecap:
+            "The lesson teaches that an unprompted, positive mention in an existing thread already ranking on Google page one delivers higher ROI and durability than creating a new standalone promotional post that struggles to rank.",
+          question:
+            "Across the ranking threads identified, which competitors are currently recommended, what is the sentiment toward your brand, and which threads represent high-leverage opportunities for value-add contributions?",
+          toolName: "Reddit",
+          where:
+            "Inspect each ranking thread directly on Reddit, analyzing comment volume, upvote distributions, brand sentiment, and moderator activity.",
+          procedure: [
+            "Open each ranking thread and record Total Upvotes, Comment Count, and Age of the thread (months active)",
+            "Catalog which competitor brands are explicitly named in the top 3 parent comments",
+            "Assess current brand sentiment (Positive / Neutral / Negative / Absent) in the discussion",
+            "Flag high-leverage threads: threads with 50+ upvotes, active within the last 12 months, where your brand is unrepresented or misrepresented",
+          ],
+          outputSample:
+            "THREAD FOOTPRINT ANALYSIS (Sample):\n" +
+            "- Thread: 'Best tool to replace Jira + Confluence for a 20-person startup?' (r/startups)\n" +
+            "  * Rank: Google #2 | Upvotes: 142 | Comments: 68 | Age: 9 months\n" +
+            "  * Competitors Mentioned: Linear (Top comment, 89 upvotes), ClickUp (Mentioned, mixed sentiment)\n" +
+            "  * Brand Status: Notion mentioned briefly for documentation, but missing for task sprint workflows\n" +
+            "  * Opportunity Tier: Tier 1 High Leverage — clear gap to explain hybrid wiki/sprint database setup without hard-selling.",
+          healthy:
+            "Focusing effort on threads with verified page-one rankings, high search stability, and open opportunities to provide structured technical clarity.",
+          unhealthy:
+            "Creating 20 new promotional Reddit threads from a brand account that get 0 upvotes and get purged by automoderators within minutes.",
+          interpret:
+            "Google and AI models treat top-voted Reddit comments as definitive consensus. Influencing the narrative in 3 existing ranking threads yields greater search and AI citation visibility than writing 10 new blog posts.",
+          soWhat: [
+            {
+              symptom:
+                "A negative or inaccurate comment about your product's pricing or feature set has 40+ upvotes in a page-one ranking thread",
+              action:
+                "Post a polite, transparent clarification addressing the specific technical limitation or recent product update with zero sales spin",
+              effort: "30 min",
+            },
+            {
+              symptom:
+                "Competitor is universally praised in a top thread while your solution is omitted entirely",
+              action:
+                "Provide a balanced breakdown detailing specific use cases where each tool excels, positioning your strengths objectively",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-moderation-safety-protocol",
+          concept: "Building Presence Without Getting Banned",
+          lessonAnchor: "building-presence-without-getting-banned",
+          theoryRecap:
+            "The lesson establishes the 9:1 community rule: contribute nine genuine, non-promotional answers for every one mention of your product. Moderators and community members spot low-effort astroturfing instantly, leading to permanent bans and domain blacklisting.",
+          question:
+            "How do you structure your community profile, karma-building cadence, and response framework so that contributions survive moderation, gain upvotes, and protect domain reputation?",
+          toolName: "Reddit",
+          where:
+            "Review target subreddit rules (sidebar/wiki) and establish a 14-day contribution queue in Google Sheets before any brand mention.",
+          procedure: [
+            "Check the sidebar rules of each target subreddit (e.g. r/sysadmin, r/devops, r/productivity) for self-promotion policies and karma requirements",
+            "Establish a 14-day 'listening & answering' calendar with 9 non-branded, purely helpful technical answers in target communities",
+            "Draft a response framework for your 1-in-10 brand mention: disclose affiliation transparently, state 'I work on X / we built X to solve Y', and provide a complete standalone answer that requires no link click",
+            "Verify that zero affiliate parameters, tracking UTMs, or URL shorteners are included in forum comments",
+          ],
+          outputSample:
+            "9:1 VALUE-FIRST RESPONSE BRIEF (Sample):\n" +
+            "- Subreddit: r/productivity (Rule 4: No unsolicited affiliate or promotional links)\n" +
+            "- Pre-Engagement: 9 helpful troubleshooting comments on database relations and markdown shortcuts completed\n" +
+            "- Target Thread: 'How do you organize client deliverables alongside internal notes?'\n" +
+            "- Response Draft: Transparent affiliation ('I work on Notion templates for agencies'), 4-bullet step-by-step setup guide explaining database rollups directly in Markdown text, 0 external links attached.\n" +
+            "- Compliance Check: 100% compliant with Subreddit Rule 4, transparent, zero link spam.",
+          healthy:
+            "Every response provides complete, standalone value within the Reddit interface without forcing users to leave the platform.",
+          unhealthy:
+            "Dropping tracked marketing links or copy-pasting canned corporate press releases into technical community threads.",
+          interpret:
+            "Community members upvote detailed, authentic explanations from practitioners. Transparent self-disclosure combined with generous problem-solving creates lasting brand advocates and protects domain trust.",
+          soWhat: [
+            {
+              symptom:
+                "A junior marketer plans to drop UTM-tagged links in 15 Reddit threads to track referral clicks in Google Analytics",
+              action:
+                "Enforce clean text responses with zero tracking parameters; track forum SEO impact via branded search lift and Brand Radar mentions instead",
+              effort: "5 min",
+            },
+            {
+              symptom:
+                "Moderators remove a comment for perceived promotional intent",
+              action:
+                "Send a respectful modmail acknowledging the policy, ask for feedback, and pivot that account to 100% non-promotional support for 30 days",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Audit spreadsheet to track query intent modifiers, ranking forum URLs, competitor presence, and response prioritization",
+            why: "Provides structured tracking for SERP forum audits",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Reddit",
+            role: "Direct subreddit inspection to evaluate community size, rules, active discussions, and moderation guidelines",
+            why: "Primary platform for reviewing live community discussions and subreddit policies",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "GummySearch",
+            role: "Automated subreddit keyword discovery, conversation tracking, and audience pain point clustering",
+            why: "Accelerates identification of high-intent discussions across multiple subreddits",
+            required: false,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Brand24",
+            role: "Real-time forum and social listening to track brand and competitor mentions across Reddit and Quora",
+            why: "Alerts when brand or competitors are mentioned in newly ranking threads",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+      },
+      deliverable:
+        "A completed 3-stage Google Sheet auditing 10 target queries, ranking forum URLs, competitor mention status, subreddit health metrics, and prioritized 9:1 response briefs.",
+      sampleOutput:
+        "COMMUNITY SERP AUDIT & RESPONSE MATRIX (Notion Diagnostic Summary):\n\n" +
+        "1. SERP DISCOVERY (10 Queries Audited):\n" +
+        "   - 'Notion vs Obsidian for knowledge base' -> Google #1: r/Notion (240 upvotes) | Google #3: r/ObsidianMD (180 upvotes)\n" +
+        "   - 'Best project management tool for small agencies' -> Google #2: r/agency (95 upvotes, Asana dominant)\n" +
+        "   - 'Is Notion slow with large databases' -> Google #1: r/Notion (310 upvotes, critical sentiment)\n" +
+        "   - 'Notion vs Monday for sprint tracking' -> Google #2: r/projectmanagement (115 upvotes, mixed)\n" +
+        "   - 'Best note taking app 2026' -> Google #3: r/productivity (520 upvotes, top 5 recommendations)\n\n" +
+        "2. COMPETITOR FOOTPRINT & SENTIMENT:\n" +
+        "   - Linear: Praised for speed in developer subreddits (r/webdev, r/reactjs)\n" +
+        "   - ClickUp: Criticized for feature bloat and UI lag in r/startups\n" +
+        "   - Notion: Loved for flexible documentation, criticized for database load latency on mobile\n\n" +
+        "3. 9:1 PARTICIPATION QUEUE:\n" +
+        "   - 9 value-first comments answering Markdown nesting, database relation syntax, and formula debugging\n" +
+        "   - 1 transparent response addressing database speed optimization techniques with zero product pitch links\n" +
+        "   - Result: 48 net upvotes, 0 moderation flags, comment indexed in Google AI Overviews snippet within 14 days.",
+      successCriteria: [
+        "10 high-intent search queries audited with exact Google SERP ranking positions for Reddit and forum threads",
+        "Competitor mention footprint, thread engagement metrics, and sentiment categorized across all ranking threads",
+        "9:1 value-first community participation plan drafted with strict adherence to subreddit moderation guidelines and zero tracking links",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "reddit-forum-seo-community-teardown",
+      tier: "core",
+      archetype: "teardown",
+      title: "The Community Outreach Teardown: Astroturfing Traps vs. Authentic Authority",
+      timeEstimate: "35 minutes",
+      timeMinutes: 35,
+      objective:
+        "Evaluate 3 realistic forum outreach specimens (a comparison comment draft, a standalone community announcement, and an AMA pitch) across community guidelines, intent matching, moderation risk, and AI citation durability, isolating genuine defects from harmless stylistic choices.",
+      companyId: "freshworks",
+      scenario:
+        "You are the Head of Organic Growth and Community SEO at Freshworks (FRSH). An external agency has drafted three community outreach assets intended to improve Freshworks and Freshdesk visibility across Reddit, Hacker News, and Quora for high-volume customer support queries. Before any content is deployed, you must audit each specimen for astroturfing triggers, self-promotion rule violations, link spam, and intent mismatch that could trigger permanent subreddit bans or negative brand sentiment.",
+      brief:
+        "Teardown 3 outreach specimens: analyze a comparison response comment in r/msp, a standalone product post in r/sysadmin, and a cross-forum syndication proposal. Grade each defect by severity (critical, moderate, cosmetic), explain the exact algorithmic and community consequences, and identify distractors.",
+      mode: "teardown",
+      conceptsCovered: [
+        "Building Presence Without Getting Banned",
+        "Getting Your Brand Mentioned in High-Ranking Threads",
+        "The AI Search Multiplier",
+        "Beyond Reddit: Which Forums Actually Move the Needle",
+      ],
+      teardownItems: [
+        {
+          itemId: "freshworks-reddit-comparison-comment-teardown",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "TARGET THREAD: 'Zendesk price increase is forcing us to switch. What helpdesk software is actually good in 2026?' (r/msp — 184 upvotes, Google Rank #1 for 'Zendesk alternatives reddit')\n\n" +
+            "PROPOSED COMMENT DRAFT (from agency account 'IT_Pro_Guru99', account created 3 days ago, 4 total karma):\n" +
+            "'Hey everyone! We had the exact same issue with Zendesk charging insane per-agent prices. We switched our 40-person team to Freshdesk and saved 60% immediately. The AI ticketing and omnichannel inbox are lightyears ahead of Zendesk. Check out their special migration discount here: https://freshdesk.com/switch-from-zendesk?utm_source=reddit&utm_medium=community&utm_campaign=q1_promo. You can get 20% off with promo code REDDIT20! Let me know if anyone wants a demo link.'",
+          prompt:
+            "Which elements of this comment are critical community and SEO defects that will cause moderation deletion, account banning, or negative brand backlash, and which are non-defects?",
+          answerKey: [
+            {
+              defect:
+                "Fake third-party persona ('IT_Pro_Guru99' with 4 karma) astroturfing as an impartial customer without transparent brand disclosure",
+              severity: "critical",
+              whyItMatters:
+                "Astroturfing violates Reddit's sitewide User Agreement and r/msp community rules. Moderators quickly detect fresh low-karma accounts posting glowing testimonials, resulting in an instant permaban, thread comment removal, and potential blacklisting of the freshdesk.com domain.",
+              lessonRef:
+                "Building Presence Without Getting Banned: astroturfing risk vastly outweighs short-term gain and damages brand reputation permanently",
+              owner: "you",
+            },
+            {
+              defect:
+                "Inclusion of commercial promo codes and UTM tracking parameters in the URL",
+              severity: "critical",
+              whyItMatters:
+                "UTM parameters and discount codes are definitive signals of paid marketing and affiliate spam. Automoderator bots strip comments containing promotional query strings, preventing the comment from indexing in search or reaching AI models.",
+              lessonRef:
+                "Building Presence Without Getting Banned: communities spot low-effort self-promotion and bans follow",
+              owner: "you",
+            },
+            {
+              defect:
+                "Offering a sales demo link in a technical peer discussion thread",
+              severity: "moderate",
+              whyItMatters:
+                "Community members seek technical migration advice, feature comparisons, and honest trade-offs, not a sales call CTA. A pitch CTA triggers downvotes, pushing the comment below the fold and signaling low helpfulness to AI scraping bots.",
+              lessonRef:
+                "Getting Your Brand Mentioned in High-Ranking Threads: contribute thorough, helpful answers rather than sales recommendations",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Mentioning a specific 60% cost savings estimate, citing real numbers and cost comparisons is encouraged in B2B forum discussions if backed by legitimate tier comparisons",
+            "Comparing Freshdesk directly against Zendesk, directly comparing features is standard and expected in a thread specifically titled 'Zendesk alternatives'",
+            "Commenting on an older thread ranking #1 on Google, contributing value to existing ranking threads is the highest-leverage tactic in forum SEO",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "freshworks-reddit-standalone-post-teardown",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "TARGET SUBREDDIT: r/sysadmin (920k members, strict Rule 4: No vendor self-promotion outside official vendor threads)\n\n" +
+            "PROPOSED STANDALONE POST DRAFT:\n" +
+            "- Title: 'Why Legacy ITSM Tools Are Dying and How Modern AI Service Desks Are Taking Over'\n" +
+            "- Post Body: A 600-word essay detailing IT ticket fatigue, mentioning Freshservice 7 times as the premier modern ITSM solution, contrasting it with ServiceNow, and concluding with a link to Freshworks' 2026 State of IT Service Management Whitepaper (gated PDF requiring business email).\n" +
+            "- Author: Official 'Freshworks_Team' verified corporate account.\n" +
+            "- Timing: Posted at 9 AM EST on Tuesday morning.",
+          prompt:
+            "Identify the core structural and strategic defects in this standalone subreddit post proposal.",
+          answerKey: [
+            {
+              defect:
+                "Publishing a standalone promotional blog post in a subreddit with strict no-vendor-content rules (r/sysadmin Rule 4)",
+              severity: "critical",
+              whyItMatters:
+                "r/sysadmin strictly prohibits uninvited vendor content and thought leadership essays. The post will be deleted by moderators within 15 minutes, the corporate account flagged, and brand goodwill among 900k IT decision-makers burned.",
+              lessonRef:
+                "Building Presence Without Getting Banned: small communities have low traffic and dead subreddits rank poorly, but strict communities strictly enforce anti-promo rules",
+              owner: "you",
+            },
+            {
+              defect:
+                "Linking to a gated lead-generation whitepaper requiring a corporate email",
+              severity: "critical",
+              whyItMatters:
+                "Reddit communities despise gated lead magnets. Posts requiring email signups are considered spam by Reddit users and moderators alike, earning 0% upvotes and zero organic search longevity.",
+              lessonRef:
+                "Why Reddit Ate the SERPs: real human discourse with no affiliate links or lead-gen barriers is what Google rewards",
+              owner: "you",
+            },
+            {
+              defect:
+                "Creating a standalone new thread instead of answering questions in ranking threads or hosting an official sanctioned AMA",
+              severity: "moderate",
+              whyItMatters:
+                "Standalone brand posts rarely earn organic upvotes to reach Google's first page on their own. Participating in established, high-ranking threads or coordinating an official AMA with moderators achieves 10x higher organic visibility.",
+              lessonRef:
+                "Getting Your Brand Mentioned in High-Ranking Threads: an unprompted mention in a thread already ranking on page one is worth more than a new thread you create yourself",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Posting at 9 AM EST on a Tuesday, Tuesday morning is a peak engagement time for B2B tech communities",
+            "Contrasting modern ITSM solutions with ServiceNow, comparing enterprise tools is a relevant topic for IT professionals when executed objectively",
+            "Using a verified corporate account, brand transparency is required by Reddit guidelines; the defect is the promotional format and rule violation, not the account transparency",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "freshworks-cross-forum-syndication-teardown",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "CROSS-FORUM SYNDICATION PROPOSAL:\n" +
+            "- Plan: Take the same 300-word response text about 'How to automate tier-1 customer support tickets' and copy-paste it across Quora, Hacker News (Ask HN), and Reddit (r/CustomerSuccess) within the same 24-hour period.\n" +
+            "- Content: Includes 2 paragraph explanation of webhook automation, 1 mention of Freshdesk's Freddy AI with a link to the product documentation, and a footer: 'Written by Freshworks Product Marketing'.\n" +
+            "- Target Queries: 'automate customer support tickets', 'best AI helpdesk bot 2026'.",
+          prompt:
+            "What platform-mismatch and forum SEO defects exist in this cross-forum syndication strategy?",
+          answerKey: [
+            {
+              defect:
+                "Copy-pasting identical response text across fundamentally different forum platforms (Hacker News vs Quora vs Reddit)",
+              severity: "critical",
+              whyItMatters:
+                "Each platform has distinct community norms and query intents (Quora rewards educational how-tos; HN requires deep technical engineering nuances; Reddit demands informal peer candor). Identical cross-posting triggers spam filters and algorithmic duplicate penalties across search engines.",
+              lessonRef:
+                "Beyond Reddit: Which Forums Actually Move the Needle: prioritize the platform where your buyers have discussions; a presence spread thin or copy-pasted is weak",
+              owner: "you",
+            },
+            {
+              defect:
+                "Posting product marketing copy to Hacker News (Ask HN) without deep code or architectural substance",
+              severity: "critical",
+              whyItMatters:
+                "Hacker News readers are senior engineers and founders who immediately flag and 'dead' (shadow-ban) marketing-led answers. HN posts only succeed with open-source examples, architecture teardowns, or technical implementation details.",
+              lessonRef:
+                "Beyond Reddit: Which Forums Actually Move the Needle: Hacker News surfaces for technical and developer-adjacent searches with high domain authority",
+              owner: "you",
+            },
+            {
+              defect:
+                "Adding corporate boilerplate signature ('Written by Product Marketing') to forum comments",
+              severity: "moderate",
+              whyItMatters:
+                "Corporate email signatures and department tags feel robotic and out of place in community forums. It signals automated marketing distribution rather than an authentic practitioner sharing domain experience.",
+              lessonRef:
+                "The AI Search Multiplier: forum mentions tell AI systems who you are; authenticity is what survives moderation and creates training signal",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Linking to technical product documentation instead of a landing page, linking to un-gated technical docs that directly answer a user's question is accepted in developer/IT communities",
+            "Targeting 'automate customer support tickets' query intent, targeting how-to and automation queries on Quora aligns with search intent",
+            "Disclosing brand affiliation, transparent affiliation disclosure is required; the defect is the corporate signature format and identical copy-pasting",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Scorecard to evaluate outreach specimens against subreddit rules, intent matching, and astroturfing flags",
+            why: "Standard format for community moderation review",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Reddit",
+            role: "Reference platform rules and subreddit-specific wiki/sidebar policies",
+            why: "Enables verification against live community standards",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Brand24",
+            role: "Monitor sentiment and brand safety across forum mentions",
+            why: "Tracks community perception post-engagement",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+      },
+      deliverable:
+        "A categorized teardown assessment scoring each outreach specimen across community guidelines compliance, trust signals, moderation safety, and AI citation durability.",
+      sampleOutput:
+        "COMMUNITY OUTREACH TEARDOWN SCORECARD (Zapier Sample Review):\n\n" +
+        "1. SPECIMEN 1 (r/automation Comparison Comment):\n" +
+        "   - Status: REJECTED (Critical Astroturfing Defect)\n" +
+        "   - Findings: Unattributed agency account posting affiliate link disguised as personal recommendation.\n" +
+        "   - Remediation: Replace with verified Zapier Community Champion account sharing exact multi-step webhook architecture without tracking links.\n\n" +
+        "2. SPECIMEN 2 (r/nocode Standalone Announcement Post):\n" +
+        "   - Status: REJECTED (Rule Violation)\n" +
+        "   - Findings: Gated PDF whitepaper link violates community Rule 2 ('No lead magnets').\n" +
+        "   - Remediation: Publish the entire 5-step automation tutorial in native Markdown with embedded code snippets directly in the post body.\n\n" +
+        "3. SPECIMEN 3 (Cross-Platform Hacker News Syndication):\n" +
+        "   - Status: REJECTED (Platform Mismatch)\n" +
+        "   - Findings: Marketing copy flagged by HN spam filters; lacked API payload examples.\n" +
+        "   - Remediation: Author dedicated engineering teardown explaining retry-logic architecture for webhooks on Hacker News.",
+      successCriteria: [
+        "Identified all critical astroturfing, promotional link, and platform mismatch defects across 3 forum outreach specimens",
+        "Accurately distinguished real community and SEO violations from non-defects and allowable practices",
+        "Mapped each defect to its specific consequence on search ranking, moderation action, and AI citation eligibility",
+      ],
+      portfolioReady: true,
+    },
+  ],
 };

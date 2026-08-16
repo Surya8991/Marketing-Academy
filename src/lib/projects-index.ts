@@ -520,6 +520,40 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "original-research-survey-bias-teardown",
+    "category": "content",
+    "lessonSlug": "original-research-content",
+    "lessonTitle": "Original Research as Content: The Link Magnet Strategy",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Survey Methodology Teardown: Catching Bias and Flawed Data Before Publication",
+    "timeMinutes": 20,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Designing a Survey That Produces Citable Stats",
+      "Why Original Research Wins"
+    ]
+  },
+  {
+    "id": "original-research-link-magnet-blueprint",
+    "category": "content",
+    "lessonSlug": "original-research-content",
+    "lessonTitle": "Original Research as Content: The Link Magnet Strategy",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The Link Magnet Blueprint: Designing an Annual Benchmark Study & 4-Week Distribution Engine",
+    "timeMinutes": 45,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "4 Research Formats Worth Building",
+      "Designing a Survey That Produces Citable Stats",
+      "The Tool Stack",
+      "Distribution Playbook"
+    ]
+  },
+  {
     "id": "copywriting-101-landing-copy-teardown",
     "category": "copywriting",
     "lessonSlug": "copywriting-101",
@@ -1011,6 +1045,214 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
       "Ad Group / Ad Set level: one keyword theme per group (The Full Campaign Structure)",
       "Ad level: run at least 2 ads per group to compare (The Full Campaign Structure)",
       "Mistake 2: starting with too broad a target before narrowing"
+    ]
+  },
+  {
+    "id": "digital-pr-link-building-pitch-teardown",
+    "category": "pr-communications",
+    "lessonSlug": "digital-pr-link-building",
+    "lessonTitle": "Digital PR: Earning Links Through Coverage, Not Outreach Spam",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Digital PR Pitch Teardown: Spotting Unearned Requests, Spam Signals, and Beat Mismatches",
+    "timeMinutes": 25,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Newsworthy Hook Evaluation",
+      "Journalist Beat Matching",
+      "Pitch Structure & Deliverability"
+    ]
+  },
+  {
+    "id": "digital-pr-link-building-campaign-architecture",
+    "category": "pr-communications",
+    "lessonSlug": "digital-pr-link-building",
+    "lessonTitle": "Digital PR: Earning Links Through Coverage, Not Outreach Spam",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Digital PR Campaign Blueprint: Building a Data Hook, Media Target List, and Journalist Asset Pack",
+    "timeMinutes": 50,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Newsworthy Hook Extraction",
+      "Journalist Beat Segmentation",
+      "Embargo Pitch Drafting",
+      "PR-SEO Impact Measurement"
+    ]
+  },
+  {
+    "id": "data-driven-pr-dataset-audit",
+    "category": "pr-communications",
+    "lessonSlug": "data-driven-pr",
+    "lessonTitle": "Data-Driven PR: Turning Surveys and Proprietary Data Into Coverage",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Proprietary Dataset PR Audit: Extracting Contrarian Angles and Verifiable Methodologies",
+    "timeMinutes": 30,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Contrarian Angle Extraction",
+      "Methodology Disclosure Rigor",
+      "Data Packaging for Reporters"
+    ]
+  },
+  {
+    "id": "data-driven-pr-pitch-teardown",
+    "category": "pr-communications",
+    "lessonSlug": "data-driven-pr",
+    "lessonTitle": "Data-Driven PR: Turning Surveys and Proprietary Data Into Coverage",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Data PR Pitch Teardown: Eliminating Methodology Flaws, Data Bloat, and Buried Leads",
+    "timeMinutes": 25,
+    "companyId": "rategain-travel-technologies",
+    "conceptsCovered": [
+      "Data Pitch Structure",
+      "Methodology Transparency",
+      "Embargo Protocol & Timing"
+    ]
+  },
+  {
+    "id": "pitching-journalists-cold-pitch-teardown",
+    "category": "pr-communications",
+    "lessonSlug": "pitching-journalists",
+    "lessonTitle": "Pitching Journalists: The Anatomy of a Pitch That Gets Read",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The 3% Response Filter: Cold PR Pitch Teardown and Defect Diagnosis",
+    "timeMinutes": 25,
+    "companyId": "airbnb",
+    "conceptsCovered": [
+      "Subject Lines: Earn the Open",
+      "The First Sentence Is the Whole Pitch",
+      "Personalization Signals That Prove You Did the Work",
+      "Why Most Pitches Fail"
+    ]
+  },
+  {
+    "id": "pitching-journalists-exclusive-pitch-build",
+    "category": "pr-communications",
+    "lessonSlug": "pitching-journalists",
+    "lessonTitle": "Pitching Journalists: The Anatomy of a Pitch That Gets Read",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The Sub-200-Word Pitch: Crafting Targeted Exclusive Media Pitches with Custom Hooks",
+    "timeMinutes": 50,
+    "companyId": "slack",
+    "conceptsCovered": [
+      "Subject Lines: Earn the Open",
+      "The First Sentence Is the Whole Pitch",
+      "Personalization Signals That Prove You Did the Work",
+      "Why Most Pitches Fail"
+    ]
+  },
+  {
+    "id": "media-relations-beat-alignment-audit",
+    "category": "pr-communications",
+    "lessonSlug": "media-relations",
+    "lessonTitle": "Media Relations: Building Real Journalist Relationships",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The 10-Article Beat Audit: Screening Journalists and Pre-Outreach Qualification",
+    "timeMinutes": 25,
+    "companyId": "ola-electric",
+    "conceptsCovered": [
+      "Research the Beat Before You Reach Out",
+      "What Media Relations Actually Means",
+      "The Etiquette That Burns Bridges"
+    ]
+  },
+  {
+    "id": "media-relations-value-first-source-protocol",
+    "category": "pr-communications",
+    "lessonSlug": "media-relations",
+    "lessonTitle": "Media Relations: Building Real Journalist Relationships",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The Value-First Protocol: Building a Zero-Ask Journalist Relationship Engine",
+    "timeMinutes": 25,
+    "companyId": "swiggy",
+    "conceptsCovered": [
+      "Offer Value Beyond Your Own Story",
+      "What Media Relations Actually Means",
+      "The Etiquette That Burns Bridges"
+    ]
+  },
+  {
+    "id": "newsjacking-triage-teardown",
+    "category": "pr-communications",
+    "lessonSlug": "newsjacking",
+    "lessonTitle": "Newsjacking: Riding the News Cycle Without Getting Burned",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The 60-Second Triage: Tearing Down 3 Breaking Newsjacking Pitches",
+    "timeMinutes": 20,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Sensitivity Check & Tragedy Exploitation Prevention",
+      "Brand Relevance & Genuine Connection",
+      "Newsjacking Lane Classification & Value Addition"
+    ]
+  },
+  {
+    "id": "newsjacking-reactive-pr-warroom",
+    "category": "pr-communications",
+    "lessonSlug": "newsjacking",
+    "lessonTitle": "Newsjacking: Riding the News Cycle Without Getting Burned",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Reactive PR War Room: Designing a Rapid Newsjacking Protocol & Trend Audit",
+    "timeMinutes": 45,
+    "companyId": "peloton",
+    "conceptsCovered": [
+      "Real-Time Trend Signal Detection",
+      "The Three Newsjacking Lanes",
+      "Crisis Hazard Filtering & Legal Guardrails",
+      "Emergency Triage Workflow & Rapid Approvals"
+    ]
+  },
+  {
+    "id": "orm-serp-real-estate-audit",
+    "category": "pr-communications",
+    "lessonSlug": "online-reputation-management",
+    "lessonTitle": "Online Reputation Management: Owning Your Search Results",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Page-One Battleground: Auditing Brand SERP Real Estate & Negative Sentiment",
+    "timeMinutes": 25,
+    "companyId": "peloton",
+    "conceptsCovered": [
+      "SERP Real Estate & Click Distribution",
+      "Asset Categorization (Owned vs Earned vs Social)",
+      "Negative Result Suppression Prioritization"
+    ]
+  },
+  {
+    "id": "orm-suppression-asset-teardown",
+    "category": "pr-communications",
+    "lessonSlug": "online-reputation-management",
+    "lessonTitle": "Online Reputation Management: Owning Your Search Results",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Suppression vs. Removal: Tearing Down 3 High-Authority Brand Defense Properties",
+    "timeMinutes": 25,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Suppression Mechanics & E-A-T Standards",
+      "Owned & Earned Authority Signals",
+      "AI Search & Sentiment Insulation"
     ]
   },
   {
@@ -1997,6 +2239,111 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
       "Chapters and Timestamps",
       "Video Schema Markup for Google Search",
       "Click-Through Rate (CTR)"
+    ]
+  },
+  {
+    "id": "link-building-quality-audit",
+    "category": "seo",
+    "lessonSlug": "link-building",
+    "lessonTitle": "Off-Page SEO & Link Building",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Quality Gate: Auditing a Competitor Backlink Profile",
+    "timeMinutes": 25,
+    "companyId": "mailchimp",
+    "conceptsCovered": [
+      "Evaluating link quality with Domain Rating and organic traffic",
+      "Detecting anchor text over-optimization and penalty risks",
+      "Prioritizing personalized outreach for linkable assets"
+    ]
+  },
+  {
+    "id": "link-building-asset-pitch-build",
+    "category": "seo",
+    "lessonSlug": "link-building",
+    "lessonTitle": "Off-Page SEO & Link Building",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The Link Magnet: Proprietary Industry Study & Digital PR Pitch",
+    "timeMinutes": 50,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Creating original research and linkable assets",
+      "Personalizing digital PR pitches for high response rates",
+      "Executing broken link reclamation on industry resources",
+      "Monitoring backlink velocity and compounding authority"
+    ]
+  },
+  {
+    "id": "local-seo-nap-citation-audit",
+    "category": "seo",
+    "lessonSlug": "local-seo",
+    "lessonTitle": "Local SEO",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Multi-Location NAP & Citation Diagnostic",
+    "timeMinutes": 25,
+    "companyId": "blue-bottle-coffee",
+    "conceptsCovered": [
+      "Enforcing exact Name Address Phone consistency across directories",
+      "Optimizing Google Business Profile primary categories and features",
+      "Auditing review velocity and algorithmic response rates"
+    ]
+  },
+  {
+    "id": "local-seo-landing-page-schema-rebuild",
+    "category": "seo",
+    "lessonSlug": "local-seo",
+    "lessonTitle": "Local SEO",
+    "tier": "core",
+    "archetype": "rebuild",
+    "mode": "build",
+    "title": "The Hyperlocal Hub: City Landing Page & LocalBusiness Schema Rebuild",
+    "timeMinutes": 45,
+    "companyId": "awfis-space-solutions",
+    "conceptsCovered": [
+      "Structuring on-page local keyword and neighborhood signals",
+      "Implementing LocalBusiness JSON-LD structured data markup",
+      "Optimizing landing copy for voice search and near me queries",
+      "Designing an automated post-visit review acquisition system"
+    ]
+  },
+  {
+    "id": "reddit-forum-seo-serp-audit",
+    "category": "seo",
+    "lessonSlug": "reddit-forum-seo",
+    "lessonTitle": "Reddit and Forum SEO: Why Google Loves Communities in 2026",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "High-Intent Forum SERP Opportunity Audit: Uncovering Community Search Footprints",
+    "timeMinutes": 20,
+    "companyId": "slack",
+    "conceptsCovered": [
+      "Which Queries Surface Reddit Results",
+      "Getting Your Brand Mentioned in High-Ranking Threads",
+      "Building Presence Without Getting Banned"
+    ]
+  },
+  {
+    "id": "reddit-forum-seo-community-teardown",
+    "category": "seo",
+    "lessonSlug": "reddit-forum-seo",
+    "lessonTitle": "Reddit and Forum SEO: Why Google Loves Communities in 2026",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Community Outreach Teardown: Astroturfing Traps vs. Authentic Authority",
+    "timeMinutes": 35,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Building Presence Without Getting Banned",
+      "Getting Your Brand Mentioned in High-Ranking Threads",
+      "The AI Search Multiplier",
+      "Beyond Reddit: Which Forums Actually Move the Needle"
     ]
   }
 ];
