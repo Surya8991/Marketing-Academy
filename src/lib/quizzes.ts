@@ -1,4 +1,4 @@
-﻿export type Quiz = {
+export type Quiz = {
   question: string;
   options: string[];
   correct: number;
@@ -12627,7 +12627,7 @@ export const QUIZZES: Record<string, Quiz[]> = {
       question: "What is a 'zero-click search' on Google, and what trend was documented by 2025?",
       options: [
         "A search query that has zero monthly search volume; it became the most popular search type by 2025.",
-        "A session where the user gets their answer directly from the search results page (SERP) features and never clicks a link; this became the dominant outcome (~75-80% of searches).",
+        "A session where the user gets their answer directly from the search results page (SERP) features and never clicks a link; this became the dominant outcome (~68% of searches).",
         "A search where the user gets redirected to a competitor's app automatically.",
         "A search conducted using voice commands where the screen is locked.",
       ],

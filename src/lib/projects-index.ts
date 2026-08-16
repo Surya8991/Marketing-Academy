@@ -9,9 +9,8 @@
  * category module directly (AGENTS.md Rule 41: never ship a large data
  * module, including long strings like outputSample/dashboard, to a
  * "use client" file that every hub visitor downloads). Full Project objects
- * are dynamically imported one category at a time, on demand, by the
- * dedicated project page (src/app/projects/[category]/[slug]/page.tsx) via
- * src/lib/projects/lookup.ts when a learner opens a specific project.
+ * are dynamically imported one category at a time, on demand, by
+ * ProjectDrawer.tsx when a learner opens a specific card.
  *
  * Regenerate with: node --import tsx scripts/build-projects-index.mjs
  */
@@ -102,6 +101,253 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "ai-marketing-101-workflow-audit",
+    "category": "ai-marketing",
+    "lessonSlug": "ai-marketing-101",
+    "lessonTitle": "AI in Marketing 101",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The AI Workflow & Risk Matrix: Auditing 5 Marketing Operations",
+    "timeMinutes": 45,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Task Boundedness & Scope Definition",
+      "Hallucination Risk & Factual Verification",
+      "Brand Voice Alignment & Ruthless Editing",
+      "Human-in-the-Loop Governance & Measurement"
+    ]
+  },
+  {
+    "id": "ai-marketing-101-hallucination-teardown",
+    "category": "ai-marketing",
+    "lessonSlug": "ai-marketing-101",
+    "lessonTitle": "AI in Marketing 101",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Hallucination: Teardown of 4 AI-Generated Marketing Drafts",
+    "timeMinutes": 40,
+    "companyId": "ola-electric",
+    "conceptsCovered": [
+      "Hallucination Detection & Citation Fact-Checking",
+      "Legal Liability & Policy Guardrails",
+      "Banned AI Cadence & Fluff Elimination",
+      "Brand Voice & Competitive Truthfulness"
+    ]
+  },
+  {
+    "id": "prompt-engineering-marketers-rctf-builder",
+    "category": "ai-marketing",
+    "lessonSlug": "prompt-engineering-marketers",
+    "lessonTitle": "Prompt Engineering for Marketers",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The RCTF Prompt Architecture: Building a Production-Ready Email Prompt",
+    "timeMinutes": 30,
+    "companyId": "slack",
+    "conceptsCovered": [
+      "The Persona Prompt & Identity Anchoring",
+      "The Constraint Prompt & Negative Rules",
+      "The Few-Shot Prompt & Example Grounding",
+      "The RCTF Framework (Role, Context, Task, Format)"
+    ]
+  },
+  {
+    "id": "prompt-engineering-marketers-flawed-prompt-teardown",
+    "category": "ai-marketing",
+    "lessonSlug": "prompt-engineering-marketers",
+    "lessonTitle": "Prompt Engineering for Marketers",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Prompt Teardown: Diagnosing 3 Broken Marketing Prompts",
+    "timeMinutes": 25,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "The RCTF Framework (Role, Context, Task, Format)",
+      "The Persona Prompt & Identity Anchoring",
+      "The Constraint Prompt & Negative Rules",
+      "Common Mistakes Marketers Make"
+    ]
+  },
+  {
+    "id": "ai-content-writing-prompt-structure-teardown",
+    "category": "ai-marketing",
+    "lessonSlug": "ai-content-writing",
+    "lessonTitle": "AI for Content Writing",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Prompt Engineering Teardown: Three AI Prompts, One Clear Winner",
+    "timeMinutes": 25,
+    "companyId": "swiggy",
+    "conceptsCovered": [
+      "Use the 4-Part Prompt Structure",
+      "Build a Banned-Words List",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "ai-content-writing-multi-pass-production-system",
+    "category": "ai-marketing",
+    "lessonSlug": "ai-content-writing",
+    "lessonTitle": "AI for Content Writing",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "diagnostic",
+    "title": "The Multi-Pass AI Content Engine: From Brief to Publish-Ready Asset",
+    "timeMinutes": 45,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Choose the Right Model",
+      "Use the 4-Part Prompt Structure",
+      "Run Content in Passes, Not One-Shot",
+      "Build a Banned-Words List"
+    ]
+  },
+  {
+    "id": "ai-seo-keyword-clustering-teardown",
+    "category": "ai-marketing",
+    "lessonSlug": "ai-seo",
+    "lessonTitle": "AI for SEO",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "SERP Overlap vs Semantic Similarity: Teardown of Three Keyword Clusters",
+    "timeMinutes": 25,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Cluster Keywords by SERP Overlap",
+      "Generate Content Briefs Per Cluster",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "ai-seo-internal-linking-embeddings-audit",
+    "category": "ai-marketing",
+    "lessonSlug": "ai-seo",
+    "lessonTitle": "AI for SEO",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Semantic Internal Linking Audit: Finding the Lost Equity in Deep Content",
+    "timeMinutes": 30,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "Map Internal Links with Embeddings",
+      "Optimize for AI Overviews and Entities",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "ai-email-marketing-copy-defect-teardown",
+    "category": "ai-marketing",
+    "lessonSlug": "ai-email-marketing",
+    "lessonTitle": "AI for Email Marketing",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "AI Email Generation Teardown: Catching Hallucinated Urgency, Broken Merge Tokens, and Spam Triggers",
+    "timeMinutes": 25,
+    "companyId": "mailchimp",
+    "conceptsCovered": [
+      "Subject line generation",
+      "Dynamic content personalization",
+      "Deliverability hygiene",
+      "Common email marketing mistakes"
+    ]
+  },
+  {
+    "id": "ai-email-marketing-sto-churn-audit",
+    "category": "ai-marketing",
+    "lessonSlug": "ai-email-marketing",
+    "lessonTitle": "AI for Email Marketing",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Ecommerce Lifecycle AI Audit: Send-Time Optimization & Churn-Risk Calibration",
+    "timeMinutes": 45,
+    "companyId": "klaviyo",
+    "conceptsCovered": [
+      "Send-time optimization",
+      "Predictive segmentation",
+      "Dynamic content personalization",
+      "The 5-step implementation playbook"
+    ]
+  },
+  {
+    "id": "ai-analytics-semantic-layer-audit",
+    "category": "ai-marketing",
+    "lessonSlug": "ai-analytics",
+    "lessonTitle": "AI for Analytics & Insights",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Semantic Layer Audit: Grounding Natural Language Queries in Real Metric Schemas",
+    "timeMinutes": 25,
+    "companyId": "snowflake",
+    "conceptsCovered": [
+      "Defining a semantic layer",
+      "Mapping questions to data schema",
+      "Sanity-checking AI calculations"
+    ]
+  },
+  {
+    "id": "ai-analytics-hallucination-teardown",
+    "category": "ai-marketing",
+    "lessonSlug": "ai-analytics",
+    "lessonTitle": "AI for Analytics & Insights",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "AI Analytics Output Teardown: Spotting Hallucinated Aggregations, Date Drift, and False Joins",
+    "timeMinutes": 25,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Sanity-checking AI calculations",
+      "Defining a semantic layer",
+      "Common mistakes in AI analytics"
+    ]
+  },
+  {
+    "id": "ai-agents-marketing-workflow-architecture",
+    "category": "ai-marketing",
+    "lessonSlug": "ai-agents-marketing",
+    "lessonTitle": "AI Agents for Marketing",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The Autonomous Campaign Engine: Architecting a Multi-Step Marketing Agent with Guardrails",
+    "timeMinutes": 45,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "The four components every marketing agent needs",
+      "Perceive-Plan-Act-Observe Agent Loop",
+      "Setting up your first marketing agent: step-by-step",
+      "Preventing Confident Wrongness with Human Checkpoints"
+    ]
+  },
+  {
+    "id": "ai-agents-marketing-failure-mode-teardown",
+    "category": "ai-marketing",
+    "lessonSlug": "ai-agents-marketing",
+    "lessonTitle": "AI Agents for Marketing",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Confident Hallucination Audit: Tearing Down 3 Broken Marketing Agent Workflows",
+    "timeMinutes": 35,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Why agents fail: bad data in, confident garbage out",
+      "Unchecked Tool Access Risks",
+      "Setting specific agent goals and evaluation criteria",
+      "Shadow mode and human review checkpoints"
+    ]
+  },
+  {
     "id": "analytics-101-instacart-tracking-audit",
     "category": "analytics",
     "lessonSlug": "analytics-101",
@@ -136,6 +382,40 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
       "Session",
       "Key Event",
       "Actionable vs. Vanity Metrics"
+    ]
+  },
+  {
+    "id": "dark-social-freshworks-traffic-audit",
+    "category": "analytics",
+    "lessonSlug": "dark-social",
+    "lessonTitle": "Dark Social",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Dark Social Traffic Audit: Unmasking Direct Traffic in GA4",
+    "timeMinutes": 30,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Direct Traffic Segmentation",
+      "UTM Parameter Hygiene",
+      "Self-Reported Attribution Reconciliation"
+    ]
+  },
+  {
+    "id": "dark-social-slack-shareability-teardown",
+    "category": "analytics",
+    "lessonSlug": "dark-social",
+    "lessonTitle": "Dark Social",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Dark Social Shareability Teardown: Why B2B Assets Fail to Travel Privately",
+    "timeMinutes": 30,
+    "companyId": "slack",
+    "conceptsCovered": [
+      "Private Shareability Friction",
+      "In-App Referral Link Stripping",
+      "Interactive Asset Attribution"
     ]
   },
   {
@@ -349,6 +629,41 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
       "How It Works",
       "Psychological Triggers That Work",
       "Real Company Examples"
+    ]
+  },
+  {
+    "id": "aida-pas-cold-email-teardown",
+    "category": "copywriting",
+    "lessonSlug": "aida-pas-frameworks",
+    "lessonTitle": "AIDA, PAS, and the Core Frameworks",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Missing Stage: AIDA & PAS Copy Teardown",
+    "timeMinutes": 20,
+    "companyId": "slack",
+    "conceptsCovered": [
+      "AIDA, Four Stages",
+      "PAS, Three Stages",
+      "Choosing the Right Framework",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "aida-pas-framework-rebuild",
+    "category": "copywriting",
+    "lessonSlug": "aida-pas-frameworks",
+    "lessonTitle": "AIDA, PAS, and the Core Frameworks",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "From Blank Page to Framework: Drafting AIDA & PAS Asset Pairs",
+    "timeMinutes": 25,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "AIDA, Four Stages",
+      "PAS, Three Stages",
+      "Choosing the Right Framework"
     ]
   },
   {

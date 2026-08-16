@@ -48,6 +48,18 @@ Run this four-stage workflow once per quarter for each content pillar.
 
 ### Stage 1: Cluster Keywords by SERP Overlap
 
+<InAction
+  concept="SERP Overlap Keyword Clustering"
+  companyName="Databox"
+  where="Core B2B SaaS product analytics content hub and knowledge base"
+  why="Hundreds of overlapping business dashboard keywords were cannibalizing rankings across competing blog URLs"
+  what="Clustered thousands of search queries by Google SERP co-ranking overlap using Keyword Insights to map pillar pages and distinct cluster articles"
+  benefit="Grew organic search traffic by 118% by eliminating keyword cannibalization and concentrating topical authority"
+  timeframe="6 months"
+  date="2024"
+  source="https://www.keywordinsights.ai/case-studies/databox/"
+/>
+
 1. Export 1,000-5,000 keywords from Google Search Console, Ahrefs, or Semrush.
 2. Feed them to a clustering tool: Keyword Insights, SEOcluster.ai, or a custom script using OpenAI embeddings plus HDBSCAN.
 3. The tool groups keywords whose SERPs overlap, this is a stronger signal than semantic similarity alone because two keywords can mean the same thing but rank entirely different page types.
@@ -61,6 +73,18 @@ Run this four-stage workflow once per quarter for each content pillar.
 4. Review and edit the brief before handing it to a writer. The brief is scaffolding, not the building.
 
 ### Stage 3: Map Internal Links with Embeddings
+
+<InAction
+  concept="Embeddings-Based Internal Linking"
+  companyName="Kiteworks"
+  where="Cybersecurity and compliance enterprise content architecture across thousands of URLs"
+  why="Static manual internal links left deep educational glossary pages orphaned and under-indexed by AI search systems"
+  what="Replaced 53,000 static links with an autonomous embeddings-based semantic link graph using Quattr and GSC search intent data"
+  benefit="Drove a 79% increase in AI Overview citations and 300% growth in non-brand organic search traffic"
+  timeframe="19 months"
+  date="2024"
+  source="https://www.quattr.com/customers/kiteworks"
+/>
 
 1. Crawl your site and embed each URL's content using a sentence-transformer model or the OpenAI embedding API.
 2. For every new article, find the top 5 most semantically similar existing pages using cosine similarity in a vector database (Pinecone, Weaviate, or Chroma).

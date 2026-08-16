@@ -508,6 +508,16 @@ export const TOOLS: MarketingTool[] = [
     popular: true,
   },
   {
+    name: "SparkToro",
+    description: "Audience research tool that reveals the websites, podcasts, social accounts, and publications your target audience follows and shares.",
+    category: "Analytics",
+    pricing: "Freemium",
+    url: "https://sparktoro.com",
+    emoji: "🐂",
+    tags: ["audience intelligence", "dark social", "market research"],
+    popular: true,
+  },
+  {
     name: "Mixpanel",
     description: "Product analytics platform for tracking user behavior, funnels, retention, and A/B test results.",
     category: "Analytics",

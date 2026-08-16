@@ -9,8 +9,9 @@
  * "use client": carries local per-step completion state.
  */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { ProjectStep as ProjectStepData, Effort } from "@/lib/projects/types";
+import { isStepComplete, markStepComplete, markStepIncomplete } from "@/lib/projects-progress";
 import OutputSample from "./OutputSample";
 import {
   CheckCircle2,
@@ -72,10 +73,23 @@ const EFFORT_STYLE: Record<Effort, { background: string; color: string; border: 
 };
 
 export default function ProjectStep({ step }: Props) {
-  // TODO: wire to projects-progress.ts (a parallel agent is building step-completion
-  // persistence, ma_project_progress or similar). For now this is local-only and
-  // resets on reload, it does not gate anything and does not award XP.
   const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    setDone(isStepComplete(step.stepId));
+  }, [step.stepId]);
+
+  const toggleDone = () => {
+    setDone((prev) => {
+      const next = !prev;
+      if (next) {
+        markStepComplete(step.stepId);
+      } else {
+        markStepIncomplete(step.stepId);
+      }
+      return next;
+    });
+  };
 
   return (
     <div
@@ -97,7 +111,7 @@ export default function ProjectStep({ step }: Props) {
 
         <button
           type="button"
-          onClick={() => setDone((d) => !d)}
+          onClick={toggleDone}
           aria-pressed={done}
           className="flex items-center gap-1.5 shrink-0 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors"
           style={

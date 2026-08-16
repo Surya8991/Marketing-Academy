@@ -694,4 +694,335 @@ export const COPYWRITING_PROJECTS: Record<string, Project[]> = {
         "Score all three of your new headlines against the 40-60 character rule and the odd-number rule, then revise any headline that fails either check.",
     },
   ],
+
+  "aida-pas-frameworks": [
+    {
+      id: "aida-pas-cold-email-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Spot the Missing Stage: AIDA & PAS Copy Teardown",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Evaluate two synthetic sales copy drafts (a cold outreach email and a social ad) to identify where psychological stages are skipped, diagnose the conversion impact of weak transitions, and distinguish real structural defects from deliberate, effective copy choices.",
+      companyId: "slack",
+      scenario:
+        "You're reviewing inbound sales enablement and ad copy at Slack (acquired by Salesforce for $27.7B). The growth team is testing copy to convert enterprise teams away from fragmented email threads into Slack channels. You've received two draft specimens from junior copywriters: a cold email claiming to use PAS, and a sponsored LinkedIn post attempting AIDA. Both are underperforming.",
+      brief:
+        "Audit both specimens against the core AIDA and PAS frameworks. Identify every structural defect (such as skipping the Agitate stage or using generic Action CTAs), explain the exact conversion risk, reference the violated lesson concept, and verify that deliberate techniques are not falsely flagged as errors.",
+      mode: "teardown",
+      conceptsCovered: [
+        "AIDA, Four Stages",
+        "PAS, Three Stages",
+        "Choosing the Right Framework",
+        "Common Mistakes",
+      ],
+      teardownItems: [
+        {
+          itemId: "fragmented-team-cold-email",
+          specimen:
+            "SUBJECT: Fix your team communication with Slack\n\n" +
+            "Hi Sarah,\n\n" +
+            "Are you tired of cluttered email inboxes and slow response times among your engineering leads?\n\n" +
+            "Slack offers 2,600+ app integrations, enterprise-grade channel security, and real-time audio huddles that let your team connect instantly.\n\n" +
+            "Over 750,000 businesses use Slack to communicate every day. You can sign up for a trial on our website whenever you have a moment.\n\n" +
+            "Best,\n" +
+            "The Outbound Team\n\n" +
+            "[Learn more]",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "This outbound email was drafted for a warm, problem-aware audience using PAS. Identify all structural defects, rate their severity, and name the violated lesson concept. Note any non-defects you chose not to flag.",
+          answerKey: [
+            {
+              defect:
+                "The copy completely skips the Agitate stage: it asks a Problem question and immediately pivots to product features without making the reader feel the ongoing cost of lost hours, siloed context, and delayed project sprints.",
+              severity: "critical",
+              whyItMatters:
+                "Without the Agitate step, a pain point feels like a minor background inconvenience rather than an urgent priority requiring immediate budget and tool adoption.",
+              lessonRef: "Common Mistakes: Mistake 1, Skipping Agitate in PAS",
+              owner: "you",
+            },
+            {
+              defect:
+                "The Action step is passive and frictionless-free: 'whenever you have a moment' paired with a generic '[Learn more]' link offers no compelling reason to act now.",
+              severity: "critical",
+              whyItMatters:
+                "The lesson notes personalized, specific CTAs convert 202% better; passive placeholders fail to drive next steps.",
+              lessonRef: "Common Mistakes: Mistake 2, Using a generic Action in AIDA",
+              owner: "you",
+            },
+            {
+              defect:
+                "The solution stage is packed with technical feature specs ('2,600+ app integrations') instead of reader-focused outcomes and workflow relief.",
+              severity: "moderate",
+              whyItMatters:
+                "Desire and Solution stages must focus on how work feels after the fix, not a product specification sheet.",
+              lessonRef:
+                "Common Mistakes: Mistake 5, Overloading the Desire stage with features instead of benefits",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The opening subject line mentions the brand name",
+            "The email includes social proof citing 750,000 businesses",
+            "The email body is under 150 words",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "sponsored-social-ad-draft",
+          specimen:
+            "HEADLINE: Modern Collaboration Software for High-Growth Teams\n\n" +
+            "Managing remote developers is challenging when communication gets lost across timezones. Our platform centralizes discussions and speeds up code deployment cycles by 35%.\n\n" +
+            "Click below to explore our enterprise tier options.\n\n" +
+            "[Click here]",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "This LinkedIn feed ad was drafted using AIDA for cold prospect traffic. Spot all structural defects preventing it from converting cold prospects.",
+          answerKey: [
+            {
+              defect:
+                "The headline fails the Attention stage: 'Modern Collaboration Software for High-Growth Teams' is a generic label that does not stop the scroll with a bold hook, surprising stat, or provocative question.",
+              severity: "critical",
+              whyItMatters:
+                "80% of readers never get past the headline; a generic headline kills the copy before Interest or Desire can even be read.",
+              lessonRef: "AIDA, Four Stages: Step 1, Attention",
+              owner: "you",
+            },
+            {
+              defect:
+                "The CTA button uses the placeholder text '[Click here]' instead of a specific, high-intent action specifying what the user gets.",
+              severity: "critical",
+              whyItMatters:
+                "Generic 'Click here' placeholders fail to tell the reader what happens next or provide a reason to act now.",
+              lessonRef: "Common Mistakes: Mistake 2, Using a generic Action in AIDA",
+              owner: "you",
+            },
+            {
+              defect:
+                "Jumps straight to 'enterprise tier options' without building sufficient Desire or social proof for a cold audience that does not know the product.",
+              severity: "moderate",
+              whyItMatters:
+                "Cold audiences require vivid outcome descriptions and proof points before evaluating enterprise sales tiers.",
+              lessonRef: "AIDA, Four Stages: Step 3, Desire",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Targeting remote developers narrows the audience too specifically",
+            "Including a concrete metric ('35% faster code deployment') harms credibility",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Copy annotation and defect scoring",
+            why: "Clean text markup without account friction",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A completed teardown score sheet with defects categorized by severity and lesson concept references, plus identified effective patterns.",
+      sampleOutput:
+        "NOTION — INBOUND AD COPY TEARDOWN\n\n" +
+        "SPECIMEN: \"All-in-one workspace for your team docs and wiki. Stop wasting time looking for files. Sign up today.\"\n\n" +
+        "DEFECT 1 (Severity: Critical | Ref: AIDA, Four Stages: Step 1, Attention)\n" +
+        "  Opening line states a feature category rather than a hook that stops the scroll. Lacks an arresting stat, provocative question, or customer-centric insight.\n\n" +
+        "DEFECT 2 (Severity: Critical | Ref: PAS, Three Stages: Step 2, Agitate)\n" +
+        "  Problem ('wasting time looking for files') leaps straight to Solution without Agitation. No visceral articulation of context-switching friction or delayed project launches.\n\n" +
+        "DEFECT 3 (Severity: Moderate | Ref: Common Mistakes: Mistake 2, Using a generic Action in AIDA)\n" +
+        "  'Sign up today' is generic. Better: 'Try Notion free with your team — no credit card required.'\n\n" +
+        "DISTRACTOR VERIFICATION:\n" +
+        "  The phrasing 'All-in-one workspace' is clear positioning, not a defect.",
+      successCriteria: [
+        "Identifies missing Agitate stage in the PAS specimen",
+        "Pinpoints generic headline and CTA placeholder in the AIDA specimen",
+        "Accurately separates real structural flaws from intentional copy choices",
+      ],
+      portfolioReady: false,
+    },
+    {
+      id: "aida-pas-framework-rebuild",
+      tier: "mini",
+      archetype: "build-the-asset",
+      title: "From Blank Page to Framework: Drafting AIDA & PAS Asset Pairs",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Draft two complementary conversion copy assets for a B2B SaaS launch—a cold-audience AIDA landing page hero section and a pain-aware PAS email follow-up—ensuring every psychological stage is fully developed before publication.",
+      companyId: "freshworks",
+      scenario:
+        "Freshworks (Nasdaq: FRSH) is rolling out a new AI-powered customer service ticketing assistant for mid-market IT support teams. As the product marketing copywriter, you need to deliver two structured copy assets: an AIDA-structured landing page hero to hook cold ad visitors, and a 200-word PAS email to re-engage warm IT managers who signed up for a webinar on ticket backlog reduction.",
+      brief:
+        "Write two distinct copy assets in Google Docs. Asset 1 must execute all 4 stages of AIDA with a question hook, proof-backed desire, and a specific CTA. Asset 2 must execute PAS with at least 3 sentences of painful agitation before introducing the AI resolution engine. Complete a framework-channel alignment matrix in Google Sheets.",
+      mode: "build",
+      conceptsCovered: [
+        "AIDA, Four Stages",
+        "PAS, Three Stages",
+        "Choosing the Right Framework",
+      ],
+      steps: [
+        {
+          stepId: "step-1-aida-landing-hero",
+          concept: "AIDA, Four Stages",
+          lessonAnchor: "aida-four-stages",
+          theoryRecap:
+            "AIDA moves cold audiences through Attention, Interest, Desire, and Action. Question-based headlines lift traffic by up to 480%, and the Action stage requires a single specific outcome CTA.",
+          question:
+            "How do you structure an Attention hook and Desire proof point for IT managers who have never heard of this specific AI assistant?",
+          toolName: "Google Docs",
+          where:
+            "Open a blank Google Doc, create a section titled 'Asset 1: AIDA Landing Hero', and create 4 labelled sub-blocks: [Attention], [Interest], [Desire], [Action].",
+          procedure: [
+            "Draft an Attention headline using a provocative question or quantified benchmark about unresolved IT ticket backlogs",
+            "Write 2 sentences of Interest explaining why traditional ticketing queues break during product updates",
+            "Build Desire with a specific outcome metric (e.g. 45% automated resolution within 60 seconds) and customer proof",
+            "Write an Action button CTA specifying exact immediate value rather than 'Submit' or 'Learn More'",
+          ],
+          outputSample:
+            "[Attention]: Still spending 4 hours a day manually routing Tier-1 IT helpdesk tickets?\n" +
+            "[Interest]: When system updates roll out, repetitive password and access requests drown your senior sysadmins in busywork.\n" +
+            "[Desire]: Freshdesk Omni AI resolves 45% of recurring tickets instantly—freeing your team to focus on critical infrastructure uptime.\n" +
+            "[Action]: [Start 14-Day Free IT Helpdesk Trial →]",
+          healthy:
+            "All four stages are explicitly represented with a benefit-driven Desire stage and an action-oriented CTA.",
+          unhealthy:
+            "Headline is a vague company statement ('Welcome to Freshworks AI') or Desire focuses purely on technical specifications.",
+          interpret:
+            "AIDA ensures cold traffic doesn't bounce before understanding why the product matters to their daily workflow.",
+          soWhat: [
+            {
+              symptom: "Bounce rate on cold ad traffic exceeds 75%",
+              action:
+                "Sharpen the Attention headline and move proof metrics into the visible viewport",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-pas-nurture-email",
+          concept: "PAS, Three Stages",
+          lessonAnchor: "pas-three-stages",
+          theoryRecap:
+            "PAS targets warm, pain-aware prospects. The Agitate stage is critical: it must sit with the reader long enough to illustrate the compound financial, temporal, and team costs of inaction before offering relief.",
+          question:
+            "How do you write an Agitate section that builds real emotional tension without sounding hyperbolic or alienating?",
+          toolName: "Google Docs",
+          where:
+            "In the same Google Doc, create 'Asset 2: PAS Re-engagement Email' with 3 distinct paragraphs: [Problem], [Agitate], and [Solution].",
+          procedure: [
+            "Name the exact pain in the Problem sentence: IT backlog piling up while engineers wait on access permissions",
+            "Expand the Agitate paragraph into 3 sentences detailing the cascade: missed SLA deadlines, frustrated engineering leads, and burnt-out support staff working overtime",
+            "Introduce the Solution in 2 crisp sentences as the logical relief mechanism with a 1-click CTA",
+          ],
+          outputSample:
+            "[Problem]: Your IT support queue currently has 80+ open tickets, and half of them are simple permission resets.\n" +
+            "[Agitate]: Every hour an engineer waits for an access token is an hour of lost sprint velocity. By Friday, small delays snowball into missed deployment deadlines, frustrated team leads, and a support desk pulling weekend shifts just to keep their heads above water.\n" +
+            "[Solution]: Freshdesk Omni AI deflects Tier-1 access requests automatically across Slack and email in under 30 seconds. Connect your knowledge base in 10 minutes and clear your backlog before Monday.\n" +
+            "[Action]: [Connect Your Helpdesk Free →]",
+          healthy:
+            "Agitate section spans at least 3 concrete sentences detailing the compounding consequences of inaction.",
+          unhealthy:
+            "Agitate is skipped or reduced to one sentence, making the solution feel optional.",
+          interpret:
+            "Agitation creates the urgency that turns a nice-to-have software demo into an urgent operational priority.",
+          soWhat: [
+            {
+              symptom:
+                "Email open rates are high (35%+) but click-through rates remain below 2%",
+              action:
+                "Deepen the Agitate section with concrete financial and operational consequences",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-framework-choice-audit",
+          concept: "Choosing the Right Framework",
+          lessonAnchor: "choosing-the-right-framework",
+          theoryRecap:
+            "Framework selection depends on audience temperature: cold audiences require AIDA to build awareness, warm audiences respond faster to PAS, and hot prospects convert via BAB or 4Ps.",
+          question:
+            "How do you systematically check that each copy block matches its distribution channel and reader awareness level?",
+          toolName: "Google Sheets",
+          where:
+            "Create a 4-row review matrix in Google Sheets comparing Audience Temperature, Target Stage, Selected Framework, and Risk of Mismatch.",
+          procedure: [
+            "Map Asset 1 to Cold Awareness (Paid Social / Google Ads traffic) -> AIDA",
+            "Map Asset 2 to Problem-Aware Warm Leads (Webinar attendees / Newsletter subscribers) -> PAS",
+            "Verify that no cold assets use PAS without defining the core context",
+            "Ensure all CTAs align with the decision stage of each audience segment",
+          ],
+          outputSample:
+            "CHANNEL | AUDIENCE TEMP | FRAMEWORK | AUDIT VERDICT\n" +
+            "Paid LinkedIn Ad | Cold | AIDA | Approved — hooks curiosity, establishes social proof\n" +
+            "Webinar Follow-Up Email | Warm | PAS | Approved — leverages existing pain awareness, builds urgency\n" +
+            "Retargeting Landing Page | Hot | BAB / 4Ps | Approved — direct bridge from current friction to outcome",
+          healthy:
+            "Each channel is paired with a framework matching reader temperature.",
+          unhealthy:
+            "Cold audiences are sent PAS emails that assume familiarity with internal product terminology.",
+          interpret:
+            "Matching framework to audience temperature prevents premature selling or unnecessary over-explaining.",
+          soWhat: [
+            {
+              symptom:
+                "Campaign performance drops when scaling ad spend to cold lookalikes",
+              action:
+                "Switch cold copy from PAS to AIDA to introduce fundamental relevance",
+              effort: "half day",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Copy drafting and structural formatting",
+            why: "Free and accessible collaborative word processor",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Channel and framework alignment audit",
+            why: "Tabular comparison of audience temperatures",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A complete two-asset copy document containing an AIDA landing hero and a PAS nurture email, plus a channel-framework alignment matrix.",
+      sampleOutput:
+        "ZENDESK — TWO-ASSET COPY PORTFOLIO\n\n" +
+        "ASSET 1: AIDA HERO (Cold Inbound Traffic)\n" +
+        "  [Attention]: Are your support agents answering the exact same 5 questions 100 times a day?\n" +
+        "  [Interest]: Repetitive tier-1 inquiries clog your queue and cause ticket resolution times to spike by 40%.\n" +
+        "  [Desire]: Zendesk AI automates routine answers instantly across chat and email, helping 100,000+ support teams cut handle time by half.\n" +
+        "  [Action]: [Try Zendesk AI Free for 14 Days]\n\n" +
+        "ASSET 2: PAS RE-ENGAGEMENT EMAIL (Warm Webinar Leads)\n" +
+        "  [Problem]: Your customer satisfaction scores are slipping because response times are creeping past 4 hours.\n" +
+        "  [Agitate]: Long wait times don't just frustrate customers—they churn high-value accounts, flood your agents with angry escalations, and drag down team morale. Every delayed ticket is revenue walking out the door.\n" +
+        "  [Solution]: Zendesk AI deflects 60% of common tickets before an agent ever touches them. Set it up in under an afternoon.\n" +
+        "  [Action]: [See How Zendesk AI Works →]",
+      successCriteria: [
+        "AIDA asset contains all four distinct stages with an outcome-based CTA",
+        "PAS asset features a developed Agitate section of at least 3 sentences",
+        "Channel matrix correctly aligns audience temperature with framework choice",
+      ],
+      portfolioReady: true,
+    },
+  ],
 };
