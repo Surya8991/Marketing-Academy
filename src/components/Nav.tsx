@@ -63,7 +63,10 @@ const RESOURCE_SECTIONS = [
   },
 ];
 
-const MOBILE_TOPIC_GROUPS = [
+// Shared by both the desktop Topics dropdown and the mobile menu — a flat
+// list of 21 categories read as noise at either width, grouping by
+// discipline gives the reader a map instead of a wall of names.
+const TOPIC_GROUPS = [
   { label: "Strategy", slugs: ["fundamentals", "psychology", "copywriting", "brand-strategy", "product-marketing", "mental-models"] },
   { label: "Channels", slugs: ["seo", "paid-ads", "social", "content", "email"] },
   { label: "Growth & Data", slugs: ["growth", "analytics", "tools", "cro", "ai-marketing"] },
@@ -211,44 +214,59 @@ export default function Nav() {
           <div className="relative">
             {dropBtn("topics", "Topics", onLearn)}
             {openDrop === "topics" && (
-              <div className="absolute left-0 top-full mt-2 w-[min(740px,90vw)] rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-2xl p-3 grid grid-cols-2 gap-1">
-                {CATEGORY_INDEX.map((cat) => {
-                  const active = pathname.startsWith(`/learn/${cat.slug}`);
-                  return (
-                    <Link
-                      key={cat.slug}
-                      href={`/learn/${cat.slug}`}
-                      className={cn(
-                        "flex items-start gap-3 px-3 py-2.5 rounded-lg transition-colors",
-                        active
-                          ? "bg-[var(--accent)]/10 text-[var(--foreground)]"
-                          : "hover:bg-[var(--muted)] text-[var(--foreground)]"
-                      )}
-                    >
-                      <span className="text-xl shrink-0 leading-none mt-0.5">{cat.emoji}</span>
-                      <div className="min-w-0">
-                        <div className="text-sm font-medium truncate">{cat.title}</div>
-                        <div className="text-xs text-[var(--muted-foreground)]">
-                          {cat.lessonCount} lessons
-                        </div>
+              <div className="absolute left-0 top-full mt-2 w-[min(880px,92vw)] rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-2xl p-4">
+                <div className="columns-3 gap-5">
+                  {TOPIC_GROUPS.map((group) => (
+                    <div key={group.label} className="break-inside-avoid mb-4">
+                      <p className="text-[0.68rem] uppercase tracking-wider text-[var(--muted-foreground)] mb-1.5 px-1 font-semibold">
+                        {group.label}
+                      </p>
+                      <div className="flex flex-col gap-0.5">
+                        {group.slugs.map((slug) => {
+                          const cat = CATEGORY_INDEX.find((c) => c.slug === slug);
+                          if (!cat) return null;
+                          const active = pathname.startsWith(`/learn/${slug}`);
+                          return (
+                            <Link
+                              key={slug}
+                              href={`/learn/${slug}`}
+                              className={cn(
+                                "flex items-start gap-2.5 px-2.5 py-2 rounded-lg transition-colors",
+                                active
+                                  ? "bg-[var(--accent)]/10 text-[var(--foreground)]"
+                                  : "hover:bg-[var(--muted)] text-[var(--foreground)]"
+                              )}
+                            >
+                              <span className="text-lg shrink-0 leading-none mt-0.5">{cat.emoji}</span>
+                              <div className="min-w-0">
+                                <div className="text-sm font-medium truncate">{cat.title}</div>
+                                <div className="text-xs text-[var(--muted-foreground)]">
+                                  {cat.lessonCount} lessons
+                                </div>
+                              </div>
+                            </Link>
+                          );
+                        })}
                       </div>
-                    </Link>
-                  );
-                })}
-                <Link
-                  href="/learn"
-                  className="mt-1 flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-[var(--border)] text-sm font-medium hover:bg-[var(--muted)] transition-colors"
-                >
-                  <LayoutGrid size={14} />
-                  Browse all topics
-                </Link>
-                <Link
-                  href="/skill-map"
-                  className="mt-1 flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-[var(--border)] text-sm font-medium hover:bg-[var(--muted)] transition-colors"
-                >
-                  <Map size={14} />
-                  My progress map
-                </Link>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-1 pt-3 border-t border-[var(--border)] flex gap-2">
+                  <Link
+                    href="/learn"
+                    className="flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-[var(--border)] text-sm font-medium hover:bg-[var(--muted)] transition-colors"
+                  >
+                    <LayoutGrid size={14} />
+                    Browse all topics
+                  </Link>
+                  <Link
+                    href="/skill-map"
+                    className="flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-[var(--border)] text-sm font-medium hover:bg-[var(--muted)] transition-colors"
+                  >
+                    <Map size={14} />
+                    My progress map
+                  </Link>
+                </div>
               </div>
             )}
           </div>
@@ -340,7 +358,7 @@ export default function Nav() {
         <div className="md:hidden border-t border-[var(--border)] bg-[var(--background)] px-4 pt-3 pb-5 max-h-[calc(100vh-4rem)] overflow-y-auto">
 
           {/* Topics grouped */}
-          {MOBILE_TOPIC_GROUPS.map((group) => (
+          {TOPIC_GROUPS.map((group) => (
             <div key={group.label} className="mb-3">
               <p className="text-xs uppercase tracking-wider text-[var(--muted-foreground)] mb-1.5 px-1 font-semibold">
                 {group.label}
