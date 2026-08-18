@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CATEGORY_INDEX } from "@/lib/curriculum";
+import { TOPIC_GROUPS } from "@/lib/topic-groups";
 import ThemeToggle from "@/components/ThemeToggle";
 import StreakBadge from "@/components/StreakBadge";
 import { COMMAND_PALETTE_EVENT } from "@/lib/events";
@@ -61,17 +62,6 @@ const RESOURCE_SECTIONS = [
       { href: "/tools/geo-audit", label: "GEO Auditor",     icon: Zap,               desc: "Score any URL for AI citability" },
     ],
   },
-];
-
-// Shared by both the desktop Topics dropdown and the mobile menu — a flat
-// list of 21 categories read as noise at either width, grouping by
-// discipline gives the reader a map instead of a wall of names.
-const TOPIC_GROUPS = [
-  { label: "Strategy", slugs: ["fundamentals", "psychology", "copywriting", "brand-strategy", "product-marketing", "mental-models"] },
-  { label: "Channels", slugs: ["seo", "paid-ads", "social", "content", "email"] },
-  { label: "Growth & Data", slugs: ["growth", "analytics", "tools", "cro", "ai-marketing"] },
-  { label: "Outreach", slugs: ["pr-communications", "events-experiential", "affiliate-marketing"] },
-  { label: "Career & Legal", slugs: ["marketing-leadership", "legal-compliance"] },
 ];
 
 type DropId = "topics" | "learn" | "resources" | null;
