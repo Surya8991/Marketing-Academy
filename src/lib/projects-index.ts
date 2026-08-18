@@ -784,6 +784,105 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "cohort-analysis-retention-table-audit",
+    "category": "analytics",
+    "lessonSlug": "cohort-analysis",
+    "lessonTitle": "Cohort Analysis",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Leaky Bucket or the Loyal Core? Auditing a Cohort Retention Table",
+    "timeMinutes": 25,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "Reading the curve shape, not just the number",
+      "Comparing cohorts vertically",
+      "Ignoring seasonality"
+    ]
+  },
+  {
+    "id": "cohort-analysis-flattening-forecast",
+    "category": "analytics",
+    "lessonSlug": "cohort-analysis",
+    "lessonTitle": "Cohort Analysis",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Will This Curve Flatten? Forecasting a Cohort's Long-Tail Retention",
+    "timeMinutes": 20,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "The flat tail is the sign of product-market fit",
+      "6-month survival curve"
+    ]
+  },
+  {
+    "id": "attribution-models-channel-scale-or-kill-head-to-head",
+    "category": "analytics",
+    "lessonSlug": "attribution-models",
+    "lessonTitle": "Attribution Model Deep Dive",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "Scale or Kill? Running Last-Click Against Linear on the Same Channel Table",
+    "timeMinutes": 30,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Run two models in parallel and look at the delta",
+      "Last-touch (last-click)",
+      "Linear"
+    ]
+  },
+  {
+    "id": "attribution-models-crm-closed-won-audit",
+    "category": "analytics",
+    "lessonSlug": "attribution-models",
+    "lessonTitle": "Attribution Model Deep Dive",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Auditing a Funnel Report That Never Touched the CRM",
+    "timeMinutes": 45,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Ignoring view-through and offline touches",
+      "Treating DDA as ground truth",
+      "Pair attribution with incrementality"
+    ]
+  },
+  {
+    "id": "privacy-sandbox-readiness-audit",
+    "category": "analytics",
+    "lessonSlug": "privacy-sandbox",
+    "lessonTitle": "Privacy Sandbox & Post-Cookie Web",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Post-October Audit: Is This Tracking Stack Still Viable?",
+    "timeMinutes": 25,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Distinguishing retired Privacy Sandbox APIs from surviving privacy-web standards",
+      "Prioritizing first-party data and server-side tagging over dead APIs"
+    ]
+  },
+  {
+    "id": "consent-mode-recovery-forecast",
+    "category": "analytics",
+    "lessonSlug": "privacy-sandbox",
+    "lessonTitle": "Privacy Sandbox & Post-Cookie Web",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "Forecasting the Conversion Recovery a Consent-Mode Rollout Should Deliver",
+    "timeMinutes": 45,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "Consent Mode v2 and modeled conversions",
+      "Server-side tagging is plumbing, not a consent fix"
+    ]
+  },
+  {
     "id": "what-is-content-marketing-teardown",
     "category": "content",
     "lessonSlug": "what-is-content-marketing",

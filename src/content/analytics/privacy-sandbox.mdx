@@ -18,6 +18,18 @@ Privacy Sandbox was a Google-led set of browser APIs designed to replicate the j
 
 ## Why It Matters (with data)
 
+<InAction
+  concept="Consent mode and modeled conversions"
+  companyName="Nemlig"
+  where="Denmark's second-largest e-commerce shop, moving Google tag data collection from the browser to server-side tagging on Google Cloud alongside Consent Mode"
+  why="GDPR and the EU e-privacy directive meant a large share of visitors declined cookie consent, leaving gaps in conversion data that were undermining bidding and reporting accuracy"
+  what="Implemented server-side tagging with Tag Manager 360, paired with Consent Mode so tag behavior automatically adjusted to each visitor's consent choice while unconsented traffic was filled in with modeled conversions"
+  benefit="40% increase in 90-day conversion rates for new customers, plus a 7% improvement in page load speed"
+  timeframe="rollout completed within one migration project"
+  date="2021"
+  source="https://marketingplatform.google.com/about/resources/nemlig-gathers-new-insights-and-grows-conversions/"
+/>
+
 Chrome holds roughly 65 percent of global browser share, so anything it does to identifiers reshapes the entire ad stack. After delaying cookie deprecation from 2022 to 2023 to 2024 to early 2025, Google reversed course in July 2024 and said cookies would stay. In April 2025 they dropped the planned user-choice prompt too, leaving cookies fully in place ([Usercentrics](https://usercentrics.com/knowledge-hub/what-is-google-privacy-sandbox/)).
 
 Then on October 17, 2025, VP Anthony Chavez announced the retirement of ten Privacy Sandbox technologies, including Topics, Protected Audience, and Attribution Reporting on both Chrome and Android ([Google Privacy Sandbox blog](https://privacysandbox.google.com/blog/update-on-plans-for-privacy-sandbox-technologies)). Industry coverage flagged low adoption, weak measurement performance versus cookies, and ongoing UK CMA competition concerns as the drivers ([Seresa](https://seresa.io/blog/data-loss/google-killed-privacy-sandbox-after-6-years-of-industry-preparation)).
@@ -27,6 +39,18 @@ What survives matters too. CHIPS (partitioned cookies), FedCM (federated sign-in
 ## How It Works / The Playbook
 
 Even though the APIs are being phased out, the underlying problems Privacy Sandbox tried to solve are still your job. Here is the post-October-2025 playbook:
+
+<InAction
+  concept="Server-side tagging and first-party data"
+  companyName="Finobo"
+  where="A financial services firm helping private clients optimize loans, working with agency MCB"
+  why="Their lead journey crossed multiple third-party tools and iframes (calculators, meeting schedulers), and UTM parameters and click IDs were getting dropped along the way, leaving only 10-15% of leads trackable back to a campaign"
+  what="Replaced client-side pixels with a dedicated server-side Google Tag Manager container hosted on Stape, forwarding lead events to Meta via the Conversions API so identifiers survived the full multi-domain journey into Salesforce"
+  benefit="Lead tracking coverage rose from 10-15% to 80-85%"
+  timeframe="single infrastructure migration project"
+  date="2024"
+  source="https://stape.io/blog/leads-increase-for-finobo-case-study"
+/>
 
 1. **Stop budgeting for a cookie cliff.** Third-party cookies are not being removed in Chrome. Re-plan media and measurement on the assumption they persist, but treat them as fragile (Safari and Firefox blocked them years ago).
 2. **Invest in server-side tagging and first-party data.** Use Google Tag Manager server-side, a CDP, and consented first-party identifiers (hashed email, login ID) as the spine of measurement.

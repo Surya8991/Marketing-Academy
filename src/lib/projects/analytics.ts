@@ -4138,4 +4138,712 @@ export const ANALYTICS_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
     },
   ],
+
+  "cohort-analysis": [
+    {
+      id: "cohort-analysis-retention-table-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Leaky Bucket or the Loyal Core? Auditing a Cohort Retention Table",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a real 4-cohort retention table (monthly signups, weeks 0-12), diagnose whether retention is improving, flat, or decaying, and catch the seasonality trap before calling it a win.",
+      companyId: "nykaa",
+      scenario:
+        "You're the growth analyst at Nykaa reviewing Q1 cohort retention after a redesigned onboarding flow shipped in February.",
+      brief:
+        "Read the curve shape across four monthly cohorts, decide whether the February onboarding change actually worked, and flag any cohort whose result looks inflated by seasonality.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Reading the curve shape, not just the number",
+        "Comparing cohorts vertically",
+        "Ignoring seasonality",
+      ],
+      steps: [
+        {
+          stepId: "step-1-curve-shape",
+          concept: "Reading the curve shape, not just the number",
+          lessonAnchor: "how-to-run-a-cohort-analysis-step-by-step",
+          theoryRecap:
+            "The lesson's Step 4 says a healthy retention curve drops steeply in the first few periods, then flattens. The flat tail is the loyal core; a curve that never stops falling is a leaky bucket.",
+          question:
+            "Four monthly cohorts are given below. Which one shows a genuine flat tail by week 12, and which is still falling with no sign of leveling off?",
+          toolName: "Google Sheets",
+          where: "Import retention-cohorts.csv, freeze the header row, and chart each cohort row as a line.",
+          procedure: [
+            "Import retention-cohorts.csv (4 rows: Nov, Dec, Jan, Feb cohorts; columns Week 0/1/4/8/12)",
+            "Plot each row as a line series on one chart",
+            "Compute the week 8-to-week 12 drop for each cohort (should shrink if the curve is flattening)",
+            "Rank the four cohorts from most flattened to still-falling",
+          ],
+          outputSample:
+            "Cohort   W0    W1    W4    W8    W12   W8→W12 drop\nNov      100%  44%   26%   19%   14%   -5.0 pts\nDec      100%  47%   29%   22%   18%   -4.0 pts\nJan      100%  50%   33%   28%   25%   -3.0 pts\nFeb      100%  56%   39%   34%   32%   -2.0 pts",
+          healthy:
+            "The Feb cohort's week 8-to-12 drop (-2.0 pts) is the smallest of the four, and shrinking with each newer cohort, that is a flattening curve.",
+          unhealthy:
+            "The Nov cohort is still losing 5 points between week 8 and 12, with no sign the drop is slowing, that is a leaky bucket, not a loyal core.",
+          interpret:
+            "A cohort's story is in its slope near the end of the table, not its raw week-12 number.",
+          soWhat: [
+            {
+              symptom: "A cohort's week 8-to-12 drop is roughly the same size as its week 4-to-8 drop",
+              action: "Treat that cohort as still decaying; wait for more weeks before calling it flat",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-vertical-compare-seasonality",
+          concept: "Comparing cohorts vertically",
+          lessonAnchor: "how-to-run-a-cohort-analysis-step-by-step",
+          theoryRecap:
+            "The lesson's Step 6 says the entire point of a cohort table is the vertical comparison: if a later cohort beats an earlier one at the same week number, the change that shipped between them worked.",
+          question:
+            "Onboarding changed in February. Comparing the Jan and Feb rows at week 4 (33% vs 39%), is that a real onboarding win, or could November-to-January's dip actually be a seasonality artifact worth checking first?",
+          toolName: "Google Sheets",
+          where: "Same retention-cohorts.csv, compare the Jan and Feb rows column by column.",
+          procedure: [
+            "Isolate the Jan and Feb rows",
+            "Compare week 1, week 4, and week 8 values side by side",
+            "Note that the Nov cohort overlaps India's festive shopping season, then flag it as a possible outlier rather than a baseline",
+          ],
+          outputSample:
+            "Week 4 comparison\n  Jan (pre-onboarding): 33%\n  Feb (post-onboarding): 39%   (+6 pts)\n\nNote: Nov cohort signed up during Diwali sale traffic, its W1 (44%) may be inflated by one-time deal-seekers, not representative of a normal month.",
+          healthy:
+            "Feb beats Jan by 6 points at week 4, and Nov is flagged separately instead of being averaged into the baseline.",
+          unhealthy:
+            "Blending the Nov festive-season cohort into an 'average pre-onboarding retention' number and comparing Feb against that blend.",
+          interpret:
+            "Vertical, same-week comparisons are the whole point of the table; seasonality is the one confound that can fake a vertical win.",
+          soWhat: [
+            {
+              symptom: "One cohort's signup window overlaps a major sale or holiday period",
+              action: "Footnote that cohort as non-baseline instead of folding it into a trend line",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Chart and compare the four cohort rows",
+            why: "Free, handles a 4x5 table and line charts with no setup",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-paragraph verdict memo: is post-onboarding retention improving, which cohort proves it, and which cohort should be excluded as a seasonality outlier.",
+      sampleOutput:
+        "Lenskart, Q1 cohort verdict (excerpt)\n\nVERDICT: IMPROVING.\nFeb cohort (post-onboarding) beats Jan at every checkpoint (W4: +6pts, W8: +6pts). The Nov cohort is excluded from the baseline trend, its W1 spike coincides with the festive sale and does not reflect normal-month behavior.",
+      successCriteria: [
+        "Correctly identifies which cohort has the flattest tail using the W8-to-W12 drop, not the raw W12 number",
+        "Makes a same-week vertical comparison between Jan and Feb",
+        "Flags the Nov cohort's seasonality risk instead of folding it into the trend",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "cohort-analysis-flattening-forecast",
+      tier: "mini",
+      archetype: "forecast",
+      title: "Will This Curve Flatten? Forecasting a Cohort's Long-Tail Retention",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Given only weeks 0-4 of a new cohort's retention curve, forecast whether it will flatten by week 12 and give a numeric range, then check that forecast against the real outcome.",
+      companyId: "allbirds",
+      scenario:
+        "You're the retention analyst at Allbirds forecasting whether a newly launched reorder-reminder cohort will settle into a healthy repeat-purchase pattern before the quarter closes.",
+      brief:
+        "Use the early-week decay rate to forecast a week-12 range, state it as a number, then compare it to the real result once it arrives.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "The flat tail is the sign of product-market fit",
+        "6-month survival curve",
+      ],
+      steps: [
+        {
+          stepId: "step-1-forecast-flattening",
+          concept: "The flat tail is the sign of product-market fit",
+          lessonAnchor: "quick-summary",
+          theoryRecap:
+            "The lesson's Quick Summary says the goal is a curve that drops fast early then flattens; that flat tail is the signal of product-market fit, not the raw retention number itself.",
+          question:
+            "Week 0 is 100%, week 1 is 52%, week 4 is 33%. The drop is decelerating (48pts, then 19pts over 3 weeks). Forecast a week-12 range using that deceleration pattern.",
+          toolName: "Google Sheets",
+          where: "Enter the three known points, compute period-over-period drop, and extrapolate the decay rate forward.",
+          procedure: [
+            "Enter W0=100%, W1=52%, W4=33% in a sheet",
+            "Compute the drop rate per week for W0-W1 (48 pts/wk) and W1-W4 (6.3 pts/wk average)",
+            "Extrapolate a decelerating drop rate out to week 12, producing a forecast range rather than a single number",
+          ],
+          outputSample:
+            "Drop rate: W0-1 = 48 pts/wk, W1-4 = 6.3 pts/wk avg (decelerating)\nForecast W12 range: 22%-27%, assuming the deceleration trend continues",
+          healthy:
+            "The forecast is stated as a range (22-27%), not a false-precision single number, because only 2 data points inform the slope.",
+          unhealthy: "Linearly extrapolating the W0-W1 drop rate (48 pts/wk) forward, which would predict negative retention by week 3.",
+          interpret: "A forecast from an early, steep decay period must use the decelerating segment, not the initial cliff, or it wildly overstates future churn.",
+          soWhat: [
+            {
+              symptom: "Only 2-3 weeks of cohort data exist and a stakeholder wants a week-12 number now",
+              action: "Give a range built from the decelerating segment, state the assumption, and commit to revisiting at week 8",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-verify-survival",
+          concept: "6-month survival curve",
+          lessonAnchor: "metrics-worth-tracking-in-your-cohort-table",
+          theoryRecap:
+            "The lesson lists the 6-month survival curve as the clearest single metric for product-market fit: the cohort percentage still active well after the initial drop-off.",
+          question:
+            "Week 12 has now arrived and the real value is 24%, inside your forecast range. Does this cohort's shape support a stronger or weaker product-market-fit read than last quarter's cohort, which flattened at 19%?",
+          toolName: "Google Sheets",
+          where: "Add the real W12 value to the sheet and compare against the prior quarter's flattened value.",
+          procedure: [
+            "Log the real W12 outcome (24%) next to the forecast range (22-27%)",
+            "Compare 24% against last quarter's flattened W12 value (19%)",
+            "Conclude whether the reorder-reminder cohort shows a stronger long-tail than the prior baseline",
+          ],
+          outputSample: "Forecast range: 22-27%   Actual W12: 24%  (within range)\nPrior quarter flattened at: 19%\nDelta: +5 pts vs prior baseline",
+          healthy: "The actual result lands inside the forecast range, and it beats the prior quarter's flattened value by 5 points.",
+          unhealthy: "Treating the 24% figure as meaningful without a prior-quarter baseline to compare it against.",
+          interpret: "A single survival number means nothing alone; it only means something next to a forecast and a prior cohort.",
+          soWhat: [
+            {
+              symptom: "A new cohort's flattened value has no baseline to compare against",
+              action: "Pull the equivalent flattened value from the prior comparable cohort before presenting the number",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Compute decay rate and extrapolate the forecast",
+            why: "Free, sufficient for a 5-point time series and simple extrapolation",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A forecast memo stating the week-12 range with its assumption, plus a post-hoc accuracy check once the real value lands.",
+      sampleOutput:
+        "Casper Sleep, W12 forecast vs actual (excerpt)\n\nForecast (from W0-W4 deceleration): 18-23%\nActual W12: 21%  (within range)\nRead: reorder-cohort curve confirms early product-market fit; carry this decay model into next quarter's forecast.",
+      successCriteria: [
+        "States the forecast as a range built from the decelerating segment, not a linear extrapolation of the steepest early drop",
+        "Compares the actual week-12 outcome against both the forecast range and a prior baseline cohort",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "attribution-models": [
+    {
+      id: "attribution-models-channel-scale-or-kill-head-to-head",
+      tier: "mini",
+      archetype: "head-to-head",
+      title: "Scale or Kill? Running Last-Click Against Linear on the Same Channel Table",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given a real 6-channel conversion-credit table computed two ways (last-click and linear), apply the lesson's 25%-delta rule to decide which channels are discovery engines versus closers.",
+      companyId: "warby-parker",
+      scenario:
+        "You're the paid media analyst at Warby Parker deciding Q3 budget across six channels using last quarter's multi-model attribution export.",
+      brief:
+        "Compare last-click and linear credit per channel, flag any channel with more than a 25-point delta between the two, and recommend scale, hold, or kill for each.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Run two models in parallel and look at the delta",
+        "Last-touch (last-click)",
+        "Linear",
+      ],
+      steps: [
+        {
+          stepId: "step-1-delta-check",
+          concept: "Run two models in parallel and look at the delta",
+          lessonAnchor: "how-it-works-the-five-models-and-what-each-lies-about",
+          theoryRecap:
+            "The lesson's playbook says: run two models in parallel and look at the delta. If linear and last-click disagree by more than 25 percent on a channel, that channel is either a discovery engine or a closer, treat it differently.",
+          question:
+            "Six channels are listed below with their last-click and linear credit share. Which channels cross the 25-point delta threshold, and in which direction?",
+          toolName: "Google Sheets",
+          where: "Import channel-attribution-export.csv, add a delta column (last-click minus linear).",
+          procedure: [
+            "Import channel-attribution-export.csv (6 rows: channel, last-click %, linear %)",
+            "Add a delta column = last-click % minus linear %",
+            "Sort by absolute delta, descending",
+            "Flag any row where |delta| > 25 points",
+          ],
+          outputSample:
+            "Channel          Last-click  Linear  Delta\nRetargeting          34%       9%    +25 pts (flag)\nBranded Search        22%      11%    +11 pts\nDisplay (prospecting)  4%      18%    -14 pts\nOrganic Social         8%      16%     -8 pts\nEmail                 19%      14%     +5 pts\nAffiliate             13%      32%    -19 pts",
+          healthy:
+            "Retargeting is correctly flagged: it closes deals at 34% last-click but only creates 9% of linear-weighted demand, that is a closer, not a discovery channel.",
+          unhealthy:
+            "Reading Retargeting's 34% last-click share as proof it should get more prospecting budget, when the linear number shows it is intercepting demand created elsewhere.",
+          interpret:
+            "A channel that scores high on last-click and low on linear is a closer; scale it in the final-touch position, not as a top-of-funnel driver.",
+          soWhat: [
+            {
+              symptom: "A channel's last-click share is used alone to justify a prospecting budget increase",
+              action: "Check its linear share first; a wide positive delta means it is closing, not creating, demand",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-linear-check",
+          concept: "Linear",
+          lessonAnchor: "how-it-works-the-five-models-and-what-each-lies-about",
+          theoryRecap:
+            "The lesson says linear gives equal credit to every touch, and lies about importance, a throwaway display impression gets the same weight as a 20-minute webinar, honest only when touches really are interchangeable.",
+          question:
+            "Affiliate scores 32% under linear but only 13% under last-click. Before recommending Affiliate get more budget, what does the lesson say to check about whether its touches are actually interchangeable with the others?",
+          toolName: "Google Sheets",
+          where: "Same channel-attribution-export.csv, cross-reference Affiliate's touch count per path.",
+          procedure: [
+            "Isolate the Affiliate row and its raw touch count across conversion paths",
+            "Check whether Affiliate touches cluster near the start of paths (discovery) or are spread evenly",
+            "Note that linear alone cannot distinguish 'many small assist touches' from 'one genuinely important touch counted many times'",
+          ],
+          outputSample:
+            "Affiliate: 32% linear credit, appears in 61% of converting paths, average position: touch 1 of 4 (early)\nInterpretation: high touch frequency early in the path, likely real discovery value, not an artifact",
+          healthy:
+            "Affiliate's high linear score is corroborated by it appearing early and frequently across paths, a genuine discovery signal worth the budget recommendation.",
+          unhealthy:
+            "Accepting Affiliate's 32% linear number at face value without checking path position, when linear treats every touch as equally important by construction.",
+          interpret:
+            "Linear's number is only trustworthy once you've confirmed the touches it's crediting are actually similar in importance to each other.",
+          soWhat: [
+            {
+              symptom: "A channel scores unexpectedly high under linear attribution",
+              action: "Check its typical path position before trusting the number for a budget call",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Compute the delta column and sort the channel table",
+            why: "Free, handles a 6-row comparison with no setup",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page budget recommendation memo: scale, hold, or kill per channel, with each call justified by its delta and path position.",
+      sampleOutput:
+        "Lenskart, Q3 channel call (excerpt)\n\nRetargeting: HOLD as closer, do not fund as a prospecting channel (delta +25pts)\nAffiliate: SCALE, confirmed early-path discovery role (32% linear, touch 1 of 4 avg)\nDisplay: SCALE cautiously, low last-click but real linear assist role (delta -14pts)",
+      successCriteria: [
+        "Correctly flags every channel with a delta greater than 25 points",
+        "Distinguishes a closer (high last-click, low linear) from a discovery channel (low last-click, high linear)",
+        "Checks Affiliate's path position before trusting its linear score",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "attribution-models-crm-closed-won-audit",
+      tier: "core",
+      archetype: "audit",
+      title: "Auditing a Funnel Report That Never Touched the CRM",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given a marketing-sourced pipeline report built entirely from ad-platform last-click data with no CRM closed-won join, audit it against the lesson's common-mistakes checklist and rebuild a corrected top-line number.",
+      companyId: "casper-sleep",
+      scenario:
+        "You're the marketing ops analyst at Casper Sleep reviewing a channel performance report the paid team is about to present to the CFO, built entirely from platform-reported last-click conversions.",
+      brief:
+        "Find where the report violates the lesson's mistakes checklist, then rebuild the top-line revenue-by-channel number using the CRM export.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Ignoring view-through and offline touches",
+        "Treating DDA as ground truth",
+        "Pair attribution with incrementality",
+      ],
+      steps: [
+        {
+          stepId: "step-1-crm-join-gap",
+          concept: "Ignoring view-through and offline touches",
+          lessonAnchor: "common-mistakes",
+          theoryRecap:
+            "The lesson warns: if you do not feed CRM closed-won data back into the model, B2B attribution is fiction. Offline and phone-closed deals never show up in platform-reported conversions.",
+          question:
+            "The paid team's report claims $2.1M in pipeline from Paid Social using platform-reported conversions. The CRM closed-won export shows a different number by source. Where's the gap?",
+          toolName: "Google Sheets",
+          where: "Cross-reference platform-export.csv (ad-platform-reported conversions) against crm-closed-won.csv (actual closed deals tagged by first-touch source).",
+          procedure: [
+            "Pull revenue-by-source from platform-export.csv ($2.1M Paid Social)",
+            "Pull revenue-by-source from crm-closed-won.csv for the same period ($1.4M Paid Social, plus $410K tagged 'phone inquiry, source unknown')",
+            "Identify the $700K gap and the unattributed phone-inquiry bucket as the two problems",
+          ],
+          outputSample:
+            "Platform-reported Paid Social pipeline: $2.1M\nCRM closed-won, Paid Social first-touch: $1.4M\nCRM closed-won, 'phone inquiry / unknown source': $410K\nGap: $700K platform-reported revenue with no matching CRM record",
+          healthy:
+            "The report is corrected to the CRM-verified $1.4M, with the $410K phone-inquiry bucket called out separately as an attribution blind spot to fix, not folded into Paid Social.",
+          unhealthy:
+            "Presenting the $2.1M platform number to the CFO unchanged, because it came straight out of the ad dashboard.",
+          interpret:
+            "A platform's own conversion count is not the same as a closed-won deal; without the CRM join, the report is measuring clicks, not revenue.",
+          soWhat: [
+            {
+              symptom: "A channel report is built entirely from ad-platform conversion counts",
+              action: "Join against CRM closed-won data before presenting any revenue-by-channel number",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-dda-volume-sanity-check",
+          concept: "Treating DDA as ground truth",
+          lessonAnchor: "common-mistakes",
+          theoryRecap:
+            "The lesson warns that DDA is a model trained on your leaky tracking data, not a measurement of reality, and needs volume (historically around 600 conversions and 400 non-converting paths in 30 days per property) to be reliable.",
+          question:
+            "GA4's DDA report shows Email getting 22% credit this month, but the property only logged 140 total conversions in the last 30 days. Should that number be trusted for a budget decision?",
+          toolName: "Google Analytics 4",
+          where: "GA4 Advertising > Attribution > Model comparison, check the conversion volume note for the property.",
+          procedure: [
+            "Open the DDA model comparison report and note Email's 22% credit",
+            "Check the property's total 30-day conversion volume (140)",
+            "Compare against the ~600 conversion / ~400 non-converting-path volume DDA historically needs to be stable",
+            "Flag the 22% figure as low-confidence rather than a decision input",
+          ],
+          outputSample:
+            "DDA credit, Email: 22%\nProperty 30-day conversions: 140 (below the ~600 volume DDA needs for stability)\nVerdict: directionally interesting, not a budget-reallocation trigger on its own",
+          healthy:
+            "The 22% figure is reported alongside its low conversion volume, with a recommendation to revisit once volume grows or to corroborate with linear/last-click instead.",
+          unhealthy:
+            "Reallocating budget away from Email based on a DDA percentage from a property that hasn't logged enough conversions for the model to be stable.",
+          interpret:
+            "DDA's output is only as trustworthy as its input volume; a black-box percentage from a low-volume property is a guess wearing a precise-looking number.",
+          soWhat: [
+            {
+              symptom: "A DDA credit percentage is being used to justify a budget cut on a low-conversion-volume property",
+              action: "Check the property's 30-day conversion volume against DDA's stability threshold before acting on the number",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-incrementality-recommendation",
+          concept: "Pair attribution with incrementality",
+          lessonAnchor: "how-it-works-the-five-models-and-what-each-lies-about",
+          theoryRecap:
+            "The lesson's playbook says to pair attribution with incrementality: geo holdouts, ghost bids, and PSA tests tell you what would have happened anyway, attribution alone cannot.",
+          question:
+            "After correcting the CRM gap and flagging the low-volume DDA number, what test should the memo recommend before Casper cuts the Email budget the report originally suggested?",
+          toolName: "Google Sheets",
+          where: "Draft the test recommendation in the same memo used for the CRM and DDA findings.",
+          procedure: [
+            "Identify Email as the channel with the most attribution uncertainty from steps 1 and 2",
+            "Propose a geo holdout test: pause Email sends to a matched subset of regions for 4 weeks",
+            "Compare CRM closed-won revenue in the holdout region against the control region to measure Email's true incremental effect",
+          ],
+          outputSample:
+            "Recommendation: 4-week geo holdout on Email in 3 matched low-volume regions, compare closed-won revenue vs 3 control regions before any budget cut.",
+          healthy:
+            "The memo recommends a holdout test instead of a budget decision based on the uncertain attribution numbers alone.",
+          unhealthy: "Cutting Email budget immediately based on the corrected-but-still-model-based numbers, with no incrementality check.",
+          interpret:
+            "Attribution tells you where credit was assigned; only a holdout or similar test tells you what would have happened without the channel.",
+          soWhat: [
+            {
+              symptom: "A budget cut is being proposed based on attribution model output alone",
+              action: "Recommend a geo holdout or similar incrementality test before the cut, not instead of ever testing it",
+              effort: "half day",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Cross-reference the platform export against the CRM export and draft the memo",
+            why: "Free, sufficient for joining two small CSV exports",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Analytics 4",
+            role: "Check DDA credit shares and the property's 30-day conversion volume",
+            why: "Free tier includes the Attribution model comparison report",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A corrected one-page pipeline memo showing platform-reported vs CRM-verified revenue by channel, the DDA volume caveat, and one incrementality test recommendation.",
+      sampleOutput:
+        "Allbirds, corrected channel view (excerpt)\n\nPaid Social: platform-reported $1.8M -> CRM-verified $1.3M (-$500K gap, mostly assisted-not-closing traffic)\nEmail: DDA shows 19% credit on 155 monthly conversions, below stability threshold, flagged not actioned\nRecommendation: 4-week geo holdout on Email before any budget change",
+      successCriteria: [
+        "Identifies the specific dollar gap between platform-reported and CRM-verified revenue",
+        "Flags the DDA percentage as low-confidence given the property's conversion volume, instead of accepting it at face value",
+        "Recommends an incrementality test rather than a budget decision based on attribution output alone",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "privacy-sandbox": [
+    {
+      id: "privacy-sandbox-readiness-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Post-October Audit: Is This Tracking Stack Still Viable?",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a stale 2024 'cookieless readiness' inventory of a tracking stack, apply the lesson's post-October-2025 framework to classify each line item as retired, still shipping, or never real, and flag the one action that matters most this quarter.",
+      companyId: "zomato",
+      scenario:
+        "You're the analytics lead at Zomato. A 2024 'Privacy Sandbox readiness' doc is about to get copy-pasted into next quarter's roadmap by a well-meaning PM who hasn't seen the October 2025 retirement announcement.",
+      brief:
+        "Sort each stack component into retired, still shipping, or never was real, then flag the single line item that deserves next sprint's budget.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Distinguishing retired Privacy Sandbox APIs from surviving privacy-web standards",
+        "Prioritizing first-party data and server-side tagging over dead APIs",
+      ],
+      steps: [
+        {
+          stepId: "step-1-classify-apis",
+          concept: "Distinguishing retired Privacy Sandbox APIs from surviving privacy-web standards",
+          lessonAnchor: "key-takeaways",
+          theoryRecap:
+            "On October 17, 2025, Google retired Topics, Protected Audience, and Attribution Reporting on Chrome and Android. CHIPS, FedCM, Private State Tokens, and the W3C interoperable attribution work are the parts of the roadmap that are actually shipping.",
+          question:
+            "The doc lists six 2024-era line items. Which ones are dead, which are alive, and which were never a real product commitment to begin with?",
+          toolName: "Google Sheets",
+          where: "Paste the six-row stack inventory into a new sheet and add a 'Status' column.",
+          procedure: [
+            "Paste the inventory: Topics API interest-group pipeline, Protected Audience remarketing auction, Attribution Reporting API conversion pings, CHIPS-partitioned session cookies, FedCM sign-in, server-side GTM container",
+            "Tag each row RETIRED, SURVIVING, or NEVER SHIPPED using the lesson's Key Takeaways list as the source of truth",
+            "Highlight any row still marked 'in progress' in the original doc that is actually a retired API",
+          ],
+          outputSample:
+            "Row                                   2024 doc status   Audited status\nTopics API interest-group pipeline    In progress        RETIRED (Oct 17, 2025)\nProtected Audience remarketing        Planned Q1 2026    RETIRED (Oct 17, 2025)\nAttribution Reporting API pings       Live pilot         RETIRED (Oct 17, 2025)\nCHIPS-partitioned session cookies     Not started        SURVIVING, ship this\nFedCM sign-in                         Not started        SURVIVING\nServer-side GTM container             Live               SURVIVING (keep, expand)",
+          healthy:
+            "Three of six rows get relabeled RETIRED in under ten minutes and removed from the roadmap before anyone estimates dev time against them.",
+          unhealthy:
+            "A sprint gets scoped to 'finish the Protected Audience pilot' because nobody checked the doc's status against the October 2025 announcement.",
+          interpret:
+            "A stack inventory is only as good as its last audit date; treat any pre-October-2025 Privacy Sandbox doc as unverified until checked line by line.",
+          soWhat: [
+            {
+              symptom: "Roadmap still lists Protected Audience or Topics work as upcoming",
+              action: "Strike the row and redirect the estimated hours to CHIPS or server-side tagging work",
+              effort: "5 min",
+            },
+            {
+              symptom: "Nobody has re-audited the tracking doc since before October 2025",
+              action: "Schedule a one-time line-by-line review against the lesson's Key Takeaways",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-prioritize-next-action",
+          concept: "Prioritizing first-party data and server-side tagging over dead APIs",
+          lessonAnchor: "how-it-works-the-playbook",
+          theoryRecap:
+            "The lesson's playbook ranks server-side tagging, first-party identifiers, and consent-mode modeling above piloting any surviving Privacy Sandbox API, because those are the pieces that carry measurement whether or not Chrome ever changes cookie behavior.",
+          question:
+            "With three dead rows struck and two limited-scope survivors (CHIPS, FedCM) left, which single remaining action should get next sprint?",
+          toolName: "Google Sheets",
+          where: "Add an 'Impact if skipped' column next to the Status column from step 1.",
+          procedure: [
+            "For each SURVIVING row, write one sentence on what breaks if it's skipped this quarter",
+            "Rank the three surviving rows (CHIPS, FedCM, server-side GTM) by that impact sentence",
+            "Circle the top-ranked row as the sprint recommendation",
+          ],
+          outputSample:
+            "SURVIVING row              Impact if skipped this quarter\nServer-side GTM expansion  First-party conversion data keeps degrading as ad blockers spread\nCHIPS partitioning         Embedded widget tracking silently breaks in Safari/Firefox first\nFedCM sign-in              Login friction stays high, but nothing measurement-critical breaks\n\nRecommendation: expand server-side GTM coverage first.",
+          healthy:
+            "The recommendation names one row, not three, and the reasoning is 'what breaks,' not 'what's newest.'",
+          unhealthy:
+            "The memo recommends piloting FedCM first because it's the least-understood API, not because it's the highest-impact gap.",
+          interpret:
+            "When every dead API is stripped out, the real prioritization question is which surviving, boring plumbing work protects the most measurement if skipped.",
+          soWhat: [
+            {
+              symptom: "Team has bandwidth for exactly one privacy-web project this quarter",
+              action: "Default to expanding server-side tagging coverage before piloting CHIPS or FedCM",
+              effort: "dev ticket",
+            },
+          ],
+          owner: "either",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Classify and rank the tracking-stack inventory",
+            why: "Free, no account friction, sortable columns are enough for a six-row audit",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page audit memo: each 2024 line item relabeled RETIRED/SURVIVING/NEVER SHIPPED, plus one named recommendation for next sprint.",
+      sampleOutput:
+        "Squarespace tracking-stack audit (excerpt)\n\nRETIRED (strike from roadmap):\n  - Topics API interest-group sync — retired Oct 17, 2025\n  - Attribution Reporting API pilot — retired Oct 17, 2025\n\nSURVIVING (keep):\n  - CHIPS partitioned cookies for embedded template previews\n  - Server-side GTM for checkout conversion events\n\nRecommendation: expand server-side GTM to cover the trial-signup funnel before piloting CHIPS further; checkout data loss is the bigger revenue risk.",
+      successCriteria: [
+        "Every 2024-era line item is correctly relabeled against the lesson's October 2025 Key Takeaways",
+        "The final recommendation names exactly one surviving action, justified by what breaks if skipped",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Re-run the audit against your own company's or a real client's actual tracking documentation instead of the supplied inventory.",
+    },
+    {
+      id: "consent-mode-recovery-forecast",
+      tier: "core",
+      archetype: "forecast",
+      title: "Forecasting the Conversion Recovery a Consent-Mode Rollout Should Deliver",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given a site's current consent-accept rate and monthly conversion volume, forecast a defensible range for post-modeling conversion recovery, then check that estimate against the lesson's real published benchmarks before it goes to a VP.",
+      companyId: "squarespace",
+      scenario:
+        "You're the marketing analytics manager at Squarespace. EU consent-accept rates just dropped to 54%, and a VP wants a number, in writing, for how many 'missing' conversions Consent Mode v2 modeling will realistically recover before they approve the engineering ticket.",
+      brief:
+        "Build a forecast range grounded in real benchmark data, not a single guessed number, and separate plumbing fixes from consent modeling in the writeup.",
+      mode: "calibration",
+      conceptsCovered: [
+        "Consent Mode v2 and modeled conversions",
+        "Server-side tagging is plumbing, not a consent fix",
+      ],
+      steps: [
+        {
+          stepId: "step-1-benchmark-forecast",
+          concept: "Consent Mode v2 and modeled conversions",
+          lessonAnchor: "how-it-works-the-playbook",
+          theoryRecap:
+            "The lesson's playbook item 3 says Google Ads and GA4 lean on consent mode v2 plus modeling for unconsented traffic, enforced in the EU since March 2024. The lesson's example callout cites real 2024 field data: Protected Audience added latency and reduced relevance versus cookies, and Attribution Reporting delivered noisy, delayed counts, with Criteo reporting roughly 40 percent lower ARA-measured conversions than their cookie baseline.",
+          question:
+            "Squarespace's EU traffic sees 8,400 conversions/month at a 54% consent-accept rate. Without modeling, the other 46% of conversions are invisible to Google Ads bidding. What recovery range should the forecast state, and why not a single point number?",
+          toolName: "Google Sheets",
+          where: "Build a small forecast table: current visible conversions, modeled-recovery low/mid/high scenarios.",
+          procedure: [
+            "Calculate current visible conversions: 8,400 x 0.54 = 4,536/month",
+            "Apply a conservative recovery band using real published ranges, not an invented single number: modeling typically recovers a median ~17% lift in reported conversions, with vertical-dependent ranges from roughly 15-25%, and B2B-style setups seeing 30-50% recovery of previously lost attribution",
+            "Present low (15%), mid (17%, the published median), and high (25%) scenarios as separate rows, not one blended average",
+          ],
+          outputSample:
+            "Scenario         Assumption            Forecast recovered/month\nLow              15% lift              +680 conversions\nMedian (Google)  17% lift              +771 conversions\nHigh (vertical)  25% lift              +1,134 conversions\n\nCurrent visible: 4,536/month. Range communicated to VP: +680 to +1,134/month, median case +771.",
+          healthy:
+            "The VP gets a three-scenario range anchored to Google's own published median, with the mid-case clearly labeled as the number to plan budget around.",
+          unhealthy:
+            "The forecast reports a single invented number like '+2,000 conversions' with no scenario range and no citation for where the percentage came from.",
+          interpret:
+            "A modeling forecast is a range built from published benchmarks, not a point estimate, because consent-accept rate, vertical, and implementation quality all shift the real outcome.",
+          soWhat: [
+            {
+              symptom: "Stakeholder asks for 'the number' Consent Mode will recover",
+              action: "Deliver a low/median/high range citing Google's published modeling benchmarks, not a single guess",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-separate-plumbing-from-modeling",
+          concept: "Server-side tagging is plumbing, not a consent fix",
+          lessonAnchor: "common-mistakes",
+          theoryRecap:
+            "The lesson's Common Mistakes section warns against treating server-side GTM as a privacy fix: it is plumbing, not consent, and a lawful basis plus consent mode is still required regardless of how the tags are routed.",
+          question:
+            "The engineering ticket bundles 'migrate to server-side GTM' and 'enable Consent Mode v2 modeling' as one line item. Should the forecast treat them as one recovery number or two?",
+          toolName: "Looker Studio",
+          where: "Build a two-row comparison in a scratch Looker Studio report: plumbing-only vs. plumbing-plus-modeling.",
+          procedure: [
+            "Label row 1 'Server-side GTM only': improves data completeness and ad-blocker resilience, but does not create modeled conversions for consent-declined visitors",
+            "Label row 2 'Server-side GTM + Consent Mode v2 modeling': adds the +680 to +1,134/month forecast from step 1 on top of row 1's plumbing gains",
+            "Flag in the writeup that shipping row 1 alone will not produce the conversion-recovery number the VP is expecting",
+          ],
+          outputSample:
+            "Improvement                          Recovers consent-declined conversions?\nServer-side GTM migration only       No, improves delivery reliability only\n+ Consent Mode v2 modeling            Yes, +680 to +1,134/month forecast",
+          healthy:
+            "The engineering ticket gets split into two line items so the plumbing work isn't quietly credited with a recovery number it can't deliver on its own.",
+          unhealthy:
+            "The VP is told 'the server-side migration will recover ~800 conversions/month,' when that number actually depends on the separate Consent Mode modeling work shipping too.",
+          interpret:
+            "Plumbing and consent modeling solve different problems; bundling their forecasts into one number sets up a broken promise when only one half ships on schedule.",
+          soWhat: [
+            {
+              symptom: "One engineering ticket bundles server-side migration and consent modeling",
+              action: "Split into two tickets with separate, correctly-attributed forecast numbers",
+              effort: "dev ticket",
+            },
+          ],
+          owner: "either",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the low/median/high recovery forecast table",
+            why: "Free, fast enough for a scenario table stakeholders can review live",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Looker Studio",
+            role: "Compare plumbing-only vs. plumbing-plus-modeling recovery",
+            why: "Free, makes the two-scenario split visual for a non-technical VP",
+            required: false,
+            fallback: "A second Google Sheets tab works if a dashboard tool isn't needed",
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page forecast memo with a three-scenario (low/median/high) conversion-recovery range, and an explicit split between plumbing work and consent-modeling work.",
+      sampleOutput:
+        "Adyen EU merchant-dashboard conversions, forecast memo (excerpt)\n\nCurrent visible conversions: 11,200/month at 61% consent-accept rate\nForecast recovery range: +1,300 (low, 15%) to +2,100 (high, 25%) monthly, median case +1,660 (17%)\n\nNote: this range assumes Consent Mode v2 modeling ships alongside the server-side GTM migration. The migration alone does not produce this recovery.",
+      successCriteria: [
+        "Forecast presents a low/median/high range grounded in the lesson's real published benchmarks, not a single invented number",
+        "Memo explicitly separates what server-side tagging plumbing delivers from what consent-mode modeling delivers",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Rebuild the forecast using your own site's or a real client's actual consent-accept rate and monthly conversion volume.",
+    },
+  ],
 };
