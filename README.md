@@ -44,7 +44,7 @@ A free, structured marketing education site, from absolute beginner to advanced 
 **Learning**
 - **Lesson reader**, Left-side table of contents, reading progress bar, reading time estimate, prev/next navigation, practice projects (collapsed behind a one-line summary by default)
 - **Related lessons**, "You might also like" section at the bottom of every lesson
-- **Lesson quizzes**, 4 questions at the bottom of 642 lessons; quiz must be passed (75%, 3 of 4) to unlock Mark Complete. Questions and options are Fisher-Yates shuffled on every attempt. Answers revealed only after full submission
+- **Lesson quizzes**, 5 questions at the bottom of 642 lessons (Session 85, Stage 10.1); quiz must be passed (80%, 4 of 5) to unlock Mark Complete. Questions and options are Fisher-Yates shuffled on every attempt. Answers revealed only after full submission
 - **Progress tracking**, Mark lessons complete, per-category progress bar, bookmarks (all localStorage)
 - **Learning tracks**, 24 curated paths: B2B Marketer, E-commerce Growth, Solo Founder, AI-First Marketer, Content Creator, Social Media Manager, Data-Driven Marketer, Freelancer & Agency, Marketing Mental Models, Technical SEO Mastery, AI Search Optimization, Content Strategy Mastery, On-Page SEO Mastery, Off-Page SEO Mastery, Paid Ads Mastery, Email & Lifecycle Mastery, CRO & Conversion Mastery, Analytics & Measurement Mastery, Copywriting Mastery, Brand Strategy Mastery, Psychology of Marketing, PR & Communications Mastery, Growth Marketing Mastery, Product Marketing Mastery
 - **Progress certificates**, Printable completion certificate per track at `/certificates/[slug]` (requires 100% lesson completion + track quiz pass)
@@ -146,7 +146,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/curriculum.ts` | Single source of truth, all lesson slugs, titles, levels |
 | `src/lib/tracks.ts` | 24 learning track definitions |
 | `src/lib/glossary.ts` | 158 marketing term definitions |
-| `src/lib/quizzes.ts` | Quiz questions (4 per lesson, all 642 lessons covered) |
+| `src/lib/quizzes.ts` | Quiz questions (5 per lesson since Stage 10.1, all 642 lessons covered) |
 | `src/lib/tools-directory.ts` | 116 marketing tools with category/pricing data |
 | `PROJECTS_PLAN.md` | **High-priority roadmap** — stages 0-7, 9.4 complete. Stage 8 Phase 0+1 pilot complete (36 projects, 20 lessons, `/projects` hub), 8.2b (centrality/tier computation) complete. Session 76: 8.3+8.4 done for the Technical SEO Mastery track (12 lessons, 24 projects + 24 `InAction` concept scenarios). 8.3a carries an owner-set priority order across all 24 tracks (not just SEO); **8.3b pre-scopes the next two (AI Search Optimization, On-Page SEO Mastery): 27 lessons, batch lists, tier pairs, content audit, hazards**. Use `PROJECTS_AUTHORING_GUIDE.md` to execute |
 | `src/components/InAction.tsx` | Global MDX component rendering one cited "concept scenario" inline after a lesson heading (PROJECTS_PLAN.md section 10 / Stage 8.4). Embedded directly in lesson MDX, not build-time-injected — see AGENTS.md Rule 54 |
