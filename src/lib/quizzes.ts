@@ -9120,6 +9120,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "A feature describes what the product is or has. An outcome/benefit describes the positive change in the customer's life. 'Know exactly where every marketing dollar went - before your Monday standup' focuses on the real-world outcome and benefit, avoiding the feature trap.",
     },
+    {
+      question: "A visitor has already been to your site and engaged with your brand before. According to the lesson's guidance on cold vs. warm audiences, which framework should you reach for instead of PAS or AIDA?",
+      options: [
+        "FAB (Features-Advantages-Benefits), since the audience already understands the problem and just needs to see why your solution is best.",
+        "PAS, because warm audiences still need the problem agitated from scratch.",
+        "AIDA, because warm audiences require a full four-stage funnel to build initial awareness.",
+        "The 4 Us, applied as a full writing structure rather than a quality filter.",
+      ],
+      correct: 0,
+      explanation: "The lesson distinguishes cold audiences, who need PAS or AIDA to establish why they should care, from warm audiences, who already grasp the problem and respond better to FAB, which highlights why your solution specifically is the best choice.",
+    },
   ],
 
   "paid-ads/apple-search-ads": [
@@ -9166,6 +9177,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "A Discovery campaign's role is keyword mining. When Search Match or broad match finds a keyword that converts multiple times, that keyword should be harvested (moved to Brand, Competitor, or Generic as an exact match keyword) and added as an exact negative in the Discovery campaign to prevent paying higher broad discovery rates.",
+    },
+    {
+      question: "A practitioner insight in the lesson claims that capturing 80% Share of Voice (SoV) at 3.5x ROAS beats capturing 30% SoV at 4.2x ROAS. What does this teach about Apple Search Ads bid strategy?",
+      options: [
+        "Chasing the highest possible ROAS on a narrow set of keywords generates more total profit than dominating volume.",
+        "Winning far more volume at a slightly lower ROAS produces more total profit than a narrow, high-ROAS position.",
+        "SoV and ROAS are unrelated metrics that should never be optimized together.",
+        "Advertisers should always target exactly 50% SoV regardless of ROAS.",
+      ],
+      correct: 1,
+      explanation: "The lesson uses this comparison to argue that once campaigns are past the CPA-optimization stage, maximizing share of voice on profitable keywords captures more total volume and profit than a narrower campaign that only chases the highest ROAS ratio.",
     },
   ],
 
@@ -9214,6 +9236,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Stiff, over-promotional scripts are immediately tuned out by listeners who expect conversational audio. Ad fatigue also sets in if the same creative runs without rotation. The best practice is providing hosts with talking points to keep the delivery organic.",
     },
+    {
+      question: "Per the lesson's recommended measurement setup, how should an advertiser track results from a podcast sponsorship campaign since listeners cannot click an audio ad?",
+      options: [
+        "Rely exclusively on the podcast host's self-reported download numbers.",
+        "Use a unique promo code or vanity URL per show, paired with a brand lift survey to capture awareness gains.",
+        "Install a tracking pixel inside the podcast's audio file to detect listener location.",
+        "Wait for Nielsen to publish quarterly attribution reports before drawing conclusions.",
+      ],
+      correct: 1,
+      explanation: "Since audio ads have no clickable link, the lesson recommends per-show unique promo codes or vanity URLs for direct-response signal, combined with a brand lift survey (offered natively by Spotify) to capture awareness lift among listeners who don't immediately convert.",
+    },
   ],
 
   "paid-ads/creative-testing": [
@@ -9260,6 +9293,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Established ads have accumulated historical pixel data, engagement, and delivery optimization, making it hard for a new creative to compete fairly from day one. Instead, test new creatives against each other in a dedicated test campaign first, then validate the winner against the control.",
+    },
+    {
+      question: "The lesson's priority list ranks which creative element as the single highest-leverage thing to test first, before hooks, message angle, or CTA copy?",
+      options: [
+        "Headline copy, since fine-tuning the words matters most.",
+        "Call-to-action text, since it directly drives the click.",
+        "Format, meaning video vs. static image, since it carries the biggest potential variance.",
+        "Visual style, meaning UGC vs. polished studio production.",
+      ],
+      correct: 2,
+      explanation: "The lesson's priority table ranks format (video vs. image) at the top because it carries the biggest potential variance in outcomes, warning that many advertisers waste months testing headline punctuation without ever questioning whether video would outperform static creative in the first place.",
     },
   ],
 
@@ -9308,6 +9352,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "ACR technology analyzes the pixels and audio on a smart TV to detect what show or advertisement is playing. Advertisers use this data to identify households that saw competitor TV commercials and serve them targeted digital ads on other streaming services or devices.",
     },
+    {
+      question: "An advertiser buys CTV inventory across three separate DSPs, each with its own 3-impressions-per-week frequency cap. What problem does the lesson warn this setup creates?",
+      options: [
+        "Each DSP will automatically share frequency data, so the total stays at 3 impressions per week.",
+        "The caps stack, so the same household can see the ad up to 9 times per week, risking negative brand sentiment for no added conversion benefit.",
+        "Running multiple DSPs is technically impossible since CTV platforms block simultaneous buys.",
+        "FAST channels are excluded from frequency capping by default.",
+      ],
+      correct: 1,
+      explanation: "The lesson warns that a per-DSP frequency cap isn't a total cap: buying across three DSPs each capped at 3-per-week can expose the same household to 9 impressions in a week, and it recommends setting the cap at the DSP/unified level to avoid this.",
+    },
   ],
 
   "paid-ads/google-shopping-pmax": [
@@ -9354,6 +9409,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "The title field is the most important element for search matching. An optimized title containing brand, product name, size, color, and model details will match far more user queries than a generic title.",
+    },
+    {
+      question: "Why does the lesson recommend routing branded search traffic to a separate, higher-priority Search campaign rather than letting Performance Max handle it?",
+      options: [
+        "Branded keywords are not eligible to run inside Performance Max campaigns at all.",
+        "PMax will spend budget capturing branded searches that would have converted anyway, inflating ROAS without representing real incremental growth.",
+        "Google charges a premium CPC specifically for branded terms inside PMax.",
+        "Separating branded traffic is required to unlock the asset-level performance reporting feature.",
+      ],
+      correct: 1,
+      explanation: "The lesson notes PMax will happily spend on people already searching your brand name, who likely would have converted organically, which inflates the campaign's reported ROAS without reflecting true incremental value; routing branded traffic to a separate campaign keeps PMax focused on finding new customers.",
     },
   ],
 
@@ -9402,6 +9468,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Since the browser pixel and CAPI will both report the same conversion event (e.g., a purchase), you must send a unique event_id with both. Meta uses this ID to recognize duplicate submissions and log only one conversion, preventing artificial inflation of 30-60%.",
     },
+    {
+      question: "In a SKAdNetwork conversion value schema, what does a postback value of 55 (within a 0-63 range mapped to user actions) communicate to an advertiser?",
+      options: [
+        "The exact identity of the user who converted, so they can be retargeted individually.",
+        "That the install came from a high-intent user action, such as starting a free trial, based on how the advertiser mapped that value range in advance.",
+        "The precise dollar amount the user has spent in the app to date.",
+        "That the postback was rejected due to insufficient campaign install volume.",
+      ],
+      correct: 1,
+      explanation: "SKAN never reveals individual user identity; instead, advertisers pre-map value ranges (like 51-63 for a free trial start) to in-app actions, so a postback value of 55 signals that campaign drove a high-intent action without exposing who did it, extracting aggregate signal from privacy-safe data.",
+    },
   ],
 
   "paid-ads/linkedin-ads": [
@@ -9448,6 +9525,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "HockeyStack's benchmarks show that Q2 has the best cost-per-MQL efficiency, meaning advertisers spend less to get a lead. In contrast, Q4 has the highest budget share and competition, driving up costs, while Q1 offers the lowest CPC and fastest sales cycles.",
+    },
+    {
+      question: "What does LinkedIn's Matched Audiences feature let advertisers do that standard job-title or industry targeting cannot?",
+      options: [
+        "Upload a CSV list of target accounts or email addresses to run account-based marketing (ABM), showing ads only to employees at those specific companies, or retarget site visitors tagged by the Insight Tag.",
+        "Automatically translate ad copy into each viewer's native language based on their browser settings.",
+        "Guarantee a fixed CPC regardless of how competitive the auction is for that audience.",
+        "Bypass LinkedIn's standard ad review and approval process for verified companies.",
+      ],
+      correct: 0,
+      explanation: "Matched Audiences is LinkedIn's retargeting and ABM feature: you upload a list of emails or company names that LinkedIn matches to member profiles, letting you target a specific account list, or you retarget website visitors identified via the LinkedIn Insight Tag.",
     },
   ],
 
@@ -9496,6 +9584,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "MMM and MTA are complementary. MMM is slow and strategic, perfect for setting high-level channel budgets. MTA is fast and granular, perfect for daily optimization (e.g., selecting the best creative or keyword within a channel).",
     },
+    {
+      question: "What is the purpose of running a geo-based incrementality experiment (a spend-up or spend-down test in a subset of regions) alongside MMM and MTA?",
+      options: [
+        "It provides a real-world sales-lift benchmark you can compare against both models' predictions, revealing which model is closer to ground truth for your business.",
+        "It permanently eliminates the need to ever run either MMM or MTA again.",
+        "It is a legal requirement under GDPR before deploying any attribution model.",
+        "It only measures the performance of TV and radio channels, never digital channels.",
+      ],
+      correct: 0,
+      explanation: "The lesson's pro tip is to test a real spend change in a subset of regions, measure the actual sales lift, then compare it against what MMM and MTA each predicted. This triangulation tells you which model is more accurate for your specific business.",
+    },
   ],
 
   "paid-ads/native-advertising": [
@@ -9542,6 +9641,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "Native ads fail when they read like direct sales pitches. Readers who click on what looks like an editorial article expect content, not a sales brochure. If they get a pitch, they feel misled. Clear disclosure ('Sponsored') is also legally required.",
+    },
+    {
+      question: "How do native ad click-through rates on content networks like Taboola and Outbrain typically compare to search ad CTRs?",
+      options: [
+        "Native ad CTRs (roughly 0.2%-0.4%) run lower than search ads because native reaches a colder audience that isn't actively searching, so the content itself has to do the persuading.",
+        "Native ad CTRs are always higher than search ads because the ad blends seamlessly with editorial content.",
+        "Native and search ad CTRs are functionally identical because both use the same real-time bidding auction.",
+        "Native ad CTR cannot be measured because native ads never include a trackable link.",
+      ],
+      correct: 0,
+      explanation: "The lesson notes native ad CTRs typically run 0.2% to 0.4% on content networks, lower than search ads, because the audience hasn't expressed active intent the way a searcher has; the content has to earn the click on its own merit.",
     },
   ],
 
@@ -9590,6 +9700,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 0,
       explanation: "Dedicated landing pages focus on a single action and perfectly match the search intent of the ad. A homepage, by contrast, attempts to serve all company stakeholders and contains multiple navigation paths, leading to distraction, friction, and a lower conversion rate.",
     },
+    {
+      question: "According to the lesson, roughly how many clicks does a Google Search ad group typically need before you can tell whether a keyword theme is actually working?",
+      options: [
+        "100-200 clicks",
+        "5-10 clicks",
+        "10,000+ clicks",
+        "Exactly 1 click per keyword is statistically sufficient",
+      ],
+      correct: 0,
+      explanation: "The lesson states you need roughly 100-200 clicks to know if a keyword or ad group is working on Google Search Ads; at a $3 CPC, that means budgeting $300-$600 to properly test one theme.",
+    },
   ],
 
   "paid-ads/programmatic-advertising": [
@@ -9636,6 +9757,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Programmatic buys across the open web run the risk of brand safety issues (ads next to bad content), ad fraud (non-human traffic/bots), and audience targeting drift. Active curation (e.g., using whitelists, exclusion lists, and verification services like DoubleVerify) is necessary.",
+    },
+    {
+      question: "In a standard programmatic Real-Time Bidding (RTB) auction, how much does the winning advertiser actually pay?",
+      options: [
+        "Their full maximum bid amount, regardless of what other advertisers bid.",
+        "The second-highest bid price plus one cent, a second-price auction mechanism designed to keep the market fair.",
+        "A flat CPM rate set once per year by the Ad Exchange.",
+        "Nothing, unless the ad receives a click within 24 hours of being served.",
+      ],
+      correct: 1,
+      explanation: "RTB runs as a second-price auction: the highest bidder wins the impression but only pays the second-highest bid plus one cent, not their full bid, which keeps pricing fair across the exchange.",
     },
   ],
 
@@ -9684,6 +9816,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Ad Rank is roughly calculated as Quality Score multiplied by Max Bid. For Advertiser A, 10 * $2 = 20. For Advertiser B, 3 * $5 = 15. Advertiser A has a higher Ad Rank and will outrank Advertiser B despite bidding significantly less.",
     },
+    {
+      question: "Why does the lesson advise against heavily optimizing a brand-new keyword based on its displayed Quality Score?",
+      options: [
+        "New keywords start with a default score of 6 and the score is statistically unreliable until it accumulates roughly 500-1,000 impressions.",
+        "Quality Score for new keywords is locked at 10 for the first 30 days as a promotional incentive.",
+        "Google does not calculate Quality Score for any keyword added within the current calendar year.",
+        "New keywords are automatically excluded from the Ad Rank calculation until manually approved by a Google rep.",
+      ],
+      correct: 0,
+      explanation: "New keywords launch with a default Quality Score of 6 and need time to accumulate data; the lesson warns the score is statistically unreliable below roughly 500-1,000 impressions, so over-optimizing early wastes effort on noise.",
+    },
   ],
 
   "paid-ads/reddit-ads": [
@@ -9730,6 +9873,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Conversation Ads appear directly beneath the original post and above the first comment in a thread. Because users click into threads to read discussion and debate, these ads capture high-attention traffic, making them excellent for considered purchases.",
+    },
+    {
+      question: "Why does the lesson recommend actively monitoring the comments section of a Reddit Promoted Post rather than launching and walking away?",
+      options: [
+        "Reddit requires an official company reply within 2 hours or the ad is automatically removed from rotation.",
+        "Every Promoted Post has a public comment thread, and a single unanswered sarcastic top comment can tank the ad's CTR for the entire campaign flight.",
+        "Comments are the only mechanism available for adding additional images to a running ad.",
+        "Reddit charges a lower CPM for any ad that has at least one company reply in the comments.",
+      ],
+      correct: 1,
+      explanation: "Reddit ads sit inside a public, votable comment thread. The lesson's Mistake 3 warns that leaving a sarcastic top comment unanswered for even a few hours can crater CTR for the rest of the campaign flight, so comment engagement is treated as active campaign management, not optional community work.",
     },
   ],
 
@@ -9778,6 +9932,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Retail algorithms rank listings based on sales velocity. Pausing ads drops your sales volume. As sales velocity falls, your organic rankings decline, leading to a drop in organic sales. Rebuilding organic search ranking later can require expensive bidding, negating short-term savings.",
     },
+    {
+      question: "Why does the lesson recommend measuring incrementality on non-branded keywords rather than branded keywords when evaluating retail media ROAS?",
+      options: [
+        "Branded keywords are banned on most retail media networks and cannot be measured at all.",
+        "Branded-keyword ROAS looks misleadingly high because those shoppers were already searching for the brand, so real incremental impact shows up in non-branded terms where you win customers away from competitors.",
+        "Non-branded keywords always have a lower cost-per-click, so they inflate ROAS artificially.",
+        "Branded keywords only work on Instacart, not on Amazon or Walmart Connect.",
+      ],
+      correct: 1,
+      explanation: "Shoppers searching your own brand name were already headed toward your product, so branded ROAS overstates the ad's effect. Non-branded keyword performance shows whether the ad actually pulled a customer away from a competitor, which is the real measure of incremental value.",
+    },
   ],
 
   "paid-ads/retargeting": [
@@ -9824,6 +9989,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "A frequency cap limits how often one person sees your ad in a week (typically capped at 5-10 times). Without it, ads can overexpose (ad stalking), which drives up CPC, causes ad fatigue, and negatively affects brand perception.",
+    },
+    {
+      question: "What does dynamic retargeting (Dynamic Product Ads on Meta, Dynamic Remarketing on Google) require that static retargeting campaigns do not?",
+      options: [
+        "A frequency cap set below 3 impressions per week.",
+        "A product catalog feed connected to the pixel and ad platform, so the ad automatically shows the exact product a specific user viewed.",
+        "Manual creation of a separate static ad for every individual product in the catalog.",
+        "Exclusive use of LinkedIn as the delivery platform.",
+      ],
+      correct: 1,
+      explanation: "Dynamic retargeting pulls product names, prices, images, and URLs from an uploaded catalog feed and automatically builds the ad around whichever product the viewer actually looked at, which is impossible to do manually at scale for stores with many SKUs.",
     },
   ],
 
@@ -9872,6 +10048,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "TikTok's recommendation engine is highly efficient at finding relevant users. Stacking multiple targeting filters restricts the algorithm's exploration space, making it harder for the campaign to escape the learning phase and causing CPMs to skyrocket. Starting broad and letting the creative select the audience is the best practice.",
     },
+    {
+      question: "What is the TikTok Creative Center primarily used for, according to the lesson?",
+      options: [
+        "Generating auth codes needed to authorize a creator's post as a Spark Ad.",
+        "Filtering and browsing top-performing ads by industry, region, objective, and time period so advertisers can reverse-engineer what is already working before producing new creative.",
+        "Setting frequency caps and campaign budgets before launch.",
+        "Automatically editing horizontal Meta creative into TikTok's vertical format.",
+      ],
+      correct: 1,
+      explanation: "The Creative Center (ads.tiktok.com/creative/topads) lets advertisers see real top-performing ads by category before writing a brief, so the best TikTok advertisers research proven hooks and formats first instead of guessing from scratch.",
+    },
   ],
 
   "paid-ads/youtube-ads": [
@@ -9918,6 +10105,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Traditional television commercials rely on passive viewing and build up to a reveal at the end. Since YouTube skippable ads let users click 'Skip Ad' after 5 seconds, you must hook attention, state the brand, and deliver immediate value within that initial 5-second window.",
+    },
+    {
+      question: "A viewer watches a YouTube skippable in-stream ad but does not click. Thirty days later they buy the product. How does YouTube's measurement typically account for this, and why does the lesson call this important?",
+      options: [
+        "It cannot be tracked at all, so the sale is invisible to any reporting.",
+        "It counts as a view-through conversion, which is why last-click attribution models consistently underestimate YouTube's real impact.",
+        "Google automatically refunds the advertiser for that impression since no click occurred.",
+        "It is only counted if the viewer also searched the exact brand name on Google first.",
+      ],
+      correct: 1,
+      explanation: "YouTube credits a purchase that follows an ad view (without a click) as a view-through conversion. Because last-click attribution ignores this entirely, campaigns that look weak on clicks alone can still be driving real, measurable purchase behavior.",
     },
   ],
 
@@ -15478,7 +15676,18 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "Meta's internal study showed that ASC+ campaigns delivered a 17% lower cost per conversion and a 32% lower cost per incremental conversion for mature accounts with robust data streams."
-    }
+    },
+    {
+      question: "Why does the lesson say browser-based pixels are no longer sufficient for feeding automated bidding algorithms like PMax and Advantage+, and what does it recommend instead?",
+      options: [
+        "Pixels are being fully discontinued by all browsers in 2026, so no tracking method will work without an API.",
+        "Privacy restrictions degrade browser-pixel tracking, so advertisers need server-to-server tracking such as Meta's Conversions API (CAPI) to send clean, real-time conversion signals directly from their server.",
+        "Browser pixels only work for Google Ads, never for Meta campaigns.",
+        "Server-side tracking is required because PMax and Advantage+ cannot read any client-side JavaScript at all.",
+      ],
+      correct: 1,
+      explanation: "Privacy changes have weakened browser-pixel accuracy, so the lesson positions server-to-server signal quality (CAPI) as the key lever for guiding automated bidding: clean, direct conversion data helps the algorithm find high-value buyers instead of optimizing toward low-quality clicks.",
+    },
   ],
 
   "growth/reverse-trials-monetization": [
@@ -16724,6 +16933,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "High CTR means the ad is working - it generates clicks. Low conversion means the landing page doesn't fulfil the promise of the ad. The fix is post-click experience, not the ad itself.",
     },
+    {
+      question: "Per the lesson, why should an advertiser hold off on switching to Target CPA bidding if their account has fewer than 30 conversions in the past 30 days?",
+      options: [
+        "Target CPA is only available to accounts spending over $50,000 per month.",
+        "Google's automated bidding algorithm needs enough conversion data to optimize effectively, so manual CPC or Maximize Clicks is more predictable until that volume builds up.",
+        "Google disables Target CPA entirely for any account under 6 months old.",
+        "Target CPA can only be used alongside broad match keywords, never exact or phrase match.",
+      ],
+      correct: 1,
+      explanation: "Automated bidding strategies learn from historical conversion data. With fewer than 30-50 conversions a month, the algorithm has too little signal to set bids well, so the lesson recommends manual CPC (or Maximize Clicks to build traffic first) until enough data accumulates.",
+    },
   ],
 
   "paid-ads/meta-ads": [
@@ -16751,6 +16971,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Low CPM + high reach means the ads are being shown cheaply and widely. The conversion failure points to the message, offer, or audience-offer match - not the media buying. This is a creative or positioning problem.",
     },
+    {
+      question: "A Meta ad set that was performing well gets heavily edited on day 3 after launch because early cost-per-result looked high. What is the most likely consequence?",
+      options: [
+        "Meta automatically extends the campaign end date to compensate",
+        "The learning phase resets completely, so the algorithm never accumulates the 50 conversions in 7 days it needs to optimise delivery",
+        "Meta lowers the daily budget automatically to protect spend",
+        "The ad set is permanently disqualified from Advantage+ automation",
+      ],
+      correct: 1,
+      explanation: "Meta's learning phase needs 50 conversion events within a 7-day window before delivery is optimised. Editing an ad set early resets that count to zero, which is why the lesson calls premature pausing or heavy edits the most expensive mistake in Meta Ads.",
+    },
   ],
 
   "paid-ads/bidding-strategies": [
@@ -16777,6 +17008,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       options: ["Reducing bids on keywords that haven't converted", "A technique used in first-price auctions where the buyer's platform submits a bid below the maximum to reduce overpaying, while still likely winning", "Hiding the true bidding strategy from competitors", "A Google Ads feature for reducing CPC on branded keywords"],
       correct: 1,
       explanation: "In first-price auctions (now standard in programmatic), the winner pays exactly what they bid. Bid shading algorithms predict the optimal bid below the maximum to avoid overpaying while maintaining win probability.",
+    },
+    {
+      question: "An Optmyzr study of 14,584 accounts found that for lead generation campaigns, switching from Maximize Conversions to Maximize Conversion Value produced what result?",
+      options: [
+        "No measurable difference since both strategies optimise for the same outcome",
+        "Nearly 300% higher ROAS, because conversions are no longer treated as equally valuable",
+        "Lower conversion volume but higher Quality Scores",
+        "A mandatory 30-day learning period reset that most advertisers skip",
+      ],
+      correct: 1,
+      explanation: "Max Conversion Value weighs conversions by their actual worth instead of counting every conversion equally, and the study found it outperformed Max Conversions by roughly 300% on ROAS for lead gen, a switch most advertisers haven't made because they default to Max Conversions.",
     },
   ],
 
@@ -20485,6 +20727,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Creating 3-5 asset groups per campaign, each targeting a different segment like budget buyers, premium buyers, or beginners, lets Google's algorithm allocate budget intelligently across distinct audience intents rather than cannibalizing a single group.",
     },
+    {
+      question: "According to the lesson, why do advertisers still need a negative keyword list even after moving to AI Max?",
+      options: [
+        "AI Max ignores negative keywords entirely, so the list only matters for Standard Search",
+        "AI Max respects negatives, and without them the algorithm still shows ads to low-intent queries like 'free,' 'cheap,' or 'job' searches that waste budget",
+        "Negative keywords are required to unlock the Audience Signals feature",
+        "Negative keywords are only needed once an account passes 200 monthly conversions",
+      ],
+      correct: 1,
+      explanation: "AI Max expands intent matching, not eliminates it, so it still respects negative keywords, and skipping them is listed as one of the common AI Max mistakes because the algorithm will otherwise burn budget on tire-kicker queries.",
+    },
   ],
   "paid-ads/amazon-advertising": [
     {
@@ -20530,6 +20783,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Sponsored Display is Amazon's built-in retargeting layer. It targets audiences based on product views and purchase behavior and can serve ads on Amazon as well as third-party websites and apps, with no pixel setup required.",
+    },
+    {
+      question: "What does Amazon Attribution allow a brand to measure that Sponsored Products, Sponsored Brands, and Sponsored Display cannot?",
+      options: [
+        "The exact ACoS of a Sponsored Display campaign in real time",
+        "How traffic driven from outside Amazon, such as Google Ads, Meta, or email, converts once it reaches an Amazon listing",
+        "The TACoS of a product across its entire lifecycle",
+        "Whether a competitor is bidding on your brand name",
+      ],
+      correct: 1,
+      explanation: "Amazon Attribution is a free tool specifically for tracking off-Amazon traffic sources, giving each channel a tracking tag and reporting clicks, detail page views, and purchases, closing the measurement gap the three on-Amazon ad types don't address.",
     },
   ],
   "paid-ads/creator-ugc-ads": [
@@ -20577,6 +20841,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "CTR measures creative stopping power while CVR measures what happens after the click. A high CTR with low CVR means the ad is compelling enough to get clicks, but the landing page or offer is failing to convert those visitors into customers.",
     },
+    {
+      question: "In the lesson's creative-quality metrics, what does a high video completion rate paired with a very low click-through rate most likely indicate?",
+      options: [
+        "The audience is oversaturated and frequency needs to be capped",
+        "Viewers are interested and watching, but the copy or call-to-action isn't convincing them to act, so the copy needs work rather than the video",
+        "The landing page is broken and needs to be rebuilt",
+        "The creator's account was not properly whitelisted",
+      ],
+      correct: 1,
+      explanation: "The lesson ties thumb-stop and completion behavior to interest, and CTR to message clarity and stopping power; high completion with low clicks means people watched but weren't moved to click, pointing at the copy, not the visual creative itself.",
+    },
   ],
   "paid-ads/demand-gen-campaigns": [
     {
@@ -20622,6 +20897,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "High impressions with low CTR means the ad is being shown but not compelling people to act, the creative needs a stronger hook in the first 3 seconds for video and a clearer value proposition in image headlines.",
+    },
+    {
+      question: "What does a high view-through conversion rate in a Demand Gen dashboard indicate?",
+      options: [
+        "The campaign is wasting budget because users saw the ad but never clicked",
+        "The lookalike audience seed list is too broad and needs narrowing",
+        "The creative is building purchase intent even without a direct click, since users who saw the ad later converted through another channel",
+        "The account has not yet reached the conversion threshold needed for tCPA bidding",
+      ],
+      correct: 2,
+      explanation: "View-through conversions track users who saw the ad but converted later via a different channel, so a high rate confirms Demand Gen's mid-funnel job of warming intent even when it doesn't get the last click.",
     },
   ],
   "paid-ads/first-party-data-activation": [
@@ -20669,6 +20955,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 3,
       explanation: "Workshop Digital's case studies showed the highest-performing account recovered +33% more conversions after enabling Enhanced Conversions, with the average across accounts clustering around 6-10%. This extra signal feeds directly into Smart Bidding, lowering effective CPA.",
     },
+    {
+      question: "Which of the three activation channels works by sending conversion events directly from your server to the ad platform, bypassing the browser entirely?",
+      options: [
+        "Google Customer Match",
+        "Meta Conversions API (CAPI)",
+        "Google Enhanced Conversions",
+        "Google Data Manager API",
+      ],
+      correct: 1,
+      explanation: "CAPI sends events server-to-server, bypassing the browser, which recovers iOS-blocked signals and fills ITP attribution gaps. Customer Match is a list-upload targeting mechanism and Enhanced Conversions augments the standard conversion tag with hashed data, neither replaces the browser-to-server pathway CAPI provides.",
+    },
   ],
   "paid-ads/snapchat-pinterest-ads": [
     {
@@ -20714,6 +21011,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The recommended approach is $20/day ($10 each) run for 14 days with single-objective conversion campaigns, giving enough data to compare cost per click and traffic quality before scaling the winner.",
+    },
+    {
+      question: "According to the lesson, what distinguishes Snapchat's AR Lenses and Filters from its other ad formats?",
+      options: [
+        "They are the cheapest format to produce but drive the lowest engagement",
+        "They let users interact with branded augmented reality experiences, with high production cost but exceptional engagement and brand recall",
+        "They are only available as an add-on to Collection Ads",
+        "They require a minimum daily spend of $100 to unlock",
+      ],
+      correct: 1,
+      explanation: "The lesson describes AR Lenses and Filters as high-production-cost formats (like a beauty brand's AR try-on lens) that drive engagement and brand recall no static ad can match, the opposite of being cheap or low-engagement.",
     },
   ],
   "product-marketing/ai-product-positioning": [
@@ -22034,6 +22342,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "The lesson lists installs with zero in-app events afterward as pointing to SDK spoofing, since the install was faked, nothing real ever happens next.",
     },
+    {
+      question: "What did Procter & Gamble's 2017 cut of $200 million in digital ad spend demonstrate, per the lesson's example?",
+      options: [
+        "Cutting spend reduced total reach in direct proportion to the budget cut",
+        "Reach increased 10% despite the spend cut, with no discernible drop in sales, after trimming thousands of long-tail publishers to a few hundred vetted partners",
+        "P&G abandoned digital advertising entirely following the cut",
+        "The cut produced no measurable change in reach or sales performance",
+      ],
+      correct: 1,
+      explanation: "The lesson's example shows P&G cut spend, tightened its publisher list to vetted MRC/TAG-certified partners, and still saw reach increase 10% with no sales drop, proof that a large share of the cut spend had been going to bots and fraudulent long-tail inventory rather than real reach.",
+    },
   ],
   "paid-ads/ad-frequency-creative-fatigue": [
     {
@@ -22079,6 +22398,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The lesson states the 2026 standard is 6-8 active creatives per campaign (up from 3-4), and Meta's DCO wants a minimum of 10 variants (3-4 videos, 3 images, 3 headlines, 2 CTAs) to avoid starving the algorithm of signal.",
+    },
+    {
+      question: "Per the lesson, what is TikTok's optimal ad frequency range per user per week, and what happens outside it?",
+      options: [
+        "Around 4 impressions/week; below 3, conversion rates fall 22%, and above 6, CTR drops 31%",
+        "Around 10 impressions/week; below 5, conversions fall, and above 15, CTR drops",
+        "There is no measurable optimal frequency range on TikTok",
+        "Around 1 impression/week; any additional exposure triggers an automatic pause",
+      ],
+      correct: 0,
+      explanation: "The lesson cites TikTok's optimal frequency at roughly 4 impressions per user per week, with conversion rates falling 22% below 3 impressions and CTR dropping 31% above 6, a much tighter window than Meta's slower 10-day decay curve.",
     },
   ],
   "ai-marketing/measuring-ai-marketing-roi": [
@@ -22908,6 +23238,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "The safe scaling pattern is roughly 20% increments spaced days apart, which takes about five weeks for a 5x scale but preserves the model's learned signal instead of resetting it.",
     },
+    {
+      question: "Per the lesson, roughly how many optimization events within a rolling 7-day window does the learning phase need to stabilize?",
+      options: [
+        "10 events",
+        "50 events",
+        "200 events",
+        "500 events",
+      ],
+      correct: 1,
+      explanation: "The lesson states the learning phase needs roughly 50 optimization events inside any rolling 7-day window to stabilize, and resetting it twice in one month can mean the campaign never accumulates enough signal to exit at all.",
+    },
   ],
   "paid-ads/landing-page-message-match": [
     {
@@ -22953,6 +23294,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Dedicated landing pages consistently outperform homepages for paid traffic by 30-50% in conversion rate, with per-campaign pages showing lifts as high as 42% over generic homepage redirects.",
+    },
+    {
+      question: "Per the lesson, what should you do with site navigation on a dedicated paid-traffic landing page?",
+      options: [
+        "Add more navigation links so visitors can explore other product lines",
+        "Strip the navigation, since every extra link is an exit ramp from the page's one job of converting the click you already paid for",
+        "Keep the exact same navigation as the homepage for brand consistency",
+        "Navigation placement has no measurable effect on conversion rate",
+      ],
+      correct: 1,
+      explanation: "The lesson lists stripping navigation as one of the core fixes for building landing pages around ad groups: a dedicated page has one job, and every extra nav link gives the visitor a way to wander off before converting.",
     },
   ],
   "product-marketing/battlecard-design-adoption": [
@@ -26340,6 +26692,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The lesson's four stages run in this order: a human briefs distinct angles first, AI generates executions per angle, a human QC gate reviews everything, and only the surviving set enters structured testing.",
+    },
+    {
+      question: "Per the lesson, what ROAS advantage do advertisers testing at least 15 creatives per month report compared to the market average?",
+      options: [
+        "1.2x higher ROAS",
+        "1.8x higher ROAS",
+        "3x higher ROAS",
+        "5x higher ROAS",
+      ],
+      correct: 1,
+      explanation: "The lesson cites 2026 industry benchmarks showing advertisers testing 15+ creatives per month report 1.8x higher ROAS than the market average, and notes AI generation is what makes that volume achievable for most teams, provided sameness fatigue is avoided.",
     },
   ],
   "analytics/experimentation-program-roi": [
