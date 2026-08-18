@@ -343,12 +343,14 @@ Content rewrite **first**, then projects and `InAction` scenarios authored again
 
 #### Stage 9, long tail
 
-| # | Item | Section |
-|---|---|---|
-| **9.1** | Phase 3, career layer, `/portfolio`, `calibration` | 6, 11.5 |
-| **9.2** | Related Concepts, present in only 10% of lessons | 12.4 |
-| **9.3** | Remaining 402 non-track lessons | 0.2 |
-| **9.4** | Hygiene: 19 BOMs, 25 single-quoted `lessonMeta`, 1 bloated lesson | 12.7-12.9 |
+| # | Item | Section | Status |
+|---|---|---|---|
+| **9.1** | Phase 3, career layer, `/portfolio`, `calibration` | 6, 11.5 | ⏸️ Not started. `/portfolio` route doesn't exist; `calibration` mode content exists (~17 projects) but the deferred-verification infra (prediction persistence, 30/90/180-day re-prompting, personal log) does not — confirmed Phase-3 scope per the plan's own 11.5/11.8 |
+| **9.2** | Related Concepts, present in only 10% of lessons | 12.4 | ⏸️ Not started. Real count today: 74/642 (11.5%), 568 lessons still without `relatedConcepts` |
+| **9.3** | Remaining 402 non-track lessons | 0.2 | ⏸️ Not started. Confirmed still exactly 402 (642 total − 240 with at least one project). 4 categories (`events-experiential`, `affiliate-marketing`, `marketing-leadership`, `legal-compliance`) have zero project files at all. Also noted: `track-projects.ts` (track-level "big projects") only covers 1 of 24 tracks (`solo-founder`) |
+| **9.4** | Hygiene: 19 BOMs, 25 single-quoted `lessonMeta`, 1 bloated lesson | 12.7-12.9 | ✅ **Done (Session 85).** BOMs were already 0 (fixed in an earlier session, unrecorded here until now). Single-quoted `lessonMeta`: all 25 files converted. Bloated lesson (`cro/social-proof-engineering`): left untouched per the plan's own low-priority guidance — it actually grew to ~3,011 words since 12.9 was written, but Rule 16 explicitly warns against trimming a rich lesson just to hit a number; needs a content read (not a mechanical fix) to judge whether the extra length is repetition, out of scope for this pass |
+
+**Session 85 audit note:** a dedicated research pass confirmed Stages 0-7 and 8.2b are genuinely done in code (stage-numbered comments throughout, spot-checked), so no re-litigation needed there. Full findings recorded in the Session 85 PR & Communications entry above and in `PROJECT_LOG.md`.
 
 #### Stage 10, expand every lesson quiz to 5 questions
 
@@ -2057,6 +2059,8 @@ Valid JavaScript, so nothing breaks at build time. The risk is **silent tooling 
 This matters more than it sounds. Rule 21 already documents a case where an agent's output format silently diverged from the codebase convention and caused a real bug. Same class of problem.
 
 **Fix:** normalise to double quotes, add a lint rule. Note that Rule 1 (no unescaped inner double quotes) becomes relevant when converting; check each summary for `'` contractions and inner quotes before switching.
+
+**✅ Done (Session 85, Stage 9.4).** All 25 files converted via a scoped script (touches only the `lessonMeta` object literal, not `ResourceList` entries below it, which may still use single quotes since 12.8 never flagged those). 74 strings converted total (3 per file — `title`/`level`/`summary` — except `fundamentals/revops-for-marketers` at 2, since its `title` was already double-quoted). None of the 25 summaries contained an apostrophe/contraction or an inner double quote, so no escaping was needed in practice, though the script handled both cases. `tsc --noEmit`, lint, `npm test` (30/30), `npm run build` all clean after. A lint rule enforcing this was not added (out of scope for this pass — would need a custom ESLint rule scoped to `lessonMeta` blocks specifically, since the rest of each file legitimately uses single quotes in `ResourceList`).
 
 ### 12.9 P3: one bloated lesson
 
