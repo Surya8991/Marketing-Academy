@@ -70,6 +70,23 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Respect the OS-level "reduce motion" preference: neutralize smooth scrolling
+   and every CSS animation/transition site-wide (Mermaid diagram controls, card
+   hover states, the reading-progress bar, etc.) rather than special-casing each
+   component individually. Re-derived from a stale branch (Session 85 branch
+   cleanup) — no prior reduced-motion support existed anywhere in the site. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Lesson page quiz accordion (docs-style redesign, Session 75): rotates the
    chevron on the native <details> used for "Test Your Knowledge" without
    needing client JS. */

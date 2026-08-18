@@ -351,7 +351,7 @@ export default function InterviewPrepPage() {
               color: "var(--muted-foreground)",
             }}
           >
-            Questions from all 257 lessons with active quizzes will appear here.
+            Questions from all {Object.keys(QUIZZES).length} lessons with active quizzes will appear here.
           </p>
         </section>
 

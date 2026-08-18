@@ -1,10 +1,11 @@
 import { CATEGORIES } from "@/lib/curriculum";
 import { GLOSSARY_TERMS } from "@/lib/glossary";
 import { TOOLS } from "@/lib/tools-directory";
+import { TRACKS } from "@/lib/tracks";
 
 export type CommandEntry = {
   id: string;
-  type: "lesson" | "glossary" | "tool" | "nav";
+  type: "lesson" | "glossary" | "tool" | "nav" | "track";
   title: string;
   subtitle?: string;
   href: string;
@@ -58,7 +59,18 @@ export function buildCommandIndex(): CommandEntry[] {
     };
   });
 
-  return [...NAV_ENTRIES, ...lessons, ...glossary, ...tools];
+  // Session 85 branch-cleanup follow-up: tracks were never indexed in search
+  // or the command palette at all (only lessons/glossary/tools/nav), so a
+  // learner searching "SEO track" or "B2B marketer" found nothing.
+  const tracks: CommandEntry[] = TRACKS.map((t) => ({
+    id: `track-${t.slug}`,
+    type: "track" as const,
+    title: t.title,
+    subtitle: `${t.lessons.length}-lesson track`,
+    href: `/tracks/${t.slug}`,
+  }));
+
+  return [...NAV_ENTRIES, ...lessons, ...tracks, ...glossary, ...tools];
 }
 
 export const COMMAND_INDEX: CommandEntry[] = buildCommandIndex();

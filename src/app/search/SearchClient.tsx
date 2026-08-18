@@ -4,17 +4,33 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import Fuse from "fuse.js";
 import { CATEGORIES, flatLessons, type FlatLesson } from "@/lib/curriculum";
+import { TRACKS, type Track } from "@/lib/tracks";
 import LevelBadge from "@/components/LevelBadge";
-import { Search, ArrowRight } from "lucide-react";
+import { Search, ArrowRight, Map } from "lucide-react";
 
 const ALL_LESSONS: FlatLesson[] = flatLessons();
 
-const fuse = new Fuse(ALL_LESSONS, {
+// Session 85 branch-cleanup follow-up: tracks were never searchable here at
+// all (lessons only), so "SEO track" or "B2B marketer" returned nothing even
+// though both are real pages. A single discriminated-union index keeps one
+// Fuse instance and one results list instead of two parallel search UIs.
+type SearchItem =
+  | { kind: "lesson"; lesson: FlatLesson }
+  | { kind: "track"; track: Track };
+
+const ALL_ITEMS: SearchItem[] = [
+  ...ALL_LESSONS.map((lesson) => ({ kind: "lesson" as const, lesson })),
+  ...TRACKS.map((track) => ({ kind: "track" as const, track })),
+];
+
+const fuse = new Fuse(ALL_ITEMS, {
   keys: [
-    { name: "title", weight: 3 },
-    { name: "summary", weight: 2 },
-    { name: "categoryTitle", weight: 1 },
-    { name: "level", weight: 0.5 },
+    { name: "lesson.title", weight: 3 },
+    { name: "track.title", weight: 3 },
+    { name: "lesson.summary", weight: 2 },
+    { name: "track.description", weight: 2 },
+    { name: "lesson.categoryTitle", weight: 1 },
+    { name: "lesson.level", weight: 0.5 },
   ],
   threshold: 0.35,
   includeScore: true,
@@ -54,21 +70,28 @@ export default function SearchClient() {
 
   const isFiltered = activeCategory !== "all" || activeLevel !== "all";
 
-  const searchResults = useMemo<FlatLesson[]>(() => {
+  const searchResults = useMemo<SearchItem[]>(() => {
     const q = query.trim();
-    if (!q) return isFiltered ? ALL_LESSONS : [];
+    if (!q) {
+      return isFiltered ? ALL_LESSONS.map((lesson) => ({ kind: "lesson" as const, lesson })) : [];
+    }
     return fuse.search(q).map((r) => r.item);
   }, [query, isFiltered]);
 
-  const filteredResults = useMemo<FlatLesson[]>(() => {
-    return searchResults.filter((lesson) => {
+  // Category/level filter chips only mean anything for lessons (a track spans
+  // several categories and levels by design), so a track result quietly drops
+  // out once either filter is active rather than trying to force a match.
+  const filteredResults = useMemo<SearchItem[]>(() => {
+    if (!isFiltered) return searchResults;
+    return searchResults.filter((item) => {
+      if (item.kind !== "lesson") return false;
       const categoryMatch =
-        activeCategory === "all" || lesson.categorySlug === activeCategory;
+        activeCategory === "all" || item.lesson.categorySlug === activeCategory;
       const levelMatch =
-        activeLevel === "all" || lesson.level === activeLevel;
+        activeLevel === "all" || item.lesson.level === activeLevel;
       return categoryMatch && levelMatch;
     });
-  }, [searchResults, activeCategory, activeLevel]);
+  }, [searchResults, activeCategory, activeLevel, isFiltered]);
 
   const showEmptyState = !query.trim() && !isFiltered;
 
@@ -171,29 +194,55 @@ export default function SearchClient() {
             </div>
           ) : (
             <ul className="divide-y divide-[var(--border)]">
-              {filteredResults.map((lesson) => (
-                <li key={`${lesson.categorySlug}/${lesson.slug}`}>
-                  <Link
-                    href={`/learn/${lesson.categorySlug}/${lesson.slug}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-start justify-between gap-4 py-4 group"
-                  >
-                    <div className="min-w-0">
-                      <p className="text-[var(--foreground)] font-medium group-hover:text-[var(--accent)] transition-colors truncate">
-                        {lesson.title}
-                      </p>
-                      <p className="text-sm text-[var(--muted-foreground)] mt-0.5 line-clamp-1">
-                        {lesson.summary}
-                      </p>
-                      <p className="text-xs text-[var(--muted-foreground)] mt-1">
-                        {lesson.categoryTitle}
-                      </p>
-                    </div>
-                    <LevelBadge level={lesson.level} className="shrink-0 mt-0.5" />
-                  </Link>
-                </li>
-              ))}
+              {filteredResults.map((item) =>
+                item.kind === "track" ? (
+                  <li key={`track-${item.track.slug}`}>
+                    <Link
+                      href={`/tracks/${item.track.slug}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-start justify-between gap-4 py-4 group"
+                    >
+                      <div className="min-w-0">
+                        <p className="text-[var(--foreground)] font-medium group-hover:text-[var(--accent)] transition-colors truncate">
+                          {item.track.emoji} {item.track.title}
+                        </p>
+                        <p className="text-sm text-[var(--muted-foreground)] mt-0.5 line-clamp-1">
+                          {item.track.description}
+                        </p>
+                        <p className="text-xs text-[var(--muted-foreground)] mt-1">
+                          {item.track.lessons.length}-lesson track
+                        </p>
+                      </div>
+                      <span className="shrink-0 mt-0.5 inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full" style={{ background: "rgba(234, 88, 12, 0.15)", color: "rgba(234, 88, 12, 0.9)" }}>
+                        <Map size={10} /> Track
+                      </span>
+                    </Link>
+                  </li>
+                ) : (
+                  <li key={`${item.lesson.categorySlug}/${item.lesson.slug}`}>
+                    <Link
+                      href={`/learn/${item.lesson.categorySlug}/${item.lesson.slug}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-start justify-between gap-4 py-4 group"
+                    >
+                      <div className="min-w-0">
+                        <p className="text-[var(--foreground)] font-medium group-hover:text-[var(--accent)] transition-colors truncate">
+                          {item.lesson.title}
+                        </p>
+                        <p className="text-sm text-[var(--muted-foreground)] mt-0.5 line-clamp-1">
+                          {item.lesson.summary}
+                        </p>
+                        <p className="text-xs text-[var(--muted-foreground)] mt-1">
+                          {item.lesson.categoryTitle}
+                        </p>
+                      </div>
+                      <LevelBadge level={item.lesson.level} className="shrink-0 mt-0.5" />
+                    </Link>
+                  </li>
+                )
+              )}
             </ul>
           )}
         </>
