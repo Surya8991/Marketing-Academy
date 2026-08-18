@@ -845,3 +845,15 @@ Session 85's final Stage 8.3a batch (PR & Communications Mastery) had 2 of 4 par
 - If MDX evidence shows the insert work already landed: relaunch with MDX editing removed from the task entirely (told explicitly "do NOT touch the MDX files, your only job is the projects data file"), so it can't duplicate work that already succeeded.
 
 Do not just wait indefinitely on a batch that has gone well past every comparable batch's typical runtime with zero new file activity — check mtimes/grep counts first, since a completion notification is not guaranteed to ever arrive for a stalled background agent.
+
+### Rule 74 — A count cited in README.md drifts independently at every location it's copied to; verify against the live data file, never against another doc line
+
+Session 85's branch-cleanup doc sweep found README.md citing three different tool-directory counts in three different places (108, 116, and the real 141), and the glossary at 216 terms when `GLOSSARY_TERMS.length` is 158 — all stale by different, unrelated amounts, none matching each other. None of these were touched by the sessions that actually changed `tools-directory.ts`/`glossary.ts`; each was written once as static prose text and then never revisited as the underlying data file grew.
+
+`Object.keys(QUIZZES).length`-style dynamic derivation (Rule 23, and the pattern `about/page.tsx` already uses for its own stats) prevents this **in the running site**. It does nothing for a `.md` file, which has no build step and cannot drift-check itself. Before citing any count in README.md/PROJECT_LOG.md/PROJECTS_PLAN.md — lessons, tools, glossary terms, tracks, badges, quiz questions — get the real number from the source directly:
+
+```bash
+node --import tsx -e "import { TOOLS } from './src/lib/tools-directory.ts'; console.log(TOOLS.length);"
+```
+
+Never copy a count from another line in the same doc (they disagree with each other, per above) and never assume last session's number is still right. When a rule like this one fixes a batch of stale counts, grep the fixed file for the OLD wrong numbers one more time afterward (`grep -n "108 \|116 \|216-term"`) to confirm no sibling copy was missed — a single sed pass over one phrasing does not catch every place the same stat was hand-written differently.

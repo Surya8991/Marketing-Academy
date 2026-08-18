@@ -51,7 +51,7 @@
 ```
 1. cd D:\Coding\marketing-academy
 2. Count MDX files: (Get-ChildItem src/content -Recurse -Filter *.mdx).Count   [PowerShell]
-3. Current: 642 lessons · 158 glossary terms · 116 tools · 24 tracks · 21 categories
+3. Current: 642 lessons · 158 glossary terms · 141 tools · 24 tracks · 21 categories
 4. XP/Streak/Achievements system LIVE (Session 41). Cmd+K palette, skill-map, onboarding, settings page all shipped.
 5. Stats are dynamic everywhere: flatLessons().length, CATEGORIES.length, GLOSSARY_TERMS.length, TOOLS.length.
 6. Key constants: COMPLETED_KEY exported from progress.ts, COMMAND_PALETTE_EVENT from src/lib/events.ts.
