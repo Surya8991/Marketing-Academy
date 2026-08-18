@@ -32,6 +32,18 @@ A fourth input, statistical significance threshold (alpha), is usually set at 0.
 
 ## Why It Matters
 
+<InAction
+  concept="Pre-registering sample size and end date before launching a test"
+  companyName="Booking.com"
+  where="Booking.com's central experimentation platform"
+  why="Manually setting a sample size for each of 25,000+ tests a year was not scalable, and inconsistent stopping rules were corrupting the company's decision database over time"
+  what="Built automated power analysis that pulls baseline conversion data from the warehouse, calculates the required sample size, and locks a test end date before launch, so no analyst can start a test without one"
+  benefit="Runs 25,000+ experiments a year off a single automated sample-size and stopping-rule system, protecting decision quality at a scale where even a 1% false-positive rate would mean roughly 250 wrong calls a year"
+  timeframe="Ongoing platform practice, described in the company's published experimentation methodology"
+  date="2017"
+  source="https://arxiv.org/pdf/1710.08217"
+/>
+
 Running tests without a sample size calculation is one of the most common and costly CRO mistakes:
 
 - **False positives from peeking:** A 2025 simulation study by Alex Molas found that checking results 10 or more times during a test and stopping at the first significant result inflates false positive rates above 40%, compared to the nominal 5% alpha level. Source: [Alex Molas, October 2025](https://www.alexmolas.com/2025/10/03/ab-testing-peeking.html)
@@ -151,6 +163,18 @@ Airbnb's engineering blog describes their challenge with low-frequency conversio
 ---
 
 ## Low-Traffic Guidance
+
+<InAction
+  concept="Alternative testing methods for low-frequency conversion events"
+  companyName="Airbnb"
+  where="Airbnb's search ranking experimentation"
+  why="Booking is a rare, low-frequency conversion event, so a standard fixed-horizon A/B test needed an impractically large sample to reach significance on ranking changes"
+  what="Built an interleaving framework that blends results from two ranking algorithms for the same user in a single session, instead of splitting users into separate control and treatment groups"
+  benefit="Reached the same conclusion as the equivalent A/B test using only 4% of the traffic and 0.5% of the running time"
+  timeframe="Framework built and adopted starting 2021"
+  date="2021"
+  source="https://airbnb.tech/data/beyond-a-b-test-speeding-up-airbnb-search-ranking-experimentation-through-interleaving/"
+/>
 
 If your site gets fewer than 10,000 monthly visitors to the page you are testing, standard A/B testing is difficult to do well. Your options:
 

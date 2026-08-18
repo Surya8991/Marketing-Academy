@@ -16,6 +16,18 @@ Concrete example: you feed the model 156 weeks of spend by channel (Meta, Google
 
 ## Why It Matters (with data)
 
+<InAction
+  concept="MMM's incremental media contribution"
+  companyName="Nexon"
+  where="Nexon's marketing analytics team, working with Analytic Edge and Google"
+  why="Last-click attribution couldn't isolate how YouTube was indirectly lifting the performance of Nexon's other paid channels, so the video-game publisher needed a top-down model that could separate real causal contribution from correlation."
+  what="Nexon built an MMM approach enhanced with causal inference and machine learning across its Search, Display, and YouTube spend, accounting for confounders like a game rebrand and major sporting events."
+  benefit="A 20% increase in Google's measured incremental media contribution to Nexon's core acquisition KPI once the model correctly credited YouTube's indirect lift on other channels."
+  timeframe="Case study published May 2025"
+  date="2025"
+  source="https://business.google.com/us/think/measurement/marketing-mix-modelling-growth-engine/"
+/>
+
 Apple's App Tracking Transparency, live since April 2021, drove opt-in rates below 25%, breaking deterministic mobile attribution and pushing the entire industry toward privacy-durable measurement ([Improvado, 2026](https://improvado.io/blog/what-is-marketing-mix-modeling-complete-guide)).
 
 Google Trends data shows search interest in MMM spiking from August 2025 onward as marketers planned 2026 budgets without reliable last-click data ([Sellforte, 2025](https://sellforte.com/blog/demand-for-marketing-mix-modeling-mmm-accelerating)).
@@ -23,6 +35,18 @@ Google Trends data shows search interest in MMM spiking from August 2025 onward 
 The open-source tooling that made this accessible to mid-market brands matured fast. As of late 2025, Meta's Robyn had 1,200+ GitHub stars and 32 contributors, Google's Meridian had 1,200 stars and 209 forks, and PyMC-Marketing had 987 stars across 83 contributors ([Eliya, 2025](https://www.eliya.io/blog/media-mix-modeling/Meridian-vs-Robyn)). Three years ago, an MMM project meant a six-figure Nielsen engagement; today a competent data scientist can ship a first model in a quarter.
 
 ## How It Works / The Playbook
+
+<InAction
+  concept="Optimize and reallocate using fitted response curves"
+  companyName="Resident"
+  where="Resident's performance marketing team, using Meta's open-source Robyn MMM package"
+  why="Resident's blended last-click attribution was undervaluing Facebook's contribution relative to channels that got more direct-response credit, so budget kept drifting away from a channel that was actually working."
+  what="Resident adopted Robyn as its measurement approach for monthly budget allocation, fitting response curves across its full channel mix and reallocating spend toward the channels the model showed as under-invested."
+  benefit="US revenue grew 20% quarter-over-quarter in the first half of 2021 while holding blended cost per acquisition steady, with Facebook's share of the media budget rising 15-20%."
+  timeframe="First half of 2021"
+  date="2021"
+  source="https://www.facebook.com/business/measurement/case-studies/resident"
+/>
 
 1. **Define the KPI and time grain.** Weekly revenue is the default. Daily works for short-cycle e-commerce; monthly only if you have 5+ years of history.
 2. **Collect 2-3 years of data.** You need at least 104 weeks to fit seasonality and decay. Pull spend by channel, impressions, sales, price, promo flags, distribution, competitor activity, and macro signals (Google Trends, CPI).

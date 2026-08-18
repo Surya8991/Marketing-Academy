@@ -12666,4 +12666,291 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
     },
   ],
+
+  "content-decay-refresh": [
+    {
+      id: "content-decay-search-console-triage",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Triage Call: Auditing a Search Console Decay Report",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given a real 20-page Search Console export comparing the last six months to the prior six, classify each page's decay pattern and decide which pages get a quick refresh, a full rewrite, or a lower-priority hold.",
+      companyId: "policybazaar",
+      scenario:
+        "You're the SEO analyst on PolicyBazaar's content team. Organic clicks to the insurance-guides section are down 18% year over year, and leadership wants a prioritized fix list before the next content sprint, not a vague 'traffic is down' summary.",
+      brief:
+        "Sort the export by clicks lost, classify each page's decay pattern, then flag which pages are quick wins versus pages that need a full rewrite.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Classifying decay patterns from Search Console deltas",
+        "Prioritizing by traffic value, decay severity, and competitive gap size",
+      ],
+      steps: [
+        {
+          stepId: "step-1-classify-decay-pattern",
+          concept: "Classifying decay patterns from Search Console deltas",
+          lessonAnchor: "how-to-systematically-find-decaying-pages",
+          theoryRecap:
+            "The lesson splits decay into three patterns from a six-month-vs-prior-six-month Search Console comparison: cliff decay (a sudden 40-60% drop after 18+ stable months), slow bleed (5-10% fewer clicks every month for six months), and position drift (rank falls while impressions hold, so users stop clicking).",
+          question:
+            "Row 3, 'car-insurance-renewal-guide', held steady at ~9,200 clicks/month for 14 months, then dropped to 3,600 clicks in the most recent quarter with impressions falling the same amount. Row 11, 'two-wheeler-claim-process', still gets the same impressions but clicks fell from 4,100 to 2,050 as average position slid from 3.8 to 7.9. Which pattern is each row?",
+          toolName: "Google Sheets",
+          where: "Import search-console-decay-export.csv, freeze the header row, add a 'pattern' column.",
+          procedure: [
+            "Import search-console-decay-export.csv and freeze row 1",
+            "For each row, compare the impressions trend against the clicks trend across the two six-month windows",
+            "Tag rows where both impressions and clicks fell together after a long stable run as 'cliff decay'",
+            "Tag rows where impressions held but average position and clicks both fell as 'position drift'",
+            "Tag the remaining steady, small monthly declines as 'slow bleed'",
+          ],
+          outputSample:
+            "PATTERN CLASSIFICATION (excerpt)\ncar-insurance-renewal-guide      clicks 9,200->3,600   impr 41,000->16,200   pattern: cliff decay\ntwo-wheeler-claim-process        clicks 4,100->2,050   impr 38,500->38,100   pos 3.8->7.9   pattern: position drift\nhealth-insurance-tax-benefits    clicks 6,800->6,100->5,500 (monthly)      pattern: slow bleed",
+          healthy:
+            "Every row in the export gets one of the three pattern tags before any prioritization happens, so the fix matches the actual cause instead of a generic 'refresh everything' response.",
+          unhealthy:
+            "Sorting only by percentage lost and missing that 'car-insurance-renewal-guide' lost more raw clicks (5,600) than three slow-bleed rows combined, because percentage loss hides the highest-value page in the list.",
+          interpret:
+            "Cliff decay usually points to a SERP feature change or algorithm update and needs investigation before rewriting; position drift with flat impressions means Google still shows the page but users don't click it, which is a freshness or snippet problem, not a ranking problem.",
+          soWhat: [
+            {
+              symptom: "A page shows cliff decay after 18+ stable months",
+              action: "Check for a named algorithm update or new SERP feature on that query before rewriting a single word",
+              effort: "30 min",
+            },
+            {
+              symptom: "A page shows position drift with flat impressions",
+              action: "Rewrite the title tag and meta description first, since Google is still showing the page but nobody clicks it",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-prioritize-by-value-and-gap",
+          concept: "Prioritizing by traffic value, decay severity, and competitive gap size",
+          lessonAnchor: "how-to-systematically-find-decaying-pages",
+          theoryRecap:
+            "The lesson prioritizes by three factors together, current traffic value, decay severity, and the size of the competitive content gap: a page bleeding 20% with a small gap is a quick win, while a page down 60% against a much deeper competitor article needs a full rewrite, not a patch.",
+          question:
+            "You have 6 sprint slots. 'car-insurance-renewal-guide' lost 5,600 clicks/month (cliff decay, competitor gap: 3 missing subsections) and 'bike-insurance-online-guide' lost 900 clicks/month (slow bleed, competitor gap: outdated pricing table only). Which gets a slot first, and what kind of fix does each get?",
+          toolName: "Google Sheets",
+          where: "Add 'clicks lost' and 'gap size' columns, then sort by clicks lost descending.",
+          procedure: [
+            "Add a 'clicks lost (raw)' column, not percentage, and sort the sheet by it descending",
+            "Add a 'competitor gap size' column, tagging each row 'small' or 'large' based on missing subtopics",
+            "Cross the two: high clicks lost + large gap = full rewrite this sprint; high clicks lost + small gap = quick win this sprint",
+            "Push low clicks-lost + small-gap rows to next quarter's backlog",
+          ],
+          outputSample:
+            "SPRINT PRIORITY (6 slots)\n1. car-insurance-renewal-guide     -5,600 clicks   large gap    FULL REWRITE\n2. two-wheeler-claim-process       -2,050 clicks   small gap    QUICK WIN (title/meta + intro)\n3. bike-insurance-online-guide       -900 clicks   small gap    QUICK WIN (pricing table update)\n...\nBACKLOG (next quarter): 14 rows under 500 clicks lost",
+          healthy:
+            "The 6 sprint slots go to the highest raw-clicks-lost rows first, with rewrite-vs-quick-win split by gap size, so the sprint recovers the most traffic possible with the time available.",
+          unhealthy:
+            "Spending a full sprint slot rewriting 'bike-insurance-online-guide' (900 clicks lost, small gap) while 'car-insurance-renewal-guide' (5,600 clicks lost) sits in the backlog because its percentage loss looked smaller.",
+          interpret:
+            "Raw clicks lost, not percentage, determines business impact; gap size determines whether the fix is a quick win or a full rewrite. Confusing the two produces a sprint plan that feels busy but recovers little traffic.",
+          soWhat: [
+            {
+              symptom: "The backlog has more pages than sprint slots",
+              action: "Sort by raw clicks lost first, then split each row into quick win or full rewrite by gap size",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Search Console",
+            role: "Source of the six-month-vs-prior-six-month clicks, impressions, and position data",
+            why: "Free, first-party, and the only tool that shows Google's actual view of each page's performance trend",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Classify decay patterns and sort the prioritization list",
+            why: "Free, no account friction, sorts and filters the export in minutes",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A 20-row prioritized sprint list with each page tagged by decay pattern (cliff decay, slow bleed, position drift) and fix type (full rewrite, quick win, backlog), sorted by raw clicks lost.",
+      sampleOutput:
+        "Chewy, pet-care content decay triage (excerpt)\n\nSPRINT PRIORITY\n1. dog-food-allergy-guide         -4,900 clicks   large gap    FULL REWRITE\n2. cat-litter-comparison-2024     -1,800 clicks   small gap    QUICK WIN (title/meta + stats)\n3. puppy-vaccination-schedule       -700 clicks   small gap    QUICK WIN (pricing update)\n\nBACKLOG (next quarter): 12 rows under 400 clicks lost",
+      successCriteria: [
+        "Every row in the export is tagged with one of the three decay patterns",
+        "Sprint slots go to the highest raw-clicks-lost pages first, not the highest percentage",
+        "Each prioritized page is tagged full rewrite or quick win based on competitive gap size, not guessed",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "content-decay-refresh-brief-rewrite",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "The Real Refresh: Rewriting a Decayed Page's Intro and Closing Its Gaps",
+      timeEstimate: "50 minutes",
+      timeMinutes: 50,
+      objective:
+        "Given a decayed page's old intro, its stale stats, and a list of subtopics competitors now cover that it doesn't, produce a refresh brief and rewritten intro that would actually recover rankings, not just change the publish date.",
+      companyId: "zendesk",
+      scenario:
+        "You're a content strategist at Zendesk. 'customer-support-ticketing-best-practices' ranked #4 for two years, has slid to position 11, and the fastest fix on your desk was a marketer suggesting you 'just bump the date.' You have the old page and a competitor gap analysis.",
+      brief:
+        "Diagnose the decay pattern, then rewrite the intro and outline the fix for every stale stat and content gap, not just the timestamp.",
+      mode: "build",
+      conceptsCovered: [
+        "Diagnosing the decay pattern before choosing a fix",
+        "Rewriting the intro to answer the query directly, in plain language",
+        "Replacing stale stats and closing competitor content gaps",
+      ],
+      steps: [
+        {
+          stepId: "step-1-diagnose-before-fixing",
+          concept: "Diagnosing the decay pattern before choosing a fix",
+          lessonAnchor: "how-to-systematically-find-decaying-pages",
+          theoryRecap:
+            "Cliff decay, slow bleed, and position drift each point to a different root cause, and treating all three the same way wastes the fix.",
+          question:
+            "The page held position 4 for two years, dropped steadily to position 11 over 5 months, and impressions barely moved. Which decay pattern is this, and does that change whether a full rewrite is even the right first move?",
+          toolName: "Google Search Console",
+          where: "Performance report, filtered to this URL, comparing the last six months to the prior six.",
+          procedure: [
+            "Pull the URL's six-month clicks, impressions, and average position trend from Search Console",
+            "Confirm impressions stayed flat while position and clicks fell, matching position drift, not cliff decay",
+            "Note that position drift usually means the page is still relevant to Google but reads as thinner or staler than competitors now, which justifies content rewrite over a technical fix",
+          ],
+          outputSample:
+            "customer-support-ticketing-best-practices\nImpressions: 22,400 -> 21,900 (flat)\nPosition: 4.1 -> 11.3\nClicks: 3,100 -> 890\nPattern: position drift -> content freshness/depth problem, not a technical or SERP-feature problem",
+          healthy:
+            "Confirming position drift before rewriting means the fix targets content depth and freshness, the actual cause, instead of chasing a technical issue that isn't there.",
+          unhealthy:
+            "Assuming this is cliff decay and spending the sprint auditing for a manual penalty or crawl error when impressions never dropped.",
+          interpret:
+            "Flat impressions with falling position and clicks is Google's way of saying 'I still think this page is relevant, but I'm not confident it's the best answer anymore.' That is a content problem, not a technical one.",
+          soWhat: [
+            {
+              symptom: "Position falls steadily while impressions hold",
+              action: "Skip the technical audit and go straight to a content depth and freshness review",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-rewrite-the-intro",
+          concept: "Rewriting the intro to answer the query directly, in plain language",
+          lessonAnchor: "what-a-real-refresh-looks-like-and-what-doesnt-count",
+          theoryRecap:
+            "A real refresh starts with the first 100-150 words, rewritten to answer the query directly and in plain language, because that section is what AI Overviews and answer engines lift first.",
+          question:
+            "The old intro opens with 'In today's fast-paced customer service landscape, ticketing systems have become an essential tool for businesses of all sizes.' It doesn't answer the query for 3 more sentences. Rewrite it to answer 'what are customer support ticketing best practices' in the first sentence.",
+          toolName: "Google Docs",
+          where: "Refresh brief doc, 'New Intro' section.",
+          procedure: [
+            "Delete the throat-clearing opening sentence entirely",
+            "Write a first sentence that states the direct answer: the core best practices, named",
+            "Keep the full rewritten intro under 150 words and in plain, direct language",
+          ],
+          outputSample:
+            "OLD (deleted): 'In today's fast-paced customer service landscape, ticketing systems have become an essential tool...'\n\nNEW: 'The best customer support ticketing practices in 2026 are: route by urgency and skill match, not first-in-first-out; set a first-response SLA under 1 hour; and close the loop with a resolution summary the customer can search later. Here's how each one works and why it moves your CSAT score.'",
+          healthy:
+            "A reader or an AI Overview can lift the answer from the first sentence alone, without reading the rest of the page.",
+          unhealthy:
+            "Keeping the throat-clearing opening and only swapping the 'last updated' date, which is the fake refresh the lesson calls out directly.",
+          interpret:
+            "The first 100-150 words carry the most weight for both human skimmers and AI answer extraction, so that's where refresh effort pays off fastest per minute spent.",
+          soWhat: [
+            {
+              symptom: "The intro takes 2+ sentences to state the actual answer",
+              action: "Rewrite the first sentence to state the direct answer before anything else",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-replace-stats-close-gaps",
+          concept: "Replacing stale stats and closing competitor content gaps",
+          lessonAnchor: "what-a-real-refresh-looks-like-and-what-doesnt-count",
+          theoryRecap:
+            "A real refresh replaces every dated statistic with a current one and fills the thin sections where competitors now cover a subtopic the page skipped, fixing what's wrong in place rather than padding the bottom with new words.",
+          question:
+            "The page cites a 2022 stat ('62% of customers expect a reply within 10 minutes') and is missing a section on AI-assisted ticket routing that all 3 top competitors now include. What two fixes go in the brief, and where do they go, not at the bottom?",
+          toolName: "Google Docs",
+          where: "Refresh brief doc, 'Stat Replacements' and 'Gap Fills' sections.",
+          procedure: [
+            "Find a current, sourced replacement stat for the 2022 figure and note the exact paragraph it replaces",
+            "Write a one-paragraph outline for the missing AI-assisted ticket routing section, placed after the section it logically follows, not appended at the end",
+            "List every other dated claim in the old page (a discontinued tool mention, a deprecated best practice) as a third fix category",
+          ],
+          outputSample:
+            "STAT REPLACEMENTS\n- Para 2: swap 2022 stat for 2026 figure, cite source, same location in the page\n\nGAP FILLS (mid-page, not appended)\n- New section after 'Routing Rules': 'AI-Assisted Ticket Routing' (competitors: Zendesk's own guide competitors cover this, we don't)\n\nOUTDATED CLAIMS TO FIX\n- Para 6 recommends a tool that was discontinued in 2025, replace with current alternative",
+          healthy:
+            "Every fix is placed exactly where the outdated or missing content lives in the page structure, so the page reads as coherently updated, not patched at the end.",
+          unhealthy:
+            "Adding a new 'AI-Assisted Ticket Routing' section at the very bottom of the page after the conclusion, which the lesson explicitly calls out as not counting as a real refresh.",
+          interpret:
+            "Placement matters as much as content: a gap-fill section appended at the end reads to both readers and Google as padding, while the same content placed where it logically belongs reads as genuine depth.",
+          soWhat: [
+            {
+              symptom: "A competitor gap analysis lists a missing subtopic",
+              action: "Write the new section and insert it at its logical place in the existing structure, never appended at the end",
+              effort: "half day",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Search Console",
+            role: "Confirm the decay pattern before deciding the fix",
+            why: "Free, first-party performance data for the exact URL",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Docs",
+            role: "Draft the refresh brief and the rewritten intro",
+            why: "Free, easy to share with an editor or developer for review",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Ahrefs",
+            role: "Pull the competitor content gap analysis (subtopics competitors cover that this page doesn't)",
+            why: "Content Gap tool surfaces ranking subtopics across competitor URLs faster than manual review",
+            required: false,
+            fallback: "Manually read the top 3 ranking competitor pages and list subtopics they cover that this page doesn't",
+            lastVerified: "2026-08",
+          },
+        ],
+        paidUpgradeNote:
+          "The free path (manual competitor read-through) takes longer but produces the same gap list; Ahrefs just speeds up finding it.",
+      },
+      deliverable:
+        "A refresh brief with the confirmed decay pattern, a rewritten 150-word intro, a stat-replacement list with exact paragraph locations, and a gap-fill outline placed within the existing page structure.",
+      sampleOutput:
+        "Wise, 'international-wire-transfer-fees-guide' refresh brief (excerpt)\n\nDECAY PATTERN: position drift (4.5 -> 9.2, impressions flat)\n\nNEW INTRO: 'International wire transfer fees in 2026 range from $0-$50 depending on your bank and destination currency. Here's the current fee breakdown for the 8 most-used providers, and how to avoid the hidden markup most guides don't mention.'\n\nSTAT REPLACEMENTS: Para 3, swap 2023 average-fee figure for current 2026 figure\nGAP FILL: New section after 'Bank Wire Fees' on 'Hidden FX Markup', competitors cover this, we don't",
+      successCriteria: [
+        "Decay pattern is confirmed from Search Console data before any content decision is made",
+        "The rewritten intro states the direct answer in the first sentence and stays under 150 words",
+        "Every stat replacement and gap fill is placed at its logical location in the page, none appended at the bottom",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Track this page's position and clicks for 60 days after the real refresh ships, and compare recovery against the lesson's 40-60% benchmark.",
+    },
+  ],
 };

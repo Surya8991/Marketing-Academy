@@ -14,6 +14,18 @@ An attribution model is a rule for splitting credit for a conversion across the 
 
 ## Why It Matters (with data)
 
+<InAction
+  concept="Last-touch (last-click)"
+  companyName="eBay"
+  where="Paid search program, brand-keyword bidding"
+  why="eBay's marketing team wanted to know whether the sales its last-click reports attributed to brand-keyword paid search ads were actually incremental, or whether those ads were just intercepting shoppers who typed the brand name and would have clicked the organic listing anyway."
+  what="They ran a large-scale field experiment, pausing brand-keyword paid search on Yahoo and MSN for several months while keeping Google as a control, then measured what happened to traffic and sales."
+  benefit="Almost all of the paused paid-search traffic and its attributed sales were immediately recaptured by organic search, showing near-zero true incremental value from brand-keyword ads that last-click had been crediting in full"
+  timeframe="Multi-month field experiment"
+  date="2012"
+  source="https://www.nber.org/system/files/working_papers/w20171/w20171.pdf"
+/>
+
 Modern buying journeys are long and noisy. Analysis cited across attribution vendors shows a typical retail consumer touches a brand roughly 56 times before purchase, so any single-touch model ignores about 55 of them ([Cometly](https://www.cometly.com/post/first-touch-vs-last-touch-attribution-426e5)).
 
 The tracking layer underneath is also leaking. Privacy features, ITP, ad blockers, and consent banners commonly hide 30 to 40 percent of touchpoints, which means even a sophisticated model is reasoning from a Swiss-cheese dataset ([MarketingMary](https://www.marketingmary.ai/blog/marketing-attribution-models-guide)).
@@ -21,6 +33,18 @@ The tracking layer underneath is also leaking. Privacy features, ITP, ad blocker
 Google made this concrete in 2023 by deleting all rules-based models in GA4 except last-click, then in 2025 leaned harder into Data-Driven Attribution (DDA) as the default and shipped a beta conversion attribution analysis report on January 16, 2026 ([MarTech](https://martech.org/a-guide-to-attribution-models-in-ga4/), [PPC Land](https://ppc.land/google-analytics-drops-three-major-features-that-will-reshape-how-marketers-track-campaigns/)).
 
 ## How It Works: The Five Models and What Each Lies About
+
+<InAction
+  concept="Data-driven (DDA)"
+  companyName="Mercedes-Benz Germany"
+  where="Google Ads campaigns, run with agency partner TeamX"
+  why="Mercedes-Benz Germany's campaigns were running on last-click attribution paired with Smart Bidding, which the team suspected was underfunding channels that assisted conversions earlier in the path."
+  what="They switched a set of campaigns from last-click to Google's data-driven attribution model, paired with Smart Bidding's Maximize Conversions strategy, and ran the change as a controlled experiment against the last-click setup."
+  benefit="37% increase in conversions after six weeks, at the same spend"
+  timeframe="6-week experiment"
+  date="2022"
+  source="https://blog.google/products/ads-commerce/turning-data-into-results-with-data-driven-attribution/"
+/>
 
 1. **First-touch.** 100 percent credit to the first known interaction. Lies about: retention, retargeting, brand campaigns, and any channel that closes deals. Useful for: pure top-of-funnel demand questions, never for budget allocation.
 2. **Last-touch (last-click).** 100 percent to the final touch. Lies about: every channel that created demand. It systematically overpays branded search and retargeting, because those are almost always the last click. Still the GA4 default for non-DDA properties.

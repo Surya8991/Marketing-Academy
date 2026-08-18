@@ -9,6 +9,7 @@ const LEARN_LINKS = [
   { href: "/quizzes",       label: "Quizzes" },
   { href: "/skill-map",     label: "Skill Map" },
   { href: "/certificates",  label: "Certificates" },
+  { href: "/portfolio",     label: "My Portfolio" },
 ];
 
 const RESOURCE_LINKS = [

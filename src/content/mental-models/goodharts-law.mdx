@@ -17,6 +17,18 @@ British economist Charles Goodhart, writing in 1975, made an observation that ha
 
 ## What It Actually Is
 
+<InAction
+  concept="A proxy metric gamed until it stopped measuring the real goal"
+  companyName="Wells Fargo"
+  where="Wells Fargo retail banking, cross-sell program"
+  why="Wells Fargo set a target of 8 financial products sold per customer, the 'Gr-eight' initiative, and enforced it with aggressive branch-level quotas"
+  what="Branch employees who could not hit the quota through real sales opened millions of savings, checking, and credit card accounts without customer consent to make the number"
+  benefit="Regulators fined Wells Fargo $185 million in 2016, the bank paid $3 billion in additional penalties in 2020, and roughly 5,300 employees were fired once the fake accounts surfaced"
+  timeframe="Quota pressure built from the early 2000s; penalties issued 2016-2020"
+  date="2016"
+  source="https://en.wikipedia.org/wiki/Wells_Fargo_cross-selling_scandal"
+/>
+
 Goodhart's original context was monetary policy: central banks that targeted a specific money-supply metric found the metric detached from the underlying economy. The general form: as soon as an operator knows what they are being measured on, they optimize the measurement, not the goal it was supposed to represent.
 
 Marketing has industrial-scale Goodhart problems. An SEO team measured on ranked keywords will chase easy-to-rank keywords with no commercial intent. A demand-gen team measured on MQL count will lower the MQL bar until sales rejects everything. A content team measured on posts published will publish thinner posts.
@@ -32,6 +44,18 @@ The marketing versions are less dramatic but universal. A CMO who insists on "3x
 Even ranking systems fall into this trap. Google's ranking algorithm was gamed hard enough by 2012 that they had to restructure their entire relevance system, and they still fight it. Goodhart is not solvable; it is manageable.
 
 ## The Playbook: Metrics That Survive Being Targeted
+
+<InAction
+  concept="Moving closer to the real outcome instead of a gameable proxy"
+  companyName="Zillow"
+  where="Zillow Offers, the company's iBuying home-flipping algorithm"
+  why="Zillow's pricing algorithm was tuned to win deals fast and grow purchase volume rather than to protect resale profitability, letting a speed-and-volume proxy stand in for the real goal of buying at a price the home could be resold above"
+  what="The algorithm systematically overpaid for homes because nothing in its optimization loop was pulled back toward the metric that actually mattered, resale profit"
+  benefit="Zillow lost $421 million in Q3 2021 alone, over $900 million in total write-downs, and shut the Zillow Offers unit down entirely in November 2021"
+  timeframe="Algorithm scaled 2018-2021, unit shut down November 2021"
+  date="2021"
+  source="https://incidentdatabase.ai/cite/149/"
+/>
 
 <Mermaid chart={`graph TD
     A[Real business outcome\ne.g. profitable pipeline] --> B[Proxy metric\ne.g. MQL count]

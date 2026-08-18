@@ -16,6 +16,18 @@ The foundational evidence came from Eric Johnson and Daniel Goldstein's 2003 *Sc
 
 ## How It Actually Works
 
+<InAction
+  concept="Default framing as an anchor"
+  companyName="New York City yellow taxis"
+  where="In-cab credit-card payment touchscreens across NYC yellow taxis"
+  why="Two touchscreen vendors independently set different default tip percentages, one suggested 15/20/25%, the other 20/25/30%, on otherwise identical hardware and rides."
+  what="Economists Kareem Haggag and Giovanni Paci analyzed roughly 13 million NYC taxi rides and found the higher-default screens produced average tips about 10% higher than the lower-default screens, though the higher defaults also raised the rate of riders leaving no tip at all."
+  benefit="10% higher average tip revenue for drivers on the higher-default screens"
+  timeframe="Rides from 2007-2011, published 2014"
+  date="2014"
+  source="http://www.kareemhaggag.com/f/Default_Tips.pdf"
+/>
+
 Defaults are sticky for four compounding reasons: the cognitive effort of changing them (friction), the implied recommendation from whoever set them (authority), loss aversion against giving up a perceived endowment, and many users simply not realising a choice exists.
 
 <Mermaid chart={`graph LR; A[User lands] --> B{Default set?}; B -->|Yes| C[Path of least resistance]; B -->|No| D[Active decision]; D --> E[Choice fatigue]; E --> F[Abandonment]; C --> G[Conversion];`} />
@@ -43,6 +55,18 @@ The UK's Behavioural Insights Team applied choice architecture to HMRC tax lette
 - **Pre-fill forms with data you already have**, but let users see and edit every pre-filled field.
 
 ## Where It Backfires / Ethical Limits
+
+<InAction
+  concept="Dark-pattern cancellation and fee defaults"
+  companyName="Grubhub"
+  where="Grubhub's diner app, subscription billing, and fee disclosure flows"
+  why="The FTC and the Illinois Attorney General alleged Grubhub hid mandatory delivery fees, blocked diners from their own accounts and funds, and made cancellation harder than signup, violating ROSCA."
+  what="The FTC and Illinois AG announced a $140 million settlement (Grubhub to pay $25 million, the rest suspended on inability to pay), the first joint federal-state action combining junk-fee and click-to-cancel violations, requiring Grubhub to disclose all mandatory fees and make cancellation as easy as signup."
+  benefit="$140M settlement and a court-ordered redesign of the cancellation and fee-disclosure flow"
+  timeframe="Announced December 17, 2024"
+  date="2024-12-17"
+  source="https://www.ftc.gov/news-events/news/press-releases/2024/12/ftc-illinois-attorney-general-take-action-against-grubhub-harming-diners-workers-small-businesses"
+/>
 
 Choice architecture becomes a dark pattern the moment the default benefits you at measurable cost to the user. Pre-ticked add-on insurance, hidden recurring charges, "confirmshaming" cancel flows ("No thanks, I hate saving money"), and roach-motel subscriptions where signup is one click and cancel takes seven, all are nudges weaponised. The EU Digital Services Act (2024 enforcement) and the FTC's "Click-to-Cancel" rule (finalised October 2024) now treat several of these as illegal. Beyond regulation, customers eventually notice; Which? and Consumer Reports investigations have torched brand trust for companies caught doing it. The test: would you be comfortable explaining the default to the customer face-to-face? If no, redesign it.
 

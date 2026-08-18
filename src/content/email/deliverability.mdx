@@ -81,6 +81,18 @@ DKIM handles forwarded email better than SPF. When someone forwards your newslet
 
 ### DMARC (Domain-based Message Authentication, Reporting, and Conformance)
 
+<InAction
+  concept="DMARC Alignment and Enforcement"
+  companyName="Rakuten Card"
+  where="Rakuten Card's email domain, a frequent target of phishing campaigns impersonating the brand to Rakuten's Japanese customer base"
+  why="Customer support was fielding a steady stream of calls from customers who had received spoofed 'Rakuten Card' phishing emails and could not tell them apart from real account notices"
+  what="Rakuten's security team rolled out DMARC on the Rakuten Card domain and moved the policy from monitor-only to enforcement at p=reject, blocking any message that failed SPF or DKIM alignment with the visible From address"
+  benefit="Phishing-related customer support call volume dropped by roughly 50% after enforcement went live"
+  timeframe="Presented at Rakuten Technology Conference 2019, reflecting the rollout completed that year"
+  date="2019"
+  source="https://www.slideshare.net/kitaurakenji/rtc-2019-emailsecuritycasestudy"
+/>
+
 DMARC closes the gap left by SPF and DKIM by adding "alignment." Alignment means the domain in the `From:` header (the address your recipient sees) must match the domain authenticated by SPF or DKIM. DMARC then gives the receiving server a policy telling it what to do when alignment fails.
 
 A DMARC record looks like this:
@@ -131,6 +143,19 @@ Your sender reputation is a score that mail providers assign to your sending dom
 - **Engagement history:** Providers watch open rates, clicks, and whether recipients move your emails out of spam or delete without opening. Low engagement signals unwanted mail.
 
 ### List Hygiene
+
+<InAction
+  concept="Double Opt-In for List Quality"
+  companyName="Mailchimp"
+  companyId="mailchimp"
+  where="Mailchimp's own platform-wide engagement data, sampled across roughly 30,000 accounts that had each sent at least 10 campaigns, list sizes ranging from 500 to 1.5 million subscribers"
+  why="Mailchimp wanted to settle, with its own send data instead of anecdote, whether requiring subscribers to confirm their email address at signup (double opt-in) actually produced a healthier list than accepting addresses immediately (single opt-in)"
+  what="Mailchimp compared engagement metrics between accounts using double opt-in confirmation versus single opt-in signup across its full sample"
+  benefit="Double opt-in lists showed a 72.2% increase in unique opens, a 75.6% increase in total opens, and a 114% increase in click rates versus single opt-in lists, with meaningfully lower bounce and unsubscribe rates"
+  timeframe="Study conducted on 2011 send data, still cited industry-wide as the reference benchmark for opt-in method"
+  date="2011"
+  source="https://www.toptal.com/external-blogs/growth-collective/double-opt-in"
+/>
 
 List hygiene means regularly cleaning your subscriber list to remove addresses that do not engage or cannot receive email. Nearly 60% of email senders now practice regular list cleaning (Mailreach, 2025), but only 23.6% verify lists before each campaign.
 

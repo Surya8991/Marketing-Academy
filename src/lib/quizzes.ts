@@ -1974,6 +1974,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "The lesson closes its checklist by recommending a quarterly revisit, since new bots appear, existing ones split into sub-agents, and industry compliance norms are still shifting month to month.",
     },
+    {
+      question: "A 2026 BuzzStream analysis of roughly 4 million AI citations found what about sites that had blocked bots like GPTBot via robots.txt?",
+      options: [
+        "None of the blocking sites ever appeared in AI citations again",
+        "88.2% of sites blocking GPTBot outright still showed up in AI citations anyway",
+        "Blocked sites were auto-replaced by their top competitor in every citation",
+        "Blocking GPTBot had no measurable effect either way",
+      ],
+      correct: 1,
+      explanation: "The lesson cites BuzzStream's analysis of ~4 million citations showing 88.2% of sites blocking GPTBot, and 70.6% blocking ChatGPT-User, still appeared in AI citations, proof that a robots.txt block is not a reliable way to opt out of AI answers.",
+    },
   ],
   "seo/agentic-commerce-seo": [
     {
@@ -2019,6 +2030,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "The lesson explicitly warns not to restructure a roadmap around agentic commerce in 2026, and instead frames feed and schema hygiene as work that pays off in traditional search now and agentic commerce later.",
+    },
+    {
+      question: "According to the lesson's diagram of the agentic commerce flow, at how many points does the merchant itself actually enter the process?",
+      options: [
+        "Zero, the flow is fully automated end to end with no merchant touchpoint",
+        "Two, as the feed the agent reads, and as the fulfillment system at the end",
+        "Four, once at every stage of the Mermaid diagram",
+        "One, only at final order fulfillment",
+      ],
+      correct: 1,
+      explanation: "The lesson states the merchant only enters the flow twice, as a feed the agent reads and as the fulfillment system at the end, with everything in between (search, compare, recommend, checkout) happening without a human visiting the merchant's site.",
     },
   ],
   "cro/progressive-disclosure-cognitive-load": [
@@ -7418,6 +7440,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "A Crayon report found that 44% of companies have zero competitive tracking. However, sales teams equipped with competitive intelligence are 108% more likely to drive revenue growth because they can handle objections and highlight differentiators.",
     },
+    {
+      question: "The 5 Cs Framework expanded on an earlier model. Who created that original model, and what did it consist of?",
+      options: [
+        "Kenichi Ohmae's 1982 '3C model': Company, Customer, Competitor",
+        "Michael Porter's Five Forces model of industry rivalry",
+        "Byron Sharp's mental availability and physical availability model",
+        "Philip Kotler's 4 Ps of Product, Price, Place, and Promotion",
+      ],
+      correct: 0,
+      explanation: "Kenichi Ohmae introduced the 3C model (Company, Customer, Competitor) in his 1982 book 'The Mind of the Strategist.' Practitioners later added Collaborators and Context to build the full 5 Cs framework used today.",
+    },
   ],
 
   "fundamentals/aida-funnel": [
@@ -7464,6 +7497,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The gap between Desire and Action is usually a trust problem (e.g., 'Will this work for me?'). Basecamp's experiment showed that replacing discount codes with customer testimonials addressing specific onboarding and setup fears improved trial-to-paid conversion rates.",
+    },
+    {
+      question: "According to the lesson's 2024-2025 update, how have AI-powered platforms like Meta Ads and Google Ads actually changed the AIDA model?",
+      options: [
+        "They replaced AIDA entirely with a new six-stage machine learning model",
+        "They automatically detect which AIDA stage a user is in and route matching creative to them, while the underlying four-stage model stays the same",
+        "They removed the need to create any Desire-stage content like reviews or case studies",
+        "They now optimize exclusively for the Attention stage and ignore the rest of the funnel",
+      ],
+      correct: 1,
+      explanation: "The lesson explains that AI layers on top of AIDA rather than replacing it: platforms detect where a user sits in the sequence (e.g., someone who clicked but didn't buy is in the Desire-to-Action gap) and serve the right content, but marketers still have to build content for each of the four stages.",
     },
   ],
 
@@ -7512,6 +7556,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Rising CAC often means you've saturated the small pool of active, in-market buyers who know you. Without brand building to warm up the other 95% of the market, you must bid higher to capture disinterested users, causing CAC to rise.",
     },
+    {
+      question: "Nike's 2018 'Believe in Something' campaign with Colin Kaepernick had no discount code, no click-to-buy button, and no conversion goal. What does the campaign's outcome demonstrate?",
+      options: [
+        "Brand campaigns cannot be linked to any measurable business results",
+        "A pure brand campaign with zero direct-response elements can still drive measurable sales and valuation gains",
+        "Every successful campaign requires a direct call-to-action to work",
+        "The campaign underperformed because it lacked a clear conversion mechanism",
+      ],
+      correct: 1,
+      explanation: "Despite having no direct-response elements, online sales jumped 31% within weeks, Nike's stock hit an all-time high, and brand valuation rose roughly $6 billion, showing brand trust built over years can move performance numbers without asking for a single click.",
+    },
   ],
 
   "fundamentals/branding": [
@@ -7558,6 +7613,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The blank page test asks if you can describe your brand's core value and personality without relying on visual assets (logos, colors) or technical features. If the team cannot do this in three sentences, or if answers conflict, you have a brand strategy problem.",
+    },
+    {
+      question: "When Airbnb launched its widely-mocked 2014 'Belo' logo rebrand, what had the company already done before designing the new mark?",
+      options: [
+        "Rewritten its brand strategy, shifting the core idea from 'rent a couch' to 'belong anywhere,' before building the new identity",
+        "Hired an entirely new executive team to approve the visual refresh",
+        "Removed all color from its marketing materials to cut design costs",
+        "Run a public online vote to select the cheapest available logo design",
+      ],
+      correct: 0,
+      explanation: "Airbnb changed its strategy and positioning first, then built the identity system (warmer colors, human illustration, new tone) to express it, with the logo serving only as the anchor. This ordering, strategy before symbol, is exactly what most failed rebrands skip.",
     },
   ],
 
@@ -7606,6 +7672,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Trying to target too many personas dilutes focus. Research shows that 3 to 4 well-built personas account for over 90% of a company's revenue. Having more than this makes it impossible for teams to keep them top of mind and execute campaigns effectively.",
     },
+    {
+      question: "What does the lesson's 'Quote Test' check for in a buyer persona?",
+      options: [
+        "Whether the persona lists at least five demographic details like age and income",
+        "Whether a real, specific customer quote can be pasted into the persona instead of a vague generalization",
+        "Whether the sales and product teams have formally signed off on the document",
+        "Whether the persona was built entirely from CRM data with zero interviews",
+      ],
+      correct: 1,
+      explanation: "The lesson contrasts a real quote like 'I was drowning in spreadsheets and nothing talked to each other' with a vague label like 'values efficiency.' If a persona has no real customer quotes, it is likely too abstract to actually be useful.",
+    },
   ],
 
   "fundamentals/category-design": [
@@ -7652,6 +7729,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "A POV document is category infrastructure. It educates the market on a new problem, names the new category, and shows why the old status quo is broken. This builds the intellectual and emotional case for why the new category is necessary.",
+    },
+    {
+      question: "What does Play Bigger's playbook mean by a 'lightning strike' in a category design campaign?",
+      options: [
+        "A quiet blog post published with no promotion or paid support",
+        "A concentrated, multi-channel event, such as a book launch, research drop, and conference converging at once, designed to force the market to take a position on the new category",
+        "A legal filing to trademark the category name before any competitor can use it",
+        "A short-term discount timed to undercut a competitor's product launch",
+      ],
+      correct: 1,
+      explanation: "Play Bigger recommends running about two lightning strikes per year and concentrating up to 80% of marketing budget on them. Dreamforce is the textbook example: a single loud moment that forces the market to engage with the category.",
     },
   ],
 
@@ -7700,6 +7788,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Ending the journey at purchase ignores the Retention and Advocacy stages. Retaining existing customers is 5 to 7 times cheaper than acquiring new ones, and repeat customers spend more. Happy customers who advocate for your brand also create a cheap, viral acquisition loop for new customers.",
     },
+    {
+      question: "How did Duolingo primarily address the Retention stage of the customer journey after a user signed up?",
+      options: [
+        "By offering a one-time discount code immediately after the first login",
+        "By embedding gamification, streaks, achievement badges, and in-app currency, into daily use to keep users coming back",
+        "By running more Awareness-stage advertising to attract additional new users",
+        "By removing the free tier so every user was forced onto a paid plan",
+      ],
+      correct: 1,
+      explanation: "Duolingo treated Retention as a designed daily experience rather than a sales problem, using streaks and gamified rewards to build a habit loop. This approach helped it reach 500 million registered users by 2023 with daily active use rates that outperform competitors.",
+    },
   ],
 
   "fundamentals/flywheel": [
@@ -7746,6 +7845,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "McKinsey research shows that retaining existing customers is highly profitable. A small 5% increase in customer retention can lift profits by 25% to 95% because repeat customers spend more, buy higher-margin add-ons, and cost near-zero to acquire compared to new leads.",
+    },
+    {
+      question: "In late 2025, HubSpot replaced its 15-year-old Attract, Engage, Delight flywheel with a new framework built for an AI-mediated buyer journey. What is that framework called, and what does it add?",
+      options: [
+        "The Loop Marketing Framework (Express, Adapt, Amplify, Evolve), which layers explicit AI feedback loops and personalization onto the flywheel's core idea",
+        "The Funnel 2.0 Framework, which reintroduces a linear MQL-to-SQL pipeline for AI-driven leads",
+        "The Delight Protocol, which removes Attract and Engage entirely and focuses only on retention",
+        "The Halligan Model, which replaces customer advocacy with paid influencer partnerships",
+      ],
+      correct: 0,
+      explanation: "HubSpot's Loop Marketing Framework (Express, Adapt, Amplify, Evolve) was introduced because buyers now research with AI and get answers before ever clicking a link. It keeps the flywheel's core premise, customers generate customers, but adds explicit AI feedback and personalization at every stage.",
     },
   ],
 
@@ -7794,6 +7904,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Asking what the buyer almost chose instead of your product exposes your real competition. For example, a calendar scheduling app might compete with an admin assistant or a simple spreadsheet, not just other scheduling tools. This insight highlights your true differentiator.",
     },
+    {
+      question: "Arm and Hammer used JTBD interviews and discovered over 100 different jobs consumers were hiring their baking soda for, beyond its original use. What was the business result of mapping products to those jobs?",
+      options: [
+        "Revenue stayed flat because the company could not afford to launch separate product lines",
+        "Every aligned product line delivered double-digit growth within a year, with overall revenue growing more than 30%",
+        "The company discontinued its cleaning and deodorizing lines to focus only on baking",
+        "Sales declined because customers were confused by too many use cases for one product",
+      ],
+      correct: 1,
+      explanation: "Each hidden job Arm and Hammer uncovered, cleaning, deodorizing, personal care, and more, represented a distinct market segment they had never marketed to directly. Once product lines were aligned to those jobs, every line grew double digits and overall revenue grew more than 30% in a year.",
+    },
   ],
 
   "fundamentals/marketing-math": [
@@ -7840,6 +7961,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "The ratio of LTV to CAC is $7,500 / $2,000 = 3.75:1. The industry benchmark for a healthy business is a ratio above 3:1. This indicates that the lifetime value of a customer comfortably justifies the acquisition cost, meaning the company can scale its marketing spend.",
+    },
+    {
+      question: "A 2025 analysis of 200+ e-commerce brands found that ad platforms systematically overstate true ROAS. What specific tactic did the lesson cite as one cause, and by how much did it inflate reported results?",
+      options: [
+        "Meta counted shipping fees as revenue on Shop ads, inflating reported ROAS by 17 to 19%",
+        "Google Ads excluded refunded orders from spend totals, inflating ROAS by 50%",
+        "Platforms rounded all ROAS figures up to the nearest whole number",
+        "Platforms only counted first-time purchases, ignoring repeat customers entirely",
+      ],
+      correct: 0,
+      explanation: "The lesson cites Meta counting shipping fees as revenue in Shop ads as a concrete example, which boosted reported ROAS by 17 to 19%. This is why the lesson recommends always cross-checking platform-reported ROAS against your own clean revenue data rather than trusting the dashboard number.",
     },
   ],
 
@@ -7888,6 +8020,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Values are only real if they drive behavior and decisions. The ultimate pressure test is checking if the last ten major decisions (such as hires, fires, product directions, or suppliers) align with the stated values. If they do not, the values are just decoration.",
     },
+    {
+      question: "The lesson argues most mission statements fail because they are written for the wrong audience. What is the described failure mode, and what is the fix?",
+      options: [
+        "Statements are written for the brochure instead of the boardroom, using vague phrases like 'world-class solutions' instead of language specific enough to guide a real decision under pressure",
+        "Statements are written entirely by the marketing department without input from the CEO",
+        "Statements are too short, so employees cannot memorize them for customer interactions",
+        "Statements focus too heavily on financial targets instead of customer language",
+      ],
+      correct: 0,
+      explanation: "The lesson's core warning is that vague, brochure-style language ('empowering communities') means nothing when an employee faces a real tradeoff, like whether to cut corners on a supplier audit. The fix is writing the mission specifically enough that it could actually settle that decision.",
+    },
   ],
 
   "fundamentals/pricing-psychology": [
@@ -7934,6 +8077,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Absolute numbers ('Save $240/year') anchor harder and feel more tangible to customers than abstract percentages ('Save 20%'), especially on lower base prices. Concrete dollar amounts make the benefit of switching to annual billing immediate and clear.",
+    },
+    {
+      question: "According to the lesson, why do most pricing pages settle on exactly three tiers instead of four or five?",
+      options: [
+        "Payment processors charge extra fees for each additional pricing tier listed",
+        "Three tiers create a clear comparison without triggering the choice paralysis that extra options cause, and 98% of SaaS companies already use multi-tier pricing built around this pattern",
+        "Three tiers are legally required for SaaS companies operating in the EU",
+        "Enterprise buyers refuse to consider offers with more than three listed prices",
+      ],
+      correct: 1,
+      explanation: "The lesson lists 'five tiers instead of three' as a common mistake: every extra option increases choice paralysis, causing buyers to default to 'I'll think about it' rather than deciding. Three tiers is the tested sweet spot that gives a clear comparison without overwhelming the visitor.",
     },
   ],
 
@@ -7982,6 +8136,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Paid ads amplify whatever retention exists. If the product lacks PMF and users churn, scaling acquisition is like pouring water into a leaky bucket. It accelerates cash burn without building a sustainable customer base.",
     },
+    {
+      question: "In 1985, Coca-Cola ran 190,000+ blind taste tests that showed testers preferred New Coke, then launched it to 8,000 complaints per day and reversed the decision after 79 days. What does this case teach about measuring PMF?",
+      options: [
+        "Taste tests are always more reliable than retention data for consumer products",
+        "PMF requires fitting the full context of a customer's life, identity, and habits, not just isolated preference data like a blind taste test",
+        "New Coke failed because the reformulated recipe was objectively worse in every blind test",
+        "Coca-Cola should have scaled paid advertising faster to overcome the backlash",
+      ],
+      correct: 1,
+      explanation: "The lesson uses New Coke to show that isolated preference data can be completely misleading. Blind taste tests measured flavor in a vacuum, but they missed the emotional attachment consumers had to Classic Coke as part of their identity and habits, something only real market behavior revealed.",
+    },
   ],
 
   "fundamentals/stp": [
@@ -8028,6 +8193,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "When you attempt to target everyone, your marketing copy and value proposition must become generic to apply to all groups. This dilutes the message, resulting in low conversion rates and poor resonance. Dominated niche segments are much more valuable for growth than broad, contested markets.",
+    },
+    {
+      question: "Once segments are mapped, the lesson says targeting means scoring each one against four questions before committing budget. What are those four criteria?",
+      options: [
+        "Size, Reach, Advantage, and Growth",
+        "Age, Income, Location, and Job Title",
+        "Awareness, Consideration, Decision, and Retention",
+        "Price, Product, Placement, and Promotion",
+      ],
+      correct: 0,
+      explanation: "The lesson's targeting step scores each candidate segment on Size (large enough to justify investment), Reach (can you engage them affordably), Advantage (do you have a real edge), and Growth (is the segment expanding). You're looking for the overlap between a segment worth winning and one you can actually win.",
     },
   ],
 
@@ -8076,6 +8252,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Research shows that companies with a documented strategy achieve nearly 3x higher ROI than those operating without a written plan. A written strategy provides a clear filter for decision-making, reducing wasted budget on mismatched tactics.",
     },
+    {
+      question: "A team's tactics are underperforming, so they run through the three-layer model (Goal, Strategy, Tactics) to diagnose the problem. According to the lesson, when should they change the strategy itself rather than just swapping tactics?",
+      options: [
+        "Only when the underlying business goal itself shifts",
+        "Every time a single tactic underperforms for more than a week",
+        "Whenever a competitor launches a new campaign",
+        "At the start of every fiscal quarter, regardless of performance",
+      ],
+      correct: 0,
+      explanation: "The lesson's three-layer model treats strategy as the stable layer: if tactics aren't working, you swap the tactics and re-check metrics, but you only revisit the strategy when the goal it serves has actually changed.",
+    },
   ],
 
   "fundamentals/value-proposition": [
@@ -8122,6 +8309,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The highest-converting value propositions often use the exact vocabulary of the target customer. Phrases taken directly from customer reviews or interviews have already passed the resonance test. They capture the raw emotion, pain points, and specific benefits that customers actually care about.",
+    },
+    {
+      question: "Dropbox's 2009 launch used the value proposition 'Your stuff, anywhere' instead of describing its technical encryption and sync architecture. What did this specificity and simplicity enable, according to the lesson?",
+      options: [
+        "A patent filing that blocked competitors from copying the sync technology",
+        "A referral loop that users could explain in one sentence, growing the user base from 100,000 to 4 million in 15 months",
+        "A 32% increase in landing page load speed",
+        "Direct acquisition interest from enterprise cloud storage vendors",
+      ],
+      correct: 1,
+      explanation: "Because the value proposition was concrete enough to repeat in one sentence, users could explain it to a friend instantly, which powered Dropbox's referral program to a 3,900% increase in users in 15 months.",
     },
   ],
 
@@ -8170,6 +8368,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Time-based emails are often irrelevant because they do not reflect what the user has or has not done in the product. Behavior-triggered nudges (such as pointing out a specific next step based on the user's actual progress) are far more contextual and effective.",
     },
+    {
+      question: "A team defines their activation metric as 'user completed the onboarding tour.' Why does the lesson flag this as a vanity metric?",
+      options: [
+        "Completing a wizard is compliance with a guided flow, not proof the user's situation actually changed because of the product.",
+        "Onboarding tours are always too expensive for engineering teams to build and maintain.",
+        "Vanity metrics like this one always show a 0% completion rate in analytics tools.",
+        "Onboarding tours are illegal to track under most data privacy regulations.",
+      ],
+      correct: 0,
+      explanation: "The lesson's test for a real activation event is whether completing it means the user's situation has measurably changed, as with Dropbox's cross-device file sync. Finishing a scripted tour only proves the user clicked through it, not that they experienced value.",
+    },
   ],
 
   "growth/activation-rate": [
@@ -8216,6 +8425,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Sales-led activation is higher because sales reps hand-hold the user to the value milestone. PLG products must replicate this high-touch guidance within the product interface (using onboarding, templates, and walkthroughs) to achieve similar activation rates self-serve.",
+    },
+    {
+      question: "The lesson's Step 5 says to segment activation rate by acquisition channel. Why does this matter for deciding where to invest?",
+      options: [
+        "Paid social activation typically runs 30 to 60 percentage points below organic referral, so a blended average can hide channels that are quietly burning CAC.",
+        "Acquisition channel has no measurable effect on activation rate, so segmentation is only useful for finance reporting.",
+        "Segmenting by channel is required by law for any company running paid advertising campaigns.",
+        "Organic and paid channels always activate at the same rate once onboarding is optimized.",
+      ],
+      correct: 0,
+      explanation: "An average activation rate can mask a channel-level problem: low-intent paid traffic can drag the blended number down while organic referral performs well, so segmenting first tells you whether to fix the product or fix the channel mix.",
     },
   ],
 
@@ -8264,6 +8484,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "A streak represents a significant user investment. Duolingo's Streak Freeze allows users to save that investment even if they miss a day, which reduced the discouragement of losing progress and cut churn by 21% for at-risk users.",
     },
+    {
+      question: "How does Spotify Wrapped illustrate the investment-to-reward connection in an engagement loop?",
+      options: [
+        "Users passively invest a year of listening data, which pays out in December as a personalized shareable report that becomes a trigger for new users when friends see it shared.",
+        "Wrapped charges users a small fee each December to unlock their own listening statistics.",
+        "Wrapped removes the need for a trigger stage entirely by auto-publishing to every user's account.",
+        "Wrapped is a fixed, predictable reward that Spotify intentionally keeps identical every year to build habit.",
+      ],
+      correct: 0,
+      explanation: "Wrapped shows investment paying off as reward: twelve months of passively invested data becomes a personalized report, and sharing that report acts as an external trigger for other people, closing the loop and pulling in new users.",
+    },
   ],
 
   "growth/experimentation-program": [
@@ -8310,6 +8541,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "An archive preserves learnings. Without a searchable repository of past hypotheses, designs, and readouts, teams will inevitably repeat old experiments, losing valuable velocity and wasting engineering resources.",
+    },
+    {
+      question: "How do the ICE and PXL prioritization frameworks differ in the lesson's Gear 2 (Prioritization)?",
+      options: [
+        "ICE is a fast, lightweight scoring method good for early-stage programs, while PXL is stricter and forces evidence-based checks like prior research and past similar tests, suiting mature programs.",
+        "ICE and PXL are two names for the exact same scoring formula used interchangeably at every company.",
+        "PXL is used only for calculating statistical significance, while ICE is used only for calculating sample size.",
+        "ICE requires executive sign-off on every test, while PXL allows any team member to launch tests unreviewed.",
+      ],
+      correct: 0,
+      explanation: "ICE (Impact x Confidence x Ease) is quick and works well when a program is just getting started, while PXL adds stricter evidentiary requirements, such as prior user research and above-the-fold checks, that fit teams with more testing maturity.",
     },
   ],
 
@@ -8358,6 +8600,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "The hybrid GTM model provides a permanently free base tier to drive massive distribution and habit formation, and offers a time-limited trial of premium/Pro features. This creates conversion urgency without locking users out of the core product when the trial ends.",
     },
+    {
+      question: "Why does the lesson warn against running a 30-day trial for a product whose users reach their aha moment in 20 minutes?",
+      options: [
+        "A trial longer than the activation window just delays the buying decision by weeks without adding value; shorter trials with strong onboarding consistently outperform long trials with weak onboarding.",
+        "Trials longer than 30 days are technically impossible to implement in most billing systems.",
+        "A 30-day trial always converts better than a 7-day trial regardless of how fast users find value.",
+        "Long trials are only a problem for freemium products, never for free-trial products.",
+      ],
+      correct: 0,
+      explanation: "If users can reach their core value moment in 20 minutes, a 30-day window just gives them a month to procrastinate on a decision they were ready to make almost immediately, so trial length should match, not exceed, the real activation window.",
+    },
   ],
 
   "growth/growth-loops": [
@@ -8404,6 +8657,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Getting a single growth loop to compound (loop factor > 1.0) is hard and requires focused experimentation at every step. Splitting resources across multiple loops usually results in several incomplete, leaky flywheels that fail to spin.",
+    },
+    {
+      question: "Which of the four core loop types described in the lesson does Pinterest and Glassdoor best represent, and what makes it distinct from a viral/UGC loop?",
+      options: [
+        "A content/SEO loop, where user activity generates indexable pages that rank in search and pull in new organic traffic, rather than spreading through direct sharing between people.",
+        "A sales-assisted loop, where account executives manually onboard each new company one at a time.",
+        "A paid loop, where revenue from existing customers is spent entirely on search engine advertising.",
+        "A viral/UGC loop, identical in mechanism to Canva's watermark-sharing loop.",
+      ],
+      correct: 0,
+      explanation: "The lesson lists content/SEO loops (Pinterest, Glassdoor, Reddit, Tripadvisor) as a distinct type from viral/UGC loops: growth comes from user-generated pages accumulating search rankings and organic traffic, not from people directly sharing artifacts with each other.",
     },
   ],
 
@@ -8452,6 +8716,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 0,
       explanation: "ICE lacks a 'Reach' variable. Consequently, a high-impact, high-ease feature that only affects 100 power users can easily outscore a lower-impact onboarding change that affects 10,000 new signups. For major roadmaps, RICE is preferred because it accounts for Reach.",
     },
+    {
+      question: "What is the most common mistake growth teams make when filling in the Reach variable of a RICE score?",
+      options: [
+        "They estimate Reach from memory instead of pulling an actual 90-day user count from an analytics tool like GA4.",
+        "They calculate Reach as a percentage instead of a raw user count.",
+        "They let the engineering team assign the Reach score instead of the PM.",
+        "They round Reach up to the nearest 1,000 users to simplify the math.",
+      ],
+      correct: 0,
+      explanation: "Estimating Reach from memory ('about 10,000 users') skews the whole backlog toward whatever surface the team personally uses most. Pulling a real 90-day count from analytics keeps the ranking grounded in actual traffic, not internal bias.",
+    },
   ],
 
   "growth/network-effects": [
@@ -8498,6 +8773,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Spreading users too thin globally or across too many industries means they will never encounter each other, leaving the network value low. Concentrating on one city (like Uber in SF) or one niche ensures users interact frequently, tipping the local network effect.",
+    },
+    {
+      question: "Waze becoming more accurate as more drivers use it to report traffic and hazards is an example of which type of network effect?",
+      options: [
+        "Direct network effect, because every driver connects to every other driver directly.",
+        "Data network effect, because more usage generates more data that improves the product for everyone, though gains taper off at scale.",
+        "Social/tribal network effect, because drivers share a common identity as commuters.",
+        "Protocol network effect, because Waze relies on a shared technical standard like Bitcoin's blockchain.",
+      ],
+      correct: 1,
+      explanation: "Waze's value grows as more drivers contribute reports, but each additional data point adds less than the last, which is the defining, asymptotic signature of a data network effect, distinct from direct effects like WhatsApp where value scales with connections squared.",
     },
   ],
 
@@ -8546,6 +8832,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Personalization avoids a generic experience. By understanding the user's role and goal upfront, you can present pre-filled templates and walkthroughs tailored to their specific use case, which improves activation and long-term retention.",
     },
+    {
+      question: "According to the onboarding playbook, what should a team do first when designing an activation strategy?",
+      options: [
+        "Build a comprehensive product tour covering every major feature.",
+        "Pick the single user behavior most correlated with week-4 retention and write it down, not five behaviors.",
+        "Require billing information upfront so only serious users proceed.",
+        "Launch a checklist widget so users can track their own onboarding progress.",
+      ],
+      correct: 1,
+      explanation: "The playbook's Step 1 is defining one activation event (like Slack's 2,000 team messages or Figma's second collaborator on a file). A single, simple target keeps the entire onboarding flow pointed at the behavior that actually predicts retention, rather than diffusing effort across a checklist that only 10.1% of users complete anyway.",
+    },
   ],
 
   "growth/plg": [
@@ -8592,6 +8889,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "High-performing PLG companies grow their revenue base from existing accounts. As users hit natural ceilings (e.g., seats, storage, API calls), they upgrade their plans, driving expansion revenue and pushing Net Revenue Retention (NRR) above 120%.",
+    },
+    {
+      question: "Why do opt-out free trials convert at nearly double the rate of standard opt-in free trials (48.8% vs. 18-25%)?",
+      options: [
+        "Opt-out trials are legally required to auto-renew, so users have no choice but to pay.",
+        "Opt-out trials give users full paid-tier access immediately, so leaving requires an active cancel decision instead of an active decision to start paying.",
+        "Opt-out trials only target enterprise buyers who never cancel subscriptions.",
+        "Opt-out trials remove the credit card requirement entirely, so no one is ever charged by mistake.",
+      ],
+      correct: 1,
+      explanation: "In an opt-in trial, staying uninvolved means never paying. In an opt-out trial, staying uninvolved means becoming a paying customer, so users experience full value and must take deliberate action to leave, which is a much higher-friction choice than deciding to upgrade.",
     },
   ],
 
@@ -8640,6 +8948,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Morning Brew readers had high brand affinity. Wearing a Morning Brew t-shirt or using their pint glass was a badge of identity and status. This emotional connection made physical milestones highly effective, converting 30% of readers into referrers.",
     },
+    {
+      question: "How does the timing of a referral reward affect an advocate's likelihood of referring again?",
+      options: [
+        "Reward timing has no measurable effect on repeat referral behavior.",
+        "Rewards delivered after a waiting period build more anticipation and outperform immediate rewards.",
+        "Rewards delivered immediately after the referred friend's first action outperform delayed rewards by 2.6x in repeat referral behavior.",
+        "Rewards must be withheld until the referred friend has been active for 90 days to prevent fraud.",
+      ],
+      correct: 2,
+      explanation: "Immediate rewards confirm to the advocate that the referral system actually works, which builds the confidence to share again. Extole's data shows a 2.6x lift in repeat referrals when rewards fire right after the friend's first action instead of after a delay.",
+    },
   ],
 
   "growth/retention-cohorts": [
@@ -8686,6 +9005,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Net Revenue Retention (NRR) accounts for the net changes in revenue, including expansion, contraction, and churn. Gross Revenue Retention (GRR) only measures the ability to retain the revenue you started with, excluding any expansion, meaning it caps at 100%.",
+    },
+    {
+      question: "Why does the lesson emphasize leading indicators like Week 1 feature adoption over retention itself when trying to improve a product?",
+      options: [
+        "Leading indicators are easier to fake in investor reports than retention numbers.",
+        "Retention is a lagging metric, so by the time the curve shows decay the users are already lost, while leading indicators predict retention before it turns down.",
+        "Leading indicators eliminate the need to segment cohorts by acquisition source.",
+        "Retention curves cannot be measured for B2B SaaS products, only leading indicators can.",
+      ],
+      correct: 1,
+      explanation: "Retention only reveals a problem after users have already churned. Signals like time-to-first-value and Week 1 feature adoption move earlier in the funnel, which is why a 5% gain in Week 1 retention translates into roughly a 20% gain by Week 10, leaving time to intervene before the cohort's fate is sealed.",
     },
   ],
 
@@ -8734,6 +9064,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Reverse trials are product-led growth (PLG) tactics that require self-serve value realization within a 14-30 day window. They are ineffective for complex enterprise sales cycles where procurement and IT sign-offs take months.",
     },
+    {
+      question: "Why does unlocking every premium feature at once during a reverse trial tend to hurt rather than help conversion?",
+      options: [
+        "It increases cloud hosting costs enough to make the trial unprofitable regardless of conversion rate.",
+        "It dilutes the signal from the trial, making it unclear which specific features drove upgrades or which specific loss drove non-converters away.",
+        "Most billing systems cannot technically support more than 3 unlocked features at a time.",
+        "It violates App Store and Play Store policies on trial feature disclosure.",
+      ],
+      correct: 1,
+      explanation: "The lesson's 'unlocking the wrong features' mistake warns that exposing everything at once means you can't tell which feature actually compelled an upgrade, and non-converters experienced so much that no single loss feels sharp enough to drive a decision. Sequencing exposure around the clearest 'aha moment' features keeps the signal clean.",
+    },
   ],
 
   "growth/two-sided-marketplaces": [
@@ -8780,6 +9121,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Disintermediation bypasses the marketplace's take-rate. To prevent users from going off-platform, marketplaces build features that add ongoing value to the transaction itself (such as Airbnb's insurance, trust ratings, and secure escrow payments).",
+    },
+    {
+      question: "What is the 'Single-Player Mode Test' for a two-sided marketplace, as illustrated by Yelp and Notion?",
+      options: [
+        "A requirement that new marketplaces launch in only one city before expanding nationally.",
+        "Checking whether the product can deliver real value to just one side before both sides exist, which lowers the cost of acquiring your first side.",
+        "A stress test that simulates a single overloaded server handling all marketplace transactions.",
+        "A rule that only one founder should manage supply-side recruitment during the cold-start phase.",
+      ],
+      correct: 1,
+      explanation: "Yelp worked as a standalone review site before it became a restaurant marketplace, and Notion worked as a personal tool before it became team collaboration software. If a product has a strong single-player mode, it has a wedge for acquiring its first side without needing both sides to exist simultaneously.",
     },
   ],
 
@@ -8828,6 +9180,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "A two-sided incentive rewards both the existing user (referrer) and the new user (referee), making it feel like a helpful gift rather than a sales pitch. Research shows two-sided rewards produce 3x higher participation rates than one-sided offers.",
     },
+    {
+      question: "Why does viral cycle time matter alongside the K-factor itself?",
+      options: [
+        "Cycle time only affects paid acquisition channels, not referral-driven growth.",
+        "A lower K-factor with a short cycle time can compound faster than a higher K-factor with a long cycle time, since compounding depends on how quickly each generation of users can refer the next.",
+        "Cycle time determines the dollar value of the referral incentive a company can afford to offer.",
+        "Products with cycle times longer than 7 days cannot achieve a K-factor above 0.",
+      ],
+      correct: 1,
+      explanation: "The lesson notes that a K of 0.5 with a 2-day cycle compounds much faster than a K of 0.8 with a 30-day cycle, because K measures the size of each generation while cycle time measures how often a new generation is produced. Shortening time-to-first-share is its own lever, independent of raising i or c.",
+    },
   ],
 
   "growth/what-is-growth": [
@@ -8874,6 +9237,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Running overlapping tests on the same user segment makes it impossible to isolate which change led to the result. To preserve data integrity, teams must run one clean test per funnel stage at a time or use advanced multivariate setups.",
+    },
+    {
+      question: "In the ICE scoring method for prioritizing growth experiments, what does the 'E' represent?",
+      options: [
+        "Engagement, how many users interacted with the test variant during the run.",
+        "Ease, how fast and cheap the experiment is to implement.",
+        "Evidence, how many prior case studies support the hypothesis.",
+        "Expense, the total paid media budget required to run the test.",
+      ],
+      correct: 1,
+      explanation: "ICE stands for Impact, Confidence, and Ease. Ease specifically scores how fast and cheap a test is to implement, so growth teams can prioritize high-impact, high-confidence, low-effort tests before tackling costlier ones.",
     },
   ],
 
@@ -8922,6 +9296,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "A feature describes what the product is or has. An outcome/benefit describes the positive change in the customer's life. 'Know exactly where every marketing dollar went - before your Monday standup' focuses on the real-world outcome and benefit, avoiding the feature trap.",
     },
+    {
+      question: "A visitor has already been to your site and engaged with your brand before. According to the lesson's guidance on cold vs. warm audiences, which framework should you reach for instead of PAS or AIDA?",
+      options: [
+        "FAB (Features-Advantages-Benefits), since the audience already understands the problem and just needs to see why your solution is best.",
+        "PAS, because warm audiences still need the problem agitated from scratch.",
+        "AIDA, because warm audiences require a full four-stage funnel to build initial awareness.",
+        "The 4 Us, applied as a full writing structure rather than a quality filter.",
+      ],
+      correct: 0,
+      explanation: "The lesson distinguishes cold audiences, who need PAS or AIDA to establish why they should care, from warm audiences, who already grasp the problem and respond better to FAB, which highlights why your solution specifically is the best choice.",
+    },
   ],
 
   "paid-ads/apple-search-ads": [
@@ -8968,6 +9353,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "A Discovery campaign's role is keyword mining. When Search Match or broad match finds a keyword that converts multiple times, that keyword should be harvested (moved to Brand, Competitor, or Generic as an exact match keyword) and added as an exact negative in the Discovery campaign to prevent paying higher broad discovery rates.",
+    },
+    {
+      question: "A practitioner insight in the lesson claims that capturing 80% Share of Voice (SoV) at 3.5x ROAS beats capturing 30% SoV at 4.2x ROAS. What does this teach about Apple Search Ads bid strategy?",
+      options: [
+        "Chasing the highest possible ROAS on a narrow set of keywords generates more total profit than dominating volume.",
+        "Winning far more volume at a slightly lower ROAS produces more total profit than a narrow, high-ROAS position.",
+        "SoV and ROAS are unrelated metrics that should never be optimized together.",
+        "Advertisers should always target exactly 50% SoV regardless of ROAS.",
+      ],
+      correct: 1,
+      explanation: "The lesson uses this comparison to argue that once campaigns are past the CPA-optimization stage, maximizing share of voice on profitable keywords captures more total volume and profit than a narrower campaign that only chases the highest ROAS ratio.",
     },
   ],
 
@@ -9016,6 +9412,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Stiff, over-promotional scripts are immediately tuned out by listeners who expect conversational audio. Ad fatigue also sets in if the same creative runs without rotation. The best practice is providing hosts with talking points to keep the delivery organic.",
     },
+    {
+      question: "Per the lesson's recommended measurement setup, how should an advertiser track results from a podcast sponsorship campaign since listeners cannot click an audio ad?",
+      options: [
+        "Rely exclusively on the podcast host's self-reported download numbers.",
+        "Use a unique promo code or vanity URL per show, paired with a brand lift survey to capture awareness gains.",
+        "Install a tracking pixel inside the podcast's audio file to detect listener location.",
+        "Wait for Nielsen to publish quarterly attribution reports before drawing conclusions.",
+      ],
+      correct: 1,
+      explanation: "Since audio ads have no clickable link, the lesson recommends per-show unique promo codes or vanity URLs for direct-response signal, combined with a brand lift survey (offered natively by Spotify) to capture awareness lift among listeners who don't immediately convert.",
+    },
   ],
 
   "paid-ads/creative-testing": [
@@ -9062,6 +9469,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Established ads have accumulated historical pixel data, engagement, and delivery optimization, making it hard for a new creative to compete fairly from day one. Instead, test new creatives against each other in a dedicated test campaign first, then validate the winner against the control.",
+    },
+    {
+      question: "The lesson's priority list ranks which creative element as the single highest-leverage thing to test first, before hooks, message angle, or CTA copy?",
+      options: [
+        "Headline copy, since fine-tuning the words matters most.",
+        "Call-to-action text, since it directly drives the click.",
+        "Format, meaning video vs. static image, since it carries the biggest potential variance.",
+        "Visual style, meaning UGC vs. polished studio production.",
+      ],
+      correct: 2,
+      explanation: "The lesson's priority table ranks format (video vs. image) at the top because it carries the biggest potential variance in outcomes, warning that many advertisers waste months testing headline punctuation without ever questioning whether video would outperform static creative in the first place.",
     },
   ],
 
@@ -9110,6 +9528,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "ACR technology analyzes the pixels and audio on a smart TV to detect what show or advertisement is playing. Advertisers use this data to identify households that saw competitor TV commercials and serve them targeted digital ads on other streaming services or devices.",
     },
+    {
+      question: "An advertiser buys CTV inventory across three separate DSPs, each with its own 3-impressions-per-week frequency cap. What problem does the lesson warn this setup creates?",
+      options: [
+        "Each DSP will automatically share frequency data, so the total stays at 3 impressions per week.",
+        "The caps stack, so the same household can see the ad up to 9 times per week, risking negative brand sentiment for no added conversion benefit.",
+        "Running multiple DSPs is technically impossible since CTV platforms block simultaneous buys.",
+        "FAST channels are excluded from frequency capping by default.",
+      ],
+      correct: 1,
+      explanation: "The lesson warns that a per-DSP frequency cap isn't a total cap: buying across three DSPs each capped at 3-per-week can expose the same household to 9 impressions in a week, and it recommends setting the cap at the DSP/unified level to avoid this.",
+    },
   ],
 
   "paid-ads/google-shopping-pmax": [
@@ -9156,6 +9585,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "The title field is the most important element for search matching. An optimized title containing brand, product name, size, color, and model details will match far more user queries than a generic title.",
+    },
+    {
+      question: "Why does the lesson recommend routing branded search traffic to a separate, higher-priority Search campaign rather than letting Performance Max handle it?",
+      options: [
+        "Branded keywords are not eligible to run inside Performance Max campaigns at all.",
+        "PMax will spend budget capturing branded searches that would have converted anyway, inflating ROAS without representing real incremental growth.",
+        "Google charges a premium CPC specifically for branded terms inside PMax.",
+        "Separating branded traffic is required to unlock the asset-level performance reporting feature.",
+      ],
+      correct: 1,
+      explanation: "The lesson notes PMax will happily spend on people already searching your brand name, who likely would have converted organically, which inflates the campaign's reported ROAS without reflecting true incremental value; routing branded traffic to a separate campaign keeps PMax focused on finding new customers.",
     },
   ],
 
@@ -9204,6 +9644,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Since the browser pixel and CAPI will both report the same conversion event (e.g., a purchase), you must send a unique event_id with both. Meta uses this ID to recognize duplicate submissions and log only one conversion, preventing artificial inflation of 30-60%.",
     },
+    {
+      question: "In a SKAdNetwork conversion value schema, what does a postback value of 55 (within a 0-63 range mapped to user actions) communicate to an advertiser?",
+      options: [
+        "The exact identity of the user who converted, so they can be retargeted individually.",
+        "That the install came from a high-intent user action, such as starting a free trial, based on how the advertiser mapped that value range in advance.",
+        "The precise dollar amount the user has spent in the app to date.",
+        "That the postback was rejected due to insufficient campaign install volume.",
+      ],
+      correct: 1,
+      explanation: "SKAN never reveals individual user identity; instead, advertisers pre-map value ranges (like 51-63 for a free trial start) to in-app actions, so a postback value of 55 signals that campaign drove a high-intent action without exposing who did it, extracting aggregate signal from privacy-safe data.",
+    },
   ],
 
   "paid-ads/linkedin-ads": [
@@ -9250,6 +9701,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "HockeyStack's benchmarks show that Q2 has the best cost-per-MQL efficiency, meaning advertisers spend less to get a lead. In contrast, Q4 has the highest budget share and competition, driving up costs, while Q1 offers the lowest CPC and fastest sales cycles.",
+    },
+    {
+      question: "What does LinkedIn's Matched Audiences feature let advertisers do that standard job-title or industry targeting cannot?",
+      options: [
+        "Upload a CSV list of target accounts or email addresses to run account-based marketing (ABM), showing ads only to employees at those specific companies, or retarget site visitors tagged by the Insight Tag.",
+        "Automatically translate ad copy into each viewer's native language based on their browser settings.",
+        "Guarantee a fixed CPC regardless of how competitive the auction is for that audience.",
+        "Bypass LinkedIn's standard ad review and approval process for verified companies.",
+      ],
+      correct: 0,
+      explanation: "Matched Audiences is LinkedIn's retargeting and ABM feature: you upload a list of emails or company names that LinkedIn matches to member profiles, letting you target a specific account list, or you retarget website visitors identified via the LinkedIn Insight Tag.",
     },
   ],
 
@@ -9298,6 +9760,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "MMM and MTA are complementary. MMM is slow and strategic, perfect for setting high-level channel budgets. MTA is fast and granular, perfect for daily optimization (e.g., selecting the best creative or keyword within a channel).",
     },
+    {
+      question: "What is the purpose of running a geo-based incrementality experiment (a spend-up or spend-down test in a subset of regions) alongside MMM and MTA?",
+      options: [
+        "It provides a real-world sales-lift benchmark you can compare against both models' predictions, revealing which model is closer to ground truth for your business.",
+        "It permanently eliminates the need to ever run either MMM or MTA again.",
+        "It is a legal requirement under GDPR before deploying any attribution model.",
+        "It only measures the performance of TV and radio channels, never digital channels.",
+      ],
+      correct: 0,
+      explanation: "The lesson's pro tip is to test a real spend change in a subset of regions, measure the actual sales lift, then compare it against what MMM and MTA each predicted. This triangulation tells you which model is more accurate for your specific business.",
+    },
   ],
 
   "paid-ads/native-advertising": [
@@ -9344,6 +9817,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "Native ads fail when they read like direct sales pitches. Readers who click on what looks like an editorial article expect content, not a sales brochure. If they get a pitch, they feel misled. Clear disclosure ('Sponsored') is also legally required.",
+    },
+    {
+      question: "How do native ad click-through rates on content networks like Taboola and Outbrain typically compare to search ad CTRs?",
+      options: [
+        "Native ad CTRs (roughly 0.2%-0.4%) run lower than search ads because native reaches a colder audience that isn't actively searching, so the content itself has to do the persuading.",
+        "Native ad CTRs are always higher than search ads because the ad blends seamlessly with editorial content.",
+        "Native and search ad CTRs are functionally identical because both use the same real-time bidding auction.",
+        "Native ad CTR cannot be measured because native ads never include a trackable link.",
+      ],
+      correct: 0,
+      explanation: "The lesson notes native ad CTRs typically run 0.2% to 0.4% on content networks, lower than search ads, because the audience hasn't expressed active intent the way a searcher has; the content has to earn the click on its own merit.",
     },
   ],
 
@@ -9392,6 +9876,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 0,
       explanation: "Dedicated landing pages focus on a single action and perfectly match the search intent of the ad. A homepage, by contrast, attempts to serve all company stakeholders and contains multiple navigation paths, leading to distraction, friction, and a lower conversion rate.",
     },
+    {
+      question: "According to the lesson, roughly how many clicks does a Google Search ad group typically need before you can tell whether a keyword theme is actually working?",
+      options: [
+        "100-200 clicks",
+        "5-10 clicks",
+        "10,000+ clicks",
+        "Exactly 1 click per keyword is statistically sufficient",
+      ],
+      correct: 0,
+      explanation: "The lesson states you need roughly 100-200 clicks to know if a keyword or ad group is working on Google Search Ads; at a $3 CPC, that means budgeting $300-$600 to properly test one theme.",
+    },
   ],
 
   "paid-ads/programmatic-advertising": [
@@ -9438,6 +9933,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Programmatic buys across the open web run the risk of brand safety issues (ads next to bad content), ad fraud (non-human traffic/bots), and audience targeting drift. Active curation (e.g., using whitelists, exclusion lists, and verification services like DoubleVerify) is necessary.",
+    },
+    {
+      question: "In a standard programmatic Real-Time Bidding (RTB) auction, how much does the winning advertiser actually pay?",
+      options: [
+        "Their full maximum bid amount, regardless of what other advertisers bid.",
+        "The second-highest bid price plus one cent, a second-price auction mechanism designed to keep the market fair.",
+        "A flat CPM rate set once per year by the Ad Exchange.",
+        "Nothing, unless the ad receives a click within 24 hours of being served.",
+      ],
+      correct: 1,
+      explanation: "RTB runs as a second-price auction: the highest bidder wins the impression but only pays the second-highest bid plus one cent, not their full bid, which keeps pricing fair across the exchange.",
     },
   ],
 
@@ -9486,6 +9992,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Ad Rank is roughly calculated as Quality Score multiplied by Max Bid. For Advertiser A, 10 * $2 = 20. For Advertiser B, 3 * $5 = 15. Advertiser A has a higher Ad Rank and will outrank Advertiser B despite bidding significantly less.",
     },
+    {
+      question: "Why does the lesson advise against heavily optimizing a brand-new keyword based on its displayed Quality Score?",
+      options: [
+        "New keywords start with a default score of 6 and the score is statistically unreliable until it accumulates roughly 500-1,000 impressions.",
+        "Quality Score for new keywords is locked at 10 for the first 30 days as a promotional incentive.",
+        "Google does not calculate Quality Score for any keyword added within the current calendar year.",
+        "New keywords are automatically excluded from the Ad Rank calculation until manually approved by a Google rep.",
+      ],
+      correct: 0,
+      explanation: "New keywords launch with a default Quality Score of 6 and need time to accumulate data; the lesson warns the score is statistically unreliable below roughly 500-1,000 impressions, so over-optimizing early wastes effort on noise.",
+    },
   ],
 
   "paid-ads/reddit-ads": [
@@ -9532,6 +10049,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Conversation Ads appear directly beneath the original post and above the first comment in a thread. Because users click into threads to read discussion and debate, these ads capture high-attention traffic, making them excellent for considered purchases.",
+    },
+    {
+      question: "Why does the lesson recommend actively monitoring the comments section of a Reddit Promoted Post rather than launching and walking away?",
+      options: [
+        "Reddit requires an official company reply within 2 hours or the ad is automatically removed from rotation.",
+        "Every Promoted Post has a public comment thread, and a single unanswered sarcastic top comment can tank the ad's CTR for the entire campaign flight.",
+        "Comments are the only mechanism available for adding additional images to a running ad.",
+        "Reddit charges a lower CPM for any ad that has at least one company reply in the comments.",
+      ],
+      correct: 1,
+      explanation: "Reddit ads sit inside a public, votable comment thread. The lesson's Mistake 3 warns that leaving a sarcastic top comment unanswered for even a few hours can crater CTR for the rest of the campaign flight, so comment engagement is treated as active campaign management, not optional community work.",
     },
   ],
 
@@ -9580,6 +10108,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Retail algorithms rank listings based on sales velocity. Pausing ads drops your sales volume. As sales velocity falls, your organic rankings decline, leading to a drop in organic sales. Rebuilding organic search ranking later can require expensive bidding, negating short-term savings.",
     },
+    {
+      question: "Why does the lesson recommend measuring incrementality on non-branded keywords rather than branded keywords when evaluating retail media ROAS?",
+      options: [
+        "Branded keywords are banned on most retail media networks and cannot be measured at all.",
+        "Branded-keyword ROAS looks misleadingly high because those shoppers were already searching for the brand, so real incremental impact shows up in non-branded terms where you win customers away from competitors.",
+        "Non-branded keywords always have a lower cost-per-click, so they inflate ROAS artificially.",
+        "Branded keywords only work on Instacart, not on Amazon or Walmart Connect.",
+      ],
+      correct: 1,
+      explanation: "Shoppers searching your own brand name were already headed toward your product, so branded ROAS overstates the ad's effect. Non-branded keyword performance shows whether the ad actually pulled a customer away from a competitor, which is the real measure of incremental value.",
+    },
   ],
 
   "paid-ads/retargeting": [
@@ -9626,6 +10165,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "A frequency cap limits how often one person sees your ad in a week (typically capped at 5-10 times). Without it, ads can overexpose (ad stalking), which drives up CPC, causes ad fatigue, and negatively affects brand perception.",
+    },
+    {
+      question: "What does dynamic retargeting (Dynamic Product Ads on Meta, Dynamic Remarketing on Google) require that static retargeting campaigns do not?",
+      options: [
+        "A frequency cap set below 3 impressions per week.",
+        "A product catalog feed connected to the pixel and ad platform, so the ad automatically shows the exact product a specific user viewed.",
+        "Manual creation of a separate static ad for every individual product in the catalog.",
+        "Exclusive use of LinkedIn as the delivery platform.",
+      ],
+      correct: 1,
+      explanation: "Dynamic retargeting pulls product names, prices, images, and URLs from an uploaded catalog feed and automatically builds the ad around whichever product the viewer actually looked at, which is impossible to do manually at scale for stores with many SKUs.",
     },
   ],
 
@@ -9674,6 +10224,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "TikTok's recommendation engine is highly efficient at finding relevant users. Stacking multiple targeting filters restricts the algorithm's exploration space, making it harder for the campaign to escape the learning phase and causing CPMs to skyrocket. Starting broad and letting the creative select the audience is the best practice.",
     },
+    {
+      question: "What is the TikTok Creative Center primarily used for, according to the lesson?",
+      options: [
+        "Generating auth codes needed to authorize a creator's post as a Spark Ad.",
+        "Filtering and browsing top-performing ads by industry, region, objective, and time period so advertisers can reverse-engineer what is already working before producing new creative.",
+        "Setting frequency caps and campaign budgets before launch.",
+        "Automatically editing horizontal Meta creative into TikTok's vertical format.",
+      ],
+      correct: 1,
+      explanation: "The Creative Center (ads.tiktok.com/creative/topads) lets advertisers see real top-performing ads by category before writing a brief, so the best TikTok advertisers research proven hooks and formats first instead of guessing from scratch.",
+    },
   ],
 
   "paid-ads/youtube-ads": [
@@ -9720,6 +10281,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Traditional television commercials rely on passive viewing and build up to a reveal at the end. Since YouTube skippable ads let users click 'Skip Ad' after 5 seconds, you must hook attention, state the brand, and deliver immediate value within that initial 5-second window.",
+    },
+    {
+      question: "A viewer watches a YouTube skippable in-stream ad but does not click. Thirty days later they buy the product. How does YouTube's measurement typically account for this, and why does the lesson call this important?",
+      options: [
+        "It cannot be tracked at all, so the sale is invisible to any reporting.",
+        "It counts as a view-through conversion, which is why last-click attribution models consistently underestimate YouTube's real impact.",
+        "Google automatically refunds the advertiser for that impression since no click occurred.",
+        "It is only counted if the viewer also searched the exact brand name on Google first.",
+      ],
+      correct: 1,
+      explanation: "YouTube credits a purchase that follows an ad view (without a click) as a view-through conversion. Because last-click attribution ignores this entirely, campaigns that look weak on clicks alone can still be driving real, measurable purchase behavior.",
     },
   ],
 
@@ -11460,6 +12032,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Users who click through from an AI citation or featured snippet are often looking for specific solutions to complex, long-tail queries. Because their intent is so specific, they convert at higher rates (12-18% lift) than generic keyword searchers.",
     },
+    {
+      question: "Per the lesson, what two conditions must BOTH be true at the same time for a page to actually win an AI citation?",
+      options: [
+        "The page must load in under 1 second AND use a .com domain",
+        "The page must rank well enough to be a candidate (typically top 10) AND contain a passage that fits the target format almost perfectly",
+        "The page must have FAQ schema AND be published within the last 24 hours",
+        "The page must be over 3,000 words AND link to at least 5 external sources",
+      ],
+      correct: 1,
+      explanation: "The lesson is explicit that a citation requires both conditions simultaneously: ranking well enough to be a candidate, and containing a passage the engine can copy-paste with no rewriting needed, ranking alone is not enough.",
+    },
   ],
 
   "seo/ai-overviews-geo": [
@@ -11506,6 +12089,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "A self-contained TL;DR or summary box near the top of an article provides a highly extractable 'answer unit' that AI models can quote verbatim, while also offering immediate value to human readers.",
+    },
+    {
+      question: "The lesson warns against treating GEO as separate from E-E-A-T. What is the actual risk it describes?",
+      options: [
+        "GEO formatting slows down E-E-A-T schema validation",
+        "Adding bullet points and FAQ schema to thin, untrustworthy content will not work, since AI Overviews draw from the same authority signals Google has always used",
+        "E-E-A-T signals are ignored entirely once a page is optimized for GEO",
+        "GEO and E-E-A-T use conflicting schema markup that cancels each other out",
+      ],
+      correct: 1,
+      explanation: "The lesson explicitly warns that formatting alone does not compensate for weak trust signals, a site with anonymous authors and no cited sources will not be cited regardless of how well its content is formatted, so trust signals must be fixed first.",
     },
   ],
 
@@ -11554,6 +12148,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "LLMs and AI search engines prioritize citation of comprehensive, authoritative sources. Interconnected content clusters demonstrate deep coverage of a topic, which significantly increases the likelihood that AI systems will cite your site in their answers.",
     },
+    {
+      question: "The lesson's first common mistake describes a pillar page titled 'Our Project Management Software Features.' Why does the lesson say this fails as a cluster topic?",
+      options: [
+        "It's too long to rank for a broad head term",
+        "It's built around the product, not the audience's questions, and offers no standalone value to someone who has never heard of the brand",
+        "It uses too many internal links to cluster articles",
+        "It duplicates content already on the company's homepage",
+      ],
+      correct: 1,
+      explanation: "The lesson states clusters must be built around topics the audience searches before they're ready to buy; a page with no value to a reader unfamiliar with the brand won't attract links or rank, a product page dressed up as a pillar page is not a real cluster.",
+    },
   ],
 
   "seo/core-web-vitals": [
@@ -11600,6 +12205,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Homepages rarely capture the bulk of organic search traffic; blog posts, category listings, and product templates do. Because Google evaluates Core Web Vitals at the URL or template group level, failing to optimize these high-traffic inner pages leaves the majority of your traffic exposed to slow performance penalties.",
+    },
+    {
+      question: "How does INP (Interaction to Next Paint) differ from the First Input Delay (FID) metric it replaced in March 2024?",
+      options: [
+        "INP only measures load time, while FID measured layout shifts",
+        "INP tracks every interaction throughout the session, while FID only measured the first click on a page",
+        "INP applies only to mobile devices, while FID applied only to desktop",
+        "INP is measured in lab data only, while FID used real-user field data",
+      ],
+      correct: 1,
+      explanation: "The lesson explains FID only captured a page's first interaction, while INP tracks every click, tap, and dropdown throughout the entire session, giving a far more accurate picture of whether a site feels sluggish.",
     },
   ],
 
@@ -11648,6 +12264,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Google's systems try to identify authors as real-world 'entities' in their Knowledge Graph. By building a consistent digital footprint for an author (verified LinkedIn, guest posts, academic publications, etc.), Google can confidently match the on-site author bio to an established expert.",
     },
+    {
+      question: "The lesson lists 'confusing credentials with experience' as a common mistake. What example does it use to illustrate this?",
+      options: [
+        "A cardiologist's byline on a generic 'heart health tips' article that shows no first-hand perspective or patient scenarios",
+        "A journalist writing under a pseudonym to protect their identity",
+        "A brand using stock photography instead of original product photos",
+        "A site publishing without an About page",
+      ],
+      correct: 0,
+      explanation: "The lesson explains that a credentialed byline alone doesn't demonstrate Experience, the content itself needs first-hand perspective, specific scenarios, or direct product use; a cardiologist's name on generic tips is Expertise without Experience.",
+    },
   ],
 
   "seo/entity-seo": [
@@ -11694,6 +12321,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Co-citation occurs when your brand name is mentioned in proximity to other established entities in your niche (e.g., 'Omnisend vs. Klaviyo'). Google parses these unstructured mentions to understand the relationship between brands and topics, boosting entity authority.",
+    },
+    {
+      question: "A site places a full Organization JSON-LD block on its homepage, every blog post, and every product page. What mistake is this, and what should it do instead?",
+      options: [
+        "No mistake, repeating Organization schema on every page reinforces the entity signal.",
+        "It creates duplicate, competing entity signals; define the Organization once on the entity home and reference its @id elsewhere via mainEntityOfPage.",
+        "It is fine as long as the logo field matches on every instance.",
+        "The mistake is only that JSON-LD should be replaced with microdata for repeated entities.",
+      ],
+      correct: 1,
+      explanation: "Redefining the full Organization object on every page confuses Google's entity-merging algorithm. The lesson's Step 1 calls for one entity home that owns the @id, with every other page referencing it through mainEntityOfPage instead of redeclaring the entity.",
     },
   ],
 
@@ -11742,6 +12380,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Since 2019, Google has used mobile-first indexing by default, meaning it crawls, renders, and indexes the mobile version of pages. JavaScript rendering is typically delayed in a 'second wave', rather than being processed instantly in the first wave.",
     },
+    {
+      question: "A marketer publishes a well-written new page but links to it from nowhere else on the site. Why is this page at high risk of never being indexed?",
+      options: [
+        "It becomes an orphan page, and crawlers discover new content primarily by following links, so a page with zero internal links may never be found.",
+        "Google automatically deletes any page not linked within 24 hours of publishing.",
+        "Orphan pages are indexed instantly but ranked last regardless of quality.",
+        "This only matters for pages published before mobile-first indexing rolled out.",
+      ],
+      correct: 0,
+      explanation: "Crawlers find content by following links from page to page, much like a postal worker following new streets. A page with no internal links pointing to it is an 'orphan page,' and crawlers rarely find it no matter how good the content is.",
+    },
   ],
 
   "seo/mobile-first-indexing": [
@@ -11789,6 +12438,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Separate mobile subdomains require every content update to happen in two places. Responsive design, with one shared HTML file adjusted only by CSS, makes a parity mismatch structurally difficult since there's nothing to keep in sync.",
     },
+    {
+      question: "A site's structured data (JSON-LD) was added only to the desktop template years ago, before the dev team built a separate mobile template. What does this lesson say to check, and with which tool?",
+      options: [
+        "Nothing needs checking, structured data is stored server-side and applies to both versions automatically.",
+        "Run the mobile-rendered URL specifically through the Rich Results Test, since structured data must render on mobile too, not just be assumed to carry over from a desktop audit.",
+        "Structured data is deprecated under mobile-first indexing and can be removed entirely.",
+        "Only Search Console's Mobile Usability report can detect missing structured data.",
+      ],
+      correct: 1,
+      explanation: "The lesson's audit steps specifically warn against assuming a desktop schema audit covers both versions. Since Google indexes the mobile version, structured data must be confirmed there directly by testing the mobile-rendered URL through the Rich Results Test.",
+    },
   ],
 
   "seo/https-security-seo": [
@@ -11831,6 +12491,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "HSTS preload with includeSubDomains applies to the entire domain tree at the browser level, before any redirect can even happen. A legacy HTTP-only subdomain becomes fully blocked with a hard security error, and removal from the preload list is slow.",
     },
+    {
+      question: "Why does the lesson recommend deploying a new Content-Security-Policy in 'report-only' mode first, rather than enforcing it immediately?",
+      options: [
+        "Report-only mode is required by law in the EU before any CSP can be enforced.",
+        "Content-Security-Policy-Report-Only lets you see what the policy would have blocked without actually breaking anything, before switching to full enforcement.",
+        "Report-only mode is a permanent setting, CSP is never meant to be fully enforced.",
+        "It has no functional difference from enforced CSP, it just changes the header name.",
+      ],
+      correct: 1,
+      explanation: "Content-Security-Policy-Report-Only logs violations without blocking them, letting a team see what a strict policy would break, third-party scripts, inline styles, and so on, before flipping it to actually enforce and risk breaking live functionality.",
+    },
   ],
 
   "seo/log-file-analysis": [
@@ -11872,6 +12543,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "If GPTBot or PerplexityBot are blocked, the content is structurally invisible to those systems, no amount of content quality can overcome a crawler that's never allowed to fetch the page in the first place.",
+    },
+    {
+      question: "A site's important product pages appear in its sitemap but a log analysis shows bots reach them only through that sitemap, never by following an internal link. What does the lesson say this reveals?",
+      options: [
+        "Nothing concerning, sitemap-only discovery is the ideal crawl pattern for every page.",
+        "It signals weak site architecture, orphaned pages that bots find only via the sitemap rather than genuine internal linking.",
+        "It means the sitemap is misconfigured and should be deleted immediately.",
+        "It proves the pages are being penalized for duplicate content.",
+      ],
+      correct: 1,
+      explanation: "The lesson lists this as one of the specific things log analysis reveals that no other tool shows: pages a site considers important but that bots reach only via the sitemap, never through an internal link, a sign the site's own architecture is failing to surface them.",
     },
   ],
 
@@ -11920,6 +12602,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "'Crawled, currently not indexed' increasingly reflects Google's own continuous quality evaluation flagging pages it doesn't consider worth indexing, an early, actionable signal worth monitoring rather than ignoring.",
     },
+    {
+      question: "A site has an internal search results page that users need but that adds no value in Google's search results. Per this lesson's framework, what is the correct fix?",
+      options: [
+        "Add a canonical tag pointing the search results page to the homepage.",
+        "Apply noindex, since the page needs to exist for users but should not appear in search results itself.",
+        "Block it with robots.txt Disallow so Google never sees it again.",
+        "Consolidate it with the site's main product pages into one URL.",
+      ],
+      correct: 1,
+      explanation: "The lesson's framework reserves noindex specifically for pages that must exist for users, like an internal search results page or a thin tag archive, but add no value in search results, distinct from canonical (technical duplicates) or consolidation (overlapping content).",
+    },
   ],
 
   "seo/ai-search-visibility-metrics": [
@@ -11966,6 +12659,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "A citation just means the brand was named or linked, it says nothing about framing. Sentiment tracking turns a raw mention count into something actionable by revealing whether the citation is helping or hurting the brand.",
+    },
+    {
+      question: "A 2026 Ahrefs study used a difference-in-differences design, comparing 1,885 pages that added schema markup against 4,000 matched control pages, rather than just measuring before-and-after on the same pages. Why does this design matter for the conclusion?",
+      options: [
+        "It doesn't matter, before-and-after data on the same pages would have shown the same result.",
+        "A control group is needed to strip out platform-wide trends, otherwise a page-level or platform-wide swing can look like the tactic working when it isn't related at all.",
+        "Difference-in-differences is only used to measure ranking position, not AI citations.",
+        "The control group was only added because the sample size was too small otherwise.",
+      ],
+      correct: 1,
+      explanation: "The lesson uses this exact study to warn that a single before-and-after number on your own site proves nothing without a control group, since page-level and platform-wide swings can easily be mistaken for a tactic's effect. The controlled design is what let the study show schema had statistically indistinguishable-from-zero effects on AI Mode and ChatGPT citations.",
     },
   ],
 
@@ -12244,6 +12948,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "The three-click rule suggests that any page on a site should be accessible within three clicks from the homepage. Pages buried deeper (high crawl depth) are crawled much less frequently by search engines and receive very little internal link equity (PageRank).",
     },
+    {
+      question: "According to John Mueller, what problem occurs when a single page contains hundreds of internal links?",
+      options: [
+        "The page automatically gets flagged as a doorway page and de-indexed.",
+        "The value passed to each individual destination link gets diluted.",
+        "The browser refuses to render more than 100 links per page.",
+        "Google's crawler stops reading the page entirely after the 50th link.",
+      ],
+      correct: 1,
+      explanation: "Mueller has said that link equity flowing through a page gets split across all its outbound links, so hundreds of links on one page means each destination receives a much smaller share of authority than a page with a few, well-chosen links.",
+    },
   ],
 
   "seo/international-seo": [
@@ -12290,6 +13005,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Hreflang tags require bidirectional references. If page A links to page B as its German alternate, page B must also link back to page A as its English alternate. Every page in the group must also have a self-referencing tag. Missing bidirectional links will cause Google to ignore the tags.",
+    },
+    {
+      question: "A company chooses ccTLDs (like nike.fr) instead of subfolders for its international expansion. What tradeoff are they accepting?",
+      options: [
+        "They send the strongest possible geographic signal, but each domain starts from zero authority and needs its own SEO effort.",
+        "They inherit the root domain's authority instantly, but Google treats the pages as duplicate content.",
+        "ccTLDs are free to register, but Google refuses to show them in local search results.",
+        "ccTLDs automatically generate hreflang tags, removing the need for manual implementation.",
+      ],
+      correct: 0,
+      explanation: "ccTLDs send the clearest country-targeting signal to Google, but unlike subfolders, each separate domain does not inherit the main site's authority and must build its own SEO strength from scratch, which is why the lesson recommends subfolders for most growing companies.",
     },
   ],
 
@@ -12338,6 +13064,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 0,
       explanation: "ChatGPT heavily references its training data and high-authority platforms like Reddit and Wikipedia (though it can run web search). Perplexity is a search-first engine that relies on real-time web retrieval, making indexability, crawl speed, and freshness paramount.",
     },
+    {
+      question: "Per the LLMO vs GEO vs AEO vs SEO comparison, what distinguishes GEO from the other three disciplines?",
+      options: [
+        "GEO only applies to paid advertising placements inside AI chat interfaces.",
+        "GEO focuses on whether an AI model will quote a specific page, making it an on-page, page-level tactic.",
+        "GEO is the umbrella discipline that covers brand presence across every AI platform at once.",
+        "GEO exclusively measures featured snippet and voice search rankings on Google.",
+      ],
+      correct: 1,
+      explanation: "The lesson's comparison table defines GEO as answering 'will an AI model quote this specific page?' with the page itself as the primary surface, whereas LLMO is the umbrella covering brand trust across training data and live retrieval combined.",
+    },
   ],
 
   "seo/local-seo": [
@@ -12384,6 +13121,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "For search queries with local intent, Google displays the 'local pack' (a map and three matching business profiles) above standard organic text links. This section occupies prominent SERP real estate and captures about 42% of clicks, making it highly valuable for local businesses.",
+    },
+    {
+      question: "Per the lesson's data on voice search and 'near me' queries, what is true about the local SEO opportunity in this area?",
+      options: [
+        "Voice search has declined 900% over two years, making near-me optimization a low priority.",
+        "'Near me' searches have grown 900% over two years, yet only 35% of small and medium businesses even have a Google Business Profile.",
+        "Voice assistants like Siri and Alexa exclusively pull results from paid Local Services Ads, not organic listings.",
+        "Near-me searches only count toward rankings if the business has a ccTLD domain.",
+      ],
+      correct: 1,
+      explanation: "The lesson states 'near me' searches grew 900% over two years while only 35% of small and medium businesses have claimed a Google Business Profile, meaning most local competitors haven't even done the basics, which is presented as the real opportunity.",
     },
   ],
 
@@ -12432,6 +13180,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Sitewide quality matters. If the majority of your indexed pages are thin or near-duplicate, Google's algorithms may flag the site for 'scaled content abuse,' dropping rankings across all pages. Thin programmatic pages should be excluded from indexation (using noindex).",
     },
+    {
+      question: "In the lesson's Zapier case study, why do Zapier's 'Connect [App A] to [App B]' pages avoid being flagged as scaled content abuse?",
+      options: [
+        "Zapier submits each page manually for a Google spam-policy exemption before publishing.",
+        "Each page pulls real triggers, actions, and workflow templates from Zapier's own product database, making every page genuinely unique.",
+        "Zapier pages are excluded from spam policy because they target B2B software rather than consumer products.",
+        "Zapier limits its programmatic pages to fewer than 100 total, staying under Google's scaled-content threshold.",
+      ],
+      correct: 1,
+      explanation: "The lesson explains that Zapier's pages work because the triggers, actions, and instructions are pulled from real product data per app pairing, so Google sees over a million genuinely distinct, useful pages rather than the same template with names swapped.",
+    },
   ],
 
   "seo/schema-structured-data": [
@@ -12478,6 +13237,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "AI search tools and LLMs rely on structured data to parse and understand content context. Studies show that structured data dramatically increases the accuracy and frequency with which AI systems cite websites as sources in generative answers.",
+    },
+    {
+      question: "According to the lesson, what happened when GPT-4 relied on structured-data-annotated content versus unstructured content, per the Data World study?",
+      options: [
+        "Accuracy stayed flat at 16% regardless of whether structured data was present.",
+        "Correct response accuracy jumped from 16% to 54% when content used structured data.",
+        "GPT-4 refused to cite any page that included JSON-LD markup.",
+        "Response accuracy dropped from 54% to 16% because structured data confused the model's parsing.",
+      ],
+      correct: 1,
+      explanation: "The lesson cites the Data World research showing GPT-4's correct-response rate rose from 16% to 54% when the source content was annotated with structured data, illustrating why schema now matters for AI citation accuracy, not just traditional rich results.",
     },
   ],
 
@@ -12526,6 +13296,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "When users quickly return to search results after clicking your page, it signals to Google that the page did not meet their search intent. This behavior, if persistent, leads to a decline in search rankings.",
     },
+    {
+      question: "Per the Semrush analysis of queries triggering AI Overviews cited in the lesson, what should this intent split change about a marketer's content prioritization?",
+      options: [
+        "Stop producing informational content entirely since AI Overviews answer it directly.",
+        "Since AI Overviews are dominated by informational queries (~88%) while commercial and transactional intent remain largely untouched, comparison and product-stage content is now the safer bet for organic clicks.",
+        "Since AI Overviews mostly cover transactional queries, product pages should be deprioritized in favor of blog content.",
+        "The intent split has no bearing on content strategy since AI Overviews affect all four intent types equally.",
+      ],
+      correct: 1,
+      explanation: "The lesson explicitly frames this as a prioritization signal, not a reason to abandon informational content: AI Overviews absorb the click on most informational queries, but commercial investigation and transactional pages (built around the three Cs framework) still earn organic clicks that convert.",
+    },
   ],
 
   "seo/technical-seo": [
@@ -12572,6 +13353,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "In March 2024, Google replaced FID (First Input Delay) with INP (Interaction to Next Paint). Unlike FID, which only measured the very first user interaction, INP measures the latency of all interactions (clicks, taps, keyboard inputs) during a user's entire visit.",
+    },
+    {
+      question: "A site has 10,000+ URLs and Google is not crawling many important pages promptly. What technical SEO concept explains this, and what should the team check first?",
+      options: [
+        "Crawl budget - Google allocates a limited number of pages it will crawl per site, so wasted crawl activity on duplicate or broken URLs should be checked and fixed first",
+        "Domain age - older domains automatically get crawled more often regardless of site structure",
+        "Server location - moving the server closer to Google's data centers is the only fix for slow crawling",
+        "Keyword density - pages with fewer keywords are deprioritized by Googlebot's crawl scheduler",
+      ],
+      correct: 0,
+      explanation: "Google allocates a finite crawl budget per site. On large sites, wasting that budget on duplicate URLs, broken links, or blocked resources means important pages get crawled less often, so auditing crawl waste in Search Console is the first fix.",
     },
   ],
 
@@ -12620,6 +13412,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 0,
       explanation: "Search engines prioritize speed when delivering voice answers to user devices. Pages winning voice searches load in 4.6 seconds on average, which is 52% faster than average web pages. Readability should also target a 9th-grade level.",
     },
+    {
+      question: "According to the Backlinko 10,000-query voice search study referenced in the lesson, what readability level do winning voice search answers typically hit?",
+      options: [
+        "College-level (advanced academic vocabulary)",
+        "9th-grade level, using plain, direct sentences",
+        "There is no measurable readability pattern among voice-winning pages",
+        "5th-grade level, using only one-syllable words",
+      ],
+      correct: 1,
+      explanation: "Backlinko's study of 10,000 voice search queries found that pages winning voice answers consistently write at roughly a 9th-grade readability level, plain enough for an assistant to read aloud clearly without sounding stilted or overly academic.",
+    },
   ],
 
   "seo/zero-click-search": [
@@ -12666,6 +13469,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "In a zero-click environment, visibility is key. Users see your brand name cited in snippets, local maps, or AI overviews without clicking. Tracking Impressions (visibility) and SERP Feature share (presence) provides a more accurate metric of search engine reach than clicks alone.",
+    },
+    {
+      question: "Per the lesson's SERP feature playbook, why do transactional queries like 'buy running shoes size 10' still drive strong click-through rates despite the rise of zero-click search?",
+      options: [
+        "Google disables AI Overviews entirely for any query containing a product size",
+        "The user needs to complete an action (a purchase), so an on-page answer alone cannot satisfy their intent, unlike a purely informational query",
+        "Transactional queries are too rare for Google to build SERP features around",
+        "Transactional queries always trigger a Knowledge Panel instead of a Featured Snippet",
+      ],
+      correct: 1,
+      explanation: "Zero-click is mostly an informational-query problem. Transactional and comparison searches still send clicks because the searcher must complete an action on-site, like a purchase, that no SERP feature can fulfill directly.",
     },
   ],
 
@@ -14922,7 +15736,18 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Loom's core growth loop is inherently viral: when a user sends a video to a recipient, that recipient must view it on Loom's platform, prompting them to sign up to reply or record their own."
-    }
+    },
+    {
+      question: "A sales rep notices that a company's account added ten new users to the product in one week and decides to reach out with an enterprise upgrade offer. What is this pattern called in a product-led growth motion?",
+      options: [
+        "Cold outbound prospecting",
+        "Sales-assisted PLG, where reps act on product usage data to identify product-qualified leads",
+        "A traditional marketing-qualified lead (MQL) handoff",
+        "A freemium churn-prevention tactic",
+      ],
+      correct: 1,
+      explanation: "In the hybrid PLG model described in the lesson, sales reps use product usage signals (like rapid seat expansion) to identify product-qualified leads and time their outreach, achieving conversion rates three times higher than traditional outbound.",
+    },
   ],
 
   "seo/saas-seo-strategy": [
@@ -14969,7 +15794,18 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "A centralized hub page that links out to individual comparison pages acts as a logical taxonomy. It signals topical authority to search engines and passes internal link equity (page rank) throughout your site."
-    }
+    },
+    {
+      question: "Per the lesson, why can blocking AI crawlers like GPTBot or PerplexityBot in robots.txt directly undermine a comparison-page strategy built for the generative search era?",
+      options: [
+        "It has no effect since AI crawlers ignore robots.txt entirely",
+        "It guarantees the page can't be cited by AI tools, even though those referral visitors convert at far higher rates than typical organic traffic",
+        "It only affects image indexing, not text content",
+        "It automatically triggers a Google manual penalty for the whole domain",
+      ],
+      correct: 1,
+      explanation: "The lesson notes ChatGPT-referred visitors convert at nearly 9x the rate of Google organic visitors. Disallowing GPTBot or PerplexityBot removes any chance of being cited by those engines, forfeiting a high-converting channel while still investing in the comparison content itself.",
+    },
   ],
 
   "paid-ads/pmax-advantage-plus": [
@@ -15016,7 +15852,18 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "Meta's internal study showed that ASC+ campaigns delivered a 17% lower cost per conversion and a 32% lower cost per incremental conversion for mature accounts with robust data streams."
-    }
+    },
+    {
+      question: "Why does the lesson say browser-based pixels are no longer sufficient for feeding automated bidding algorithms like PMax and Advantage+, and what does it recommend instead?",
+      options: [
+        "Pixels are being fully discontinued by all browsers in 2026, so no tracking method will work without an API.",
+        "Privacy restrictions degrade browser-pixel tracking, so advertisers need server-to-server tracking such as Meta's Conversions API (CAPI) to send clean, real-time conversion signals directly from their server.",
+        "Browser pixels only work for Google Ads, never for Meta campaigns.",
+        "Server-side tracking is required because PMax and Advantage+ cannot read any client-side JavaScript at all.",
+      ],
+      correct: 1,
+      explanation: "Privacy changes have weakened browser-pixel accuracy, so the lesson positions server-to-server signal quality (CAPI) as the key lever for guiding automated bidding: clean, direct conversion data helps the algorithm find high-value buyers instead of optimizing toward low-quality clicks.",
+    },
   ],
 
   "growth/reverse-trials-monetization": [
@@ -15063,7 +15910,18 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "While standard freemium models convert at 2-5% of signups, optimized reverse trials frequently achieve free-to-paid conversion rates of 15% to 25% (and up to 32% for top performers) due to increased activation and loss aversion."
-    }
+    },
+    {
+      question: "In the 2025 project management SaaS example, what distinguished the users who converted to paid at 34% from those who converted at just 6%?",
+      options: [
+        "The 34% group paid via annual billing while the 6% group paid monthly.",
+        "The 34% group engaged with the automation feature at least three times during the trial, while the 6% group never touched it.",
+        "The 34% group was on a 30-day reverse trial while the 6% group was on a 14-day trial.",
+        "The 34% group received a personal onboarding call from sales.",
+      ],
+      correct: 1,
+      explanation: "The case study shows that actual feature adoption during the trial window, not merely being granted access, is what drives conversion: users who engaged with automation three or more times converted at 34%, versus 6% for users who never used it.",
+    },
   ],
 
   "social/short-form-video-algorithms": [
@@ -15608,6 +16466,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Effective marketing creates and sustains profitable customer relationships - awareness and spend are inputs, not outcomes in themselves.",
     },
+    {
+      question: "The lesson argues that the traditional 'marketing funnel' (Awareness to Interest to Decision to Purchase) is an outdated model. What does it propose instead?",
+      options: [
+        "A one-way broadcast model where messages flow only from company to customer",
+        "A continuous loop where customer behavior teaches the company something new, which reshapes the product, price, and message",
+        "A four-stage sales pipeline managed entirely by the sales team",
+        "A single funnel that only applies to B2C companies, not B2B",
+      ],
+      correct: 1,
+      explanation: "The lesson describes marketing as a loop: studying customers shapes the offer and message, that reaches an audience, resulting behavior (buying, referring, churning) teaches the company something new, and that understanding improves the product again.",
+    },
   ],
 
   "fundamentals/4ps-7ps": [
@@ -15634,6 +16503,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       options: ["People", "Physical Evidence", "Place", "Product"],
       correct: 1,
       explanation: "Physical Evidence refers to the tangible cues that help customers evaluate an intangible service. Branded items and a well-designed space reduce uncertainty for prospects.",
+    },
+    {
+      question: "When sales are flat, the lesson's diagnostic flowchart recommends checking the 7 Ps in a specific order before increasing ad spend, and the tip callout says to start the audit with which P?",
+      options: [
+        "Promotion, since more visibility always helps",
+        "Product, since customers only care about features",
+        "Place, because distribution problems are the most common and least discussed cause of underperformance",
+        "Physical Evidence, since packaging is what customers notice first",
+      ],
+      correct: 2,
+      explanation: "The lesson's tip callout specifically says to start the audit with Place: a great product at a fair price can still fail if it's not available where the target customer actually shops or browses.",
     },
   ],
 
@@ -15662,6 +16542,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "This is the classic positioning statement template. It forces clarity on target customer, category frame, single benefit, and proof - the building blocks of a defensible position.",
     },
+    {
+      question: "April Dunford's positioning framework separates 'frame of reference' from 'point of difference.' Using Slack's 2013 launch as the lesson's example, what did choosing to position against email (rather than as enterprise IT software) primarily control?",
+      options: [
+        "The final retail price of the product",
+        "Who Slack's competitors were, what price it could charge, and which features mattered to customers",
+        "The number of engineers needed to build the product",
+        "Whether the company would need to raise venture funding",
+      ],
+      correct: 1,
+      explanation: "The lesson states the frame of reference controls everything: who your competitors are, what price you can charge, and which features matter. By framing against email rather than enterprise software, Slack changed all three and enabled bottom-up adoption.",
+    },
   ],
 
   "growth/aarrr": [
@@ -15688,6 +16579,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       options: ["Acquisition", "Activation", "Retention", "Referral"],
       correct: 2,
       explanation: "Retention tracks whether users return after their initial visit or use. It is the most direct measure of ongoing perceived value and is often called the most important AARRR metric.",
+    },
+    {
+      question: "According to the AARRR framework, what three components must a deliberately engineered Referral loop include?",
+      options: [
+        "A landing page, a pricing table, and a signup form.",
+        "A trigger (when you ask), a mechanic (what users share), and an incentive (why they share).",
+        "A CRM integration, a customer support ticket, and a satisfaction survey.",
+        "A press release, an influencer partnership, and a paid ad campaign.",
+      ],
+      correct: 1,
+      explanation: "The lesson states referral rarely happens organically at scale and must be built deliberately with three parts: a trigger for when to ask, a mechanic for what gets shared, and an incentive for why users bother sharing, as seen in Dropbox's and Airbnb's engineered referral programs.",
     },
   ],
 
@@ -15716,6 +16618,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Hypothesis and sample size must be defined before the test starts. Peeking and stopping early, or changing the hypothesis mid-test, introduces bias and inflates false positive rates.",
     },
+    {
+      question: "A test reaches p < 0.05 with a 0.3% lift on a low-traffic page, driven by a huge sample size. What should the team do?",
+      options: [
+        "Ship it immediately, since statistical significance is the only bar that matters",
+        "Check whether the annualized revenue or conversion impact clears the team's minimum bar before deciding to ship",
+        "Re-run the test with a smaller sample to confirm the result",
+        "Discard the result entirely, since low lifts are always noise",
+      ],
+      correct: 1,
+      explanation: "Statistical significance only tells you the effect is probably real, not that it's worth shipping. A 0.3% lift can hit p < 0.05 with a large enough sample while still being too small to justify an engineering sprint, so the team must separately check practical significance.",
+    },
   ],
 
   "growth/north-star-metric": [
@@ -15742,6 +16655,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       options: ["Weekly active teams using the core feature", "Number of tasks completed per user per week", "Total page views per month", "Number of integrations activated per account"],
       correct: 2,
       explanation: "Page views are a vanity metric that doesn't indicate value delivery or engagement depth. A strong NSM must reflect the core action that signals users are getting the product's primary benefit.",
+    },
+    {
+      question: "A pre-product-market-fit startup is unsure whether customers actually want its product yet. What should it track instead of obsessing over choosing a North Star Metric?",
+      options: [
+        "Total revenue growth month over month",
+        "Cohort retention, the percentage of users from a given signup month still active a few months later",
+        "Number of input metrics decomposed from a candidate NSM",
+        "Competitor benchmarking against similar products",
+      ],
+      correct: 1,
+      explanation: "Before product-market fit is confirmed, cohort retention is the clearest signal of whether customers genuinely value the product. Picking an NSM before that is 'tuning the engine of a car with no steering wheel'; fix retention first, then define the NSM once it's confirmed people stick around.",
     },
   ],
 
@@ -16229,6 +17153,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "High CTR means the ad is working - it generates clicks. Low conversion means the landing page doesn't fulfil the promise of the ad. The fix is post-click experience, not the ad itself.",
     },
+    {
+      question: "Per the lesson, why should an advertiser hold off on switching to Target CPA bidding if their account has fewer than 30 conversions in the past 30 days?",
+      options: [
+        "Target CPA is only available to accounts spending over $50,000 per month.",
+        "Google's automated bidding algorithm needs enough conversion data to optimize effectively, so manual CPC or Maximize Clicks is more predictable until that volume builds up.",
+        "Google disables Target CPA entirely for any account under 6 months old.",
+        "Target CPA can only be used alongside broad match keywords, never exact or phrase match.",
+      ],
+      correct: 1,
+      explanation: "Automated bidding strategies learn from historical conversion data. With fewer than 30-50 conversions a month, the algorithm has too little signal to set bids well, so the lesson recommends manual CPC (or Maximize Clicks to build traffic first) until enough data accumulates.",
+    },
   ],
 
   "paid-ads/meta-ads": [
@@ -16255,6 +17190,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       options: ["The campaign budget is too low", "The creative or offer is not resonating with the audience being reached - strong reach without conversion indicates a relevance or offer problem", "The campaign should switch to CPC bidding", "The audience size is too large"],
       correct: 1,
       explanation: "Low CPM + high reach means the ads are being shown cheaply and widely. The conversion failure points to the message, offer, or audience-offer match - not the media buying. This is a creative or positioning problem.",
+    },
+    {
+      question: "A Meta ad set that was performing well gets heavily edited on day 3 after launch because early cost-per-result looked high. What is the most likely consequence?",
+      options: [
+        "Meta automatically extends the campaign end date to compensate",
+        "The learning phase resets completely, so the algorithm never accumulates the 50 conversions in 7 days it needs to optimise delivery",
+        "Meta lowers the daily budget automatically to protect spend",
+        "The ad set is permanently disqualified from Advantage+ automation",
+      ],
+      correct: 1,
+      explanation: "Meta's learning phase needs 50 conversion events within a 7-day window before delivery is optimised. Editing an ad set early resets that count to zero, which is why the lesson calls premature pausing or heavy edits the most expensive mistake in Meta Ads.",
     },
   ],
 
@@ -16283,6 +17229,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "In first-price auctions (now standard in programmatic), the winner pays exactly what they bid. Bid shading algorithms predict the optimal bid below the maximum to avoid overpaying while maintaining win probability.",
     },
+    {
+      question: "An Optmyzr study of 14,584 accounts found that for lead generation campaigns, switching from Maximize Conversions to Maximize Conversion Value produced what result?",
+      options: [
+        "No measurable difference since both strategies optimise for the same outcome",
+        "Nearly 300% higher ROAS, because conversions are no longer treated as equally valuable",
+        "Lower conversion volume but higher Quality Scores",
+        "A mandatory 30-day learning period reset that most advertisers skip",
+      ],
+      correct: 1,
+      explanation: "Max Conversion Value weighs conversions by their actual worth instead of counting every conversion equally, and the study found it outperformed Max Conversions by roughly 300% on ROAS for lead gen, a switch most advertisers haven't made because they default to Max Conversions.",
+    },
   ],
 
   "seo/keyword-research": [
@@ -16310,6 +17267,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "High search volume with low clicks indicates a 'zero-click search' - Google's SERP features (featured snippets, knowledge panels, calculators) answer the query without requiring a website visit.",
     },
+    {
+      question: "Per the lesson's SparkToro analysis of 332 million search queries, what share of searches are informational versus transactional, and what does that imply for content strategy?",
+      options: [
+        "52.65% informational vs. 0.69% transactional - most content should serve informational and commercial intent first, since that's where the audience is largest",
+        "0.69% informational vs. 52.65% transactional - most content should be built as product pages",
+        "Roughly an even 50/50 split between informational and transactional intent",
+        "Transactional queries outnumber informational queries by nearly 10 to 1",
+      ],
+      correct: 0,
+      explanation: "SparkToro's 332-million-query dataset found 52.65% of searches are informational and only 0.69% are transactional, meaning the largest addressable audience is people looking to learn, not buy immediately, so informational and commercial content should come first.",
+    },
   ],
 
   "seo/link-building": [
@@ -16336,6 +17304,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       options: ["Guest posting on relevant industry blogs with contextual links", "Creating a free tool that earns natural backlinks", "Buying links from a private blog network (PBN) or link farm", "Conducting original research that gets cited by press"],
       correct: 2,
       explanation: "Private Blog Networks and link farms are explicitly against Google's Webmaster Guidelines. Google has become adept at identifying and discounting or penalising these link schemes, risking significant ranking drops.",
+    },
+    {
+      question: "Per the lesson, what is 'anchor text over-optimization,' and why does it risk a Google penalty?",
+      options: [
+        "Using too many links in a single article, regardless of the text used to link them",
+        "Having many sites link to a page using the exact same keyword-stuffed phrase every time, a pattern Google's algorithm has trained itself to detect as unnatural",
+        "Placing links in a page's footer instead of the body text",
+        "Linking to pages that no longer exist (broken links)",
+      ],
+      correct: 1,
+      explanation: "Real editorial links use varied anchor text, brand names, partial phrases, or generic terms like 'this article.' Uniform, exact-match anchor text across many linking sites is a manipulation pattern Google specifically detects and can penalize.",
     },
   ],
 
@@ -16383,6 +17362,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Keyword stuffing violates Google's quality guidelines and degrades user experience. Modern algorithms prefer natural language and topical depth over raw keyword repetition.",
+    },
+    {
+      question: "A page has strong titles, headings, and content, but only links to 1 other page on the entire site. According to the lesson's signal stack, what is this page missing?",
+      options: [
+        "Meta description optimization, which is the strongest ranking factor",
+        "Internal links, which help Google discover related content and pass link equity between pages",
+        "Image alt text, which is required for any page to be indexed",
+        "A URL slug change, since slugs are weighted more heavily than link structure",
+      ],
+      correct: 1,
+      explanation: "Internal links help Google discover content and pass ranking power ('link equity') between pages; the lesson recommends 2-5 internal links per page, and the IFTTT case study shows fixing internal linking alone nearly tripled indexed pages.",
     },
   ],
 
@@ -19488,6 +20478,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Pipeline Influenced measures what share of open pipeline engaged with an ABM program, directly linking ABM activity to revenue potential. MQLs are explicitly called out as the wrong metric for ABM.",
     },
+    {
+      question: "A marketing team builds a list of 5,000 companies and calls it their ABM program. According to the lesson's common mistakes section, what is the problem with this approach?",
+      options: [
+        "5,000 accounts is actually too small a list to run programmatic ABM effectively",
+        "A list that large is really a demand gen list with better naming; effective ABM runs 50-300 accounts per rep, with Tier 1 capped at 20-30 companies",
+        "ABM programs are not allowed to exceed 100 total accounts under any circumstances",
+        "The mistake is not having enough sales reps to cover 5,000 accounts individually",
+      ],
+      correct: 1,
+      explanation: "The lesson explicitly calls out 'too many accounts' as a common ABM mistake: a 5,000-company list loses the precision that defines ABM and becomes indistinguishable from demand generation, since true ABM depends on named-account focus and depth, not volume.",
+    },
   ],
   "fundamentals/community-led-growth-intro": [
     {
@@ -19533,6 +20534,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Unlike SLG and PLG which have linear cost structures where more pipeline requires more spend or headcount, CLG compounds: engaged members recruit other members, create persistent content, and build social proof that grows the community without proportional investment.",
+    },
+    {
+      question: "A B2B enterprise product wants a curated, invite-only group of power users who get early access and direct product input in exchange for advocacy. Which community model does the lesson say fits this best?",
+      options: [
+        "External customer community",
+        "Internal champion program",
+        "Open-source community",
+        "Audience-only broadcast channel",
+      ],
+      correct: 1,
+      explanation: "The lesson describes the internal champion program as a curated, invite-only group of power users trading early access and recognition for feedback and advocacy, better suited to enterprise products where a small number of highly engaged users drive outsized influence than a broad external community.",
     },
   ],
   "fundamentals/demand-gen-vs-lead-gen": [
@@ -19580,6 +20592,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Share of voice measures how often your brand appears in category conversations, a long-term brand health metric. CPL, MQLs, and lead-to-customer velocity are all short-term output metrics associated with lead gen.",
     },
+    {
+      question: "Per the lesson, how does the recommended demand gen / lead gen budget ratio typically shift as a SaaS company matures?",
+      options: [
+        "It stays fixed at 50/50 regardless of company stage",
+        "Early-stage companies often start around 30/70 (demand gen/lead gen) for immediate pipeline, then flip toward 60/40 as the company scales and competition tightens",
+        "Early-stage companies start at 60/40 favoring demand gen, then shift to 30/70 favoring lead gen once pipeline is established",
+        "The ratio is determined entirely by industry, not company stage",
+      ],
+      correct: 1,
+      explanation: "The lesson explains that early-stage SaaS needs immediate pipeline and often starts around 30/70 favoring lead gen, but as competition tightens and the company scales, the ratio flips toward the 60/40 demand-gen-weighted split.",
+    },
   ],
   "fundamentals/go-to-market-strategy": [
     {
@@ -19625,6 +20648,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "One of the four GTM fit criteria is that expansion happens without asking, customers upgrade or add seats organically. Erratic CAC or a shortening cycle alone does not confirm fit; all four criteria must be stable.",
+    },
+    {
+      question: "A developer tool prices at $99/month for individuals, $499/month for teams, and custom pricing for enterprise. Per the lesson's real example, what is the correct GTM motion?",
+      options: [
+        "Sales-Led Growth across every tier, since all deals need human guidance",
+        "Product-Led Growth for the two self-serve tiers, Sales-Led Growth only for the enterprise tier",
+        "Channel/Partner-Led Growth for all tiers, since developers trust resellers",
+        "Marketing-Led Growth exclusively, since developers do heavy research before buying",
+      ],
+      correct: 1,
+      explanation: "The lesson's real example shows the $99 and $499 tiers deliver value in minutes and fit self-serve PLG, while the enterprise tier needs a human conversation about compliance, SSO, and SLAs, making PLG-plus-SLG-for-enterprise the dominant 2025-2026 hybrid pattern.",
     },
   ],
   "fundamentals/revops-for-marketers": [
@@ -19672,6 +20706,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Companies with formal RevOps report 36% higher revenue growth and up to 28% more profitability, while poor sales-marketing alignment costs B2B companies 10% or more of annual revenue.",
     },
+    {
+      question: "What are the three foundations (pillars) RevOps operates on, according to the lesson?",
+      options: [
+        "Budgeting, forecasting, and reporting",
+        "People alignment, process standardization, and technology integration",
+        "Lead scoring, campaign attribution, and CRM hygiene",
+        "Sales enablement, content strategy, and brand governance",
+      ],
+      correct: 1,
+      explanation: "The lesson names three pillars: people alignment (shared goals and SLAs across marketing, sales, and CS), process standardization (defined stages like MQL/SQL/opportunity), and technology integration (CRM, marketing automation, and analytics flowing data bidirectionally).",
+    },
   ],
   "growth/ai-experiment-design": [
     {
@@ -19717,6 +20762,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 3,
       explanation: "The final ship/kill/iterate decision belongs entirely to humans. AI compresses hypothesis generation, statistical analysis, and data quality flagging, but cannot apply domain context, such as novelty periods or segment behavior differences, needed to judge whether an effect is real and worth acting on.",
+    },
+    {
+      question: "An LLM generates 10 hypotheses from session data and a PM runs all 10 in parallel, and 8 fail. What does the lesson identify as the underlying mistake?",
+      options: [
+        "The PM should have used ICE scoring instead of RICE scoring",
+        "The PM ran too few hypotheses to reach statistical power",
+        "The PM treated AI-generated hypotheses as ground truth instead of sanity-checking them against domain knowledge, like knowing freemium users have no budget to upgrade",
+        "The LLM's session data analysis was too slow to be useful",
+      ],
+      correct: 2,
+      explanation: "LLMs generate plausible hypotheses, not ground-truth ones, they don't know facts like 'freemium users have zero budget' or 'enterprise customers get trained by sales.' The lesson's safeguard is using AI to generate options fast but letting human domain knowledge filter to the 2-3 worth testing.",
     },
   ],
   "growth/b2b-growth-loops": [
@@ -19764,6 +20820,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "B2C loops succeed on fun and social discovery, but B2B loops require business-oriented outputs, the feedback that compels repetition must be measurable ROI, not entertainment or social status.",
     },
+    {
+      question: "Why does seat-based or per-action pricing (like Figma's free seats or Zapier's per-automation charges) act as an accelerant for B2B growth loops rather than just a discount?",
+      options: [
+        "It guarantees a higher average contract value than flat-rate pricing",
+        "It removes the need for a sales team entirely",
+        "It aligns incentives so that inviting more users or activating more integrations costs the company almost nothing while increasing perceived value, until usage naturally justifies a paid upgrade",
+        "It simplifies the invoicing process for finance teams",
+      ],
+      correct: 2,
+      explanation: "If Figma charged per user or Zapier charged per user instead of per automation, their respective invite and ecosystem loops would break, the marginal cost of adding a new seat or automation is near zero, so usage can compound until the free-tier ceiling makes the business case for upgrading ironclad.",
+    },
   ],
   "growth/community-led-growth": [
     {
@@ -19809,6 +20876,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Above approximately 150 meaningful relationships (the Dunbar threshold), humans default to passive consumption rather than active participation. Segmenting into chapters or cohorts before crossing this threshold preserves the high-engagement culture that powers CLG.",
+    },
+    {
+      question: "A company launches a champion program by identifying and recruiting top members, but gives them no private channel, no product team sync, and no content calendar. What does the lesson predict?",
+      options: [
+        "The champions will naturally self-organize within 30 days",
+        "The program will decay within 90 days because activation, the structural support step, was skipped",
+        "The champions will convert into full-time employees",
+        "Community-qualified lead scoring will become more accurate",
+      ],
+      correct: 1,
+      explanation: "The lesson names identify, recruit, and activate as the three required phases, and specifically warns that activation, giving champions structure like a private channel and content calendar, is the step most teams skip. Without it, champion programs decay within 90 days.",
     },
   ],
   "growth/product-led-sales": [
@@ -19856,6 +20934,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Product usage events flow from analytics tools like Mixpanel or Segment into a PQL scoring engine, which then enriches CRM contact records with scores, feature usage, and seat counts. This ensures reps see live usage context before making contact.",
     },
+    {
+      question: "How does the CAC payback period for sales-assisted PQL conversions compare to traditional sales-led motions?",
+      options: [
+        "Sales-assisted PQLs take 12-18 months to pay back, versus 3-6 months for traditional sales-led deals",
+        "Sales-assisted PQLs pay back in 3-6 months, versus 12-18 months for traditional sales-led motions",
+        "Both motions average the same 9-month payback period",
+        "PQL payback periods cannot be measured because product usage data isn't tied to revenue",
+      ],
+      correct: 1,
+      explanation: "Because usage data pre-qualifies intent before a rep ever calls, sales-assisted PQLs close with a 3-6 month CAC payback, compared to 12-18 months for traditional sales-led motions, which is why the lesson frames PLS as compressing time-to-ROI on every sales hire.",
+    },
   ],
   "paid-ads/ai-max-broad-match": [
     {
@@ -19901,6 +20990,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Creating 3-5 asset groups per campaign, each targeting a different segment like budget buyers, premium buyers, or beginners, lets Google's algorithm allocate budget intelligently across distinct audience intents rather than cannibalizing a single group.",
+    },
+    {
+      question: "According to the lesson, why do advertisers still need a negative keyword list even after moving to AI Max?",
+      options: [
+        "AI Max ignores negative keywords entirely, so the list only matters for Standard Search",
+        "AI Max respects negatives, and without them the algorithm still shows ads to low-intent queries like 'free,' 'cheap,' or 'job' searches that waste budget",
+        "Negative keywords are required to unlock the Audience Signals feature",
+        "Negative keywords are only needed once an account passes 200 monthly conversions",
+      ],
+      correct: 1,
+      explanation: "AI Max expands intent matching, not eliminates it, so it still respects negative keywords, and skipping them is listed as one of the common AI Max mistakes because the algorithm will otherwise burn budget on tire-kicker queries.",
     },
   ],
   "paid-ads/amazon-advertising": [
@@ -19948,6 +21048,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Sponsored Display is Amazon's built-in retargeting layer. It targets audiences based on product views and purchase behavior and can serve ads on Amazon as well as third-party websites and apps, with no pixel setup required.",
     },
+    {
+      question: "What does Amazon Attribution allow a brand to measure that Sponsored Products, Sponsored Brands, and Sponsored Display cannot?",
+      options: [
+        "The exact ACoS of a Sponsored Display campaign in real time",
+        "How traffic driven from outside Amazon, such as Google Ads, Meta, or email, converts once it reaches an Amazon listing",
+        "The TACoS of a product across its entire lifecycle",
+        "Whether a competitor is bidding on your brand name",
+      ],
+      correct: 1,
+      explanation: "Amazon Attribution is a free tool specifically for tracking off-Amazon traffic sources, giving each channel a tracking tag and reporting clicks, detail page views, and purchases, closing the measurement gap the three on-Amazon ad types don't address.",
+    },
   ],
   "paid-ads/creator-ugc-ads": [
     {
@@ -19993,6 +21104,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "CTR measures creative stopping power while CVR measures what happens after the click. A high CTR with low CVR means the ad is compelling enough to get clicks, but the landing page or offer is failing to convert those visitors into customers.",
+    },
+    {
+      question: "In the lesson's creative-quality metrics, what does a high video completion rate paired with a very low click-through rate most likely indicate?",
+      options: [
+        "The audience is oversaturated and frequency needs to be capped",
+        "Viewers are interested and watching, but the copy or call-to-action isn't convincing them to act, so the copy needs work rather than the video",
+        "The landing page is broken and needs to be rebuilt",
+        "The creator's account was not properly whitelisted",
+      ],
+      correct: 1,
+      explanation: "The lesson ties thumb-stop and completion behavior to interest, and CTR to message clarity and stopping power; high completion with low clicks means people watched but weren't moved to click, pointing at the copy, not the visual creative itself.",
     },
   ],
   "paid-ads/demand-gen-campaigns": [
@@ -20040,6 +21162,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "High impressions with low CTR means the ad is being shown but not compelling people to act, the creative needs a stronger hook in the first 3 seconds for video and a clearer value proposition in image headlines.",
     },
+    {
+      question: "What does a high view-through conversion rate in a Demand Gen dashboard indicate?",
+      options: [
+        "The campaign is wasting budget because users saw the ad but never clicked",
+        "The lookalike audience seed list is too broad and needs narrowing",
+        "The creative is building purchase intent even without a direct click, since users who saw the ad later converted through another channel",
+        "The account has not yet reached the conversion threshold needed for tCPA bidding",
+      ],
+      correct: 2,
+      explanation: "View-through conversions track users who saw the ad but converted later via a different channel, so a high rate confirms Demand Gen's mid-funnel job of warming intent even when it doesn't get the last click.",
+    },
   ],
   "paid-ads/first-party-data-activation": [
     {
@@ -20086,6 +21219,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 3,
       explanation: "Workshop Digital's case studies showed the highest-performing account recovered +33% more conversions after enabling Enhanced Conversions, with the average across accounts clustering around 6-10%. This extra signal feeds directly into Smart Bidding, lowering effective CPA.",
     },
+    {
+      question: "Which of the three activation channels works by sending conversion events directly from your server to the ad platform, bypassing the browser entirely?",
+      options: [
+        "Google Customer Match",
+        "Meta Conversions API (CAPI)",
+        "Google Enhanced Conversions",
+        "Google Data Manager API",
+      ],
+      correct: 1,
+      explanation: "CAPI sends events server-to-server, bypassing the browser, which recovers iOS-blocked signals and fills ITP attribution gaps. Customer Match is a list-upload targeting mechanism and Enhanced Conversions augments the standard conversion tag with hashed data, neither replaces the browser-to-server pathway CAPI provides.",
+    },
   ],
   "paid-ads/snapchat-pinterest-ads": [
     {
@@ -20131,6 +21275,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The recommended approach is $20/day ($10 each) run for 14 days with single-objective conversion campaigns, giving enough data to compare cost per click and traffic quality before scaling the winner.",
+    },
+    {
+      question: "According to the lesson, what distinguishes Snapchat's AR Lenses and Filters from its other ad formats?",
+      options: [
+        "They are the cheapest format to produce but drive the lowest engagement",
+        "They let users interact with branded augmented reality experiences, with high production cost but exceptional engagement and brand recall",
+        "They are only available as an add-on to Collection Ads",
+        "They require a minimum daily spend of $100 to unlock",
+      ],
+      correct: 1,
+      explanation: "The lesson describes AR Lenses and Filters as high-production-cost formats (like a beauty brand's AR try-on lens) that drive engagement and brand recall no static ad can match, the opposite of being cheap or low-engagement.",
     },
   ],
   "product-marketing/ai-product-positioning": [
@@ -20592,6 +21747,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "AI Mode citation rate correlates with answer density, the ratio of useful facts to total words, not total content length. A concise 600-word page with five citable facts outperforms a 3,000-word page that buries them.",
     },
+    {
+      question: "Per the lesson's zero-click data, how does AI Mode's zero-click rate compare to AI Overviews on the standard results page?",
+      options: [
+        "AI Mode is lower, around 47%, versus 83% for AI Overviews",
+        "They are roughly identical at around 58.5% for both",
+        "AI Mode is higher, around 93%, versus 83% for AI Overviews",
+        "AI Mode has no zero-click searches since it always shows citations",
+      ],
+      correct: 2,
+      explanation: "Seer Interactive's 2026 data puts AI Mode's zero-click rate at roughly 93%, higher than AI Overviews' 83%, meaning users are even less likely to click through to a website when using the fully conversational AI Mode interface.",
+    },
   ],
   "seo/brand-serp-control": [
     {
@@ -20637,6 +21803,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "These brand modifier queries attract searchers already evaluating a purchase, giving them far higher commercial intent than broad generic terms even though their search volume is lower.",
+    },
+    {
+      question: "According to BrightEdge's March 2026 analysis, how does Google AI Overviews compare to ChatGPT in surfacing negative brand sentiment?",
+      options: [
+        "AI Overviews is 44% less likely than ChatGPT to surface negative sentiment",
+        "AI Overviews is 44% more likely than ChatGPT to surface negative sentiment, and the two engines disagree on which brands deserve criticism 73% of the time",
+        "Both engines surface negative sentiment at exactly the same rate",
+        "Neither engine surfaces negative brand sentiment because both filter it out by policy",
+      ],
+      correct: 1,
+      explanation: "BrightEdge found Google AI Overviews are 44% more likely than ChatGPT to surface negative brand sentiment (about 2.3% of mentions vs 1.6%), and the two engines disagree on which brands deserve criticism 73% of the time, meaning a brand's AI reputation can vary sharply by platform.",
     },
   ],
   "seo/reddit-forum-seo": [
@@ -20684,6 +21861,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Quora ranks heavily for 'how do I' and 'what is' queries and is strong for B2C and educational content, while Reddit dominates review/comparison queries and Stack Overflow covers developer tools.",
     },
+    {
+      question: "What is the strategic significance of Google's $60 million/year deal with Reddit, disclosed in February 2024?",
+      options: [
+        "It guarantees any brand that pays Reddit a fee gets boosted rankings",
+        "It replaced Reddit's advertising revenue entirely, ending sponsored posts",
+        "It gave Google access to Reddit content to train AI models, meaning Reddit data now shapes what AI Overviews and Gemini say about brands",
+        "It was a one-time payment with no ongoing content licensing relationship",
+      ],
+      correct: 2,
+      explanation: "The deal licenses Reddit content to train AI models like Gemini, so Reddit discussions are now baked into the models powering Google AI Overviews and other AI search tools, making brand mentions on Reddit a signal to AI systems, not just a referral-traffic play.",
+    },
   ],
   "seo/seo-for-ai-platforms": [
     {
@@ -20730,6 +21918,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "GEO favours structured, passage-extractable content because AI retrieval systems extract specific passages rather than reading full articles, answers must be easy to isolate and quote directly.",
     },
+    {
+      question: "Ahrefs tracked 1,885 pages that added FAQPage JSON-LD schema against 4,000 matched control pages. What did the study find about citation lift?",
+      options: [
+        "FAQ schema alone produced a 642% increase in AI citations",
+        "FAQ schema alone produced no statistically significant citation lift; the visible Q&A prose is what gets cited, not the invisible markup",
+        "FAQ schema caused AI engines to blacklist the page from citation",
+        "FAQ schema only helps ChatGPT, not Perplexity or Claude",
+      ],
+      correct: 1,
+      explanation: "The study found no statistically significant citation lift from FAQPage schema markup alone, the lesson's takeaway is to write the FAQ for a human reader first and add schema as a bonus, not as the actual fix for citations.",
+    },
   ],
   "seo/video-seo": [
     {
@@ -20775,6 +21974,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "VideoObject schema markup tells Google's crawler what the embedded video contains, enabling it to surface a video rich result in web search alongside the standard page result, earning two placements for the same query.",
+    },
+    {
+      question: "How does YouTube's 2026 algorithm weigh click-through rate (CTR) differently depending on the viewer?",
+      options: [
+        "It ignores CTR entirely and only measures watch time",
+        "CTR from existing subscribers is weighted more heavily since they are the core audience",
+        "CTR from cold, non-subscriber impressions is weighted more heavily than subscriber CTR, since that's the audience YouTube is trying to grow",
+        "CTR is only measured for videos under 5 minutes long",
+      ],
+      correct: 2,
+      explanation: "In 2026, YouTube discounts CTR from existing subscribers (who already know and like the channel, so a click proves less) and weights CTR from cold, non-subscriber impressions more heavily, since growing that audience is the platform's actual goal.",
     },
   ],
   "social/creator-economy-strategy": [
@@ -21282,6 +22492,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "The lesson's Callout warns that teams often build a perfect redirect map, launch, then stop watching, missing crawl errors or a leftover staging noindex tag that quietly deindexes the new site for weeks.",
     },
+    {
+      question: "Why does the lesson insist on capturing a full baseline (rankings, traffic, backlinks, Core Web Vitals) before a migration even begins?",
+      options: [
+        "It is a legal requirement for domain transfers",
+        "Without it, you cannot prove what actually changed after launch when you're diagnosing a traffic drop",
+        "It speeds up Google's re-crawl of the new URLs",
+        "It automatically generates the redirect map",
+      ],
+      correct: 1,
+      explanation: "The lesson states plainly that without a pre-migration baseline you cannot prove what changed after launch, making it impossible to tell whether a post-launch dip is normal volatility or a real problem.",
+    },
   ],
   "seo/content-decay-refresh": [
     {
@@ -21327,6 +22548,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "The lesson instructs comparing Search Console's last six months to the prior six months and sorting by clicks lost (not percentage lost) so high-traffic pages are caught first.",
+    },
+    {
+      question: "Per the lesson, what is a realistic, strong outcome to expect from a well-executed content refresh?",
+      options: [
+        "100% of lost traffic recovered within 7 days",
+        "40-60% of lost traffic recovered within 60 days, with full impact measurable in 2-3 months",
+        "No measurable recovery until at least 12 months have passed",
+        "Recovery only happens if the URL is also changed",
+      ],
+      correct: 1,
+      explanation: "The lesson sets expectations directly: recovering 40-60% of lost traffic within 60 days is a realistic, strong outcome, with full impact usually measurable within 2-3 months as rankings settle.",
     },
   ],
   "paid-ads/ad-fraud-invalid-traffic": [
@@ -21374,6 +22606,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "The lesson lists installs with zero in-app events afterward as pointing to SDK spoofing, since the install was faked, nothing real ever happens next.",
     },
+    {
+      question: "What did Procter & Gamble's 2017 cut of $200 million in digital ad spend demonstrate, per the lesson's example?",
+      options: [
+        "Cutting spend reduced total reach in direct proportion to the budget cut",
+        "Reach increased 10% despite the spend cut, with no discernible drop in sales, after trimming thousands of long-tail publishers to a few hundred vetted partners",
+        "P&G abandoned digital advertising entirely following the cut",
+        "The cut produced no measurable change in reach or sales performance",
+      ],
+      correct: 1,
+      explanation: "The lesson's example shows P&G cut spend, tightened its publisher list to vetted MRC/TAG-certified partners, and still saw reach increase 10% with no sales drop, proof that a large share of the cut spend had been going to bots and fraudulent long-tail inventory rather than real reach.",
+    },
   ],
   "paid-ads/ad-frequency-creative-fatigue": [
     {
@@ -21419,6 +22662,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The lesson states the 2026 standard is 6-8 active creatives per campaign (up from 3-4), and Meta's DCO wants a minimum of 10 variants (3-4 videos, 3 images, 3 headlines, 2 CTAs) to avoid starving the algorithm of signal.",
+    },
+    {
+      question: "Per the lesson, what is TikTok's optimal ad frequency range per user per week, and what happens outside it?",
+      options: [
+        "Around 4 impressions/week; below 3, conversion rates fall 22%, and above 6, CTR drops 31%",
+        "Around 10 impressions/week; below 5, conversions fall, and above 15, CTR drops",
+        "There is no measurable optimal frequency range on TikTok",
+        "Around 1 impression/week; any additional exposure triggers an automatic pause",
+      ],
+      correct: 0,
+      explanation: "The lesson cites TikTok's optimal frequency at roughly 4 impressions per user per week, with conversion rates falling 22% below 3 impressions and CTR dropping 31% above 6, a much tighter window than Meta's slower 10-day decay curve.",
     },
   ],
   "ai-marketing/measuring-ai-marketing-roi": [
@@ -22248,6 +23502,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "The safe scaling pattern is roughly 20% increments spaced days apart, which takes about five weeks for a 5x scale but preserves the model's learned signal instead of resetting it.",
     },
+    {
+      question: "Per the lesson, roughly how many optimization events within a rolling 7-day window does the learning phase need to stabilize?",
+      options: [
+        "10 events",
+        "50 events",
+        "200 events",
+        "500 events",
+      ],
+      correct: 1,
+      explanation: "The lesson states the learning phase needs roughly 50 optimization events inside any rolling 7-day window to stabilize, and resetting it twice in one month can mean the campaign never accumulates enough signal to exit at all.",
+    },
   ],
   "paid-ads/landing-page-message-match": [
     {
@@ -22293,6 +23558,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Dedicated landing pages consistently outperform homepages for paid traffic by 30-50% in conversion rate, with per-campaign pages showing lifts as high as 42% over generic homepage redirects.",
+    },
+    {
+      question: "Per the lesson, what should you do with site navigation on a dedicated paid-traffic landing page?",
+      options: [
+        "Add more navigation links so visitors can explore other product lines",
+        "Strip the navigation, since every extra link is an exit ramp from the page's one job of converting the click you already paid for",
+        "Keep the exact same navigation as the homepage for brand consistency",
+        "Navigation placement has no measurable effect on conversion rate",
+      ],
+      correct: 1,
+      explanation: "The lesson lists stripping navigation as one of the core fixes for building landing pages around ad groups: a dedicated page has one job, and every extra nav link gives the visitor a way to wander off before converting.",
     },
   ],
   "product-marketing/battlecard-design-adoption": [
@@ -22662,6 +23938,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "A page with traffic and backlinks is still an asset even if unsellable; the lesson recommends keeping it live, marking it discontinued clearly, and linking to the closest current alternative rather than deleting or mass-redirecting it.",
     },
+    {
+      question: "According to the lesson, what is the risk of faceted navigation (color filters, price-range filters, sort options) on an ecommerce site?",
+      options: [
+        "It has no SEO impact since filters are always noindexed by default",
+        "It can generate thousands of crawlable URL combinations with no unique content, burning crawl budget and creating duplicate content at scale",
+        "It only affects category pages, never product pages",
+        "It improves rankings by multiplying the number of indexed URLs",
+      ],
+      correct: 1,
+      explanation: "The lesson warns that unmanaged faceted navigation can generate thousands of low-value URL combinations that burn crawl budget and create massive duplicate-content problems, and recommends canonicalizing filtered URLs back to the clean category page.",
+    },
   ],
   "seo/image-seo-visual-search": [
     {
@@ -22707,6 +23994,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "WebP is the 2026 safe default, roughly 25-35% smaller than JPEG; AVIF pushes further (often 50% smaller) but a few older Safari versions still choke on it, so it should be served with fallbacks inside a picture element.",
+    },
+    {
+      question: "Per the lesson, when should you use an empty alt attribute (alt=\"\") on an image?",
+      options: [
+        "Never, every image must have descriptive alt text",
+        "Only on the site's logo",
+        "On purely decorative images, since it tells screen readers to skip a meaningless description",
+        "On every product photo to avoid keyword stuffing",
+      ],
+      correct: 2,
+      explanation: "The lesson states that for purely decorative images like a background texture or divider, an empty alt=\"\" tells screen readers to skip it, which is more helpful than forcing a meaningless description.",
     },
   ],
   "social/ai-influencers-virtual-creators": [
@@ -23306,6 +24604,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Tier 3 (10-15% of budget) covers pure bets, capped downside so a total loss is survivable, with a fixed evaluation window, distinct from Tier 1's proven channels and Tier 2's promising-but-unproven channels.",
     },
+    {
+      question: "According to Gartner's 2026 findings cited in the lesson, how does AI readiness affect a company's marketing spend as a percent of revenue?",
+      options: [
+        "AI readiness has no measurable effect on marketing budget size",
+        "Organizations with mature AI capabilities allocate 8.9% of revenue to marketing, above the 7.8% average, and the top 9% with fully optimized AI averaged 11%",
+        "AI-mature companies cut marketing budgets in half because AI replaces most marketing labor",
+        "AI readiness only affects the brand-versus-performance split, not total spend",
+      ],
+      correct: 1,
+      explanation: "The lesson's Callout notes AI-mature organizations allocate 8.9% of revenue to marketing versus the 7.8% average, and the top 9% with fully optimized AI averaged 11%, showing teams that prove AI-driven efficiency win bigger budgets, not smaller ones.",
+    },
   ],
   "fundamentals/marketing-org-chart": [
     {
@@ -23351,6 +24660,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The lesson highlights product marketing (reporting to product vs. marketing) and content (serving brand vs. demand gen) as the classic seam roles where reporting-line friction is highest.",
+    },
+    {
+      question: "According to the lesson, what percentage of CMOs report directly to the CEO?",
+      options: [
+        "22%",
+        "40%",
+        "61%",
+        "78%",
+      ],
+      correct: 2,
+      explanation: "The lesson states 61% of CMOs report directly to the CEO, 22% report to a Chief Revenue Officer, and the remainder report to a COO or President.",
     },
   ],
   "growth/growth-hacking-ethics-dark-patterns": [
@@ -23398,6 +24718,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Fake scarcity counters are the single most-cited dark pattern in the FTC's own report; real scarcity is legitimate, but fabricated scarcity misrepresents a real fact to change consumer behavior.",
     },
+    {
+      question: "What makes a referral program cross into dark-pattern territory, according to the lesson?",
+      options: [
+        "Offering any kind of monetary reward for a successful referral",
+        "Misrepresenting what the reward actually is, such as implying '$20 each' while delivering expiring store credit, or silently enrolling a referrer's contacts without clear consent",
+        "Letting existing customers invite friends at all",
+        "Tracking referral conversions in an analytics dashboard",
+      ],
+      correct: 1,
+      explanation: "The lesson is explicit that the referral mechanic itself is not the problem; misrepresenting the reward or silently enrolling contacts (the 'friend spam' pattern) is what turns a legitimate growth channel into a liability.",
+    },
   ],
   "growth/growth-team-operating-cadence": [
     {
@@ -23443,6 +24774,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The lesson calls out these as two of the common cadence failure modes: turning the review into status theater, and burning meeting time on prioritization math that should happen async beforehand.",
+    },
+    {
+      question: "What does the lesson say distinguishes Booking.com's high experiment volume from simply having a high-cadence meeting schedule?",
+      options: [
+        "Booking.com runs no meetings at all and relies purely on automation",
+        "Booking.com's culture minimizes bureaucracy per experiment so employees can test without defending a hypothesis to a committee first, meaning high cadence does not require high ceremony",
+        "Booking.com only tests once per quarter but at massive scale",
+        "Booking.com outsources all experimentation to an external agency",
+      ],
+      correct: 1,
+      explanation: "The lesson warns against 'confusing volume with cadence': Booking.com runs 1,000+ concurrent experiments partly because reviewing one is routine rather than a bureaucratic event, showing the ceremony that exists just needs to happen reliably, not be elaborate.",
     },
   ],
   "growth/localization-for-growth": [
@@ -23490,6 +24832,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "The lesson notes Uber solved the visible localization problem (offering local payment options) but not the actual one: making that payment experience as frictionless as Didi's password-free Alipay/WeChat agreement.",
     },
+    {
+      question: "What does the lesson's Atlassian example illustrate about pricing for international expansion?",
+      options: [
+        "Atlassian charges the exact same price everywhere after simple currency conversion",
+        "Atlassian prices roughly 40% lower in Brazil than in the U.S. once adjusted for purchasing power parity, because converting at the exchange rate is arithmetic, not real pricing",
+        "Atlassian avoids the Brazilian market entirely due to pricing complexity",
+        "Atlassian raises prices in emerging markets to offset localization costs",
+      ],
+      correct: 1,
+      explanation: "The lesson uses Atlassian to show that a flat currency conversion either prices you out of a market or leaves revenue on the table; pricing against local purchasing power (PPP), not the exchange rate, is what lets Atlassian grow in Brazil.",
+    },
   ],
   "growth/net-revenue-retention": [
     {
@@ -23535,6 +24888,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The lesson highlights usage-triggered expansion campaigns, health-score-driven lifecycle journeys, and activation-focused onboarding content as marketing-owned, measurable levers that move NRR.",
+    },
+    {
+      question: "Per the lesson's compounding math, what happens to a $10M ARR base held at 120% NRR with zero new customer acquisition over five years?",
+      options: [
+        "It stays flat at $10M since NRR only prevents shrinkage",
+        "It grows to roughly $24.9M purely from existing accounts expanding, with no new sales counted",
+        "It shrinks to about $6M due to compounding churn",
+        "It doubles exactly to $20M every three years regardless of NRR level",
+      ],
+      correct: 1,
+      explanation: "The lesson uses this figure to show why investors weight NRR so heavily: a sustained 120% NRR compounds a revenue base roughly 2.5x over five years from existing accounts alone, before counting a single new customer.",
     },
   ],
   "mental-models/chestertons-fence": [
@@ -25580,6 +26944,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "The lesson's gym franchise example shows the fix was a content ownership matrix, not more control in either direction, dividing brand-critical fields from local-owned fields like class schedules and staff bios.",
     },
+    {
+      question: "What is the purpose of a self-referencing canonical tag on each individual location page, per the lesson?",
+      options: [
+        "It boosts the page's domain authority",
+        "It confirms to Google that this specific page is not a duplicate of another location, even if the template looks similar",
+        "It automatically differentiates the page's content",
+        "It is required only for locations with fewer than 10 reviews",
+      ],
+      correct: 1,
+      explanation: "The lesson lists self-referencing canonical tags as a technical foundation that confirms to Google a location page is not a duplicate of another location's page, even when the surrounding template is shared.",
+    },
   ],
   "paid-ads/ai-creative-testing-at-scale": [
     {
@@ -25625,6 +27000,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The lesson's four stages run in this order: a human briefs distinct angles first, AI generates executions per angle, a human QC gate reviews everything, and only the surviving set enters structured testing.",
+    },
+    {
+      question: "Per the lesson, what ROAS advantage do advertisers testing at least 15 creatives per month report compared to the market average?",
+      options: [
+        "1.2x higher ROAS",
+        "1.8x higher ROAS",
+        "3x higher ROAS",
+        "5x higher ROAS",
+      ],
+      correct: 1,
+      explanation: "The lesson cites 2026 industry benchmarks showing advertisers testing 15+ creatives per month report 1.8x higher ROAS than the market average, and notes AI generation is what makes that volume achievable for most teams, provided sameness fatigue is avoided.",
     },
   ],
   "analytics/experimentation-program-roi": [
@@ -25764,6 +27150,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 0,
       explanation: "The lesson warns that a prediction without a defined save-motion workflow wastes the entire investment; the risk score has to route to a matching action (human call, automated nudge, onboarding walkthrough) or it's just a dashboard nobody acts on.",
     },
+    {
+      question: "Which signal does the lesson identify as giving the earliest lead time before churn, and how many days of warning does it provide?",
+      options: [
+        "Support ticket volume, providing about 10 days of lead time",
+        "Login frequency decline, providing roughly 60 days of lead time before churn",
+        "Feature-adoption stalling, providing about 5 days of lead time",
+        "Billing data anomalies, providing roughly 90 days of lead time",
+      ],
+      correct: 1,
+      explanation: "The lesson cites login frequency decline as the earliest tell within the usage-decline signal family, giving roughly 60 days of lead time, ahead of feature-level usage tracking's 3-6 week lead over billing-data-only approaches.",
+    },
   ],
   "growth/building-in-public": [
     {
@@ -25809,6 +27206,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The lesson flags inconsistent posting rhythm as a common mistake and recommends choosing weekly, monthly, or milestone-based cadence and sticking with it for at least two quarters, noting daily MRR screenshots are actually in decline by 2026.",
+    },
+    {
+      question: "Per the lesson's cadence framework table, which rhythm does it say most solo founders and small teams do best with, and why?",
+      options: [
+        "Daily updates, because audiences reward constant posting above all else",
+        "Monthly recaps, because they are frequent enough to keep an audience engaged but infrequent enough that each post has something real to say",
+        "Weekly deep-dive essays, because founders have unlimited time to write them",
+        "Milestone-based only, because monthly and weekly cadences always cause burnout",
+      ],
+      correct: 1,
+      explanation: "The lesson's cadence table lists weekly, monthly, and milestone-based rhythms, but concludes most solo founders and small teams do best with monthly recaps for exactly this frequency-versus-substance balance.",
     },
   ],
   "mental-models/availability-heuristic-marketing": [

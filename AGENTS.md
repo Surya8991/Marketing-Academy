@@ -742,3 +742,106 @@ if ('serviceWorker' in navigator) {
 ```
 
 Rule 50's "full restart + fresh tab" sequence is still correct advice for the rarer Turbopack-file-watcher-didn't-recompile case, but the SW half of that problem should no longer occur in local dev at all going forward. If a stale-chunk/hydration-mismatch bug reappears in dev after this fix, check `navigator.serviceWorker.getRegistrations()` first anyway, don't assume this rule fixed it forever, a browser extension or an old registration from before this fix can still be present in an already-open tab.
+
+### Rule 67 — A terminal `SimulationStage` option must use the `"end"` sentinel, never `nextStageId: ""`
+
+`tests/projects-data.test.ts`'s simulation-routing check requires every `decision.options[].nextStageId` to resolve to either a real `stageId` in the same project or the literal string `"end"`. An authoring agent (Session 85, Paid Ads Mastery batch) instead left the field empty (`nextStageId: ""`) on every terminal option across two projects, reasoning (reasonably, but wrongly for this codebase) that an empty string reads as "nothing further happens." `tsc --noEmit`, `npm run lint`, and `scripts/audit-projects.mjs` all pass this without complaint, an empty string is a perfectly valid `string`, structurally indistinguishable from a real id to everything except the one test that actually walks the stage graph.
+
+```ts
+// WRONG — passes tsc/lint/audit-projects.mjs, fails only npm test
+{ id: "realistic-target", verdict: "optimal", /* ... */ nextStageId: "" }
+
+// CORRECT — the required terminal sentinel
+{ id: "realistic-target", verdict: "optimal", /* ... */ nextStageId: "end" }
+```
+
+Caught only by `npm test` (`tests\projects-data.test.ts:250`, "every option routes to a real stage id or the terminal sentinel"), not by the audit script's structural check. When authoring or reviewing simulation-mode projects, grep the target file for `nextStageId: ""` before considering the batch done — `npm test` is the actual gate, per Rule 57, and this is exactly the kind of "valid string, wrong runtime meaning" defect that rule already warned `tsc` can't catch.
+
+### Rule 68 — `Project.archetype` and `Project.mode` are different unions; don't put a `ProjectMode` value into `archetype`
+
+Rule 45 already distinguishes the two fields conceptually. Session 85's Data-Driven Marketer batch shipped the concrete failure mode that rule warned about: two authoring agents wrote `archetype: "calibration"` on a project whose `mode` was correctly `"calibration"`. `"calibration"` is a real `ProjectMode` value but is NOT in the `Archetype` union (`teardown | rebuild | audit | head-to-head | forecast | simulation | reverse-engineer | build-the-asset | ai-critique`), so this fails `tsc --noEmit` with a plain `Type '"calibration"' is not assignable to type 'Archetype'` error.
+
+```ts
+// WRONG — "calibration" is a ProjectMode value, not an Archetype
+{ archetype: "calibration", mode: "calibration", /* ... */ }
+
+// CORRECT — archetype is a real Archetype value; mode stays "calibration"
+{ archetype: "reverse-engineer", mode: "calibration", /* ... */ }
+```
+
+Unlike Rule 67's `nextStageId: ""` defect, `tsc --noEmit` DOES catch this one — but only if it's actually run before merging. `scripts/audit-projects.mjs` does not check it (it validates referential integrity — companyId/toolName/lessonAnchor — not enum membership), so a batch that skips the `tsc` step in `PROJECTS_AUTHORING_GUIDE.md` section 1.5 can still merge this defect. Always run the full verification sequence (`tsc` → lint → test → build) in order after every merge, never skip straight to `npm test`.
+
+**This is not a one-time mistake — it recurred in Session 85's Email & Lifecycle Mastery batch as `archetype: "build"`** (also a real `ProjectMode` value, not in the `Archetype` union — the correct archetype is `"build-the-asset"`). Any of the 7 `ProjectMode` values (`diagnostic`, `simulation`, `build`, `teardown`, `drill`, `calibration`, `no-project`) can end up typed into `archetype` by mistake since an authoring agent is juggling both fields at once; `tsc` catches all of them the same way, but only `"teardown"` and `"simulation"` happen to also be valid `Archetype` values, so those two variants *compile* even though they're still semantically wrong — `scripts/audit-projects.mjs` and `npm test`'s "no lesson reuses an archetype" check won't catch a `mode`/`archetype` value that merely happens to be spelled the same; only a careful read of whether the field's *meaning* matches its label does. When reviewing a project, check `archetype` and `mode` independently against their own real definitions, not just that each field individually contains a plausible-looking string.
+
+### Rule 69 — A `mode`-consistent project still needs its stage/step array actually built, not just narrated
+
+Rule 45/58 cover the array-vs-mode mismatch (wrong array populated) and the enum-value confusion (wrong string in `archetype`). Session 85's Email & Lifecycle Mastery batch shipped a third variant: `deliverability-dmarc-rollout-simulation` had `mode: "simulation"` and correctly used no `steps[]` — but its `stages[]` array was simply empty. The agent wrote a fully simulation-flavored narrative (weekly DMARC checkpoints, a decision at each stage, `deliverable`/`sampleOutput` describing a 4-week rollout log) entirely in prose fields, then never actually constructed the `SimulationStage[]` objects the mode requires to render anything.
+
+`scripts/audit-projects.mjs`'s structural check passes an empty array (it's still `[]`, not `undefined`), and `tsc` has nothing to flag (an empty array is a perfectly valid `SimulationStage[]`). Only `npm test`'s "mode agrees with which array is populated" assertion catches it, because that check specifically asserts the array is non-empty for the declared mode, not just present.
+
+```ts
+// WRONG — passes tsc and audit-projects.mjs, fails only npm test
+{ mode: "simulation", stages: [] }   // narrative content lives in deliverable/sampleOutput instead
+
+// CORRECT — the mode's actual structured data lives in the array itself
+{ mode: "simulation", stages: [ { stageId: "...", decision: { options: [...] } } ] }
+```
+
+Fixed here by converting to `mode: "diagnostic"` with 2 real `ProjectStep` entries built from the project's own existing narrative (its `archetype: "simulation"` stayed valid and unchanged — archetype and mode are independent per Rule 45, and this genuinely reads as a simulation-shaped problem even once implemented as a diagnostic-mode project). The narrower lesson: before considering an authored project done, confirm the mode-appropriate array (`steps`, `stages`, or `teardownItems`) actually contains real entries, not just that a plausible-sounding `deliverable`/`sampleOutput` narrative exists around an empty one.
+
+### Rule 70 — `paidUpgradeNote` belongs on `ToolStack`, never inside a `ToolRef`
+
+`ToolStack = { free: ToolRef[]; paid: ToolRef[]; paidUpgradeNote?: string }` — the note is a single sentence about the free-vs-paid tradeoff for the *whole toolStack*, not a per-tool field. Session 85's Email & Lifecycle Mastery batch shipped it nested inside one `paid[]` entry instead:
+
+```ts
+// WRONG — paidUpgradeNote is not a ToolRef field, fails tsc
+paid: [{ toolName: "Klaviyo Flows", role: "...", why: "...", required: false,
+  lastVerified: "2026-08", paidUpgradeNote: "Free tier can time-delay emails but branching suppression logic needs a paid plan." }]
+
+// CORRECT — sibling of free/paid on the ToolStack object itself
+toolStack: {
+  free: [...], paid: [{ toolName: "Klaviyo Flows", role: "...", why: "...", required: false, lastVerified: "2026-08" }],
+  paidUpgradeNote: "Free tier can time-delay emails but branching suppression logic needs a paid plan.",
+}
+```
+
+Caught by `tsc --noEmit` (`Object literal may only specify known properties`) — same "run the full chain, don't skip to `npm test`" lesson as Rule 68.
+
+### Rule 71 — The site's `lessonAnchor` slug algorithm is a simplified approximation of `rehype-slug`, not identical to the real `github-slugger` library
+
+`tests/projects-data.test.ts`'s `headingIdsFor()` (mirrored in `scripts/audit-projects.mjs`) computes expected heading ids with its own regex:
+```ts
+h.toLowerCase().replace(/[^\w\s-]/g, "").trim().replace(/\s+/g, "-")
+```
+This strips punctuation first, THEN collapses whitespace runs to a single hyphen. Real `github-slugger` (what `rehype-slug` actually uses at build time) does it in the opposite order and treats a removed character as leaving a gap, which can produce a DOUBLE hyphen where the site's own approximation produces a SINGLE one. Confirmed directly (Session 85, Freelancer & Agency batch): for the heading "How It Works / The Playbook",
+
+```
+real github-slugger:  how-it-works--the-playbook   (double hyphen)
+this site's own regex: how-it-works-the-playbook    (single hyphen)  <- what lessonAnchor must match
+```
+
+A heading with NO punctuation to strip (just a colon, like "Reels: Format for Reach") slugifies identically both ways (`reels-format-for-reach`) — the mismatch only shows up when a character gets removed from the MIDDLE of the heading (a `/`, a stray symbol) leaving adjacent whitespace on both sides. Two failure modes seen so far, both from agents guessing at slugs rather than computing them: (1) using the raw heading text unslugified at all, (2) running the real `github-slugger` npm package (or eyeballing its known double-hyphen behavior from the `Step 2 -- Collapse the Flow` em-dash case, which is a LITERAL double-hyphen in the source text, not a punctuation-removal artifact, and slugifies identically both ways since hyphens aren't stripped).
+
+**When authoring or auditing a `lessonAnchor` for a heading containing anything besides letters/digits/spaces/hyphens/colons, don't guess and don't trust a general slugger library — compute it with the site's own regex above**, or grep an already-merged, test-passing project's `lessonAnchor` for the same heading if one exists.
+
+### Rule 72 — Vercel's Image Optimization Transformations quota is separate from bandwidth, and the free tier caps at 5,000/month
+
+`next/image` routes every distinct source-URL + size/quality/format combination through Vercel's Image Optimization API as a separate billed "transformation," counted independently from Fast Data Transfer or Edge Requests. This site's only `next/image` usage (`LessonResourcesClient.tsx`'s YouTube video thumbnails) exceeded the free plan's 5,000/month cap by itself, because `next/image`'s responsive `sizes` behavior generates several device-width variants per unique thumbnail, and the library has hundreds of distinct video resources.
+
+**Fixed** (2026-08-18): `next.config.ts`'s `images` block now sets `unoptimized: true`. `next/image` still renders (lazy-loading, `alt`, explicit `width`/`height` to prevent layout shift all keep working) but serves the original source file directly instead of routing through Vercel's optimizer, so transformation usage drops to zero. The tradeoff is no server-side resizing/re-encoding, YouTube's own thumbnail CDN already serves reasonably-sized files, so this is a real fix, not a regression, for this specific usage.
+
+If a future feature adds `next/image` usage against a source that genuinely needs on-the-fly resizing (a user-upload gallery, for example), re-enabling optimization for just that usage means either accepting the transformation cost consciously or serving a pre-sized asset instead, don't remove `unoptimized: true` globally without checking the current Transformations usage in the Vercel dashboard first.
+
+### Rule 73 — A background authoring agent can stall silently after its MDX work is done, with no completion notification ever arriving
+
+Session 85's final Stage 8.3a batch (PR & Communications Mastery) had 2 of 4 parallel `general-purpose` agents (batches B and D) go quiet mid-run with no `<task-notification>` ever firing, despite every other batch in this session (dozens of them) completing in a consistent ~5-7 minutes. `TaskOutput` on the agent's id returned "No task found" for both — the tool doesn't reliably track these background agent ids the way it tracks bash/workflow tasks, so it isn't a usable liveness check here.
+
+**Diagnosis that worked**: compare each batch's scratch-file existence (`ls` the scratchpad dir for `<batch>.ts`) against its assigned MDX files' modification timestamps.
+- Batch D: MDX files untouched since before launch → truly stalled before starting real work → safe to fully relaunch with the original prompt.
+- Batch B: MDX files freshly modified (both `<InAction>` inserts confirmed present via `grep -c "<InAction"`) but no scratch `.ts` file ever appeared → it had finished the MDX half and stalled during/before writing the projects file → relaunching the FULL original prompt would have re-run the MDX step and very likely produced duplicate `<InAction>` blocks (a real risk, not hypothetical — nothing in the original prompt tells a fresh agent to check for pre-existing inserts).
+
+**Fix pattern**: relaunch a stalled batch scoped to only the missing work.
+- If MDX evidence shows no progress (untouched files, zero `<InAction>` count): relaunch the original prompt unchanged.
+- If MDX evidence shows the insert work already landed: relaunch with MDX editing removed from the task entirely (told explicitly "do NOT touch the MDX files, your only job is the projects data file"), so it can't duplicate work that already succeeded.
+
+Do not just wait indefinitely on a batch that has gone well past every comparable batch's typical runtime with zero new file activity — check mtimes/grep counts first, since a completion notification is not guaranteed to ever arrive for a stalled background agent.

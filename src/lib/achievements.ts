@@ -18,6 +18,7 @@
 
 import { getCompleted } from "@/lib/progress";
 import { getBookmarks, type BookmarkEntry } from "@/lib/bookmarks";
+import { getProjectProgress } from "@/lib/projects-progress";
 import { CATEGORIES, canonicalLessonId, uniqueLessonCount } from "@/lib/curriculum";
 import type { EngagementState } from "@/lib/engagement";
 import { saveEngagement } from "@/lib/engagement";
@@ -101,6 +102,20 @@ export const ACHIEVEMENTS: Achievement[] = [
     description: "Earn 500 XP",
     emoji: "💎",
     check: (s) => s.xp >= 500,
+  },
+  {
+    id: "first-project",
+    label: "Hands On",
+    description: "Complete your first practice project",
+    emoji: "🛠️",
+    check: () => getProjectProgress().completedProjectIds.length >= 1,
+  },
+  {
+    id: "ten-projects",
+    label: "Portfolio Builder",
+    description: "Complete 10 practice projects",
+    emoji: "📁",
+    check: () => getProjectProgress().completedProjectIds.length >= 10,
   },
   {
     id: "all-lessons",

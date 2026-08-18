@@ -14,11 +14,35 @@ Conversion tracking is the practice of capturing the specific user actions that 
 
 ## Why It Matters (with data)
 
+<InAction
+  concept="Server-side tracking"
+  companyName="World4You"
+  where="An Austrian web hosting provider serving 125,000+ customers, working with analytics agency WEBkiste and the JENTIS Data Capture Platform"
+  why="Browser-only GA4 tracking was losing revenue and users to ad blockers and ITP, matching the exact iOS/Safari loss pattern this lesson describes"
+  what="Moved GA4 to a fully server-side setup instead of firing tags from the browser, making the server container the single source of truth"
+  benefit="25% more revenue tracked in GA4, plus 50% longer recorded customer journeys from better user recognition"
+  timeframe="First fully server-side GA4 deployment of its kind, reported 2025"
+  date="2025"
+  source="https://www.jentis.com/case-studies/pure-server-side-tracking-for-ga4"
+/>
+
 The measurement environment has gotten meaningfully harder. According to industry analysis, advertisers with significant iOS traffic now lose between 30 and 60 percent of iOS conversions to browser-side tracking alone, and the worst-hit accounts see 50 to 70 percent total data loss across stacked tracking layers ([Cometly](https://www.cometly.com/post/conversion-tracking-ios-update)). Safari's Intelligent Tracking Prevention caps first-party cookies at seven days, and iOS 17 extended link tracking protection across Mail, Messages, and Private Browsing, stripping known click identifiers from URLs ([Collective Measures](https://www.collectivemeasures.com/insights/are-you-ready-for-ios17)).
 
 The fix the major platforms now recommend is server-side tracking. Sending events from your server to GA4 or Meta bypasses ad blockers and ITP, and Google's own guidance is to make the server container the single source of truth rather than firing the same event from both browser and server ([Tracklution](https://www.tracklution.com/learn/server-side-tracking/ga4-guide/)). A reasonable accuracy target for a modern stack is 85 percent or higher matched conversions.
 
 ## How It Works / The Playbook
+
+<InAction
+  concept="Deduplicating browser and server events with a shared event_id"
+  companyName="Bodyline Center"
+  where="A maternity and postpartum products brand running Facebook Conversions API alongside its browser pixel, implemented via Google Tag Manager"
+  why="Browser pixel and server-side CAPI were both capable of firing the same lead event, risking the double-count this lesson's Common Mistakes section warns about"
+  what="Assigned matching unique event_id values to identical events fired from both the browser pixel and the server-side Conversions API so Meta could deduplicate them"
+  benefit="CPM decreased 15% and leads increased 50%, both ahead of the campaign's original 10% CPM and 30% lead-growth targets"
+  timeframe="Campaign optimization period following CAPI + deduplication rollout"
+  date="2025"
+  source="https://eminence.ch/en/portfolio-item/bodyline-facebook-conversions-api/"
+/>
 
 1. **Write a conversion inventory.** List every event that matters, in plain English, before you touch a tag manager. For a SaaS: signup_started, signup_completed, trial_activated, plan_upgraded. For ecommerce: view_item, add_to_cart, begin_checkout, purchase. Assign each a monetary value, even if estimated.
 2. **Use GA4's recommended event names.** Stick to snake_case and the standard names (purchase, generate_lead, sign_up) wherever they fit. Google's automated reports, audiences, and Ads integrations only light up when you do.

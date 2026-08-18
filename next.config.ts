@@ -19,8 +19,15 @@ const nextConfig: NextConfig = {
   // Treat .md and .mdx files as page routes / importable components
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
 
-  // Allow next/image to optimize YouTube thumbnail images used in lesson ResourceList video cards
+  // Vercel's free plan caps Image Optimization Transformations at 5,000/month; this site's
+  // only next/image usage is YouTube thumbnails in LessonResourcesClient.tsx, and unique
+  // videos x responsive size/quality variants exceeded that cap. `unoptimized: true` makes
+  // next/image serve the original source file directly (still gets lazy-loading, layout
+  // shift prevention, etc.) instead of routing through Vercel's paid optimization API, so
+  // transformation usage drops to zero at the cost of no on-the-fly resizing/compression.
+  // remotePatterns kept for documentation even though it's a no-op once unoptimized.
   images: {
+    unoptimized: true,
     remotePatterns: [
       { protocol: "https", hostname: "img.youtube.com", pathname: "/vi/**" },
     ],

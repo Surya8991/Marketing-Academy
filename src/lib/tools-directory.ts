@@ -284,6 +284,35 @@ export const TOOLS: MarketingTool[] = [
     emoji: "🧠",
     tags: ["social ads", "automation", "enterprise"],
   },
+  {
+    name: "Google Merchant Center",
+    description: "Upload and manage your product catalog to power Google Shopping ads, free listings, and Performance Max feeds.",
+    category: "Paid Advertising",
+    pricing: "Free",
+    url: "https://merchants.google.com",
+    emoji: "🛍️",
+    tags: ["shopping ads", "product feed", "Performance Max"],
+  },
+  {
+    name: "AppsFlyer",
+    description: "Mobile measurement partner (MMP) for install attribution, deep linking, and cross-channel campaign analytics, including SKAdNetwork/iOS 14.5+ support.",
+    category: "Paid Advertising",
+    pricing: "Freemium",
+    url: "https://appsflyer.com",
+    emoji: "📲",
+    tags: ["attribution", "MMP", "iOS", "mobile"],
+    note: "Free tier available for low install volume",
+  },
+  {
+    name: "ClickCease",
+    description: "Click-fraud detection and blocking for Google Ads and Meta Ads, flagging bot traffic and invalid clicks in real time.",
+    category: "Paid Advertising",
+    pricing: "Paid",
+    url: "https://clickcease.com",
+    emoji: "🛡️",
+    tags: ["ad fraud", "invalid traffic", "click fraud"],
+    note: "Free trial available",
+  },
 
   // ── Content Marketing ─────────────────────────────────────────────────────
   {
@@ -1175,6 +1204,15 @@ export const TOOLS: MarketingTool[] = [
   },
 
   // ── Marketing Automation ──────────────────────────────────────────────────
+  {
+    name: "Eventbrite",
+    description: "Event registration and ticketing platform, free for free events, used across this site's events-experiential practice projects for registration flow and lead-capture audits.",
+    category: "Marketing Automation",
+    pricing: "Freemium",
+    url: "https://www.eventbrite.com",
+    emoji: "🎟️",
+    tags: ["event registration", "ticketing", "lead capture"],
+  },
   {
     name: "HubSpot Marketing Hub",
     description: "All-in-one inbound marketing platform with email, landing pages, workflows, and CRM integration.",

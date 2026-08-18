@@ -71,6 +71,18 @@ None of these numbers are visible in a single blended chart. You only see them i
 
 **Behavioral cohorts** group users by an action they took. For example: "users who completed onboarding in under 5 minutes" versus "users who took longer than 30 minutes." Comparing these groups reveals which behaviors predict long-term value.
 
+<InAction
+  concept="Behavioral cohorts"
+  companyName="Calm"
+  where="Product analytics, using Amplitude's behavioral cohorting"
+  why="Calm wanted to find which early user behaviors predicted long-term subscribers, not just which acquisition channel brought them in."
+  what="They built a behavioral cohort of users who set a Daily Reminder in the app and compared its retention curve against users who never set one, then validated the pattern was causal with a follow-up experiment on new users."
+  benefit="Nearly 3x higher retention for the Daily-Reminder cohort versus users without one"
+  timeframe="Ongoing product analytics program"
+  date="2023"
+  source="https://amplitude.com/case-studies/calm"
+/>
+
 ### Predictive Cohorts
 
 **Predictive cohorts** use machine learning to group users likely to churn or convert before it happens. Tools like Amplitude and Mixpanel now offer this out of the box. You segment by predicted behavior, then intervene early with targeted campaigns.
@@ -132,6 +144,19 @@ Important GA4 limitation: it tracks by device ID, not user ID. Someone who uses 
 </Callout>
 
 ## Metrics Worth Tracking in Your Cohort Table
+
+<InAction
+  concept="Day 1 / Day 7 / Day 30 retention"
+  companyName="Duolingo"
+  companyId="duolingo"
+  where="Product growth team, streak and gamification feature testing"
+  why="Duolingo needed to know whether a specific onboarding mechanic, the 'Investment Wager' step where new users stake in-app gems on a 7-day streak, actually improved retention or just felt clever."
+  what="They shipped the Investment Wager step to a cohort of new signups and tracked Day 1, Day 7, and Day 14 retention against a control cohort that didn't see it."
+  benefit="Day-7 retention rose 14% for the cohort that saw the Investment Wager step"
+  timeframe="A/B test across new-signup cohorts"
+  date="2023"
+  source="https://blog.duolingo.com/how-streaks-keep-duolingo-learners-committed-to-their-language-goals/"
+/>
 
 Beyond the basic "what percentage came back," here are the metrics that convert cohort data into business decisions:
 

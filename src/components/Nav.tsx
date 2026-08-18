@@ -6,7 +6,7 @@ import {
   Menu, X, Search, BookOpen, ChevronDown, Bookmark,
   GraduationCap, LayoutGrid, Brain, Map,
   BookMarked, FileText, Mic2, Wrench,
-  SlidersHorizontal, Trophy, Settings, Library, Zap, ClipboardCheck,
+  SlidersHorizontal, Trophy, Settings, Library, Zap, ClipboardCheck, Briefcase,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CATEGORY_INDEX } from "@/lib/curriculum";
@@ -37,6 +37,7 @@ const LEARN_SECTIONS = [
   {
     label: "Your Progress" as string | null,
     items: [
+      { href: "/portfolio",    label: "My Portfolio", icon: Briefcase,  desc: "Completed projects as evidence" },
       { href: "/skill-map",    label: "Skill Map",    icon: LayoutGrid, desc: "See your progress by category" },
       { href: "/achievements", label: "Achievements", icon: Trophy,     desc: "Badges and XP milestones" },
     ],

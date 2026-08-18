@@ -454,6 +454,884 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "ga4-setup-config-audit",
+    "category": "analytics",
+    "lessonSlug": "ga4-setup",
+    "lessonTitle": "GA4 Setup & Events",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Pre-Launch Audit: Catching GA4 Setup Mistakes Before They Cost You a Quarter",
+    "timeMinutes": 25,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Data retention window",
+      "Internal traffic filtering",
+      "Reserved event names"
+    ]
+  },
+  {
+    "id": "ga4-setup-launch-plan",
+    "category": "analytics",
+    "lessonSlug": "ga4-setup",
+    "lessonTitle": "GA4 Setup & Events",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The Launch Spec: Writing a GA4 Setup Plan a Developer Can Implement Without Guessing",
+    "timeMinutes": 30,
+    "companyId": "klaviyo",
+    "conceptsCovered": [
+      "Standard event names",
+      "Key events selection",
+      "Custom dimension registration"
+    ]
+  },
+  {
+    "id": "utm-tagging-broken-links-teardown",
+    "category": "analytics",
+    "lessonSlug": "utm-tagging",
+    "lessonTitle": "UTM Tagging",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Pre-Send Teardown: Finding What's Broken in Five Campaign Links",
+    "timeMinutes": 20,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "The Five-Step Pre-Launch Checklist",
+      "Common Mistakes to Avoid"
+    ]
+  },
+  {
+    "id": "utm-tagging-naming-convention-template",
+    "category": "analytics",
+    "lessonSlug": "utm-tagging",
+    "lessonTitle": "UTM Tagging",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The Governance Doc: Building a UTM Naming Convention Your Whole Team Will Actually Follow",
+    "timeMinutes": 45,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Approved source and medium values",
+      "Campaign naming pattern with date/version",
+      "Auto-tagging with dynamic tokens"
+    ]
+  },
+  {
+    "id": "conversion-tracking-event-audit",
+    "category": "analytics",
+    "lessonSlug": "conversion-tracking",
+    "lessonTitle": "Conversion Tracking",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Duplicate Fire: Auditing Zendesk's Conversion Event Export",
+    "timeMinutes": 25,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Marking only the real ones as key events",
+      "Deduplicating browser and server events with a shared event_id"
+    ]
+  },
+  {
+    "id": "conversion-tracking-inventory-build",
+    "category": "analytics",
+    "lessonSlug": "conversion-tracking",
+    "lessonTitle": "Conversion Tracking",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Ship It Before Tag Manager: Building Chewy's Conversion Inventory",
+    "timeMinutes": 30,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Writing a conversion inventory before opening a tag manager",
+      "Using GA4's recommended event names"
+    ]
+  },
+  {
+    "id": "funnel-drop-off-audit-rtr",
+    "category": "analytics",
+    "lessonSlug": "funnel-analysis",
+    "lessonTitle": "Funnel Analysis",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Where Rent the Runway Loses the Sale: Auditing a Real Funnel Report",
+    "timeMinutes": 30,
+    "companyId": "rent-the-runway",
+    "conceptsCovered": [
+      "Calculating drop-off rate at each funnel stage",
+      "Segmenting a funnel by device to find masked problems"
+    ]
+  },
+  {
+    "id": "funnel-fix-revenue-forecast-thredup",
+    "category": "analytics",
+    "lessonSlug": "funnel-analysis",
+    "lessonTitle": "Funnel Analysis",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "The Business Case: Forecasting the Revenue Impact of Fixing ThredUp's Leakiest Stage",
+    "timeMinutes": 55,
+    "companyId": "thredup",
+    "conceptsCovered": [
+      "Calculating overall funnel conversion rate",
+      "Comparing a stage conversion rate against a realistic benchmark",
+      "Translating a conversion-rate fix into a revenue forecast"
+    ]
+  },
+  {
+    "id": "mmm-saturation-adstock-audit",
+    "category": "analytics",
+    "lessonSlug": "mmm",
+    "lessonTitle": "Marketing Mix Modeling",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Reallocation Call: Auditing Grab's MMM Output",
+    "timeMinutes": 25,
+    "companyId": "grab",
+    "conceptsCovered": [
+      "Reading saturation curves to spot over-invested channels",
+      "Distinguishing carryover (adstock) from immediate response"
+    ]
+  },
+  {
+    "id": "mmm-geo-lift-calibration-forecast",
+    "category": "analytics",
+    "lessonSlug": "mmm",
+    "lessonTitle": "Marketing Mix Modeling",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "Calibrate or Guess: Correcting Wise's MMM Priors With a Geo-Lift Result",
+    "timeMinutes": 45,
+    "companyId": "wise",
+    "conceptsCovered": [
+      "Calibrating MMM against experimental ground truth (the step amateurs skip)",
+      "Reporting a credible interval instead of a point estimate",
+      "Stress-testing a reallocation at plus/minus 20% budget"
+    ]
+  },
+  {
+    "id": "incrementality-geo-holdout-readout-audit",
+    "category": "analytics",
+    "lessonSlug": "incrementality",
+    "lessonTitle": "Incrementality Testing",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Holdout Readout: Auditing Zomato's Geo-Lift Numbers",
+    "timeMinutes": 30,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Calculating iROAS from a test/control conversion gap",
+      "Spotting spillover contamination between matched geo pairs"
+    ]
+  },
+  {
+    "id": "incrementality-channel-benchmark-head-to-head",
+    "category": "analytics",
+    "lessonSlug": "incrementality",
+    "lessonTitle": "Incrementality Testing",
+    "tier": "core",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "Scale, Hold, or Cut: A Channel iROAS Head-to-Head for Sea Limited",
+    "timeMinutes": 40,
+    "companyId": "sea-limited",
+    "conceptsCovered": [
+      "Distinguishing platform ROAS from incremental ROAS (iROAS)",
+      "Recognizing why branded search often shows near-zero incrementality",
+      "Deciding scale, hold, or cut from a channel iROAS table"
+    ]
+  },
+  {
+    "id": "dashboard-vanity-teardown",
+    "category": "analytics",
+    "lessonSlug": "dashboards",
+    "lessonTitle": "Dashboards (Looker, etc.)",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Vanity Wall: Tearing Down a Cluttered Executive Scorecard",
+    "timeMinutes": 25,
+    "companyId": "slack",
+    "conceptsCovered": [
+      "Tile sprawl",
+      "Vanity metrics at the top",
+      "No comparison anchor",
+      "Step 1: Write the Decision First"
+    ]
+  },
+  {
+    "id": "dashboard-two-tier-spec-build",
+    "category": "analytics",
+    "lessonSlug": "dashboards",
+    "lessonTitle": "Dashboards (Looker, etc.)",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Two-Dashboard Split: Executive Scorecard and Operator Deep Dive Spec",
+    "timeMinutes": 30,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "The Two Types of Dashboards You Need",
+      "Step 1: Write the Decision First",
+      "Step 4: Design for 5 Seconds"
+    ]
+  },
+  {
+    "id": "kpi-vanity-audit",
+    "category": "analytics",
+    "lessonSlug": "kpis-for-marketers",
+    "lessonTitle": "KPIs for Marketers",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Vanity or KPI? Auditing MapmyIndia's Metrics List",
+    "timeMinutes": 25,
+    "companyId": "mapmyindia",
+    "conceptsCovered": [
+      "What Is a KPI?",
+      "The Vanity Metric Trap"
+    ]
+  },
+  {
+    "id": "kpi-tree-build",
+    "category": "analytics",
+    "lessonSlug": "kpis-for-marketers",
+    "lessonTitle": "KPIs for Marketers",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a KPI Tree From a Single Business Goal",
+    "timeMinutes": 45,
+    "companyId": "snowflake",
+    "conceptsCovered": [
+      "How Many KPIs Should You Track?",
+      "The Four KPI Categories Marketers Use",
+      "How to Set a Good KPI"
+    ]
+  },
+  {
+    "id": "server-side-tracking-client-vs-server-audit",
+    "category": "analytics",
+    "lessonSlug": "server-side-tracking",
+    "lessonTitle": "Server-Side Tracking",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Missing 18%: Auditing a Client vs Server Event Gap",
+    "timeMinutes": 35,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Diagnosing a client-side tracking gap by browser segment",
+      "Event deduplication with a shared event_id"
+    ]
+  },
+  {
+    "id": "server-side-tracking-sgtm-migration-plan",
+    "category": "analytics",
+    "lessonSlug": "server-side-tracking",
+    "lessonTitle": "Server-Side Tracking",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Blueprint Before Build: Planning a Server-Side GTM Migration",
+    "timeMinutes": 25,
+    "companyId": "nubank",
+    "conceptsCovered": [
+      "First-party subdomain setup",
+      "Sequencing server tags by ad-spend priority"
+    ]
+  },
+  {
+    "id": "predictive-analytics-churn-score-diagnostic",
+    "category": "analytics",
+    "lessonSlug": "predictive-analytics",
+    "lessonTitle": "Predictive Analytics",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Trust But Verify: Validating a Churn Model Against Real Outcomes",
+    "timeMinutes": 40,
+    "companyId": "klaviyo",
+    "conceptsCovered": [
+      "Validating predictions against real outcomes (precision and recall)",
+      "Interpreting a propensity score threshold"
+    ]
+  },
+  {
+    "id": "predictive-analytics-rule-based-vs-ga4-head-to-head",
+    "category": "analytics",
+    "lessonSlug": "predictive-analytics",
+    "lessonTitle": "Predictive Analytics",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "Spreadsheet Rule vs. GA4 Model: A Churn-Scoring Head-to-Head",
+    "timeMinutes": 30,
+    "companyId": "coinbase",
+    "conceptsCovered": [
+      "Building a rule-based churn score without a data science team",
+      "Using GA4's built-in predictive metrics as a free starting point"
+    ]
+  },
+  {
+    "id": "cohort-analysis-retention-table-audit",
+    "category": "analytics",
+    "lessonSlug": "cohort-analysis",
+    "lessonTitle": "Cohort Analysis",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Leaky Bucket or the Loyal Core? Auditing a Cohort Retention Table",
+    "timeMinutes": 25,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "Reading the curve shape, not just the number",
+      "Comparing cohorts vertically",
+      "Ignoring seasonality"
+    ]
+  },
+  {
+    "id": "cohort-analysis-flattening-forecast",
+    "category": "analytics",
+    "lessonSlug": "cohort-analysis",
+    "lessonTitle": "Cohort Analysis",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Will This Curve Flatten? Forecasting a Cohort's Long-Tail Retention",
+    "timeMinutes": 20,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "The flat tail is the sign of product-market fit",
+      "6-month survival curve"
+    ]
+  },
+  {
+    "id": "attribution-models-channel-scale-or-kill-head-to-head",
+    "category": "analytics",
+    "lessonSlug": "attribution-models",
+    "lessonTitle": "Attribution Model Deep Dive",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "Scale or Kill? Running Last-Click Against Linear on the Same Channel Table",
+    "timeMinutes": 30,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Run two models in parallel and look at the delta",
+      "Last-touch (last-click)",
+      "Linear"
+    ]
+  },
+  {
+    "id": "attribution-models-crm-closed-won-audit",
+    "category": "analytics",
+    "lessonSlug": "attribution-models",
+    "lessonTitle": "Attribution Model Deep Dive",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Auditing a Funnel Report That Never Touched the CRM",
+    "timeMinutes": 45,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Ignoring view-through and offline touches",
+      "Treating DDA as ground truth",
+      "Pair attribution with incrementality"
+    ]
+  },
+  {
+    "id": "privacy-sandbox-readiness-audit",
+    "category": "analytics",
+    "lessonSlug": "privacy-sandbox",
+    "lessonTitle": "Privacy Sandbox & Post-Cookie Web",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Post-October Audit: Is This Tracking Stack Still Viable?",
+    "timeMinutes": 25,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Distinguishing retired Privacy Sandbox APIs from surviving privacy-web standards",
+      "Prioritizing first-party data and server-side tagging over dead APIs"
+    ]
+  },
+  {
+    "id": "consent-mode-recovery-forecast",
+    "category": "analytics",
+    "lessonSlug": "privacy-sandbox",
+    "lessonTitle": "Privacy Sandbox & Post-Cookie Web",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "Forecasting the Conversion Recovery a Consent-Mode Rollout Should Deliver",
+    "timeMinutes": 45,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "Consent Mode v2 and modeled conversions",
+      "Server-side tagging is plumbing, not a consent fix"
+    ]
+  },
+  {
+    "id": "four-layer-brand-strategy-doc-build",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-strategy-101",
+    "lessonTitle": "Brand Strategy 101",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the One-Page Brand Strategy Document",
+    "timeMinutes": 45,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "Purpose as a direction, not a destination",
+      "Positioning as a hard choice, not a wish list",
+      "Personality mapped to Aaker's five dimensions",
+      "Promise as an operational commitment, not an ad claim"
+    ]
+  },
+  {
+    "id": "brand-layer-alignment-audit",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-strategy-101",
+    "lessonTitle": "Brand Strategy 101",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Diagnose a Misaligned Brand: The Four-Layer Contradiction Audit",
+    "timeMinutes": 35,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Purpose-Promise contradiction detection",
+      "Positioning-Personality mismatch detection",
+      "The competitor-copy test applied as an audit tool"
+    ]
+  },
+  {
+    "id": "brand-marketing-split-audit",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-vs-marketing",
+    "lessonTitle": "Brand vs Marketing vs Advertising",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Sort the List: Is This Brand or Marketing?",
+    "timeMinutes": 20,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Brand Layer vs. Marketing Layer classification",
+      "The feedback loop between marketing execution and brand perception"
+    ]
+  },
+  {
+    "id": "cac-misalignment-forecast",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-vs-marketing",
+    "lessonTitle": "Brand vs Marketing vs Advertising",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Forecast the CAC Cost of Brand-Marketing Misalignment",
+    "timeMinutes": 25,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "CAC impact of brand-marketing misalignment",
+      "Paid-channel dependency as a symptom of weak brand equity"
+    ]
+  },
+  {
+    "id": "how-brands-grow-cep-reach-audit",
+    "category": "brand-strategy",
+    "lessonSlug": "how-brands-grow",
+    "lessonTitle": "How Brands Grow (Ehrenberg-Bass)",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Penetration Call: Auditing a Reach and CEP Gap",
+    "timeMinutes": 40,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "The Double Jeopardy Law",
+      "Category Entry Points (CEPs)"
+    ]
+  },
+  {
+    "id": "how-brands-grow-distinctive-asset-build",
+    "category": "brand-strategy",
+    "lessonSlug": "how-brands-grow",
+    "lessonTitle": "How Brands Grow (Ehrenberg-Bass)",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Distinctive Brand Asset Inventory and Consistency Scorecard",
+    "timeMinutes": 45,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Distinctive Brand Assets",
+      "Physical Availability"
+    ]
+  },
+  {
+    "id": "brand-pillars-draft-and-specificity-test",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-pillars",
+    "lessonTitle": "Brand Pillars",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Draft 3 Candidate Brand Pillars and Run the Competitor Test",
+    "timeMinutes": 25,
+    "companyId": "glossybox",
+    "conceptsCovered": [
+      "Drafting specific pillar phrases",
+      "The competitor test for pillar quality"
+    ]
+  },
+  {
+    "id": "brand-pillars-competitor-test-audit",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-pillars",
+    "lessonTitle": "Brand Pillars",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Audit 5 Draft Pillars Against the Competitor and Decision Tests",
+    "timeMinutes": 25,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "The competitor test for pillar quality",
+      "Testing each pillar for decision-making power"
+    ]
+  },
+  {
+    "id": "archetype-selection-worksheet",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-archetypes",
+    "lessonTitle": "Brand Archetypes (Jung's 12)",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Building an Archetype Selection Worksheet for a New Product Launch",
+    "timeMinutes": 25,
+    "companyId": "swiggy",
+    "conceptsCovered": [
+      "Grouping archetypes by core human drive",
+      "Writing voice in 3 to 5 words with guardrails"
+    ]
+  },
+  {
+    "id": "touchpoint-archetype-audit",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-archetypes",
+    "lessonTitle": "Brand Archetypes (Jung's 12)",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Auditing a Real Brand's Touchpoints for Archetype Consistency",
+    "timeMinutes": 45,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Auditing touchpoints against a chosen archetype",
+      "Detecting archetype blending as a symptom of drift"
+    ]
+  },
+  {
+    "id": "reverse-engineer-visual-identity-system",
+    "category": "brand-strategy",
+    "lessonSlug": "visual-identity",
+    "lessonTitle": "Visual Identity Systems",
+    "tier": "mini",
+    "archetype": "reverse-engineer",
+    "mode": "diagnostic",
+    "title": "Reverse-Engineering a Real Company's Visual Identity System",
+    "timeMinutes": 30,
+    "companyId": "klaviyo",
+    "conceptsCovered": [
+      "Extracting a color system from live touchpoints",
+      "Extracting a type and imagery style from live touchpoints"
+    ]
+  },
+  {
+    "id": "one-page-brand-guidelines-sheet",
+    "category": "brand-strategy",
+    "lessonSlug": "visual-identity",
+    "lessonTitle": "Visual Identity Systems",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Building a One-Page Brand Guidelines Sheet",
+    "timeMinutes": 30,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Starting a visual identity system with the two highest-leverage decisions",
+      "Specifying color in multiple formats for print and digital"
+    ]
+  },
+  {
+    "id": "naming-fintech-feature-shortlist",
+    "category": "brand-strategy",
+    "lessonSlug": "naming",
+    "lessonTitle": "Brand Naming",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Naming Shortlist for a New Fintech Feature",
+    "timeMinutes": 25,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "Generating a large candidate pool across four methods"
+    ]
+  },
+  {
+    "id": "naming-candidate-export-audit",
+    "category": "brand-strategy",
+    "lessonSlug": "naming",
+    "lessonTitle": "Brand Naming",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Clearance Call: Auditing a Sub-Brand Naming Shortlist",
+    "timeMinutes": 45,
+    "companyId": "firstcry-brainbees",
+    "conceptsCovered": [
+      "Applying the four-filter test",
+      "Triaging trademark clearance risk before paying for a legal opinion"
+    ]
+  },
+  {
+    "id": "voice-system-attribute-builder",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-voice-system",
+    "lessonTitle": "Brand Voice Systems",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a 3-Attribute Voice System for a Support Team",
+    "timeMinutes": 25,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Defining voice attributes with label, contrast statement, and example pair"
+    ]
+  },
+  {
+    "id": "voice-drift-content-audit",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-voice-system",
+    "lessonTitle": "Brand Voice Systems",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Audit 10 Content Pieces for Voice Drift",
+    "timeMinutes": 30,
+    "companyId": "firstcry-brainbees",
+    "conceptsCovered": [
+      "The logo-removed diagnostic for voice audits"
+    ]
+  },
+  {
+    "id": "brand-book-audit-gaps",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-book",
+    "lessonTitle": "Building a Brand Book",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Gap Audit: Reviewing a Submitted Brand Book Against the Five-Layer Framework",
+    "timeMinutes": 25,
+    "companyId": "adyen",
+    "conceptsCovered": [
+      "Layer 2: Verbal Identity",
+      "Layer 5: Distribution"
+    ]
+  },
+  {
+    "id": "brand-book-verbal-identity-build",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-book",
+    "lessonTitle": "Building a Brand Book",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Building the Verbal Identity Layer of a Brand Book from Scratch",
+    "timeMinutes": 50,
+    "companyId": "nubank",
+    "conceptsCovered": [
+      "Layer 2: Verbal Identity",
+      "Layer 4: Usage Rules"
+    ]
+  },
+  {
+    "id": "distinctive-assets-portfolio-teardown",
+    "category": "brand-strategy",
+    "lessonSlug": "distinctive-assets",
+    "lessonTitle": "Distinctive Brand Assets",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: Sorting a Distinctive Asset Portfolio into Protect, Build, or Drop",
+    "timeMinutes": 30,
+    "companyId": "wise",
+    "conceptsCovered": [
+      "Stage 3: Classify and Prioritize",
+      "Stage 2: Test Fame and Uniqueness"
+    ]
+  },
+  {
+    "id": "distinctive-assets-rebrand-forecast",
+    "category": "brand-strategy",
+    "lessonSlug": "distinctive-assets",
+    "lessonTitle": "Distinctive Brand Assets",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Forecasting Which Assets Survive a Rebrand: A Fame vs. Uniqueness Stress Test",
+    "timeMinutes": 30,
+    "companyId": "nubank",
+    "conceptsCovered": [
+      "Stage 2: Test Fame and Uniqueness",
+      "Stage 3: Classify and Prioritize"
+    ]
+  },
+  {
+    "id": "brand-tracking-wave-diagnostic-audit",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-tracking",
+    "lessonTitle": "Brand Tracking",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Reading the Trend Line: Diagnosing a Brand Tracking Wave",
+    "timeMinutes": 25,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Reporting trend lines instead of single-wave snapshots"
+    ]
+  },
+  {
+    "id": "brand-tracking-consideration-forecast",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-tracking",
+    "lessonTitle": "Brand Tracking",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "The Six-Month Warning: Forecasting Revenue Risk from a Consideration Trend",
+    "timeMinutes": 45,
+    "companyId": "grab",
+    "conceptsCovered": [
+      "Brand metrics leading sales by 6-12 months",
+      "Choosing tracking cadence to catch trend shifts early"
+    ]
+  },
+  {
+    "id": "brand-equity-bsi-scorecard-audit",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-equity",
+    "lessonTitle": "Brand Equity Measurement",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Auditing a BSI Scorecard: Where Is the Valuation Leaking?",
+    "timeMinutes": 30,
+    "companyId": "snowflake",
+    "conceptsCovered": [
+      "Scoring the Brand Strength Index across five weighted metrics"
+    ]
+  },
+  {
+    "id": "brand-equity-royalty-relief-forecast",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-equity",
+    "lessonTitle": "Brand Equity Measurement",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "Running the Royalty-Relief Math: Forecasting Brand Value Under Two Scenarios",
+    "timeMinutes": 50,
+    "companyId": "grab",
+    "conceptsCovered": [
+      "Applying royalty-relief valuation mechanics",
+      "Forecasting equity decay after a crisis"
+    ]
+  },
+  {
+    "id": "crisis-war-room-first-four-hours",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-crisis",
+    "lessonTitle": "Brand Crisis Management",
+    "tier": "mini",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "Crisis War Room: The First Four Hours",
+    "timeMinutes": 25,
+    "companyId": "coinbase",
+    "conceptsCovered": [
+      "Detection speed and escalation rules",
+      "Severity scoring before response",
+      "The cost of delayed detection",
+      "Holding statement structure",
+      "Recovery cadence and concrete action"
+    ]
+  },
+  {
+    "id": "severity-triage-week-of-complaints",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-crisis",
+    "lessonTitle": "Brand Crisis Management",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Severity Triage: Auditing a Week of Flagged Complaints",
+    "timeMinutes": 40,
+    "companyId": "instacart",
+    "conceptsCovered": [
+      "Severity scoring before response",
+      "Holding statement structure"
+    ]
+  },
+  {
+    "id": "zero-click-signal-audit",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-in-ai-era",
+    "lessonTitle": "Brand Building in the AI Era: Visibility When AI Answers Replace Search",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Zero-Click Audit: Is Your Brand Visible to AI Search?",
+    "timeMinutes": 30,
+    "companyId": "thredup",
+    "conceptsCovered": [
+      "Third-party signals AI models trust",
+      "Distinctive language AI can associate with a brand"
+    ]
+  },
+  {
+    "id": "predict-before-you-peek-ai-visibility-stats",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-in-ai-era",
+    "lessonTitle": "Brand Building in the AI Era: Visibility When AI Answers Replace Search",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "Predict Before You Peek: Calibrating on 2025's AI-Visibility Research",
+    "timeMinutes": 35,
+    "companyId": "coinbase",
+    "conceptsCovered": [
+      "Statistics and quotations increase AI visibility",
+      "Community content compounds LLM equity"
+    ]
+  },
+  {
     "id": "what-is-content-marketing-teardown",
     "category": "content",
     "lessonSlug": "what-is-content-marketing",
@@ -654,6 +1532,240 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "repurposing-pillar-to-atoms-plan",
+    "category": "content",
+    "lessonSlug": "repurposing",
+    "lessonTitle": "Content Repurposing",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "One Post, Four Channels: Build a Repurposing Plan",
+    "timeMinutes": 30,
+    "companyId": "glossybox",
+    "conceptsCovered": [
+      "Atom extraction from a pillar asset",
+      "Platform-specific transformation, not copy-paste"
+    ]
+  },
+  {
+    "id": "topic-clusters-link-gap-audit",
+    "category": "content",
+    "lessonSlug": "topic-clusters",
+    "lessonTitle": "Topic Clusters (Content Strategy Edition)",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Reciprocal Link Check: Auditing a Pillar's Cluster Map",
+    "timeMinutes": 25,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Auditing reciprocal pillar-to-cluster linking",
+      "Checking whether a pillar topic is broad enough to be a pillar"
+    ]
+  },
+  {
+    "id": "topic-clusters-pillar-plan-build",
+    "category": "content",
+    "lessonSlug": "topic-clusters",
+    "lessonTitle": "Topic Clusters (Content Strategy Edition)",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Cluster: A Pillar and 15-Subtopic Plan for Warby Parker",
+    "timeMinutes": 55,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Choosing a pillar topic broad enough for 15-25 subtopics",
+      "Segmenting cluster topics by funnel stage"
+    ]
+  },
+  {
+    "id": "editorial-calendar-mistake-audit",
+    "category": "content",
+    "lessonSlug": "editorial-calendar",
+    "lessonTitle": "Editorial Calendar",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Monday Review: Auditing a Stale Editorial Calendar",
+    "timeMinutes": 25,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Checking calendar rows for the five required columns",
+      "Detecting a stale calendar before it becomes a historical artifact"
+    ]
+  },
+  {
+    "id": "editorial-calendar-12-week-build",
+    "category": "content",
+    "lessonSlug": "editorial-calendar",
+    "lessonTitle": "Editorial Calendar",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build It: A 12-Week Calendar with Reactive Buffer",
+    "timeMinutes": 30,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "Structuring a calendar in 12-week blocks with a detail/theme split",
+      "Reserving reactive buffer slots instead of pre-committing every slot"
+    ]
+  },
+  {
+    "id": "content-moat-viability-audit",
+    "category": "content",
+    "lessonSlug": "content-moats",
+    "lessonTitle": "Content Moats",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Moat or Commodity? Auditing Squarespace's Q3 Content Backlog",
+    "timeMinutes": 25,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "The four moat types"
+    ]
+  },
+  {
+    "id": "nykaa-branded-index-build",
+    "category": "content",
+    "lessonSlug": "content-moats",
+    "lessonTitle": "Content Moats",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Nykaa Beauty Discovery Index: From Raw Survey Data to Distribution Kit",
+    "timeMinutes": 70,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "Naming a branded institution and a quotable metric",
+      "What makes the analysis moat-grade"
+    ]
+  },
+  {
+    "id": "zomato-editorial-workflow-audit",
+    "category": "content",
+    "lessonSlug": "ai-contentops-workflows",
+    "lessonTitle": "AI Content Operations & Governance",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Find the Missing Guardrail: Auditing Zomato's AI Content Pipeline",
+    "timeMinutes": 25,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Designing the editorial workflow"
+    ]
+  },
+  {
+    "id": "casper-guardrail-style-guide-build",
+    "category": "content",
+    "lessonSlug": "ai-contentops-workflows",
+    "lessonTitle": "AI Content Operations & Governance",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build Casper's AI Prompt Guardrail Doc",
+    "timeMinutes": 30,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Guardrails and brand safety"
+    ]
+  },
+  {
+    "id": "ai-content-quality-gate-audit",
+    "category": "content",
+    "lessonSlug": "content-velocity-with-ai",
+    "lessonTitle": "Scaling Content Velocity with AI: 10x Output, Not 10x Noise",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Gate Check: Auditing PolicyBazaar's AI Content Pipeline for Missing Quality Gates",
+    "timeMinutes": 25,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Fact verification before publish"
+    ]
+  },
+  {
+    "id": "content-repurposing-pipeline-build",
+    "category": "content",
+    "lessonSlug": "content-velocity-with-ai",
+    "lessonTitle": "Scaling Content Velocity with AI: 10x Output, Not 10x Noise",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "One Interview, Eight Assets: Building Adyen's Repurposing Pipeline",
+    "timeMinutes": 30,
+    "companyId": "adyen",
+    "conceptsCovered": [
+      "Content repurposing pipeline design"
+    ]
+  },
+  {
+    "id": "thought-leadership-pov-plan-build",
+    "category": "content",
+    "lessonSlug": "thought-leadership",
+    "lessonTitle": "Thought Leadership",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The One Sentence Test: Building a Thought-Leadership POV Plan for a Snowflake Exec",
+    "timeMinutes": 30,
+    "companyId": "snowflake",
+    "conceptsCovered": [
+      "Pick one defensible POV"
+    ]
+  },
+  {
+    "id": "thought-leadership-ai-critique",
+    "category": "content",
+    "lessonSlug": "thought-leadership",
+    "lessonTitle": "Thought Leadership",
+    "tier": "core",
+    "archetype": "ai-critique",
+    "mode": "diagnostic",
+    "title": "Ghostwritten or Ghost-Sounding? Critiquing an AI-Drafted Thought-Leadership Piece for Adyen",
+    "timeMinutes": 45,
+    "companyId": "adyen",
+    "conceptsCovered": [
+      "Hedging every claim",
+      "Ghostwriting that sounds like a press release"
+    ]
+  },
+  {
+    "id": "format-decision-head-to-head",
+    "category": "content",
+    "lessonSlug": "long-form-vs-short-form-strategy",
+    "lessonTitle": "Long-Form vs Short-Form Content Strategy: When Depth Wins",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "Long-Form or Short-Form: Four Briefs, One Framework",
+    "timeMinutes": 20,
+    "companyId": "mailchimp",
+    "conceptsCovered": [
+      "Matching format to goal and channel before word count",
+      "The three-question decision framework (goal, channel, buyer stage)"
+    ]
+  },
+  {
+    "id": "content-mix-forecast",
+    "category": "content",
+    "lessonSlug": "long-form-vs-short-form-strategy",
+    "lessonTitle": "Long-Form vs Short-Form Content Strategy: When Depth Wins",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Will This Content Calendar Hit Its Goal? Forecasting the Mix",
+    "timeMinutes": 25,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "The 2026 default content mix ratio (60% short-form, 30% long-form, 10% experimental)",
+      "Repurposing one long-form asset into many short-form distribution pieces"
+    ]
+  },
+  {
     "id": "copywriting-101-landing-copy-teardown",
     "category": "copywriting",
     "lessonSlug": "copywriting-101",
@@ -801,6 +1913,942 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "storytelling-copy-feature-list-teardown",
+    "category": "copywriting",
+    "lessonSlug": "storytelling-copy",
+    "lessonTitle": "Storytelling in Copy",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Find the Missing Story: Teardown of Ustraa's Product Copy",
+    "timeMinutes": 25,
+    "companyId": "ustraa",
+    "conceptsCovered": [
+      "Hook: opening with a specific, relatable situation",
+      "Struggle: naming the real cost of the problem",
+      "Turn: introducing the product as the mechanism of change",
+      "After State: making the transformation concrete"
+    ]
+  },
+  {
+    "id": "storytelling-copy-landing-page-build",
+    "category": "copywriting",
+    "lessonSlug": "storytelling-copy",
+    "lessonTitle": "Storytelling in Copy",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Story-Driven Landing Page From a Raw Feature List",
+    "timeMinutes": 50,
+    "companyId": "slack",
+    "conceptsCovered": [
+      "Hook: opening with a specific, relatable situation",
+      "Struggle: naming the real cost of the problem",
+      "Turn: introducing the product as the mechanism of change",
+      "After State: making the transformation concrete"
+    ]
+  },
+  {
+    "id": "features-vs-benefits-product-page-teardown",
+    "category": "copywriting",
+    "lessonSlug": "features-vs-benefits",
+    "lessonTitle": "Features vs. Benefits",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Feature Dump: Teardown of a Mattress Product Page",
+    "timeMinutes": 20,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Confusing advantages with benefits",
+      "Burying the benefit after three sentences of features",
+      "Writing benefits for yourself, not your customer"
+    ]
+  },
+  {
+    "id": "features-vs-benefits-warby-parker-hero-rebuild",
+    "category": "copywriting",
+    "lessonSlug": "features-vs-benefits",
+    "lessonTitle": "Features vs. Benefits",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Rebuild the Page: Turning a Feature List into Benefit-Driven Hero Copy",
+    "timeMinutes": 25,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Apply the 'Which Means' Bridge",
+      "Identify the Emotional Layer",
+      "Choose the Right Layer for Your Audience"
+    ]
+  },
+  {
+    "id": "power-words-email-sequence-teardown",
+    "category": "copywriting",
+    "lessonSlug": "power-words",
+    "lessonTitle": "Power Words",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Category Mismatch Teardown: A Failing Welcome Email Sequence",
+    "timeMinutes": 20,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Overloading",
+      "Manufactured Urgency",
+      "Ignoring the Reader's Funnel Stage",
+      "Curiosity and Intrigue"
+    ]
+  },
+  {
+    "id": "power-words-landing-page-audit",
+    "category": "copywriting",
+    "lessonSlug": "power-words",
+    "lessonTitle": "Power Words",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Category Match Audit: Rebuilding a Cold-Traffic Landing Page",
+    "timeMinutes": 45,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "Ignoring the Reader's Funnel Stage",
+      "Trust and Credibility",
+      "CTA Buttons"
+    ]
+  },
+  {
+    "id": "voice-pillar-consistency-audit",
+    "category": "copywriting",
+    "lessonSlug": "voice-and-tone",
+    "lessonTitle": "Voice and Tone",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Consistency Check: Auditing Copy Against Voice Pillars",
+    "timeMinutes": 25,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "Applying voice pillar contrast statements to real copy"
+    ]
+  },
+  {
+    "id": "cross-channel-voice-teardown",
+    "category": "copywriting",
+    "lessonSlug": "voice-and-tone",
+    "lessonTitle": "Voice and Tone",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Off-Brand Line: A Cross-Channel Voice Teardown",
+    "timeMinutes": 20,
+    "companyId": "glossybox",
+    "conceptsCovered": [
+      "Distinguishing tone flexibility from voice inconsistency"
+    ]
+  },
+  {
+    "id": "headline-subhead-cta-sprint",
+    "category": "copywriting",
+    "lessonSlug": "landing-page-copy",
+    "lessonTitle": "Landing Page Copy",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The Three-Line Sprint: Headline, Subheadline, CTA",
+    "timeMinutes": 20,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Writing an outcome-first headline and first-person CTA"
+    ]
+  },
+  {
+    "id": "full-page-conversion-teardown",
+    "category": "copywriting",
+    "lessonSlug": "landing-page-copy",
+    "lessonTitle": "Landing Page Copy",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Six-Section Teardown: Finding What's Costing Conversions",
+    "timeMinutes": 45,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Identifying vague social proof",
+      "Identifying multiple-CTA dilution",
+      "Identifying reading-level friction"
+    ]
+  },
+  {
+    "id": "cta-copy-vsf-teardown",
+    "category": "copywriting",
+    "lessonSlug": "cta-copy",
+    "lessonTitle": "CTA Copy That Converts",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Button Autopsy: Five CTAs, Five VSF Violations",
+    "timeMinutes": 20,
+    "companyId": "thredup",
+    "conceptsCovered": [
+      "V, Value",
+      "S, Specificity",
+      "P, First Person",
+      "Urgency and Scarcity: Use Real Numbers Only",
+      "CTA Placement Rules"
+    ]
+  },
+  {
+    "id": "cta-copy-head-to-head-vsf-scorecard",
+    "category": "copywriting",
+    "lessonSlug": "cta-copy",
+    "lessonTitle": "CTA Copy That Converts",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "Draft A vs. Draft B: Scoring a CTA Head-to-Head",
+    "timeMinutes": 20,
+    "companyId": "rent-the-runway",
+    "conceptsCovered": [
+      "The VSF Framework",
+      "P, First Person"
+    ]
+  },
+  {
+    "id": "email-copy-full-email-teardown",
+    "category": "copywriting",
+    "lessonSlug": "email-copy",
+    "lessonTitle": "Email Copywriting",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Inbox Autopsy: Teardown of a Win-Back Email",
+    "timeMinutes": 20,
+    "companyId": "klaviyo",
+    "conceptsCovered": [
+      "Subject Lines: The Gate to Everything",
+      "Preview text: the second subject line",
+      "Opening Lines: Earn the Read",
+      "CTAs: One Action, Maximum Clarity",
+      "Button vs. text link"
+    ]
+  },
+  {
+    "id": "email-copy-build-win-back-email",
+    "category": "copywriting",
+    "lessonSlug": "email-copy",
+    "lessonTitle": "Email Copywriting",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Win-Back Email End to End",
+    "timeMinutes": 45,
+    "companyId": "mailchimp",
+    "conceptsCovered": [
+      "Subject Lines: The Gate to Everything",
+      "The PAS framework",
+      "The personalization multiplier",
+      "CTAs: One Action, Maximum Clarity"
+    ]
+  },
+  {
+    "id": "value-prop-nubank-5-second-audit",
+    "category": "copywriting",
+    "lessonSlug": "value-prop-copy",
+    "lessonTitle": "Writing the Value Prop",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The 5-Second Verdict: Auditing Nubank's Value Prop Anatomy",
+    "timeMinutes": 20,
+    "companyId": "nubank",
+    "conceptsCovered": [
+      "The Anatomy of a High-Converting Value Prop",
+      "The 5-Second Test: Your Only Objective Measure"
+    ]
+  },
+  {
+    "id": "value-prop-firstcry-build-the-statement",
+    "category": "copywriting",
+    "lessonSlug": "value-prop-copy",
+    "lessonTitle": "Writing the Value Prop",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Building FirstCry's 90-Minute Delivery Value Prop from Scratch",
+    "timeMinutes": 25,
+    "companyId": "firstcry-brainbees",
+    "conceptsCovered": [
+      "The Anatomy of a High-Converting Value Prop",
+      "How to Write the Value Prop: A 6-Step Process"
+    ]
+  },
+  {
+    "id": "storybrand-zendesk-plan-and-cta-build",
+    "category": "copywriting",
+    "lessonSlug": "storybrand",
+    "lessonTitle": "StoryBrand Framework",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Writing Zendesk's 3-Step Plan and CTA Pair for an AI Feature Launch",
+    "timeMinutes": 20,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Part 4: Who Gives a Plan (your process)",
+      "Part 5: And Calls Them to Action (CTA)"
+    ]
+  },
+  {
+    "id": "storybrand-instacart-homepage-teardown",
+    "category": "copywriting",
+    "lessonSlug": "storybrand",
+    "lessonTitle": "StoryBrand Framework",
+    "tier": "core",
+    "archetype": "reverse-engineer",
+    "mode": "diagnostic",
+    "title": "Reverse-Engineering Instacart's Homepage Against the Full SB7 BrandScript",
+    "timeMinutes": 45,
+    "companyId": "instacart",
+    "conceptsCovered": [
+      "Part 1: A Character (your customer's desire)",
+      "Part 2: Has a Problem (three levels)",
+      "Part 3: Meets a Guide (your brand)",
+      "Mistake 1: Making your brand the hero"
+    ]
+  },
+  {
+    "id": "b2b-copy-pain-proof-process-rewrite",
+    "category": "copywriting",
+    "lessonSlug": "b2b-copy",
+    "lessonTitle": "B2B Copy: Pain, Proof, Process",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Pain-Proof-Process Solution Page From Scratch",
+    "timeMinutes": 50,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Identifying the exact, quantified pain in the buyer's own language",
+      "Matching proof directly to the pain named in the headline",
+      "Writing a process block that reduces risk aversion",
+      "Writing a low-risk CTA for a cold B2B audience"
+    ]
+  },
+  {
+    "id": "b2b-copy-committee-audit",
+    "category": "copywriting",
+    "lessonSlug": "b2b-copy",
+    "lessonTitle": "B2B Copy: Pain, Proof, Process",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Committee Test: Auditing a B2B Page for Every Stakeholder",
+    "timeMinutes": 25,
+    "companyId": "snowflake",
+    "conceptsCovered": [
+      "Writing to the whole buying committee, not one persona",
+      "Spotting the 5 common B2B copy mistakes"
+    ]
+  },
+  {
+    "id": "ai-search-answer-first-rewrite",
+    "category": "copywriting",
+    "lessonSlug": "copy-for-ai-search",
+    "lessonTitle": "Writing for AI Search: Copy That Gets Cited by ChatGPT and Perplexity",
+    "tier": "mini",
+    "archetype": "rebuild",
+    "mode": "build",
+    "title": "Rebuild a Buried-Answer Intro Into AI-Citable Copy",
+    "timeMinutes": 25,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Answer-first writing: leading with the answer, not the setup",
+      "Including specific data with a year and a named source",
+      "Defining terms precisely, inline, at first use"
+    ]
+  },
+  {
+    "id": "ai-search-citability-audit",
+    "category": "copywriting",
+    "lessonSlug": "copy-for-ai-search",
+    "lessonTitle": "Writing for AI Search: Copy That Gets Cited by ChatGPT and Perplexity",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Citability Audit: Scoring a Live Page Against the 5 Principles",
+    "timeMinutes": 25,
+    "companyId": "adyen",
+    "conceptsCovered": [
+      "Using clear structural formatting AI models can parse",
+      "Building entity authority across the web on one topic",
+      "Spotting keyword stuffing, thin content, and buried answers"
+    ]
+  },
+  {
+    "id": "ogilvy-rolls-royce-reverse-engineer",
+    "category": "copywriting",
+    "lessonSlug": "ogilvy-halbert-sugarman",
+    "lessonTitle": "The Copywriting Canon",
+    "tier": "mini",
+    "archetype": "reverse-engineer",
+    "mode": "diagnostic",
+    "title": "Reverse-Engineering Ogilvy's Rolls-Royce Ad",
+    "timeMinutes": 20,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Mapping copy against the Hook-Build-Close structure"
+    ]
+  },
+  {
+    "id": "halbert-sugarman-build-landing-page",
+    "category": "copywriting",
+    "lessonSlug": "ogilvy-halbert-sugarman",
+    "lessonTitle": "The Copywriting Canon",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Building a Direct-Response Landing Page Section Using the Canon",
+    "timeMinutes": 45,
+    "companyId": "coinbase",
+    "conceptsCovered": [
+      "Writing a specific, curiosity-driven hook instead of a vague headline",
+      "Closing with a guarantee and a single call to action"
+    ]
+  },
+  {
+    "id": "ad-copy-channel-mindset-teardown",
+    "category": "copywriting",
+    "lessonSlug": "ad-copy",
+    "lessonTitle": "Ad Copy (Search, Social, Display)",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Ad Copy Audit: Spot the Channel-Mindset Mismatch",
+    "timeMinutes": 20,
+    "companyId": "grab",
+    "conceptsCovered": [
+      "Step 2: Write to the Mindset",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "ad-copy-variant-sprint-wise",
+    "category": "copywriting",
+    "lessonSlug": "ad-copy",
+    "lessonTitle": "Ad Copy (Search, Social, Display)",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The Variant Sprint: Draft Channel-Specific Ad Copy for One Offer",
+    "timeMinutes": 25,
+    "companyId": "wise",
+    "conceptsCovered": [
+      "Step 2: Write to the Mindset",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "cro-101-single-goal-page-audit",
+    "category": "cro",
+    "lessonSlug": "cro-101",
+    "lessonTitle": "CRO 101",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Goal-Clarity Audit: Why a 1.1% Page Has Four CTAs",
+    "timeMinutes": 25,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Every page needs exactly one primary conversion goal",
+      "Macro vs micro conversions",
+      "Friction identification before hypothesis"
+    ]
+  },
+  {
+    "id": "cro-101-test-priority-roadmap-build",
+    "category": "cro",
+    "lessonSlug": "cro-101",
+    "lessonTitle": "CRO 101",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Roadmap: Scoring and Sequencing Six Test Ideas",
+    "timeMinutes": 45,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "Testing Priority Matrix: impact vs effort",
+      "Hypothesis format: If X then Y because Z",
+      "Testing one element at a time"
+    ]
+  },
+  {
+    "id": "conversion-rate-math-revenue-lift-forecast",
+    "category": "cro",
+    "lessonSlug": "conversion-rate-math",
+    "lessonTitle": "Conversion Rate Math",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "Build the Business Case: Forecasting a CRO Revenue Lift",
+    "timeMinutes": 25,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Revenue per Visitor (RPV)",
+      "Annual lift calculation model"
+    ]
+  },
+  {
+    "id": "conversion-rate-math-cpa-diagnosis-reverse-engineer",
+    "category": "cro",
+    "lessonSlug": "conversion-rate-math",
+    "lessonTitle": "Conversion Rate Math",
+    "tier": "mini",
+    "archetype": "reverse-engineer",
+    "mode": "diagnostic",
+    "title": "Reverse-Engineer the Bottleneck: CR, CPA, and a Misleading 20% Headline",
+    "timeMinutes": 25,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Cost per Acquisition (CPA) formula",
+      "CPA halves when CR doubles",
+      "Relative vs absolute lift"
+    ]
+  },
+  {
+    "id": "landing-page-anatomy-teardown",
+    "category": "cro",
+    "lessonSlug": "landing-page-anatomy",
+    "lessonTitle": "Landing Page Anatomy",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Find the Broken Sections: Landing Page Teardown",
+    "timeMinutes": 20,
+    "companyId": "glossybox",
+    "conceptsCovered": [
+      "Section 1: Headline",
+      "Section 4: Benefits List",
+      "Section 5: Social Proof",
+      "Section 6: Call to Action (CTA)",
+      "Section 7: Objection Handler"
+    ]
+  },
+  {
+    "id": "landing-page-anatomy-build-outline",
+    "category": "cro",
+    "lessonSlug": "landing-page-anatomy",
+    "lessonTitle": "Landing Page Anatomy",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Page: A 7-Section Landing Page Outline",
+    "timeMinutes": 30,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Section 1: Headline",
+      "Section 4: Benefits List",
+      "Section 6: Call to Action (CTA)"
+    ]
+  },
+  {
+    "id": "hero-formula-audit-checklist",
+    "category": "cro",
+    "lessonSlug": "hero-formula",
+    "lessonTitle": "The Hero Section Formula",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Three-Second Test: Auditing a Hero Section",
+    "timeMinutes": 20,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "1. The Outcome Headline",
+      "3. The Single CTA Button"
+    ]
+  },
+  {
+    "id": "hero-formula-rebuild-weak-hero",
+    "category": "cro",
+    "lessonSlug": "hero-formula",
+    "lessonTitle": "The Hero Section Formula",
+    "tier": "core",
+    "archetype": "rebuild",
+    "mode": "build",
+    "title": "Rebuild It: Turning a Weak Hero Into a Four-Component Hero",
+    "timeMinutes": 45,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "1. The Outcome Headline",
+      "2. The Supporting Subheadline",
+      "3. The Single CTA Button",
+      "4. The Contextual Visual"
+    ]
+  },
+  {
+    "id": "form-optimization-signup-teardown",
+    "category": "cro",
+    "lessonSlug": "form-optimization",
+    "lessonTitle": "Form Optimization",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Toll Booth Audit: Tearing Down a Vendor Sign-Up Form",
+    "timeMinutes": 25,
+    "companyId": "instacart",
+    "conceptsCovered": [
+      "Filtering fields against a decision the data enables",
+      "Combining fields to cut visual weight",
+      "Deferring non-essential fields to a post-conversion step"
+    ]
+  },
+  {
+    "id": "form-optimization-field-audit-diagnostic",
+    "category": "cro",
+    "lessonSlug": "form-optimization",
+    "lessonTitle": "Form Optimization",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Field-by-Field Call: Auditing a Real Signup Form Spec",
+    "timeMinutes": 30,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Sequencing fields with the foot-in-the-door principle",
+      "Prioritizing fixes by per-field abandonment rate",
+      "Testing one variable at a time"
+    ]
+  },
+  {
+    "id": "checkout-optimization-lean-spec-build",
+    "category": "cro",
+    "lessonSlug": "checkout-optimization",
+    "lessonTitle": "Checkout Optimization",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Asset: A Leaner Checkout Field Spec",
+    "timeMinutes": 35,
+    "companyId": "firstcry-brainbees",
+    "conceptsCovered": [
+      "Reducing form fields to only what fulfillment requires",
+      "Guest checkout as the default path",
+      "Collapsing optional fields by default"
+    ]
+  },
+  {
+    "id": "checkout-optimization-flow-teardown",
+    "category": "cro",
+    "lessonSlug": "checkout-optimization",
+    "lessonTitle": "Checkout Optimization",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Airport Security Line: Tearing Down a Checkout Flow",
+    "timeMinutes": 50,
+    "companyId": "thredup",
+    "conceptsCovered": [
+      "Revealing shipping cost before the final step",
+      "Removing forced account creation",
+      "Supporting the buyer's preferred payment method",
+      "Recovering abandoned carts with timed follow-up"
+    ]
+  },
+  {
+    "id": "friction-audit-checkout-funnel-audit",
+    "category": "cro",
+    "lessonSlug": "friction-audit",
+    "lessonTitle": "Friction Audit",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Priority Call: Auditing YETI's Checkout Drop-off Data",
+    "timeMinutes": 25,
+    "companyId": "yeti",
+    "conceptsCovered": [
+      "Pull Drop-off Data",
+      "Prioritize by Impact and Effort"
+    ]
+  },
+  {
+    "id": "friction-audit-session-recording-teardown",
+    "category": "cro",
+    "lessonSlug": "friction-audit",
+    "lessonTitle": "Friction Audit",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "diagnostic",
+    "title": "Signal or Noise: Tearing Down Zomato Session Recording Notes",
+    "timeMinutes": 20,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Watch Session Recordings"
+    ]
+  },
+  {
+    "id": "exit-intent-segmented-popup-build",
+    "category": "cro",
+    "lessonSlug": "exit-intent",
+    "lessonTitle": "Exit Intent and Recovery",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Offer: A Segmented Exit-Intent Popup for MVMT",
+    "timeMinutes": 30,
+    "companyId": "mvmt-watches",
+    "conceptsCovered": [
+      "Segmentation",
+      "The Offer"
+    ]
+  },
+  {
+    "id": "exit-intent-recovery-revenue-forecast",
+    "category": "cro",
+    "lessonSlug": "exit-intent",
+    "lessonTitle": "Exit Intent and Recovery",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "The Math Behind the Popup: Forecasting Recovery Revenue for Rent the Runway",
+    "timeMinutes": 45,
+    "companyId": "rent-the-runway",
+    "conceptsCovered": [
+      "Detection",
+      "Capture"
+    ]
+  },
+  {
+    "id": "trust-signals-anxiety-audit",
+    "category": "cro",
+    "lessonSlug": "trust-signals",
+    "lessonTitle": "Trust Signals That Convert",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Which Anxiety Is This Page Failing to Answer?",
+    "timeMinutes": 25,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Matching the trust signal to the specific anxiety",
+      "Placing signals where decisions happen, not in the footer"
+    ]
+  },
+  {
+    "id": "trust-signals-checkout-teardown",
+    "category": "cro",
+    "lessonSlug": "trust-signals",
+    "lessonTitle": "Trust Signals That Convert",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: The Checkout Page That Looks Secure but Isn't",
+    "timeMinutes": 20,
+    "companyId": "coinbase",
+    "conceptsCovered": [
+      "Borrowed credibility vs. self-claimed credibility",
+      "Security seals without SSL, and other common mistakes"
+    ]
+  },
+  {
+    "id": "urgency-email-compliance-audit",
+    "category": "cro",
+    "lessonSlug": "urgency-design",
+    "lessonTitle": "Designing Urgency Without Sleaze",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Real Deadline or Regulatory Risk? Auditing an Urgency Email Flow",
+    "timeMinutes": 25,
+    "companyId": "klaviyo",
+    "conceptsCovered": [
+      "Time-based urgency, inventory-based scarcity, and social urgency",
+      "Regulatory enforcement of fabricated urgency and dark patterns"
+    ]
+  },
+  {
+    "id": "urgency-landing-teardown",
+    "category": "cro",
+    "lessonSlug": "urgency-design",
+    "lessonTitle": "Designing Urgency Without Sleaze",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: The Countdown Timer That Resets on Refresh",
+    "timeMinutes": 40,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "Time-based urgency, inventory-based scarcity, and social urgency",
+      "Regulatory enforcement of fabricated urgency and dark patterns",
+      "Implementation mechanics: server-side timestamps and live inventory"
+    ]
+  },
+  {
+    "id": "sample-size-launch-forecast-slack",
+    "category": "cro",
+    "lessonSlug": "sample-size-math",
+    "lessonTitle": "Sample Size and Statistical Power",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "The Launch Forecast: Sample Size and Runtime for a Real Test",
+    "timeMinutes": 25,
+    "companyId": "slack",
+    "conceptsCovered": [
+      "Calculating required sample size from baseline, MDE, and power",
+      "Estimating test runtime from required sample and daily traffic"
+    ]
+  },
+  {
+    "id": "peeking-audit-two-test-plans-zendesk",
+    "category": "cro",
+    "lessonSlug": "sample-size-math",
+    "lessonTitle": "Sample Size and Statistical Power",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "Two Test Plans, One Approval: Auditing for Peeking Risk",
+    "timeMinutes": 25,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "False positive inflation from peeking without a pre-set stopping rule",
+      "Validating results only after reaching planned sample size and a full business cycle"
+    ]
+  },
+  {
+    "id": "ab-vs-mvt-decision-snowflake-signup-flow",
+    "category": "cro",
+    "lessonSlug": "multivariate-vs-ab",
+    "lessonTitle": "Multivariate vs A/B Testing",
+    "tier": "core",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "A/B or MVT: The Traffic-Backed Decision for a Signup Flow",
+    "timeMinutes": 45,
+    "companyId": "snowflake",
+    "conceptsCovered": [
+      "Traffic threshold for reliable MVT testing",
+      "Combination explosion calculation and staged testing when traffic falls short"
+    ]
+  },
+  {
+    "id": "mvt-feasibility-forecast-adyen-pricing-page",
+    "category": "cro",
+    "lessonSlug": "multivariate-vs-ab",
+    "lessonTitle": "Multivariate vs A/B Testing",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "The Combination Cap: Forecasting Whether a 4-Element MVT Is Feasible",
+    "timeMinutes": 45,
+    "companyId": "adyen",
+    "conceptsCovered": [
+      "Full factorial combination growth calculation for multivariate tests",
+      "Forecasting MVT sample size and runtime against the combination cap guideline"
+    ]
+  },
+  {
+    "id": "statistical-pitfalls-teardown-test-writeup",
+    "category": "cro",
+    "lessonSlug": "statistical-pitfalls-in-cro",
+    "lessonTitle": "Statistical Pitfalls in CRO",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: The Test Writeup That Broke Every Rule",
+    "timeMinutes": 25,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Peeking / optional stopping",
+      "Multiple comparisons problem",
+      "Simpson's Paradox"
+    ]
+  },
+  {
+    "id": "statistical-pitfalls-stop-continue-audit",
+    "category": "cro",
+    "lessonSlug": "statistical-pitfalls-in-cro",
+    "lessonTitle": "Statistical Pitfalls in CRO",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Stop/Continue Call: Auditing a Live Test Dashboard Before You Decide",
+    "timeMinutes": 40,
+    "companyId": "wise",
+    "conceptsCovered": [
+      "Peeking / optional stopping",
+      "Multiple comparisons problem",
+      "Simpson's Paradox"
+    ]
+  },
+  {
+    "id": "cro-research-plan-audit",
+    "category": "cro",
+    "lessonSlug": "cro-research",
+    "lessonTitle": "Customer Research for CRO",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Research Plan Audit: Catching Bad Methodology Before It Ships",
+    "timeMinutes": 25,
+    "companyId": "grab",
+    "conceptsCovered": [
+      "Setting a minimum traffic threshold before starting qualitative research",
+      "Applying qualitative tools in sequence: heatmaps, then recordings, then surveys",
+      "Balancing exit surveys with post-purchase surveys",
+      "Writing a hypothesis with a 'because' clause"
+    ]
+  },
+  {
+    "id": "cro-research-hypothesis-backlog-build",
+    "category": "cro",
+    "lessonSlug": "cro-research",
+    "lessonTitle": "Customer Research for CRO",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "From Raw Signals to a Prioritized Hypothesis Backlog",
+    "timeMinutes": 50,
+    "companyId": "nubank",
+    "conceptsCovered": [
+      "Synthesizing qualitative findings into a prioritized test backlog",
+      "Writing a hypothesis with a 'because' clause",
+      "Prioritizing with ICE scoring: Impact, Confidence, Ease"
+    ]
+  },
+  {
+    "id": "personalization-cro-plan-audit",
+    "category": "cro",
+    "lessonSlug": "personalization-cro",
+    "lessonTitle": "Personalization for CRO",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Green-Light or Red-Flag: Auditing a Personalization Rollout Plan",
+    "timeMinutes": 25,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Minimum viable segment size (500 monthly visitors)",
+      "Choosing a signal proportional to the business model (B2C vs. ABM)"
+    ]
+  },
+  {
+    "id": "personalization-cro-segment-plan-build",
+    "category": "cro",
+    "lessonSlug": "personalization-cro",
+    "lessonTitle": "Personalization for CRO",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Three-Segment Personalization Plan for a Paid Traffic Launch",
+    "timeMinutes": 50,
+    "companyId": "halo-top",
+    "conceptsCovered": [
+      "Choose your signal",
+      "Build the variant (swap only the elements that carry the message)",
+      "Measure the lift against a control before rolling out"
+    ]
+  },
+  {
     "id": "email-marketing-101-ten-campaign-audit",
     "category": "email",
     "lessonSlug": "email-marketing-101",
@@ -935,6 +2983,697 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
       "Common Mistakes",
       "What It Is",
       "How It Works"
+    ]
+  },
+  {
+    "id": "list-building-optin-form-audit",
+    "category": "email",
+    "lessonSlug": "list-building",
+    "lessonTitle": "List Building",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Opt-In Autopsy: Auditing a Lead Magnet Landing Page",
+    "timeMinutes": 25,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Specific lead magnets convert better than vague ones",
+      "Form field count reduces conversion"
+    ]
+  },
+  {
+    "id": "list-building-double-optin-teardown",
+    "category": "email",
+    "lessonSlug": "list-building",
+    "lessonTitle": "List Building",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Deliverability Trap: Tearing Down a Broken Opt-In Flow",
+    "timeMinutes": 20,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Double opt-in filters bad addresses",
+      "Never buy or scrape email lists",
+      "Send the welcome email immediately"
+    ]
+  },
+  {
+    "id": "segmentation-engagement-scheme-build",
+    "category": "email",
+    "lessonSlug": "segmentation",
+    "lessonTitle": "Segmentation",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the First Three Segments: An Engagement-Tier Scheme",
+    "timeMinutes": 30,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "Engagement segmentation: active, cold, lapsed",
+      "RFM scoring for VIP identification"
+    ]
+  },
+  {
+    "id": "segmentation-plan-audit",
+    "category": "email",
+    "lessonSlug": "segmentation",
+    "lessonTitle": "Segmentation",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Find the Flaw: Auditing a Proposed Segmentation Plan",
+    "timeMinutes": 25,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Good segments are large, stable, and actionable",
+      "Over-segmenting into tiny lists",
+      "Building static segments instead of behavior-based rules"
+    ]
+  },
+  {
+    "id": "abandon-cart-sequence-teardown",
+    "category": "email",
+    "lessonSlug": "abandon-cart",
+    "lessonTitle": "Abandoned Cart & Browse Flows",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Find the Leaks: Teardown of a Broken Cart-Recovery Sequence",
+    "timeMinutes": 25,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "No discount in Email 1 or Email 2",
+      "Email 1 sent within 30-60 minutes",
+      "Dynamic product blocks with live cart contents",
+      "Real scarcity only, never fabricated"
+    ]
+  },
+  {
+    "id": "abandon-cart-3-email-build",
+    "category": "email",
+    "lessonSlug": "abandon-cart",
+    "lessonTitle": "Abandoned Cart & Browse Flows",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build ThredUp's 3-Email Cart-Recovery Sequence From Scratch",
+    "timeMinutes": 35,
+    "companyId": "thredup",
+    "conceptsCovered": [
+      "Email 1: The Reminder (30-60 minutes after abandonment)",
+      "Email 2: Social Proof and Objection Handling (22-24 hours later)",
+      "Email 3: Urgency or Incentive (48-72 hours later)"
+    ]
+  },
+  {
+    "id": "subject-line-teardown-six-formulas",
+    "category": "email",
+    "lessonSlug": "subject-lines",
+    "lessonTitle": "Subject Lines That Get Opened",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Which of These 5 Subject Lines Would Get Reported as Spam?",
+    "timeMinutes": 20,
+    "companyId": "rent-the-runway",
+    "conceptsCovered": [
+      "Never fake urgency",
+      "ALL CAPS lowers open rates",
+      "Spam trigger words stacked together",
+      "The Question formula"
+    ]
+  },
+  {
+    "id": "subject-line-ab-test-data-audit",
+    "category": "email",
+    "lessonSlug": "subject-lines",
+    "lessonTitle": "Subject Lines That Get Opened",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Read the Test Results: Picking Allbirds' Next Subject Line Hypothesis",
+    "timeMinutes": 30,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "Test one variable at a time",
+      "A/B testing rhythm and sample split"
+    ]
+  },
+  {
+    "id": "email-copywriting-four-defects-teardown",
+    "category": "email",
+    "lessonSlug": "email-copywriting",
+    "lessonTitle": "Email Copywriting",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Four Defects, One Draft: Tearing Down a Broken Promo Email",
+    "timeMinutes": 20,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Subject Line Specificity and Spam Triggers",
+      "Preview Text as a Second Subject Line",
+      "Opening Line Relevance",
+      "Single CTA and Decision Paralysis"
+    ]
+  },
+  {
+    "id": "email-copywriting-lapsed-buyer-build",
+    "category": "email",
+    "lessonSlug": "email-copywriting",
+    "lessonTitle": "Email Copywriting",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Write the Whole Email: A Re-Engagement Send From Scratch",
+    "timeMinutes": 50,
+    "companyId": "bonobos",
+    "conceptsCovered": [
+      "Specificity and Personalization in Subject Lines",
+      "Preview Text as a Hook Extension",
+      "AIDA Body Structure",
+      "Single, Personalized CTA"
+    ]
+  },
+  {
+    "id": "ab-testing-email-results-table-diagnostic",
+    "category": "email",
+    "lessonSlug": "ab-testing-email",
+    "lessonTitle": "A/B Testing Emails",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Call the Winner: Reading a Real Subject Line Test",
+    "timeMinutes": 20,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Sample Size and Statistical Significance"
+    ]
+  },
+  {
+    "id": "ab-testing-email-test-log-calibration",
+    "category": "email",
+    "lessonSlug": "ab-testing-email",
+    "lessonTitle": "A/B Testing Emails",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "Trust It or Toss It: Calibrating Three Past Test Calls",
+    "timeMinutes": 20,
+    "companyId": "klaviyo",
+    "conceptsCovered": [
+      "Sample Size Minimums",
+      "Matching Metric to Element"
+    ]
+  },
+  {
+    "id": "deliverability-auth-report-diagnostic",
+    "category": "email",
+    "lessonSlug": "deliverability",
+    "lessonTitle": "Deliverability: SPF, DKIM, DMARC",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Bounce Investigation: Diagnosing a Failing Sender Reputation Report",
+    "timeMinutes": 45,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "SPF envelope-sender authorization",
+      "DKIM signature and body-tamper validation",
+      "DMARC alignment between From address and SPF/DKIM domain",
+      "Spam complaint rate as a hard reputation threshold",
+      "Google Postmaster domain reputation as a leading indicator"
+    ]
+  },
+  {
+    "id": "deliverability-dmarc-rollout-simulation",
+    "category": "email",
+    "lessonSlug": "deliverability",
+    "lessonTitle": "Deliverability: SPF, DKIM, DMARC",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "diagnostic",
+    "title": "The DMARC Rollout: Deciding When to Tighten Enforcement",
+    "timeMinutes": 35,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "DMARC policy staging (p=none to p=quarantine to p=reject)",
+      "Reading DMARC aggregate reports to find unresolved senders",
+      "Percentage-based enforcement ramp (pct=)"
+    ]
+  },
+  {
+    "id": "rfm-transaction-table-scoring-build",
+    "category": "email",
+    "lessonSlug": "rfm",
+    "lessonTitle": "RFM Segmentation",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Score the List: Building an RFM Segmentation Table from Raw Transactions",
+    "timeMinutes": 50,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Deriving Recency, Frequency, and Monetary from a raw transaction table",
+      "Quintile-based scoring per dimension",
+      "Mapping RFM profiles to named segments"
+    ]
+  },
+  {
+    "id": "rfm-segment-strategy-drill",
+    "category": "email",
+    "lessonSlug": "rfm",
+    "lessonTitle": "RFM Segmentation",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "drill",
+    "title": "Match the Offer: Segment-to-Strategy Drill",
+    "timeMinutes": 20,
+    "companyId": "mailchimp",
+    "conceptsCovered": [
+      "Mapping RFM profiles to named segments",
+      "Weighting Recency, Frequency, and Monetary unequally",
+      "Decoupling send eligibility from offer depth"
+    ]
+  },
+  {
+    "id": "winback-sequence-build-duolingo",
+    "category": "email",
+    "lessonSlug": "winback",
+    "lessonTitle": "Win-back Campaigns",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the 4-Email Sequence: Duolingo's Streak-Breakers",
+    "timeMinutes": 30,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Sequencing escalation without leading with a discount",
+      "The sunset email requires an explicit removal statement"
+    ]
+  },
+  {
+    "id": "winback-dormancy-segment-audit",
+    "category": "email",
+    "lessonSlug": "winback",
+    "lessonTitle": "Win-back Campaigns",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Sunset Call: Auditing FirstCry's Dormant Subscriber Export",
+    "timeMinutes": 35,
+    "companyId": "firstcry-brainbees",
+    "conceptsCovered": [
+      "Defining dormancy with multiple signals, not just opens",
+      "Segmenting by depth of inactivity before sending"
+    ]
+  },
+  {
+    "id": "sms-compliant-welcome-build",
+    "category": "email",
+    "lessonSlug": "sms-marketing",
+    "lessonTitle": "SMS Marketing",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Compliant Welcome Text: Instacart's SMS Opt-In",
+    "timeMinutes": 25,
+    "companyId": "instacart",
+    "conceptsCovered": [
+      "Capturing consent with required disclosures",
+      "Writing for the lock screen"
+    ]
+  },
+  {
+    "id": "sms-frequency-forecast",
+    "category": "email",
+    "lessonSlug": "sms-marketing",
+    "lessonTitle": "SMS Marketing",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Forecast the Trade-off: Zomato's SMS Frequency Cap vs Revenue",
+    "timeMinutes": 45,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Capping frequency against opt-out risk",
+      "Automated flows beat broadcasts on revenue per recipient"
+    ]
+  },
+  {
+    "id": "zero-party-data-preference-center-build",
+    "category": "email",
+    "lessonSlug": "zero-party-data",
+    "lessonTitle": "Zero-Party Data Strategy",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Zero-Party Preference Center From Scratch",
+    "timeMinutes": 30,
+    "companyId": "nubank",
+    "conceptsCovered": [
+      "Preference Centers",
+      "Progressive Profiling"
+    ]
+  },
+  {
+    "id": "zero-party-data-collection-form-audit",
+    "category": "email",
+    "lessonSlug": "zero-party-data",
+    "lessonTitle": "Zero-Party Data Strategy",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Value-Exchange Audit: Fixing a Zero-Party Data Form That Isn't Converting",
+    "timeMinutes": 40,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Interactive Onboarding Quizzes",
+      "Value Exchange",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "gdpr-can-spam-footer-teardown",
+    "category": "email",
+    "lessonSlug": "gdpr-can-spam",
+    "lessonTitle": "CAN-SPAM, GDPR, CASL",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: Spot the Violations in This Email Footer",
+    "timeMinutes": 25,
+    "companyId": "adyen",
+    "conceptsCovered": [
+      "How CAN-SPAM Works",
+      "How GDPR Works"
+    ]
+  },
+  {
+    "id": "gdpr-can-spam-list-segmentation-audit",
+    "category": "email",
+    "lessonSlug": "gdpr-can-spam",
+    "lessonTitle": "CAN-SPAM, GDPR, CASL",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Global List Audit: Which Subscribers Need GDPR Consent You Don't Have",
+    "timeMinutes": 35,
+    "companyId": "wise",
+    "conceptsCovered": [
+      "The Key Difference: Opt-Out vs. Opt-In",
+      "Common Mistakes That Get Marketers Fined"
+    ]
+  },
+  {
+    "id": "reengagement-sequence-builder",
+    "category": "email",
+    "lessonSlug": "reengagement",
+    "lessonTitle": "Win-back & Re-engagement Campaigns",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Draft the 4-Email Sequence: From Value Reminder to Sunset",
+    "timeMinutes": 25,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "Escalating a re-engagement sequence from value to incentive to preference to sunset"
+    ]
+  },
+  {
+    "id": "reengagement-tier-audit",
+    "category": "email",
+    "lessonSlug": "reengagement",
+    "lessonTitle": "Win-back & Re-engagement Campaigns",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Tiering Call: Auditing a Dormant Rider Segment Before Sending",
+    "timeMinutes": 20,
+    "companyId": "grab",
+    "conceptsCovered": [
+      "Segmenting dormant contacts by lapse depth before sending"
+    ]
+  },
+  {
+    "id": "event-portfolio-goal-audit",
+    "category": "events-experiential",
+    "lessonSlug": "events-marketing-101",
+    "lessonTitle": "Events Marketing 101: Why Experiences Still Convert",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Portfolio Audit: Does Freshworks' Event Mix Match Its Goals",
+    "timeMinutes": 35,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Matching event format to the stated marketing goal",
+      "Reading cost-per-lead as a stage-of-funnel signal, not a pure efficiency score"
+    ]
+  },
+  {
+    "id": "quarterly-event-portfolio-plan-build",
+    "category": "events-experiential",
+    "lessonSlug": "events-marketing-101",
+    "lessonTitle": "Events Marketing 101: Why Experiences Still Convert",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Asset: A One-Page Event Portfolio Plan for Zendesk",
+    "timeMinutes": 45,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Building a goal-to-format budget allocation",
+      "Writing the one-metric-per-event success framework"
+    ]
+  },
+  {
+    "id": "trade-show-booth-script-teardown",
+    "category": "events-experiential",
+    "lessonSlug": "trade-show-strategy",
+    "lessonTitle": "Trade Show Strategy: Booth Design, Staffing, and Lead Capture",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: A HelloFresh Booth Banner and Opening Line",
+    "timeMinutes": 20,
+    "companyId": "hellofresh",
+    "conceptsCovered": [
+      "Booth Design That Actually Pulls Foot Traffic",
+      "Staffing: Qualifiers, Not Greeters"
+    ]
+  },
+  {
+    "id": "trade-show-live-day-simulation",
+    "category": "events-experiential",
+    "lessonSlug": "trade-show-strategy",
+    "lessonTitle": "Trade Show Strategy: Booth Design, Staffing, and Lead Capture",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "Simulation: Running Warby Parker's Vision Expo Booth in Real Time",
+    "timeMinutes": 35,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Interactive elements pulling foot traffic vs static displays",
+      "Qualifying visitors instead of just greeting them",
+      "Real-time CRM sync vs the fishbowl trap"
+    ]
+  },
+  {
+    "id": "sponsorship-tier-pricing-audit",
+    "category": "events-experiential",
+    "lessonSlug": "conference-sponsorship-roi",
+    "lessonTitle": "Conference Sponsorship ROI: Evaluating and Negotiating Deals",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Pricing the Package: A Three-Tier Sponsorship Audit",
+    "timeMinutes": 30,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Breaking a sponsorship price down to reach, access, data, and exclusivity",
+      "Calculating cost-per-qualified-meeting to compare packages on equal footing"
+    ]
+  },
+  {
+    "id": "sponsorship-180-day-verdict-simulation",
+    "category": "events-experiential",
+    "lessonSlug": "conference-sponsorship-roi",
+    "lessonTitle": "Conference Sponsorship ROI: Evaluating and Negotiating Deals",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The 180-Day Sponsorship Verdict: Negotiate, Wait, Decide",
+    "timeMinutes": 50,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Negotiation levers: pilot tiers, data-timing clauses, and multi-event bundles",
+      "Measuring ROI on the deal's actual 60-180 day timeline, not the 30-day mark",
+      "Comparing sponsorship options and deciding renew, renegotiate, or walk"
+    ]
+  },
+  {
+    "id": "roadshow-spray-and-pray-audit",
+    "category": "events-experiential",
+    "lessonSlug": "field-marketing",
+    "lessonTitle": "Field Marketing: Regional and Local Event Programs",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Copy-Paste Roadshow Audit",
+    "timeMinutes": 30,
+    "companyId": "wise",
+    "conceptsCovered": [
+      "Standardizing logistics centrally while leaving guest lists and framing to regional owners",
+      "Field marketing vs. centralized events: proximity to sales as the differentiator"
+    ]
+  },
+  {
+    "id": "field-program-build-simulation",
+    "category": "events-experiential",
+    "lessonSlug": "field-marketing",
+    "lessonTitle": "Field Marketing: Regional and Local Event Programs",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The Field Program Build: From Side Project to Core Motion",
+    "timeMinutes": 50,
+    "companyId": "airbnb",
+    "conceptsCovered": [
+      "Programs run as a core motion with a dedicated owner beat side-project programs",
+      "Standardizing logistics while leaving guest lists and framing to regional owners",
+      "Confirming pipeline attribution with sales before reporting it"
+    ]
+  },
+  {
+    "id": "experiential-activations-premise-audit",
+    "category": "events-experiential",
+    "lessonSlug": "experiential-activations",
+    "lessonTitle": "Experiential Activations: Building Brand Moments People Remember",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The One-Sentence Test: Auditing a Real Activation Brief",
+    "timeMinutes": 25,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Writing the one-sentence premise before booking anything",
+      "Designing the artifact, not the event"
+    ]
+  },
+  {
+    "id": "experiential-activations-budget-simulation",
+    "category": "events-experiential",
+    "lessonSlug": "experiential-activations",
+    "lessonTitle": "Experiential Activations: Building Brand Moments People Remember",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The $15K Decision: Running an Activation on a Real Budget",
+    "timeMinutes": 50,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Designing the artifact, not the event",
+      "Seeding the first wave with micro-creators",
+      "Tracking earned media value against production cost"
+    ]
+  },
+  {
+    "id": "virtual-hybrid-session-teardown",
+    "category": "events-experiential",
+    "lessonSlug": "virtual-hybrid-events",
+    "lessonTitle": "Virtual and Hybrid Events: What Actually Works Now",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Attention Cliff: Diagnosing a Failing Virtual Session Agenda",
+    "timeMinutes": 25,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "What Holds Attention vs. What Causes Drop-off"
+    ]
+  },
+  {
+    "id": "virtual-hybrid-track-design-build",
+    "category": "events-experiential",
+    "lessonSlug": "virtual-hybrid-events",
+    "lessonTitle": "Virtual and Hybrid Events: What Actually Works Now",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Two Tracks, One Event: Building a Parallel Hybrid Session Plan",
+    "timeMinutes": 45,
+    "companyId": "slack",
+    "conceptsCovered": [
+      "Designing both experiences in parallel from the brief stage",
+      "Giving the virtual audience something the room does not get"
+    ]
+  },
+  {
+    "id": "trade-show-lead-scoring-audit",
+    "category": "events-experiential",
+    "lessonSlug": "event-lead-follow-up",
+    "lessonTitle": "Event Lead Follow-Up: Turning Badge Scans Into Pipeline",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Hot, Warm, or Cold: Scoring a Real Badge-Scan Sheet Before It Goes Stale",
+    "timeMinutes": 25,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Scoring leads hot, warm, or cold at the moment of conversation",
+      "Building a follow-up SLA queue from the tiered list"
+    ]
+  },
+  {
+    "id": "post-show-follow-up-cadence-build",
+    "category": "events-experiential",
+    "lessonSlug": "event-lead-follow-up",
+    "lessonTitle": "Event Lead Follow-Up: Turning Badge Scans Into Pipeline",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the 3-Tier Follow-Up Cadence Pack: Call Script, Email, and Nurture Opener",
+    "timeMinutes": 50,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Same-day call script for hot leads",
+      "24-hour personalized email for warm leads",
+      "48-hour nurture-sequence opener for cold leads"
+    ]
+  },
+  {
+    "id": "trade-show-budget-completeness-calibration",
+    "category": "events-experiential",
+    "lessonSlug": "event-budgeting-roi",
+    "lessonTitle": "Event Budgeting and ROI Measurement",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "The $15K Booth Fee Trap: Calibrating What a Trade Show Really Costs",
+    "timeMinutes": 20,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Total event cost runs roughly 3x the floor-space fee",
+      "Line-item checklist: space, logistics, staffing, materials, follow-up tooling"
+    ]
+  },
+  {
+    "id": "event-pipeline-roi-audit",
+    "category": "events-experiential",
+    "lessonSlug": "event-budgeting-roi",
+    "lessonTitle": "Event Budgeting and ROI Measurement",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Leads Captured Isn't the Number: Auditing an Event's Real Pipeline ROI",
+    "timeMinutes": 40,
+    "companyId": "wise",
+    "conceptsCovered": [
+      "Pipeline value = leads captured x close rate x average deal size",
+      "6-month attribution window vs premature one-month reporting"
     ]
   },
   {
@@ -1241,6 +3980,386 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "ab-testing-results-conclusiveness-audit",
+    "category": "growth",
+    "lessonSlug": "ab-testing",
+    "lessonTitle": "A/B Testing & Statistical Significance",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Ship It or Kill It: Auditing a Suspiciously Good Test Result",
+    "timeMinutes": 25,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Calculating required sample size before launch",
+      "Peeking and early stopping inflates false positives",
+      "Running for full business cycles"
+    ]
+  },
+  {
+    "id": "ab-testing-checkout-test-plan-build",
+    "category": "growth",
+    "lessonSlug": "ab-testing",
+    "lessonTitle": "A/B Testing & Statistical Significance",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Pre-Register the Test: Building a Properly Powered A/B Test Plan",
+    "timeMinutes": 45,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "Writing a testable hypothesis",
+      "Calculating required sample size before launch",
+      "Picking one primary metric with guardrail metrics",
+      "Running for full business cycles"
+    ]
+  },
+  {
+    "id": "aarrr-funnel-bottleneck-diagnostic",
+    "category": "growth",
+    "lessonSlug": "aarrr",
+    "lessonTitle": "AARRR: Pirate Metrics",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Which Door Is Stuck? Diagnosing a Real Funnel with the AARRR Decision Tree",
+    "timeMinutes": 20,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Diagnosing the funnel bottleneck with the AARRR decision tree"
+    ]
+  },
+  {
+    "id": "aarrr-referral-loop-build",
+    "category": "growth",
+    "lessonSlug": "aarrr",
+    "lessonTitle": "AARRR: Pirate Metrics",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Engineer the Loop: Building a Referral Program from Trigger to Incentive",
+    "timeMinutes": 25,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Engineering a referral loop with trigger, mechanic, and incentive"
+    ]
+  },
+  {
+    "id": "activation-magic-number-cohort-diagnostic",
+    "category": "growth",
+    "lessonSlug": "activation",
+    "lessonTitle": "Activation & Aha Moments",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Find the Magic Number: Cohort Analysis on a Real Retention Split",
+    "timeMinutes": 25,
+    "companyId": "glossybox",
+    "conceptsCovered": [
+      "Finding the magic number with cohort analysis"
+    ]
+  },
+  {
+    "id": "activation-time-to-value-flow-build",
+    "category": "growth",
+    "lessonSlug": "activation",
+    "lessonTitle": "Activation & Aha Moments",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Compress the Path: Building a Time-to-Value First Session",
+    "timeMinutes": 25,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "Compressing time-to-value in the first session"
+    ]
+  },
+  {
+    "id": "growth-loops-reverse-engineer-instacart",
+    "category": "growth",
+    "lessonSlug": "growth-loops",
+    "lessonTitle": "Growth Loops",
+    "tier": "mini",
+    "archetype": "reverse-engineer",
+    "mode": "diagnostic",
+    "title": "Reverse-Engineer Instacart's Growth Loop from Public Signals",
+    "timeMinutes": 20,
+    "companyId": "instacart",
+    "conceptsCovered": [
+      "Mapping input, action, output, and re-investment"
+    ]
+  },
+  {
+    "id": "growth-loops-forecast-loop-factor",
+    "category": "growth",
+    "lessonSlug": "growth-loops",
+    "lessonTitle": "Growth Loops",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "Forecast Chewy's Autoship Loop Factor Twelve Months Out",
+    "timeMinutes": 45,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Calculating the loop factor from conversion, yield, and velocity",
+      "Forecasting compounding growth from a loop factor above or below 1.0"
+    ]
+  },
+  {
+    "id": "engagement-loops-reverse-engineer-thredup",
+    "category": "growth",
+    "lessonSlug": "engagement-loops",
+    "lessonTitle": "Engagement Loops",
+    "tier": "mini",
+    "archetype": "reverse-engineer",
+    "mode": "diagnostic",
+    "title": "Reverse-Engineer ThredUp's Trigger-Action-Reward-Investment Loop",
+    "timeMinutes": 20,
+    "companyId": "thredup",
+    "conceptsCovered": [
+      "Mapping the four stages: trigger, action, variable reward, investment"
+    ]
+  },
+  {
+    "id": "engagement-loops-forecast-investment-stage-churn",
+    "category": "growth",
+    "lessonSlug": "engagement-loops",
+    "lessonTitle": "Engagement Loops",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "Forecast the Churn Impact of Adding an Investment Stage",
+    "timeMinutes": 25,
+    "companyId": "rent-the-runway",
+    "conceptsCovered": [
+      "Loop completion rate as a predictor of retention"
+    ]
+  },
+  {
+    "id": "retention-cohorts-cliff-diagnosis",
+    "category": "growth",
+    "lessonSlug": "retention-cohorts",
+    "lessonTitle": "Retention & Cohort Analysis",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Cliff, Slope, or Floor: Diagnosing a Broken Retention Curve",
+    "timeMinutes": 20,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "The Retention Curve",
+      "Building a Cohort Table"
+    ]
+  },
+  {
+    "id": "retention-cohorts-health-score-builder",
+    "category": "growth",
+    "lessonSlug": "retention-cohorts",
+    "lessonTitle": "Retention & Cohort Analysis",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Week-1 Account Health Score",
+    "timeMinutes": 25,
+    "companyId": "klaviyo",
+    "conceptsCovered": [
+      "Leading Indicators to Track"
+    ]
+  },
+  {
+    "id": "referral-funnel-drop-off-audit",
+    "category": "growth",
+    "lessonSlug": "referral-programs",
+    "lessonTitle": "Referral Programs",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Find the Break: Auditing a Referral Program's Funnel Data",
+    "timeMinutes": 45,
+    "companyId": "mailchimp",
+    "conceptsCovered": [
+      "The Referral Funnel",
+      "Reward Timing"
+    ]
+  },
+  {
+    "id": "referral-program-design-build",
+    "category": "growth",
+    "lessonSlug": "referral-programs",
+    "lessonTitle": "Referral Programs",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Design a Referral Program From Scratch",
+    "timeMinutes": 50,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Step 1: Identify the Share Moment",
+      "Step 2: Choose Your Reward Structure"
+    ]
+  },
+  {
+    "id": "viral-coefficient-k-factor-calculator",
+    "category": "growth",
+    "lessonSlug": "viral-coefficient",
+    "lessonTitle": "Viral Coefficient & K-factor",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Run the Numbers: Calculating and Forecasting K-Factor",
+    "timeMinutes": 20,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "Calculating K-factor from invites and conversion",
+      "Forecasting cohort compounding from K and cycle time"
+    ]
+  },
+  {
+    "id": "referral-incentive-and-landing-page-audit",
+    "category": "growth",
+    "lessonSlug": "viral-coefficient",
+    "lessonTitle": "Viral Coefficient & K-factor",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "calibration",
+    "title": "One-Sided, Two-Sided, or Broken: Auditing a Referral Program's Weak Link",
+    "timeMinutes": 25,
+    "companyId": "firstcry-brainbees",
+    "conceptsCovered": [
+      "Two-sided incentives outperform one-sided incentives",
+      "Recipient landing page conversion is usually the highest-leverage fix"
+    ]
+  },
+  {
+    "id": "ice-backlog-calibration-sprint",
+    "category": "growth",
+    "lessonSlug": "ice-rice-prioritization",
+    "lessonTitle": "ICE & RICE Prioritization",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "calibration",
+    "title": "Score the Backlog: An ICE Calibration Sprint",
+    "timeMinutes": 25,
+    "companyId": "snowflake",
+    "conceptsCovered": [
+      "ICE = Impact x Confidence x Ease",
+      "Confidence must be evidence-based, not gut feel"
+    ]
+  },
+  {
+    "id": "rice-reach-from-analytics-forecast",
+    "category": "growth",
+    "lessonSlug": "ice-rice-prioritization",
+    "lessonTitle": "ICE & RICE Prioritization",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Reach Isn't a Guess: Scoring a Roadmap with Real RICE Numbers",
+    "timeMinutes": 25,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "RICE = (Reach x Impact x Confidence) / Effort",
+      "Effort must be scored in person-weeks, not days"
+    ]
+  },
+  {
+    "id": "plg-signup-funnel-activation-audit",
+    "category": "growth",
+    "lessonSlug": "plg",
+    "lessonTitle": "Product-Led Growth",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The First 5 Minutes: Auditing a Self-Serve Signup Funnel for Activation Gaps",
+    "timeMinutes": 35,
+    "companyId": "coinbase",
+    "conceptsCovered": [
+      "Activation Rate",
+      "Product-Qualified Leads (PQLs)"
+    ]
+  },
+  {
+    "id": "plg-expansion-flywheel-forecast",
+    "category": "growth",
+    "lessonSlug": "plg",
+    "lessonTitle": "Product-Led Growth",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Sizing the Compounding Engine: Forecasting PLG Expansion Revenue",
+    "timeMinutes": 35,
+    "companyId": "wise",
+    "conceptsCovered": [
+      "Net Revenue Retention (NRR)",
+      "Expansion: The Hidden Engine"
+    ]
+  },
+  {
+    "id": "nrr-account-bridge-audit",
+    "category": "growth",
+    "lessonSlug": "net-revenue-retention",
+    "lessonTitle": "Net Revenue Retention (NRR): The Metric That Decides If Growth Compounds",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Reading the Bridge: Auditing an Account-Level MRR Waterfall",
+    "timeMinutes": 25,
+    "companyId": "adyen",
+    "conceptsCovered": [
+      "What NRR Actually Measures",
+      "Current Benchmarks: Where Companies Actually Land in 2026"
+    ]
+  },
+  {
+    "id": "nrr-five-year-compounding-forecast",
+    "category": "growth",
+    "lessonSlug": "net-revenue-retention",
+    "lessonTitle": "Net Revenue Retention (NRR): The Metric That Decides If Growth Compounds",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "The 2.5x Bet: Forecasting a Revenue Base Under Different NRR Scenarios",
+    "timeMinutes": 25,
+    "companyId": "coinbase",
+    "conceptsCovered": [
+      "How Marketing Actually Moves This Number"
+    ]
+  },
+  {
+    "id": "experimentation-maturity-audit",
+    "category": "growth",
+    "lessonSlug": "experimentation-program",
+    "lessonTitle": "Building an Experimentation Program",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Grading a Growth Team's Experimentation Maturity",
+    "timeMinutes": 25,
+    "companyId": "nubank",
+    "conceptsCovered": [
+      "Filtering ideas through a structured hypothesis format before backlog entry",
+      "Scoring backlog items with ICE before committing engineering time"
+    ]
+  },
+  {
+    "id": "experimentation-program-charter-build",
+    "category": "growth",
+    "lessonSlug": "experimentation-program",
+    "lessonTitle": "Building an Experimentation Program",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Standing Up an Experimentation Program From Zero",
+    "timeMinutes": 70,
+    "companyId": "grab",
+    "conceptsCovered": [
+      "Writing hypotheses in the if/because format",
+      "Scoring backlog items with ICE before committing engineering time",
+      "Calculating whether a surface has enough traffic to reach significance in four weeks",
+      "Catching sample-ratio mismatch in a weekly review before shipping"
+    ]
+  },
+  {
     "id": "first-principles-thinking-memo-teardown",
     "category": "mental-models",
     "lessonSlug": "first-principles-thinking",
@@ -1379,6 +4498,260 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "bayesian-priors-calibration-drill",
+    "category": "mental-models",
+    "lessonSlug": "bayesian-updating",
+    "lessonTitle": "Bayesian Updating for Marketers",
+    "tier": "mini",
+    "archetype": "reverse-engineer",
+    "mode": "calibration",
+    "title": "Name Your Prior: A Calibration Drill on a Real Test Result",
+    "timeMinutes": 25,
+    "companyId": "klaviyo",
+    "conceptsCovered": [
+      "Naming your prior with a probability",
+      "Weighing evidence strength before updating"
+    ]
+  },
+  {
+    "id": "bayesian-quarterly-test-portfolio-forecast",
+    "category": "mental-models",
+    "lessonSlug": "bayesian-updating",
+    "lessonTitle": "Bayesian Updating for Marketers",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Forecasting Which Q3 Test Wins Will Hold at 10x Traffic",
+    "timeMinutes": 45,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Rating evidence strength by sample size and p-value together",
+      "Distinguishing a plausible prior from a familiar-but-untested assumption",
+      "Forecasting replication before a national rollout"
+    ]
+  },
+  {
+    "id": "goodharts-law-kpi-audit",
+    "category": "mental-models",
+    "lessonSlug": "goodharts-law",
+    "lessonTitle": "Goodhart's Law: When Metrics Become Targets",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The KPI Audit: Spotting Which Dashboard Metrics Are Already Gamed",
+    "timeMinutes": 25,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Identifying a proxy metric detached from the real outcome",
+      "Pairing a target metric with a guardrail metric"
+    ]
+  },
+  {
+    "id": "goodharts-law-mql-quota-calibration",
+    "category": "mental-models",
+    "lessonSlug": "goodharts-law",
+    "lessonTitle": "Goodhart's Law: When Metrics Become Targets",
+    "tier": "mini",
+    "archetype": "reverse-engineer",
+    "mode": "calibration",
+    "title": "Calibrating a Growth Target Before It Gets Gamed",
+    "timeMinutes": 25,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Modeling the gaming risk of a raw volume target",
+      "Designing a paired target that moves closer to the real business outcome"
+    ]
+  },
+  {
+    "id": "deliberate-practice-log-audit",
+    "category": "mental-models",
+    "lessonSlug": "deliberate-practice",
+    "lessonTitle": "Deliberate Practice for Marketers",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Real Practice or Repetition? Auditing a Marketer's Skill-Building Log",
+    "timeMinutes": 25,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "The four required elements of deliberate practice",
+      "Distinguishing regular work experience from deliberate practice"
+    ]
+  },
+  {
+    "id": "deliberate-practice-two-marketers-headtohead",
+    "category": "mental-models",
+    "lessonSlug": "deliberate-practice",
+    "lessonTitle": "Deliberate Practice for Marketers",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "calibration",
+    "title": "Same Two Hours, Different Results: Calibrating Two Practice Approaches",
+    "timeMinutes": 20,
+    "companyId": "grab",
+    "conceptsCovered": [
+      "Effort at the edge of ability",
+      "Two focused hours per week compounding into depth"
+    ]
+  },
+  {
+    "id": "pattern-recognition-signal-audit",
+    "category": "mental-models",
+    "lessonSlug": "pattern-recognition",
+    "lessonTitle": "Pattern Recognition: The Marketer's Meta-Skill",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Sorting Ten Weeks of Signals Into the Four Pattern Types",
+    "timeMinutes": 25,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Classifying signals into the four pattern types before scoring them"
+    ]
+  },
+  {
+    "id": "pattern-recognition-apophenia-calibration",
+    "category": "mental-models",
+    "lessonSlug": "pattern-recognition",
+    "lessonTitle": "Pattern Recognition: The Marketer's Meta-Skill",
+    "tier": "mini",
+    "archetype": "reverse-engineer",
+    "mode": "calibration",
+    "title": "Pattern or Ghost? Calibrating Five Claimed Patterns",
+    "timeMinutes": 20,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "Applying the sample size, mechanism, and falsification guardrails to a claimed pattern"
+    ]
+  },
+  {
+    "id": "inversion-thinking-landing-page-audit",
+    "category": "mental-models",
+    "lessonSlug": "inversion-thinking",
+    "lessonTitle": "Inversion: Solving Problems Backwards",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "What Would Kill This Landing Page? An Inversion Audit",
+    "timeMinutes": 25,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Inverting a design question into its failure-mode checklist"
+    ]
+  },
+  {
+    "id": "inversion-thinking-pre-mortem-forecast",
+    "category": "mental-models",
+    "lessonSlug": "inversion-thinking",
+    "lessonTitle": "Inversion: Solving Problems Backwards",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Running a Full Pre-Mortem on a Real Campaign Brief",
+    "timeMinutes": 50,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "Running the pre-mortem drill on a real campaign brief",
+      "Ranking failure modes by probability times impact"
+    ]
+  },
+  {
+    "id": "systems-thinking-loop-audit-casper",
+    "category": "mental-models",
+    "lessonSlug": "systems-thinking",
+    "lessonTitle": "Systems Thinking for Marketers",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Mapping the Loop: A Systems Audit of a Sleep-Brand Retention Engine",
+    "timeMinutes": 45,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Classifying reinforcing vs. balancing loops",
+      "Locating the single constraint after mapping delays"
+    ]
+  },
+  {
+    "id": "systems-thinking-second-order-reverse-engineer",
+    "category": "mental-models",
+    "lessonSlug": "systems-thinking",
+    "lessonTitle": "Systems Thinking for Marketers",
+    "tier": "core",
+    "archetype": "reverse-engineer",
+    "mode": "diagnostic",
+    "title": "The Delayed Bill: Reverse-Engineering a Discount Campaign's Second-Order Effects",
+    "timeMinutes": 35,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Tracing second-order effects backward from a symptom to its cause",
+      "Recognizing a time delay between a decision and its consequence"
+    ]
+  },
+  {
+    "id": "pareto-content-library-audit",
+    "category": "mental-models",
+    "lessonSlug": "pareto-and-constraints",
+    "lessonTitle": "The Pareto Principle and Theory of Constraints",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Finding the Real 20%: A Content Library Pareto Cut",
+    "timeMinutes": 25,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "Ranking inputs by output contribution to find the productive 20%"
+    ]
+  },
+  {
+    "id": "toc-funnel-constraint-forecast",
+    "category": "mental-models",
+    "lessonSlug": "pareto-and-constraints",
+    "lessonTitle": "The Pareto Principle and Theory of Constraints",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Feed the Constraint or Feed the Top: Forecasting a Funnel Fix",
+    "timeMinutes": 40,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Locating the funnel's constraint stage by conversion gap versus benchmark",
+      "Forecasting throughput gains from fixing the constraint versus feeding the top of the funnel"
+    ]
+  },
+  {
+    "id": "calibration-check-marketing-odds",
+    "category": "mental-models",
+    "lessonSlug": "decision-making-under-uncertainty",
+    "lessonTitle": "Decision-Making Under Uncertainty",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "The Calibration Check: Scoring Your Own Odds",
+    "timeMinutes": 20,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Thinking in bets",
+      "Calibration and the decision journal"
+    ]
+  },
+  {
+    "id": "decision-brief-ev-audit",
+    "category": "mental-models",
+    "lessonSlug": "decision-making-under-uncertainty",
+    "lessonTitle": "Decision-Making Under Uncertainty",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Budget Call: Auditing a Half-Finished Decision Brief",
+    "timeMinutes": 45,
+    "companyId": "snowflake",
+    "conceptsCovered": [
+      "Expected value (EV)",
+      "Reversible vs. irreversible",
+      "The pre-mortem"
+    ]
+  },
+  {
     "id": "paid-ads-101-learning-phase-sim",
     "category": "paid-ads",
     "lessonSlug": "paid-ads-101",
@@ -1413,6 +4786,473 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
       "Ad Group / Ad Set level: one keyword theme per group (The Full Campaign Structure)",
       "Ad level: run at least 2 ads per group to compare (The Full Campaign Structure)",
       "Mistake 2: starting with too broad a target before narrowing"
+    ]
+  },
+  {
+    "id": "google-search-ads-search-terms-audit",
+    "category": "paid-ads",
+    "lessonSlug": "google-search-ads",
+    "lessonTitle": "Google Search Ads",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Negative Keyword Audit: Cleaning Up a Live Search Terms Report",
+    "timeMinutes": 25,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Negative keywords as a budget and Quality Score control",
+      "Reading Quality Score components to diagnose Ad Rank"
+    ]
+  },
+  {
+    "id": "google-search-ads-bidding-strategy-sim",
+    "category": "paid-ads",
+    "lessonSlug": "google-search-ads",
+    "lessonTitle": "Google Search Ads",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The Bidding Strategy Call: Simulating Three Weeks of a New Search Campaign",
+    "timeMinutes": 35,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Why automated bidding needs conversion volume before it works",
+      "Fixing match-type waste before scaling spend",
+      "Setting a realistic Target CPA once enough data exists"
+    ]
+  },
+  {
+    "id": "meta-ads-audience-structure-teardown",
+    "category": "paid-ads",
+    "lessonSlug": "meta-ads",
+    "lessonTitle": "Meta Ads (Facebook & Instagram)",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "diagnostic",
+    "title": "The Audience Size Teardown: Diagnosing an Over-Narrowed Ad Set",
+    "timeMinutes": 20,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "Audience size as a delivery constraint, not just a targeting choice",
+      "Ad set count vs. conversion volume needed for the learning phase"
+    ]
+  },
+  {
+    "id": "meta-ads-learning-phase-sim",
+    "category": "paid-ads",
+    "lessonSlug": "meta-ads",
+    "lessonTitle": "Meta Ads (Facebook & Instagram)",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The Learning Phase Test: Surviving the First 9 Days of a New Ad Set",
+    "timeMinutes": 35,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Why editing an ad set early resets the learning phase",
+      "Creative variation count as a lever the algorithm needs",
+      "Scaling budget without re-triggering the learning phase"
+    ]
+  },
+  {
+    "id": "quality-score-component-diagnostic-audit",
+    "category": "paid-ads",
+    "lessonSlug": "quality-score",
+    "lessonTitle": "Quality Score & Ad Rank",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Component Breakdown: Diagnosing a Below-Average Quality Score Export",
+    "timeMinutes": 20,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Reading the three Quality Score components instead of the composite number",
+      "Matching a Below Average rating to its specific fix"
+    ]
+  },
+  {
+    "id": "quality-score-ad-rank-forecast",
+    "category": "paid-ads",
+    "lessonSlug": "quality-score",
+    "lessonTitle": "Quality Score & Ad Rank",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "The Ad Rank Forecast: Would a Higher Quality Score Beat a Higher Bid?",
+    "timeMinutes": 15,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Ad Rank = Quality Score x Maximum Bid + Other Signals",
+      "Quality Score CPC multiplier tiers"
+    ]
+  },
+  {
+    "id": "bidding-strategy-eligibility-audit",
+    "category": "paid-ads",
+    "lessonSlug": "bidding-strategies",
+    "lessonTitle": "Bidding Strategies",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Eligibility Check: Is This Account Ready for Smart Bidding?",
+    "timeMinutes": 20,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "The 30-50 monthly conversion threshold for smart bidding eligibility",
+      "Portfolio bid strategies pooling low-volume campaigns"
+    ]
+  },
+  {
+    "id": "bidding-strategy-learning-period-simulation",
+    "category": "paid-ads",
+    "lessonSlug": "bidding-strategies",
+    "lessonTitle": "Bidding Strategies",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The Learning Period Gauntlet: Surviving the First 4 Weeks of Smart Bidding",
+    "timeMinutes": 35,
+    "companyId": "instacart",
+    "conceptsCovered": [
+      "The 2-4 week learning period after switching to smart bidding",
+      "Setting the initial target near the historical average, not the goal",
+      "Tightening the target 10-15% every 2 weeks after stabilizing"
+    ]
+  },
+  {
+    "id": "ad-copy-frameworks-headline-teardown",
+    "category": "paid-ads",
+    "lessonSlug": "ad-copy-frameworks",
+    "lessonTitle": "Ad Copy Frameworks",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Framework Teardown: Three Broken Ad Sets",
+    "timeMinutes": 25,
+    "companyId": "yeti",
+    "conceptsCovered": [
+      "PAS, Problem, Agitate, Solution",
+      "AIDA, Attention, Interest, Desire, Action",
+      "The 4 Us, Urgent, Unique, Useful, Ultra-specific"
+    ]
+  },
+  {
+    "id": "ad-copy-frameworks-casper-launch-build",
+    "category": "paid-ads",
+    "lessonSlug": "ad-copy-frameworks",
+    "lessonTitle": "Ad Copy Frameworks",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Launch Copy: Casper's Lightweight Topper",
+    "timeMinutes": 30,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "PAS, Problem, Agitate, Solution",
+      "AIDA, Attention, Interest, Desire, Action",
+      "The 4 Us, Urgent, Unique, Useful, Ultra-specific"
+    ]
+  },
+  {
+    "id": "creative-testing-flawed-plans-teardown",
+    "category": "paid-ads",
+    "lessonSlug": "creative-testing",
+    "lessonTitle": "Creative Testing",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Broken Test: Three MVMT Test Plans",
+    "timeMinutes": 25,
+    "companyId": "mvmt-watches",
+    "conceptsCovered": [
+      "One variable per test",
+      "Statistical significance and test duration",
+      "Testing new creative against an established winner"
+    ]
+  },
+  {
+    "id": "creative-testing-glossybox-results-audit",
+    "category": "paid-ads",
+    "lessonSlug": "creative-testing",
+    "lessonTitle": "Creative Testing",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "calibration",
+    "title": "The Calibration Call: Reading Glossybox's Test Results",
+    "timeMinutes": 45,
+    "companyId": "glossybox",
+    "conceptsCovered": [
+      "Statistical significance and test duration",
+      "Budget required to reach 50-100 conversions per variant",
+      "Testing priority order",
+      "One variable per test"
+    ]
+  },
+  {
+    "id": "retargeting-account-audit",
+    "category": "paid-ads",
+    "lessonSlug": "retargeting",
+    "lessonTitle": "Retargeting",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Segmentation Audit: Finding the Leaks in a Retargeting Account Export",
+    "timeMinutes": 25,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Excluding recent purchasers from retargeting audiences",
+      "Segmenting audiences by intent instead of one generic audience",
+      "Setting a frequency cap to prevent ad fatigue"
+    ]
+  },
+  {
+    "id": "retargeting-launch-week-sim",
+    "category": "paid-ads",
+    "lessonSlug": "retargeting",
+    "lessonTitle": "Retargeting",
+    "tier": "mini",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "Launch Week: Running a Retargeting Campaign's First 10 Days",
+    "timeMinutes": 30,
+    "companyId": "firstcry-brainbees",
+    "conceptsCovered": [
+      "Setting a frequency cap before launch",
+      "Segmenting cart abandoners from homepage visitors",
+      "Excluding recent purchasers from ads"
+    ]
+  },
+  {
+    "id": "pmax-feed-quality-audit",
+    "category": "paid-ads",
+    "lessonSlug": "google-shopping-pmax",
+    "lessonTitle": "Google Shopping & Performance Max",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Feed Audit: Diagnosing Why Half a Catalog Isn't Getting Clicks",
+    "timeMinutes": 30,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Writing product titles that mirror how shoppers search",
+      "Including GTIN or MPN to improve catalog matching",
+      "Using Custom Labels to segment by margin tier"
+    ]
+  },
+  {
+    "id": "pmax-launch-decisions-sim",
+    "category": "paid-ads",
+    "lessonSlug": "google-shopping-pmax",
+    "lessonTitle": "Google Shopping & Performance Max",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The First 30 Days: Launching Performance Max Without Burning the Budget",
+    "timeMinutes": 50,
+    "companyId": "yeti",
+    "conceptsCovered": [
+      "Launching with sufficient conversion history",
+      "Reading learning-period volatility without overreacting",
+      "Setting a realistic ROAS target relative to current performance",
+      "Spotting branded-search cannibalization in Search Terms Insights"
+    ]
+  },
+  {
+    "id": "youtube-ads-quartile-dropoff-audit",
+    "category": "paid-ads",
+    "lessonSlug": "youtube-ads",
+    "lessonTitle": "YouTube Ads",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Quartile Drop-Off Audit: Diagnosing Where Viewers Bail",
+    "timeMinutes": 25,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "View rate as a hook-strength signal",
+      "Quartile data as a mid-video diagnostic"
+    ]
+  },
+  {
+    "id": "youtube-ads-launch-simulation",
+    "category": "paid-ads",
+    "lessonSlug": "youtube-ads",
+    "lessonTitle": "YouTube Ads",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The 21-Day Launch: Simulating a YouTube Ads Rollout Under Budget Pressure",
+    "timeMinutes": 45,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Reading auction benchmarks before judging a young campaign",
+      "Creative refresh timing before fatigue sets in",
+      "Separating cold, warm, and hot audiences with exclusions",
+      "Brand Lift and view-through conversions as a measurement layer beyond clicks"
+    ]
+  },
+  {
+    "id": "linkedin-ads-targeting-stack-audit",
+    "category": "paid-ads",
+    "lessonSlug": "linkedin-ads",
+    "lessonTitle": "LinkedIn Ads",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Precision Audit: Sizing a LinkedIn Targeting Stack Before Launch",
+    "timeMinutes": 25,
+    "companyId": "snowflake",
+    "conceptsCovered": [
+      "Layered targeting filters for precision over reach",
+      "Maximum acceptable CPL using the ACV formula"
+    ]
+  },
+  {
+    "id": "linkedin-ads-abm-launch-simulation",
+    "category": "paid-ads",
+    "lessonSlug": "linkedin-ads",
+    "lessonTitle": "LinkedIn Ads",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The ABM Rollout: Simulating a 6-Week LinkedIn Campaign Under a $10 CPC",
+    "timeMinutes": 45,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Narrow precise audiences over broad reach",
+      "Excluding existing customers and pipeline contacts from paid audiences",
+      "Seasonal cost-per-MQL patterns by quarter",
+      "Maximum acceptable CPL using the ACV formula"
+    ]
+  },
+  {
+    "id": "tiktok-hook-teardown",
+    "category": "paid-ads",
+    "lessonSlug": "tiktok-ads",
+    "lessonTitle": "TikTok Ads",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Hook Rate Autopsy: Diagnosing Why 4 TikTok Ad Openers Would Flop",
+    "timeMinutes": 25,
+    "companyId": "rxbar",
+    "conceptsCovered": [
+      "The Hook: Your Most Important Asset",
+      "What Makes TikTok Ads Different",
+      "Campaign Structure That Works",
+      "Setting Up Spark Ads"
+    ]
+  },
+  {
+    "id": "tiktok-spark-ads-spend-simulation",
+    "category": "paid-ads",
+    "lessonSlug": "tiktok-ads",
+    "lessonTitle": "TikTok Ads",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The 14-Day Spend Simulation: Scaling a Swiggy TikTok Campaign Without Burning Budget",
+    "timeMinutes": 45,
+    "companyId": "swiggy",
+    "conceptsCovered": [
+      "The Hook: Your Most Important Asset",
+      "Campaign Structure That Works",
+      "How the Auction Works"
+    ]
+  },
+  {
+    "id": "programmatic-publisher-report-audit",
+    "category": "paid-ads",
+    "lessonSlug": "programmatic-advertising",
+    "lessonTitle": "Programmatic Advertising",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Placement Audit: Cleaning Up a Programmatic Publisher Report",
+    "timeMinutes": 30,
+    "companyId": "halo-top",
+    "conceptsCovered": [
+      "How It Works",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "programmatic-media-plan-teardown",
+    "category": "paid-ads",
+    "lessonSlug": "programmatic-advertising",
+    "lessonTitle": "Programmatic Advertising",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Set-and-Forget Teardown: Finding the Mistakes in 3 Programmatic Media Plans",
+    "timeMinutes": 25,
+    "companyId": "sea-limited",
+    "conceptsCovered": [
+      "Common Mistakes",
+      "How It Works",
+      "Why It Matters"
+    ]
+  },
+  {
+    "id": "capi-pixel-dedup-audit",
+    "category": "paid-ads",
+    "lessonSlug": "ios-attribution",
+    "lessonTitle": "iOS 14+ & The Attribution Mess",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Duplicate Count: Auditing a CAPI + Pixel Event Log",
+    "timeMinutes": 20,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "CAPI + pixel event deduplication"
+    ]
+  },
+  {
+    "id": "skan-postback-log-teardown",
+    "category": "paid-ads",
+    "lessonSlug": "ios-attribution",
+    "lessonTitle": "iOS 14+ & The Attribution Mess",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: A SKAdNetwork Postback Log for a Mobile App Launch",
+    "timeMinutes": 45,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "SKAdNetwork's 100-150 daily install threshold for usable postback data",
+      "SKAN conversion value schema design"
+    ]
+  },
+  {
+    "id": "givt-traffic-log-audit",
+    "category": "paid-ads",
+    "lessonSlug": "ad-fraud-invalid-traffic",
+    "lessonTitle": "Ad Fraud & Invalid Traffic (IVT) Prevention",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Bot Filter: Auditing a Raw Click Log for GIVT",
+    "timeMinutes": 25,
+    "companyId": "blue-apron",
+    "conceptsCovered": [
+      "GIVT filtering by IP range and user agent"
+    ]
+  },
+  {
+    "id": "mobile-install-fraud-teardown",
+    "category": "paid-ads",
+    "lessonSlug": "ad-fraud-invalid-traffic",
+    "lessonTitle": "Ad Fraud & Invalid Traffic (IVT) Prevention",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: A Mobile Install Report for SDK Spoofing and Click Injection",
+    "timeMinutes": 40,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "SDK spoofing detection",
+      "Click injection detection"
     ]
   },
   {
@@ -1624,6 +5464,264 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "media-pitch-autopsy",
+    "category": "pr-communications",
+    "lessonSlug": "pr-101",
+    "lessonTitle": "PR 101: What Public Relations Actually Is",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Pitch Autopsy: Why Journalists Delete Most PR Emails",
+    "timeMinutes": 35,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "What PR Actually Does",
+      "The Four Core Disciplines"
+    ]
+  },
+  {
+    "id": "product-recall-crisis-simulation",
+    "category": "pr-communications",
+    "lessonSlug": "pr-101",
+    "lessonTitle": "PR 101: What Public Relations Actually Is",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The First 24 Hours: A Product Recall Crisis Simulation",
+    "timeMinutes": 45,
+    "companyId": "honasa-mamaearth",
+    "conceptsCovered": [
+      "Crisis communications",
+      "The Four Core Disciplines"
+    ]
+  },
+  {
+    "id": "earned-owned-paid-audit",
+    "category": "pr-communications",
+    "lessonSlug": "earned-owned-paid-media",
+    "lessonTitle": "Earned, Owned, and Paid Media: The PR Perspective",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Media Mix Audit: Classifying a Real Brand's Coverage",
+    "timeMinutes": 25,
+    "companyId": "delhivery",
+    "conceptsCovered": [
+      "Classifying earned, owned, and paid media",
+      "Share of voice as a PR metric"
+    ]
+  },
+  {
+    "id": "earned-to-owned-paid-amplification-asset",
+    "category": "pr-communications",
+    "lessonSlug": "earned-owned-paid-media",
+    "lessonTitle": "Earned, Owned, and Paid Media: The PR Perspective",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Borrow the Trust: Turning a Press Mention into Owned and Paid Assets",
+    "timeMinutes": 30,
+    "companyId": "thredup",
+    "conceptsCovered": [
+      "Owned media amplifying earned coverage",
+      "Paid media borrowing earned credibility"
+    ]
+  },
+  {
+    "id": "press-release-teardown-honasa",
+    "category": "pr-communications",
+    "lessonSlug": "press-release-writing",
+    "lessonTitle": "Press Release Writing: The Structure That Gets Picked Up",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Buried Lede: Auditing Two Draft Press Releases",
+    "timeMinutes": 25,
+    "companyId": "honasa-mamaearth",
+    "conceptsCovered": [
+      "Inverted-pyramid structure and the buried lede",
+      "Quotable human quotes vs. marketing copy",
+      "Boilerplate and dateline conventions"
+    ]
+  },
+  {
+    "id": "press-release-build-chewy",
+    "category": "pr-communications",
+    "lessonSlug": "press-release-writing",
+    "lessonTitle": "Press Release Writing: The Structure That Gets Picked Up",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Write a Launch-Ready Press Release From a Messy Internal Brief",
+    "timeMinutes": 50,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Inverted-pyramid structure and the buried lede",
+      "Quotable human quotes vs. marketing copy",
+      "Boilerplate and dateline conventions",
+      "Before-and-after editing against a real example"
+    ]
+  },
+  {
+    "id": "press-kit-audit-duolingo",
+    "category": "pr-communications",
+    "lessonSlug": "press-kit-media-kit",
+    "lessonTitle": "Building a Press Kit That Journalists Actually Use",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Audit a Press Kit Before It Goes Live",
+    "timeMinutes": 30,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "What belongs in a press kit",
+      "Why hosting format determines whether journalists actually use a kit"
+    ]
+  },
+  {
+    "id": "press-kit-build-robinhood",
+    "category": "pr-communications",
+    "lessonSlug": "press-kit-media-kit",
+    "lessonTitle": "Building a Press Kit That Journalists Actually Use",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a One-Page Press Kit Outline",
+    "timeMinutes": 30,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "What belongs in a press kit",
+      "Why hosting format determines whether journalists actually use a kit"
+    ]
+  },
+  {
+    "id": "journalist-pitch-response-teardown",
+    "category": "pr-communications",
+    "lessonSlug": "thought-leadership-pr",
+    "lessonTitle": "Executive Visibility and Thought Leadership PR",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Six-Hour Quote: Auditing a Journalist Pitch Response",
+    "timeMinutes": 25,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Becoming the Source Reporters Call"
+    ]
+  },
+  {
+    "id": "executive-proof-points-doc-build",
+    "category": "pr-communications",
+    "lessonSlug": "thought-leadership-pr",
+    "lessonTitle": "Executive Visibility and Thought Leadership PR",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Reusable Executive Bio and Proof-Points Doc",
+    "timeMinutes": 30,
+    "companyId": "nubank",
+    "conceptsCovered": [
+      "Living executive bio and proof-points doc"
+    ]
+  },
+  {
+    "id": "gartner-briefing-request-teardown",
+    "category": "pr-communications",
+    "lessonSlug": "analyst-relations",
+    "lessonTitle": "Analyst Relations: Briefing Gartner, Forrester, and IDC",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The 500-Character Test: Auditing a Gartner Briefing Request",
+    "timeMinutes": 20,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "The Briefing: Your Core Tool"
+    ]
+  },
+  {
+    "id": "analyst-briefing-conversation-simulation",
+    "category": "pr-communications",
+    "lessonSlug": "analyst-relations",
+    "lessonTitle": "Analyst Relations: Briefing Gartner, Forrester, and IDC",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "Running the Briefing: A Live Analyst Conversation Simulation",
+    "timeMinutes": 45,
+    "companyId": "delhivery",
+    "conceptsCovered": [
+      "Open with a 2-minute company snapshot, not a 10-minute origin story",
+      "Ask what the analyst is currently hearing from clients in your category",
+      "A defensive answer is worse than an honest 'we're still deciding'",
+      "Close by asking directly what would move you up in their next report"
+    ]
+  },
+  {
+    "id": "holding-statement-calibration-drill",
+    "category": "pr-communications",
+    "lessonSlug": "crisis-pr-media-response",
+    "lessonTitle": "Crisis PR: The Media-Facing Response Protocol",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "calibration",
+    "title": "Grading Three Holding Statements Against the PRSA Standard",
+    "timeMinutes": 25,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "One spokesperson, one message",
+      "Holding statement structure: acknowledge, act, commit to a time"
+    ]
+  },
+  {
+    "id": "data-breach-crisis-simulation",
+    "category": "pr-communications",
+    "lessonSlug": "crisis-pr-media-response",
+    "lessonTitle": "Crisis PR: The Media-Facing Response Protocol",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The First Six Hours: A Data-Exposure Crisis Simulation",
+    "timeMinutes": 45,
+    "companyId": "delhivery",
+    "conceptsCovered": [
+      "The holding statement under deadline pressure",
+      "The careful non-response versus 'no comment'"
+    ]
+  },
+  {
+    "id": "avE-report-rescoring-audit",
+    "category": "pr-communications",
+    "lessonSlug": "measuring-pr-impact",
+    "lessonTitle": "Measuring PR Impact: Beyond Vanity Metrics",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Rescoring a PR Report That Leads With Ad Value Equivalency",
+    "timeMinutes": 30,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Retiring AVE and raw reach as headline metrics",
+      "Share of voice paired with sentiment"
+    ]
+  },
+  {
+    "id": "vanity-metrics-report-teardown",
+    "category": "pr-communications",
+    "lessonSlug": "measuring-pr-impact",
+    "lessonTitle": "Measuring PR Impact: Beyond Vanity Metrics",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Vanity Metric: A PR Report Teardown",
+    "timeMinutes": 25,
+    "companyId": "hellofresh",
+    "conceptsCovered": [
+      "Retiring AVE and raw reach as headline metrics",
+      "Message pull-through"
+    ]
+  },
+  {
     "id": "pmm-101-pitch-specimen-teardown",
     "category": "product-marketing",
     "lessonSlug": "pmm-101",
@@ -1799,6 +5897,749 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
       "Treating every release as a Tier 3 launch",
       "Assigning tier based on engineering effort, not strategic impact",
       "Treating launch day as the finish line"
+    ]
+  },
+  {
+    "id": "pmm-vs-marketing-role-scope-audit",
+    "category": "product-marketing",
+    "lessonSlug": "pmm-vs-marketing",
+    "lessonTitle": "PMM vs Marketing vs Product",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Whose Job Is This? Auditing a Messy Sprint Board for PMM vs Marketing Ownership",
+    "timeMinutes": 25,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Sorting tasks by primary owner using the goal/output/audience dimensions",
+      "Distinguishing demand generation from positioning and enablement work"
+    ]
+  },
+  {
+    "id": "pmm-vs-marketing-positioning-statement-build",
+    "category": "product-marketing",
+    "lessonSlug": "pmm-vs-marketing",
+    "lessonTitle": "PMM vs Marketing vs Product",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Draft a One-Page Positioning Statement Using the PMM Playbook",
+    "timeMinutes": 30,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Answering the four positioning questions before writing any external copy",
+      "Building a message hierarchy for two different audiences from one positioning doc"
+    ]
+  },
+  {
+    "id": "competitive-intel-battlecard-audit",
+    "category": "product-marketing",
+    "lessonSlug": "competitive-intel",
+    "lessonTitle": "Competitive Intelligence",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Stale Battlecard: Auditing a Competitor Brief Against Fresh Signals",
+    "timeMinutes": 30,
+    "companyId": "snowflake",
+    "conceptsCovered": [
+      "Tagging signals by type and confidence before acting on them",
+      "Routing insight to the moment it matters most in a live deal"
+    ]
+  },
+  {
+    "id": "competitive-intel-battlecard-build",
+    "category": "product-marketing",
+    "lessonSlug": "competitive-intel",
+    "lessonTitle": "Competitive Intelligence",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Battlecard From a Raw Competitive Signal Dataset",
+    "timeMinutes": 50,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Sorting raw signals into the four collection source categories",
+      "Answering what changed, why, and what it means during analysis",
+      "Structuring a battlecard for the moment a rep opens it mid-call"
+    ]
+  },
+  {
+    "id": "battlecard-teardown-casper-sleep",
+    "category": "product-marketing",
+    "lessonSlug": "battlecard-design-adoption",
+    "lessonTitle": "Battlecard Design & Sales Rep Adoption",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Find the Defects: Tearing Down a Live-Call Battlecard",
+    "timeMinutes": 25,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Landmine question placement",
+      "Talk tracks written as dialogue, not description",
+      "Visible last-updated date for pricing trust"
+    ]
+  },
+  {
+    "id": "battlecard-build-allbirds-landmine",
+    "category": "product-marketing",
+    "lessonSlug": "battlecard-design-adoption",
+    "lessonTitle": "Battlecard Design & Sales Rep Adoption",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Card: Landmine Question and Talk Track for a Live Deal",
+    "timeMinutes": 30,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "Landmine question that surfaces a known weakness before the competitor can hide it",
+      "Visible last-updated date builds rep trust"
+    ]
+  },
+  {
+    "id": "enablement-audit-squarespace-kit",
+    "category": "product-marketing",
+    "lessonSlug": "sales-enablement",
+    "lessonTitle": "Sales Enablement",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Audit the Kit: Does This Bundle Survive Discover-Create-Deliver-Measure?",
+    "timeMinutes": 30,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "Discovery before creation prevents assumption-built content",
+      "Delivery method determines whether content gets used"
+    ]
+  },
+  {
+    "id": "enablement-build-casper-sleep-launch-kit",
+    "category": "product-marketing",
+    "lessonSlug": "sales-enablement",
+    "lessonTitle": "Sales Enablement",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Launch Kit: Battlecard, Deck Outline, and Objection Guide",
+    "timeMinutes": 70,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Building assets in order of impact, starting with what unblocks the most deals",
+      "Sales deck follows a consistent problem-solution-proof-next-step arc",
+      "Objection-handling guides built from call recordings, not guesswork",
+      "Tracking content usage rate after launch"
+    ]
+  },
+  {
+    "id": "pricing-packaging-value-metric-tier-build",
+    "category": "product-marketing",
+    "lessonSlug": "pricing-packaging",
+    "lessonTitle": "Pricing and Packaging",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Value-Metric-Based Tier Structure",
+    "timeMinutes": 30,
+    "companyId": "mailchimp",
+    "conceptsCovered": [
+      "Choosing a value metric that scales with customer success",
+      "Designing a three-tier architecture with upgrade triggers"
+    ]
+  },
+  {
+    "id": "pricing-packaging-tier-sheet-audit",
+    "category": "product-marketing",
+    "lessonSlug": "pricing-packaging",
+    "lessonTitle": "Pricing and Packaging",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Packaging Review: Auditing a Draft Pricing Sheet for the Six Common Mistakes",
+    "timeMinutes": 45,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Diagnosing cost-plus vs value-based pricing",
+      "Evaluating billing model fit against customer usage variance",
+      "Diagnosing feature-gating of features customers need to succeed"
+    ]
+  },
+  {
+    "id": "customer-interviews-leading-question-calibration",
+    "category": "product-marketing",
+    "lessonSlug": "customer-interviews",
+    "lessonTitle": "Customer Interviews",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "calibration",
+    "title": "Calibrating a Win-Loss Interview Script for Leading Questions",
+    "timeMinutes": 25,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Distinguishing open questions from leading questions in a research script"
+    ]
+  },
+  {
+    "id": "customer-interviews-loss-signal-reverse-engineer",
+    "category": "product-marketing",
+    "lessonSlug": "customer-interviews",
+    "lessonTitle": "Customer Interviews",
+    "tier": "mini",
+    "archetype": "reverse-engineer",
+    "mode": "diagnostic",
+    "title": "The Polite Answer vs. the Real Reason: Reverse-Engineering a Loss Interview",
+    "timeMinutes": 30,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Reverse-engineering the real objection from stated vs. revealed reasons"
+    ]
+  },
+  {
+    "id": "win-loss-loss-reason-audit",
+    "category": "product-marketing",
+    "lessonSlug": "win-loss-analysis",
+    "lessonTitle": "Win/Loss Analysis",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Loss Reason Postmortem: Auditing a Win-Loss Interview Dataset",
+    "timeMinutes": 45,
+    "companyId": "grab",
+    "conceptsCovered": [
+      "Using CRM data as a substitute for buyer interviews",
+      "Quantifying themes across interviews",
+      "Segmenting findings by competitor"
+    ]
+  },
+  {
+    "id": "win-loss-findings-brief-build",
+    "category": "product-marketing",
+    "lessonSlug": "win-loss-analysis",
+    "lessonTitle": "Win/Loss Analysis",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The Findings Brief: Turning Interview Themes into a Stakeholder Action Plan",
+    "timeMinutes": 40,
+    "companyId": "adyen",
+    "conceptsCovered": [
+      "Building a findings brief for each stakeholder",
+      "Closing the loop by tracking action impact"
+    ]
+  },
+  {
+    "id": "ar-eligibility-readiness-audit",
+    "category": "product-marketing",
+    "lessonSlug": "analyst-relations",
+    "lessonTitle": "Analyst Relations",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Eligibility Check: Auditing Analyst Evaluation Readiness",
+    "timeMinutes": 20,
+    "companyId": "nubank",
+    "conceptsCovered": [
+      "Gartner Magic Quadrant eligibility thresholds"
+    ]
+  },
+  {
+    "id": "ar-briefing-calendar-build",
+    "category": "product-marketing",
+    "lessonSlug": "analyst-relations",
+    "lessonTitle": "Analyst Relations",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The Briefing Calendar: Building a Six-Month Analyst Relations Plan",
+    "timeMinutes": 50,
+    "companyId": "grab",
+    "conceptsCovered": [
+      "Mapping the analyst landscape into tiers",
+      "Booking and preparing a 20-minute analyst briefing",
+      "Maintaining a regular briefing cadence ahead of evaluation windows"
+    ]
+  },
+  {
+    "id": "category-pov-builder-coinbase",
+    "category": "product-marketing",
+    "lessonSlug": "category-creation",
+    "lessonTitle": "Category Creation",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Name the Category: Drafting a One-Page Point of View",
+    "timeMinutes": 25,
+    "companyId": "coinbase",
+    "conceptsCovered": [
+      "Passing the three-part category name test"
+    ]
+  },
+  {
+    "id": "category-manifesto-ai-critique-robinhood",
+    "category": "product-marketing",
+    "lessonSlug": "category-creation",
+    "lessonTitle": "Category Creation",
+    "tier": "core",
+    "archetype": "ai-critique",
+    "mode": "diagnostic",
+    "title": "The Manifesto Isn't Working: AI-Critiquing a Weak Category POV",
+    "timeMinutes": 45,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "Distinguishing category creation from rebranding",
+      "Naming the category after your product as a common mistake"
+    ]
+  },
+  {
+    "id": "persuasion-cue-live-page-audit",
+    "category": "psychology",
+    "lessonSlug": "psychology-101",
+    "lessonTitle": "Why Psychology Is the Real Marketing",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Persuasion Cue Audit: Diagnosing a Live Product Page",
+    "timeMinutes": 45,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "Identifying which persuasion principle a page element uses",
+      "Auditing whether urgency and scarcity claims are honest"
+    ]
+  },
+  {
+    "id": "dark-pattern-or-honest-nudge-teardown",
+    "category": "psychology",
+    "lessonSlug": "psychology-101",
+    "lessonTitle": "Why Psychology Is the Real Marketing",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Dark Pattern or Honest Nudge? A Landing Page Teardown",
+    "timeMinutes": 35,
+    "companyId": "rent-the-runway",
+    "conceptsCovered": [
+      "Distinguishing honest urgency from fabricated urgency",
+      "Recognizing confirm-shaming as a dark pattern",
+      "Recognizing legitimate social proof"
+    ]
+  },
+  {
+    "id": "purchase-classification-calibration",
+    "category": "psychology",
+    "lessonSlug": "system-1-system-2",
+    "lessonTitle": "System 1 and System 2 Thinking",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "calibration",
+    "title": "System 1 or System 2? Calibrating Your Purchase-Classification Judgment",
+    "timeMinutes": 25,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Matching persuasion tactic to system dominance by price and risk"
+    ]
+  },
+  {
+    "id": "cognitive-load-checkout-checklist-build",
+    "category": "psychology",
+    "lessonSlug": "system-1-system-2",
+    "lessonTitle": "System 1 and System 2 Thinking",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Cognitive-Load Checkout Checklist",
+    "timeMinutes": 30,
+    "companyId": "hellofresh",
+    "conceptsCovered": [
+      "Reducing cognitive load at the moment of action"
+    ]
+  },
+  {
+    "id": "maslow-tier-landing-page-audit",
+    "category": "psychology",
+    "lessonSlug": "maslow-marketing",
+    "lessonTitle": "Maslow's Hierarchy for Marketers",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Which Need Are You Actually Selling? A Homepage Tier Audit",
+    "timeMinutes": 25,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Diagnosing which Maslow tier the customer is actually in",
+      "Matching channel to tier"
+    ]
+  },
+  {
+    "id": "maslow-fear-marketing-teardown",
+    "category": "psychology",
+    "lessonSlug": "maslow-marketing",
+    "lessonTitle": "Maslow's Hierarchy for Marketers",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Manufactured Fear: A Maslow Tier-Mixing Teardown",
+    "timeMinutes": 45,
+    "companyId": "honasa-mamaearth",
+    "conceptsCovered": [
+      "Manufacturing lower-tier fear to sell higher-tier products",
+      "Stacking more than one tier in a single asset",
+      "Matching tier to the customer's actual moment"
+    ]
+  },
+  {
+    "id": "emotion-first-headline-audit",
+    "category": "psychology",
+    "lessonSlug": "emotion-vs-logic",
+    "lessonTitle": "Emotion First, Logic Second",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Feeling or Feature? Auditing Your Own Headlines for System 1",
+    "timeMinutes": 20,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Leading the headline with a feeling instead of a feature",
+      "Testing the post-purchase rationalization"
+    ]
+  },
+  {
+    "id": "dark-pattern-urgency-teardown",
+    "category": "psychology",
+    "lessonSlug": "emotion-vs-logic",
+    "lessonTitle": "Emotion First, Logic Second",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Real Scarcity or Manufactured Urgency? A Teardown",
+    "timeMinutes": 25,
+    "companyId": "thredup",
+    "conceptsCovered": [
+      "Manufacturing feelings the product cannot deliver on",
+      "Fake scarcity and countdown timers",
+      "The one-week-later honesty test"
+    ]
+  },
+  {
+    "id": "cognitive-bias-checkout-teardown",
+    "category": "psychology",
+    "lessonSlug": "cognitive-biases",
+    "lessonTitle": "Cognitive Biases Every Marketer Uses",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Real Cue or Dark Pattern? A Checkout Page Teardown",
+    "timeMinutes": 25,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "3. Social Proof",
+      "1. Anchoring Bias",
+      "How to Apply This Ethically"
+    ]
+  },
+  {
+    "id": "cognitive-bias-own-funnel-audit",
+    "category": "psychology",
+    "lessonSlug": "cognitive-biases",
+    "lessonTitle": "Cognitive Biases Every Marketer Uses",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Audit Your Own Funnel for Real vs. Fake Bias Cues",
+    "timeMinutes": 50,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Anchoring Bias Verification",
+      "Scarcity and FOMO Verification",
+      "Social Proof Verification"
+    ]
+  },
+  {
+    "id": "cialdini-reciprocity-social-proof-audit",
+    "category": "psychology",
+    "lessonSlug": "cialdini-6-principles",
+    "lessonTitle": "Cialdini's 6 Principles of Influence",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Which of the Six Are You Actually Using?",
+    "timeMinutes": 25,
+    "companyId": "honasa-mamaearth",
+    "conceptsCovered": [
+      "Reciprocity",
+      "Social Proof and Authority"
+    ]
+  },
+  {
+    "id": "cialdini-signup-flow-teardown",
+    "category": "psychology",
+    "lessonSlug": "cialdini-6-principles",
+    "lessonTitle": "Cialdini's 6 Principles of Influence",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Six Principles or Six Dark Patterns? A Signup Flow Teardown",
+    "timeMinutes": 25,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "How to Apply It Ethically",
+      "Where It Backfires / Ethical Limits"
+    ]
+  },
+  {
+    "id": "anchor-order-pricing-tier-audit",
+    "category": "psychology",
+    "lessonSlug": "anchoring-framing",
+    "lessonTitle": "Anchoring and Framing",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Anchor Order Audit: Does Your Pricing Page Anchor Itself?",
+    "timeMinutes": 20,
+    "companyId": "rent-the-runway",
+    "conceptsCovered": [
+      "Anchor order determines whether a price feels generous or greedy"
+    ]
+  },
+  {
+    "id": "pricing-page-anchor-teardown",
+    "category": "psychology",
+    "lessonSlug": "anchoring-framing",
+    "lessonTitle": "Anchoring and Framing",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Fake Anchor Teardown: Spotting Manufactured 'Was' Prices",
+    "timeMinutes": 45,
+    "companyId": "dollar-shave-club",
+    "conceptsCovered": [
+      "Distinguishing real anchors from fabricated 'was' prices",
+      "Framing that hides material information"
+    ]
+  },
+  {
+    "id": "duolingo-streak-loss-audit",
+    "category": "psychology",
+    "lessonSlug": "loss-aversion",
+    "lessonTitle": "Loss Aversion",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Streak Freeze Audit: Reading Duolingo's Loss Aversion Playbook",
+    "timeMinutes": 20,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Reference point shift making inaction feel like a loss"
+    ]
+  },
+  {
+    "id": "checkout-scarcity-teardown",
+    "category": "psychology",
+    "lessonSlug": "loss-aversion",
+    "lessonTitle": "Loss Aversion",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Scarcity Checkout Teardown: Real Cue or Dark Pattern?",
+    "timeMinutes": 25,
+    "companyId": "thredup",
+    "conceptsCovered": [
+      "Real constraints vs manufactured urgency in scarcity messaging"
+    ]
+  },
+  {
+    "id": "scarcity-claim-consistency-audit",
+    "category": "psychology",
+    "lessonSlug": "scarcity-urgency",
+    "lessonTitle": "Scarcity, Urgency, and FOMO",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Real or Fake? Auditing a Live Scarcity Claim",
+    "timeMinutes": 25,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Distinguishing real scarcity from fake scarcity",
+      "Testing deadline consistency across sessions"
+    ]
+  },
+  {
+    "id": "flash-sale-scarcity-rollout-simulation",
+    "category": "psychology",
+    "lessonSlug": "scarcity-urgency",
+    "lessonTitle": "Scarcity, Urgency, and FOMO",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The Countdown Timer Decision: Launching a Flash Sale Without Getting Fined",
+    "timeMinutes": 45,
+    "companyId": "hellofresh",
+    "conceptsCovered": [
+      "Anchoring urgency to a real event",
+      "Category scarcity vs fake-count scarcity",
+      "Testing the full funnel, not just conversion"
+    ]
+  },
+  {
+    "id": "review-widget-placement-audit",
+    "category": "psychology",
+    "lessonSlug": "social-proof-psychology",
+    "lessonTitle": "The Psychology of Social Proof",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Volume and Recency: Auditing a Real Product Page's Review Widget",
+    "timeMinutes": 20,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Showing volume, not just stars",
+      "Using specific, recent proof"
+    ]
+  },
+  {
+    "id": "testimonials-section-teardown",
+    "category": "psychology",
+    "lessonSlug": "social-proof-psychology",
+    "lessonTitle": "The Psychology of Social Proof",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Fake: Teardown of a Testimonials Section",
+    "timeMinutes": 25,
+    "companyId": "rent-the-runway",
+    "conceptsCovered": [
+      "Perfect ratings read as suspicious",
+      "Vague testimonials lack the specificity that builds trust"
+    ]
+  },
+  {
+    "id": "habit-loops-self-audit-diagnostic",
+    "category": "psychology",
+    "lessonSlug": "habit-loops",
+    "lessonTitle": "Habit Loops: Cue, Routine, Reward",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Loop Audit: Diagnosing Duolingo's Cue-Routine-Reward Mechanics",
+    "timeMinutes": 25,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "The cue-routine-reward loop",
+      "Variable reward strength"
+    ]
+  },
+  {
+    "id": "chewy-autoship-habit-loop-simulation",
+    "category": "psychology",
+    "lessonSlug": "habit-loops",
+    "lessonTitle": "Habit Loops: Cue, Routine, Reward",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "Designing Chewy's Autoship Habit Loop: A 90-Day Cancellation-Prevention Rollout",
+    "timeMinutes": 45,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Cue design and reliability",
+      "Sludge vs nudge ethical line",
+      "Variable reward reinforcement"
+    ]
+  },
+  {
+    "id": "warby-parker-checkout-nudge-audit",
+    "category": "psychology",
+    "lessonSlug": "behavioral-economics",
+    "lessonTitle": "Behavioral Economics for Marketers",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Nudge or Sludge? Auditing Warby Parker's Real Checkout Flow",
+    "timeMinutes": 30,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Identifying defaults, loss framing, anchoring, and social proof",
+      "Distinguishing an ethical nudge from sludge"
+    ]
+  },
+  {
+    "id": "thredup-nudge-sludge-teardown",
+    "category": "psychology",
+    "lessonSlug": "behavioral-economics",
+    "lessonTitle": "Behavioral Economics for Marketers",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Nudge or Sludge? Tearing Down a Resale Subscription's Signup and Cancellation Flow",
+    "timeMinutes": 40,
+    "companyId": "thredup",
+    "conceptsCovered": [
+      "How It Actually Works",
+      "Where It Backfires / Ethical Limits"
+    ]
+  },
+  {
+    "id": "chewy-autoship-default-audit",
+    "category": "psychology",
+    "lessonSlug": "choice-architecture",
+    "lessonTitle": "Choice Architecture and Nudges",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Default Audit: Is a Subscription Checkout Ethical or a Dark Pattern?",
+    "timeMinutes": 25,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Default option classification",
+      "The face-to-face ethical test"
+    ]
+  },
+  {
+    "id": "rent-the-runway-cancellation-teardown",
+    "category": "psychology",
+    "lessonSlug": "choice-architecture",
+    "lessonTitle": "Choice Architecture and Nudges",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: Find the Dark Patterns in a Subscription Cancellation Flow",
+    "timeMinutes": 45,
+    "companyId": "rent-the-runway",
+    "conceptsCovered": [
+      "Confirmshaming and hidden CTAs",
+      "Asymmetric friction between signup and cancel",
+      "Undisclosed material terms"
+    ]
+  },
+  {
+    "id": "mamaearth-journey-peak-end-map",
+    "category": "psychology",
+    "lessonSlug": "peak-end-rule",
+    "lessonTitle": "The Peak-End Rule",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Mapping the Real Peak and End of a Post-Purchase Journey",
+    "timeMinutes": 30,
+    "companyId": "honasa-mamaearth",
+    "conceptsCovered": [
+      "Peak identification in a real journey",
+      "Engineering the end deliberately"
+    ]
+  },
+  {
+    "id": "swiggy-cx-budget-simulation",
+    "category": "psychology",
+    "lessonSlug": "peak-end-rule",
+    "lessonTitle": "The Peak-End Rule",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The CX Redesign Budget: Fix the Middle, the Peak, or the End?",
+    "timeMinutes": 50,
+    "companyId": "swiggy",
+    "conceptsCovered": [
+      "Duration neglect",
+      "Engineering the end",
+      "The remembered experience over ticket volume"
     ]
   },
   {
@@ -2890,6 +7731,472 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
       "Getting Your Brand Mentioned in High-Ranking Threads",
       "The AI Search Multiplier",
       "Beyond Reddit: Which Forums Actually Move the Needle"
+    ]
+  },
+  {
+    "id": "content-decay-search-console-triage",
+    "category": "seo",
+    "lessonSlug": "content-decay-refresh",
+    "lessonTitle": "Content Decay: Refreshing and Reclaiming Lost Rankings",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Triage Call: Auditing a Search Console Decay Report",
+    "timeMinutes": 30,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Classifying decay patterns from Search Console deltas",
+      "Prioritizing by traffic value, decay severity, and competitive gap size"
+    ]
+  },
+  {
+    "id": "content-decay-refresh-brief-rewrite",
+    "category": "seo",
+    "lessonSlug": "content-decay-refresh",
+    "lessonTitle": "Content Decay: Refreshing and Reclaiming Lost Rankings",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The Real Refresh: Rewriting a Decayed Page's Intro and Closing Its Gaps",
+    "timeMinutes": 50,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Diagnosing the decay pattern before choosing a fix",
+      "Rewriting the intro to answer the query directly, in plain language",
+      "Replacing stale stats and closing competitor content gaps"
+    ]
+  },
+  {
+    "id": "instagram-content-plan-teardown",
+    "category": "social",
+    "lessonSlug": "instagram",
+    "lessonTitle": "Instagram Playbook",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Format Fail: Teardown an Instagram Content Plan Before It Ships",
+    "timeMinutes": 25,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "Reels: Format for Reach",
+      "Carousels: Format for Trust and Saves",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "instagram-format-calendar-build",
+    "category": "social",
+    "lessonSlug": "instagram",
+    "lessonTitle": "Instagram Playbook",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a 2-Week, Three-Format Instagram Calendar",
+    "timeMinutes": 35,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "How It Works: The Three-Format Playbook",
+      "Reels: Format for Reach",
+      "Carousels: Format for Trust and Saves",
+      "Stories: Format for the Existing Audience"
+    ]
+  },
+  {
+    "id": "social-strategy-basics-platform-fit-audit",
+    "category": "social",
+    "lessonSlug": "social-strategy-basics",
+    "lessonTitle": "Social Strategy Basics",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Platform-Fit Audit: Stress-Testing a Client's Channel Mix",
+    "timeMinutes": 35,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Filtering platforms by audience match, not raw reach",
+      "Assigning one goal per channel",
+      "Confusing reach with relevance"
+    ]
+  },
+  {
+    "id": "social-strategy-basics-new-market-strategy-build",
+    "category": "social",
+    "lessonSlug": "social-strategy-basics",
+    "lessonTitle": "Social Strategy Basics",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Ship a One-Page Social Strategy for a New Market Entry",
+    "timeMinutes": 25,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Defining one specific audience",
+      "Mapping audience to platform demographics",
+      "Setting a sustainable posting cadence"
+    ]
+  },
+  {
+    "id": "linkedin-post-teardown",
+    "category": "social",
+    "lessonSlug": "linkedin",
+    "lessonTitle": "LinkedIn Playbook",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: Diagnose Why 5 LinkedIn Posts Underperformed",
+    "timeMinutes": 30,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "External links in the post body cut reach",
+      "Engagement velocity in the first 60 minutes",
+      "Hashtag spam suppresses reach",
+      "Asking for shares triggers engagement-bait suppression"
+    ]
+  },
+  {
+    "id": "linkedin-lead-post-build",
+    "category": "social",
+    "lessonSlug": "linkedin",
+    "lessonTitle": "LinkedIn Playbook",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Lead-Generating LinkedIn Post Using the Posting Workflow",
+    "timeMinutes": 40,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Topic selection using the problem-proof-prompt framework",
+      "Writing a hook that earns the See more click",
+      "Posting without links in the body",
+      "Seeding engagement in the first 60 minutes"
+    ]
+  },
+  {
+    "id": "tiktok-content-calendar-teardown",
+    "category": "social",
+    "lessonSlug": "tiktok",
+    "lessonTitle": "TikTok Playbook",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Reasons This Content Calendar Won't Get Distribution",
+    "timeMinutes": 25,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Shoot Native, Not 'TV-on-Phone'",
+      "Write for Search (TikTok SEO)",
+      "Ride Sounds Inside the Rising Window",
+      "Post 3-5 Times Per Week, Not Daily",
+      "Optimize the First 15 Minutes After Posting"
+    ]
+  },
+  {
+    "id": "tiktok-launch-content-plan-build",
+    "category": "social",
+    "lessonSlug": "tiktok",
+    "lessonTitle": "TikTok Playbook",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a 2-Week TikTok Launch Plan for a Real Product Drop",
+    "timeMinutes": 35,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Engineer the First 3 Seconds",
+      "Write for Search (TikTok SEO)",
+      "Post 3-5 Times Per Week, Not Daily"
+    ]
+  },
+  {
+    "id": "youtube-video-test-window-audit",
+    "category": "social",
+    "lessonSlug": "youtube",
+    "lessonTitle": "YouTube Playbook",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Audit Why a Video Failed Its 24-48 Hour Algorithm Test",
+    "timeMinutes": 30,
+    "companyId": "glossybox",
+    "conceptsCovered": [
+      "Engineer the first 30 seconds",
+      "Frontload keywords in your title"
+    ]
+  },
+  {
+    "id": "youtube-packaging-rebuild",
+    "category": "social",
+    "lessonSlug": "youtube",
+    "lessonTitle": "YouTube Playbook",
+    "tier": "core",
+    "archetype": "rebuild",
+    "mode": "build",
+    "title": "Rebuild a Video's Full Search Package: Title, Thumbnail Brief, and Description",
+    "timeMinutes": 50,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Lead with search demand",
+      "Frontload keywords in your title",
+      "Treat thumbnail like a paid ad creative",
+      "Write descriptions like landing pages"
+    ]
+  },
+  {
+    "id": "community-power-member-audit",
+    "category": "social",
+    "lessonSlug": "community-building",
+    "lessonTitle": "Community Building",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The 14/70 Power-Member Audit",
+    "timeMinutes": 30,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Identifying power members using the 14/70 rule"
+    ]
+  },
+  {
+    "id": "community-90-day-launch-plan",
+    "category": "social",
+    "lessonSlug": "community-building",
+    "lessonTitle": "Community Building",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a 90-Day Community Launch Plan",
+    "timeMinutes": 60,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "Choosing a platform based on audience fit, not trend",
+      "Recruiting founding members before opening to the public",
+      "Designing a high-energy launch event",
+      "Building a repeating content calendar"
+    ]
+  },
+  {
+    "id": "influencer-fit-vetting-audit",
+    "category": "social",
+    "lessonSlug": "influencer-marketing",
+    "lessonTitle": "Influencer & Creator Marketing",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Vetting a Creator Shortlist for Brand Fit",
+    "timeMinutes": 35,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Vetting creators by fit signals instead of follower count"
+    ]
+  },
+  {
+    "id": "influencer-tier-budget-and-contract-build",
+    "category": "social",
+    "lessonSlug": "influencer-marketing",
+    "lessonTitle": "Influencer & Creator Marketing",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Tiered Creator Budget and Whitelisting Contract Checklist",
+    "timeMinutes": 50,
+    "companyId": "swiggy",
+    "conceptsCovered": [
+      "Allocating budget across creator tiers before outreach",
+      "Structuring a contract that protects ROI",
+      "Whitelisting top-performing posts"
+    ]
+  },
+  {
+    "id": "social-listening-mentions-export-audit",
+    "category": "social",
+    "lessonSlug": "social-listening",
+    "lessonTitle": "Social Listening",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Enrich or Ignore: Auditing a Raw Mentions Export",
+    "timeMinutes": 25,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "Sentiment and topic enrichment",
+      "Routing insights to a named owner"
+    ]
+  },
+  {
+    "id": "social-listening-query-routing-build",
+    "category": "social",
+    "lessonSlug": "social-listening",
+    "lessonTitle": "Social Listening",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Listening Program: Query Set, Routing Matrix, Review Cadence",
+    "timeMinutes": 50,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Boolean query design by use case",
+      "Routing matrix with named owners",
+      "Review cadence with a required decision"
+    ]
+  },
+  {
+    "id": "content-calendar-70-20-10-build",
+    "category": "social",
+    "lessonSlug": "content-calendar",
+    "lessonTitle": "Building a Content Calendar",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a 4-Week Calendar Shell: Pillars, Then the 70/20/10 Split",
+    "timeMinutes": 30,
+    "companyId": "klaviyo",
+    "conceptsCovered": [
+      "Content pillars",
+      "70/20/10 content split"
+    ]
+  },
+  {
+    "id": "content-calendar-execution-audit",
+    "category": "social",
+    "lessonSlug": "content-calendar",
+    "lessonTitle": "Building a Content Calendar",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Why the Calendar Keeps Failing: Auditing a Team's Real Spreadsheet",
+    "timeMinutes": 25,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "Scheduling versus manual posting",
+      "Reserved reactive slots",
+      "Replying to comments after posting"
+    ]
+  },
+  {
+    "id": "suite-or-stack-client-scorecard",
+    "category": "tools",
+    "lessonSlug": "all-in-one-tools",
+    "lessonTitle": "All-in-One Marketing Platforms",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "Suite or Stack? The Freelancer Client Call",
+    "timeMinutes": 25,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "Weighing suite vs best-of-breed by data gravity and ops maturity"
+    ]
+  },
+  {
+    "id": "three-year-tco-forecast",
+    "category": "tools",
+    "lessonSlug": "all-in-one-tools",
+    "lessonTitle": "All-in-One Marketing Platforms",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "The Three-Year Bill: Modeling Suite TCO Before the Contract Is Signed",
+    "timeMinutes": 50,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Modeling 3-year TCO across license, implementation, and headcount",
+      "Auditing feature usage before buying an Enterprise tier"
+    ]
+  },
+  {
+    "id": "canva-figma-task-router-headtohead",
+    "category": "tools",
+    "lessonSlug": "canva-figma",
+    "lessonTitle": "Canva vs Figma for Marketers",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "Which Tool Wins: Routing a Week's Task List",
+    "timeMinutes": 25,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Developer handoff as the primary routing question",
+      "Time-sensitive/template-driven vs. brand-precision-critical"
+    ]
+  },
+  {
+    "id": "canva-figma-brand-kit-drift-audit",
+    "category": "tools",
+    "lessonSlug": "canva-figma",
+    "lessonTitle": "Canva vs Figma for Marketers",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Brand Drift Audit: Catching the Off-Brand Files",
+    "timeMinutes": 25,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Brand Kit as the single source of truth",
+      "Maintaining separate brand kits across two tools without a sync rule"
+    ]
+  },
+  {
+    "id": "ai-tools-stack-forecast",
+    "category": "tools",
+    "lessonSlug": "ai-tools-overview",
+    "lessonTitle": "AI Marketing Tools Overview",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Building a 90-Day AI Tool Adoption Plan",
+    "timeMinutes": 30,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Five-category framework for mapping tools to jobs",
+      "Start with one writing tool and one automation tool before expanding"
+    ]
+  },
+  {
+    "id": "ai-tools-governance-audit",
+    "category": "tools",
+    "lessonSlug": "ai-tools-overview",
+    "lessonTitle": "AI Marketing Tools Overview",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Governance Gap: Auditing a Team's AI Usage",
+    "timeMinutes": 25,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Data residency and PII exposure in consumer AI accounts",
+      "Skipping the human review layer before publishing AI output"
+    ]
+  },
+  {
+    "id": "hootsuite-buffer-team-tool-selection",
+    "category": "tools",
+    "lessonSlug": "hootsuite-buffer",
+    "lessonTitle": "Hootsuite vs Buffer",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "The Tool Call: Choosing a Scheduler for a Growing Social Team",
+    "timeMinutes": 25,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Per-user vs per-channel pricing model",
+      "Matching feature checklist to team workflow needs"
+    ]
+  },
+  {
+    "id": "buffer-hootsuite-scaling-forecast",
+    "category": "tools",
+    "lessonSlug": "hootsuite-buffer",
+    "lessonTitle": "Hootsuite vs Buffer",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "The Scaling Forecast: When Nykaa Outgrows Buffer",
+    "timeMinutes": 20,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "Volume discount thresholds in per-channel pricing",
+      "Feature growth trigger: paid ad management"
     ]
   }
 ];

@@ -16,6 +16,18 @@ export const lessonMeta = {
 
 ## The Peeking Problem, Why 'Stop When Significant' Is Wrong
 
+<InAction
+  concept="Peeking / Optional Stopping"
+  companyName="RevenueCat"
+  where="RevenueCat's internal experimentation platform, used to evaluate A/B tests for subscription app monetization"
+  why="The team needed to know whether the common assumption, that a Bayesian test can be checked repeatedly and stopped the moment its posterior probability clears a threshold, actually holds up"
+  what="They ran a simulation study peeking at test results at fixed intervals and stopping on the first 'significant' read, then measured the true false-positive rate against the nominal 5%"
+  benefit="Peeking every 100 observations pushed the false positive rate to 80%, a 16x inflation over the intended 5% threshold, showing that stop-on-first-significance is unsafe even under Bayesian methods"
+  timeframe="Published October 2025"
+  date="2025-10-30"
+  source="https://www.alexmolas.com/2025/10/30/bayesian-ab-test-peeking.html"
+/>
+
 Peeking means checking your test dashboard mid-flight and stopping the moment you see a significant result. It feels responsible. It is actually the single most common way CRO teams fool themselves.
 
 Here is the mechanism. A p-value calculated for a fixed sample size assumes you look once, at the end. Every extra look is another roll of the dice, and random noise crosses the significance line constantly during a test even when there is zero real effect. If you keep watching, you eventually catch it crossing and stop right there.
@@ -33,6 +45,18 @@ Never stop a test early because it "reached significance." A significant p-value
 ---
 
 ## Multiple Comparisons, When Running Many Tests Inflates Everything
+
+<InAction
+  concept="Multiple Comparisons Problem"
+  companyName="Google"
+  where="Google Search results page link color"
+  why="Designers disagreed about which shade of blue would drive the most clicks on search result links, and Marissa Mayer's team wanted a data-backed answer instead of a design opinion"
+  what="Google ran 41 shades of blue as simultaneous variants shown to small traffic slices, then applied rigorous significance testing rather than picking whichever shade happened to look best, exactly the discipline the multiple comparisons problem demands when testing dozens of variants at once"
+  benefit="The winning shade (a slightly purpler blue) generated an estimated $200 million in additional annual ad revenue"
+  timeframe="2009, cited widely since"
+  date="2009"
+  source="https://bambrick.com.au/blog/google-increased-revenue-200-million-just-finding-perfect-shade-blue/"
+/>
 
 Peeking corrupts one test over time. The multiple comparisons problem corrupts your whole testing program at once.
 
