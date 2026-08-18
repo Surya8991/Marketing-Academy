@@ -770,3 +770,39 @@ Rule 45 already distinguishes the two fields conceptually. Session 85's Data-Dri
 ```
 
 Unlike Rule 67's `nextStageId: ""` defect, `tsc --noEmit` DOES catch this one — but only if it's actually run before merging. `scripts/audit-projects.mjs` does not check it (it validates referential integrity — companyId/toolName/lessonAnchor — not enum membership), so a batch that skips the `tsc` step in `PROJECTS_AUTHORING_GUIDE.md` section 1.5 can still merge this defect. Always run the full verification sequence (`tsc` → lint → test → build) in order after every merge, never skip straight to `npm test`.
+
+**This is not a one-time mistake — it recurred in Session 85's Email & Lifecycle Mastery batch as `archetype: "build"`** (also a real `ProjectMode` value, not in the `Archetype` union — the correct archetype is `"build-the-asset"`). Any of the 7 `ProjectMode` values (`diagnostic`, `simulation`, `build`, `teardown`, `drill`, `calibration`, `no-project`) can end up typed into `archetype` by mistake since an authoring agent is juggling both fields at once; `tsc` catches all of them the same way, but only `"teardown"` and `"simulation"` happen to also be valid `Archetype` values, so those two variants *compile* even though they're still semantically wrong — `scripts/audit-projects.mjs` and `npm test`'s "no lesson reuses an archetype" check won't catch a `mode`/`archetype` value that merely happens to be spelled the same; only a careful read of whether the field's *meaning* matches its label does. When reviewing a project, check `archetype` and `mode` independently against their own real definitions, not just that each field individually contains a plausible-looking string.
+
+### Rule 69 — A `mode`-consistent project still needs its stage/step array actually built, not just narrated
+
+Rule 45/58 cover the array-vs-mode mismatch (wrong array populated) and the enum-value confusion (wrong string in `archetype`). Session 85's Email & Lifecycle Mastery batch shipped a third variant: `deliverability-dmarc-rollout-simulation` had `mode: "simulation"` and correctly used no `steps[]` — but its `stages[]` array was simply empty. The agent wrote a fully simulation-flavored narrative (weekly DMARC checkpoints, a decision at each stage, `deliverable`/`sampleOutput` describing a 4-week rollout log) entirely in prose fields, then never actually constructed the `SimulationStage[]` objects the mode requires to render anything.
+
+`scripts/audit-projects.mjs`'s structural check passes an empty array (it's still `[]`, not `undefined`), and `tsc` has nothing to flag (an empty array is a perfectly valid `SimulationStage[]`). Only `npm test`'s "mode agrees with which array is populated" assertion catches it, because that check specifically asserts the array is non-empty for the declared mode, not just present.
+
+```ts
+// WRONG — passes tsc and audit-projects.mjs, fails only npm test
+{ mode: "simulation", stages: [] }   // narrative content lives in deliverable/sampleOutput instead
+
+// CORRECT — the mode's actual structured data lives in the array itself
+{ mode: "simulation", stages: [ { stageId: "...", decision: { options: [...] } } ] }
+```
+
+Fixed here by converting to `mode: "diagnostic"` with 2 real `ProjectStep` entries built from the project's own existing narrative (its `archetype: "simulation"` stayed valid and unchanged — archetype and mode are independent per Rule 45, and this genuinely reads as a simulation-shaped problem even once implemented as a diagnostic-mode project). The narrower lesson: before considering an authored project done, confirm the mode-appropriate array (`steps`, `stages`, or `teardownItems`) actually contains real entries, not just that a plausible-sounding `deliverable`/`sampleOutput` narrative exists around an empty one.
+
+### Rule 70 — `paidUpgradeNote` belongs on `ToolStack`, never inside a `ToolRef`
+
+`ToolStack = { free: ToolRef[]; paid: ToolRef[]; paidUpgradeNote?: string }` — the note is a single sentence about the free-vs-paid tradeoff for the *whole toolStack*, not a per-tool field. Session 85's Email & Lifecycle Mastery batch shipped it nested inside one `paid[]` entry instead:
+
+```ts
+// WRONG — paidUpgradeNote is not a ToolRef field, fails tsc
+paid: [{ toolName: "Klaviyo Flows", role: "...", why: "...", required: false,
+  lastVerified: "2026-08", paidUpgradeNote: "Free tier can time-delay emails but branching suppression logic needs a paid plan." }]
+
+// CORRECT — sibling of free/paid on the ToolStack object itself
+toolStack: {
+  free: [...], paid: [{ toolName: "Klaviyo Flows", role: "...", why: "...", required: false, lastVerified: "2026-08" }],
+  paidUpgradeNote: "Free tier can time-delay emails but branching suppression logic needs a paid plan.",
+}
+```
+
+Caught by `tsc --noEmit` (`Object literal may only specify known properties`) — same "run the full chain, don't skip to `npm test`" lesson as Rule 68.

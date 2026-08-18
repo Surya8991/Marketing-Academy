@@ -1867,6 +1867,407 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "list-building-optin-form-audit",
+    "category": "email",
+    "lessonSlug": "list-building",
+    "lessonTitle": "List Building",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Opt-In Autopsy: Auditing a Lead Magnet Landing Page",
+    "timeMinutes": 25,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Specific lead magnets convert better than vague ones",
+      "Form field count reduces conversion"
+    ]
+  },
+  {
+    "id": "list-building-double-optin-teardown",
+    "category": "email",
+    "lessonSlug": "list-building",
+    "lessonTitle": "List Building",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Deliverability Trap: Tearing Down a Broken Opt-In Flow",
+    "timeMinutes": 20,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Double opt-in filters bad addresses",
+      "Never buy or scrape email lists",
+      "Send the welcome email immediately"
+    ]
+  },
+  {
+    "id": "segmentation-engagement-scheme-build",
+    "category": "email",
+    "lessonSlug": "segmentation",
+    "lessonTitle": "Segmentation",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the First Three Segments: An Engagement-Tier Scheme",
+    "timeMinutes": 30,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "Engagement segmentation: active, cold, lapsed",
+      "RFM scoring for VIP identification"
+    ]
+  },
+  {
+    "id": "segmentation-plan-audit",
+    "category": "email",
+    "lessonSlug": "segmentation",
+    "lessonTitle": "Segmentation",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Find the Flaw: Auditing a Proposed Segmentation Plan",
+    "timeMinutes": 25,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Good segments are large, stable, and actionable",
+      "Over-segmenting into tiny lists",
+      "Building static segments instead of behavior-based rules"
+    ]
+  },
+  {
+    "id": "abandon-cart-sequence-teardown",
+    "category": "email",
+    "lessonSlug": "abandon-cart",
+    "lessonTitle": "Abandoned Cart & Browse Flows",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Find the Leaks: Teardown of a Broken Cart-Recovery Sequence",
+    "timeMinutes": 25,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "No discount in Email 1 or Email 2",
+      "Email 1 sent within 30-60 minutes",
+      "Dynamic product blocks with live cart contents",
+      "Real scarcity only, never fabricated"
+    ]
+  },
+  {
+    "id": "abandon-cart-3-email-build",
+    "category": "email",
+    "lessonSlug": "abandon-cart",
+    "lessonTitle": "Abandoned Cart & Browse Flows",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build ThredUp's 3-Email Cart-Recovery Sequence From Scratch",
+    "timeMinutes": 35,
+    "companyId": "thredup",
+    "conceptsCovered": [
+      "Email 1: The Reminder (30-60 minutes after abandonment)",
+      "Email 2: Social Proof and Objection Handling (22-24 hours later)",
+      "Email 3: Urgency or Incentive (48-72 hours later)"
+    ]
+  },
+  {
+    "id": "subject-line-teardown-six-formulas",
+    "category": "email",
+    "lessonSlug": "subject-lines",
+    "lessonTitle": "Subject Lines That Get Opened",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Which of These 5 Subject Lines Would Get Reported as Spam?",
+    "timeMinutes": 20,
+    "companyId": "rent-the-runway",
+    "conceptsCovered": [
+      "Never fake urgency",
+      "ALL CAPS lowers open rates",
+      "Spam trigger words stacked together",
+      "The Question formula"
+    ]
+  },
+  {
+    "id": "subject-line-ab-test-data-audit",
+    "category": "email",
+    "lessonSlug": "subject-lines",
+    "lessonTitle": "Subject Lines That Get Opened",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Read the Test Results: Picking Allbirds' Next Subject Line Hypothesis",
+    "timeMinutes": 30,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "Test one variable at a time",
+      "A/B testing rhythm and sample split"
+    ]
+  },
+  {
+    "id": "email-copywriting-four-defects-teardown",
+    "category": "email",
+    "lessonSlug": "email-copywriting",
+    "lessonTitle": "Email Copywriting",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Four Defects, One Draft: Tearing Down a Broken Promo Email",
+    "timeMinutes": 20,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Subject Line Specificity and Spam Triggers",
+      "Preview Text as a Second Subject Line",
+      "Opening Line Relevance",
+      "Single CTA and Decision Paralysis"
+    ]
+  },
+  {
+    "id": "email-copywriting-lapsed-buyer-build",
+    "category": "email",
+    "lessonSlug": "email-copywriting",
+    "lessonTitle": "Email Copywriting",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Write the Whole Email: A Re-Engagement Send From Scratch",
+    "timeMinutes": 50,
+    "companyId": "bonobos",
+    "conceptsCovered": [
+      "Specificity and Personalization in Subject Lines",
+      "Preview Text as a Hook Extension",
+      "AIDA Body Structure",
+      "Single, Personalized CTA"
+    ]
+  },
+  {
+    "id": "ab-testing-email-results-table-diagnostic",
+    "category": "email",
+    "lessonSlug": "ab-testing-email",
+    "lessonTitle": "A/B Testing Emails",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Call the Winner: Reading a Real Subject Line Test",
+    "timeMinutes": 20,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Sample Size and Statistical Significance"
+    ]
+  },
+  {
+    "id": "ab-testing-email-test-log-calibration",
+    "category": "email",
+    "lessonSlug": "ab-testing-email",
+    "lessonTitle": "A/B Testing Emails",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "Trust It or Toss It: Calibrating Three Past Test Calls",
+    "timeMinutes": 20,
+    "companyId": "klaviyo",
+    "conceptsCovered": [
+      "Sample Size Minimums",
+      "Matching Metric to Element"
+    ]
+  },
+  {
+    "id": "deliverability-auth-report-diagnostic",
+    "category": "email",
+    "lessonSlug": "deliverability",
+    "lessonTitle": "Deliverability: SPF, DKIM, DMARC",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Bounce Investigation: Diagnosing a Failing Sender Reputation Report",
+    "timeMinutes": 45,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "SPF envelope-sender authorization",
+      "DKIM signature and body-tamper validation",
+      "DMARC alignment between From address and SPF/DKIM domain",
+      "Spam complaint rate as a hard reputation threshold",
+      "Google Postmaster domain reputation as a leading indicator"
+    ]
+  },
+  {
+    "id": "deliverability-dmarc-rollout-simulation",
+    "category": "email",
+    "lessonSlug": "deliverability",
+    "lessonTitle": "Deliverability: SPF, DKIM, DMARC",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "diagnostic",
+    "title": "The DMARC Rollout: Deciding When to Tighten Enforcement",
+    "timeMinutes": 35,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "DMARC policy staging (p=none to p=quarantine to p=reject)",
+      "Reading DMARC aggregate reports to find unresolved senders",
+      "Percentage-based enforcement ramp (pct=)"
+    ]
+  },
+  {
+    "id": "rfm-transaction-table-scoring-build",
+    "category": "email",
+    "lessonSlug": "rfm",
+    "lessonTitle": "RFM Segmentation",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Score the List: Building an RFM Segmentation Table from Raw Transactions",
+    "timeMinutes": 50,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Deriving Recency, Frequency, and Monetary from a raw transaction table",
+      "Quintile-based scoring per dimension",
+      "Mapping RFM profiles to named segments"
+    ]
+  },
+  {
+    "id": "rfm-segment-strategy-drill",
+    "category": "email",
+    "lessonSlug": "rfm",
+    "lessonTitle": "RFM Segmentation",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "drill",
+    "title": "Match the Offer: Segment-to-Strategy Drill",
+    "timeMinutes": 20,
+    "companyId": "mailchimp",
+    "conceptsCovered": [
+      "Mapping RFM profiles to named segments",
+      "Weighting Recency, Frequency, and Monetary unequally",
+      "Decoupling send eligibility from offer depth"
+    ]
+  },
+  {
+    "id": "winback-sequence-build-duolingo",
+    "category": "email",
+    "lessonSlug": "winback",
+    "lessonTitle": "Win-back Campaigns",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the 4-Email Sequence: Duolingo's Streak-Breakers",
+    "timeMinutes": 30,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Sequencing escalation without leading with a discount",
+      "The sunset email requires an explicit removal statement"
+    ]
+  },
+  {
+    "id": "winback-dormancy-segment-audit",
+    "category": "email",
+    "lessonSlug": "winback",
+    "lessonTitle": "Win-back Campaigns",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Sunset Call: Auditing FirstCry's Dormant Subscriber Export",
+    "timeMinutes": 35,
+    "companyId": "firstcry-brainbees",
+    "conceptsCovered": [
+      "Defining dormancy with multiple signals, not just opens",
+      "Segmenting by depth of inactivity before sending"
+    ]
+  },
+  {
+    "id": "sms-compliant-welcome-build",
+    "category": "email",
+    "lessonSlug": "sms-marketing",
+    "lessonTitle": "SMS Marketing",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Compliant Welcome Text: Instacart's SMS Opt-In",
+    "timeMinutes": 25,
+    "companyId": "instacart",
+    "conceptsCovered": [
+      "Capturing consent with required disclosures",
+      "Writing for the lock screen"
+    ]
+  },
+  {
+    "id": "sms-frequency-forecast",
+    "category": "email",
+    "lessonSlug": "sms-marketing",
+    "lessonTitle": "SMS Marketing",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Forecast the Trade-off: Zomato's SMS Frequency Cap vs Revenue",
+    "timeMinutes": 45,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Capping frequency against opt-out risk",
+      "Automated flows beat broadcasts on revenue per recipient"
+    ]
+  },
+  {
+    "id": "zero-party-data-preference-center-build",
+    "category": "email",
+    "lessonSlug": "zero-party-data",
+    "lessonTitle": "Zero-Party Data Strategy",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Zero-Party Preference Center From Scratch",
+    "timeMinutes": 30,
+    "companyId": "nubank",
+    "conceptsCovered": [
+      "Preference Centers",
+      "Progressive Profiling"
+    ]
+  },
+  {
+    "id": "zero-party-data-collection-form-audit",
+    "category": "email",
+    "lessonSlug": "zero-party-data",
+    "lessonTitle": "Zero-Party Data Strategy",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Value-Exchange Audit: Fixing a Zero-Party Data Form That Isn't Converting",
+    "timeMinutes": 40,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Interactive Onboarding Quizzes",
+      "Value Exchange",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "gdpr-can-spam-footer-teardown",
+    "category": "email",
+    "lessonSlug": "gdpr-can-spam",
+    "lessonTitle": "CAN-SPAM, GDPR, CASL",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: Spot the Violations in This Email Footer",
+    "timeMinutes": 25,
+    "companyId": "adyen",
+    "conceptsCovered": [
+      "How CAN-SPAM Works",
+      "How GDPR Works"
+    ]
+  },
+  {
+    "id": "gdpr-can-spam-list-segmentation-audit",
+    "category": "email",
+    "lessonSlug": "gdpr-can-spam",
+    "lessonTitle": "CAN-SPAM, GDPR, CASL",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Global List Audit: Which Subscribers Need GDPR Consent You Don't Have",
+    "timeMinutes": 35,
+    "companyId": "wise",
+    "conceptsCovered": [
+      "The Key Difference: Opt-Out vs. Opt-In",
+      "Common Mistakes That Get Marketers Fined"
+    ]
+  },
+  {
     "id": "value-proposition-seed-deck-build",
     "category": "fundamentals",
     "lessonSlug": "value-proposition",
