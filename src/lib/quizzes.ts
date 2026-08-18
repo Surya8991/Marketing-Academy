@@ -6850,6 +6850,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "The CTA button's job is to persuade the reader to click after opening the email. Therefore, the success of a CTA copy test should be measured by the Click-Through Rate (CTR) or Click-to-Open Rate (CTOR). Measuring open rate for a CTA test is irrelevant because the button is not visible until after the email is opened.",
     },
+    {
+      question: "In the Obama for America 2008 campaign's landmark A/B test, what specific element was tested that produced roughly 4 million additional email sign-ups?",
+      options: [
+        "The color scheme of the donation page background",
+        "The button text on the email sign-up page (e.g., 'Learn More' vs. 'Sign Up Now')",
+        "The subject line of the campaign's weekly newsletter",
+        "The send time of the campaign's fundraising emails",
+      ],
+      correct: 1,
+      explanation: "The Obama campaign tested button text alone on their sign-up pages, and that single copy change produced an estimated 4 million additional email sign-ups and contributed to $75 million in additional fundraising. It remains the gold-standard example of how a small, isolated copy test can produce outsized results at scale.",
+    },
   ],
 
   "email/abandon-cart": [
@@ -6896,6 +6907,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "As illustrated by the Amundsen Sports case study, abandoned cart flows can account for over 10% of total email revenue while representing less than 1% of total email volume. Because they target high-intent users at a precise moment, cart recovery emails are roughly 12x more revenue-efficient per send than bulk broadcasts.",
+    },
+    {
+      question: "According to Baymard Institute's 2024 research, what is the single most common reason shoppers abandon their cart, and what does that imply for your Email 2 in a recovery flow?",
+      options: [
+        "Slow delivery times, so Email 2 should offer expedited shipping only",
+        "Unexpected extra costs like shipping and taxes, so Email 2 should address cost objections directly rather than lead with a discount",
+        "Forced account creation, so Email 2 should require no further action from the shopper",
+        "Website errors, so Email 2 should apologize for technical issues",
+      ],
+      correct: 1,
+      explanation: "Unexpected extra costs (shipping, taxes, fees) account for 48% of abandonments, the largest single reason. This is exactly why Email 2, sent around 24 hours later, is positioned to resolve objections like cost surprises using trust signals and reviews rather than jumping straight to a discount, which is held back for Email 3.",
     },
   ],
 
@@ -6944,6 +6966,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 0,
       explanation: "Every Man Jack used predictive analytics to calculate the exact window when each individual customer was likely running low on their personal care products (which averaged 75 days, rather than the industry assumption of 45 days). Switching to this personalized replenishment timing, paired with a pre-filled cart link, yielded a 25% lift in flows revenue.",
     },
+    {
+      question: "How did Callie's Hot Little Biscuit achieve 157.8% year-over-year flows revenue growth after June 2023, and what had they tried before that did not work?",
+      options: [
+        "They switched ESPs entirely; before that they had used no automation at all",
+        "They built 20+ loyalty-triggered automation flows in Klaviyo tied to purchase milestones; a points-based loyalty app they tried first had not worked",
+        "They increased broadcast email frequency to daily sends; before that they sent weekly",
+        "They hired an agency to write better subject lines; before that copy was written in-house",
+      ],
+      correct: 1,
+      explanation: "Callie's Hot Little Biscuit had first tried a points-based loyalty app that did not deliver results. Switching to 20+ loyalty-triggered Klaviyo flows (like a VIP status email after a second order) built a full loyalty program using data the store already had, driving 157.8% year-over-year growth in flows revenue.",
+    },
   ],
 
   "email/behavioral-triggers": [
@@ -6990,6 +7023,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The welcome sequence (which targets users at peak intent when they first sign up) and the call to action of the cart abandonment flow (which targets users who were moments away from buying) represent the highest-intent, highest-converting touchpoints. Senders should optimize these two before adding more complex triggers.",
+    },
+    {
+      question: "In the four-step behavioral trigger logic described in the lesson, what is the purpose of the 'wait period' step, and which trigger type illustrates why it varies so much?",
+      options: [
+        "It exists only to satisfy email service provider rate limits, and applies identically to every trigger type",
+        "It delays sends so the email queues overnight, and only applies to welcome sequences",
+        "It matches the response window to the trigger's context, e.g. cart abandonment works best after 1-3 hours while a win-back trigger waits 60-90 days of inactivity",
+        "It is a fixed 24-hour delay required by CAN-SPAM regulations for all triggered sends",
+      ],
+      correct: 2,
+      explanation: "Not every trigger event needs an instant reply. The lesson's trigger-type table shows cart abandonment firing 1-3 hours after the event, while a win-back trigger waits 60-90 days of inactivity before sending. The wait window should match how quickly the underlying moment (distraction vs. long-term disengagement) is actually resolved.",
     },
   ],
 
@@ -7038,6 +7082,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "A high hard bounce rate tells email servers (like Gmail and Outlook) that you are using a poor-quality, scraped, or unverified email list. This is a primary spam indicator. If your hard bounce rate exceeds 2%, your sender reputation will plummet, and your emails will be routed to the spam folder.",
     },
+    {
+      question: "According to the lesson, what are the four stages of a successful cold email campaign, and which stage does it identify as the most common reason campaigns fail before a single email is even sent?",
+      options: [
+        "Copy, sequences, list building, infrastructure; skipping copy is the most common failure point",
+        "Infrastructure, list building, copy, sequences; skipping the infrastructure stage is the most common reason campaigns fail",
+        "List building, sequences, infrastructure, copy; skipping sequences is the most common failure point",
+        "Sequences, copy, infrastructure, list building; skipping list building is the most common failure point",
+      ],
+      correct: 1,
+      explanation: "The lesson names infrastructure (a separate warmed-up sending domain), list building, copywriting, and sequences as the four stages, in that order, and explicitly calls skipping the infrastructure stage the most common reason campaigns fail before a single email is sent, since sending unwarmed volume from a fresh or primary domain triggers spam flags immediately.",
+    },
   ],
 
   "email/email-analytics": [
@@ -7084,6 +7139,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "While metrics like open rates and CTRs measure interest, they can be vanity metrics. An email with excellent open rates could generate zero revenue if it relies on clickbait. Revenue Per Email (RPE) focuses on the bottom-line value delivered by a send, showing you which campaigns, segments, and offers actually grow the business.",
+    },
+    {
+      question: "The lesson's flowchart for diagnosing a campaign recommends checking metrics in a specific order before deciding what to fix. Which metric should be checked first, before evaluating CTOR or conversion rate?",
+      options: [
+        "Revenue per email, since it is the ultimate business outcome",
+        "Bounce rate, so that invalid addresses are removed before other engagement numbers are trusted",
+        "Unsubscribe rate, since it directly indicates content relevance",
+        "Open rate, since it is the most commonly tracked metric historically",
+      ],
+      correct: 1,
+      explanation: "The lesson's diagnostic flowchart starts by checking whether bounce rate is above 2%, because a bounce problem signals a list-hygiene issue that should be fixed (removing invalid addresses) before downstream engagement metrics like unsubscribe rate, CTOR, and conversion rate can be interpreted reliably.",
     },
   ],
 
@@ -7132,6 +7198,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Decision paralysis occurs when individuals are presented with too many options and choose none. In email marketing, adding multiple different CTA buttons or links distracts the reader from the primary goal. To maximize click rates, focus each email on one single, clear action (e.g., downloading a guide, booking a call) and direct all copy toward that single goal.",
     },
+    {
+      question: "Per the lesson's HubSpot re-engagement A/B test example, why did the plain-text email from a named sales rep outperform the polished, feature-listing HTML template by a 37% higher reply rate?",
+      options: [
+        "The plain-text version had a lower file size, so it loaded faster on slow connections",
+        "It included more calls to action, giving recipients more ways to respond",
+        "It felt conversational and human rather than promotional, which matters most when re-engaging cold contacts",
+        "It contained more product screenshots, which increased perceived credibility",
+      ],
+      correct: 2,
+      explanation: "Version B was a single-sentence plain-text email from a named rep asking a genuine question, while Version A used a branded template with bullet points and two competing CTAs. The lesson's takeaway is that conversational, human copy outperforms polished promotional design specifically when re-engaging cold contacts, since it doesn't read as mass marketing.",
+    },
   ],
 
   "email/gdpr-can-spam": [
@@ -7178,6 +7255,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Compliance is determined by the geographic location of the recipient, not where the sending business is registered or where its servers are located. If a U.S.-based business sends a marketing email to a resident of the European Union, the sender must comply with GDPR. If they send to a U.S. resident, CAN-SPAM applies.",
+    },
+    {
+      question: "Since February 2024, Google, Yahoo, and Microsoft have enforced their own bulk-sender requirements on top of CAN-SPAM and GDPR. What happens if a sender of 5,000+ daily emails violates these inbox provider rules?",
+      options: [
+        "The sender receives a formal FTC fine identical to a CAN-SPAM violation.",
+        "The email is blocked outright by the inbox provider, since these are technical gatekeeping rules, not laws, enforced independently of legal compliance.",
+        "The subscriber's GDPR erasure rights are automatically triggered.",
+        "Nothing happens unless the sender's spam complaint rate exceeds 5%.",
+      ],
+      correct: 1,
+      explanation: "Google, Yahoo, and Microsoft's bulk-sender requirements (SPF/DKIM/DMARC authentication, a spam complaint rate under 0.3%, and one-click unsubscribe headers) are technical gatekeeping rules, not legal statutes. Violating them gets your email blocked at the inbox level, a separate and often faster consequence than any CAN-SPAM or GDPR legal enforcement action.",
     },
   ],
 
@@ -7226,6 +7314,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 0,
       explanation: "The moment immediately following signup is when a subscriber's interest in your brand is at its absolute peak. Capitalizing on this window with an automated welcome email yields significantly higher open and click-through rates. Delaying this first contact by even 24 hours results in a dramatic drop-off in engagement and recall.",
     },
+    {
+      question: "According to the lesson, which opt-in form placements are the strongest performers in 2025, and which are described as 'dead weight'?",
+      options: [
+        "Sidebar widgets and footer forms perform best; exit-intent popups are dead weight.",
+        "Exit-intent popups, inline forms after the third or fourth paragraph, and dedicated landing pages perform best; sidebar and footer forms are dead weight.",
+        "Only dedicated landing pages convert; all other placements should be removed entirely.",
+        "Homepage header forms outperform every other placement type combined.",
+      ],
+      correct: 1,
+      explanation: "The lesson names exit-intent popups, inline forms embedded mid-article, dedicated landing pages, and post-purchase pages as the top performers because they appear at moments of high visitor intent. Sidebar widgets and footer forms get seen but rarely clicked, making them largely ineffective despite their prevalence.",
+    },
   ],
 
   "email/push-notifications": [
@@ -7272,6 +7371,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "The 2026 Braze study found that AI-personalized push notifications (which dynamically adapt copy, timing, or content to individual behavior) outperformed generic blast notifications by 74%, highlighting the growing importance of contextual relevance.",
+    },
+    {
+      question: "What does the lesson recommend as the frequency ceiling for push notifications, and what happens if a brand sends more?",
+      options: [
+        "There is no meaningful ceiling as long as messages are personalized.",
+        "Three pushes per week is the ceiling most consumer apps survive; past that, opt-outs rise faster than incremental clicks.",
+        "One push per day is optimal, and opt-outs only rise after 30 pushes in a month.",
+        "Ten pushes per week is standard, since push opt-outs are rarely permanent.",
+      ],
+      correct: 1,
+      explanation: "The lesson sets three pushes per week as the ceiling most consumer apps can sustain. Beyond that, the rate of opt-outs outpaces any additional clicks gained, and push opt-outs are usually permanent at the OS level, unlike an email unsubscribe.",
     },
   ],
 
@@ -7320,6 +7430,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "The sunset email is the final decision point. By giving disengaged users a clear ultimatum ('We are removing you unless you click here to stay'), you either win back a highly focused group of users or safely remove disengaged contacts. Pruning these non-responders is essential for maintaining excellent list hygiene and high inbox delivery rates.",
     },
+    {
+      question: "According to Omnisend's 2024 research cited in the lesson, what happens when SMS is combined with email in a re-engagement effort, compared to using email alone?",
+      options: [
+        "SMS combined with email lifts conversion by 54%, with automated SMS generating 18% of orders from just 9% of sends.",
+        "Adding SMS has no measurable effect on conversion, only on open rates.",
+        "SMS combined with email reduces conversion because it overwhelms dormant subscribers.",
+        "SMS only helps when it fully replaces the email sequence rather than supplementing it.",
+      ],
+      correct: 0,
+      explanation: "The lesson cites Omnisend 2024 research showing that layering SMS onto an email re-engagement sequence lifts conversion by 54% compared to email alone, with automated SMS punching above its weight, generating 18% of orders from only 9% of total sends.",
+    },
   ],
 
   "email/rfm": [
@@ -7366,6 +7487,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "High-monetary customers (like Champions or Loyalists) are already highly committed to your brand and do not need deep discounts to buy. Senders should reward them with non-monetary perks (exclusives, early access). Mid-tier, At-Risk customers, however, may need a meaningful discount to re-engage, protecting your margins where possible.",
+    },
+    {
+      question: "In the RFM segment table, how does a 'Can't Lose Them' customer (R1, F4-5, M4-5) differ from an 'At Risk' customer (R1-2, F3-5, M3-5), and what does that difference mean for strategy?",
+      options: [
+        "They are identical segments with different names; either label can be used interchangeably.",
+        "'Can't Lose Them' customers have lower historical spend than 'At Risk' customers, so they need bigger discounts.",
+        "'Can't Lose Them' customers sit at the top of frequency and monetary value despite having gone cold, making them worth an aggressive, even personal, win-back effort rather than a standard win-back offer.",
+        "'At Risk' customers have already been suppressed from the list, while 'Can't Lose Them' customers have not.",
+      ],
+      correct: 2,
+      explanation: "Both segments share a low Recency score, but 'Can't Lose Them' sits at the top of Frequency and Monetary value, meaning these were among your best customers before going quiet. That combination justifies a more aggressive, even personal, win-back push (the lesson suggests a direct call for high-monetary cases) rather than the standard win-back email used for a merely 'At Risk' contact.",
     },
   ],
 
@@ -7414,6 +7546,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Huda Beauty achieved a 2x lift in email revenue by implementing engagement-level segmentation (sending more frequently to active users and scaling back sends to disengaged ones) alongside targeted, category-specific post-purchase automations (like follow-ups tailored to lips, skin, or eyes). This proved that relevance and frequency tuning beat mass broadcasting.",
     },
+    {
+      question: "The lesson uses two runners, a competitive marathoner and a casual weekend jogger, who look identical on demographic data, to illustrate which segmentation dimension?",
+      options: [
+        "Lifecycle segmentation, since both runners are in the same purchase stage.",
+        "Behavioral segmentation, since both clicked the same product link.",
+        "Psychographic segmentation, which groups people by their values, interests, and lifestyle rather than by who they are on paper.",
+        "Demographic segmentation, since age and gender are the deciding factors in this example.",
+      ],
+      correct: 2,
+      explanation: "Psychographic segmentation targets why people make decisions, their values, interests, and lifestyle, not just who they are. The marathoner-versus-jogger example shows two people who are demographically indistinguishable but need entirely different messaging because their motivations for buying running shoes differ.",
+    },
   ],
 
   "email/sms-marketing": [
@@ -7460,6 +7603,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "An SMS from an unknown number that says something like 'Flash sale! Click here: [link]' is highly likely to be marked as a scam or spam. Mobile carriers and users block unrecognized messages. Leading your SMS copy with a recognizable brand prefix (e.g., 'BrandName: Your cart is waiting...') is vital for trust and deliverability.",
+    },
+    {
+      question: "Why does the lesson say automated, behavior-triggered SMS flows (abandoned cart, browse abandonment, post-purchase review) outperform one-off broadcast sends?",
+      options: [
+        "Triggered flows are legally required under TCPA, while broadcasts are optional.",
+        "Automated flows beat broadcasts on revenue per recipient by 3 to 10 times because they fire at the exact moment of behavioral intent, like 30 minutes after cart abandonment.",
+        "Broadcasts are always more profitable, but triggered flows are cheaper to send.",
+        "Triggered flows do not count against the monthly frequency cap, so they can be sent without limit.",
+      ],
+      correct: 1,
+      explanation: "The lesson states automated flows beat broadcasts on revenue per recipient by 3 to 10 times, because they trigger at a precise moment of intent (30 minutes after cart abandonment, 4 hours after browse abandonment, day 7 for a review request) rather than blasting the whole list on a fixed schedule regardless of individual behavior.",
     },
   ],
 
@@ -7508,6 +7662,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Urgency and scarcity are highly effective, but they must be real. If you write 'Last chance' but extend the sale the next day, subscribers learn that your deadlines are fake. Research shows that lists exposed to artificial urgency experience steadily declining open rates over time because brand credibility has been eroded.",
     },
+    {
+      question: "According to the lesson's guidance on preheader (preview) text, how should it be used relative to the subject line?",
+      options: [
+        "Leave it as the default first sentence of the email body, since most inboxes hide it anyway",
+        "Treat it as the second half of a two-part headline that reinforces or extends the subject line's hook",
+        "Repeat the exact same wording as the subject line so the message is reinforced twice",
+        "Reserve it exclusively for legal disclaimers and the unsubscribe link",
+      ],
+      correct: 1,
+      explanation: "The preheader is the grey preview snippet shown after the subject line in Gmail, Outlook, and Apple Mail. HubSpot's 2024 benchmark data shows treating it as the second half of a two-part headline, rather than leaving the default body text, can lift open rates 15 to 30%.",
+    },
   ],
 
   "email/transactional-emails": [
@@ -7555,6 +7720,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Transactional emails like password resets must deliver instantly. Traditional marketing email service providers (ESPs) are built for scheduling bulk campaigns, which can queue and delay sends. Using a dedicated transactional service ensures instant delivery and keeps your critical transaction flows isolated from any deliverability hits your marketing campaigns might take.",
     },
+    {
+      question: "Why does the lesson recommend against using noreply@yourcompany.com as the sender address on a transactional email?",
+      options: [
+        "It automatically triggers spam filters at every major ISP",
+        "It signals to the customer that replies are unwanted, even though customers reply to transactional emails more often than marketers expect",
+        "CAN-SPAM legally prohibits 'noreply' addresses on any commercial email",
+        "It slows down delivery speed compared to a branded sending address",
+      ],
+      correct: 1,
+      explanation: "The lesson states that a noreply address tells the customer 'we do not want to hear from you,' and recommends a real address like support@ or orders@ instead, since customers reply to transactional emails more than expected.",
+    },
   ],
 
   "email/whatsapp-marketing": [
@@ -7601,6 +7777,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Meta categorizes templates into Utility (order/delivery updates), Marketing (promotions, product launches), and Authentication (one-time passwords). Marketing templates are the most expensive and are rate-limited per user to prevent businesses from spamming.",
+    },
+    {
+      question: "Per the lesson's opt-in step in the WhatsApp playbook, what must a business capture and store for every customer opt-in?",
+      options: [
+        "Only the customer's phone number, since that alone proves consent",
+        "The timestamp, source, and exact consent text, because Meta may audit quality and require this proof",
+        "A scanned copy of a government-issued ID",
+        "The customer's full purchase history for the prior 12 months",
+      ],
+      correct: 1,
+      explanation: "The lesson's playbook specifically says to capture explicit, logged opt-in and 'store timestamp, source, and exact consent text, you will need it if Meta audits quality' — a phone number alone does not prove valid consent.",
     },
   ],
 
@@ -16141,6 +16328,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "SKOON implemented a skincare routine quiz that asked users about their skin concerns, age, and lifestyle. This zero-party data allowed them to recommend custom product routines, driving a 3.5x lift in conversions and a 68x ROI.",
     },
+    {
+      question: "What does 'progressive profiling' mean as a zero-party data collection technique in the lesson?",
+      options: [
+        "Asking for a complete customer profile, 20 or more data points, in a single onboarding quiz",
+        "Collecting one piece of data at a time across separate touchpoints (welcome series, post-purchase, review request) to build the profile gradually",
+        "Using AI to infer preferences from browsing behavior instead of directly asking the customer",
+        "Selling collected preference data to third-party ad networks over time",
+      ],
+      correct: 1,
+      explanation: "The lesson contrasts progressive profiling with asking for twenty details at once: ask one question in the welcome series, another post-purchase, and a third during a review request, building the profile over time without overwhelming the customer.",
+    },
   ],
 
   "fundamentals/plg-fundamentals": [
@@ -16535,6 +16733,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Privacy protections like Apple's Mail Privacy Protection (MPP) automatically download email content, showing them as 'opened' even if the user never saw them. This makes clicks and replies the only reliable metrics for campaign engagement.",
+    },
+    {
+      question: "Why does the lesson recommend ending an ABM cold email with a 'soft' call to action, such as a question, rather than directly asking for a meeting?",
+      options: [
+        "Soft CTAs are a GDPR requirement for all B2B outbound email",
+        "Direct meeting requests cannot technically be tracked by most ESPs",
+        "A low-friction question is easy to answer and starts a conversation, while immediately asking for a 30-minute meeting is too aggressive for a cold prospect",
+        "Soft CTAs automatically bypass spam filters that block sales language",
+      ],
+      correct: 2,
+      explanation: "The lesson explicitly warns that a CTA like 'Can we hop on a call tomorrow?' is too aggressive for a cold prospect, and recommends a low-friction question instead to open a conversation before asking for commitment.",
     },
   ],
 
@@ -17167,6 +17376,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Eye-tracking research shows many readers jump from the headline directly to the PS. A strong PS reinforces the offer or CTA and captures skimmers who don't read the full body.",
     },
+    {
+      question: "Within marketing email (as distinct from transactional email), what is the defining difference between a 'broadcast' and an 'automation'?",
+      options: [
+        "Broadcasts are always free to send, while automations require a paid ESP plan",
+        "A broadcast is a one-time send to a segment or full list, while an automation is a sequence of emails triggered by a specific condition or behavior",
+        "Broadcasts are used only for transactional receipts, while automations are used only for newsletters",
+        "An automation can only ever contain a single email, while a broadcast always contains multiple emails",
+      ],
+      correct: 1,
+      explanation: "The lesson's core mental model splits marketing email into two axes: a broadcast is a one-time send to a segment or full list (a newsletter, a seasonal sale), while an automation is triggered by a condition like signup or cart abandonment and runs as a sequence.",
+    },
   ],
 
   "email/email-marketing-101": [
@@ -17193,6 +17413,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       options: ["A subscriber who opens but doesn't click", "A temporary delivery failure due to issues like a full inbox or server downtime", "An email flagged as spam by the recipient", "A deliberate unsubscribe"],
       correct: 1,
       explanation: "A soft bounce is a temporary failure - the address is valid but delivery couldn't complete right now. Hard bounces are permanent failures (invalid address) and require immediate removal.",
+    },
+    {
+      question: "A brand sends 30 emails per month hoping more sends means more revenue, but their unsubscribe rate is climbing. What does the lesson's sending-frequency data suggest they should do?",
+      options: [
+        "Keep increasing volume since more emails always means more revenue",
+        "Cut back toward the 9-16 emails per month range, which the data shows produces the highest average ROI",
+        "Switch to daily sends since frequency has no effect on unsubscribes",
+        "Stop segmenting and send one identical email to everyone to simplify the calendar",
+      ],
+      correct: 1,
+      explanation: "The lesson cites Verified Email's 2024 data showing brands sending 9-16 emails per month achieve the highest average ROI (4,600%), higher than both lower and higher frequency brackets - more sends is not automatically better.",
     },
   ],
 
@@ -17221,6 +17452,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Suppression is sequence-specific exclusion - for example, removing a lead from a trial conversion drip once they become a paying customer, while keeping them on other lists.",
     },
+    {
+      question: "A welcome series is built to send Email 3 exactly 7 days after signup no matter what, but a subscriber already purchased on day 2. What mistake does this illustrate?",
+      options: [
+        "Triggering flows on time alone instead of behaviour, which fails to route the subscriber into the post-purchase sequence they should be in",
+        "Using too many flows at once, which overwhelms new subscribers",
+        "Sending the welcome series too slowly compared to industry benchmarks",
+        "Failing to include a discount code in the first automated email",
+      ],
+      correct: 0,
+      explanation: "The lesson's first common mistake is triggering purely on a fixed schedule instead of behaviour - a subscriber who already bought should exit the welcome flow and enter post-purchase onboarding, since most platforms support conditional branching and flow exits for exactly this reason.",
+    },
   ],
 
   "email/deliverability": [
@@ -17247,6 +17489,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       options: ["A filter that blocks promotional emails automatically", "An email address set up specifically to identify senders with poor list hygiene - hitting one signals you are mailing unverified or purchased lists", "A type of phishing email targeting marketers", "An automated unsubscribe mechanism"],
       correct: 1,
       explanation: "Spam traps are addresses that should never receive legitimate email. If you hit one, it proves your list contains addresses that were never opted in or haven't been cleaned - severely damaging your sender reputation.",
+    },
+    {
+      question: "An email passes its SPF check because it was sent from an authorized IP address, but a recipient still cannot tell whether the visible From address actually belongs to the sender's domain. Which protocol closes this specific gap?",
+      options: [
+        "SPF, by adding a second authorized-IP lookup",
+        "DKIM alone, since it always validates the visible From address directly",
+        "DMARC, by requiring the From header domain to align with the domain authenticated by SPF or DKIM",
+        "MX records, since they control where mail is routed",
+      ],
+      correct: 2,
+      explanation: "SPF only validates the technical envelope sender, not the visible From address a recipient sees - this is explicitly called out as SPF's blind spot. DMARC adds alignment, tying the From header domain to what SPF or DKIM actually authenticated.",
     },
   ],
 
@@ -17275,6 +17528,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "CAN-SPAM mandates a valid physical postal address in every commercial email. This, along with a clear unsubscribe mechanism and honest subject lines, are core compliance requirements.",
     },
+    {
+      question: "A company collected a customer's email through a purchase 30 months ago in Canada and never obtained express consent. Can they still legally email that customer under CASL's implied consent rule?",
+      options: [
+        "Yes, implied consent from a purchase never expires under CASL",
+        "No, implied consent from a purchase lasts only two years, so this contact's implied consent has already expired",
+        "Yes, because CASL only regulates consent for job applications, not purchases",
+        "No, because CASL requires express consent for every purchase-based contact from day one",
+      ],
+      correct: 1,
+      explanation: "CASL's implied consent is time-limited: two years from a purchase or business inquiry, and six months from a job application. At 30 months past the purchase, this contact's implied consent has lapsed and the sender needs fresh consent or must suppress them.",
+    },
   ],
 
   "email/welcome-series": [
@@ -17301,6 +17565,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       options: ["Average open rate of Email 1 alone", "Conversion to first purchase or key activation event within 30 days of sign-up", "Total unsubscribes across the series", "Number of emails in the series"],
       correct: 1,
       explanation: "The welcome series exists to move subscribers toward a goal - purchase, activation, or engagement. Conversion to that goal within a defined window is the north star metric for series performance.",
+    },
+    {
+      question: "A subscriber does not open Email 1 of the welcome series within 24 hours. According to the lesson's conditional-split guidance, what should happen next?",
+      options: [
+        "Nothing - move straight to Email 2 on the original schedule regardless of whether Email 1 was opened",
+        "Automatically resend Email 1 with a new subject line, since this can recover 20-30% of subscribers who missed it due to inbox clutter",
+        "Immediately suppress the subscriber from all future sends",
+        "Skip directly to the Email 3 discount offer to force engagement",
+      ],
+      correct: 1,
+      explanation: "The lesson lists 'did the subscriber open Email 1?' as one of the most useful conditional splits - resending with a new subject line 24 hours later can recover 20-30% of subscribers who simply missed the first email in a cluttered inbox.",
     },
   ],
 
@@ -17329,6 +17604,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Acknowledging the gap honestly and quickly re-establishing relevance ('here's what you missed') is more likely to rekindle interest than a threat or an overwhelming product dump.",
     },
+    {
+      question: "A marketer wants to define 'dormant' using only email opens as the signal before triggering a win-back sequence. Why does the lesson say this is an unreliable approach on its own?",
+      options: [
+        "Open rates are always 100% accurate for every subscriber and cannot be improved on",
+        "Apple Mail Privacy Protection inflates open rates for roughly half of iOS users, so opens alone give a misleading picture of true engagement",
+        "Opens are only tracked for subscribers who have unsubscribed already",
+        "Email opens are not measurable by any ESP, so they cannot be used as a trigger at all",
+      ],
+      correct: 1,
+      explanation: "The lesson recommends combining 'no click AND no purchase AND no site visit' rather than relying on opens alone, because Apple Mail Privacy Protection artificially inflates open rates for about half of iOS users, making opens an unreliable solo signal for defining dormancy.",
+    },
   ],
 
   "email/clv": [
@@ -17355,6 +17641,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       options: ["The business should immediately cut acquisition spend for that segment", "The business must assess whether the CLV:CAC ratio is healthy - typically CLV should be at least 3x CAC", "High CAC always means the segment is not worth targeting", "CLV and CAC are unrelated metrics"],
       correct: 1,
       explanation: "The CLV:CAC ratio is the key health indicator - most SaaS and e-commerce benchmarks target 3:1 or higher. High CLV can justify high CAC, but the ratio must remain positive.",
+    },
+    {
+      question: "Two customers each generate $500 in revenue. Customer A has a 20% gross margin, Customer B has a 60% gross margin. Why does the margin-adjusted CLV formula treat them so differently?",
+      options: [
+        "It doesn't, revenue-based CLV is always the correct measure",
+        "Customer A's CLV is $100 and Customer B's is $300, since the formula multiplies revenue by gross margin percentage",
+        "Margin only matters for B2B businesses, not ecommerce",
+        "The customer with higher revenue always has higher CLV regardless of margin",
+      ],
+      correct: 1,
+      explanation: "Running CLV on revenue alone without the gross margin multiplier inflates the numbers and can make you optimize toward high-revenue, low-margin outcomes while believing you're optimizing profitability.",
     },
   ],
 
@@ -20224,6 +20521,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Klaviyo's benchmarks show send-time optimization delivers 5-23% open rate improvement by hitting each subscriber at their individual peak engagement hour rather than batch-blasting the entire list at once.",
     },
+    {
+      question: "According to the lesson, what share of email sends are automated triggers, and what share of total email revenue do they drive?",
+      options: [
+        "50% of sends, 50% of revenue",
+        "2% of sends, 30% of revenue",
+        "30% of sends, 2% of revenue",
+        "10% of sends, 10% of revenue",
+      ],
+      correct: 1,
+      explanation: "Klaviyo's 2025 data cited in the lesson shows automated emails are only 2% of sends but drive 30% of total email revenue, which is why the lesson recommends starting AI personalization investment in triggered flows rather than broadcast campaigns.",
+    },
   ],
   "email/amp-for-email": [
     {
@@ -20269,6 +20577,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 3,
       explanation: "Mailmodo was built specifically around AMP email, making it the strongest native option. Mailchimp has no AMP support, Klaviyo only has limited workarounds, and SendGrid requires manual MIME assembly.",
+    },
+    {
+      question: "Per the lesson, roughly what share of global inboxes can actually render the interactive AMP version of an email in 2026?",
+      options: [
+        "Nearly 100%, since all major clients adopted AMP by 2022",
+        "Roughly 35-40%, covering Gmail, Yahoo Mail, and Mail.ru, while the rest see a clean HTML fallback",
+        "Less than 5%, making AMP not worth building for",
+        "About 60%, since Apple Mail added AMP support in 2025",
+      ],
+      correct: 1,
+      explanation: "The lesson notes AMP renders in Gmail, Yahoo Mail, and Mail.ru (roughly 35-40% of inboxes depending on audience), while Apple Mail, Outlook, and everything else fall back to standard HTML, no one sees a broken email.",
     },
   ],
   "email/email-plus-sms-orchestration": [
@@ -20316,6 +20635,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Email and SMS are legally separate channels, an email opt-in does NOT constitute SMS consent. Explicit, separately collected consent (with stored timestamps) is required before sending any promotional SMS.",
     },
+    {
+      question: "Per the lesson, roughly how much incremental revenue does cross-channel data show when SMS accompanies email, and why does this happen even though some subscribers ignore one channel entirely?",
+      options: [
+        "0%, SMS just duplicates the email message with no added benefit",
+        "20-40% incremental revenue, because repetition with variety catches subscribers who read texts but skip email, and vice versa",
+        "100%+ incremental revenue, because SMS always outperforms email",
+        "20-40%, but only because SMS replaces email entirely for most subscribers",
+      ],
+      correct: 1,
+      explanation: "The lesson attributes the 20-40% incremental lift to repetition with variety, the same offer lands differently on a phone screen than in an inbox, so orchestrating both channels catches subscribers that either channel alone would miss.",
+    },
   ],
   "email/inbox-placement-science": [
     {
@@ -20361,6 +20691,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 3,
       explanation: "The recommended DMARC progression is p=none first (collect reports, no enforcement), then p=quarantine (failing messages go to spam as a safety net), then finally p=reject (outright rejection of unauthenticated mail) once all legitimate sending channels are verified.",
+    },
+    {
+      question: "According to the lesson, what makes Sending Consistency a distinct ISP reputation signal from the other three pillars (engagement, complaints, bounces)?",
+      options: [
+        "It measures how many links are included per email",
+        "It flags erratic volume spikes, like 100,000 emails one day and 200,000 a week later after silence, as anomalous spammer-like behavior",
+        "It only applies to senders using shared IP pools",
+        "It is calculated exclusively from unsubscribe rate trends",
+      ],
+      correct: 1,
+      explanation: "The lesson describes sending consistency as ISPs watching for burst patterns typical of spammers versus the steady daily or weekly cadence that legitimate senders maintain, a signal independent of engagement, complaints, or bounces.",
     },
   ],
   "mental-models/first-principles-thinking": [
@@ -25172,6 +25513,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "The lesson's four-step framework is to log a baseline, increase by one send per week, watch spam-complaint rate and open-rate trend as the real signals of crossing the ceiling, then back off one notch and lock it in.",
     },
+    {
+      question: "Per the lesson's frequency-vs-engagement table, why does the 'sweet spot' sit between weekly and twice-weekly sending rather than at the lowest frequency (less than monthly)?",
+      options: [
+        "Less-than-monthly sending has the highest unsubscribe rate (0.87%) because subscribers forget why they signed up, while weekly-to-twice-weekly balances the highest click rate with the lowest unsubscribe rate",
+        "Less-than-monthly sending is illegal under CAN-SPAM",
+        "The table shows unsubscribe rate is identical across all frequencies",
+        "Daily sending has the lowest unsubscribe rate in the table",
+      ],
+      correct: 0,
+      explanation: "The lesson's table shows sub-monthly senders have the highest unsubscribe rate (0.87%), nearly matching daily senders, because infrequent contact makes subscribers forget the relationship, while weekly-to-twice-weekly hits the low point on the curve.",
+    },
   ],
   "email/list-hygiene-sunset-policy": [
     {
@@ -25217,6 +25569,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The lesson distinguishes suppression from deletion: suppressing keeps the address on file to prevent accidental re-import while removing it from all future sends, after a 3-email, 10-14 day re-engagement sequence.",
+    },
+    {
+      question: "Per the lesson's re-engagement sequence, what happens to a subscriber who clicks or replies at any of the three escalating emails?",
+      options: [
+        "They are suppressed anyway since they already crossed the inactivity window",
+        "They return to the active list and their inactivity clock resets",
+        "They are moved to a permanently discounted pricing segment",
+        "Nothing changes until all three emails have been sent",
+      ],
+      correct: 1,
+      explanation: "The lesson's flowchart shows that a click or reply at any point in the sequence, email 1, 2, or 3, returns the subscriber to the active list and resets their inactivity clock, only silence through all three triggers suppression.",
     },
   ],
   "fundamentals/marketing-budgeting-101": [
