@@ -736,4 +736,491 @@ export const MENTAL_MODELS_PROJECTS: Record<string, Project[]> = {
       portfolioReady: false,
     },
   ],
+
+  "bayesian-updating": [
+    {
+      id: "bayesian-priors-calibration-drill",
+      tier: "mini",
+      archetype: "reverse-engineer",
+      title: "Name Your Prior: A Calibration Drill on a Real Test Result",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a real A/B test result with sample size and p-value, state a numeric prior before seeing the outcome framing, then apply the lesson's three-step update process to land on a calibrated new belief.",
+      companyId: "klaviyo",
+      scenario:
+        "You're a lifecycle marketing analyst at Klaviyo evaluating whether a new abandoned-cart email subject line should become the default template offered to every client account.",
+      brief:
+        "State your prior with a number, weigh the evidence honestly, and update proportionally instead of shipping on the raw win.",
+      mode: "calibration",
+      conceptsCovered: [
+        "Naming your prior with a probability",
+        "Weighing evidence strength before updating",
+      ],
+      steps: [
+        {
+          stepId: "step-1-name-prior",
+          concept: "Naming your prior with a probability",
+          lessonAnchor: "the-playbook-three-explicit-steps",
+          theoryRecap:
+            "The lesson's Step 1 says: before evidence lands, put a percentage on what you already believed and how strongly.",
+          question:
+            "Before you look at the test data below, what is your prior? Current subject line: 'You left something behind.' Proposed: 'Still thinking it over? Your cart's waiting.' Internal copywriters are confident the new one wins because it feels more conversational. State a prior probability that the new line beats the control on open rate, before reading further.",
+          toolName: "Google Sheets",
+          where:
+            "Open the shared 'Q3 Email Tests' sheet, tab 'abandoned-cart-subject-line'.",
+          procedure: [
+            "Write your prior probability (e.g. 55%) in cell B2 before opening the results tab",
+            "Open the results tab: control 21.4% open rate (n=8,200), variant 23.1% open rate (n=8,150), p=0.09",
+            "Note that 'conversational' subject line rewrites have a mixed track record in the company's own test archive: 6 wins, 9 losses over two years",
+          ],
+          outputSample:
+            "PRIOR (before results): 55% confident new line wins\n\nRESULT\n  Control:  21.4% open rate, n=8,200\n  Variant:  23.1% open rate, n=8,150\n  p-value:  0.09 (not significant at p<0.05)\n\nHOUSE TRACK RECORD\n  Conversational rewrites: 6 wins / 15 tested (40%) over 2 years",
+          healthy:
+            "Recognizing that a p=0.09 result on a subject line category with a 40% historical win rate is weak evidence against a roughly 50/50 prior, and holding off on a full rollout.",
+          unhealthy:
+            "Treating the 1.7-point open-rate lift as a confirmed win because it 'felt right' to the copywriters, and rolling it out to every client account.",
+          interpret:
+            "A non-significant result on a category with a below-50% historical win rate should nudge your prior only slightly, not flip it.",
+          soWhat: [
+            {
+              symptom: "A test result with p>0.05 gets shipped as 'the new default' anyway",
+              action: "Require p<0.05 or a second confirming test before any subject-line default changes",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-weigh-update",
+          concept: "Weighing evidence strength before updating",
+          lessonAnchor: "the-playbook-three-explicit-steps",
+          theoryRecap:
+            "Step 2 and 3 of the lesson: rate how much the evidence actually tells you, then move your belief proportionally, not to 0% or 100%.",
+          question:
+            "Given the prior you stated, the p=0.09 result, and the 40% historical win rate for this style of rewrite, what is your updated probability that the new subject line is genuinely better? Propose a next action.",
+          toolName: "Google Sheets",
+          where: "Same sheet, tab 'abandoned-cart-subject-line', cell B3.",
+          procedure: [
+            "Rate the evidence strength as weak, moderate, or strong given n≈8,200 per arm and p=0.09",
+            "Write your updated probability in cell B3, showing the move from your Step 1 prior",
+            "Recommend either: ship now, re-run at 3x sample size, or discard, with a one-sentence reason",
+          ],
+          outputSample:
+            "UPDATE\n  Prior: 55%\n  Evidence strength: weak-to-moderate (p=0.09, in-line with historical base rate)\n  Updated belief: 58%\n\nRECOMMENDATION: Re-run at ~25,000 sessions per arm before touching the default template.\nReason: the move from 55% to 58% is too small to justify rolling out to every client account.",
+          healthy:
+            "An 8,200-session test with p=0.09 moves the prior by single digits, and the team re-tests at scale before touching a shared default.",
+          unhealthy:
+            "The same result gets summarized in a Slack message as 'new subject line wins' and shipped as the default that day.",
+          interpret:
+            "Small proportional updates are the correct output of weak evidence, not a failure of the test.",
+          soWhat: [
+            {
+              symptom: "Team debates feel like 'my opinion vs. your opinion' with no shared number",
+              action: "Require every test readout to state prior%, evidence strength, and updated% in writing",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Log the prior, the result, and the updated probability side by side",
+            why: "Free, no account friction, and forces the prior to be written down before the result is seen",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page calibration memo: stated prior, evidence-strength rating, updated probability, and a ship / re-test / discard decision.",
+      sampleOutput:
+        "Warby Parker, homepage hero-image test, calibration memo (excerpt)\n\nPrior: 40% confident the lifestyle photo beats the product-on-white shot\nEvidence: n=14,000/arm, +2.1pp add-to-cart rate, p=0.03\nEvidence strength: moderate (significant, but a single test)\nUpdated belief: 62%\nDecision: Ship to 50% of traffic for one more cycle before full rollout, given only one confirming test exists.",
+      successCriteria: [
+        "States a numeric prior before citing the result",
+        "Rates evidence strength using sample size and p-value, not p-value alone",
+        "Updated probability moves proportionally, not to 0% or 100%",
+        "Recommendation matches the size of the update (small update -> no full rollout)",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "bayesian-quarterly-test-portfolio-forecast",
+      tier: "core",
+      archetype: "forecast",
+      title: "Forecasting Which Q3 Test Wins Will Hold at 10x Traffic",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given a portfolio of 6 completed A/B tests with sample sizes, p-values, and effect sizes, forecast which results will replicate at national scale and which are noise, using proportional Bayesian updating instead of ranking by p-value alone.",
+      companyId: "zomato",
+      scenario:
+        "You're a growth analyst at Zomato reviewing a quarter's worth of completed onboarding-flow experiments before recommending which changes get rolled out from a 3-city pilot to the entire country.",
+      brief:
+        "Score each test's prior plausibility and evidence strength, then forecast which changes will hold up when traffic scales roughly 10x.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Rating evidence strength by sample size and p-value together",
+        "Distinguishing a plausible prior from a familiar-but-untested assumption",
+        "Forecasting replication before a national rollout",
+      ],
+      steps: [
+        {
+          stepId: "step-1-rate-priors",
+          concept: "Distinguishing a plausible prior from a familiar-but-untested assumption",
+          lessonAnchor: "what-it-actually-is",
+          theoryRecap:
+            "The lesson warns that some priors deserve high confidence while others just feel familiar. Confusing 'true' with 'familiar' is a common marketing failure.",
+          question:
+            "For each of the 6 tests below, rate your prior confidence (before seeing results) that the change would help, and note whether that confidence is based on real prior data or just 'it seems obviously better.'",
+          toolName: "Google Sheets",
+          where: "Import onboarding-tests-q3.csv into a new sheet, columns A-F.",
+          procedure: [
+            "List all 6 tests: OTP-vs-social login, single-page vs. multi-step signup, restaurant-photo-first vs. menu-first browse, location-permission timing, referral-code prompt placement, welcome-offer banner copy",
+            "For each, write a prior confidence (%) and mark the basis as 'prior data' or 'assumption only'",
+            "Flag any test where confidence is high but the basis is 'assumption only', these are the highest-risk overreaction candidates",
+          ],
+          outputSample:
+            "TEST                          PRIOR%  BASIS\nOTP-vs-social login            55%    assumption only\nSingle-page signup              70%    prior data (2 past tests)\nPhoto-first browse               50%    assumption only\nLocation-permission timing      60%    prior data (1 past test)\nReferral-code placement          45%    assumption only\nWelcome-offer banner copy        50%    assumption only",
+          healthy:
+            "4 of 6 tests are flagged 'assumption only,' so the team plans to weight their results more cautiously regardless of how large the effect looks.",
+          unhealthy:
+            "All 6 tests get equal trust because 'we ran a proper A/B test,' ignoring that most priors were pure guesses.",
+          interpret:
+            "A test built on an assumption-only prior needs stronger evidence to earn the same updated confidence as one built on real prior data.",
+          soWhat: [
+            {
+              symptom: "Every winning test gets rolled out at the same speed regardless of how it was set up",
+              action: "Tag each test's prior basis before results are read, and slow-roll assumption-only wins",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-weigh-portfolio-evidence",
+          concept: "Rating evidence strength by sample size and p-value together",
+          lessonAnchor: "the-playbook-three-explicit-steps",
+          theoryRecap:
+            "Step 2 of the lesson: a test with 500 visitors is much weaker evidence than one with 50,000, regardless of the p-value it produced.",
+          question:
+            "Given the results below, rate each test's evidence strength as weak, moderate, or strong, factoring in BOTH sample size and p-value, not p-value alone.",
+          toolName: "Google Sheets",
+          where: "Same sheet, columns G-I.",
+          procedure: [
+            "Record each test's sample size per arm and p-value from the results tab",
+            "Rate evidence strength: weak (n<2,000 or p>0.05), moderate (n=2,000-10,000 and p<0.05), strong (n>10,000 and p<0.01)",
+            "Cross-reference against Step 1's prior basis to find tests where weak evidence met an assumption-only prior",
+          ],
+          outputSample:
+            "TEST                          N/ARM   P-VALUE   STRENGTH\nOTP-vs-social login            1,400   0.04      weak (small n)\nSingle-page signup             22,000  0.001     strong\nPhoto-first browse               980   0.03      weak (small n)\nLocation-permission timing     18,500  0.02      strong\nReferral-code placement        3,200   0.06      weak (not sig.)\nWelcome-offer banner copy      15,200  0.15      weak (not sig.)",
+          healthy:
+            "Photo-first browse (weak evidence, assumption-only prior) is flagged as the riskiest 'win' to scale, even though its p-value looks significant.",
+          unhealthy:
+            "Photo-first browse gets rolled out nationally first because its p=0.03 looked cleaner than the 'strong' tests' more complex readouts.",
+          interpret:
+            "A statistically significant result from 980 users on an assumption-only prior deserves a small update and a re-test, not a national rollout.",
+          soWhat: [
+            {
+              symptom: "Rollout order is decided by whichever test 'felt' most convincing in the readout meeting",
+              action: "Rank rollout order by combined prior-basis + evidence-strength score, not by p-value alone",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-forecast-replication",
+          concept: "Forecasting replication before a national rollout",
+          lessonAnchor: "common-mistakes",
+          theoryRecap:
+            "The lesson's Mistake 2: treating p<0.05 as truth ignores that running 20 tests should produce roughly one false positive by chance alone, exactly what a 6-test portfolio risks.",
+          question:
+            "With 6 tests run this quarter and 4 showing p<0.05, roughly how many of those 4 'wins' would you expect to be false positives by chance alone, and which specific test is the most likely candidate to not replicate at 10x traffic?",
+          toolName: "Google Sheets",
+          where: "Same sheet, summary row at the bottom.",
+          procedure: [
+            "Apply the 1-in-20 false-positive base rate to the 4 significant results to estimate expected false positives",
+            "Cross-reference the false-positive risk against Step 1's assumption-only priors and Step 2's weak-evidence flags",
+            "Name the single test most likely to fail to replicate, and propose a confirming re-test before national rollout",
+          ],
+          outputSample:
+            "4 of 6 tests hit p<0.05. At a 1-in-20 base rate, roughly 0.2-0.3 of these could be chance, but 'photo-first browse' carries the compounded risk: assumption-only prior AND small sample (n=980) AND is the only 'weak' test that still cleared p<0.05.\n\nFORECAST: Single-page signup and location-permission timing (both strong evidence, prior-data-backed) are safe to roll out nationally now.\nPhoto-first browse needs a confirming re-test at 10,000+ sessions per arm before national rollout, it is the most likely false positive in this batch.",
+          healthy:
+            "The team ships the 2 strong-evidence tests immediately and holds the weak-evidence 'win' for a confirming test before it touches the whole country.",
+          unhealthy:
+            "All 4 significant tests roll out to 100% of national traffic simultaneously because each individually cleared p<0.05.",
+          interpret:
+            "A portfolio view catches false-positive risk that reading each test in isolation misses entirely.",
+          soWhat: [
+            {
+              symptom: "Multiple 'winning' tests from the same quarter later get quietly reverted",
+              action: "Review each quarter's wins as a portfolio, not one at a time, and flag the false-positive-risk math before rollout",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Track priors, evidence ratings, and rollout forecasts across the whole test portfolio",
+            why: "Free, and a portfolio table is exactly what a spreadsheet is built for",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Analytics 4",
+            role: "Pull actual session counts per test arm to confirm the sample sizes used in the forecast",
+            why: "Free tier covers this volume of event data",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A portfolio forecast table ranking all 6 tests by prior basis + evidence strength, with an explicit national-rollout recommendation per test.",
+      sampleOutput:
+        "Squarespace, Q2 onboarding test portfolio, forecast excerpt\n\nTest: 'Free trial length: 14 vs. 30 days'\nPrior: 65% (prior data from 2023 pricing test)\nEvidence: n=19,000/arm, p=0.008, strong\nForecast: High confidence this replicates at scale. Roll out nationally.\n\nTest: 'Template gallery sort order'\nPrior: 50% (assumption only)\nEvidence: n=1,100/arm, p=0.04, weak (small n)\nForecast: Likely a false positive. Re-test at 10x sample before touching the default.",
+      successCriteria: [
+        "Every test gets a prior-basis tag (prior data vs. assumption only)",
+        "Evidence strength rating uses both sample size and p-value",
+        "Applies the 1-in-20 false-positive base rate to the set of significant results",
+        "Names a specific highest-risk test with a reasoned justification, not just the lowest p-value",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "goodharts-law": [
+    {
+      id: "goodharts-law-kpi-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The KPI Audit: Spotting Which Dashboard Metrics Are Already Gamed",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a real 8-metric growth dashboard, identify which metrics are being optimized in a way that has decoupled them from the real outcome they were meant to represent, and pair each with a guardrail.",
+      companyId: "duolingo",
+      scenario:
+        "You're a marketing ops analyst at Duolingo reviewing the growth team's dashboard before a quarterly business review, where 3 of the 8 metrics are about to become official OKR targets.",
+      brief:
+        "For each metric, ask 'if this metric hit its target, would the real outcome necessarily improve?' Flag the gameable ones and pair each with a guardrail.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Identifying a proxy metric detached from the real outcome",
+        "Pairing a target metric with a guardrail metric",
+      ],
+      steps: [
+        {
+          stepId: "step-1-flag-proxies",
+          concept: "Identifying a proxy metric detached from the real outcome",
+          lessonAnchor: "what-it-actually-is",
+          theoryRecap:
+            "The lesson's core claim: as soon as a team knows what it's measured on, it optimizes the measurement, not the goal the measurement was supposed to represent.",
+          question:
+            "Below are the 8 metrics on the dashboard. For each, name the real outcome it's supposed to be a proxy for, and mark whether it could hit its target without that outcome improving.",
+          toolName: "Looker Studio",
+          where: "Open the 'Growth QBR Dashboard' report, review the 8 headline tiles.",
+          procedure: [
+            "List all 8 metrics: daily app opens, streak-notification click rate, lesson-start count, day-7 retention, referral link shares, push-opt-in rate, paid-install CAC, subscription free-trial starts",
+            "For each, write the real outcome it should proxy (e.g. 'lesson-start count' should proxy 'people are actually learning')",
+            "Mark each GAMEABLE or SOLID based on whether the metric can rise without the real outcome improving",
+          ],
+          outputSample:
+            "METRIC                       REAL OUTCOME PROXIED           GAMEABLE?\nDaily app opens              Active learning                  YES, a notification spam campaign inflates this without any learning\nStreak-notification CTR      Habit formation                  YES, alarming subject lines raise CTR without habit forming\nLesson-start count           Learning progress                YES, can rise while lesson-complete count falls\nDay-7 retention               Long-term engagement            SOLID, hard to fake without real return visits\nReferral link shares          Organic growth                   YES, incentive-only shares don't convert to real users\nPush opt-in rate               Notification reach              SOLID, but not tied to any learning outcome\nPaid-install CAC               Efficient paid growth            SOLID if install quality is also tracked\nSubscription trial starts     Revenue intent                   YES, aggressive trial prompts inflate starts without paid conversion",
+          healthy:
+            "5 of 8 metrics get flagged as gameable, and the team stops proposing 'daily app opens' as a standalone Q4 OKR target.",
+          unhealthy:
+            "The 3 easiest-to-move metrics (app opens, lesson starts, trial starts) get chosen as OKR targets specifically because they're easy to move.",
+          interpret:
+            "A metric being easy to hit is often a sign it is easy to game, not a sign it is a good target.",
+          soWhat: [
+            {
+              symptom: "A metric keeps hitting target every quarter but 'doesn't feel like it's moving the business'",
+              action: "Run this gameable/solid audit on any metric before it becomes an official OKR target",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-guardrails",
+          concept: "Pairing a target metric with a guardrail metric",
+          lessonAnchor: "the-playbook-metrics-that-survive-being-targeted",
+          theoryRecap:
+            "Rule 3 of the lesson's playbook: for every growth target, add a guardrail metric that catches the most likely gaming move.",
+          question:
+            "The QBR wants to set 'lesson-start count' as the official Q4 growth target. Propose a specific guardrail metric and threshold that would catch the most obvious way to game it.",
+          toolName: "Looker Studio",
+          where: "Same report, add a guardrail tile next to the proposed target tile.",
+          procedure: [
+            "Identify the easiest way to inflate lesson-start count without real learning (e.g. auto-starting a lesson on app open)",
+            "Propose a guardrail metric that would fall if that gaming move were used (e.g. lesson-completion rate)",
+            "Set a specific guardrail threshold: 'lesson-completion rate cannot fall more than X points while lesson-starts rises'",
+          ],
+          outputSample:
+            "TARGET: Lesson-start count, +25% by end of Q4\nEASIEST GAME: Auto-surface a lesson card on every app open, inflating starts with no intent to finish\nGUARDRAIL: Lesson-completion rate (starts that reach 100%) cannot fall more than 5 percentage points from the current 68% baseline while lesson-starts grows\nIF TRIPPED: Pause the auto-surface feature and investigate before continuing to chase the lesson-start target",
+          healthy:
+            "The QBR ships 'lesson-starts + completion-rate guardrail' as a paired target, and product declines to ship the auto-surface feature once its guardrail impact is modeled.",
+          unhealthy:
+            "'Lesson-start count' ships alone as the Q4 OKR, and the auto-surface feature ships in week 2 because it's the fastest way to hit the number.",
+          interpret:
+            "A guardrail only works if it is written down and monitored before the target ships, not added after the metric gets gamed.",
+          soWhat: [
+            {
+              symptom: "A metric hit its target but a related quality signal quietly dropped in the same period",
+              action: "Add the guardrail metric to the same dashboard tile as the target, not a separate report nobody checks",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Looker Studio",
+            role: "Build the 8-metric audit view and the paired target-plus-guardrail tile",
+            why: "Free, and connects directly to the underlying GA4/product data most teams already have",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Log the gameable/solid audit table",
+            why: "Free and simple for an 8-row qualitative audit",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A dashboard audit table (metric, real outcome proxied, gameable Y/N) plus one paired target-and-guardrail proposal.",
+      sampleOutput:
+        "Instacart, delivery-ops dashboard audit (excerpt)\n\nMETRIC: On-time delivery rate\nREAL OUTCOME PROXIED: Customer satisfaction with delivery\nGAMEABLE: YES, shoppers can mark 'delivered' early to beat the clock\nGUARDRAIL PROPOSED: Pair with post-delivery CSAT score; on-time rate improvements that coincide with a CSAT drop of more than 3 points trigger a review of delivery-time logging.",
+      successCriteria: [
+        "All 8 metrics get a real-outcome-proxied statement, not just a gameable/solid label",
+        "At least 4 of 8 metrics correctly flagged gameable with a specific gaming mechanism named",
+        "Guardrail proposal names a concrete threshold, not just 'monitor closely'",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "goodharts-law-mql-quota-calibration",
+      tier: "mini",
+      archetype: "reverse-engineer",
+      title: "Calibrating a Growth Target Before It Gets Gamed",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a proposed 'double MQLs by Q4' target with 6 months of historical MQL-to-SQL conversion data, calibrate a paired target that survives being gamed instead of shipping the raw volume number.",
+      companyId: "lenskart",
+      scenario:
+        "You're the demand-gen lead at Lenskart and the CMO wants to double marketing-qualified leads (MQLs) by Q4, from 240/month to 480/month. You have six months of historical MQL-to-SQL conversion data to work from.",
+      brief:
+        "Model what happens to conversion rate if MQL volume doubles at the current qualification bar, then propose a paired target with a guardrail that keeps quality from collapsing.",
+      mode: "calibration",
+      conceptsCovered: [
+        "Modeling the gaming risk of a raw volume target",
+        "Designing a paired target that moves closer to the real business outcome",
+      ],
+      steps: [
+        {
+          stepId: "step-1-model-gaming-risk",
+          concept: "Modeling the gaming risk of a raw volume target",
+          lessonAnchor: "a-real-example",
+          theoryRecap:
+            "The lesson's real example: a team told to double SQLs hit the number by loosening qualification, and close rate fell from 22% to 11%, with net revenue actually dropping.",
+          question:
+            "Given the historical data below (240 MQLs/month, 35% MQL-to-SQL rate, 20% SQL-to-close rate), what is the most likely way the team hits 480 MQLs/month if the qualification bar is the only lever available, and what happens to downstream conversion if they use it?",
+          toolName: "Google Sheets",
+          where: "Open 'MQL Historical Data' sheet, review the last 6 months.",
+          procedure: [
+            "Record the current funnel: 240 MQLs -> 84 SQLs (35%) -> 17 closed-won (20% of SQL)",
+            "Identify the fastest lever to double MQL count: lowering the lead-score threshold that defines 'qualified'",
+            "Estimate the funnel if MQL count doubles via a lowered bar but downstream conversion rates fall proportionally to lead quality (assume MQL-to-SQL rate roughly halves to 18%)",
+          ],
+          outputSample:
+            "CURRENT FUNNEL (monthly)\n  240 MQL -> 84 SQL (35%) -> 17 closed-won (20% of SQL)\n\nIF MQL BAR IS LOWERED TO HIT 480/MONTH\n  480 MQL -> ~86 SQL (18%, lower-quality leads convert worse) -> ~14 closed-won (16% of SQL, sales trusts these leads less)\n\nRESULT: MQL count doubles, but closed-won deals FALL from 17 to ~14/month despite 'hitting' the target.",
+          healthy:
+            "The model is built and shown to the CMO before the target ships, changing the conversation from 'can we hit 480' to 'what target actually grows revenue.'",
+          unhealthy:
+            "The 480 target ships as-is, and six months later someone asks why 'MQLs doubled but the pipeline looks the same.'",
+          interpret:
+            "A volume target with no downstream guardrail predictably gets hit by lowering quality, this is modelable in advance, not a surprise after the fact.",
+          soWhat: [
+            {
+              symptom: "A leadership target is set as a raw volume number with no mention of the conversion funnel below it",
+              action: "Model the funnel impact of the easiest gaming move before the target is finalized, not after it's missed",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-paired-target",
+          concept: "Designing a paired target that moves closer to the real business outcome",
+          lessonAnchor: "the-playbook-metrics-that-survive-being-targeted",
+          theoryRecap:
+            "Rule 2 of the lesson's playbook: move the target closer to the real outcome you have data for. Revenue is harder to game than MQL count.",
+          question:
+            "Propose a revised Q4 target for the CMO that still shows growth ambition but is paired with a guardrail on closed-won deals or close rate, so hitting the number can't happen by lowering quality alone.",
+          toolName: "Google Sheets",
+          where: "Same sheet, new tab 'Revised Q4 Target Proposal'.",
+          procedure: [
+            "Propose an MQL growth number that is ambitious but realistic (e.g. +50% instead of +100%) at the current qualification bar",
+            "Pair it with a guardrail: 'MQL-to-SQL conversion rate cannot fall below 30% (down from 35%, allowing some natural variance)'",
+            "State the projected closed-won number under the paired target, and compare it to the un-paired 480-MQL scenario from Step 1",
+          ],
+          outputSample:
+            "REVISED PROPOSAL\n  Target: 360 MQLs/month (+50%, not +100%), at the current qualification bar\n  Guardrail: MQL-to-SQL rate must stay at or above 30% (baseline 35%)\n  Projected: 360 MQL -> ~113 SQL (31%) -> ~23 closed-won (20%)\n\nCOMPARISON\n  Raw 480-MQL target (ungated): ~14 closed-won/month\n  Paired 360-MQL target (guardrailed): ~23 closed-won/month\n\nThe smaller, guardrailed target produces MORE actual revenue-generating deals.",
+          healthy:
+            "The CMO signs off on the paired 360-MQL/30%-guardrail target after seeing the closed-won comparison table.",
+          unhealthy:
+            "The CMO keeps the 480 number because it 'sounds more ambitious' without seeing the downstream deal-count comparison.",
+          interpret:
+            "A target's ambition should be judged by its effect on the real outcome, not by the size of the headline number.",
+          soWhat: [
+            {
+              symptom: "A leadership target gets set purely by how big the percentage increase sounds",
+              action: "Always attach a projected real-outcome number (deals, revenue) next to any proxy-metric target before it ships",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Model the current funnel, the gaming-risk scenario, and the paired-target proposal",
+            why: "Free, and a funnel model at this scale needs nothing more than formulas",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page target proposal memo: current funnel, gaming-risk model, and a revised paired target with a projected closed-won comparison.",
+      sampleOutput:
+        "Zendesk, support-ticket-deflection target proposal (excerpt)\n\nCURRENT: 1,200 tickets/month, 42% self-service deflection rate\nRAW TARGET REJECTED: '60% deflection by Q4' modeled to encourage agents hiding the 'contact us' link, projected CSAT drop of 6 points\nPAIRED TARGET PROPOSED: '50% deflection, guardrail: CSAT cannot fall below 4.2/5' -> projected deflection gain achieved without the CSAT risk",
+      successCriteria: [
+        "Funnel model shows the specific gaming move and its downstream effect on closed-won count",
+        "Paired target includes a numeric guardrail, not just 'watch quality closely'",
+        "Final comparison shows the guardrailed target produces a better real-outcome number than the raw target",
+      ],
+      portfolioReady: true,
+    },
+  ],
 };

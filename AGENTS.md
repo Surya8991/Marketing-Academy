@@ -756,3 +756,17 @@ Rule 50's "full restart + fresh tab" sequence is still correct advice for the ra
 ```
 
 Caught only by `npm test` (`tests\projects-data.test.ts:250`, "every option routes to a real stage id or the terminal sentinel"), not by the audit script's structural check. When authoring or reviewing simulation-mode projects, grep the target file for `nextStageId: ""` before considering the batch done — `npm test` is the actual gate, per Rule 57, and this is exactly the kind of "valid string, wrong runtime meaning" defect that rule already warned `tsc` can't catch.
+
+### Rule 68 — `Project.archetype` and `Project.mode` are different unions; don't put a `ProjectMode` value into `archetype`
+
+Rule 45 already distinguishes the two fields conceptually. Session 85's Data-Driven Marketer batch shipped the concrete failure mode that rule warned about: two authoring agents wrote `archetype: "calibration"` on a project whose `mode` was correctly `"calibration"`. `"calibration"` is a real `ProjectMode` value but is NOT in the `Archetype` union (`teardown | rebuild | audit | head-to-head | forecast | simulation | reverse-engineer | build-the-asset | ai-critique`), so this fails `tsc --noEmit` with a plain `Type '"calibration"' is not assignable to type 'Archetype'` error.
+
+```ts
+// WRONG — "calibration" is a ProjectMode value, not an Archetype
+{ archetype: "calibration", mode: "calibration", /* ... */ }
+
+// CORRECT — archetype is a real Archetype value; mode stays "calibration"
+{ archetype: "reverse-engineer", mode: "calibration", /* ... */ }
+```
+
+Unlike Rule 67's `nextStageId: ""` defect, `tsc --noEmit` DOES catch this one — but only if it's actually run before merging. `scripts/audit-projects.mjs` does not check it (it validates referential integrity — companyId/toolName/lessonAnchor — not enum membership), so a batch that skips the `tsc` step in `PROJECTS_AUTHORING_GUIDE.md` section 1.5 can still merge this defect. Always run the full verification sequence (`tsc` → lint → test → build) in order after every merge, never skip straight to `npm test`.

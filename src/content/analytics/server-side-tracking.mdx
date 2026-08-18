@@ -18,6 +18,18 @@ If your GA4 conversions look 20-40% lower than your ad platforms claim, you are 
 
 ## What It Actually Is
 
+<InAction
+  concept="Server-Side Tracking (Client vs Server Event Forwarding)"
+  companyName="Farmasave"
+  where="A Magento 2 ecommerce pharmacy implementing GTM server-side tracking with a custom loader to stop ad blockers and browsers from silently dropping tag requests"
+  why="Client-side pixels were undercounting real orders, distorting reported cost-per-acquisition on Meta and Google Ads"
+  what="Moved event collection to a first-party server-side GTM container and forwarded events via Meta's Conversions API and server-side Google Ads tags"
+  benefit="88% more conversions measured via Meta Conversions API than the browser pixel alone, and backend-to-GA4 discrepancy dropped from 20% to 6%"
+  timeframe="Measured after full server-side migration"
+  date="2025"
+  source="https://stape.io/blog/case-study-on-increase-in-conversion-campaigns-for-farmasave"
+/>
+
 Think of standard (client-side) tracking like this: every time a user does something on your site, their browser makes 20 separate phone calls, one to Google, one to Meta, one to TikTok, and so on. Each call can be intercepted, blocked, or delayed.
 
 Server-side tracking changes that. The browser makes one phone call to a server you own. Your server then forwards the data to Google, Meta, TikTok, and everyone else, from a trusted, private line that ad blockers cannot tap.
@@ -82,6 +94,18 @@ In your web GTM container, change the GA4 Configuration Tag's `transport_url` se
 
 **Step 4, Add server tags for each ad platform.**
 Inside the sGTM server container, add server tags for every destination: GA4, Meta CAPI, Google Ads Enhanced Conversions, TikTok Events API, LinkedIn CAPI. Each platform provides a server tag template in the sGTM template gallery.
+
+<InAction
+  concept="Server Tags for Ad Platforms (Meta Conversions API)"
+  companyName="TUI"
+  where="A global travel company shifting from browser-pixel-only tracking to server-side event forwarding via Meta's Conversions API, implemented through a customer data platform"
+  why="iOS privacy changes and browser tracking restrictions were degrading Meta's ability to match ad clicks to real bookings, weakening campaign optimization"
+  what="Sent booking and conversion events server-side through Meta CAPI alongside the existing browser pixel, giving Meta a more complete, deduplicated signal"
+  benefit="Cost per booking dropped 6%, conversion rate on social traffic rose 29%, and ROAS increased 18%"
+  timeframe="Following the shift to server-side event delivery"
+  date="2021"
+  source="https://tealium.com/resource/case-study/tealium-facebook-tui-future-proof-social-ad-spend/"
+/>
 
 **Step 5, Pass first-party identifiers.**
 Hash and forward email address, phone number, and logged-in user ID with every event. This is what feeds Meta's Advanced Matching and Google's Enhanced Conversions, and where most of the accuracy gains actually come from. The platforms use this data to match events to real users even when cookies are missing.

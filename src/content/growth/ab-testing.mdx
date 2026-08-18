@@ -34,6 +34,18 @@ The upside of rigorous testing is equally concrete. Microsoft's Bing team once r
 
 ## How It Works / The Playbook
 
+<InAction
+  concept="Sequential testing removes the peeking problem instead of just banning it"
+  companyName="Netflix"
+  where="Netflix's experimentation platform team, running thousands of concurrent A/B tests across UI personalization, content ranking, and streaming quality"
+  why="Traditional fixed-horizon tests force a hard choice: wait weeks before looking at results, or peek early and accept a false positive rate that climbs from 5% toward 30%+"
+  what="Built and published a sequential testing framework with statistically valid checks that can be monitored continuously, instead of a single end-of-test significance check"
+  benefit="The published methodology won the Best Paper Award (Applied Data Science) at KDD 2025, and production tests built on it delivered real gains, including an 18% navigation improvement from layout experiments"
+  timeframe="2025"
+  date="2025"
+  source="https://netflixtechblog.com/sequential-a-b-testing-keeps-the-world-streaming-netflix-part-1-continuous-data-cba6c7df49df"
+/>
+
 <Mermaid chart={`graph TD
   A[Observe a problem or opportunity in data] --> B[Write a hypothesis]
   B --> C[Calculate required sample size]
@@ -103,6 +115,18 @@ AI-assisted hypothesis generation increased A/B test win rates by 23% in 2024 be
 </Callout>
 
 ## Common Mistakes
+
+<InAction
+  concept="Guardrail metrics catch a win that is actually a loss"
+  companyName="LinkedIn"
+  where="LinkedIn's messaging and notifications team, testing send frequency and content on the internal XLNT experimentation platform"
+  why="An algorithm optimizing purely for email click-through was pushing send volume up, and complaint rates were rising even as some individual emails drove clicks"
+  what="Ran a series of A/B tests that balanced the optimization objective against explicit guardrail metrics for total volume and complaint rate, not just the primary engagement metric"
+  benefit="Cut total email volume by 40% and cut email complaints in half, while engagement rates on the emails that remained still increased"
+  timeframe="2015"
+  date="2015-10-28"
+  source="https://www.linkedin.com/blog/engineering/messaging-notifications/how-experimentation-helped-linkedin-improve-email-communication"
+/>
 
 **Peeking and early stopping.**
 

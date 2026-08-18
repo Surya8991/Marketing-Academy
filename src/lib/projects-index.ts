@@ -454,6 +454,336 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "ga4-setup-config-audit",
+    "category": "analytics",
+    "lessonSlug": "ga4-setup",
+    "lessonTitle": "GA4 Setup & Events",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Pre-Launch Audit: Catching GA4 Setup Mistakes Before They Cost You a Quarter",
+    "timeMinutes": 25,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Data retention window",
+      "Internal traffic filtering",
+      "Reserved event names"
+    ]
+  },
+  {
+    "id": "ga4-setup-launch-plan",
+    "category": "analytics",
+    "lessonSlug": "ga4-setup",
+    "lessonTitle": "GA4 Setup & Events",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The Launch Spec: Writing a GA4 Setup Plan a Developer Can Implement Without Guessing",
+    "timeMinutes": 30,
+    "companyId": "klaviyo",
+    "conceptsCovered": [
+      "Standard event names",
+      "Key events selection",
+      "Custom dimension registration"
+    ]
+  },
+  {
+    "id": "utm-tagging-broken-links-teardown",
+    "category": "analytics",
+    "lessonSlug": "utm-tagging",
+    "lessonTitle": "UTM Tagging",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Pre-Send Teardown: Finding What's Broken in Five Campaign Links",
+    "timeMinutes": 20,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "The Five-Step Pre-Launch Checklist",
+      "Common Mistakes to Avoid"
+    ]
+  },
+  {
+    "id": "utm-tagging-naming-convention-template",
+    "category": "analytics",
+    "lessonSlug": "utm-tagging",
+    "lessonTitle": "UTM Tagging",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The Governance Doc: Building a UTM Naming Convention Your Whole Team Will Actually Follow",
+    "timeMinutes": 45,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Approved source and medium values",
+      "Campaign naming pattern with date/version",
+      "Auto-tagging with dynamic tokens"
+    ]
+  },
+  {
+    "id": "conversion-tracking-event-audit",
+    "category": "analytics",
+    "lessonSlug": "conversion-tracking",
+    "lessonTitle": "Conversion Tracking",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Duplicate Fire: Auditing Zendesk's Conversion Event Export",
+    "timeMinutes": 25,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Marking only the real ones as key events",
+      "Deduplicating browser and server events with a shared event_id"
+    ]
+  },
+  {
+    "id": "conversion-tracking-inventory-build",
+    "category": "analytics",
+    "lessonSlug": "conversion-tracking",
+    "lessonTitle": "Conversion Tracking",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Ship It Before Tag Manager: Building Chewy's Conversion Inventory",
+    "timeMinutes": 30,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Writing a conversion inventory before opening a tag manager",
+      "Using GA4's recommended event names"
+    ]
+  },
+  {
+    "id": "funnel-drop-off-audit-rtr",
+    "category": "analytics",
+    "lessonSlug": "funnel-analysis",
+    "lessonTitle": "Funnel Analysis",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Where Rent the Runway Loses the Sale: Auditing a Real Funnel Report",
+    "timeMinutes": 30,
+    "companyId": "rent-the-runway",
+    "conceptsCovered": [
+      "Calculating drop-off rate at each funnel stage",
+      "Segmenting a funnel by device to find masked problems"
+    ]
+  },
+  {
+    "id": "funnel-fix-revenue-forecast-thredup",
+    "category": "analytics",
+    "lessonSlug": "funnel-analysis",
+    "lessonTitle": "Funnel Analysis",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "The Business Case: Forecasting the Revenue Impact of Fixing ThredUp's Leakiest Stage",
+    "timeMinutes": 55,
+    "companyId": "thredup",
+    "conceptsCovered": [
+      "Calculating overall funnel conversion rate",
+      "Comparing a stage conversion rate against a realistic benchmark",
+      "Translating a conversion-rate fix into a revenue forecast"
+    ]
+  },
+  {
+    "id": "mmm-saturation-adstock-audit",
+    "category": "analytics",
+    "lessonSlug": "mmm",
+    "lessonTitle": "Marketing Mix Modeling",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Reallocation Call: Auditing Grab's MMM Output",
+    "timeMinutes": 25,
+    "companyId": "grab",
+    "conceptsCovered": [
+      "Reading saturation curves to spot over-invested channels",
+      "Distinguishing carryover (adstock) from immediate response"
+    ]
+  },
+  {
+    "id": "mmm-geo-lift-calibration-forecast",
+    "category": "analytics",
+    "lessonSlug": "mmm",
+    "lessonTitle": "Marketing Mix Modeling",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "Calibrate or Guess: Correcting Wise's MMM Priors With a Geo-Lift Result",
+    "timeMinutes": 45,
+    "companyId": "wise",
+    "conceptsCovered": [
+      "Calibrating MMM against experimental ground truth (the step amateurs skip)",
+      "Reporting a credible interval instead of a point estimate",
+      "Stress-testing a reallocation at plus/minus 20% budget"
+    ]
+  },
+  {
+    "id": "incrementality-geo-holdout-readout-audit",
+    "category": "analytics",
+    "lessonSlug": "incrementality",
+    "lessonTitle": "Incrementality Testing",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Holdout Readout: Auditing Zomato's Geo-Lift Numbers",
+    "timeMinutes": 30,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Calculating iROAS from a test/control conversion gap",
+      "Spotting spillover contamination between matched geo pairs"
+    ]
+  },
+  {
+    "id": "incrementality-channel-benchmark-head-to-head",
+    "category": "analytics",
+    "lessonSlug": "incrementality",
+    "lessonTitle": "Incrementality Testing",
+    "tier": "core",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "Scale, Hold, or Cut: A Channel iROAS Head-to-Head for Sea Limited",
+    "timeMinutes": 40,
+    "companyId": "sea-limited",
+    "conceptsCovered": [
+      "Distinguishing platform ROAS from incremental ROAS (iROAS)",
+      "Recognizing why branded search often shows near-zero incrementality",
+      "Deciding scale, hold, or cut from a channel iROAS table"
+    ]
+  },
+  {
+    "id": "dashboard-vanity-teardown",
+    "category": "analytics",
+    "lessonSlug": "dashboards",
+    "lessonTitle": "Dashboards (Looker, etc.)",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Vanity Wall: Tearing Down a Cluttered Executive Scorecard",
+    "timeMinutes": 25,
+    "companyId": "slack",
+    "conceptsCovered": [
+      "Tile sprawl",
+      "Vanity metrics at the top",
+      "No comparison anchor",
+      "Step 1: Write the Decision First"
+    ]
+  },
+  {
+    "id": "dashboard-two-tier-spec-build",
+    "category": "analytics",
+    "lessonSlug": "dashboards",
+    "lessonTitle": "Dashboards (Looker, etc.)",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Two-Dashboard Split: Executive Scorecard and Operator Deep Dive Spec",
+    "timeMinutes": 30,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "The Two Types of Dashboards You Need",
+      "Step 1: Write the Decision First",
+      "Step 4: Design for 5 Seconds"
+    ]
+  },
+  {
+    "id": "kpi-vanity-audit",
+    "category": "analytics",
+    "lessonSlug": "kpis-for-marketers",
+    "lessonTitle": "KPIs for Marketers",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Vanity or KPI? Auditing MapmyIndia's Metrics List",
+    "timeMinutes": 25,
+    "companyId": "mapmyindia",
+    "conceptsCovered": [
+      "What Is a KPI?",
+      "The Vanity Metric Trap"
+    ]
+  },
+  {
+    "id": "kpi-tree-build",
+    "category": "analytics",
+    "lessonSlug": "kpis-for-marketers",
+    "lessonTitle": "KPIs for Marketers",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a KPI Tree From a Single Business Goal",
+    "timeMinutes": 45,
+    "companyId": "snowflake",
+    "conceptsCovered": [
+      "How Many KPIs Should You Track?",
+      "The Four KPI Categories Marketers Use",
+      "How to Set a Good KPI"
+    ]
+  },
+  {
+    "id": "server-side-tracking-client-vs-server-audit",
+    "category": "analytics",
+    "lessonSlug": "server-side-tracking",
+    "lessonTitle": "Server-Side Tracking",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Missing 18%: Auditing a Client vs Server Event Gap",
+    "timeMinutes": 35,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Diagnosing a client-side tracking gap by browser segment",
+      "Event deduplication with a shared event_id"
+    ]
+  },
+  {
+    "id": "server-side-tracking-sgtm-migration-plan",
+    "category": "analytics",
+    "lessonSlug": "server-side-tracking",
+    "lessonTitle": "Server-Side Tracking",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Blueprint Before Build: Planning a Server-Side GTM Migration",
+    "timeMinutes": 25,
+    "companyId": "nubank",
+    "conceptsCovered": [
+      "First-party subdomain setup",
+      "Sequencing server tags by ad-spend priority"
+    ]
+  },
+  {
+    "id": "predictive-analytics-churn-score-diagnostic",
+    "category": "analytics",
+    "lessonSlug": "predictive-analytics",
+    "lessonTitle": "Predictive Analytics",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Trust But Verify: Validating a Churn Model Against Real Outcomes",
+    "timeMinutes": 40,
+    "companyId": "klaviyo",
+    "conceptsCovered": [
+      "Validating predictions against real outcomes (precision and recall)",
+      "Interpreting a propensity score threshold"
+    ]
+  },
+  {
+    "id": "predictive-analytics-rule-based-vs-ga4-head-to-head",
+    "category": "analytics",
+    "lessonSlug": "predictive-analytics",
+    "lessonTitle": "Predictive Analytics",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "Spreadsheet Rule vs. GA4 Model: A Churn-Scoring Head-to-Head",
+    "timeMinutes": 30,
+    "companyId": "coinbase",
+    "conceptsCovered": [
+      "Building a rule-based churn score without a data science team",
+      "Using GA4's built-in predictive metrics as a free starting point"
+    ]
+  },
+  {
     "id": "what-is-content-marketing-teardown",
     "category": "content",
     "lessonSlug": "what-is-content-marketing",
@@ -1241,6 +1571,41 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "ab-testing-results-conclusiveness-audit",
+    "category": "growth",
+    "lessonSlug": "ab-testing",
+    "lessonTitle": "A/B Testing & Statistical Significance",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Ship It or Kill It: Auditing a Suspiciously Good Test Result",
+    "timeMinutes": 25,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Calculating required sample size before launch",
+      "Peeking and early stopping inflates false positives",
+      "Running for full business cycles"
+    ]
+  },
+  {
+    "id": "ab-testing-checkout-test-plan-build",
+    "category": "growth",
+    "lessonSlug": "ab-testing",
+    "lessonTitle": "A/B Testing & Statistical Significance",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Pre-Register the Test: Building a Properly Powered A/B Test Plan",
+    "timeMinutes": 45,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "Writing a testable hypothesis",
+      "Calculating required sample size before launch",
+      "Picking one primary metric with guardrail metrics",
+      "Running for full business cycles"
+    ]
+  },
+  {
     "id": "first-principles-thinking-memo-teardown",
     "category": "mental-models",
     "lessonSlug": "first-principles-thinking",
@@ -1376,6 +1741,71 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
       "Why It Matters",
       "The Playbook: Four Steps",
       "Common Mistakes"
+    ]
+  },
+  {
+    "id": "bayesian-priors-calibration-drill",
+    "category": "mental-models",
+    "lessonSlug": "bayesian-updating",
+    "lessonTitle": "Bayesian Updating for Marketers",
+    "tier": "mini",
+    "archetype": "reverse-engineer",
+    "mode": "calibration",
+    "title": "Name Your Prior: A Calibration Drill on a Real Test Result",
+    "timeMinutes": 25,
+    "companyId": "klaviyo",
+    "conceptsCovered": [
+      "Naming your prior with a probability",
+      "Weighing evidence strength before updating"
+    ]
+  },
+  {
+    "id": "bayesian-quarterly-test-portfolio-forecast",
+    "category": "mental-models",
+    "lessonSlug": "bayesian-updating",
+    "lessonTitle": "Bayesian Updating for Marketers",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Forecasting Which Q3 Test Wins Will Hold at 10x Traffic",
+    "timeMinutes": 45,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Rating evidence strength by sample size and p-value together",
+      "Distinguishing a plausible prior from a familiar-but-untested assumption",
+      "Forecasting replication before a national rollout"
+    ]
+  },
+  {
+    "id": "goodharts-law-kpi-audit",
+    "category": "mental-models",
+    "lessonSlug": "goodharts-law",
+    "lessonTitle": "Goodhart's Law: When Metrics Become Targets",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The KPI Audit: Spotting Which Dashboard Metrics Are Already Gamed",
+    "timeMinutes": 25,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Identifying a proxy metric detached from the real outcome",
+      "Pairing a target metric with a guardrail metric"
+    ]
+  },
+  {
+    "id": "goodharts-law-mql-quota-calibration",
+    "category": "mental-models",
+    "lessonSlug": "goodharts-law",
+    "lessonTitle": "Goodhart's Law: When Metrics Become Targets",
+    "tier": "mini",
+    "archetype": "reverse-engineer",
+    "mode": "calibration",
+    "title": "Calibrating a Growth Target Before It Gets Gamed",
+    "timeMinutes": 25,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Modeling the gaming risk of a raw volume target",
+      "Designing a paired target that moves closer to the real business outcome"
     ]
   },
   {

@@ -120,11 +120,36 @@ Amazon's recommendation engine is the most commercially successful predictive an
 
 The result: predictive product recommendations drive up to 30% of Amazon's total annual revenue. That is not 30% of one campaign, it is 30% of the entire business, predicted and personalized at scale.
 
+<InAction
+  concept="Predictive Product Recommendations (Collaborative Filtering)"
+  companyName="Amazon"
+  companyId="amazon"
+  where="Amazon's product pages, homepage, and 'customers who bought this also bought' modules across its retail marketplace"
+  why="Manually curated merchandising cannot scale to hundreds of millions of SKUs and customers with individually different intent"
+  what="Applied collaborative filtering, a predictive model that finds customers with similar purchase and browsing patterns and forecasts what each customer is likely to buy next"
+  benefit="Algorithmic recommendations were found to drive 35% of what consumers purchase on Amazon"
+  timeframe="Ongoing, cited as of Amazon's retail scale in the early 2010s and still referenced as the industry benchmark"
+  date="2013"
+  source="https://www.mckinsey.com/industries/retail/our-insights/how-retailers-can-keep-up-with-consumers"
+/>
+
 ### Netflix, Predicted Viewing Preferences
 
 Netflix uses predictive models to decide which shows to surface to each of its 260 million subscribers. The model predicts what any given user will want to watch next based on viewing history, time of day, device, and behavior patterns of similar users.
 
 Over 80% of content watched on Netflix is driven by its recommendation engine, not by active user search. Netflix estimates the system saves over $1 billion per year in customer retention that would otherwise require paid re-acquisition campaigns.
+
+<InAction
+  concept="Predictive Personalization for Retention"
+  companyName="Netflix"
+  where="Netflix's homepage and per-title recommendation rows, personalized per subscriber using viewing history, device, and time-of-day signals"
+  why="Reducing subscriber churn is far cheaper than paid re-acquisition once a customer cancels"
+  what="Built a predictive recommendation engine that forecasts what each subscriber is likely to want to watch next, keeping engagement high enough to prevent cancellation"
+  benefit="Netflix executives reported the recommendation engine saves the company over $1 billion per year in avoided churn and re-acquisition costs, with over 80% of viewing driven by recommendations rather than search"
+  timeframe="Ongoing savings estimate reported by Netflix leadership"
+  date="2016"
+  source="https://www.tubefilter.com/2016/06/20/netflix-recommendation-engine-algorithm/"
+/>
 
 <Callout type="warning">
 **The most common mistake: deploying without validation.** A model trained on last year's data may be confidently wrong about this year's customers. Always split your historical data into a training set and a holdout test set before going live. Measure predicted churn against actual churn for 30 days. If your model says "70% churn risk" and 70% of those customers actually churn, the model is working. If only 20% churn, you are sending retention offers to the wrong people and wasting budget.

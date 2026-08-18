@@ -73,6 +73,18 @@ Google Tag Manager (GTM) is a free tool that lets you add tracking code to your 
 
 If you hardcode gtag AND use GTM, you will double-count every page view. This bug is painful to track down. Use one method only.
 
+<InAction
+  concept="Install via Google Tag Manager (GTM), not hardcoded gtag"
+  companyName="MyCardirect.com"
+  where="An online car dealership's GA4 implementation audit"
+  why="Conversions and signups were being counted at up to 3x their real volume, with no obvious cause in the reports themselves."
+  what="The analytics team found duplicate gtag.js and GTM installations both firing on the same pages, then consolidated all conversion tracking into a single GTM container and removed the hardcoded gtag snippet."
+  benefit="3x conversion overcounting removed, plus a related login and signup miscount fixed"
+  timeframe="One implementation audit and cleanup pass"
+  date="2026"
+  source="https://ga4experts.com/case-studies/"
+/>
+
 ### Step 4: Bump Data Retention to 14 Months
 
 This is the single most impactful setting most teams miss. Go to Admin, then Data Settings, then Data Retention. The default is 2 months. Change it to 14 months, which is the maximum for the free tier. Also toggle "Reset user data on new activity" to on.
@@ -88,6 +100,18 @@ Go to Admin, then Data Streams, then your stream, then Configure tag settings, t
 ### Step 6: Define Key Events
 
 In 2024, GA4 renamed "conversions" to "key events." They work the same way. Under Admin, then Events, mark events like `generate_lead`, `purchase`, or `sign_up` as key events. These are the actions that matter to your business.
+
+<InAction
+  concept="Define Key Events"
+  companyName="McDonald's Hong Kong"
+  where="The McDonald's app and mobile ordering funnel in Hong Kong"
+  why="Foot traffic had dropped and the team needed a way to identify which app users were actually likely to place a mobile order, not just browse the menu."
+  what="With key events and predictive audiences properly configured in GA4, the team built a predicted-purchaser audience and linked it to Google Ads to retarget high-likelihood 7-day buyers."
+  benefit="550% increase in in-app orders, a 560% increase in revenue from likely purchasers, and a 63% drop in cost-per-acquisition"
+  timeframe="Within two months of the GA4 rollout"
+  date="2022"
+  source="https://marketingplatform.google.com/about/resources/mcdonald-hong-kong-uses-google-analytics-4-to-increase-in-app-orders-by-550-percent/"
+/>
 
 ### Step 7: Register Custom Dimensions
 

@@ -683,4 +683,268 @@ export const GROWTH_PROJECTS: Record<string, Project[]> = {
         "Run this same two-candidate drill on a proposed metric change at your own job or a product you follow closely. Most 'let's just track X too' proposals collapse fast once you apply these three questions out loud.",
     },
   ],
+
+  "ab-testing": [
+    {
+      id: "ab-testing-results-conclusiveness-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "Ship It or Kill It: Auditing a Suspiciously Good Test Result",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a supplied A/B test results table (sample sizes, conversion rates, p-value, dates), decide whether the test is actually conclusive or whether peeking, underpowering, or the novelty effect makes the declared winner unreliable.",
+      companyId: "casper-sleep",
+      scenario:
+        "You're the growth analyst at Casper. A PM is pushing to ship a new checkout variant after 4 days because 'it's already significant.' You've been handed the raw results table and asked to sign off before it ships.",
+      brief:
+        "Check the sample size against the pre-registered calculation, check test duration against a full business cycle, and check whether the p-value was read mid-test or at the planned end date.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Calculating required sample size before launch",
+        "Peeking and early stopping inflates false positives",
+        "Running for full business cycles",
+      ],
+      steps: [
+        {
+          stepId: "step-1-sample-size-check",
+          concept: "Calculating required sample size before launch",
+          lessonAnchor: "how-it-works-the-playbook",
+          theoryRecap:
+            "The lesson's Step 2 requires calculating sample size from baseline rate, MDE, 95% confidence, and 80% power before launch, not checking it after the fact.",
+          question:
+            "The pre-launch plan called for 30,000 visitors per variant. The results table shows 6,200 in control and 6,050 in variant, collected over 4 days. Is this test adequately powered?",
+          toolName: "Google Sheets",
+          where: "Open results-table.csv, compare the 'visitors' column against the pre-registered sample size note in row 1.",
+          procedure: [
+            "Import results-table.csv into Google Sheets",
+            "Sum visitors per variant and compare against the pre-registered target of 30,000",
+            "Flag the test as underpowered if actual visitors are under 25% of the target",
+          ],
+          outputSample:
+            "Pre-registered target: 30,000 visitors/variant\nActual after 4 days:\n  Control: 6,200 visitors, 248 conversions (4.0%)\n  Variant: 6,050 visitors, 278 conversions (4.6%)\nActual sample = 20% of target",
+          healthy:
+            "The test is flagged as underpowered and not shipped until it reaches the pre-registered sample size.",
+          unhealthy:
+            "The PM ships the variant because the dashboard shows a green checkmark, ignoring that the sample is one-fifth of the planned size.",
+          interpret:
+            "A p-value computed on 20% of the required sample is not evidence, it is noise that happened to cross a threshold.",
+          soWhat: [
+            {
+              symptom: "A stakeholder wants to ship based on an early significant reading",
+              action: "Pull the pre-registered sample size and show the gap in writing before any ship decision",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-peeking-check",
+          concept: "Peeking and early stopping inflates false positives",
+          lessonAnchor: "common-mistakes",
+          theoryRecap:
+            "The lesson's Common Mistakes section states early stopping inflates the false positive rate from 5% to over 30%, and that the end date must be locked before launch and not moved.",
+          question:
+            "The results table has a 'checked_at' column showing the team looked at p-values on day 1, day 2, day 3, and day 4, and shipped the moment day 4 crossed p < 0.05. What does this pattern tell you about the reported significance?",
+          toolName: "Google Sheets",
+          where: "Filter the 'checked_at' log column in results-table.csv.",
+          procedure: [
+            "Filter the checked_at column to count how many times the team looked at results before shipping",
+            "Cross-reference the day the decision was made against the planned 2-week end date",
+            "Recompute the effective false positive rate implied by 4 looks (roughly 20%+, not 5%)",
+          ],
+          outputSample:
+            "checked_at log: Day 1 (p=0.31), Day 2 (p=0.14), Day 3 (p=0.09), Day 4 (p=0.048, shipped)\nPlanned end date: Day 14\nLooks before ship: 4",
+          healthy:
+            "The test is declared inconclusive and restarted with a locked end date and a single significance check at the finish line.",
+          unhealthy:
+            "The team treats the day-4 p=0.048 as the real result and ships, unaware that 4 sequential looks pushed the true false-positive rate well above 5%.",
+          interpret:
+            "Every additional peek at an unfinished test is another roll of the dice; the reported p-value at the moment of shipping is not the test's true error rate.",
+          soWhat: [
+            {
+              symptom: "A dashboard shows daily p-value snapshots being screenshotted and shared",
+              action: "Disable public significance dashboards during the test, or restrict access until the locked end date",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Import and audit the raw results table",
+            why: "Free, no account friction, sufficient for a sample-size and peeking-pattern audit",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page audit verdict (ship / do not ship / extend test) with the specific sample-size gap and peeking pattern cited as evidence.",
+      sampleOutput:
+        "Allbirds, checkout CTA test audit (excerpt)\n\nVERDICT: DO NOT SHIP\n\nSample size: 8,400 / 28,000 required visitors per variant (30% of target)\nPeeking: 5 significance checks logged before the day-5 ship decision\nRecommendation: restart with a locked 2-week end date, no interim dashboard access",
+      successCriteria: [
+        "Correctly identifies the sample-size shortfall against the pre-registered target",
+        "Correctly identifies the peeking pattern from the checked_at log",
+        "Recommends not shipping, with both the sample-size and peeking evidence cited",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "ab-testing-checkout-test-plan-build",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "Pre-Register the Test: Building a Properly Powered A/B Test Plan",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given a real baseline conversion rate and traffic volume, build a complete pre-registered test plan: hypothesis, sample size calculation, primary and guardrail metrics, and a locked end date, before any variant is built.",
+      companyId: "nykaa",
+      scenario:
+        "You're the growth lead at Nykaa. The team wants to test a simplified 2-step checkout against the current 4-step checkout. Before anyone touches design, you own the test plan.",
+      brief:
+        "Turn a vague 'let's test the checkout' idea into a fully pre-registered plan with a real sample size number, a locked duration, and guardrail metrics that would catch a hidden regression.",
+      mode: "build",
+      conceptsCovered: [
+        "Writing a testable hypothesis",
+        "Calculating required sample size before launch",
+        "Picking one primary metric with guardrail metrics",
+        "Running for full business cycles",
+      ],
+      steps: [
+        {
+          stepId: "step-1-hypothesis",
+          concept: "Writing a testable hypothesis",
+          lessonAnchor: "how-it-works-the-playbook",
+          theoryRecap:
+            "The lesson's Step 1 requires the template 'Because we observed [data], we believe [change] will cause [metric] to improve by [amount] for [audience].' If you cannot fill every blank, it is a guess, not a hypothesis.",
+          question:
+            "Analytics shows 38% of users abandon at the 3rd of 4 checkout steps, mostly on mobile. Write a hypothesis that fills every blank in the template using this data.",
+          toolName: "Google Sheets",
+          where: "Draft the hypothesis in a shared plan doc tab.",
+          procedure: [
+            "Pull the step-by-step checkout funnel drop-off from the analytics export",
+            "Identify the specific step and audience segment with the highest abandonment",
+            "Fill in every blank of the hypothesis template with a specific, falsifiable claim",
+          ],
+          outputSample:
+            "Because we observed 38% of mobile users abandon at the shipping-address step (step 3 of 4), we believe collapsing steps 2-4 into a single scrollable screen will cause checkout completion rate to improve by 8% for mobile users.",
+          healthy:
+            "Every blank in the template is filled with a specific number and audience, making the hypothesis falsifiable.",
+          unhealthy:
+            "The hypothesis reads 'we believe a simpler checkout will convert better,' which cannot fail and is not testable.",
+          interpret:
+            "A hypothesis that cannot be wrong is not a hypothesis; it is a preference restated as a claim.",
+          soWhat: [
+            {
+              symptom: "A test brief has no specific numbers in the hypothesis line",
+              action: "Reject the brief and require a filled-in template before sample size work begins",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-sample-size-calc",
+          concept: "Calculating required sample size before launch",
+          lessonAnchor: "how-it-works-the-playbook",
+          theoryRecap:
+            "The lesson's Step 2 requires four inputs before launch: baseline conversion rate, minimum detectable effect, 95% confidence, and 80% power.",
+          question:
+            "Baseline checkout completion is 62%. You want to detect the 8% relative lift from your hypothesis (62% to 66.96%) at 95% confidence and 80% power. Using a sample size calculator, roughly how many visitors per variant do you need, and does current traffic support it?",
+          toolName: "Google Sheets",
+          where: "Log the calculator inputs and output in the plan doc; cross-check against current daily checkout traffic.",
+          procedure: [
+            "Enter baseline rate 62% and MDE 8% relative into a sample size calculator (e.g. Evan Miller's)",
+            "Record the required sample size per variant, typically several thousand for an 8% relative lift on a 62% baseline",
+            "Divide by current daily checkout traffic to estimate how many days the test needs to run",
+          ],
+          outputSample:
+            "Baseline: 62%   MDE: 8% relative   Confidence: 95%   Power: 80%\nRequired: ~3,900 visitors per variant\nCurrent daily checkout traffic: ~650/day total, ~325/variant\nEstimated runtime: ~12 days minimum",
+          healthy:
+            "The plan locks a 14-day minimum runtime, covering both the calculated sample size and a full two-week business cycle.",
+          unhealthy:
+            "The team launches with no runtime estimate and starts checking results after 2 days because 'it felt long enough.'",
+          interpret:
+            "Sample size and business-cycle duration are two separate checks; a plan needs both satisfied, not whichever comes first.",
+          soWhat: [
+            {
+              symptom: "A test plan has no calculated sample size or runtime estimate",
+              action: "Block the launch until the calculator output and a locked end date are both in the plan doc",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-metrics",
+          concept: "Picking one primary metric with guardrail metrics",
+          lessonAnchor: "how-it-works-the-playbook",
+          theoryRecap:
+            "The lesson's Step 3 requires committing to one primary decision metric before launch, plus guardrail metrics tracked to catch regressions without deciding the winner.",
+          question:
+            "Checkout completion rate is the obvious primary metric. What guardrail metrics would catch a hidden regression, like the 2-step checkout lifting completion but quietly increasing return/refund requests?",
+          toolName: "Google Sheets",
+          where: "List primary and guardrail metrics in the plan doc with their data source.",
+          procedure: [
+            "Set checkout completion rate as the single primary metric",
+            "Add revenue per session as a guardrail against a low-value completion spike",
+            "Add 30-day return rate and support ticket volume as guardrails against a rushed, error-prone flow",
+          ],
+          outputSample:
+            "PRIMARY: Checkout completion rate\nGUARDRAILS:\n  Revenue per session (catches low-AOV completions)\n  30-day return rate (catches rushed/mistaken orders)\n  Checkout-related support tickets (catches confusing new flow)",
+          healthy:
+            "Guardrails are defined and monitored before launch so a completion-rate win that breaks returns or support volume gets caught, not shipped.",
+          unhealthy:
+            "Only completion rate is tracked; the team ships an 8% lift and discovers a return-rate spike two months later.",
+          interpret:
+            "A win on the primary metric that breaks a guardrail is not a win, per the lesson's own framing.",
+          soWhat: [
+            {
+              symptom: "A test plan lists only one metric with no guardrails",
+              action: "Add at least one revenue and one downstream quality guardrail before the plan is approved",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Draft and log the full pre-registered test plan",
+            why: "Free, shareable, sufficient for hypothesis, sample size math, and metric definitions",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "VWO",
+            role: "Run the actual test and enforce the locked end date once the plan is approved",
+            why: "Handles randomization, sample size tracking, and guardrail dashboards without manual tracking",
+            required: false,
+            fallback: "Google Sheets can log manual daily counts if no testing platform is available yet",
+            lastVerified: "2026-08",
+          },
+        ],
+      },
+      deliverable:
+        "A complete pre-registered test plan document: filled hypothesis template, sample size calculation with inputs and output, primary metric, 3 guardrail metrics, and a locked minimum runtime.",
+      sampleOutput:
+        "Lenskart, checkout redesign test plan (excerpt)\n\nHYPOTHESIS: Because we observed 41% of users abandon at the prescription-upload step, we believe making upload optional-until-payment will cause checkout completion to improve by 6% for first-time buyers.\n\nSAMPLE SIZE: baseline 58%, MDE 6% relative, 95%/80% power = ~4,800/variant\nRUNTIME: 15 days minimum (traffic-bound)\nPRIMARY: Checkout completion rate\nGUARDRAILS: Revenue per session, prescription-verification failure rate, support tickets",
+      successCriteria: [
+        "Hypothesis fills every blank of the template with specific numbers",
+        "Sample size is calculated from real baseline/MDE inputs, not guessed",
+        "Exactly one primary metric is named, with at least 2 guardrail metrics",
+        "Runtime accounts for both sample size and the full-business-cycle minimum",
+      ],
+      portfolioReady: true,
+    },
+  ],
 };

@@ -1702,4 +1702,2440 @@ export const ANALYTICS_PROJECTS: Record<string, Project[]> = {
         "Attribution models explain the journey, but incrementality proves causality. By pairing W-shaped milestone attribution with holdout testing, growth teams can protect vital awareness channels, eliminate wasted spend on non-incremental clicks, and maximize true pipeline growth.",
     },
   ],
+
+  "ga4-setup": [
+    {
+      id: "ga4-setup-config-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Pre-Launch Audit: Catching GA4 Setup Mistakes Before They Cost You a Quarter",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a real GA4 property settings export, apply the lesson's setup playbook to spot the specific misconfigurations that will silently break next quarter's reporting.",
+      companyId: "warby-parker",
+      scenario:
+        "You're the marketing analyst at Warby Parker's DTC team reviewing a GA4 property that engineering set up eight weeks ago, before anyone asked you to check it.",
+      brief:
+        "Read the settings export line by line and flag every deviation from the lesson's 8-step playbook, in order of how much it will cost the business.",
+      mode: "diagnostic",
+      conceptsCovered: ["Data retention window", "Internal traffic filtering", "Reserved event names"],
+      steps: [
+        {
+          stepId: "step-1-retention-check",
+          concept: "Data retention window",
+          lessonAnchor: "step-4-bump-data-retention-to-14-months",
+          theoryRecap:
+            "The lesson's Step 4 flags GA4's default 2-month retention as the single most damaging setting most teams never touch.",
+          question:
+            "The export shows 'Event data retention: 2 months (default)'. What happens the first time someone asks for a year-over-year comparison?",
+          toolName: "Google Sheets",
+          where: "Open ga4-property-settings-export.csv, scroll to the Data Settings section",
+          procedure: [
+            "Open the export and locate the 'Data Settings' block",
+            "Read the 'Event data retention' row",
+            "Compare it against the lesson's 14-month recommendation",
+          ],
+          outputSample:
+            "DATA SETTINGS\n  Event data retention: 2 months (default)\n  Reset user data on new activity: Off",
+          healthy: "Retention set to 14 months, reset-on-activity toggled on.",
+          unhealthy:
+            "Retention left at the 2-month default, meaning any Exploration or Funnel older than 60 days is already gone and unrecoverable.",
+          interpret:
+            "This setting doesn't retroactively fix past data. The moment you spot 'default', the loss is already happening, every day you wait costs another day of history.",
+          soWhat: [
+            {
+              symptom: "Retention still shows '2 months (default)'",
+              action: "Change to 14 months in Admin > Data Settings > Data Retention today, not after the audit report is filed",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-internal-traffic-check",
+          concept: "Internal traffic filtering",
+          lessonAnchor: "step-5-filter-internal-traffic",
+          theoryRecap:
+            "Step 5 warns that unfiltered internal traffic inflates engagement and conversion metrics with your own team's clicks.",
+          question:
+            "The Data Filters panel shows one internal traffic rule in 'Testing' status. What does that mean for this quarter's engagement rate?",
+          toolName: "Google Analytics 4",
+          where: "Admin > Data Settings > Data Filters",
+          procedure: [
+            "Open Data Filters",
+            "Check the filter's status column",
+            "Cross-reference against the office/VPN IP list in the export",
+          ],
+          outputSample:
+            "DATA FILTERS\n  Internal Traffic Filter: Testing\n  Excluded IPs: 1 of 2 listed (VPN range missing)",
+          healthy: "Filter status is Active and every office/VPN IP range is listed.",
+          unhealthy:
+            "Filter sits in 'Testing' with a missing VPN range, so it's silently excluding nothing from the live reports.",
+          interpret:
+            "A filter in Testing mode changes nothing in your actual reports; it's the GA4 equivalent of writing a rule down but never enforcing it.",
+          soWhat: [
+            {
+              symptom: "Filter status reads 'Testing' for more than a few days",
+              action: "Add the missing VPN range, then flip the filter to Active under Data Settings",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-event-naming-check",
+          concept: "Reserved event names",
+          lessonAnchor: "event-naming-use-the-standard-names",
+          theoryRecap:
+            "The lesson's reserved-names table shows GA4 recognizes specific event names for its built-in reports and Google Ads import.",
+          question: "The events list shows 'eyewear_purchased' firing on every checkout instead of 'purchase'. What breaks?",
+          toolName: "Google Analytics 4",
+          where: "Admin > Events, then DebugView",
+          procedure: [
+            "Open the Events list and find the checkout event",
+            "Compare its name against the reserved-names table",
+            "Check whether it's marked as a key event",
+          ],
+          outputSample:
+            "EVENTS (last 7 days)\n  eyewear_purchased   4,102 occurrences   Not marked as key event\n  purchase             0 occurrences",
+          healthy: "Checkout fires as 'purchase', appears in Monetization reports, and imports cleanly to Google Ads.",
+          unhealthy:
+            "Checkout fires as a custom 'eyewear_purchased' event; Monetization reports stay empty and Google Ads conversion import has nothing to read.",
+          interpret:
+            "GA4 doesn't guess. A non-reserved name for a standard action means every built-in report and integration built around 'purchase' simply has no data to show.",
+          soWhat: [
+            {
+              symptom: "A core action uses a custom name instead of a reserved one",
+              action: "Rename the event to the reserved name in GTM, then re-verify in DebugView before redeploying",
+              effort: "half day",
+            },
+          ],
+          owner: "developer",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Analytics 4",
+            role: "Verify filter status and event names live",
+            why: "Free, the source of truth for the actual live configuration",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Read the settings export line by line",
+            why: "Free, no account needed to review a CSV export",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A ranked list of the property's setup defects with the fix owner (you vs. developer) and estimated effort for each.",
+      sampleOutput:
+        "Allbirds GA4 audit findings (excerpt)\n\n1. Retention at 2-month default -> change today, 5 min, owner: you\n2. Internal traffic filter in Testing, VPN range missing -> 5 min, owner: you\n3. Checkout fires as 'shoe_purchased' instead of 'purchase' -> half day, owner: developer",
+      successCriteria: [
+        "Correctly flags the retention default as the highest-cost issue",
+        "Identifies the Testing-status internal traffic filter as inactive",
+        "Catches the non-reserved event name and assigns it to a developer",
+      ],
+      portfolioReady: true,
+      stretch: "Draft the Slack message you'd send engineering prioritizing these three fixes in order.",
+    },
+    {
+      id: "ga4-setup-launch-plan",
+      tier: "mini",
+      archetype: "build-the-asset",
+      title: "The Launch Spec: Writing a GA4 Setup Plan a Developer Can Implement Without Guessing",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Write a complete GA4 setup spec, covering event names, key events, and custom dimensions, that a developer could implement without asking you a single clarifying question.",
+      companyId: "klaviyo",
+      scenario:
+        "Klaviyo's marketing team is launching a new interactive pricing page next sprint, and you own the analytics requirements doc before a single line of tracking code gets written.",
+      brief:
+        "Turn the lesson's 8-step playbook into a concrete, page-specific setup spec: which key events, which custom dimensions, which event names.",
+      mode: "build",
+      conceptsCovered: ["Standard event names", "Key events selection", "Custom dimension registration"],
+      steps: [
+        {
+          stepId: "step-1-event-names-spec",
+          concept: "Standard event names",
+          lessonAnchor: "event-naming-use-the-standard-names",
+          theoryRecap:
+            "The lesson's reserved-names table lists the exact event names GA4's reports and Google Ads integration expect.",
+          question:
+            "The pricing page has a 'Start free trial' button and a 'Talk to sales' button. Which reserved names apply, and which need a custom name?",
+          toolName: "Google Sheets",
+          where: "New tab in the tracking spec titled 'Event Names'",
+          procedure: [
+            "List every trackable action on the page",
+            "Match each to a reserved name from the lesson's table where one exists",
+            "Flag anything with no reserved match for a custom name",
+          ],
+          outputSample:
+            "EVENT NAMES\n  Start free trial click -> sign_up (reserved)\n  Talk to sales click -> generate_lead (reserved)\n  Pricing toggle (monthly/annual) -> pricing_toggle (custom, no reserved match)",
+          healthy: "Every action with a reserved-name match uses it; only genuinely novel actions get custom names.",
+          unhealthy: "A developer invents 'trial_started' for a signup because nobody told them 'sign_up' already exists and does more.",
+          interpret: "The spec is the only thing standing between a developer's best guess and GA4's actual reserved vocabulary.",
+          soWhat: [
+            {
+              symptom: "The spec doc has no 'Event Names' section",
+              action: "Add one before handoff; it's the single highest-leverage page in the doc",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-key-events-spec",
+          concept: "Key events selection",
+          lessonAnchor: "step-6-define-key-events",
+          theoryRecap:
+            "Step 6 says key events are the specific actions marked as mattering to the business, not just every event that fires.",
+          question: "Of 'sign_up', 'generate_lead', and 'pricing_toggle', which actually deserve key-event status?",
+          toolName: "Google Sheets",
+          where: "Same spec doc, 'Key Events' tab",
+          procedure: [
+            "Review the full event list from Step 1",
+            "Mark only the actions that represent real business value as key events",
+            "Leave interaction-only events (like a toggle) unmarked",
+          ],
+          outputSample:
+            "KEY EVENTS\n  sign_up -> YES, mark as key event\n  generate_lead -> YES, mark as key event\n  pricing_toggle -> NO, engagement signal only",
+          healthy: "Two key events marked; toggle interaction stays a regular event that doesn't inflate the key-event count.",
+          unhealthy:
+            "All three get marked as key events, and 'pricing_toggle' firing on every hover makes the conversion rate look inflated and meaningless.",
+          interpret:
+            "Marking too many events as 'key' is functionally the same mistake as marking none: it stops the metric from meaning anything specific.",
+          soWhat: [
+            {
+              symptom: "More than 2-3 key events on a single page",
+              action: "Re-review the list and demote anything that isn't a direct business outcome",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-custom-dimensions-spec",
+          concept: "Custom dimension registration",
+          lessonAnchor: "step-7-register-custom-dimensions",
+          theoryRecap: "Step 7 warns that any custom parameter is invisible in reports until it's registered as a Custom Dimension.",
+          question: "The 'pricing_toggle' event needs a 'plan_type' parameter (monthly vs annual). What has to happen before that shows up in a report?",
+          toolName: "Google Analytics 4",
+          where: "Admin > Custom Definitions > Custom Dimensions",
+          procedure: [
+            "Add 'plan_type' to the spec as an event parameter",
+            "Note it in the spec as requiring Custom Dimension registration post-launch",
+            "List the exact registration step for the developer/analyst",
+          ],
+          outputSample: "CUSTOM DIMENSIONS TO REGISTER POST-LAUNCH\n  Parameter: plan_type   Scope: Event   Registers under: Admin > Custom Definitions",
+          healthy: "The spec explicitly calls out registration as a required post-launch step, so it doesn't get forgotten.",
+          unhealthy: "plan_type gets sent correctly in the event, but nobody registers it, and it shows '(not set)' in every report for weeks.",
+          interpret: "Sending a parameter and registering it as a reportable dimension are two separate steps. Skipping the second one wastes the first.",
+          soWhat: [
+            {
+              symptom: "A custom parameter shows '(not set)' in reports",
+              action: "Register it in Admin > Custom Definitions; it will only backfill going forward, not retroactively",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Analytics 4",
+            role: "Confirm the Custom Definitions registration flow",
+            why: "Free, the exact screen a developer will need to use post-launch",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Draft the tracking spec's three tabs",
+            why: "Free, easy to hand off and comment on with a developer",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A one-page GA4 tracking spec (event names, key events, custom dimensions to register) ready to hand to a developer.",
+      sampleOutput:
+        "Squarespace pricing-page tracking spec (excerpt)\n\nEVENT NAMES\n  Start free trial -> sign_up\n  Compare plans click -> select_content\n\nKEY EVENTS\n  sign_up (marked)\n\nCUSTOM DIMENSIONS TO REGISTER\n  plan_tier (Event scope)",
+      successCriteria: [
+        "Maps every trackable action to a reserved name where one exists",
+        "Marks only genuine business-outcome events as key events",
+        "Explicitly calls out every custom parameter that needs Custom Dimension registration",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "utm-tagging": [
+    {
+      id: "utm-tagging-broken-links-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "The Pre-Send Teardown: Finding What's Broken in Five Campaign Links",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective: "Given five real-shaped UTM-tagged URLs pulled from a campaign brief, find every tagging defect before the links go live.",
+      companyId: "nykaa",
+      scenario:
+        "You're the campaigns coordinator at Nykaa reviewing the batch of tracking links a junior teammate built for next week's festive sale push, across email, paid social, and influencer posts.",
+      brief: "Read all five URLs against the lesson's five-step checklist and flag every defect, not just the first one you notice.",
+      mode: "teardown",
+      conceptsCovered: ["The Five-Step Pre-Launch Checklist", "Common Mistakes to Avoid"],
+      teardownItems: [
+        {
+          itemId: "link-1-capitalization",
+          specimen: "https://nykaa.com/festive-sale?utm_source=Instagram&utm_medium=social&utm_campaign=festive-sale-2026",
+          specimenSource: "synthetic-realistic",
+          prompt: "This link is going into the Instagram bio next week. What's wrong with it?",
+          answerKey: [
+            {
+              defect: "utm_source is capitalized ('Instagram' instead of 'instagram')",
+              severity: "moderate",
+              whyItMatters:
+                "GA4 is case-sensitive; 'Instagram' and 'instagram' will show up as two separate rows in every acquisition report, splitting one channel's data in half.",
+              lessonRef: "Step 1: Lowercase everything.",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "utm_campaign uses hyphens instead of spaces (this is correct, not a defect)",
+            "The URL uses https (this is correct, not a defect)",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "link-2-medium-missing",
+          specimen: "https://nykaa.com/festive-sale?utm_source=mailchimp&utm_campaign=festive-sale-2026",
+          specimenSource: "synthetic-realistic",
+          prompt: "This is the newsletter send link. Will GA4 report this traffic correctly?",
+          answerKey: [
+            {
+              defect: "utm_medium is missing entirely",
+              severity: "critical",
+              whyItMatters:
+                "GA4 requires source, medium, and campaign together; missing even one sends the whole visit to 'Unassigned', not just a degraded version of 'email'.",
+              lessonRef: "Parameters 1, 2, and 3 (source, medium, campaign) are the core three.",
+              owner: "you",
+            },
+          ],
+          distractors: ["utm_source is lowercase (this is correct, not a defect)"],
+          partialCredit: true,
+        },
+        {
+          itemId: "link-3-source-medium-swap",
+          specimen: "https://nykaa.com/festive-sale?utm_source=email&utm_medium=mailchimp&utm_campaign=festive-sale-2026",
+          specimenSource: "synthetic-realistic",
+          prompt: "Another version of the newsletter link, from a different draft. What's off here?",
+          answerKey: [
+            {
+              defect:
+                "utm_source and utm_medium are swapped, 'email' should be the medium (category) and 'mailchimp' should be the source (platform)",
+              severity: "critical",
+              whyItMatters:
+                "Swapping source and medium is the most common tagging error and corrupts every channel-level report; email campaigns from different platforms will no longer group together correctly.",
+              lessonRef: "Step 3: Keep source and medium distinct.",
+              owner: "you",
+            },
+          ],
+          distractors: ["utm_campaign matches the other newsletter link exactly (this is correct, not a defect)"],
+          partialCredit: true,
+        },
+        {
+          itemId: "link-4-spaces-and-year-missing",
+          specimen: "https://nykaa.com/festive sale?utm_source=facebook&utm_medium=paid-social&utm_campaign=festive sale",
+          specimenSource: "synthetic-realistic",
+          prompt: "This is the Meta ad link. Two separate teammates flagged it as 'probably fine'. Are they right?",
+          answerKey: [
+            {
+              defect: "Spaces in the URL path and utm_campaign value instead of hyphens",
+              severity: "moderate",
+              whyItMatters: "Spaces get encoded as %20 or + in the live URL, making it fragile and hard to read in reports.",
+              lessonRef: "Step 2: Use hyphens between words, not spaces.",
+              owner: "you",
+            },
+            {
+              defect: "utm_campaign has no year or version ('festive sale' instead of 'festive-sale-2026')",
+              severity: "moderate",
+              whyItMatters:
+                "Reusing the same campaign name every year makes year-over-year comparison impossible; next year's festive sale will merge into this one.",
+              lessonRef: "Using the same campaign name across years.",
+              owner: "you",
+            },
+          ],
+          distractors: ["utm_medium is 'paid-social' instead of just 'social' (this is an acceptable, specific medium value, not a defect)"],
+          partialCredit: true,
+        },
+        {
+          itemId: "link-5-internal-link-trap",
+          specimen: "https://nykaa.com/pricing?utm_source=nav&utm_medium=internal&utm_campaign=site-nav",
+          specimenSource: "synthetic-realistic",
+          prompt: "This link is used on the 'Shop Now' button in the site's own top navigation bar. Should it be tagged?",
+          answerKey: [
+            {
+              defect: "UTM tags added to an internal, same-site navigation link",
+              severity: "critical",
+              whyItMatters:
+                "When a visitor arrives from Google and then clicks this nav link, GA4 starts a new session and credits it to the internal tag, erasing the original campaign attribution entirely.",
+              lessonRef: "The internal link trap.",
+              owner: "you",
+            },
+          ],
+          distractors: ["utm_source value 'nav' is lowercase (this is correct, not a defect)"],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Log each link's defects and the corrected version",
+            why: "Free, easy to hand back to the teammate who built the links",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Analytics 4",
+            role: "Check how a swapped source/medium actually renders in reports",
+            why: "Free, shows the real reporting consequence of each defect",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A defect log for all 5 links: what's wrong, why it matters, and the corrected URL.",
+      sampleOutput:
+        "Zomato campaign link teardown (excerpt)\n\nLink 3 (WhatsApp share): utm_source=WhatsApp -> should be lowercase 'whatsapp'\nLink 4 (nav bar CTA): tagged with utm_source=nav -> remove all UTM tags, internal links only",
+      successCriteria: [
+        "Finds all defects across all 5 links, not just the most obvious one",
+        "Correctly explains why source/medium swap corrupts reporting",
+        "Flags the internal-link tag as the most severe issue",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "utm-tagging-naming-convention-template",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "The Governance Doc: Building a UTM Naming Convention Your Whole Team Will Actually Follow",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Build a complete UTM naming convention spreadsheet, approved source/medium values, campaign naming pattern, and auto-tagging setup notes, that a 5-person marketing team can follow without a single ad-hoc decision.",
+      companyId: "lenskart",
+      scenario:
+        "Lenskart is running its first coordinated multi-channel campaign across Google Ads, Meta, email, and influencer partners, and three different people will be building tracking links this quarter.",
+      brief: "Produce the governance artifact: an approved-values table, a campaign naming pattern, and instructions for Google Ads auto-tagging so nobody hand-writes those links.",
+      mode: "build",
+      conceptsCovered: ["Approved source and medium values", "Campaign naming pattern with date/version", "Auto-tagging with dynamic tokens"],
+      steps: [
+        {
+          stepId: "step-1-approved-values",
+          concept: "Approved source and medium values",
+          lessonAnchor: "the-five-step-pre-launch-checklist",
+          theoryRecap:
+            "Step 4 of the checklist says a shared spreadsheet of approved source and medium values, with new values requiring team approval, is what prevents drift like 'email' vs 'e-mail' vs 'Email'.",
+          question:
+            "Three people are about to tag links for Google Ads, Meta, and an email send. What approved values do they need before anyone builds a single link?",
+          toolName: "Google Sheets",
+          where: "New 'Approved Values' tab in the shared UTM doc",
+          procedure: [
+            "List every channel the campaign will run on",
+            "Assign one approved utm_source per channel",
+            "Assign one approved utm_medium category per channel type",
+          ],
+          outputSample:
+            "APPROVED VALUES\n  Channel: Google Ads     source=google      medium=cpc\n  Channel: Meta Ads       source=facebook    medium=paid-social\n  Channel: Email          source=mailchimp   medium=email",
+          healthy: "Every channel maps to exactly one source and one medium value, documented once.",
+          unhealthy: "Three people each independently decide, and Meta ends up tagged as 'facebook', 'meta', and 'fb-ads' across three different links.",
+          interpret:
+            "The table isn't documentation for its own sake, it's the thing that makes three people's tagging decisions produce one row per channel instead of three.",
+          soWhat: [
+            {
+              symptom: "The same channel appears under two different utm_source spellings in a report",
+              action: "Add the channel to the Approved Values tab and correct existing live links",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-campaign-naming-pattern",
+          concept: "Campaign naming pattern with date/version",
+          lessonAnchor: "common-mistakes-to-avoid",
+          theoryRecap:
+            "The lesson warns that reusing a campaign name across years breaks year-over-year comparison; always date or version it.",
+          question: "What utm_campaign value should this quarter's launch use so it's still distinguishable from next year's version of the same campaign?",
+          toolName: "Google Sheets",
+          where: "Same doc, 'Campaign Naming Pattern' tab",
+          procedure: [
+            "Define a pattern: [initiative]-[period]-[year]",
+            "Apply it to this campaign",
+            "Note the pattern so future campaigns follow it without asking",
+          ],
+          outputSample: "CAMPAIGN NAMING PATTERN\n  Pattern: [initiative]-[period]-[year]\n  This campaign: multichannel-launch-q3-2026",
+          healthy: "Campaign name bakes in the year, so 2027's version won't merge into this one in reports.",
+          unhealthy: "utm_campaign=multichannel-launch, reused unchanged next year, silently combining two years of totally different creative into one row.",
+          interpret: "A campaign name without a date isn't wrong today, it becomes wrong the day someone reuses it.",
+          soWhat: [
+            {
+              symptom: "A campaign name has no year or version in it",
+              action: "Append the period before the link goes live, not after someone asks why two years of data are combined",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-auto-tagging-setup",
+          concept: "Auto-tagging with dynamic tokens",
+          lessonAnchor: "auto-tagging-for-paid-ads",
+          theoryRecap:
+            "The lesson explains that Google Ads, LinkedIn, and Meta support dynamic tokens that auto-fill utm_content and utm_term at click time, so nobody hand-writes them per ad.",
+          question: "The Google Ads account has 40 ads across 6 campaigns. Should someone hand-tag all 40 final URLs?",
+          toolName: "Google Analytics 4",
+          where: "Google Ads account settings, Final URL suffix field (documented in this doc for the ad ops teammate)",
+          procedure: [
+            "Write the final-URL-suffix template using {campaignid} and {keyword} tokens",
+            "Note it applies at the account level, once",
+            "Confirm every new ad inherits it automatically going forward",
+          ],
+          outputSample:
+            "GOOGLE ADS AUTO-TAGGING\n  Final URL suffix: utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_term={keyword}\n  Set once at: Account level, Settings > Final URL suffix",
+          healthy: "One suffix, set once, and all 40 ads and every future ad inherit correct tagging automatically.",
+          unhealthy: "Someone hand-tags all 40 final URLs individually, and 3 of them get the wrong utm_medium because it was typed by hand.",
+          interpret: "Dynamic tokens exist specifically so a person never has to hand-type the same tagging logic 40 times.",
+          soWhat: [
+            {
+              symptom: "Ad ops is manually editing UTM values on individual Google Ads final URLs",
+              action: "Move the tagging logic to the account-level Final URL suffix field once",
+              effort: "30 min",
+            },
+          ],
+          owner: "either",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the approved-values table and naming pattern",
+            why: "Free, shareable, and the whole team can comment on proposed values",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Analytics 4",
+            role: "Confirm auto-tagged Google Ads traffic reports correctly",
+            why: "Free, the destination that validates the auto-tagging setup actually worked",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A UTM governance doc: approved values table, campaign naming pattern, and Google Ads auto-tagging setup, ready for a 3-person team to follow.",
+      sampleOutput:
+        "Nykaa UTM governance doc (excerpt)\n\nAPPROVED VALUES\n  Channel: Influencer    source=[handle]   medium=affiliate\n\nCAMPAIGN NAMING PATTERN\n  beauty-drop-oct-2026\n\nGOOGLE ADS AUTO-TAGGING\n  Final URL suffix set at account level",
+      successCriteria: [
+        "Produces one approved source/medium pair per channel with no ambiguity",
+        "Campaign naming pattern includes a period marker to prevent year-over-year collisions",
+        "Documents Google Ads auto-tagging so no one hand-tags 40 individual ad URLs",
+      ],
+      portfolioReady: true,
+      stretch: "Add a fourth tab mapping LinkedIn's and Meta's own dynamic token syntax alongside Google's.",
+    },
+  ],
+
+  "conversion-tracking": [
+    {
+      id: "conversion-tracking-event-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Duplicate Fire: Auditing Zendesk's Conversion Event Export",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a real 15-row conversion event export from Zendesk's GA4 property, decide which events deserve a 'key event' flag and which browser/server pairs are double-firing without a shared event_id.",
+      companyId: "zendesk",
+      scenario:
+        "You're the growth analyst at Zendesk auditing the measurement plan before Marketing turns on Smart Bidding for a trial-to-paid campaign. Sales is convinced signups have been undercounted for a month.",
+      brief:
+        "Sort the export into real conversions vs upstream signals, then find the purchase-style event that's firing twice.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Marking only the real ones as key events",
+        "Deduplicating browser and server events with a shared event_id",
+      ],
+      steps: [
+        {
+          stepId: "step-1-key-event-triage",
+          concept: "Marking only the real ones as key events",
+          lessonAnchor: "how-it-works-the-playbook",
+          theoryRecap:
+            "The lesson's playbook says to flag only bottom-of-funnel events as GA4 key events. Upstream signals stay as regular events so smart bidding doesn't optimize toward the cheapest, least valuable action.",
+          question:
+            "The export shows 15 events flagged as key events, including newsletter_signup, pricing_page_view, trial_started, and demo_requested. Which of these should actually keep the key-event flag?",
+          toolName: "Google Sheets",
+          where: "Import ga4-events-export.csv, freeze the header row, filter the event_name and is_key_event columns.",
+          procedure: [
+            "Import ga4-events-export.csv and freeze row 1",
+            "Filter to is_key_event = TRUE and read all 15 rows",
+            "Flag any event that is not a paid-plan action (page views, newsletter signups, content downloads) as a misclassification",
+            "Cross-check the remaining rows against Zendesk's actual revenue events: trial_started, plan_upgraded",
+          ],
+          outputSample:
+            "KEY EVENTS FLAGGED (15 total)\n  newsletter_signup        412/day   NOT a conversion\n  pricing_page_view        890/day   NOT a conversion\n  demo_requested            34/day   borderline, unqualified leads mixed in\n  trial_started             61/day   real conversion\n  plan_upgraded             19/day   real conversion",
+          healthy:
+            "Only trial_started and plan_upgraded stay flagged as key events; demo_requested moves to a regular event until lead-qualification data is joined in.",
+          unhealthy:
+            "Smart Bidding optimizes toward newsletter_signup because it fires 412 times a day versus 19 for plan_upgraded, and spend drifts toward audiences that read blog posts, not audiences that pay.",
+          interpret:
+            "A key event is a business decision about what counts as revenue-adjacent, not whichever event has the most rows.",
+          soWhat: [
+            {
+              symptom: "Cost-per-acquisition looks artificially cheap because it's averaged across 15 event types",
+              action: "Strip the key-event flag down to trial_started and plan_upgraded only, re-baseline CPA",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-dedup-audit",
+          concept: "Deduplicating browser and server events with a shared event_id",
+          lessonAnchor: "common-mistakes",
+          theoryRecap:
+            "The lesson's Common Mistakes list warns that firing the same conversion from both the browser pixel and the server container without a shared event_id inflates the count, sometimes by up to 2x.",
+          question:
+            "plan_upgraded shows 19 rows/day in the key-event report, but the export's raw event log shows 34 rows for the same day. What does the timestamp/event_id pattern tell you?",
+          toolName: "Google Analytics 4",
+          where: "GA4 DebugView and the raw Events report, filtered to plan_upgraded for a single day.",
+          procedure: [
+            "Open the Events report, filter to plan_upgraded, and export the raw row-level log for one day",
+            "Sort by timestamp and look for pairs of rows within 2 seconds of each other with the same user_pseudo_id",
+            "Check whether each row's event_id field is populated, and whether paired rows share the same value",
+            "Count how many of the 34 raw rows are true duplicates versus real distinct upgrades",
+          ],
+          outputSample:
+            "plan_upgraded, raw log excerpt (2 rows, same upgrade)\n  10:14:02   user_884   event_id: (empty)   source: browser tag\n  10:14:03   user_884   event_id: (empty)   source: server container\n\n34 raw rows -> 15 duplicate pairs -> 19 real upgrades",
+          healthy:
+            "Both the browser tag and server container send the same event_id for the same upgrade, GA4 collapses the pair into one, and the key-event count matches reality (19).",
+          unhealthy:
+            "Neither source sends an event_id, GA4 counts both, and every revenue report built on plan_upgraded is inflated by roughly 79% for that day alone.",
+          interpret:
+            "A raw count nearly double the key-event count, with empty event_id fields on matching timestamps, is the signature of an undeduplicated double-fire, not real growth.",
+          soWhat: [
+            {
+              symptom: "Revenue reports and CPA calculations built on plan_upgraded run high every week",
+              action: "File a dev ticket to pass a shared event_id from both the browser tag and server container",
+              effort: "dev ticket",
+            },
+          ],
+          owner: "either",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Analytics 4",
+            role: "Pull the raw event log and confirm the duplicate pattern in DebugView",
+            why: "Free, and it's the same property the export came from",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Sort and filter the 15-row key-event export",
+            why: "No account friction, works from a CSV export",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page conversion-event audit memo: which key-event flags to remove, and a dev ticket describing the event_id fix for the duplicate-firing event.",
+      sampleOutput:
+        "Instacart, conversion event audit (excerpt)\n\nKEY EVENTS TO KEEP\n  order_placed        real conversion, no dedup issue found\n\nKEY EVENTS TO DEMOTE\n  app_opened          412/day, not a conversion, demote to regular event\n\nDUPLICATE FOUND\n  order_placed shows 1,140 raw rows vs 640 key-event rows for the same day, missing event_id on the server-side tag",
+      successCriteria: [
+        "Correctly separates real key events from upstream signals",
+        "Identifies plan_upgraded's raw-vs-key-event count gap as a deduplication failure, not real growth",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "conversion-tracking-inventory-build",
+      tier: "mini",
+      archetype: "build-the-asset",
+      title: "Ship It Before Tag Manager: Building Chewy's Conversion Inventory",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Write a complete conversion inventory, plain-English event list, GA4-recommended names, and key-event flags, for Chewy's Autoship subscription funnel before any tag fires.",
+      companyId: "chewy",
+      scenario:
+        "You're the analytics lead at Chewy about to launch Autoship subscription tracking. The dev team wants a written event spec before they touch Google Tag Manager, not a verbal description in a Slack thread.",
+      brief:
+        "List every real conversion in plain English first, then map each one to a GA4-recommended event name.",
+      mode: "build",
+      conceptsCovered: [
+        "Writing a conversion inventory before opening a tag manager",
+        "Using GA4's recommended event names",
+      ],
+      steps: [
+        {
+          stepId: "step-1-plain-english-inventory",
+          concept: "Writing a conversion inventory before opening a tag manager",
+          lessonAnchor: "how-it-works-the-playbook",
+          theoryRecap:
+            "The lesson's playbook step 1 says to list every event that matters, in plain English, before touching a tag manager, and assign each a monetary value even if estimated.",
+          question:
+            "Chewy's Autoship funnel has these real moments: a pet-food subscription signup, a first-box ship, a subscription pause, and a subscription cancel. Which get a monetary value, and which are just tracking signals?",
+          toolName: "Google Sheets",
+          where: "A new blank sheet, one row per real user action, columns for plain-English name, value, and priority.",
+          procedure: [
+            "List every distinct action a subscriber takes, in plain English, no tool-specific jargon",
+            "Assign an estimated monetary value to signup and first-box-ship using average order value",
+            "Mark pause and cancel as tracking signals with no positive value, useful for churn analysis, not for bidding",
+            "Rank the list by which action the dev team should build first",
+          ],
+          outputSample:
+            "CONVERSION INVENTORY (plain English)\n1. Subscriber completes Autoship signup      value: $42 (avg first order)\n2. First Autoship box ships                  value: $0, confirms signup wasn't fraudulent\n3. Subscriber pauses Autoship                 value: $0, churn signal, not a conversion\n4. Subscriber cancels Autoship                value: $0, churn signal, not a conversion",
+          healthy:
+            "The dev team builds signup and first-box-ship first because they carry real value; pause and cancel get built later as churn signals, never as key events.",
+          unhealthy:
+            "The team starts tagging whatever GA4's UI suggests first, ships a cancel event as a 'conversion,' and Smart Bidding has no idea it should optimize away from that.",
+          interpret:
+            "The inventory is the business decision, deciding what has value; the tag manager work that follows is just execution.",
+          soWhat: [
+            {
+              symptom: "Dev team keeps asking 'is this a conversion?' mid-sprint",
+              action: "Hand them the ranked plain-English inventory before the sprint starts, not during it",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-ga4-name-mapping",
+          concept: "Using GA4's recommended event names",
+          lessonAnchor: "how-it-works-the-playbook",
+          theoryRecap:
+            "The lesson's playbook step 2 says to stick to GA4's recommended event names in snake_case wherever they fit, because Google's automated reports and Ads integrations only light up for those names.",
+          question:
+            "GA4 has a recommended event called sign_up. Chewy's plain-English item is 'Subscriber completes Autoship signup.' Do you use sign_up, or invent a custom name like autoship_signup_complete?",
+          toolName: "Google Sheets",
+          where: "The same inventory sheet, add a column for the mapped GA4 event name.",
+          procedure: [
+            "Check GA4's recommended events list for a name that fits each inventory row",
+            "Map 'Subscriber completes Autoship signup' to sign_up, GA4's standard name",
+            "Map 'First Autoship box ships' to a custom name (no GA4 standard fits a fulfillment event), autoship_first_ship",
+            "Leave pause and cancel unmapped for now, since they aren't going into GA4 as key events",
+          ],
+          outputSample:
+            "EVENT NAME MAPPING\n  Subscriber completes Autoship signup  -> sign_up (GA4 standard)\n  First Autoship box ships              -> autoship_first_ship (custom, no standard fits)",
+          healthy:
+            "sign_up uses the GA4 standard name, so it automatically populates GA4's built-in acquisition and Ads integration reports without extra configuration.",
+          unhealthy:
+            "The team names it autoship_signup_v2 out of habit, and GA4's automated sign-up reports and Google Ads conversion import both stay empty because the name doesn't match.",
+          interpret:
+            "A custom name isn't wrong when nothing standard fits, but skipping a standard name that does fit throws away free reporting.",
+          soWhat: [
+            {
+              symptom: "GA4's built-in acquisition reports show zero sign-ups despite real signups happening",
+              action: "Rename the custom event to the matching GA4-recommended name and re-verify in DebugView",
+              effort: "5 min",
+            },
+          ],
+          owner: "either",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build and rank the plain-English conversion inventory",
+            why: "No account friction, hand-off ready for a dev ticket",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Analytics 4",
+            role: "Check the recommended-events list and verify final names in DebugView",
+            why: "Free, and it's the destination platform",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A ranked conversion inventory spreadsheet with plain-English names, estimated values, and GA4-recommended event-name mappings, ready to hand to a developer.",
+      sampleOutput:
+        "FirstCry, conversion inventory (excerpt)\n\n1. Customer completes first order      -> purchase (GA4 standard)   value: avg order value\n2. Customer joins loyalty program      -> join_group (GA4 standard)  value: $0, engagement signal\n3. Customer downloads size guide PDF   -> file_download (GA4 standard) value: $0, not a key event",
+      successCriteria: [
+        "Every real conversion has a plain-English description and an estimated value before any GA4 name is assigned",
+        "Uses GA4 recommended names wherever one genuinely fits, and only invents a custom name when none does",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "funnel-analysis": [
+    {
+      id: "funnel-drop-off-audit-rtr",
+      tier: "mini",
+      archetype: "audit",
+      title: "Where Rent the Runway Loses the Sale: Auditing a Real Funnel Report",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given a real 5-stage funnel report (browse, item page, add to bag, checkout start, order complete) with per-stage, per-device user counts, calculate drop-off rates and name the single leakiest stage.",
+      companyId: "rent-the-runway",
+      scenario:
+        "You're the growth analyst at Rent the Runway reviewing the rental checkout funnel after a seasonal traffic spike. Leadership wants to know exactly where the extra visitors are being lost.",
+      brief:
+        "Calculate drop-off rate at every stage, then segment the worst stage by device before recommending a fix.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Calculating drop-off rate at each funnel stage",
+        "Segmenting a funnel by device to find masked problems",
+      ],
+      steps: [
+        {
+          stepId: "step-1-dropoff-calc",
+          concept: "Calculating drop-off rate at each funnel stage",
+          lessonAnchor: "step-3-calculate-drop-off-rates",
+          theoryRecap:
+            "The lesson defines drop-off rate as (users who entered, minus users who completed) divided by users who entered, times 100. The stage with the biggest drop-off is the biggest opportunity.",
+          question:
+            "The 5-stage report shows: browse 10,000, item page 6,200, add to bag 2,800, checkout start 2,050, order complete 1,240. Which single stage has the worst drop-off rate?",
+          toolName: "Google Sheets",
+          where: "Import funnel-report.csv, add a drop-off-rate formula column.",
+          procedure: [
+            "Import funnel-report.csv with the 5 stage counts",
+            "Calculate drop-off rate for each stage transition using (entered - completed) / entered x 100",
+            "Rank the 4 transitions from worst to best drop-off rate",
+            "Flag the single worst transition as the priority stage",
+          ],
+          outputSample:
+            "DROP-OFF RATES BY STAGE\n  browse -> item page:        38% drop-off\n  item page -> add to bag:    55% drop-off  <- worst\n  add to bag -> checkout:     27% drop-off\n  checkout -> order complete: 40% drop-off",
+          healthy:
+            "The team prioritizes fixing item page -> add to bag, the 55% drop, before touching the checkout flow that has a smaller but louder problem.",
+          unhealthy:
+            "The team redesigns checkout first because it's the closest stage to revenue, while the biggest leak (item page to add to bag) keeps losing over half of engaged visitors.",
+          interpret:
+            "The biggest number, not the closest-to-revenue stage, is where the fix has the most leverage.",
+          soWhat: [
+            {
+              symptom: "Checkout redesign shipped but overall order volume barely moved",
+              action: "Re-run drop-off rates on the item-page stage before the next roadmap cycle",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-device-segment",
+          concept: "Segmenting a funnel by device to find masked problems",
+          lessonAnchor: "funnel-segmentation-the-most-underused-technique",
+          theoryRecap:
+            "The lesson warns that an aggregate funnel number can mask a device-specific problem, splitting by device type is one of the most underused diagnostic techniques.",
+          question:
+            "The item page -> add to bag stage shows 55% drop-off overall. Split by device, desktop drops 31% and mobile drops 68%. What does that tell you about where to focus the fix?",
+          toolName: "Google Analytics 4",
+          where: "GA4 Funnel Exploration, segmented by device category.",
+          procedure: [
+            "Open the same funnel in GA4's Funnel Exploration report",
+            "Add a device-category segment breakdown to the item-page -> add-to-bag transition",
+            "Compare desktop drop-off against mobile drop-off",
+            "Check whether mobile traffic volume is large enough to explain most of the aggregate 55% figure",
+          ],
+          outputSample:
+            "ITEM PAGE -> ADD TO BAG, by device\n  Desktop: 31% drop-off  (2,400 of 3,900 users)\n  Mobile:  68% drop-off  (2,100 of 6,100 users)\n  Aggregate: 55% drop-off (masks the mobile-specific problem)",
+          healthy:
+            "The fix scope narrows to the mobile add-to-bag flow specifically, likely a tap-target or size-selector issue, instead of a generic 'improve the item page' project.",
+          unhealthy:
+            "The team ships a desktop-only redesign because that's where the design system is easiest to update, and the real 68% mobile leak goes untouched.",
+          interpret:
+            "A 37-point gap between desktop and mobile at the same stage means the aggregate number was hiding a mobile-specific defect, not a general page problem.",
+          soWhat: [
+            {
+              symptom: "Item page 'improvements' shipped but mobile add-to-bag rate didn't move",
+              action: "Pull session recordings filtered to mobile only at the item-page stage",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Calculate drop-off rate across the 5 stages from the CSV export",
+            why: "Free, works directly from the exported report",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Analytics 4",
+            role: "Segment the worst stage by device category",
+            why: "Free, and Funnel Exploration supports device segmentation natively",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page funnel diagnosis memo naming the single leakiest stage, the device segment driving it, and a recommended fix scope.",
+      sampleOutput:
+        "Casper Sleep, funnel diagnosis memo (excerpt)\n\nWORST STAGE: product page -> add to cart, 61% drop-off aggregate\nDEVICE SPLIT: mobile 74% drop-off vs desktop 38% drop-off\nRECOMMENDATION: scope the fix to the mobile product page, not a full-site redesign",
+      successCriteria: [
+        "Correctly identifies item page -> add to bag as the worst-performing transition",
+        "Uses the device split to narrow the fix to mobile, not the whole item page",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "funnel-fix-revenue-forecast-thredup",
+      tier: "core",
+      archetype: "forecast",
+      title: "The Business Case: Forecasting the Revenue Impact of Fixing ThredUp's Leakiest Stage",
+      timeEstimate: "55 minutes",
+      timeMinutes: 55,
+      objective:
+        "Given ThredUp's current stage conversion rates, traffic volume, and average order value, forecast the revenue impact of closing the gap between the worst-performing stage and a realistic industry benchmark, and build the business case for prioritizing that fix.",
+      companyId: "thredup",
+      scenario:
+        "You're a growth analyst at ThredUp building the Q3 roadmap pitch. Three teams each want dev resources for a different funnel fix, and you have to make the revenue case for the one that matters most.",
+      brief:
+        "Calculate the overall funnel conversion rate, compare the worst stage to a realistic benchmark, then translate the gap into a dollar forecast.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Calculating overall funnel conversion rate",
+        "Comparing a stage conversion rate against a realistic benchmark",
+        "Translating a conversion-rate fix into a revenue forecast",
+      ],
+      steps: [
+        {
+          stepId: "step-1-overall-rate",
+          concept: "Calculating overall funnel conversion rate",
+          lessonAnchor: "key-metrics-in-funnel-analysis",
+          theoryRecap:
+            "The lesson defines overall funnel conversion rate as the percentage of users at the top of the funnel who complete the final goal, noting the 2025 industry average was 3.1%, with top performers reaching 9.2%.",
+          question:
+            "ThredUp's funnel shows 500,000 monthly visitors and 9,500 completed orders. What's the overall funnel conversion rate, and how does it compare to the 3.1% industry average?",
+          toolName: "Google Sheets",
+          where: "A funnel-summary sheet with visitor count, order count, and a conversion-rate formula.",
+          procedure: [
+            "Divide 9,500 completed orders by 500,000 visitors, multiply by 100",
+            "Compare the result against the 3.1% industry average and 9.2% top-performer benchmark cited in the lesson",
+            "Note whether ThredUp is below, at, or above the industry average",
+          ],
+          outputSample: "Overall funnel conversion rate: 9,500 / 500,000 x 100 = 1.9%\nIndustry average: 3.1%   Top 10%: 9.2%\nThredUp is below the industry average",
+          healthy:
+            "The 1.9% figure becomes the baseline for the forecast, anchored against a real published benchmark instead of an arbitrary target.",
+          unhealthy:
+            "The team picks an aspirational target like 'let's hit 5%' with no benchmark backing it, and the forecast has no credible anchor when finance pushes back.",
+          interpret:
+            "1.9% against a 3.1% published average means there's a real, sourceable gap, not just an internal opinion that the funnel 'feels slow.'",
+          soWhat: [
+            {
+              symptom: "Roadmap pitches get rejected for lacking a credible target number",
+              action: "Anchor every funnel-fix pitch to a published industry benchmark, not an internal guess",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-benchmark-compare",
+          concept: "Comparing a stage conversion rate against a realistic benchmark",
+          lessonAnchor: "key-metrics-in-funnel-analysis",
+          theoryRecap:
+            "The lesson notes a healthy e-commerce cart-to-checkout rate is typically 40-60%, and that B2C funnels often reach 5-15% overall, giving a realistic comparison point instead of a generic global average.",
+          question:
+            "ThredUp's cart-to-checkout stage converts at 22%. The lesson's healthy range for this exact stage is 40-60%. Is this the stage worth fixing first, or is 1.9% overall too low to pin on one stage?",
+          toolName: "Google Sheets",
+          where: "The same funnel-summary sheet, add each stage's rate next to its benchmark range.",
+          procedure: [
+            "List every stage's actual conversion rate next to the lesson's cited benchmark range",
+            "Identify which stage has the largest gap below its benchmark, not just the lowest raw number",
+            "Confirm cart-to-checkout at 22% (versus a 40-60% healthy range) is the largest gap in the funnel",
+          ],
+          outputSample:
+            "STAGE vs BENCHMARK\n  browse -> product page: 58% (no strong published benchmark)\n  add to cart -> checkout: 22% vs 40-60% healthy   <- largest gap\n  checkout -> order: 71% vs no major benchmark concern",
+          healthy:
+            "Cart-to-checkout gets prioritized because it's the stage furthest below its own benchmark, not just the stage with the smallest raw number.",
+          unhealthy:
+            "The team fixes the top-of-funnel browse stage because its raw traffic loss looks biggest in absolute terms, while the benchmark-relative gap at cart-to-checkout goes unaddressed.",
+          interpret:
+            "A stage-specific benchmark, not a top-of-funnel volume number, is what tells you which gap is actually abnormal.",
+          soWhat: [
+            {
+              symptom: "Roadmap debates stall over which stage 'feels' most broken",
+              action: "Replace the debate with a benchmark-gap table ranked by percentage points below range",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-revenue-forecast",
+          concept: "Translating a conversion-rate fix into a revenue forecast",
+          lessonAnchor: "the-one-line-takeaway",
+          theoryRecap:
+            "The lesson's one-line takeaway is to find the single step where most people leave, fix that one thing first. The revenue case is what makes that priority visible to non-analytics stakeholders.",
+          question:
+            "If cart-to-checkout moves from 22% to the low end of the healthy range (40%), and average order value is $65, how much additional monthly revenue does that represent, using the same top-of-funnel traffic?",
+          toolName: "Google Sheets",
+          where: "The same sheet, model the forecast with a before/after column.",
+          procedure: [
+            "Hold add-to-cart volume constant and apply the current 22% and target 40% checkout rates",
+            "Multiply the difference in checkout completions by average order value ($65)",
+            "Present the forecast as a monthly revenue range, not a single overstated point estimate",
+          ],
+          outputSample:
+            "Add to cart volume: 28,000/month\nCurrent checkout completions (22%): 6,160  x  $65 = $400,400\nTarget checkout completions (40%): 11,200  x  $65 = $728,000\nForecasted monthly lift: ~$327,600",
+          healthy:
+            "The forecast ships as a range with the calculation shown, so finance can sanity-check the assumption instead of taking the number on faith.",
+          unhealthy:
+            "The team presents a single flashy number ($327,600/month!) with no visible math, and it gets torn apart in the first roadmap review.",
+          interpret:
+            "A forecast is only as credible as the assumptions a stakeholder can see and challenge.",
+          soWhat: [
+            {
+              symptom: "Previous funnel-fix pitches got cut from the roadmap for lacking a dollar figure",
+              action: "Attach a shown-math revenue forecast to every future funnel-fix proposal",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the benchmark comparison and revenue forecast model",
+            why: "Free, transparent formulas a stakeholder can audit line by line",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Analytics 4",
+            role: "Pull the current stage-by-stage conversion rates and traffic volume",
+            why: "Free, source of the funnel data being forecast against",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Looker Studio",
+            role: "Turn the before/after forecast into a shareable roadmap-review dashboard",
+            why: "Cleaner stakeholder presentation than a raw spreadsheet, though not required to complete the forecast",
+            required: false,
+            fallback: "Google Sheets charts cover the same before/after visual",
+            lastVerified: "2026-08",
+          },
+        ],
+      },
+      deliverable:
+        "A one-page revenue forecast memo with a before/after funnel model, a shown-math dollar estimate, and a prioritization recommendation for the Q3 roadmap.",
+      sampleOutput:
+        "Instacart, revenue forecast memo (excerpt)\n\nTARGET STAGE: browse -> item page, 41% vs a realistic 55-60% benchmark\nFORECAST: closing the gap at current traffic volume adds an estimated $184,000-$210,000 in monthly order value\nRECOMMENDATION: prioritize this over the checkout-page redesign, which has a smaller benchmark gap",
+      successCriteria: [
+        "Correctly calculates overall funnel conversion rate and compares it to the cited industry benchmark",
+        "Identifies the stage with the largest benchmark-relative gap, not just the largest raw drop",
+        "Produces a shown-math revenue forecast, not an unexplained point estimate",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "mmm": [
+    {
+      id: "mmm-saturation-adstock-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Reallocation Call: Auditing Grab's MMM Output",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a supplied 5-channel MMM output table for Grab's ride-hailing and food delivery ad mix (contribution %, saturation status, adstock decay), apply the lesson's interpretation framework to flag the over-invested and under-invested channels.",
+      companyId: "grab",
+      scenario:
+        "You're the media analyst at Grab preparing the quarterly budget memo. Finance wants a reallocation recommendation, not a wall of regression output.",
+      brief:
+        "Read the response-curve and adstock outputs already fitted by the data science team, and translate them into a plain-English reallocation call.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Reading saturation curves to spot over-invested channels",
+        "Distinguishing carryover (adstock) from immediate response",
+      ],
+      steps: [
+        {
+          stepId: "step-1-saturation-read",
+          concept: "Reading saturation curves to spot over-invested channels",
+          lessonAnchor: "how-it-works-the-playbook",
+          theoryRecap:
+            "The lesson's playbook step 6 says: fit the response curves, then solve for the spend mix that maximizes revenue at the current budget. A channel past its saturation point returns less per dollar than one still climbing its curve.",
+          question:
+            "Grab's MMM output shows Google Search Ads contributing 9% marginal revenue per additional ₹1L/week up to ₹40L/week with no flattening, while Meta's marginal contribution drops from 8% to 2% once weekly spend crosses ₹18L. Grab is currently spending ₹22L/week on Meta and ₹15L/week on Search. What's the call?",
+          toolName: "Google Sheets",
+          where: "Import mmm-output-grab.csv, plot marginal contribution vs weekly spend for each channel.",
+          procedure: [
+            "Import mmm-output-grab.csv and freeze the header row",
+            "Sort channels by 'marginal contribution at current spend' ascending",
+            "Flag any channel whose current spend sits past its saturation point",
+          ],
+          outputSample:
+            "Channel        CurrentSpend  SaturationPoint  MarginalContribAtCurrentSpend\nMeta           22L/wk        18L/wk           2%\nGoogle Search  15L/wk        40L/wk+          9%\nYouTube        9L/wk         12L/wk           6%\nTV             6L/wk         20L/wk           7%\nPodcasts       2L/wk         5L/wk            8%",
+          healthy:
+            "Search, TV, and Podcasts are all still climbing their curves, moving spend there returns more per rupee than Meta does today.",
+          unhealthy:
+            "Leaving Meta at ₹22L/week because 'it's always been the biggest channel' while it returns a quarter of what Search returns at the margin.",
+          interpret:
+            "Saturation isn't a warning to cut a channel to zero, it's a signal that the NEXT rupee is better spent elsewhere.",
+          soWhat: [
+            {
+              symptom: "A channel's marginal contribution is below 3% while others sit above 7%",
+              action: "Shift the next budget increment to the under-saturated channel, don't cut the saturated one to zero",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-adstock-read",
+          concept: "Distinguishing carryover (adstock) from immediate response",
+          lessonAnchor: "what-it-actually-is",
+          theoryRecap:
+            "The lesson's worked example notes podcasts can carry a 6-week decay, a channel can look 'dead' in the week it's cut and still be driving sales for over a month after.",
+          question:
+            "Grab paused podcast spend in week 40 for a cost review. Weekly revenue attributable to podcasts (per the model) was 4,200 in week 40, 3,100 in week 42, and 1,800 in week 46. Is this evidence podcasts don't work, or something else?",
+          toolName: "Google Sheets",
+          where: "Chart the podcast contribution column across weeks 38-48 against the spend column.",
+          procedure: [
+            "Plot podcast weekly spend and modeled contribution on the same chart",
+            "Note the week spend drops to zero",
+            "Measure how many weeks the contribution line takes to reach zero after that",
+          ],
+          outputSample:
+            "Week  Spend  ModeledContribution\n38    2000   4500\n40    0      4200\n42    0      3100\n44    0      2600\n46    0      1800\n48    0      900",
+          healthy:
+            "Contribution decays gradually over ~6 weeks after spend stops, this is adstock carryover working as expected, not a sign the channel failed.",
+          unhealthy:
+            "Reading week-40's still-high contribution as 'podcasts don't move fast enough to matter' and cutting the channel permanently after one pause.",
+          interpret: "A channel's decay curve length tells you how long to wait before judging a pause, not whether the channel is broken.",
+          soWhat: [
+            {
+              symptom: "A paused channel still shows contribution 2+ weeks later",
+              action: "Wait out the full adstock decay window before concluding the channel has no effect",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Sort, filter, and chart the MMM output table",
+            why: "Free, no account friction, handles a 5-channel weekly table easily",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page reallocation memo: which channels are past saturation, which still have room, and the adstock decay window for any channel under review.",
+      sampleOutput:
+        "Zomato Q3 MMM reallocation memo (excerpt)\n\nOVER-SATURATED: Google Display (spend 14L/wk, saturation point 8L/wk, marginal contribution 1%)\nSTILL CLIMBING: YouTube (spend 5L/wk, saturation point 15L/wk, marginal contribution 8%)\n\nRecommendation: shift 4L/wk from Display to YouTube next quarter.",
+      successCriteria: [
+        "Correctly flags every channel spending past its saturation point",
+        "Does not misread adstock decay as channel failure",
+      ],
+      portfolioReady: true,
+      stretch: "Re-run the audit assuming a 15% overall budget cut, which channels absorb it first?",
+    },
+    {
+      id: "mmm-geo-lift-calibration-forecast",
+      tier: "core",
+      archetype: "forecast",
+      title: "Calibrate or Guess: Correcting Wise's MMM Priors With a Geo-Lift Result",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given Wise's uncalibrated MMM output (which credits paid search with 31% of incremental revenue) and a separate geo-lift test result for the same channel, recalibrate the model's contribution estimate and forecast the corrected quarterly budget split.",
+      companyId: "wise",
+      scenario:
+        "You're the analytics lead at Wise. The uncalibrated MMM just landed, and it credits paid search with an implausibly large share of growth. A geo-lift test on the same channel just wrapped.",
+      brief:
+        "Apply the lesson's Step 5 (calibrate against experiments) to replace the model's prior with a measured lift, then forecast what the corrected allocation should be.",
+      mode: "calibration",
+      conceptsCovered: [
+        "Calibrating MMM against experimental ground truth (the step amateurs skip)",
+        "Reporting a credible interval instead of a point estimate",
+        "Stress-testing a reallocation at plus/minus 20% budget",
+      ],
+      steps: [
+        {
+          stepId: "step-1-calibrate-prior",
+          concept: "Calibrating MMM against experimental ground truth (the step amateurs skip)",
+          lessonAnchor: "how-it-works-the-playbook",
+          theoryRecap:
+            "Step 5 of the lesson's playbook: run geo-lift or conversion-lift tests on your two biggest channels and use the measured lifts as priors. Uncalibrated MMM is astrology.",
+          question:
+            "Wise's uncalibrated model credits paid search with 31% of incremental revenue. A geo-lift test run the same quarter measured paid search's true incremental lift at 14% of revenue in the test regions. Which number goes into the board deck?",
+          toolName: "Google Sheets",
+          where: "Add a 'calibrated' column next to the model's raw output, overwrite paid search's row with the geo-lift figure.",
+          procedure: [
+            "List the model's raw per-channel contribution %",
+            "Insert the geo-lift measured lift for paid search next to it",
+            "Replace the model's paid search row with the measured figure, leave uncalibrated channels as-is",
+          ],
+          outputSample:
+            "Channel       ModelRaw%   GeoLiftMeasured%   Calibrated%\nPaid Search   31%         14%                 14%\nMeta          22%         n/a (not tested)    22%\nTV            18%         n/a (not tested)    18%",
+          healthy: "The board deck reports 14% for paid search, the measured figure, not the model's uncorrected 31%.",
+          unhealthy: "Presenting the raw 31% because 'that's what the model said' when a direct measurement of the same channel exists.",
+          interpret: "A measured lift always overrides the model's unconstrained estimate for that channel; that's the entire point of calibration.",
+          soWhat: [
+            {
+              symptom: "The model's estimate for a channel diverges from a measured lift by more than 5 points",
+              action: "Overwrite the model's estimate with the measured figure before it reaches finance",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-credible-interval",
+          concept: "Reporting a credible interval instead of a point estimate",
+          lessonAnchor: "common-mistakes",
+          theoryRecap:
+            "The lesson's Common Mistakes section: Bayesian MMM gives posterior distributions for a reason, report the 80% credible interval, not the point estimate, to finance.",
+          question:
+            "The calibrated model now reports TV's contribution as a posterior with an 80% credible interval of 11%-25% (point estimate 18%). Finance asks for 'the number'. What do you send?",
+          toolName: "Google Sheets",
+          where: "Add a range column, not just a single-number column, to the calibrated output table.",
+          procedure: [
+            "Pull the 80% credible interval bounds for each channel from the model output",
+            "Present the range alongside, not instead of, the point estimate",
+            "Flag any channel whose interval crosses zero as statistically unreliable",
+          ],
+          outputSample: "Channel   PointEstimate   80% Credible Interval\nTV        18%             11% - 25%\nYouTube   9%              -2% - 19%   <- crosses zero",
+          healthy:
+            "TV's range (11-25%) is reported alongside its point estimate; YouTube's crossing-zero interval is flagged as unreliable, not treated as a confident 9%.",
+          unhealthy: "Sending finance a single number for every channel with no range, which reads as far more certain than the model actually is.",
+          interpret: "A wide or zero-crossing interval means 'we don't know yet', not 'the effect is real but small'.",
+          soWhat: [
+            {
+              symptom: "A channel's credible interval crosses zero",
+              action: "Flag it as unreliable and recommend a dedicated lift test before reallocating its budget",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-stress-test",
+          concept: "Stress-testing a reallocation at plus/minus 20% budget",
+          lessonAnchor: "how-it-works-the-playbook",
+          theoryRecap:
+            "Step 6: use the fitted response curves to solve for the spend mix that maximizes revenue at the current budget, then stress-test at plus/minus 20% budget.",
+          question:
+            "The calibrated model recommends shifting 10L/week from paid search to TV. Before that goes into next quarter's plan, what's the one check the lesson says not to skip?",
+          toolName: "Google Sheets",
+          where: "Re-run the optimizer's output at 80% and 120% of the current total budget, not just the current budget.",
+          procedure: [
+            "Take the calibrated response curves",
+            "Re-solve the optimal mix at -20% and +20% of total budget",
+            "Confirm the recommended shift toward TV holds at both budget levels, not just the current one",
+          ],
+          outputSample: "Budget scenario     Recommended TV share\n-20% total budget    24%\nCurrent budget       28%\n+20% total budget    27%",
+          healthy: "TV's recommended share stays in the 24-28% range across all three budget scenarios, the reallocation is robust to a budget change.",
+          unhealthy: "Locking in a reallocation that only makes sense at exactly today's budget, then having to redo it the moment finance moves the number.",
+          interpret: "A stress-tested recommendation survives the actual budget conversation; an un-stress-tested one has to be redone in the room.",
+          soWhat: [
+            {
+              symptom: "A reallocation recommendation was only solved at one budget level",
+              action: "Re-solve at plus/minus 20% before presenting, and report the range that holds",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the calibration table and stress-test the reallocation across budget scenarios",
+            why: "Free, handles a small multi-channel comparison table without any modeling software",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A calibrated MMM summary table (model raw vs geo-lift-corrected vs credible interval) plus a stress-tested budget reallocation that holds at plus/minus 20% of total spend.",
+      sampleOutput:
+        "Adyen Q2 calibration memo (excerpt)\n\nChannel     ModelRaw%  Calibrated%  80% CI\nPaid Search 27%        15%          9%-21%\nTV          16%        16%          10%-24%\n\nStress test: reallocation to TV holds at -20%/+20% budget (range 22%-29% share).",
+      successCriteria: [
+        "Replaces every calibrated channel's raw model estimate with its measured geo-lift figure",
+        "Reports credible intervals, not point estimates, for uncalibrated channels",
+        "Confirms the reallocation recommendation holds at both -20% and +20% total budget",
+      ],
+      portfolioReady: true,
+      stretch: "Recompute the calibration if the geo-lift test itself only reached 70% statistical power, how much do you discount the correction?",
+    },
+  ],
+  "incrementality": [
+    {
+      id: "incrementality-geo-holdout-readout-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Holdout Readout: Auditing Zomato's Geo-Lift Numbers",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given a supplied 8-city-pair geo holdout dataset for Zomato's food delivery ads (test spend, test conversions, control conversions), calculate iROAS per pair and flag any pair that looks contaminated or underpowered.",
+      companyId: "zomato",
+      scenario:
+        "You're the growth analyst at Zomato reviewing a just-completed 5-week geo holdout test across 8 matched city pairs before the quarterly channel review.",
+      brief: "Apply the lesson's iROAS formula and contamination checks to the raw city-pair numbers, don't just average the headline lift.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Calculating iROAS from a test/control conversion gap",
+        "Spotting spillover contamination between matched geo pairs",
+      ],
+      steps: [
+        {
+          stepId: "step-1-pair-iroas",
+          concept: "Calculating iROAS from a test/control conversion gap",
+          lessonAnchor: "how-to-calculate-iroas-a-worked-example",
+          theoryRecap:
+            "iROAS = (Revenue in test group minus Revenue in control group) / Ad spend in test group. Platform ROAS is attribution; iROAS is causation.",
+          question:
+            "Pair 3 (Pune test / Nashik control): test group had 620 conversions at ₹450 AOV and ₹95,000 spend, control had 540 conversions. What's the iROAS?",
+          toolName: "Google Sheets",
+          where: "Build a column per city pair: test conversions, control conversions, AOV, spend, then formula out iROAS.",
+          procedure: [
+            "Enter test and control conversions and spend for each of the 8 pairs",
+            "Compute incremental conversions = test conversions minus control conversions",
+            "Compute iROAS = (incremental conversions x AOV) / spend for each pair",
+          ],
+          outputSample:
+            "Pair            TestConv  ControlConv  IncrConv  AOV   Spend   iROAS\nPune/Nashik     620       540          80        450   95000   0.38x\nSurat/Vadodara  710       410          300       450   88000   1.53x",
+          healthy: "Pairs like Surat/Vadodara (1.53x) clear the bar to keep or scale; Pune/Nashik (0.38x) does not.",
+          unhealthy: "Averaging all 8 pairs into one iROAS number and missing that one pair is dragging the average down for a fixable reason.",
+          interpret: "A per-pair iROAS calculation surfaces which specific markets are working, a single blended number hides it.",
+          soWhat: [
+            {
+              symptom: "One city pair's iROAS is far below the others",
+              action: "Check that pair for spillover or a demand mismatch before pooling it into the headline number",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-spillover-check",
+          concept: "Spotting spillover contamination between matched geo pairs",
+          lessonAnchor: "common-mistakes-that-kill-tests",
+          theoryRecap:
+            "The lesson's Common Mistakes: if a paused market shares a media market with its test counterpart, the control is contaminated.",
+          question:
+            "Pune and Nashik are 210km apart with separate media markets, but pair 3's control-region conversions rose 18% mid-test with no local promotion. What do you check first?",
+          toolName: "Google Sheets",
+          where: "Chart control-region conversions week by week across the test window, look for a mid-test jump.",
+          procedure: [
+            "Plot weekly control-region conversions for the flagged pair",
+            "Cross-check for any city-wide event, competitor promo, or shared ad exposure mid-test",
+            "Mark the pair as contaminated if no local explanation exists and note it separately from the clean pairs",
+          ],
+          outputSample: "Week  Pune(test)conv  Nashik(control)conv\n1     140             95\n2     155             98\n3     150             142   <- jump, no known cause\n4     175             138",
+          healthy: "The contaminated pair is excluded from the headline iROAS and reported separately with a note, not silently blended in.",
+          unhealthy: "Averaging the contaminated pair's low iROAS into the topline number and concluding the channel underperforms.",
+          interpret: "An unexplained control-region jump means the control isn't clean, don't treat its iROAS as a real read on the channel.",
+          soWhat: [
+            {
+              symptom: "A control region's conversions move without a known local cause mid-test",
+              action: "Exclude that pair from the headline calculation and investigate separately",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Compute per-pair iROAS and chart control-region conversions for contamination checks",
+            why: "Free, handles an 8-row city-pair table and simple line charts without any statistics software",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A per-city-pair iROAS table with contaminated pairs flagged and excluded from the headline number.",
+      sampleOutput:
+        "Grab food delivery geo test, city-pair iROAS (excerpt)\n\nPair             iROAS   Status\nCebu/Davao       2.1x    Clean, scale\nManila/QC        0.6x    Clean, hold\nIloilo/Bacolod   n/a     Contaminated, excluded (shared media market)",
+      successCriteria: [
+        "Computes iROAS correctly per city pair using the test/control gap formula",
+        "Correctly identifies and excludes the contaminated pair from the headline number",
+      ],
+      portfolioReady: true,
+      stretch: "Re-run the topline iROAS with and without the contaminated pair included, how much does it move?",
+    },
+    {
+      id: "incrementality-channel-benchmark-head-to-head",
+      tier: "core",
+      archetype: "head-to-head",
+      title: "Scale, Hold, or Cut: A Channel iROAS Head-to-Head for Sea Limited",
+      timeEstimate: "40 minutes",
+      timeMinutes: 40,
+      objective:
+        "Given a supplied 6-channel iROAS readout for Sea Limited's Shopee marketing mix, decide which channels to scale, hold, or cut, correctly separating branded search's low incrementality from its high platform-reported ROAS.",
+      companyId: "sea-limited",
+      scenario:
+        "You're the paid media lead at Sea Limited reviewing a completed multi-channel geo-lift program across Shopee's Southeast Asia markets.",
+      brief: "Head-to-head every channel's platform ROAS against its measured iROAS, then make a scale/hold/cut call per channel.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Distinguishing platform ROAS from incremental ROAS (iROAS)",
+        "Recognizing why branded search often shows near-zero incrementality",
+        "Deciding scale, hold, or cut from a channel iROAS table",
+      ],
+      steps: [
+        {
+          stepId: "step-1-roas-vs-iroas",
+          concept: "Distinguishing platform ROAS from incremental ROAS (iROAS)",
+          lessonAnchor: "what-incrementality-actually-means",
+          theoryRecap: "Attribution asks which channel touched the conversion, incrementality asks which channel caused it. Only iROAS tells you where to put budget.",
+          question:
+            "Shopee's dashboard reports CTV at 1.8x ROAS and branded search at 6.2x ROAS. The geo-lift test measures CTV's iROAS at 3.3x and branded search's at 0.7x. Which platform number was more misleading?",
+          toolName: "Google Sheets",
+          where: "Build a two-column comparison: platform-reported ROAS vs measured iROAS, per channel.",
+          procedure: [
+            "List each channel's platform-reported ROAS",
+            "List each channel's measured iROAS next to it",
+            "Sort by the size of the gap between the two, largest gap first",
+          ],
+          outputSample: "Channel          PlatformROAS   iROAS   Gap\nBranded Search   6.2x           0.7x    -5.5x\nCTV              1.8x           3.3x    +1.5x",
+          healthy: "Branded search's platform number is recognized as the misleading one, despite looking like the best channel on the dashboard.",
+          unhealthy: "Reading CTV as the underperformer because 1.8x looks worse than branded search's 6.2x on the dashboard.",
+          interpret: "The channel with the biggest gap between platform ROAS and iROAS is the one your dashboard is lying about hardest.",
+          soWhat: [
+            {
+              symptom: "A channel's platform ROAS is far higher than its measured iROAS",
+              action: "Treat the platform number as attribution noise, budget off the iROAS figure instead",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-branded-search-pattern",
+          concept: "Recognizing why branded search often shows near-zero incrementality",
+          lessonAnchor: "channel-iroas-benchmarks-2025-data",
+          theoryRecap:
+            "The lesson's benchmark table shows branded search scoring lowest (0.70x) industry-wide, people already searching for your brand by name were going to click the organic result anyway.",
+          question:
+            "Branded search's iROAS came back at 0.7x for Sea Limited. Marketing wants to double the branded search budget because it 'converts so well'. What's the response?",
+          toolName: "Google Sheets",
+          where: "Cross-reference branded search's iROAS against the lesson's industry benchmark row for the same category.",
+          procedure: [
+            "Compare Sea Limited's branded search iROAS (0.7x) to the lesson's industry median for branded search (0.70x)",
+            "Confirm the pattern matches, not an anomaly specific to this test",
+            "Recommend a spend cut, not an increase, for branded search",
+          ],
+          outputSample: "Category               SeaLimited iROAS   Industry median\nBranded search         0.7x               0.70x  <- matches, not an anomaly\nNon-branded search     1.6x               1.46x",
+          healthy: "Branded search spend gets cut, not doubled, once the near-zero iROAS is confirmed against the industry pattern.",
+          unhealthy: "Doubling branded search budget because its platform ROAS and conversion rate both look strong.",
+          interpret: "A high-converting channel and a high-incrementality channel are not the same thing; branded search is the textbook example of the gap.",
+          soWhat: [
+            {
+              symptom: "Branded search shows a high platform ROAS but sub-1x iROAS",
+              action: "Cut branded search spend toward defensive-minimum levels, redirect the saved budget to non-branded or CTV",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-scale-hold-cut",
+          concept: "Deciding scale, hold, or cut from a channel iROAS table",
+          lessonAnchor: "the-one-line-takeaway",
+          theoryRecap:
+            "The lesson's closing line: your ad platform's ROAS measures what happened near your ads, incrementality measures what your ads actually caused.",
+          question: "Given the full 6-channel iROAS table, which channels get a scale, hold, and cut recommendation for next quarter?",
+          toolName: "Google Sheets",
+          where: "Add a decision column next to the iROAS table using simple thresholds (above 2x scale, 1-2x hold, below 1x cut).",
+          procedure: [
+            "Apply a scale/hold/cut threshold to each channel's iROAS",
+            "Write one line justifying each call using the iROAS number, not the platform ROAS",
+            "Total the current spend on 'cut' channels to size the reallocation pool",
+          ],
+          outputSample: "Channel          iROAS   Call\nCTV              3.3x    Scale\nNon-branded SEM  1.6x    Hold\nBranded Search   0.7x    Cut\nTikTok           0.9x    Cut",
+          healthy: "The scale/hold/cut calls are justified entirely by iROAS thresholds, with no channel's call flipped by its platform ROAS.",
+          unhealthy: "Hedging on the branded search cut because the platform dashboard still shows a strong ROAS number.",
+          interpret: "A clean threshold rule applied consistently beats a case-by-case argument with whoever owns the highest-platform-ROAS channel.",
+          soWhat: [
+            {
+              symptom: "A scale/hold/cut call keeps getting re-litigated by channel owners",
+              action: "Publish the threshold rule and the iROAS table together, so the call is mechanical, not political",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the platform-ROAS-vs-iROAS comparison and apply scale/hold/cut thresholds",
+            why: "Free, handles a 6-channel comparison table and simple threshold rules without any specialist software",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A 6-channel scale/hold/cut table with the platform-ROAS-vs-iROAS gap and a one-line justification per channel.",
+      sampleOutput:
+        "Nubank paid channel review (excerpt)\n\nChannel     PlatformROAS   iROAS   Call\nMeta        4.1x           2.6x    Scale\nBranded SEM 7.0x           0.6x    Cut\nCTV         2.0x           3.1x    Scale",
+      successCriteria: [
+        "Correctly separates platform ROAS from iROAS for every channel",
+        "Recommends cutting, not scaling, branded search despite its high platform ROAS",
+        "Justifies every scale/hold/cut call using the iROAS threshold rule, not the platform number",
+      ],
+      portfolioReady: true,
+      stretch: "Recompute the calls assuming CTV's iROAS confidence interval is wide enough to include 1.5x, does the call change?",
+    },
+  ],
+
+  "dashboards": [
+    {
+      id: "dashboard-vanity-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "The Vanity Wall: Tearing Down a Cluttered Executive Scorecard",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a mocked-up 14-tile executive dashboard, identify which tiles are vanity metrics, which lack a decision, and which are genuinely decision-driving, using the lesson's 'write the decision first' test.",
+      companyId: "slack",
+      scenario:
+        "You're the marketing analyst at Slack. The VP of Marketing just forwarded you the team's 'Marketing Overview' dashboard and asked why nobody opens it before Monday meetings.",
+      brief:
+        "Apply the lesson's decision-sentence test to every tile, flag genuine vanity metrics, and note which tiles survive.",
+      mode: "teardown",
+      conceptsCovered: ["Tile sprawl", "Vanity metrics at the top", "No comparison anchor", "Step 1: Write the Decision First"],
+      teardownItems: [
+        {
+          itemId: "teardown-1-marketing-overview",
+          specimen:
+            "Slack 'Marketing Overview' dashboard, 14 tiles on one page:\n1. Total Impressions (all channels, all-time)\n2. Total Page Views (30 days)\n3. Instagram Followers (all-time count)\n4. Email List Size\n5. Blended CAC (no comparison, no target shown)\n6. ROAS by channel (no time range labeled)\n7. Twitter/X Mentions\n8. App Store Downloads\n9. Pipeline Created This Month (no target shown)\n10. Total Ad Spend\n11. Website Sessions\n12. Average Session Duration\n13. NPS Score (last refreshed quarterly, no 'last updated' label)\n14. Brand Search Volume (no trendline)",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "Using the lesson's decision-sentence test ('If [metric] goes [above/below] [threshold], we will [specific action]') and the Common Mistakes list, mark each tile Cut, Fix, or Keep, and explain why.",
+          answerKey: [
+            {
+              defect: "Tile 1 (Total Impressions, all-time) is a pure vanity metric with no decision attached",
+              severity: "critical",
+              whyItMatters:
+                "Nobody can finish 'if impressions go above X we will do Y' — it never triggers action, so it trains the exec to stop reading the dashboard.",
+              lessonRef: "Common Mistakes That Kill Dashboards",
+              owner: "you",
+            },
+            {
+              defect: "Tile 3 (Instagram Followers) and Tile 7 (Twitter/X Mentions) are vanity metrics sitting at the top instead of below the fold",
+              severity: "moderate",
+              whyItMatters: "Vanity metrics crowding the top pushes CAC, ROAS, and pipeline further down, exactly the failure mode the lesson warns against.",
+              lessonRef: "Vanity metrics at the top",
+              owner: "you",
+            },
+            {
+              defect: "Tile 5 (Blended CAC) and Tile 9 (Pipeline Created) show a raw number with no comparison to last period or target",
+              severity: "critical",
+              whyItMatters: "A number without a comparison anchor is meaningless. $67 CAC could be great or terrible with zero context.",
+              lessonRef: "No comparison anchor / Add Context to Every Number",
+              owner: "you",
+            },
+            {
+              defect: "Tile 13 (NPS Score) refreshes quarterly with no 'last updated' timestamp shown",
+              severity: "moderate",
+              whyItMatters: "Stale data displayed without a warning destroys credibility; 67% of marketers lose confidence in analytics when this happens.",
+              lessonRef: "Step 3: Connect Your Data Sources",
+              owner: "developer",
+            },
+            {
+              defect: "14 tiles on one page exceeds the 12-tile sprawl limit, with no linked detail page for secondary metrics",
+              severity: "moderate",
+              whyItMatters: "More than 12 charts on one page means nobody scans the whole thing.",
+              lessonRef: "Tile sprawl",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Tile 6 (ROAS by channel) missing a labeled time range looks like a staleness problem, but it's a labeling gap, not a data-freshness defect.",
+            "Tile 11 (Website Sessions) looks like a vanity metric, but it's legitimate supporting context for the funnel, not necessarily a tile to cut outright.",
+            "Tile 8 (App Store Downloads) can look irrelevant for a B2B SaaS like Slack, but Slack does track self-serve app installs as a real acquisition-adjacent number depending on the quarter's goal.",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "List and score every tile against the decision-sentence test",
+            why: "Free, fast way to triage a dashboard before rebuilding it",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Looker Studio",
+            role: "Reference the actual dashboard structure being torn down",
+            why: "Free dashboard builder most marketers already use, matches the lesson's primary tool",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A scored teardown table of all 14 tiles marked Cut / Fix / Keep, with a written decision sentence for every tile that survives.",
+      sampleOutput:
+        "Duolingo, dashboard teardown (excerpt)\n\nCUT — Total App Store Reviews (all-time): no decision sentence possible\nFIX — Weekly Active Learners: add comparison vs. last week before keeping\nKEEP — Day-30 Retention Rate: 'If retention drops below 40%, we pause paid UA and prioritize the retention team's backlog.'",
+      successCriteria: [
+        "Correctly flags at least 4 of the 5 planted defects",
+        "Distinguishes real defects from the 3 distractors",
+        "Writes a valid decision sentence for at least 2 surviving tiles",
+      ],
+      portfolioReady: true,
+      stretch: "Rebuild the surviving tiles into a proper 5-7 tile Executive Scorecard using Step 4's layout hierarchy.",
+    },
+    {
+      id: "dashboard-two-tier-spec-build",
+      tier: "mini",
+      archetype: "build-the-asset",
+      title: "Build the Two-Dashboard Split: Executive Scorecard and Operator Deep Dive Spec",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given Zendesk's list of 12 candidate metrics, sort each into the Executive Scorecard or Operator Deep Dive, then write the decision sentence for the 5-7 that make the cut.",
+      companyId: "zendesk",
+      scenario:
+        "You're the growth marketer at Zendesk. Leadership wants one exec-level dashboard and the paid media team wants a separate operator dashboard, and right now everything lives in one 20-tile mess.",
+      brief:
+        "Split 12 candidate metrics into the two dashboards the lesson defines, cut anything without a decision sentence, and spec the final layout.",
+      mode: "build",
+      conceptsCovered: ["The Two Types of Dashboards You Need", "Step 1: Write the Decision First", "Step 4: Design for 5 Seconds"],
+      steps: [
+        {
+          stepId: "step-1-sort-by-audience",
+          concept: "The Two Types of Dashboards You Need",
+          lessonAnchor: "the-two-types-of-dashboards-you-need",
+          theoryRecap:
+            "The lesson splits every marketing dashboard into two audiences: an Executive Scorecard (CMO/VP, daily, no filters) and an Operator Deep Dive (campaign managers, filterable, hourly for paid).",
+          question:
+            "Given Zendesk's 12 candidate metrics (blended CAC, ROAS by channel, CPL vs. target, pipeline created, top/bottom 10 creatives, spend pacing by campaign, budget spent vs. allocated, conversion rate by funnel stage, brand search volume, NPS, support-ticket-sourced signups, MQL-to-SQL rate), which 5 belong on the Executive Scorecard?",
+          toolName: "Google Sheets",
+          where: "A two-column sheet, one column per dashboard, one row per metric.",
+          procedure: [
+            "List all 12 metrics in column A",
+            "Mark each as Exec, Operator, or Both",
+            "Move any metric with no clear owner to a 'cut' list",
+          ],
+          outputSample:
+            "EXEC (5): Blended CAC, ROAS by channel, Pipeline created vs. target, Budget spent vs. allocated, MQL-to-SQL rate\nOPERATOR (6): CPL vs. target, Top/bottom 10 creatives, Spend pacing by campaign, Conversion rate by funnel stage, ROAS by channel (filtered), Support-ticket-sourced signups\nCUT (1): Brand search volume (no clear decision owner this quarter)",
+          healthy: "Exec dashboard stays under 7 tiles with no filters needed; Operator dashboard is fully filterable by channel, date, and creative.",
+          unhealthy: "The same 12-tile mess gets duplicated onto two pages instead of actually being split by audience and decision.",
+          interpret:
+            "A metric belongs on exactly one dashboard by default; the same number appearing on both (like ROAS) is fine only when both audiences act on it differently.",
+          soWhat: [
+            { symptom: "A metric doesn't clearly belong to either audience", action: "Cut it or find its owner before adding it to either dashboard", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-decision-sentence",
+          concept: "Step 1: Write the Decision First",
+          lessonAnchor: "step-1-write-the-decision-first",
+          theoryRecap:
+            "Every chart needs a finished sentence: 'If [metric] goes [above/below] [threshold], we will [specific action].' If you can't finish it, cut the chart.",
+          question: "Write the decision sentence for the 5 Exec Scorecard metrics from Step 1. Which one can't you finish?",
+          toolName: "Google Sheets",
+          where: "Add a 'Decision Sentence' column next to the Exec metric list.",
+          procedure: [
+            "Write one decision sentence per Exec metric",
+            "Flag any metric where the sentence trails off into 'we will look into it'",
+            "Cut or rewrite that metric before finalizing the spec",
+          ],
+          outputSample:
+            "Blended CAC: 'If CAC exceeds $110, we pause broad-audience campaigns and shift budget to retargeting.'\nMQL-to-SQL rate: 'If MQL-to-SQL drops below 20%, marketing and sales run a joint lead-quality review.'\nPipeline created vs. target: (no finished sentence, cut from v1, revisit after Q1)",
+          healthy: "Every surviving metric has a specific, finishable action attached, not a vague 'we'll investigate.'",
+          unhealthy: "A metric ships on the final dashboard with a decision sentence that just says 'we will look into it.'",
+          interpret: "A metric that can't finish the sentence isn't ready for the dashboard yet, even if it's directionally useful.",
+          soWhat: [
+            { symptom: "A KPI can't get a finished decision sentence", action: "Cut it from v1 and revisit once there's a real threshold to act on", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Sort metrics and draft decision sentences",
+            why: "Free, fast for a spec document",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Looker Studio",
+            role: "Reference the layout hierarchy when finalizing the spec",
+            why: "Free tool the lesson recommends for actually building the dashboard next",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A two-dashboard spec: Exec Scorecard and Operator Deep Dive metric lists, each with a written decision sentence, ready to hand to whoever builds the actual Looker Studio report.",
+      sampleOutput:
+        "MapmyIndia, dashboard spec (excerpt)\n\nEXEC SCORECARD\n  Blended CAC — 'If CAC exceeds ₹1,800, pause low-intent display campaigns.'\n  Enterprise pipeline created — 'If pipeline falls 15% behind target, reallocate budget to the enterprise SDR-supported channel.'\n\nOPERATOR DEEP DIVE\n  CPL by campaign — filterable by state and product line",
+      successCriteria: [
+        "Sorts all 12 metrics into Exec, Operator, or Cut with a stated reason",
+        "Writes a complete decision sentence for at least 4 of 5 Exec metrics",
+        "Final Exec list stays within the lesson's 5-7 metric limit",
+      ],
+      portfolioReady: true,
+      stretch: "Mock up the actual tile layout using Step 4's hierarchy (scorecards, trendlines, breakdowns, tables).",
+    },
+  ],
+  "kpis-for-marketers": [
+    {
+      id: "kpi-vanity-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "Vanity or KPI? Auditing MapmyIndia's Metrics List",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a real-style 12-metric list MapmyIndia's marketing team tracks, apply the lesson's vanity-metric test to sort each into KPI or vanity metric, and name the KPI it should be replaced with.",
+      companyId: "mapmyindia",
+      scenario:
+        "You're a marketing analyst at MapmyIndia. The quarterly report lists 12 numbers and your VP asks which ones actually predict revenue.",
+      brief: "Apply the '10x' vanity test to each metric, and use the lesson's vanity-to-KPI replacement logic where it applies.",
+      mode: "diagnostic",
+      conceptsCovered: ["What Is a KPI?", "The Vanity Metric Trap"],
+      steps: [
+        {
+          stepId: "step-1-metric-vs-kpi",
+          concept: "What Is a KPI?",
+          lessonAnchor: "what-is-a-kpi",
+          theoryRecap:
+            "A metric answers 'what happened?' A KPI answers 'are we on track to hit our goal?' Not every number on a report is automatically a KPI.",
+          question:
+            "MapmyIndia's Q3 report lists: app downloads, total map views, enterprise API calls, navigation sessions, ad impressions, brand search volume, enterprise contract value closed, churn rate, NPS, page views, social followers, and CAC. Which of these directly ties to a stated business goal?",
+          toolName: "Google Sheets",
+          where: "A 3-column sheet: metric, tied business goal (or 'none stated'), KPI or metric.",
+          procedure: [
+            "List all 12 metrics",
+            "For each, write the specific business goal it ties to, or 'none stated'",
+            "Mark 'KPI' only if a real goal is written down",
+          ],
+          outputSample:
+            "Enterprise contract value closed -> Goal: hit ₹40Cr enterprise ARR this year -> KPI\nApp downloads -> Goal: none stated -> Metric\nCAC -> Goal: keep blended CAC under ₹1,800 -> KPI\nSocial followers -> Goal: none stated -> Metric",
+          healthy: "Every KPI on the final list traces to one written business goal.",
+          unhealthy: "A number gets called a KPI just because it's easy to pull from a dashboard.",
+          interpret: "If you can't write the goal a number ties to, it isn't a KPI yet, no matter how important it feels.",
+          soWhat: [
+            { symptom: "A metric has no stated goal next to it", action: "Either write the goal it should tie to, or move it out of the KPI list", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-vanity-test",
+          concept: "The Vanity Metric Trap",
+          lessonAnchor: "the-vanity-metric-trap",
+          theoryRecap:
+            "Test: 'If this number went up 10x tomorrow, would it guarantee the business grew?' If the answer is 'not necessarily,' it's a vanity metric, replace it with the metric one step closer to revenue.",
+          question:
+            "Apply the 10x test to app downloads, total map views, ad impressions, page views, and social followers. Which replacement KPI should sit next to each on the final report?",
+          toolName: "Google Sheets",
+          where: "Add a 'Replacement KPI' column for anything that fails the 10x test.",
+          procedure: [
+            "Run the 10x test on each vanity candidate",
+            "For each fail, name the metric one step closer to revenue",
+            "Cross-check against the lesson's vanity-to-KPI table",
+          ],
+          outputSample:
+            "App downloads (10x -> not necessarily) -> Replace with: Day-30 retention rate\nAd impressions (10x -> not necessarily) -> Replace with: ROAS or CPA\nTotal map views (10x -> not necessarily) -> Replace with: Enterprise API calls converted to paid contracts",
+          healthy: "Every vanity metric on the report gets paired with the KPI it should be replaced by, not just deleted with nothing in its place.",
+          unhealthy: "Vanity metrics stay on the report because 'the VP likes seeing that number.'",
+          interpret: "A vanity metric isn't wrong to look at, it's wrong to report as if it proves growth.",
+          soWhat: [
+            { symptom: "A metric fails the 10x test", action: "Pair it with its revenue-adjacent replacement before the report goes out", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Score every metric against the KPI and vanity tests",
+            why: "Free, sufficient for a 12-row audit",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Analytics 4",
+            role: "Pull the real numbers behind each metric if verification is needed",
+            why: "Free source of truth for most of the web-side metrics on the list",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A scored 12-metric audit table marking each KPI vs. vanity metric, with a named replacement KPI for every vanity metric.",
+      sampleOutput:
+        "Slack, KPI audit (excerpt)\n\nKPI: Paid seat conversion rate -> Goal: grow paid seats 20% QoQ\nVANITY -> REPLACE: Total workspace signups -> Day-30 active-workspace rate",
+      successCriteria: [
+        "Correctly separates all 12 metrics into KPI vs. vanity",
+        "Names a valid replacement KPI for each vanity metric",
+        "Ties every KPI to a specific stated goal",
+      ],
+      portfolioReady: true,
+      stretch: "Narrow the final KPI list down to 3-5 per the lesson's 'How Many KPIs Should You Track' framework.",
+    },
+    {
+      id: "kpi-tree-build",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "Build a KPI Tree From a Single Business Goal",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given Snowflake's stated Q3 business goal, build a full KPI tree: one North Star KPI, 2-3 leading indicators, and one health metric, each tagged to its funnel stage and SMART-tested.",
+      companyId: "snowflake",
+      scenario:
+        "You're a growth marketer at Snowflake. Leadership just set a Q3 goal: 'reduce CAC for the self-serve data-cloud tier from $340 to $250.' You need a KPI tree the whole team can work from.",
+      brief:
+        "Use the lesson's North Star / Leading Indicators / Health Metric framework and funnel-stage categories to build a complete, SMART-tested KPI tree.",
+      mode: "build",
+      conceptsCovered: ["How Many KPIs Should You Track?", "The Four KPI Categories Marketers Use", "How to Set a Good KPI"],
+      steps: [
+        {
+          stepId: "step-1-north-star",
+          concept: "How Many KPIs Should You Track?",
+          lessonAnchor: "how-many-kpis-should-you-track",
+          theoryRecap:
+            "A KPI tree has 1 North Star KPI (defines success), 2-3 Leading Indicators (predict the North Star early), and 1 Health Metric (a guardrail).",
+          question:
+            "Given Snowflake's goal (cut self-serve CAC from $340 to $250), what's the single North Star KPI, and what 2-3 leading indicators would move first if CAC is about to drop?",
+          toolName: "Google Sheets",
+          where: "A tree diagram or indented list: North Star at top, leading indicators below it, health metric off to the side.",
+          procedure: [
+            "Write the North Star KPI and its numeric target",
+            "List 2-3 leading indicators that would move before CAC does",
+            "Add 1 health metric that guards against a bad optimization",
+          ],
+          outputSample:
+            "NORTH STAR: Self-serve CAC ($340 -> $250 by Sept 30)\nLEADING INDICATORS: Organic conversion rate (trial-to-paid), Free-tier-to-paid upgrade rate, Cost per qualified trial signup\nHEALTH METRIC: 30-day churn rate on new self-serve accounts (guards against buying cheap, low-quality signups)",
+          healthy:
+            "Every leading indicator has a believable causal path to the North Star; the health metric would catch a CAC 'win' that's actually just acquiring worse customers.",
+          unhealthy: "The tree lists 6 leading indicators with no clear priority, or has no health metric at all.",
+          interpret: "A KPI tree with no health metric can hit its North Star by quietly damaging something else, like customer quality.",
+          soWhat: [
+            { symptom: "CAC is improving but nobody is watching a guardrail metric", action: "Add a health metric before reporting the CAC win as a success", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-funnel-tagging",
+          concept: "The Four KPI Categories Marketers Use",
+          lessonAnchor: "the-four-kpi-categories-marketers-use",
+          theoryRecap:
+            "Every KPI maps to a funnel stage: awareness, consideration, conversion, or retention. Knowing the stage tells you which lever to pull.",
+          question: "Tag each KPI in your tree from Step 1 with its funnel stage. Does the tree cover more than one stage, or is it all bunched in conversion?",
+          toolName: "Google Sheets",
+          where: "Add a 'Funnel Stage' column next to each KPI from Step 1.",
+          procedure: [
+            "Tag each KPI with its funnel stage",
+            "Check whether awareness or consideration stages are missing entirely",
+            "Note which stage has no KPI, since that's a blind spot",
+          ],
+          outputSample:
+            "Self-serve CAC -> Conversion\nOrganic conversion rate -> Conversion\nFree-tier-to-paid upgrade rate -> Conversion\nCost per qualified trial signup -> Consideration\n30-day churn rate -> Retention\nBLIND SPOT: No Awareness-stage KPI in this tree",
+          healthy: "The tree at least acknowledges which funnel stages it does and doesn't cover, even if this quarter's goal is conversion-focused.",
+          unhealthy: "Nobody notices the tree only covers 1 of 4 funnel stages, so an upstream awareness problem goes undiagnosed for months.",
+          interpret: "A KPI tree built entirely around one funnel stage will hit a ceiling it can't explain once the upstream stage becomes the real constraint.",
+          soWhat: [
+            { symptom: "A funnel stage has zero KPIs on the tree", action: "Flag it as a known blind spot in the KPI doc, even if you don't build a chart for it yet", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-smart-check",
+          concept: "How to Set a Good KPI",
+          lessonAnchor: "how-to-set-a-good-kpi",
+          theoryRecap:
+            "A KPI must be Specific, Measurable, Achievable, Relevant, and Time-bound (SMART). A KPI that fails any of the five tests is a wish, not a KPI.",
+          question: "Run the SMART test on your North Star KPI and each leading indicator from Step 1. Which one fails, and what's missing?",
+          toolName: "Google Sheets",
+          where: "Add 5 checkbox columns (S/M/A/R/T) next to each KPI.",
+          procedure: [
+            "Check each KPI against all 5 SMART letters",
+            "Flag any KPI missing a deadline or a number",
+            "Rewrite the failing KPI so it passes all 5",
+          ],
+          outputSample:
+            "Cost per qualified trial signup: S-yes M-yes A-yes R-yes T-NO (no deadline) -> Rewrite: 'Cut cost per qualified trial signup to $40 by Sept 30.'",
+          healthy: "Every KPI on the final tree has a number and a deadline attached, not just a direction ('improve X').",
+          unhealthy: "A KPI ships as 'increase qualified trials' with no number or date, so nobody can say whether it succeeded.",
+          interpret: "The Time-bound and Measurable letters are the two most commonly skipped, and skipping either turns a KPI back into a wish.",
+          soWhat: [
+            { symptom: "A KPI has no deadline", action: "Add the specific date before the tree goes to leadership", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build and score the KPI tree",
+            why: "Free, sufficient for a tree of 6-8 KPIs",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Looker Studio",
+            role: "Turn the finished tree into a live-tracked dashboard afterward",
+            why: "Free tool for the next step once the KPI tree is defined",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A complete KPI tree (1 North Star, 2-3 leading indicators, 1 health metric) with every KPI tagged by funnel stage and SMART-tested.",
+      sampleOutput:
+        "Zendesk, KPI tree (excerpt)\n\nNORTH STAR: Support-to-upsell conversion rate (8% -> 12% by Q4)\nLEADING INDICATORS: CSAT on upsell-eligible tickets, Time-to-first-response on enterprise tier\nHEALTH METRIC: Ticket reopen rate (guards against rushing tickets to hit response-time targets)",
+      successCriteria: [
+        "Tree has exactly 1 North Star, 2-3 leading indicators, and 1 health metric",
+        "Every KPI is tagged with a funnel stage",
+        "Every KPI passes all 5 SMART checks after revision",
+      ],
+      portfolioReady: true,
+      stretch: "Turn the finished KPI tree into an actual Looker Studio dashboard spec using the Dashboards lesson's Step 3/Step 4 patterns.",
+    },
+  ],
+
+  "server-side-tracking": [
+    {
+      id: "server-side-tracking-client-vs-server-audit",
+      tier: "core",
+      archetype: "audit",
+      title: "The Missing 18%: Auditing a Client vs Server Event Gap",
+      timeEstimate: "35 minutes",
+      timeMinutes: 35,
+      objective:
+        "Given a one-week export comparing GA4 (client-side) purchase counts to Google Ads-reported conversions, segmented by browser, diagnose where the tracking gap is coming from and which fix to prioritize.",
+      companyId: "chewy",
+      scenario:
+        "You're the analytics lead at Chewy. The paid-search team flags that Google Ads reports 18% more purchases this week than GA4 shows, and wants to know if their campaigns are actually working or if the algorithm is optimizing on bad data.",
+      brief:
+        "Segment the gap by browser before you touch anything, and connect the pattern to a specific cause the lesson names (ITP, ad blockers, or both), not a vague 'tracking is broken.'",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Diagnosing a client-side tracking gap by browser segment",
+        "Event deduplication with a shared event_id",
+      ],
+      steps: [
+        {
+          stepId: "step-1-diagnose-gap",
+          concept: "Diagnosing a client-side tracking gap by browser segment",
+          lessonAnchor: "why-it-matters-the-data-problem",
+          theoryRecap:
+            "The lesson names three forces killing browser-side tracking: Safari's ITP caps JS-set cookies at 7 days, ad blockers strip tracking scripts outright, and iOS ATT suppresses in-app signals. Each leaves a different fingerprint in a browser breakdown.",
+          question:
+            "The export shows Safari accounts for 61% of the missing purchases despite being only 19% of sessions. Chrome and Firefox are roughly in line with their session share. What's actually happening here?",
+          toolName: "Google Sheets",
+          where: "Import weekly-event-export.csv, pivot purchases by browser against Google Ads-reported conversions for the same browser.",
+          procedure: [
+            "Import weekly-event-export.csv and freeze the header row",
+            "Build a pivot table: browser (rows) vs. GA4 purchases and Ads-reported purchases (columns)",
+            "Add a 'gap %' column: (Ads reported - GA4) / Ads reported",
+            "Sort by gap % descending to find the worst-offending browser segment",
+          ],
+          outputSample:
+            "Browser    Sessions%   GA4 Purchases   Ads-Reported   Gap %\nSafari     19%         142              365            61%\nChrome     58%         890              945             6%\nFirefox    12%         210              228             8%\nEdge       11%         180              190             5%",
+          healthy:
+            "The gap concentrates almost entirely in Safari, a clean signature of ITP cookie expiry, and the fix is a first-party subdomain, not a full sGTM rebuild for every platform at once.",
+          unhealthy:
+            "The gap is spread evenly across all browsers, which points to a missing or misconfigured base tag, not a privacy-rule problem, and no amount of server-side migration fixes a broken pixel.",
+          interpret:
+            "A gap concentrated in one browser tells you which mechanism is responsible; a gap spread evenly tells you the problem is upstream of privacy rules entirely.",
+          soWhat: [
+            {
+              symptom: "Safari carries 3x its session share of the missing purchases",
+              action: "Prioritize the first-party subdomain + server-set cookies fix before adding server tags for every ad platform",
+              effort: "dev ticket",
+            },
+            {
+              symptom: "The gap is evenly spread across all browsers",
+              action: "Audit the base GA4 tag firing conditions before assuming a privacy-rule cause",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-dedup-check",
+          concept: "Event deduplication with a shared event_id",
+          lessonAnchor: "the-setup-step-by-step",
+          theoryRecap:
+            "The lesson calls event_id deduplication the step most teams get wrong: send a matching event_id from both the browser pixel and the server tag, or every purchase gets counted twice.",
+          question:
+            "A second export shows Meta Ads Manager reporting 512 purchases while Shopify's order log shows 260 real orders for the same week. What single missing field explains a number almost exactly double?",
+          toolName: "Google Sheets",
+          where: "Compare the event_id column across the browser-pixel export and the server-tag export.",
+          procedure: [
+            "Filter the browser-pixel export for event_id values",
+            "Filter the server-tag export for event_id values on the same date range",
+            "Check whether any event_id appears in only one of the two exports (a shared ID means dedup is working)",
+            "Count events with no event_id at all, these can never be deduplicated",
+          ],
+          outputSample:
+            "event_id present in BOTH exports: 0 of 260\nevent_id present in browser export only: 260\nevent_id present in server export only: 252\nTotal reported to Meta: 512 (260 + 252)\nActual Shopify orders: 260",
+          healthy:
+            "Every real purchase has one shared event_id appearing in both the browser and server payload, so Meta discards the duplicate and reports 260, matching Shopify.",
+          unhealthy:
+            "Zero event_ids match between browser and server payloads, meaning Meta treats every purchase as two separate events, exactly the 2x inflation the lesson warns about.",
+          interpret:
+            "A reported number that's almost exactly double the real order count is the signature of missing deduplication, not fraud or a tracking gain.",
+          soWhat: [
+            {
+              symptom: "Ad-platform reported conversions run ~2x actual order volume",
+              action: "Add a shared event_id (e.g. order ID) to both the browser pixel and server tag payloads for the same event",
+              effort: "dev ticket",
+            },
+          ],
+          owner: "developer",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Pivot the browser-segmented export and calculate gap percentages",
+            why: "Free, no account friction, sufficient for a one-week diagnostic pivot",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Segment",
+            role: "Centralize event collection with built-in deduplication once volume outgrows manual event_id checks",
+            why: "Handles event_id matching and multi-destination forwarding at scale",
+            required: false,
+            fallback: "Manual event_id spot-checks in Google Sheets, as done in this project",
+            lastVerified: "2026-08",
+          },
+        ],
+      },
+      deliverable:
+        "A one-page diagnostic memo naming which browser segment drives the majority of the gap, whether deduplication is working, and the single highest-priority fix.",
+      sampleOutput:
+        "Robinhood, Paid Search Tracking Diagnostic (excerpt)\n\nFINDING 1: Safari carries 58% of the missing conversions on 19% of sessions, ITP cookie expiry.\nFINDING 2: event_id is present in both browser and server payloads for 100% of sampled purchases, deduplication is healthy.\nRECOMMENDATION: Ship the first-party subdomain fix this sprint; no action needed on deduplication.",
+      successCriteria: [
+        "Correctly isolates which browser segment carries the disproportionate share of the gap",
+        "Distinguishes an ITP/ad-blocker signature from a broken-base-tag signature",
+        "Correctly diagnoses whether a 2x reported-vs-actual pattern is a deduplication failure",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "server-side-tracking-sgtm-migration-plan",
+      tier: "mini",
+      archetype: "build-the-asset",
+      title: "Blueprint Before Build: Planning a Server-Side GTM Migration",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given Nubank's current client-side-only GTM setup and a list of ad platforms in use, produce a one-page migration blueprint (subdomain, tag priority order, deduplication scheme) before any engineering work starts.",
+      companyId: "nubank",
+      scenario:
+        "Nubank's growth team wants to move to server-side tracking after Google Ads reported 25% more sign-ups than GA4 last quarter. Engineering has one sprint allocated and needs a spec, not a vague request to 'set up server-side tracking.'",
+      brief:
+        "Sequence the plan the way the lesson does: subdomain first, then server tags in priority order, then the deduplication scheme, since building tags before the subdomain exists wastes the sprint.",
+      mode: "build",
+      conceptsCovered: [
+        "First-party subdomain setup",
+        "Sequencing server tags by ad-spend priority",
+      ],
+      steps: [
+        {
+          stepId: "step-1-subdomain-choice",
+          concept: "First-party subdomain setup",
+          lessonAnchor: "what-it-actually-is",
+          theoryRecap:
+            "The lesson is explicit: a tagging server must live on a first-party subdomain like metrics.yourbrand.com. A vendor domain like gtm.stape.io is still third-party to the browser and still gets blocked.",
+          question:
+            "Nubank's DevOps team proposes hosting the server at nubank-tags.stape.io to save setup time. Does this achieve the goal?",
+          toolName: "Google Sheets",
+          where: "Draft the migration spec document, one row per decision.",
+          procedure: [
+            "Open a new sheet titled 'sGTM Migration Blueprint'",
+            "Row 1: propose the subdomain (e.g. metrics.nubank.com.br) and the CNAME target",
+            "Row 2: note explicitly why a vendor-hosted domain (e.g. stape.io) fails the first-party requirement",
+          ],
+          outputSample:
+            "Decision: Subdomain\nProposed: metrics.nubank.com.br -> CNAME -> [sGTM host]\nRejected option: nubank-tags.stape.io\nReason for rejection: still resolves as third-party to the browser, ad blockers and ITP treat it identically to the current setup",
+          healthy:
+            "The blueprint names a first-party subdomain on Nubank's own domain and explicitly rules out the vendor-domain shortcut with a reason.",
+          unhealthy:
+            "The blueprint accepts the vendor-hosted subdomain to save a week of DNS work, which ships a migration that doesn't actually bypass ad blockers.",
+          interpret:
+            "The subdomain choice is not a convenience decision, it is the one step that determines whether the whole migration achieves anything.",
+          soWhat: [
+            {
+              symptom: "A vendor-hosted domain is proposed to save setup time",
+              action: "Reject it in the spec and require a CNAME onto the company's own domain before engineering starts",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-tag-priority",
+          concept: "Sequencing server tags by ad-spend priority",
+          lessonAnchor: "the-setup-step-by-step",
+          theoryRecap:
+            "The lesson's Step 4 says to add server tags for every destination, but a one-sprint migration can't build all of them simultaneously; the setup work is real engineering time per platform.",
+          question:
+            "Nubank runs Google Ads (54% of paid budget), Meta (31%), and LinkedIn (15%). Engineering has time to build and validate 2 of the 3 server tags this sprint. Which 2 go first?",
+          toolName: "Google Sheets",
+          where: "Add a 'Tag Priority' row to the same blueprint sheet.",
+          procedure: [
+            "List each ad platform with its share of paid budget",
+            "Sort descending by budget share",
+            "Mark the top 2 as 'Sprint 1' and the remainder as 'Sprint 2'",
+          ],
+          outputSample:
+            "Platform      Budget Share   Sprint\nGoogle Ads    54%            1\nMeta CAPI     31%            1\nLinkedIn CAPI 15%            2",
+          healthy:
+            "The two highest-budget platforms ship first, so the sprint's ROI is front-loaded onto the campaigns where the data gap costs the most money.",
+          unhealthy:
+            "Tags are built in whatever order engineering finds easiest, which might ship LinkedIn CAPI first while 85% of the budget still runs on unfixed tracking.",
+          interpret:
+            "When you can't build everything in one sprint, sequence by where the money is, not by implementation difficulty.",
+          soWhat: [
+            {
+              symptom: "Engineering has capacity for 2 of 3 platform integrations this sprint",
+              action: "Build server tags for the top 2 platforms by budget share first",
+              effort: "half day",
+            },
+          ],
+          owner: "either",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Draft and share the migration blueprint with engineering",
+            why: "Free, fast, and every engineer can comment directly on the spec",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page sGTM migration blueprint: proposed subdomain and CNAME target, sprint-1 vs sprint-2 tag priority by budget share, and the event_id field to use for deduplication.",
+      sampleOutput:
+        "Coinbase, sGTM Migration Blueprint (excerpt)\n\nSubdomain: metrics.coinbase.com -> CNAME -> sGTM host\nSprint 1 tags: Google Ads (62% of budget), Meta CAPI (28% of budget)\nSprint 2 tags: TikTok CAPI (10% of budget)\nDeduplication field: transaction_id, shared between browser pixel and server tag",
+      successCriteria: [
+        "Rejects any vendor-hosted subdomain shortcut with a stated reason",
+        "Sequences tag-building priority by ad-spend share, not by build convenience",
+        "Names a concrete deduplication field for the chosen conversion event",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "predictive-analytics": [
+    {
+      id: "predictive-analytics-churn-score-diagnostic",
+      tier: "core",
+      archetype: "forecast",
+      title: "Trust But Verify: Validating a Churn Model Against Real Outcomes",
+      timeEstimate: "40 minutes",
+      timeMinutes: 40,
+      objective:
+        "Given a 25-customer export with model-predicted churn-risk scores and their actual 30-day outcomes, calculate precision and recall to decide whether the model is trustworthy enough to trigger retention campaigns.",
+      companyId: "klaviyo",
+      scenario:
+        "You support a Klaviyo customer, a mid-size DTC brand, that just deployed a churn-risk model. Before it's allowed to trigger automated retention offers, you have to confirm it's actually right, not just confident.",
+      brief:
+        "Don't just eyeball the scores, calculate precision and recall the way the lesson defines them, and make a go/no-go call on live deployment.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Validating predictions against real outcomes (precision and recall)",
+        "Interpreting a propensity score threshold",
+      ],
+      steps: [
+        {
+          stepId: "step-1-precision-recall",
+          concept: "Validating predictions against real outcomes (precision and recall)",
+          lessonAnchor: "key-metrics-to-track",
+          theoryRecap:
+            "The lesson defines precision as: of everyone flagged high-risk, how many actually churned. Recall is: of everyone who actually churned, how many did the model catch in advance.",
+          question:
+            "The model flagged 12 of 25 customers as 'high churn risk.' Of those 12, 9 actually churned within 30 days. Of the 13 customers NOT flagged, 2 also churned. What are precision and recall?",
+          toolName: "Google Sheets",
+          where: "Import churn-model-export.csv and build a 2x2 confusion matrix.",
+          procedure: [
+            "Import churn-model-export.csv with columns: customer_id, predicted_risk, actual_outcome",
+            "Build a 2x2 table: flagged/not-flagged vs. churned/retained",
+            "Calculate precision = true positives / (true positives + false positives)",
+            "Calculate recall = true positives / (true positives + false negatives)",
+          ],
+          outputSample:
+            "                Actually Churned   Actually Retained\nFlagged High-Risk       9                    3\nNot Flagged             2                   11\n\nPrecision = 9/12 = 75%\nRecall = 9/11 = 82%",
+          healthy:
+            "Both precision and recall land above 70%, meaning most flagged customers really are at risk, and the model catches most real churners before they leave.",
+          unhealthy:
+            "Precision is high but recall is low (e.g. 90% precision, 30% recall), meaning the model is overly cautious and misses most customers who actually churn, wasting the campaign's real opportunity.",
+          interpret:
+            "A model can look accurate on paper while still failing the business goal; precision and recall catch that in a way a single 'accuracy' number hides.",
+          soWhat: [
+            {
+              symptom: "Recall is below 50% even though precision looks strong",
+              action: "Lower the risk-score threshold that triggers a 'high-risk' flag so more real churners get caught, then re-check precision",
+              effort: "30 min",
+            },
+            {
+              symptom: "Both precision and recall exceed 70%",
+              action: "Approve the model for live retention-campaign triggers",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-threshold-tuning",
+          concept: "Interpreting a propensity score threshold",
+          lessonAnchor: "5-propensity-models",
+          theoryRecap:
+            "The lesson describes propensity models as scoring each customer 0-100 on likelihood of an action. The threshold you pick to call something 'high risk' is a business decision, not a fixed rule.",
+          question:
+            "The model outputs a 0-100 churn score for every customer, not just a flag. At what score cutoff should 'high risk' start, and what changes if you move it from 70 to 50?",
+          toolName: "Google Sheets",
+          where: "Sort the export by raw churn score (0-100) rather than the pre-set flag.",
+          procedure: [
+            "Sort all 25 customers by raw churn score, descending",
+            "Test a threshold of 70: count how many actual churners fall above it",
+            "Test a threshold of 50: count how many actual churners fall above it",
+            "Compare how many total customers get flagged (and get a retention offer) at each threshold",
+          ],
+          outputSample:
+            "Threshold 70: 8 customers flagged, 7 actual churners caught (recall 64%)\nThreshold 50: 15 customers flagged, 10 actual churners caught (recall 91%)\nRetention offer cost is fixed per customer flagged.",
+          healthy:
+            "The team picks the threshold deliberately, weighing the cost of more retention offers (lower threshold) against the cost of missed churners (higher threshold).",
+          unhealthy:
+            "The team keeps whatever default threshold the tool shipped with, without checking whether it fits the actual cost of a retention offer versus the cost of a lost customer.",
+          interpret:
+            "There is no universally 'correct' threshold, only the one that matches what a false negative costs you versus what a retention offer costs you.",
+          soWhat: [
+            {
+              symptom: "Retention budget is limited but recall at the default threshold is low",
+              action: "Raise the threshold to flag fewer, higher-confidence customers rather than spreading budget thin",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the confusion matrix and test threshold scenarios",
+            why: "Free, transparent formulas that a non-technical stakeholder can audit",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Amplitude",
+            role: "Track cohort-level retention outcomes automatically once the model is live",
+            why: "Removes the need to manually export and match outcomes every cycle",
+            required: false,
+            fallback: "Manual 30-day outcome export in Google Sheets, as done in this project",
+            lastVerified: "2026-08",
+          },
+        ],
+      },
+      deliverable:
+        "A validation memo stating the model's precision and recall at its current threshold, a recommended threshold change if warranted, and a go/no-go call on live deployment.",
+      sampleOutput:
+        "Robinhood, Churn Model Validation Memo (excerpt)\n\nCurrent threshold (70): Precision 78%, Recall 61%\nTested threshold (55): Precision 68%, Recall 85%\nRECOMMENDATION: Lower threshold to 55. Retention budget covers the extra flagged volume, and the 24-point recall gain catches significantly more real churners.",
+      successCriteria: [
+        "Correctly calculates precision and recall from the confusion matrix",
+        "Tests at least one alternate threshold and compares the tradeoff",
+        "States a clear go/no-go recommendation grounded in the numbers, not intuition",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "predictive-analytics-rule-based-vs-ga4-head-to-head",
+      tier: "mini",
+      archetype: "head-to-head",
+      title: "Spreadsheet Rule vs. GA4 Model: A Churn-Scoring Head-to-Head",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given the same 20-customer behavior export, score churn risk two ways, a simple rule-based spreadsheet model and GA4's built-in churn probability logic, and decide which one a lean team should operate now.",
+      companyId: "coinbase",
+      scenario:
+        "Coinbase's retention team won't get a data-science hire for two quarters. You have to decide whether a rule-based spreadsheet score is good enough to run retention campaigns on until GA4's predictive audiences fully activate.",
+      brief:
+        "Score both models against the same customers, compare both to actual outcomes, and make the call on which one ships this week.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Building a rule-based churn score without a data science team",
+        "Using GA4's built-in predictive metrics as a free starting point",
+      ],
+      steps: [
+        {
+          stepId: "step-1-rule-based-score",
+          concept: "Building a rule-based churn score without a data science team",
+          lessonAnchor: "step-3-add-a-simple-churn-score-in-your-crm",
+          theoryRecap:
+            "The lesson's Step 3 describes a rule-based propensity model: take past churned customers, write down what they had in common (days since last purchase, low email opens, no logins), and build a simple scoring rule from those signals.",
+          question:
+            "Past churned Coinbase users share 3 traits: no login in 45+ days, 2+ failed payment attempts, and a support ticket in the last 30 days. How do you turn that into a score for the current 20-customer list?",
+          toolName: "Google Sheets",
+          where: "Import customer-behavior-export.csv and add a points column per rule.",
+          procedure: [
+            "Import customer-behavior-export.csv",
+            "Add 1 point per matched trait: no login 45+ days, 2+ failed payments, recent support ticket",
+            "Sum points per customer into a rule_score column (0-3)",
+            "Flag anyone with rule_score >= 2 as high risk",
+          ],
+          outputSample:
+            "customer_id  no_login_45d  failed_pay  support_ticket  rule_score  flag\nC-1042       1             1           0               2           HIGH\nC-1058       0             0           1               1           low\nC-1071       1             1           1               3           HIGH",
+          healthy:
+            "The rule-based score correctly separates most of the 20 customers into sensible risk tiers using only data already sitting in the CRM, no model training required.",
+          unhealthy:
+            "The rule flags almost everyone or almost no one as high risk, meaning the point thresholds need recalibrating against real churned-customer traits, not guessed.",
+          interpret:
+            "A rule-based score is a legitimate propensity model, it's just hand-built instead of machine-learned, and it works when the underlying traits are genuinely predictive.",
+          soWhat: [
+            {
+              symptom: "The rule-based flag matches almost no one to 'high risk'",
+              action: "Re-derive the point thresholds from a fresh sample of the last 50 actually-churned customers",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-ga4-comparison",
+          concept: "Using GA4's built-in predictive metrics as a free starting point",
+          lessonAnchor: "step-1-use-what-you-already-have",
+          theoryRecap:
+            "The lesson notes GA4 activates free predictive metrics, including churn probability, automatically once a property has at least 1,000 returning users who triggered the conversion event in the past 28 days.",
+          question:
+            "GA4's churn-probability export for the same 20 customers flags 7 as high risk. The rule-based score flags 9. Comparing both to actual 30-day outcomes, which one should the team operate on this week?",
+          toolName: "Google Sheets",
+          where: "Add a ga4_flag column next to rule_score, then compare both against actual_churned.",
+          procedure: [
+            "Add GA4's churn-probability flag as a new column",
+            "Add the actual 30-day outcome column",
+            "Calculate how many true positives each method produces",
+            "Compare against the effort each method requires to maintain",
+          ],
+          outputSample:
+            "Method            Flagged   True Positives   Setup Effort\nRule-based score  9         6                Built today, in Sheets\nGA4 churn model   7         6                Already running, free, updates automatically",
+          healthy:
+            "Both methods catch a similar number of true churners, so the team picks GA4's version since it updates automatically with zero manual maintenance.",
+          unhealthy:
+            "The team keeps maintaining the rule-based spreadsheet manually every week even though GA4's free model performs equally well with no upkeep.",
+          interpret:
+            "When two methods perform comparably, the tiebreaker is which one keeps working without someone manually re-running it every week.",
+          soWhat: [
+            {
+              symptom: "Both methods catch a similar share of real churners",
+              action: "Retire the manual rule-based sheet and route retention triggers off GA4's predictive audience instead",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the rule-based score and compare both methods side by side",
+            why: "Free, and the scoring logic stays visible and auditable to a non-technical retention team",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Analytics 4",
+            role: "Source the free built-in churn-probability metric to compare against the rule-based score",
+            why: "No cost, no setup beyond an active GA4 property with sufficient conversion volume",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A head-to-head scorecard comparing the rule-based score and GA4's churn probability against actual outcomes, with a recommendation on which to operate this quarter.",
+      sampleOutput:
+        "Chewy, Churn-Scoring Head-to-Head (excerpt)\n\nRule-based score: 8 flagged, 6 true positives, manual weekly upkeep\nGA4 churn model: 6 flagged, 6 true positives, automatic\nRECOMMENDATION: Adopt GA4's model. Equal accuracy, zero manual maintenance.",
+      successCriteria: [
+        "Builds a working rule-based score from named customer traits",
+        "Correctly compares both methods' true-positive counts against actual outcomes",
+        "Recommendation weighs maintenance effort, not just raw accuracy",
+      ],
+      portfolioReady: true,
+    },
+  ],
 };
