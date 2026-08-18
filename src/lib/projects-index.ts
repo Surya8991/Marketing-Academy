@@ -5673,6 +5673,458 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "persuasion-cue-live-page-audit",
+    "category": "psychology",
+    "lessonSlug": "psychology-101",
+    "lessonTitle": "Why Psychology Is the Real Marketing",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Persuasion Cue Audit: Diagnosing a Live Product Page",
+    "timeMinutes": 45,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "Identifying which persuasion principle a page element uses",
+      "Auditing whether urgency and scarcity claims are honest"
+    ]
+  },
+  {
+    "id": "dark-pattern-or-honest-nudge-teardown",
+    "category": "psychology",
+    "lessonSlug": "psychology-101",
+    "lessonTitle": "Why Psychology Is the Real Marketing",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Dark Pattern or Honest Nudge? A Landing Page Teardown",
+    "timeMinutes": 35,
+    "companyId": "rent-the-runway",
+    "conceptsCovered": [
+      "Distinguishing honest urgency from fabricated urgency",
+      "Recognizing confirm-shaming as a dark pattern",
+      "Recognizing legitimate social proof"
+    ]
+  },
+  {
+    "id": "purchase-classification-calibration",
+    "category": "psychology",
+    "lessonSlug": "system-1-system-2",
+    "lessonTitle": "System 1 and System 2 Thinking",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "calibration",
+    "title": "System 1 or System 2? Calibrating Your Purchase-Classification Judgment",
+    "timeMinutes": 25,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Matching persuasion tactic to system dominance by price and risk"
+    ]
+  },
+  {
+    "id": "cognitive-load-checkout-checklist-build",
+    "category": "psychology",
+    "lessonSlug": "system-1-system-2",
+    "lessonTitle": "System 1 and System 2 Thinking",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Cognitive-Load Checkout Checklist",
+    "timeMinutes": 30,
+    "companyId": "hellofresh",
+    "conceptsCovered": [
+      "Reducing cognitive load at the moment of action"
+    ]
+  },
+  {
+    "id": "maslow-tier-landing-page-audit",
+    "category": "psychology",
+    "lessonSlug": "maslow-marketing",
+    "lessonTitle": "Maslow's Hierarchy for Marketers",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Which Need Are You Actually Selling? A Homepage Tier Audit",
+    "timeMinutes": 25,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Diagnosing which Maslow tier the customer is actually in",
+      "Matching channel to tier"
+    ]
+  },
+  {
+    "id": "maslow-fear-marketing-teardown",
+    "category": "psychology",
+    "lessonSlug": "maslow-marketing",
+    "lessonTitle": "Maslow's Hierarchy for Marketers",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Manufactured Fear: A Maslow Tier-Mixing Teardown",
+    "timeMinutes": 45,
+    "companyId": "honasa-mamaearth",
+    "conceptsCovered": [
+      "Manufacturing lower-tier fear to sell higher-tier products",
+      "Stacking more than one tier in a single asset",
+      "Matching tier to the customer's actual moment"
+    ]
+  },
+  {
+    "id": "emotion-first-headline-audit",
+    "category": "psychology",
+    "lessonSlug": "emotion-vs-logic",
+    "lessonTitle": "Emotion First, Logic Second",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Feeling or Feature? Auditing Your Own Headlines for System 1",
+    "timeMinutes": 20,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Leading the headline with a feeling instead of a feature",
+      "Testing the post-purchase rationalization"
+    ]
+  },
+  {
+    "id": "dark-pattern-urgency-teardown",
+    "category": "psychology",
+    "lessonSlug": "emotion-vs-logic",
+    "lessonTitle": "Emotion First, Logic Second",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Real Scarcity or Manufactured Urgency? A Teardown",
+    "timeMinutes": 25,
+    "companyId": "thredup",
+    "conceptsCovered": [
+      "Manufacturing feelings the product cannot deliver on",
+      "Fake scarcity and countdown timers",
+      "The one-week-later honesty test"
+    ]
+  },
+  {
+    "id": "cognitive-bias-checkout-teardown",
+    "category": "psychology",
+    "lessonSlug": "cognitive-biases",
+    "lessonTitle": "Cognitive Biases Every Marketer Uses",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Real Cue or Dark Pattern? A Checkout Page Teardown",
+    "timeMinutes": 25,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "3. Social Proof",
+      "1. Anchoring Bias",
+      "How to Apply This Ethically"
+    ]
+  },
+  {
+    "id": "cognitive-bias-own-funnel-audit",
+    "category": "psychology",
+    "lessonSlug": "cognitive-biases",
+    "lessonTitle": "Cognitive Biases Every Marketer Uses",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Audit Your Own Funnel for Real vs. Fake Bias Cues",
+    "timeMinutes": 50,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Anchoring Bias Verification",
+      "Scarcity and FOMO Verification",
+      "Social Proof Verification"
+    ]
+  },
+  {
+    "id": "cialdini-reciprocity-social-proof-audit",
+    "category": "psychology",
+    "lessonSlug": "cialdini-6-principles",
+    "lessonTitle": "Cialdini's 6 Principles of Influence",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Which of the Six Are You Actually Using?",
+    "timeMinutes": 25,
+    "companyId": "honasa-mamaearth",
+    "conceptsCovered": [
+      "Reciprocity",
+      "Social Proof and Authority"
+    ]
+  },
+  {
+    "id": "cialdini-signup-flow-teardown",
+    "category": "psychology",
+    "lessonSlug": "cialdini-6-principles",
+    "lessonTitle": "Cialdini's 6 Principles of Influence",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Six Principles or Six Dark Patterns? A Signup Flow Teardown",
+    "timeMinutes": 25,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "How to Apply It Ethically",
+      "Where It Backfires / Ethical Limits"
+    ]
+  },
+  {
+    "id": "anchor-order-pricing-tier-audit",
+    "category": "psychology",
+    "lessonSlug": "anchoring-framing",
+    "lessonTitle": "Anchoring and Framing",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Anchor Order Audit: Does Your Pricing Page Anchor Itself?",
+    "timeMinutes": 20,
+    "companyId": "rent-the-runway",
+    "conceptsCovered": [
+      "Anchor order determines whether a price feels generous or greedy"
+    ]
+  },
+  {
+    "id": "pricing-page-anchor-teardown",
+    "category": "psychology",
+    "lessonSlug": "anchoring-framing",
+    "lessonTitle": "Anchoring and Framing",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Fake Anchor Teardown: Spotting Manufactured 'Was' Prices",
+    "timeMinutes": 45,
+    "companyId": "dollar-shave-club",
+    "conceptsCovered": [
+      "Distinguishing real anchors from fabricated 'was' prices",
+      "Framing that hides material information"
+    ]
+  },
+  {
+    "id": "duolingo-streak-loss-audit",
+    "category": "psychology",
+    "lessonSlug": "loss-aversion",
+    "lessonTitle": "Loss Aversion",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Streak Freeze Audit: Reading Duolingo's Loss Aversion Playbook",
+    "timeMinutes": 20,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Reference point shift making inaction feel like a loss"
+    ]
+  },
+  {
+    "id": "checkout-scarcity-teardown",
+    "category": "psychology",
+    "lessonSlug": "loss-aversion",
+    "lessonTitle": "Loss Aversion",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Scarcity Checkout Teardown: Real Cue or Dark Pattern?",
+    "timeMinutes": 25,
+    "companyId": "thredup",
+    "conceptsCovered": [
+      "Real constraints vs manufactured urgency in scarcity messaging"
+    ]
+  },
+  {
+    "id": "scarcity-claim-consistency-audit",
+    "category": "psychology",
+    "lessonSlug": "scarcity-urgency",
+    "lessonTitle": "Scarcity, Urgency, and FOMO",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Real or Fake? Auditing a Live Scarcity Claim",
+    "timeMinutes": 25,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Distinguishing real scarcity from fake scarcity",
+      "Testing deadline consistency across sessions"
+    ]
+  },
+  {
+    "id": "flash-sale-scarcity-rollout-simulation",
+    "category": "psychology",
+    "lessonSlug": "scarcity-urgency",
+    "lessonTitle": "Scarcity, Urgency, and FOMO",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The Countdown Timer Decision: Launching a Flash Sale Without Getting Fined",
+    "timeMinutes": 45,
+    "companyId": "hellofresh",
+    "conceptsCovered": [
+      "Anchoring urgency to a real event",
+      "Category scarcity vs fake-count scarcity",
+      "Testing the full funnel, not just conversion"
+    ]
+  },
+  {
+    "id": "review-widget-placement-audit",
+    "category": "psychology",
+    "lessonSlug": "social-proof-psychology",
+    "lessonTitle": "The Psychology of Social Proof",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Volume and Recency: Auditing a Real Product Page's Review Widget",
+    "timeMinutes": 20,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Showing volume, not just stars",
+      "Using specific, recent proof"
+    ]
+  },
+  {
+    "id": "testimonials-section-teardown",
+    "category": "psychology",
+    "lessonSlug": "social-proof-psychology",
+    "lessonTitle": "The Psychology of Social Proof",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Fake: Teardown of a Testimonials Section",
+    "timeMinutes": 25,
+    "companyId": "rent-the-runway",
+    "conceptsCovered": [
+      "Perfect ratings read as suspicious",
+      "Vague testimonials lack the specificity that builds trust"
+    ]
+  },
+  {
+    "id": "habit-loops-self-audit-diagnostic",
+    "category": "psychology",
+    "lessonSlug": "habit-loops",
+    "lessonTitle": "Habit Loops: Cue, Routine, Reward",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Loop Audit: Diagnosing Duolingo's Cue-Routine-Reward Mechanics",
+    "timeMinutes": 25,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "The cue-routine-reward loop",
+      "Variable reward strength"
+    ]
+  },
+  {
+    "id": "chewy-autoship-habit-loop-simulation",
+    "category": "psychology",
+    "lessonSlug": "habit-loops",
+    "lessonTitle": "Habit Loops: Cue, Routine, Reward",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "Designing Chewy's Autoship Habit Loop: A 90-Day Cancellation-Prevention Rollout",
+    "timeMinutes": 45,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Cue design and reliability",
+      "Sludge vs nudge ethical line",
+      "Variable reward reinforcement"
+    ]
+  },
+  {
+    "id": "warby-parker-checkout-nudge-audit",
+    "category": "psychology",
+    "lessonSlug": "behavioral-economics",
+    "lessonTitle": "Behavioral Economics for Marketers",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Nudge or Sludge? Auditing Warby Parker's Real Checkout Flow",
+    "timeMinutes": 30,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Identifying defaults, loss framing, anchoring, and social proof",
+      "Distinguishing an ethical nudge from sludge"
+    ]
+  },
+  {
+    "id": "thredup-nudge-sludge-teardown",
+    "category": "psychology",
+    "lessonSlug": "behavioral-economics",
+    "lessonTitle": "Behavioral Economics for Marketers",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Nudge or Sludge? Tearing Down a Resale Subscription's Signup and Cancellation Flow",
+    "timeMinutes": 40,
+    "companyId": "thredup",
+    "conceptsCovered": [
+      "How It Actually Works",
+      "Where It Backfires / Ethical Limits"
+    ]
+  },
+  {
+    "id": "chewy-autoship-default-audit",
+    "category": "psychology",
+    "lessonSlug": "choice-architecture",
+    "lessonTitle": "Choice Architecture and Nudges",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Default Audit: Is a Subscription Checkout Ethical or a Dark Pattern?",
+    "timeMinutes": 25,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Default option classification",
+      "The face-to-face ethical test"
+    ]
+  },
+  {
+    "id": "rent-the-runway-cancellation-teardown",
+    "category": "psychology",
+    "lessonSlug": "choice-architecture",
+    "lessonTitle": "Choice Architecture and Nudges",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: Find the Dark Patterns in a Subscription Cancellation Flow",
+    "timeMinutes": 45,
+    "companyId": "rent-the-runway",
+    "conceptsCovered": [
+      "Confirmshaming and hidden CTAs",
+      "Asymmetric friction between signup and cancel",
+      "Undisclosed material terms"
+    ]
+  },
+  {
+    "id": "mamaearth-journey-peak-end-map",
+    "category": "psychology",
+    "lessonSlug": "peak-end-rule",
+    "lessonTitle": "The Peak-End Rule",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Mapping the Real Peak and End of a Post-Purchase Journey",
+    "timeMinutes": 30,
+    "companyId": "honasa-mamaearth",
+    "conceptsCovered": [
+      "Peak identification in a real journey",
+      "Engineering the end deliberately"
+    ]
+  },
+  {
+    "id": "swiggy-cx-budget-simulation",
+    "category": "psychology",
+    "lessonSlug": "peak-end-rule",
+    "lessonTitle": "The Peak-End Rule",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The CX Redesign Budget: Fix the Middle, the Peak, or the End?",
+    "timeMinutes": 50,
+    "companyId": "swiggy",
+    "conceptsCovered": [
+      "Duration neglect",
+      "Engineering the end",
+      "The remembered experience over ticket volume"
+    ]
+  },
+  {
     "id": "keyword-research-export-audit",
     "category": "seo",
     "lessonSlug": "keyword-research",
