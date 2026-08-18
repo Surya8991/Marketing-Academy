@@ -3244,6 +3244,351 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "aarrr-funnel-bottleneck-diagnostic",
+    "category": "growth",
+    "lessonSlug": "aarrr",
+    "lessonTitle": "AARRR: Pirate Metrics",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Which Door Is Stuck? Diagnosing a Real Funnel with the AARRR Decision Tree",
+    "timeMinutes": 20,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Diagnosing the funnel bottleneck with the AARRR decision tree"
+    ]
+  },
+  {
+    "id": "aarrr-referral-loop-build",
+    "category": "growth",
+    "lessonSlug": "aarrr",
+    "lessonTitle": "AARRR: Pirate Metrics",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Engineer the Loop: Building a Referral Program from Trigger to Incentive",
+    "timeMinutes": 25,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Engineering a referral loop with trigger, mechanic, and incentive"
+    ]
+  },
+  {
+    "id": "activation-magic-number-cohort-diagnostic",
+    "category": "growth",
+    "lessonSlug": "activation",
+    "lessonTitle": "Activation & Aha Moments",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Find the Magic Number: Cohort Analysis on a Real Retention Split",
+    "timeMinutes": 25,
+    "companyId": "glossybox",
+    "conceptsCovered": [
+      "Finding the magic number with cohort analysis"
+    ]
+  },
+  {
+    "id": "activation-time-to-value-flow-build",
+    "category": "growth",
+    "lessonSlug": "activation",
+    "lessonTitle": "Activation & Aha Moments",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Compress the Path: Building a Time-to-Value First Session",
+    "timeMinutes": 25,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "Compressing time-to-value in the first session"
+    ]
+  },
+  {
+    "id": "growth-loops-reverse-engineer-instacart",
+    "category": "growth",
+    "lessonSlug": "growth-loops",
+    "lessonTitle": "Growth Loops",
+    "tier": "mini",
+    "archetype": "reverse-engineer",
+    "mode": "diagnostic",
+    "title": "Reverse-Engineer Instacart's Growth Loop from Public Signals",
+    "timeMinutes": 20,
+    "companyId": "instacart",
+    "conceptsCovered": [
+      "Mapping input, action, output, and re-investment"
+    ]
+  },
+  {
+    "id": "growth-loops-forecast-loop-factor",
+    "category": "growth",
+    "lessonSlug": "growth-loops",
+    "lessonTitle": "Growth Loops",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "Forecast Chewy's Autoship Loop Factor Twelve Months Out",
+    "timeMinutes": 45,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Calculating the loop factor from conversion, yield, and velocity",
+      "Forecasting compounding growth from a loop factor above or below 1.0"
+    ]
+  },
+  {
+    "id": "engagement-loops-reverse-engineer-thredup",
+    "category": "growth",
+    "lessonSlug": "engagement-loops",
+    "lessonTitle": "Engagement Loops",
+    "tier": "mini",
+    "archetype": "reverse-engineer",
+    "mode": "diagnostic",
+    "title": "Reverse-Engineer ThredUp's Trigger-Action-Reward-Investment Loop",
+    "timeMinutes": 20,
+    "companyId": "thredup",
+    "conceptsCovered": [
+      "Mapping the four stages: trigger, action, variable reward, investment"
+    ]
+  },
+  {
+    "id": "engagement-loops-forecast-investment-stage-churn",
+    "category": "growth",
+    "lessonSlug": "engagement-loops",
+    "lessonTitle": "Engagement Loops",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "Forecast the Churn Impact of Adding an Investment Stage",
+    "timeMinutes": 25,
+    "companyId": "rent-the-runway",
+    "conceptsCovered": [
+      "Loop completion rate as a predictor of retention"
+    ]
+  },
+  {
+    "id": "retention-cohorts-cliff-diagnosis",
+    "category": "growth",
+    "lessonSlug": "retention-cohorts",
+    "lessonTitle": "Retention & Cohort Analysis",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Cliff, Slope, or Floor: Diagnosing a Broken Retention Curve",
+    "timeMinutes": 20,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "The Retention Curve",
+      "Building a Cohort Table"
+    ]
+  },
+  {
+    "id": "retention-cohorts-health-score-builder",
+    "category": "growth",
+    "lessonSlug": "retention-cohorts",
+    "lessonTitle": "Retention & Cohort Analysis",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Week-1 Account Health Score",
+    "timeMinutes": 25,
+    "companyId": "klaviyo",
+    "conceptsCovered": [
+      "Leading Indicators to Track"
+    ]
+  },
+  {
+    "id": "referral-funnel-drop-off-audit",
+    "category": "growth",
+    "lessonSlug": "referral-programs",
+    "lessonTitle": "Referral Programs",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Find the Break: Auditing a Referral Program's Funnel Data",
+    "timeMinutes": 45,
+    "companyId": "mailchimp",
+    "conceptsCovered": [
+      "The Referral Funnel",
+      "Reward Timing"
+    ]
+  },
+  {
+    "id": "referral-program-design-build",
+    "category": "growth",
+    "lessonSlug": "referral-programs",
+    "lessonTitle": "Referral Programs",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Design a Referral Program From Scratch",
+    "timeMinutes": 50,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Step 1: Identify the Share Moment",
+      "Step 2: Choose Your Reward Structure"
+    ]
+  },
+  {
+    "id": "viral-coefficient-k-factor-calculator",
+    "category": "growth",
+    "lessonSlug": "viral-coefficient",
+    "lessonTitle": "Viral Coefficient & K-factor",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Run the Numbers: Calculating and Forecasting K-Factor",
+    "timeMinutes": 20,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "Calculating K-factor from invites and conversion",
+      "Forecasting cohort compounding from K and cycle time"
+    ]
+  },
+  {
+    "id": "referral-incentive-and-landing-page-audit",
+    "category": "growth",
+    "lessonSlug": "viral-coefficient",
+    "lessonTitle": "Viral Coefficient & K-factor",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "calibration",
+    "title": "One-Sided, Two-Sided, or Broken: Auditing a Referral Program's Weak Link",
+    "timeMinutes": 25,
+    "companyId": "firstcry-brainbees",
+    "conceptsCovered": [
+      "Two-sided incentives outperform one-sided incentives",
+      "Recipient landing page conversion is usually the highest-leverage fix"
+    ]
+  },
+  {
+    "id": "ice-backlog-calibration-sprint",
+    "category": "growth",
+    "lessonSlug": "ice-rice-prioritization",
+    "lessonTitle": "ICE & RICE Prioritization",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "calibration",
+    "title": "Score the Backlog: An ICE Calibration Sprint",
+    "timeMinutes": 25,
+    "companyId": "snowflake",
+    "conceptsCovered": [
+      "ICE = Impact x Confidence x Ease",
+      "Confidence must be evidence-based, not gut feel"
+    ]
+  },
+  {
+    "id": "rice-reach-from-analytics-forecast",
+    "category": "growth",
+    "lessonSlug": "ice-rice-prioritization",
+    "lessonTitle": "ICE & RICE Prioritization",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Reach Isn't a Guess: Scoring a Roadmap with Real RICE Numbers",
+    "timeMinutes": 25,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "RICE = (Reach x Impact x Confidence) / Effort",
+      "Effort must be scored in person-weeks, not days"
+    ]
+  },
+  {
+    "id": "plg-signup-funnel-activation-audit",
+    "category": "growth",
+    "lessonSlug": "plg",
+    "lessonTitle": "Product-Led Growth",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The First 5 Minutes: Auditing a Self-Serve Signup Funnel for Activation Gaps",
+    "timeMinutes": 35,
+    "companyId": "coinbase",
+    "conceptsCovered": [
+      "Activation Rate",
+      "Product-Qualified Leads (PQLs)"
+    ]
+  },
+  {
+    "id": "plg-expansion-flywheel-forecast",
+    "category": "growth",
+    "lessonSlug": "plg",
+    "lessonTitle": "Product-Led Growth",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Sizing the Compounding Engine: Forecasting PLG Expansion Revenue",
+    "timeMinutes": 35,
+    "companyId": "wise",
+    "conceptsCovered": [
+      "Net Revenue Retention (NRR)",
+      "Expansion: The Hidden Engine"
+    ]
+  },
+  {
+    "id": "nrr-account-bridge-audit",
+    "category": "growth",
+    "lessonSlug": "net-revenue-retention",
+    "lessonTitle": "Net Revenue Retention (NRR): The Metric That Decides If Growth Compounds",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Reading the Bridge: Auditing an Account-Level MRR Waterfall",
+    "timeMinutes": 25,
+    "companyId": "adyen",
+    "conceptsCovered": [
+      "What NRR Actually Measures",
+      "Current Benchmarks: Where Companies Actually Land in 2026"
+    ]
+  },
+  {
+    "id": "nrr-five-year-compounding-forecast",
+    "category": "growth",
+    "lessonSlug": "net-revenue-retention",
+    "lessonTitle": "Net Revenue Retention (NRR): The Metric That Decides If Growth Compounds",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "The 2.5x Bet: Forecasting a Revenue Base Under Different NRR Scenarios",
+    "timeMinutes": 25,
+    "companyId": "coinbase",
+    "conceptsCovered": [
+      "How Marketing Actually Moves This Number"
+    ]
+  },
+  {
+    "id": "experimentation-maturity-audit",
+    "category": "growth",
+    "lessonSlug": "experimentation-program",
+    "lessonTitle": "Building an Experimentation Program",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Grading a Growth Team's Experimentation Maturity",
+    "timeMinutes": 25,
+    "companyId": "nubank",
+    "conceptsCovered": [
+      "Filtering ideas through a structured hypothesis format before backlog entry",
+      "Scoring backlog items with ICE before committing engineering time"
+    ]
+  },
+  {
+    "id": "experimentation-program-charter-build",
+    "category": "growth",
+    "lessonSlug": "experimentation-program",
+    "lessonTitle": "Building an Experimentation Program",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Standing Up an Experimentation Program From Zero",
+    "timeMinutes": 70,
+    "companyId": "grab",
+    "conceptsCovered": [
+      "Writing hypotheses in the if/because format",
+      "Scoring backlog items with ICE before committing engineering time",
+      "Calculating whether a surface has enough traffic to reach significance in four weeks",
+      "Catching sample-ratio mismatch in a weekly review before shipping"
+    ]
+  },
+  {
     "id": "first-principles-thinking-memo-teardown",
     "category": "mental-models",
     "lessonSlug": "first-principles-thinking",

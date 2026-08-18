@@ -69,9 +69,33 @@ Before a test launches, calculate minimum detectable effect (MDE) and required s
 
 ### Gear 4: Review and Ship
 
+<InAction
+  concept="Sample-Ratio Mismatch (SRM) Checks"
+  companyName="Microsoft (MSN)"
+  where="MSN's home page image carousel test, comparing a 12-card control to a 16-card variant"
+  why="The initial readout showed the 16-card variant losing to the 12-card control on engagement"
+  what="A pre-launch SRM check caught a bot-detection filter that had stripped users unevenly between the two arms; correcting the split flipped the read from a losing test to a winning one"
+  benefit="Reversed a false 'kill this test' call before shipping, so a genuinely positive carousel change was not discarded on broken data"
+  timeframe="Documented in Microsoft's experimentation-platform SRM diagnostics research"
+  date="2019"
+  source="https://www.microsoft.com/en-us/research/articles/diagnosing-sample-ratio-mismatch-in-a-b-testing/"
+/>
+
 Run a weekly experimentation council, a 30-minute meeting with a PM, an engineer, an analyst, and a designer. This group reviews queued tests, catches sample-ratio mismatches (SRM) before they happen, and approves test plans. This single ritual is the structural difference between teams running 5 tests a year and teams running 5 tests a week.
 
 ### Gear 5: Readout and Archive
+
+<InAction
+  concept="Tracking Learning Velocity as a Program Metric"
+  companyName="Spotify"
+  where="Spotify's mobile home screen experimentation program, spanning 58 teams"
+  why="Measuring the program purely by win rate undercounted the real value of tests that killed a bad idea before it shipped"
+  what="Spotify built an 'Experiments with Learning' (EwL) metric tracked alongside win rate in every archived readout, counting a test as successful if it produced decision-useful evidence, not only if it won"
+  benefit="Across 520 experiments run by 58 teams in a year, the win rate was 12% but the learning rate was 64%, roughly 5x more tests produced usable evidence than produced a shipped win"
+  timeframe="Year ending 2025"
+  date="2025"
+  source="https://engineering.atspotify.com/2025/9/spotifys-experiments-with-learning-framework"
+/>
 
 Every completed test gets a written readout: hypothesis, result (winner/loser/inconclusive), primary metric movement, guardrail metric status, and what you learned. Store it in a searchable wiki. Tag it by surface, device, audience segment, and test type.
 
