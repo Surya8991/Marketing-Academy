@@ -219,8 +219,8 @@ The owner reviewed the full 24-track list (all categories, not just SEO) and set
 | — | 📝 Content Strategy Mastery | `content-strategy` | ✅ **14/14, done (Session 85)** |
 | — | 🚀 Growth Marketing Mastery | `growth-marketing-mastery` | ✅ **14/14, done (Session 85)** |
 | — | 🛒 E-commerce Growth | `ecommerce-growth` | ✅ **18/18, done (Session 85)** |
-| 19 | 📱 Social Media Manager | `social-media-manager` | 0/14 — next up |
-| 20 | 🧩 Product Marketing Mastery | `product-marketing-mastery` | 0/14 |
+| — | 📱 Social Media Manager | `social-media-manager` | ✅ **14/14, done (Session 85)** |
+| 20 | 🧩 Product Marketing Mastery | `product-marketing-mastery` | 0/14 — next up |
 | 21 | 🎨 Brand Strategy Mastery | `brand-strategy-mastery` | 0/14 |
 | 22 | 🧭 Psychology of Marketing | `psychology-of-marketing` | 0/14 |
 | 23 | 📣 PR & Communications Mastery | `pr-communications-mastery` | 0/14 |
@@ -262,6 +262,8 @@ Priorities 11-23 were proposed by the assistant (weighted toward finishing near-
 **Session 85 continued, Growth Marketing Mastery (`growth-marketing-mastery`), single category, 11 remaining lessons:** `aarrr`, `activation`, `growth-loops`, `engagement-loops`, `retention-cohorts`, `referral-programs`, `viral-coefficient`, `ice-rice-prioritization`, `plg`, `net-revenue-retention`, `experimentation-program`, none with `InAction` scenarios. 6 parallel agents, merged in one call (11 keys, 22 projects). `audit-projects.mjs` caught the same defect class as CRO batch D's earlier fix: 2 projects (`growth-loops-reverse-engineer-instacart`, `engagement-loops-reverse-engineer-thredup`) had `mode: "teardown"` but populated `steps[]` instead of `teardownItems[]` — both fixed to `mode: "diagnostic"` (their `archetype: "reverse-engineer"` stayed correct). `tsc --noEmit`, `npm run lint`, `npm test` (30/30), `npm run build` all clean after the fix. `build-projects-index.mjs` regenerated (365 project cards, 16 category modules). `growth-marketing-mastery` track is now fully done, 14/14.
 
 **Session 85 continued, E-commerce Growth (`ecommerce-growth`), only 1 remaining lesson (17/18 already covered via category overlap from tracks worked earlier this session):** `reengagement`, no `InAction` scenarios. Single agent, merged into `email.ts` (now 17 lessons). `audit-projects.mjs`, `tsc --noEmit`, `npm run lint`, `npm test` (30/30), `npm run build` all clean on the first pass, no fixes needed. `build-projects-index.mjs` regenerated (367 project cards, 16 category modules). `ecommerce-growth` track is now fully done, 18/18.
+
+**Session 85 continued, Social Media Manager (`social-media-manager`), 3 categories (`social`, `copywriting`, `tools`), 10 remaining lessons:** `social-strategy-basics`, `linkedin`, `tiktok`, `youtube`, `community-building`, `influencer-marketing`, `social-listening`, `content-calendar` (social), `ad-copy` (copywriting), `hootsuite-buffer` (tools), none with `InAction` scenarios. 6 parallel agents, merged per category (social: 4 files/8 keys, copywriting: 1 file/1 key, tools: 1 file/1 key). `audit-projects.mjs`, `tsc --noEmit`, `npm run lint`, `npm test` (30/30), `npm run build` all clean on the first pass, no fixes needed. `build-projects-index.mjs` regenerated (387 project cards, 16 category modules). `social-media-manager` track is now fully done, 14/14.
 
 ---
 

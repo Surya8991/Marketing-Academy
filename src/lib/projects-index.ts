@@ -1868,6 +1868,38 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "ad-copy-channel-mindset-teardown",
+    "category": "copywriting",
+    "lessonSlug": "ad-copy",
+    "lessonTitle": "Ad Copy (Search, Social, Display)",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Ad Copy Audit: Spot the Channel-Mindset Mismatch",
+    "timeMinutes": 20,
+    "companyId": "grab",
+    "conceptsCovered": [
+      "Step 2: Write to the Mindset",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "ad-copy-variant-sprint-wise",
+    "category": "copywriting",
+    "lessonSlug": "ad-copy",
+    "lessonTitle": "Ad Copy (Search, Social, Display)",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The Variant Sprint: Draft Channel-Specific Ad Copy for One Offer",
+    "timeMinutes": 25,
+    "companyId": "wise",
+    "conceptsCovered": [
+      "Step 2: Write to the Mindset",
+      "Common Mistakes"
+    ]
+  },
+  {
     "id": "cro-101-single-goal-page-audit",
     "category": "cro",
     "lessonSlug": "cro-101",
@@ -6060,6 +6092,277 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "social-strategy-basics-platform-fit-audit",
+    "category": "social",
+    "lessonSlug": "social-strategy-basics",
+    "lessonTitle": "Social Strategy Basics",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Platform-Fit Audit: Stress-Testing a Client's Channel Mix",
+    "timeMinutes": 35,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Filtering platforms by audience match, not raw reach",
+      "Assigning one goal per channel",
+      "Confusing reach with relevance"
+    ]
+  },
+  {
+    "id": "social-strategy-basics-new-market-strategy-build",
+    "category": "social",
+    "lessonSlug": "social-strategy-basics",
+    "lessonTitle": "Social Strategy Basics",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Ship a One-Page Social Strategy for a New Market Entry",
+    "timeMinutes": 25,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Defining one specific audience",
+      "Mapping audience to platform demographics",
+      "Setting a sustainable posting cadence"
+    ]
+  },
+  {
+    "id": "linkedin-post-teardown",
+    "category": "social",
+    "lessonSlug": "linkedin",
+    "lessonTitle": "LinkedIn Playbook",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: Diagnose Why 5 LinkedIn Posts Underperformed",
+    "timeMinutes": 30,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "External links in the post body cut reach",
+      "Engagement velocity in the first 60 minutes",
+      "Hashtag spam suppresses reach",
+      "Asking for shares triggers engagement-bait suppression"
+    ]
+  },
+  {
+    "id": "linkedin-lead-post-build",
+    "category": "social",
+    "lessonSlug": "linkedin",
+    "lessonTitle": "LinkedIn Playbook",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Lead-Generating LinkedIn Post Using the Posting Workflow",
+    "timeMinutes": 40,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Topic selection using the problem-proof-prompt framework",
+      "Writing a hook that earns the See more click",
+      "Posting without links in the body",
+      "Seeding engagement in the first 60 minutes"
+    ]
+  },
+  {
+    "id": "tiktok-content-calendar-teardown",
+    "category": "social",
+    "lessonSlug": "tiktok",
+    "lessonTitle": "TikTok Playbook",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Reasons This Content Calendar Won't Get Distribution",
+    "timeMinutes": 25,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Shoot Native, Not 'TV-on-Phone'",
+      "Write for Search (TikTok SEO)",
+      "Ride Sounds Inside the Rising Window",
+      "Post 3-5 Times Per Week, Not Daily",
+      "Optimize the First 15 Minutes After Posting"
+    ]
+  },
+  {
+    "id": "tiktok-launch-content-plan-build",
+    "category": "social",
+    "lessonSlug": "tiktok",
+    "lessonTitle": "TikTok Playbook",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a 2-Week TikTok Launch Plan for a Real Product Drop",
+    "timeMinutes": 35,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Engineer the First 3 Seconds",
+      "Write for Search (TikTok SEO)",
+      "Post 3-5 Times Per Week, Not Daily"
+    ]
+  },
+  {
+    "id": "youtube-video-test-window-audit",
+    "category": "social",
+    "lessonSlug": "youtube",
+    "lessonTitle": "YouTube Playbook",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Audit Why a Video Failed Its 24-48 Hour Algorithm Test",
+    "timeMinutes": 30,
+    "companyId": "glossybox",
+    "conceptsCovered": [
+      "Engineer the first 30 seconds",
+      "Frontload keywords in your title"
+    ]
+  },
+  {
+    "id": "youtube-packaging-rebuild",
+    "category": "social",
+    "lessonSlug": "youtube",
+    "lessonTitle": "YouTube Playbook",
+    "tier": "core",
+    "archetype": "rebuild",
+    "mode": "build",
+    "title": "Rebuild a Video's Full Search Package: Title, Thumbnail Brief, and Description",
+    "timeMinutes": 50,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Lead with search demand",
+      "Frontload keywords in your title",
+      "Treat thumbnail like a paid ad creative",
+      "Write descriptions like landing pages"
+    ]
+  },
+  {
+    "id": "community-power-member-audit",
+    "category": "social",
+    "lessonSlug": "community-building",
+    "lessonTitle": "Community Building",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The 14/70 Power-Member Audit",
+    "timeMinutes": 30,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Identifying power members using the 14/70 rule"
+    ]
+  },
+  {
+    "id": "community-90-day-launch-plan",
+    "category": "social",
+    "lessonSlug": "community-building",
+    "lessonTitle": "Community Building",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a 90-Day Community Launch Plan",
+    "timeMinutes": 60,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "Choosing a platform based on audience fit, not trend",
+      "Recruiting founding members before opening to the public",
+      "Designing a high-energy launch event",
+      "Building a repeating content calendar"
+    ]
+  },
+  {
+    "id": "influencer-fit-vetting-audit",
+    "category": "social",
+    "lessonSlug": "influencer-marketing",
+    "lessonTitle": "Influencer & Creator Marketing",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Vetting a Creator Shortlist for Brand Fit",
+    "timeMinutes": 35,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Vetting creators by fit signals instead of follower count"
+    ]
+  },
+  {
+    "id": "influencer-tier-budget-and-contract-build",
+    "category": "social",
+    "lessonSlug": "influencer-marketing",
+    "lessonTitle": "Influencer & Creator Marketing",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Tiered Creator Budget and Whitelisting Contract Checklist",
+    "timeMinutes": 50,
+    "companyId": "swiggy",
+    "conceptsCovered": [
+      "Allocating budget across creator tiers before outreach",
+      "Structuring a contract that protects ROI",
+      "Whitelisting top-performing posts"
+    ]
+  },
+  {
+    "id": "social-listening-mentions-export-audit",
+    "category": "social",
+    "lessonSlug": "social-listening",
+    "lessonTitle": "Social Listening",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Enrich or Ignore: Auditing a Raw Mentions Export",
+    "timeMinutes": 25,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "Sentiment and topic enrichment",
+      "Routing insights to a named owner"
+    ]
+  },
+  {
+    "id": "social-listening-query-routing-build",
+    "category": "social",
+    "lessonSlug": "social-listening",
+    "lessonTitle": "Social Listening",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Listening Program: Query Set, Routing Matrix, Review Cadence",
+    "timeMinutes": 50,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Boolean query design by use case",
+      "Routing matrix with named owners",
+      "Review cadence with a required decision"
+    ]
+  },
+  {
+    "id": "content-calendar-70-20-10-build",
+    "category": "social",
+    "lessonSlug": "content-calendar",
+    "lessonTitle": "Building a Content Calendar",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a 4-Week Calendar Shell: Pillars, Then the 70/20/10 Split",
+    "timeMinutes": 30,
+    "companyId": "klaviyo",
+    "conceptsCovered": [
+      "Content pillars",
+      "70/20/10 content split"
+    ]
+  },
+  {
+    "id": "content-calendar-execution-audit",
+    "category": "social",
+    "lessonSlug": "content-calendar",
+    "lessonTitle": "Building a Content Calendar",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Why the Calendar Keeps Failing: Auditing a Team's Real Spreadsheet",
+    "timeMinutes": 25,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "Scheduling versus manual posting",
+      "Reserved reactive slots",
+      "Replying to comments after posting"
+    ]
+  },
+  {
     "id": "suite-or-stack-client-scorecard",
     "category": "tools",
     "lessonSlug": "all-in-one-tools",
@@ -6152,6 +6455,38 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     "conceptsCovered": [
       "Data residency and PII exposure in consumer AI accounts",
       "Skipping the human review layer before publishing AI output"
+    ]
+  },
+  {
+    "id": "hootsuite-buffer-team-tool-selection",
+    "category": "tools",
+    "lessonSlug": "hootsuite-buffer",
+    "lessonTitle": "Hootsuite vs Buffer",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "The Tool Call: Choosing a Scheduler for a Growing Social Team",
+    "timeMinutes": 25,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Per-user vs per-channel pricing model",
+      "Matching feature checklist to team workflow needs"
+    ]
+  },
+  {
+    "id": "buffer-hootsuite-scaling-forecast",
+    "category": "tools",
+    "lessonSlug": "hootsuite-buffer",
+    "lessonTitle": "Hootsuite vs Buffer",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "The Scaling Forecast: When Nykaa Outgrows Buffer",
+    "timeMinutes": 20,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "Volume discount thresholds in per-channel pricing",
+      "Feature growth trigger: paid ad management"
     ]
   }
 ];

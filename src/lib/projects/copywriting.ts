@@ -3691,4 +3691,289 @@ export const COPYWRITING_PROJECTS: Record<string, Project[]> = {
         "Run the two headline finalists as an actual A/B test if you have access to a live page, and report which one wins.",
     },
   ],
+
+  "ad-copy": [
+    {
+      id: "ad-copy-channel-mindset-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "The Ad Copy Audit: Spot the Channel-Mindset Mismatch",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Given 4 draft ad copy specimens across search, social, and display, identify which violate the lesson's channel-mindset rules, cite the specific rule broken, and recognize the one specimen that actually passes review.",
+      companyId: "grab",
+      scenario:
+        "You're a freelance PPC copywriter reviewing Grab's newly drafted ad set before it goes live across Google Search, an Instagram feed placement, and a partner display network.",
+      brief:
+        "Read each specimen, flag genuine defects versus plausible-but-fine copy, and cite which channel rule each defect breaks. Do not flag copy that is actually correct just because it looks unusual.",
+      mode: "teardown",
+      conceptsCovered: ["Step 2: Write to the Mindset", "Common Mistakes"],
+      teardownItems: [
+        {
+          itemId: "item-1-search-superlative",
+          specimen:
+            "Search ad (Grab):\nH1: \"Grab: World's Best Ride App\"\nH2: \"Download Now\"\nH3: \"Grab Rides\"\nDescription: \"Experience the best ride-hailing service in Southeast Asia. Highly rated and trusted by millions.\"",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "This search ad ran for two weeks at a 3.1% CTR, well under the 6.66% cross-industry average. Identify the defects.",
+          answerKey: [
+            {
+              defect: "H1 leans on an unproven superlative ('World's Best') instead of a proof point.",
+              severity: "critical",
+              whyItMatters:
+                "Superlatives with no proof are invisible to readers; the lesson's fix is replacing a claim like 'Highly Rated' with a specific number such as '4.9 stars from 12,000 reviews.'",
+              lessonRef: "Common Mistakes",
+              owner: "you",
+            },
+            {
+              defect: "H1 does not mirror a likely search query (e.g. 'ride near me' or 'book a cab now').",
+              severity: "moderate",
+              whyItMatters:
+                "Query mirroring matches searcher intent and drives outsized CTR lifts; a generic brand claim wastes the highest-visibility headline slot.",
+              lessonRef: "Step 2: Write to the Mindset",
+              owner: "you",
+            },
+            {
+              defect:
+                "The description repeats the same unproven-superlative pattern ('best ride-hailing service... trusted by millions') with no real number.",
+              severity: "moderate",
+              whyItMatters:
+                "Search descriptions should be specific: 'Save 30% on annual plans' beats 'Great value' every time.",
+              lessonRef: "Step 2: Write to the Mindset",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "H3 uses the brand name instead of a CTA — that's actually a valid H3 pattern per the lesson's Step 2 rules, not a defect.",
+            "The ad only has 3 headlines — that's the correct minimum for a responsive search ad, not a defect.",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-social-product-led",
+          specimen:
+            "Instagram feed ad (GrabMart):\nBody: \"GrabMart offers same-day grocery delivery with a wide selection of fresh produce, household items, and personal care products at competitive prices.\"\nCTA button: \"Learn More\"",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "This social ad ran at a 0.3% CTR, below the platform's 0.5%-1.6% range. Identify the defects.",
+          answerKey: [
+            {
+              defect:
+                "The first line describes the product category ('GrabMart offers...') instead of the audience's problem or outcome.",
+              severity: "critical",
+              whyItMatters:
+                "On social, the first line is everything — it must stop the scroll. Leading with category instead of outcome is the exact mistake fixed in the lesson's outcome-first copy example.",
+              lessonRef: "Step 2: Write to the Mindset",
+              owner: "you",
+            },
+            {
+              defect: "The CTA button 'Learn More' doesn't complete a sentence started by the body copy.",
+              severity: "moderate",
+              whyItMatters:
+                "The lesson's CTA rule pairs a body-copy hook with a matching action, e.g. 'Ready to fix this?' + 'Start Free Trial' — a generic button leaves that connection unmade.",
+              lessonRef: "Step 2: Write to the Mindset",
+              owner: "you",
+            },
+            {
+              defect: "Body copy runs well past 150 characters on mobile with no strong hook to justify the length.",
+              severity: "cosmetic",
+              whyItMatters: "Long body copy without a strong hook loses mobile scrollers before they reach the CTA.",
+              lessonRef: "Step 2: Write to the Mindset",
+              owner: "either",
+            },
+          ],
+          distractors: [
+            "The ad uses a static image instead of video — that's a creative/targeting choice, not a copy defect.",
+            "The brand name 'GrabMart' appears in the body copy — mentioning the brand isn't itself a mistake.",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-3-display-stacked-benefits",
+          specimen: "Display banner (300x250, Grab):\nHeadline: \"Save Time and Money on Every Ride, Plus Earn Rewards\"",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "This banner underperforms at a 0.03% CTR, below the 0.05%-0.1% global display average. Identify the defects.",
+          answerKey: [
+            {
+              defect: "The headline stacks three benefits (time, money, rewards) instead of one.",
+              severity: "critical",
+              whyItMatters:
+                "Display rule: one benefit only — 'Cut your energy bill' beats 'Save energy and money and the environment.'",
+              lessonRef: "Step 2: Write to the Mindset",
+              owner: "you",
+            },
+            {
+              defect: "The headline buries its verb mid-clause instead of opening with an active verb.",
+              severity: "moderate",
+              whyItMatters: "Display copy should open with an active verb: Get, Cut, Stop, Save, Try.",
+              lessonRef: "Step 2: Write to the Mindset",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The headline is 10 words long — length alone isn't flagged; the issue is benefit count, not word count.",
+            "There's no CTA button copy shown — that's normal for a display banner, where the whole unit is clickable.",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-4-display-tone-mismatch",
+          specimen:
+            "Display banner (Grab, creative brief): Headline \"Skip the Wait, Ride in Seconds!\" paired with a visual of an empty street corner at dusk, no cars or people in frame.",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "This banner has decent production value but still underperforms. Identify the defect.",
+          answerKey: [
+            {
+              defect:
+                "The headline's urgent, exciting tone ('in Seconds!') doesn't match the visual's calm, empty, passive scene.",
+              severity: "moderate",
+              whyItMatters:
+                "Display rule: match headline tone to the visual — a mismatch creates confusion and kills clicks even when the copy itself is well-written.",
+              lessonRef: "Step 2: Write to the Mindset",
+              owner: "either",
+            },
+          ],
+          distractors: [
+            "The headline opens with 'Skip,' which is an active verb — that part is actually correct per the lesson's rules.",
+            "The banner has no description text — display banners are expected to stand alone with just a headline.",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Read each specimen and log defects with severity and rule reference",
+            why: "Free, no account friction, easy to comment inline next to each specimen",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A defect log covering all 4 specimens: which are genuinely flawed, which rule each defect breaks, and which specimen actually passes review.",
+      sampleOutput:
+        "Wise ad audit (excerpt)\n\nSearch H1: \"Wise: The World's Best Money Transfer\" -> CRITICAL, unproven superlative, replace with a query-mirroring headline like \"Send Money Abroad, Real Exchange Rate\"\n\nSocial body: \"Wise offers international transfers with low fees and fast delivery.\" -> CRITICAL, leads with product category, rewrite to open with the outcome (\"Stop losing money to bad exchange rates\")\n\nDisplay headline: \"Fast, Cheap, and Simple International Transfers\" -> CRITICAL, three benefits stacked, cut to one (\"Cut your transfer fees\")",
+      successCriteria: [
+        "Correctly flags all genuine defects across the 4 specimens with the right severity",
+        "Cites the specific rule each defect breaks, not just 'this feels off'",
+        "Does not flag the display tone-mismatch item for the wrong reason (verb choice is correct; tone is the issue)",
+        "Recognizes which parts of each specimen are actually fine rather than over-flagging",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "ad-copy-variant-sprint-wise",
+      tier: "mini",
+      archetype: "build-the-asset",
+      title: "The Variant Sprint: Draft Channel-Specific Ad Copy for One Offer",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Write 3 channel-specific ad copy drafts (search, social, display) for the same Wise product launch, applying the lesson's channel-mindset rules and CTA-first drafting order.",
+      companyId: "wise",
+      scenario:
+        "You're a growth marketing contractor for Wise, launching a new multi-currency account feature aimed at freelancers who invoice international clients.",
+      brief:
+        "Draft one search ad, one social ad, and one display headline for the same offer. Write the CTA first for each, then work backwards through the body copy and headline, and write each one from scratch instead of reusing lines across channels.",
+      mode: "build",
+      conceptsCovered: ["Step 2: Write to the Mindset", "Common Mistakes"],
+      steps: [
+        {
+          stepId: "step-1-search-and-social-mindset",
+          concept: "Step 2: Write to the Mindset",
+          lessonAnchor: "step-2-write-to-the-mindset",
+          theoryRecap:
+            "Search users typed a specific query and are in buying or research mode; social users were scrolling and your ad arrived uninvited. Search copy should mirror the query and lead with a differentiator; social copy should lead with the audience's problem or outcome, not the product category.",
+          question:
+            "The offer is: 'Multi-currency account for freelancers, no monthly fee, real exchange rate.' What search headline mirrors a likely query, what goes in H2 as the differentiator, and what social hook leads with the outcome instead of the feature list?",
+          toolName: "Google Docs",
+          where: "Draft in a shared doc with three labeled sections: Search, Social, Display.",
+          procedure: [
+            "Write a likely search query a freelancer would type (e.g. 'multi currency account for freelancers') and turn it into H1",
+            "Pick the single strongest differentiator (no monthly fee, or real exchange rate) for H2, not both",
+            "Write H3 as either a CTA or the brand name, per the lesson's rule",
+            "For the social version, write the first line as the freelancer's problem or outcome, not a feature list of the account",
+          ],
+          outputSample:
+            "SEARCH\nH1: Multi-Currency Account for Freelancers\nH2: No Monthly Fee, Real Exchange Rate\nH3: Open a Wise Account\nDesc: Invoice clients abroad and get paid in their currency. No monthly fee, no markup on the mid-market rate.\n\nSOCIAL\nHook: \"Tired of losing 3-5% to bad exchange rates on every client payment?\"",
+          healthy:
+            "The search H1 mirrors an actual query, H2 carries one differentiator, and the social hook names the freelancer's specific financial pain before mentioning the product.",
+          unhealthy:
+            "H1 is a brand slogan with no query relevance, H2 crams in two differentiators, and the social hook opens with 'Wise offers multi-currency accounts...' (a feature list).",
+          interpret:
+            "Search copy earns clicks by matching intent already in the searcher's head; social copy earns attention by naming a pain the scroller didn't expect to see addressed.",
+          soWhat: [
+            {
+              symptom: "Search H1 reads like a slogan instead of a query match",
+              action: "Rewrite H1 using the exact phrasing a freelancer would type into Google",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-cta-first-and-display",
+          concept: "Common Mistakes",
+          lessonAnchor: "common-mistakes",
+          theoryRecap:
+            "Most copywriters write the CTA last, as an afterthought. The lesson's fix is to write the CTA first, then build every word before it to make that CTA feel like the obvious next step. Display copy gets one benefit and an active opening verb.",
+          question:
+            "For the same Wise offer, what CTA should anchor the social ad, and what single-benefit, active-verb display headline would you write backwards from it?",
+          toolName: "Google Docs",
+          where: "Continue in the same shared doc, Display section.",
+          procedure: [
+            "Write the CTA for the social ad first (e.g. 'Open a Free Account'), before finalizing the hook above it",
+            "Confirm the hook line leads naturally into that CTA, revise the hook if it doesn't",
+            "Write the display headline starting with an active verb and exactly one benefit",
+            "Check the display headline makes sense with zero supporting description text, per the lesson's rule",
+          ],
+          outputSample:
+            "SOCIAL CTA: \"Open a Free Account\"\n\nDISPLAY\nHeadline: \"Cut Your Transfer Fees\"",
+          healthy:
+            "The CTA was chosen before the surrounding copy was finalized, and the display headline stands alone with one clear benefit and an active verb.",
+          unhealthy:
+            "The CTA is a generic 'Learn More' bolted on after the copy was already written, and the display headline lists multiple benefits or opens with a noun instead of a verb.",
+          interpret:
+            "Writing the CTA first forces every other line to justify its place; writing it last produces a CTA that doesn't match what came before it.",
+          soWhat: [
+            {
+              symptom: "The CTA feels disconnected from the hook above it",
+              action: "Rewrite the CTA first, then adjust the hook to lead into it",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Draft and organize the three channel-specific copy variants",
+            why: "Free, easy to structure into labeled sections per channel",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "Three channel-specific ad copy drafts (a search RSA with 3 headlines and a description, a social hook plus CTA, and a display headline) for the same Wise offer, each written CTA-first.",
+      sampleOutput:
+        "Grab ride-hailing launch, channel drafts (excerpt)\n\nSEARCH\nH1: Book a Ride in Minutes\nH2: Rides From ₹49, No Surge\nH3: Download the App\n\nSOCIAL\nHook: \"Still waiting 15 minutes for a cab that never shows?\"\nCTA: \"Book Your First Ride\"\n\nDISPLAY\nHeadline: \"Skip the Wait\"",
+      successCriteria: [
+        "Search, social, and display copy are each written from scratch, not adapted from one another",
+        "The social CTA was drafted before the hook was finalized, and the hook leads naturally into it",
+        "The display headline carries exactly one benefit and opens with an active verb",
+        "The search H1 plausibly mirrors a real query a freelancer would type",
+      ],
+      portfolioReady: true,
+    },
+  ],
 };

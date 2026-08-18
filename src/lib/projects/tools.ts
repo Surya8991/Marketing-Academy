@@ -648,4 +648,256 @@ export const TOOLS_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
     },
   ],
+
+  "hootsuite-buffer": [
+    {
+      id: "hootsuite-buffer-team-tool-selection",
+      tier: "mini",
+      archetype: "head-to-head",
+      title: "The Tool Call: Choosing a Scheduler for a Growing Social Team",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given Freshworks' real channel count, headcount, and workflow needs, build a cost and feature comparison to decide between Hootsuite and Buffer.",
+      companyId: "freshworks",
+      scenario:
+        "You're the marketing ops lead at Freshworks. Your social team just grew from 2 to 4 people and now runs 8 channels across 3 product lines. Leadership wants a scheduling tool decision by Friday.",
+      brief:
+        "Compare the two tools on pricing model, not just headline price, then match the feature list to what the team actually needs.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Per-user vs per-channel pricing model",
+        "Matching feature checklist to team workflow needs",
+      ],
+      steps: [
+        {
+          stepId: "step-1-per-user-vs-per-channel-cost",
+          concept: "Per-user vs per-channel pricing model",
+          lessonAnchor: "hootsuite-pricing-2026",
+          theoryRecap:
+            "The lesson's Hootsuite pricing section warns that Hootsuite bills per user, not per channel, so a 5-person team can cost $500+ per month even on modest plans.",
+          question:
+            "Freshworks' team is 4 people managing 8 channels. Hootsuite's Team plan caps at 3 users, so you'd need an Enterprise quote; Buffer's Team plan is $12/channel with unlimited users. Which pricing model actually favors this team, and why?",
+          toolName: "Google Sheets",
+          where: "New sheet, two columns: Hootsuite Enterprise quote vs Buffer Team monthly cost",
+          procedure: [
+            "List headcount (4) and channel count (8) in two cells",
+            "Buffer: multiply 8 channels x $12 = $96/month regardless of headcount",
+            "Hootsuite: note the 3-user cap on Team ($249/mo), so 4 users forces an Enterprise quote, request one and log the number when it arrives",
+            "Recompute both totals if the team grows to 6 people, same 8 channels",
+          ],
+          outputSample:
+            "Freshworks tool cost model\n\n            4 people / 8 ch     6 people / 8 ch\nBuffer      $96/mo              $96/mo (unlimited users)\nHootsuite   Enterprise quote     Enterprise quote (still over the 3-user Team cap)\n            (sales says $620/mo)  (sales says $620/mo, same tier)",
+          healthy:
+            "The team recognizes Buffer's cost is flat as headcount grows because it bills per channel, while Hootsuite's per-user model means every new hire is a phone call to sales.",
+          unhealthy:
+            "Comparing only Hootsuite Professional's $99/month sticker price to Buffer without noticing Professional is a single-user plan that can't actually serve a 4-person team.",
+          interpret:
+            "The published sticker price on the pricing page isn't the price your team will actually pay. Model the real headcount and channel count before comparing numbers.",
+          soWhat: [
+            {
+              symptom: "Leadership approved a tool based on the homepage price and got a surprise Enterprise quote",
+              action: "Always model total cost at your actual headcount and channel count before requesting a quote",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-feature-needs-match",
+          concept: "Matching feature checklist to team workflow needs",
+          lessonAnchor: "who-should-use-what",
+          theoryRecap:
+            "The lesson's 'Who Should Use What' section splits the decision by need: approval workflows and social listening point to Hootsuite, simplicity and organic-only content point to Buffer.",
+          question:
+            "Freshworks needs an approval step (an intern drafts, a manager approves before anything goes live) but has no paid ad spend and no requirement to monitor brand mentions. Which tool's feature list actually matches that?",
+          toolName: "Google Sheets",
+          where: "Same sheet, new tab: feature checklist with a Yes/No column per tool",
+          procedure: [
+            "List Freshworks' 3 real requirements: approval routing, no ad management needed, no social listening needed",
+            "Mark Hootsuite Yes/No(unneeded)/Yes(unneeded) and Buffer Yes(Team plan)/No/No against each",
+            "Cross out the two Hootsuite features (ad management, social listening) this team would pay for but never use",
+            "Circle the one feature that actually decides it: does Buffer Team's collaboration cover approval routing, or does it need Hootsuite's more granular permissions?",
+          ],
+          outputSample:
+            "Freshworks feature match\n\nApproval routing     Buffer Team: shared drafts, no formal approval gate\n                     Hootsuite Team: role-based approval before publish -- MATCH\nAd management        Not needed by either -- irrelevant to this decision\nSocial listening      Not needed -- irrelevant to this decision",
+          healthy:
+            "The team pays for Hootsuite's approval routing specifically, because it's the one feature this team will actually use every week, not because Hootsuite has more features overall.",
+          unhealthy:
+            "Choosing Hootsuite because it 'has more features' without checking whether Freshworks needs any of the features Buffer lacks.",
+          interpret:
+            "A head-to-head comparison is not won by whichever tool has more checkmarks. It's won by whichever tool's checkmarks match this team's real workflow.",
+          soWhat: [
+            {
+              symptom: "A tool decision defaults to 'the one with more features' every time",
+              action: "Cross out every feature your team won't actually use before comparing what's left",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the per-user vs per-channel cost model side by side",
+            why: "Free, and the whole comparison is just arithmetic across headcount and channel count",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Buffer",
+            role: "Test-drive the free 3-channel plan before recommending a paid tier",
+            why: "See the actual scheduling UI without a purchase decision",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Hootsuite",
+            role: "The enterprise-tier candidate being priced for a 4-person, 8-channel team",
+            why: "Professional/Team plans cap at 3 users, so a real quote here means calling sales",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paidUpgradeNote:
+          "Only pick a paid tier once the cost model shows which one is actually cheaper at your headcount and channel count, not off the sticker price.",
+      },
+      deliverable:
+        "A one-page recommendation memo for Freshworks leadership: recommended tool, monthly cost at current and projected headcount, and the single feature that decided it.",
+      sampleOutput:
+        "Nykaa social team, tool recommendation memo (excerpt)\n\nRecommendation: Buffer Team, $12/channel\nCurrent cost: 6 channels x $12 = $72/month, unlimited users\nDeciding factor: Nykaa's team has no ad-management or listening need this quarter; Buffer's flat per-channel cost beats Hootsuite's per-user model as the team scales from 3 to 6 marketers.",
+      successCriteria: [
+        "Cost model correctly reflects per-user vs per-channel billing at the team's real headcount and channel count",
+        "Recommendation is tied to a specific matched feature, not a general 'has more features' claim",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Re-run the model assuming Freshworks doubles to 16 channels next year, at what channel count does Hootsuite's Enterprise quote become cheaper than Buffer's linear per-channel cost?",
+    },
+    {
+      id: "buffer-hootsuite-scaling-forecast",
+      tier: "mini",
+      archetype: "forecast",
+      title: "The Scaling Forecast: When Nykaa Outgrows Buffer",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Given Nykaa's 12-month channel growth plan, forecast the cost and feature point at which Buffer's per-channel model gets more expensive than Hootsuite's flat team tiers, and the point at which Hootsuite's features become necessary.",
+      companyId: "nykaa",
+      scenario:
+        "Nykaa's beauty brand social team runs 5 channels today and plans to launch channels for each new sub-brand and market, projected to reach 15 channels within 12 months, plus a paid social ads push starting month 6.",
+      brief:
+        "Forecast cost at 5, 10, and 15 channels for both tools, then flag the month the team's needs (paid ads) outgrow Buffer's feature set entirely.",
+      mode: "calibration",
+      conceptsCovered: [
+        "Volume discount thresholds in per-channel pricing",
+        "Feature growth trigger: paid ad management",
+      ],
+      steps: [
+        {
+          stepId: "step-1-volume-discount-forecast",
+          concept: "Volume discount thresholds in per-channel pricing",
+          lessonAnchor: "buffer-pricing-2026",
+          theoryRecap:
+            "The lesson's Buffer pricing section notes volume discounts apply above 10 channels, as low as $1-4/channel for large accounts, so the flat $12/channel rate does not hold forever.",
+          question:
+            "At 5, 10, and 15 channels, what does Nykaa actually pay Buffer's Team plan, and does the volume discount kick in before or after Nykaa's 12-month target?",
+          toolName: "Google Sheets",
+          where: "New sheet, one row per channel milestone (5, 10, 15)",
+          procedure: [
+            "Row 1: 5 channels x $12 = $60/month, no discount yet",
+            "Row 2: 10 channels, the volume-discount threshold, flag this row",
+            "Row 3: 15 channels, estimate using the lesson's stated $1-4/channel range for large accounts, so cost could land between $105-180/month above the 10-channel base",
+            "Compare the 15-channel Buffer estimate to Hootsuite Team's flat $249/month (3 users, 20 accounts) to see which is cheaper at Nykaa's ceiling",
+          ],
+          outputSample:
+            "Nykaa Buffer cost forecast\n\n5 channels   $60/month   (no discount)\n10 channels  ~$90-120/month  (volume discount threshold)\n15 channels  ~$105-180/month (estimated, large-account rate)\nHootsuite Team flat rate: $249/month regardless of channel count up to 20",
+          healthy:
+            "The team catches that Buffer likely stays cheaper than Hootsuite Team even at 15 channels once the volume discount applies, so cost alone doesn't force a switch.",
+          unhealthy:
+            "Assuming Buffer's cost scales linearly at $12/channel all the way to 15 channels and overstating the case for switching to Hootsuite on cost grounds alone.",
+          interpret:
+            "A pricing forecast has to account for the discount tier the lesson actually states, a flat per-unit rate rarely holds at scale.",
+          soWhat: [
+            {
+              symptom: "A 'we'll outgrow this tool' argument only checks the sticker rate, not the discount tier",
+              action: "Re-price every growth milestone against the vendor's actual published discount structure before forecasting a switch",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-ad-feature-trigger",
+          concept: "Feature growth trigger: paid ad management",
+          lessonAnchor: "who-should-use-what",
+          theoryRecap:
+            "The lesson's 'Who Should Use What' section lists running paid ads alongside organic posts as a reason to choose Hootsuite, since Buffer has no built-in ad management.",
+          question:
+            "Nykaa's paid social push starts month 6. Cost aside, does that change which tool the team needs, regardless of channel count?",
+          toolName: "Google Sheets",
+          where: "Same sheet, add a month-6 marker row",
+          procedure: [
+            "Mark month 6 as the paid-ads launch point on the timeline",
+            "Check Buffer's feature list: no ad management, confirmed in the lesson's comparison table",
+            "Check Hootsuite's feature list: built-in ad management on Facebook, LinkedIn, and X",
+            "Conclude whether the team needs Hootsuite for ads specifically, or a separate ads tool alongside Buffer",
+          ],
+          outputSample:
+            "Nykaa feature trigger timeline\n\nMonth 1-5: organic only, 5-10 channels -- Buffer covers this fully\nMonth 6: paid social ads launch -- Buffer has no ad management\nDecision: either add a dedicated ads tool alongside Buffer, or migrate to Hootsuite for ads + scheduling in one dashboard",
+          healthy:
+            "The team treats the ads launch as a feature trigger, not a cost trigger, and decides it separately from the channel-growth cost forecast.",
+          unhealthy:
+            "Bundling the ads decision into the channel-cost forecast and concluding 'switch to Hootsuite at 15 channels' when the real trigger was the month-6 ad launch, not channel count.",
+          interpret:
+            "Cost forecasts and feature-need forecasts answer different questions. A scaling forecast has to run both, not just the one that's easier to put in a spreadsheet.",
+          soWhat: [
+            {
+              symptom: "A tool-switch recommendation cites channel growth as the reason when the real driver is a missing feature",
+              action: "Separate the cost forecast from the feature-need forecast and cite the correct trigger for each recommendation",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the 3-milestone cost and feature-trigger forecast",
+            why: "Free, no account needed for spreadsheet modeling",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Hootsuite",
+            role: "The candidate tool being evaluated for the month-6 ad-management need",
+            why: "Only relevant if the feature trigger, not the cost trigger, forces a switch",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paidUpgradeNote:
+          "Don't upgrade on a cost forecast alone, confirm whether the paid-ads feature trigger actually applies before switching tools.",
+      },
+      deliverable:
+        "A 12-month forecast memo: cost at 5/10/15 channels for both tools, plus the month-6 feature trigger flagged separately from the cost trigger.",
+      sampleOutput:
+        "Freshworks social team, scaling forecast (excerpt)\n\nCost forecast: Buffer stays cheaper than Hootsuite Team through 8 channels even without a volume discount\nFeature trigger: Freshworks has no paid-ads plan this year, so the ad-management gap never applies -- stay on Buffer",
+      successCriteria: [
+        "Cost forecast correctly applies the lesson's stated volume-discount range instead of a flat linear rate",
+        "Feature-need trigger (paid ads) is identified and evaluated separately from the cost trigger",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Forecast what happens if the paid-ads launch moves up to month 2, does that change the recommended tool even at only 5 channels?",
+    },
+  ],
 };
