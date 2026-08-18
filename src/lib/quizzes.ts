@@ -1974,6 +1974,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "The lesson closes its checklist by recommending a quarterly revisit, since new bots appear, existing ones split into sub-agents, and industry compliance norms are still shifting month to month.",
     },
+    {
+      question: "A 2026 BuzzStream analysis of roughly 4 million AI citations found what about sites that had blocked bots like GPTBot via robots.txt?",
+      options: [
+        "None of the blocking sites ever appeared in AI citations again",
+        "88.2% of sites blocking GPTBot outright still showed up in AI citations anyway",
+        "Blocked sites were auto-replaced by their top competitor in every citation",
+        "Blocking GPTBot had no measurable effect either way",
+      ],
+      correct: 1,
+      explanation: "The lesson cites BuzzStream's analysis of ~4 million citations showing 88.2% of sites blocking GPTBot, and 70.6% blocking ChatGPT-User, still appeared in AI citations, proof that a robots.txt block is not a reliable way to opt out of AI answers.",
+    },
   ],
   "seo/agentic-commerce-seo": [
     {
@@ -2019,6 +2030,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "The lesson explicitly warns not to restructure a roadmap around agentic commerce in 2026, and instead frames feed and schema hygiene as work that pays off in traditional search now and agentic commerce later.",
+    },
+    {
+      question: "According to the lesson's diagram of the agentic commerce flow, at how many points does the merchant itself actually enter the process?",
+      options: [
+        "Zero, the flow is fully automated end to end with no merchant touchpoint",
+        "Two, as the feed the agent reads, and as the fulfillment system at the end",
+        "Four, once at every stage of the Mermaid diagram",
+        "One, only at final order fulfillment",
+      ],
+      correct: 1,
+      explanation: "The lesson states the merchant only enters the flow twice, as a feed the agent reads and as the fulfillment system at the end, with everything in between (search, compare, recommend, checkout) happening without a human visiting the merchant's site.",
     },
   ],
   "cro/progressive-disclosure-cognitive-load": [
@@ -11636,6 +11658,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Users who click through from an AI citation or featured snippet are often looking for specific solutions to complex, long-tail queries. Because their intent is so specific, they convert at higher rates (12-18% lift) than generic keyword searchers.",
     },
+    {
+      question: "Per the lesson, what two conditions must BOTH be true at the same time for a page to actually win an AI citation?",
+      options: [
+        "The page must load in under 1 second AND use a .com domain",
+        "The page must rank well enough to be a candidate (typically top 10) AND contain a passage that fits the target format almost perfectly",
+        "The page must have FAQ schema AND be published within the last 24 hours",
+        "The page must be over 3,000 words AND link to at least 5 external sources",
+      ],
+      correct: 1,
+      explanation: "The lesson is explicit that a citation requires both conditions simultaneously: ranking well enough to be a candidate, and containing a passage the engine can copy-paste with no rewriting needed, ranking alone is not enough.",
+    },
   ],
 
   "seo/ai-overviews-geo": [
@@ -11682,6 +11715,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "A self-contained TL;DR or summary box near the top of an article provides a highly extractable 'answer unit' that AI models can quote verbatim, while also offering immediate value to human readers.",
+    },
+    {
+      question: "The lesson warns against treating GEO as separate from E-E-A-T. What is the actual risk it describes?",
+      options: [
+        "GEO formatting slows down E-E-A-T schema validation",
+        "Adding bullet points and FAQ schema to thin, untrustworthy content will not work, since AI Overviews draw from the same authority signals Google has always used",
+        "E-E-A-T signals are ignored entirely once a page is optimized for GEO",
+        "GEO and E-E-A-T use conflicting schema markup that cancels each other out",
+      ],
+      correct: 1,
+      explanation: "The lesson explicitly warns that formatting alone does not compensate for weak trust signals, a site with anonymous authors and no cited sources will not be cited regardless of how well its content is formatted, so trust signals must be fixed first.",
     },
   ],
 
@@ -11730,6 +11774,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "LLMs and AI search engines prioritize citation of comprehensive, authoritative sources. Interconnected content clusters demonstrate deep coverage of a topic, which significantly increases the likelihood that AI systems will cite your site in their answers.",
     },
+    {
+      question: "The lesson's first common mistake describes a pillar page titled 'Our Project Management Software Features.' Why does the lesson say this fails as a cluster topic?",
+      options: [
+        "It's too long to rank for a broad head term",
+        "It's built around the product, not the audience's questions, and offers no standalone value to someone who has never heard of the brand",
+        "It uses too many internal links to cluster articles",
+        "It duplicates content already on the company's homepage",
+      ],
+      correct: 1,
+      explanation: "The lesson states clusters must be built around topics the audience searches before they're ready to buy; a page with no value to a reader unfamiliar with the brand won't attract links or rank, a product page dressed up as a pillar page is not a real cluster.",
+    },
   ],
 
   "seo/core-web-vitals": [
@@ -11776,6 +11831,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Homepages rarely capture the bulk of organic search traffic; blog posts, category listings, and product templates do. Because Google evaluates Core Web Vitals at the URL or template group level, failing to optimize these high-traffic inner pages leaves the majority of your traffic exposed to slow performance penalties.",
+    },
+    {
+      question: "How does INP (Interaction to Next Paint) differ from the First Input Delay (FID) metric it replaced in March 2024?",
+      options: [
+        "INP only measures load time, while FID measured layout shifts",
+        "INP tracks every interaction throughout the session, while FID only measured the first click on a page",
+        "INP applies only to mobile devices, while FID applied only to desktop",
+        "INP is measured in lab data only, while FID used real-user field data",
+      ],
+      correct: 1,
+      explanation: "The lesson explains FID only captured a page's first interaction, while INP tracks every click, tap, and dropdown throughout the entire session, giving a far more accurate picture of whether a site feels sluggish.",
     },
   ],
 
@@ -11824,6 +11890,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Google's systems try to identify authors as real-world 'entities' in their Knowledge Graph. By building a consistent digital footprint for an author (verified LinkedIn, guest posts, academic publications, etc.), Google can confidently match the on-site author bio to an established expert.",
     },
+    {
+      question: "The lesson lists 'confusing credentials with experience' as a common mistake. What example does it use to illustrate this?",
+      options: [
+        "A cardiologist's byline on a generic 'heart health tips' article that shows no first-hand perspective or patient scenarios",
+        "A journalist writing under a pseudonym to protect their identity",
+        "A brand using stock photography instead of original product photos",
+        "A site publishing without an About page",
+      ],
+      correct: 0,
+      explanation: "The lesson explains that a credentialed byline alone doesn't demonstrate Experience, the content itself needs first-hand perspective, specific scenarios, or direct product use; a cardiologist's name on generic tips is Expertise without Experience.",
+    },
   ],
 
   "seo/entity-seo": [
@@ -11870,6 +11947,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Co-citation occurs when your brand name is mentioned in proximity to other established entities in your niche (e.g., 'Omnisend vs. Klaviyo'). Google parses these unstructured mentions to understand the relationship between brands and topics, boosting entity authority.",
+    },
+    {
+      question: "A site places a full Organization JSON-LD block on its homepage, every blog post, and every product page. What mistake is this, and what should it do instead?",
+      options: [
+        "No mistake, repeating Organization schema on every page reinforces the entity signal.",
+        "It creates duplicate, competing entity signals; define the Organization once on the entity home and reference its @id elsewhere via mainEntityOfPage.",
+        "It is fine as long as the logo field matches on every instance.",
+        "The mistake is only that JSON-LD should be replaced with microdata for repeated entities.",
+      ],
+      correct: 1,
+      explanation: "Redefining the full Organization object on every page confuses Google's entity-merging algorithm. The lesson's Step 1 calls for one entity home that owns the @id, with every other page referencing it through mainEntityOfPage instead of redeclaring the entity.",
     },
   ],
 
@@ -11918,6 +12006,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Since 2019, Google has used mobile-first indexing by default, meaning it crawls, renders, and indexes the mobile version of pages. JavaScript rendering is typically delayed in a 'second wave', rather than being processed instantly in the first wave.",
     },
+    {
+      question: "A marketer publishes a well-written new page but links to it from nowhere else on the site. Why is this page at high risk of never being indexed?",
+      options: [
+        "It becomes an orphan page, and crawlers discover new content primarily by following links, so a page with zero internal links may never be found.",
+        "Google automatically deletes any page not linked within 24 hours of publishing.",
+        "Orphan pages are indexed instantly but ranked last regardless of quality.",
+        "This only matters for pages published before mobile-first indexing rolled out.",
+      ],
+      correct: 0,
+      explanation: "Crawlers find content by following links from page to page, much like a postal worker following new streets. A page with no internal links pointing to it is an 'orphan page,' and crawlers rarely find it no matter how good the content is.",
+    },
   ],
 
   "seo/mobile-first-indexing": [
@@ -11965,6 +12064,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Separate mobile subdomains require every content update to happen in two places. Responsive design, with one shared HTML file adjusted only by CSS, makes a parity mismatch structurally difficult since there's nothing to keep in sync.",
     },
+    {
+      question: "A site's structured data (JSON-LD) was added only to the desktop template years ago, before the dev team built a separate mobile template. What does this lesson say to check, and with which tool?",
+      options: [
+        "Nothing needs checking, structured data is stored server-side and applies to both versions automatically.",
+        "Run the mobile-rendered URL specifically through the Rich Results Test, since structured data must render on mobile too, not just be assumed to carry over from a desktop audit.",
+        "Structured data is deprecated under mobile-first indexing and can be removed entirely.",
+        "Only Search Console's Mobile Usability report can detect missing structured data.",
+      ],
+      correct: 1,
+      explanation: "The lesson's audit steps specifically warn against assuming a desktop schema audit covers both versions. Since Google indexes the mobile version, structured data must be confirmed there directly by testing the mobile-rendered URL through the Rich Results Test.",
+    },
   ],
 
   "seo/https-security-seo": [
@@ -12007,6 +12117,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "HSTS preload with includeSubDomains applies to the entire domain tree at the browser level, before any redirect can even happen. A legacy HTTP-only subdomain becomes fully blocked with a hard security error, and removal from the preload list is slow.",
     },
+    {
+      question: "Why does the lesson recommend deploying a new Content-Security-Policy in 'report-only' mode first, rather than enforcing it immediately?",
+      options: [
+        "Report-only mode is required by law in the EU before any CSP can be enforced.",
+        "Content-Security-Policy-Report-Only lets you see what the policy would have blocked without actually breaking anything, before switching to full enforcement.",
+        "Report-only mode is a permanent setting, CSP is never meant to be fully enforced.",
+        "It has no functional difference from enforced CSP, it just changes the header name.",
+      ],
+      correct: 1,
+      explanation: "Content-Security-Policy-Report-Only logs violations without blocking them, letting a team see what a strict policy would break, third-party scripts, inline styles, and so on, before flipping it to actually enforce and risk breaking live functionality.",
+    },
   ],
 
   "seo/log-file-analysis": [
@@ -12048,6 +12169,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "If GPTBot or PerplexityBot are blocked, the content is structurally invisible to those systems, no amount of content quality can overcome a crawler that's never allowed to fetch the page in the first place.",
+    },
+    {
+      question: "A site's important product pages appear in its sitemap but a log analysis shows bots reach them only through that sitemap, never by following an internal link. What does the lesson say this reveals?",
+      options: [
+        "Nothing concerning, sitemap-only discovery is the ideal crawl pattern for every page.",
+        "It signals weak site architecture, orphaned pages that bots find only via the sitemap rather than genuine internal linking.",
+        "It means the sitemap is misconfigured and should be deleted immediately.",
+        "It proves the pages are being penalized for duplicate content.",
+      ],
+      correct: 1,
+      explanation: "The lesson lists this as one of the specific things log analysis reveals that no other tool shows: pages a site considers important but that bots reach only via the sitemap, never through an internal link, a sign the site's own architecture is failing to surface them.",
     },
   ],
 
@@ -12096,6 +12228,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "'Crawled, currently not indexed' increasingly reflects Google's own continuous quality evaluation flagging pages it doesn't consider worth indexing, an early, actionable signal worth monitoring rather than ignoring.",
     },
+    {
+      question: "A site has an internal search results page that users need but that adds no value in Google's search results. Per this lesson's framework, what is the correct fix?",
+      options: [
+        "Add a canonical tag pointing the search results page to the homepage.",
+        "Apply noindex, since the page needs to exist for users but should not appear in search results itself.",
+        "Block it with robots.txt Disallow so Google never sees it again.",
+        "Consolidate it with the site's main product pages into one URL.",
+      ],
+      correct: 1,
+      explanation: "The lesson's framework reserves noindex specifically for pages that must exist for users, like an internal search results page or a thin tag archive, but add no value in search results, distinct from canonical (technical duplicates) or consolidation (overlapping content).",
+    },
   ],
 
   "seo/ai-search-visibility-metrics": [
@@ -12142,6 +12285,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "A citation just means the brand was named or linked, it says nothing about framing. Sentiment tracking turns a raw mention count into something actionable by revealing whether the citation is helping or hurting the brand.",
+    },
+    {
+      question: "A 2026 Ahrefs study used a difference-in-differences design, comparing 1,885 pages that added schema markup against 4,000 matched control pages, rather than just measuring before-and-after on the same pages. Why does this design matter for the conclusion?",
+      options: [
+        "It doesn't matter, before-and-after data on the same pages would have shown the same result.",
+        "A control group is needed to strip out platform-wide trends, otherwise a page-level or platform-wide swing can look like the tactic working when it isn't related at all.",
+        "Difference-in-differences is only used to measure ranking position, not AI citations.",
+        "The control group was only added because the sample size was too small otherwise.",
+      ],
+      correct: 1,
+      explanation: "The lesson uses this exact study to warn that a single before-and-after number on your own site proves nothing without a control group, since page-level and platform-wide swings can easily be mistaken for a tactic's effect. The controlled design is what let the study show schema had statistically indistinguishable-from-zero effects on AI Mode and ChatGPT citations.",
     },
   ],
 
@@ -12420,6 +12574,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "The three-click rule suggests that any page on a site should be accessible within three clicks from the homepage. Pages buried deeper (high crawl depth) are crawled much less frequently by search engines and receive very little internal link equity (PageRank).",
     },
+    {
+      question: "According to John Mueller, what problem occurs when a single page contains hundreds of internal links?",
+      options: [
+        "The page automatically gets flagged as a doorway page and de-indexed.",
+        "The value passed to each individual destination link gets diluted.",
+        "The browser refuses to render more than 100 links per page.",
+        "Google's crawler stops reading the page entirely after the 50th link.",
+      ],
+      correct: 1,
+      explanation: "Mueller has said that link equity flowing through a page gets split across all its outbound links, so hundreds of links on one page means each destination receives a much smaller share of authority than a page with a few, well-chosen links.",
+    },
   ],
 
   "seo/international-seo": [
@@ -12466,6 +12631,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Hreflang tags require bidirectional references. If page A links to page B as its German alternate, page B must also link back to page A as its English alternate. Every page in the group must also have a self-referencing tag. Missing bidirectional links will cause Google to ignore the tags.",
+    },
+    {
+      question: "A company chooses ccTLDs (like nike.fr) instead of subfolders for its international expansion. What tradeoff are they accepting?",
+      options: [
+        "They send the strongest possible geographic signal, but each domain starts from zero authority and needs its own SEO effort.",
+        "They inherit the root domain's authority instantly, but Google treats the pages as duplicate content.",
+        "ccTLDs are free to register, but Google refuses to show them in local search results.",
+        "ccTLDs automatically generate hreflang tags, removing the need for manual implementation.",
+      ],
+      correct: 0,
+      explanation: "ccTLDs send the clearest country-targeting signal to Google, but unlike subfolders, each separate domain does not inherit the main site's authority and must build its own SEO strength from scratch, which is why the lesson recommends subfolders for most growing companies.",
     },
   ],
 
@@ -12514,6 +12690,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 0,
       explanation: "ChatGPT heavily references its training data and high-authority platforms like Reddit and Wikipedia (though it can run web search). Perplexity is a search-first engine that relies on real-time web retrieval, making indexability, crawl speed, and freshness paramount.",
     },
+    {
+      question: "Per the LLMO vs GEO vs AEO vs SEO comparison, what distinguishes GEO from the other three disciplines?",
+      options: [
+        "GEO only applies to paid advertising placements inside AI chat interfaces.",
+        "GEO focuses on whether an AI model will quote a specific page, making it an on-page, page-level tactic.",
+        "GEO is the umbrella discipline that covers brand presence across every AI platform at once.",
+        "GEO exclusively measures featured snippet and voice search rankings on Google.",
+      ],
+      correct: 1,
+      explanation: "The lesson's comparison table defines GEO as answering 'will an AI model quote this specific page?' with the page itself as the primary surface, whereas LLMO is the umbrella covering brand trust across training data and live retrieval combined.",
+    },
   ],
 
   "seo/local-seo": [
@@ -12560,6 +12747,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "For search queries with local intent, Google displays the 'local pack' (a map and three matching business profiles) above standard organic text links. This section occupies prominent SERP real estate and captures about 42% of clicks, making it highly valuable for local businesses.",
+    },
+    {
+      question: "Per the lesson's data on voice search and 'near me' queries, what is true about the local SEO opportunity in this area?",
+      options: [
+        "Voice search has declined 900% over two years, making near-me optimization a low priority.",
+        "'Near me' searches have grown 900% over two years, yet only 35% of small and medium businesses even have a Google Business Profile.",
+        "Voice assistants like Siri and Alexa exclusively pull results from paid Local Services Ads, not organic listings.",
+        "Near-me searches only count toward rankings if the business has a ccTLD domain.",
+      ],
+      correct: 1,
+      explanation: "The lesson states 'near me' searches grew 900% over two years while only 35% of small and medium businesses have claimed a Google Business Profile, meaning most local competitors haven't even done the basics, which is presented as the real opportunity.",
     },
   ],
 
@@ -12608,6 +12806,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Sitewide quality matters. If the majority of your indexed pages are thin or near-duplicate, Google's algorithms may flag the site for 'scaled content abuse,' dropping rankings across all pages. Thin programmatic pages should be excluded from indexation (using noindex).",
     },
+    {
+      question: "In the lesson's Zapier case study, why do Zapier's 'Connect [App A] to [App B]' pages avoid being flagged as scaled content abuse?",
+      options: [
+        "Zapier submits each page manually for a Google spam-policy exemption before publishing.",
+        "Each page pulls real triggers, actions, and workflow templates from Zapier's own product database, making every page genuinely unique.",
+        "Zapier pages are excluded from spam policy because they target B2B software rather than consumer products.",
+        "Zapier limits its programmatic pages to fewer than 100 total, staying under Google's scaled-content threshold.",
+      ],
+      correct: 1,
+      explanation: "The lesson explains that Zapier's pages work because the triggers, actions, and instructions are pulled from real product data per app pairing, so Google sees over a million genuinely distinct, useful pages rather than the same template with names swapped.",
+    },
   ],
 
   "seo/schema-structured-data": [
@@ -12654,6 +12863,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "AI search tools and LLMs rely on structured data to parse and understand content context. Studies show that structured data dramatically increases the accuracy and frequency with which AI systems cite websites as sources in generative answers.",
+    },
+    {
+      question: "According to the lesson, what happened when GPT-4 relied on structured-data-annotated content versus unstructured content, per the Data World study?",
+      options: [
+        "Accuracy stayed flat at 16% regardless of whether structured data was present.",
+        "Correct response accuracy jumped from 16% to 54% when content used structured data.",
+        "GPT-4 refused to cite any page that included JSON-LD markup.",
+        "Response accuracy dropped from 54% to 16% because structured data confused the model's parsing.",
+      ],
+      correct: 1,
+      explanation: "The lesson cites the Data World research showing GPT-4's correct-response rate rose from 16% to 54% when the source content was annotated with structured data, illustrating why schema now matters for AI citation accuracy, not just traditional rich results.",
     },
   ],
 
@@ -12702,6 +12922,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "When users quickly return to search results after clicking your page, it signals to Google that the page did not meet their search intent. This behavior, if persistent, leads to a decline in search rankings.",
     },
+    {
+      question: "Per the Semrush analysis of queries triggering AI Overviews cited in the lesson, what should this intent split change about a marketer's content prioritization?",
+      options: [
+        "Stop producing informational content entirely since AI Overviews answer it directly.",
+        "Since AI Overviews are dominated by informational queries (~88%) while commercial and transactional intent remain largely untouched, comparison and product-stage content is now the safer bet for organic clicks.",
+        "Since AI Overviews mostly cover transactional queries, product pages should be deprioritized in favor of blog content.",
+        "The intent split has no bearing on content strategy since AI Overviews affect all four intent types equally.",
+      ],
+      correct: 1,
+      explanation: "The lesson explicitly frames this as a prioritization signal, not a reason to abandon informational content: AI Overviews absorb the click on most informational queries, but commercial investigation and transactional pages (built around the three Cs framework) still earn organic clicks that convert.",
+    },
   ],
 
   "seo/technical-seo": [
@@ -12748,6 +12979,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "In March 2024, Google replaced FID (First Input Delay) with INP (Interaction to Next Paint). Unlike FID, which only measured the very first user interaction, INP measures the latency of all interactions (clicks, taps, keyboard inputs) during a user's entire visit.",
+    },
+    {
+      question: "A site has 10,000+ URLs and Google is not crawling many important pages promptly. What technical SEO concept explains this, and what should the team check first?",
+      options: [
+        "Crawl budget - Google allocates a limited number of pages it will crawl per site, so wasted crawl activity on duplicate or broken URLs should be checked and fixed first",
+        "Domain age - older domains automatically get crawled more often regardless of site structure",
+        "Server location - moving the server closer to Google's data centers is the only fix for slow crawling",
+        "Keyword density - pages with fewer keywords are deprioritized by Googlebot's crawl scheduler",
+      ],
+      correct: 0,
+      explanation: "Google allocates a finite crawl budget per site. On large sites, wasting that budget on duplicate URLs, broken links, or blocked resources means important pages get crawled less often, so auditing crawl waste in Search Console is the first fix.",
     },
   ],
 
@@ -12796,6 +13038,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 0,
       explanation: "Search engines prioritize speed when delivering voice answers to user devices. Pages winning voice searches load in 4.6 seconds on average, which is 52% faster than average web pages. Readability should also target a 9th-grade level.",
     },
+    {
+      question: "According to the Backlinko 10,000-query voice search study referenced in the lesson, what readability level do winning voice search answers typically hit?",
+      options: [
+        "College-level (advanced academic vocabulary)",
+        "9th-grade level, using plain, direct sentences",
+        "There is no measurable readability pattern among voice-winning pages",
+        "5th-grade level, using only one-syllable words",
+      ],
+      correct: 1,
+      explanation: "Backlinko's study of 10,000 voice search queries found that pages winning voice answers consistently write at roughly a 9th-grade readability level, plain enough for an assistant to read aloud clearly without sounding stilted or overly academic.",
+    },
   ],
 
   "seo/zero-click-search": [
@@ -12842,6 +13095,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "In a zero-click environment, visibility is key. Users see your brand name cited in snippets, local maps, or AI overviews without clicking. Tracking Impressions (visibility) and SERP Feature share (presence) provides a more accurate metric of search engine reach than clicks alone.",
+    },
+    {
+      question: "Per the lesson's SERP feature playbook, why do transactional queries like 'buy running shoes size 10' still drive strong click-through rates despite the rise of zero-click search?",
+      options: [
+        "Google disables AI Overviews entirely for any query containing a product size",
+        "The user needs to complete an action (a purchase), so an on-page answer alone cannot satisfy their intent, unlike a purely informational query",
+        "Transactional queries are too rare for Google to build SERP features around",
+        "Transactional queries always trigger a Knowledge Panel instead of a Featured Snippet",
+      ],
+      correct: 1,
+      explanation: "Zero-click is mostly an informational-query problem. Transactional and comparison searches still send clicks because the searcher must complete an action on-site, like a purchase, that no SERP feature can fulfill directly.",
     },
   ],
 
@@ -15156,7 +15420,18 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "A centralized hub page that links out to individual comparison pages acts as a logical taxonomy. It signals topical authority to search engines and passes internal link equity (page rank) throughout your site."
-    }
+    },
+    {
+      question: "Per the lesson, why can blocking AI crawlers like GPTBot or PerplexityBot in robots.txt directly undermine a comparison-page strategy built for the generative search era?",
+      options: [
+        "It has no effect since AI crawlers ignore robots.txt entirely",
+        "It guarantees the page can't be cited by AI tools, even though those referral visitors convert at far higher rates than typical organic traffic",
+        "It only affects image indexing, not text content",
+        "It automatically triggers a Google manual penalty for the whole domain",
+      ],
+      correct: 1,
+      explanation: "The lesson notes ChatGPT-referred visitors convert at nearly 9x the rate of Google organic visitors. Disallowing GPTBot or PerplexityBot removes any chance of being cited by those engines, forfeiting a high-converting channel while still investing in the comparison content itself.",
+    },
   ],
 
   "paid-ads/pmax-advantage-plus": [
@@ -16530,6 +16805,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "High search volume with low clicks indicates a 'zero-click search' - Google's SERP features (featured snippets, knowledge panels, calculators) answer the query without requiring a website visit.",
     },
+    {
+      question: "Per the lesson's SparkToro analysis of 332 million search queries, what share of searches are informational versus transactional, and what does that imply for content strategy?",
+      options: [
+        "52.65% informational vs. 0.69% transactional - most content should serve informational and commercial intent first, since that's where the audience is largest",
+        "0.69% informational vs. 52.65% transactional - most content should be built as product pages",
+        "Roughly an even 50/50 split between informational and transactional intent",
+        "Transactional queries outnumber informational queries by nearly 10 to 1",
+      ],
+      correct: 0,
+      explanation: "SparkToro's 332-million-query dataset found 52.65% of searches are informational and only 0.69% are transactional, meaning the largest addressable audience is people looking to learn, not buy immediately, so informational and commercial content should come first.",
+    },
   ],
 
   "seo/link-building": [
@@ -16556,6 +16842,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       options: ["Guest posting on relevant industry blogs with contextual links", "Creating a free tool that earns natural backlinks", "Buying links from a private blog network (PBN) or link farm", "Conducting original research that gets cited by press"],
       correct: 2,
       explanation: "Private Blog Networks and link farms are explicitly against Google's Webmaster Guidelines. Google has become adept at identifying and discounting or penalising these link schemes, risking significant ranking drops.",
+    },
+    {
+      question: "Per the lesson, what is 'anchor text over-optimization,' and why does it risk a Google penalty?",
+      options: [
+        "Using too many links in a single article, regardless of the text used to link them",
+        "Having many sites link to a page using the exact same keyword-stuffed phrase every time, a pattern Google's algorithm has trained itself to detect as unnatural",
+        "Placing links in a page's footer instead of the body text",
+        "Linking to pages that no longer exist (broken links)",
+      ],
+      correct: 1,
+      explanation: "Real editorial links use varied anchor text, brand names, partial phrases, or generic terms like 'this article.' Uniform, exact-match anchor text across many linking sites is a manipulation pattern Google specifically detects and can penalize.",
     },
   ],
 
@@ -16603,6 +16900,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Keyword stuffing violates Google's quality guidelines and degrades user experience. Modern algorithms prefer natural language and topical depth over raw keyword repetition.",
+    },
+    {
+      question: "A page has strong titles, headings, and content, but only links to 1 other page on the entire site. According to the lesson's signal stack, what is this page missing?",
+      options: [
+        "Meta description optimization, which is the strongest ranking factor",
+        "Internal links, which help Google discover related content and pass link equity between pages",
+        "Image alt text, which is required for any page to be indexed",
+        "A URL slug change, since slugs are weighted more heavily than link structure",
+      ],
+      correct: 1,
+      explanation: "Internal links help Google discover content and pass ranking power ('link equity') between pages; the lesson recommends 2-5 internal links per page, and the IFTTT case study shows fixing internal linking alone nearly tripled indexed pages.",
     },
   ],
 
@@ -20867,6 +21175,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "AI Mode citation rate correlates with answer density, the ratio of useful facts to total words, not total content length. A concise 600-word page with five citable facts outperforms a 3,000-word page that buries them.",
     },
+    {
+      question: "Per the lesson's zero-click data, how does AI Mode's zero-click rate compare to AI Overviews on the standard results page?",
+      options: [
+        "AI Mode is lower, around 47%, versus 83% for AI Overviews",
+        "They are roughly identical at around 58.5% for both",
+        "AI Mode is higher, around 93%, versus 83% for AI Overviews",
+        "AI Mode has no zero-click searches since it always shows citations",
+      ],
+      correct: 2,
+      explanation: "Seer Interactive's 2026 data puts AI Mode's zero-click rate at roughly 93%, higher than AI Overviews' 83%, meaning users are even less likely to click through to a website when using the fully conversational AI Mode interface.",
+    },
   ],
   "seo/brand-serp-control": [
     {
@@ -20912,6 +21231,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "These brand modifier queries attract searchers already evaluating a purchase, giving them far higher commercial intent than broad generic terms even though their search volume is lower.",
+    },
+    {
+      question: "According to BrightEdge's March 2026 analysis, how does Google AI Overviews compare to ChatGPT in surfacing negative brand sentiment?",
+      options: [
+        "AI Overviews is 44% less likely than ChatGPT to surface negative sentiment",
+        "AI Overviews is 44% more likely than ChatGPT to surface negative sentiment, and the two engines disagree on which brands deserve criticism 73% of the time",
+        "Both engines surface negative sentiment at exactly the same rate",
+        "Neither engine surfaces negative brand sentiment because both filter it out by policy",
+      ],
+      correct: 1,
+      explanation: "BrightEdge found Google AI Overviews are 44% more likely than ChatGPT to surface negative brand sentiment (about 2.3% of mentions vs 1.6%), and the two engines disagree on which brands deserve criticism 73% of the time, meaning a brand's AI reputation can vary sharply by platform.",
     },
   ],
   "seo/reddit-forum-seo": [
@@ -20959,6 +21289,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Quora ranks heavily for 'how do I' and 'what is' queries and is strong for B2C and educational content, while Reddit dominates review/comparison queries and Stack Overflow covers developer tools.",
     },
+    {
+      question: "What is the strategic significance of Google's $60 million/year deal with Reddit, disclosed in February 2024?",
+      options: [
+        "It guarantees any brand that pays Reddit a fee gets boosted rankings",
+        "It replaced Reddit's advertising revenue entirely, ending sponsored posts",
+        "It gave Google access to Reddit content to train AI models, meaning Reddit data now shapes what AI Overviews and Gemini say about brands",
+        "It was a one-time payment with no ongoing content licensing relationship",
+      ],
+      correct: 2,
+      explanation: "The deal licenses Reddit content to train AI models like Gemini, so Reddit discussions are now baked into the models powering Google AI Overviews and other AI search tools, making brand mentions on Reddit a signal to AI systems, not just a referral-traffic play.",
+    },
   ],
   "seo/seo-for-ai-platforms": [
     {
@@ -21005,6 +21346,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "GEO favours structured, passage-extractable content because AI retrieval systems extract specific passages rather than reading full articles, answers must be easy to isolate and quote directly.",
     },
+    {
+      question: "Ahrefs tracked 1,885 pages that added FAQPage JSON-LD schema against 4,000 matched control pages. What did the study find about citation lift?",
+      options: [
+        "FAQ schema alone produced a 642% increase in AI citations",
+        "FAQ schema alone produced no statistically significant citation lift; the visible Q&A prose is what gets cited, not the invisible markup",
+        "FAQ schema caused AI engines to blacklist the page from citation",
+        "FAQ schema only helps ChatGPT, not Perplexity or Claude",
+      ],
+      correct: 1,
+      explanation: "The study found no statistically significant citation lift from FAQPage schema markup alone, the lesson's takeaway is to write the FAQ for a human reader first and add schema as a bonus, not as the actual fix for citations.",
+    },
   ],
   "seo/video-seo": [
     {
@@ -21050,6 +21402,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "VideoObject schema markup tells Google's crawler what the embedded video contains, enabling it to surface a video rich result in web search alongside the standard page result, earning two placements for the same query.",
+    },
+    {
+      question: "How does YouTube's 2026 algorithm weigh click-through rate (CTR) differently depending on the viewer?",
+      options: [
+        "It ignores CTR entirely and only measures watch time",
+        "CTR from existing subscribers is weighted more heavily since they are the core audience",
+        "CTR from cold, non-subscriber impressions is weighted more heavily than subscriber CTR, since that's the audience YouTube is trying to grow",
+        "CTR is only measured for videos under 5 minutes long",
+      ],
+      correct: 2,
+      explanation: "In 2026, YouTube discounts CTR from existing subscribers (who already know and like the channel, so a click proves less) and weights CTR from cold, non-subscriber impressions more heavily, since growing that audience is the platform's actual goal.",
     },
   ],
   "social/creator-economy-strategy": [
@@ -21557,6 +21920,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "The lesson's Callout warns that teams often build a perfect redirect map, launch, then stop watching, missing crawl errors or a leftover staging noindex tag that quietly deindexes the new site for weeks.",
     },
+    {
+      question: "Why does the lesson insist on capturing a full baseline (rankings, traffic, backlinks, Core Web Vitals) before a migration even begins?",
+      options: [
+        "It is a legal requirement for domain transfers",
+        "Without it, you cannot prove what actually changed after launch when you're diagnosing a traffic drop",
+        "It speeds up Google's re-crawl of the new URLs",
+        "It automatically generates the redirect map",
+      ],
+      correct: 1,
+      explanation: "The lesson states plainly that without a pre-migration baseline you cannot prove what changed after launch, making it impossible to tell whether a post-launch dip is normal volatility or a real problem.",
+    },
   ],
   "seo/content-decay-refresh": [
     {
@@ -21602,6 +21976,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "The lesson instructs comparing Search Console's last six months to the prior six months and sorting by clicks lost (not percentage lost) so high-traffic pages are caught first.",
+    },
+    {
+      question: "Per the lesson, what is a realistic, strong outcome to expect from a well-executed content refresh?",
+      options: [
+        "100% of lost traffic recovered within 7 days",
+        "40-60% of lost traffic recovered within 60 days, with full impact measurable in 2-3 months",
+        "No measurable recovery until at least 12 months have passed",
+        "Recovery only happens if the URL is also changed",
+      ],
+      correct: 1,
+      explanation: "The lesson sets expectations directly: recovering 40-60% of lost traffic within 60 days is a realistic, strong outcome, with full impact usually measurable within 2-3 months as rankings settle.",
     },
   ],
   "paid-ads/ad-fraud-invalid-traffic": [
@@ -22937,6 +23322,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "A page with traffic and backlinks is still an asset even if unsellable; the lesson recommends keeping it live, marking it discontinued clearly, and linking to the closest current alternative rather than deleting or mass-redirecting it.",
     },
+    {
+      question: "According to the lesson, what is the risk of faceted navigation (color filters, price-range filters, sort options) on an ecommerce site?",
+      options: [
+        "It has no SEO impact since filters are always noindexed by default",
+        "It can generate thousands of crawlable URL combinations with no unique content, burning crawl budget and creating duplicate content at scale",
+        "It only affects category pages, never product pages",
+        "It improves rankings by multiplying the number of indexed URLs",
+      ],
+      correct: 1,
+      explanation: "The lesson warns that unmanaged faceted navigation can generate thousands of low-value URL combinations that burn crawl budget and create massive duplicate-content problems, and recommends canonicalizing filtered URLs back to the clean category page.",
+    },
   ],
   "seo/image-seo-visual-search": [
     {
@@ -22982,6 +23378,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "WebP is the 2026 safe default, roughly 25-35% smaller than JPEG; AVIF pushes further (often 50% smaller) but a few older Safari versions still choke on it, so it should be served with fallbacks inside a picture element.",
+    },
+    {
+      question: "Per the lesson, when should you use an empty alt attribute (alt=\"\") on an image?",
+      options: [
+        "Never, every image must have descriptive alt text",
+        "Only on the site's logo",
+        "On purely decorative images, since it tells screen readers to skip a meaningless description",
+        "On every product photo to avoid keyword stuffing",
+      ],
+      correct: 2,
+      explanation: "The lesson states that for purely decorative images like a background texture or divider, an empty alt=\"\" tells screen readers to skip it, which is more helpful than forcing a meaningless description.",
     },
   ],
   "social/ai-influencers-virtual-creators": [
@@ -25876,6 +26283,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "The lesson's gym franchise example shows the fix was a content ownership matrix, not more control in either direction, dividing brand-critical fields from local-owned fields like class schedules and staff bios.",
+    },
+    {
+      question: "What is the purpose of a self-referencing canonical tag on each individual location page, per the lesson?",
+      options: [
+        "It boosts the page's domain authority",
+        "It confirms to Google that this specific page is not a duplicate of another location, even if the template looks similar",
+        "It automatically differentiates the page's content",
+        "It is required only for locations with fewer than 10 reviews",
+      ],
+      correct: 1,
+      explanation: "The lesson lists self-referencing canonical tags as a technical foundation that confirms to Google a location page is not a duplicate of another location's page, even when the surrounding template is shared.",
     },
   ],
   "paid-ads/ai-creative-testing-at-scale": [
