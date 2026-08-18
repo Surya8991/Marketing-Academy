@@ -169,7 +169,8 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/bookmarks.ts` | Shared bookmark storage (BOOKMARK_KEY, getBookmarks, saveBookmarks) |
 | `src/lib/progress.ts` | Lesson completion helpers (COMPLETED_KEY exported, getCompleted, markComplete) |
 | `src/lib/engagement.ts` | XP/streak system (addXP, getEngagement, getCurrentLevel, ENGAGEMENT_EVENT) |
-| `src/lib/achievements.ts` | 10 declarative badges (ACHIEVEMENTS array, checkAchievements) |
+| `src/lib/achievements.ts` | 12 declarative badges (ACHIEVEMENTS array, checkAchievements) — includes `first-project`/`ten-projects` (Session 85) |
+| `src/components/PortfolioClient.tsx` | Session 85 — `/portfolio` page's interactive body: completed projects as evidence, JSON export |
 | `src/lib/commandIndex.ts` | Fuse.js index builder for Cmd+K palette |
 | `src/lib/events.ts` | Shared CustomEvent name constants (COMMAND_PALETTE_EVENT) |
 | `mdx-components.tsx` | Global MDX component registry at project root: Callout, Mermaid, ResourceList, Quiz, DiagramBlock |
@@ -212,7 +213,8 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/interview-questions` | SEO landing: digital marketing interview Q&A |
 | `/digital-marketing-cheat-sheet` | SEO landing: key metrics, frameworks, glossary |
 | `/skill-map` | 21 category cards sorted by your % complete, progress overview |
-| `/achievements` | XP level, streak, and 10 unlockable achievement badges |
+| `/achievements` | XP level, streak, and 12 unlockable achievement badges |
+| `/portfolio` | Session 85, Stage 9.1 — your completed practice projects as portfolio-ready interview evidence: company, tier, archetype, concepts, "Export as JSON," cross-linked with `/interview-prep`. `noindex` (personal, per-browser data) |
 | `/settings` | Export / import / reset all learning progress as JSON |
 | `/about` | About page: mission, builder profile, stats, tech stack, links |
 | `/certificates` | Track completion certificate index |

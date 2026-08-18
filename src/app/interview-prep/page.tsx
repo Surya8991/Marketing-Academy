@@ -145,7 +145,38 @@ export default function InterviewPrepPage() {
           >
             Start with Fundamentals
           </Link>
+          <Link
+            href="/portfolio"
+            style={{
+              display: "inline-block",
+              padding: "0.75rem 1.5rem",
+              border: "1px solid var(--border)",
+              color: "var(--foreground)",
+              borderRadius: "0.5rem",
+              fontWeight: 600,
+              textDecoration: "none",
+              fontSize: "0.95rem",
+              background: "transparent",
+            }}
+          >
+            My Portfolio &rarr;
+          </Link>
         </div>
+        <p
+          style={{
+            fontSize: "0.85rem",
+            color: "var(--muted-foreground)",
+            maxWidth: "560px",
+            margin: "1.25rem auto 0",
+            lineHeight: 1.5,
+          }}
+        >
+          When &ldquo;Tell me about a project you worked on&rdquo; comes up, don&apos;t answer from memory. Your{" "}
+          <Link href="/portfolio" style={{ color: "var(--accent)", textDecoration: "underline" }}>
+            completed practice projects
+          </Link>{" "}
+          are already real deliverables against a real company, ready to walk through in STAR format.
+        </p>
       </section>
 
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 1.5rem" }}>
