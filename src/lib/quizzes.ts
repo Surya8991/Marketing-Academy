@@ -12713,6 +12713,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Because the feed ranks semantically rather than by network connections, staying within one coherent topic area lets the algorithm confidently surface an account's content to relevant strangers outside their network, an effect that strengthens the longer that consistency holds.",
     },
+    {
+      question: "In the 2026 format performance table, polls have the highest reach multiplier (1.78x) but are called a 'reach trap.' Why?",
+      options: [
+        "Polls are being deprecated by LinkedIn later this year.",
+        "The high reach comes from vote-and-leave behavior, zero dwell time and minimal comments, so it doesn't build the credibility signal that a semantic ranker rewards over time.",
+        "Polls can only be seen by first-degree connections.",
+        "Polls count double against the weekly posting limit.",
+      ],
+      correct: 1,
+      explanation: "Polls post the highest raw reach number in the format table, but two independent large-sample datasets agree the mechanism behind it is vote-and-leave: no dwell time, minimal comments, no expertise signal. That trades short-term reach for none of the credibility-building the lesson says actually compounds.",
+    },
   ],
 
   "social/linkedin-post-anatomy": [
@@ -12759,6 +12770,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Even well-written posts underperform if a feed becomes predictable in its rhythm. Varying which pillar lands on which day prevents an audience from learning to tune out content that always follows the same pattern.",
+    },
+    {
+      question: "Under the Engagement pillar template, why is answering your own question or supplying worked examples in the setup explicitly forbidden?",
+      options: [
+        "It exceeds the platform's character limit for that post type.",
+        "It suppresses replies, since a reader with no real information gap left to fill has nothing to add.",
+        "LinkedIn's algorithm automatically deletes posts with pre-answered questions.",
+        "It duplicates content from the Educational pillar and triggers spam detection.",
+      ],
+      correct: 1,
+      explanation: "The Engagement pillar's whole job is generating conversation. If the post already supplies the answer or a worked example, it closes the information gap a reader would otherwise fill by replying, which is exactly what suppresses comments.",
     },
   ],
 
@@ -12853,6 +12875,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Directly pasting a long, text-first post is flagged as a clear failure mode, since Instagram's format economics favor carousels and Reels, and content needs genuine adaptation (not just reformatting) to perform on a platform optimized for very different signals.",
+    },
+    {
+      question: "Instagram capped hashtags at 5 per post as a hard product-level limit. What does the lesson say this changes compared to older advice recommending 10-30 hashtags?",
+      options: [
+        "Nothing, the cap is rarely enforced in practice.",
+        "Any advice describing 10, 20, or 30 hashtags describes a platform version that no longer exists, and heavy hashtag use correlates with smaller or spammier accounts rather than helping reach.",
+        "Hashtags now only work if attached to a Reel, not a static post.",
+        "The cap only applies to business accounts, not creator accounts.",
+      ],
+      correct: 1,
+      explanation: "The 5-hashtag cap is a genuine, current product constraint, not a stale guideline. The lesson flags that hashtag-heavy posting correlates with underperformance, more likely a marker of lower-quality accounts than a lever for reach.",
     },
   ],
 
@@ -13528,6 +13561,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "The first hour after posting is the initial test window. Modifying the text or tags shortly after publishing can interrupt the algorithm's distribution model, leading the platform systems to reset or restrict the post's reach.",
     },
+    {
+      question: "How does TikTok's batch distribution system let a brand-new account with zero followers reach millions of views within 48 hours?",
+      options: [
+        "TikTok grants every new account a guaranteed viral boost in its first week.",
+        "A video is shown to a small cohort of 200-500 users first, and only if completion, likes, and comments clear internal thresholds does it get pushed to progressively larger cohorts.",
+        "New accounts are ranked purely by follower count of who they follow.",
+        "TikTok charges a one-time fee to unlock wider distribution for new accounts.",
+      ],
+      correct: 1,
+      explanation: "TikTok doesn't primarily rank by follower graph. It tests content on a small initial cohort and expands distribution in exponentially larger batches only if engagement signals clear internal thresholds, which is why follower count doesn't gate early reach.",
+    },
   ],
 
   "social/bluesky": [
@@ -13574,6 +13618,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Bluesky feeds prioritize conversations. Posts that generate reply depth (rather than simple likes) are surfaced more frequently in chronological and custom feeds. Actively participating in comment threads is the primary organic amplification mechanic.",
+    },
+    {
+      question: "Why does the lesson call skipping domain verification (staying on @brandname.bsky.social instead of @brandname.com) a common mistake, not just a cosmetic choice?",
+      options: [
+        "Unverified handles cannot post links at all.",
+        "Community-run labelers flag unverified brand-name handles as potential impersonation risk, while DNS verification is free and takes about 10 minutes.",
+        "Bluesky charges a recurring fee for unverified accounts.",
+        "Unverified accounts are excluded from all custom feeds automatically.",
+      ],
+      correct: 1,
+      explanation: "Because Bluesky has no central platform verifying brands, community labelers do that job themselves, and an unverified brand-style handle reads as a potential impersonator to them. Domain verification removes that risk for free in minutes.",
     },
   ],
 
@@ -13622,6 +13677,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 0,
       explanation: "A healthy community returns an average of $6.40 for every $1 invested. However, brands often undercount ROI by ignoring indirect benefits: peer support deflecting tickets, word-of-mouth reducing customer acquisition cost (CAC), and community engagement raising customer retention and lifetime value (LTV).",
     },
+    {
+      question: "The lesson says to write your community's purpose as 'I join this community because ___' from the member's perspective. Why does this framing matter more than a brand-value description?",
+      options: [
+        "It's required for Discord's terms of service.",
+        "Research cited in the lesson found communities built around member outcomes rather than brand promotion have 2.3x longer average member lifespans.",
+        "It shortens the time needed to write community guidelines.",
+        "It automatically qualifies the community for platform verification badges.",
+      ],
+      correct: 1,
+      explanation: "Communities that survive are built around member value, not brand value. The lesson cites 2025 research showing member-outcome-focused communities keep members 2.3x longer, since members who can articulate why they belong stay engaged.",
+    },
   ],
 
   "social/content-calendar": [
@@ -13668,6 +13734,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Content pillars are thematic categories (e.g., customer wins, product education, behind-the-scenes) that every post maps to. They ensure the calendar aligns with strategic business goals rather than publishing random, unstructured content.",
+    },
+    {
+      question: "Why does the lesson flag 'planning by platform instead of by idea' as a common mistake?",
+      options: [
+        "It's slower because each platform requires a separate approval workflow.",
+        "It causes teams to invent three separate ideas from scratch for three platforms instead of taking one strong idea and distributing it across formats.",
+        "Platform-based planning is incompatible with scheduling tools like Buffer.",
+        "It violates the 70/20/10 split by definition.",
+      ],
+      correct: 1,
+      explanation: "The lesson's fix is to start with ideas, then distribute: one strong idea should become a LinkedIn post, an Instagram Reel, and a newsletter blurb, rather than treating each platform as its own separate ideation exercise that burns extra time and effort.",
     },
   ],
 
@@ -13716,6 +13793,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "The FTC endorsement guides require clear and conspicuous disclosures. A viewer must be able to see the disclosure without clicking 'see more' (first line of caption) or hear/see it immediately (first 3 seconds of video). Non-compliance risks fines and downranking.",
     },
+    {
+      question: "Why do brands running ongoing creator programs commit to repeat partnerships (3+ posts over 90 days) rather than one-shot campaigns?",
+      options: [
+        "Platforms only pay out affiliate commissions after a creator's third sponsored post",
+        "One post creates awareness, but audiences need repetition before they convert, so 3+ posts outperform one-offs",
+        "FTC disclosure rules only apply starting with a creator's second sponsored post",
+        "Whitelisting rights are only unlocked after a creator has posted three times",
+      ],
+      correct: 1,
+      explanation: "A single post builds awareness, but repeated exposure over 90 days is what moves an audience to consideration and purchase. This is why the lesson's contract guidance sets a 3-post minimum commitment with top-performing creators rather than paying for isolated one-off posts.",
+    },
   ],
 
   "social/instagram": [
@@ -13762,6 +13850,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "Instagram's algorithm actively penalizes video uploads containing visible watermarks from competitor platforms (like TikTok). Brands should always upload the original, clean video file to preserve recommendation reach.",
+    },
+    {
+      question: "According to Buffer's 2025 Instagram guide, how many Stories per day produce the best engagement outcome for an account?",
+      options: [
+        "1-2 Stories per day, since posting 5 or more does not improve engagement",
+        "10-15 Stories per day to maximize total impressions",
+        "Exactly one Story per week, timed to a single peak hour",
+        "As many Stories as possible, since Story volume directly drives Explore page placement",
+      ],
+      correct: 0,
+      explanation: "Buffer's 2025 data shows 1-2 daily Stories outperform 5 or more on engagement rate. Stories work by deepening the relationship with an existing audience through completion and sticker interaction, not by sheer posting volume.",
     },
   ],
 
@@ -13810,6 +13909,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "LinkedIn Newsletters benefit from double distribution. Whenever a new issue goes out, subscribers receive an email notification as well as an in-app notification, resulting in average open rates of around 42%.",
     },
+    {
+      question: "Why do Thought Leader Ads on LinkedIn outperform standard sponsored content on cost and click-through rate?",
+      options: [
+        "They boost posts from personal profiles, so they appear as organic content from a real person rather than a brand pushing an offer",
+        "LinkedIn waives its standard auction pricing for any ad tagged as thought leadership",
+        "They can only target users with over 10,000 followers, guaranteeing high-quality impressions",
+        "They automatically strip all external links, which bypasses the platform's spam filter entirely",
+      ],
+      correct: 0,
+      explanation: "Thought Leader Ads promote a real employee's organic post instead of brand-page creative. Because they read as a person's genuine perspective rather than an ad, they averaged $2.29 CPC versus $10.24 for standard sponsored content, as Metadata's experiment confirmed.",
+    },
   ],
 
   "social/organic-vs-paid": [
@@ -13856,6 +13966,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Organic social serves as an essential proof layer. When prospects discover a brand via paid ads, they often search for the brand profile. A dead feed or one with only promotional posts fails to build trust or credibility.",
+    },
+    {
+      question: "Per the lesson's platform-focus guidance, which channel should a B2B SaaS company prioritize first when picking one platform to dominate?",
+      options: [
+        "Facebook, because of its large installed user base across all demographics",
+        "LinkedIn, because professional intent and vendor research concentrate there",
+        "Pinterest, because of its long content shelf life",
+        "X (formerly Twitter), because it is the default choice for every software company",
+      ],
+      correct: 1,
+      explanation: "The lesson's playbook assigns platforms by buyer behavior: B2B SaaS should go LinkedIn-first, e-commerce and CPG should prioritize Instagram and TikTok, local services should use Facebook, and developer tools fit X. Beginners who spread across five platforms lose on all of them.",
     },
   ],
 
@@ -13904,6 +14025,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Pinterest users are planners, and search queries peak months before the actual holiday or season. Because the search engine takes time to index and distribute new pins, content should be published 45 to 60 days before the trend peaks.",
     },
+    {
+      question: "What distinguishes an Idea Pin from a standard Pinterest pin, and what job is it best suited for?",
+      options: [
+        "Idea Pins are non-linkable, multi-frame content built for saves and follower growth, not direct click-throughs",
+        "Idea Pins are identical to standard pins but display only in horizontal format",
+        "Idea Pins automatically sync live pricing from a merchant's product catalog",
+        "Idea Pins can only be created by verified Pinterest Business accounts with over 10,000 followers",
+      ],
+      correct: 0,
+      explanation: "Idea Pins (formerly Story Pins) are multi-frame and cannot link out, so they are used for tutorials, recipes, and how-to content that builds followers and saves faster than standard pins, while standard pins remain the format for driving traffic to a specific URL.",
+    },
   ],
 
   "social/reddit-marketing": [
@@ -13950,6 +14082,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Posting raw promotions from brand-named accounts in general subreddits or using engagement pods to artificially buy upvotes is detected by Reddit's anti-vote-manipulation systems. This results in permanent domain blacklisting across the entire platform.",
+    },
+    {
+      question: "What preparation does the lesson recommend before running a brand AMA (Ask Me Anything) on Reddit?",
+      options: [
+        "Buy Reddit Ads targeting the subreddit for two weeks before the AMA goes live",
+        "Coordinate with subreddit moderators at least a week ahead and prepare 30-40 draft answers with real subject-matter expertise",
+        "Post the AMA from a brand-named account to establish clear transparency",
+        "Skip moderator contact entirely, since AMAs are open to any Reddit account by default",
+      ],
+      correct: 1,
+      explanation: "A well-run AMA requires coordinating with mods roughly a week in advance and prepping 30-40 draft answers, plus a real expert able to go deep. Glossier's AMA followed this pattern and was pre-approved by moderators two weeks ahead, which is what let it generate 2,400 comments without being removed.",
     },
   ],
 
@@ -13998,6 +14141,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "While AI handles volume, it struggles with context. Sarcasm, regional idioms, and multi-language code-mixing lead to sentiment classification errors. Regularly sampling mentions manually helps detect drift and calibrate tools.",
     },
+    {
+      question: "Why does the lesson warn against ranking social listening insights purely by raw mention volume?",
+      options: [
+        "Mention volume is always inflated by bot accounts and should be discarded entirely",
+        "A single thread from a highly relevant niche community, like a developer subreddit, can outweigh thousands of generic mentions when it matches your actual target buyer",
+        "Volume metrics are only available on paid enterprise listening tools",
+        "High-volume mentions always indicate a crisis and should be escalated automatically",
+      ],
+      correct: 1,
+      explanation: "The lesson's Common Mistakes section warns against confusing volume with importance: a single thread on a niche subreddit can outweigh 10,000 generic tweets when your target buyer is a senior engineer or IT director, so mentions should be weighted by audience relevance, not raw count.",
+    },
   ],
 
   "social/social-strategy-basics": [
@@ -14044,6 +14198,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "A LinkedIn post is text-forward and professional, while a TikTok requires fast-paced video and a quick hook. Treating them identically ignores platform culture and fails to engage the unique audience on each channel.",
+    },
+    {
+      question: "In the five-step social strategy framework, why does Step 4 insist that each social channel be assigned exactly one goal?",
+      options: [
+        "Platforms technically restrict brand accounts to a single content category",
+        "Mixing goals like awareness and direct sales on the same channel produces content that performs none of those goals well",
+        "Analytics dashboards cannot track more than one KPI per channel",
+        "It is required to qualify for platform verification badges",
+      ],
+      correct: 1,
+      explanation: "Step 4 of the framework states each channel gets exactly one job (awareness, traffic, leads, or direct sales); a LinkedIn page trying to drive impulse purchases or a TikTok posting press releases mixes goals and produces content that does none of them well.",
     },
   ],
 
@@ -14092,6 +14257,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "External links placed directly inside Substack Notes suppress organic distribution. The best practice is to place the primary newsletter link in a pinned welcome Note on your profile and add any other links in the first comment of the post.",
     },
+    {
+      question: "Why does the Substack Notes playbook instruct creators to avoid putting external links inside the body of a Note?",
+      options: [
+        "External links are automatically flagged as spam and delete the entire Note",
+        "The algorithm significantly suppresses the reach of Notes containing external links, so links should go in the first comment or the pinned welcome Note instead",
+        "External links cost creators a percentage of their subscription revenue",
+        "Substack only allows links inside restacked content, never original Notes",
+      ],
+      correct: 1,
+      explanation: "The lesson lists external links as something the algorithm deprioritizes because they suppress reach; the one acceptable placement is the first comment below a Note or the pinned welcome Note on a creator's profile.",
+    },
   ],
 
   "social/threads": [
@@ -14138,6 +14314,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Threads detects identical captions cross-posted from Instagram and suppresses them in recommendation feeds. Content should be rephrased or rewritten to match the native, conversational style of Threads.",
+    },
+    {
+      question: "According to the Threads playbook, why should a creator or brand stay within one niche topic for at least 30 days rather than switching subjects frequently?",
+      options: [
+        "Threads limits accounts to posting about a single topic per month by policy",
+        "The For You graph infers your topic from posting history, and switching topics resets your interest cluster and tanks the next ten posts' baseline reach",
+        "Niche accounts are automatically granted verified status after 30 days",
+        "Topic switching triggers Meta's spam detection and results in account suspension",
+      ],
+      correct: 1,
+      explanation: "The lesson's tactics and Common Mistakes sections both note that the algorithm builds an interest cluster from your topical consistency; chasing virality outside your niche scrambles that cluster and depresses reach on subsequent posts, so consistency beats opportunism.",
     },
   ],
 
@@ -14186,6 +14373,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "TikTok's search algorithm scans and indexes spoken words (via automatic transcriptions), on-screen text, captions, and descriptions. For optimal SEO, the primary keyword should be spoken early, placed in captions, and written in the description.",
     },
+    {
+      question: "Why does the TikTok playbook recommend posting 3-5 times per week instead of posting once daily?",
+      options: [
+        "TikTok's algorithm caps organic reach at exactly 5 posts per week per account",
+        "Posting too frequently with mixed-quality videos confuses the algorithm's topic clustering and dilutes niche authority, while retention quality matters more than posting volume",
+        "Daily posting requires a paid TikTok Business account to avoid rate limiting",
+        "Videos posted more than 5 times a week are automatically demonetized",
+      ],
+      correct: 1,
+      explanation: "Step 6 of the playbook states that optimal posting frequency is 3-5 times per week, not daily, because quality of retention signals beats volume of posts, and over-posting mixed-quality content dilutes the algorithm's topic clustering.",
+    },
   ],
 
   "social/ugc": [
@@ -14232,6 +14430,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The production quality gap is the exact signal that distinguishes UGC from corporate ads. Polishing, color-correcting, or branding customer content removes its authenticity premium, causing users to scroll past it as they would standard ads.",
+    },
+    {
+      question: "How does the lesson distinguish genuine UGC from 'UGC-style creator content'?",
+      options: [
+        "UGC-style creator content is illegal to use in paid ads, while genuine UGC is not",
+        "Genuine UGC is unpaid, authored by a real customer reacting organically, while UGC-style creator content is paid creators producing lo-fi-looking videos, a production shortcut rather than the same trust lever",
+        "There is no meaningful difference; both terms describe the same thing",
+        "UGC-style creator content only exists on TikTok, while genuine UGC only exists on Instagram",
+      ],
+      correct: 1,
+      explanation: "The 'What It Actually Is' section draws this exact distinction: genuine UGC comes from real, usually unpaid buyers having a real reaction, while 'UGC-style creator content' is paid creators cosplaying that authenticity, useful as a production shortcut but a fundamentally different lever, especially as consumers get better at telling the difference.",
     },
   ],
 
@@ -14280,6 +14489,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "According to Hootsuite's 2025 data, X ads are highly cost-efficient, with CPC averaging $0.74 compared to $1.41 on Meta. Furthermore, users click ads on X at a 45% higher rate.",
     },
+    {
+      question: "What is the recommended content mix ratio (the 70/20/10 rule) for a brand building an X presence?",
+      options: [
+        "70% multimedia video, 20% text posts, 10% quote-posts and replies",
+        "70% text-only posts, 20% multimedia, 10% quote-posts and replies as original content",
+        "70% link posts to drive traffic, 20% text, 10% video",
+        "70% replies to larger accounts, 20% original text, 10% paid promotion",
+      ],
+      correct: 1,
+      explanation: "The lesson's 70/20/10 rule allocates 70% to text-only posts (the highest-engagement format), 20% to short vertical video and visuals, and 10% to quote-posts/replies with a strong added POV.",
+    },
   ],
 
   "social/youtube": [
@@ -14326,6 +14546,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Ahrefs has scaled by targeting keywords with documented search volume and creating clear, educational tutorials. Keeping a 60/40 ratio ensures a solid foundation of evergreen, compounding search assets while allowing for format experimentation.",
+    },
+    {
+      question: "According to the lesson, why does an overly consistent 60/40 evergreen split still leave room for experimental content, and what job does that experimental 40% do?",
+      options: [
+        "It exists purely to satisfy YouTube's Partner Program eligibility rules",
+        "It tests hooks and formats that inform what gets applied to the evergreen core, since evergreen content alone doesn't teach a channel what resonates",
+        "It replaces the need for keyword research on evergreen videos",
+        "It is required so Shorts can be monetized at the same rate as long-form",
+      ],
+      correct: 1,
+      explanation: "The lesson frames the 40% experimental share as a learning function: trend-responsive or personality-driven videos reveal which hooks and formats resonate, and those learnings then get applied back to the evergreen 60% that actually compounds.",
     },
   ],
 
@@ -15968,7 +16199,18 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Social platforms now act as search engines. The algorithm crawls metadataâ€”on-screen text, captions, and verbal transcripts (speech-to-text)â€”to categorize videos and surface them for relevant user queries."
-    }
+    },
+    {
+      question: "How does TikTok's initial video distribution model differ from Instagram's, according to the lesson's 2026 update?",
+      options: [
+        "TikTok tests with strangers first, then shows existing followers; Instagram does the reverse",
+        "TikTok sends new videos to existing followers first before testing with strangers; Instagram tests with strangers first",
+        "Both platforms test exclusively with strangers before showing any followers",
+        "Both platforms show new videos to followers only, with no stranger testing",
+      ],
+      correct: 1,
+      explanation: "The lesson explains TikTok's follower-first distribution is the reverse of Instagram's stranger-first approach, and that posting outside your established niche on TikTok can cut reach by roughly 45%.",
+    },
   ],
 
   "content/ai-contentops-workflows": [
@@ -22032,6 +22274,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Coupon code attribution is the most direct signal for e-commerce because each creator gets a unique code and redemptions are tracked directly in the order management system, creating a clean line from creator content to purchase.",
     },
+    {
+      question: "Per the lesson's four partnership models, why might co-created products generate more brand value than a flat-fee paid sponsorship, despite requiring more lead time?",
+      options: [
+        "They guarantee a lower cost-per-engagement than any other model",
+        "They tie the creator to the brand's revenue in a real way and generate press, community energy, and creator buy-in money alone can't buy",
+        "They eliminate the need for FTC/ASA compliance disclosures",
+        "They are the only model compatible with whitelisting rights",
+      ],
+      correct: 1,
+      explanation: "The lesson distinguishes paid sponsorship (fast, simple, but no creator skin in the game after the check clears) from co-created products, which align incentives through real revenue ties and generate deeper buy-in, press, and community energy.",
+    },
   ],
   "social/dark-social-strategy": [
     {
@@ -22077,6 +22330,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "You can't optimize what you haven't measured. Auditing current analytics for unexplained direct traffic establishes a baseline so improvements can be tracked over time.",
+    },
+    {
+      question: "Which measurement tool does the lesson describe as providing only a lower-bound estimate of dark social intent, rather than full dark social tracking?",
+      options: [
+        "Branded short links with UTM tagging",
+        "Custom share buttons for messaging apps like WhatsApp and Telegram",
+        "Server-side referrer capture",
+        "Heatmap tools like Hotjar and Crazy Egg",
+      ],
+      correct: 1,
+      explanation: "The lesson states that custom messaging-app share buttons only capture clicks on those buttons themselves, giving a lower-bound estimate of dark social intent, not a full picture, since most dark social sharing happens via copy-paste outside any tracked button.",
     },
   ],
   "social/linkedin-thought-leadership": [
@@ -22124,6 +22388,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Personal profiles outperform company pages by 8x in reach because LinkedIn algorithmically suppresses brand pages, making executive or founder posting far more valuable for B2B pipeline generation than a corporate content calendar.",
     },
+    {
+      question: "Per the lesson, what is the core function of a LinkedIn newsletter that makes it different from a standard feed post?",
+      options: [
+        "It ranks higher in Google search results than regular posts",
+        "It sends a direct push notification and email to subscribers, bypassing the feed algorithm entirely",
+        "It automatically converts into a document carousel for higher dwell time",
+        "It removes the need for a consistent posting cadence",
+      ],
+      correct: 1,
+      explanation: "The lesson explains that newsletter subscribers get a push notification and email on every publish, a direct distribution channel that bypasses the feed algorithm, which is why a 2,000-subscriber newsletter reliably reaches more people than a 2,000-follower standard post.",
+    },
   ],
   "social/social-commerce": [
     {
@@ -22170,6 +22445,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Algorithm changes, platform policy updates, or even app bans can cut off social commerce revenue overnight, which is why brands should use it to acquire customers and then move them to email and their own store.",
     },
+    {
+      question: "A brand wants to test which products and creators actually drive sales before committing any budget to paid collaborations. Which of the three creator partnership models should it start with?",
+      options: [
+        "Co-creation, designing a limited edition product with a creator",
+        "Affiliate (commission-based), zero upfront cost, creators earn a cut only when a sale happens",
+        "Paid collaboration, a flat fee for one video or Reel",
+        "A subscription retainer that guarantees monthly posts regardless of sales",
+      ],
+      correct: 1,
+      explanation: "The lesson recommends starting with affiliate partnerships because there's no upfront cost, brands only pay on results, letting them see which products and creators convert before graduating top performers to paid collabs or reserving co-creation for proven long-term partners.",
+    },
   ],
   "social/social-listening-advanced": [
     {
@@ -22215,6 +22501,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The recommended approach is to master one tool first, then add a second only to fill a specific capability gap. Using all five at once adds complexity without proportional benefit.",
+    },
+    {
+      question: "A team tracks mention volume and reports who is talking about the brand, but never uses that data to predict what will matter next quarter. Where does this team sit on the lesson's listening hierarchy?",
+      options: [
+        "Forecasting listening, the highest tier",
+        "Strategic listening, the middle tier",
+        "Basic listening, useful as a dashboard but not driving strategy",
+        "This does not fit anywhere on the hierarchy",
+      ],
+      correct: 2,
+      explanation: "Basic listening is volume and presence, counting mentions and tracking who's talking about you, useful as a dashboard but it doesn't drive strategy; strategic listening connects complaints to product gaps, and forecasting listening uses historical trends to predict what's coming next.",
     },
   ],
   "tools/ai-native-martech": [
@@ -24052,6 +24349,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "It tends to backfire when the category depends on 'a real person tried this' (finance, healthcare, parenting) or when disclosure is skipped because 'everyone knows AI content when they see it.'",
     },
+    {
+      question: "The lesson proposes a 'gut check' test before greenlighting a virtual persona campaign. What is that test?",
+      options: [
+        "Would this campaign survive a full-disclosure version, disclosed prominently on every post?",
+        "Would the campaign cost less than hiring a human influencer?",
+        "Would the persona pass as human in a blind survey?",
+        "Would the campaign generate at least 1 million views in its first week?",
+      ],
+      correct: 0,
+      explanation: "The lesson's rule: if a campaign would not survive being disclosed prominently on every single post, it was relying on deception to work, not on the persona's content, which is exactly the failure mode the FTC and consumer backlash both punish.",
+    },
   ],
   "social/discord-for-brand-communities": [
     {
@@ -24097,6 +24405,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The lesson warns that a server with 5,000 members and 200 weekly regulars is healthier than one with 50,000 members and near-silent channels, so weekly active and returning members are the real health signal.",
+    },
+    {
+      question: "Why does the lesson describe Discord as working only as a 'second stage' rather than a first-touch discovery channel?",
+      options: [
+        "Discord servers are too expensive for most brands to maintain",
+        "Discord has no feed or algorithm, so nobody stumbles onto a server the way they stumble onto a viral Reel",
+        "Discord only allows brands with over 10,000 followers to create servers",
+        "Discord actively hides new servers from search results",
+      ],
+      correct: 1,
+      explanation: "Because Discord has no algorithmic feed pushing content to new users, joining a server is a deliberate act, so Discord only works after another channel (like TikTok or Instagram) has already earned someone's attention and interest.",
     },
   ],
   "social/employee-advocacy-programs": [
@@ -24144,6 +24463,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Share counts tell you who is participating; click-throughs, comments, and pipeline attribution tell you whether the program is actually driving outcomes, not just activity.",
     },
+    {
+      question: "How does the lesson say marketing should structure the content employees are given to share, to avoid the mandate-driven backlash?",
+      options: [
+        "A required script every employee must copy verbatim on a set schedule",
+        "A rotating queue of pre-approved posts framed as suggestions employees can edit or skip",
+        "A single company-wide post that all employees are auto-scheduled to share",
+        "No curation at all, employees find and write their own content from scratch",
+      ],
+      correct: 1,
+      explanation: "The lesson describes curation as marketing building a rotating queue of pre-approved posts, framed as suggestions employees can edit or skip, never as a script they must copy verbatim, which preserves the authentic voice that drives the engagement lift.",
+    },
   ],
   "social/social-media-crisis-management": [
     {
@@ -24189,6 +24519,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The lesson's warning callout states not to delete or hide a visible complaint unless it violates platform policy, since deleting it usually escalates into a second crisis about transparency.",
+    },
+    {
+      question: "During an active crisis, what does the lesson say should stay in the public reply thread versus move to DMs or a support ticket?",
+      options: [
+        "Everything, including account details and refund negotiations, should stay public for transparency",
+        "A short public acknowledgement and investigation status stay public; account details, negotiation, and personal data move to DMs or support",
+        "Nothing should be posted publicly until the full investigation is complete",
+        "Only apologies should be public; all factual updates should be private",
+      ],
+      correct: 1,
+      explanation: "The lesson draws a clear line: the reply thread shows everyone you're handling it with a short acknowledgement and next steps, while account details, refund amounts, and back-and-forth negotiation belong in DMs or a support ticket, never in public replies.",
     },
   ],
   "tools/marketing-tool-migration": [
