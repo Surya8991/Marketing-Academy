@@ -2893,6 +2893,163 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "pattern-recognition-signal-audit",
+    "category": "mental-models",
+    "lessonSlug": "pattern-recognition",
+    "lessonTitle": "Pattern Recognition: The Marketer's Meta-Skill",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Sorting Ten Weeks of Signals Into the Four Pattern Types",
+    "timeMinutes": 25,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Classifying signals into the four pattern types before scoring them"
+    ]
+  },
+  {
+    "id": "pattern-recognition-apophenia-calibration",
+    "category": "mental-models",
+    "lessonSlug": "pattern-recognition",
+    "lessonTitle": "Pattern Recognition: The Marketer's Meta-Skill",
+    "tier": "mini",
+    "archetype": "reverse-engineer",
+    "mode": "calibration",
+    "title": "Pattern or Ghost? Calibrating Five Claimed Patterns",
+    "timeMinutes": 20,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "Applying the sample size, mechanism, and falsification guardrails to a claimed pattern"
+    ]
+  },
+  {
+    "id": "inversion-thinking-landing-page-audit",
+    "category": "mental-models",
+    "lessonSlug": "inversion-thinking",
+    "lessonTitle": "Inversion: Solving Problems Backwards",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "What Would Kill This Landing Page? An Inversion Audit",
+    "timeMinutes": 25,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Inverting a design question into its failure-mode checklist"
+    ]
+  },
+  {
+    "id": "inversion-thinking-pre-mortem-forecast",
+    "category": "mental-models",
+    "lessonSlug": "inversion-thinking",
+    "lessonTitle": "Inversion: Solving Problems Backwards",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Running a Full Pre-Mortem on a Real Campaign Brief",
+    "timeMinutes": 50,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "Running the pre-mortem drill on a real campaign brief",
+      "Ranking failure modes by probability times impact"
+    ]
+  },
+  {
+    "id": "systems-thinking-loop-audit-casper",
+    "category": "mental-models",
+    "lessonSlug": "systems-thinking",
+    "lessonTitle": "Systems Thinking for Marketers",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Mapping the Loop: A Systems Audit of a Sleep-Brand Retention Engine",
+    "timeMinutes": 45,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Classifying reinforcing vs. balancing loops",
+      "Locating the single constraint after mapping delays"
+    ]
+  },
+  {
+    "id": "systems-thinking-second-order-reverse-engineer",
+    "category": "mental-models",
+    "lessonSlug": "systems-thinking",
+    "lessonTitle": "Systems Thinking for Marketers",
+    "tier": "core",
+    "archetype": "reverse-engineer",
+    "mode": "diagnostic",
+    "title": "The Delayed Bill: Reverse-Engineering a Discount Campaign's Second-Order Effects",
+    "timeMinutes": 35,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Tracing second-order effects backward from a symptom to its cause",
+      "Recognizing a time delay between a decision and its consequence"
+    ]
+  },
+  {
+    "id": "pareto-content-library-audit",
+    "category": "mental-models",
+    "lessonSlug": "pareto-and-constraints",
+    "lessonTitle": "The Pareto Principle and Theory of Constraints",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Finding the Real 20%: A Content Library Pareto Cut",
+    "timeMinutes": 25,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "Ranking inputs by output contribution to find the productive 20%"
+    ]
+  },
+  {
+    "id": "toc-funnel-constraint-forecast",
+    "category": "mental-models",
+    "lessonSlug": "pareto-and-constraints",
+    "lessonTitle": "The Pareto Principle and Theory of Constraints",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Feed the Constraint or Feed the Top: Forecasting a Funnel Fix",
+    "timeMinutes": 40,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Locating the funnel's constraint stage by conversion gap versus benchmark",
+      "Forecasting throughput gains from fixing the constraint versus feeding the top of the funnel"
+    ]
+  },
+  {
+    "id": "calibration-check-marketing-odds",
+    "category": "mental-models",
+    "lessonSlug": "decision-making-under-uncertainty",
+    "lessonTitle": "Decision-Making Under Uncertainty",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "The Calibration Check: Scoring Your Own Odds",
+    "timeMinutes": 20,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Thinking in bets",
+      "Calibration and the decision journal"
+    ]
+  },
+  {
+    "id": "decision-brief-ev-audit",
+    "category": "mental-models",
+    "lessonSlug": "decision-making-under-uncertainty",
+    "lessonTitle": "Decision-Making Under Uncertainty",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Budget Call: Auditing a Half-Finished Decision Brief",
+    "timeMinutes": 45,
+    "companyId": "snowflake",
+    "conceptsCovered": [
+      "Expected value (EV)",
+      "Reversible vs. irreversible",
+      "The pre-mortem"
+    ]
+  },
+  {
     "id": "paid-ads-101-learning-phase-sim",
     "category": "paid-ads",
     "lessonSlug": "paid-ads-101",

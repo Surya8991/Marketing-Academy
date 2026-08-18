@@ -1385,4 +1385,1011 @@ export const MENTAL_MODELS_PROJECTS: Record<string, Project[]> = {
         "Design a 4-week edge-of-ability rubric for a skill of your own choosing, with a named feedback source before you start.",
     },
   ],
+
+  "pattern-recognition": [
+    {
+      id: "pattern-recognition-signal-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "Sorting Ten Weeks of Signals Into the Four Pattern Types",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a 10-row log of surprising weekly marketing signals from Zomato's growth team, classify each into temporal, behavioral, language, or structural pattern types and flag which ones already meet the 3+ occurrence bar for a pattern hypothesis.",
+      companyId: "zomato",
+      scenario:
+        "You're the growth marketing analyst at Zomato reviewing the team's pattern journal after a chaotic quarter of festival promos, app updates, and competitor moves.",
+      brief:
+        "Classify each logged signal by pattern type, then flag which type has enough repeat occurrences to justify a test.",
+      mode: "diagnostic",
+      conceptsCovered: ["Classifying signals into the four pattern types before scoring them"],
+      steps: [
+        {
+          stepId: "step-1-classify-signals",
+          concept: "Classifying signals into the four pattern types before scoring them",
+          lessonAnchor: "the-four-pattern-types-marketers-track",
+          theoryRecap:
+            "The lesson splits every marketing signal into temporal, behavioral, language, or structural pattern types before any of them earn a test budget.",
+          question:
+            "Given this 10-row signal log, which pattern type has the most independent occurrences and is the safest one to act on first?",
+          toolName: "Google Sheets",
+          where: "Import signal-log.csv, add a Pattern Type column, filter and count by type.",
+          procedure: [
+            "Import signal-log.csv, freeze the header row",
+            "Tag each of the 10 rows with one of the four pattern types",
+            "Filter and count occurrences per type",
+            "Flag any type with 3 or fewer occurrences as not yet test-ready",
+          ],
+          outputSample:
+            "SIGNAL LOG (10 rows, tagged)\n  Row 2: Ad CTR drops every week 3 of a campaign -> TEMPORAL (4th occurrence this year)\n  Row 5: Support tickets use the phrase 'too many steps to order' -> LANGUAGE (2nd occurrence)\n  Row 7: Users who reorder within 48 hrs retain 2x -> BEHAVIORAL (1st occurrence)\n  Row 9: Competitor X's city-launch playbook mirrors our own from 2023 -> STRUCTURAL (1st occurrence)\n\nCOUNT BY TYPE\n  Temporal: 4 occurrences -> test-ready\n  Language: 2 occurrences -> not yet\n  Behavioral: 1 occurrence -> not yet\n  Structural: 1 occurrence -> not yet",
+          healthy:
+            "Only the week-3 CTR dip (4 occurrences, temporal) moves to a test brief this sprint; everything else stays in the journal.",
+          unhealthy:
+            "Building a retention campaign around the 'reorder within 48 hrs' behavioral signal off a single occurrence.",
+          interpret:
+            "Pattern type tells you what kind of signal you're looking at; occurrence count tells you whether you're allowed to act on it yet.",
+          soWhat: [
+            {
+              symptom: "A single strong data point gets treated as a proven pattern",
+              action: "Require 3+ independent occurrences of the same pattern type before it earns a test budget",
+              effort: "5 min",
+            },
+            {
+              symptom: "The pattern journal has entries but no type tags",
+              action: "Add a Pattern Type column and re-tag the backlog before the next monthly review",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Tag and count signals by pattern type",
+            why: "Free, no account friction, sorts and filters instantly",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A tagged signal log with occurrence counts per pattern type and a one-line recommendation on which single pattern is safe to test this sprint.",
+      sampleOutput:
+        "Squarespace, Q2 signal log (excerpt)\n\nTEMPORAL (3 occurrences) -> test-ready\n  Free-trial signups dip every week the in-app tour is skipped\n\nSTRUCTURAL (1 occurrence) -> not yet\n  Competitor's template-marketplace launch mirrors Squarespace's 2019 playbook",
+      successCriteria: [
+        "Correctly tags all 10 signals by pattern type",
+        "Correctly flags which type has 3+ occurrences and which does not",
+        "Recommends only the test-ready pattern for action",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "pattern-recognition-apophenia-calibration",
+      tier: "mini",
+      archetype: "reverse-engineer",
+      title: "Pattern or Ghost? Calibrating Five Claimed Patterns",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Given five 'patterns' a Nykaa marketing team claims to have found, apply the sample size, mechanism, and falsification guardrails to judge which are real enough to bet budget on.",
+      companyId: "nykaa",
+      scenario:
+        "You're sitting in on Nykaa's monthly pattern-journal review. Five teammates each pitch a pattern they think they've spotted.",
+      brief: "Score each claimed pattern against the three guardrails and decide pass or fail before any budget is committed.",
+      mode: "calibration",
+      conceptsCovered: ["Applying the sample size, mechanism, and falsification guardrails to a claimed pattern"],
+      steps: [
+        {
+          stepId: "step-1-guardrail-test",
+          concept: "Applying the sample size, mechanism, and falsification guardrails to a claimed pattern",
+          lessonAnchor: "the-failure-mode-seeing-ghosts",
+          theoryRecap:
+            "The lesson's three guardrails against apophenia: at least 3-5 independent occurrences, an explainable mechanism, and a pre-defined falsification test.",
+          question:
+            "Of these five claimed patterns, which ones have enough independent occurrences AND a real mechanism AND a stated falsification test?",
+          toolName: "Google Sheets",
+          where: "Build a 5-row x 3-column pass/fail grid, one column per guardrail.",
+          procedure: [
+            "List all 5 claimed patterns as rows",
+            "Score each against sample size (3+ occurrences), mechanism, and falsification",
+            "Mark a pattern PASS only if all 3 columns are checked",
+            "Reject any pattern with even one unchecked column",
+          ],
+          outputSample:
+            "CLAIMED PATTERNS (5)\n1. 'Influencer unboxing posts always convert better' - Sample: 2 campaigns. Mechanism: none stated. Falsification: none. -> FAIL\n2. 'Push notifications sent after 8pm get muted-out clicks' - Sample: 6 weeks. Mechanism: users are winding down, low intent to act. Falsification: 'if CTR doesn't rise when we test a 6pm send, kill it.' -> PASS\n3. 'Our biggest sale of the year always underperforms forecast' - Sample: 4 years. Mechanism: forecast doesn't account for inventory stockouts on day 1. Falsification: 'if stockouts are fixed and it still underperforms, the pattern is wrong.' -> PASS\n4. 'Red CTAs outperform pink CTAs' - Sample: 1 A/B test. Mechanism: none. Falsification: none. -> FAIL\n5. 'Reviews mentioning \"packaging\" correlate with repeat purchase' - Sample: 3 cohorts. Mechanism: unclear, correlation only. Falsification: none stated. -> FAIL",
+          healthy: "Only patterns 2 and 3 move to a test brief; the other three go back into the journal for more observations.",
+          unhealthy: "Approving pattern 4 because a single A/B test 'felt' conclusive.",
+          interpret: "A pattern is only as strong as its weakest guardrail; one missing column is enough to fail it.",
+          soWhat: [
+            {
+              symptom: "A pattern has decent sample size but no mechanism",
+              action: "Send it back with a required 'why would this be true' question before it's re-pitched",
+              effort: "5 min",
+            },
+            {
+              symptom: "Nobody wrote a falsification test before the review",
+              action: "Make 'what would prove this wrong' a mandatory field on every journal entry",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the 3-column guardrail scoring grid",
+            why: "Free, easy to share with the team for the monthly review",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A 5-row scoring grid with pass/fail verdicts and a one-line reason for each rejection.",
+      sampleOutput:
+        "Warby Parker, pattern journal review (excerpt)\n\n1. 'Customers who use the virtual try-on convert 2x' - Sample: 5 months. Mechanism: try-on reduces size/fit uncertainty. Falsification: 'if a forced-exposure test shows no lift, kill it.' -> PASS\n2. 'Blog traffic spikes always come from Pinterest' - Sample: 1 spike. Mechanism: none stated. Falsification: none. -> FAIL",
+      successCriteria: [
+        "Correctly scores all 5 patterns against all 3 guardrails",
+        "Only passes patterns with a checked box in every column",
+        "States a clear one-line reason for each fail",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "inversion-thinking": [
+    {
+      id: "inversion-thinking-landing-page-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "What Would Kill This Landing Page? An Inversion Audit",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a real landing page brief and audit notes, apply the inversion checklist (slow load, wrong headline, unclear next step, mismatched ad intent) to flag every failure signature before launch.",
+      companyId: "warby-parker",
+      scenario:
+        "You're a growth marketer at Warby Parker reviewing a new prescription-glasses landing page before it goes live behind a paid search campaign.",
+      brief: "Invert the question from 'how do we improve conversion' to 'what would kill it,' then check the draft against each failure signature.",
+      mode: "diagnostic",
+      conceptsCovered: ["Inverting a design question into its failure-mode checklist"],
+      steps: [
+        {
+          stepId: "step-1-failure-checklist",
+          concept: "Inverting a design question into its failure-mode checklist",
+          lessonAnchor: "applying-inversion-to-common-marketing-decisions",
+          theoryRecap:
+            "The lesson inverts 'how do we improve conversion' into 'what would kill the conversion rate': slow load, wrong headline, unclear next step, mismatched intent from the ad.",
+          question:
+            "Given this page-audit-notes.csv (load time, headline, CTA placement, ad copy vs. page copy), which of the four failure signatures does this draft actually have?",
+          toolName: "Google Sheets",
+          where: "Import page-audit-notes.csv, add a checklist column for each of the four failure signatures.",
+          procedure: [
+            "Import page-audit-notes.csv",
+            "Score the page against each of the 4 failure signatures: load speed, headline clarity, CTA visibility, ad-to-page intent match",
+            "Mark each signature present or absent with evidence",
+            "Rank the present signatures by which one is cheapest to fix first",
+          ],
+          outputSample:
+            "PAGE AUDIT: warbyparker.com/rx-launch-lp\n1. Load speed: 4.8s on mobile (target <2.5s) -> FAILURE SIGNATURE PRESENT\n2. Headline: 'Reimagining Eyewear for Everyone' (vague, no benefit) -> FAILURE SIGNATURE PRESENT\n3. CTA: 'Shop Now' button above the fold -> ABSENT (this one is fine)\n4. Ad-to-page match: ad says '$95 prescription glasses,' page never states the price -> FAILURE SIGNATURE PRESENT",
+          healthy:
+            "The team fixes the page-load and price-mismatch issues before spending a dollar on traffic, since those are the two cheapest, highest-impact fixes.",
+          unhealthy: "Launching the campaign and waiting for the conversion rate to reveal the problem after budget is already spent.",
+          interpret: "Every failure signature you find before launch is one you don't have to diagnose after the money's gone.",
+          soWhat: [
+            {
+              symptom: "Load time exceeds 2.5s on mobile",
+              action: "Compress hero images and defer non-critical scripts before launch",
+              effort: "half day",
+            },
+            {
+              symptom: "Ad promises a price the landing page never states",
+              action: "Add the exact price from the ad copy above the fold on the page",
+              effort: "30 min",
+            },
+          ],
+          owner: "either",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Score the page against the 4-item failure checklist",
+            why: "Free, shareable audit format",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A scored failure-signature checklist for the landing page with the two cheapest fixes flagged for pre-launch action.",
+      sampleOutput:
+        "Zomato, gold-membership LP audit (excerpt)\n\n1. Load speed: 2.1s -> ABSENT (passes)\n2. Headline: 'Get Zomato Gold, Free Delivery on Every Order' -> ABSENT (specific benefit stated)\n3. CTA: buried below 3 scrolls of testimonials -> FAILURE SIGNATURE PRESENT\n4. Ad-to-page match: ad says 'Free Delivery,' page confirms it in the headline -> ABSENT",
+      successCriteria: [
+        "Correctly scores the page against all 4 failure signatures with evidence",
+        "Ranks the present signatures by fix cost",
+        "Recommends the 2 cheapest fixes before launch",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "inversion-thinking-pre-mortem-forecast",
+      tier: "core",
+      archetype: "forecast",
+      title: "Running a Full Pre-Mortem on a Real Campaign Brief",
+      timeEstimate: "50 minutes",
+      timeMinutes: 50,
+      objective:
+        "Given a real Squarespace campaign brief (channel mix, budget, timeline), run a full pre-mortem: generate failure modes independently, rank by probability x impact, and assign preventions to only the top 3-5.",
+      companyId: "squarespace",
+      scenario:
+        "You're the campaign lead at Squarespace two weeks before a Black Friday website-builder promotion launches across paid social and email.",
+      brief: "Assume it's six months from now and the campaign failed. Generate the failure modes, rank them, and decide which top 3-5 get a prevention this week.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Running the pre-mortem drill on a real campaign brief",
+        "Ranking failure modes by probability times impact",
+      ],
+      steps: [
+        {
+          stepId: "step-1-generate-failure-modes",
+          concept: "Running the pre-mortem drill on a real campaign brief",
+          lessonAnchor: "the-playbook-the-pre-mortem-drill",
+          theoryRecap:
+            "The pre-mortem asks the team to assume the campaign already failed, then independently write down what happened before discussing as a group.",
+          question:
+            "Given this campaign-brief.pdf (budget, channel mix, timeline, team roster), what are the 8 most plausible ways this campaign fails in the next six months?",
+          toolName: "Google Sheets",
+          where: "Open a shared sheet, one row per failure mode, one column per contributor.",
+          procedure: [
+            "Read campaign-brief.pdf: $180K budget, Meta + email + affiliate, 6-week window",
+            "Independently list every plausible failure mode, no discussion yet",
+            "Consolidate into a single deduplicated list",
+            "Do not rank yet, that's the next step",
+          ],
+          outputSample:
+            "FAILURE MODES (consolidated, 8 items)\n1. Site can't handle Black Friday traffic spike\n2. Top-selling template bundle sells out of trial-code inventory\n3. Meta account gets flagged for policy review mid-campaign\n4. Email deliverability drops due to a new sending domain\n5. Affiliate partners under-deliver on promised reach\n6. Creative fatigue sets in by week 3\n7. Discount code gets leaked and used outside the target segment\n8. Support team is understaffed for the volume spike",
+          healthy: "All 8 modes get written down independently before anyone debates which ones matter.",
+          unhealthy:
+            "Skipping straight to 'what are our top 3 risks' without generating the full list first, missing the ones nobody thought to mention out loud.",
+          interpret: "Pre-mortems surface more risks than a normal risk-review meeting because everyone writes before anyone talks.",
+          soWhat: [
+            {
+              symptom: "The team's risk list only has 2-3 items",
+              action: "Require independent written submissions before any group discussion",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-rank-and-assign",
+          concept: "Ranking failure modes by probability times impact",
+          lessonAnchor: "the-playbook-the-pre-mortem-drill",
+          theoryRecap:
+            "The lesson ranks the consolidated failure list by probability times impact and assigns real preventions to only the top 3-5, everything else is accepted, not prevented.",
+          question:
+            "Scoring these 8 failure modes 1-5 on probability and 1-5 on impact, which 3-5 actually deserve a prevention plan this week?",
+          toolName: "Google Sheets",
+          where: "Add Probability and Impact columns, multiply into a Score column, sort descending.",
+          procedure: [
+            "Score each of the 8 failure modes 1-5 on probability and 1-5 on impact",
+            "Multiply into a single score and sort descending",
+            "Assign a named owner and a prevention action to the top 3-5 only",
+            "Explicitly mark the rest 'accepted, not prevented'",
+          ],
+          outputSample:
+            "RANKED (probability x impact)\n1. Site traffic spike: 4x5=20 -> prevention: load test + CDN burst capacity, owner: developer\n2. Inventory sellout: 4x4=16 -> prevention: stage inventory across regions, owner: you\n3. Email deliverability: 3x4=12 -> prevention: warm up new domain 2 weeks early, owner: you\n4. Meta account flag: 2x5=10 -> prevention: pre-clear creative with Meta support, owner: you\n5. Support understaffed: 3x3=9 -> prevention: schedule 2 extra shifts week 1, owner: either\n(items 6-8, scores 4-6: accepted, not prevented)",
+          healthy: "Preventions get assigned to exactly the top 3-5 highest-scoring risks, and the rest are consciously accepted.",
+          unhealthy:
+            "Trying to write a prevention plan for all 8 items, which delays launch and dilutes focus from the risks that actually matter most.",
+          interpret: "Ranking turns a long anxious list into a short, fundable action plan.",
+          soWhat: [
+            {
+              symptom: "The team tries to prevent every risk on the list",
+              action: "Cut the plan to the top 3-5 by score and explicitly accept the rest",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Consolidate, score, and rank the failure-mode list",
+            why: "Free, supports real-time multi-contributor input for the independent-writing step",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A ranked pre-mortem sheet: 8 failure modes scored by probability x impact, with named owners and prevention actions assigned to the top 5 and the rest explicitly accepted.",
+      sampleOutput:
+        "Nykaa, Diwali sale pre-mortem (excerpt)\n\n1. Warehouse can't fulfill order spike: 5x5=25 -> prevention: pre-stage top 20 SKUs at 3 hubs, owner: developer\n2. Influencer content delayed past launch: 3x4=12 -> prevention: lock final assets 5 days early, owner: you\n(6 more items scored 4-9: accepted, not prevented)",
+      successCriteria: [
+        "Generates at least 8 independently-written failure modes before ranking",
+        "Scores every mode on both probability and impact",
+        "Assigns a named owner and prevention only to the top 3-5, marks the rest accepted",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Re-run the pre-mortem with a second, separate team and compare which failure modes each group caught that the other missed.",
+    },
+  ],
+
+  "systems-thinking": [
+    {
+      id: "systems-thinking-loop-audit-casper",
+      tier: "core",
+      archetype: "audit",
+      title: "Mapping the Loop: A Systems Audit of a Sleep-Brand Retention Engine",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given a quarter of funnel and loop data from a DTC mattress brand, apply the lesson's systems-audit steps to classify loops, flag the delay that's hiding the real cause, and name the single constraint.",
+      companyId: "casper-sleep",
+      scenario:
+        "You're the growth analyst at Casper. Leadership is confused: referral-driven signups have been flat for two quarters despite review volume climbing every month. You've been handed the loop map and funnel numbers to explain why.",
+      brief:
+        "Classify the loops as reinforcing or balancing, mark where the multi-month delay sits, and name the constraint before recommending a single fix.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Classifying reinforcing vs. balancing loops",
+        "Locating the single constraint after mapping delays",
+      ],
+      steps: [
+        {
+          stepId: "step-1-classify-loops",
+          concept: "Classifying reinforcing vs. balancing loops",
+          lessonAnchor: "the-three-concepts-that-do-the-work",
+          theoryRecap:
+            "The lesson splits loops into reinforcing (they compound, like happy customers referring more customers) and balancing (they self-limit, like rising CAC capping growth).",
+          question:
+            "The data shows: verified reviews grow every month, review-driven signups grow with them, but 'signups per new review' has been declining each of the last 3 months. Which loop is actually running, and is it healthy?",
+          toolName: "Google Sheets",
+          where: "Open loop-data.csv, plot review count against review-driven signups by month.",
+          procedure: [
+            "Import loop-data.csv and chart reviews (x) against review-driven signups (y) by month",
+            "Compute signups-per-review for each month",
+            "Flag the month the ratio started declining",
+          ],
+          outputSample:
+            "Month   Reviews   Review-driven signups   Signups/review\nJan     1,200     340                     0.283\nFeb     1,450     372                     0.257\nMar     1,690     379                     0.224",
+          healthy:
+            "A reinforcing loop where signups-per-review holds steady or grows as review volume climbs, proof the loop is still compounding.",
+          unhealthy:
+            "A reinforcing loop with a steadily declining ratio, the loop is still positive but weakening, most often because the review pool is diluting with lower-intent or lower-quality reviews.",
+          interpret:
+            "Reviews are still reinforcing signups in raw terms, but the declining per-review yield means something upstream, likely review quality or targeting, is quietly degrading the loop before it shows up as a total decline.",
+          soWhat: [
+            {
+              symptom: "Signups-per-review has fallen 3 months straight",
+              action: "Audit the last 90 days of new reviews for star rating and specificity before touching ad spend",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-locate-constraint",
+          concept: "Locating the single constraint after mapping delays",
+          lessonAnchor: "how-to-apply-it-the-systems-audit",
+          theoryRecap:
+            "The lesson's 4-step audit ends by locating the one constraint governing total output, after mapping stocks/flows, finding loops, and marking delays.",
+          question:
+            "Funnel data shows: site visits up 22% this quarter, add-to-cart flat, trial starts down 4%. The referral loop's delay is 4-6 months (a review posted today reflects a mattress bought 4-6 months ago). Where is the constraint, and what would adding more ad spend do to it?",
+          toolName: "Looker Studio",
+          where: "Open the quarter funnel dashboard, compare stage-over-stage conversion to the prior quarter.",
+          procedure: [
+            "Pull visits, add-to-cart, and trial-start counts for the last 2 quarters",
+            "Compute stage conversion rate for each transition",
+            "Identify which transition's rate dropped the most",
+          ],
+          outputSample:
+            "Stage                  This Q    Last Q    Delta conversion\nVisit to Add-to-cart   3.1%      3.4%      -0.3pt\nAdd-to-cart to Trial   41%       52%       -11pt",
+          healthy:
+            "Ad spend increases feed a funnel where every downstream stage's conversion rate holds, more traffic becomes more trials proportionally.",
+          unhealthy:
+            "Ad spend increases feed a funnel where a downstream stage (here, add-to-cart to trial) is dropping in conversion, meaning new traffic backs up behind that stage instead of converting.",
+          interpret:
+            "The constraint is add-to-cart to trial, down 11 points, not top-of-funnel traffic, which is actually up. More ad spend right now buys more visitors stuck at the same broken stage, not more trials.",
+          soWhat: [
+            {
+              symptom: "Trial starts fell while visits rose",
+              action:
+                "Investigate the trial-start step (checkout friction, financing options, delivery date shown) before approving next quarter's media budget increase",
+              effort: "half day",
+            },
+          ],
+          owner: "either",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Chart loop ratios and funnel stage conversion",
+            why: "Free, handles the pivot and chart work without new tooling",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Looker Studio",
+            role: "Build the stage-over-stage funnel comparison",
+            why: "Free, connects directly to the funnel export for repeatable quarterly audits",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page systems audit memo: the loop classified with its current health, the constraint identified with supporting numbers, and one recommended action.",
+      sampleOutput:
+        "Allbirds Q2 systems audit (excerpt)\n\nLOOP: Referral loop (reinforcing, weakening)\n  Signups/review down from 0.28 to 0.22 over 3 months\n  Likely cause: review quality dilution from bundle promo\n\nCONSTRAINT: Landing page to email-capture (41% -> 29%)\n  NOT ad spend, NOT traffic\n\nRECOMMENDATION: Fix the email-capture form before increasing paid spend.",
+      successCriteria: [
+        "Correctly classifies the loop and its current trend, not just its type",
+        "Identifies the actual constraint stage with numbers, not a guess",
+        "Recommendation targets the constraint, not the symptom",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "systems-thinking-second-order-reverse-engineer",
+      tier: "core",
+      archetype: "reverse-engineer",
+      title: "The Delayed Bill: Reverse-Engineering a Discount Campaign's Second-Order Effects",
+      timeEstimate: "35 minutes",
+      timeMinutes: 35,
+      objective:
+        "Given 4 quarters of discount-campaign data from a language-learning app, work backward from the current quarter's renewal problem to the campaign decision that caused it.",
+      companyId: "duolingo",
+      scenario:
+        "You're a lifecycle marketer. Leadership ran an aggressive 40%-off subscription push last quarter that beat its signup target by 18%. This quarter, renewal rate is down and support tickets about pricing are up. You're asked to trace the chain.",
+      brief:
+        "Work backward from this quarter's symptom to the decision that caused it, and name the second- and third-order effects separately.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Tracing second-order effects backward from a symptom to its cause",
+        "Recognizing a time delay between a decision and its consequence",
+      ],
+      steps: [
+        {
+          stepId: "step-1-trace-second-order",
+          concept: "Tracing second-order effects backward from a symptom to its cause",
+          lessonAnchor: "the-three-concepts-that-do-the-work",
+          theoryRecap:
+            "The lesson's example: aggressive discounting lifts revenue first order, trains customers to wait for sales second order, erodes margin third order.",
+          question:
+            "This quarter's renewal rate for subscribers who joined during the 40%-off push is 61%, versus 74% for subscribers who joined at full price the same month last year. What's the first-order effect of the discount, and what's the second-order effect showing up now?",
+          toolName: "Google Sheets",
+          where: "Open cohort-renewal.csv, compare renewal rate by acquisition price tier.",
+          procedure: [
+            "Import cohort-renewal.csv and group by acquisition price (full vs. 40%-off)",
+            "Compute renewal rate for each group at the same tenure",
+            "Compute the gap in percentage points",
+          ],
+          outputSample:
+            "Cohort                Signups   Renewal at 90 days\nFull price, prior yr  8,200     74%\n40%-off promo cohort  11,600    61%",
+          healthy:
+            "A discount that hits its signup target with renewal rates holding close to full-price cohorts, first-order gain with no second-order cost.",
+          unhealthy:
+            "A discount that hits its signup target but produces a renewal rate 13 points below full-price cohorts, the first-order win is real but a second-order cost is already showing in the data.",
+          interpret:
+            "First order: 18% more signups than target. Second order: those signups renew at a materially lower rate, meaning some fraction were price-motivated, not habit-motivated, and the discount didn't build the same retention loop full-price signups do.",
+          soWhat: [
+            {
+              symptom: "A high-signup promo cohort renews 13 points worse than full price",
+              action: "Segment future promo reporting by cohort renewal, not just signup count, before calling a discount a win",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-mark-delay",
+          concept: "Recognizing a time delay between a decision and its consequence",
+          lessonAnchor: "why-it-matters-now",
+          theoryRecap:
+            "Marketers who see silos allocate to whatever had the best last-click number last month; the delay between a decision and its true cost means the campaign already looked like a win by the time it was reported.",
+          question:
+            "The promo ran in Q1 and was reported as a win in the Q1 review (signups up 18%). The renewal problem only became visible in the Q2 90-day-renewal report. How many months passed between the decision and the data that would have flagged it?",
+          toolName: "Google Sheets",
+          where: "Line up the promo launch date against the 90-day renewal report date on a timeline.",
+          procedure: [
+            "Mark the promo launch date and the Q1 review date on a timeline",
+            "Mark the date the 90-day renewal cohort report became available",
+            "Compute the gap in months between the Q1 'win' review and the renewal data",
+          ],
+          outputSample:
+            "Promo launched: Jan 15\nQ1 signup review (called a win): Apr 2\nFirst 90-day renewal data available: Apr 15\nGap between 'win' verdict and renewal data: about 3.5 months",
+          healthy:
+            "A campaign review that waits for the retention window relevant to that channel before declaring a result.",
+          unhealthy:
+            "A campaign review that declares a win using only the metric available on review day (signups), while the metric that would reveal the real cost (90-day renewal) doesn't exist yet.",
+          interpret:
+            "The Q1 review wasn't wrong given what it could see, it was structurally blind. Any review that reports on a metric before its natural delay has elapsed will systematically overrate discount-driven growth.",
+          soWhat: [
+            {
+              symptom: "A promo is declared a win using only same-quarter signup data",
+              action: "Add a mandatory 90-day-later renewal check-in to the campaign review calendar for any acquisition promo",
+              effort: "5 min",
+            },
+          ],
+          owner: "either",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the cohort comparison and the decision-to-data timeline",
+            why: "Free, sufficient for cohort grouping and a simple timeline",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A 1-page memo tracing the discount decision through its first-, second-, and third-order effects, with the specific delay that hid the cost from the Q1 review.",
+      sampleOutput:
+        "Chewy Autoship discount post-mortem (excerpt)\n\nFIRST ORDER: A 25%-off first Autoship box lifted new subscriptions 14% in the promo month.\nSECOND ORDER: 90-day cancellation rate for promo subscribers ran 9 points above standard signups.\nTHIRD ORDER: Customer support flagged a rise in 'why did my price go up' tickets once the discount expired.\nDELAY: The cancellation data wasn't visible until 90 days after the promo ended, 2 full reporting cycles after it was called a win.",
+      successCriteria: [
+        "Correctly separates first-, second-, and third-order effects instead of treating them as one outcome",
+        "Identifies the specific reporting delay that hid the true cost",
+        "Recommendation addresses the review cadence, not just the campaign",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Redesign the promo review template so no acquisition campaign is called a 'win' until its cohort's first renewal window has closed.",
+    },
+  ],
+  "pareto-and-constraints": [
+    {
+      id: "pareto-content-library-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "Finding the Real 20%: A Content Library Pareto Cut",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a 50-page content export with traffic and conversion data from a footwear brand, apply the Pareto pass to find the pages that actually deserve a content refresh budget.",
+      companyId: "allbirds",
+      scenario:
+        "You're a content marketer at Allbirds with a small quarterly refresh budget, enough for 10 pages, out of 50 published guides and product pages.",
+      brief: "Rank all 50 pages by contribution, isolate the top 20%, and defend which pages get the budget.",
+      mode: "diagnostic",
+      conceptsCovered: ["Ranking inputs by output contribution to find the productive 20%"],
+      steps: [
+        {
+          stepId: "step-1-rank-by-contribution",
+          concept: "Ranking inputs by output contribution to find the productive 20%",
+          lessonAnchor: "what-it-actually-is",
+          theoryRecap:
+            "Pareto shows up everywhere the ratio varies but the shape recurs: a small share of inputs drives most of the output. The lesson's move is to rank every category by contribution and isolate the top fifth.",
+          question:
+            "Sorted by monthly organic conversions, how many of the 50 pages account for 80% of total conversions, and is it close to the classic 20% figure?",
+          toolName: "Google Sheets",
+          where: "Import content-export.csv, sort by conversions descending, add a running total column.",
+          procedure: [
+            "Import content-export.csv and sort by monthly conversions, descending",
+            "Add a cumulative-percent-of-total column",
+            "Find the row where cumulative percent crosses 80%",
+          ],
+          outputSample:
+            "Rank  Page                          Conversions  Cum. %\n1     Wool Runner size guide       340          9%\n2     Best sustainable sneakers    310          17%\n...\n9     Care instructions            140          79%\n10    Return policy FAQ            135          83%",
+          healthy:
+            "A cumulative curve that crosses 80% within roughly the top 10-15 pages of 50, confirming a real Pareto concentration worth acting on.",
+          unhealthy:
+            "A near-flat curve where conversions are spread evenly across all 50 pages, meaning there is no productive minority to concentrate on and the refresh budget should be allocated differently (e.g. by traffic potential, not existing performance).",
+          interpret:
+            "10 pages out of 50 (20%) account for 83% of conversions here, a textbook Pareto shape, refresh budget belongs on exactly these pages, not spread evenly across all 50.",
+          soWhat: [
+            {
+              symptom: "A refresh budget was about to be split evenly across all 50 pages",
+              action: "Reallocate the entire refresh budget to the top 10 pages by conversion before the quarter starts",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Sort, rank, and compute cumulative contribution",
+            why: "Free, no account friction, handles a 50-row sort easily",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A ranked list of all 50 pages with cumulative-contribution percentages, and the top 10 flagged as the refresh budget's target list.",
+      sampleOutput:
+        "Casper Sleep content audit (excerpt)\n\nTop 8 of 60 pages (13%) drive 81% of trial-starts.\n  1. Mattress size guide          212 trial-starts\n  2. Sleep trial FAQ               188 trial-starts\nBudget reallocated: all 6 refresh slots go to pages 1-6.",
+      successCriteria: [
+        "Correctly computes cumulative percentage and finds the crossover point",
+        "Recommendation matches the actual data shape, not an assumed 20%",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "toc-funnel-constraint-forecast",
+      tier: "core",
+      archetype: "forecast",
+      title: "Feed the Constraint or Feed the Top: Forecasting a Funnel Fix",
+      timeEstimate: "40 minutes",
+      timeMinutes: 40,
+      objective:
+        "Given a 4-stage funnel from a mattress DTC brand, forecast the paid-customer outcome of two competing budget proposals: more top-of-funnel spend vs. fixing the identified constraint stage.",
+      companyId: "casper-sleep",
+      scenario:
+        "You're presenting to the CMO. Sales wants to double paid traffic. The ops lead wants budget to fix checkout financing options instead, believing that's the real constraint.",
+      brief: "Model both proposals against the actual funnel numbers and forecast which produces more paid customers.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Locating the funnel's constraint stage by conversion gap versus benchmark",
+        "Forecasting throughput gains from fixing the constraint versus feeding the top of the funnel",
+      ],
+      steps: [
+        {
+          stepId: "step-1-find-constraint-vs-benchmark",
+          concept: "Locating the funnel's constraint stage by conversion gap versus benchmark",
+          lessonAnchor: "why-it-matters",
+          theoryRecap:
+            "The lesson's TOC pass computes conversion rate at every stage; the stage with the biggest gap versus benchmark is the constraint, and adding more top-of-funnel spend just makes that bottleneck worse.",
+          question:
+            "Given the funnel below and DTC mattress benchmarks (visit-to-cart 4%, cart-to-checkout-start 55%, checkout-start-to-purchase 68%), which stage has the largest benchmark gap?",
+          toolName: "Google Sheets",
+          where: "Import funnel-data.csv, add a benchmark column, compute the gap per stage.",
+          procedure: [
+            "Import funnel-data.csv with visits, cart adds, checkout starts, purchases",
+            "Compute this brand's conversion rate at each stage",
+            "Subtract the benchmark rate from the actual rate at each stage to find the largest negative gap",
+          ],
+          outputSample:
+            "Stage                        Actual   Benchmark   Gap\nVisit to Cart                4.2%     4.0%        +0.2pt\nCart to Checkout start        54%      55%         -1pt\nCheckout start to Purchase    41%      68%         -27pt",
+          healthy:
+            "A funnel where every stage sits within a few points of benchmark, no single stage is a standout constraint.",
+          unhealthy:
+            "A funnel with one stage sitting 27 points below benchmark while every other stage is roughly in line, that stage is the constraint governing total output.",
+          interpret:
+            "Checkout-start-to-purchase, 27 points under benchmark, is the constraint. Visit-to-cart is actually fine, doubling traffic would only pile more people into the same broken checkout step.",
+          soWhat: [
+            {
+              symptom: "Checkout-start-to-purchase is 27 points below benchmark while top-of-funnel is on target",
+              action: "Redirect the proposed traffic budget into a checkout audit (financing options, shipping cost visibility, guest checkout) instead",
+              effort: "half day",
+            },
+          ],
+          owner: "either",
+        },
+        {
+          stepId: "step-2-forecast-two-proposals",
+          concept: "Forecasting throughput gains from fixing the constraint versus feeding the top of the funnel",
+          lessonAnchor: "the-playbook-two-passes",
+          theoryRecap:
+            "The lesson's worked example shows doubling traffic doubles signups but the paid-customer gain is smaller than fixing the actual conversion constraint at current traffic.",
+          question:
+            "At 100,000 monthly visits, doubling traffic to 200,000 at current stage rates versus lifting checkout-start-to-purchase from 41% to 60% (still below the 68% benchmark) at current traffic, which produces more purchases, and by how much?",
+          toolName: "Google Sheets",
+          where: "Build a two-scenario model in the same sheet, one column per proposal.",
+          procedure: [
+            "Build scenario A: 200,000 visits at current stage rates through to purchase",
+            "Build scenario B: 100,000 visits with checkout-start-to-purchase raised to 60%",
+            "Compare total purchases for each scenario",
+          ],
+          outputSample:
+            "Scenario A (double traffic): 200,000 visits, 4,536 purchases\nScenario B (fix checkout, same traffic): 100,000 visits, 4,987 purchases\nScenario B produces about 451 more purchases with zero added media spend",
+          healthy:
+            "A forecast where the constraint-fix scenario matches or beats the traffic-doubling scenario, confirming the fix is the higher-leverage spend.",
+          unhealthy:
+            "Presenting only the traffic-doubling scenario's raw signup increase without modeling it through to purchases at the still-broken checkout stage, which overstates the actual gain.",
+          interpret:
+            "Fixing the constraint beats doubling the media budget here, and it costs nothing in incremental ad spend, only the checkout-audit hours. The CMO's decision has a number attached now, not two competing opinions.",
+          soWhat: [
+            {
+              symptom: "Two teams are pitching opposite budget asks with no shared forecast",
+              action: "Require both proposals to run through the same stage-by-stage model before the budget meeting",
+              effort: "half day",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the stage-by-stage forecast model for both scenarios",
+            why: "Free, sufficient for a 4-stage funnel model with two scenario columns",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Analytics 4",
+            role: "Pull the actual visit-to-purchase funnel numbers by stage",
+            why: "Free, the source of the actual conversion data the forecast is built on",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A two-scenario forecast model comparing traffic-doubling vs. constraint-fix, with a one-paragraph recommendation for the CMO.",
+      sampleOutput:
+        "Allbirds checkout forecast (excerpt)\n\nScenario A, double paid spend: +3,100 forecasted purchases\nScenario B, fix cart abandonment email flow: +3,800 forecasted purchases at current spend\nRecommendation: fund Scenario B first; re-evaluate traffic spend next quarter once the constraint moves.",
+      successCriteria: [
+        "Correctly identifies the constraint stage using the benchmark gap, not just the lowest raw rate",
+        "Forecast models both proposals through to purchases, not just to the proposal's own stage",
+        "Recommendation is quantified, not just directional",
+      ],
+      portfolioReady: true,
+      stretch: "Re-run the forecast assuming the checkout fix only reaches 50% instead of 60%, does the recommendation still hold?",
+    },
+  ],
+
+  "decision-making-under-uncertainty": [
+    {
+      id: "calibration-check-marketing-odds",
+      tier: "mini",
+      archetype: "forecast",
+      title: "The Calibration Check: Scoring Your Own Odds",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Given 5 real marketing scenarios with known eventual outcomes, assign a probability estimate to each before the outcome is revealed, then score how well your stated confidence actually matches your hit rate.",
+      companyId: "zendesk",
+      scenario:
+        "You're a lifecycle marketer at Zendesk building the habit of writing down odds before every campaign bet, instead of only ever remembering the ones that worked.",
+      brief:
+        "Score five campaign scenarios with an explicit percentage before seeing the outcome, then check whether your 70% calls actually land around 70% of the time.",
+      mode: "calibration",
+      conceptsCovered: ["Thinking in bets", "Calibration and the decision journal"],
+      steps: [
+        {
+          stepId: "step-1-assign-odds",
+          concept: "Thinking in bets",
+          lessonAnchor: "the-playbook-four-tools",
+          theoryRecap:
+            "The lesson's calibration question is: would you bet a month's budget on this at these odds? A probability you can't say out loud with a straight face is theater, not an estimate.",
+          question:
+            "Given only the campaign brief (channel, audience, and the account's past benchmark performance), what single percentage chance would you give this push-notification campaign of beating its 12% open-rate benchmark?",
+          toolName: "Google Sheets",
+          where: "A 5-row scenario sheet: campaign briefs in column A, a blank probability column B, outcomes locked in a hidden column C.",
+          procedure: [
+            "Read each of the 5 campaign briefs without unhiding column C",
+            "Write one number, not a word like 'likely' or 'probably', in column B for every row",
+            "Lock or protect column B before unhiding outcomes, no revising after the fact",
+          ],
+          outputSample:
+            "Scenario                                  Your odds\n1. Re-engagement push, dormant 90d users     45%\n2. New-feature announce, active users        75%\n3. Price-change notice, all users            30%\n4. Referral-program push, power users        60%\n5. Holiday sale push, full list               55%",
+          healthy:
+            "Every row has a specific number written down before column C is ever unhidden.",
+          unhealthy:
+            "Rows get skipped, hedged with a range ('50-70%'), or filled in after peeking at the outcomes.",
+          interpret:
+            "A probability that's still vague after you've forced yourself to write one number down was never really an estimate, it was a mood.",
+          soWhat: [
+            {
+              symptom: "You keep writing ranges instead of a single number",
+              action: "Force yourself to pick the midpoint and write only that",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-score-calibration",
+          concept: "Calibration and the decision journal",
+          lessonAnchor: "the-decision-journal",
+          theoryRecap:
+            "Reviewing a decision journal quarterly tells you whether your 70% calls actually hit around 70% of the time, that's calibration, not just confidence.",
+          question:
+            "Column C is now unhidden with the real outcomes (hit or miss against benchmark). Grouped by your stated probability, does your hit rate roughly match the number you wrote?",
+          toolName: "Google Sheets",
+          where: "The same sheet, column D for outcome (hit/miss), column E for a running hit-rate check.",
+          procedure: [
+            "Unhide column C and mark each row hit or miss in column D",
+            "Bucket the 5 rows by stated probability (below 50%, 50-69%, 70%+) and compute hit rate per bucket",
+            "Flag any bucket where your hit rate is more than 20 points off your stated number",
+          ],
+          outputSample:
+            "Bucket        Rows   Hits   Hit rate   Stated\n30-45%          2      0        0%        ~38%\n55-60%          2      1       50%        ~58%\n75%              1      1      100%        75%\n\nFlag: 30-45% bucket hit 0/2, consistent with stated odds, not miscalibrated. 55-60% bucket is too small a sample to judge yet.",
+          healthy:
+            "Hit rates land within roughly 20 points of stated odds, or the sample is explicitly flagged as too small to judge.",
+          unhealthy:
+            "Every 70%+ call turns out to be a coin flip in practice, a sign of systematic overconfidence nobody had measured before.",
+          interpret:
+            "One 5-row sheet won't prove calibration, the value is in doing this every quarter until the pattern is undeniable.",
+          soWhat: [
+            {
+              symptom: "70%+ calls hit closer to 50% across several quarters",
+              action: "Discount your own high-confidence estimates by a fixed margin until the gap closes",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Track predictions, lock them before outcomes are visible, and score hit rate by bucket",
+            why: "Free, no account friction, and hiding/locking columns is enough structure for this drill",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A 5-row calibration scorecard showing your stated odds, the real outcome, and a bucketed hit-rate comparison.",
+      sampleOutput:
+        "Robinhood, Q2 calibration scorecard (excerpt)\n\nBucket        Rows   Hits   Hit rate   Stated\n40-50%          3      1       33%        ~45%\n70-80%          4      3       75%        ~74%\n\nNote: the 70-80% bucket is well-calibrated; the 40-50% bucket ran slightly optimistic and gets a 10-point discount next quarter.",
+      successCriteria: [
+        "All 5 rows have a single stated percentage recorded before outcomes are revealed",
+        "Outcomes are bucketed by stated probability, not just listed individually",
+        "At least one bucket is flagged as over- or under-confident, or explicitly too small to judge",
+      ],
+      portfolioReady: false,
+      stretch:
+        "Keep the same sheet running for a full quarter of real campaign decisions instead of the 5 seeded scenarios, and review it live with your manager.",
+    },
+    {
+      id: "decision-brief-ev-audit",
+      tier: "core",
+      archetype: "audit",
+      title: "The Budget Call: Auditing a Half-Finished Decision Brief",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given an incomplete internal decision brief proposing a $180K influencer-seeding push, complete the missing expected-value math, classify the reversibility of the call, and flag what the brief omits before it goes to a VP for sign-off in 48 hours.",
+      companyId: "snowflake",
+      scenario:
+        "You're the growth marketing lead at Snowflake reviewing a peer's brief that recommends committing next quarter's discretionary budget to an unproven influencer-seeding channel.",
+      brief:
+        "Audit the brief against the lesson's four tools: compute the EV the brief skipped, classify reversibility correctly, and write the pre-mortem nobody wrote.",
+      mode: "diagnostic",
+      conceptsCovered: ["Expected value (EV)", "Reversible vs. irreversible", "The pre-mortem"],
+      steps: [
+        {
+          stepId: "step-1-compute-ev",
+          concept: "Expected value (EV)",
+          lessonAnchor: "the-playbook-four-tools",
+          theoryRecap:
+            "EV is probability of success times payoff, minus cost. A lower-probability bet with a bigger payoff can beat a safer-feeling one once you actually run the math.",
+          question:
+            "The brief lists three scenarios (conservative, base, aggressive) with estimated probability and pipeline payoff but never multiplies them out against the $180K cost. What's the EV of each, and does the recommended spend clear a reasonable bar?",
+          toolName: "Google Sheets",
+          where: "A 3-row scenario table: probability, payoff, cost columns, blank EV column.",
+          procedure: [
+            "Enter probability x payoff for each of the 3 scenarios",
+            "Subtract the $180K cost from each to get EV",
+            "Flag whether the brief's stated recommendation matches which scenario actually has the highest EV",
+          ],
+          outputSample:
+            "Scenario       Prob   Payoff     Cost      EV\nConservative    60%   $220K     $180K     +$52K\nBase             35%   $500K     $180K     -$5K\nAggressive       15%  $1.4M      $180K    +$30K\n\nThe brief recommends 'base case', but Conservative has the highest EV once the math is actually run.",
+          healthy:
+            "EV is computed for every scenario before anyone recommends one, and the recommendation matches the highest-EV option or explains why it doesn't.",
+          unhealthy:
+            "A brief names a 'base case' as the recommendation with no EV math behind it, just a gut sense that it sounds reasonable.",
+          interpret:
+            "A confident label like 'base case' can hide a scenario that's actually break-even or worse once cost is subtracted.",
+          soWhat: [
+            {
+              symptom: "The brief's recommended scenario isn't the highest-EV one",
+              action: "Send it back with the EV table attached and ask for a written reason if they still want the base case",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-two-door-test",
+          concept: "Reversible vs. irreversible",
+          lessonAnchor: "the-playbook-four-tools",
+          theoryRecap:
+            "Most marketing decisions are two-way doors, walk through and walk back cheaply. The two-door test is what decides how fast and how much rigor a call deserves.",
+          question:
+            "The brief calls this a 'strategic bet requiring exec sign-off,' implying it's a one-way door. The contract is actually a 3-month pilot with a 30-day cancellation clause. Is this really a one-way door?",
+          toolName: "Google Sheets",
+          where: "A one-line note field next to the EV table.",
+          procedure: [
+            "Check the actual contract terms cited in the brief's appendix, not just its framing language",
+            "Classify the decision as one-way or two-way door based on the real cancellation terms",
+            "Note how the required approval speed and rigor should change if it's reclassified",
+          ],
+          outputSample:
+            "Contract terms: 3-month pilot, 30-day cancellation clause, no long-term ad spend commitment.\nClassification: TWO-WAY DOOR (mislabeled in the brief as one-way).\nImplication: doesn't need a 48-hour VP fire-drill; a 30% pilot budget with a documented off-ramp should be enough to greenlight this week.",
+          healthy:
+            "The reversibility classification is checked against the actual contract terms, not the brief's own framing.",
+          unhealthy:
+            "A genuinely reversible pilot gets treated like a one-way door because the word 'strategic' was in the brief's title.",
+          interpret:
+            "Language like 'strategic bet' is often a tell that nobody checked the actual exit terms.",
+          soWhat: [
+            {
+              symptom: "A two-way-door decision is stuck waiting on a VP calendar slot",
+              action: "Reclassify it and route it through fast-approval instead of the exec review queue",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-pre-mortem",
+          concept: "The pre-mortem",
+          lessonAnchor: "the-playbook-four-tools",
+          theoryRecap:
+            "A pre-mortem writes the future failure headline before launch, then asks what assumption would have to be wrong for that headline to be true.",
+          question:
+            "The brief has no pre-mortem section. Write the headline 'This influencer push failed because...' and name the single riskiest assumption it depends on.",
+          toolName: "Google Sheets",
+          where: "A short text block below the EV table.",
+          procedure: [
+            "Write one specific failure headline, not a vague 'it didn't work'",
+            "Name the assumption in the brief most likely to be wrong (usually the payoff or probability number)",
+            "Propose one cheap way to test that assumption before committing the full $180K",
+          ],
+          outputSample:
+            "Headline: 'Influencer push failed because seeded accounts had 40% fewer real followers than their stated audience size.'\nRiskiest assumption: the 'base case' payoff assumes advertised follower counts are accurate.\nCheap test: run a $15K seed with 3 accounts first and audit real engagement before committing the remaining $165K.",
+          healthy:
+            "The pre-mortem names a specific, checkable assumption, and proposes a way to test it cheaply before full spend.",
+          unhealthy:
+            "The pre-mortem section, if it exists at all, just restates 'the campaign might underperform' with no specific cause.",
+          interpret:
+            "A pre-mortem is only useful if it's specific enough to suggest a cheap test, a vague one is theater too.",
+          soWhat: [
+            {
+              symptom: "The full budget is about to commit with no assumption ever tested",
+              action: "Carve out a small test tranche tied to the riskiest assumption before releasing the rest",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the EV table, log the reversibility check, and write the pre-mortem",
+            why: "Free, shareable, and enough structure to attach directly to the brief for the VP review",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A completed one-page decision memo with an EV table, a corrected reversibility classification, and a written pre-mortem, ready to attach to the original brief for VP review.",
+      sampleOutput:
+        "Zendesk, Q1 partnership-spend audit (excerpt)\n\nEV table shows the recommended 'high-touch' tier at -$8K EV versus +$41K for the 'self-serve' tier.\nReversibility: reclassified from 'one-way' to 'two-way door', 60-day opt-out clause found in section 4 of the vendor contract.\nPre-mortem: riskiest assumption is the vendor's stated activation rate, cheap test proposed at 10% of budget first.",
+      successCriteria: [
+        "EV is computed for all scenarios and compared against the brief's actual recommendation",
+        "Reversibility is checked against real contract terms, not the brief's own framing language",
+        "The pre-mortem names one specific, testable assumption and a cheap way to test it",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Take this same three-step audit to a real budget brief at your own company and present the corrected EV table before the decision is made, not after.",
+    },
+  ],
 };
