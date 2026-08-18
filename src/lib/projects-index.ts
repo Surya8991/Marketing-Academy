@@ -1282,6 +1282,374 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "features-vs-benefits-product-page-teardown",
+    "category": "copywriting",
+    "lessonSlug": "features-vs-benefits",
+    "lessonTitle": "Features vs. Benefits",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Feature Dump: Teardown of a Mattress Product Page",
+    "timeMinutes": 20,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Confusing advantages with benefits",
+      "Burying the benefit after three sentences of features",
+      "Writing benefits for yourself, not your customer"
+    ]
+  },
+  {
+    "id": "features-vs-benefits-warby-parker-hero-rebuild",
+    "category": "copywriting",
+    "lessonSlug": "features-vs-benefits",
+    "lessonTitle": "Features vs. Benefits",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Rebuild the Page: Turning a Feature List into Benefit-Driven Hero Copy",
+    "timeMinutes": 25,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Apply the 'Which Means' Bridge",
+      "Identify the Emotional Layer",
+      "Choose the Right Layer for Your Audience"
+    ]
+  },
+  {
+    "id": "power-words-email-sequence-teardown",
+    "category": "copywriting",
+    "lessonSlug": "power-words",
+    "lessonTitle": "Power Words",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Category Mismatch Teardown: A Failing Welcome Email Sequence",
+    "timeMinutes": 20,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Overloading",
+      "Manufactured Urgency",
+      "Ignoring the Reader's Funnel Stage",
+      "Curiosity and Intrigue"
+    ]
+  },
+  {
+    "id": "power-words-landing-page-audit",
+    "category": "copywriting",
+    "lessonSlug": "power-words",
+    "lessonTitle": "Power Words",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Category Match Audit: Rebuilding a Cold-Traffic Landing Page",
+    "timeMinutes": 45,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "Ignoring the Reader's Funnel Stage",
+      "Trust and Credibility",
+      "CTA Buttons"
+    ]
+  },
+  {
+    "id": "voice-pillar-consistency-audit",
+    "category": "copywriting",
+    "lessonSlug": "voice-and-tone",
+    "lessonTitle": "Voice and Tone",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Consistency Check: Auditing Copy Against Voice Pillars",
+    "timeMinutes": 25,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "Applying voice pillar contrast statements to real copy"
+    ]
+  },
+  {
+    "id": "cross-channel-voice-teardown",
+    "category": "copywriting",
+    "lessonSlug": "voice-and-tone",
+    "lessonTitle": "Voice and Tone",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Off-Brand Line: A Cross-Channel Voice Teardown",
+    "timeMinutes": 20,
+    "companyId": "glossybox",
+    "conceptsCovered": [
+      "Distinguishing tone flexibility from voice inconsistency"
+    ]
+  },
+  {
+    "id": "headline-subhead-cta-sprint",
+    "category": "copywriting",
+    "lessonSlug": "landing-page-copy",
+    "lessonTitle": "Landing Page Copy",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The Three-Line Sprint: Headline, Subheadline, CTA",
+    "timeMinutes": 20,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Writing an outcome-first headline and first-person CTA"
+    ]
+  },
+  {
+    "id": "full-page-conversion-teardown",
+    "category": "copywriting",
+    "lessonSlug": "landing-page-copy",
+    "lessonTitle": "Landing Page Copy",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Six-Section Teardown: Finding What's Costing Conversions",
+    "timeMinutes": 45,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Identifying vague social proof",
+      "Identifying multiple-CTA dilution",
+      "Identifying reading-level friction"
+    ]
+  },
+  {
+    "id": "cta-copy-vsf-teardown",
+    "category": "copywriting",
+    "lessonSlug": "cta-copy",
+    "lessonTitle": "CTA Copy That Converts",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Button Autopsy: Five CTAs, Five VSF Violations",
+    "timeMinutes": 20,
+    "companyId": "thredup",
+    "conceptsCovered": [
+      "V, Value",
+      "S, Specificity",
+      "P, First Person",
+      "Urgency and Scarcity: Use Real Numbers Only",
+      "CTA Placement Rules"
+    ]
+  },
+  {
+    "id": "cta-copy-head-to-head-vsf-scorecard",
+    "category": "copywriting",
+    "lessonSlug": "cta-copy",
+    "lessonTitle": "CTA Copy That Converts",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "Draft A vs. Draft B: Scoring a CTA Head-to-Head",
+    "timeMinutes": 20,
+    "companyId": "rent-the-runway",
+    "conceptsCovered": [
+      "The VSF Framework",
+      "P, First Person"
+    ]
+  },
+  {
+    "id": "email-copy-full-email-teardown",
+    "category": "copywriting",
+    "lessonSlug": "email-copy",
+    "lessonTitle": "Email Copywriting",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Inbox Autopsy: Teardown of a Win-Back Email",
+    "timeMinutes": 20,
+    "companyId": "klaviyo",
+    "conceptsCovered": [
+      "Subject Lines: The Gate to Everything",
+      "Preview text: the second subject line",
+      "Opening Lines: Earn the Read",
+      "CTAs: One Action, Maximum Clarity",
+      "Button vs. text link"
+    ]
+  },
+  {
+    "id": "email-copy-build-win-back-email",
+    "category": "copywriting",
+    "lessonSlug": "email-copy",
+    "lessonTitle": "Email Copywriting",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Win-Back Email End to End",
+    "timeMinutes": 45,
+    "companyId": "mailchimp",
+    "conceptsCovered": [
+      "Subject Lines: The Gate to Everything",
+      "The PAS framework",
+      "The personalization multiplier",
+      "CTAs: One Action, Maximum Clarity"
+    ]
+  },
+  {
+    "id": "value-prop-nubank-5-second-audit",
+    "category": "copywriting",
+    "lessonSlug": "value-prop-copy",
+    "lessonTitle": "Writing the Value Prop",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The 5-Second Verdict: Auditing Nubank's Value Prop Anatomy",
+    "timeMinutes": 20,
+    "companyId": "nubank",
+    "conceptsCovered": [
+      "The Anatomy of a High-Converting Value Prop",
+      "The 5-Second Test: Your Only Objective Measure"
+    ]
+  },
+  {
+    "id": "value-prop-firstcry-build-the-statement",
+    "category": "copywriting",
+    "lessonSlug": "value-prop-copy",
+    "lessonTitle": "Writing the Value Prop",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Building FirstCry's 90-Minute Delivery Value Prop from Scratch",
+    "timeMinutes": 25,
+    "companyId": "firstcry-brainbees",
+    "conceptsCovered": [
+      "The Anatomy of a High-Converting Value Prop",
+      "How to Write the Value Prop: A 6-Step Process"
+    ]
+  },
+  {
+    "id": "storybrand-zendesk-plan-and-cta-build",
+    "category": "copywriting",
+    "lessonSlug": "storybrand",
+    "lessonTitle": "StoryBrand Framework",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Writing Zendesk's 3-Step Plan and CTA Pair for an AI Feature Launch",
+    "timeMinutes": 20,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Part 4: Who Gives a Plan (your process)",
+      "Part 5: And Calls Them to Action (CTA)"
+    ]
+  },
+  {
+    "id": "storybrand-instacart-homepage-teardown",
+    "category": "copywriting",
+    "lessonSlug": "storybrand",
+    "lessonTitle": "StoryBrand Framework",
+    "tier": "core",
+    "archetype": "reverse-engineer",
+    "mode": "diagnostic",
+    "title": "Reverse-Engineering Instacart's Homepage Against the Full SB7 BrandScript",
+    "timeMinutes": 45,
+    "companyId": "instacart",
+    "conceptsCovered": [
+      "Part 1: A Character (your customer's desire)",
+      "Part 2: Has a Problem (three levels)",
+      "Part 3: Meets a Guide (your brand)",
+      "Mistake 1: Making your brand the hero"
+    ]
+  },
+  {
+    "id": "b2b-copy-pain-proof-process-rewrite",
+    "category": "copywriting",
+    "lessonSlug": "b2b-copy",
+    "lessonTitle": "B2B Copy: Pain, Proof, Process",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Pain-Proof-Process Solution Page From Scratch",
+    "timeMinutes": 50,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Identifying the exact, quantified pain in the buyer's own language",
+      "Matching proof directly to the pain named in the headline",
+      "Writing a process block that reduces risk aversion",
+      "Writing a low-risk CTA for a cold B2B audience"
+    ]
+  },
+  {
+    "id": "b2b-copy-committee-audit",
+    "category": "copywriting",
+    "lessonSlug": "b2b-copy",
+    "lessonTitle": "B2B Copy: Pain, Proof, Process",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Committee Test: Auditing a B2B Page for Every Stakeholder",
+    "timeMinutes": 25,
+    "companyId": "snowflake",
+    "conceptsCovered": [
+      "Writing to the whole buying committee, not one persona",
+      "Spotting the 5 common B2B copy mistakes"
+    ]
+  },
+  {
+    "id": "ai-search-answer-first-rewrite",
+    "category": "copywriting",
+    "lessonSlug": "copy-for-ai-search",
+    "lessonTitle": "Writing for AI Search: Copy That Gets Cited by ChatGPT and Perplexity",
+    "tier": "mini",
+    "archetype": "rebuild",
+    "mode": "build",
+    "title": "Rebuild a Buried-Answer Intro Into AI-Citable Copy",
+    "timeMinutes": 25,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Answer-first writing: leading with the answer, not the setup",
+      "Including specific data with a year and a named source",
+      "Defining terms precisely, inline, at first use"
+    ]
+  },
+  {
+    "id": "ai-search-citability-audit",
+    "category": "copywriting",
+    "lessonSlug": "copy-for-ai-search",
+    "lessonTitle": "Writing for AI Search: Copy That Gets Cited by ChatGPT and Perplexity",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Citability Audit: Scoring a Live Page Against the 5 Principles",
+    "timeMinutes": 25,
+    "companyId": "adyen",
+    "conceptsCovered": [
+      "Using clear structural formatting AI models can parse",
+      "Building entity authority across the web on one topic",
+      "Spotting keyword stuffing, thin content, and buried answers"
+    ]
+  },
+  {
+    "id": "ogilvy-rolls-royce-reverse-engineer",
+    "category": "copywriting",
+    "lessonSlug": "ogilvy-halbert-sugarman",
+    "lessonTitle": "The Copywriting Canon",
+    "tier": "mini",
+    "archetype": "reverse-engineer",
+    "mode": "diagnostic",
+    "title": "Reverse-Engineering Ogilvy's Rolls-Royce Ad",
+    "timeMinutes": 20,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Mapping copy against the Hook-Build-Close structure"
+    ]
+  },
+  {
+    "id": "halbert-sugarman-build-landing-page",
+    "category": "copywriting",
+    "lessonSlug": "ogilvy-halbert-sugarman",
+    "lessonTitle": "The Copywriting Canon",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Building a Direct-Response Landing Page Section Using the Canon",
+    "timeMinutes": 45,
+    "companyId": "coinbase",
+    "conceptsCovered": [
+      "Writing a specific, curiosity-driven hook instead of a vague headline",
+      "Closing with a guarantee and a single call to action"
+    ]
+  },
+  {
     "id": "cro-101-single-goal-page-audit",
     "category": "cro",
     "lessonSlug": "cro-101",
