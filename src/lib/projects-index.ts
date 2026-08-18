@@ -1131,6 +1131,506 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "cro-101-single-goal-page-audit",
+    "category": "cro",
+    "lessonSlug": "cro-101",
+    "lessonTitle": "CRO 101",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Goal-Clarity Audit: Why a 1.1% Page Has Four CTAs",
+    "timeMinutes": 25,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Every page needs exactly one primary conversion goal",
+      "Macro vs micro conversions",
+      "Friction identification before hypothesis"
+    ]
+  },
+  {
+    "id": "cro-101-test-priority-roadmap-build",
+    "category": "cro",
+    "lessonSlug": "cro-101",
+    "lessonTitle": "CRO 101",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Roadmap: Scoring and Sequencing Six Test Ideas",
+    "timeMinutes": 45,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "Testing Priority Matrix: impact vs effort",
+      "Hypothesis format: If X then Y because Z",
+      "Testing one element at a time"
+    ]
+  },
+  {
+    "id": "conversion-rate-math-revenue-lift-forecast",
+    "category": "cro",
+    "lessonSlug": "conversion-rate-math",
+    "lessonTitle": "Conversion Rate Math",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "Build the Business Case: Forecasting a CRO Revenue Lift",
+    "timeMinutes": 25,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Revenue per Visitor (RPV)",
+      "Annual lift calculation model"
+    ]
+  },
+  {
+    "id": "conversion-rate-math-cpa-diagnosis-reverse-engineer",
+    "category": "cro",
+    "lessonSlug": "conversion-rate-math",
+    "lessonTitle": "Conversion Rate Math",
+    "tier": "mini",
+    "archetype": "reverse-engineer",
+    "mode": "diagnostic",
+    "title": "Reverse-Engineer the Bottleneck: CR, CPA, and a Misleading 20% Headline",
+    "timeMinutes": 25,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Cost per Acquisition (CPA) formula",
+      "CPA halves when CR doubles",
+      "Relative vs absolute lift"
+    ]
+  },
+  {
+    "id": "landing-page-anatomy-teardown",
+    "category": "cro",
+    "lessonSlug": "landing-page-anatomy",
+    "lessonTitle": "Landing Page Anatomy",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Find the Broken Sections: Landing Page Teardown",
+    "timeMinutes": 20,
+    "companyId": "glossybox",
+    "conceptsCovered": [
+      "Section 1: Headline",
+      "Section 4: Benefits List",
+      "Section 5: Social Proof",
+      "Section 6: Call to Action (CTA)",
+      "Section 7: Objection Handler"
+    ]
+  },
+  {
+    "id": "landing-page-anatomy-build-outline",
+    "category": "cro",
+    "lessonSlug": "landing-page-anatomy",
+    "lessonTitle": "Landing Page Anatomy",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Page: A 7-Section Landing Page Outline",
+    "timeMinutes": 30,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Section 1: Headline",
+      "Section 4: Benefits List",
+      "Section 6: Call to Action (CTA)"
+    ]
+  },
+  {
+    "id": "hero-formula-audit-checklist",
+    "category": "cro",
+    "lessonSlug": "hero-formula",
+    "lessonTitle": "The Hero Section Formula",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Three-Second Test: Auditing a Hero Section",
+    "timeMinutes": 20,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "1. The Outcome Headline",
+      "3. The Single CTA Button"
+    ]
+  },
+  {
+    "id": "hero-formula-rebuild-weak-hero",
+    "category": "cro",
+    "lessonSlug": "hero-formula",
+    "lessonTitle": "The Hero Section Formula",
+    "tier": "core",
+    "archetype": "rebuild",
+    "mode": "build",
+    "title": "Rebuild It: Turning a Weak Hero Into a Four-Component Hero",
+    "timeMinutes": 45,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "1. The Outcome Headline",
+      "2. The Supporting Subheadline",
+      "3. The Single CTA Button",
+      "4. The Contextual Visual"
+    ]
+  },
+  {
+    "id": "form-optimization-signup-teardown",
+    "category": "cro",
+    "lessonSlug": "form-optimization",
+    "lessonTitle": "Form Optimization",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Toll Booth Audit: Tearing Down a Vendor Sign-Up Form",
+    "timeMinutes": 25,
+    "companyId": "instacart",
+    "conceptsCovered": [
+      "Filtering fields against a decision the data enables",
+      "Combining fields to cut visual weight",
+      "Deferring non-essential fields to a post-conversion step"
+    ]
+  },
+  {
+    "id": "form-optimization-field-audit-diagnostic",
+    "category": "cro",
+    "lessonSlug": "form-optimization",
+    "lessonTitle": "Form Optimization",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Field-by-Field Call: Auditing a Real Signup Form Spec",
+    "timeMinutes": 30,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Sequencing fields with the foot-in-the-door principle",
+      "Prioritizing fixes by per-field abandonment rate",
+      "Testing one variable at a time"
+    ]
+  },
+  {
+    "id": "checkout-optimization-lean-spec-build",
+    "category": "cro",
+    "lessonSlug": "checkout-optimization",
+    "lessonTitle": "Checkout Optimization",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Asset: A Leaner Checkout Field Spec",
+    "timeMinutes": 35,
+    "companyId": "firstcry-brainbees",
+    "conceptsCovered": [
+      "Reducing form fields to only what fulfillment requires",
+      "Guest checkout as the default path",
+      "Collapsing optional fields by default"
+    ]
+  },
+  {
+    "id": "checkout-optimization-flow-teardown",
+    "category": "cro",
+    "lessonSlug": "checkout-optimization",
+    "lessonTitle": "Checkout Optimization",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Airport Security Line: Tearing Down a Checkout Flow",
+    "timeMinutes": 50,
+    "companyId": "thredup",
+    "conceptsCovered": [
+      "Revealing shipping cost before the final step",
+      "Removing forced account creation",
+      "Supporting the buyer's preferred payment method",
+      "Recovering abandoned carts with timed follow-up"
+    ]
+  },
+  {
+    "id": "friction-audit-checkout-funnel-audit",
+    "category": "cro",
+    "lessonSlug": "friction-audit",
+    "lessonTitle": "Friction Audit",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Priority Call: Auditing YETI's Checkout Drop-off Data",
+    "timeMinutes": 25,
+    "companyId": "yeti",
+    "conceptsCovered": [
+      "Pull Drop-off Data",
+      "Prioritize by Impact and Effort"
+    ]
+  },
+  {
+    "id": "friction-audit-session-recording-teardown",
+    "category": "cro",
+    "lessonSlug": "friction-audit",
+    "lessonTitle": "Friction Audit",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "diagnostic",
+    "title": "Signal or Noise: Tearing Down Zomato Session Recording Notes",
+    "timeMinutes": 20,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Watch Session Recordings"
+    ]
+  },
+  {
+    "id": "exit-intent-segmented-popup-build",
+    "category": "cro",
+    "lessonSlug": "exit-intent",
+    "lessonTitle": "Exit Intent and Recovery",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Offer: A Segmented Exit-Intent Popup for MVMT",
+    "timeMinutes": 30,
+    "companyId": "mvmt-watches",
+    "conceptsCovered": [
+      "Segmentation",
+      "The Offer"
+    ]
+  },
+  {
+    "id": "exit-intent-recovery-revenue-forecast",
+    "category": "cro",
+    "lessonSlug": "exit-intent",
+    "lessonTitle": "Exit Intent and Recovery",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "The Math Behind the Popup: Forecasting Recovery Revenue for Rent the Runway",
+    "timeMinutes": 45,
+    "companyId": "rent-the-runway",
+    "conceptsCovered": [
+      "Detection",
+      "Capture"
+    ]
+  },
+  {
+    "id": "trust-signals-anxiety-audit",
+    "category": "cro",
+    "lessonSlug": "trust-signals",
+    "lessonTitle": "Trust Signals That Convert",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Which Anxiety Is This Page Failing to Answer?",
+    "timeMinutes": 25,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Matching the trust signal to the specific anxiety",
+      "Placing signals where decisions happen, not in the footer"
+    ]
+  },
+  {
+    "id": "trust-signals-checkout-teardown",
+    "category": "cro",
+    "lessonSlug": "trust-signals",
+    "lessonTitle": "Trust Signals That Convert",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: The Checkout Page That Looks Secure but Isn't",
+    "timeMinutes": 20,
+    "companyId": "coinbase",
+    "conceptsCovered": [
+      "Borrowed credibility vs. self-claimed credibility",
+      "Security seals without SSL, and other common mistakes"
+    ]
+  },
+  {
+    "id": "urgency-email-compliance-audit",
+    "category": "cro",
+    "lessonSlug": "urgency-design",
+    "lessonTitle": "Designing Urgency Without Sleaze",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Real Deadline or Regulatory Risk? Auditing an Urgency Email Flow",
+    "timeMinutes": 25,
+    "companyId": "klaviyo",
+    "conceptsCovered": [
+      "Time-based urgency, inventory-based scarcity, and social urgency",
+      "Regulatory enforcement of fabricated urgency and dark patterns"
+    ]
+  },
+  {
+    "id": "urgency-landing-teardown",
+    "category": "cro",
+    "lessonSlug": "urgency-design",
+    "lessonTitle": "Designing Urgency Without Sleaze",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: The Countdown Timer That Resets on Refresh",
+    "timeMinutes": 40,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "Time-based urgency, inventory-based scarcity, and social urgency",
+      "Regulatory enforcement of fabricated urgency and dark patterns",
+      "Implementation mechanics: server-side timestamps and live inventory"
+    ]
+  },
+  {
+    "id": "sample-size-launch-forecast-slack",
+    "category": "cro",
+    "lessonSlug": "sample-size-math",
+    "lessonTitle": "Sample Size and Statistical Power",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "The Launch Forecast: Sample Size and Runtime for a Real Test",
+    "timeMinutes": 25,
+    "companyId": "slack",
+    "conceptsCovered": [
+      "Calculating required sample size from baseline, MDE, and power",
+      "Estimating test runtime from required sample and daily traffic"
+    ]
+  },
+  {
+    "id": "peeking-audit-two-test-plans-zendesk",
+    "category": "cro",
+    "lessonSlug": "sample-size-math",
+    "lessonTitle": "Sample Size and Statistical Power",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "Two Test Plans, One Approval: Auditing for Peeking Risk",
+    "timeMinutes": 25,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "False positive inflation from peeking without a pre-set stopping rule",
+      "Validating results only after reaching planned sample size and a full business cycle"
+    ]
+  },
+  {
+    "id": "ab-vs-mvt-decision-snowflake-signup-flow",
+    "category": "cro",
+    "lessonSlug": "multivariate-vs-ab",
+    "lessonTitle": "Multivariate vs A/B Testing",
+    "tier": "core",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "A/B or MVT: The Traffic-Backed Decision for a Signup Flow",
+    "timeMinutes": 45,
+    "companyId": "snowflake",
+    "conceptsCovered": [
+      "Traffic threshold for reliable MVT testing",
+      "Combination explosion calculation and staged testing when traffic falls short"
+    ]
+  },
+  {
+    "id": "mvt-feasibility-forecast-adyen-pricing-page",
+    "category": "cro",
+    "lessonSlug": "multivariate-vs-ab",
+    "lessonTitle": "Multivariate vs A/B Testing",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "The Combination Cap: Forecasting Whether a 4-Element MVT Is Feasible",
+    "timeMinutes": 45,
+    "companyId": "adyen",
+    "conceptsCovered": [
+      "Full factorial combination growth calculation for multivariate tests",
+      "Forecasting MVT sample size and runtime against the combination cap guideline"
+    ]
+  },
+  {
+    "id": "statistical-pitfalls-teardown-test-writeup",
+    "category": "cro",
+    "lessonSlug": "statistical-pitfalls-in-cro",
+    "lessonTitle": "Statistical Pitfalls in CRO",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: The Test Writeup That Broke Every Rule",
+    "timeMinutes": 25,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Peeking / optional stopping",
+      "Multiple comparisons problem",
+      "Simpson's Paradox"
+    ]
+  },
+  {
+    "id": "statistical-pitfalls-stop-continue-audit",
+    "category": "cro",
+    "lessonSlug": "statistical-pitfalls-in-cro",
+    "lessonTitle": "Statistical Pitfalls in CRO",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Stop/Continue Call: Auditing a Live Test Dashboard Before You Decide",
+    "timeMinutes": 40,
+    "companyId": "wise",
+    "conceptsCovered": [
+      "Peeking / optional stopping",
+      "Multiple comparisons problem",
+      "Simpson's Paradox"
+    ]
+  },
+  {
+    "id": "cro-research-plan-audit",
+    "category": "cro",
+    "lessonSlug": "cro-research",
+    "lessonTitle": "Customer Research for CRO",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Research Plan Audit: Catching Bad Methodology Before It Ships",
+    "timeMinutes": 25,
+    "companyId": "grab",
+    "conceptsCovered": [
+      "Setting a minimum traffic threshold before starting qualitative research",
+      "Applying qualitative tools in sequence: heatmaps, then recordings, then surveys",
+      "Balancing exit surveys with post-purchase surveys",
+      "Writing a hypothesis with a 'because' clause"
+    ]
+  },
+  {
+    "id": "cro-research-hypothesis-backlog-build",
+    "category": "cro",
+    "lessonSlug": "cro-research",
+    "lessonTitle": "Customer Research for CRO",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "From Raw Signals to a Prioritized Hypothesis Backlog",
+    "timeMinutes": 50,
+    "companyId": "nubank",
+    "conceptsCovered": [
+      "Synthesizing qualitative findings into a prioritized test backlog",
+      "Writing a hypothesis with a 'because' clause",
+      "Prioritizing with ICE scoring: Impact, Confidence, Ease"
+    ]
+  },
+  {
+    "id": "personalization-cro-plan-audit",
+    "category": "cro",
+    "lessonSlug": "personalization-cro",
+    "lessonTitle": "Personalization for CRO",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Green-Light or Red-Flag: Auditing a Personalization Rollout Plan",
+    "timeMinutes": 25,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Minimum viable segment size (500 monthly visitors)",
+      "Choosing a signal proportional to the business model (B2C vs. ABM)"
+    ]
+  },
+  {
+    "id": "personalization-cro-segment-plan-build",
+    "category": "cro",
+    "lessonSlug": "personalization-cro",
+    "lessonTitle": "Personalization for CRO",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Three-Segment Personalization Plan for a Paid Traffic Launch",
+    "timeMinutes": 50,
+    "companyId": "halo-top",
+    "conceptsCovered": [
+      "Choose your signal",
+      "Build the variant (swap only the elements that carry the message)",
+      "Measure the lift against a control before rolling out"
+    ]
+  },
+  {
     "id": "email-marketing-101-ten-campaign-audit",
     "category": "email",
     "lessonSlug": "email-marketing-101",
