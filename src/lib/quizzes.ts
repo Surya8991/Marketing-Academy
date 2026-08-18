@@ -2088,6 +2088,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "The lesson's test: progressive disclosure hides sequence, never information the user needs to decide. If a fact would change whether someone buys, it must be shown before they invest effort, not after.",
     },
+    {
+      question: "Per the lesson's citation of Nielsen Norman Group's guidance, how many layers of 'click to reveal' disclosure should a design stack before users start losing track of where they are?",
+      options: [
+        "No more than one layer, anything nested is forbidden",
+        "No more than two layers deep",
+        "Up to five layers, as long as each has a clear label",
+        "There is no limit as long as breadcrumbs are shown",
+      ],
+      correct: 1,
+      explanation: "The lesson cites Nielsen Norman Group's guidance on multi-level menus and tours: beyond two layers of 'click to reveal,' people lose track of where they are and abandon rather than dig further, so disclosure should cap at two layers.",
+    },
   ],
   "cro/cro-for-ai-referred-traffic": [
     {
@@ -2133,6 +2144,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The lesson recommends putting the compressed, quotable answer first and repeating the specific claim (like a stat) above the fold rather than replacing it with vaguer copy, since that is likely what the AI already surfaced.",
+    },
+    {
+      question: "Why does the lesson recommend testing landing pages inside the actual ChatGPT or Perplexity in-app browser rather than relying only on standard mobile emulators?",
+      options: [
+        "Standard mobile emulators cannot render CSS animations at all",
+        "In-app embedded browsers often clip sticky headers and disable some autofill behavior that standard emulators do not replicate",
+        "AI apps block all outbound links to non-partner domains",
+        "In-app browsers automatically strip UTM parameters before the page loads",
+      ],
+      correct: 1,
+      explanation: "The lesson notes a large share of ChatGPT and Perplexity clicks open inside the app's own in-context browser, which can clip sticky headers and disable some autofill behavior, issues a standard mobile emulator won't surface.",
     },
   ],
   "product-marketing/ai-tools-for-pmms": [
@@ -6812,6 +6834,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Both Apple's guidelines and WCAG (Web Content Accessibility Guidelines) specify a minimum touch target size of 44x44 CSS pixels on mobile viewports. Touch targets smaller than this cause mis-taps and frustration, suppressing mobile conversions.",
     },
+    {
+      question: "According to the lesson's common mistakes section, what sample size or duration threshold do most testing platforms require before a button test result can be trusted?",
+      options: [
+        "At least 100 visitors or three days, whichever comes first",
+        "At least 1,000 conversions per variation, or a minimum of two full business cycle weeks",
+        "Exactly 50/50 traffic split with no minimum duration",
+        "One full calendar month regardless of traffic volume",
+      ],
+      correct: 1,
+      explanation: "The lesson warns that ending tests before statistical significance is a major pitfall, most platforms need at least 1,000 conversions per variation or two full business cycle weeks before results are reliable; calling a test early produces false positives.",
+    },
   ],
 
   "cro/conversion-rate-math": [
@@ -6858,6 +6891,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "Optimizing purely for Conversion Rate can lead to negative side effects, such as attracting low-quality or high-churn users through extreme discounts or misleading offers. This might increase the number of transactions (higher CR) but lower the Average Order Value (AOV) and customer lifetime value (LTV), resulting in less overall revenue. RPV (Revenue per Visitor) or LTV must be tracked alongside CR.",
+    },
+    {
+      question: "The lesson's Mistake 5 uses a headline claiming '37% conversion rate improvement' where the baseline was 1.0% and the new rate is 1.37%. What point is this example making?",
+      options: [
+        "That relative lift percentages are always fraudulent and should never be reported",
+        "That the 0.37 percentage-point absolute lift is real but far smaller in dollar terms than the flashy relative number suggests",
+        "That A/B tests under 1,000 conversions should be discarded entirely",
+        "That RPV should replace conversion rate as the only metric worth tracking",
+      ],
+      correct: 1,
+      explanation: "The lesson uses this example to illustrate confusing relative and absolute lift: a 37% relative improvement sounds dramatic, but the actual 0.37-percentage-point absolute gain translates to a modest dollar impact, worth doing but not a transformation.",
     },
   ],
 
@@ -6906,6 +6950,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Capturing the email is only the first step. The majority of recovered conversions occur during the email follow-up sequence, which typically delivers the discount, sends reminders of viewed items, provides social proof, and applies authentic urgency over a 10-14 day period.",
     },
+    {
+      question: "Per the lesson's Common Mistakes section, which should a team A/B test first on an exit intent popup, and why?",
+      options: [
+        "Button color and popup layout, because visual design has the largest measured impact",
+        "The offer and headline first, since research shows copy and offer changes move conversion 20-50% versus 5-15% for design changes",
+        "Popup animation speed, because it directly affects load time and SEO",
+        "The exit-trigger sensitivity threshold, since it has no measurable effect on conversion",
+      ],
+      correct: 1,
+      explanation: "The lesson's Mistake 5 warns against testing design before copy: headline and offer changes move conversion rates 20-50%, while design changes typically move them only 5-15%, so offer and headline should be tested and stabilized first.",
+    },
   ],
 
   "cro/form-optimization": [
@@ -6952,6 +7007,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Using placeholders as a replacement for labels is a major usability error. When users click or start typing in a field, the placeholder disappears. If they get interrupted or need to double-check their entry, they have no context for what the field actually required. Keep labels visible at all times.",
+    },
+    {
+      question: "The lesson applies the 'foot in the door' principle to form field sequencing. What does that principle recommend for ordering fields?",
+      options: [
+        "Ask for the most sensitive field (like budget or phone number) first, so only serious visitors continue",
+        "Randomize field order on every page load to prevent bot form-fills",
+        "Start with easy, low-commitment fields like name, then build toward sensitive ones like phone number and budget last",
+        "Group all fields alphabetically regardless of sensitivity",
+      ],
+      correct: 2,
+      explanation: "The lesson borrows the 'foot in the door' principle from social psychology: small commitments pave the way for larger ones, so forms should start with name, then email, then phone, saving budget or company-size questions for last once the visitor is already invested.",
     },
   ],
 
@@ -7000,6 +7066,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Not all friction is bad. Intentional friction is useful when it qualifies leads (making sure only high-intent buyers fill out B2B forms) or prevents destructive actions (like a 'Are you sure you want to delete this?' modal). Good friction serves the user or business goals, whereas bad friction adds pointless work.",
     },
+    {
+      question: "A Venture Harbour case study cited in the lesson found that removing form fields caused a 14% drop in conversions for one client. What lesson does the friction audit methodology draw from this?",
+      options: [
+        "Form fields should never be removed under any circumstances",
+        "Friction audits identify candidates for testing, not guaranteed fixes; the removed fields had been reassuring users they would get something valuable in return",
+        "The client's traffic source was low-quality and skewed the results",
+        "Session recordings are unreliable and should be replaced with exit surveys",
+      ],
+      correct: 1,
+      explanation: "The lesson uses this counter-intuitive case to stress that friction audits surface hypotheses, not certainties. Removing those fields cut perceived value for users, so every proposed fix still needs an A/B test before being declared a win.",
+    },
   ],
 
   "cro/hero-formula": [
@@ -7046,6 +7123,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The Ofspace 2024 study showed that 25% of startup hero sections suffered from mobile usability issues, primarily pushing the call-to-action button below the fold on mobile screens. A high-converting mobile layout must place the key action button where it is visible immediately without requiring scrolling.",
+    },
+    {
+      question: "In the Obama for America 2008 hero-section test described in the lesson, what was the surprising result of testing images against videos as the contextual visual?",
+      options: [
+        "Videos outperformed images in every combination tested",
+        "All image variants beat all video variants, contrary to the campaign team's own prediction, lifting signup rate from 8.26% to 11.6%",
+        "There was no measurable difference between images and videos",
+        "Only a video featuring the candidate himself outperformed the images",
+      ],
+      correct: 1,
+      explanation: "The campaign staff expected video to win, but the full-factorial test showed every image variant outperformed every video variant, a 40.6% signup lift that the lesson uses to warn against assuming a visual format wins without testing it.",
     },
   ],
 
@@ -7094,6 +7182,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 0,
       explanation: "Data from SEO Sherpa's landing page benchmarks reveals that personalized CTAs (which match the user's specific referring context, channel, or demographics) convert 202% higher than standard, generic button text. Alignment between referring ads or emails and the landing page copy increases trust and relevance.",
     },
+    {
+      question: "According to HubSpot's internal research cited in the lesson, what is the key insight behind why companies with 40+ dedicated landing pages saw 500% more conversions than those with fewer than 5?",
+      options: [
+        "More pages automatically improve a domain's SEO ranking regardless of content",
+        "Message match: each page's headline mirrors the language of the specific ad or email that sent the traffic, so visitors immediately feel they are in the right place",
+        "Having more pages allows a single homepage to be removed entirely",
+        "Each additional page increases the total number of CTAs a visitor can click",
+      ],
+      correct: 1,
+      explanation: "The lesson's key insight is message match: when a dedicated page's headline echoes the referring ad or email, visitors trust they clicked the right link. A mismatch, like an ad promising a free tool but landing on a generic welcome page, makes visitors assume they made a mistake and leave.",
+    },
   ],
 
   "cro/mobile-cro": [
@@ -7141,6 +7240,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "In the Vodafone case study, the team improved mobile Largest Contentful Paint (LCP) by 31%, resulting in a direct 8% lift in sales. This highlights that mobile page performance is a primary CRO variable and directly impacts commercial revenue.",
     },
+    {
+      question: "What is the minimum tap target size the lesson specifies for mobile CTAs and interactive elements, and why does it matter?",
+      options: [
+        "24x24 CSS pixels, matching desktop click-target conventions",
+        "44x44 CSS pixels, the Apple Human Interface Guidelines and WCAG 2.5.5 standard, because smaller targets cause mis-taps that lead to exits",
+        "60x60 CSS pixels, to match the size of a typical adult thumb exactly",
+        "There is no fixed minimum; target size should scale with screen resolution only",
+      ],
+      correct: 1,
+      explanation: "The lesson specifies 44x44 CSS pixels as the minimum, citing Apple's Human Interface Guidelines and WCAG 2.5.5. Mobile interaction uses an imprecise thumb rather than a precise cursor, so undersized targets cause mis-taps that directly translate into abandoned sessions.",
+    },
   ],
 
   "cro/urgency-design": [
@@ -7187,6 +7297,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Cracku achieved a 300% lift by anchoring the countdown timer to a real price increase date that was strictly enforced. The lift succeeded because of credibility; users knew the price hikes were genuine, reinforcing the urge to act before the deadline.",
+    },
+    {
+      question: "What did the 2025 FTC settlement against Amazon, described in the lesson's regulatory section, specifically penalize?",
+      options: [
+        "Amazon's use of countdown timers on Lightning Deals that expired accurately",
+        "Deceptive interface designs in the Prime sign-up and cancellation flow, including confusing cancellation steps and misleading urgency cues, resulting in a $2.5 billion settlement",
+        "Amazon's decision to stop using scarcity messaging on its product listings entirely",
+        "A failure to disclose sponsored product placements in search results",
+      ],
+      correct: 1,
+      explanation: "The FTC's complaint targeted Amazon's 'Iliad flow', deceptive design in Prime enrollment and cancellation that included misleading urgency cues. The $2.5 billion settlement, the largest civil penalty in an FTC rule-violation case, shows urgency-design dark patterns now carry real regulatory risk.",
     },
   ],
 
@@ -17937,6 +18058,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Guided, checklist-driven setup loops with celebration animations reduce initial setup confusion, helping users reach their first value milestone quickly and boosting activation.",
     },
+    {
+      question: "A furniture retailer's split test across 50,000 orders compared the same upsell offer shown immediately after payment versus lower on the thank-you page. What did the result reveal about post-purchase timing?",
+      options: [
+        "There was no meaningful difference between the two placements",
+        "The pre-thank-you-page placement converted at 9.2%, nearly triple the 3.4% rate of the same offer shown after the thank-you page",
+        "The thank-you-page placement outperformed because customers had more time to consider the offer",
+        "Both placements underperformed compared to sending the upsell as a follow-up email",
+      ],
+      correct: 1,
+      explanation: "The moment right after payment confirms, before the customer's attention drifts, is the highest-intent window in the post-purchase flow. The test showed the identical offer nearly tripled its conversion rate simply by moving earlier in the sequence.",
+    },
   ],
 
   "brand-strategy/narrative-transport-branding": [
@@ -18637,6 +18769,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Testing without research leads to random changes. CRO starts with qualitative and quantitative research to identify the specific friction points that are most worth solving.",
     },
+    {
+      question: "A CRO team is deciding between two test ideas: a full page redesign (high impact, high effort) and shortening a form (high impact, low effort). Using the Testing Priority Matrix, which should they run first?",
+      options: [
+        "The page redesign, because higher effort signals a more serious commitment to testing",
+        "The form shortening, because it lands in the 'Quick Wins' quadrant of high impact and low effort",
+        "Both simultaneously, since impact is equal",
+        "Neither, until statistical significance is guaranteed in advance",
+      ],
+      correct: 1,
+      explanation: "The Testing Priority Matrix scores ideas on impact and effort. High-impact, low-effort changes fall into 'Quick Wins' and should be run first, while high-effort items like a full redesign belong in 'Plan Carefully.'",
+    },
   ],
 
   "cro/cro-research": [
@@ -18663,6 +18806,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       options: ["Heatmaps alone", "Only user interviews", "Quantitative data (analytics, funnels) combined with qualitative data (recordings, surveys, interviews)", "Competitor audits only"],
       correct: 2,
       explanation: "Quant data tells you WHERE users drop off; qual data tells you WHY. Combining both surfaces the full picture needed to prioritise high-impact experiments.",
+    },
+    {
+      question: "In Stage 3 of the research playbook, a team writes: 'We think adding trust badges will help.' Why does this fail as a proper CRO hypothesis?",
+      options: [
+        "It is too short to be tested statistically",
+        "It skips the required 'because [research finding]' clause, so it isn't tied to actual evidence from Stage 2",
+        "Trust badges can never be tested with A/B tests",
+        "It does not mention a specific tool like VWO or Optimizely",
+      ],
+      correct: 1,
+      explanation: "A valid hypothesis follows the format 'Because [specific research finding], we believe [change] will [outcome] for [segment].' A statement with no evidence behind it is a guess, not a hypothesis grounded in Stage 2 diagnosis.",
     },
   ],
 
@@ -18691,6 +18845,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Every additional step requires mental effort and introduces another opportunity to abandon. Reducing steps lowers cognitive load - the mental cost of completing the task - making completion more likely.",
     },
+    {
+      question: "According to Baymard's research cited in the lesson, what is the gap between the median number of checkout form fields sites actually use and the number actually needed?",
+      options: [
+        "The median site uses 8 fields and needs 14.88",
+        "The median site uses 14.88 fields but only needs 8 to fulfill an order",
+        "There is no meaningful gap; most sites are already optimized",
+        "The median site uses 20 fields and needs 25",
+      ],
+      correct: 1,
+      explanation: "Baymard's research shows the median US checkout asks for 14.88 form fields when only 8 are actually needed to complete an order, meaning most checkouts carry roughly 7 unnecessary fields that add friction.",
+    },
   ],
 
   "cro/cro-vs-growth-experiments": [
@@ -18717,6 +18882,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       options: ["The CRO test results were invalid", "A growth constraint exists elsewhere in the funnel - such as traffic volume or upstream acquisition - that is capping total revenue", "CRO can never impact revenue directly", "The 15% lift is too small to matter"],
       correct: 1,
       explanation: "CRO addresses one part of the system. If conversion improves but revenue doesn't, the bottleneck has moved - likely to acquisition volume, offer-market fit, or retention. Growth thinking requires a systems view.",
+    },
+    {
+      question: "Booking.com and Airbnb both run large-scale experimentation programs, but the lesson uses them to illustrate different concepts. What is that distinction?",
+      options: [
+        "Booking.com only tests mobile; Airbnb only tests desktop",
+        "Booking.com illustrates CRO and growth run as separate parallel tracks; Airbnb illustrates a growth experiment (platform-mix shift) that later spawned downstream CRO work",
+        "Both companies only ever run growth experiments, never CRO",
+        "Airbnb's example shows CRO can never affect revenue",
+      ],
+      correct: 1,
+      explanation: "Booking.com's structure shows CRO and growth as separately owned, parallel tracks. Airbnb's app-first push was a growth experiment testing platform mix; once validated, CRO teams then optimized onboarding and booking screens within that new context.",
     },
   ],
 
@@ -18745,6 +18921,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "MVT is justified only when you have ample traffic AND need to understand how multiple elements interact - the insights are richer but the traffic cost is substantially higher than A/B.",
     },
+    {
+      question: "A site has 100k+ monthly visitors and wants to test 3 headline variants and 3 CTA variants together as an MVT. Per the lesson's decision flowchart, what determines whether this is still a viable MVT?",
+      options: [
+        "Whether the site has ever run an A/B test before",
+        "Whether the total combinations (3 x 3 = 9) stay under the 16-combination cap",
+        "Whether the CTA and headline are on the same page",
+        "Whether the test is running on mobile or desktop",
+      ],
+      correct: 1,
+      explanation: "The decision flowchart's final gate checks whether total combinations (variants per element multiplied together) stay under 16. Here 3 x 3 = 9 combinations, which is under the cap, so MVT remains viable given sufficient traffic.",
+    },
   ],
 
   "cro/personalization-cro": [
@@ -18771,6 +18958,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       options: ["The banners will not display correctly on mobile", "Without a control, there is no way to know if the personalisation is actually improving or harming conversion for each segment", "Personalisation always reduces conversion rate", "ESP deliverability will be affected"],
       correct: 1,
       explanation: "Personalisation without a test or control group is an untested change. Without measurement, you can't know if segmented experiences outperform the baseline - or if resources were wasted.",
+    },
+    {
+      question: "In the Four-Stage Personalization Playbook, what is the purpose of 'Stage 2: Choose your signal'?",
+      options: [
+        "To decide which analytics tool to install",
+        "To identify the data point (UTM parameter, cookie, CRM data, or IP enrichment) that tells the page which segment a visitor belongs to",
+        "To pick the winning variant after a test concludes",
+        "To calculate the required sample size for statistical significance",
+      ],
+      correct: 1,
+      explanation: "The signal is what tells the page which segment it is dealing with before it can serve tailored content. The lesson identifies four signal types: UTM parameters, cookies/session data, CRM data, and IP-based company enrichment.",
     },
   ],
 
@@ -18799,6 +18997,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Early significance on a fraction of the required sample is a classic false positive. The pre-planned sample size exists precisely to protect against random fluctuations that temporarily look significant.",
     },
+    {
+      question: "A team runs an A/B/C/D test with four variants instead of a standard two-variant test. What adjustment does this require?",
+      options: [
+        "No adjustment is needed since total traffic is the same",
+        "The sample size must be increased upward or the significance threshold adjusted downward (Bonferroni correction) to maintain the same statistical power",
+        "The test should automatically run twice as long regardless of traffic",
+        "Only the winning variant needs a sample size calculation",
+      ],
+      correct: 1,
+      explanation: "Testing multiple variants simultaneously increases the chance of a false positive across all the comparisons being made, so without raising sample size or tightening the significance threshold (Bonferroni correction), a multi-variant test loses the statistical power a two-variant test would have at the same traffic.",
+    },
   ],
 
   "cro/speed-and-cro": [
@@ -18826,6 +19035,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Page speed is a confirmed Google ranking factor. Faster pages rank higher in organic search, driving more traffic - so speed improvements compound by both increasing traffic and improving conversion of that traffic.",
     },
+    {
+      question: "A site scores 95 on PageSpeed Insights for its homepage but 42 for its checkout page. According to the lesson, what should the team do?",
+      options: [
+        "Treat the homepage score as representative of the whole site's speed",
+        "Audit and optimize every page in the conversion funnel separately, since conversions happen on product, landing, and checkout pages, not the homepage",
+        "Ignore the checkout score since checkout pages are naturally slower",
+        "Only fix the checkout page after the next scheduled quarterly audit",
+      ],
+      correct: 1,
+      explanation: "The lesson's first Common Mistake warns that a high homepage score is meaningless if conversion pages like checkout score poorly, since actual revenue is won or lost on those pages, not the homepage, so every funnel page must be measured and optimized on its own.",
+    },
   ],
 
   "cro/trust-signals": [
@@ -18852,6 +19072,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       options: ["Price sensitivity", "Perceived risk of loss - the fear that the product won't deliver on its promise", "Brand awareness", "Technical usability friction"],
       correct: 1,
       explanation: "Guarantees reduce perceived risk. Loss aversion (Kahneman) means the fear of a bad purchase outweighs the desire for a good one - a guarantee transfers that risk from buyer to seller, removing the barrier.",
+    },
+    {
+      question: "Under the FTC's October 2024 rule on fake and misleading reviews, what is the consequence for a company that fabricates or incentivizes reviews to build trust signals?",
+      options: [
+        "A warning letter with 90 days to remove the reviews",
+        "A federal penalty of $53,088 per violation",
+        "Automatic removal from search engine indexes",
+        "A civil lawsuit filed only by competitors, not the government",
+      ],
+      correct: 1,
+      explanation: "The lesson states the FTC's October 21, 2024 rule carries a $53,088 per-violation penalty (inflation-adjusted from $51,744) for fake or misleading reviews, meaning trust signals must be earned authentically or they become a direct legal liability rather than a conversion asset.",
     },
   ],
 
@@ -21593,6 +21824,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Repeating a small, high-ability behavior over the first few days builds a neural pathway, making the action feel automatic by day 7. This is the 'tiny habits' mechanism, small repetitions eliminate resistance rather than relying on motivation or rewards.",
     },
+    {
+      question: "According to Fogg's model, when should a marketer use a 'spark' prompt rather than a 'facilitator' or 'signal' prompt?",
+      options: [
+        "When both motivation and ability are already high",
+        "When motivation is low but ability is high, since the prompt needs to increase motivation rather than reduce friction",
+        "When ability is low but motivation is high, since the prompt needs to reduce friction",
+        "Sparks should be used interchangeably with facilitators in every scenario",
+      ],
+      correct: 1,
+      explanation: "A spark prompt is designed for the case where a user has the ability to act easily but lacks the motivation to do so, so the prompt's job is to raise motivation (e.g. social proof showing others just signed up), whereas a facilitator instead lowers friction for a highly motivated but low-ability user.",
+    },
   ],
   "cro/saas-cro": [
     {
@@ -21639,6 +21881,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Negative net revenue churn occurs when expansion MRR (upsells and seat additions from existing accounts) exceeds the revenue lost from churned customers, meaning the existing customer base grows on its own.",
     },
+    {
+      question: "According to the lesson, why does a 25% lift in in-app activation rate matter more to a SaaS company than an equivalent lift in top-of-funnel traffic?",
+      options: [
+        "Because activation lifts require no engineering resources to implement",
+        "Because a 25% lift in in-app activation rate produces a 34% lift in revenue, making activation the highest-ROI investment area in SaaS CRO",
+        "Because traffic lifts are capped by ad platform policies",
+        "Because activation is the only stage of the funnel that can be A/B tested",
+      ],
+      correct: 1,
+      explanation: "The lesson states a 25% lift in in-app activation rate produces a 34% lift in revenue, which is why it identifies activation, not acquisition, as the single highest-ROI investment in SaaS CRO, since improving the moments already-acquired users experience compounds more directly into revenue.",
+    },
   ],
   "cro/social-proof-engineering": [
     {
@@ -21684,6 +21937,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "Friends/network social proof converts highest because trust is strongest from people you personally know, referral rates are 4x higher than cold traffic. However, it requires personalization (named friends or colleagues) and cannot be manufactured, making it the hardest type to scale.",
+    },
+    {
+      question: "A team wants to run a rigorous social proof testing program. Per the lesson's testing framework, what order should they test in, and why?",
+      options: [
+        "Proof type, then placement, then quantity, then design, because this isolates the highest-impact factors before optimizing lower-impact ones",
+        "Design, then quantity, then placement, then proof type, because visual polish should be locked in first",
+        "All four variables simultaneously in one multivariate test, to save time",
+        "Quantity first, since more testimonials always outperform fewer regardless of type or placement",
+      ],
+      correct: 0,
+      explanation: "The lesson specifies a sequence, proof type, then placement, then quantity, then design, so that each test isolates and locks in the largest lever before spending test cycles on smaller ones like design polish.",
     },
   ],
   "email/ai-email-personalization-scale": [
@@ -26759,6 +27023,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Below 20% trial-to-paid, the lesson says to stop testing the paywall and fix onboarding instead, since the leak is almost always before the user ever sees a price.",
     },
+    {
+      question: "According to RevenueCat's 2026 data cited in the lesson, how much does trial length change conversion, and what is the comparison?",
+      options: [
+        "It has no measurable effect; trial-to-paid conversion is driven entirely by onboarding",
+        "17-32 day trials convert at 42.5% versus 25.5% for trials under 4 days, a 67% difference",
+        "Longer trials always convert worse because users forget to pay",
+        "Trial length only matters for gaming apps, not other categories",
+      ],
+      correct: 1,
+      explanation: "The lesson cites RevenueCat's 2026 data showing 17-32 day trials converting at 42.5% versus 25.5% for trials under 4 days, a 67% swing the lesson calls a lever with no real web-CRO equivalent hiding in a single settings change.",
+    },
   ],
   "cro/cro-cancellation-retention-flows": [
     {
@@ -26804,6 +27079,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The lesson says pause beats discount for inactivity-driven cancellations: a one-click pause resolves the churn reason without touching price and is reported as the highest-converting non-price offer.",
+    },
+    {
+      question: "Per the lesson, what is the 'number-one pattern' that regulators specifically cite as coercive in cancellation flow design?",
+      options: [
+        "Offering any discount at all during cancellation",
+        "Making a second retention offer after the customer has already declined the first one on the same visit",
+        "Asking the customer why they are leaving",
+        "Displaying the cancel button in a different color than other buttons",
+      ],
+      correct: 1,
+      explanation: "The lesson's 'no repeat asks' rule states that if the customer declines the offer, the flow must cancel immediately, a second offer on the same visit is the number-one pattern regulators cite as coercive.",
     },
   ],
   "cro/micro-conversions-assisted-paths": [
@@ -26851,6 +27137,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "The lesson notes that content like a blog post earning five email opens across a week gets zero credit under last-click, even though it may be doing more work than the ad that happened to run last.",
     },
+    {
+      question: "In the lesson's scoring framework, why does step 4 call for re-testing the point weights quarterly instead of setting them once?",
+      options: [
+        "Quarterly re-testing is required by Google Analytics' terms of service",
+        "Lift shifts as product, pricing, and traffic mix change, so a score built months earlier can go stale",
+        "Points must be recalculated because user IDs expire every 90 days",
+        "Quarterly testing is only needed if the company adds new micro-conversions",
+      ],
+      correct: 1,
+      explanation: "The lesson warns that lift shifts as your product, pricing, and traffic mix change, a score built in January can be stale by June, so the weights need periodic revalidation, not a one-time setup.",
+    },
   ],
   "cro/statistical-pitfalls-in-cro": [
     {
@@ -26896,6 +27193,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The lesson's key takeaway is that all three failure modes are fixed the same way: deciding the metric, sample size, end date, and traffic allocation before the test starts, not after seeing the data.",
+    },
+    {
+      question: "Per the lesson's comparison table, what is the key tradeoff between the Bonferroni and Benjamini-Hochberg corrections for multiple comparisons?",
+      options: [
+        "Bonferroni controls the family-wise error rate conservatively, while Benjamini-Hochberg controls the false discovery rate with more detection power for screening many variants",
+        "Bonferroni is only valid for Bayesian tests, while Benjamini-Hochberg is only valid for frequentist tests",
+        "Benjamini-Hochberg eliminates the need to set a primary metric before launch",
+        "Bonferroni increases alpha as more tests are added, while Benjamini-Hochberg decreases it",
+      ],
+      correct: 0,
+      explanation: "The lesson explains Bonferroni divides alpha by the number of comparisons to control the probability of any false positive (conservative), while Benjamini-Hochberg accepts a controlled share of false discoveries in exchange for more power when screening many variants.",
     },
   ],
   "email/frequency-send-time-optimization": [
