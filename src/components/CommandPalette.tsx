@@ -32,6 +32,14 @@ const TYPE_BADGE: Record<CommandEntry["type"], { label: string; style: React.CSS
       border: "1px solid rgba(22, 163, 74, 0.3)",
     },
   },
+  track: {
+    label: "Track",
+    style: {
+      background: "rgba(234, 88, 12, 0.15)",
+      color: "rgba(234, 88, 12, 0.9)",
+      border: "1px solid rgba(234, 88, 12, 0.3)",
+    },
+  },
   nav: {
     label: "Nav",
     style: {

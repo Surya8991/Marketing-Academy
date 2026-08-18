@@ -41,7 +41,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { CheckCircle2, XCircle, Trophy, RotateCcw, ChevronRight, AlertCircle } from "lucide-react";
-import { markComplete, lessonId } from "@/lib/progress";
+import { markComplete, getCompleted, lessonId } from "@/lib/progress";
 import type { Quiz } from "@/lib/quizzes";
 import { setQuizPassed, setTrackQuizPassed } from "@/lib/quizzes";
 import { addXP, ENGAGEMENT_EVENT, type EngagementState } from "@/lib/engagement";
@@ -196,12 +196,22 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
   function markAll() {
     setMarking(true);
     const eligible = eligibleLessons();
+    // Rule 36's "completions are farmable" note: addXP()'s own dedup is only a
+    // rolling 24h window, so a lesson completed more than a day ago and then
+    // retaken via a track quiz re-award would otherwise farm XP indefinitely.
+    // Skip addXP for anything already in getCompleted() before this attempt —
+    // markComplete()/setQuizPassed() still run for all eligible lessons so an
+    // un-completed-then-recompleted lesson's gate stays correctly unlocked.
+    const alreadyCompleted = getCompleted();
     let latestState: EngagementState | null = null;
     for (const l of eligible) {
       const id = lessonId(l.category, l.slug);
+      const wasAlreadyDone = alreadyCompleted.has(id);
       markComplete(id);
       setQuizPassed(l.category, l.slug); // Stage 1.4: keeps TrackLessonList/MarkComplete's gate unlocked
-      latestState = addXP("complete", id);
+      if (!wasAlreadyDone) {
+        latestState = addXP("complete", id);
+      }
     }
     setTrackQuizPassed(trackSlug); // Stage 0.4/16.6: certificate gate checks this
     if (latestState) {

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ExternalLink, BookOpen, Users } from "lucide-react";
 import { RESOURCES, BOOKS, COMMUNITIES } from "@/lib/resources";
+import PageMasthead from "@/components/PageMasthead";
 
 export const metadata: Metadata = {
   title: "Curated Resources | Marketing Academy",
@@ -34,20 +35,26 @@ export default function ResourcesPage() {
   const categories = Array.from(new Set(RESOURCES.map((r) => r.category)));
 
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <>
+      <PageMasthead
+        left="Marketing Academy · Library"
+        right={`${RESOURCES.length} resources · ${BOOKS.length} books · ${COMMUNITIES.length} communities`}
+      />
+
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14 font-ui-sans">
       <style dangerouslySetInnerHTML={{ __html: hoverCSS }} />
 
       {/* Hero */}
       <div className="mb-14">
-        <p className="text-sm font-semibold text-[var(--accent)] uppercase tracking-wider mb-3">
-          Library
+        <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--accent)] mb-1.5">
+          No filler, no affiliate spam
         </p>
-        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1] mb-5">
+        <h1 className="font-display font-semibold text-4xl sm:text-5xl mb-5 text-balance">
           Curated marketing resources.
         </h1>
         <p className="text-lg text-[var(--muted-foreground)] leading-relaxed">
-          Every newsletter, blog, channel, and community we actually recommend. No filler, no
-          affiliate spam. Tiered by how often you should check them: daily, weekly, deep-read,
+          Every newsletter, blog, channel, and community we actually recommend.
+          Tiered by how often you should check them: daily, weekly, deep-read,
           or single-use tool.
         </p>
       </div>
@@ -84,7 +91,7 @@ export default function ResourcesPage() {
       <div className="space-y-12">
         {categories.map((cat) => (
           <section key={cat}>
-            <h2 className="text-2xl font-bold mb-4">{cat}</h2>
+            <h2 className="font-display font-semibold text-2xl mb-4">{cat}</h2>
             <div className="space-y-2">
               {RESOURCES.filter((r) => r.category === cat).map((r) => {
                 const tier = TIER_STYLES[r.tier];
@@ -133,10 +140,10 @@ export default function ResourcesPage() {
 
       {/* Books */}
       <section className="mt-16 mb-14">
-        <p className="text-sm font-semibold text-[var(--accent)] uppercase tracking-wider mb-2">
+        <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--accent)] mb-2">
           Reading list
         </p>
-        <h2 className="text-2xl font-bold mb-1">Books (1 per month)</h2>
+        <h2 className="font-display font-semibold text-2xl mb-1">Books (1 per month)</h2>
         <p className="text-sm text-[var(--muted-foreground)] mb-6">
           Five books that pay back the reading time. Sequence matters - do them in month order.
         </p>
@@ -170,10 +177,10 @@ export default function ResourcesPage() {
 
       {/* Communities */}
       <section className="mb-14">
-        <p className="text-sm font-semibold text-[var(--accent)] uppercase tracking-wider mb-2">
+        <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--accent)] mb-2">
           Network
         </p>
-        <h2 className="text-2xl font-bold mb-1">Communities</h2>
+        <h2 className="font-display font-semibold text-2xl mb-1">Communities</h2>
         <p className="text-sm text-[var(--muted-foreground)] mb-6">
           Join two, not seven. Every Slack you join is a tax on your attention.
         </p>
@@ -207,5 +214,6 @@ export default function ResourcesPage() {
         </div>
       </section>
     </div>
+    </>
   );
 }

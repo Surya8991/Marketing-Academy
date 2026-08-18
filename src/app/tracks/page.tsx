@@ -4,10 +4,16 @@ import TracksPageClient from "@/components/TracksPageClient";
 import PageMasthead from "@/components/PageMasthead";
 import type { Metadata } from "next";
 
+// Session 85 branch-cleanup follow-up: this used to be a hardcoded "22...8...14"
+// string that drifted stale as tracks were added (real count reached 24). Derive
+// it live from TRACKS so it can never drift again, same pattern as the page body.
+const roleTrackCount = TRACKS.filter((t) => t.kind === "role").length;
+const masteryTrackCount = TRACKS.filter((t) => t.kind === "mastery").length;
+
 export const metadata: Metadata = {
   title: "Learning Tracks | Marketing Academy",
   description:
-    "22 curated learning paths: 8 role-based tracks built for your job title, plus 14 skill mastery tracks that go deep on one discipline. Pick the path that matches how you learn.",
+    `${TRACKS.length} curated learning paths: ${roleTrackCount} role-based tracks built for your job title, plus ${masteryTrackCount} skill mastery tracks that go deep on one discipline. Pick the path that matches how you learn.`,
 };
 
 export default function TracksPage() {

@@ -9,12 +9,16 @@
  * (loading, in-progress, and finished) so that scroll target always resolves,
  * even for a learner who already attempted and failed the quiz once.
  *
- * Pass/fail (PROJECTS_PLAN.md Stage 1.6, decided 75%, see AGENTS.md note):
- *   - Requires 3 of 4 correct (75%) to dispatch QUIZ_PASSED_EVENT.
- *   - The plan's literal "80%" is unreachable on a 4-question quiz (only
- *     0/25/50/75/100% are possible scores), so 75% is the threshold that
- *     actually delivers "one missed question shouldn't force a retry."
- *   - Below 75%, a fail screen shows with a "Try Again" button.
+ * Pass/fail (PROJECTS_PLAN.md Stage 1.6 + Stage 10.2, see AGENTS.md note):
+ *   - Requires 4 of 5 correct (80%) to dispatch QUIZ_PASSED_EVENT, now that
+ *     every lesson has 5 questions (Stage 10.1, completed Session 85).
+ *   - Before Stage 10.1, quizzes had only 4 questions, where the plan's
+ *     literal "80%" was unreachable (only 0/25/50/75/100% were possible
+ *     scores), so 75% (3 of 4) was used as the threshold that delivered
+ *     "one missed question shouldn't force a retry." With 5 questions, 80%
+ *     (4 of 5) delivers the identical forgiveness behavior exactly, so the
+ *     threshold moved from 0.75 to 0.8, not the semantics.
+ *   - Below 80%, a fail screen shows with a "Try Again" button.
  *
  * Answer reveal timing (PROJECTS_PLAN.md Stage 1.2, decided):
  *   - Correctness and explanations are shown ONLY after the whole quiz is
@@ -43,7 +47,7 @@
  *
  * Progress persistence:
  *   - Only the FINISHED result is persisted (there was never mid-quiz resume,
- *     progress is only saved once all 4 questions are answered), under
+ *     progress is only saved once all 5 questions are answered), under
  *     quizStorageKey(pathname), so the same result shows after a reload.
  *   - Quiz pass flag is saved under ma_quiz_pass_{category}_{slug}.
  *   - On mount, if the quiz is already passed, the finished screen shows
@@ -64,8 +68,8 @@ type Props = {
   slug: string;
 };
 
-/** 3 of 4 correct required to pass, see the threshold note in the file docstring. */
-const PASS_THRESHOLD = 0.75;
+/** 4 of 5 correct required to pass, see the threshold note in the file docstring. */
+const PASS_THRESHOLD = 0.8;
 
 /** Fisher-Yates, NOT sort(() => Math.random() - 0.5): the comparator trick is
  *  measurably biased and, on a small array, leaves the original order far

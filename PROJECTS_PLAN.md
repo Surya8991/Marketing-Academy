@@ -355,12 +355,14 @@ Content rewrite **first**, then projects and `InAction` scenarios authored again
 
 #### Stage 10, expand every lesson quiz to 5 questions
 
-| # | Item | Where | Why last |
+**✅ STAGE 10 IS FULLY COMPLETE (Session 85).** All 4 sub-items done and verified.
+
+| # | Item | Where | Status |
 |---|---|---|---|
-| **10.1** | Author one new, lesson-accurate question (correct answer + 3 plausible distractors + explanation) for all 642 lessons, 4 → 5 questions each | `src/lib/quizzes.ts` | 642 net-new questions is a content-authoring project, not a code change, each one needs to be factually grounded in its specific lesson (can't be bulk-generated safely per this repo's content-quality rules) |
-| **10.2** | Update `PASS_THRESHOLD` in `Quiz.tsx` and `TrackQuizPageClient.tsx` from 0.75 (3 of 4) to 0.8 (4 of 5) | `Quiz.tsx`, `TrackQuizPageClient.tsx` | With 5 questions, 80% is exactly reachable (4/5) and delivers the same "one wrong answer is forgiven" behavior the 75%/4-question fix already gives today, this is why 10.1 is not itself blocking Stage 1 |
-| **10.3** | Update `PER_LESSON_MIN`-adjacent counts, `TRACK_QUIZZES` pooling math, and every "4 questions"/"4/4" reference in code comments and AGENTS.md (Rule 25 among them) | repo-wide grep | Stale references would misdescribe the quiz shape once this ships |
-| **10.4** | Re-run the position-dependent-option scan (18.7 / F10) against the expanded ~10,300-option set before enabling shuffling on the new questions | `quizzes.ts` | The Stage 1.3 scan only covers the original 4-question set; new questions could introduce a fresh "All of the above" |
+| **10.1** | Author one new, lesson-accurate question (correct answer + 3 plausible distractors + explanation) for all 642 lessons, 4 → 5 questions each | `src/lib/quizzes.ts` | ✅ **Done.** 642 net-new questions, one per lesson, authored across 21 category batches (5-lesson agent pairs per category, same pipeline as Stage 8/9's project authoring). Confirmed via direct `QUIZZES` scan: 642 keys, every one with exactly 5 questions. New `scripts/merge-quiz-questions.mjs` built for this stage (bracket-depth-matched insertion into the single large file, handles a pre-existing missing-trailing-comma quirk on some arrays). `tsc`/lint/`npm test`/`npm run build` verified clean after every category. |
+| **10.2** | Update `PASS_THRESHOLD` in `Quiz.tsx` and `TrackQuizPageClient.tsx` from 0.75 (3 of 4) to 0.8 (4 of 5) | `Quiz.tsx`, `TrackQuizPageClient.tsx` | ✅ **Done.** `Quiz.tsx`'s `PASS_THRESHOLD` updated 0.75 → 0.8, docstring rewritten to explain the 4-question/5-question equivalence. `TrackQuizPageClient.tsx` already used 0.8 from an earlier session, no change needed there. |
+| **10.3** | Update `PER_LESSON_MIN`-adjacent counts, `TRACK_QUIZZES` pooling math, and every "4 questions"/"4/4" reference in code comments and AGENTS.md (Rule 25 among them) | repo-wide grep | ✅ **Done.** `TrackQuizPageClient.tsx` pools dynamically already (no hardcoded 4-question assumption found). Fixed stale references in AGENTS.md (Rule 25's "4/4 correct", Rule 41's "~4 questions"/"2,252 questions"/"8,341 option strings") and README.md (features list + Key Files table). |
+| **10.4** | Re-run the position-dependent-option scan (18.7 / F10) against the expanded ~10,300-option set before enabling shuffling on the new questions | `quizzes.ts` | ✅ **Done.** Grepped the full merged file for "all/none of the above" after every category merge (30 checks total, always 0 matches) and once more at the end across the complete 12,840-option-string set. Zero position-dependent options introduced by the 642-question batch. |
 
 **Origin:** raised during Stage 1 execution (2026-08-12) as an alternative to the 75%/4-question threshold fix. Decided to ship the 4-question/75% fix immediately (zero content risk, functionally equivalent forgiveness: exactly one wrong answer passes either way) and treat the question-count expansion as this separate, explicitly-scoped stage rather than block Stage 1 on writing 642 new quiz questions.
 
@@ -368,15 +370,26 @@ Content rewrite **first**, then projects and `InAction` scenarios authored again
 
 #### Stage 11, owner-requested UX pass on Skill Map / Achievements / Resources (queued Session 85, execute after Stage 10)
 
-Owner request, mid-Stage-9.3 execution: "improve Skill Maps, Achievements & Resources... after last stage." Queued here rather than interrupting the Stage 9/10 content backlog. Scope not yet defined in detail — first step when this stage starts is a short audit of `/skill-map`, `/achievements`, and `/resources` (current UX, what's dated/thin/confusing) before deciding concrete changes, the same pattern used to scope Stage 8.3b before executing it.
+**✅ STAGE 11 IS COMPLETE (Session 85).**
+
+Owner request, mid-Stage-9.3 execution: "improve Skill Maps, Achievements & Resources... after last stage." Audit found the root cause: all 3 pages predated the 2026-08-12 "field manual" type-system redesign (`font-display`/`font-ui-sans`/`font-data`, `PageMasthead`) that Home/Learn/Tracks/Projects/Tools/About had already received — they were the only major pages still on inline styles and generic system-font headings.
+
+Shipped:
+- **Skill Map**: `PageMasthead` + field-manual type system; new specimen stats row (overall % complete, lessons done, categories cleared, total disciplines); category cards regrouped by discipline (reusing the same `TOPIC_GROUPS` taxonomy just added to Nav.tsx's Topics dropdown, extracted to new `src/lib/topic-groups.ts` so nav and skill map can't drift apart) instead of one flat sorted grid; fixed a stale "15 marketing disciplines" metadata string (real count 21).
+- **Achievements**: `PageMasthead` + field-manual type system; specimen stats row; the 12 badges regrouped into 4 labeled sections (Getting Started, Streaks, Practice Projects, Milestones) instead of one flat grid.
+- **Resources**: `PageMasthead` added; field-manual type classes applied to hero and all 3 section headings.
+
+Verification: `tsc --noEmit` clean, lint clean, `npm test` 30/30, `npm run build` clean (all 3 pages confirmed statically generating with no errors).
 
 ---
 
 #### Stage 9.3 (moved here, executes LAST — owner directive, Session 85)
 
+**⚠️ Owner directive (Session 85, second reorder): Stage 9.3's scope is now restricted to 8 categories only — everything else is explicitly SKIPPED for now, not just deprioritized.** In-scope categories: `fundamentals`, `seo`, `paid-ads`, `growth`, `social`, `product-marketing`, `ai-marketing`, `tools`. Every other category with remaining non-track lessons (`content`, `email`, `analytics`, `copywriting`, `cro`, `events-experiential` — including the 20 lessons left after the 8 already done, `affiliate-marketing`, `marketing-leadership`, `legal-compliance`) is out of scope until the owner says otherwise. When 9.3 resumes, work only the 8 listed categories, in whatever order still needs authoring within them, and stop there.
+
 | # | Item | Section | Status |
 |---|---|---|---|
-| **9.3** | Remaining 402 non-track lessons, ~800 projects | 0.2 | 🔄 **8/28 done in `events-experiential` (Session 85), then PAUSED here per owner directive to run last, after Stage 10 and 11.** New tooling built for this stage: `scripts/get-category-batch-info.mjs` (get-track-batch-info.mjs's sibling for non-track categories, reads curriculum.ts directly instead of tracks.ts). Also added `Eventbrite` to `tools-directory.ts` (Marketing Automation category) since no event-registration tool existed for this category's projects (Rule 55). One `conceptsCovered` omission caught by `tsc --noEmit` on a teardown-mode project, fixed. Verified: audit, lint, `npm test` (30/30), `npm run build` all clean. Index regenerated: 493 project cards, 19 category modules. Remaining in `events-experiential`: 20 lessons. 3 more categories still at 0: `affiliate-marketing` (20 lessons), `marketing-leadership` (25 lessons), `legal-compliance` (lesson count TBD). Also noted: `track-projects.ts` (track-level "big projects") only covers 1 of 24 tracks (`solo-founder`) — a separate, smaller gap worth revisiting once 9.3 proper resumes. **Estimated 10+ hours of continuous execution remaining at this session's measured pace (~1.5-2 min/lesson, parallel batches)** — expect this to span several more sessions, worked category by category the same way Stage 8.3a worked track by track. |
+| **9.3** | Non-track lessons in the 8 in-scope categories only (`fundamentals`, `seo`, `paid-ads`, `growth`, `social`, `product-marketing`, `ai-marketing`, `tools`) | 0.2 | 🔄 **8/28 done in `events-experiential` (Session 85) — NOTE: `events-experiential` is now OUT OF SCOPE per the owner's category restriction above, so its remaining 20 lessons are not part of the current 9.3 target.** Then PAUSED to run last, after Stage 10 and 11. New tooling built for this stage: `scripts/get-category-batch-info.mjs` (get-track-batch-info.mjs's sibling for non-track categories, reads curriculum.ts directly instead of tracks.ts) — reusable for any of the 8 in-scope categories. Also added `Eventbrite` to `tools-directory.ts` (Marketing Automation category, Rule 55). Verified: audit, lint, `npm test` (30/30), `npm run build` all clean. Index regenerated: 493 project cards, 19 category modules. Also noted: `track-projects.ts` (track-level "big projects") only covers 1 of 24 tracks (`solo-founder`) — a separate, smaller gap, revisit only if it falls within the 8 in-scope categories. Time estimate for the now-narrower scope not yet recomputed; will be lower than the original 10+ hour full-402-lesson estimate since several out-of-scope categories were cut. |
 
 ---
 

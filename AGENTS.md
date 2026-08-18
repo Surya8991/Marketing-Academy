@@ -340,7 +340,7 @@ Every lesson page is locked behind a quiz. There is NO `LessonQuizGate.tsx` moda
 
 Architecture:
 - **`src/components/MarkComplete.tsx`**, `locked = !quizPassed && !done`. When locked, clicking the button calls `document.getElementById("quiz-section")?.scrollIntoView()`, it scrolls to the quiz, it does NOT open a modal.
-- **`src/components/Quiz.tsx`**, the quiz section at the bottom of each lesson. On 4/4 correct, dispatches `QUIZ_PASSED_EVENT` via `window.dispatchEvent`. `MarkComplete` listens to `QUIZ_PASSED_EVENT` and calls `setQuizPassed(category, slug)` then `handleComplete()`.
+- **`src/components/Quiz.tsx`**, the quiz section at the bottom of each lesson. On ≥80% correct (4 of 5, since Stage 10.1 — was 3 of 4 before), dispatches `QUIZ_PASSED_EVENT` via `window.dispatchEvent`. `MarkComplete` listens to `QUIZ_PASSED_EVENT` and calls `setQuizPassed(category, slug)` then `handleComplete()`.
 - **`src/lib/quizzes.ts`** exports `getQuizPassed`, `setQuizPassed`, `QUIZ_PASSED_EVENT` (re-exported from events.ts), `QUIZ_PASS_KEY_PREFIX`, `quizStorageKey`, and `QUIZZES`. `setQuizPassed` writes `ma_quiz_pass_{category}_{slug}` to localStorage.
 - All 516 lessons have entries in `QUIZZES`, never remove entries or make `QUIZZES[key]` return undefined for a registered lesson.
 - Do NOT add `hasQuiz` prop back to `MarkComplete`, it was removed because all lessons now have quizzes.
@@ -459,7 +459,7 @@ A full mechanical audit of all 642 lessons is recorded there with verified count
 **The important false positive:** 165 files write Mermaid node labels as `A[Line one\nLine two]`. That is the **correct required pattern** per Rule 30. Changing it reintroduces a bug that already shipped to production.
 
 ### Rule 40 — Never shuffle `Quiz.options[]` without recomputing `correct`
-`correct` in `src/lib/quizzes.ts` is a **positional index** into `options[]`, not a value (`Quiz.tsx`: `const isCorrect = selected === question.correct`). Shuffling the options array without remapping `correct` silently mis-grades **all 2,252 questions across 642 lessons**: no build error, no runtime error, no type error, since `correct` stays a valid number. Wrong answers get marked correct everywhere. The naive version looks correct in review, which is what makes it dangerous.
+`correct` in `src/lib/quizzes.ts` is a **positional index** into `options[]`, not a value (`Quiz.tsx`: `const isCorrect = selected === question.correct`). Shuffling the options array without remapping `correct` silently mis-grades **all 3,210 questions across 642 lessons** (was 2,252 before Stage 10.1's 4→5-question expansion): no build error, no runtime error, no type error, since `correct` stays a valid number. Wrong answers get marked correct everywhere. The naive version looks correct in review, which is what makes it dangerous.
 
 ```ts
 // CORRECT , pair, shuffle, recompute
@@ -476,12 +476,12 @@ Three further constraints:
 - **Shuffle after mount in `useEffect`**, never during render. `Math.random()` in the render path causes an SSR/client hydration mismatch, and this site already carries one.
 - **Options may reshuffle any time; question order may only reshuffle on retry.** Saved quiz progress is `{ answers: boolean[], total }` indexed positionally, so reordering questions mid-session remaps saved answers onto the wrong questions. `handleRetry()` clears that state first, so retry is safe.
 
-Known blocker, one lesson only: `analytics/consent-mode` has an "All of the above" option. Rewrite it into a concrete statement before enabling shuffling. Audited all 8,341 option strings; it is the only position-dependent option in the library.
+**Fixed** (was: `analytics/consent-mode` had an "All of the above" option; rewritten into a concrete statement in an earlier session). Re-audited the full expanded set after Stage 10.1's 4→5-question rollout (Session 85, Stage 10.4): zero "all/none of the above" option strings anywhere in `quizzes.ts`, across all 12,840 option strings (3,210 questions × 4 options each, up from 8,341 pre-expansion). No new position-dependent options were introduced by the 642 new-question batch (one per lesson).
 
 ### Rule 41 — Never import a large data module into a `"use client"` file
 `Nav.tsx` is `"use client"` and imports `CATEGORIES` from `curriculum.ts`. Measured cost: a **148,426 B raw / 48,020 B gzip** chunk containing all 655 lesson `summary:` fields, shipped on **every route**, when Nav only uses `slug`, `title`, `emoji` and `lessons.length`. Export a slim index instead.
 
-Verified counterexample worth knowing: `quizzes.ts` (1.91 MB) and `lesson-resources.ts` (1.72 MB) correctly do **not** reach the client, because `Quiz.tsx` takes questions as a **prop**, the lesson page is a server component, and `TrackQuizPageClient` uses `import type`. Preserve those boundaries. A learner downloads ~4 questions, not 2,252.
+Verified counterexample worth knowing: `quizzes.ts` (now ~2.4 MB after Stage 10.1's 4→5-question expansion) and `lesson-resources.ts` (1.72 MB) correctly do **not** reach the client, because `Quiz.tsx` takes questions as a **prop**, the lesson page is a server component, and `TrackQuizPageClient` uses `import type`. Preserve those boundaries. A learner downloads ~5 questions, not 3,210.
 
 ### Rule 42 — Every `localStorage` access goes through its `src/lib` module
 `ThemeToggle.tsx:18`, `OnboardingModal.tsx:25` and `LessonNotes.tsx:15` call raw `localStorage` with no try/catch. The first two render inside `layout.tsx`, a layout-level throw is not caught by `error.tsx`, and there is no `global-error.tsx` — so blocked site data (common corporate/Android default) shows Next's raw crash screen on **every page**. Every other storage module guards correctly. Rule 18 already required this; three files violate it.
@@ -845,3 +845,15 @@ Session 85's final Stage 8.3a batch (PR & Communications Mastery) had 2 of 4 par
 - If MDX evidence shows the insert work already landed: relaunch with MDX editing removed from the task entirely (told explicitly "do NOT touch the MDX files, your only job is the projects data file"), so it can't duplicate work that already succeeded.
 
 Do not just wait indefinitely on a batch that has gone well past every comparable batch's typical runtime with zero new file activity — check mtimes/grep counts first, since a completion notification is not guaranteed to ever arrive for a stalled background agent.
+
+### Rule 74 — A count cited in README.md drifts independently at every location it's copied to; verify against the live data file, never against another doc line
+
+Session 85's branch-cleanup doc sweep found README.md citing three different tool-directory counts in three different places (108, 116, and the real 141), and the glossary at 216 terms when `GLOSSARY_TERMS.length` is 158 — all stale by different, unrelated amounts, none matching each other. None of these were touched by the sessions that actually changed `tools-directory.ts`/`glossary.ts`; each was written once as static prose text and then never revisited as the underlying data file grew.
+
+`Object.keys(QUIZZES).length`-style dynamic derivation (Rule 23, and the pattern `about/page.tsx` already uses for its own stats) prevents this **in the running site**. It does nothing for a `.md` file, which has no build step and cannot drift-check itself. Before citing any count in README.md/PROJECT_LOG.md/PROJECTS_PLAN.md — lessons, tools, glossary terms, tracks, badges, quiz questions — get the real number from the source directly:
+
+```bash
+node --import tsx -e "import { TOOLS } from './src/lib/tools-directory.ts'; console.log(TOOLS.length);"
+```
+
+Never copy a count from another line in the same doc (they disagree with each other, per above) and never assume last session's number is still right. When a rule like this one fixes a batch of stale counts, grep the fixed file for the OLD wrong numbers one more time afterward (`grep -n "108 \|116 \|216-term"`) to confirm no sibling copy was missed — a single sed pass over one phrasing does not catch every place the same stat was hand-written differently.

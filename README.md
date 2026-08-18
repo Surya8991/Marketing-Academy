@@ -44,20 +44,20 @@ A free, structured marketing education site, from absolute beginner to advanced 
 **Learning**
 - **Lesson reader**, Left-side table of contents, reading progress bar, reading time estimate, prev/next navigation, practice projects (collapsed behind a one-line summary by default)
 - **Related lessons**, "You might also like" section at the bottom of every lesson
-- **Lesson quizzes**, 4 questions at the bottom of 642 lessons; quiz must be passed (75%, 3 of 4) to unlock Mark Complete. Questions and options are Fisher-Yates shuffled on every attempt. Answers revealed only after full submission
+- **Lesson quizzes**, 5 questions at the bottom of 642 lessons (Session 85, Stage 10.1); quiz must be passed (80%, 4 of 5) to unlock Mark Complete. Questions and options are Fisher-Yates shuffled on every attempt. Answers revealed only after full submission
 - **Progress tracking**, Mark lessons complete, per-category progress bar, bookmarks (all localStorage)
 - **Learning tracks**, 24 curated paths: B2B Marketer, E-commerce Growth, Solo Founder, AI-First Marketer, Content Creator, Social Media Manager, Data-Driven Marketer, Freelancer & Agency, Marketing Mental Models, Technical SEO Mastery, AI Search Optimization, Content Strategy Mastery, On-Page SEO Mastery, Off-Page SEO Mastery, Paid Ads Mastery, Email & Lifecycle Mastery, CRO & Conversion Mastery, Analytics & Measurement Mastery, Copywriting Mastery, Brand Strategy Mastery, Psychology of Marketing, PR & Communications Mastery, Growth Marketing Mastery, Product Marketing Mastery
 - **Progress certificates**, Printable completion certificate per track at `/certificates/[slug]` (requires 100% lesson completion + track quiz pass)
 - **XP + Streak system**, Earn XP for completing lessons (30), passing quizzes (20), bookmarking (5). Daily streak. 7 levels (Marketing Newcomer → Certified Polymath). Live badge in nav.
-- **Achievements**, 10 unlockable badges with toast notification on unlock. Full gallery at `/achievements`
-- **Skill Map**, `/skill-map`: 21 category cards sorted by your % complete with animated progress bars
+- **Achievements**, 12 unlockable badges (grouped into Getting Started/Streaks/Practice Projects/Milestones since Stage 11) with toast notification on unlock. Full gallery at `/achievements`
+- **Skill Map**, `/skill-map`: category cards grouped by discipline (Strategy/Channels/Growth & Data/Outreach/Career & Legal, same taxonomy as the nav's Topics dropdown, since Stage 11), sorted by % complete within each group, with animated progress bars
 - **Onboarding**, First-visit goal selector: pick a goal (including "totally new to marketing"), get routed to the right learning track. Suppressed on lesson pages so direct-link visitors aren't interrupted
 
 **Discovery**
-- **Command Palette**, Cmd/Ctrl+K fuzzy search across all 642 lessons, 158 glossary terms, 116 tools, and nav pages
-- **Search**, Client-side fuzzy search (Fuse.js) with category and level filter chips
+- **Command Palette**, Cmd/Ctrl+K fuzzy search across all 642 lessons, 24 learning tracks, 158 glossary terms, 141 tools, and nav pages
+- **Search**, Client-side fuzzy search (Fuse.js) across lessons and tracks, with category and level filter chips (chips apply to lessons only, a track spans multiple categories/levels by design)
 - **Glossary**, 158 marketing terms with A-Z index and individual term pages at `/glossary`
-- **Tools directory**, 116 marketing tools across 11 categories with search, category, and pricing filters at `/tools`
+- **Tools directory**, 141 marketing tools across 11 categories with search, category, and pricing filters at `/tools`
 - **Cheat sheets**, Printable per-category quick reference cards at `/cheat-sheets/[category]`
 
 **Interview Prep**
@@ -73,6 +73,7 @@ A free, structured marketing education site, from absolute beginner to advanced 
 
 **Technical**
 - **Dark mode**, Manual toggle (Sun/Moon) with localStorage persistence and no flash on load
+- **Reduced motion**, Respects OS-level `prefers-reduced-motion`, neutralizes animations/transitions/smooth-scroll site-wide
 - **PWA**, Installable on mobile: `public/manifest.json` + `public/sw.js` service worker
 - **Multilingual resources**, Every lesson links to Hindi (WsCube Tech), Tamil, and Telugu YouTube channels
 - **Newsletter signup**, Footer form with `/api/newsletter` endpoint (connect to your email service)
@@ -146,9 +147,9 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/curriculum.ts` | Single source of truth, all lesson slugs, titles, levels |
 | `src/lib/tracks.ts` | 24 learning track definitions |
 | `src/lib/glossary.ts` | 158 marketing term definitions |
-| `src/lib/quizzes.ts` | Quiz questions (4 per lesson, all 642 lessons covered) |
-| `src/lib/tools-directory.ts` | 116 marketing tools with category/pricing data |
-| `PROJECTS_PLAN.md` | **High-priority roadmap** — stages 0-7, 9.4 complete. Stage 8 Phase 0+1 pilot complete (36 projects, 20 lessons, `/projects` hub), 8.2b (centrality/tier computation) complete. Session 76: 8.3+8.4 done for the Technical SEO Mastery track (12 lessons, 24 projects + 24 `InAction` concept scenarios). 8.3a carries an owner-set priority order across all 24 tracks (not just SEO); **8.3b pre-scopes the next two (AI Search Optimization, On-Page SEO Mastery): 27 lessons, batch lists, tier pairs, content audit, hazards**. Use `PROJECTS_AUTHORING_GUIDE.md` to execute |
+| `src/lib/quizzes.ts` | Quiz questions (5 per lesson since Stage 10.1, all 642 lessons covered) |
+| `src/lib/tools-directory.ts` | 141 marketing tools with category/pricing data |
+| `PROJECTS_PLAN.md` | **High-priority roadmap.** Stages 0-8 (all 24 tracks' practice projects), 9.1/9.4, 10 (quiz expansion to 5 questions/lesson), and 11 (Skill Map/Achievements/Resources UX pass) are all complete as of Session 85. **Stage 9.3** (non-track lesson project authoring) is queued to run LAST, narrowed to 8 categories by owner directive: `fundamentals`, `seo`, `paid-ads`, `growth`, `social`, `product-marketing`, `ai-marketing`, `tools`. Use `PROJECTS_AUTHORING_GUIDE.md` to execute |
 | `src/components/InAction.tsx` | Global MDX component rendering one cited "concept scenario" inline after a lesson heading (PROJECTS_PLAN.md section 10 / Stage 8.4). Embedded directly in lesson MDX, not build-time-injected — see AGENTS.md Rule 54 |
 | `PROJECTS_AUTHORING_GUIDE.md` | Operational playbook for authoring a new track's Stage 8.3/8.4 batch: fill-in agent prompt template + condensed reference pack + the scripts below, in order. Next two tracks are pre-scoped in PROJECTS_PLAN.md 8.3b |
 | `scripts/get-track-batch-info.mjs` | Given a track slug, lists which lessons still need projects and their tier (reads `tracks.ts` + `projects-assignment.ts`), pre-split into batches |
@@ -171,7 +172,8 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/engagement.ts` | XP/streak system (addXP, getEngagement, getCurrentLevel, ENGAGEMENT_EVENT) |
 | `src/lib/achievements.ts` | 12 declarative badges (ACHIEVEMENTS array, checkAchievements) — includes `first-project`/`ten-projects` (Session 85) |
 | `src/components/PortfolioClient.tsx` | Session 85 — `/portfolio` page's interactive body: completed projects as evidence, JSON export |
-| `src/lib/commandIndex.ts` | Fuse.js index builder for Cmd+K palette |
+| `src/lib/commandIndex.ts` | Fuse.js index builder for Cmd+K palette — lessons, tracks, glossary, tools, nav (tracks added Session 85) |
+| `src/lib/topic-groups.ts` | Session 85 — shared `TOPIC_GROUPS` discipline taxonomy (Strategy/Channels/Growth & Data/Outreach/Career & Legal), used by both Nav.tsx's Topics dropdown and `/skill-map` so they can't drift apart |
 | `src/lib/events.ts` | Shared CustomEvent name constants (COMMAND_PALETTE_EVENT) |
 | `mdx-components.tsx` | Global MDX component registry at project root: Callout, Mermaid, ResourceList, Quiz, DiagramBlock |
 | `src/app/globals.css` | Tailwind v4 + CSS variable design system. Colors are the original white/near-black/indigo palette (deliberately unchanged in the 2026-08-12 redesign); `--font-display`/`--font-ui-sans`/`--font-data` (Fraunces/Public Sans/IBM Plex Mono, registered in layout.tsx) are the new type system used on Home/Learn/Tracks/Projects/Tools/About — lesson prose stays on Geist Sans |
@@ -200,19 +202,19 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/learn` | All lessons browsable by category |
 | `/learn/[category]` | Category page: Beginner/Intermediate/Advanced grouping + progress |
 | `/learn/[category]/[lesson]` | Lesson reader (docs-style, Session 75): left scroll-spy ToC, Quiz/Projects/Notes as an accordion group, Related Concepts cards, prev/next, bottom action bar (Mark Complete/Bookmark/Share). Every outbound link to another lesson (prev/next, Related Concepts, Related Lessons, Continue CTA) opens in a new tab (Session 78) |
-| `/search` | Fuzzy search with category + level filters |
+| `/search` | Fuzzy search across lessons and tracks, with category + level filters (lessons only) |
 | `/tracks` | 24 learning tracks overview |
 | `/tracks/[slug]` | Track detail with ordered lesson list |
-| `/glossary` | 216-term A-Z marketing glossary |
+| `/glossary` | 158-term A-Z marketing glossary |
 | `/glossary/[slug]` | Individual term page |
 | `/bookmarks` | Saved lessons (localStorage) |
-| `/tools` | 108 marketing tools with search + category + pricing filters |
-| `/cheat-sheets` | Printable cheat sheet index (16 categories) |
+| `/tools` | 141 marketing tools with search + category + pricing filters |
+| `/cheat-sheets` | Printable cheat sheet index (21 categories) |
 | `/cheat-sheets/[category]` | Printable per-category cheat sheet |
 | `/interview-prep` | Interview prep hub with category Q&A links |
 | `/interview-questions` | SEO landing: digital marketing interview Q&A |
 | `/digital-marketing-cheat-sheet` | SEO landing: key metrics, frameworks, glossary |
-| `/skill-map` | 21 category cards sorted by your % complete, progress overview |
+| `/skill-map` | Category cards grouped by discipline, sorted by % complete within each group, progress overview (Stage 11) |
 | `/achievements` | XP level, streak, and 12 unlockable achievement badges |
 | `/portfolio` | Session 85, Stage 9.1 — your completed practice projects as portfolio-ready interview evidence: company, tier, archetype, concepts, "Export as JSON," cross-linked with `/interview-prep`. `noindex` (personal, per-browser data) |
 | `/settings` | Export / import / reset all learning progress as JSON |
