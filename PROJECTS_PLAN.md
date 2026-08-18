@@ -203,11 +203,11 @@ The owner reviewed the full 24-track list (all categories, not just SEO) and set
 | — | ⚙️ Technical SEO Mastery | `technical-seo` | ✅ **13/13, done (Session 76)** |
 | — | 🤖 AI Search Optimization | `ai-search-optimization` | ✅ **14/14, done (Session 77)** |
 | — | 📄 On-Page SEO Mastery | `on-page-seo-mastery` | ✅ **13/13, done (Session 77)** |
-| 1 | 🤖 AI-First Marketer | `ai-first-marketer` | 0/14 — next up |
-| 3 | 🔗 Off-Page SEO Mastery | `off-page-seo-mastery` | 0/13 |
-| 5 | 🏢 B2B Marketing | `b2b-marketer` | 5/21 |
-| 6 | 💸 Paid Ads Mastery | `paid-ads-mastery` | 1/15 |
-| 7 | 📊 Data-Driven Marketer | `data-driven-marketer` | 3/19 |
+| — | 🤖 AI-First Marketer | `ai-first-marketer` | ✅ **14/14, done (Session 82)** |
+| — | 🔗 Off-Page SEO Mastery | `off-page-seo-mastery` | ✅ **13/13, done (Session 83)** |
+| — | 🏢 B2B Marketing | `b2b-marketer` | ✅ **21/21, done (Session 84)** |
+| — | 💸 Paid Ads Mastery | `paid-ads-mastery` | ✅ **15/15, done (Session 85)** |
+| 7 | 📊 Data-Driven Marketer | `data-driven-marketer` | 3/19 — next up |
 | 8 | 🎯 CRO & Conversion Mastery | `cro-mastery` | 0/15 |
 | 9 | 📈 Analytics & Measurement Mastery | `analytics-mastery` | 1/15 |
 | 10 | 📧 Email & Lifecycle Mastery | `email-lifecycle-mastery` | 2/15 |
@@ -236,6 +236,8 @@ Priorities 11-23 were proposed by the assistant (weighted toward finishing near-
 - **Content Strategy Mastery**'s one remaining `seo` lesson: `content-decay-refresh` (`search-intent` is already listed above via On-Page SEO Mastery)
 - **Also outstanding, found by `scripts/audit-projects.mjs` but not fixed (out of Session 76's stated scope)**: the original Session 73 pilot's `keyword-research` and `on-page-seo` projects use invented placeholder `toolName` strings (`"Written justification"`, `"Manual page crawl"`, `"Manual calculation"`, `"Manual rewrite"`, `"Manual edit"`), the same Rule 55 issue fixed in this session's own new batch. Run `node --import tsx scripts/audit-projects.mjs seo` (unscoped) to see the current list.
 - **Explicitly out of scope until a separate decision**: the 11 cross-category lessons inside the 4 SEO-named tracks that aren't `seo`/`ai-marketing` (`pr-communications` ×6, `content` ×2, `copywriting` ×1) — these ARE now in scope via `b2b-marketer` etc. if those tracks pull in the same categories, check per-track when you get there.
+
+**Session 85, Paid Ads Mastery (`paid-ads-mastery`), single-category (`paid-ads`), 14 remaining lessons:** 12 of the 14 lessons already had `InAction` concept scenarios from earlier uncommitted work in this session; only `ios-attribution` and `ad-fraud-invalid-traffic` needed both projects and scenarios authored fresh. Ran `get-track-batch-info.mjs paid-ads-mastery` for the 7 batches of 2, launched 7 parallel `general-purpose` agents per `PROJECTS_AUTHORING_GUIDE.md` (condensed reference pack inlined, no full-file reads), merged with `merge-projects-batch.mjs`, audited with `audit-projects.mjs` (clean, no invented tool placeholders). One issue caught only by `npm test`, not `tsc` or the audit script: several `simulation` stages used `nextStageId: ""` for a terminal option instead of the `"end"` sentinel `tests/projects-data.test.ts` requires — fixed with a targeted find-replace across `paid-ads.ts` (10 occurrences), re-verified all 30 tests pass. `tsc --noEmit`, `npm run lint`, `npm test` (30/30), `npm run build` all clean; `build-projects-index.mjs` regenerated (196 project cards across 13 category modules). 28 projects added to `paid-ads.ts` (now 15/15 lessons, 30 projects total in the file), leaning on `simulation` mode heavily per the guide's own advice (real paid-ads practice costs real money) alongside `diagnostic`/`audit`/`teardown`/`build` where a free supplied-artifact angle existed (ad copy, creative tests, attribution/fraud logs).
 
 ---
 

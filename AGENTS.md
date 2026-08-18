@@ -742,3 +742,17 @@ if ('serviceWorker' in navigator) {
 ```
 
 Rule 50's "full restart + fresh tab" sequence is still correct advice for the rarer Turbopack-file-watcher-didn't-recompile case, but the SW half of that problem should no longer occur in local dev at all going forward. If a stale-chunk/hydration-mismatch bug reappears in dev after this fix, check `navigator.serviceWorker.getRegistrations()` first anyway, don't assume this rule fixed it forever, a browser extension or an old registration from before this fix can still be present in an already-open tab.
+
+### Rule 67 — A terminal `SimulationStage` option must use the `"end"` sentinel, never `nextStageId: ""`
+
+`tests/projects-data.test.ts`'s simulation-routing check requires every `decision.options[].nextStageId` to resolve to either a real `stageId` in the same project or the literal string `"end"`. An authoring agent (Session 85, Paid Ads Mastery batch) instead left the field empty (`nextStageId: ""`) on every terminal option across two projects, reasoning (reasonably, but wrongly for this codebase) that an empty string reads as "nothing further happens." `tsc --noEmit`, `npm run lint`, and `scripts/audit-projects.mjs` all pass this without complaint, an empty string is a perfectly valid `string`, structurally indistinguishable from a real id to everything except the one test that actually walks the stage graph.
+
+```ts
+// WRONG — passes tsc/lint/audit-projects.mjs, fails only npm test
+{ id: "realistic-target", verdict: "optimal", /* ... */ nextStageId: "" }
+
+// CORRECT — the required terminal sentinel
+{ id: "realistic-target", verdict: "optimal", /* ... */ nextStageId: "end" }
+```
+
+Caught only by `npm test` (`tests\projects-data.test.ts:250`, "every option routes to a real stage id or the terminal sentinel"), not by the audit script's structural check. When authoring or reviewing simulation-mode projects, grep the target file for `nextStageId: ""` before considering the batch done — `npm test` is the actual gate, per Rule 57, and this is exactly the kind of "valid string, wrong runtime meaning" defect that rule already warned `tsc` can't catch.

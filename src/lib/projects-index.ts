@@ -1416,6 +1416,473 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "google-search-ads-search-terms-audit",
+    "category": "paid-ads",
+    "lessonSlug": "google-search-ads",
+    "lessonTitle": "Google Search Ads",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Negative Keyword Audit: Cleaning Up a Live Search Terms Report",
+    "timeMinutes": 25,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Negative keywords as a budget and Quality Score control",
+      "Reading Quality Score components to diagnose Ad Rank"
+    ]
+  },
+  {
+    "id": "google-search-ads-bidding-strategy-sim",
+    "category": "paid-ads",
+    "lessonSlug": "google-search-ads",
+    "lessonTitle": "Google Search Ads",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The Bidding Strategy Call: Simulating Three Weeks of a New Search Campaign",
+    "timeMinutes": 35,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Why automated bidding needs conversion volume before it works",
+      "Fixing match-type waste before scaling spend",
+      "Setting a realistic Target CPA once enough data exists"
+    ]
+  },
+  {
+    "id": "meta-ads-audience-structure-teardown",
+    "category": "paid-ads",
+    "lessonSlug": "meta-ads",
+    "lessonTitle": "Meta Ads (Facebook & Instagram)",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "diagnostic",
+    "title": "The Audience Size Teardown: Diagnosing an Over-Narrowed Ad Set",
+    "timeMinutes": 20,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "Audience size as a delivery constraint, not just a targeting choice",
+      "Ad set count vs. conversion volume needed for the learning phase"
+    ]
+  },
+  {
+    "id": "meta-ads-learning-phase-sim",
+    "category": "paid-ads",
+    "lessonSlug": "meta-ads",
+    "lessonTitle": "Meta Ads (Facebook & Instagram)",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The Learning Phase Test: Surviving the First 9 Days of a New Ad Set",
+    "timeMinutes": 35,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Why editing an ad set early resets the learning phase",
+      "Creative variation count as a lever the algorithm needs",
+      "Scaling budget without re-triggering the learning phase"
+    ]
+  },
+  {
+    "id": "quality-score-component-diagnostic-audit",
+    "category": "paid-ads",
+    "lessonSlug": "quality-score",
+    "lessonTitle": "Quality Score & Ad Rank",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Component Breakdown: Diagnosing a Below-Average Quality Score Export",
+    "timeMinutes": 20,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Reading the three Quality Score components instead of the composite number",
+      "Matching a Below Average rating to its specific fix"
+    ]
+  },
+  {
+    "id": "quality-score-ad-rank-forecast",
+    "category": "paid-ads",
+    "lessonSlug": "quality-score",
+    "lessonTitle": "Quality Score & Ad Rank",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "The Ad Rank Forecast: Would a Higher Quality Score Beat a Higher Bid?",
+    "timeMinutes": 15,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Ad Rank = Quality Score x Maximum Bid + Other Signals",
+      "Quality Score CPC multiplier tiers"
+    ]
+  },
+  {
+    "id": "bidding-strategy-eligibility-audit",
+    "category": "paid-ads",
+    "lessonSlug": "bidding-strategies",
+    "lessonTitle": "Bidding Strategies",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Eligibility Check: Is This Account Ready for Smart Bidding?",
+    "timeMinutes": 20,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "The 30-50 monthly conversion threshold for smart bidding eligibility",
+      "Portfolio bid strategies pooling low-volume campaigns"
+    ]
+  },
+  {
+    "id": "bidding-strategy-learning-period-simulation",
+    "category": "paid-ads",
+    "lessonSlug": "bidding-strategies",
+    "lessonTitle": "Bidding Strategies",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The Learning Period Gauntlet: Surviving the First 4 Weeks of Smart Bidding",
+    "timeMinutes": 35,
+    "companyId": "instacart",
+    "conceptsCovered": [
+      "The 2-4 week learning period after switching to smart bidding",
+      "Setting the initial target near the historical average, not the goal",
+      "Tightening the target 10-15% every 2 weeks after stabilizing"
+    ]
+  },
+  {
+    "id": "ad-copy-frameworks-headline-teardown",
+    "category": "paid-ads",
+    "lessonSlug": "ad-copy-frameworks",
+    "lessonTitle": "Ad Copy Frameworks",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Framework Teardown: Three Broken Ad Sets",
+    "timeMinutes": 25,
+    "companyId": "yeti",
+    "conceptsCovered": [
+      "PAS, Problem, Agitate, Solution",
+      "AIDA, Attention, Interest, Desire, Action",
+      "The 4 Us, Urgent, Unique, Useful, Ultra-specific"
+    ]
+  },
+  {
+    "id": "ad-copy-frameworks-casper-launch-build",
+    "category": "paid-ads",
+    "lessonSlug": "ad-copy-frameworks",
+    "lessonTitle": "Ad Copy Frameworks",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Launch Copy: Casper's Lightweight Topper",
+    "timeMinutes": 30,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "PAS, Problem, Agitate, Solution",
+      "AIDA, Attention, Interest, Desire, Action",
+      "The 4 Us, Urgent, Unique, Useful, Ultra-specific"
+    ]
+  },
+  {
+    "id": "creative-testing-flawed-plans-teardown",
+    "category": "paid-ads",
+    "lessonSlug": "creative-testing",
+    "lessonTitle": "Creative Testing",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Broken Test: Three MVMT Test Plans",
+    "timeMinutes": 25,
+    "companyId": "mvmt-watches",
+    "conceptsCovered": [
+      "One variable per test",
+      "Statistical significance and test duration",
+      "Testing new creative against an established winner"
+    ]
+  },
+  {
+    "id": "creative-testing-glossybox-results-audit",
+    "category": "paid-ads",
+    "lessonSlug": "creative-testing",
+    "lessonTitle": "Creative Testing",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "calibration",
+    "title": "The Calibration Call: Reading Glossybox's Test Results",
+    "timeMinutes": 45,
+    "companyId": "glossybox",
+    "conceptsCovered": [
+      "Statistical significance and test duration",
+      "Budget required to reach 50-100 conversions per variant",
+      "Testing priority order",
+      "One variable per test"
+    ]
+  },
+  {
+    "id": "retargeting-account-audit",
+    "category": "paid-ads",
+    "lessonSlug": "retargeting",
+    "lessonTitle": "Retargeting",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Segmentation Audit: Finding the Leaks in a Retargeting Account Export",
+    "timeMinutes": 25,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Excluding recent purchasers from retargeting audiences",
+      "Segmenting audiences by intent instead of one generic audience",
+      "Setting a frequency cap to prevent ad fatigue"
+    ]
+  },
+  {
+    "id": "retargeting-launch-week-sim",
+    "category": "paid-ads",
+    "lessonSlug": "retargeting",
+    "lessonTitle": "Retargeting",
+    "tier": "mini",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "Launch Week: Running a Retargeting Campaign's First 10 Days",
+    "timeMinutes": 30,
+    "companyId": "firstcry-brainbees",
+    "conceptsCovered": [
+      "Setting a frequency cap before launch",
+      "Segmenting cart abandoners from homepage visitors",
+      "Excluding recent purchasers from ads"
+    ]
+  },
+  {
+    "id": "pmax-feed-quality-audit",
+    "category": "paid-ads",
+    "lessonSlug": "google-shopping-pmax",
+    "lessonTitle": "Google Shopping & Performance Max",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Feed Audit: Diagnosing Why Half a Catalog Isn't Getting Clicks",
+    "timeMinutes": 30,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Writing product titles that mirror how shoppers search",
+      "Including GTIN or MPN to improve catalog matching",
+      "Using Custom Labels to segment by margin tier"
+    ]
+  },
+  {
+    "id": "pmax-launch-decisions-sim",
+    "category": "paid-ads",
+    "lessonSlug": "google-shopping-pmax",
+    "lessonTitle": "Google Shopping & Performance Max",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The First 30 Days: Launching Performance Max Without Burning the Budget",
+    "timeMinutes": 50,
+    "companyId": "yeti",
+    "conceptsCovered": [
+      "Launching with sufficient conversion history",
+      "Reading learning-period volatility without overreacting",
+      "Setting a realistic ROAS target relative to current performance",
+      "Spotting branded-search cannibalization in Search Terms Insights"
+    ]
+  },
+  {
+    "id": "youtube-ads-quartile-dropoff-audit",
+    "category": "paid-ads",
+    "lessonSlug": "youtube-ads",
+    "lessonTitle": "YouTube Ads",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Quartile Drop-Off Audit: Diagnosing Where Viewers Bail",
+    "timeMinutes": 25,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "View rate as a hook-strength signal",
+      "Quartile data as a mid-video diagnostic"
+    ]
+  },
+  {
+    "id": "youtube-ads-launch-simulation",
+    "category": "paid-ads",
+    "lessonSlug": "youtube-ads",
+    "lessonTitle": "YouTube Ads",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The 21-Day Launch: Simulating a YouTube Ads Rollout Under Budget Pressure",
+    "timeMinutes": 45,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Reading auction benchmarks before judging a young campaign",
+      "Creative refresh timing before fatigue sets in",
+      "Separating cold, warm, and hot audiences with exclusions",
+      "Brand Lift and view-through conversions as a measurement layer beyond clicks"
+    ]
+  },
+  {
+    "id": "linkedin-ads-targeting-stack-audit",
+    "category": "paid-ads",
+    "lessonSlug": "linkedin-ads",
+    "lessonTitle": "LinkedIn Ads",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Precision Audit: Sizing a LinkedIn Targeting Stack Before Launch",
+    "timeMinutes": 25,
+    "companyId": "snowflake",
+    "conceptsCovered": [
+      "Layered targeting filters for precision over reach",
+      "Maximum acceptable CPL using the ACV formula"
+    ]
+  },
+  {
+    "id": "linkedin-ads-abm-launch-simulation",
+    "category": "paid-ads",
+    "lessonSlug": "linkedin-ads",
+    "lessonTitle": "LinkedIn Ads",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The ABM Rollout: Simulating a 6-Week LinkedIn Campaign Under a $10 CPC",
+    "timeMinutes": 45,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Narrow precise audiences over broad reach",
+      "Excluding existing customers and pipeline contacts from paid audiences",
+      "Seasonal cost-per-MQL patterns by quarter",
+      "Maximum acceptable CPL using the ACV formula"
+    ]
+  },
+  {
+    "id": "tiktok-hook-teardown",
+    "category": "paid-ads",
+    "lessonSlug": "tiktok-ads",
+    "lessonTitle": "TikTok Ads",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Hook Rate Autopsy: Diagnosing Why 4 TikTok Ad Openers Would Flop",
+    "timeMinutes": 25,
+    "companyId": "rxbar",
+    "conceptsCovered": [
+      "The Hook: Your Most Important Asset",
+      "What Makes TikTok Ads Different",
+      "Campaign Structure That Works",
+      "Setting Up Spark Ads"
+    ]
+  },
+  {
+    "id": "tiktok-spark-ads-spend-simulation",
+    "category": "paid-ads",
+    "lessonSlug": "tiktok-ads",
+    "lessonTitle": "TikTok Ads",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The 14-Day Spend Simulation: Scaling a Swiggy TikTok Campaign Without Burning Budget",
+    "timeMinutes": 45,
+    "companyId": "swiggy",
+    "conceptsCovered": [
+      "The Hook: Your Most Important Asset",
+      "Campaign Structure That Works",
+      "How the Auction Works"
+    ]
+  },
+  {
+    "id": "programmatic-publisher-report-audit",
+    "category": "paid-ads",
+    "lessonSlug": "programmatic-advertising",
+    "lessonTitle": "Programmatic Advertising",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Placement Audit: Cleaning Up a Programmatic Publisher Report",
+    "timeMinutes": 30,
+    "companyId": "halo-top",
+    "conceptsCovered": [
+      "How It Works",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "programmatic-media-plan-teardown",
+    "category": "paid-ads",
+    "lessonSlug": "programmatic-advertising",
+    "lessonTitle": "Programmatic Advertising",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Set-and-Forget Teardown: Finding the Mistakes in 3 Programmatic Media Plans",
+    "timeMinutes": 25,
+    "companyId": "sea-limited",
+    "conceptsCovered": [
+      "Common Mistakes",
+      "How It Works",
+      "Why It Matters"
+    ]
+  },
+  {
+    "id": "capi-pixel-dedup-audit",
+    "category": "paid-ads",
+    "lessonSlug": "ios-attribution",
+    "lessonTitle": "iOS 14+ & The Attribution Mess",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Duplicate Count: Auditing a CAPI + Pixel Event Log",
+    "timeMinutes": 20,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "CAPI + pixel event deduplication"
+    ]
+  },
+  {
+    "id": "skan-postback-log-teardown",
+    "category": "paid-ads",
+    "lessonSlug": "ios-attribution",
+    "lessonTitle": "iOS 14+ & The Attribution Mess",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: A SKAdNetwork Postback Log for a Mobile App Launch",
+    "timeMinutes": 45,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "SKAdNetwork's 100-150 daily install threshold for usable postback data",
+      "SKAN conversion value schema design"
+    ]
+  },
+  {
+    "id": "givt-traffic-log-audit",
+    "category": "paid-ads",
+    "lessonSlug": "ad-fraud-invalid-traffic",
+    "lessonTitle": "Ad Fraud & Invalid Traffic (IVT) Prevention",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Bot Filter: Auditing a Raw Click Log for GIVT",
+    "timeMinutes": 25,
+    "companyId": "blue-apron",
+    "conceptsCovered": [
+      "GIVT filtering by IP range and user agent"
+    ]
+  },
+  {
+    "id": "mobile-install-fraud-teardown",
+    "category": "paid-ads",
+    "lessonSlug": "ad-fraud-invalid-traffic",
+    "lessonTitle": "Ad Fraud & Invalid Traffic (IVT) Prevention",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: A Mobile Install Report for SDK Spoofing and Click Injection",
+    "timeMinutes": 40,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "SDK spoofing detection",
+      "Click injection detection"
+    ]
+  },
+  {
     "id": "digital-pr-link-building-pitch-teardown",
     "category": "pr-communications",
     "lessonSlug": "digital-pr-link-building",

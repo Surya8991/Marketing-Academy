@@ -54,6 +54,18 @@ The current version, SKAdNetwork 4.0 (SKAN 4), is a significant improvement. It 
 
 ### 2. Meta Conversions API (CAPI): Server-to-Server Tracking
 
+<InAction
+  concept="Meta Conversions API (CAPI)"
+  companyName="Club Med"
+  where="Meta (Facebook/Instagram) paid campaigns for vacation bookings"
+  why="Post-iOS 14.5 pixel-only tracking was undercounting real bookings and inflating cost per conversion"
+  what="Club Med implemented Meta's Conversions API to send booking events server-to-server alongside its existing browser pixel"
+  benefit="10% more conversion events were registered and cost per acquisition dropped 26% compared to pixel-only tracking"
+  timeframe="After rollout of the CAPI integration, measured against pixel-only campaigns"
+  date="2024"
+  source="https://www.accuracast.com/case-study/clubmed-capi-gateway/"
+/>
+
 Meta's Conversions API works from your side, not the user's device. Instead of relying on a browser pixel (which gets blocked), your own server sends purchase data directly to Meta: "someone with this hashed email address bought $89 worth of product at 2:04 PM." Meta matches that event to one of its users using hashed identifiers like email or phone number.
 
 This completely bypasses ATT because you are using your own first-party data (data you collected directly from the customer). The ATT prompt only restricts cross-app device tracking, it does not stop you from sending your own server data.
@@ -160,6 +172,18 @@ Both SKAN and AAK are currently active and interoperable. Expect a full migratio
 ---
 
 ## The Practical Fix: A Measurement Stack That Actually Works
+
+<InAction
+  concept="Full measurement stack: pixel + CAPI + deduplication"
+  companyName="TUI"
+  where="Meta paid social campaigns for travel bookings"
+  why="TUI needed to future-proof social ad measurement as iOS signal loss and cookie deprecation degraded standalone pixel tracking"
+  what="TUI implemented server-side tracking via a Tealium-to-Meta Conversions API integration running alongside its existing pixel"
+  benefit="Cost per booking dropped 6%, conversion rate for social traffic rose 29%, and return on ad spend increased 18%"
+  timeframe="Following rollout of the Tealium-Meta CAPI integration"
+  date="2023"
+  source="https://tealium.com/resource/case-study/tealium-facebook-tui-future-proof-social-ad-spend/"
+/>
 
 Here is what a solid iOS attribution setup looks like in 2025:
 
