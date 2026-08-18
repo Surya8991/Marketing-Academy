@@ -831,3 +831,17 @@ A heading with NO punctuation to strip (just a colon, like "Reels: Format for Re
 **Fixed** (2026-08-18): `next.config.ts`'s `images` block now sets `unoptimized: true`. `next/image` still renders (lazy-loading, `alt`, explicit `width`/`height` to prevent layout shift all keep working) but serves the original source file directly instead of routing through Vercel's optimizer, so transformation usage drops to zero. The tradeoff is no server-side resizing/re-encoding, YouTube's own thumbnail CDN already serves reasonably-sized files, so this is a real fix, not a regression, for this specific usage.
 
 If a future feature adds `next/image` usage against a source that genuinely needs on-the-fly resizing (a user-upload gallery, for example), re-enabling optimization for just that usage means either accepting the transformation cost consciously or serving a pre-sized asset instead, don't remove `unoptimized: true` globally without checking the current Transformations usage in the Vercel dashboard first.
+
+### Rule 73 — A background authoring agent can stall silently after its MDX work is done, with no completion notification ever arriving
+
+Session 85's final Stage 8.3a batch (PR & Communications Mastery) had 2 of 4 parallel `general-purpose` agents (batches B and D) go quiet mid-run with no `<task-notification>` ever firing, despite every other batch in this session (dozens of them) completing in a consistent ~5-7 minutes. `TaskOutput` on the agent's id returned "No task found" for both — the tool doesn't reliably track these background agent ids the way it tracks bash/workflow tasks, so it isn't a usable liveness check here.
+
+**Diagnosis that worked**: compare each batch's scratch-file existence (`ls` the scratchpad dir for `<batch>.ts`) against its assigned MDX files' modification timestamps.
+- Batch D: MDX files untouched since before launch → truly stalled before starting real work → safe to fully relaunch with the original prompt.
+- Batch B: MDX files freshly modified (both `<InAction>` inserts confirmed present via `grep -c "<InAction"`) but no scratch `.ts` file ever appeared → it had finished the MDX half and stalled during/before writing the projects file → relaunching the FULL original prompt would have re-run the MDX step and very likely produced duplicate `<InAction>` blocks (a real risk, not hypothetical — nothing in the original prompt tells a fresh agent to check for pre-existing inserts).
+
+**Fix pattern**: relaunch a stalled batch scoped to only the missing work.
+- If MDX evidence shows no progress (untouched files, zero `<InAction>` count): relaunch the original prompt unchanged.
+- If MDX evidence shows the insert work already landed: relaunch with MDX editing removed from the task entirely (told explicitly "do NOT touch the MDX files, your only job is the projects data file"), so it can't duplicate work that already succeeded.
+
+Do not just wait indefinitely on a batch that has gone well past every comparable batch's typical runtime with zero new file activity — check mtimes/grep counts first, since a completion notification is not guaranteed to ever arrive for a stalled background agent.

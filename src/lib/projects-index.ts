@@ -5204,6 +5204,264 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "media-pitch-autopsy",
+    "category": "pr-communications",
+    "lessonSlug": "pr-101",
+    "lessonTitle": "PR 101: What Public Relations Actually Is",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Pitch Autopsy: Why Journalists Delete Most PR Emails",
+    "timeMinutes": 35,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "What PR Actually Does",
+      "The Four Core Disciplines"
+    ]
+  },
+  {
+    "id": "product-recall-crisis-simulation",
+    "category": "pr-communications",
+    "lessonSlug": "pr-101",
+    "lessonTitle": "PR 101: What Public Relations Actually Is",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The First 24 Hours: A Product Recall Crisis Simulation",
+    "timeMinutes": 45,
+    "companyId": "honasa-mamaearth",
+    "conceptsCovered": [
+      "Crisis communications",
+      "The Four Core Disciplines"
+    ]
+  },
+  {
+    "id": "earned-owned-paid-audit",
+    "category": "pr-communications",
+    "lessonSlug": "earned-owned-paid-media",
+    "lessonTitle": "Earned, Owned, and Paid Media: The PR Perspective",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Media Mix Audit: Classifying a Real Brand's Coverage",
+    "timeMinutes": 25,
+    "companyId": "delhivery",
+    "conceptsCovered": [
+      "Classifying earned, owned, and paid media",
+      "Share of voice as a PR metric"
+    ]
+  },
+  {
+    "id": "earned-to-owned-paid-amplification-asset",
+    "category": "pr-communications",
+    "lessonSlug": "earned-owned-paid-media",
+    "lessonTitle": "Earned, Owned, and Paid Media: The PR Perspective",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Borrow the Trust: Turning a Press Mention into Owned and Paid Assets",
+    "timeMinutes": 30,
+    "companyId": "thredup",
+    "conceptsCovered": [
+      "Owned media amplifying earned coverage",
+      "Paid media borrowing earned credibility"
+    ]
+  },
+  {
+    "id": "press-release-teardown-honasa",
+    "category": "pr-communications",
+    "lessonSlug": "press-release-writing",
+    "lessonTitle": "Press Release Writing: The Structure That Gets Picked Up",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Buried Lede: Auditing Two Draft Press Releases",
+    "timeMinutes": 25,
+    "companyId": "honasa-mamaearth",
+    "conceptsCovered": [
+      "Inverted-pyramid structure and the buried lede",
+      "Quotable human quotes vs. marketing copy",
+      "Boilerplate and dateline conventions"
+    ]
+  },
+  {
+    "id": "press-release-build-chewy",
+    "category": "pr-communications",
+    "lessonSlug": "press-release-writing",
+    "lessonTitle": "Press Release Writing: The Structure That Gets Picked Up",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Write a Launch-Ready Press Release From a Messy Internal Brief",
+    "timeMinutes": 50,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Inverted-pyramid structure and the buried lede",
+      "Quotable human quotes vs. marketing copy",
+      "Boilerplate and dateline conventions",
+      "Before-and-after editing against a real example"
+    ]
+  },
+  {
+    "id": "press-kit-audit-duolingo",
+    "category": "pr-communications",
+    "lessonSlug": "press-kit-media-kit",
+    "lessonTitle": "Building a Press Kit That Journalists Actually Use",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Audit a Press Kit Before It Goes Live",
+    "timeMinutes": 30,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "What belongs in a press kit",
+      "Why hosting format determines whether journalists actually use a kit"
+    ]
+  },
+  {
+    "id": "press-kit-build-robinhood",
+    "category": "pr-communications",
+    "lessonSlug": "press-kit-media-kit",
+    "lessonTitle": "Building a Press Kit That Journalists Actually Use",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a One-Page Press Kit Outline",
+    "timeMinutes": 30,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "What belongs in a press kit",
+      "Why hosting format determines whether journalists actually use a kit"
+    ]
+  },
+  {
+    "id": "journalist-pitch-response-teardown",
+    "category": "pr-communications",
+    "lessonSlug": "thought-leadership-pr",
+    "lessonTitle": "Executive Visibility and Thought Leadership PR",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Six-Hour Quote: Auditing a Journalist Pitch Response",
+    "timeMinutes": 25,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Becoming the Source Reporters Call"
+    ]
+  },
+  {
+    "id": "executive-proof-points-doc-build",
+    "category": "pr-communications",
+    "lessonSlug": "thought-leadership-pr",
+    "lessonTitle": "Executive Visibility and Thought Leadership PR",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Reusable Executive Bio and Proof-Points Doc",
+    "timeMinutes": 30,
+    "companyId": "nubank",
+    "conceptsCovered": [
+      "Living executive bio and proof-points doc"
+    ]
+  },
+  {
+    "id": "gartner-briefing-request-teardown",
+    "category": "pr-communications",
+    "lessonSlug": "analyst-relations",
+    "lessonTitle": "Analyst Relations: Briefing Gartner, Forrester, and IDC",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The 500-Character Test: Auditing a Gartner Briefing Request",
+    "timeMinutes": 20,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "The Briefing: Your Core Tool"
+    ]
+  },
+  {
+    "id": "analyst-briefing-conversation-simulation",
+    "category": "pr-communications",
+    "lessonSlug": "analyst-relations",
+    "lessonTitle": "Analyst Relations: Briefing Gartner, Forrester, and IDC",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "Running the Briefing: A Live Analyst Conversation Simulation",
+    "timeMinutes": 45,
+    "companyId": "delhivery",
+    "conceptsCovered": [
+      "Open with a 2-minute company snapshot, not a 10-minute origin story",
+      "Ask what the analyst is currently hearing from clients in your category",
+      "A defensive answer is worse than an honest 'we're still deciding'",
+      "Close by asking directly what would move you up in their next report"
+    ]
+  },
+  {
+    "id": "holding-statement-calibration-drill",
+    "category": "pr-communications",
+    "lessonSlug": "crisis-pr-media-response",
+    "lessonTitle": "Crisis PR: The Media-Facing Response Protocol",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "calibration",
+    "title": "Grading Three Holding Statements Against the PRSA Standard",
+    "timeMinutes": 25,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "One spokesperson, one message",
+      "Holding statement structure: acknowledge, act, commit to a time"
+    ]
+  },
+  {
+    "id": "data-breach-crisis-simulation",
+    "category": "pr-communications",
+    "lessonSlug": "crisis-pr-media-response",
+    "lessonTitle": "Crisis PR: The Media-Facing Response Protocol",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The First Six Hours: A Data-Exposure Crisis Simulation",
+    "timeMinutes": 45,
+    "companyId": "delhivery",
+    "conceptsCovered": [
+      "The holding statement under deadline pressure",
+      "The careful non-response versus 'no comment'"
+    ]
+  },
+  {
+    "id": "avE-report-rescoring-audit",
+    "category": "pr-communications",
+    "lessonSlug": "measuring-pr-impact",
+    "lessonTitle": "Measuring PR Impact: Beyond Vanity Metrics",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Rescoring a PR Report That Leads With Ad Value Equivalency",
+    "timeMinutes": 30,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Retiring AVE and raw reach as headline metrics",
+      "Share of voice paired with sentiment"
+    ]
+  },
+  {
+    "id": "vanity-metrics-report-teardown",
+    "category": "pr-communications",
+    "lessonSlug": "measuring-pr-impact",
+    "lessonTitle": "Measuring PR Impact: Beyond Vanity Metrics",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Spot the Vanity Metric: A PR Report Teardown",
+    "timeMinutes": 25,
+    "companyId": "hellofresh",
+    "conceptsCovered": [
+      "Retiring AVE and raw reach as headline metrics",
+      "Message pull-through"
+    ]
+  },
+  {
     "id": "pmm-101-pitch-specimen-teardown",
     "category": "product-marketing",
     "lessonSlug": "pmm-101",

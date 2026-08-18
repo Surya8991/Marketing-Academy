@@ -2596,4 +2596,1792 @@ export const PR_COMMUNICATIONS_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
     },
   ],
+
+  "pr-101": [
+    {
+      id: "media-pitch-autopsy",
+      tier: "core",
+      archetype: "teardown",
+      mode: "teardown",
+      title: "The Pitch Autopsy: Why Journalists Delete Most PR Emails",
+      timeEstimate: "35 minutes",
+      timeMinutes: 35,
+      objective:
+        "Given three media pitch emails, one competent and two flawed, correctly identify why a journalist would ignore each flawed pitch and confirm what actually works in the competent one, distinguishing genuine defects from plausible-looking non-issues.",
+      companyId: "nykaa",
+      scenario:
+        "You're a junior comms associate on Nykaa's PR team. Your manager hands you three draft pitch emails other team members wrote before they go out, and asks you to red-flag anything that would get them deleted by a journalist before you approve sending them.",
+      brief: "Read each pitch as the receiving journalist would, then decide which pass and which get flagged, and why.",
+      conceptsCovered: ["What PR Actually Does", "The Four Core Disciplines"],
+      teardownItems: [
+        {
+          itemId: "pitch-mass-blast",
+          specimen:
+            "Subject: Exciting News!\n\nHi [First Name],\n\nI hope this finds you well. I'm reaching out to share some exciting news about our latest product launch. We think your readers would love to hear about it!\n\nOur new AI-powered gadget case is now available and we'd love to send you one to try.\n\nLet me know if you're interested in covering this!\n\nBest,\nPR Team",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "You're the beauty & lifestyle editor at a mid-size publication. This pitch just landed in your inbox. Do you open it further, skim it, or delete it? Identify what's wrong, and confirm what (if anything) about it is actually fine.",
+          answerKey: [
+            {
+              defect: "Personalization token left unfilled ('Hi [First Name]')",
+              severity: "critical",
+              whyItMatters:
+                "It proves the sender never customized this pitch for you specifically, it's a mass blast wearing a personal greeting, which erodes credibility before the editor reads sentence two.",
+              lessonRef: "What PR Actually Does",
+              owner: "you",
+            },
+            {
+              defect: "Pitched to the wrong beat, an AI gadget case sent to a beauty & lifestyle editor",
+              severity: "critical",
+              whyItMatters:
+                "PR's entire value is persuading a gatekeeper, not buying a slot; wasting that attention on someone with no reason to cover the topic burns the relationship for the next, relevant pitch.",
+              lessonRef: "What PR Actually Does",
+              owner: "you",
+            },
+            {
+              defect: "No news hook beyond 'we launched a product,' no data point, no timing reason to cover it now",
+              severity: "moderate",
+              whyItMatters:
+                "A journalist needs a reason the story is newsworthy today specifically, not just that a company exists; 'we launched' is a press release headline, not a pitch angle.",
+              lessonRef: "The Four Core Disciplines",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Uses the word 'exciting' in the subject line",
+            "Email is under 100 words",
+            "Includes the sender's job title in the signature",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "pitch-oversell",
+          specimen:
+            "Subject: The Biggest Beauty Launch of the Decade\n\nHi Priya,\n\nWe're thrilled to announce a revolutionary, game-changing product that will completely transform the skincare industry forever. This is, without exaggeration, the most important launch our category has ever seen.\n\nWe'd love to get you a sample and quotes from our team whenever you're ready to write this up.\n\nThanks,\nThe Team",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "Same editor, a different pitch. Read it as the journalist would and identify what makes this one unusable as written, separate from anything that's a reasonable pitch practice.",
+          answerKey: [
+            {
+              defect:
+                "Hype language with zero substantiating data, 'revolutionary,' 'game-changing,' 'most important launch ever'",
+              severity: "critical",
+              whyItMatters:
+                "Journalists are trained to distrust unverifiable superlatives; language like this reads as an ad, which defeats the entire premise of PR, that the message carries third-party credibility because it wasn't self-promotional.",
+              lessonRef: "What PR Actually Does",
+              owner: "you",
+            },
+            {
+              defect: "No named spokesperson offered for a quote or interview, just 'our team'",
+              severity: "moderate",
+              whyItMatters:
+                "A usable story needs an attributable, quotable human; an anonymous 'the team' can't be interviewed or credited, so the pitch can't actually be turned into a story as-is.",
+              lessonRef: "The Four Core Disciplines",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The pitch is sent on a Monday morning",
+            "The email offers to send a physical product sample",
+            "The subject line names the product category",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "pitch-well-targeted",
+          specimen:
+            "Subject: Data point for your piece on Gen Z skincare routines\n\nHi Priya,\n\nLoved your piece last week on Gen Z's shrinking skincare routines. We just closed a survey of 2,000 Indian shoppers under 25 and found 61% now use 3 or fewer products daily, down from 6 in 2022.\n\nHappy to share the full dataset early, and our head of research, Ananya Rao, can speak to the causes if useful for a follow-up.\n\nBest,\nMedia Team",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "A third pitch, referencing the editor's actual recent article. Confirm whether it's genuinely well-built, and flag anything, even minor, that could be tightened.",
+          answerKey: [
+            {
+              defect:
+                "The most newsworthy stat (61% down from 6 products) is placed in the second sentence rather than leading the email",
+              severity: "cosmetic",
+              whyItMatters:
+                "A skimming editor reads only the first line before deciding whether to continue; leading with the number instead of the compliment increases the odds of a reply.",
+              lessonRef: "What PR Actually Does",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "References the editor's byline and a specific recent article",
+            "Keeps the pitch under 100 words",
+            "Offers the dataset early, before wider distribution",
+            "Names a specific, quotable spokesperson",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Docs", role: "Draft and mark up the pitch approval memo", why: "Free, easy to comment inline on each pitch", required: true, lastVerified: "2026-08" },
+          { toolName: "Muck Rack", role: "Check whether a pitch actually matches the target journalist's real beat", why: "Free searches show a journalist's recent coverage history to verify beat fit", required: false, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page pitch approval memo marking each of the three draft pitches Approve, Revise, or Kill, with the specific line-level reasons for any Revise or Kill verdict.",
+      sampleOutput:
+        "Warby Parker PR desk, pitch approval memo (excerpt)\n\n" +
+        "PITCH 1, 'New Frame Collection Drop' — KILL\n" +
+        "  - Sent to a finance reporter with no fashion/retail beat history\n" +
+        "  - No spokesperson named, no data point, just a product announcement\n\n" +
+        "PITCH 2, 'Home Try-On Waitlist Hits Record High' — APPROVE\n" +
+        "  - Targeted correctly at a retail-beat reporter who covered DTC waitlists last month\n" +
+        "  - Leads with the number (20,000-person waitlist) in sentence one\n" +
+        "  - Names Neil B. as spokesperson, available for interview\n\n" +
+        "PITCH 3, 'Sustainability Update' — REVISE\n" +
+        "  - Real data point buried in paragraph three, move it to the opener\n" +
+        "  - Otherwise beat-appropriate and quotable",
+      successCriteria: [
+        "Correctly identifies both critical defects in the mass-blast pitch",
+        "Correctly identifies the oversell pitch's lack of substantiation and missing spokesperson",
+        "Does not flag any of the well-targeted pitch's genuine strengths as defects",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "product-recall-crisis-simulation",
+      tier: "core",
+      archetype: "simulation",
+      mode: "simulation",
+      title: "The First 24 Hours: A Product Recall Crisis Simulation",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Navigate the first 24 hours after a product-safety complaint goes viral, choosing a public response at each checkpoint and seeing how that choice compounds the story's trajectory, the speed-and-honesty tradeoff crisis communications is built on.",
+      companyId: "honasa-mamaearth",
+      scenario:
+        "You are the head of communications at Honasa Consumer (Mamaearth) when a customer's viral video claims one of your baby-care products caused a skin reaction. It hits 500,000 views in six hours.",
+      brief:
+        "Make a call at each checkpoint, in order: whether to speak before you have full facts, what you say once you have them, and how you close the loop, then see the outcome your choice produced.",
+      conceptsCovered: ["Crisis communications", "The Four Core Disciplines"],
+      stages: [
+        {
+          stageId: "stage-1-first-response",
+          label: "Hour 1: The video is trending",
+          elapsed: "1 hour",
+          concept: "Crisis communications",
+          lessonAnchor: "the-four-core-disciplines",
+          situation:
+            "A viral video with 500K views claims your baby lotion caused a rash. Three journalists have DMed your official account asking for comment. Your internal safety review hasn't started yet.",
+          dashboard:
+            "Video: 500K views, 12K shares, comments trending negative. 3 journalist DMs unanswered. Internal safety review: not started.",
+          spendToDate: "$0",
+          budgetRemaining: "$0 (this crisis costs time, not ad spend)",
+          decision: {
+            prompt: "What do you do in hour one, before the safety review has any findings?",
+            options: [
+              {
+                id: "stay-silent",
+                label: "Say nothing publicly until the internal safety team finishes its review",
+                verdict: "costly",
+                outcome:
+                  "By hour 6, two more outlets picked up the story under the headline 'Company refuses to comment,' turning the silence itself into the story.",
+                why: "An information vacuum during a fast-moving story gets filled by the worst plausible version of events, not the neutral one.",
+                lessonRef: "Crisis communications",
+                nextStageId: "end",
+              },
+              {
+                id: "deny",
+                label: "Publicly state the product is safe and the reaction is unrelated, before the review even starts",
+                verdict: "costly",
+                outcome:
+                  "The safety review found a real manufacturing defect two days later, and 'company denied it, then had to reverse' became the dominant headline, worse than the original complaint.",
+                why: "A denial you can't yet back up converts a product problem into a credibility problem, which is much harder to recover from.",
+                lessonRef: "Crisis communications",
+                nextStageId: "end",
+              },
+              {
+                id: "acknowledge-fast",
+                label:
+                  "Post a short public acknowledgment within the hour: 'We've seen these reports, an investigation is underway, updates to follow'",
+                verdict: "optimal",
+                outcome:
+                  "Coverage framed the company as responsive; two of the three journalists held their story pending an update instead of running with only the customer's claim.",
+                why: "Acknowledging fast without claiming a conclusion you don't have yet buys credibility and time in the same move.",
+                lessonRef: "Crisis communications",
+                nextStageId: "stage-2-review",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "stage-2-review",
+          label: "Hour 6: The safety review comes back",
+          elapsed: "6 hours",
+          concept: "Crisis communications",
+          lessonAnchor: "the-four-core-disciplines",
+          situation:
+            "Your safety review finds a manufacturing batch issue affecting a limited number of units. Sentiment has held roughly neutral since your hour-1 acknowledgment.",
+          dashboard:
+            "Sentiment: neutral-to-slightly-negative, stable since hour 1. 1 outlet ran a balanced 'company investigating' piece. 2 journalists still awaiting your follow-up.",
+          spendToDate: "$0",
+          budgetRemaining: "$0",
+          decision: {
+            prompt: "The review confirms a real defect in one batch. What's your move?",
+            options: [
+              {
+                id: "quiet-pull",
+                label: "Quietly pull the affected batch from retailers without a public statement",
+                verdict: "costly",
+                outcome:
+                  "A retail employee posted about the unexplained pullback online, which read as a cover-up on top of the original complaint.",
+                why: "Fixing the problem without saying so publicly looks identical to hiding it, once someone notices the fix.",
+                lessonRef: "Crisis communications",
+                nextStageId: "end",
+              },
+              {
+                id: "full-recall",
+                label:
+                  "Announce a full recall of the affected batch the same day, with lot numbers and a public refund process",
+                verdict: "optimal",
+                outcome:
+                  "Coverage shifted to 'company moves fast to recall affected batch,' and the two waiting journalists both ran the follow-up with your statement as the core quote.",
+                why: "Naming the specific lot numbers and the fix publicly closes the credibility gap the original video opened.",
+                lessonRef: "Crisis communications",
+                nextStageId: "stage-3-close",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "stage-3-close",
+          label: "Hour 24: Closing the loop",
+          elapsed: "24 hours",
+          concept: "Crisis communications",
+          lessonAnchor: "the-four-core-disciplines",
+          situation:
+            "The recall is underway and coverage has turned neutral-to-positive. One question remains: whether to publish a follow-up once the fix is confirmed complete.",
+          dashboard: "Sentiment: neutral-to-positive. Recall in progress, refunds processing.",
+          spendToDate: "$0",
+          budgetRemaining: "$0",
+          decision: {
+            prompt: "The recall is nearly complete. Do you publish a closing update?",
+            options: [
+              {
+                id: "no-followup",
+                label: "Consider the story resolved and move on without a closing statement",
+                verdict: "acceptable",
+                outcome:
+                  "The story faded from the news cycle within a week, but a few customers who never saw a resolution stayed uncertain whether it was actually fixed.",
+                why: "Silence after the peak doesn't reopen the crisis, but it leaves your most affected customers without confirmation.",
+                lessonRef: "Crisis communications",
+                nextStageId: "end",
+              },
+              {
+                id: "public-followup",
+                label: "Publish a short update confirming the recall is complete and what changed in the manufacturing process",
+                verdict: "optimal",
+                outcome:
+                  "The follow-up became the closing line in every outlet's coverage, and brand sentiment tracking showed a full recovery to pre-crisis levels within two weeks.",
+                why: "Closing the loop publicly is what turns 'company handled a crisis' into the lasting takeaway, instead of leaving the story open-ended.",
+                lessonRef: "Crisis communications",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Docs", role: "Draft each public statement before it goes out", why: "Free, supports fast collaborative editing under time pressure", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A three-checkpoint crisis response log documenting the public statement drafted at each stage and the reasoning behind each call.",
+      sampleOutput:
+        "Zomato comms desk, crisis response log (excerpt)\n\n" +
+        "HOUR 1 — Acknowledgment posted:\n" +
+        "  'We've seen the reports circulating and take them seriously. Our safety team is investigating now, we'll share findings as soon as we have them.'\n\n" +
+        "HOUR 6 — Recall statement posted:\n" +
+        "  'Our review identified an issue with batch #4471. We are recalling all units from that batch effective immediately and offering full refunds. Full details and refund process: [link].'\n\n" +
+        "HOUR 24 — Closing update posted:\n" +
+        "  'The batch #4471 recall is now complete. We've adjusted our quality-check process at that stage of production to prevent a repeat. Thank you for your patience.'",
+      successCriteria: [
+        "Chooses to acknowledge publicly within the first hour rather than staying silent or denying",
+        "Announces the full recall, with specifics, once the safety review confirms a defect",
+        "Closes the loop with a public follow-up rather than letting the story end unresolved",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "earned-owned-paid-media": [
+    {
+      id: "earned-owned-paid-audit",
+      tier: "mini",
+      archetype: "audit",
+      mode: "diagnostic",
+      title: "The Media Mix Audit: Classifying a Real Brand's Coverage",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a real, currently operating brand's recent online presence, correctly classify ten items into earned, owned, or paid media, then calculate a share-of-voice number against one named competitor.",
+      companyId: "delhivery",
+      scenario:
+        "You're a marketing intern at Delhivery, the logistics and ecommerce fulfillment company, asked to build a quick media-mix snapshot before a stakeholder review.",
+      brief: "Pick any real, currently operating brand, pull its last 10 online mentions, tag each earned, owned, or paid, and total what you find.",
+      conceptsCovered: ["Classifying earned, owned, and paid media", "Share of voice as a PR metric"],
+      steps: [
+        {
+          stepId: "step-1-classify",
+          concept: "Classifying earned, owned, and paid media",
+          lessonAnchor: "the-three-media-types-through-a-pr-lens",
+          theoryRecap:
+            "Earned media is coverage nobody paid for, owned media is anything the brand fully controls, and paid media is anything with placement bought behind it.",
+          question:
+            "Pull the last 10 online items mentioning a real brand of your choice, its own posts, press coverage, and any ads. How many fall into each of the three buckets?",
+          toolName: "Google Alerts",
+          where: "Set up a Google Alert for the brand name, then open its own website and one social profile in parallel tabs.",
+          procedure: [
+            "Set up a Google Alert for the exact brand name and let it populate, or search the brand name directly if you need results faster than the alert digest",
+            "Open the brand's own website/blog and one official social profile to capture recent owned posts",
+            "Scroll each channel for any content visibly marked 'sponsored' or 'ad' to capture paid examples",
+            "List the 10 items in a sheet with a column for earned / owned / paid and one line of reasoning per item",
+          ],
+          outputSample:
+            "Brand: [chosen brand]\n\n" +
+            "EARNED (4)\n" +
+            "  1. Trade publication feature on Q2 expansion — journalist-written, no sponsorship disclosure\n" +
+            "  2. Customer review on a third-party site\n" +
+            "  3. Independent YouTuber unboxing video, unpaid per video description\n" +
+            "  4. Industry newsletter mention in a roundup\n\n" +
+            "OWNED (4)\n" +
+            "  5. Brand's own blog post\n" +
+            "  6. Brand's Instagram caption\n" +
+            "  7. Brand's email newsletter excerpt\n" +
+            "  8. Brand's LinkedIn company update\n\n" +
+            "PAID (2)\n" +
+            "  9. Instagram post marked 'Sponsored'\n" +
+            "  10. Search ad appearing above organic results for the brand's category term",
+          healthy:
+            "The 10 items split roughly across all three buckets, with earned items showing zero sponsorship disclosure and a named third-party author.",
+          unhealthy:
+            "Every 'earned' item turns out to have a sponsorship disclosure or paid-partnership tag once you look closely, meaning it was actually paid media misclassified as earned.",
+          interpret:
+            "The disclosure label, or its absence, is the actual test, not how organic the content feels; sponsored content can look exactly like earned coverage until you check.",
+          soWhat: [
+            { symptom: "An item looked earned but had a sponsorship disclosure", action: "Recategorize it as paid and note why in the reasoning column", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-share-of-voice",
+          concept: "Share of voice as a PR metric",
+          lessonAnchor: "how-pr-pros-measure-and-report-on-earned-media",
+          theoryRecap:
+            "Share of voice measures a brand's mention volume against named competitors in a defined time window, one of the metrics that replaced outdated ad-value-equivalent reporting.",
+          question:
+            "Using the same brand, count its earned mentions over the last 7 days against one named competitor's earned mentions in the same window. What's the share of voice?",
+          toolName: "Google Sheets",
+          where: "Log both brands' 7-day earned mention counts side by side and compute the percentage.",
+          procedure: [
+            "Search both brand names individually and count earned (unpaid, third-party) mentions from the last 7 days only",
+            "Enter both counts in a sheet: your brand's count, the competitor's count",
+            "Calculate share of voice as your brand's mentions divided by the combined total of both brands, as a percentage",
+            "Note one likely driver behind whichever brand has the higher share this week",
+          ],
+          outputSample:
+            "7-day earned mention count\n\n" +
+            "  Brand A (chosen brand): 14 mentions\n" +
+            "  Brand B (named competitor): 22 mentions\n" +
+            "  Combined total: 36\n\n" +
+            "  Share of voice, Brand A: 14 / 36 = 38.9%\n" +
+            "  Share of voice, Brand B: 22 / 36 = 61.1%\n\n" +
+            "  Likely driver: Brand B had a product announcement this week that Brand A did not.",
+          healthy: "The share-of-voice math is transparent, both counts are dated to the same 7-day window and both use only earned (unpaid) mentions.",
+          unhealthy: "Mixing owned or paid mentions into either brand's count, which inflates the number and makes the comparison meaningless.",
+          interpret:
+            "Share of voice is only a fair comparison when both sides are counted the same way, same time window, same media type; skipping that discipline is how the metric gets gamed by accident.",
+          soWhat: [
+            { symptom: "One brand's count includes its own owned posts", action: "Strip owned/paid items out of both counts before comparing", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Alerts", role: "Surface recent mentions of the brand across the web", why: "Free, no account needed beyond a Google login", required: true, lastVerified: "2026-08" },
+          { toolName: "Google Sheets", role: "Log and total the classified mentions and share-of-voice math", why: "Free, sufficient for a 10-item tally", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [
+          { toolName: "BuzzSumo", role: "Search a longer historical window of earned mentions than a live alert can back-fill", why: "Useful once you need more than the last 7-10 days of coverage", required: false, lastVerified: "2026-08" },
+        ],
+      },
+      deliverable:
+        "A one-page media-mix snapshot: 10 classified mentions with reasoning, and a share-of-voice percentage against one named competitor.",
+      sampleOutput:
+        "Nykaa media-mix snapshot (excerpt)\n\n" +
+        "EARNED (5): trade press feature, 2 independent reviewer mentions, industry newsletter roundup, unpaid influencer mention\n" +
+        "OWNED (3): app push notification copy, Instagram grid post, email campaign line\n" +
+        "PAID (2): Instagram 'Sponsored' post, category search ad\n\n" +
+        "Share of voice vs. Myntra (7-day earned mentions): Nykaa 19 / (19+27) = 41.3%",
+      successCriteria: [
+        "Classifies all 10 items into earned, owned, or paid with correct reasoning",
+        "Calculates a share-of-voice percentage against a named competitor using only earned mentions in the same window",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "earned-to-owned-paid-amplification-asset",
+      tier: "mini",
+      archetype: "build-the-asset",
+      mode: "build",
+      title: "Borrow the Trust: Turning a Press Mention into Owned and Paid Assets",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given a sample earned-media excerpt, produce a real owned-channel recap post and a paid-ad headline that both accurately quote the third-party source without overstating what it actually said.",
+      companyId: "thredup",
+      scenario:
+        "You're on the growth team at ThredUp, the online resale marketplace. PR just forwarded a strong quote from a trade-press feature. Turn it into assets before the news cycle moves on.",
+      brief: "Write a short owned-channel recap that quotes the coverage accurately, then a paid-ad headline built from the same quote.",
+      conceptsCovered: ["Owned media amplifying earned coverage", "Paid media borrowing earned credibility"],
+      steps: [
+        {
+          stepId: "step-1-owned-recap",
+          concept: "Owned media amplifying earned coverage",
+          lessonAnchor: "how-the-three-media-types-work-together",
+          theoryRecap:
+            "Owned media amplifies earned coverage by publishing it on channels you control, borrowing its trust for your own audience instead of asking your own claims to do the convincing.",
+          question:
+            "Given the excerpt: a trade outlet wrote 'ThredUp's resale volume grew 34% year-over-year in its latest earnings report, outpacing the broader secondhand apparel market.' Draft a 100-150 word blog or email recap that quotes this accurately and links to the source.",
+          toolName: "Google Docs",
+          where: "Draft the recap as a short blog post or email section, with the quote clearly attributed.",
+          procedure: [
+            "Open the excerpt and identify the exact quotable line, not a paraphrase",
+            "Draft a 100-150 word recap that leads with the quote, attributed by publication name",
+            "Add one sentence of your own context explaining why the growth number matters to your reader",
+            "Link to the original article as the source",
+          ],
+          outputSample:
+            "Blog recap draft (142 words)\n\n" +
+            "\"ThredUp's resale volume grew 34% year-over-year in its latest earnings report, outpacing the broader secondhand apparel market,\" [Trade Outlet] reported this week.\n\n" +
+            "That's not just a good quarter, it's a sign the shift toward resale is accelerating faster than the category overall. For anyone weighing whether secondhand fits into their wardrobe or their business model, this is the kind of independent signal that's harder to dismiss than a company's own growth claims.\n\n" +
+            "Read the full report: [link to original article]",
+          healthy: "The recap quotes the exact wording from the source, attributes it clearly, and links out, the reader can verify the claim themselves.",
+          unhealthy: "The recap paraphrases the number into a bigger or vaguer claim, like 'ThredUp is dominating the resale market,' which the source never actually said.",
+          interpret:
+            "The credibility of owned amplification comes entirely from accuracy; the moment the recap says more than the source did, it stops being borrowed trust and becomes an unverified claim again.",
+          soWhat: [
+            { symptom: "The recap's claim is stronger than the original quote", action: "Rewrite to match the source's exact wording and scope", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-paid-headline",
+          concept: "Paid media borrowing earned credibility",
+          lessonAnchor: "how-the-three-media-types-work-together",
+          theoryRecap:
+            "Paid media extends reach fastest, and pairing it with an earned quote means the ad carries a third party's words instead of asking a self-written claim to build trust from zero.",
+          question: "Turn the same quote into a retargeting ad headline, under 40 characters, that attributes it to the publication rather than to ThredUp itself.",
+          toolName: "Canva for Social",
+          where: "Draft the headline text in a simple ad layout, with the publication name visible as the attribution.",
+          procedure: [
+            "Cut the quote down to its core number and claim, under 40 characters",
+            "Attribute the headline to the publication by name, not to ThredUp",
+            "Draft the ad in a simple layout, headline plus attribution line",
+            "Check the character count before finalizing",
+          ],
+          outputSample:
+            "Ad headline draft (38 characters)\n\n" +
+            "\"Resale grew 34% YoY\" — [Trade Outlet]\n\n" +
+            "Subhead: Independent reporting on where secondhand fashion is headed.",
+          healthy: "The headline attributes the number to the publication, not to ThredUp, so the ad reads as reported fact rather than a self-made marketing claim.",
+          unhealthy: "The attribution is dropped or shrunk to unreadable size, so the ad quietly becomes a self-sourced claim with no visible source.",
+          interpret:
+            "The entire value of this ad over a normal ad is the visible third-party source; removing or hiding the attribution erases that advantage and returns the ad to ordinary self-promotion.",
+          soWhat: [
+            { symptom: "The publication attribution is missing or too small to read", action: "Increase the attribution's visual weight so it reads at a glance", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Docs", role: "Draft the owned-channel recap post", why: "Free, fast for a short text draft", required: true, lastVerified: "2026-08" },
+          { toolName: "Canva for Social", role: "Lay out the paid-ad headline with visible attribution", why: "Free tier covers a single static ad layout", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable: "A short owned-channel recap post plus one paid-ad headline, both accurately quoting the same earned-media excerpt.",
+      sampleOutput:
+        "Chewy amplification assets (excerpt)\n\n" +
+        "OWNED RECAP: \"Chewy's holiday wish-fulfillment program earned 143 media placements reaching 10 million readers and viewers,\" [Trade Outlet] reported. That kind of earned reach is why the program is now a recurring part of our holiday plan...\n\n" +
+        "PAID HEADLINE: \"143 press placements, 10M reach\" — [Trade Outlet]",
+      successCriteria: [
+        "The owned recap accurately quotes the source and adds no claim beyond what it stated",
+        "The paid headline attributes the quote to the publication by name, not to the company",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "press-release-writing": [
+    {
+      id: "press-release-teardown-honasa",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Spot the Buried Lede: Auditing Two Draft Press Releases",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective: "Given two synthetic-realistic draft press releases, identify structural defects against the inverted-pyramid structure and quote/boilerplate conventions journalists expect, while resisting plausible-looking non-defects.",
+      companyId: "honasa-mamaearth",
+      scenario: "You're a PR coordinator at Honasa Consumer, the NSE-listed parent of Mamaearth, reviewing two draft releases before they go out to journalists this afternoon.",
+      brief: "Read both drafts, flag the real structural defects using the lesson's inverted-pyramid framework, and don't flag the distractors that only look like problems.",
+      mode: "teardown",
+      conceptsCovered: ["Inverted-pyramid structure and the buried lede", "Quotable human quotes vs. marketing copy", "Boilerplate and dateline conventions"],
+      teardownItems: [
+        {
+          itemId: "teardown-item-1-buried-lede",
+          specimen:
+            "FOR IMMEDIATE RELEASE\n\nHONASA CONSUMER DELIVERS RECORD QUARTER AMID STRONG MARKET CONDITIONS\n\nHonasa Consumer Limited, the parent company of Mamaearth, today reiterated its commitment to sustainable, synergistic growth across its house of brands in a rapidly evolving beauty and personal care landscape.\n\nThe company leverages a robust omnichannel strategy to drive category leadership, with a diversified portfolio spanning multiple consumer touchpoints and a best-in-class supply chain infrastructure.\n\nBuried at the bottom: Honasa is launching a new sunscreen-first sub-brand, Aqua Glow, in 4,000 retail stores starting next month, its first new sub-brand launch in two years.\n\n###",
+          specimenSource: "synthetic-realistic",
+          prompt: "Identify the structural defects in this draft against the lesson's inverted-pyramid framework. Don't flag things that only look like problems.",
+          answerKey: [
+            {
+              defect: "The real news, a new sub-brand launch, is buried in the last paragraph instead of leading the headline and first sentence.",
+              severity: "critical",
+              whyItMatters: "Journalists skim the headline and first sentence to decide whether to keep reading; a release that leads with vague positioning language gets discarded before the actual news is ever seen.",
+              lessonRef: "The Structure Journalists Expect",
+              owner: "you",
+            },
+            {
+              defect: "The headline announces generic corporate performance language ('record quarter', 'strong market conditions') instead of the specific, newsworthy fact.",
+              severity: "critical",
+              whyItMatters: "A vague headline gives an editor no reason to open the release; specificity is what makes a headline scannable and pitchable.",
+              lessonRef: "The Structure Journalists Expect",
+              owner: "you",
+            },
+            {
+              defect: "No quote from a named executive anywhere in the release.",
+              severity: "moderate",
+              whyItMatters: "Reporters often lift the quote directly into their article; without one, the journalist has to ask for a comment, adding friction that gets the release skipped.",
+              lessonRef: "Why Most Press Releases Get Ignored",
+              owner: "you",
+            },
+            {
+              defect: "The two opening paragraphs are dense with jargon ('synergistic growth', 'category leadership', 'best-in-class supply chain infrastructure') and contain no concrete facts.",
+              severity: "moderate",
+              whyItMatters: "Jargon-heavy copy signals a release written to sound impressive rather than to inform, which is the single biggest reason journalists skip past a pitch.",
+              lessonRef: "Why Most Press Releases Get Ignored",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The release is under 300 words, which is too short for a corporate announcement.",
+            "The release uses 'today' instead of a specific calendar date in the second paragraph.",
+            "The dateline format at the top follows a different city convention than usual.",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "teardown-item-2-weak-quote",
+          specimen:
+            "FOR IMMEDIATE RELEASE\n\nMAMAEARTH LAUNCHES AQUA GLOW SUNSCREEN LINE IN 4,000 STORES\n\nHonasa Consumer's Mamaearth brand announced today it is launching Aqua Glow, a five-product sunscreen line, in 4,000 retail stores across India starting September 2026, its first new sub-brand launch in two years.\n\n\"We are thrilled and excited to announce this amazing and innovative launch that will delight our valued customers and stakeholders alike,\" said a Mamaearth spokesperson.\n\nThe five-product range includes SPF 50 and SPF 30 formulations targeting India's growing sun-care category.\n\nContact: press@honasa.example | +91-XXXXXXXXXX",
+          specimenSource: "synthetic-realistic",
+          prompt: "This draft fixed the buried lede. Find what's still wrong before it goes out.",
+          answerKey: [
+            {
+              defect: "The quote is generic filler ('thrilled and excited', 'amazing and innovative') with no specific detail, and it's attributed to an unnamed 'spokesperson' instead of a named executive.",
+              severity: "critical",
+              whyItMatters: "A quote a journalist can't attribute to a real person by name and title is usually cut entirely, wasting the one spot in the release meant to add a human voice.",
+              lessonRef: "Why Most Press Releases Get Ignored",
+              owner: "you",
+            },
+            {
+              defect: "There is no boilerplate paragraph describing what Honasa Consumer / Mamaearth is, for a journalist unfamiliar with the company.",
+              severity: "moderate",
+              whyItMatters: "Boilerplate is the standard closing block that gives context without the journalist needing to research the company separately; omitting it forces extra work that gets the release deprioritized.",
+              lessonRef: "The Structure Journalists Expect",
+              owner: "you",
+            },
+            {
+              defect: "The contact information has a placeholder phone number left in ('+91-XXXXXXXXXX') instead of a real, reachable number.",
+              severity: "cosmetic",
+              whyItMatters: "A journalist who wants a follow-up quote or interview and hits a placeholder number has no way to reach the company, which can kill a story that was otherwise ready to run.",
+              lessonRef: "The Structure Journalists Expect",
+              owner: "either",
+            },
+          ],
+          distractors: [
+            "The headline uses the brand name 'Mamaearth' instead of the legal entity 'Honasa Consumer Limited'.",
+            "The release states the launch month (September 2026) instead of an exact calendar date.",
+            "The product range is described as 'five products' rather than listing each SKU by name.",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Track flagged defects against the answer key with severity tags", why: "Free, no setup, easy to share with a reviewing editor", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable: "A defect log for both drafts, each defect tagged with severity (critical/moderate/cosmetic) and a one-line fix recommendation.",
+      sampleOutput:
+        "Chewy press release teardown log (excerpt)\n\n" +
+        "Draft 1, defect log\n" +
+        "  CRITICAL   Lede buried in paragraph 4, not headline/para 1   Fix: move Autoship expansion fact to headline\n" +
+        "  CRITICAL   Headline is generic corporate language, no news   Fix: name the specific announcement\n" +
+        "  MODERATE   No named executive quote                          Fix: add CMO quote with title\n\n" +
+        "Draft 2, defect log\n" +
+        "  CRITICAL   Quote is unattributed filler language              Fix: name spokesperson, cut filler adjectives\n" +
+        "  MODERATE   No boilerplate paragraph                           Fix: add standard 40-60 word company description",
+      successCriteria: [
+        "Correctly identifies at least 3 of the 4 real defects in item 1 and 2 of the 3 in item 2",
+        "Does not flag any of the 6 distractors as defects",
+        "Assigns a reasonable severity level to each flagged defect",
+      ],
+      portfolioReady: false,
+    },
+    {
+      id: "press-release-build-chewy",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "Write a Launch-Ready Press Release From a Messy Internal Brief",
+      timeEstimate: "50 minutes",
+      timeMinutes: 50,
+      objective: "Turn a messy internal announcement brief into a publication-ready press release that follows the inverted-pyramid structure, includes a genuinely quotable quote, and closes with proper boilerplate and contact details.",
+      companyId: "chewy",
+      scenario: "You're on the comms team at Chewy, the Nasdaq-listed pet products retailer known for its Autoship subscription model, and product has just handed you a rough internal brief for a same-day-delivery expansion.",
+      brief: "Extract the actual news from the messy brief, structure it inverted-pyramid style, write a quote that sounds like a real executive said it, and add proper boilerplate.",
+      mode: "build",
+      conceptsCovered: ["Inverted-pyramid structure and the buried lede", "Quotable human quotes vs. marketing copy", "Boilerplate and dateline conventions", "Before-and-after editing against a real example"],
+      steps: [
+        {
+          stepId: "step-1-extract-the-lede",
+          concept: "Inverted-pyramid structure and the buried lede",
+          lessonAnchor: "the-structure-journalists-expect",
+          theoryRecap: "The lesson's inverted-pyramid framework puts the single most newsworthy fact in the headline and first sentence, then narrows into supporting detail, context, and boilerplate in that order.",
+          question: "The internal brief buries the real news, same-day delivery going live in 15 new metro markets, inside three paragraphs of company strategy talk. What goes in the headline?",
+          toolName: "Notion",
+          where: "Draft the release in a Notion doc so you can restructure paragraphs freely before finalizing.",
+          procedure: [
+            "Read the full internal brief and circle every discrete fact",
+            "Rank facts by how newsworthy and specific each one is",
+            "Write a headline stating the single most newsworthy fact directly",
+            "Write a first sentence that answers who, what, when, where in one line",
+            "Move all strategy/positioning language to paragraph 3 or later",
+          ],
+          outputSample:
+            "HEADLINE (before): Chewy Continues to Invest in Customer Experience Excellence\n" +
+            "HEADLINE (after): Chewy Launches Same-Day Delivery in 15 New Metro Markets\n\n" +
+            "FIRST SENTENCE (after): Chewy, Inc. (NYSE: CHWY) today announced same-day delivery is now available in 15 additional U.S. metro markets, expanding the service to a total of 40 markets nationwide.",
+          healthy: "The headline and first sentence together tell the full story even if a journalist reads nothing else.",
+          unhealthy: "A reader has to get to paragraph 3 or 4 before learning what actually happened.",
+          interpret: "If you can delete every paragraph after the first and still have a usable one-line news brief, the lede isn't buried.",
+          soWhat: [
+            { symptom: "The headline states a strategy or value statement instead of a fact", action: "Rewrite the headline as a single newsworthy sentence with a number or date in it", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-write-the-quote",
+          concept: "Quotable human quotes vs. marketing copy",
+          lessonAnchor: "why-most-press-releases-get-ignored",
+          theoryRecap: "The lesson explains that a usable quote sounds like something a specific person would actually say out loud, with a concrete detail in it, not generic enthusiasm a journalist has to cut.",
+          question: "The brief includes this placeholder: 'quote from leadership TBD, something positive about customer experience.' What replaces it?",
+          toolName: "Notion",
+          where: "Same Notion doc, quote block below the first two paragraphs.",
+          procedure: [
+            "Identify which named executive should be quoted based on the announcement's subject",
+            "Draft a quote containing one concrete detail from the brief, not generic praise",
+            "Read the quote aloud to check it sounds like natural speech, not ad copy",
+            "Attribute it with full name and exact title",
+          ],
+          outputSample:
+            "BEFORE: \"We are excited to continue delivering excellence to our customers,\" said a Chewy spokesperson.\n\n" +
+            "AFTER: \"Same-day delivery started as a pilot in 5 cities last year, and pet parents told us clearly they wanted it everywhere,\" said Sumit Singh, CEO of Chewy. \"Expanding to 40 markets means most of our Autoship customers now have it as an option.\"",
+          healthy: "The quote contains a specific number or detail that couldn't apply to any other announcement.",
+          unhealthy: "The quote is interchangeable with a quote from any other company's press release.",
+          interpret: "A quote a journalist would delete for being generic filler isn't earning its place in the release.",
+          soWhat: [
+            { symptom: "The quote reads like tagline copy instead of speech", action: "Add one specific number, date, or detail pulled from the brief into the quote itself", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Notion", role: "Draft and restructure the release", why: "Free tier supports rich text drafting and easy reordering of sections", required: true, lastVerified: "2026-08" },
+          { toolName: "Google Sheets", role: "Track which facts from the brief made it into which paragraph", why: "Free, simple checklist to confirm nothing newsworthy got dropped", required: false, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable: "A complete, publication-ready press release (headline, dateline, lede, quote, supporting paragraph, boilerplate, contact info) built from the messy internal brief.",
+      sampleOutput:
+        "FOR IMMEDIATE RELEASE\n\n" +
+        "DUOLINGO ADDS SPANISH LISTENING PRACTICE MODE FOR ALL LEARNERS\n\n" +
+        "PITTSBURGH, September 3, 2026 — Duolingo, Inc. (NASDAQ: DUOL) today announced a new listening practice mode for Spanish courses, available to all users starting this week.\n\n" +
+        "The feature uses native-speaker audio clips at three speeds, addressing the most requested feedback from Spanish course users over the past year.\n\n" +
+        "\"Reading and listening are different skills, and our data showed learners were reading Spanish well but freezing up in real conversations,\" said [Name], Head of Learning at Duolingo. \"This mode closes that gap directly.\"\n\n" +
+        "Duolingo is the world's leading language-learning platform, offering courses in over 40 languages to more than 500 million learners worldwide.\n\n" +
+        "Contact: press@duolingo.example",
+      successCriteria: [
+        "Headline and first sentence contain the single most newsworthy fact with a concrete number or date",
+        "Quote contains at least one specific detail and is attributed to a named person and title",
+        "Release includes a boilerplate paragraph and contact information",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "press-kit-media-kit": [
+    {
+      id: "press-kit-audit-duolingo",
+      tier: "mini",
+      archetype: "audit",
+      title: "Audit a Press Kit Before It Goes Live",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective: "Given a description of an existing company press kit page, evaluate it against the lesson's checklist of what belongs in a press kit and how it should be hosted, then produce a prioritized fix list.",
+      companyId: "duolingo",
+      scenario: "You're a freelance PR consultant reviewing Duolingo's press kit page before a product-launch media push, checking whether it will actually hold up under journalist use.",
+      brief: "Walk through the current press kit against the lesson's checklist, flag what's missing or wrong, and rank fixes by how much they'll cost the team in missed coverage if left unfixed.",
+      mode: "diagnostic",
+      conceptsCovered: ["What belongs in a press kit", "Why hosting format determines whether journalists actually use a kit"],
+      steps: [
+        {
+          stepId: "step-1-content-checklist",
+          concept: "What belongs in a press kit",
+          lessonAnchor: "what-actually-belongs-in-it",
+          theoryRecap: "The lesson lists the core press kit components: company boilerplate, executive bios and headshots, product screenshots or photos, logo files in multiple formats, recent press coverage, and key facts/stats.",
+          question: "The current kit has a company boilerplate, one blurry founder headshot from 2018, and no logo files at all. What's missing and what's actively broken?",
+          toolName: "Google Sheets",
+          where: "Build a checklist with columns: component, present/missing, quality issue, priority.",
+          procedure: [
+            "List every component the lesson says belongs in a press kit",
+            "Mark each as present, missing, or present-but-broken",
+            "Note specific quality issues (outdated, wrong format, low resolution)",
+            "Rank each gap by priority based on how often journalists would need it",
+          ],
+          outputSample:
+            "Component            Status      Issue                          Priority\n" +
+            "Boilerplate           Present     Fine as-is                    Low\n" +
+            "Exec headshots        Broken      2018 photo, low-res, 1 person Medium\n" +
+            "Logo files            Missing     No SVG/PNG download at all    High\n" +
+            "Product screenshots   Missing     None provided                 High\n" +
+            "Recent coverage       Missing     No press-mentions page        Medium",
+          healthy: "Every core component is present, current, and in a usable file format.",
+          unhealthy: "A journalist has to email the company just to get a usable logo file.",
+          interpret: "Missing logo files and screenshots are the highest-priority gaps because they're the assets journalists need fastest, on deadline, without contacting anyone.",
+          soWhat: [
+            { symptom: "No downloadable logo files exist on the kit page", action: "Upload SVG and PNG logo files (light and dark background versions) to the kit immediately", effort: "30 min" },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-hosting-check",
+          concept: "Why hosting format determines whether journalists actually use a kit",
+          lessonAnchor: "where-to-host-it-and-why-pdfs-lose",
+          theoryRecap: "The lesson explains that a single downloadable PDF press kit loses to a web page: PDFs go stale, can't be linked to a specific asset, and are painful to update, while a web page lets a journalist grab exactly the file they need and stays current.",
+          question: "The current press kit is a single PDF last updated 14 months ago, linked from a 'Press' footer link. What's wrong with this setup?",
+          toolName: "Google Sheets",
+          where: "Same sheet, second tab for hosting-format issues.",
+          procedure: [
+            "Check when the PDF was last updated relative to the company's most recent news",
+            "Check whether individual assets (logo, one headshot) can be downloaded separately or only as one bundled file",
+            "Check how discoverable the press kit link is from the homepage",
+          ],
+          outputSample:
+            "Hosting format: single PDF, last updated 14 months ago\n" +
+            "Issue 1: Company has raised funding and launched 2 products since last update, none reflected\n" +
+            "Issue 2: Journalist wanting just the logo must download the entire 40MB PDF\n" +
+            "Issue 3: Press kit link buried in footer, not in main nav",
+          healthy: "A web page with individually downloadable assets, updated within the last quarter, linked from primary navigation.",
+          unhealthy: "A single stale PDF bundling everything together, discoverable only by scrolling to the footer.",
+          interpret: "A PDF-only kit fails the moment the company has news the kit doesn't reflect yet, which is exactly when journalists look for it.",
+          soWhat: [
+            { symptom: "The kit is a single PDF older than the company's most recent news", action: "Migrate to a web page with individually downloadable assets and update it same-day with any major news", effort: "half day" },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Build and prioritize the audit checklist", why: "Free, simple structured tracking with no account friction", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable: "A prioritized audit checklist of press kit gaps, split between content gaps and hosting-format gaps, each with a specific fix.",
+      sampleOutput:
+        "Robinhood press kit audit (excerpt)\n\n" +
+        "CONTENT GAPS\n" +
+        "  HIGH     No product screenshots available for download\n" +
+        "  MEDIUM   Exec bios have no titles listed, just names\n\n" +
+        "HOSTING GAPS\n" +
+        "  HIGH     Kit is a single 60MB PDF, not a web page\n" +
+        "  LOW      Press kit link uses generic anchor text 'Media' instead of 'Press Kit'",
+      successCriteria: [
+        "Identifies at least 4 missing or broken content components",
+        "Identifies the PDF-vs-web-page hosting problem and explains why it matters",
+        "Assigns a clear priority to each flagged gap",
+      ],
+      portfolioReady: false,
+    },
+    {
+      id: "press-kit-build-robinhood",
+      tier: "mini",
+      archetype: "build-the-asset",
+      title: "Build a One-Page Press Kit Outline",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective: "Produce a complete, correctly structured press kit outline (as a web page spec, not a PDF) covering every component the lesson requires, ready to hand to a designer or developer to build.",
+      companyId: "robinhood",
+      scenario: "You're the first PR hire at Robinhood, the Nasdaq-listed commission-free trading app, and the company has never had a formal press kit before this quarter's product launch.",
+      brief: "Spec out a complete press-kit web page: every required component, what file formats each asset needs, and how the page should be organized so a journalist can grab exactly what they need in under a minute.",
+      mode: "build",
+      conceptsCovered: ["What belongs in a press kit", "Why hosting format determines whether journalists actually use a kit"],
+      steps: [
+        {
+          stepId: "step-1-spec-the-components",
+          concept: "What belongs in a press kit",
+          lessonAnchor: "what-actually-belongs-in-it",
+          theoryRecap: "The lesson lists the core press kit components: company boilerplate, executive bios and headshots, product screenshots or photos, logo files in multiple formats, recent press coverage, and key facts/stats.",
+          question: "Robinhood has never had a press kit. What exact components and file formats go on the page, and in what order?",
+          toolName: "Notion",
+          where: "Draft the page spec in Notion as a section-by-section outline with asset format notes.",
+          procedure: [
+            "List every required component in the order a journalist would want to encounter them",
+            "For each visual asset, specify required file formats (SVG/PNG for logos, high-res JPG for photos)",
+            "Write a one-paragraph boilerplate draft as a placeholder",
+            "Note which components need design/dev work vs. which are just copy",
+          ],
+          outputSample:
+            "PRESS KIT PAGE SPEC\n\n" +
+            "1. Boilerplate (copy, ~60 words)\n" +
+            "2. Key facts/stats (copy, bulleted, e.g. user count, founding year)\n" +
+            "3. Logo files: SVG + PNG, light-background and dark-background versions\n" +
+            "4. Executive headshots: high-res JPG, min 1000px wide, current within 12 months\n" +
+            "5. Product screenshots: PNG, at least 3 current app screens\n" +
+            "6. Recent press coverage: linked list, most recent first",
+          healthy: "Every component has a specified file format and a clear owner (copy vs. design/dev).",
+          unhealthy: "A component is listed with no format specified, so whoever builds the page has to guess.",
+          interpret: "A spec a designer can build from without asking follow-up questions is the actual deliverable, not a vague list of section names.",
+          soWhat: [
+            { symptom: "A component on the list has no file format specified", action: "Add the exact format and minimum resolution before handing the spec to design", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-spec-the-hosting",
+          concept: "Why hosting format determines whether journalists actually use a kit",
+          lessonAnchor: "where-to-host-it-and-why-pdfs-lose",
+          theoryRecap: "The lesson explains that a web page beats a PDF because assets stay individually downloadable and the whole kit can be updated the same day news happens, without journalists ever holding a stale file.",
+          question: "Should this be a PDF, a web page, or both? What does the spec need to say about updating it?",
+          toolName: "Notion",
+          where: "Same Notion doc, hosting-format section.",
+          procedure: [
+            "Specify the page as web-hosted, not PDF-only",
+            "Note that each asset (logo, each headshot) needs its own individual download link",
+            "Add a maintenance note: who updates the kit and how soon after major news",
+            "Specify where the page is linked from (main nav, not just footer)",
+          ],
+          outputSample:
+            "HOSTING SPEC\n" +
+            "Format: dedicated web page at /press, not a bundled PDF\n" +
+            "Each asset individually downloadable via its own button/link\n" +
+            "Maintenance owner: PR team, update within 48 hours of major news\n" +
+            "Navigation: linked from main site footer AND from the About page",
+          healthy: "The spec explicitly rules out a PDF-only kit and names a maintenance owner.",
+          unhealthy: "The spec leaves hosting format unspecified, which defaults to whatever's easiest for whoever builds it, often a PDF.",
+          interpret: "If the spec doesn't say 'not a PDF,' a busy dev team will default to the fastest thing to ship, which is usually a PDF.",
+          soWhat: [
+            { symptom: "The build spec doesn't name a hosting format", action: "Add an explicit line ruling out PDF-only and specifying individually downloadable web assets", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Notion", role: "Write the full press kit page spec", why: "Free tier, easy to organize into sections a designer can follow", required: true, lastVerified: "2026-08" },
+          { toolName: "Canva", role: "Mock up a rough visual layout of the page for design handoff", why: "Free tier templates are enough for a rough layout mockup", required: false, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable: "A complete press kit web page spec: every component, required file formats, page order, and a hosting/maintenance plan, ready to hand to design or dev.",
+      sampleOutput:
+        "Wise press kit page spec (excerpt)\n\n" +
+        "1. Boilerplate: \"Wise is a global technology company building the best way to move and manage the world's money...\"\n" +
+        "2. Key facts: founded 2011, operates in 40+ currencies, publicly listed on LSE\n" +
+        "3. Logo files: SVG + PNG, light/dark versions, downloadable individually\n" +
+        "4. Exec headshots: 3 leaders, high-res JPG, updated within last 12 months\n" +
+        "5. Hosting: web page at wise.com/press, not PDF, updated within 48 hours of major news",
+      successCriteria: [
+        "Spec covers all 5-6 core components with specific file formats",
+        "Spec explicitly requires web hosting with individually downloadable assets, not a PDF bundle",
+        "Spec names a maintenance owner and update timeline",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "thought-leadership-pr": [
+    {
+      id: "journalist-pitch-response-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "The Six-Hour Quote: Auditing a Journalist Pitch Response",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a real-style journalist request from a source platform and the executive's drafted pitch response, find the defects that would get the pitch ignored, using the lesson's speed, relationship, and quotability principles.",
+      companyId: "duolingo",
+      scenario:
+        "You're the PR coordinator at Duolingo. A journalist request came in through a source platform about a feature story on habit-building apps, and your comms lead has already drafted a response for the VP of Learning Science to send. You have ten minutes before it goes out.",
+      brief:
+        "Compare the drafted response against the lesson's core pitching principles: speed, a real quotable line instead of a press release voice, and a specific angle.",
+      mode: "teardown",
+      conceptsCovered: ["Becoming the Source Reporters Call"],
+      teardownItems: [
+        {
+          itemId: "item-1-pitch-response",
+          specimen:
+            "JOURNALIST REQUEST (posted on a source platform, 6 hours ago):\n'Writing a feature on habit-building apps for a national outlet. Looking for an expert quote on why some apps succeed at building daily habits and others don't. Need a response within 2-3 hours, deadline is tight.'\n\nDRAFTED RESPONSE (about to be sent, 6 hours after the request was posted):\n'Duolingo is a global leader in language learning, trusted by millions of users worldwide. Our research shows that habit-building works when apps are designed thoughtfully. We would be happy to discuss further on a call at your convenience.'",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "Read the journalist's request and the drafted response below. List everything wrong with the response before it goes out.",
+          answerKey: [
+            {
+              defect:
+                "Drafted six hours after the request was posted, well past the reporter's stated 2-3 hour deadline",
+              severity: "critical",
+              whyItMatters:
+                "A mediocre quote delivered within the hour beats a perfect quote delivered the next day, because the reporter has already filed the story.",
+              lessonRef: "becoming-the-source-reporters-call",
+              owner: "you",
+            },
+            {
+              defect:
+                "Opens with 'Duolingo is a global leader in language learning' instead of a quotable line answering the reporter's actual question",
+              severity: "critical",
+              whyItMatters:
+                "Reporters need a line they can drop straight into copy, not corporate description; a press-release voice gets cut by any editor.",
+              lessonRef: "becoming-the-source-reporters-call",
+              owner: "you",
+            },
+            {
+              defect:
+                "'Our research shows that habit-building works when apps are designed thoughtfully' has no specific data point, study name, or number attached",
+              severity: "moderate",
+              whyItMatters:
+                "A vague claim gets no citation; a number or named study gets quoted directly.",
+              lessonRef: "becoming-the-source-reporters-call",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The response is short, only three sentences",
+            "It offers a follow-up call instead of answering by email",
+            "It doesn't mention Duolingo's app store ranking",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Log journalist request timestamps and response times",
+            why: "Free, and a simple timestamp column makes response speed against reporter deadlines visible before it becomes a habit",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A marked-up defect list on the pitch response, with the two must-fix items flagged before send.",
+      sampleOutput:
+        "Chewy pitch response teardown (reference)\n\nDefects found: 3\n1. CRITICAL — Sent 5 hours after request posted (platform showed a 2-hour average reporter close time)\n2. CRITICAL — Opens with 'Chewy is America's #1 pet retailer' instead of a quotable line\n3. MODERATE — Cites 'strong customer loyalty' with no number attached\n\nRewrite before send: 'We've seen Autoship subscribers reorder 40% faster after their first vet-recommended refill reminder.' One sentence, one number, ready to quote.",
+      successCriteria: [
+        "Flags the response-time delay against the reporter's stated deadline window",
+        "Flags the missing quotable line at the top of the response",
+        "Does not flag either distractor as a defect",
+      ],
+      portfolioReady: false,
+      stretch:
+        "Time yourself rewriting the response in under 10 minutes to match the real pressure of a same-day journalist deadline.",
+    },
+    {
+      id: "executive-proof-points-doc-build",
+      tier: "mini",
+      archetype: "build-the-asset",
+      title: "Build a Reusable Executive Bio and Proof-Points Doc",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Build a one-page, ready-to-drop executive bio and proof-points doc, three to five stats, one customer story, one-line POV, that can go into any award submission or speaker application in minutes.",
+      companyId: "nubank",
+      scenario:
+        "You're on the comms team at Nu Holdings (Nubank). An awards deadline for a fintech industry recognition landed on your desk with five days' notice, and there's no ready executive bio doc to pull from.",
+      brief:
+        "Build the living doc the lesson's tip callout describes, so the next deadline never starts from a blank page.",
+      mode: "build",
+      conceptsCovered: ["Living executive bio and proof-points doc"],
+      steps: [
+        {
+          stepId: "step-1-build-proof-points-doc",
+          concept: "Living executive bio and proof-points doc",
+          lessonAnchor: "awards-and-speaker-slots-as-deliberate-tactics",
+          theoryRecap:
+            "The lesson's tip callout: keep three to five stats, one customer story, and a one-line POV ready to drop into any award form or speaker application in minutes instead of starting from a blank page every time.",
+          question:
+            "Using only information you can verify (public reports, customer stories already cleared for external use), build the four sections of the doc for your executive.",
+          toolName: "Notion",
+          where: "Create a new Notion page titled '[Executive Name] — Bio & Proof Points'.",
+          procedure: [
+            "Write a 3-sentence executive bio (role, tenure, one credibility marker)",
+            "List 3-5 stats the executive can defend live: revenue, growth, customer count, or a named benchmark",
+            "Write one customer story with a named or anonymized outcome, 2-3 sentences",
+            "Write a single-line POV sentence the executive can say without notes",
+          ],
+          outputSample:
+            "Sample doc excerpt (different company, for reference)\n\nWISE — Kristo Kaarmann, CEO\n\nBIO: Co-founded Wise in 2011 to fix the hidden cost of cross-border payments; led the company through its 2021 direct listing on the London Stock Exchange.\n\nSTATS:\n- 16.3 million active customers (FY2024 annual report)\n- GBP 40 billion+ moved cross-border per quarter\n- 60% of Wise transfers settle in under 20 seconds\n\nCUSTOMER STORY: A UK freelancer switched from a high-street bank and saved an estimated GBP 380 a year in hidden transfer markups across 24 payments.\n\nPOV LINE: 'Cross-border payments shouldn't cost more just because nobody shows you the real exchange rate.'",
+          healthy:
+            "Every stat has a cited source next to it, and the POV line is one sentence the exec has actually said before.",
+          unhealthy:
+            "Stats with no source attached, or a POV line that reads like a tagline nobody would say out loud in an interview.",
+          interpret:
+            "A doc built from unverifiable or invented numbers collapses the first time an analyst or reporter asks 'where's that from?' Every entry needs a source you could point to on the spot.",
+          soWhat: [
+            {
+              symptom: "The doc took more than 30 minutes to build",
+              action: "Cut to the 3 stats you're most confident defending live and finish the rest later",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Notion",
+            role: "House the living bio and proof-points doc",
+            why: "Free tier supports a single shared page with edit history so the doc stays current",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A completed one-page executive bio and proof-points doc with bio, 3-5 sourced stats, one customer story, and a one-line POV.",
+      sampleOutput:
+        "WISE — Kristo Kaarmann, CEO (reference doc)\n\nBIO: Co-founded Wise in 2011 to fix the hidden cost of cross-border payments; led the company through its 2021 direct listing on the London Stock Exchange.\n\nSTATS:\n- 16.3 million active customers (FY2024 annual report)\n- GBP 40 billion+ moved cross-border per quarter\n- 60% of Wise transfers settle in under 20 seconds\n\nCUSTOMER STORY: A UK freelancer switched from a high-street bank and saved an estimated GBP 380 a year in hidden transfer markups across 24 payments.\n\nPOV LINE: 'Cross-border payments shouldn't cost more just because nobody shows you the real exchange rate.'",
+      successCriteria: [
+        "Every stat has a verifiable source noted next to it",
+        "Customer story includes a named or clearly anonymized outcome",
+        "POV line is a single sentence, not a tagline",
+      ],
+      portfolioReady: true,
+      stretch: "Add a fifth stat sourced from a live dashboard you own, refreshed quarterly.",
+    },
+  ],
+  "analyst-relations": [
+    {
+      id: "gartner-briefing-request-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "The 500-Character Test: Auditing a Gartner Briefing Request",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Given a drafted Gartner briefing request against the platform's roughly 500-character limit, find what wastes space and what's missing before it gets submitted.",
+      companyId: "warby-parker",
+      scenario:
+        "You're the AR lead at Warby Parker's employer-benefits division. Your product marketing lead drafted a Gartner briefing request for the next vision-benefits vendor coverage cycle, and it's due today.",
+      brief:
+        "Check the draft against the lesson's rule: name the coverage area, state your differentiation, name a client win, and don't waste the character limit.",
+      mode: "teardown",
+      conceptsCovered: ["The Briefing: Your Core Tool"],
+      teardownItems: [
+        {
+          itemId: "item-1-briefing-request",
+          specimen:
+            "DRAFT REQUEST (487 characters)\n\n'Warby Parker for Business is an industry-leading, innovative provider of employee vision benefits, trusted by companies nationwide. We have a world-class product roadmap and would love the opportunity to brief your team on our best-in-class platform. We believe your readers would benefit greatly from learning about our unique value proposition and best-in-class customer service. Please let us know your availability for a call at your earliest convenience.'",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "This request is 487 of the roughly 500 characters Gartner allows. What's wrong with how that space was spent?",
+          answerKey: [
+            {
+              defect:
+                "Never names the specific coverage area (e.g. 'employee vision benefits administration') the analyst covers",
+              severity: "critical",
+              whyItMatters:
+                "Every word in a Gartner request has to earn its place: name the coverage area, state your differentiation, and name a client win.",
+              lessonRef: "the-briefing-your-core-tool",
+              owner: "you",
+            },
+            {
+              defect: "No named client win or customer count anywhere in the request",
+              severity: "critical",
+              whyItMatters:
+                "Analysts are data-driven thinkers; a specific stat gets written down, a vague superlative gets ignored.",
+              lessonRef: "preparing-the-briefing-deck",
+              owner: "you",
+            },
+            {
+              defect:
+                "Uses vague superlatives ('industry-leading', 'world-class', 'best-in-class' twice) instead of a stated differentiator",
+              severity: "moderate",
+              whyItMatters:
+                "Vague superlatives like 'industry-leading' get ignored; a specific stat like a named benchmark gets written down.",
+              lessonRef: "preparing-the-briefing-deck",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The request ends by asking for their availability",
+            "The request is close to the character limit",
+            "The request is addressed to the team rather than one named analyst",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Draft and character-count the request before submitting",
+            why: "Free, a LEN() formula enforces the character limit before you paste into Gartner's form",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A rewritten version of the request that fits the character limit and names the coverage area, one stat, and one client win.",
+      sampleOutput:
+        "Chewy for Business briefing request (reference rewrite)\n\n'Chewy for Business is expanding into pet-benefits administration for 500+ employer accounts, up 60% year over year. We'd like to brief [Analyst Name] on our Autoship-based claims model ahead of your 2026 pet-benefits vendor coverage, and share a case study from a 2,000-employee client. Available this week or next.' (471 characters)",
+      successCriteria: [
+        "Flags the missing coverage-area name",
+        "Flags the missing client win or stat",
+        "Does not flag the character count or the availability close as defects",
+      ],
+      portfolioReady: false,
+      stretch:
+        "Time yourself rewriting it in under 10 minutes, matching the real deadline pressure of a same-day Gartner request window.",
+    },
+    {
+      id: "analyst-briefing-conversation-simulation",
+      tier: "core",
+      archetype: "simulation",
+      title: "Running the Briefing: A Live Analyst Conversation Simulation",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Practice running a two-way analyst briefing conversation, opening, handling probing questions, and closing, choosing responses at each stage and seeing how each choice changes the analyst's read on the company.",
+      companyId: "delhivery",
+      scenario:
+        "You're the AR lead at Delhivery, briefing a Forrester analyst ahead of the next Wave evaluation for third-party logistics platforms in South Asia. You sent your pre-read 48 hours ago; the call starts now.",
+      brief:
+        "Navigate the opening, the analyst's questions, and the close, applying the lesson's two-way-conversation principle at each decision point.",
+      mode: "simulation",
+      conceptsCovered: [
+        "Open with a 2-minute company snapshot, not a 10-minute origin story",
+        "Ask what the analyst is currently hearing from clients in your category",
+        "A defensive answer is worse than an honest 'we're still deciding'",
+        "Close by asking directly what would move you up in their next report",
+      ],
+      stages: [
+        {
+          stageId: "stage-1-open",
+          label: "Opening the Call",
+          elapsed: "0:00",
+          concept: "Open with a 2-minute company snapshot, not a 10-minute origin story",
+          lessonAnchor: "running-the-conversation",
+          situation:
+            "The analyst joins the call, thanks you for the pre-read, and says 'Whenever you're ready, go ahead.' You have 30 minutes total.",
+          dashboard: "Time remaining: 30:00 | Pre-read sent: Yes, 48h ago | Analyst engagement: Neutral",
+          spendToDate: "$0 (no paid inquiry used)",
+          budgetRemaining: "30 minutes of call time",
+          decision: {
+            prompt: "How do you open?",
+            options: [
+              {
+                id: "a",
+                label: "A 2-minute snapshot: what changed in the market, then hand the floor to the analyst",
+                verdict: "optimal",
+                outcome:
+                  "The analyst leans in and starts asking questions immediately; you have 27 minutes left for real conversation.",
+                why: "The lesson's own guidance: open with a 2-minute company snapshot, not a 10-minute origin story.",
+                lessonRef: "running-the-conversation",
+                nextStageId: "stage-2-questions",
+              },
+              {
+                id: "b",
+                label: "A 10-minute founding story, building up to the product",
+                verdict: "costly",
+                outcome:
+                  "By minute 8 the analyst is visibly checking something off-screen; you've burned a third of the call before any real exchange happens.",
+                why: "Forrester's own research finds analysts remember the conversations where they got to challenge the vendor, not the ones where they just watched slides; a long origin story delays that exchange.",
+                lessonRef: "running-the-conversation",
+                nextStageId: "stage-2-recover",
+              },
+              {
+                id: "c",
+                label: "Skip straight to a product demo walkthrough",
+                verdict: "acceptable",
+                outcome:
+                  "The analyst follows along politely but doesn't ask anything until you finish; you've used 10 minutes without learning what they're actually curious about.",
+                why: "A demo isn't wrong, but it front-loads your agenda instead of theirs; it costs engagement time without being an outright origin-story overrun.",
+                lessonRef: "running-the-conversation",
+                nextStageId: "stage-2-questions",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "stage-2-recover",
+          label: "Recovering Lost Time",
+          elapsed: "0:10",
+          concept: "A defensive answer is worse than an honest 'we're still deciding'",
+          lessonAnchor: "running-the-conversation",
+          situation:
+            "You're 10 minutes in with 20 left. The analyst asks directly: 'What's your differentiation versus the two other platforms I've already briefed this month?'",
+          dashboard: "Time remaining: 20:00 | Analyst engagement: Cooling | Pre-read referenced: No",
+          spendToDate: "$0",
+          budgetRemaining: "20 minutes of call time",
+          decision: {
+            prompt: "How do you answer?",
+            options: [
+              {
+                id: "a",
+                label:
+                  "Name one clear differentiator with a number, and admit where a competitor is genuinely stronger",
+                verdict: "acceptable",
+                outcome:
+                  "The analyst re-engages, but you've lost enough time that the closing question gets rushed.",
+                why: "Naming one differentiator and defending it, per the lesson, is correct; doing it this late only partially recovers the lost ground.",
+                lessonRef: "preparing-the-briefing-deck",
+                nextStageId: "stage-3-close",
+              },
+              {
+                id: "b",
+                label: "List five vague strengths and avoid naming the competitors directly",
+                verdict: "costly",
+                outcome:
+                  "The analyst's notes now read 'no clear differentiation, defensive on direct questions,' the exact language that shows up in the published report's caveats.",
+                why: "Name one clear differentiator and defend it, do not list five vague ones; a defensive answer is worse than an honest 'we're still deciding.'",
+                lessonRef: "running-the-conversation",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "stage-2-questions",
+          label: "The Analyst Probes",
+          elapsed: "0:03",
+          concept: "Ask what the analyst is currently hearing from clients in your category",
+          lessonAnchor: "running-the-conversation",
+          situation:
+            "The analyst asks about your roadmap gaps, then pauses. You have an opening to ask something back.",
+          dashboard: "Time remaining: 27:00 | Analyst engagement: High | Pre-read referenced: Yes",
+          spendToDate: "$0",
+          budgetRemaining: "27 minutes of call time",
+          decision: {
+            prompt: "What do you do with the opening?",
+            options: [
+              {
+                id: "a",
+                label: "Ask what the analyst is currently hearing from clients in this category",
+                verdict: "optimal",
+                outcome:
+                  "The analyst shares two unprompted client pain points you hadn't heard from your own sales team, real competitive intelligence.",
+                why: "This is the exact question the lesson recommends; it turns the briefing into a two-way exchange instead of a one-way pitch.",
+                lessonRef: "running-the-conversation",
+                nextStageId: "stage-3-close",
+              },
+              {
+                id: "b",
+                label: "Move straight into the next slide of your deck",
+                verdict: "acceptable",
+                outcome: "The call stays on schedule but you learn nothing you didn't already know going in.",
+                why: "Not a mistake, but a missed opportunity; the lesson frames the analyst's live read as the most valuable part of the call.",
+                lessonRef: "running-the-conversation",
+                nextStageId: "stage-3-close",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "stage-3-close",
+          label: "Closing the Call",
+          elapsed: "0:25",
+          concept: "Close by asking directly what would move you up in their next report",
+          lessonAnchor: "running-the-conversation",
+          situation: "Five minutes remain. The analyst asks if there's anything else before wrapping up.",
+          dashboard: "Time remaining: 5:00 | Analyst engagement: Engaged",
+          spendToDate: "$0",
+          budgetRemaining: "5 minutes of call time",
+          decision: {
+            prompt: "How do you close?",
+            options: [
+              {
+                id: "a",
+                label: "Ask directly: 'What would move us up in your next report?'",
+                verdict: "optimal",
+                outcome:
+                  "The analyst names one specific gap, a missing case study in a particular vertical, that you can now go close before the next cycle.",
+                why: "That last question sounds bold, but analysts expect it; it's the fastest way to learn what evidence, not opinion, will actually change your position.",
+                lessonRef: "running-the-conversation",
+                nextStageId: "end",
+              },
+              {
+                id: "b",
+                label: "Thank them for their time and end the call",
+                verdict: "costly",
+                outcome:
+                  "You leave with no concrete next step, and won't know what to fix before the report locks.",
+                why: "A briefing without a direct closing question wastes the one moment the analyst is primed to tell you exactly what evidence would change their view.",
+                lessonRef: "running-the-conversation",
+                nextStageId: "end",
+              },
+              {
+                id: "c",
+                label: "Recap your key stats one more time as a closer",
+                verdict: "acceptable",
+                outcome:
+                  "Reinforces what they already heard, but you still leave without knowing what specifically would move your position.",
+                why: "Reinforcement isn't wasted, but it's not the same as asking directly what would move you up, the higher-value close the lesson recommends.",
+                lessonRef: "running-the-conversation",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Log the interaction afterward: who, when, what was said, what they asked for next",
+            why: "Free, and matches the lesson's shared-log discipline for tracking every analyst interaction",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A completed run through the simulation with a final transcript of your choices and the analyst's resulting read on the company.",
+      sampleOutput:
+        "Nubank AR briefing simulation run (reference)\n\nStage 1: Opened with 2-minute snapshot (optimal) -> analyst engaged immediately\nStage 2: Asked what the analyst is hearing from clients (optimal) -> learned a competitor is weak on LATAM compliance features\nStage 3: Closed by asking what would move the rating (optimal) -> analyst named one missing case study in SMB lending\n\nResult: Engaged throughout, one concrete follow-up action identified before the report locks.",
+      successCriteria: [
+        "Reaches stage-3-close with at least one optimal choice made",
+        "Can explain in one sentence why the costly option at stage-2-recover would show up in the published report's caveats",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Re-run the simulation choosing the costly branch at every stage, and write down exactly where the recovery became impossible.",
+    },
+  ],
+
+  "crisis-pr-media-response": [
+    {
+      id: "holding-statement-calibration-drill",
+      tier: "mini",
+      archetype: "audit",
+      title: "Grading Three Holding Statements Against the PRSA Standard",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective: "Given transcript excerpts from a mock crisis drill and three draft holding statements, correctly identify the spokesperson-rule violation and score each statement against the acknowledge-act-commit-to-a-time standard, matching the calibration key on all rows.",
+      companyId: "nykaa",
+      scenario: "You're the PR lead at Nykaa running a quarterly crisis-readiness drill: a simulated packaging-safety complaint went 'viral' internally, three teams responded independently, and you need to score what they produced before the real thing happens.",
+      brief: "Read the transcript log, flag the spokesperson violation, then score three draft holding statements against a known-good answer key.",
+      mode: "calibration",
+      conceptsCovered: ["One spokesperson, one message", "Holding statement structure: acknowledge, act, commit to a time"],
+      steps: [
+        {
+          stepId: "step-1-spokesperson-consistency-check",
+          concept: "One spokesperson, one message",
+          lessonAnchor: "the-spokesperson-rule",
+          theoryRecap: "The lesson's Spokesperson Rule requires exactly one designated spokesperson decided in advance, because reporters cross-reference quotes, and a second, slightly different voice turns the story into one about internal confusion instead of the original issue.",
+          question: "Three quotes below were given to the same trade reporter within 90 minutes of the drill starting. Which one breaks the spokesperson rule, and which reporter action does it trigger?",
+          toolName: "Google Sheets",
+          where: "Log each quote with speaker, outlet, and timestamp in one shared sheet, sorted chronologically.",
+          procedure: [
+            "Import the 3-quote transcript log into a sheet with columns: speaker, role, quote, timestamp",
+            "Flag any quote from someone other than the designated spokesperson",
+            "Compare flagged quotes against the spokesperson's quote for factual or tonal contradiction",
+            "Write one sentence describing the follow-up story a reporter would now file",
+          ],
+          outputSample:
+            "10:02am  Head of PR (designated spokesperson): \"We're aware of the complaint and are investigating with the vendor. Full update by 2pm.\"\n" +
+            "10:41am  Regional Ops Manager (fielded a stray call): \"Honestly this sounds like a one-off, our packaging line passed audit last month.\"\n" +
+            "11:15am  Head of PR: \"Investigation ongoing, update still coming at 2pm.\"",
+          healthy: "Only the designated spokesperson is ever quoted; every other team member routes press calls to that one person.",
+          unhealthy: "The 10:41am quote contradicts the 10:02am holding statement's neutral tone, handing the reporter a 'company downplays complaint while investigating' angle.",
+          interpret: "The Ops Manager's quote is the violation. It doesn't just add noise, it actively undercuts the holding statement's 'we're taking this seriously' framing, which is a worse story than the original complaint.",
+          soWhat: [
+            { symptom: "A non-spokesperson quote appears in the log", action: "Route every future press call through the spokesperson before the drill or crisis continues", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-holding-statement-scoring",
+          concept: "Holding statement structure: acknowledge, act, commit to a time",
+          lessonAnchor: "the-holding-statement-ready-before-youre-ready",
+          theoryRecap: "A holding statement does exactly three things: acknowledges the issue, states that action is underway, and commits to a specific update time. It never assigns blame, admits liability, or speculates on cause.",
+          question: "Score Draft A, B, and C below as pass/fail against the three-part structure, and name which single element each failing draft is missing.",
+          toolName: "Google Sheets",
+          where: "Score each draft in a 3-column checklist: acknowledges / states action / commits to a time.",
+          procedure: [
+            "Read all three drafts once without scoring",
+            "Score each draft against the 3-part checklist, one row per draft",
+            "For any draft missing an element, write the one sentence that would fix it",
+            "Rank the drafts from most to least ready to send",
+          ],
+          outputSample:
+            "Draft A: \"We take customer safety seriously and are looking into this.\" -> acknowledges: yes, states action: partial, commits to a time: no\n" +
+            "Draft B: \"We are aware of the packaging concern and are investigating with our vendor. We will share a full update by 2:00pm IST today.\" -> acknowledges: yes, states action: yes, commits to a time: yes\n" +
+            "Draft C: \"This is being handled internally.\" -> acknowledges: no, states action: partial, commits to a time: no",
+          healthy: "Draft B passes all three; it is the one a spokesperson should actually send.",
+          unhealthy: "Draft C reads as evasive precisely because it skips the acknowledgment, the exact gap that makes reporters write 'the company declined to elaborate.'",
+          interpret: "A missing time commitment is the most common and most damaging gap: it is the specific detail that keeps a reporter from writing 'no comment' in their own words.",
+          soWhat: [
+            { symptom: "A draft has no specific time commitment", action: "Add one exact time before it goes anywhere near a reporter", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Log transcripts and score holding statement drafts", why: "Free, shareable, sortable for a drill of this size", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable: "A scored transcript log flagging the spokesperson violation, plus a 3-draft holding statement scorecard ranking drafts by readiness.",
+      sampleOutput:
+        "Honasa Consumer (Mamaearth), Crisis Drill Scorecard\n\n" +
+        "SPOKESPERSON LOG\n" +
+        "  Violation: Regional Sales Lead quoted at 9:50am, contradicts 9:30am official statement\n" +
+        "  Follow-up risk: 'Mamaearth gives mixed signals on ingredient complaint' angle\n\n" +
+        "HOLDING STATEMENT SCORES\n" +
+        "  Draft A: FAIL (no time commitment) - rank 2\n" +
+        "  Draft B: PASS (all 3 elements) - rank 1, send this one\n" +
+        "  Draft C: FAIL (no acknowledgment) - rank 3",
+      successCriteria: [
+        "Correctly identifies the spokesperson-rule violation and its consequence",
+        "Correctly scores all 3 holding statement drafts against the 3-part structure",
+      ],
+      portfolioReady: false,
+    },
+    {
+      id: "data-breach-crisis-simulation",
+      tier: "core",
+      archetype: "simulation",
+      title: "The First Six Hours: A Data-Exposure Crisis Simulation",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective: "Play the spokesperson through the first six hours of a live data-exposure crisis, choosing how to respond to reporters at two decision points, and see how an optimal, acceptable, or costly choice compounds into the next stage's starting conditions.",
+      companyId: "delhivery",
+      scenario: "You're the designated spokesperson at Delhivery, the logistics and ecommerce fulfillment company, when a security researcher tweets that a misconfigured API exposed customer shipping addresses. A trade reporter calls with a 45-minute deadline before you have a single confirmed fact.",
+      brief: "Decide what to tell the reporter with no facts yet, then decide how to update them three hours later once the facts are confirmed. Every choice routes to a different outcome, this can't be practiced live without a real breach, so it's played out here instead.",
+      mode: "simulation",
+      conceptsCovered: ["The holding statement under deadline pressure", "The careful non-response versus 'no comment'"],
+      stages: [
+        {
+          stageId: "stage-1-first-hour",
+          label: "The 45-Minute Deadline",
+          elapsed: "Hour 1",
+          concept: "The holding statement under deadline pressure",
+          lessonAnchor: "the-holding-statement-ready-before-youre-ready",
+          situation: "A security researcher's tweet about exposed shipping addresses has 400 retweets. A trade reporter calls you, the designated spokesperson, needing comment for a story going live in 45 minutes. Legal has confirmed nothing yet.",
+          dashboard: "Tweet: 400 RTs, rising. Inbound press calls: 1 confirmed, 2 voicemails. Confirmed facts: 0.",
+          spendToDate: "$0",
+          budgetRemaining: "N/A (no live spend required for this simulation)",
+          decision: {
+            prompt: "The reporter needs something in 45 minutes. What do you tell them?",
+            options: [
+              {
+                id: "no-comment",
+                label: "Say 'no comment' until legal confirms the facts",
+                verdict: "costly",
+                outcome: "The reporter writes 'Delhivery declined to comment on the exposure,' and the story runs framed entirely around the researcher's tweet with no counter-framing from you at all.",
+                why: "'No comment' reads as confirmation of guilt even when you genuinely don't have facts yet, this is the exact trap the lesson names.",
+                lessonRef: "no-comment-vs-a-careful-non-response",
+                nextStageId: "stage-2-the-update",
+              },
+              {
+                id: "holding-statement",
+                label: "Give the reporter a proper holding statement: acknowledge, action, time commitment",
+                verdict: "optimal",
+                outcome: "The reporter runs your quote alongside the researcher's tweet: 'Delhivery says it is aware and investigating, with a full update by 5pm.' The story is balanced instead of one-sided.",
+                why: "This is the three-part structure the lesson teaches: acknowledge, state action, commit to a specific time, which is exactly what stops a reporter from filling the gap with speculation.",
+                lessonRef: "the-holding-statement-ready-before-youre-ready",
+                nextStageId: "stage-2-the-update",
+              },
+              {
+                id: "let-ops-answer",
+                label: "Let the regional ops manager, who's already on the phone with the researcher, answer the reporter too",
+                verdict: "costly",
+                outcome: "The ops manager improvises a reassurance ('this is definitely not as bad as it sounds') that contradicts your later official statement. The reporter now has two Delhivery voices saying different things, and files under 'company sends mixed signals.'",
+                why: "Every inbound query must route through the one designated spokesperson; a second, uncoordinated voice is the fastest way to lose control of the story, per the Spokesperson Rule.",
+                lessonRef: "the-spokesperson-rule",
+                nextStageId: "stage-2-the-update",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "stage-2-the-update",
+          label: "The 5pm Update",
+          elapsed: "Hour 6",
+          concept: "The careful non-response versus 'no comment'",
+          lessonAnchor: "no-comment-vs-a-careful-non-response",
+          situation: "It's 5pm. Legal and engineering have now confirmed roughly 12,000 customer shipping addresses were exposed via the misconfigured API for about six hours before it was patched. Reporters are waiting for the update you promised.",
+          dashboard: "Confirmed facts: 12,000 records, API patched at 2:15pm. Press inquiries logged: 6. Social sentiment: negative, trending toward neutral where you responded early.",
+          spendToDate: "$0",
+          budgetRemaining: "N/A",
+          decision: {
+            prompt: "You now have real facts. What goes in the 5pm statement?",
+            options: [
+              {
+                id: "full-transparent-update",
+                label: "State the confirmed number, the fix already applied, and what affected customers should do",
+                verdict: "optimal",
+                outcome: "Coverage shifts from 'Delhivery breach' to 'Delhivery confirms and responds to exposure,' the more defensible framing, and affected-customer complaints drop because they were told directly what to do.",
+                why: "A careful, factual answer once you actually have facts is the honest completion of the promise your holding statement made earlier.",
+                lessonRef: "no-comment-vs-a-careful-non-response",
+                nextStageId: "end",
+              },
+              {
+                id: "vague-still-looking",
+                label: "Say you're 'still looking into the scope' even though the number is confirmed",
+                verdict: "acceptable",
+                outcome: "Reporters note the vagueness but don't escalate, since you did respond by the promised time. A smaller follow-up story asks why the exact number wasn't shared.",
+                why: "This isn't a lie, but it wastes the credibility you built with the first holding statement by withholding a fact you already have.",
+                lessonRef: "the-holding-statement-ready-before-youre-ready",
+                nextStageId: "end",
+              },
+              {
+                id: "miss-the-deadline",
+                label: "Let 5pm pass with no update because legal wants another day to review",
+                verdict: "costly",
+                outcome: "A reporter publishes 'Delhivery still hasn't answered, hours after promising an update,' which is a worse story than the original exposure, it's now about broken trust, not the technical incident.",
+                why: "The time commitment in a holding statement is a promise; missing it without any interim communication is the one thing the lesson says never to do.",
+                lessonRef: "the-holding-statement-ready-before-youre-ready",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Log every reporter inquiry with outlet, deadline, and question", why: "Free, shareable, prevents two team members giving different answers", required: true, lastVerified: "2026-08" },
+          { toolName: "Notion", role: "Store pre-drafted holding statement templates for fast editing under pressure", why: "Free tier covers a small shared template doc", required: false, lastVerified: "2026-08" },
+        ],
+        paid: [
+          { toolName: "Muck Rack", role: "Monitor live media coverage and journalist activity during a real crisis", why: "Real-time journalist database and coverage tracking beyond what free alerts catch", required: false, lastVerified: "2026-08" },
+        ],
+        paidUpgradeNote: "The free path (a shared log plus pre-drafted templates) is enough to run this simulation and a real small-scale crisis; a paid media-monitoring tool becomes worth it once you're tracking coverage across dozens of outlets simultaneously.",
+      },
+      deliverable: "A decision log showing both choices made, the resulting stage-2 situation, and the final outcome, with a one-paragraph reflection on which choice most changed the story's framing.",
+      sampleOutput:
+        "Wise, Simulation Run Log\n\n" +
+        "Stage 1 decision: Holding statement (optimal)\n" +
+        "  Outcome: Reporter ran a balanced story citing the 5pm commitment.\n\n" +
+        "Stage 2 decision: Full transparent update (optimal)\n" +
+        "  Outcome: Coverage reframed from 'breach' to 'confirmed and responded,' affected-customer complaints dropped.\n\n" +
+        "Reflection: The stage-1 holding statement bought the six hours needed to get real facts without a 'no comment' story running in the meantime; the stage-2 transparency then cashed in that credibility instead of spending it on vagueness.",
+      successCriteria: [
+        "Chooses the optimal or acceptable path at both decision points and can explain why the costly options fail",
+        "Reflection correctly names how the stage-1 choice changed the starting conditions of stage 2",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "measuring-pr-impact": [
+    {
+      id: "avE-report-rescoring-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "Rescoring a PR Report That Leads With Ad Value Equivalency",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective: "Given an agency's quarterly PR report that leads with clip count and AVE, rebuild the same quarter's story using share of voice against a real competitive set paired with sentiment, correctly separating relevant coverage from noise.",
+      companyId: "warby-parker",
+      scenario: "You're the marketing analyst at Warby Parker, the DTC eyewear and omnichannel retailer, reviewing your PR agency's quarterly report before it goes to the exec team. The report leads with '$2.4M in Advertising Value Equivalency' from 40 clips.",
+      brief: "Strip out the AVE number, re-sort the 40 clips by relevance, then compute share of voice against your two real competitors, paired with sentiment.",
+      mode: "diagnostic",
+      conceptsCovered: ["Retiring AVE and raw reach as headline metrics", "Share of voice paired with sentiment"],
+      steps: [
+        {
+          stepId: "step-1-retire-ave-and-reach",
+          concept: "Retiring AVE and raw reach as headline metrics",
+          lessonAnchor: "why-clip-counts-and-reach-lie",
+          theoryRecap: "AMEC's Barcelona Principles explicitly reject Advertising Value Equivalency: it prices editorial coverage as if it were a paid ad, ignores that readers trust the two differently, and can't be benchmarked consistently across outlets.",
+          question: "The report's 40 clips include 12 from eyewear-specific trade press and 28 from general 'roundup' blogs that mention Warby Parker in a list of 10 brands. Which of the 40 clips should actually count toward this quarter's PR story?",
+          toolName: "Google Sheets",
+          where: "Import the 40-row clip export, add a 'relevance' column, filter out AVE and total reach columns entirely.",
+          procedure: [
+            "Import the 40-clip export and delete the AVE and total-publication-reach columns",
+            "Tag each clip: 'dedicated coverage' vs. 'listed among competitors'",
+            "Keep only dedicated coverage from outlets your actual buyers read",
+            "Recount: how many of the original 40 clips survive the relevance filter?",
+          ],
+          outputSample:
+            "Original report: 40 clips, $2.4M AVE, 6.1M 'reach'\n" +
+            "After relevance filter:\n" +
+            "  Dedicated coverage (eyewear trade press): 9 clips\n" +
+            "  Listed among competitors (general roundups): 3 clips worth keeping\n" +
+            "  Discarded (irrelevant or duplicate): 28 clips",
+          healthy: "The exec summary now says '12 relevant placements' instead of '40 clips worth $2.4M,' a defensible number instead of an inflated one.",
+          unhealthy: "Reporting '$2.4M in AVE' to the exec team, who will ask why paid media spend didn't produce equivalent results next quarter, a comparison the number invites but can't survive.",
+          interpret: "A clip count only means something after a relevance filter; the AVE number was never real money and should never appear in the summary at all.",
+          soWhat: [
+            { symptom: "A PR report opens with an AVE dollar figure", action: "Delete the AVE line before the report reaches an exec deck", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-sov-with-sentiment",
+          concept: "Share of voice paired with sentiment",
+          lessonAnchor: "share-of-voice-with-context",
+          theoryRecap: "Share of voice (SOV) is your mentions divided by total category mentions among your real competitive set, and it must always travel paired with sentiment, since SOV can rise for bad reasons too.",
+          question: "This quarter Warby Parker had 12 relevant mentions against Zenni and EyeBuyDirect's combined 30 mentions in the same eyewear trade coverage. What's the SOV, and does the sentiment column change how good that number actually is?",
+          toolName: "Google Sheets",
+          where: "Build a 3-row SOV table: your mentions, competitor mentions, sentiment split for each.",
+          procedure: [
+            "Count your 12 relevant mentions and competitors' 30 combined mentions",
+            "Calculate SOV: your mentions / (your mentions + competitor mentions)",
+            "Tag each of your 12 mentions positive, neutral, or negative",
+            "Write one sentence on whether rising SOV this quarter is a real signal or a false one",
+          ],
+          outputSample:
+            "SOV = 12 / (12 + 30) = 28.6%\n" +
+            "Sentiment on your 12 mentions: 9 positive, 3 neutral, 0 negative\n" +
+            "Verdict: SOV rose from 21% last quarter to 28.6% this quarter, and sentiment held mostly positive, a real signal, not a recall-driven spike.",
+          healthy: "SOV rises alongside stable or improving sentiment, meaning you're winning more of the conversations that matter, not just generating more noise.",
+          unhealthy: "SOV rises while sentiment turns negative, e.g. a product recall generating mentions, which looks identical to a win on the SOV number alone.",
+          interpret: "SOV without a sentiment column is not a finished metric, it's half of one.",
+          soWhat: [
+            { symptom: "A report shows SOV with no sentiment breakdown", action: "Add the sentiment split before presenting the SOV number to anyone", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Filter clips by relevance and compute SOV with sentiment", why: "Free, sufficient for a quarterly report of this size", required: true, lastVerified: "2026-08" },
+          { toolName: "Google Alerts", role: "Catch mentions the agency report might have missed", why: "Free ongoing monitoring for your brand and named competitors", required: false, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable: "A rescored one-page PR scorecard replacing AVE and raw clip count with relevant-mention count, SOV against real competitors, and sentiment.",
+      sampleOutput:
+        "ThredUp, Q2 PR Scorecard (rescored)\n\n" +
+        "RELEVANT COVERAGE: 15 of 52 total clips (37 clips discarded as irrelevant or duplicate)\n" +
+        "SHARE OF VOICE: 31% vs. Poshmark + The RealReal combined (up from 24% last quarter)\n" +
+        "SENTIMENT: 11 positive, 4 neutral, 0 negative\n" +
+        "VERDICT: Real signal, SOV growth paired with stable positive sentiment",
+      successCriteria: [
+        "Correctly separates dedicated coverage from listed-among-competitors clips",
+        "Calculates SOV correctly and pairs it with a sentiment read before calling it a win",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "vanity-metrics-report-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Spot the Vanity Metric: A PR Report Teardown",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective: "Given a synthetic-realistic one-page PR summary written the way most agency reports actually look, correctly identify every vanity-metric defect and distinguish them from the parts of the report that are legitimately fine.",
+      companyId: "hellofresh",
+      scenario: "You're a new marketing hire reviewing a PR summary that's been circulating internally at HelloFresh for two quarters without anyone questioning it.",
+      brief: "Read the one-page summary below and flag every defect against the lesson's four real metrics: relevance, SOV+sentiment, referral/conversion tracking, and message pull-through.",
+      mode: "teardown",
+      conceptsCovered: ["Retiring AVE and raw reach as headline metrics", "Message pull-through"],
+      teardownItems: [
+        {
+          itemId: "item-1-quarterly-summary",
+          specimen:
+            "Q3 PR SUMMARY, prepared for leadership review\n\n" +
+            "HEADLINE RESULT: 58 media placements generating $3.1M in Advertising Value Equivalency and a combined reach of 14.2M readers across all outlets.\n\n" +
+            "COVERAGE HIGHLIGHTS:\n" +
+            "- Featured in a '25 Meal Kit Services to Try' roundup (Outlet A, listed 25th of 25)\n" +
+            "- Featured in a '30 Subscription Boxes for Busy Families' roundup (Outlet B, listed 12th of 30)\n" +
+            "- Dedicated 800-word feature in a food-industry trade publication on our new sourcing partnership\n" +
+            "- Quoted in a national morning show segment on meal-kit trends (60-second clip, brand named once)\n\n" +
+            "SHARE OF VOICE: We now hold 22% share of voice in the meal-kit category, up from 19% last quarter.\n\n" +
+            "NEXT QUARTER: Continue current media outreach cadence.",
+          specimenSource: "synthetic-realistic",
+          prompt: "This report reads as a solid quarter on the surface. Identify every place it substitutes a vanity metric for a real one, and note which two coverage highlights are actually fine as written.",
+          answerKey: [
+            {
+              defect: "Leads with AVE ($3.1M) as the headline result",
+              severity: "critical",
+              whyItMatters: "The Barcelona Principles explicitly reject AVE; it invites the exec team to compare it to paid media ROI, a comparison it can't survive, and it isn't real money.",
+              lessonRef: "why-clip-counts-and-reach-lie",
+              owner: "you",
+            },
+            {
+              defect: "Reports a combined 14.2M 'reach' figure with no breakdown of how many people actually saw the HelloFresh mention specifically",
+              severity: "critical",
+              whyItMatters: "Reach is a publication's total readership, not the number of people who saw this specific mention; the two roundup placements listed near the bottom of a 25-30 item list contribute almost nothing to real exposure despite counting fully toward the reach total.",
+              lessonRef: "why-clip-counts-and-reach-lie",
+              owner: "you",
+            },
+            {
+              defect: "Reports SOV (22%, up from 19%) with no sentiment column at all",
+              severity: "moderate",
+              whyItMatters: "A rising SOV number means nothing on its own, since negative-sentiment mentions (a recall, a controversy) also raise it; without a sentiment split there's no way to tell if this is a real win.",
+              lessonRef: "share-of-voice-with-context",
+              owner: "you",
+            },
+            {
+              defect: "No referral traffic, conversions, or pipeline data anywhere in the report despite every placement including a linkable URL",
+              severity: "critical",
+              whyItMatters: "This is the one section that connects PR to revenue; omitting it means leadership has no way to see whether any of this coverage did anything beyond exist.",
+              lessonRef: "referral-traffic-conversions-and-message-pull-through",
+              owner: "developer",
+            },
+            {
+              defect: "No message pull-through scoring on any placement, including the 60-second TV segment where the brand was 'named once' with no mention of what was actually said about the product",
+              severity: "moderate",
+              whyItMatters: "A placement that names the brand once without conveying the intended message earned visibility, not persuasion; without scoring pull-through there's no way to tell which placements actually worked.",
+              lessonRef: "referral-traffic-conversions-and-message-pull-through",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The 800-word trade publication feature on the sourcing partnership is itself a legitimate, relevant placement, the defect is that the report never scores what it said, not that the placement is bad",
+            "Being listed 25th of 25 in a roundup is not automatically worthless, it's a real defect only because the report counts it identically to the dedicated trade feature instead of weighting it lower",
+            "The 'continue current outreach cadence' recommendation is vague but is a strategy note, not a metrics defect, don't flag it as a vanity-metric issue",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Log each defect found against the four real-metric categories", why: "Free, simple table for a single-page teardown", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable: "A completed defect log naming every vanity-metric substitution in the report, each mapped to which real metric should have replaced it.",
+      sampleOutput:
+        "Chewy, PR Report Teardown Log\n\n" +
+        "DEFECT 1: AVE headline figure -> critical -> replace with relevant-placement count\n" +
+        "DEFECT 2: Undifferentiated reach total -> critical -> replace with per-placement relevance tagging\n" +
+        "DEFECT 3: SOV with no sentiment -> moderate -> add sentiment split\n" +
+        "DEFECT 4: No referral/conversion data -> critical -> add UTM-tagged referral tracking\n" +
+        "DEFECT 5: No message pull-through scoring -> moderate -> score each placement yes/partial/no",
+      successCriteria: [
+        "Identifies all 5 defects and correctly maps each to the real metric that should replace it",
+        "Correctly leaves the 2 distractor items unflagged as defects",
+      ],
+      portfolioReady: false,
+    },
+  ],
 };
