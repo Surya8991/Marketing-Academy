@@ -11741,6 +11741,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Fabricated reference prices ('was $100' when the price was never $100) are illegal because they deceive System 1 into seeing a false bargain. Real anchors (like a genuine premium tier or a competitor's actual rate) are legally compliant and build long-term trust.",
     },
+    {
+      question: "In Dan Ariely's replication of The Economist's three-tier subscription page, what happened when the seemingly useless 'print-only' decoy tier (priced the same as the print+web bundle) was removed?",
+      options: [
+        "Print+web bundle choices dropped from 84% to 32%, showing the decoy had been anchoring the bundle as a bargain.",
+        "Web-only subscriptions disappeared entirely because students no longer understood the pricing.",
+        "Total revenue increased because students switched to the cheaper web-only tier in equal numbers.",
+        "Choices stayed identical, proving the decoy tier had no measurable effect on the experiment.",
+      ],
+      correct: 0,
+      explanation: "With the decoy in place, the print+web bundle looked like a free upgrade over an equally-priced print-only option. Removing that anchor let students judge the bundle against web-only on its own terms, and bundle uptake collapsed from 84% to 32%.",
+    },
   ],
 
   "psychology/behavioral-economics": [
@@ -11787,6 +11798,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Coined by Richard Thaler, sludge refers to choice architecture designed to frustrate or exploit the user (like subscription traps that are easy to join but require 7 clicks to cancel). Ethical nudging aligns with the chooser's interests and respects their autonomy.",
+    },
+    {
+      question: "In Thaler and Benartzi's original 'Save More Tomorrow' (SMarT) field test, how did the program lift savings without cutting anyone's current take-home pay?",
+      options: [
+        "It required employees to submit a written justification before increasing their contribution rate.",
+        "It pre-committed workers to raise their savings rate automatically out of future pay raises, not out of today's paycheck.",
+        "It gave employees a one-time cash bonus for enrolling in the highest contribution tier.",
+        "It eliminated the 401(k) opt-out option entirely for all new hires.",
+      ],
+      correct: 1,
+      explanation: "SMarT timed each savings increase to coincide with a future raise, so loss aversion and present bias never had to be overcome, take-home pay never dropped. Savings rates climbed from 3.5% to 13.6% over 40 months with 78% of participants still enrolled.",
     },
   ],
 
@@ -11835,6 +11857,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Friction is a design tool. Sanding down friction on desirable, low-risk actions (guest checkout, auto-saving) helps conversion. Adding friction to high-risk, high-regret actions (spending money, deleting accounts) protects the user and prevents accidental decisions.",
     },
+    {
+      question: "What did Haggag and Paci's analysis of roughly 13 million NYC taxi rides reveal about the default tip percentages shown on in-cab payment screens?",
+      options: [
+        "Default tip percentages had no measurable effect since riders always typed in a custom amount.",
+        "Screens suggesting higher defaults (20/25/30%) produced about 10% higher average tips than screens suggesting lower defaults (15/20/25%), though they also raised the no-tip rate.",
+        "Riders tipped identically regardless of which default percentages were displayed on the screen.",
+        "Lower default percentages produced higher tips because riders felt less pressured to conform.",
+      ],
+      correct: 1,
+      explanation: "Two touchscreen vendors independently set different default percentages on otherwise identical hardware, letting economists isolate the default's effect: the higher-default screens raised average tips about 10%, a pure default effect with no change in service or price.",
+    },
   ],
 
   "psychology/cialdini-6-principles": [
@@ -11881,6 +11914,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "If your scarcity claim is honest (e.g., 'Only 2 tickets left' matches real inventory), you would have no issue showing the customer the backend database query. If the claim is hardcoded or randomized, it is a deceptive dark pattern that destroys brand trust once discovered.",
+    },
+    {
+      question: "What did Robert Cialdini add to his original six principles of influence when he published Pre-Suasion in 2016?",
+      options: [
+        "A seventh principle called 'unity,' based on shared identity rather than shared liking.",
+        "A replacement for 'scarcity,' arguing it no longer applied to digital products.",
+        "A merger of 'authority' and 'liking' into a single combined principle.",
+        "A rule requiring all six original principles to be used together or not at all.",
+      ],
+      correct: 0,
+      explanation: "The original six, reciprocity, commitment and consistency, social proof, authority, liking, and scarcity, remained the canonical core, but Cialdini added 'unity' in the 2016 edition of Pre-Suasion to describe influence based on a shared group identity ('we,' not just 'I like you').",
     },
   ],
 
@@ -11929,6 +11973,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Jobs set $999 as the initial mental anchor (reference point). Judgment is relative, not absolute, so the audience evaluated the actual price of $499 against the $999 anchor, making $499 feel like an exceptional bargain.",
     },
+    {
+      question: "According to Kahneman and Tversky's Prospect Theory, roughly how does the pain of a loss compare to the pleasure of an equivalent gain, and which 2024 campaign did the lesson cite as putting this to work?",
+      options: [
+        "Losses feel about half as painful as an equivalent gain feels pleasurable; Spotify Wrapped used this to drive shares.",
+        "Losses and gains feel equally strong; HubSpot's free-tools strategy used this to drive signups.",
+        "Losses feel roughly twice as painful as an equivalent gain feels pleasurable; Amazon's Prime Day 2024 stacked loss-framed cues (struck-through prices, countdown timers, low-stock badges) to drive $14.2 billion in sales.",
+        "Losses feel three times as painful as gains, which is why Booking.com only uses gain-framed messaging.",
+      ],
+      correct: 2,
+      explanation: "Prospect Theory's core finding is that losses are weighted roughly 2x more heavily than equivalent gains. Amazon's Prime Day 2024 pages leaned on exactly this by framing inaction as a loss, contributing to an 11% year-over-year sales increase.",
+    },
   ],
 
   "psychology/default-bias": [
@@ -11975,6 +12030,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "GDPR and CASL require active, freely given, and clear consent. Pre-ticked defaults exploit default bias to secure passive consent, which is ruled as non-compliant. The user must make an active choice to check the box to opt in.",
+    },
+    {
+      question: "When HP and McDonald's switched their 401(k) plans from opt-in to automatic (opt-out) enrollment, what happened to participation, and what stayed the same?",
+      options: [
+        "Participation held flat around 50% at both companies, but employees reported feeling more satisfied with the plan.",
+        "HP rose from under 50% to 98% and McDonald's reached 95% participation, while the plan terms, employer match, and employees themselves stayed unchanged.",
+        "Participation only rose among employees who received a personal phone call explaining the new default.",
+        "Both companies had to increase their employer match to see any lift in participation.",
+      ],
+      correct: 1,
+      explanation: "The only variable that changed was which option required action, saving became the default instead of an active opt-in choice. With identical plan terms and identical employees, participation nearly doubled or more, showing the effect came entirely from the default flip.",
     },
   ],
 
@@ -12023,6 +12089,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Ethical emotional marketing aligns the feeling in the ad with the reality of the product. The ultimate test is whether the customer's System 2 rationalization, once they possess the product, confirms that the initial System 1 emotional impulse was honest and worthwhile.",
     },
+    {
+      question: "How does Daniel Kahneman's System 1 / System 2 framework, as applied in this lesson, describe the marketer's real target?",
+      options: [
+        "System 2 should be targeted first because it runs 98% of the time and controls all purchases.",
+        "System 1 is the fast, automatic, emotional system that fires first and does most of the deciding, so marketers should aim to win it before System 2 ever engages.",
+        "System 1 and System 2 always agree, so targeting either one produces identical results.",
+        "System 2 is the emotional system, while System 1 handles slow, deliberate logic.",
+      ],
+      correct: 1,
+      explanation: "Kahneman's framework casts System 1 as fast, automatic, and emotional, running roughly 98% of the time, versus System 2 as slow, deliberate, and lazy. The lesson's core claim is that marketing should win System 1 first, since it leans in before conscious reasoning starts.",
+    },
   ],
 
   "psychology/habit-loops": [
@@ -12069,6 +12146,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Designing habits is ethical when it aligns with the user's long-term interests (e.g., learning a language on Duolingo). It crosses into exploitation when it uses variable rewards to build addictive behaviors (like slot-machine scrolling) that override the user's conscious judgment and harm their well-being.",
+    },
+    {
+      question: "According to the lesson, what does Nir Eyal's Hook Model add to Charles Duhigg's original three-part habit loop?",
+      options: [
+        "A fourth step, 'punishment,' that discourages users from skipping the routine.",
+        "A fourth step, 'investment,' where the user puts something in that compounds their switching costs and strengthens future loops.",
+        "It replaces 'reward' with 'discount' as the final step of the loop.",
+        "It removes the 'cue' step entirely, arguing habits form without triggers.",
+      ],
+      correct: 1,
+      explanation: "Eyal's Hooked (2014) extends Duhigg's cue-routine-reward loop with a fourth step, investment, where the user's time or data (like a Spotify playlist) raises the cost of switching away and primes the next cue.",
     },
   ],
 
@@ -12117,6 +12205,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "The IKEA Effect requires completion. If the onboarding task is too difficult or confusing, users will quit. Incomplete labor does not build love; it builds frustration and leads to abandonment. Marketers must balance meaningful effort with a high completion rate.",
     },
+    {
+      question: "Based on the lesson's Build-A-Bear example, why does the IKEA Effect matter more for some product categories than others?",
+      options: [
+        "It matters most for commodity purchases where speed and low friction are the deciding factor.",
+        "It only applies to physical furniture products, not services or digital products.",
+        "For products where emotional connection drives loyalty, like premium goods or memberships, adding meaningful effort can increase perceived value, unlike commodity purchases where reducing friction is usually the right move.",
+        "It matters equally for every product category regardless of price or purpose.",
+      ],
+      correct: 2,
+      explanation: "The lesson explicitly contrasts commodity purchases (where removing friction is correct) with products relying on emotional connection, subscriptions, premium goods, community memberships, where adding real effort at the right moment raises willingness to pay and loyalty, as Build-A-Bear demonstrates.",
+    },
   ],
 
   "psychology/loss-aversion": [
@@ -12163,6 +12262,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Loss aversion is manipulated when marketers block the user's choices (like complex unsubscribe processes) or invent fake losses (like timers). Ethical loss aversion simply highlights real, existing stakes or consequences of inaction.",
+    },
+    {
+      question: "In the lesson's home-energy field experiment, why did the loss-framed insulation message ('you will lose 50 cents per day by not insulating') outperform the identical gain-framed message by 150%?",
+      options: [
+        "The loss-framed message offered a larger financial amount than the gain-framed message.",
+        "The math and dollar amount were identical in both messages; only the framing changed, and losses are weighted roughly 2-2.5x more heavily than equivalent gains.",
+        "The loss-framed message was delivered by a government agency, which added credibility.",
+        "The gain-framed message was tested on a different, less receptive population.",
+      ],
+      correct: 1,
+      explanation: "The lesson notes the math was identical between groups, only the frame changed. Because losses hurt roughly 2-2.5x more than equivalent gains feel good, reframing the exact same 50-cent figure as an avoidable loss nearly doubled adoption.",
     },
   ],
 
@@ -12211,6 +12321,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Unethical manipulation occurs when marketers manufacture lower-tier anxiety (e.g., exaggerated health threats, financial panic) to exploit safety needs and pressure consumers into buying solutions. Ethical marketing respects the customer's actual state rather than fabricating crises.",
     },
+    {
+      question: "What did Tay and Diener's 2011 study (n=60,865 across 123 countries), referenced in the lesson, revise about Maslow's original 1943 framework?",
+      options: [
+        "It proved Maslow's tiers do not exist and should be discarded entirely.",
+        "It showed that people pursue the different need levels more in parallel than in the strict, sequential order Maslow originally proposed.",
+        "It confirmed that lower needs must be 100% satisfied before any higher-tier need can be pursued.",
+        "It found that self-actualization is the first need people pursue, reversing Maslow's order.",
+      ],
+      correct: 1,
+      explanation: "The lesson notes Maslow's 1943 paper was theoretical, not an experimental study, and that Tay and Diener's large-scale research found the tiers are pursued more in parallel than in Maslow's strict sequential hierarchy, even though the hierarchy remains a useful marketing lens.",
+    },
   ],
 
   "psychology/mere-exposure-effect": [
@@ -12257,6 +12378,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "While repeated exposure builds liking, too many exposures in a short window triggers ad fatigue or wear-out. Marketers must monitor frequency caps and rotate ad creatives to keep the exposure positive and avoid irritating the audience.",
+    },
+    {
+      question: "Under what conditions does the lesson say the mere exposure effect is strongest?",
+      options: [
+        "When exposures are clustered tightly together in a single sitting rather than spaced out over time.",
+        "When the stimulus is initially disliked, since dislike sharpens attention to repeated exposures.",
+        "When exposures are spaced out over time, the stimulus starts out neutral rather than disliked, and the person is unaware they are being repeatedly exposed.",
+        "Only when the person consciously remembers and can recall each individual exposure.",
+      ],
+      correct: 2,
+      explanation: "The lesson lists three specific conditions for peak effect: exposures spaced out rather than clustered, a stimulus that starts neutral (not disliked), and exposure happening without the person's conscious awareness, which is why ambient and scroll-past impressions still work.",
     },
   ],
 
@@ -12305,6 +12437,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Back-loading delight and ending on an easy, successful note ensures the user remembers the onboarding as smooth and achievable. Ending on a frustrating, complex task leaves a negative final impression, even if the beginning was easy.",
     },
+    {
+      question: "Why does Recurly's data point to Netflix's low-friction, guilt-free cancellation flow as a driver of its above-average subscriber win-back rate?",
+      options: [
+        "Netflix charges a cancellation fee that is refunded if the subscriber returns within six months.",
+        "The cancellation screen is the literal final moment of the relationship, and per the peak-end rule, an ungrudging end is disproportionately remembered and shapes whether someone comes back.",
+        "Netflix's cancellation flow is legally required to be frictionless under the FTC's click-to-cancel rule.",
+        "Subscribers who cancel are automatically re-enrolled in a free trial the following month.",
+      ],
+      correct: 1,
+      explanation: "The cancellation screen is the engineered 'end' of the subscription experience. Because the remembering self weighs endings heavily, a respectful, low-friction exit leaves a better final impression than a guilt-trip flow, which Recurly ties to Netflix's above-average 50% six-month win-back rate versus a 34% industry average.",
+    },
   ],
 
   "psychology/psychology-101": [
@@ -12351,6 +12494,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Persuasion becomes manipulation when the information presented is false or deceptive. Using fake countdown timers that reset on page refresh or hiding fees until the checkout screen deprives the customer's System 2 of a fair choice, which is increasingly regulated and fined.",
+    },
+    {
+      question: "Costco's in-store food sampling stations are a classic application of which Cialdini principle, and why does it work?",
+      options: [
+        "Authority, because Costco employees wear uniforms that signal expertise.",
+        "Reciprocity, because receiving a free sample from a person creates an unspoken obligation to give something back, unlike an equivalent price discount.",
+        "Scarcity, because samples are only available for a limited number of minutes per hour.",
+        "Commitment, because tasting a sample forces the shopper to publicly commit to purchasing.",
+      ],
+      correct: 1,
+      explanation: "Sampling triggers reciprocity because the gift comes from a person, not a price tag, creating a felt obligation to reciprocate. Costco's sampling program has been linked to sales increases exceeding 500% for featured items, far more than an equivalent-value coupon typically produces.",
     },
   ],
 
@@ -12399,6 +12553,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Quantity scarcity relies on supply constraints ('only 3 left'), while time scarcity relies on temporal constraints ('offer ends Friday'). Combining both honest triggers creates a powerful compound effect on purchase intent.",
     },
+    {
+      question: "Spotify Wrapped is released for only a few weeks each December even though the underlying listening data could be shown year-round. What does this engineer, according to the lesson?",
+      options: [
+        "Steady scarcity, since the feature is always scarce by the same fixed amount every year.",
+        "A sudden drop in availability, the same mechanism the Worchel cookie study identified as producing a stronger reaction than constant, steady scarcity.",
+        "Time scarcity mixed with a fake countdown timer that resets if the user refreshes the page.",
+        "Quantity scarcity, since only a limited number of users are allowed to generate a Wrapped recap.",
+      ],
+      correct: 1,
+      explanation: "Wrapped manufactures a sudden annual availability window rather than a steady, always-on constraint. The Worchel cookie study found that watching supply suddenly drop produces a stronger perceived-value reaction than supply that stays scarce the whole time, which is why Wrapped 2024 reached roughly 200 million engaged users within 24 hours.",
+    },
   ],
 
   "psychology/social-proof-psychology": [
@@ -12445,6 +12610,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "UGC serves as visual social proof. Consumers rate it as 2.4 times more authentic than brand-created content because it shows real people using the product in real-world environments, reducing uncertainty.",
+    },
+    {
+      question: "What specific practice did the FTC's 2022 settlement with Fashion Nova target, and why did it count as deceptive social proof rather than legitimate review management?",
+      options: [
+        "Fashion Nova paid influencers to post five-star reviews without disclosing the payment.",
+        "Fashion Nova automatically published 4- and 5-star reviews while withholding hundreds of thousands of lower-starred reviews, which artificially inflated the star rating buyers saw.",
+        "Fashion Nova displayed a live visitor counter that did not reflect real site traffic.",
+        "Fashion Nova removed all reviews written more than 30 days after a purchase.",
+      ],
+      correct: 1,
+      explanation: "The FTC's first case over concealed negative reviews found that Fashion Nova auto-posted only positive reviews for years, never approving the negative ones it received. This misrepresents the true consensus of past buyers, which is the exact signal social proof depends on, resulting in a $4.2 million settlement.",
     },
   ],
 
@@ -12493,6 +12669,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "By coloring non-iPhone messages green, Apple created a visual minimal group marker. This triggers Social Identity Theory dynamics, establishing iPhone users as the in-group and Android users as the out-group, which exerts powerful social pressure (especially among teens) to buy iPhones.",
     },
+    {
+      question: "According to the lesson, which of the following is a warning sign that identity-based branding has crossed from healthy tribalism into exploitation?",
+      options: [
+        "The brand encourages customers to display a recognizable visual or ritual marker, like a numbered jacket.",
+        "Members of the tribe feel social or financial punishment for leaving the group, such as being ostracized or losing sunk investment.",
+        "The brand takes a genuine stance on a social or environmental issue that some customers disagree with.",
+        "The tribe forms around shared values and recognizable in-group signals rather than product features.",
+      ],
+      correct: 1,
+      explanation: "The lesson lists three warning signs of exploitation: denigrating an out-group as inferior, members overspending to maintain status, and leaving the tribe being socially or financially punished. The other options describe healthy tribal branding, like Harley-Davidson's HOG rallies, not manipulation.",
+    },
   ],
 
   "psychology/storytelling-psychology": [
@@ -12539,6 +12726,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Because storytelling suppresses logical counter-arguing, consumers are less likely to question claims made within a narrative. Regulators require brands to disclose material connections and keep testimonials honest, rather than using emotional stories to hide side effects or bad statistics.",
+    },
+    {
+      question: "Why does the lesson recommend opening a story with a specific named person, like 'Marcus, a line cook in Queens,' instead of an abstract group like 'busy professionals'?",
+      options: [
+        "Named individuals are legally required for FTC-compliant testimonial advertising.",
+        "A specific, concrete person activates the brain's simulation process (narrative transportation), while an abstract category gives the reader nothing to mentally picture.",
+        "Specific names improve SEO rankings for the ad copy.",
+        "Abstract groups trigger System 2 logical evaluation, which the lesson says converts better than System 1 emotion.",
+      ],
+      correct: 1,
+      explanation: "Narrative transportation depends on the brain simulating a scene, motor and sensory cortex firing as if the events were real. A concrete, specific person gives the brain something to simulate immediately, while an abstract category like 'busy professionals' reads like a market segment, not a character, and fails to transport the reader.",
     },
   ],
 
@@ -12587,6 +12785,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Relying strictly on lock-in and switching costs creates resentful customers ('hostages'). Sunk cost design should buy you time to deliver exceptional value. If the actual product experience is poor, customers will escape as soon as a competitor lowers the barrier to switch.",
     },
+    {
+      question: "According to the lesson, what mistake do marketing teams themselves commonly make that mirrors the sunk cost fallacy in their own decision-making?",
+      options: [
+        "They continue running an underperforming campaign because of how much has already been spent on it, instead of judging it on future expected return.",
+        "They refuse to launch any new campaign unless it has been tested for at least six months.",
+        "They only approve campaigns that were recommended by a senior executive.",
+        "They cancel every campaign the moment its performance dips for a single day.",
+      ],
+      correct: 0,
+      explanation: "The lesson calls this the 'internal trap': marketers keep funding a campaign that isn't working simply because money has already gone into it. Past spend is gone either way, so every campaign should be evaluated on its expected future return, not on sunk costs.",
+    },
   ],
 
   "psychology/system-1-system-2": [
@@ -12633,6 +12842,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Splitting the price allows the automatic System 1 to focus on the smaller, less painful figure ($50) at the point of decision. This lowers the initial barrier to entry, while the logical System 2 rationalizes the decision based on affordability over time.",
+    },
+    {
+      question: "Under the EU Digital Services Act and the FTC's 'Click-to-Cancel' rule, what specifically distinguishes legitimate System 1 marketing from an illegal dark pattern?",
+      options: [
+        "Whether the marketing message uses color and imagery instead of plain text.",
+        "Whether the tactic suppresses or hides information that System 2 would need to make a fair decision, such as a fake countdown timer or hidden fees revealed only at the final step.",
+        "Whether the campaign targets a B2B buyer instead of a consumer.",
+        "Whether the purchase price is above or below $100.",
+      ],
+      correct: 1,
+      explanation: "The lesson's ethical test is: if you removed the urgency, hidden fee, or dark pattern, would the customer still buy? Persuading System 1 with color or emotion is fine; denying System 2 a fair shot at real information (fake timers, drip pricing, confirm-shaming) is what regulators now target directly.",
     },
   ],
 
@@ -17469,6 +17689,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "The human brain has a finite capacity for processing choices. Lengthy forms, redundant fields, and complex dropdowns trigger cognitive load and decision fatigue, leading users to abandon the transaction if the effort required feels too high.",
     },
+    {
+      question: "In the Calendly case study, why did moving timezone and integration setup out of the signup form and into a post-signup onboarding wizard increase successful signups by 16%?",
+      options: [
+        "It added more fields overall, which signaled to users that Calendly was a serious professional tool.",
+        "It distributed cognitive load instead of concentrating it at the entry gate, letting users register with just email and password before facing configuration choices.",
+        "It required users to verify their email address before seeing any content.",
+        "It removed the need for a password entirely, replacing it with social login only.",
+      ],
+      correct: 1,
+      explanation: "The lesson's takeaway from Calendly is that onboarding friction must be distributed, not concentrated at the gate. Reducing the registration form to just email and password, and pushing configuration into onboarding, lowered the cognitive load a new user faced before seeing any value.",
+    },
   ],
 
   "copywriting/ux-writing-microcopy": [
@@ -19522,6 +19753,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The distinction between persuasion and manipulation is intent and alignment with the consumer's actual interests. Using psychology to help someone discover a product they genuinely need differs from using it to exploit vulnerable people or obscure material facts.",
+    },
+    {
+      question: "In the lesson's Dunkin' x Charli D'Amelio example, why did the campaign work even though D'Amelio had no expertise in coffee?",
+      options: [
+        "The authority principle depends on demonstrated expertise in the exact product category being sold.",
+        "Authority worked because it depended on trust with a specific audience segment, not subject-matter expertise, so her credibility with Gen Z TikTok users transferred to the product.",
+        "The campaign actually relied on scarcity, not authority, since the drink was a limited-time item.",
+        "Dunkin' primarily used reciprocity by giving away free drinks to D'Amelio's followers.",
+      ],
+      correct: 1,
+      explanation: "The lesson is explicit that D'Amelio 'was not an authority on coffee, but she had undisputed authority with a specific audience.' The coffee didn't change, only the authority figure vouching for it did, showing that the authority principle rests on trust with the target audience rather than category expertise.",
     },
   ],
 
@@ -23136,6 +23378,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Miller's Law defines working memory capacity as 7 ± 2 simultaneous chunks. Every competing element on a page consumes a slot, and exceeding the limit causes the visitor to abandon rather than prioritise.",
     },
+    {
+      question: "According to the lesson's Nature Human Behaviour research, why does emotionally charged marketing content get remembered better than neutral, purely rational content?",
+      options: [
+        "Emotional content is always visually louder, so it wins more space in working memory regardless of encoding.",
+        "Emotional arousal triggers the amygdala, which amplifies consolidation signals to the hippocampus, so the content is literally stored differently in long-term memory than neutral content.",
+        "Neutral content is filtered out by ad blockers more often than emotional content.",
+        "Emotional content bypasses the F-pattern and Z-pattern scanning behaviors entirely.",
+      ],
+      correct: 1,
+      explanation: "The lesson describes the amygdala-hippocampus pathway: emotional arousal triggers the amygdala, which amplifies memory consolidation signals to the hippocampus. This means emotionally charged ads aren't just more engaging in the moment, they are neurologically encoded into long-term memory differently than neutral, rational content.",
+    },
   ],
   "psychology/digital-dopamine-design": [
     {
@@ -23181,6 +23434,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "The study shows that dopamine-driven engagement and brand trust are independent: users may keep returning out of habit or lack of alternatives even as trust declines, making such engagement fragile to competition or regulation.",
+    },
+    {
+      question: "A product has a notification badge, but half the alerts are stale marketing emails and old messages that were never worth opening. What does the lesson say happens to the dopamine cue over time?",
+      options: [
+        "The badge keeps working indefinitely because red dots are universally compelling",
+        "The dopamine prediction error turns negative, and users learn to stop trusting and checking the cue",
+        "Users start checking the badge even more often to compensate",
+        "The badge only fails if it appears on a mobile device, not desktop",
+      ],
+      correct: 1,
+      explanation: "The lesson's third ethical rule is 'do not reward the wrong behaviour': when a cue repeatedly predicts a disappointing or irrelevant reward, the dopamine prediction error goes negative and the user learns the cue itself is unreliable, so they stop responding to it.",
     },
   ],
   "psychology/parasocial-relationships-marketing": [
@@ -23228,6 +23492,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Parasocial decay shows in engagement quality before quantity, sponsored posts start attracting fewer and shallower comments compared to organic content, signalling that audiences are beginning to perceive the relationship as transactional rather than genuine.",
     },
+    {
+      question: "According to the lesson, how do brands, which cannot form parasocial bonds the way individual creators can, get closest to that effect?",
+      options: [
+        "By running more traditional celebrity endorsement campaigns",
+        "By increasing ad spend on the platforms where parasocial bonds are strongest",
+        "Through consistent founder-on-camera content and responsive community infrastructure, so the bond forms with a person and transfers to the brand",
+        "By hiring the influencer with the largest possible follower count",
+      ],
+      correct: 2,
+      explanation: "The lesson explains a logo has no personality to bond with, but a founder who shows up consistently on camera, admitting mistakes and engaging with critics, lets audiences form a parasocial bond with that person, which then transfers to the brand, and responsive community spaces reinforce the same illusion of relationship.",
+    },
   ],
   "psychology/trust-and-credibility-signals": [
     {
@@ -23273,6 +23548,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "In the first 50 milliseconds users are not reading, they are scanning visual cues like fonts, colours, whitespace, and layout for signals of competence. No copy, however persuasive, can recover a trust deficit created by poor visual design.",
+    },
+    {
+      question: "Per McCullough's three-dimension model, why can Apple be described as having high competence trust but lower integrity trust?",
+      options: [
+        "Apple's products frequently fail to meet advertised specifications",
+        "Apple is skilled at what it does but opaque about pricing, so competence and honesty-about-costs are independent judgments users make separately",
+        "Apple has low competence trust because its products are seen as unreliable",
+        "Integrity trust and competence trust always move together, so this example is not possible",
+      ],
+      correct: 1,
+      explanation: "The lesson uses Apple explicitly to show competence trust (skill, execution) and integrity trust (transparency, honesty) are independent dimensions, a brand can score high on one and lower on the other, which is why the model treats them as three separate axes rather than a single 'trust' score.",
     },
   ],
   "seo/ai-mode-search-optimization": [
@@ -25538,6 +25824,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Research found clickbait-style titles produced a statistically significant negative effect on trust ratings, since readers now associate the tactic with lower-quality sources.",
     },
+    {
+      question: "Who first noticed the unfinished-task memory pattern in a Berlin cafe, and who turned it into formal published research?",
+      options: [
+        "Bluma Zeigarnik noticed it while George Loewenstein ran the experiments",
+        "Kurt Lewin noticed waiters recalling unpaid orders, then handed the observation to his student Bluma Zeigarnik, who built and published the formal 1927 experiments",
+        "Daniel Kahneman noticed it, and Richard Thaler published the 1927 study",
+        "Edward Thorndike noticed it while studying U.S. Army officers",
+      ],
+      correct: 1,
+      explanation: "The lesson credits Gestalt psychologist Kurt Lewin with the original cafe observation about waiters recalling unpaid orders in detail; he handed it to his student Bluma Zeigarnik, who designed the formal interrupted-task experiments and published the results in 1927.",
+    },
   ],
   "psychology/endowment-effect": [
     {
@@ -25584,6 +25881,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "The lesson's gut check: if a product doesn't fit but the business is counting on inertia and buried cancel buttons to keep the subscription anyway, that's the line into manipulation, per FTC 'click-to-cancel' scrutiny.",
     },
+    {
+      question: "Why does the lesson cite Chrysler's 1980s 30-day return guarantee as evidence for the endowment effect, given that fewer than 1% of buyers returned their car?",
+      options: [
+        "It proves guarantees do not actually influence purchase decisions",
+        "It shows that once a product is in someone's possession, giving it up starts to feel like a loss, so the 'risk-free' offer that won the sale is rarely exercised",
+        "It shows Chrysler's return policy was too difficult to use in practice",
+        "It proves money-back guarantees only work for digital products, not physical goods",
+      ],
+      correct: 1,
+      explanation: "The lesson explains that a guarantee gets the product into the buyer's possession, and once that happens the endowment effect makes returning it feel like giving something up, so the guarantee converts hesitant buyers without generating many actual returns.",
+    },
   ],
   "psychology/halo-effect": [
     {
@@ -25629,6 +25937,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "The lesson's warning is that a halo resting on one signal is fragile precisely because trust was never built trait-by-trait, so a single crack drags down every other perceived quality at once.",
+    },
+    {
+      question: "Per the lesson's Apple example, why does a strong flagship product like the iPhone give later products such as the Apple Watch or AirPods an advantage at launch?",
+      options: [
+        "Because Apple spends more on advertising for new products than competitors do",
+        "Because consumers rarely evaluate a new product from a strong brand with a blank slate; the halo from the earlier win carries over and primes the new product to be assumed excellent",
+        "Because Apple's new products are always technically superior to competitors on launch day",
+        "Because retailers give Apple better shelf placement than other brands",
+      ],
+      correct: 1,
+      explanation: "The lesson states that one hit product elevates the whole line: trust built by the iPhone's success carries over automatically, so new Apple products launch into a market already primed to assume they are excellent, before any independent evaluation happens.",
     },
   ],
   "seo/ecommerce-product-page-seo": [
