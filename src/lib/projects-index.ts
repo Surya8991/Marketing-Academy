@@ -883,6 +883,455 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "four-layer-brand-strategy-doc-build",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-strategy-101",
+    "lessonTitle": "Brand Strategy 101",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the One-Page Brand Strategy Document",
+    "timeMinutes": 45,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "Purpose as a direction, not a destination",
+      "Positioning as a hard choice, not a wish list",
+      "Personality mapped to Aaker's five dimensions",
+      "Promise as an operational commitment, not an ad claim"
+    ]
+  },
+  {
+    "id": "brand-layer-alignment-audit",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-strategy-101",
+    "lessonTitle": "Brand Strategy 101",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Diagnose a Misaligned Brand: The Four-Layer Contradiction Audit",
+    "timeMinutes": 35,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Purpose-Promise contradiction detection",
+      "Positioning-Personality mismatch detection",
+      "The competitor-copy test applied as an audit tool"
+    ]
+  },
+  {
+    "id": "brand-marketing-split-audit",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-vs-marketing",
+    "lessonTitle": "Brand vs Marketing vs Advertising",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Sort the List: Is This Brand or Marketing?",
+    "timeMinutes": 20,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Brand Layer vs. Marketing Layer classification",
+      "The feedback loop between marketing execution and brand perception"
+    ]
+  },
+  {
+    "id": "cac-misalignment-forecast",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-vs-marketing",
+    "lessonTitle": "Brand vs Marketing vs Advertising",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Forecast the CAC Cost of Brand-Marketing Misalignment",
+    "timeMinutes": 25,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "CAC impact of brand-marketing misalignment",
+      "Paid-channel dependency as a symptom of weak brand equity"
+    ]
+  },
+  {
+    "id": "how-brands-grow-cep-reach-audit",
+    "category": "brand-strategy",
+    "lessonSlug": "how-brands-grow",
+    "lessonTitle": "How Brands Grow (Ehrenberg-Bass)",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Penetration Call: Auditing a Reach and CEP Gap",
+    "timeMinutes": 40,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "The Double Jeopardy Law",
+      "Category Entry Points (CEPs)"
+    ]
+  },
+  {
+    "id": "how-brands-grow-distinctive-asset-build",
+    "category": "brand-strategy",
+    "lessonSlug": "how-brands-grow",
+    "lessonTitle": "How Brands Grow (Ehrenberg-Bass)",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Distinctive Brand Asset Inventory and Consistency Scorecard",
+    "timeMinutes": 45,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Distinctive Brand Assets",
+      "Physical Availability"
+    ]
+  },
+  {
+    "id": "brand-pillars-draft-and-specificity-test",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-pillars",
+    "lessonTitle": "Brand Pillars",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Draft 3 Candidate Brand Pillars and Run the Competitor Test",
+    "timeMinutes": 25,
+    "companyId": "glossybox",
+    "conceptsCovered": [
+      "Drafting specific pillar phrases",
+      "The competitor test for pillar quality"
+    ]
+  },
+  {
+    "id": "brand-pillars-competitor-test-audit",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-pillars",
+    "lessonTitle": "Brand Pillars",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Audit 5 Draft Pillars Against the Competitor and Decision Tests",
+    "timeMinutes": 25,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "The competitor test for pillar quality",
+      "Testing each pillar for decision-making power"
+    ]
+  },
+  {
+    "id": "archetype-selection-worksheet",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-archetypes",
+    "lessonTitle": "Brand Archetypes (Jung's 12)",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Building an Archetype Selection Worksheet for a New Product Launch",
+    "timeMinutes": 25,
+    "companyId": "swiggy",
+    "conceptsCovered": [
+      "Grouping archetypes by core human drive",
+      "Writing voice in 3 to 5 words with guardrails"
+    ]
+  },
+  {
+    "id": "touchpoint-archetype-audit",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-archetypes",
+    "lessonTitle": "Brand Archetypes (Jung's 12)",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Auditing a Real Brand's Touchpoints for Archetype Consistency",
+    "timeMinutes": 45,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Auditing touchpoints against a chosen archetype",
+      "Detecting archetype blending as a symptom of drift"
+    ]
+  },
+  {
+    "id": "reverse-engineer-visual-identity-system",
+    "category": "brand-strategy",
+    "lessonSlug": "visual-identity",
+    "lessonTitle": "Visual Identity Systems",
+    "tier": "mini",
+    "archetype": "reverse-engineer",
+    "mode": "diagnostic",
+    "title": "Reverse-Engineering a Real Company's Visual Identity System",
+    "timeMinutes": 30,
+    "companyId": "klaviyo",
+    "conceptsCovered": [
+      "Extracting a color system from live touchpoints",
+      "Extracting a type and imagery style from live touchpoints"
+    ]
+  },
+  {
+    "id": "one-page-brand-guidelines-sheet",
+    "category": "brand-strategy",
+    "lessonSlug": "visual-identity",
+    "lessonTitle": "Visual Identity Systems",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Building a One-Page Brand Guidelines Sheet",
+    "timeMinutes": 30,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Starting a visual identity system with the two highest-leverage decisions",
+      "Specifying color in multiple formats for print and digital"
+    ]
+  },
+  {
+    "id": "naming-fintech-feature-shortlist",
+    "category": "brand-strategy",
+    "lessonSlug": "naming",
+    "lessonTitle": "Brand Naming",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Naming Shortlist for a New Fintech Feature",
+    "timeMinutes": 25,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "Generating a large candidate pool across four methods"
+    ]
+  },
+  {
+    "id": "naming-candidate-export-audit",
+    "category": "brand-strategy",
+    "lessonSlug": "naming",
+    "lessonTitle": "Brand Naming",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Clearance Call: Auditing a Sub-Brand Naming Shortlist",
+    "timeMinutes": 45,
+    "companyId": "firstcry-brainbees",
+    "conceptsCovered": [
+      "Applying the four-filter test",
+      "Triaging trademark clearance risk before paying for a legal opinion"
+    ]
+  },
+  {
+    "id": "voice-system-attribute-builder",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-voice-system",
+    "lessonTitle": "Brand Voice Systems",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a 3-Attribute Voice System for a Support Team",
+    "timeMinutes": 25,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Defining voice attributes with label, contrast statement, and example pair"
+    ]
+  },
+  {
+    "id": "voice-drift-content-audit",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-voice-system",
+    "lessonTitle": "Brand Voice Systems",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Audit 10 Content Pieces for Voice Drift",
+    "timeMinutes": 30,
+    "companyId": "firstcry-brainbees",
+    "conceptsCovered": [
+      "The logo-removed diagnostic for voice audits"
+    ]
+  },
+  {
+    "id": "brand-book-audit-gaps",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-book",
+    "lessonTitle": "Building a Brand Book",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Gap Audit: Reviewing a Submitted Brand Book Against the Five-Layer Framework",
+    "timeMinutes": 25,
+    "companyId": "adyen",
+    "conceptsCovered": [
+      "Layer 2: Verbal Identity",
+      "Layer 5: Distribution"
+    ]
+  },
+  {
+    "id": "brand-book-verbal-identity-build",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-book",
+    "lessonTitle": "Building a Brand Book",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Building the Verbal Identity Layer of a Brand Book from Scratch",
+    "timeMinutes": 50,
+    "companyId": "nubank",
+    "conceptsCovered": [
+      "Layer 2: Verbal Identity",
+      "Layer 4: Usage Rules"
+    ]
+  },
+  {
+    "id": "distinctive-assets-portfolio-teardown",
+    "category": "brand-strategy",
+    "lessonSlug": "distinctive-assets",
+    "lessonTitle": "Distinctive Brand Assets",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: Sorting a Distinctive Asset Portfolio into Protect, Build, or Drop",
+    "timeMinutes": 30,
+    "companyId": "wise",
+    "conceptsCovered": [
+      "Stage 3: Classify and Prioritize",
+      "Stage 2: Test Fame and Uniqueness"
+    ]
+  },
+  {
+    "id": "distinctive-assets-rebrand-forecast",
+    "category": "brand-strategy",
+    "lessonSlug": "distinctive-assets",
+    "lessonTitle": "Distinctive Brand Assets",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Forecasting Which Assets Survive a Rebrand: A Fame vs. Uniqueness Stress Test",
+    "timeMinutes": 30,
+    "companyId": "nubank",
+    "conceptsCovered": [
+      "Stage 2: Test Fame and Uniqueness",
+      "Stage 3: Classify and Prioritize"
+    ]
+  },
+  {
+    "id": "brand-tracking-wave-diagnostic-audit",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-tracking",
+    "lessonTitle": "Brand Tracking",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Reading the Trend Line: Diagnosing a Brand Tracking Wave",
+    "timeMinutes": 25,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Reporting trend lines instead of single-wave snapshots"
+    ]
+  },
+  {
+    "id": "brand-tracking-consideration-forecast",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-tracking",
+    "lessonTitle": "Brand Tracking",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "The Six-Month Warning: Forecasting Revenue Risk from a Consideration Trend",
+    "timeMinutes": 45,
+    "companyId": "grab",
+    "conceptsCovered": [
+      "Brand metrics leading sales by 6-12 months",
+      "Choosing tracking cadence to catch trend shifts early"
+    ]
+  },
+  {
+    "id": "brand-equity-bsi-scorecard-audit",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-equity",
+    "lessonTitle": "Brand Equity Measurement",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Auditing a BSI Scorecard: Where Is the Valuation Leaking?",
+    "timeMinutes": 30,
+    "companyId": "snowflake",
+    "conceptsCovered": [
+      "Scoring the Brand Strength Index across five weighted metrics"
+    ]
+  },
+  {
+    "id": "brand-equity-royalty-relief-forecast",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-equity",
+    "lessonTitle": "Brand Equity Measurement",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "Running the Royalty-Relief Math: Forecasting Brand Value Under Two Scenarios",
+    "timeMinutes": 50,
+    "companyId": "grab",
+    "conceptsCovered": [
+      "Applying royalty-relief valuation mechanics",
+      "Forecasting equity decay after a crisis"
+    ]
+  },
+  {
+    "id": "crisis-war-room-first-four-hours",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-crisis",
+    "lessonTitle": "Brand Crisis Management",
+    "tier": "mini",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "Crisis War Room: The First Four Hours",
+    "timeMinutes": 25,
+    "companyId": "coinbase",
+    "conceptsCovered": [
+      "Detection speed and escalation rules",
+      "Severity scoring before response",
+      "The cost of delayed detection",
+      "Holding statement structure",
+      "Recovery cadence and concrete action"
+    ]
+  },
+  {
+    "id": "severity-triage-week-of-complaints",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-crisis",
+    "lessonTitle": "Brand Crisis Management",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Severity Triage: Auditing a Week of Flagged Complaints",
+    "timeMinutes": 40,
+    "companyId": "instacart",
+    "conceptsCovered": [
+      "Severity scoring before response",
+      "Holding statement structure"
+    ]
+  },
+  {
+    "id": "zero-click-signal-audit",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-in-ai-era",
+    "lessonTitle": "Brand Building in the AI Era: Visibility When AI Answers Replace Search",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Zero-Click Audit: Is Your Brand Visible to AI Search?",
+    "timeMinutes": 30,
+    "companyId": "thredup",
+    "conceptsCovered": [
+      "Third-party signals AI models trust",
+      "Distinctive language AI can associate with a brand"
+    ]
+  },
+  {
+    "id": "predict-before-you-peek-ai-visibility-stats",
+    "category": "brand-strategy",
+    "lessonSlug": "brand-in-ai-era",
+    "lessonTitle": "Brand Building in the AI Era: Visibility When AI Answers Replace Search",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "Predict Before You Peek: Calibrating on 2025's AI-Visibility Research",
+    "timeMinutes": 35,
+    "companyId": "coinbase",
+    "conceptsCovered": [
+      "Statistics and quotations increase AI visibility",
+      "Community content compounds LLM equity"
+    ]
+  },
+  {
     "id": "what-is-content-marketing-teardown",
     "category": "content",
     "lessonSlug": "what-is-content-marketing",
