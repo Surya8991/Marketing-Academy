@@ -1757,4 +1757,132 @@ export const CONTENT_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
     },
   ],
+
+  "repurposing": [
+    {
+      id: "repurposing-pillar-to-atoms-plan",
+      tier: "mini",
+      archetype: "build-the-asset",
+      title: "One Post, Four Channels: Build a Repurposing Plan",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given a real published long-form post, extract tagged atoms and write platform-native (not copy-pasted) versions for two different channels.",
+      companyId: "glossybox",
+      scenario:
+        "You're the content marketer at Glossybox. Marketing just published a 2,400-word blog post, 'The Ultimate K-Beauty Layering Routine,' and you have one week before it drops off the homepage forever.",
+      brief:
+        "Extract 5-8 atoms from the post, tag each with format and platform, then write two fully transformed (not copy-pasted) atoms for different channels.",
+      mode: "build",
+      conceptsCovered: [
+        "Atom extraction from a pillar asset",
+        "Platform-specific transformation, not copy-paste",
+      ],
+      steps: [
+        {
+          stepId: "step-1-extract-atoms",
+          concept: "Atom extraction from a pillar asset",
+          lessonAnchor: "step-2-extract-the-atoms",
+          theoryRecap:
+            "The lesson's Step 2 says a 2,500-word post typically yields 12-18 distinct atoms, each tagged with format fit, target platform, and urgency.",
+          question:
+            "Read the K-Beauty layering post. List 5-8 discrete ideas, stats, or steps worth extracting, and tag each with a format, a platform, and an urgency (evergreen or time-bound).",
+          toolName: "Google Sheets",
+          where:
+            "Build a 4-column tracker: Idea | Format | Platform | Urgency.",
+          procedure: [
+            "Read the pillar post once for structure, once for standalone facts or steps",
+            "Log every discrete idea, stat, or process step as its own row",
+            "Tag each row with a format fit (quote card, carousel slide, thread point, email tip)",
+            "Tag each row with the platform where that format performs best",
+            "Mark each row evergreen or time-bound so the drip schedule can sequence it",
+          ],
+          outputSample:
+            "Idea: 'Never skip the essence step, it's what makes the rest absorb'\nFormat: quote card + carousel slide 1\nPlatform: Instagram\nUrgency: evergreen\n\nIdea: '7-step order: cleanser, toner, essence, serum, sheet mask, moisturizer, SPF'\nFormat: carousel (7 slides) + email checklist\nPlatform: Instagram, email\nUrgency: evergreen",
+          healthy:
+            "5-8 rows, each with a specific idea, a named format, and a named platform, atoms cover different angles of the post.",
+          unhealthy:
+            "A single row that says 'summarize the whole post for social,' no format or platform picked, everything vague.",
+          interpret:
+            "If an idea can't get its own row with a specific format and platform, it isn't an atom yet, it's still pillar-level thinking.",
+          soWhat: [
+            {
+              symptom: "Every atom row says 'social media' as the platform",
+              action: "Force a single named platform per row before moving to Step 2",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-platform-transform",
+          concept: "Platform-specific transformation, not copy-paste",
+          lessonAnchor: "step-3-transform-do-not-copy-paste",
+          theoryRecap:
+            "The lesson's Step 3 warns that a verbatim excerpt reads as lazy, every atom needs a native opening hook and a platform-appropriate close.",
+          question:
+            "Pick one atom from your tracker. Write a full LinkedIn version and a full Instagram carousel-slide version. Do the hook, structure, and close actually differ, or is one a trimmed copy of the other?",
+          toolName: "Canva",
+          where:
+            "Draft both copy versions in your tracker first, then design the Instagram slide in a free Canva template.",
+          procedure: [
+            "Write the LinkedIn version: hook line, 2-3 short paragraphs, a closing question",
+            "Write the Instagram carousel version: one bold headline per slide, minimal supporting text",
+            "Check both against the pillar sentence, neither should be a trimmed copy-paste of it",
+            "Design the Instagram slide in Canva using a free carousel template",
+            "Note in your tracker which UTM tag each atom will carry when scheduled",
+          ],
+          outputSample:
+            "LinkedIn: 'Most people do a 10-step Korean skincare routine wrong, they skip the one step that makes everything else work. Here's the order that actually absorbs into skin, and why sequence matters more than product count. [3 short paragraphs] What's the one skincare step you always skip?'\n\nInstagram Slide 1: 'YOU'RE SKIPPING THE STEP THAT MAKES THE OTHER 6 WORK' (bold headline, minimal text, product-swatch visual)",
+          healthy:
+            "The LinkedIn post reads as a professional insight with a discussion hook, the Instagram slide reads as a punchy visual headline, someone could tell them apart with the platform names hidden.",
+          unhealthy:
+            "Both versions are the same three sentences with the paragraph breaks removed for Instagram.",
+          interpret:
+            "If you can swap the two atoms between platforms and nothing feels wrong, the transformation step didn't happen.",
+          soWhat: [
+            {
+              symptom: "The Instagram slide has the same sentence length as the LinkedIn post",
+              action: "Cut the Instagram text to one headline per slide before designing it",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the atom-extraction tracker",
+            why: "Free, no account friction, easy to share with a content calendar owner",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Canva",
+            role: "Design the Instagram carousel slide from the transformed copy",
+            why: "Free templates cover carousel and quote-card formats out of the box",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+        paidUpgradeNote:
+          "Canva Pro adds brand-kit locked fonts/colors and batch resizing across formats, useful once you're repurposing weekly, not required for this project.",
+      },
+      deliverable:
+        "An atom-extraction tracker (5-8 tagged rows) plus two fully transformed atoms, one LinkedIn post and one designed Instagram carousel slide, from the same source idea.",
+      sampleOutput:
+        "Zendesk repurposing tracker (excerpt)\n\nIdea: 'First response time is the #1 driver of CSAT, not resolution time'\nFormat: LinkedIn post + email section\nPlatform: LinkedIn, newsletter\nUrgency: evergreen\n\nLinkedIn: 'Everyone optimizes for resolution time. The data says first response time matters more to customers...' \nEmail: '3 support metrics worth watching this quarter, #1: first response time...'",
+      successCriteria: [
+        "Extracts 5-8 distinct, specifically tagged atoms from the source post",
+        "LinkedIn and Instagram versions of the same idea have genuinely different hooks and structure, not a trimmed copy-paste",
+        "Each atom is tagged with a platform and an urgency, ready to slot into a drip schedule",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Add a third atom transformed for email newsletter and a fourth for a Twitter/X thread, then sequence all four onto a 4-week drip calendar.",
+    },
+  ],
 };

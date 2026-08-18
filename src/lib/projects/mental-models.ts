@@ -1223,4 +1223,166 @@ export const MENTAL_MODELS_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
     },
   ],
+
+  "deliberate-practice": [
+    {
+      id: "deliberate-practice-log-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "Real Practice or Repetition? Auditing a Marketer's Skill-Building Log",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a real six-week practice log from a marketer trying to improve at one skill, apply the lesson's four-element framework to diagnose whether genuine deliberate practice occurred or the log just describes regular work relabeled.",
+      companyId: "lenskart",
+      scenario:
+        "You're a marketing manager at Lenskart mentoring a junior performance marketer who claims she's been 'deliberately practicing' ad copywriting for six weeks and wants a promotion case built on it.",
+      brief:
+        "Read her submitted log, score each week against the four required elements, and flag exactly where it breaks down.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "The four required elements of deliberate practice",
+        "Distinguishing regular work experience from deliberate practice",
+      ],
+      steps: [
+        {
+          stepId: "step-1-four-element-scoring",
+          concept: "The four required elements of deliberate practice",
+          lessonAnchor: "what-it-actually-is",
+          theoryRecap:
+            "Deliberate practice requires all four elements together: a specific skill target, effort at the edge of ability, immediate feedback, and repetition with adjustment. Missing any one collapses it back into regular work.",
+          question:
+            "The log shows she wrote ad copy for 6 real client campaigns over 6 weeks, got a 'great job' from her manager in the weekly team meeting, and reused her best-performing headline template each time. Which of the four elements is missing, and does this count as deliberate practice?",
+          toolName: "Google Sheets",
+          where:
+            "Open the supplied practice-log export, one row per week, columns for skill target, feedback source, feedback timing, and what changed.",
+          procedure: [
+            "List all 6 weeks in a sheet with columns: Skill Target / Effort Level / Feedback Source / Feedback Delay / What Changed Next Rep",
+            "Score each week 1 (met) or 0 (not met) against each of the four elements",
+            "Flag any week scoring 0 on 'Feedback Delay' or 'What Changed Next Rep' as the weak point",
+          ],
+          outputSample:
+            "Week 1-6 scoring (excerpt)\n  Week 3: Skill Target=1 (headline writing) | Effort=0 (reused old template, no failure risk) | Feedback=0 (generic 'great job' in group meeting, 2 weeks later) | Adjustment=0 (same template reused week 4)\n  Verdict: 1/4 elements met -> NOT deliberate practice, it's repeated familiar work",
+          healthy:
+            "A week scores 4/4: a specific headline sub-skill targeted, a genuinely new/harder brief, feedback within 48 hours from a named reviewer, and a visible change in the next week's approach.",
+          unhealthy:
+            "Every week scores high on 'did real work' but 0/4 on feedback delay and adjustment, meaning six weeks of ad copy was written with no actual skill-building loop.",
+          interpret:
+            "A log full of real campaigns can still fail every deliberate-practice test if feedback is generic, delayed, or never changes the next attempt.",
+          soWhat: [
+            {
+              symptom: "Feedback column shows 'team meeting, 2 weeks later' for most weeks",
+              action:
+                "Require a single named reviewer to give written feedback within 48 hours of each rep before counting it as a practice week",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Score each week's log against the four-element framework",
+            why: "Free, tabular scoring with no setup",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A scored six-week audit table flagging exactly which weeks (and which of the four elements) failed, with a one-line verdict on whether the log supports a deliberate-practice claim.",
+      sampleOutput:
+        "Zomato junior copywriter, 6-week audit (excerpt)\n\nWeek 2: Skill Target=1 | Effort=1 (new push-notification format) | Feedback=1 (senior copywriter same-day Slack notes) | Adjustment=1 (rewrote CTA per feedback)\n  Verdict: 4/4 -> genuine deliberate practice\n\nWeek 5: Skill Target=1 | Effort=0 (reused Week 2's winning format) | Feedback=0 (no reviewer assigned) | Adjustment=0\n  Verdict: 1/4 -> regular work, not practice",
+      successCriteria: [
+        "Correctly scores all 6 weeks against all four elements",
+        "Identifies feedback delay/no-adjustment as the specific failure pattern",
+        "States a clear deliberate-practice verdict, not just a vague summary",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Redesign the weekly log template so it forces a feedback-source and next-rep-adjustment field before a week can be logged as 'practice.'",
+    },
+    {
+      id: "deliberate-practice-two-marketers-headtohead",
+      tier: "mini",
+      archetype: "head-to-head",
+      title: "Same Two Hours, Different Results: Calibrating Two Practice Approaches",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Given two marketers' identical two-hours-a-week time commitment to the same skill, apply the lesson's framework to calibrate which practice design would actually produce visible skill gain in six months.",
+      companyId: "grab",
+      scenario:
+        "You're advising two performance marketers at Grab who both committed to 2 hours a week improving at push-notification copywriting, using different practice designs.",
+      brief:
+        "Compare Marketer A's and Marketer B's weekly routines against the edge-of-ability and feedback requirements, then calibrate which one you'd bet on for real improvement.",
+      mode: "calibration",
+      conceptsCovered: [
+        "Effort at the edge of ability",
+        "Two focused hours per week compounding into depth",
+      ],
+      steps: [
+        {
+          stepId: "step-1-edge-of-ability-calibration",
+          concept: "Effort at the edge of ability",
+          lessonAnchor: "the-playbook-two-hours-a-week",
+          theoryRecap:
+            "The lesson's Step 3 requires practicing at the edge of current ability, meaning failing a nontrivial fraction of the time, not repeating what already works.",
+          question:
+            "Marketer A spends her 2 hours polishing and resending her 3 best-performing push templates from last quarter. Marketer B spends her 2 hours writing 10 new push variants against a fresh rubric and gets them scored by a peer. After 6 months, which one is closer to career-defining depth, and why?",
+          toolName: "Google Sheets",
+          where: "Compare the two supplied weekly routine logs side by side in one sheet.",
+          procedure: [
+            "List both marketers' weekly routines in parallel columns: Task / Failure Risk / Feedback Source / New vs Repeated",
+            "Mark each week 'edge of ability' only if there's a real chance of failing (new format, new rubric, new reviewer)",
+            "Project 6 months forward: which routine accumulates edge-of-ability reps vs comfortable reps",
+          ],
+          outputSample:
+            "Marketer A (Weeks 1-6): Task=resend best templates | Failure Risk=near zero | Feedback=open rate only, no reviewer | New vs Repeated=Repeated\nMarketer B (Weeks 1-6): Task=10 new variants vs rubric | Failure Risk=high (peer scores half below target) | Feedback=peer review, weekly | New vs Repeated=New\n\nVerdict: B accumulates edge-of-ability reps; A accumulates comfortable repetition despite equal time invested",
+          healthy:
+            "The routine you'd bet on shows visible failure some weeks, a named feedback source, and new material each cycle.",
+          unhealthy:
+            "Two hours a week spent optimizing what already works looks productive but never leaves the comfort zone.",
+          interpret:
+            "Equal time invested does not mean equal deliberate practice; the edge-of-ability test separates the two.",
+          soWhat: [
+            {
+              symptom: "A marketer's weekly practice time is spent refining known winners",
+              action:
+                "Redirect the two hours to untested formats scored against a rubric by a peer",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Compare the two routines side by side and project 6-month outcomes",
+            why: "Free, no setup needed for a side-by-side comparison table",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A side-by-side calibration table with a written verdict on which marketer's routine would produce real skill depth over six months, and why.",
+      sampleOutput:
+        "Duolingo social copywriter, 2-marketer calibration (excerpt)\n\nMarketer A: reused 3 top TikTok hooks weekly, no reviewer, near-zero failure risk -> comfortable repetition\nMarketer B: wrote 8 new hook variants weekly against the team's viral-pattern rubric, scored by a senior teammate, ~50% scored below bar -> genuine edge-of-ability reps\n\nVerdict: Marketer B's routine is the one that compounds into real skill over 6 months",
+      successCriteria: [
+        "Correctly identifies which routine has real failure risk",
+        "Ties feedback source explicitly to the verdict",
+        "States a clear 6-month projection, not just a week-by-week comparison",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Design a 4-week edge-of-ability rubric for a skill of your own choosing, with a named feedback source before you start.",
+    },
+  ],
 };

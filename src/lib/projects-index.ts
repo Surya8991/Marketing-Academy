@@ -1083,6 +1083,22 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "repurposing-pillar-to-atoms-plan",
+    "category": "content",
+    "lessonSlug": "repurposing",
+    "lessonTitle": "Content Repurposing",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "One Post, Four Channels: Build a Repurposing Plan",
+    "timeMinutes": 30,
+    "companyId": "glossybox",
+    "conceptsCovered": [
+      "Atom extraction from a pillar asset",
+      "Platform-specific transformation, not copy-paste"
+    ]
+  },
+  {
     "id": "copywriting-101-landing-copy-teardown",
     "category": "copywriting",
     "lessonSlug": "copywriting-101",
@@ -1227,6 +1243,42 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
       "AIDA, Four Stages",
       "PAS, Three Stages",
       "Choosing the Right Framework"
+    ]
+  },
+  {
+    "id": "storytelling-copy-feature-list-teardown",
+    "category": "copywriting",
+    "lessonSlug": "storytelling-copy",
+    "lessonTitle": "Storytelling in Copy",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Find the Missing Story: Teardown of Ustraa's Product Copy",
+    "timeMinutes": 25,
+    "companyId": "ustraa",
+    "conceptsCovered": [
+      "Hook: opening with a specific, relatable situation",
+      "Struggle: naming the real cost of the problem",
+      "Turn: introducing the product as the mechanism of change",
+      "After State: making the transformation concrete"
+    ]
+  },
+  {
+    "id": "storytelling-copy-landing-page-build",
+    "category": "copywriting",
+    "lessonSlug": "storytelling-copy",
+    "lessonTitle": "Storytelling in Copy",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Story-Driven Landing Page From a Raw Feature List",
+    "timeMinutes": 50,
+    "companyId": "slack",
+    "conceptsCovered": [
+      "Hook: opening with a specific, relatable situation",
+      "Struggle: naming the real cost of the problem",
+      "Turn: introducing the product as the mechanism of change",
+      "After State: making the transformation concrete"
     ]
   },
   {
@@ -2806,6 +2858,38 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     "conceptsCovered": [
       "Modeling the gaming risk of a raw volume target",
       "Designing a paired target that moves closer to the real business outcome"
+    ]
+  },
+  {
+    "id": "deliberate-practice-log-audit",
+    "category": "mental-models",
+    "lessonSlug": "deliberate-practice",
+    "lessonTitle": "Deliberate Practice for Marketers",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Real Practice or Repetition? Auditing a Marketer's Skill-Building Log",
+    "timeMinutes": 25,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "The four required elements of deliberate practice",
+      "Distinguishing regular work experience from deliberate practice"
+    ]
+  },
+  {
+    "id": "deliberate-practice-two-marketers-headtohead",
+    "category": "mental-models",
+    "lessonSlug": "deliberate-practice",
+    "lessonTitle": "Deliberate Practice for Marketers",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "calibration",
+    "title": "Same Two Hours, Different Results: Calibrating Two Practice Approaches",
+    "timeMinutes": 20,
+    "companyId": "grab",
+    "conceptsCovered": [
+      "Effort at the edge of ability",
+      "Two focused hours per week compounding into depth"
     ]
   },
   {
@@ -4853,6 +4937,70 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     "conceptsCovered": [
       "Modeling 3-year TCO across license, implementation, and headcount",
       "Auditing feature usage before buying an Enterprise tier"
+    ]
+  },
+  {
+    "id": "canva-figma-task-router-headtohead",
+    "category": "tools",
+    "lessonSlug": "canva-figma",
+    "lessonTitle": "Canva vs Figma for Marketers",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "Which Tool Wins: Routing a Week's Task List",
+    "timeMinutes": 25,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Developer handoff as the primary routing question",
+      "Time-sensitive/template-driven vs. brand-precision-critical"
+    ]
+  },
+  {
+    "id": "canva-figma-brand-kit-drift-audit",
+    "category": "tools",
+    "lessonSlug": "canva-figma",
+    "lessonTitle": "Canva vs Figma for Marketers",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Brand Drift Audit: Catching the Off-Brand Files",
+    "timeMinutes": 25,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Brand Kit as the single source of truth",
+      "Maintaining separate brand kits across two tools without a sync rule"
+    ]
+  },
+  {
+    "id": "ai-tools-stack-forecast",
+    "category": "tools",
+    "lessonSlug": "ai-tools-overview",
+    "lessonTitle": "AI Marketing Tools Overview",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Building a 90-Day AI Tool Adoption Plan",
+    "timeMinutes": 30,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Five-category framework for mapping tools to jobs",
+      "Start with one writing tool and one automation tool before expanding"
+    ]
+  },
+  {
+    "id": "ai-tools-governance-audit",
+    "category": "tools",
+    "lessonSlug": "ai-tools-overview",
+    "lessonTitle": "AI Marketing Tools Overview",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Governance Gap: Auditing a Team's AI Usage",
+    "timeMinutes": 25,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Data residency and PII exposure in consumer AI accounts",
+      "Skipping the human review layer before publishing AI output"
     ]
   }
 ];
