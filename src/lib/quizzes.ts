@@ -15265,6 +15265,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "A generic keyword difficulty score does not reflect your site's credibility. PKD analyzes your domain's topical authority in your niche and calculates a personalized score, helping you spot keywords you can realistically rank for.",
     },
+    {
+      question: "A 2024 accuracy study compared Ahrefs and Semrush traffic estimates against actual Google Search Console data from 184 websites. What did it find?",
+      options: [
+        "Both tools matched Google Search Console traffic numbers almost exactly, with less than 2% error.",
+        "Semrush showed an average error rate of over 61%, tending to overestimate, meaning both tools should be used for directional insight rather than precise traffic counts.",
+        "Ahrefs was found to be completely unreliable and was removed from most agency workflows as a result.",
+        "The study concluded that only Google Search Console data should ever be used, since third-party tools cannot estimate traffic at all.",
+      ],
+      correct: 1,
+      explanation: "The study found Semrush's traffic estimates carried roughly a 61.58% average error rate (with a similar margin for Ahrefs), tending to overestimate. The lesson's takeaway is to use these tools for direction and comparison, not as precise traffic counters.",
+    },
   ],
 
   "tools/ai-native-tools": [
@@ -15311,6 +15322,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Cursor is an AI-native code editor that has scaled incredibly fast. Marketers and marketing engineers use its Composer agent to build pages, write custom scripts, and manage MDX sites without relying on standard engineering bottlenecks.",
+    },
+    {
+      question: "According to the lesson, what is the recommended adoption sequence for a marketing team building an AI-native tool stack, and why?",
+      options: [
+        "Cluely first, since live-call assistance delivers the fastest ROI for any team.",
+        "Cursor first, because engineering buy-in is required before any other AI-native tool can be trusted.",
+        "Perplexity first (lowest switching cost), then Granola (fits into existing meetings), then Cursor and Cluely as team confidence grows.",
+        "All four tools should be rolled out simultaneously to maximize the productivity multiplier from day one.",
+      ],
+      correct: 2,
+      explanation: "The lesson explicitly states most teams adopt Perplexity first because it has the lowest switching cost, then Granola since it slots into meetings that already happen, saving Cursor and Cluely for later as comfort with AI-native workflows grows.",
     },
   ],
 
@@ -15359,6 +15381,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "CoSchedule's statistics show that AI adoption is widespread, with 88% of digital marketers using it in their workflows and 60% employing it daily, indicating that AI-assisted workflows are the new baseline standard.",
     },
+    {
+      question: "The lesson organizes the AI marketing tool landscape into five categories mapped to specific jobs. Which pairing is correct?",
+      options: [
+        "Research and analysis is covered by Zapier AI Actions and Make, while automation is covered by Perplexity and NotebookLM.",
+        "Research and analysis is covered by Perplexity, Claude, and NotebookLM, while automation and orchestration is covered by Zapier, Make, and n8n.",
+        "Writing and copy is covered exclusively by Midjourney, while images and design are covered by ChatGPT.",
+        "Video is covered by Jasper, while writing and copy is covered by Runway and Synthesia.",
+      ],
+      correct: 1,
+      explanation: "The lesson's five-category map assigns Perplexity, Claude, and NotebookLM to research and analysis (competitive teardowns, transcript synthesis), and Zapier AI Actions, Make, and n8n to automation and orchestration (chaining LLM calls into CRM and workflow actions).",
+    },
   ],
 
   "tools/all-in-one-tools": [
@@ -15405,6 +15438,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Many teams buy enterprise packages for advanced features they won't use. It is more cost-effective to start on lower tiers (like HubSpot Starter or Professional) and upgrade only when active workflows require it.",
+    },
+    {
+      question: "In the PatSnap case referenced in the lesson, what changed after the company replaced its plain WordPress site and manual Outlook mail-merge outreach with HubSpot Marketing Hub and Content Hub?",
+      options: [
+        "Leads increased 400% within three months, with a 33% conversion rate on marketing-sourced leads and a 36% reduction in sales cycle length.",
+        "The company cut its technology costs by 50% by consolidating eight separate point tools into one platform.",
+        "Sales cycle length increased because the sales team needed to learn a new CRM interface.",
+        "The company reduced its marketing headcount to zero by fully automating lead generation.",
+      ],
+      correct: 0,
+      explanation: "PatSnap's result was a 400% increase in leads within three months, a 33% marketing-sourced lead conversion rate versus 20% from other sources, and sales cycle length dropping from 38 to 24 days. The '50% cost reduction' figure belongs to a different case in the lesson, Marq, not PatSnap.",
     },
   ],
 
@@ -15453,6 +15497,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Early-stage startups can build a powerful stack at $0 using the generous free tiers of GA4 (acquisition), Mixpanel/PostHog (product behavior), Hotjar (qualitative replays), and Looker Studio (dashboards).",
     },
+    {
+      question: "Why does the lesson warn against using GA4 to answer product-behavior questions like where users drop off during onboarding?",
+      options: [
+        "GA4 does not support any form of event tracking at all.",
+        "GA4 is session-based with sampling and a 14-month default data retention window, which makes funnel and cohort analysis painful compared to event-based tools like Mixpanel or Amplitude.",
+        "GA4 charges a per-event fee that makes onboarding funnel tracking prohibitively expensive.",
+        "GA4 can only be installed on native mobile apps, not on websites.",
+      ],
+      correct: 1,
+      explanation: "The lesson lists this as a common mistake: GA4's session-based sampling and 14-month data retention default make it a poor fit for cohort and funnel analysis, a job better suited to event-based tools like Mixpanel or Amplitude.",
+    },
   ],
 
   "tools/canva-figma": [
@@ -15499,6 +15554,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "Having a centralized, digital Brand Kit in Canva and/or a shared Component Library in Figma allows all team members to access pre-approved logos, exact hex codes, and specific fonts, ensuring every asset remains on-brand automatically.",
+    },
+    {
+      question: "In the Expedia Group example from the lesson, what specific Canva feature let the internal marketing team cut multi-format creative turnaround from a full 8-hour day to about 20 minutes?",
+      options: [
+        "Magic Studio's background removal tool.",
+        "Magic Resize (Resize & Magic Switch), which adapts a single design into multiple formats in a few clicks.",
+        "The Brand Kit's font upload feature.",
+        "Magic Animate, which adds entrance animations to slides.",
+      ],
+      correct: 1,
+      explanation: "Expedia Group used Canva's Resize & Magic Switch feature (Magic Resize) to adapt one design across digital signage, Slack reminders, and printed flyers without rebuilding it from scratch for each format, cutting turnaround from 8 hours to about 20 minutes.",
     },
   ],
 
@@ -15547,6 +15613,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Short-form video was the top-performing format in 2024, and email newsletters remain one of the most reliable organic channels. These two formats are key high-leverage distribution options going forward.",
     },
+    {
+      question: "In the ten-tool content stack from the lesson, what specific job does Surfer SEO do that distinguishes it from a general writing tool like ChatGPT or Claude?",
+      options: [
+        "It visualizes the questions real people ask around a seed keyword for idea generation.",
+        "It scores your draft against the top-ranking pages for your target keyword and tells you which terms to add.",
+        "It schedules and queues social posts across LinkedIn, X, Instagram, and TikTok.",
+        "It finds the most-shared articles in a niche so you can engineer something better.",
+      ],
+      correct: 1,
+      explanation: "Surfer SEO sits in the 'writing and optimization' group: it benchmarks your draft against top-ranking competitor pages for a target keyword and recommends terms to add, a distinct job from drafting (ChatGPT/Claude) or ideation (AnswerThePublic, BuzzSumo).",
+    },
   ],
 
   "tools/crm-basics": [
@@ -15593,6 +15670,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Importing dirty data containing duplicate names, missing fields, or dead emails will clutter your CRM from day one. Cleaning data and defining pipeline stages beforehand ensures the system is useful immediately.",
+    },
+    {
+      question: "A company wants a CRM specifically to find patterns in customer data, like identifying which segment is most likely to churn. Which type of CRM is built for that job?",
+      options: [
+        "Operational CRM",
+        "Analytical CRM",
+        "Collaborative CRM",
+        "Pipeline CRM",
+      ],
+      correct: 1,
+      explanation: "An Analytical CRM (like Zoho Analytics or Salesforce Einstein) is built to analyze customer data and surface patterns, while Operational CRMs automate workflows and Collaborative CRMs focus on sharing info across departments.",
     },
   ],
 
@@ -15641,6 +15729,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "VWO is highly cost-effective and consolidated for mid-market teams because it packs A/B testing, recording, and heatmapping into one bill, whereas Optimizely focuses on enterprise-level server-side experimentation and coding integrations.",
     },
+    {
+      question: "According to the recommended CRO playbook, what should a team do before writing a test hypothesis?",
+      options: [
+        "Launch the test immediately to gather real-time data as fast as possible.",
+        "Install a behavioral analytics tool like Clarity or Hotjar and watch 20-30 session recordings first.",
+        "Calculate a 95% confidence interval using last year's traffic numbers.",
+        "Skip qualitative research and rely only on the experimentation platform's default recommendations.",
+      ],
+      correct: 1,
+      explanation: "The playbook explicitly calls for instrumenting first, watching recordings to understand real user behavior, and only then writing a hypothesis with a specific metric attached, not the other way around.",
+    },
   ],
 
   "tools/design-tools": [
@@ -15687,6 +15786,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Ideogram is highly regarded for its precision in rendering text within AI-generated images, which makes it popular for building ad creatives or graphic concepts.",
+    },
+    {
+      question: "A marketer needs to produce a fast, auto-captioned short-form video for TikTok on a zero-dollar budget. Which tool from the stack fits this job best?",
+      options: [
+        "Loom",
+        "CapCut",
+        "Remove.bg",
+        "Adobe Illustrator",
+      ],
+      correct: 1,
+      explanation: "CapCut is free, fast, and best known for its auto-captioning, making it the fit for short-form video like TikTok, Reels, and Shorts, while Loom is built for screen-recorded explainers, not edited social video.",
     },
   ],
 
@@ -15735,6 +15845,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 0,
       explanation: "Mailchimp is highly recognized, but its pricing scales steeply as contact lists grow and many advanced automation features are restricted to higher tiers. Discovering this after building a large list makes switching systems difficult and expensive.",
     },
+    {
+      question: "A solo newsletter writer building an audience around courses wants tagging and sequences instead of one-off broadcast campaigns. Which tool is described as the best fit for this use case?",
+      options: [
+        "Customer.io",
+        "ConvertKit / Kit",
+        "Omnisend",
+        "HubSpot",
+      ],
+      correct: 1,
+      explanation: "ConvertKit (Kit) is explicitly positioned as creator-focused, built around tagging and automated sequences for newsletters, courses, and solo operators, unlike Customer.io's developer-heavy, event-triggered model.",
+    },
   ],
 
   "tools/free-tools-stack": [
@@ -15781,6 +15902,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Free tiers can change rules or limits overnight (as Mailchimp did). Having a clear export path for your data (like email contacts or analytics histories) prevents getting locked out or forced into high paid tiers.",
+    },
+    {
+      question: "In the zero-dollar stack, why would a solo marketer pick Buffer Free over Metricool Free for social scheduling?",
+      options: [
+        "Buffer Free supports unlimited brands, while Metricool Free supports only one.",
+        "Buffer Free covers 3 channels with 10 queued posts each, while Metricool Free covers 1 brand with 50 scheduled posts, so the choice depends on whether you need more channels or more scheduled volume.",
+        "Metricool Free does not support any social platforms, only email.",
+        "Buffer Free requires a paid Canva subscription to function.",
+      ],
+      correct: 1,
+      explanation: "The lesson lists the specific free-tier caps: Buffer Free gives 3 channels with 10 posts queued per channel, while Metricool Free gives 1 brand with 50 scheduled posts, so the right pick depends on whether channel spread or post volume matters more.",
     },
   ],
 
@@ -15829,6 +15961,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 0,
       explanation: "A single User (unique browser/cookie ID) can visit your site multiple times. Each visit is grouped into a Session, which by default ends when there is no activity for 30 minutes.",
     },
+    {
+      question: "A marketer wants to see exactly which step of a checkout process is causing users to drop off. Which GA4 report is purpose-built for this, as opposed to Path Exploration?",
+      options: [
+        "Path Exploration, since it shows every possible route through the site.",
+        "Funnel Exploration, since it defines a fixed multi-step process and shows the drop-off rate at each defined step.",
+        "Realtime Report, since it shows who is currently active on the site.",
+        "Landing Page Report, since it ranks pages by engagement time.",
+      ],
+      correct: 1,
+      explanation: "Funnel Exploration requires defining a specific ordered sequence of steps (like view product, add to cart, purchase) and shows exactly where users abandon that sequence, while Path Exploration instead reveals the most common open-ended navigation routes users take.",
+    },
   ],
 
   "tools/growth-tools": [
@@ -15875,6 +16018,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Clearbit (now HubSpot Breeze Intelligence) identifies which companies are visiting your site anonymously and enriches form submissions with background data (like industry or company size) to help route leads correctly.",
+    },
+    {
+      question: "A growth team's Zapier workflows are getting too complex with heavy branching logic, and they want to cut cost without taking on self-hosting. Which tool does the lesson recommend for this situation?",
+      options: [
+        "n8n, since it is open source and self-hostable.",
+        "Make, since it offers a visual canvas with branching at roughly 60% of Zapier's cost.",
+        "Segment, since it consolidates every tracking pixel into one pipeline.",
+        "Drift, since it is built for conversational B2B sales motions.",
+      ],
+      correct: 1,
+      explanation: "The lesson specifically recommends Make for scenarios that outgrow Zapier's simplicity, since it handles complex branching logic on a visual canvas at roughly 60% of Zapier's cost, without requiring the DevOps overhead that n8n self-hosting demands.",
     },
   ],
 
@@ -15923,6 +16077,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Every social media network has its own user culture and content length expectations. Tailoring your copy to fit the platform's format leads to higher engagement and a better user experience.",
     },
+    {
+      question: "Why does The Washington Post use Hootsuite's approval routing across its 30+ social accounts?",
+      options: [
+        "It lets reporters draft posts while editors review and approve them before anything publishes, preventing costly mistakes on a high-stakes news brand.",
+        "It automatically translates posts into multiple languages before publishing.",
+        "It merges all 30+ accounts into a single unified login to save on subscription costs.",
+        "It schedules posts only during Hootsuite's guaranteed-uptime hours.",
+      ],
+      correct: 0,
+      explanation: "Approval routing lets team members with different access levels (drafter, approver, publisher) work together safely. For a news brand, this review layer prevents a single wrong post from damaging years of credibility.",
+    },
   ],
 
   "tools/hotjar-clarity": [
@@ -15969,6 +16134,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "Staring at hundreds of random recordings wastes hours. Smart marketers filter for sessions where friction actually occurred (e.g. session length > 30s, rage clicks present, or specific drop-off pages) to find actionable bugs.",
+    },
+    {
+      question: "What is a 'move map,' and which of the two tools in this lesson offers it?",
+      options: [
+        "A heatmap of where visitors abandon a checkout flow, offered only by Microsoft Clarity.",
+        "A tracking layer for mouse cursor movement that roughly correlates to where a desktop visitor's eyes are looking, offered only by Hotjar.",
+        "A geographic map showing which countries visitors come from, offered by both tools equally.",
+        "An AI-generated diagram of a website's navigation structure, offered only by Microsoft Clarity.",
+      ],
+      correct: 1,
+      explanation: "Move maps track cursor movement as a rough proxy for visual attention on desktop. The lesson identifies this as a Hotjar-only feature, distinct from the click and scroll maps both tools share.",
     },
   ],
 
@@ -16017,6 +16193,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 0,
       explanation: "Marketing automation is useless without valuable content to deliver. Beginners often waste time building 10-step email workflows before writing the simple, helpful emails that the prospect will receive.",
     },
+    {
+      question: "What distinguishes Content Hub (formerly CMS Hub) from HubSpot's other four Hubs?",
+      options: [
+        "It is the only Hub available on the free tier.",
+        "It is HubSpot's website builder and CMS, letting marketers update site content without a developer, with built-in SEO recommendations and adaptive testing.",
+        "It manages support tickets and customer feedback surveys.",
+        "It is the technical 'glue' layer that connects HubSpot to other tools using custom code.",
+      ],
+      correct: 1,
+      explanation: "Content Hub is HubSpot's marketer-friendly website and CMS layer, with built-in SEO guidance and adaptive testing. Service Hub handles tickets and surveys, and Operations Hub is the technical integration layer, so those descriptions belong to different Hubs.",
+    },
   ],
 
   "tools/loom-vidyard": [
@@ -16063,6 +16250,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Because video emails stand out in crowded inboxes and establish human connection, they generate higher click-through rates and 3x more replies on average compared to generic text emails.",
+    },
+    {
+      question: "How did Snowflake's sales team use Vidyard's merge-tag feature to reach 420 target accounts?",
+      options: [
+        "They recorded 420 separate personalized videos manually, one per account executive.",
+        "They auto-personalized a single base video with each recipient's name and company, avoiding the need to record hundreds of individual videos.",
+        "They used merge tags to combine multiple prospects' contact records into one shared CRM entry.",
+        "They merged their Loom and Vidyard accounts into a single enterprise login.",
+      ],
+      correct: 1,
+      explanation: "Vidyard's merge-tag feature auto-inserts each recipient's name and company into a shared video template, creating hundreds of personalized versions without recording each one from scratch, which is exactly what let Snowflake's 600 AEs scale outreach to 420 accounts.",
     },
   ],
 
@@ -16111,6 +16309,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 0,
       explanation: "Klaviyo's high pricing is only justified if you utilize its advanced automation (flows) and dynamic grouping (segments). Using Klaviyo just to send broad broadcast newsletters means you are paying a premium for features you aren't using.",
     },
+    {
+      question: "According to the independent deliverability testing cited in this lesson, how do Mailchimp and Klaviyo compare on inbox placement?",
+      options: [
+        "Mailchimp reaches the inbox 97% of the time, slightly ahead of Klaviyo's 96%.",
+        "Klaviyo reaches the inbox about 97% of the time, slightly ahead of Mailchimp's roughly 96%.",
+        "Both tools have identical deliverability because they use the same sending infrastructure.",
+        "Deliverability cannot be measured for either platform without a paid plan.",
+      ],
+      correct: 1,
+      explanation: "The lesson cites independent testing showing Klaviyo at roughly 97% inbox delivery versus Mailchimp's roughly 96%, a small but real edge that matters at scale for ecommerce senders.",
+    },
   ],
 
   "tools/martech-stack": [
@@ -16157,6 +16366,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Flexibility and integration are key. A tool that connects natively to your core CRM ensures data integrity and saves your team from executing manual CSV exports or dealing with broken custom webhooks.",
+    },
+    {
+      question: "Per the lesson's recommended phased build, what should a company set up first, in Month 1-3, before adding SEO tools, social scheduling, or a CDP?",
+      options: [
+        "A full enterprise suite covering all six layers simultaneously.",
+        "A CRM, web analytics, and one email tool, focused on getting these three talking to each other first.",
+        "Marketing automation and a CDP, since data unification should happen before anything else.",
+        "Social media scheduling and adtech platforms, since paid acquisition drives the fastest results.",
+      ],
+      correct: 1,
+      explanation: "The lesson's phased approach starts small on purpose: CRM, web analytics, and one email tool in the first quarter, with clean integration between them, before layering on SEO, automation, or a CDP in later phases.",
     },
   ],
 
@@ -16205,6 +16425,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Low-code adoption is scaling rapidly, with Gartner projecting that 70% of new enterprise apps will be built on these visual platforms, representing a major shift in how companies ship software.",
     },
+    {
+      question: "A marketing team's Zapier bill unexpectedly spiked after a form on a high-traffic landing page started converting well. What does the lesson identify as the underlying pricing risk that caused this?",
+      options: [
+        "Zapier and Make bill per task or operation, so a sudden increase in form submissions can burn through a plan's task quota quickly.",
+        "Zapier charges a flat annual fee regardless of usage, so the spike must have come from a plan downgrade.",
+        "Airtable's per-record attachment storage fees increased because of the new form submissions.",
+        "Webflow's CMS automatically bills extra for every new landing page variant published.",
+      ],
+      correct: 0,
+      explanation: "The lesson's Common Mistakes section warns that Zapier and Make bill per task or operation, so teams should estimate expected volume before committing to a plan, since a single high-traffic form can burn through a starter plan in a week.",
+    },
   ],
 
   "tools/notion-airtable": [
@@ -16251,6 +16482,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Forcing Airtable to act as a word processor or using Notion text blocks to manage complex project data leads to frustration. Use Notion for docs and Airtable for databases.",
+    },
+    {
+      question: "A freelance marketer on the free plan of each tool wants to store 3,000 influencer records with attachments in one place and also write unlimited internal wiki pages. Based on the lesson's free-plan limits, what happens?",
+      options: [
+        "Both tools support this without issue since free plans have no record or block limits.",
+        "The wiki pages work fine in Notion's free plan, but the influencer database exceeds Airtable's free-plan cap of 1,000 records per base.",
+        "Airtable's free plan supports unlimited records, but Notion's free plan caps out at 1,000 blocks per workspace.",
+        "Neither tool offers a free plan, both require the Plus or Team tier immediately.",
+      ],
+      correct: 1,
+      explanation: "The lesson states Notion's free plan supports unlimited blocks for individuals, while Airtable's free plan caps out at 1,000 records per base and 2GB of attachments, so the 3,000-record influencer base would need the paid Team plan.",
     },
   ],
 
@@ -16299,6 +16541,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Aggregate metrics can hide specific wins. A variant might perform poorly on desktop but lift mobile conversions significantly. Segmenting by device, location, or visitor type reveals these hidden insights.",
     },
+    {
+      question: "According to the comparison table, what is the key difference in the underlying statistical method VWO and Optimizely use to determine test winners?",
+      options: [
+        "VWO uses a Bayesian method that tends to produce faster results, while Optimizely uses a more conservative Frequentist method.",
+        "Both platforms use the identical Frequentist statistical method, so results are always interchangeable.",
+        "Optimizely uses Bayesian statistics exclusively, while VWO relies on manual significance calculations done outside the platform.",
+        "Neither platform discloses its statistical methodology, making test results unverifiable.",
+      ],
+      correct: 0,
+      explanation: "The side-by-side comparison table lists VWO's statistical method as Bayesian (faster results) versus Optimizely's Frequentist (more conservative), which is one of the structural differences between the two platforms beyond just price.",
+    },
   ],
 
   "tools/paid-ads-tools": [
@@ -16345,6 +16598,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "TikTok Creative Center is a free library showing trending sounds, popular hooks, and top-spending ads. It provides valuable competitive research and creative insights that can be applied to other platforms like Instagram Reels.",
+    },
+    {
+      question: "A PPC marketer wants to see a specific competitor's full list of paid keywords, their estimated monthly ad spend, and pull their historic ad copy for a swipe file. Which tool from the lesson is built specifically for this job?",
+      options: [
+        "Google Ads Editor",
+        "SpyFu",
+        "AdEspresso by Hootsuite",
+        "Microsoft Advertising Editor",
+      ],
+      correct: 1,
+      explanation: "The lesson describes SpyFu as the tool for downloading a competitor's full PPC keyword list, seeing estimated monthly ad spend, and pulling their historic ad copy, making it strong for building ad-copy swipe files.",
     },
   ],
 
@@ -16393,6 +16657,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "While Ahrefs has a best-in-class backlink index, Semrush offers a broader marketing suite that includes strong paid advertising (PPC) tools, ad copy spying, and AI visibility tracking, making it better suited for solo marketers running multi-channel campaigns.",
     },
+    {
+      question: "A blogger who publishes several posts a week wants a tool that scores their draft against what is already ranking in the SERP for a target keyword before they hit publish. Which tool from the lesson fits that specific job?",
+      options: [
+        "AccuRanker",
+        "Surfer SEO",
+        "Sitebulb",
+        "Screaming Frog SEO Spider",
+      ],
+      correct: 1,
+      explanation: "The lesson describes Surfer SEO as an on-page content optimization tool based on SERP analysis, calling it useful specifically when you write a lot of blog posts, unlike the rank-tracking or crawling tools in the list.",
+    },
   ],
 
   "tools/social-media-tools": [
@@ -16439,6 +16714,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Schedulers handle the logistics of pushing content out at set times, but they do not solve the strategic challenge of what to say. Teams should budget more time on content strategy and creation than on tool configuration.",
+    },
+    {
+      question: "The lesson frames every social media tool as handling at least one of three core jobs. What are they?",
+      options: [
+        "Publishing (scheduling posts), analytics (measuring performance), and listening (tracking mentions and conversations).",
+        "Design, video editing, and influencer outreach.",
+        "Paid advertising, organic posting, and customer service ticketing.",
+        "Content writing, hashtag research, and follower growth automation.",
+      ],
+      correct: 0,
+      explanation: "The lesson opens by defining a social media tool as handling publishing, analytics, or listening, and states a basic stack needs at least a publisher and an analytics layer, with a mature stack adding listening.",
     },
   ],
 
@@ -16487,6 +16773,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Scott Brinker's data shows that while enterprises pay for a vast array of niche tools (120+), their day-to-day operations rely on a core stack of 8 to 12 integrated systems, highlighting the prevalence of tool sprawl.",
     },
+    {
+      question: "The lesson notes that 53.6% of SMBs rely on iPaaS tools like Zapier, Make, and n8n, compared to only 20% of enterprises. What does this inversion signal about stack strategy by stage?",
+      options: [
+        "SMBs are technically more sophisticated than enterprise marketing teams",
+        "Startups stitch together point tools with automation platforms, while enterprises consolidate into fewer, integrated suites as they scale",
+        "iPaaS tools stop working reliably once a company crosses $50M ARR",
+        "Enterprises use iPaaS tools exclusively for HR and finance, never marketing",
+      ],
+      correct: 1,
+      explanation: "The lesson frames this as a deliberate pattern: at the startup stage, teams stitch together best-of-breed tools with iPaaS glue like Zapier because buying a full suite would be premature, while enterprises consolidate into governed, integrated platforms once scale and compliance needs outweigh flexibility.",
+    },
   ],
 
   "tools/zapier-automation": [
@@ -16533,6 +16830,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Since APIs and app authentications can expire or fail, Zaps can stop working. If you don't enable error alerts (or route errors to email/Slack), you won't realize the system is down, causing leads to drop.",
+    },
+    {
+      question: "A marketing team gets 400 form submissions per month and builds a Zap with 3 action steps for each submission. Based on how Zapier counts tasks, how many tasks will this consume monthly, and why does this matter?",
+      options: [
+        "400 tasks, because Zapier only counts the trigger event, not each action",
+        "1,200 tasks, because each action step that runs counts as one task, so submissions multiplied by action steps determines your plan tier",
+        "3 tasks, because Zapier bills per Zap, not per execution",
+        "1,200 tasks, but task count has no effect on which pricing plan you need",
+      ],
+      correct: 1,
+      explanation: "The lesson's 'Mistake 3' warns that task volume must be estimated before building: since each action step execution counts as one task, 400 submissions x 3 actions = 1,200 tasks per month, which determines whether the free, Starter, or Professional plan is sufficient.",
     },
   ],
 
@@ -17102,6 +17410,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "When activating data via Reverse ETL, you must ensure that users who have opted out of marketing or data sharing are excluded from the sync. Pushing sensitive PII (Personally Identifiable Information) to ad platforms without proper consent management can violate privacy regulations.",
+    },
+    {
+      question: "In the Nando's 2024 loyalty personalization case study, what specific operational outcome resulted from adopting Segment plus a reverse ETL pipeline?",
+      options: [
+        "They eliminated their CRM entirely and ran loyalty purely through email",
+        "Their data integration timeline was reduced by 80%, letting them launch personalized loyalty campaigns in hours instead of weeks",
+        "They cut customer acquisition costs by 60% through lookalike audiences",
+        "They replaced their data warehouse with a packaged, bundled CDP",
+      ],
+      correct: 1,
+      explanation: "The lesson attributes the 60%/doubled-match-rate outcome to Gorgias; Nando's distinct result was an 80% reduction in data integration timeline, enabling personalized loyalty offers to launch in hours rather than weeks by syncing purchase history through their warehouse-centric stack.",
     },
   ],
 
@@ -19439,6 +19758,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Chat volume is a vanity metric. The real measure of conversational marketing impact is revenue contribution - qualified meetings booked, pipeline created, and deals that involved a chat interaction. This ties the tool directly to business outcomes.",
     },
+    {
+      question: "As of the lesson's most recent update, what is the current status of Drift as a standalone product?",
+      options: [
+        "Drift remains fully independent and continues aggressive new feature development",
+        "Salesloft acquired Drift in 2024 and, alongside parent company Clari, confirmed it is being gradually sunset in favor of the AI agent platform 1mind",
+        "Drift was shut down entirely in 2024 with no replacement offered",
+        "Drift merged with Intercom to form a single combined product",
+      ],
+      correct: 1,
+      explanation: "The lesson notes Salesloft acquired Drift in 2024 and folded it into its platform, and as of March 2026 confirmed a gradual sunset with 1mind named as the successor, active development has stopped even though the product still runs, a factor teams should weigh before committing budget.",
+    },
   ],
 
   "tools/gsc-bing-webmaster": [
@@ -19485,6 +19815,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "URL Inspection shows Google's view of a page - the actual HTML Google rendered, coverage status, canonical tag, and indexing eligibility. It is the first tool to use when investigating why a specific page is not appearing in search results as expected.",
+    },
+    {
+      question: "What does the IndexNow protocol do, and why is it described as BWT's biggest practical advantage over GSC?",
+      options: [
+        "It automatically rewrites meta descriptions to improve click-through rate",
+        "It instantly notifies participating search engines when content is published or updated, so pages can appear in Bing within hours instead of the days a manual GSC indexing request can take",
+        "It merges your GSC and BWT accounts into a single unified dashboard",
+        "It blocks competitor crawlers from accessing your backlink data",
+      ],
+      correct: 1,
+      explanation: "IndexNow is a free protocol Bing introduced that pushes an instant update notification to search engines the moment content changes, collapsing discovery time to near-zero, versus GSC's manual 'Request indexing' which can take days to have an effect.",
     },
   ],
   "ai-marketing/agentic-marketing-workflows": [
@@ -23549,6 +23890,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Using multiple point solutions creates data silos where tools cannot share context with each other. An all-in-one platform at 85% of a point solution's quality, with unified data flow, is often the better tradeoff for mid-market teams.",
     },
+    {
+      question: "The lesson contrasts Typeface (AI generates, humans review, then publish) with Mutiny (AI runs experiments and publishes winners automatically). What rule does it draw from this comparison?",
+      options: [
+        "Fully automated tools are always superior because they save more time",
+        "Higher automation means higher brand risk, so where you draw the human-in-the-loop line should depend on your risk tolerance, not the tool's raw capability",
+        "Content tools should never use AI, only analytics tools should",
+        "Human review is only necessary for tools that lack SOC 2 Type II certification",
+      ],
+      correct: 1,
+      explanation: "The lesson's human-in-the-loop section states that higher automation equals higher brand risk since you must trust the AI, its training data, and its feedback loop; for customer-facing content most teams want humans reviewing before publish, while internal analytics can run fully automated.",
+    },
   ],
   "tools/clay-for-marketers": [
     {
@@ -23594,6 +23946,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Asking for multiple outputs in a single AI column prompt (e.g., a first line AND a subject line AND a summary) produces messy, hard-to-map output. Each column should produce exactly one thing.",
+    },
+    {
+      question: "What are the three stages of Clay's standard data flow, as described in the lesson?",
+      options: [
+        "Import, score, export",
+        "Build, enrich, activate",
+        "Trigger, transform, deliver",
+        "Prospect, qualify, close",
+      ],
+      correct: 1,
+      explanation: "The lesson describes Clay's standard data flow as build (assembling the table), enrich (running waterfalls and AI columns), and activate (pushing clean records downstream to a CRM and sequencer).",
     },
   ],
   "tools/marketing-data-stack-2026": [
@@ -23641,6 +24004,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "dbt transformation schedules determine data freshness in dashboards. If dbt runs once daily at 2 AM, any events after that cutoff won't appear in transformed tables until the next scheduled run, a key operational detail marketers must account for in reporting.",
     },
+    {
+      question: "What is the key structural difference between Fivetran and Airbyte as ETL connector tools, per the lesson?",
+      options: [
+        "Fivetran is open-source while Airbyte is a closed proprietary tool",
+        "Fivetran is fully managed with fewer connectors; Airbyte is open-source with more connectors since anyone can build them, trading hand-holding for flexibility",
+        "Airbyte only works with BigQuery, while Fivetran works with any warehouse",
+        "Fivetran performs transformations while Airbyte only visualizes data",
+      ],
+      correct: 1,
+      explanation: "The lesson describes Fivetran as fully managed and the most trusted, handling schema changes automatically, while Airbyte is open-source with more connectors because anyone can build them, giving more flexibility but less hand-holding.",
+    },
   ],
   "tools/n8n-make-marketing-automation": [
     {
@@ -23687,6 +24061,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "A ReAct agent reasons and acts iteratively, it receives a goal, selects which tools (downstream nodes) to invoke based on context, executes them, evaluates the results, and repeats the loop until the task is done, rather than following a hardcoded linear branch.",
     },
+    {
+      question: "Why does self-hosting n8n matter specifically for data-sensitive marketing teams, according to the lesson?",
+      options: [
+        "It unlocks exclusive AI nodes not available on n8n Cloud",
+        "Self-hosting means zero per-execution cost AND full data residency control, which matters for teams handling personal data under GDPR",
+        "Self-hosted n8n runs workflows faster than the cloud version",
+        "It removes the need for any webhook or API integrations",
+      ],
+      correct: 1,
+      explanation: "The lesson notes that running n8n on your own server gives zero per-execution cost and full data residency control, which matters if your team handles personal data or operates under GDPR.",
+    },
   ],
   "tools/revenue-intelligence-tools": [
     {
@@ -23732,6 +24117,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Most U.S. states are one-party consent, but California, Florida, Pennsylvania, and Illinois require all parties to consent to recording. Sales teams calling into these states must disclose and obtain approval before recording.",
+    },
+    {
+      question: "Since marketers typically don't own personal Gong seats, how does the lesson say PMMs should get access to the data?",
+      options: [
+        "Purchase a separate individual Gong subscription outside the sales contract",
+        "Partner with sales ops for a read-only role, request monthly exports, or set up standing reports and Slack keyword alerts",
+        "Wait for sales to voluntarily share screenshots of call transcripts",
+        "Access is impossible without becoming a certified sales rep first",
+      ],
+      correct: 1,
+      explanation: "The lesson recommends partnering with sales ops for a read-only role (most contracts include 3-5 analyst seats), requesting monthly exports, building standing dashboards, and setting up Slack alerts on keywords of interest.",
     },
   ],
   "seo/seo-site-migrations": [
@@ -25622,6 +26018,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Phase 3 is the parallel run (2-4 weeks or longer), where new activity gets logged in both systems, giving teams a safety net against silent data loss before the final cutover.",
     },
+    {
+      question: "What does the lesson identify as the most common migration mistake regarding sequencing?",
+      options: [
+        "Cleaning data too early, before the new tool is even selected",
+        "Starting with the software choice and contract first, then treating data cleanup as an afterthought once the deadline is already fixed",
+        "Running the parallel-run phase for too long",
+        "Testing automations before the sandbox load is complete",
+      ],
+      correct: 1,
+      explanation: "The lesson warns that teams pick the new tool and sign the contract first, then ask how to move the data as an afterthought, leaving no time to clean duplicates before the fixed go-live date. It recommends auditing data first, then setting the go-live date.",
+    },
   ],
   "tools/slack-teams-marketing-workflows": [
     {
@@ -25667,6 +26074,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The three guardrails are separating channels by urgency rather than by tool, batching non-urgent updates like weekly digests, and reserving @mentions only for alerts needing a decision within the hour.",
+    },
+    {
+      question: "What specific problem does routing HubSpot or Salesforce lead/deal-stage notifications directly into Slack or Teams channels solve, per the lesson?",
+      options: [
+        "It replaces the CRM entirely so reps no longer need to log in",
+        "It eliminates the 'did you see the lead came in' manual Slack message, since reps and marketers see the same signal at the same moment",
+        "It automatically closes deals without sales rep involvement",
+        "It removes the need for lead scoring models",
+      ],
+      correct: 1,
+      explanation: "The lesson explains that CRM integrations push new-lead and deal-stage notifications directly into channels so reps and marketers see the same signal simultaneously, the tool sends the message itself instead of a teammate manually flagging it.",
     },
   ],
   "cro/app-store-in-app-cro": [
@@ -28522,6 +28940,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The lesson warns that self-hosting reliably (upgrades, backups, monitoring, plugin compatibility) typically consumes 0.25-0.5 FTE per year, roughly $50K-$100K annually, which can dwarf a subscription's price difference.",
+    },
+    {
+      question: "According to the lesson's decision flowchart, when is 'WordPress-as-headless' the recommended path?",
+      options: [
+        "When a team wants the deepest enterprise SLA guarantees available",
+        "When the team already runs WordPress and wants incremental modernization while keeping existing editorial workflows and plugins, rather than a full platform switch",
+        "When a team has strong in-house developer resources and no existing site",
+        "When omnichannel publishing is not a priority at all",
+      ],
+      correct: 1,
+      explanation: "The lesson positions headless WordPress as the choice when a team already has an existing WordPress site and wants to strip out frontend rendering while keeping the familiar backend and plugin ecosystem, rather than migrating to a new platform entirely.",
     },
   ],
   "growth/churn-prediction-early-warning": [
