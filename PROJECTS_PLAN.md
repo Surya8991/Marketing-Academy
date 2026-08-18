@@ -370,7 +370,16 @@ Content rewrite **first**, then projects and `InAction` scenarios authored again
 
 #### Stage 11, owner-requested UX pass on Skill Map / Achievements / Resources (queued Session 85, execute after Stage 10)
 
-Owner request, mid-Stage-9.3 execution: "improve Skill Maps, Achievements & Resources... after last stage." Queued here rather than interrupting the Stage 9/10 content backlog. Scope not yet defined in detail — first step when this stage starts is a short audit of `/skill-map`, `/achievements`, and `/resources` (current UX, what's dated/thin/confusing) before deciding concrete changes, the same pattern used to scope Stage 8.3b before executing it.
+**✅ STAGE 11 IS COMPLETE (Session 85).**
+
+Owner request, mid-Stage-9.3 execution: "improve Skill Maps, Achievements & Resources... after last stage." Audit found the root cause: all 3 pages predated the 2026-08-12 "field manual" type-system redesign (`font-display`/`font-ui-sans`/`font-data`, `PageMasthead`) that Home/Learn/Tracks/Projects/Tools/About had already received — they were the only major pages still on inline styles and generic system-font headings.
+
+Shipped:
+- **Skill Map**: `PageMasthead` + field-manual type system; new specimen stats row (overall % complete, lessons done, categories cleared, total disciplines); category cards regrouped by discipline (reusing the same `TOPIC_GROUPS` taxonomy just added to Nav.tsx's Topics dropdown, extracted to new `src/lib/topic-groups.ts` so nav and skill map can't drift apart) instead of one flat sorted grid; fixed a stale "15 marketing disciplines" metadata string (real count 21).
+- **Achievements**: `PageMasthead` + field-manual type system; specimen stats row; the 12 badges regrouped into 4 labeled sections (Getting Started, Streaks, Practice Projects, Milestones) instead of one flat grid.
+- **Resources**: `PageMasthead` added; field-manual type classes applied to hero and all 3 section headings.
+
+Verification: `tsc --noEmit` clean, lint clean, `npm test` 30/30, `npm run build` clean (all 3 pages confirmed statically generating with no errors).
 
 ---
 
