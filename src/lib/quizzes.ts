@@ -4761,6 +4761,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Google rewards overall topical authority. Rebuilding a comprehensive topic cluster with clear internal link architecture helps a site recover from penalties 3x faster than attempting to polish unconnected individual articles.",
     },
+    {
+      question: "According to the lesson, what made the Sports Illustrated AI-author scandal a distinct failure from ordinary scaled content abuse?",
+      options: [
+        "It only affected mobile search rankings, not desktop",
+        "It combined a search-quality violation with fabricated human personas, stock-photo headshots, and fake bios, damaging reader trust and editorial ethics simultaneously",
+        "It was the first case where Google issued a public apology to the publisher",
+        "It involved publishing content in a language the site did not support",
+      ],
+      correct: 1,
+      explanation: "The Sports Illustrated case was not just a quality-score problem. Inventing author personas with stock photos and fake bios violated reader trust and editorial ethics on top of Google's E-E-A-T signals, which is why the CEO was fired within weeks.",
+    },
   ],
 
   "content/blog-seo-content": [
@@ -4807,6 +4818,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Both Google's featured snippets and AI Overviews pull answers from the opening paragraphs of a page. Leading with the direct answer in the first 100 words makes the page eligible for these placements while keeping busy human readers engaged.",
+    },
+    {
+      question: "Per the lesson's four-part intent classification, what content format should a page target for a navigational query like 'Ahrefs login'?",
+      options: [
+        "A long-form comparison guide with pros and cons",
+        "A short, direct page with no fluff",
+        "A product page optimized for purchase",
+        "A first-person narrative essay with testing notes",
+      ],
+      correct: 1,
+      explanation: "Navigational queries signal the searcher already knows the destination and just wants to get there fast. The lesson pairs navigational intent with short, direct pages, unlike informational (teach clearly) or commercial (compare with criteria) intent.",
     },
   ],
 
@@ -4855,6 +4877,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "If you do not interview the customer to capture their actual language and specific experiences, the case study will read like a generic marketing brochure. Buyers can easily spot this lack of authentic voice, which destroys trust.",
     },
+    {
+      question: "In the seven-step case study playbook, what is the recommended target word count for the web version, and why does that range matter?",
+      options: [
+        "1,500 to 2,000 words, to maximize SEO keyword density",
+        "600 to 900 words, long enough to be credible but short enough for a busy buyer to finish",
+        "200 to 300 words, matching the length of a LinkedIn post",
+        "No fixed length, since buyers only read the Snapshot Box",
+      ],
+      correct: 1,
+      explanation: "The lesson specifies 600 to 900 words for the web version of a case study, a range chosen to stay credible with real detail while remaining short enough that a time-pressed buyer actually finishes reading it.",
+    },
   ],
 
   "content/content-distribution": [
@@ -4901,6 +4934,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Organic performance is free market research. The 48-hour filter states that you should never boost underperforming posts with paid budget. Instead, you wait 48 hours to identify the top organic posts by engagement, and put budget only behind those proven winners.",
+    },
+    {
+      question: "According to the lesson's channel-culture guidance, what is the correct approach when distributing content on Reddit versus LinkedIn?",
+      options: [
+        "Use identical brand-voice copy on both platforms to maintain consistency",
+        "Post promotional framing on Reddit but keep LinkedIn posts purely factual with no first-person voice",
+        "On Reddit, strip out brand voice and promotional framing entirely since it gets rejected; on LinkedIn, write conversational, first-person posts with the link placed in the comments",
+        "Only use Reddit for paid amplification and never post organically on LinkedIn",
+      ],
+      correct: 2,
+      explanation: "The lesson is explicit that each channel has its own norms: Reddit rejects promotional framing outright and rewards pure value, while LinkedIn rewards short, conversational, first-person posts with the link added in a comment rather than the body.",
     },
   ],
 
@@ -4949,6 +4993,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Gating a research report kills its ability to act as a passive link magnet. The lesson recommends publishing the report openly to maximize backlinks and citations, while gating only value-adds like the underlying CSV or interactive tools.",
     },
+    {
+      question: "Per the lesson's 'Publishing Loop,' why should a company assign a branded name to its proprietary dataset, like 'the Acme SaaS Spend Index,' instead of calling it 'Our Q2 Data Report'?",
+      options: [
+        "Branded names are required by Google's spam policies for data-driven content",
+        "A branded name makes the dataset a referenceable institution that compounds in citation value across editions, rather than a one-off post",
+        "It allows the company to trademark the underlying statistics and block competitors from citing them",
+        "It increases the sample size needed to make the survey statistically valid",
+      ],
+      correct: 1,
+      explanation: "The lesson explains that naming the dataset turns it into a recurring, referenceable institution. Version 1 buys attention, but a consistent branded name lets citation value compound across editions until version 3 becomes the industry standard.",
+    },
   ],
 
   "content/content-strategy": [
@@ -4995,6 +5050,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Different formats serve different purposes. An awareness post might be judged on traffic and social engagement over 7 days, whereas a bottom-funnel case study is judged on sales team usage and deal-close correlation over months. Mixing these metrics causes teams to misidentify successful content as failures.",
+    },
+    {
+      question: "According to the lesson's Step 4, why is it a mistake to judge a pillar SEO post and a LinkedIn carousel using the same success timeline?",
+      options: [
+        "Because LinkedIn carousels cannot be measured at all",
+        "Because different content formats have different time horizons and success signals, e.g. a pillar post is judged on organic traffic and signups at 90 days while a carousel is judged on saves and connection requests at 7 days",
+        "Because SEO posts should never be tracked past 30 days",
+        "Because carousels always outperform pillar posts on every metric",
+      ],
+      correct: 1,
+      explanation: "The lesson's Step 4 states that mixing time horizons and success signals across formats guarantees someone on the team always looks like they're failing; a 90-day organic-traffic judgment for a pillar post and a 7-day saves/connections judgment for a carousel serve very different purposes.",
     },
   ],
 
@@ -5043,6 +5109,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Original data points, survey findings, or proprietary frameworks make your asset citable. Citations and backlinks from third-party websites are the main drivers of long-tail organic traffic to gated download pages.",
     },
+    {
+      question: "How does the lesson distinguish a whitepaper from an ebook as gated content formats?",
+      options: [
+        "A whitepaper is a short 2-page flyer while an ebook must always exceed 50 pages",
+        "An ebook goes deep on a single topic in a more casual style, while a whitepaper is more formal and research-heavy, presenting a problem and backing every claim with data",
+        "Whitepapers are always ungated, while ebooks are always gated behind a form",
+        "There is no meaningful difference; the terms are used interchangeably by every B2B marketer",
+      ],
+      correct: 1,
+      explanation: "The lesson defines an ebook as a downloadable document (typically 8-30 pages) that goes deep on one topic, while a whitepaper is similar but more formal and research-heavy, presenting a problem, backing claims with data, and proposing a solution or framework.",
+    },
   ],
 
   "content/editorial-calendar": [
@@ -5089,6 +5166,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Without the weekly review, an editorial calendar becomes a stale, outdated document. This meeting ensures accountability, identifies production blocks before deadlines are missed, and updates the calendar to match real-time capacity.",
+    },
+    {
+      question: "According to the lesson's 'Theme Layer' component, why should a team plan content by story rather than by channel?",
+      options: [
+        "Planning by channel is illegal under most platform advertising policies",
+        "A channel-first entry like 'Tuesday: LinkedIn post' produces filler, while grouping related pieces under a campaign theme first and assigning channels last produces a coherent, compounding content arc",
+        "Channels change their algorithms too often to be tracked in a calendar",
+        "Story-based planning eliminates the need for a named owner on each row",
+      ],
+      correct: 1,
+      explanation: "The lesson warns that planning by channel produces disconnected filler content, while grouping pieces under a campaign theme and deciding the channel last produces a cohesive arc that compounds over time, exactly the mistake called out under 'Planning by channel instead of by story.'",
     },
   ],
 
@@ -5137,6 +5225,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Only 62% of people who complete a form actually open the asset. If your consumption rate is low, you are filling your CRM with email addresses of people who have not read your content (ghost leads). Tracking consumption ensures your leads are actually engaging with your value.",
     },
+    {
+      question: "What is 'progressive profiling' as described in the lesson's playbook, and what results does it produce compared to a static long form?",
+      options: [
+        "Asking for all buyer data (email, phone, budget, title) in a single first-touch form to save time later",
+        "Gradually collecting more data across repeat visits (email first, then job title, then team size), achieving 37% higher marketing qualification rates and 29% shorter sales cycles than static long forms",
+        "Automatically generating a buyer's profile from their IP address without asking any questions",
+        "Removing all form fields permanently once a visitor has downloaded one gated asset",
+      ],
+      correct: 1,
+      explanation: "Progressive profiling asks for minimal data on the first visit and collects additional fields on return visits, rather than front-loading a long form. Demand Gen Report data cited in the lesson shows this achieves 37% higher marketing qualification rates and 29% shorter sales cycles.",
+    },
   ],
 
   "content/interactive-content": [
@@ -5183,6 +5282,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The inputs from a quiz or calculator tell you exactly what the user is struggling with. Sending a generic email dump ignores this valuable lead data. Passing outputs to your CRM allows you to trigger highly segmented follow-up emails tailored to their specific scores.",
+    },
+    {
+      question: "Why does the lesson argue that a vague output like 'You could save money' undermines an interactive tool's performance, compared to a specific output like 'You could recover $18,400 per year'?",
+      options: [
+        "Vague outputs are technically illegal to display without a disclaimer",
+        "Specific, quantified outputs are the mechanism of trust, they make users more likely to screenshot and share the result, while vague outputs kill credibility",
+        "Specific outputs always require gating, while vague outputs can remain ungated",
+        "Vague outputs take longer to calculate, slowing down page load times",
+      ],
+      correct: 1,
+      explanation: "Step 4 of the playbook states specificity is the mechanism of trust: a precise dollar figure is what makes someone screenshot the result and share it with their team, while a vague output like 'you could save money' is useless and kills credibility.",
     },
   ],
 
@@ -5231,6 +5341,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "The lead magnet is just the beginning of the funnel. A welcome sequence of 5-7 emails sent over the first week or two is where the relationship is nurtured and commercial value is created before a purchase offer is introduced.",
     },
+    {
+      question: "According to ON24's 2025 benchmark report cited in the lesson, what happened to webinar registration conversion when the title directly named the audience's job title and urgent problem versus when it used a generic title like 'Q4 Marketing Trends'?",
+      options: [
+        "Specific titles converted at 34.1% and generic titles converted at 77.6%",
+        "Specific, audience-named titles converted at 77.6% while generic titles dropped to 34.1%, showing specificity is the single biggest lever on lead magnet performance",
+        "Both title types converted at an identical 50% rate regardless of specificity",
+        "Generic titles always outperform specific ones because they attract a broader audience",
+      ],
+      correct: 1,
+      explanation: "ON24's analysis of 2,700 webinar programs found that job-title-and-problem-specific titles converted at 77.6%, versus 34.1% for generic titles like 'Q4 Marketing Trends,' reinforcing that specificity in the offer headline is the biggest lever on performance.",
+    },
   ],
 
   "content/newsletter-strategy": [
@@ -5277,6 +5398,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "List size is a vanity metric. A smaller list with high engagement (40%+ open rate) is more valuable and less likely to run into spam filters than a huge, inactive list. Operators must monitor open, click, and unsubscribe rates to ensure list health and deliverability.",
+    },
+    {
+      question: "What made Morning Brew's referral program an effective growth engine, according to the lesson's example?",
+      options: [
+        "It paid subscribers cash for every successful referral they generated",
+        "It offered tiered, low-cost but visible and identity-consistent rewards (stickers, a mug, branded swag) that created viral sharing loops among an audience that wanted to be seen recommending it",
+        "It required subscribers to pay a $10 fee before they could refer anyone",
+        "It automatically unsubscribed anyone who failed to refer at least one new reader within 30 days",
+      ],
+      correct: 1,
+      explanation: "The lesson highlights that Morning Brew's referral prizes did not need to be expensive, they needed to be visible and identity-consistent with the reader, which is what generated viral sharing loops inside corporate offices among its early-career finance and business audience.",
     },
   ],
 
@@ -5325,6 +5457,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "The average B2B podcast fails between episodes 8 and 15 due to low early downloads. Since algorithms and audiences take time to build, the lesson recommends committing to at least 20 episodes before evaluating the channel's success.",
     },
+    {
+      question: "Why does the lesson identify the interview format as the default choice for most B2B podcasts?",
+      options: [
+        "The guest does most of the talking, each episode brings a fresh audience, and the guest relationship often converts to a partnership or referral",
+        "It requires the least post-production editing time of any format",
+        "It guarantees a higher episode completion rate than solo or narrative formats",
+        "It is the cheapest format because guests always cover their own recording costs",
+      ],
+      correct: 0,
+      explanation: "The lesson's format table pairs interview shows with pipeline and partnership goals precisely because the guest supplies fresh audience reach and talking effort, and the recording relationship frequently leads to a business partnership or referral.",
+    },
   ],
 
   "content/repurposing": [
@@ -5371,6 +5514,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "AI-assisted workflows (using tools to transcribe, summarize, and draft platform-native formats followed by a human editor pass) cut content production time by 60-80% and reduce the cost per published piece by up to 65%.",
+    },
+    {
+      question: "According to HubSpot's historical optimization team, how does refreshing a top-performing evergreen atom at the 6-12 month mark compare to publishing something new?",
+      options: [
+        "Refreshed posts generate 106% more organic traffic than new posts in their first year",
+        "Refreshed posts underperform new posts by 40% because search engines penalize edited content",
+        "Refreshing has no measurable effect on organic traffic",
+        "Refreshed posts only outperform new posts on social platforms, not organic search",
+      ],
+      correct: 0,
+      explanation: "The lesson's Step 6 refresh loop cites HubSpot's finding that updating stats and examples on a proven evergreen atom generates 106% more organic traffic than publishing new content, which is why the repurposing pipeline treats refreshing as a required step, not an optional one.",
     },
   ],
 
@@ -5419,6 +5573,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "B2B deals often stall due to misalignment among internal decision-makers. Effective thought leadership reaches hidden buyers (finance, operations, legal) early in their research, building trust that leads to 1.8x higher pipeline conversion rates.",
     },
+    {
+      question: "Per the Edelman research on quality signals, what do buyers rate as the single biggest signal that content qualifies as strong thought leadership?",
+      options: [
+        "Publishing frequency, since more content signals more expertise",
+        "Strong research and data, followed by concrete guidance and case studies",
+        "The length of the article, since longer pieces are seen as more authoritative",
+        "The visual design and production polish of the piece",
+      ],
+      correct: 1,
+      explanation: "Edelman's research shows buyers rate 'strong research and data' (55%) and 'concrete guidance and case studies' (43%) as the top quality signals, which is why the lesson's Step 2 tells companies to anchor their POV in proprietary data or lived experience rather than curated opinion.",
+    },
   ],
 
   "content/topic-clusters": [
@@ -5465,6 +5630,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Topic clusters should target the problems the audience is trying to solve. If you build a cluster around specific product features, you limit your reach to brand-aware users. Building around problem-solving keywords captures prospects who have the pain but don't yet know your brand.",
+    },
+    {
+      question: "What did the 2025 B2B SaaS study of 47 companies find happened within 90 days of restructuring content into a deliberate topic cluster architecture?",
+      options: [
+        "A 63% increase in keyword rankings and a 41% increase in average time-on-page",
+        "A 63% decrease in bounce rate with no change in keyword rankings",
+        "No measurable change in rankings, only a reduction in publishing costs",
+        "A 90% drop in the number of pages needed to rank for a topic",
+      ],
+      correct: 0,
+      explanation: "The lesson's '2025 Data' section reports that businesses using deliberate topic cluster architecture saw a 63% increase in keyword rankings within 90 days, with average time-on-page up 41% because users followed internal links to related cluster pages instead of bouncing back to search.",
     },
   ],
 
@@ -5513,6 +5689,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Repurposing is the highest-leverage move in video. One horizontal shoot can easily be cut into multiple vertical short clips, transcribed into blog and social posts, and stripped for podcast audio, dramatically increasing output at near-zero marginal cost.",
     },
+    {
+      question: "According to TikTok's own data cited in the lesson, what happens to ad videos when captions are added?",
+      options: [
+        "Captions have no measurable effect on brand metrics but slightly increase watch time",
+        "Captions reduce ad recall because viewers read instead of watching the visual",
+        "Captioned ads see a 95% boost in brand affinity, a 58% increase in ad recall, and a 25% jump in perceived uniqueness",
+        "Captions only help accessibility compliance and do not move any brand metric",
+      ],
+      correct: 2,
+      explanation: "The lesson highlights captions as one of the highest-ROI moves in short-form video: TikTok's data shows a 95% boost in brand affinity, 58% increase in ad recall, and 25% jump in perceived uniqueness, and captions cost nothing and take under two minutes to add.",
+    },
   ],
 
   "content/webinars": [
@@ -5560,6 +5747,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Repurposing webinars using AI allows teams to extract massive additional value. Goldcast's 2025 data showed a 2,903% increase in video clips and an 11,464% increase in text assets, predominantly used for social media posts and emails.",
     },
+    {
+      question: "How does the cost per lead from webinars compare to the cost per lead from trade shows, according to ON24's 2025 Webinar Benchmark Report?",
+      options: [
+        "Webinars cost around $72 per lead, versus $800+ at trade shows",
+        "Webinars and trade shows produce roughly the same cost per lead",
+        "Webinars cost more per lead than trade shows because of production overhead",
+        "ON24's report found trade shows produce leads at half the cost of webinars",
+      ],
+      correct: 0,
+      explanation: "ON24's 2025 report puts webinar cost per lead at around $72, compared to $800+ at trade shows, which is the core economic argument for building a webinar program alongside the 213% average webinar ROI the lesson also cites.",
+    },
   ],
 
   "content/what-is-content-marketing": [
@@ -5606,6 +5804,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Hitting publish is not distribution. If a team has no email list, search rankings, or social presence, a post will get zero readers without active promotion. The lesson recommends budgeting time at least 1:1 between creating and promoting content.",
+    },
+    {
+      question: "In Layer 2 (Channel Selection) of the four-layer compounding playbook, why does the lesson recommend picking ONE primary channel instead of publishing across SEO, LinkedIn, email, and YouTube simultaneously?",
+      options: [
+        "Most content platforms penalize brands that publish on more than one channel at once",
+        "Most beginners split effort across several channels and produce mediocre content on all of them, instead of going deep enough on one to build authority",
+        "Google's algorithm only indexes content from a single verified primary domain per brand",
+        "Multi-channel publishing legally requires a separate content license for each platform",
+      ],
+      correct: 1,
+      explanation: "The lesson warns that most beginners try SEO, LinkedIn, email, and YouTube all at once and produce mediocre content everywhere, when going deep on one channel the buyer already spends time in builds the authority and audience needed for compounding.",
     },
   ],
 
@@ -12934,6 +13143,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "The psychological mode of typing a private search query ('how do I do X') differs from the mode of reading public content (implicitly asking 'who's sharp, who's wrong, what am I missing'). Translating the query into its underlying tension, rather than just restating it, is what makes content land in that public, status-aware reading mode.",
     },
+    {
+      question: "In the recommended weekly content calendar split between a pre-planned thematic arc and live demand signals, what is the rule for when a live signal strongly contradicts the arc?",
+      options: [
+        "Always follow the pre-planned arc since it exists to prevent scattered topics",
+        "Follow the live signal, since the arc exists to prevent random scattering, not to override genuine evidence about current audience demand",
+        "Pause publishing entirely until the arc and the live signal can be reconciled by a full content audit",
+        "Split the difference by publishing a piece that blends the arc topic with the live signal topic",
+      ],
+      correct: 1,
+      explanation: "The lesson's 60/40 split treats the arc as a structural safeguard against scattering, not a rule that overrides real evidence. When a live signal strongly contradicts the arc, or a piece unexpectedly performs very well, the lesson says to follow that signal instead.",
+    },
   ],
 
   "seo/internal-linking": [
@@ -16258,6 +16478,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Publishing raw AI drafts is a major mistake. LLMs can hallucinate statistics and write in a sterile, generic tone that lacks the original research and unique brand voice needed to build customer trust and rank in search engines.",
     },
+    {
+      question: "What outcome did HubSpot report after adopting its 'AI plus editor' framework across its global blogs in 2024-2025?",
+      options: [
+        "Content output increased by 40% while search rankings and bounce rate held steady",
+        "Content output decreased by 40% as editorial review slowed the publishing pace",
+        "HubSpot eliminated its editorial team entirely and relied solely on AI drafts",
+        "HubSpot's organic traffic dropped due to AI-generated content penalties",
+      ],
+      correct: 0,
+      explanation: "Under HubSpot's model, writers built drafts from internal research and interviews using AI, and professional editors verified sources and aligned tone before publishing. This increased content output by 40% while search rankings and bounce rate remained steady, showing editorial control was preserved at scale.",
+    },
   ],
 
   "email/abm-email-sequences": [
@@ -19386,6 +19617,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "A small, highly engaged community is best matched with co-creation or crowdsourced research because these models require active participation and deeper investment from contributors, a quality that engaged (not just large) audiences provide.",
     },
+    {
+      question: "In the three-layer quality control system for community content, what is the correct order of review before content is published?",
+      options: [
+        "Editorial review, then peer review, then community voting or editor curation",
+        "Peer review (community flags issues), then editorial review (team checks accuracy and voice), then community voting or editor curation",
+        "Community voting first, then peer review, then editorial review last",
+        "A single editorial review step is sufficient; peer review and voting are optional extras",
+      ],
+      correct: 1,
+      explanation: "The lesson's three-layer system starts with peer review, where community members (the engaged 9%) flag low-quality contributions or errors, followed by editorial review for factual accuracy and brand voice, and finally community voting or editor curation to surface the best content.",
+    },
   ],
   "content/content-localization": [
     {
@@ -19431,6 +19673,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Fluency measures whether content reads naturally in the target language, native speakers should not detect that it was adapted or translated from another language.",
+    },
+    {
+      question: "What role does a Translation Management System (TMS) like Phrase, Lokalise, or Smartling play in the enterprise localization pipeline?",
+      options: [
+        "It replaces human translators entirely by generating final, publish-ready copy",
+        "It handles version control, translator assignment, workflow approvals, and cost tracking across language pairs, preventing the chaos of managing translations by email",
+        "It is used only for transcreation projects, not standard translation or localisation work",
+        "It automatically writes hreflang tags and manages keyword research per locale",
+      ],
+      correct: 1,
+      explanation: "The lesson describes the TMS as the coordination layer that content enters after source lockdown, managing version control, translator assignment, approvals, and cost tracking across dozens of language pairs. Without one, the lesson notes, managing translations becomes chaos of emails and version conflicts.",
     },
   ],
   "content/content-velocity-with-ai": [
@@ -19478,6 +19731,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "A minimum effective brief includes topic + angle, target persona, word count + format, tone notes, must-include items, and must-avoid items. Teams that treat prompts as governed assets rather than one-off inputs see dramatic consistency gains, Optimizely found early adopters managing prompt libraries created 53 reusable agents in a single month.",
     },
+    {
+      question: "What happened when CNET published 77 AI-written financial explainer articles without a fact-verification quality gate?",
+      options: [
+        "All 77 articles were accurate, proving AI drafts don't require fact-checking for financial content",
+        "An internal audit found incorrect information in 41 of the 77 articles, forcing CNET to pause AI publishing and add human fact-checking",
+        "CNET was fined by regulators for publishing unverified financial advice",
+        "Readers reported no measurable difference in trust between the AI articles and human-written ones",
+      ],
+      correct: 1,
+      explanation: "After Futurism reported errors, CNET audited all 77 AI-written articles and found incorrect information in 41 of them, illustrating why Gate 2 (fact verification) in the lesson's quality-gate system requires every stat, date, and named example to be sourced before publish, with no exceptions.",
+    },
   ],
   "content/original-research-content": [
     {
@@ -19524,6 +19788,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Framing research as annual creates recurring media coverage opportunities because journalists and publications seek updated benchmarks each year, compounding the report's link-earning value over time.",
     },
+    {
+      question: "Why does 'proprietary data study' (like Spotify's Culture Next or Semrush's Search Intent Study) require less operational effort than an annual survey report?",
+      options: [
+        "It mines existing product/platform data instead of requiring a survey panel to recruit",
+        "It doesn't need a methodology section since it isn't peer-reviewed",
+        "It can be published without any distribution campaign",
+        "It automatically outranks survey-based research in Google search",
+      ],
+      correct: 0,
+      explanation: "A proprietary data study is built entirely on data the company already has from its own platform, so there's no panel to recruit or survey to design, unlike an annual survey report which depends on collecting new responses each year.",
+    },
   ],
   "content/video-first-content-strategy": [
     {
@@ -19569,6 +19844,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Specific CTAs, such as asking viewers to comment their biggest challenge for a promised follow-up, give viewers a clear, low-friction action with an immediate reward, which drives 5x more engagement than vague requests.",
+    },
+    {
+      question: "According to the lesson, what role should YouTube Shorts play relative to a creator's long-form videos?",
+      options: [
+        "A replacement destination that should eventually phase out long-form content",
+        "A discovery engine and funnel that drives viewers into long-form content",
+        "A separate content strategy unrelated to the long-form channel",
+        "A testing ground for scripts before they're used in long-form videos",
+      ],
+      correct: 1,
+      explanation: "The lesson explicitly says to 'treat Shorts as a funnel to your full videos, not a destination' — Shorts are optimized for algorithmic discovery and are meant to pull new viewers toward the long-form authority content.",
     },
   ],
   "copywriting/ai-human-copy-collaboration": [
@@ -23477,6 +23763,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 0,
       explanation: "Audience-fit vetting asks whether the partner's audience has a problem your product solves without competing with theirs; overlap in demographics is not enough, overlap in unmet need is what matters.",
     },
+    {
+      question: "In the ZoomInfo co-branded campaign with Salesforce and HubSpot described in the lesson, what result did the partnership drive?",
+      options: [
+        "A 50% reduction in customer acquisition cost with no change in pipeline",
+        "Email click-through rates 2.5x above industry average and a 19% lift in pipeline velocity",
+        "A one-time spike in webinar registrants with no measurable pipeline impact",
+        "A doubling of newsletter subscriber counts for all three brands",
+      ],
+      correct: 1,
+      explanation: "The lesson cites this specific result as evidence the numbers back up trust transfer: joint webinars and whitepapers drove email CTR 2.5x above industry average and a 19% lift in pipeline velocity for touched accounts.",
+    },
   ],
   "content/long-form-vs-short-form-strategy": [
     {
@@ -23523,6 +23820,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "The most effective funnels in 2026 run short-to-long, with roughly 60% of the content calendar in short-form for reach, 30% in long-form for authority, and 10% in experimental formats.",
     },
+    {
+      question: "Per the lesson's GEO (Generative Engine Optimization) research, where should a page's direct answer land to maximize AI citation likelihood?",
+      options: [
+        "In the conclusion, after all supporting evidence has been presented",
+        "In the first 200 words of the page, with structure like headings, tables, and lists underneath",
+        "Nowhere specific; AI retrieval tools weight the entire page equally",
+        "In a footnote or appendix section separate from the main body",
+      ],
+      correct: 1,
+      explanation: "GEO research shows AI retrieval tools weight the opening of a page heavily, so the direct answer should land in the first 200 words, with structured formatting like headings, tables, and numbered lists rewarded underneath.",
+    },
   ],
   "content/serialized-content-strategy": [
     {
@@ -23568,6 +23876,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The five-decision framework includes fixing the cadence before the content: weekly, monthly, or annual, chosen based on what the team can sustain, since a series that misses installments loses the habit it built.",
+    },
+    {
+      question: "What does the lesson say 'episodes-per-viewer' above 2.5 signals about a content series?",
+      options: [
+        "That the series is too long and should be shortened to fewer parts",
+        "A real recurring audience, not incidental algorithmic distribution of a single clip",
+        "That the creator should switch platforms to maximize reach",
+        "That the series has reached the end of its natural lifecycle",
+      ],
+      correct: 1,
+      explanation: "The lesson notes marketers track episodes-per-viewer as a serialization health metric: a rate above 2.5 signals a real recurring audience actively following the series, rather than viewers who stumbled onto one clip via the algorithm.",
     },
   ],
   "copywriting/awareness-stages-schwartz": [
