@@ -2906,6 +2906,36 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "reengagement-sequence-builder",
+    "category": "email",
+    "lessonSlug": "reengagement",
+    "lessonTitle": "Win-back & Re-engagement Campaigns",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Draft the 4-Email Sequence: From Value Reminder to Sunset",
+    "timeMinutes": 25,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "Escalating a re-engagement sequence from value to incentive to preference to sunset"
+    ]
+  },
+  {
+    "id": "reengagement-tier-audit",
+    "category": "email",
+    "lessonSlug": "reengagement",
+    "lessonTitle": "Win-back & Re-engagement Campaigns",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Tiering Call: Auditing a Dormant Rider Segment Before Sending",
+    "timeMinutes": 20,
+    "companyId": "grab",
+    "conceptsCovered": [
+      "Segmenting dormant contacts by lapse depth before sending"
+    ]
+  },
+  {
     "id": "value-proposition-seed-deck-build",
     "category": "fundamentals",
     "lessonSlug": "value-proposition",

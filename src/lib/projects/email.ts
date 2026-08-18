@@ -3848,4 +3848,183 @@ export const EMAIL_PROJECTS: Record<string, Project[]> = {
       portfolioReady: true,
     },
   ],
+
+  "reengagement": [
+    {
+      id: "reengagement-sequence-builder",
+      tier: "mini",
+      archetype: "build-the-asset",
+      title: "Draft the 4-Email Sequence: From Value Reminder to Sunset",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Draft the subject line, angle, and CTA for each of the 4 emails in a re-engagement sequence, in the correct order, with no discount on email 1.",
+      companyId: "robinhood",
+      scenario:
+        "You're the lifecycle marketer at Robinhood building the re-engagement flow for traders who haven't logged in or placed a trade in 90 days.",
+      brief:
+        "Follow the lesson's Day 0/7/14/21 escalation exactly: value first, incentive second, preference third, sunset last.",
+      mode: "build",
+      conceptsCovered: [
+        "Escalating a re-engagement sequence from value to incentive to preference to sunset",
+      ],
+      steps: [
+        {
+          stepId: "step-1-sequence-draft",
+          concept:
+            "Escalating a re-engagement sequence from value to incentive to preference to sunset",
+          lessonAnchor: "how-the-sequence-works",
+          theoryRecap:
+            "The lesson's 4-email escalation gives each email a single job: value reminder (Day 0), soft incentive (Day 7), preference center (Day 14), sunset stay-or-leave (Day 21), and a discount can never lead email 1.",
+          question:
+            "For a 90-day-dormant Robinhood trader segment, what should each of the 4 emails say, in what order, so email 1 never opens with a discount?",
+          toolName: "Google Sheets",
+          where: "A blank Google Sheet with 4 rows, one per email.",
+          procedure: [
+            "Create 4 rows labeled Email 1 through Email 4 with a Day column (0, 7, 14, 21)",
+            "Write email 1 as a pure value reminder referencing what the trader missed, no offer, no discount",
+            "Write email 2 as a single time-limited incentive with one CTA button",
+            "Write email 3 as a preference-center offer (fewer emails, digest, category-only)",
+            "Write email 4 as a sunset stay-or-leave message sent from a real person's name",
+          ],
+          outputSample:
+            "Day 0: \"Here's what moved in your watchlist while you were away\" -- no offer\nDay 7: \"10% off your next options contract fee, ends Friday\" -- single CTA\nDay 14: \"Too many market alerts? Pick your frequency\" -- preference link\nDay 21: \"This is goodbye, unless you tap to stay\" -- from \"Jordan at Robinhood\"",
+          healthy:
+            "Email 1 has zero discount language and email 4 uses a real first name in the From field.",
+          unhealthy:
+            "Email 1 opens with '20% off options fees, come back now', which trains dormant traders to wait for a discount before ever opening a regular email again.",
+          interpret:
+            "The order is not arbitrary, leading with an incentive teaches the exact behavior the sequence is trying to break.",
+          soWhat: [
+            {
+              symptom: "Draft email 1 currently includes a discount code",
+              action: "Move the discount to email 2 and rewrite email 1 as a pure value recap",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Draft and sequence the 4 emails",
+            why: "No account needed, fast to iterate on copy angles",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Klaviyo Flows",
+            role: "Automate the 4-email sequence to fire on the 90-day inactivity trigger",
+            why: "Turns the draft into a live behavior-triggered flow instead of a manual batch send",
+            required: false,
+            fallback: "Google Sheets draft handed to whoever owns the ESP",
+            lastVerified: "2026-08",
+          },
+        ],
+        paidUpgradeNote:
+          "Klaviyo Flows is only needed once you're ready to automate the trigger; the draft itself only needs a spreadsheet.",
+      },
+      deliverable:
+        "A 4-row sequence draft (Day 0/7/14/21) with subject line, angle, and CTA for each email, ready to hand to whoever builds the automation.",
+      sampleOutput:
+        "Grab, dormant-rider re-engagement draft (excerpt)\n\nDay 0: \"Your favorite drivers missed you\" -- no offer, 3 nearby promos shown\nDay 7: \"Free delivery on your next 3 orders, ends Sunday\" -- single CTA\nDay 14: \"Fewer notifications? Choose your ride alerts\" -- preference link\nDay 21: \"We're removing you from ride offers unless you tap stay\" -- from \"Mei at Grab\"",
+      successCriteria: [
+        "Email 1 contains no discount or incentive language",
+        "Email 4 uses a real person's name in the From field, not a brand name",
+        "All 4 emails are in the correct Day 0/7/14/21 order",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Add a 5th SMS touch on Day 10 for subscribers who haven't clicked email 2, matching the lesson's multi-channel section.",
+    },
+    {
+      id: "reengagement-tier-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Tiering Call: Auditing a Dormant Rider Segment Before Sending",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Given a dormant-rider export with last-active dates, correctly bucket contacts into recently-lapsed, mid-dormant, and deep-sleeper tiers and pick the right entry point for each.",
+      companyId: "grab",
+      scenario:
+        "You're the CRM analyst at Grab auditing a dormant-rider export before launching the quarterly re-engagement sequence.",
+      brief:
+        "Apply the lesson's 3-tier segmentation, not everyone gets the same entry point into the sequence.",
+      mode: "diagnostic",
+      conceptsCovered: ["Segmenting dormant contacts by lapse depth before sending"],
+      steps: [
+        {
+          stepId: "step-1-tier-audit",
+          concept: "Segmenting dormant contacts by lapse depth before sending",
+          lessonAnchor: "segmenting-before-you-send",
+          theoryRecap:
+            "The lesson splits dormant contacts into recently lapsed (60-90 days), mid-dormant (90-180 days), and deep sleepers (180+ days), each needing a different entry point and incentive strength.",
+          question:
+            "Given last-active dates for 20 dormant riders, which tier does each fall into, and which ones should skip straight to a re-permission email instead of the full 4-email sequence?",
+          toolName: "Google Sheets",
+          where: "The dormant-rider export imported into Google Sheets with a Last Active column.",
+          procedure: [
+            "Import the export and add a Days Since Active column using TODAY() minus Last Active",
+            "Bucket each row into recently lapsed, mid-dormant, or deep sleeper using the lesson's day thresholds",
+            "Flag deep sleepers (180+ days) for a single re-permission email instead of the full sequence",
+            "Confirm mid-dormant riders are scheduled to see their strongest incentive by email 2, not email 3",
+          ],
+          outputSample:
+            "RECENTLY LAPSED (7 riders, 60-90 days)\n  Priya, 72 days -- full 4-email sequence, value-led\nMID-DORMANT (9 riders, 90-180 days)\n  Farid, 134 days -- full sequence, incentive moved to email 2\nDEEP SLEEPER (4 riders, 210+ days)\n  Amara, 244 days -- single re-permission email only, not the full sequence",
+          healthy:
+            "Deep sleepers are routed to a single re-permission email, not the full 4-email sequence, which the lesson flags as a low-pull-rate waste of sends.",
+          unhealthy:
+            "Every dormant rider, regardless of how long they've been gone, gets the exact same 4-email sequence starting at the exact same offer strength.",
+          interpret:
+            "Lapse depth changes both the entry point and the incentive timing, not just the subject line.",
+          soWhat: [
+            {
+              symptom: "Deep sleepers are queued into the standard 4-email sequence",
+              action: "Reroute anyone past 180 days to a single re-permission send instead",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Bucket riders into tiers and flag re-permission-only contacts",
+            why: "Handles date math and filtering without any paid tool",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Klaviyo Flows",
+            role: "Route each tier automatically into its correct sequence entry point",
+            why: "Removes the manual re-tagging step every time a rider crosses a threshold",
+            required: false,
+            fallback: "Rebucket manually in Google Sheets on a weekly cadence",
+            lastVerified: "2026-08",
+          },
+        ],
+        paidUpgradeNote:
+          "Klaviyo Flows automates the routing once the tiers are validated; the audit itself only needs a spreadsheet.",
+      },
+      deliverable:
+        "A tiered dormant-rider list (recently lapsed / mid-dormant / deep sleeper) with each rider's correct sequence entry point flagged.",
+      sampleOutput:
+        "Snowflake, dormant free-trial user tiering (excerpt)\n\nRECENTLY LAPSED (65 users, 60-90 days)\n  full onboarding-nudge sequence, value-led\nDEEP SLEEPER (12 users, 190+ days)\n  single re-permission email only -- \"still want product updates from Snowflake?\"",
+      successCriteria: [
+        "All riders correctly bucketed by the lesson's day thresholds",
+        "Deep sleepers routed to a re-permission email, not the full sequence",
+        "Mid-dormant riders have their incentive moved to email 2",
+      ],
+      portfolioReady: true,
+    },
+  ],
 };
