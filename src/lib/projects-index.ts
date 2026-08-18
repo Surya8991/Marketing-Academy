@@ -3417,6 +3417,266 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "event-portfolio-goal-audit",
+    "category": "events-experiential",
+    "lessonSlug": "events-marketing-101",
+    "lessonTitle": "Events Marketing 101: Why Experiences Still Convert",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Portfolio Audit: Does Freshworks' Event Mix Match Its Goals",
+    "timeMinutes": 35,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Matching event format to the stated marketing goal",
+      "Reading cost-per-lead as a stage-of-funnel signal, not a pure efficiency score"
+    ]
+  },
+  {
+    "id": "quarterly-event-portfolio-plan-build",
+    "category": "events-experiential",
+    "lessonSlug": "events-marketing-101",
+    "lessonTitle": "Events Marketing 101: Why Experiences Still Convert",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Asset: A One-Page Event Portfolio Plan for Zendesk",
+    "timeMinutes": 45,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Building a goal-to-format budget allocation",
+      "Writing the one-metric-per-event success framework"
+    ]
+  },
+  {
+    "id": "trade-show-booth-script-teardown",
+    "category": "events-experiential",
+    "lessonSlug": "trade-show-strategy",
+    "lessonTitle": "Trade Show Strategy: Booth Design, Staffing, and Lead Capture",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: A HelloFresh Booth Banner and Opening Line",
+    "timeMinutes": 20,
+    "companyId": "hellofresh",
+    "conceptsCovered": [
+      "Booth Design That Actually Pulls Foot Traffic",
+      "Staffing: Qualifiers, Not Greeters"
+    ]
+  },
+  {
+    "id": "trade-show-live-day-simulation",
+    "category": "events-experiential",
+    "lessonSlug": "trade-show-strategy",
+    "lessonTitle": "Trade Show Strategy: Booth Design, Staffing, and Lead Capture",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "Simulation: Running Warby Parker's Vision Expo Booth in Real Time",
+    "timeMinutes": 35,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Interactive elements pulling foot traffic vs static displays",
+      "Qualifying visitors instead of just greeting them",
+      "Real-time CRM sync vs the fishbowl trap"
+    ]
+  },
+  {
+    "id": "sponsorship-tier-pricing-audit",
+    "category": "events-experiential",
+    "lessonSlug": "conference-sponsorship-roi",
+    "lessonTitle": "Conference Sponsorship ROI: Evaluating and Negotiating Deals",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Pricing the Package: A Three-Tier Sponsorship Audit",
+    "timeMinutes": 30,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Breaking a sponsorship price down to reach, access, data, and exclusivity",
+      "Calculating cost-per-qualified-meeting to compare packages on equal footing"
+    ]
+  },
+  {
+    "id": "sponsorship-180-day-verdict-simulation",
+    "category": "events-experiential",
+    "lessonSlug": "conference-sponsorship-roi",
+    "lessonTitle": "Conference Sponsorship ROI: Evaluating and Negotiating Deals",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The 180-Day Sponsorship Verdict: Negotiate, Wait, Decide",
+    "timeMinutes": 50,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Negotiation levers: pilot tiers, data-timing clauses, and multi-event bundles",
+      "Measuring ROI on the deal's actual 60-180 day timeline, not the 30-day mark",
+      "Comparing sponsorship options and deciding renew, renegotiate, or walk"
+    ]
+  },
+  {
+    "id": "roadshow-spray-and-pray-audit",
+    "category": "events-experiential",
+    "lessonSlug": "field-marketing",
+    "lessonTitle": "Field Marketing: Regional and Local Event Programs",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Copy-Paste Roadshow Audit",
+    "timeMinutes": 30,
+    "companyId": "wise",
+    "conceptsCovered": [
+      "Standardizing logistics centrally while leaving guest lists and framing to regional owners",
+      "Field marketing vs. centralized events: proximity to sales as the differentiator"
+    ]
+  },
+  {
+    "id": "field-program-build-simulation",
+    "category": "events-experiential",
+    "lessonSlug": "field-marketing",
+    "lessonTitle": "Field Marketing: Regional and Local Event Programs",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The Field Program Build: From Side Project to Core Motion",
+    "timeMinutes": 50,
+    "companyId": "airbnb",
+    "conceptsCovered": [
+      "Programs run as a core motion with a dedicated owner beat side-project programs",
+      "Standardizing logistics while leaving guest lists and framing to regional owners",
+      "Confirming pipeline attribution with sales before reporting it"
+    ]
+  },
+  {
+    "id": "experiential-activations-premise-audit",
+    "category": "events-experiential",
+    "lessonSlug": "experiential-activations",
+    "lessonTitle": "Experiential Activations: Building Brand Moments People Remember",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The One-Sentence Test: Auditing a Real Activation Brief",
+    "timeMinutes": 25,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Writing the one-sentence premise before booking anything",
+      "Designing the artifact, not the event"
+    ]
+  },
+  {
+    "id": "experiential-activations-budget-simulation",
+    "category": "events-experiential",
+    "lessonSlug": "experiential-activations",
+    "lessonTitle": "Experiential Activations: Building Brand Moments People Remember",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The $15K Decision: Running an Activation on a Real Budget",
+    "timeMinutes": 50,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Designing the artifact, not the event",
+      "Seeding the first wave with micro-creators",
+      "Tracking earned media value against production cost"
+    ]
+  },
+  {
+    "id": "virtual-hybrid-session-teardown",
+    "category": "events-experiential",
+    "lessonSlug": "virtual-hybrid-events",
+    "lessonTitle": "Virtual and Hybrid Events: What Actually Works Now",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Attention Cliff: Diagnosing a Failing Virtual Session Agenda",
+    "timeMinutes": 25,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "What Holds Attention vs. What Causes Drop-off"
+    ]
+  },
+  {
+    "id": "virtual-hybrid-track-design-build",
+    "category": "events-experiential",
+    "lessonSlug": "virtual-hybrid-events",
+    "lessonTitle": "Virtual and Hybrid Events: What Actually Works Now",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Two Tracks, One Event: Building a Parallel Hybrid Session Plan",
+    "timeMinutes": 45,
+    "companyId": "slack",
+    "conceptsCovered": [
+      "Designing both experiences in parallel from the brief stage",
+      "Giving the virtual audience something the room does not get"
+    ]
+  },
+  {
+    "id": "trade-show-lead-scoring-audit",
+    "category": "events-experiential",
+    "lessonSlug": "event-lead-follow-up",
+    "lessonTitle": "Event Lead Follow-Up: Turning Badge Scans Into Pipeline",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Hot, Warm, or Cold: Scoring a Real Badge-Scan Sheet Before It Goes Stale",
+    "timeMinutes": 25,
+    "companyId": "freshworks",
+    "conceptsCovered": [
+      "Scoring leads hot, warm, or cold at the moment of conversation",
+      "Building a follow-up SLA queue from the tiered list"
+    ]
+  },
+  {
+    "id": "post-show-follow-up-cadence-build",
+    "category": "events-experiential",
+    "lessonSlug": "event-lead-follow-up",
+    "lessonTitle": "Event Lead Follow-Up: Turning Badge Scans Into Pipeline",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the 3-Tier Follow-Up Cadence Pack: Call Script, Email, and Nurture Opener",
+    "timeMinutes": 50,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Same-day call script for hot leads",
+      "24-hour personalized email for warm leads",
+      "48-hour nurture-sequence opener for cold leads"
+    ]
+  },
+  {
+    "id": "trade-show-budget-completeness-calibration",
+    "category": "events-experiential",
+    "lessonSlug": "event-budgeting-roi",
+    "lessonTitle": "Event Budgeting and ROI Measurement",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "The $15K Booth Fee Trap: Calibrating What a Trade Show Really Costs",
+    "timeMinutes": 20,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Total event cost runs roughly 3x the floor-space fee",
+      "Line-item checklist: space, logistics, staffing, materials, follow-up tooling"
+    ]
+  },
+  {
+    "id": "event-pipeline-roi-audit",
+    "category": "events-experiential",
+    "lessonSlug": "event-budgeting-roi",
+    "lessonTitle": "Event Budgeting and ROI Measurement",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Leads Captured Isn't the Number: Auditing an Event's Real Pipeline ROI",
+    "timeMinutes": 40,
+    "companyId": "wise",
+    "conceptsCovered": [
+      "Pipeline value = leads captured x close rate x average deal size",
+      "6-month attribution window vs premature one-month reporting"
+    ]
+  },
+  {
     "id": "value-proposition-seed-deck-build",
     "category": "fundamentals",
     "lessonSlug": "value-proposition",

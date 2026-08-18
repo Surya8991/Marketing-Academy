@@ -1205,6 +1205,15 @@ export const TOOLS: MarketingTool[] = [
 
   // ── Marketing Automation ──────────────────────────────────────────────────
   {
+    name: "Eventbrite",
+    description: "Event registration and ticketing platform, free for free events, used across this site's events-experiential practice projects for registration flow and lead-capture audits.",
+    category: "Marketing Automation",
+    pricing: "Freemium",
+    url: "https://www.eventbrite.com",
+    emoji: "🎟️",
+    tags: ["event registration", "ticketing", "lead capture"],
+  },
+  {
     name: "HubSpot Marketing Hub",
     description: "All-in-one inbound marketing platform with email, landing pages, workflows, and CRM integration.",
     category: "Marketing Automation",

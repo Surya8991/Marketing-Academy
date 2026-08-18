@@ -346,9 +346,10 @@ Content rewrite **first**, then projects and `InAction` scenarios authored again
 | # | Item | Section | Status |
 |---|---|---|---|
 | **9.1** | Phase 3, career layer, `/portfolio`, `calibration` | 6, 11.5 | 🔄 **Partially done (Session 85).** `/portfolio` page shipped: `src/app/portfolio/page.tsx` + `src/components/PortfolioClient.tsx`, lists the learner's completed projects (reads `projects-progress.ts` localStorage, matches against `PROJECTS_INDEX`) as portfolio-ready cards with company/tier/archetype/mode/concepts, "Export as JSON," and a cross-link to `/interview-prep` (and back). Wired into `Nav.tsx`'s "Your Progress" section and `Footer.tsx`. Two new achievements added (`first-project`, `ten-projects`). `robots: noindex` since it's personal per-browser data. **Still not done**: the `calibration` mode deferred-verification infra (prediction persistence, 30/90/180-day re-prompting, personal prediction log) — this is real, separate infrastructure work, correctly out of scope for a portfolio-view pass; big projects feeding `/certificates` also not wired |
-| **9.2** | Related Concepts, present in only 10% of lessons | 12.4 | ⏸️ Not started. Real count today: 74/642 (11.5%), 568 lessons still without `relatedConcepts` |
-| **9.3** | Remaining 402 non-track lessons | 0.2 | ⏸️ Not started. Confirmed still exactly 402 (642 total − 240 with at least one project). 4 categories (`events-experiential`, `affiliate-marketing`, `marketing-leadership`, `legal-compliance`) have zero project files at all. Also noted: `track-projects.ts` (track-level "big projects") only covers 1 of 24 tracks (`solo-founder`) |
+| **9.2** | Related Concepts, present in only 10% of lessons | 12.4 | ⏸️ Not started, deprioritized. `RelatedLessons.tsx` already auto-generates related content for all 642 lessons regardless, so the manual `relatedConcepts` field (74/642, 11.5%) is optional enrichment, not a missing feature |
 | **9.4** | Hygiene: 19 BOMs, 25 single-quoted `lessonMeta`, 1 bloated lesson | 12.7-12.9 | ✅ **Done (Session 85).** BOMs were already 0 (fixed in an earlier session, unrecorded here until now). Single-quoted `lessonMeta`: all 25 files converted. Bloated lesson (`cro/social-proof-engineering`): left untouched per the plan's own low-priority guidance — it actually grew to ~3,011 words since 12.9 was written, but Rule 16 explicitly warns against trimming a rich lesson just to hit a number; needs a content read (not a mechanical fix) to judge whether the extra length is repetition, out of scope for this pass |
+
+**⚠️ Owner directive (Session 85, mid-9.3-execution): move 9.3 to the END of the execution order — after Stage 10 and the new Stage 11 (below), not here.** Reason given: 9.3 is by far the largest item (402 lessons, ~800 projects, estimated 10+ hours of continuous execution), and the owner wants the smaller, faster wins (Stage 10's quiz expansion, Stage 11's Skill Map/Achievements/Resources pass) done first. **9.3's own status/detail entry moved to the bottom of this stage list, after Stage 11, so the "execute top to bottom" convention still holds** — see below. One category's worth of work was already in flight when this directive landed (`events-experiential`, 4 batches / 8 lessons); that in-flight work is being finished and committed rather than discarded, then 9.3 pauses there until its turn comes back up.
 
 **Session 85 audit note:** a dedicated research pass confirmed Stages 0-7 and 8.2b are genuinely done in code (stage-numbered comments throughout, spot-checked), so no re-litigation needed there. Full findings recorded in the Session 85 PR & Communications entry above and in `PROJECT_LOG.md`.
 
@@ -362,6 +363,20 @@ Content rewrite **first**, then projects and `InAction` scenarios authored again
 | **10.4** | Re-run the position-dependent-option scan (18.7 / F10) against the expanded ~10,300-option set before enabling shuffling on the new questions | `quizzes.ts` | The Stage 1.3 scan only covers the original 4-question set; new questions could introduce a fresh "All of the above" |
 
 **Origin:** raised during Stage 1 execution (2026-08-12) as an alternative to the 75%/4-question threshold fix. Decided to ship the 4-question/75% fix immediately (zero content risk, functionally equivalent forgiveness: exactly one wrong answer passes either way) and treat the question-count expansion as this separate, explicitly-scoped stage rather than block Stage 1 on writing 642 new quiz questions.
+
+---
+
+#### Stage 11, owner-requested UX pass on Skill Map / Achievements / Resources (queued Session 85, execute after Stage 10)
+
+Owner request, mid-Stage-9.3 execution: "improve Skill Maps, Achievements & Resources... after last stage." Queued here rather than interrupting the Stage 9/10 content backlog. Scope not yet defined in detail — first step when this stage starts is a short audit of `/skill-map`, `/achievements`, and `/resources` (current UX, what's dated/thin/confusing) before deciding concrete changes, the same pattern used to scope Stage 8.3b before executing it.
+
+---
+
+#### Stage 9.3 (moved here, executes LAST — owner directive, Session 85)
+
+| # | Item | Section | Status |
+|---|---|---|---|
+| **9.3** | Remaining 402 non-track lessons, ~800 projects | 0.2 | 🔄 **8/28 done in `events-experiential` (Session 85), then PAUSED here per owner directive to run last, after Stage 10 and 11.** New tooling built for this stage: `scripts/get-category-batch-info.mjs` (get-track-batch-info.mjs's sibling for non-track categories, reads curriculum.ts directly instead of tracks.ts). Also added `Eventbrite` to `tools-directory.ts` (Marketing Automation category) since no event-registration tool existed for this category's projects (Rule 55). One `conceptsCovered` omission caught by `tsc --noEmit` on a teardown-mode project, fixed. Verified: audit, lint, `npm test` (30/30), `npm run build` all clean. Index regenerated: 493 project cards, 19 category modules. Remaining in `events-experiential`: 20 lessons. 3 more categories still at 0: `affiliate-marketing` (20 lessons), `marketing-leadership` (25 lessons), `legal-compliance` (lesson count TBD). Also noted: `track-projects.ts` (track-level "big projects") only covers 1 of 24 tracks (`solo-founder`) — a separate, smaller gap worth revisiting once 9.3 proper resumes. **Estimated 10+ hours of continuous execution remaining at this session's measured pace (~1.5-2 min/lesson, parallel batches)** — expect this to span several more sessions, worked category by category the same way Stage 8.3a worked track by track. |
 
 ---
 
