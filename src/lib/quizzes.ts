@@ -7418,6 +7418,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "A Crayon report found that 44% of companies have zero competitive tracking. However, sales teams equipped with competitive intelligence are 108% more likely to drive revenue growth because they can handle objections and highlight differentiators.",
     },
+    {
+      question: "The 5 Cs Framework expanded on an earlier model. Who created that original model, and what did it consist of?",
+      options: [
+        "Kenichi Ohmae's 1982 '3C model': Company, Customer, Competitor",
+        "Michael Porter's Five Forces model of industry rivalry",
+        "Byron Sharp's mental availability and physical availability model",
+        "Philip Kotler's 4 Ps of Product, Price, Place, and Promotion",
+      ],
+      correct: 0,
+      explanation: "Kenichi Ohmae introduced the 3C model (Company, Customer, Competitor) in his 1982 book 'The Mind of the Strategist.' Practitioners later added Collaborators and Context to build the full 5 Cs framework used today.",
+    },
   ],
 
   "fundamentals/aida-funnel": [
@@ -7464,6 +7475,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The gap between Desire and Action is usually a trust problem (e.g., 'Will this work for me?'). Basecamp's experiment showed that replacing discount codes with customer testimonials addressing specific onboarding and setup fears improved trial-to-paid conversion rates.",
+    },
+    {
+      question: "According to the lesson's 2024-2025 update, how have AI-powered platforms like Meta Ads and Google Ads actually changed the AIDA model?",
+      options: [
+        "They replaced AIDA entirely with a new six-stage machine learning model",
+        "They automatically detect which AIDA stage a user is in and route matching creative to them, while the underlying four-stage model stays the same",
+        "They removed the need to create any Desire-stage content like reviews or case studies",
+        "They now optimize exclusively for the Attention stage and ignore the rest of the funnel",
+      ],
+      correct: 1,
+      explanation: "The lesson explains that AI layers on top of AIDA rather than replacing it: platforms detect where a user sits in the sequence (e.g., someone who clicked but didn't buy is in the Desire-to-Action gap) and serve the right content, but marketers still have to build content for each of the four stages.",
     },
   ],
 
@@ -7512,6 +7534,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Rising CAC often means you've saturated the small pool of active, in-market buyers who know you. Without brand building to warm up the other 95% of the market, you must bid higher to capture disinterested users, causing CAC to rise.",
     },
+    {
+      question: "Nike's 2018 'Believe in Something' campaign with Colin Kaepernick had no discount code, no click-to-buy button, and no conversion goal. What does the campaign's outcome demonstrate?",
+      options: [
+        "Brand campaigns cannot be linked to any measurable business results",
+        "A pure brand campaign with zero direct-response elements can still drive measurable sales and valuation gains",
+        "Every successful campaign requires a direct call-to-action to work",
+        "The campaign underperformed because it lacked a clear conversion mechanism",
+      ],
+      correct: 1,
+      explanation: "Despite having no direct-response elements, online sales jumped 31% within weeks, Nike's stock hit an all-time high, and brand valuation rose roughly $6 billion, showing brand trust built over years can move performance numbers without asking for a single click.",
+    },
   ],
 
   "fundamentals/branding": [
@@ -7558,6 +7591,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The blank page test asks if you can describe your brand's core value and personality without relying on visual assets (logos, colors) or technical features. If the team cannot do this in three sentences, or if answers conflict, you have a brand strategy problem.",
+    },
+    {
+      question: "When Airbnb launched its widely-mocked 2014 'Belo' logo rebrand, what had the company already done before designing the new mark?",
+      options: [
+        "Rewritten its brand strategy, shifting the core idea from 'rent a couch' to 'belong anywhere,' before building the new identity",
+        "Hired an entirely new executive team to approve the visual refresh",
+        "Removed all color from its marketing materials to cut design costs",
+        "Run a public online vote to select the cheapest available logo design",
+      ],
+      correct: 0,
+      explanation: "Airbnb changed its strategy and positioning first, then built the identity system (warmer colors, human illustration, new tone) to express it, with the logo serving only as the anchor. This ordering, strategy before symbol, is exactly what most failed rebrands skip.",
     },
   ],
 
@@ -7606,6 +7650,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Trying to target too many personas dilutes focus. Research shows that 3 to 4 well-built personas account for over 90% of a company's revenue. Having more than this makes it impossible for teams to keep them top of mind and execute campaigns effectively.",
     },
+    {
+      question: "What does the lesson's 'Quote Test' check for in a buyer persona?",
+      options: [
+        "Whether the persona lists at least five demographic details like age and income",
+        "Whether a real, specific customer quote can be pasted into the persona instead of a vague generalization",
+        "Whether the sales and product teams have formally signed off on the document",
+        "Whether the persona was built entirely from CRM data with zero interviews",
+      ],
+      correct: 1,
+      explanation: "The lesson contrasts a real quote like 'I was drowning in spreadsheets and nothing talked to each other' with a vague label like 'values efficiency.' If a persona has no real customer quotes, it is likely too abstract to actually be useful.",
+    },
   ],
 
   "fundamentals/category-design": [
@@ -7652,6 +7707,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "A POV document is category infrastructure. It educates the market on a new problem, names the new category, and shows why the old status quo is broken. This builds the intellectual and emotional case for why the new category is necessary.",
+    },
+    {
+      question: "What does Play Bigger's playbook mean by a 'lightning strike' in a category design campaign?",
+      options: [
+        "A quiet blog post published with no promotion or paid support",
+        "A concentrated, multi-channel event, such as a book launch, research drop, and conference converging at once, designed to force the market to take a position on the new category",
+        "A legal filing to trademark the category name before any competitor can use it",
+        "A short-term discount timed to undercut a competitor's product launch",
+      ],
+      correct: 1,
+      explanation: "Play Bigger recommends running about two lightning strikes per year and concentrating up to 80% of marketing budget on them. Dreamforce is the textbook example: a single loud moment that forces the market to engage with the category.",
     },
   ],
 
@@ -7700,6 +7766,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Ending the journey at purchase ignores the Retention and Advocacy stages. Retaining existing customers is 5 to 7 times cheaper than acquiring new ones, and repeat customers spend more. Happy customers who advocate for your brand also create a cheap, viral acquisition loop for new customers.",
     },
+    {
+      question: "How did Duolingo primarily address the Retention stage of the customer journey after a user signed up?",
+      options: [
+        "By offering a one-time discount code immediately after the first login",
+        "By embedding gamification, streaks, achievement badges, and in-app currency, into daily use to keep users coming back",
+        "By running more Awareness-stage advertising to attract additional new users",
+        "By removing the free tier so every user was forced onto a paid plan",
+      ],
+      correct: 1,
+      explanation: "Duolingo treated Retention as a designed daily experience rather than a sales problem, using streaks and gamified rewards to build a habit loop. This approach helped it reach 500 million registered users by 2023 with daily active use rates that outperform competitors.",
+    },
   ],
 
   "fundamentals/flywheel": [
@@ -7746,6 +7823,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "McKinsey research shows that retaining existing customers is highly profitable. A small 5% increase in customer retention can lift profits by 25% to 95% because repeat customers spend more, buy higher-margin add-ons, and cost near-zero to acquire compared to new leads.",
+    },
+    {
+      question: "In late 2025, HubSpot replaced its 15-year-old Attract, Engage, Delight flywheel with a new framework built for an AI-mediated buyer journey. What is that framework called, and what does it add?",
+      options: [
+        "The Loop Marketing Framework (Express, Adapt, Amplify, Evolve), which layers explicit AI feedback loops and personalization onto the flywheel's core idea",
+        "The Funnel 2.0 Framework, which reintroduces a linear MQL-to-SQL pipeline for AI-driven leads",
+        "The Delight Protocol, which removes Attract and Engage entirely and focuses only on retention",
+        "The Halligan Model, which replaces customer advocacy with paid influencer partnerships",
+      ],
+      correct: 0,
+      explanation: "HubSpot's Loop Marketing Framework (Express, Adapt, Amplify, Evolve) was introduced because buyers now research with AI and get answers before ever clicking a link. It keeps the flywheel's core premise, customers generate customers, but adds explicit AI feedback and personalization at every stage.",
     },
   ],
 
@@ -7794,6 +7882,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Asking what the buyer almost chose instead of your product exposes your real competition. For example, a calendar scheduling app might compete with an admin assistant or a simple spreadsheet, not just other scheduling tools. This insight highlights your true differentiator.",
     },
+    {
+      question: "Arm and Hammer used JTBD interviews and discovered over 100 different jobs consumers were hiring their baking soda for, beyond its original use. What was the business result of mapping products to those jobs?",
+      options: [
+        "Revenue stayed flat because the company could not afford to launch separate product lines",
+        "Every aligned product line delivered double-digit growth within a year, with overall revenue growing more than 30%",
+        "The company discontinued its cleaning and deodorizing lines to focus only on baking",
+        "Sales declined because customers were confused by too many use cases for one product",
+      ],
+      correct: 1,
+      explanation: "Each hidden job Arm and Hammer uncovered, cleaning, deodorizing, personal care, and more, represented a distinct market segment they had never marketed to directly. Once product lines were aligned to those jobs, every line grew double digits and overall revenue grew more than 30% in a year.",
+    },
   ],
 
   "fundamentals/marketing-math": [
@@ -7840,6 +7939,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "The ratio of LTV to CAC is $7,500 / $2,000 = 3.75:1. The industry benchmark for a healthy business is a ratio above 3:1. This indicates that the lifetime value of a customer comfortably justifies the acquisition cost, meaning the company can scale its marketing spend.",
+    },
+    {
+      question: "A 2025 analysis of 200+ e-commerce brands found that ad platforms systematically overstate true ROAS. What specific tactic did the lesson cite as one cause, and by how much did it inflate reported results?",
+      options: [
+        "Meta counted shipping fees as revenue on Shop ads, inflating reported ROAS by 17 to 19%",
+        "Google Ads excluded refunded orders from spend totals, inflating ROAS by 50%",
+        "Platforms rounded all ROAS figures up to the nearest whole number",
+        "Platforms only counted first-time purchases, ignoring repeat customers entirely",
+      ],
+      correct: 0,
+      explanation: "The lesson cites Meta counting shipping fees as revenue in Shop ads as a concrete example, which boosted reported ROAS by 17 to 19%. This is why the lesson recommends always cross-checking platform-reported ROAS against your own clean revenue data rather than trusting the dashboard number.",
     },
   ],
 
@@ -7888,6 +7998,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Values are only real if they drive behavior and decisions. The ultimate pressure test is checking if the last ten major decisions (such as hires, fires, product directions, or suppliers) align with the stated values. If they do not, the values are just decoration.",
     },
+    {
+      question: "The lesson argues most mission statements fail because they are written for the wrong audience. What is the described failure mode, and what is the fix?",
+      options: [
+        "Statements are written for the brochure instead of the boardroom, using vague phrases like 'world-class solutions' instead of language specific enough to guide a real decision under pressure",
+        "Statements are written entirely by the marketing department without input from the CEO",
+        "Statements are too short, so employees cannot memorize them for customer interactions",
+        "Statements focus too heavily on financial targets instead of customer language",
+      ],
+      correct: 0,
+      explanation: "The lesson's core warning is that vague, brochure-style language ('empowering communities') means nothing when an employee faces a real tradeoff, like whether to cut corners on a supplier audit. The fix is writing the mission specifically enough that it could actually settle that decision.",
+    },
   ],
 
   "fundamentals/pricing-psychology": [
@@ -7934,6 +8055,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Absolute numbers ('Save $240/year') anchor harder and feel more tangible to customers than abstract percentages ('Save 20%'), especially on lower base prices. Concrete dollar amounts make the benefit of switching to annual billing immediate and clear.",
+    },
+    {
+      question: "According to the lesson, why do most pricing pages settle on exactly three tiers instead of four or five?",
+      options: [
+        "Payment processors charge extra fees for each additional pricing tier listed",
+        "Three tiers create a clear comparison without triggering the choice paralysis that extra options cause, and 98% of SaaS companies already use multi-tier pricing built around this pattern",
+        "Three tiers are legally required for SaaS companies operating in the EU",
+        "Enterprise buyers refuse to consider offers with more than three listed prices",
+      ],
+      correct: 1,
+      explanation: "The lesson lists 'five tiers instead of three' as a common mistake: every extra option increases choice paralysis, causing buyers to default to 'I'll think about it' rather than deciding. Three tiers is the tested sweet spot that gives a clear comparison without overwhelming the visitor.",
     },
   ],
 
@@ -7982,6 +8114,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Paid ads amplify whatever retention exists. If the product lacks PMF and users churn, scaling acquisition is like pouring water into a leaky bucket. It accelerates cash burn without building a sustainable customer base.",
     },
+    {
+      question: "In 1985, Coca-Cola ran 190,000+ blind taste tests that showed testers preferred New Coke, then launched it to 8,000 complaints per day and reversed the decision after 79 days. What does this case teach about measuring PMF?",
+      options: [
+        "Taste tests are always more reliable than retention data for consumer products",
+        "PMF requires fitting the full context of a customer's life, identity, and habits, not just isolated preference data like a blind taste test",
+        "New Coke failed because the reformulated recipe was objectively worse in every blind test",
+        "Coca-Cola should have scaled paid advertising faster to overcome the backlash",
+      ],
+      correct: 1,
+      explanation: "The lesson uses New Coke to show that isolated preference data can be completely misleading. Blind taste tests measured flavor in a vacuum, but they missed the emotional attachment consumers had to Classic Coke as part of their identity and habits, something only real market behavior revealed.",
+    },
   ],
 
   "fundamentals/stp": [
@@ -8028,6 +8171,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "When you attempt to target everyone, your marketing copy and value proposition must become generic to apply to all groups. This dilutes the message, resulting in low conversion rates and poor resonance. Dominated niche segments are much more valuable for growth than broad, contested markets.",
+    },
+    {
+      question: "Once segments are mapped, the lesson says targeting means scoring each one against four questions before committing budget. What are those four criteria?",
+      options: [
+        "Size, Reach, Advantage, and Growth",
+        "Age, Income, Location, and Job Title",
+        "Awareness, Consideration, Decision, and Retention",
+        "Price, Product, Placement, and Promotion",
+      ],
+      correct: 0,
+      explanation: "The lesson's targeting step scores each candidate segment on Size (large enough to justify investment), Reach (can you engage them affordably), Advantage (do you have a real edge), and Growth (is the segment expanding). You're looking for the overlap between a segment worth winning and one you can actually win.",
     },
   ],
 
@@ -8076,6 +8230,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Research shows that companies with a documented strategy achieve nearly 3x higher ROI than those operating without a written plan. A written strategy provides a clear filter for decision-making, reducing wasted budget on mismatched tactics.",
     },
+    {
+      question: "A team's tactics are underperforming, so they run through the three-layer model (Goal, Strategy, Tactics) to diagnose the problem. According to the lesson, when should they change the strategy itself rather than just swapping tactics?",
+      options: [
+        "Only when the underlying business goal itself shifts",
+        "Every time a single tactic underperforms for more than a week",
+        "Whenever a competitor launches a new campaign",
+        "At the start of every fiscal quarter, regardless of performance",
+      ],
+      correct: 0,
+      explanation: "The lesson's three-layer model treats strategy as the stable layer: if tactics aren't working, you swap the tactics and re-check metrics, but you only revisit the strategy when the goal it serves has actually changed.",
+    },
   ],
 
   "fundamentals/value-proposition": [
@@ -8122,6 +8287,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The highest-converting value propositions often use the exact vocabulary of the target customer. Phrases taken directly from customer reviews or interviews have already passed the resonance test. They capture the raw emotion, pain points, and specific benefits that customers actually care about.",
+    },
+    {
+      question: "Dropbox's 2009 launch used the value proposition 'Your stuff, anywhere' instead of describing its technical encryption and sync architecture. What did this specificity and simplicity enable, according to the lesson?",
+      options: [
+        "A patent filing that blocked competitors from copying the sync technology",
+        "A referral loop that users could explain in one sentence, growing the user base from 100,000 to 4 million in 15 months",
+        "A 32% increase in landing page load speed",
+        "Direct acquisition interest from enterprise cloud storage vendors",
+      ],
+      correct: 1,
+      explanation: "Because the value proposition was concrete enough to repeat in one sentence, users could explain it to a friend instantly, which powered Dropbox's referral program to a 3,900% increase in users in 15 months.",
     },
   ],
 
@@ -14922,7 +15098,18 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Loom's core growth loop is inherently viral: when a user sends a video to a recipient, that recipient must view it on Loom's platform, prompting them to sign up to reply or record their own."
-    }
+    },
+    {
+      question: "A sales rep notices that a company's account added ten new users to the product in one week and decides to reach out with an enterprise upgrade offer. What is this pattern called in a product-led growth motion?",
+      options: [
+        "Cold outbound prospecting",
+        "Sales-assisted PLG, where reps act on product usage data to identify product-qualified leads",
+        "A traditional marketing-qualified lead (MQL) handoff",
+        "A freemium churn-prevention tactic",
+      ],
+      correct: 1,
+      explanation: "In the hybrid PLG model described in the lesson, sales reps use product usage signals (like rapid seat expansion) to identify product-qualified leads and time their outreach, achieving conversion rates three times higher than traditional outbound.",
+    },
   ],
 
   "seo/saas-seo-strategy": [
@@ -15608,6 +15795,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Effective marketing creates and sustains profitable customer relationships - awareness and spend are inputs, not outcomes in themselves.",
     },
+    {
+      question: "The lesson argues that the traditional 'marketing funnel' (Awareness to Interest to Decision to Purchase) is an outdated model. What does it propose instead?",
+      options: [
+        "A one-way broadcast model where messages flow only from company to customer",
+        "A continuous loop where customer behavior teaches the company something new, which reshapes the product, price, and message",
+        "A four-stage sales pipeline managed entirely by the sales team",
+        "A single funnel that only applies to B2C companies, not B2B",
+      ],
+      correct: 1,
+      explanation: "The lesson describes marketing as a loop: studying customers shapes the offer and message, that reaches an audience, resulting behavior (buying, referring, churning) teaches the company something new, and that understanding improves the product again.",
+    },
   ],
 
   "fundamentals/4ps-7ps": [
@@ -15635,6 +15833,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Physical Evidence refers to the tangible cues that help customers evaluate an intangible service. Branded items and a well-designed space reduce uncertainty for prospects.",
     },
+    {
+      question: "When sales are flat, the lesson's diagnostic flowchart recommends checking the 7 Ps in a specific order before increasing ad spend, and the tip callout says to start the audit with which P?",
+      options: [
+        "Promotion, since more visibility always helps",
+        "Product, since customers only care about features",
+        "Place, because distribution problems are the most common and least discussed cause of underperformance",
+        "Physical Evidence, since packaging is what customers notice first",
+      ],
+      correct: 2,
+      explanation: "The lesson's tip callout specifically says to start the audit with Place: a great product at a fair price can still fail if it's not available where the target customer actually shops or browses.",
+    },
   ],
 
   "fundamentals/positioning": [
@@ -15661,6 +15870,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       options: ["A brand manifesto", "A value proposition canvas", "A positioning statement", "A customer journey map"],
       correct: 2,
       explanation: "This is the classic positioning statement template. It forces clarity on target customer, category frame, single benefit, and proof - the building blocks of a defensible position.",
+    },
+    {
+      question: "April Dunford's positioning framework separates 'frame of reference' from 'point of difference.' Using Slack's 2013 launch as the lesson's example, what did choosing to position against email (rather than as enterprise IT software) primarily control?",
+      options: [
+        "The final retail price of the product",
+        "Who Slack's competitors were, what price it could charge, and which features mattered to customers",
+        "The number of engineers needed to build the product",
+        "Whether the company would need to raise venture funding",
+      ],
+      correct: 1,
+      explanation: "The lesson states the frame of reference controls everything: who your competitors are, what price you can charge, and which features matter. By framing against email rather than enterprise software, Slack changed all three and enabled bottom-up adoption.",
     },
   ],
 
@@ -19488,6 +19708,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Pipeline Influenced measures what share of open pipeline engaged with an ABM program, directly linking ABM activity to revenue potential. MQLs are explicitly called out as the wrong metric for ABM.",
     },
+    {
+      question: "A marketing team builds a list of 5,000 companies and calls it their ABM program. According to the lesson's common mistakes section, what is the problem with this approach?",
+      options: [
+        "5,000 accounts is actually too small a list to run programmatic ABM effectively",
+        "A list that large is really a demand gen list with better naming; effective ABM runs 50-300 accounts per rep, with Tier 1 capped at 20-30 companies",
+        "ABM programs are not allowed to exceed 100 total accounts under any circumstances",
+        "The mistake is not having enough sales reps to cover 5,000 accounts individually",
+      ],
+      correct: 1,
+      explanation: "The lesson explicitly calls out 'too many accounts' as a common ABM mistake: a 5,000-company list loses the precision that defines ABM and becomes indistinguishable from demand generation, since true ABM depends on named-account focus and depth, not volume.",
+    },
   ],
   "fundamentals/community-led-growth-intro": [
     {
@@ -19533,6 +19764,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Unlike SLG and PLG which have linear cost structures where more pipeline requires more spend or headcount, CLG compounds: engaged members recruit other members, create persistent content, and build social proof that grows the community without proportional investment.",
+    },
+    {
+      question: "A B2B enterprise product wants a curated, invite-only group of power users who get early access and direct product input in exchange for advocacy. Which community model does the lesson say fits this best?",
+      options: [
+        "External customer community",
+        "Internal champion program",
+        "Open-source community",
+        "Audience-only broadcast channel",
+      ],
+      correct: 1,
+      explanation: "The lesson describes the internal champion program as a curated, invite-only group of power users trading early access and recognition for feedback and advocacy, better suited to enterprise products where a small number of highly engaged users drive outsized influence than a broad external community.",
     },
   ],
   "fundamentals/demand-gen-vs-lead-gen": [
@@ -19580,6 +19822,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Share of voice measures how often your brand appears in category conversations, a long-term brand health metric. CPL, MQLs, and lead-to-customer velocity are all short-term output metrics associated with lead gen.",
     },
+    {
+      question: "Per the lesson, how does the recommended demand gen / lead gen budget ratio typically shift as a SaaS company matures?",
+      options: [
+        "It stays fixed at 50/50 regardless of company stage",
+        "Early-stage companies often start around 30/70 (demand gen/lead gen) for immediate pipeline, then flip toward 60/40 as the company scales and competition tightens",
+        "Early-stage companies start at 60/40 favoring demand gen, then shift to 30/70 favoring lead gen once pipeline is established",
+        "The ratio is determined entirely by industry, not company stage",
+      ],
+      correct: 1,
+      explanation: "The lesson explains that early-stage SaaS needs immediate pipeline and often starts around 30/70 favoring lead gen, but as competition tightens and the company scales, the ratio flips toward the 60/40 demand-gen-weighted split.",
+    },
   ],
   "fundamentals/go-to-market-strategy": [
     {
@@ -19626,6 +19879,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "One of the four GTM fit criteria is that expansion happens without asking, customers upgrade or add seats organically. Erratic CAC or a shortening cycle alone does not confirm fit; all four criteria must be stable.",
     },
+    {
+      question: "A developer tool prices at $99/month for individuals, $499/month for teams, and custom pricing for enterprise. Per the lesson's real example, what is the correct GTM motion?",
+      options: [
+        "Sales-Led Growth across every tier, since all deals need human guidance",
+        "Product-Led Growth for the two self-serve tiers, Sales-Led Growth only for the enterprise tier",
+        "Channel/Partner-Led Growth for all tiers, since developers trust resellers",
+        "Marketing-Led Growth exclusively, since developers do heavy research before buying",
+      ],
+      correct: 1,
+      explanation: "The lesson's real example shows the $99 and $499 tiers deliver value in minutes and fit self-serve PLG, while the enterprise tier needs a human conversation about compliance, SSO, and SLAs, making PLG-plus-SLG-for-enterprise the dominant 2025-2026 hybrid pattern.",
+    },
   ],
   "fundamentals/revops-for-marketers": [
     {
@@ -19671,6 +19935,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Companies with formal RevOps report 36% higher revenue growth and up to 28% more profitability, while poor sales-marketing alignment costs B2B companies 10% or more of annual revenue.",
+    },
+    {
+      question: "What are the three foundations (pillars) RevOps operates on, according to the lesson?",
+      options: [
+        "Budgeting, forecasting, and reporting",
+        "People alignment, process standardization, and technology integration",
+        "Lead scoring, campaign attribution, and CRM hygiene",
+        "Sales enablement, content strategy, and brand governance",
+      ],
+      correct: 1,
+      explanation: "The lesson names three pillars: people alignment (shared goals and SLAs across marketing, sales, and CS), process standardization (defined stages like MQL/SQL/opportunity), and technology integration (CRM, marketing automation, and analytics flowing data bidirectionally).",
     },
   ],
   "growth/ai-experiment-design": [
@@ -23306,6 +23581,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Tier 3 (10-15% of budget) covers pure bets, capped downside so a total loss is survivable, with a fixed evaluation window, distinct from Tier 1's proven channels and Tier 2's promising-but-unproven channels.",
     },
+    {
+      question: "According to Gartner's 2026 findings cited in the lesson, how does AI readiness affect a company's marketing spend as a percent of revenue?",
+      options: [
+        "AI readiness has no measurable effect on marketing budget size",
+        "Organizations with mature AI capabilities allocate 8.9% of revenue to marketing, above the 7.8% average, and the top 9% with fully optimized AI averaged 11%",
+        "AI-mature companies cut marketing budgets in half because AI replaces most marketing labor",
+        "AI readiness only affects the brand-versus-performance split, not total spend",
+      ],
+      correct: 1,
+      explanation: "The lesson's Callout notes AI-mature organizations allocate 8.9% of revenue to marketing versus the 7.8% average, and the top 9% with fully optimized AI averaged 11%, showing teams that prove AI-driven efficiency win bigger budgets, not smaller ones.",
+    },
   ],
   "fundamentals/marketing-org-chart": [
     {
@@ -23351,6 +23637,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The lesson highlights product marketing (reporting to product vs. marketing) and content (serving brand vs. demand gen) as the classic seam roles where reporting-line friction is highest.",
+    },
+    {
+      question: "According to the lesson, what percentage of CMOs report directly to the CEO?",
+      options: [
+        "22%",
+        "40%",
+        "61%",
+        "78%",
+      ],
+      correct: 2,
+      explanation: "The lesson states 61% of CMOs report directly to the CEO, 22% report to a Chief Revenue Officer, and the remainder report to a COO or President.",
     },
   ],
   "growth/growth-hacking-ethics-dark-patterns": [
