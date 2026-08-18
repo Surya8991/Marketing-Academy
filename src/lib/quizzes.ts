@@ -4331,6 +4331,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "A successful archetype framework requires a dominant personality (about 70-80%) to maintain clear, consistent expectations. Attempting an even split between conflicting archetypes (like Caregiver and Outlaw) creates cognitive dissonance, preventing the brand from owning a clear position in the customer's mind.",
     },
+    {
+      question: "A 10-person startup wants to position itself with the Ruler archetype (prestige, authority, absolute control). According to the lesson, why is this a mistake?",
+      options: [
+        "The Ruler archetype is legally trademarked by luxury automakers and cannot be used by other categories.",
+        "Archetypes must be chosen based on what the brand authentically is, and a small startup cannot credibly claim the Ruler's prestige and control.",
+        "The Ruler archetype only applies to brands founded before 1990.",
+        "Startups are required to use the Explorer archetype until they reach 50 employees.",
+      ],
+      correct: 1,
+      explanation: "The lesson's first Common Mistake is choosing the archetype you wish you were instead of the one that matches what you actually are, using exactly the 10-person startup and Ruler archetype example to show customers detect the mismatch instantly.",
+    },
   ],
 
   "brand-strategy/brand-book": [
@@ -4377,6 +4388,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "A brand book is only useful if it is actively distributed and integrated into the daily workflows of people who write and design for the brand. Incorporating it into onboarding, freelancer contracts, and briefs ensures it is read and applied by every collaborator.",
+    },
+    {
+      question: "According to the lesson's account of Uber's 2018 brand refresh, why did the team spend over 1,000 hours on research before writing any visual or usage rules?",
+      options: [
+        "To satisfy a legal requirement for trademark registration in 60+ countries.",
+        "Because Layer 1 (Brand Foundation) must be established first, so downstream visual and verbal rules have a justified 'why' instead of feeling arbitrary.",
+        "To select which agency would design the new logo.",
+        "Because Wolff Olins required a full year contract minimum for any rebrand project.",
+      ],
+      correct: 1,
+      explanation: "The brand book's five layers are built top-down starting with Brand Foundation. Uber's 1,000+ hours of listening to drivers and riders built that foundation first, so every later color, font, and logo rule had a documented reason instead of feeling arbitrary to teams following it.",
     },
   ],
 
@@ -4425,6 +4447,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Continuous promotional discounting devalues the brand. It teaches consumers to wait for sales, eroding the brand's pricing power and reducing its BSI scores (particularly preference and loyalty). The valuation model eventually reflects this drop as a lower royalty rate.",
     },
+    {
+      question: "Why did ChatGPT's 2025 BrandZ debut at #60 raise the stakes for any future stumble, according to the lesson?",
+      options: [
+        "It means ChatGPT now pays the highest royalty rate of any brand in the ranking.",
+        "It crossed a valuation threshold in under two years that legacy brands took decades to reach, and strong product-market fit accelerates equity accumulation but also raises the cost of a misstep.",
+        "It disqualifies ChatGPT from ever appearing in the Brand Strength Index survey again.",
+        "It means ChatGPT's BSI score is now fixed at 100 permanently.",
+      ],
+      correct: 1,
+      explanation: "The lesson notes that fast equity accumulation cuts both ways: ChatGPT reached its valuation threshold far faster than legacy brands, but that same speed means it has more built-up equity exposed to rapid decay if consumer sentiment turns, per the BSI-to-valuation mechanism.",
+    },
   ],
 
   "brand-strategy/brand-pillars": [
@@ -4471,6 +4504,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "The purpose of brand pillars is to help prioritize decisions and navigate trade-offs. If a brand has too many pillars (e.g., 7 or 8), nothing is truly prioritized, rendering the framework ineffective at resolving conflicting choices or maintaining a clear focus.",
+    },
+    {
+      question: "According to the lesson, what makes Patagonia's 'Worn Wear' trade-in and repair program different from a typical corporate sustainability initiative?",
+      options: [
+        "It is a separate side business unrelated to Patagonia's core brand pillars.",
+        "It generates the highest profit margin of any Patagonia product line.",
+        "Every element of the program maps directly to the durability and environmental responsibility pillars, making it the pillar in operational form rather than a bolt-on initiative.",
+        "It was created solely to compete with fast-fashion resale marketplaces.",
+      ],
+      correct: 2,
+      explanation: "The lesson frames Worn Wear as proof that pillars are operational commitments, not marketing decoration: trade-in, repair, and resale directly express the durability and environmental responsibility pillars rather than sitting apart from them.",
     },
   ],
 
@@ -4519,6 +4563,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Brand equity compounds over years and decades. Changing positioning frequently (often with leadership changes every 18-24 months) erases the recognition and trust built by previous campaigns, forcing the brand to rebuild its connection with consumers from zero.",
     },
+    {
+      question: "Per the lesson's seven-component brand strategy document, what test determines whether a personality attribute or positioning statement is specific enough to keep?",
+      options: [
+        "Whether it fits on a single PowerPoint slide.",
+        "Whether the legal department has approved it for trademark filing.",
+        "Whether your top competitor could copy the exact statement without it being a lie; if yes, it is not specific enough.",
+        "Whether it was written by the CEO rather than the marketing team.",
+      ],
+      correct: 2,
+      explanation: "The lesson's test for every component of the strategy document, purpose, positioning, personality, and promise, is whether a competitor could honestly claim the same statement. If they could, the statement is too generic to function as strategy.",
+    },
   ],
 
   "brand-strategy/brand-tracking": [
@@ -4565,6 +4620,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "Social listening tools track raw sentiment (positive/negative comments) from the subset of customers posting online. Brand tracking surveys run structured, standardized questions on a representative sample of category buyers to capture exact funnel progression (awareness, consideration, preference), which is a far more reliable indicator of business growth.",
+    },
+    {
+      question: "In the lesson's Diageo example, how does the company use consideration and preference scores tracked separately by market?",
+      options: [
+        "To decide which celebrity endorsers to hire for each region.",
+        "To identify when a brand is losing ground in a specific region before distribution or volume data would catch it, allocating harvest-mode spend where consideration rises and incremental spend where it falls.",
+        "To set the retail shelf price of each spirits brand in real time.",
+        "To determine which brands to discontinue entirely each fiscal year.",
+      ],
+      correct: 1,
+      explanation: "The lesson uses Diageo to show that time-series, market-level brand tracking enables surgical media allocation, catching regional weakness in consideration before it shows up in harder-to-reverse volume or distribution declines.",
     },
   ],
 
@@ -4613,6 +4679,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "The calibration exercise tests a team's understanding of the guidelines by having them evaluate real sentences. Disagreements on whether a sentence is on-voice or off-voice highlight where guidelines are ambiguous, helping the team align on how to apply the brand voice consistently.",
     },
+    {
+      question: "During the Audit stage of building a brand voice system, what is the key diagnostic question used to test existing content?",
+      options: [
+        "Does this content rank on the first page of search results for our target keywords?",
+        "If the logo were removed, would a reader still recognize this as coming from our organization?",
+        "Did this content generate more than the average number of social media shares?",
+        "Was this content approved by legal before it was published?",
+      ],
+      correct: 1,
+      explanation: "The audit stage asks whether a piece of content is recognizable without the logo attached. If more than half the sampled content fails that test, the voice problem is structural (no consistent personality exists yet), not a minor editorial fix.",
+    },
   ],
 
   "brand-strategy/brand-vs-demand": [
@@ -4659,6 +4736,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "In B2B, the percentage of in-market buyers at any moment is even smaller (often only 5%). Because of longer consideration periods and complex purchasing committees, Binet and Field recommend a slightly adjusted split of 46% brand and 54% demand to optimize B2B growth.",
+    },
+    {
+      question: "What does Excess Share of Voice (ESOV) measure, and why is it one of the most robust predictors in the Binet and Field dataset?",
+      options: [
+        "It measures how much a brand overspends on influencer partnerships relative to competitors.",
+        "It compares a brand's share of voice to its share of market; holding SOV above SOM predicts future market share gains.",
+        "It measures the volume of unpaid press coverage a brand receives compared to paid coverage.",
+        "It tracks how often a brand's ads are skipped versus watched in full on video platforms.",
+      ],
+      correct: 1,
+      explanation: "ESOV compares a brand's share of voice against its existing share of market. Brands whose share of voice exceeds their share of market tend to grow, making it one of the strongest predictors identified across the Binet and Field IPA case studies.",
     },
   ],
 
@@ -4707,6 +4795,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Scaling paid marketing without a clear brand position is like pouring water into a leaky bucket. Because the messaging is generic, customers don't form a lasting association or trust with the brand. This leads to high churn, forcing the company to continually buy traffic and driving up CAC.",
     },
+    {
+      question: "What does the Dollar Shave Club launch illustrate about the relationship between marketing and brand?",
+      options: [
+        "A single well-executed marketing activity (a $4,500 video) can manufacture awareness from nothing, even without an existing brand or distribution.",
+        "Marketing is only effective once a company already has decades of accumulated brand equity to draw on.",
+        "Marketing and brand are identical, so a viral video is itself a complete brand strategy.",
+        "Comedic marketing only works for companies that already dominate retail shelf space.",
+      ],
+      correct: 0,
+      explanation: "Dollar Shave Club had no retail distribution or brand recognition when it launched, so it used a single low-cost marketing activity, the launch video, to generate 12,000 signups in 48 hours. This shows marketing can create initial awareness, but it is distinct from brand, which is the accumulated perception built over time afterward.",
+    },
   ],
 
   "brand-strategy/distinctive-assets": [
@@ -4753,6 +4852,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 0,
       explanation: "Traditional differentiation attempts to convince consumers that a brand's product is functionally or emotionally superior to competitors. Distinctiveness accepts that buyers rarely compare brands rationally; instead, it focuses on building sensory cues (cues that require no thought) to make the brand instantly recognizable at the moment of purchase.",
+    },
+    {
+      question: "Per the Ehrenberg-Bass Institute's guidance on managing a distinctive asset portfolio, what is the recommended action for an asset with residual Fame above 20-30% that a brand had previously retired?",
+      options: [
+        "Discard it permanently, since a retired asset can never regain consumer recognition.",
+        "Reactivate it, since reviving a dormant asset with legacy Fame is more cost-efficient than building a new one from zero.",
+        "Only license it to a competitor to recover some of its original development cost.",
+        "Redesign it completely before reintroducing it to avoid consumer confusion.",
+      ],
+      correct: 1,
+      explanation: "Kellogg's reactivation of its dormant mascot Cornelius the Cockerel illustrates this principle: internal research showed residual Fame still existed among buyers who remembered it, making revival far cheaper than building a brand-new distinctive asset from scratch.",
     },
   ],
 
@@ -4801,6 +4911,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Deloitte's 2025 research shows that over 70% of workers are more likely to join and stay with companies that help them thrive in an AI-enabled world. Addressing AI upskilling and career development within the EVP has become a critical talent differentiator.",
     },
+    {
+      question: "How does Patagonia's employer brand strategy function differently from a broad-appeal recruiting approach?",
+      options: [
+        "It targets the widest possible pool of applicants to maximize inbound application volume.",
+        "It acts as a precision, self-selecting filter, repelling candidates unaligned with its values while attracting deeply committed ones, which lowers turnover.",
+        "It relies exclusively on paid Glassdoor and Indeed advertising rather than an EVP.",
+        "It focuses only on compensation and equity to compete directly with tech company salaries.",
+      ],
+      correct: 1,
+      explanation: "Patagonia's EVP, built around environmental activism and flexibility, is a precision strategy rather than a broad-appeal one. It filters out misaligned candidates before they apply and attracts those who already share the company's values, which is what drives its dramatically lower turnover.",
+    },
   ],
 
   "brand-strategy/how-brands-grow": [
@@ -4847,6 +4968,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Hyper-targeting niche customers looks efficient but caps growth. Because light, occasional buyers drive most of the category's volume, brands need broad-reach campaigns that build memory structures across the entire pool of potential buyers, rather than focusing only on a small segment of heavy users.",
+    },
+    {
+      question: "What is a Category Entry Point (CEP), and why does it matter for building mental availability?",
+      options: [
+        "The specific retail shelf location where a product is physically stocked.",
+        "A distinct occasion, mood, need, or context that could trigger a purchase; brands need creative linked to as many of these as possible to be recalled broadly.",
+        "The legal registration required before a brand can enter a new product category.",
+        "The minimum price point needed to compete within a product category.",
+      ],
+      correct: 1,
+      explanation: "Category Entry Points are the varied situations, like a morning commute or a first date for a coffee brand, that could cue a purchase. Mental availability grows by linking the brand's memory structures to as many of these entry points as possible, not just the moment of active buying.",
     },
   ],
 
@@ -4895,6 +5027,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "The four-filter test screens name candidates on basic usability: Spell (can people spell it after hearing it?), Say (is pronunciation obvious and consistent?), Search (is the Google first page clear of competitors or negative associations?), and Scale (will the name still fit if the company expands its product line or markets?).",
     },
+    {
+      question: "A startup considers renaming itself once it has 'product-market fit,' reasoning that a name can always be changed later. Per the naming lesson, why is this thinking strategically risky?",
+      options: [
+        "Trademark offices only allow one name change per company in their entire existence",
+        "A rebrand after product-market fit can cost millions in customer re-education, SEO rebuilding, and asset replacement, versus $50,000-$200,000 at Series A",
+        "USPTO requires a five-year waiting period before any name can be changed",
+        "Domain registrars charge a penalty fee for transferring an established domain to a new name",
+      ],
+      correct: 1,
+      explanation: "The lesson's Mistake 5 explains that treating a name as reversible is strategically dangerous: a rebrand at Series A runs $50,000-$200,000, but a rebrand after product-market fit costs millions once you factor in customer confusion, SEO rebuilding, and replacing every branded asset.",
+    },
   ],
 
   "brand-strategy/rebrands": [
@@ -4942,6 +5085,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "A single-day cutover on all channels is highly risky and creates immediate confusion. A phased rollout (starting with owned digital channels, followed by customer communications, paid ads, and physical assets) allows the brand to monitor SEO performance, train support reps, and address negative feedback before completing the migration.",
     },
+    {
+      question: "According to the lesson's rebrand playbook, what must happen before any creative or design brief is issued?",
+      options: [
+        "A logo concept must be tested with focus groups to gauge initial reaction",
+        "A single positioning statement must be written, since every creative decision has to trace back to it or be cut",
+        "The marketing budget must be doubled to cover unexpected creative overruns",
+        "A press release announcing the rebrand must be drafted and pre-approved by legal",
+      ],
+      correct: 1,
+      explanation: "Step 3 of the playbook requires defining the new positioning statement first ('For [target customer], [brand name] is the [category] that delivers [key benefit] because [reason to believe]'). Every design choice in the rebrand must serve that statement, or it gets cut.",
+    },
   ],
 
   "brand-strategy/visual-identity": [
@@ -4988,6 +5142,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Designing a logo before defining the brand strategy is a major error. The visual assets (logo, colors, type) must express and support the brand's positioning. Jumping straight to logo design results in assets that do not align with the business goals, often requiring an expensive redesign later.",
+    },
+    {
+      question: "Per the lesson's five pillars of a visual identity system, why does a logo suite need more than just a single primary logo file?",
+      options: [
+        "Trademark law requires at least five registered variants of every corporate mark",
+        "Different placements (small icons, favicons, light/dark backgrounds) require icon-only, wordmark-only, and light/dark variants that a single primary lockup cannot serve",
+        "Search engines rank websites higher when multiple logo file formats are uploaded",
+        "Printers refuse to produce packaging unless at least four logo variants are supplied",
+      ],
+      correct: 1,
+      explanation: "The Logo Suite pillar specifies that at minimum you need a primary lockup, an icon-only mark for small placements like favicons, a wordmark-only version for contexts where the icon adds noise, and light/dark variants of each, since no single file works across every surface a brand appears on.",
     },
   ],
 
@@ -18116,6 +18281,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Netflix went beyond passive viewing by creating a physical space (themed retro cabs with in-character drivers) that commuters could experience, facilitating total immersion and extensive organic word-of-mouth.",
     },
+    {
+      question: "The lesson describes the Transportation Scale, developed by Green and Brock. What is it used for, and when should marketers apply it?",
+      options: [
+        "It measures a completed ad's sales conversion rate after the campaign has already run",
+        "It is a pre-production survey tool, rating agreement with statements about cognitive and emotional engagement, used to test a story concept before committing production budget",
+        "It calculates the exact runtime a video ad should have to maximize completion rate",
+        "It ranks competitor brands by how often they appear in a consumer's purchase consideration set",
+      ],
+      correct: 1,
+      explanation: "The lesson describes adapting the Transportation Scale into a lightweight pre-test: show an early script or storyboard to a small sample audience and ask Transportation Scale-style questions on a 1-7 agreement scale, since a script rewrite costs an afternoon while a reshoot costs the whole campaign.",
+    },
   ],
 
   "product-marketing/category-creation-gtm": [
@@ -19611,6 +19787,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "B2B decisions are made by humans who feel risk, ambition, and pressure. LinkedIn research shows emotionally resonant B2B ads outperform purely rational ones. Rational proof points validate a decision already made emotionally.",
     },
+    {
+      question: "The lesson describes the 'dark funnel' problem in B2B buying. What does this term refer to, and why does it matter for brand strategy?",
+      options: [
+        "A pricing model where vendors hide fees until the final contract stage",
+        "The invisible buying activity happening in Slack channels, Reddit threads, and peer conversations, where preferences form before a vendor can track or influence them directly",
+        "A legal loophole that lets competitors bid on your branded search terms",
+        "The unmeasured portion of a marketing budget spent on offline print advertising",
+      ],
+      correct: 1,
+      explanation: "The lesson defines the dark funnel as buying activity invisible to vendors, happening in Slack channels, Reddit threads, LinkedIn feeds, and peer recommendations, where preferences are built and eliminated. Brand strategy is how a company shows up favorably in spaces it cannot directly track.",
+    },
   ],
 
   "brand-strategy/brand-crisis": [
@@ -19657,6 +19844,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Sustained recovery requires proof that the crisis changed internal behaviour - not just messaging. Publishing systemic improvements rebuilds credibility far more durably than reputation spending alone.",
+    },
+    {
+      question: "In the KFC 2018 UK chicken shortage case study, what specifically distinguished KFC's recovery from a company that simply apologizes and moves on?",
+      options: [
+        "KFC offered a full refund to every customer who visited a closed location that week",
+        "KFC paired a self-aware apology ad with a public, concrete action (switching delivery partners) and sustained follow-up messaging, not just a single statement",
+        "KFC temporarily rebranded all UK locations under a new name to distance itself from the failure",
+        "KFC's CEO personally visited every affected restaurant location within 48 hours",
+      ],
+      correct: 1,
+      explanation: "The lesson's Stage 4 (Recover) emphasizes that recovery requires tangible action, not just an apology. KFC rearranged its logo to spell 'FCK,' explained the failure plainly, and publicly switched delivery partners, sustaining the message over months rather than issuing one statement and going silent.",
     },
   ],
 
@@ -19705,6 +19903,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Co-branding only creates value when consumers intuitively understand why the two brands belong together. Misaligned values or audiences produce confusion rather than combined equity.",
     },
+    {
+      question: "In the GoPro x Red Bull partnership, including the 2012 Stratos space jump that drew over 340 million YouTube views, what made the deal structure distinctive?",
+      options: [
+        "Red Bull paid GoPro a flat licensing fee for using its cameras at events",
+        "It was a non-cash asset exchange: GoPro supplied camera and editing capability, Red Bull supplied athlete access and event infrastructure, with no payments between the parties",
+        "GoPro acquired a minority stake in Red Bull in exchange for exclusive footage rights",
+        "The two brands merged their marketing departments into a single joint venture",
+      ],
+      correct: 1,
+      explanation: "The GoPro x Red Bull deal avoided cash payments entirely: each brand contributed a capability the other lacked (production hardware versus athlete and event access), creating content and distribution neither could have produced alone.",
+    },
   ],
 
   "brand-strategy/founder-brand": [
@@ -19751,6 +19960,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "LinkedIn B2B audience responds to expertise, credibility, and genuine insight. Content that teaches and challenges thinking builds authority - which converts followers into prospects more effectively than promotional posts.",
+    },
+    {
+      question: "According to the founder brand flywheel, why should founders consistently redirect their social media audience toward a newsletter rather than relying solely on platforms like LinkedIn or X?",
+      options: [
+        "Newsletters have higher average engagement rates than any social platform",
+        "The email list is the one distribution asset the founder fully owns, since social platforms can reduce organic reach overnight through algorithm changes",
+        "Email marketing is significantly cheaper to run than social media content production",
+        "Newsletter subscribers convert to customers at a guaranteed fixed rate",
+      ],
+      correct: 1,
+      explanation: "Social platforms are rented attention: an algorithm change can collapse reach without warning. A newsletter is owned distribution the founder fully controls, which is why the lesson frames converting followers to subscribers as essential to durable founder brand equity.",
     },
   ],
 
@@ -21127,6 +21347,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "When competitors all use the same LLM for positioning and ad copy, outputs converge on near-identical sentence structures and tonal registers, collapsing distinctiveness. The guardrail is a brand voice document applied after AI drafting.",
     },
+    {
+      question: "HubSpot's organic search traffic fell roughly 70-75% after a December 2024 Google algorithm update, yet its presence in AI assistant answers stayed strong. What does this case demonstrate?",
+      options: [
+        "AI assistants pull their answers directly from a brand's current Google ranking",
+        "Google ranking and AI citation are measured by different signals and can move in opposite directions",
+        "Losing SEO traffic always leads to a proportional loss in AI-assisted brand visibility",
+        "Google penalized HubSpot specifically for having a strong AI citation profile",
+      ],
+      correct: 1,
+      explanation: "HubSpot's traffic collapse in traditional search did not erase its AI-assistant visibility, direct evidence that LLM citation relies on training-data signals like press coverage and brand mentions, not real-time Google rank.",
+    },
   ],
   "brand-strategy/global-vs-local-brand": [
     {
@@ -21172,6 +21403,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Brand policing breeds resentment. Linking regional performance reviews to brand health metrics (perception studies, recognition scores) creates incentives for consistency without gatekeeping every decision, while still giving local teams genuine discretion over executional elements.",
+    },
+    {
+      question: "Uber's core brand promise (reliable, affordable rides) stays consistent worldwide, but its actual offering (vehicle types, pricing, driver policies) varies sharply by city. Which scenario from the lesson best explains why?",
+      options: [
+        "Limited localisation budget forces Uber to adapt cheaply in each market",
+        "Network effects are local: ride-sharing and messaging apps depend on local density, so the offering must hyperlocalise even when the brand promise stays global",
+        "Strong global competitor pressure forces Uber to match rivals city by city",
+        "Financial regulations require ride-sharing companies to rebrand in each country",
+      ],
+      correct: 1,
+      explanation: "The lesson lists local network effects, seen in ride-sharing, messaging, and food delivery, as one of three scenarios where adaptation is mandatory: the brand promise can stay global while the actual service must flex to local density and conditions.",
     },
   ],
   "brand-strategy/micro-community-branding": [
@@ -21219,6 +21461,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Community works for products people use daily, want to master, or share progress on. One-time purchases and commoditised markets lack the ongoing engagement and identity-driven reasons that sustain a micro-community.",
     },
+    {
+      question: "The lesson draws a distinction between a 'community' and an 'audience.' What is the core difference, illustrated by Notion's and Figma's early user groups?",
+      options: [
+        "A community pays for access while an audience consumes for free",
+        "An audience consumes what a brand makes, while a community co-creates it, proposing ideas and shaping outcomes rather than just reacting to them",
+        "A community is always smaller than 500 people, while an audience has no size limit",
+        "An audience interacts on social media, while a community only exists on private platforms like Discord",
+      ],
+      correct: 1,
+      explanation: "Notion's and Figma's early communities directly shaped product roadmaps and features because members had ownership, not just attention. That reciprocity, giving early access and input, then receiving ideas and word-of-mouth back, is what separates a community from a passive audience.",
+    },
   ],
   "brand-strategy/personal-brand-vs-company-brand": [
     {
@@ -21264,6 +21517,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "A founder with controversial or polarizing views can damage brands in trust-sensitive categories like banking or healthcare, which need to be perceived as neutral institutions rather than extensions of one individual's ideology.",
+    },
+    {
+      question: "How did HubSpot and Salesforce reduce key-person risk while still benefiting from personal brand credibility, per the lesson?",
+      options: [
+        "By banning any employee from posting under their own name",
+        "By cultivating 5–10 internal voices, engineers, product leaders, and marketers, who collectively represent the company",
+        "By having only the CEO post publicly, with all other employees staying silent",
+        "By outsourcing all thought leadership to paid outside influencers",
+      ],
+      correct: 1,
+      explanation: "The lesson describes distributing personal brand across trusted leaders instead of concentrating it in one founder, so multiple credible voices lower dependency on any single person while still capturing the trust benefits of a human face.",
     },
   ],
   "content/community-driven-content": [
@@ -25515,6 +25779,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "AI compliance tools like Bynder's Brand Compliance Agent catch mechanical errors like wrong colors or logo placement, but a human-in-the-loop step is still needed for judgment calls before anything ships externally.",
     },
+    {
+      question: "According to the lesson, why is locking brand elements at the platform level (role-based permissions) more effective than simply asking people to follow the rules?",
+      options: [
+        "It is cheaper than building a DAM system",
+        "It enforces compliance structurally, so nobody has to remember or choose to follow a rule because the tool will not let them break it",
+        "It eliminates the need for any human review of content",
+        "It only applies to freelancers, not full-time employees",
+      ],
+      correct: 1,
+      explanation: "The lesson calls this 'governance by design, not by trust': a field rep can edit only the fields a template allows, like a headshot or address, while locked elements like the logo and colors cannot be touched, so enforcement doesn't depend on anyone remembering a policy.",
+    },
   ],
   "brand-strategy/cultural-branding-generations": [
     {
@@ -25560,6 +25835,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Purpose, product truth, and consistency between what a brand says and does have to survive every generational cohort; what shifts is the evidence format, the channel, and the tone of credibility.",
+    },
+    {
+      question: "What does the Coach 'Tabby bag ladder' example (digital Roblox bag, coffee shop drink, book charm, then the full bag) illustrate about Gen Alpha, per the lesson?",
+      options: [
+        "Gen Alpha only responds to traditional print advertising",
+        "Brand preference forms years before purchasing power, through a series of real, affordable touchpoints rather than a toy version of the ad",
+        "Gen Alpha refuses to engage with any brand that has a paid product",
+        "The ladder strategy failed and was discontinued by Coach",
+      ],
+      correct: 1,
+      explanation: "Coach built a deliberate ladder of genuine, affordable touchpoints, from a sub-dollar digital bag on Roblox up to the $400+ physical bag, showing how a brand can build preference with Gen Alpha long before they have the purchasing power for the core product.",
     },
   ],
   "brand-strategy/sonic-branding-audio-identity": [
@@ -25607,6 +25893,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Research on sonic logo length puts the sweet spot around six notes or fewer; Netflix's ta-dum uses two, Intel uses five, both under the recommended ceiling.",
     },
+    {
+      question: "Per the lesson's practical framework, which layer of a sonic identity should a brand build first?",
+      options: [
+        "The full music palette used across every ad format",
+        "The sonic logo (2–6 notes), the single ownable sting used consistently, before investing in the other layers",
+        "The voice identity for IVR and voice assistants",
+        "The written usage-rules document, before any actual sound is created",
+      ],
+      correct: 1,
+      explanation: "The lesson recommends starting with layer one, the sonic logo, noting that a single well-tested 2-3 note sting used consistently for six months beats a lavish, unused music palette; the other layers are meant to be designed around the locked sonic logo.",
+    },
   ],
   "brand-strategy/trademark-brand-protection-basics": [
     {
@@ -25652,6 +25949,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "A proper clearance search checks exact matches, sound-alikes, alternate spellings, and translations, since a court found 'Swagway' created a likelihood of confusion with 'Segway' despite the different spelling, forcing a rename to Swagtron.",
+    },
+    {
+      question: "What happened in the Coffee Culture 'Freddoccino' case described in the lesson?",
+      options: [
+        "Coffee Culture won a countersuit against Starbucks and kept the name",
+        "Starbucks challenged the name as too close to 'Frappuccino,' and the dispute settled with the drink renamed 'Freddo' mid-campaign",
+        "The case was dismissed because drink names cannot be trademarked",
+        "Coffee Culture successfully registered 'Freddoccino' as a federal trademark",
+      ],
+      correct: 1,
+      explanation: "Starbucks challenged 'Freddoccino' as too close to its own 'Frappuccino' mark, and the dispute settled with Coffee Culture renaming the drink to 'Freddo' mid-campaign, another example the lesson uses of an established brand still getting caught out by insufficient trademark clearance.",
     },
   ],
   "content/content-partnerships-co-creation": [
