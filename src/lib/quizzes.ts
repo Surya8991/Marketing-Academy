@@ -8368,6 +8368,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Time-based emails are often irrelevant because they do not reflect what the user has or has not done in the product. Behavior-triggered nudges (such as pointing out a specific next step based on the user's actual progress) are far more contextual and effective.",
     },
+    {
+      question: "A team defines their activation metric as 'user completed the onboarding tour.' Why does the lesson flag this as a vanity metric?",
+      options: [
+        "Completing a wizard is compliance with a guided flow, not proof the user's situation actually changed because of the product.",
+        "Onboarding tours are always too expensive for engineering teams to build and maintain.",
+        "Vanity metrics like this one always show a 0% completion rate in analytics tools.",
+        "Onboarding tours are illegal to track under most data privacy regulations.",
+      ],
+      correct: 0,
+      explanation: "The lesson's test for a real activation event is whether completing it means the user's situation has measurably changed, as with Dropbox's cross-device file sync. Finishing a scripted tour only proves the user clicked through it, not that they experienced value.",
+    },
   ],
 
   "growth/activation-rate": [
@@ -8414,6 +8425,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Sales-led activation is higher because sales reps hand-hold the user to the value milestone. PLG products must replicate this high-touch guidance within the product interface (using onboarding, templates, and walkthroughs) to achieve similar activation rates self-serve.",
+    },
+    {
+      question: "The lesson's Step 5 says to segment activation rate by acquisition channel. Why does this matter for deciding where to invest?",
+      options: [
+        "Paid social activation typically runs 30 to 60 percentage points below organic referral, so a blended average can hide channels that are quietly burning CAC.",
+        "Acquisition channel has no measurable effect on activation rate, so segmentation is only useful for finance reporting.",
+        "Segmenting by channel is required by law for any company running paid advertising campaigns.",
+        "Organic and paid channels always activate at the same rate once onboarding is optimized.",
+      ],
+      correct: 0,
+      explanation: "An average activation rate can mask a channel-level problem: low-intent paid traffic can drag the blended number down while organic referral performs well, so segmenting first tells you whether to fix the product or fix the channel mix.",
     },
   ],
 
@@ -8462,6 +8484,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "A streak represents a significant user investment. Duolingo's Streak Freeze allows users to save that investment even if they miss a day, which reduced the discouragement of losing progress and cut churn by 21% for at-risk users.",
     },
+    {
+      question: "How does Spotify Wrapped illustrate the investment-to-reward connection in an engagement loop?",
+      options: [
+        "Users passively invest a year of listening data, which pays out in December as a personalized shareable report that becomes a trigger for new users when friends see it shared.",
+        "Wrapped charges users a small fee each December to unlock their own listening statistics.",
+        "Wrapped removes the need for a trigger stage entirely by auto-publishing to every user's account.",
+        "Wrapped is a fixed, predictable reward that Spotify intentionally keeps identical every year to build habit.",
+      ],
+      correct: 0,
+      explanation: "Wrapped shows investment paying off as reward: twelve months of passively invested data becomes a personalized report, and sharing that report acts as an external trigger for other people, closing the loop and pulling in new users.",
+    },
   ],
 
   "growth/experimentation-program": [
@@ -8508,6 +8541,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "An archive preserves learnings. Without a searchable repository of past hypotheses, designs, and readouts, teams will inevitably repeat old experiments, losing valuable velocity and wasting engineering resources.",
+    },
+    {
+      question: "How do the ICE and PXL prioritization frameworks differ in the lesson's Gear 2 (Prioritization)?",
+      options: [
+        "ICE is a fast, lightweight scoring method good for early-stage programs, while PXL is stricter and forces evidence-based checks like prior research and past similar tests, suiting mature programs.",
+        "ICE and PXL are two names for the exact same scoring formula used interchangeably at every company.",
+        "PXL is used only for calculating statistical significance, while ICE is used only for calculating sample size.",
+        "ICE requires executive sign-off on every test, while PXL allows any team member to launch tests unreviewed.",
+      ],
+      correct: 0,
+      explanation: "ICE (Impact x Confidence x Ease) is quick and works well when a program is just getting started, while PXL adds stricter evidentiary requirements, such as prior user research and above-the-fold checks, that fit teams with more testing maturity.",
     },
   ],
 
@@ -8556,6 +8600,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "The hybrid GTM model provides a permanently free base tier to drive massive distribution and habit formation, and offers a time-limited trial of premium/Pro features. This creates conversion urgency without locking users out of the core product when the trial ends.",
     },
+    {
+      question: "Why does the lesson warn against running a 30-day trial for a product whose users reach their aha moment in 20 minutes?",
+      options: [
+        "A trial longer than the activation window just delays the buying decision by weeks without adding value; shorter trials with strong onboarding consistently outperform long trials with weak onboarding.",
+        "Trials longer than 30 days are technically impossible to implement in most billing systems.",
+        "A 30-day trial always converts better than a 7-day trial regardless of how fast users find value.",
+        "Long trials are only a problem for freemium products, never for free-trial products.",
+      ],
+      correct: 0,
+      explanation: "If users can reach their core value moment in 20 minutes, a 30-day window just gives them a month to procrastinate on a decision they were ready to make almost immediately, so trial length should match, not exceed, the real activation window.",
+    },
   ],
 
   "growth/growth-loops": [
@@ -8602,6 +8657,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Getting a single growth loop to compound (loop factor > 1.0) is hard and requires focused experimentation at every step. Splitting resources across multiple loops usually results in several incomplete, leaky flywheels that fail to spin.",
+    },
+    {
+      question: "Which of the four core loop types described in the lesson does Pinterest and Glassdoor best represent, and what makes it distinct from a viral/UGC loop?",
+      options: [
+        "A content/SEO loop, where user activity generates indexable pages that rank in search and pull in new organic traffic, rather than spreading through direct sharing between people.",
+        "A sales-assisted loop, where account executives manually onboard each new company one at a time.",
+        "A paid loop, where revenue from existing customers is spent entirely on search engine advertising.",
+        "A viral/UGC loop, identical in mechanism to Canva's watermark-sharing loop.",
+      ],
+      correct: 0,
+      explanation: "The lesson lists content/SEO loops (Pinterest, Glassdoor, Reddit, Tripadvisor) as a distinct type from viral/UGC loops: growth comes from user-generated pages accumulating search rankings and organic traffic, not from people directly sharing artifacts with each other.",
     },
   ],
 
@@ -8650,6 +8716,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 0,
       explanation: "ICE lacks a 'Reach' variable. Consequently, a high-impact, high-ease feature that only affects 100 power users can easily outscore a lower-impact onboarding change that affects 10,000 new signups. For major roadmaps, RICE is preferred because it accounts for Reach.",
     },
+    {
+      question: "What is the most common mistake growth teams make when filling in the Reach variable of a RICE score?",
+      options: [
+        "They estimate Reach from memory instead of pulling an actual 90-day user count from an analytics tool like GA4.",
+        "They calculate Reach as a percentage instead of a raw user count.",
+        "They let the engineering team assign the Reach score instead of the PM.",
+        "They round Reach up to the nearest 1,000 users to simplify the math.",
+      ],
+      correct: 0,
+      explanation: "Estimating Reach from memory ('about 10,000 users') skews the whole backlog toward whatever surface the team personally uses most. Pulling a real 90-day count from analytics keeps the ranking grounded in actual traffic, not internal bias.",
+    },
   ],
 
   "growth/network-effects": [
@@ -8696,6 +8773,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Spreading users too thin globally or across too many industries means they will never encounter each other, leaving the network value low. Concentrating on one city (like Uber in SF) or one niche ensures users interact frequently, tipping the local network effect.",
+    },
+    {
+      question: "Waze becoming more accurate as more drivers use it to report traffic and hazards is an example of which type of network effect?",
+      options: [
+        "Direct network effect, because every driver connects to every other driver directly.",
+        "Data network effect, because more usage generates more data that improves the product for everyone, though gains taper off at scale.",
+        "Social/tribal network effect, because drivers share a common identity as commuters.",
+        "Protocol network effect, because Waze relies on a shared technical standard like Bitcoin's blockchain.",
+      ],
+      correct: 1,
+      explanation: "Waze's value grows as more drivers contribute reports, but each additional data point adds less than the last, which is the defining, asymptotic signature of a data network effect, distinct from direct effects like WhatsApp where value scales with connections squared.",
     },
   ],
 
@@ -8744,6 +8832,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Personalization avoids a generic experience. By understanding the user's role and goal upfront, you can present pre-filled templates and walkthroughs tailored to their specific use case, which improves activation and long-term retention.",
     },
+    {
+      question: "According to the onboarding playbook, what should a team do first when designing an activation strategy?",
+      options: [
+        "Build a comprehensive product tour covering every major feature.",
+        "Pick the single user behavior most correlated with week-4 retention and write it down, not five behaviors.",
+        "Require billing information upfront so only serious users proceed.",
+        "Launch a checklist widget so users can track their own onboarding progress.",
+      ],
+      correct: 1,
+      explanation: "The playbook's Step 1 is defining one activation event (like Slack's 2,000 team messages or Figma's second collaborator on a file). A single, simple target keeps the entire onboarding flow pointed at the behavior that actually predicts retention, rather than diffusing effort across a checklist that only 10.1% of users complete anyway.",
+    },
   ],
 
   "growth/plg": [
@@ -8790,6 +8889,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "High-performing PLG companies grow their revenue base from existing accounts. As users hit natural ceilings (e.g., seats, storage, API calls), they upgrade their plans, driving expansion revenue and pushing Net Revenue Retention (NRR) above 120%.",
+    },
+    {
+      question: "Why do opt-out free trials convert at nearly double the rate of standard opt-in free trials (48.8% vs. 18-25%)?",
+      options: [
+        "Opt-out trials are legally required to auto-renew, so users have no choice but to pay.",
+        "Opt-out trials give users full paid-tier access immediately, so leaving requires an active cancel decision instead of an active decision to start paying.",
+        "Opt-out trials only target enterprise buyers who never cancel subscriptions.",
+        "Opt-out trials remove the credit card requirement entirely, so no one is ever charged by mistake.",
+      ],
+      correct: 1,
+      explanation: "In an opt-in trial, staying uninvolved means never paying. In an opt-out trial, staying uninvolved means becoming a paying customer, so users experience full value and must take deliberate action to leave, which is a much higher-friction choice than deciding to upgrade.",
     },
   ],
 
@@ -8838,6 +8948,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Morning Brew readers had high brand affinity. Wearing a Morning Brew t-shirt or using their pint glass was a badge of identity and status. This emotional connection made physical milestones highly effective, converting 30% of readers into referrers.",
     },
+    {
+      question: "How does the timing of a referral reward affect an advocate's likelihood of referring again?",
+      options: [
+        "Reward timing has no measurable effect on repeat referral behavior.",
+        "Rewards delivered after a waiting period build more anticipation and outperform immediate rewards.",
+        "Rewards delivered immediately after the referred friend's first action outperform delayed rewards by 2.6x in repeat referral behavior.",
+        "Rewards must be withheld until the referred friend has been active for 90 days to prevent fraud.",
+      ],
+      correct: 2,
+      explanation: "Immediate rewards confirm to the advocate that the referral system actually works, which builds the confidence to share again. Extole's data shows a 2.6x lift in repeat referrals when rewards fire right after the friend's first action instead of after a delay.",
+    },
   ],
 
   "growth/retention-cohorts": [
@@ -8884,6 +9005,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Net Revenue Retention (NRR) accounts for the net changes in revenue, including expansion, contraction, and churn. Gross Revenue Retention (GRR) only measures the ability to retain the revenue you started with, excluding any expansion, meaning it caps at 100%.",
+    },
+    {
+      question: "Why does the lesson emphasize leading indicators like Week 1 feature adoption over retention itself when trying to improve a product?",
+      options: [
+        "Leading indicators are easier to fake in investor reports than retention numbers.",
+        "Retention is a lagging metric, so by the time the curve shows decay the users are already lost, while leading indicators predict retention before it turns down.",
+        "Leading indicators eliminate the need to segment cohorts by acquisition source.",
+        "Retention curves cannot be measured for B2B SaaS products, only leading indicators can.",
+      ],
+      correct: 1,
+      explanation: "Retention only reveals a problem after users have already churned. Signals like time-to-first-value and Week 1 feature adoption move earlier in the funnel, which is why a 5% gain in Week 1 retention translates into roughly a 20% gain by Week 10, leaving time to intervene before the cohort's fate is sealed.",
     },
   ],
 
@@ -8932,6 +9064,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Reverse trials are product-led growth (PLG) tactics that require self-serve value realization within a 14-30 day window. They are ineffective for complex enterprise sales cycles where procurement and IT sign-offs take months.",
     },
+    {
+      question: "Why does unlocking every premium feature at once during a reverse trial tend to hurt rather than help conversion?",
+      options: [
+        "It increases cloud hosting costs enough to make the trial unprofitable regardless of conversion rate.",
+        "It dilutes the signal from the trial, making it unclear which specific features drove upgrades or which specific loss drove non-converters away.",
+        "Most billing systems cannot technically support more than 3 unlocked features at a time.",
+        "It violates App Store and Play Store policies on trial feature disclosure.",
+      ],
+      correct: 1,
+      explanation: "The lesson's 'unlocking the wrong features' mistake warns that exposing everything at once means you can't tell which feature actually compelled an upgrade, and non-converters experienced so much that no single loss feels sharp enough to drive a decision. Sequencing exposure around the clearest 'aha moment' features keeps the signal clean.",
+    },
   ],
 
   "growth/two-sided-marketplaces": [
@@ -8978,6 +9121,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Disintermediation bypasses the marketplace's take-rate. To prevent users from going off-platform, marketplaces build features that add ongoing value to the transaction itself (such as Airbnb's insurance, trust ratings, and secure escrow payments).",
+    },
+    {
+      question: "What is the 'Single-Player Mode Test' for a two-sided marketplace, as illustrated by Yelp and Notion?",
+      options: [
+        "A requirement that new marketplaces launch in only one city before expanding nationally.",
+        "Checking whether the product can deliver real value to just one side before both sides exist, which lowers the cost of acquiring your first side.",
+        "A stress test that simulates a single overloaded server handling all marketplace transactions.",
+        "A rule that only one founder should manage supply-side recruitment during the cold-start phase.",
+      ],
+      correct: 1,
+      explanation: "Yelp worked as a standalone review site before it became a restaurant marketplace, and Notion worked as a personal tool before it became team collaboration software. If a product has a strong single-player mode, it has a wedge for acquiring its first side without needing both sides to exist simultaneously.",
     },
   ],
 
@@ -9026,6 +9180,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "A two-sided incentive rewards both the existing user (referrer) and the new user (referee), making it feel like a helpful gift rather than a sales pitch. Research shows two-sided rewards produce 3x higher participation rates than one-sided offers.",
     },
+    {
+      question: "Why does viral cycle time matter alongside the K-factor itself?",
+      options: [
+        "Cycle time only affects paid acquisition channels, not referral-driven growth.",
+        "A lower K-factor with a short cycle time can compound faster than a higher K-factor with a long cycle time, since compounding depends on how quickly each generation of users can refer the next.",
+        "Cycle time determines the dollar value of the referral incentive a company can afford to offer.",
+        "Products with cycle times longer than 7 days cannot achieve a K-factor above 0.",
+      ],
+      correct: 1,
+      explanation: "The lesson notes that a K of 0.5 with a 2-day cycle compounds much faster than a K of 0.8 with a 30-day cycle, because K measures the size of each generation while cycle time measures how often a new generation is produced. Shortening time-to-first-share is its own lever, independent of raising i or c.",
+    },
   ],
 
   "growth/what-is-growth": [
@@ -9072,6 +9237,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Running overlapping tests on the same user segment makes it impossible to isolate which change led to the result. To preserve data integrity, teams must run one clean test per funnel stage at a time or use advanced multivariate setups.",
+    },
+    {
+      question: "In the ICE scoring method for prioritizing growth experiments, what does the 'E' represent?",
+      options: [
+        "Engagement, how many users interacted with the test variant during the run.",
+        "Ease, how fast and cheap the experiment is to implement.",
+        "Evidence, how many prior case studies support the hypothesis.",
+        "Expense, the total paid media budget required to run the test.",
+      ],
+      correct: 1,
+      explanation: "ICE stands for Impact, Confidence, and Ease. Ease specifically scores how fast and cheap a test is to implement, so growth teams can prioritize high-impact, high-confidence, low-effort tests before tackling costlier ones.",
     },
   ],
 
@@ -15734,7 +15910,18 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "While standard freemium models convert at 2-5% of signups, optimized reverse trials frequently achieve free-to-paid conversion rates of 15% to 25% (and up to 32% for top performers) due to increased activation and loss aversion."
-    }
+    },
+    {
+      question: "In the 2025 project management SaaS example, what distinguished the users who converted to paid at 34% from those who converted at just 6%?",
+      options: [
+        "The 34% group paid via annual billing while the 6% group paid monthly.",
+        "The 34% group engaged with the automation feature at least three times during the trial, while the 6% group never touched it.",
+        "The 34% group was on a 30-day reverse trial while the 6% group was on a 14-day trial.",
+        "The 34% group received a personal onboarding call from sales.",
+      ],
+      correct: 1,
+      explanation: "The case study shows that actual feature adoption during the trial window, not merely being granted access, is what drives conversion: users who engaged with automation three or more times converted at 34%, versus 6% for users who never used it.",
+    },
   ],
 
   "social/short-form-video-algorithms": [
@@ -16393,6 +16580,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Retention tracks whether users return after their initial visit or use. It is the most direct measure of ongoing perceived value and is often called the most important AARRR metric.",
     },
+    {
+      question: "According to the AARRR framework, what three components must a deliberately engineered Referral loop include?",
+      options: [
+        "A landing page, a pricing table, and a signup form.",
+        "A trigger (when you ask), a mechanic (what users share), and an incentive (why they share).",
+        "A CRM integration, a customer support ticket, and a satisfaction survey.",
+        "A press release, an influencer partnership, and a paid ad campaign.",
+      ],
+      correct: 1,
+      explanation: "The lesson states referral rarely happens organically at scale and must be built deliberately with three parts: a trigger for when to ask, a mechanic for what gets shared, and an incentive for why users bother sharing, as seen in Dropbox's and Airbnb's engineered referral programs.",
+    },
   ],
 
   "growth/ab-testing": [
@@ -16420,6 +16618,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Hypothesis and sample size must be defined before the test starts. Peeking and stopping early, or changing the hypothesis mid-test, introduces bias and inflates false positive rates.",
     },
+    {
+      question: "A test reaches p < 0.05 with a 0.3% lift on a low-traffic page, driven by a huge sample size. What should the team do?",
+      options: [
+        "Ship it immediately, since statistical significance is the only bar that matters",
+        "Check whether the annualized revenue or conversion impact clears the team's minimum bar before deciding to ship",
+        "Re-run the test with a smaller sample to confirm the result",
+        "Discard the result entirely, since low lifts are always noise",
+      ],
+      correct: 1,
+      explanation: "Statistical significance only tells you the effect is probably real, not that it's worth shipping. A 0.3% lift can hit p < 0.05 with a large enough sample while still being too small to justify an engineering sprint, so the team must separately check practical significance.",
+    },
   ],
 
   "growth/north-star-metric": [
@@ -16446,6 +16655,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       options: ["Weekly active teams using the core feature", "Number of tasks completed per user per week", "Total page views per month", "Number of integrations activated per account"],
       correct: 2,
       explanation: "Page views are a vanity metric that doesn't indicate value delivery or engagement depth. A strong NSM must reflect the core action that signals users are getting the product's primary benefit.",
+    },
+    {
+      question: "A pre-product-market-fit startup is unsure whether customers actually want its product yet. What should it track instead of obsessing over choosing a North Star Metric?",
+      options: [
+        "Total revenue growth month over month",
+        "Cohort retention, the percentage of users from a given signup month still active a few months later",
+        "Number of input metrics decomposed from a candidate NSM",
+        "Competitor benchmarking against similar products",
+      ],
+      correct: 1,
+      explanation: "Before product-market fit is confirmed, cohort retention is the clearest signal of whether customers genuinely value the product. Picking an NSM before that is 'tuning the engine of a car with no steering wheel'; fix retention first, then define the NSM once it's confirmed people stick around.",
     },
   ],
 
@@ -20543,6 +20763,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 3,
       explanation: "The final ship/kill/iterate decision belongs entirely to humans. AI compresses hypothesis generation, statistical analysis, and data quality flagging, but cannot apply domain context, such as novelty periods or segment behavior differences, needed to judge whether an effect is real and worth acting on.",
     },
+    {
+      question: "An LLM generates 10 hypotheses from session data and a PM runs all 10 in parallel, and 8 fail. What does the lesson identify as the underlying mistake?",
+      options: [
+        "The PM should have used ICE scoring instead of RICE scoring",
+        "The PM ran too few hypotheses to reach statistical power",
+        "The PM treated AI-generated hypotheses as ground truth instead of sanity-checking them against domain knowledge, like knowing freemium users have no budget to upgrade",
+        "The LLM's session data analysis was too slow to be useful",
+      ],
+      correct: 2,
+      explanation: "LLMs generate plausible hypotheses, not ground-truth ones, they don't know facts like 'freemium users have zero budget' or 'enterprise customers get trained by sales.' The lesson's safeguard is using AI to generate options fast but letting human domain knowledge filter to the 2-3 worth testing.",
+    },
   ],
   "growth/b2b-growth-loops": [
     {
@@ -20588,6 +20819,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "B2C loops succeed on fun and social discovery, but B2B loops require business-oriented outputs, the feedback that compels repetition must be measurable ROI, not entertainment or social status.",
+    },
+    {
+      question: "Why does seat-based or per-action pricing (like Figma's free seats or Zapier's per-automation charges) act as an accelerant for B2B growth loops rather than just a discount?",
+      options: [
+        "It guarantees a higher average contract value than flat-rate pricing",
+        "It removes the need for a sales team entirely",
+        "It aligns incentives so that inviting more users or activating more integrations costs the company almost nothing while increasing perceived value, until usage naturally justifies a paid upgrade",
+        "It simplifies the invoicing process for finance teams",
+      ],
+      correct: 2,
+      explanation: "If Figma charged per user or Zapier charged per user instead of per automation, their respective invite and ecosystem loops would break, the marginal cost of adding a new seat or automation is near zero, so usage can compound until the free-tier ceiling makes the business case for upgrading ironclad.",
     },
   ],
   "growth/community-led-growth": [
@@ -20635,6 +20877,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Above approximately 150 meaningful relationships (the Dunbar threshold), humans default to passive consumption rather than active participation. Segmenting into chapters or cohorts before crossing this threshold preserves the high-engagement culture that powers CLG.",
     },
+    {
+      question: "A company launches a champion program by identifying and recruiting top members, but gives them no private channel, no product team sync, and no content calendar. What does the lesson predict?",
+      options: [
+        "The champions will naturally self-organize within 30 days",
+        "The program will decay within 90 days because activation, the structural support step, was skipped",
+        "The champions will convert into full-time employees",
+        "Community-qualified lead scoring will become more accurate",
+      ],
+      correct: 1,
+      explanation: "The lesson names identify, recruit, and activate as the three required phases, and specifically warns that activation, giving champions structure like a private channel and content calendar, is the step most teams skip. Without it, champion programs decay within 90 days.",
+    },
   ],
   "growth/product-led-sales": [
     {
@@ -20680,6 +20933,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Product usage events flow from analytics tools like Mixpanel or Segment into a PQL scoring engine, which then enriches CRM contact records with scores, feature usage, and seat counts. This ensures reps see live usage context before making contact.",
+    },
+    {
+      question: "How does the CAC payback period for sales-assisted PQL conversions compare to traditional sales-led motions?",
+      options: [
+        "Sales-assisted PQLs take 12-18 months to pay back, versus 3-6 months for traditional sales-led deals",
+        "Sales-assisted PQLs pay back in 3-6 months, versus 12-18 months for traditional sales-led motions",
+        "Both motions average the same 9-month payback period",
+        "PQL payback periods cannot be measured because product usage data isn't tied to revenue",
+      ],
+      correct: 1,
+      explanation: "Because usage data pre-qualifies intent before a rep ever calls, sales-assisted PQLs close with a 3-6 month CAC payback, compared to 12-18 months for traditional sales-led motions, which is why the lesson frames PLS as compressing time-to-ROI on every sales hire.",
     },
   ],
   "paid-ads/ai-max-broad-match": [
@@ -24454,6 +24718,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Fake scarcity counters are the single most-cited dark pattern in the FTC's own report; real scarcity is legitimate, but fabricated scarcity misrepresents a real fact to change consumer behavior.",
     },
+    {
+      question: "What makes a referral program cross into dark-pattern territory, according to the lesson?",
+      options: [
+        "Offering any kind of monetary reward for a successful referral",
+        "Misrepresenting what the reward actually is, such as implying '$20 each' while delivering expiring store credit, or silently enrolling a referrer's contacts without clear consent",
+        "Letting existing customers invite friends at all",
+        "Tracking referral conversions in an analytics dashboard",
+      ],
+      correct: 1,
+      explanation: "The lesson is explicit that the referral mechanic itself is not the problem; misrepresenting the reward or silently enrolling contacts (the 'friend spam' pattern) is what turns a legitimate growth channel into a liability.",
+    },
   ],
   "growth/growth-team-operating-cadence": [
     {
@@ -24499,6 +24774,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The lesson calls out these as two of the common cadence failure modes: turning the review into status theater, and burning meeting time on prioritization math that should happen async beforehand.",
+    },
+    {
+      question: "What does the lesson say distinguishes Booking.com's high experiment volume from simply having a high-cadence meeting schedule?",
+      options: [
+        "Booking.com runs no meetings at all and relies purely on automation",
+        "Booking.com's culture minimizes bureaucracy per experiment so employees can test without defending a hypothesis to a committee first, meaning high cadence does not require high ceremony",
+        "Booking.com only tests once per quarter but at massive scale",
+        "Booking.com outsources all experimentation to an external agency",
+      ],
+      correct: 1,
+      explanation: "The lesson warns against 'confusing volume with cadence': Booking.com runs 1,000+ concurrent experiments partly because reviewing one is routine rather than a bureaucratic event, showing the ceremony that exists just needs to happen reliably, not be elaborate.",
     },
   ],
   "growth/localization-for-growth": [
@@ -24546,6 +24832,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "The lesson notes Uber solved the visible localization problem (offering local payment options) but not the actual one: making that payment experience as frictionless as Didi's password-free Alipay/WeChat agreement.",
     },
+    {
+      question: "What does the lesson's Atlassian example illustrate about pricing for international expansion?",
+      options: [
+        "Atlassian charges the exact same price everywhere after simple currency conversion",
+        "Atlassian prices roughly 40% lower in Brazil than in the U.S. once adjusted for purchasing power parity, because converting at the exchange rate is arithmetic, not real pricing",
+        "Atlassian avoids the Brazilian market entirely due to pricing complexity",
+        "Atlassian raises prices in emerging markets to offset localization costs",
+      ],
+      correct: 1,
+      explanation: "The lesson uses Atlassian to show that a flat currency conversion either prices you out of a market or leaves revenue on the table; pricing against local purchasing power (PPP), not the exchange rate, is what lets Atlassian grow in Brazil.",
+    },
   ],
   "growth/net-revenue-retention": [
     {
@@ -24591,6 +24888,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The lesson highlights usage-triggered expansion campaigns, health-score-driven lifecycle journeys, and activation-focused onboarding content as marketing-owned, measurable levers that move NRR.",
+    },
+    {
+      question: "Per the lesson's compounding math, what happens to a $10M ARR base held at 120% NRR with zero new customer acquisition over five years?",
+      options: [
+        "It stays flat at $10M since NRR only prevents shrinkage",
+        "It grows to roughly $24.9M purely from existing accounts expanding, with no new sales counted",
+        "It shrinks to about $6M due to compounding churn",
+        "It doubles exactly to $20M every three years regardless of NRR level",
+      ],
+      correct: 1,
+      explanation: "The lesson uses this figure to show why investors weight NRR so heavily: a sustained 120% NRR compounds a revenue base roughly 2.5x over five years from existing accounts alone, before counting a single new customer.",
     },
   ],
   "mental-models/chestertons-fence": [
@@ -26842,6 +27150,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 0,
       explanation: "The lesson warns that a prediction without a defined save-motion workflow wastes the entire investment; the risk score has to route to a matching action (human call, automated nudge, onboarding walkthrough) or it's just a dashboard nobody acts on.",
     },
+    {
+      question: "Which signal does the lesson identify as giving the earliest lead time before churn, and how many days of warning does it provide?",
+      options: [
+        "Support ticket volume, providing about 10 days of lead time",
+        "Login frequency decline, providing roughly 60 days of lead time before churn",
+        "Feature-adoption stalling, providing about 5 days of lead time",
+        "Billing data anomalies, providing roughly 90 days of lead time",
+      ],
+      correct: 1,
+      explanation: "The lesson cites login frequency decline as the earliest tell within the usage-decline signal family, giving roughly 60 days of lead time, ahead of feature-level usage tracking's 3-6 week lead over billing-data-only approaches.",
+    },
   ],
   "growth/building-in-public": [
     {
@@ -26887,6 +27206,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The lesson flags inconsistent posting rhythm as a common mistake and recommends choosing weekly, monthly, or milestone-based cadence and sticking with it for at least two quarters, noting daily MRR screenshots are actually in decline by 2026.",
+    },
+    {
+      question: "Per the lesson's cadence framework table, which rhythm does it say most solo founders and small teams do best with, and why?",
+      options: [
+        "Daily updates, because audiences reward constant posting above all else",
+        "Monthly recaps, because they are frequent enough to keep an audience engaged but infrequent enough that each post has something real to say",
+        "Weekly deep-dive essays, because founders have unlimited time to write them",
+        "Milestone-based only, because monthly and weekly cadences always cause burnout",
+      ],
+      correct: 1,
+      explanation: "The lesson's cadence table lists weekly, monthly, and milestone-based rhythms, but concludes most solo founders and small teams do best with monthly recaps for exactly this frequency-versus-substance balance.",
     },
   ],
   "mental-models/availability-heuristic-marketing": [
