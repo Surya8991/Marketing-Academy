@@ -4933,6 +4933,297 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "pmm-vs-marketing-role-scope-audit",
+    "category": "product-marketing",
+    "lessonSlug": "pmm-vs-marketing",
+    "lessonTitle": "PMM vs Marketing vs Product",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Whose Job Is This? Auditing a Messy Sprint Board for PMM vs Marketing Ownership",
+    "timeMinutes": 25,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Sorting tasks by primary owner using the goal/output/audience dimensions",
+      "Distinguishing demand generation from positioning and enablement work"
+    ]
+  },
+  {
+    "id": "pmm-vs-marketing-positioning-statement-build",
+    "category": "product-marketing",
+    "lessonSlug": "pmm-vs-marketing",
+    "lessonTitle": "PMM vs Marketing vs Product",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Draft a One-Page Positioning Statement Using the PMM Playbook",
+    "timeMinutes": 30,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Answering the four positioning questions before writing any external copy",
+      "Building a message hierarchy for two different audiences from one positioning doc"
+    ]
+  },
+  {
+    "id": "competitive-intel-battlecard-audit",
+    "category": "product-marketing",
+    "lessonSlug": "competitive-intel",
+    "lessonTitle": "Competitive Intelligence",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Stale Battlecard: Auditing a Competitor Brief Against Fresh Signals",
+    "timeMinutes": 30,
+    "companyId": "snowflake",
+    "conceptsCovered": [
+      "Tagging signals by type and confidence before acting on them",
+      "Routing insight to the moment it matters most in a live deal"
+    ]
+  },
+  {
+    "id": "competitive-intel-battlecard-build",
+    "category": "product-marketing",
+    "lessonSlug": "competitive-intel",
+    "lessonTitle": "Competitive Intelligence",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Battlecard From a Raw Competitive Signal Dataset",
+    "timeMinutes": 50,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Sorting raw signals into the four collection source categories",
+      "Answering what changed, why, and what it means during analysis",
+      "Structuring a battlecard for the moment a rep opens it mid-call"
+    ]
+  },
+  {
+    "id": "battlecard-teardown-casper-sleep",
+    "category": "product-marketing",
+    "lessonSlug": "battlecard-design-adoption",
+    "lessonTitle": "Battlecard Design & Sales Rep Adoption",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Find the Defects: Tearing Down a Live-Call Battlecard",
+    "timeMinutes": 25,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Landmine question placement",
+      "Talk tracks written as dialogue, not description",
+      "Visible last-updated date for pricing trust"
+    ]
+  },
+  {
+    "id": "battlecard-build-allbirds-landmine",
+    "category": "product-marketing",
+    "lessonSlug": "battlecard-design-adoption",
+    "lessonTitle": "Battlecard Design & Sales Rep Adoption",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Card: Landmine Question and Talk Track for a Live Deal",
+    "timeMinutes": 30,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "Landmine question that surfaces a known weakness before the competitor can hide it",
+      "Visible last-updated date builds rep trust"
+    ]
+  },
+  {
+    "id": "enablement-audit-squarespace-kit",
+    "category": "product-marketing",
+    "lessonSlug": "sales-enablement",
+    "lessonTitle": "Sales Enablement",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Audit the Kit: Does This Bundle Survive Discover-Create-Deliver-Measure?",
+    "timeMinutes": 30,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "Discovery before creation prevents assumption-built content",
+      "Delivery method determines whether content gets used"
+    ]
+  },
+  {
+    "id": "enablement-build-casper-sleep-launch-kit",
+    "category": "product-marketing",
+    "lessonSlug": "sales-enablement",
+    "lessonTitle": "Sales Enablement",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Launch Kit: Battlecard, Deck Outline, and Objection Guide",
+    "timeMinutes": 70,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Building assets in order of impact, starting with what unblocks the most deals",
+      "Sales deck follows a consistent problem-solution-proof-next-step arc",
+      "Objection-handling guides built from call recordings, not guesswork",
+      "Tracking content usage rate after launch"
+    ]
+  },
+  {
+    "id": "pricing-packaging-value-metric-tier-build",
+    "category": "product-marketing",
+    "lessonSlug": "pricing-packaging",
+    "lessonTitle": "Pricing and Packaging",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a Value-Metric-Based Tier Structure",
+    "timeMinutes": 30,
+    "companyId": "mailchimp",
+    "conceptsCovered": [
+      "Choosing a value metric that scales with customer success",
+      "Designing a three-tier architecture with upgrade triggers"
+    ]
+  },
+  {
+    "id": "pricing-packaging-tier-sheet-audit",
+    "category": "product-marketing",
+    "lessonSlug": "pricing-packaging",
+    "lessonTitle": "Pricing and Packaging",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Packaging Review: Auditing a Draft Pricing Sheet for the Six Common Mistakes",
+    "timeMinutes": 45,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Diagnosing cost-plus vs value-based pricing",
+      "Evaluating billing model fit against customer usage variance",
+      "Diagnosing feature-gating of features customers need to succeed"
+    ]
+  },
+  {
+    "id": "customer-interviews-leading-question-calibration",
+    "category": "product-marketing",
+    "lessonSlug": "customer-interviews",
+    "lessonTitle": "Customer Interviews",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "calibration",
+    "title": "Calibrating a Win-Loss Interview Script for Leading Questions",
+    "timeMinutes": 25,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Distinguishing open questions from leading questions in a research script"
+    ]
+  },
+  {
+    "id": "customer-interviews-loss-signal-reverse-engineer",
+    "category": "product-marketing",
+    "lessonSlug": "customer-interviews",
+    "lessonTitle": "Customer Interviews",
+    "tier": "mini",
+    "archetype": "reverse-engineer",
+    "mode": "diagnostic",
+    "title": "The Polite Answer vs. the Real Reason: Reverse-Engineering a Loss Interview",
+    "timeMinutes": 30,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Reverse-engineering the real objection from stated vs. revealed reasons"
+    ]
+  },
+  {
+    "id": "win-loss-loss-reason-audit",
+    "category": "product-marketing",
+    "lessonSlug": "win-loss-analysis",
+    "lessonTitle": "Win/Loss Analysis",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Loss Reason Postmortem: Auditing a Win-Loss Interview Dataset",
+    "timeMinutes": 45,
+    "companyId": "grab",
+    "conceptsCovered": [
+      "Using CRM data as a substitute for buyer interviews",
+      "Quantifying themes across interviews",
+      "Segmenting findings by competitor"
+    ]
+  },
+  {
+    "id": "win-loss-findings-brief-build",
+    "category": "product-marketing",
+    "lessonSlug": "win-loss-analysis",
+    "lessonTitle": "Win/Loss Analysis",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The Findings Brief: Turning Interview Themes into a Stakeholder Action Plan",
+    "timeMinutes": 40,
+    "companyId": "adyen",
+    "conceptsCovered": [
+      "Building a findings brief for each stakeholder",
+      "Closing the loop by tracking action impact"
+    ]
+  },
+  {
+    "id": "ar-eligibility-readiness-audit",
+    "category": "product-marketing",
+    "lessonSlug": "analyst-relations",
+    "lessonTitle": "Analyst Relations",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Eligibility Check: Auditing Analyst Evaluation Readiness",
+    "timeMinutes": 20,
+    "companyId": "nubank",
+    "conceptsCovered": [
+      "Gartner Magic Quadrant eligibility thresholds"
+    ]
+  },
+  {
+    "id": "ar-briefing-calendar-build",
+    "category": "product-marketing",
+    "lessonSlug": "analyst-relations",
+    "lessonTitle": "Analyst Relations",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The Briefing Calendar: Building a Six-Month Analyst Relations Plan",
+    "timeMinutes": 50,
+    "companyId": "grab",
+    "conceptsCovered": [
+      "Mapping the analyst landscape into tiers",
+      "Booking and preparing a 20-minute analyst briefing",
+      "Maintaining a regular briefing cadence ahead of evaluation windows"
+    ]
+  },
+  {
+    "id": "category-pov-builder-coinbase",
+    "category": "product-marketing",
+    "lessonSlug": "category-creation",
+    "lessonTitle": "Category Creation",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Name the Category: Drafting a One-Page Point of View",
+    "timeMinutes": 25,
+    "companyId": "coinbase",
+    "conceptsCovered": [
+      "Passing the three-part category name test"
+    ]
+  },
+  {
+    "id": "category-manifesto-ai-critique-robinhood",
+    "category": "product-marketing",
+    "lessonSlug": "category-creation",
+    "lessonTitle": "Category Creation",
+    "tier": "core",
+    "archetype": "ai-critique",
+    "mode": "diagnostic",
+    "title": "The Manifesto Isn't Working: AI-Critiquing a Weak Category POV",
+    "timeMinutes": 45,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "Distinguishing category creation from rebranding",
+      "Naming the category after your product as a common mistake"
+    ]
+  },
+  {
     "id": "keyword-research-export-audit",
     "category": "seo",
     "lessonSlug": "keyword-research",
