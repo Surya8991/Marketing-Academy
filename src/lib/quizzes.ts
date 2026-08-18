@@ -2975,6 +2975,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Instead of stuffing all context (like location, page, and device) into a single long event name, marketers should use a generic event name (like 'click') and pass specific details as parameters (e.g., 'location: hero', 'page: pricing', 'device: mobile'). This keeps the event data queryable and organized.",
     },
+    {
+      question: "A marketer reports 'total pageviews' and 'total emails sent' as proof a campaign worked, alongside a table showing conversion rate and cost per acquisition (CAC). Which pair belongs to the 'actionable metrics' category the lesson describes?",
+      options: [
+        "Total pageviews and total emails sent",
+        "Conversion rate and cost per acquisition (CAC)",
+        "Total pageviews and conversion rate",
+        "Total emails sent and cost per acquisition (CAC)",
+      ],
+      correct: 1,
+      explanation: "Vanity metrics like total pageviews and emails sent look impressive but do not connect to revenue or decisions. Actionable metrics like conversion rate and CAC tie directly to business outcomes and tell you what to do next.",
+    },
   ],
 
   "analytics/cdp": [
@@ -3021,6 +3032,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "A CDP resolves and forwards whatever event data you feed it. If you ingest inconsistent, duplicate, or unstandardized events without a pre-written tracking plan and dictionary, you will end up with corrupted profiles - a classic case of 'garbage in, garbage out.'",
+    },
+    {
+      question: "A team stops sending raw events to their data warehouse once their CDP is live, reasoning that the CDP already stores everything they need. Why does the lesson call this a mistake?",
+      options: [
+        "CDPs are legally required to delete raw event data within 30 days under GDPR",
+        "The CDP is a router and cache, not the source of truth; the warehouse should hold raw event history so it can be replayed if the CDP is ever replaced",
+        "Warehouses process events faster than CDPs, so skipping the warehouse slows down real-time activation",
+        "CDPs cannot store more than 90 days of historical events, so replay becomes impossible either way",
+      ],
+      correct: 1,
+      explanation: "The lesson explicitly warns against treating the CDP as the source of truth. The CDP routes and caches data, but your warehouse should hold the raw event history from day one, since the CDP itself is replaceable but your event history is not.",
     },
   ],
 
@@ -3069,6 +3091,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "While clean rooms provide valuable attribution reports, the real business value comes from activation - building audiences based on clean room insights (e.g., creating a lookalike audience of high-value buyers or a suppression list of recent purchasers) and sending them back to ad networks to target or exclude in active campaigns.",
     },
+    {
+      question: "A team wants to measure whether their YouTube campaign drove incremental purchases on Amazon's retail platform, and separately wants to run an incrementality test isolating Instagram ad exposure. Which two clean rooms should they use for each question, respectively?",
+      options: [
+        "Google Ads Data Hub (ADH) for the YouTube-to-Amazon question, Amazon Marketing Cloud (AMC) for the Instagram test",
+        "Amazon Marketing Cloud (AMC) for the YouTube-to-Amazon question, Meta Advanced Analytics for the Instagram test",
+        "Meta Advanced Analytics for both questions, since it covers all walled-garden cross-platform joins",
+        "Google Ads Data Hub (ADH) for both questions, since it covers the full Google ecosystem including YouTube",
+      ],
+      correct: 1,
+      explanation: "AMC answers Amazon retail and DSP questions, so it is the room for measuring YouTube's effect on Amazon purchases via an uploaded first-party join. Meta Advanced Analytics answers Facebook and Instagram questions, making it the tool for an Instagram incrementality test.",
+    },
   ],
 
   "analytics/cohort-analysis": [
@@ -3115,6 +3148,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "GA4's default cohort exploration uses device IDs (stored in cookies). If a single user visits your site on both their phone and laptop, they will count as two separate users in your cohort data. To resolve this, teams can enable User-ID tracking, connect GA4 to BigQuery, or use specialized product analytics platforms.",
+    },
+    {
+      question: "A product manager looks at a new onboarding cohort's retention curve after only 2 weeks and declares the redesign a success because the line looks flatter than the previous cohort. What does the lesson say is wrong with this call?",
+      options: [
+        "Cohort curves need 8 to 12 time periods before the flattening point becomes clear, so a week-2 read is noise, not signal",
+        "Retention curves can only be compared using rolling calculation mode, never standard mode",
+        "GA4's cohort exploration tool caps analysis windows at exactly 4 weeks, making the comparison invalid",
+        "Onboarding changes never affect retention curves, only acquisition-channel changes do",
+      ],
+      correct: 0,
+      explanation: "The lesson lists 'calling a winner too early' as one of the four mistakes that waste cohort data: curves need 8 to 12 time periods before the flattening point becomes clear, so judging a redesign at week 2 is reading noise, not a real signal.",
     },
   ],
 
@@ -3163,6 +3207,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 0,
       explanation: "Consent Mode is not a Consent Management Platform: it doesn't render the banner or collect consent itself, it only passes the signal to Google's tags, so a CMP is still required alongside it. Waiting for consent before firing tags, including the v2 ad_user_data/ad_personalization parameters, and forwarding consent updates in real time are all correct practices, not mistakes.",
     },
+    {
+      question: "What action did Google begin taking against EEA/UK Google Ads accounts starting July 21, 2025?",
+      options: [
+        "Automatically upgrading all accounts from Basic to Advanced Consent Mode without notice",
+        "Turning off remarketing, conversion tracking, and demographic reports for accounts that had not implemented Consent Mode v2",
+        "Suspending ad accounts entirely until a Google-certified CMP was installed",
+        "Reducing the ad click threshold required for conversion modeling from 700 to 350 per week",
+      ],
+      correct: 1,
+      explanation: "From July 21, 2025, Google began disabling remarketing, conversion tracking, and demographic reports for EEA/UK accounts that had not implemented Consent Mode v2, turning what had been a recommendation into active enforcement.",
+    },
   ],
 
   "analytics/conversion-tracking": [
@@ -3209,6 +3264,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "If you flag high-volume, low-intent micro-conversions as key events, ad platform bidding algorithms will optimize for those actions because they are cheap and frequent. This shifts ad spend away from driving high-intent, bottom-of-funnel actions like purchases or demo bookings.",
+    },
+    {
+      question: "A team fires a 'purchase' event correctly to GA4 but never passes a currency parameter with it. What does the lesson say happens as a result?",
+      options: [
+        "GA4 rejects the entire event and it never appears in the Events report",
+        "GA4 silently drops the revenue from monetization reports even though the event still fires",
+        "The event is automatically reclassified as a micro-conversion instead of a key event",
+        "Smart bidding treats the missing currency as a signal to increase bids on that campaign",
+      ],
+      correct: 1,
+      explanation: "The lesson lists 'forgetting to pass a currency parameter on purchase events' as a common mistake, noting that GA4 silently drops the revenue from monetization reports when currency is missing, even though the event itself still records.",
     },
   ],
 
@@ -3257,6 +3323,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Real direct traffic (typing a URL or using a bookmark) usually lands on the homepage. If your GA4 reports show 'direct' traffic landing on deep sub-pages (like '/blog/keyword-research-tactics'), those visitors almost certainly clicked a link shared privately via email or messaging apps.",
     },
+    {
+      question: "A B2B software company's 2025 buyer research shows the winning vendor is usually already on a buyer's shortlist before the formal evaluation starts. What does the lesson say actually builds that shortlist?",
+      options: [
+        "Retargeting ads shown during the buyer's research phase",
+        "Private conversations in Slack channels, LinkedIn DMs, and peer forums, not ads",
+        "SEO rankings for the vendor's category keywords",
+        "Paid analyst reports commissioned by the vendor",
+      ],
+      correct: 1,
+      explanation: "The lesson's 6sense data shows 95% of buyers already have their vendor shortlisted before Day One of formal evaluation, built through dark social channels like private Slack groups and DMs, not paid or organic search visibility.",
+    },
   ],
 
   "analytics/dashboards": [
@@ -3303,6 +3380,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "The standard layout hierarchy for rapid scanning places headline KPI scorecards (large numbers) at the top, followed by trend lines showing momentum, then breakdown charts (e.g., by channel or campaign), and finally tables at the bottom for operators who want to drill down.",
+    },
+    {
+      question: "According to the lesson's naming-convention example, why does calling a campaign 'Brand_Search_US_Q1' in Google Ads but 'US Brand Q1 Search' in Meta cause a dashboard problem?",
+      options: [
+        "Looker Studio cannot connect to two ad platforms with different naming schemes at all",
+        "Mismatched naming makes cross-channel reports fail to line up, which is why one agency cut build time from 6 hours to 45 minutes just by standardizing names",
+        "Meta blocks dashboard exports when campaign names contain underscores",
+        "GA4 automatically deletes campaigns with inconsistent naming after 90 days",
+      ],
+      correct: 1,
+      explanation: "The lesson's tip specifically ties inconsistent cross-platform campaign naming to broken cross-channel reporting, and cites an agency that cut per-client dashboard build time from 6 hours to 45 minutes purely by fixing naming conventions before building anything.",
     },
   ],
 
@@ -3351,6 +3439,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 0,
       explanation: "Chart titles should be active headlines that convey the key finding or trend (e.g., 'CAC Rose 37% in Q3'). Using generic labels like 'Customer Acquisition Cost' forces the reader to do the analytical work to find the takeaway.",
     },
+    {
+      question: "Per the lesson's five building blocks of a data story, what role does an annotated trend line (like labeling 'We launched new creatives here') play?",
+      options: [
+        "It serves as the resolution, stating the final recommended action",
+        "It marks the turning point, showing the moment things changed for better or worse",
+        "It represents the tension, the gap between current and target performance",
+        "It is supporting evidence used only to prove the narrative is accurate",
+      ],
+      correct: 1,
+      explanation: "The lesson defines the turning point as the moment a labeled annotation shows what changed, distinct from the tension (the gap stated up front) and the resolution (the action that closes the gap).",
+    },
   ],
 
   "analytics/data-warehouses": [
@@ -3397,6 +3496,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Warehouse-native marketing flips the traditional model: instead of storing customer profiles in siloed ad platforms or CDPs, the data warehouse is the central source of truth. Modeling tools like dbt clean and structure the data, and reverse-ETL tools (like Hightouch or Census) push resolved audiences and lists back out to ad networks and email tools.",
+    },
+    {
+      question: "The lesson describes 'reverse ETL' tools like Hightouch or Census as part of the warehouse-native marketing playbook. What is their specific function in that workflow?",
+      options: [
+        "They import raw ad platform data into the warehouse for the first time",
+        "They push warehouse-built audiences and results back out into tools like Meta, Klaviyo, or Salesforce",
+        "They compress raw GA4 event tables to reduce BigQuery storage costs",
+        "They replace dbt as the modeling layer that builds marts on top of raw data",
+      ],
+      correct: 1,
+      explanation: "Reverse ETL is step 5 of the lesson's playbook: it moves data in the opposite direction of a normal ETL pipeline, taking warehouse-built audiences and pushing them out to activation tools, which is what makes the warehouse 'the source of truth' instead of a read-only report.",
     },
   ],
 
@@ -3445,6 +3555,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Since 40% of visitors enter your site on product pages rather than the homepage, a closed funnel that starts at the homepage will exclude nearly half of your real visitors. This results in inaccurate reporting, making it look like your site has low user entry, when in fact users are entering the funnel at a later stage.",
     },
+    {
+      question: "In the lesson's Jitsi (8x8) example, what did segmenting the funnel by acquisition path reveal that the single aggregate funnel number hid?",
+      options: [
+        "Mobile users converted at half the rate of desktop users",
+        "Users who installed the Chrome extension converted and retained at meaningfully higher rates, so promoting that path doubled Day 7 retention",
+        "Paid traffic converted better than organic traffic across every stage",
+        "Returning visitors dropped off more than first-time visitors at checkout",
+      ],
+      correct: 1,
+      explanation: "The lesson uses Jitsi's case to show why segmentation is underused: the blended funnel number looked ordinary, but segmenting by acquisition path surfaced the Chrome extension cohort's outsized performance, and promoting that path doubled Day 7 retention.",
+    },
   ],
 
   "analytics/heatmaps": [
@@ -3491,6 +3612,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Heatmaps are excellent at showing where interactions happen and how many occur (e.g., highlighting that users are clicking a non-linked image). However, they cannot tell you why users behave this way (e.g., they expect the image to link to a product details page). Marketers must use session recordings, user surveys, or interviews to uncover the qualitative why.",
+    },
+    {
+      question: "The lesson states mouse movement and eye gaze are correlated roughly 84% of the time. Which heatmap type relies on this finding, and why does it matter?",
+      options: [
+        "Scroll maps, because they use mouse position to estimate how far a user reads down a page",
+        "Move maps, because they use cursor tracking as a cheap approximation of where users are actually looking without eye-tracking hardware",
+        "Click maps, because rage clicks are detected by tracking rapid mouse acceleration",
+        "Attention maps, because they use the 84% figure to calculate scroll depth percentages",
+      ],
+      correct: 1,
+      explanation: "The lesson explains move maps track cursor position and lean on the 84% mouse-gaze correlation finding to approximate visual attention without requiring actual eye-tracking hardware, which is a distinct type from scroll, click, and attention maps.",
     },
   ],
 
@@ -3539,6 +3671,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Time-based switchback tests suffer from carryover effects (users who saw ads in 'on' weeks converting during 'off' weeks) and short-term seasonality. This contamination makes it very difficult to isolate pure causal lift compared to running parallel test and control geographic regions.",
     },
+    {
+      question: "During a geo holdout incrementality test, why must the team avoid re-targeting the control group with email or adding them to a lookalike audience?",
+      options: [
+        "It violates GDPR consent requirements for holdout users",
+        "Any contamination of the control group corrupts the comparison, since the holdout must remain untouched by marketing to isolate the ad channel's true causal effect",
+        "It doubles the ad spend required to reach statistical significance",
+        "Ad platforms automatically disqualify tests that include email retargeting",
+      ],
+      correct: 1,
+      explanation: "The playbook's 'hold the holdout sacred' rule exists because the control group's entire purpose is to represent what would have happened with zero marketing exposure. Any contamination, email, lookalikes, promotions, ruins the comparison and makes the measured lift meaningless.",
+    },
   ],
 
   "analytics/kpis-for-marketers": [
@@ -3585,6 +3728,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "A valid KPI must be SMART: Specific (organic active users to /pricing), Measurable (20% increase), Achievable, Relevant (drives business value), and Time-bound (next 90 days). Vague goals like 'get more traffic' fail this test.",
+    },
+    {
+      question: "A marketer is tracking email open rate and CTR (click-through rate) on ad links. Which stage of the KPI funnel do these metrics belong to?",
+      options: [
+        "Awareness KPIs, since they measure how many people saw the brand",
+        "Consideration KPIs, since they measure how interested people are once they have found the brand",
+        "Conversion KPIs, since they measure completed purchases",
+        "Retention KPIs, since they measure repeat engagement after purchase",
+      ],
+      correct: 1,
+      explanation: "The lesson's four-stage funnel places CTR and email open rate under Consideration KPIs, they measure interest and engagement after someone has discovered the brand, but before a purchase decision (Conversion) or a repeat relationship (Retention).",
     },
   ],
 
@@ -3633,6 +3787,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "The CAC Payback Period is the time (usually in months) it takes for a new customer to generate enough gross profit to pay back the cost of acquiring them. A shorter payback period (under 12 months is healthy for SaaS) reduces cash flow strain and allows rapid reinvestment of capital to acquire more customers.",
     },
+    {
+      question: "A company calculates LTV using total revenue per customer ($1,200) instead of gross profit, while its actual gross margin is 40%. Why does this inflate the LTV:CAC ratio?",
+      options: [
+        "Revenue and gross profit are always identical for subscription businesses",
+        "The true LTV in gross-profit terms is only $480, so comparing full revenue against CAC overstates how profitable each customer really is",
+        "CAC must be multiplied by the gross margin percentage before comparison",
+        "Gross margin only applies to e-commerce businesses, not SaaS",
+      ],
+      correct: 1,
+      explanation: "The lesson's common-mistakes section warns that LTV should be measured in gross profit, not raw revenue. A $1,200 revenue-LTV at 40% margin is really $480 in gross profit, so comparing the unadjusted revenue figure to CAC makes the ratio look far healthier than it actually is.",
+    },
   ],
 
   "analytics/marketing-kpis-okrs": [
@@ -3679,6 +3844,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Without KPIs, you are flying blind regarding the daily operations of the marketing engine (e.g., a sudden drop in email open rates or increase in CPC). Without OKRs, your KPIs don't have direction, and you may hit efficiency targets while making zero progress on strategic initiatives.",
+    },
+    {
+      question: "Why does the lesson recommend that no marketing team carry more than 3 OKRs per quarter?",
+      options: [
+        "Company policy at Google legally caps OKRs at 3 per department",
+        "More than 3 OKRs means nothing is truly a priority, so teams should pick the OKRs that most directly move the company needle and defer the rest",
+        "OKR tracking software cannot process more than 3 objectives at once",
+        "KPIs automatically replace any OKR beyond the third one listed",
+      ],
+      correct: 1,
+      explanation: "The lesson states that more than 3 OKRs per quarter dilutes focus so much that nothing is genuinely prioritized. The fix is picking the handful of OKRs with the most direct impact on the company-level goal and letting the rest wait.",
     },
   ],
 
@@ -3727,6 +3903,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Google Meridian, Meta's Robyn, and PyMC-Marketing are three major open-source MMM tools that provide Bayesian regression frameworks out of the box, significantly reducing the cost and barriers for companies to build their own custom models.",
     },
+    {
+      question: "What happens to an MMM model's output if price, distribution, promotions, and seasonality are not included as control variables?",
+      options: [
+        "The model automatically excludes those weeks from the regression",
+        "Paid media ends up absorbing the effect of those base-sales drivers, making advertising look more responsible for sales than it actually is",
+        "The Bayesian priors default to zero for every channel",
+        "The adstock and saturation transforms fail to compute",
+      ],
+      correct: 1,
+      explanation: "The lesson's common-mistakes section warns that ignoring base sales drivers like price, distribution, promos, and seasonality lets paid media absorb their effects in the regression, making ad channels look artificially heroic for sales that were actually driven by other factors.",
+    },
   ],
 
   "analytics/predictive-analytics": [
@@ -3773,6 +3960,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "To validate a model, you split historical data: train the model on one portion, then test its predictions against the 'holdout' set (where the real outcomes are already known). Comparing the predictions to the actual results determines if the model is accurate enough for live campaigns.",
+    },
+    {
+      question: "HubSpot's predictive lead scoring, which outputs a score like '87/100' for each contact, is an example of which model type?",
+      options: [
+        "Classification model, because it sorts leads into a fixed number of categories",
+        "Regression model, because it forecasts a specific dollar value",
+        "Propensity model, because it scores each customer's likelihood of taking a specific action on a probability scale",
+        "Clustering model, because it groups similar leads without a preset answer",
+      ],
+      correct: 2,
+      explanation: "The lesson defines propensity models as scoring each customer on likelihood to take a specific action, a probability meter from 0 to 100, and names HubSpot's predictive lead scoring directly as an example of this model type, distinct from classification's yes/no output or regression's dollar forecast.",
     },
   ],
 
@@ -3821,6 +4019,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Even though Chrome chose not to enforce a cookie cliff, other major browsers (Safari and Firefox) have blocked third-party cookies by default for years. To prevent losing measurement signal for a significant portion of traffic, marketers must still invest in cookie-independent tactics like server-side tracking and consent-mode modeling.",
     },
+    {
+      question: "Before ultimately retiring Topics, Protected Audience, and Attribution Reporting in October 2025, what did Google do to third-party cookies in Chrome in July 2024?",
+      options: [
+        "Announced it would keep third-party cookies in Chrome, reversing its earlier plan to phase them out",
+        "Removed third-party cookies from Chrome ahead of schedule, three months earlier than planned",
+        "Merged third-party cookies with the Topics API into a single hybrid identifier",
+        "Restricted third-party cookies to only e-commerce and finance websites",
+      ],
+      correct: 0,
+      explanation: "After delaying the cookie phase-out from 2022 through 2024, Google reversed course in July 2024 and said third-party cookies would stay in Chrome, then dropped the planned user-choice consent prompt in April 2025, before separately retiring the Privacy Sandbox APIs themselves in October 2025.",
+    },
   ],
 
   "analytics/reverse-etl": [
@@ -3867,6 +4076,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The biggest mistake in Reverse ETL is piping raw, untransformed, or unvalidated warehouse tables. If your warehouse contains duplicate profiles or garbage entries, Reverse ETL will push those errors directly into customer-facing platforms. Teams should only sync modeled, validated schemas (e.g., built via dbt).",
+    },
+    {
+      question: "In the Wyze case study, what did Reverse ETL let the smart-home company do with churn scores and LTV predictions it had computed inside its data warehouse?",
+      options: [
+        "Delete the scores automatically once a customer's warranty expired",
+        "Sync the scores into Braze so marketing could trigger personalized campaigns without needing SQL access or engineers to rebuild the logic",
+        "Convert the scores into a public API that competitors could query",
+        "Replace their data warehouse entirely with a spreadsheet-based scoring system",
+      ],
+      correct: 1,
+      explanation: "Wyze used RudderStack's Reverse ETL to sync warehouse-computed churn and LTV scores directly into Braze, letting marketing act on machine-learning-driven segments without SQL access, which let them ship 3x more ML-driven campaigns.",
     },
   ],
 
@@ -3915,6 +4135,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Server-side tracking is not a privacy loophole. You still need explicit user consent to track behavior. The browser CMP must transmit the consent status to the sGTM server, and server-side tags (like Meta CAPI or GA4) must be configured to trigger only if the user has given the corresponding permission.",
     },
+    {
+      question: "In the server-side setup steps, what is the purpose of hashing and forwarding a visitor's email, phone number, or logged-in user ID with every event?",
+      options: [
+        "It is required only for GDPR consent logging and has no effect on measurement accuracy",
+        "It feeds Meta's Advanced Matching and Google's Enhanced Conversions, letting platforms match events to real users even when cookies are missing",
+        "It replaces the need for a first-party subdomain entirely",
+        "It is used exclusively to deduplicate events instead of the event_id",
+      ],
+      correct: 1,
+      explanation: "Passing hashed first-party identifiers (email, phone, user ID) with every event feeds Meta's Advanced Matching and Google's Enhanced Conversions, which is where most of the accuracy gains actually come from since platforms can match conversions to real users even without cookies.",
+    },
   ],
 
   "analytics/session-recording": [
@@ -3962,6 +4193,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 0,
       explanation: "UX research shows that watching just 10 to 15 filtered, targeted session recordings on a specific page with a known problem (like high cart abandonment) is enough to reveal the vast majority of its major usability and design problems. Watching hundreds of random recordings wastes time.",
     },
+    {
+      question: "What legal requirement applies to activating session recording software for visitors in the European Union and UK?",
+      options: [
+        "No special requirement exists as long as passwords and payment fields are masked",
+        "You must obtain explicit consent via a consent banner before activating session recording",
+        "You must delete every recording within 24 hours of capture",
+        "You are only required to disclose session recording if the visitor is a returning customer",
+      ],
+      correct: 1,
+      explanation: "In the EU and UK, explicit consent must be obtained before activating session recording, typically through a Consent Management Platform (CMP) like Cookiebot or OneTrust integrated with the recording tool, in addition to disclosing the practice in your privacy policy.",
+    },
   ],
 
   "analytics/utm-tagging": [
@@ -4008,6 +4250,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "'utm_source' should identify the specific platform or publisher driving the traffic (in this case, 'mailchimp'). 'utm_medium' should identify the broader marketing channel or category (in this case, 'email'). Swapping these values or mischaracterizing them corrupts default channel grouping reports.",
+    },
+    {
+      question: "How do paid platforms like Google Ads let marketers avoid manually writing UTM values for every individual ad?",
+      options: [
+        "By requiring a separate landing page for each ad variation",
+        "Through dynamic tokens (like {campaignid} or {keyword}) that auto-fill with real values at click time once set at the account level",
+        "By automatically disabling UTM tracking for all paid campaigns",
+        "By converting utm_medium into a required field only for organic traffic",
+      ],
+      correct: 1,
+      explanation: "Google Ads, LinkedIn, and Meta support dynamic tokens like {campaignid} and {keyword} that auto-fill with the real values when an ad is clicked. Setting this once at the account level means every new ad inherits consistent UTM tagging automatically, without manual entry per ad.",
     },
   ],
 
@@ -16792,6 +17045,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "By exporting raw GA4 events to BigQuery, you can join acquisition data (ad campaigns, referrers) with your internal product usage databases (SQL databases, Amplitude event exports) to build a unified profile of the customer journey.",
     },
+    {
+      question: "In the Gorgias 2024 PQL scoring case study, which combination of behaviors did their model use to automatically flag an account as a Product Qualified Lead?",
+      options: [
+        "Opening five marketing emails and visiting the pricing page twice",
+        "Connecting their Shopify store and resolving 10 support tickets in the first week",
+        "Spending more than 60 seconds on the homepage during their first visit",
+        "Referring a friend through a shared referral link within 24 hours of signup",
+      ],
+      correct: 1,
+      explanation: "Gorgias built a warehouse-centric model in BigQuery that flagged accounts as PQLs when they connected their Shopify store and resolved 10 support tickets in the first week, then synced those scores to Salesforce via reverse ETL so sales could reach out immediately.",
+    },
   ],
 
   "tools/marketing-data-stack": [
@@ -18191,6 +18455,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Last-click overvalues bottom-funnel channels. Cutting awareness spend reduces the pool of people who ever search for your brand, eventually hurting the paid search numbers that seemed so strong.",
     },
+    {
+      question: "A team wants to know whether their Facebook ads are actually causing sales, or whether those buyers would have converted anyway. Which layer of the Three-Layer Measurement Framework answers that specific question?",
+      options: [
+        "Attribution, because it tracks every touchpoint a customer had before buying",
+        "Incrementality testing, because it uses holdout groups to measure the true causal impact of a channel",
+        "Marketing Mix Modeling, because it analyzes aggregate spend across all channels",
+        "Data-driven attribution, because it uses machine learning to assign credit",
+      ],
+      correct: 1,
+      explanation: "Incrementality testing (Layer 2) runs experiments like holdout tests, where a random group sees no ads, to answer 'would this customer have bought anyway?' Attribution only tracks observed behavior; it cannot prove causation on its own.",
+    },
   ],
 
   "analytics/attribution-models": [
@@ -18237,6 +18512,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Data-driven attribution (used in GA4 and Google Ads) uses algorithmic modelling on your actual data. The catch: Google requires hundreds or thousands of conversions per month before the model is statistically reliable.",
+    },
+    {
+      question: "Per the lesson's playbook, if linear attribution and last-click attribution disagree on a channel's credit by more than 25 percent, what should that disagreement tell you?",
+      options: [
+        "One of the two models has a tracking bug and should be discarded",
+        "The channel is either a discovery engine or a closer, and should be treated differently in budget decisions",
+        "The channel should be paused immediately until DDA data is available",
+        "The disagreement is meaningless because all attribution models are equally arbitrary",
+      ],
+      correct: 1,
+      explanation: "The lesson's playbook treats a large delta between models as real signal: a channel that scores much higher under first/linear models is doing discovery work, while one that scores higher under last-click is closing deals, so each deserves a different budget conversation.",
     },
   ],
 
@@ -18285,6 +18571,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Funnel stages are multiplicative. If only 1% of visitors reach the checkout, even a 50% improvement in checkout conversion yields modest gains. Fixing top-of-funnel leaks amplifies every downstream improvement.",
     },
+    {
+      question: "Why does the lesson recommend defining a funnel using event names like `signup_completed` and `activation_event` instead of pageviews?",
+      options: [
+        "Event names are required by GA4's data retention policy",
+        "Pageviews cost more to process than events in most analytics platforms",
+        "Pageviews lie when users return later or jump steps, while events capture the actual action regardless of navigation path",
+        "Events automatically calculate conversion rate without any additional configuration",
+      ],
+      correct: 2,
+      explanation: "A user who refreshes, comes back the next day, or deep-links past a step breaks a pageview-based funnel. Action-based events like `signup_completed` measure what actually happened, independent of how the user navigated to get there.",
+    },
   ],
 
   "analytics/ga4-setup": [
@@ -18331,6 +18628,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "GA4's Enhanced Measurement automatically tracks file downloads (among other events like scrolls and outbound clicks) when the feature is enabled in the data stream settings - no custom code required.",
+    },
+    {
+      question: "You create a custom event parameter to track product category, but skip registering it as a custom dimension. What happens in your GA4 reports?",
+      options: [
+        "The parameter is dropped entirely and never sent to GA4",
+        "GA4 automatically registers it after 24 hours with no action needed",
+        "The data is being sent but shows up as \"(not set)\" everywhere in the report UI until it is registered",
+        "GA4 blocks all future events from that data stream until the dimension is fixed",
+      ],
+      correct: 2,
+      explanation: "Custom event parameters are captured by GA4 but stay invisible in reports as \"(not set)\" until you explicitly register them as a custom dimension under Admin, then Custom Definitions.",
     },
   ],
 
@@ -19500,6 +19808,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Pre-built dashboards are optimized for recurring checks with known questions, while ask-your-data interfaces let teams investigate anomalies on the fly without waiting for a data analyst to build a new query.",
     },
+    {
+      question: "A checkout funnel's baseline drop-off at step 3 is 12%, but an AI insight engine detects it suddenly spike to 60%. Why does the lesson say the alert should include a confidence score, not just the raw percentage change?",
+      options: [
+        "Confidence scores are required by data privacy regulations",
+        "A raw percentage change could be explained by low sample size rather than a genuine break, so the score signals whether the spike is statistically meaningful",
+        "Confidence scores let the system automatically fix the underlying bug",
+        "Without a confidence score, Slack and email alerts cannot be delivered",
+      ],
+      correct: 1,
+      explanation: "The lesson notes a funnel break alert needs the affected segment, time window, and a confidence score specifically because a raw percentage jump alone could just be noise from a small sample, not a real problem worth escalating.",
+    },
   ],
   "analytics/composable-cdp": [
     {
@@ -19545,6 +19864,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Forrester found that only 25% of composable CDP users achieve sub-minute sync latency, making composable CDPs a weaker choice for millisecond-level personalization on live websites.",
+    },
+    {
+      question: "According to the lesson's decision framework, which team should still choose a packaged CDP like Segment over a composable one?",
+      options: [
+        "A team processing more than 5 million events per month with an in-house data warehouse",
+        "A small marketing team with no data engineering capacity and no existing data warehouse",
+        "A team whose primary concern is avoiding vendor lock-in",
+        "A team whose data scientists need full SQL access to the same data powering campaigns",
+      ],
+      correct: 1,
+      explanation: "The lesson states that a small marketing team with no data engineering capacity and no existing warehouse will get to segmentation and activation faster with less operational overhead using a packaged CDP; composable only wins once a warehouse and the data team's involvement already exist.",
     },
   ],
   "analytics/experimentation-platforms": [
@@ -19592,6 +19922,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 3,
       explanation: "Eppo is designed for data teams and provides Bayesian inference and causal inference natively, distinguishing it from platforms like LaunchDarkly (feature flag management) or Optimizely (enterprise full-stack experimentation).",
     },
+    {
+      question: "A team notices users click a new button variant simply because it looks different, not because it's genuinely better. What is this phenomenon called, and how should the team account for it?",
+      options: [
+        "Peeking, so the team should end the test after 3 days to avoid it",
+        "Novelty effect, so the team should give behavioral changes 1-2 weeks to settle before checking significance",
+        "Mutual exclusion failure, so the team should declare which tests can't run together",
+        "Bonferroni correction, so the team should tighten the p-value threshold before checking",
+      ],
+      correct: 1,
+      explanation: "The lesson defines the novelty effect as users clicking a variant because it's new, not better, and recommends waiting 1-2 weeks for behavior to settle into normal patterns before checking significance, a distinct problem from peeking or mutual exclusion.",
+    },
   ],
   "analytics/marketing-data-governance": [
     {
@@ -19638,6 +19979,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Month 3 of the starter plan is dedicated to establishing a UTM naming standard, defining consistent values for medium, source, and campaign, so that campaign data rolls up cleanly without manual reconciliation.",
     },
+    {
+      question: "A junior analyst should see campaign performance but not customer contact details, and a sales rep should see only their own customers' data. Which governance pillar and control does this scenario represent?",
+      options: [
+        "Data Lineage, enforced via a data catalog",
+        "Data Access, enforced via role-based access control (RBAC)",
+        "Data Ownership, enforced via a RACI matrix",
+        "Data Quality, enforced via automated deduplication",
+      ],
+      correct: 1,
+      explanation: "The lesson's Pillar 3, Data Access, covers who can see and edit what, and recommends role-based access control: define roles like Analyst and Sales Rep, assign permissions to the role, then assign people to roles.",
+    },
   ],
   "analytics/signal-based-measurement": [
     {
@@ -19683,6 +20035,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Probabilistic matching estimates identity from device fingerprint and behavioral signals rather than confirming it, making it directional at best, reliable enough for top-of-funnel insight but not accurate enough to justify budget allocation decisions.",
+    },
+    {
+      question: "According to the lesson's signal hierarchy, which type of signal is 'ground truth' for measurement, and which is the least reliable?",
+      options: [
+        "Third-party signals are ground truth; first-party signals are least reliable",
+        "First-party signals (events on your own properties) are ground truth; third-party signals (modeled/probabilistic) are least reliable",
+        "Second-party signals are ground truth; first-party signals are least reliable",
+        "All three signal types carry equal reliability once hashed",
+      ],
+      correct: 1,
+      explanation: "The lesson states first-party deterministic data is ground truth, while third-party signals are modeled or probabilistic, inferred from panels, surveys, or aggregated cohorts, and are increasingly unreliable and low-resolution.",
     },
   ],
   "brand-strategy/brand-in-ai-era": [
@@ -23828,6 +24191,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Under GDPR, data used to build a device fingerprint counts as personal data because it can identify an individual, meaning explicit, informed consent is required before collecting it for advertising purposes.",
     },
+    {
+      question: "According to the lesson, roughly what match rate do retailers typically achieve with deterministic matching alone across all traffic, and by how much can probabilistic matching extend that coverage?",
+      options: [
+        "80-90% deterministic coverage; probabilistic adds almost nothing",
+        "20-40% deterministic coverage; probabilistic matching can link 3 to 5x more sessions to a known profile",
+        "50% deterministic coverage exactly; probabilistic matching doubles it precisely",
+        "Deterministic and probabilistic matching produce identical coverage",
+      ],
+      correct: 1,
+      explanation: "The lesson notes retailers commonly report deterministic match rates of 20-40% across all traffic, since most visitors never log in or leave an email, while probabilistic models can link 3 to 5x more sessions to a known profile.",
+    },
   ],
   "analytics/reading-dashboards-for-non-analysts": [
     {
@@ -23873,6 +24247,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The lesson stresses distrusting round, dramatic percentages until you see the underlying volume, since a jump from 2 to 6 conversions is technically a 200% increase but carries no statistical weight.",
+    },
+    {
+      question: "A dashboard plots ad spend and unit sales on two separate y-axis scales side by side. What trap does this dual-axis chart create, per the lesson?",
+      options: [
+        "It always understates the true relationship between the two metrics",
+        "It can make a modest increase in one metric visually appear dramatically linked to a much larger increase in the other, even when they aren't causally related",
+        "It automatically applies a statistical significance test to the two lines",
+        "It removes the need to check the timeframe of the data",
+      ],
+      correct: 1,
+      explanation: "The lesson warns that plotting two unrelated metrics on separate scales can make a modest 50% increase in one visually pair with a dramatic 200% increase in the other, making them look linked when they may not be.",
     },
   ],
   "brand-strategy/brand-guidelines-enforcement": [
@@ -28080,6 +28465,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The lesson recommends presenting total cost, net incremental profit (losers included), and the ROI trend line, paired with a learning velocity metric, since accelerating velocity signals a program about to compound.",
+    },
+    {
+      question: "Per the lesson's stats, mature experimentation programs report roughly what advantage in revenue growth compared to teams that test only occasionally, and what's the key condition for that number to be valid?",
+      options: [
+        "30-50% higher revenue growth, but only when losing tests' costs are counted honestly alongside the wins",
+        "10x higher revenue growth, regardless of how losses are tracked",
+        "No measurable difference, testing frequency does not correlate with revenue growth",
+        "30-50% higher revenue growth, but only if the program never runs a losing test",
+      ],
+      correct: 0,
+      explanation: "The lesson states mature programs report 30-50% higher revenue growth than teams that test occasionally, but only when losers are counted honestly, echoing its core argument that program ROI must net out all costs, not just winners.",
     },
   ],
   "tools/headless-cms-selection": [
