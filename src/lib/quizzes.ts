@@ -6116,6 +6116,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "To isolate the impact of copy changes, you must test one variable at a time while holding other variables constant. Running tests across a sufficient duration (such as 7 days to cover weekly cycles) ensures statistical validity.",
     },
+    {
+      question: "Booking.com ran a 2023 Google Search test changing one headline word, from 'Best Hotels' to 'Hotels Near You,' and saw a 14% mobile CTR lift. What technique does this illustrate?",
+      options: [
+        "Query mirroring: matching the language and implied intent of the searcher's actual query instead of making a generic quality claim.",
+        "A/B testing display banners against social carousel ads to find the highest overall CTR.",
+        "Using superlatives with third-party proof, such as star ratings, to build instant credibility.",
+        "Shortening the headline to fit within the 40-character truncation limit on mobile search results.",
+      ],
+      correct: 0,
+      explanation: "'Best Hotels' is a generic brand claim, while 'Hotels Near You' mirrors what a mobile searcher is actually thinking ('where can I stay near here?'). For search ads, matching the query's implied intent beats abstract quality claims.",
+    },
   ],
 
   "copywriting/aida-pas-frameworks": [
@@ -6162,6 +6173,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "The Bridge connects the 'Before' (the customer's original painful situation) to the 'After' (the ideal outcome). The Bridge represents your product or service as the mechanism that makes that transformation possible.",
+    },
+    {
+      question: "A copywriter is building a long-form direct response sales page and wants to maximize conviction with heavy use of evidence and sensory imagery before pushing for the sale. Which framework fits this use case best, and what is its final stage?",
+      options: [
+        "PAS, ending on Solution, which presents the offer as the logical resolution to a named pain.",
+        "4Ps (Promise, Picture, Proof, Push), ending on Push, which drives action with urgency and a clear CTA.",
+        "BAB, ending on Bridge, which explains how the product connects the before and after states.",
+        "AIDA, ending on Action, which gives a single, specific next step.",
+      ],
+      correct: 1,
+      explanation: "The 4Ps framework (Promise, Picture, Proof, Push) is built for long-form sales pages needing maximum conviction: a bold Promise, a vivid Picture of the outcome, Proof through data or testimonials, and finally a Push for urgent action.",
     },
   ],
 
@@ -6210,6 +6232,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "While urgency and scarcity are powerful triggers that can increase CTR by 46% or more, they must be genuine. Sophisticated buyers easily spot fake countdowns and manufactured urgency, which erodes long-term brand trust and increases opt-out rates.",
     },
+    {
+      question: "PartnerStack ran a 2024 A/B test on its homepage hero CTA and found that 'Get Started' beat 'Book A Demo' by 111.55%. Which element of the VSF Framework does this result primarily demonstrate?",
+      options: [
+        "Specificity, because 'Get Started' names an exact deliverable the visitor will receive.",
+        "First Person, because 'Get Started' uses 'my' instead of 'your.'",
+        "Value, because 'Get Started' reframes the click as immediate self-service value rather than a sales-cycle commitment.",
+        "Urgency, because 'Get Started' implies a limited-time offer.",
+      ],
+      correct: 2,
+      explanation: "The original 'Book A Demo' signaled effort and a sales-cycle commitment. 'Get Started' reframed the same click around what the visitor receives (immediate value), which is the Value component of VSF, not specificity or urgency.",
+    },
   ],
 
   "copywriting/email-copy": [
@@ -6256,6 +6289,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "The first sentence must earn the right to the second sentence. Opening with self-centered copy (e.g., 'Hi, I am the CEO of company X...') causes immediate disinterest. Instead, leading with a problem in the reader's world (e.g., 'Your welcome sequence is losing 40% of subscribers...') creates the tension needed to keep them reading.",
+    },
+    {
+      question: "According to Belkins' 2025 cold email study cited in the lesson, which subject line length achieved the highest CTR at 17.57%?",
+      options: [
+        "10-20 characters",
+        "20-40 characters",
+        "41-50 characters",
+        "70-90 characters",
+      ],
+      correct: 2,
+      explanation: "Belkins' 2025 study found subject lines between 41 and 50 characters achieved a 17.57% CTR, significantly outperforming shorter or longer alternatives, so length is a variable worth testing deliberately rather than guessing.",
     },
   ],
 
@@ -6304,6 +6348,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Different audiences respond to different layers of value. B2B buyers in a formal procurement loop need functional benefits like ROI, productivity metrics, and compliance features to justify their purchase. B2C consumers making emotional decisions respond strongly to emotional benefits (status, belonging, peace of mind).",
     },
+    {
+      question: "A copywriter writes 'faster than the competition' as a customer-facing claim. According to the lesson's Mistake 5, what is the problem with this phrasing?",
+      options: [
+        "It is an advantage (a comparative feature claim), not a benefit, and benefits matter in most contexts outside direct comparison.",
+        "It violates the 'which means' bridge because it does not mention a specific numeric feature.",
+        "It is too emotional and should be replaced with a purely functional claim for B2B buyers.",
+        "It confuses the reader by mixing the Attention and Desire stages of the AIDA framework.",
+      ],
+      correct: 0,
+      explanation: "The lesson distinguishes an advantage (a feature comparison against competitors) from a benefit (a customer outcome). 'Faster than the competition' only matters in a head-to-head comparison; outside that context, a real outcome like 'get results in two hours, not two days' converts better.",
+    },
   ],
 
   "copywriting/headlines": [
@@ -6350,6 +6405,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 3,
       explanation: "Loss aversion is the psychological principle that humans are more motivated to avoid a loss than to acquire a comparable gain. Framing the headline around 'losing customers' leverages this instinct to drive action.",
+    },
+    {
+      question: "A 2026 cross-platform analysis of published CRO test results found that headline and value-proposition changes win roughly what share of A/B tests, compared to the typical 1-in-6 to 1-in-8 win rate for A/B tests overall?",
+      options: [
+        "Roughly 31%, the highest win rate of any page element tested.",
+        "Roughly 5%, the lowest win rate of any page element tested.",
+        "Exactly 50%, identical to a coin flip regardless of the element tested.",
+        "Roughly 80%, matching the share of readers who stop at the headline.",
+      ],
+      correct: 0,
+      explanation: "The analysis found headline and value-proposition changes win about 31% of the time, well above the roughly 1-in-6 to 1-in-8 rate typical of A/B tests overall, making the headline the single highest-leverage element to test first.",
     },
   ],
 
@@ -6398,6 +6464,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Because the majority of traffic is mobile, copy must be highly scannable. Long, dense paragraphs are difficult to read on small screens, so bullet lists, clear section headers, and concise benefit statements are necessary.",
     },
+    {
+      question: "In the 'Features and Benefits' section of a landing page, what is the recommended technique for turning a feature into persuasive copy?",
+      options: [
+        "List only features, since benefits are implied and repeating them wastes space.",
+        "State the feature, then add a bridge phrase like 'so you can' or 'which means' followed by the benefit the visitor gains.",
+        "Write benefits as a separate page linked from the features section.",
+        "Replace all features with a single generic phrase like 'packed with powerful tools.'",
+      ],
+      correct: 1,
+      explanation: "The lesson's playbook pairs every feature with its payoff using a bridge phrase ('Automated email sequences, so you can grow your list while you sleep'), because features alone describe the product while the bridge makes the visitor's gain explicit.",
+    },
   ],
 
   "copywriting/microcopy": [
@@ -6444,6 +6521,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Good error messages are empathetic and functional. They must avoid technical jargon (e.g., 'Invalid input'), clearly state what went wrong, explain why it failed, and provide a clear, actionable path to correct the mistake.",
+    },
+    {
+      question: "According to the lesson, what two things should a strong empty state (like Slack's empty channel message) accomplish?",
+      options: [
+        "Display a generic 'No items found' message and hide the navigation.",
+        "Explain the current state and prompt the user toward a specific next action.",
+        "Show an error code and a link to customer support.",
+        "Redirect the user automatically to the account settings page.",
+      ],
+      correct: 1,
+      explanation: "The lesson contrasts a blank or generic 'No items found' state with Slack's approach: explain the context ('This is the very beginning of the channel') and give the user a clear next step, like a button to invite people.",
     },
   ],
 
@@ -6492,6 +6580,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Match power words to the user's emotional state. Cold traffic (who doesn't know you yet) responds well to desire, aspiration, and curiosity words to paint the vision of a better outcome. Warm traffic (who is closer to buying but hesitant) responds to trust, safety, and risk-reduction words that resolve their lingering objections.",
     },
+    {
+      question: "Why does the lesson warn against using urgency words like 'Act now!' inside a trust-building section such as an FAQ or testimonial block?",
+      options: [
+        "Urgency words are banned by most ad platforms in any context.",
+        "It creates a category mismatch: the reader is in a verification mindset, so shouting scarcity at a skeptic makes them more skeptical instead of less.",
+        "FAQ sections cannot technically render bolded or capitalized words.",
+        "Urgency words only work in email subject lines, never in on-page copy.",
+      ],
+      correct: 1,
+      explanation: "The lesson's 'Category Mismatch' mistake explains that each power word category should match the reader's emotional state at that funnel moment; a skeptical reader verifying claims needs trust language, not urgency, or the mismatch backfires.",
+    },
   ],
 
   "copywriting/sales-letter-anatomy": [
@@ -6538,6 +6637,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "A strong, specific guarantee builds immediate confidence. Buying is a risky decision for the consumer; by explicitly taking on that risk ('we take every penny of risk for a full year'), the copywriter removes the final friction to purchase, which dramatically lifts sales while keeping refund rates stable.",
+    },
+    {
+      question: "What three things must the 'Lead' (the first 200-400 words) of a sales letter accomplish, in order, according to the Problem-Agitate-Solve structure?",
+      options: [
+        "List product features, state the price, and reveal the guarantee.",
+        "Confirm the reader is in the right place, agitate the pain they already feel, and hint that a solution exists without revealing it fully.",
+        "Introduce the founder's biography, name the company mission, and cite third-party press mentions.",
+        "State the guarantee, stack the bonuses, and close with a single call to action.",
+      ],
+      correct: 1,
+      explanation: "PAS (Problem-Agitate-Solve) is the lesson's core lead structure: confirm identity/problem, make the pain feel more urgent, then hint at a solution, saving the full reveal for later sections like the mechanism and offer stack.",
     },
   ],
 
@@ -6586,6 +6696,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Message match refers to the alignment of expectations between the ad a user clicked and the page they land on. If an ad promises one specific benefit (e.g., 'Cut your electricity bill by 30%') but the landing page headline displays a generic slogan (e.g., 'Welcome to EcoSystems'), the user experiences a cognitive disconnect and bounces.",
     },
+    {
+      question: "In ClickUp's value prop breakdown ('One app to replace them all. Used by 10 million teams.'), which of the four required components does '10 million teams' represent?",
+      options: [
+        "The Who, the specific audience segment being addressed.",
+        "The How Different, the contrast with using multiple separate tools.",
+        "The Proof Anchor, the number or credential that makes the claim believable.",
+        "The What, the specific outcome the product delivers.",
+      ],
+      correct: 2,
+      explanation: "The lesson's four-part anatomy names '10 million teams' as the Proof Anchor: a concrete number that makes the claim credible, distinct from the Who (teams), What (replace all apps), and How Different (consolidation).",
+    },
   ],
 
   "copywriting/voice-and-tone": [
@@ -6632,6 +6753,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "For customer support interactions (especially high-friction ones like handling complaints), the tone must adjust to be empathetic, calm, and reassuring, while maintaining the brand's underlying voice characteristics.",
+    },
+    {
+      question: "Beyond listing voice pillar adjectives, what must a complete voice guide document include according to the lesson's playbook?",
+      options: [
+        "Only a list of banned competitor names.",
+        "Do-and-don't examples, language style specs, a channel tone map, and sample copy blocks.",
+        "A legal disclaimer approved by the company's compliance team.",
+        "A list of every employee authorized to write marketing copy.",
+      ],
+      correct: 1,
+      explanation: "The lesson stresses that adjectives alone are useless without concrete rules: the guide needs do-and-don't examples, sentence-level style specs, a channel tone map, and full sample copy blocks so every writer interprets the voice the same way.",
     },
   ],
 
@@ -17747,6 +17879,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 0,
       explanation: "Replacing the vague 'Next' button with 'Create account' combined with clear data privacy reassurance resolved immediate security anxieties, leading to a 14% lift in completion.",
     },
+    {
+      question: "A signup form for a paid trial places the line 'No credit card required' directly next to the CTA button. What is this an example of, and why does it work?",
+      options: [
+        "Reassurance microcopy, placed at a high-friction zone to neutralize an anxiety before the user has to voice it",
+        "Inline validation, which checks the user's input in real time as they type",
+        "A transactional alert, designed to confirm an action the user already completed",
+        "A generic CTA label, chosen to remain neutral and avoid overpromising",
+      ],
+      correct: 0,
+      explanation: "Reassurance microcopy is placed near high-friction zones like payment fields or account deletions to address an objection before it causes hesitation, acting as a psychological buffer that lets the user proceed with confidence.",
+    },
   ],
 
   "cro/post-purchase-cro": [
@@ -19425,6 +19568,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "PAS works because humans are more motivated by pain relief than by gain. Agitating the problem raises the emotional stakes; the solution then arrives as genuine relief - a far more powerful persuasion sequence than leading with benefits.",
     },
+    {
+      question: "Veeam Software changed a CTA from 'Buy Now' to 'Try Free for 30 Days' and saw a 167% increase in clicks. What does this result primarily demonstrate about copy's role?",
+      options: [
+        "That the word 'free' always outperforms any other CTA wording regardless of context",
+        "That copy controls how the reader feels about the risk of an action, not just what the action literally is",
+        "That shorter CTAs always convert better than longer ones",
+        "That B2B software buyers respond only to pricing-based CTAs",
+      ],
+      correct: 1,
+      explanation: "'Buy Now' signals commitment and cost, while 'Try Free for 30 Days' signals low risk and reversibility. The lift came from reducing perceived risk, showing that copy shapes the reader's emotional experience of the decision, not just the instruction itself.",
+    },
   ],
 
   "copywriting/ab-testing-copy": [
@@ -19471,6 +19625,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "A/B test insights are directional signals, not universal laws. Apply a consistent finding with confidence while staying curious - different channels, offers, or audience segments may respond differently.",
+    },
+    {
+      question: "A calculator says a test needs 4,000 visitors per variant to reach significance, but a marketer wants to stop the test at 1,200 because the variant is already showing a 30% lift. What is the risk of stopping early, and what does the lesson call this behavior?",
+      options: [
+        "There is no risk, since any consistent lift confirms the winner regardless of sample size",
+        "Peeking, which increases the false positive rate because early leads in small samples often converge to a statistical tie as more data comes in",
+        "Multivariate testing, which requires a completely different methodology than single-variable tests",
+        "Prioritization, since high-traffic elements should always be tested before low-traffic ones",
+      ],
+      correct: 1,
+      explanation: "The lesson warns that checking an in-progress test and considering an early stop is called peeking, and it raises the false positive rate because a landslide-looking result at a small sample size frequently converges to a tie by the time the planned sample size is reached.",
     },
   ],
 
@@ -19519,6 +19684,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Even technically sophisticated readers process clear language faster and trust it more. Jargon can signal that a writer does not fully understand what they are saying. Clarity is always a competitive advantage in B2B copy.",
     },
+    {
+      question: "Gong replaced its 'Request a Demo' form, which asked for 5-6 fields, with a one-field scheduling flow that only asked for an email address. What principle from the Pain-Proof-Process framework does this CTA change illustrate?",
+      options: [
+        "Proof must be stacked immediately after the pain statement it addresses",
+        "B2B CTAs should lower the perceived commitment of the ask rather than raise it, since asking for a moment of time converts better than asking for a stack of information",
+        "Process copy should list three to five numbered steps that show how the vendor delivers results",
+        "Pain must be quantified in the buyer's own language before any CTA is shown",
+      ],
+      correct: 1,
+      explanation: "The lesson's Step 4 explains that B2B CTAs should reduce perceived risk and commitment; Gong's one-field scheduling flow asked for an email and a moment of time instead of a long form, which the case study shows produced a 70% lift in form conversions.",
+    },
   ],
 
   "copywriting/direct-vs-brand-copy": [
@@ -19565,6 +19741,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Binet and Field's IPA data showed that the optimal long-term mix for most businesses is approximately 60:40 brand-to-activation. Too much activation erodes long-term equity; too much brand spend reduces short-term efficiency.",
+    },
+    {
+      question: "A team runs a brand-mode retargeting campaign, sees a low click-through rate after two weeks, and cancels it. According to the lesson's Common Mistakes section, what did the team get wrong?",
+      options: [
+        "They measured a brand campaign using direct response metrics like CTR instead of brand-appropriate KPIs such as unaided recall or branded search lift over a longer window",
+        "They should have added urgency and scarcity language to the retargeting copy to boost clicks",
+        "Retargeting audiences should always receive direct response copy, never brand copy",
+        "They ran the campaign for too long, since brand campaigns should be evaluated within 48 hours",
+      ],
+      correct: 0,
+      explanation: "Mistake 4 in the lesson specifically warns against measuring brand copy with DR metrics; brand campaigns need different KPIs like unaided brand recall, branded search volume lift, and direct traffic growth measured over a 90-day-plus window, not short-term CTR.",
     },
   ],
 
@@ -19613,6 +19800,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "Despite their stylistic differences, all three masters insisted on obsessive research into the customer's mind. Ogilvy studied research, Halbert wrote 'letters from a friend', Sugarman read everything about his audience. Customer insight is the foundation of all great copy.",
     },
+    {
+      question: "Gary Halbert's 'A-Pile' concept describes how people sort their mail into personal letters versus junk. What did Halbert do to exploit this, and how does the lesson say it applies to email in 2025?",
+      options: [
+        "He printed bulk postage and glossy envelopes to look more professional, which translates to using branded HTML email templates today",
+        "He made his direct mail look like a personal letter - real stamps, handwritten-style fonts, personal-letter copy - which translates to subject lines that look like personal messages outperforming subject lines that look like marketing",
+        "He mailed the same letter to every address in a zip code to guarantee reach, which translates to blasting the same subject line to an entire list",
+        "He used urgency language on the envelope itself, which translates to adding countdown timers to every marketing email",
+      ],
+      correct: 1,
+      explanation: "Halbert engineered his mail to land in the 'A-pile' (personal letters) instead of the 'B-pile' (junk mail) using real stamps, handwritten-style fonts, and personal-letter-style copy, and the lesson explicitly draws the line to 2025 email: subject lines that look like personal messages outperform ones that look like marketing.",
+    },
   ],
 
   "copywriting/storybrand": [
@@ -19660,6 +19858,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Miller's example: a customer does not just want a financial advisor (external problem: I need investment help). They want to feel competent and secure (internal problem). Copy that speaks to the internal desire is far more persuasive than feature lists.",
     },
+    {
+      question: "In the StoryBrand framework's Part 5 (Calls Them to Action), why does the lesson say a brand needs both a direct CTA and a transitional CTA?",
+      options: [
+        "Two CTAs improve SEO by increasing the number of clickable elements on a page",
+        "A direct CTA is for return visitors and a transitional CTA is for first-time visitors, based on traffic source",
+        "Most visitors, roughly 70-80%, are not ready to buy on the first visit, so a lower-commitment transitional offer (like a free guide) keeps them in your orbit while the direct CTA captures the ready-to-buy minority",
+        "The direct CTA is required by the BrandScript template, while the transitional CTA is optional and rarely used",
+      ],
+      correct: 2,
+      explanation: "The lesson states that only 20-30% of visitors are ready to buy on a first visit, so relying on a single direct CTA ('Buy now') ignores the majority who need a lower-commitment transitional offer ('Download the free guide') to stay engaged until they're ready.",
+    },
   ],
 
   "copywriting/storytelling-copy": [
@@ -19706,6 +19915,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Short-form copy needs a compressed story arc. The 'before-after-bridge' or character-problem-transformation micro-narrative creates emotional resonance in seconds - the reader sees themselves in the 'before', desires the 'after', and follows the bridge to your offer.",
+    },
+    {
+      question: "In the lesson's four-part story framework (Hook, Struggle, Turn, After State), what is the specific job of the 'After State' element, and why does the lesson say 'Experience the difference' fails at it?",
+      options: [
+        "The After State should list every feature the product enables, and 'Experience the difference' fails because it omits features entirely",
+        "The After State should describe life post-transformation in concrete, specific terms the reader can picture, and 'Experience the difference' fails because it is vague rather than a concrete scene",
+        "The After State should restate the price and guarantee, and 'Experience the difference' fails because it does not mention cost",
+        "The After State should introduce a new problem to set up a sequel campaign, and 'Experience the difference' fails because it resolves the story completely",
+      ],
+      correct: 1,
+      explanation: "The lesson defines the After State as describing life after transformation in concrete terms - 'you will close your laptop at 5pm with a full pipeline' rather than 'you will feel better' - and calls out 'Experience the difference' as a vague claim readers cannot picture, unlike a specific moment such as Tuesday at 3pm.",
     },
   ],
 
@@ -21145,6 +21365,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 2,
       explanation: "If you find yourself rewriting more than 60% of an AI draft, the problem is the brief, fixing the brief and regenerating is faster than spending time editing a draft that was never close to the target.",
     },
+    {
+      question: "The lesson recommends defining what your brand's voice is NOT (e.g. 'confident but not arrogant') when briefing AI. Why does it say this technique works better than positive personality adjectives alone?",
+      options: [
+        "Negative framing is required by most AI content policies before generation will proceed",
+        "It shortens the prompt, which reduces token cost and speeds up generation",
+        "Negative space gives AI clearer guardrails than positive descriptions, since generic adjectives like 'professional, friendly, and clear' produce generic AI output",
+        "It replaces the need for reference samples of existing brand copy entirely",
+      ],
+      correct: 2,
+      explanation: "The lesson states that generic personality adjectives produce generic output, and that defining what the brand is NOT ('conversational but not casual') gives the model clearer boundaries - negative space is called out as more effective guidance than positive descriptions alone.",
+    },
   ],
   "copywriting/conversational-copy": [
     {
@@ -21190,6 +21421,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 2,
       explanation: "Legal disclaimers require formal, legally precise language because conversational tone in legal copy can create liability. All other listed contexts, onboarding, payment confirmations, and error pages, are explicitly cited as places where conversational copy wins.",
+    },
+    {
+      question: "The lesson recommends using sentence fragments like 'Really.' or 'Done.' for emphasis, but with a specific frequency limit. What is that limit, and why does the lesson impose it?",
+      options: [
+        "No more than one fragment per page, because search engines penalize incomplete sentences",
+        "Three or four fragments per 500 words, because using them more often causes them to lose their impact",
+        "Fragments should appear in every paragraph to maintain a consistently punchy rhythm throughout the copy",
+        "Exactly one fragment per sentence pair, to maintain a strict alternating rhythm between full sentences and fragments",
+      ],
+      correct: 1,
+      explanation: "The lesson specifies using fragments sparingly, three or four per 500 words, because fragments land harder precisely because they are unexpected - overusing them turns a deliberate technique into noise and the emphasis effect disappears.",
     },
   ],
   "copywriting/copy-for-ai-search": [
@@ -21237,6 +21479,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "Entity authority is about topical consistency across the web, repeated mentions in the same subject context on podcasts, interviews, forums, and publications. This differs from backlink-based SEO, which focuses on link quantity and domain strength.",
     },
+    {
+      question: "In Otterly.AI's schema markup test, what happened to AI citations after adding FAQ, Organization, SoftwareApplication, Review Snippets, and Article schema to three pages?",
+      options: [
+        "Citations dropped because schema markup confuses AI crawlers",
+        "Citations in Google AI Overviews increased 611% and AI Mode citations increased 42% over three months",
+        "No measurable change occurred, proving schema markup is irrelevant to AI search",
+        "Citations only improved on Perplexity, not on Google AI Overviews",
+      ],
+      correct: 1,
+      explanation: "Otterly.AI ran a controlled before/after test across 319 prompts and found schema markup, machine-readable JSON-LD describing FAQ, HowTo, and Article structure, produced a 611% increase in Google AI Overviews citations and a 42% increase in AI Mode citations.",
+    },
   ],
   "copywriting/video-script-writing": [
     {
@@ -21282,6 +21535,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Sentences longer than 12 words feel slow or academic on camera; splitting them into shorter sentences creates faster perceived pace, especially when combined with jump cuts or B-roll.",
+    },
+    {
+      question: "In the Hook, Agitate, Solve, Prove, Close structure for paid video ads, what is the purpose of the 'Agitate' step?",
+      options: [
+        "To introduce the product's full list of features",
+        "To make the cost of inaction real with one concrete consequence, before the solution is introduced",
+        "To repeat the hook in different words for emphasis",
+        "To ask for the sale with urgency language",
+      ],
+      correct: 1,
+      explanation: "Agitate comes after naming the problem and before introducing the solution: it makes the cost of doing nothing feel real and concrete, since cold audiences owe the brand nothing and need a reason to keep watching before a fix is offered.",
     },
   ],
   "cro/behavioral-design-patterns": [
@@ -25342,6 +25606,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "You rarely get to ask a reader directly, so you infer awareness stage from traffic source: cold interest-based social ads usually signal Unaware or Problem Aware, while direct traffic to a pricing page signals Most Aware.",
     },
+    {
+      question: "According to the lesson, what should a headline aimed at an Unaware reader avoid doing?",
+      options: [
+        "Mentioning the product at all; it should open with a story, surprising fact, or diagnostic question instead",
+        "Using any numbers or statistics in the headline",
+        "Asking the reader a direct question of any kind",
+        "Being longer than one sentence",
+      ],
+      correct: 0,
+      explanation: "An Unaware reader doesn't yet know they have a problem worth solving, so the headline strategy is to open with a story, a surprising fact, or a diagnostic question, and never mention the product, since there is no felt problem yet for an offer to attach to.",
+    },
   ],
   "copywriting/comparison-page-copywriting": [
     {
@@ -25387,6 +25662,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Chili Piper's page openly admits Calendly serves basic scheduling needs well, then pivots to complex multi-person B2B routing as its own strength, and that admission does more trust-building than a dozen feature checkmarks.",
+    },
+    {
+      question: "What does the lesson mean by applying 'the same descriptive standard' to both products in a comparison table?",
+      options: [
+        "Using identical word counts in every table cell",
+        "Not describing your own onboarding as 'intuitive' while calling the competitor's equivalent feature 'basic' for the same functionality",
+        "Listing every feature both products share, regardless of relevance",
+        "Only using numbers, never any descriptive language at all",
+      ],
+      correct: 1,
+      explanation: "Using loaded adjectives on one side only, calling your feature 'intuitive' and the competitor's equivalent 'basic', turns the page into an ad rather than a comparison; applying the same descriptive standard to both is what keeps the page credible.",
     },
   ],
   "copywriting/fascination-bullets": [
@@ -25434,6 +25720,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       correct: 1,
       explanation: "A fascination bullet still has to be true. The gap it opens must close on a real answer inside the product, or it resolves into disappointment, and disappointed buyers refund and never return.",
     },
+    {
+      question: "Where does the 'curiosity gap' concept behind fascination bullets originate from, per the lesson?",
+      options: [
+        "Psychologist George Loewenstein's research describing the itch a brain feels between what it knows and what it wants to know",
+        "A 2020 Nielsen study on landing page attention spans",
+        "Direct-response copywriter Gary Bencivenga's personal invention with no academic basis",
+        "A marketing framework created by Mel Martin specifically for supplement ads",
+      ],
+      correct: 0,
+      explanation: "The lesson traces the curiosity gap to psychologist George Loewenstein's research, which describes the itch a brain feels when it senses a gap between what it knows and what it wants to know; fascination bullets deliberately open that gap and refuse to close it until the reader acts.",
+    },
   ],
   "copywriting/testimonial-case-study-copywriting": [
     {
@@ -25479,6 +25776,17 @@ export const QUIZZES: Record<string, Quiz[]> = {
       ],
       correct: 1,
       explanation: "Never paraphrase a quote into something punchier. A cleaned-up quote that changes the customer's actual words stops being evidence and starts being your copy wearing their name.",
+    },
+    {
+      question: "Why does the lesson say Time-to-Value has become nearly as persuasive as the size of the result itself?",
+      options: [
+        "Because buyers only care about speed, not outcomes, when reading case studies",
+        "Because a fast win feels lower-risk to commit to, so how quickly a result arrived matters almost as much as how big it was",
+        "Because Time-to-Value is required by most B2B procurement departments",
+        "Because slower results are always fabricated or exaggerated",
+      ],
+      correct: 1,
+      explanation: "The lesson notes that how fast a result showed up, the 'After' beat's time-to-value, feels lower-risk to a prospective buyer, which is why the four-beat arc's final beat pairs the measurable outcome with how quickly it arrived, not just the outcome alone.",
     },
   ],
   "paid-ads/budget-pacing-optimization": [
