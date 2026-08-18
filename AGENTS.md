@@ -806,3 +806,20 @@ toolStack: {
 ```
 
 Caught by `tsc --noEmit` (`Object literal may only specify known properties`) — same "run the full chain, don't skip to `npm test`" lesson as Rule 68.
+
+### Rule 71 — The site's `lessonAnchor` slug algorithm is a simplified approximation of `rehype-slug`, not identical to the real `github-slugger` library
+
+`tests/projects-data.test.ts`'s `headingIdsFor()` (mirrored in `scripts/audit-projects.mjs`) computes expected heading ids with its own regex:
+```ts
+h.toLowerCase().replace(/[^\w\s-]/g, "").trim().replace(/\s+/g, "-")
+```
+This strips punctuation first, THEN collapses whitespace runs to a single hyphen. Real `github-slugger` (what `rehype-slug` actually uses at build time) does it in the opposite order and treats a removed character as leaving a gap, which can produce a DOUBLE hyphen where the site's own approximation produces a SINGLE one. Confirmed directly (Session 85, Freelancer & Agency batch): for the heading "How It Works / The Playbook",
+
+```
+real github-slugger:  how-it-works--the-playbook   (double hyphen)
+this site's own regex: how-it-works-the-playbook    (single hyphen)  <- what lessonAnchor must match
+```
+
+A heading with NO punctuation to strip (just a colon, like "Reels: Format for Reach") slugifies identically both ways (`reels-format-for-reach`) — the mismatch only shows up when a character gets removed from the MIDDLE of the heading (a `/`, a stray symbol) leaving adjacent whitespace on both sides. Two failure modes seen so far, both from agents guessing at slugs rather than computing them: (1) using the raw heading text unslugified at all, (2) running the real `github-slugger` npm package (or eyeballing its known double-hyphen behavior from the `Step 2 -- Collapse the Flow` em-dash case, which is a LITERAL double-hyphen in the source text, not a punctuation-removal artifact, and slugifies identically both ways since hyphens aren't stripped).
+
+**When authoring or auditing a `lessonAnchor` for a heading containing anything besides letters/digits/spaces/hyphens/colons, don't guess and don't trust a general slugger library — compute it with the site's own regex above**, or grep an already-merged, test-passing project's `lessonAnchor` for the same heading if one exists.

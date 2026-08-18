@@ -4788,5 +4788,71 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
       "The AI Search Multiplier",
       "Beyond Reddit: Which Forums Actually Move the Needle"
     ]
+  },
+  {
+    "id": "instagram-content-plan-teardown",
+    "category": "social",
+    "lessonSlug": "instagram",
+    "lessonTitle": "Instagram Playbook",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Format Fail: Teardown an Instagram Content Plan Before It Ships",
+    "timeMinutes": 25,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "Reels: Format for Reach",
+      "Carousels: Format for Trust and Saves",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "instagram-format-calendar-build",
+    "category": "social",
+    "lessonSlug": "instagram",
+    "lessonTitle": "Instagram Playbook",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a 2-Week, Three-Format Instagram Calendar",
+    "timeMinutes": 35,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "How It Works: The Three-Format Playbook",
+      "Reels: Format for Reach",
+      "Carousels: Format for Trust and Saves",
+      "Stories: Format for the Existing Audience"
+    ]
+  },
+  {
+    "id": "suite-or-stack-client-scorecard",
+    "category": "tools",
+    "lessonSlug": "all-in-one-tools",
+    "lessonTitle": "All-in-One Marketing Platforms",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "Suite or Stack? The Freelancer Client Call",
+    "timeMinutes": 25,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "Weighing suite vs best-of-breed by data gravity and ops maturity"
+    ]
+  },
+  {
+    "id": "three-year-tco-forecast",
+    "category": "tools",
+    "lessonSlug": "all-in-one-tools",
+    "lessonTitle": "All-in-One Marketing Platforms",
+    "tier": "core",
+    "archetype": "forecast",
+    "mode": "calibration",
+    "title": "The Three-Year Bill: Modeling Suite TCO Before the Contract Is Signed",
+    "timeMinutes": 50,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Modeling 3-year TCO across license, implementation, and headcount",
+      "Auditing feature usage before buying an Enterprise tier"
+    ]
   }
 ];
