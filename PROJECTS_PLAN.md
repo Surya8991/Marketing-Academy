@@ -216,8 +216,8 @@ The owner reviewed the full 24-track list (all categories, not just SEO) and set
 | — | ✍️ Content Creator | `content-creator` | ✅ **18/18, done (Session 85)** |
 | — | 🧠 Marketing Mental Models | `mental-models` | ✅ **13/13, done (Session 85)** |
 | — | ✍️ Copywriting Mastery | `copywriting-mastery` | ✅ **15/15, done (Session 85)** |
-| 16 | 📝 Content Strategy Mastery | `content-strategy` | 2/14 — next up |
-| 17 | 🚀 Growth Marketing Mastery | `growth-marketing-mastery` | 2/14 |
+| — | 📝 Content Strategy Mastery | `content-strategy` | ✅ **14/14, done (Session 85)** |
+| 17 | 🚀 Growth Marketing Mastery | `growth-marketing-mastery` | 2/14 — next up |
 | 18 | 🛒 E-commerce Growth | `ecommerce-growth` | 2/18 |
 | 19 | 📱 Social Media Manager | `social-media-manager` | 0/14 |
 | 20 | 🧩 Product Marketing Mastery | `product-marketing-mastery` | 0/14 |
@@ -256,6 +256,8 @@ Priorities 11-23 were proposed by the assistant (weighted toward finishing near-
 **Session 85 continued, Marketing Mental Models (`mental-models`), single category, 5 remaining lessons:** `pattern-recognition`, `inversion-thinking`, `systems-thinking`, `pareto-and-constraints`, `decision-making-under-uncertainty`, none with `InAction` scenarios. `pattern-recognition` is one of the 13 cross-listed lessons (Rule 31/43, physically lives under `mental-models`, surfaced under `fundamentals` too) — no special handling needed at the project-authoring level since the MDX file and `mental-models.ts` key are both canonical. 3 parallel agents, merged in one call (5 keys, 10 projects). `audit-projects.mjs`, `tsc --noEmit`, `npm run lint`, `npm test` (30/30), `npm run build` all clean on the first pass, no fixes needed. `build-projects-index.mjs` regenerated (305 project cards, 16 category modules). `mental-models` track is now fully done, 13/13.
 
 **Session 85 continued, Copywriting Mastery (`copywriting-mastery`), single category, 11 remaining lessons:** `features-vs-benefits`, `power-words`, `voice-and-tone`, `landing-page-copy`, `cta-copy`, `email-copy`, `value-prop-copy`, `storybrand`, `b2b-copy`, `copy-for-ai-search`, `ogilvy-halbert-sugarman`, none with `InAction` scenarios. 6 parallel agents, merged in one call (11 keys, 22 projects). `audit-projects.mjs`, `tsc --noEmit`, `npm run lint`, `npm test` (30/30), `npm run build` all clean on the first pass, no fixes needed. `build-projects-index.mjs` regenerated (327 project cards, 16 category modules). `copywriting-mastery` track is now fully done, 15/15.
+
+**Session 85 continued, Content Strategy Mastery (`content-strategy`), 2 categories (`content`, `seo`), 8 remaining lessons:** `topic-clusters`, `editorial-calendar`, `content-moats`, `ai-contentops-workflows`, `content-velocity-with-ai`, `thought-leadership`, `long-form-vs-short-form-strategy` (content), `content-decay-refresh` (seo), none with `InAction` scenarios. 5 parallel agents, merged per category (content: 4 files/7 keys, seo: 1 file/1 key into the already-large 30-lesson `seo.ts`). `audit-projects.mjs`, `tsc --noEmit`, `npm run lint`, `npm test` (30/30), `npm run build` all clean on the first pass, no fixes needed. `build-projects-index.mjs` regenerated (343 project cards, 16 category modules). `content-strategy` track is now fully done, 14/14.
 
 ---
 

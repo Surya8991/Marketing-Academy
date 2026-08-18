@@ -1099,6 +1099,224 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "topic-clusters-link-gap-audit",
+    "category": "content",
+    "lessonSlug": "topic-clusters",
+    "lessonTitle": "Topic Clusters (Content Strategy Edition)",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Reciprocal Link Check: Auditing a Pillar's Cluster Map",
+    "timeMinutes": 25,
+    "companyId": "lenskart",
+    "conceptsCovered": [
+      "Auditing reciprocal pillar-to-cluster linking",
+      "Checking whether a pillar topic is broad enough to be a pillar"
+    ]
+  },
+  {
+    "id": "topic-clusters-pillar-plan-build",
+    "category": "content",
+    "lessonSlug": "topic-clusters",
+    "lessonTitle": "Topic Clusters (Content Strategy Edition)",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Cluster: A Pillar and 15-Subtopic Plan for Warby Parker",
+    "timeMinutes": 55,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Choosing a pillar topic broad enough for 15-25 subtopics",
+      "Segmenting cluster topics by funnel stage"
+    ]
+  },
+  {
+    "id": "editorial-calendar-mistake-audit",
+    "category": "content",
+    "lessonSlug": "editorial-calendar",
+    "lessonTitle": "Editorial Calendar",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Monday Review: Auditing a Stale Editorial Calendar",
+    "timeMinutes": 25,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Checking calendar rows for the five required columns",
+      "Detecting a stale calendar before it becomes a historical artifact"
+    ]
+  },
+  {
+    "id": "editorial-calendar-12-week-build",
+    "category": "content",
+    "lessonSlug": "editorial-calendar",
+    "lessonTitle": "Editorial Calendar",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build It: A 12-Week Calendar with Reactive Buffer",
+    "timeMinutes": 30,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "Structuring a calendar in 12-week blocks with a detail/theme split",
+      "Reserving reactive buffer slots instead of pre-committing every slot"
+    ]
+  },
+  {
+    "id": "content-moat-viability-audit",
+    "category": "content",
+    "lessonSlug": "content-moats",
+    "lessonTitle": "Content Moats",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Moat or Commodity? Auditing Squarespace's Q3 Content Backlog",
+    "timeMinutes": 25,
+    "companyId": "squarespace",
+    "conceptsCovered": [
+      "The four moat types"
+    ]
+  },
+  {
+    "id": "nykaa-branded-index-build",
+    "category": "content",
+    "lessonSlug": "content-moats",
+    "lessonTitle": "Content Moats",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build the Nykaa Beauty Discovery Index: From Raw Survey Data to Distribution Kit",
+    "timeMinutes": 70,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "Naming a branded institution and a quotable metric",
+      "What makes the analysis moat-grade"
+    ]
+  },
+  {
+    "id": "zomato-editorial-workflow-audit",
+    "category": "content",
+    "lessonSlug": "ai-contentops-workflows",
+    "lessonTitle": "AI Content Operations & Governance",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Find the Missing Guardrail: Auditing Zomato's AI Content Pipeline",
+    "timeMinutes": 25,
+    "companyId": "zomato",
+    "conceptsCovered": [
+      "Designing the editorial workflow"
+    ]
+  },
+  {
+    "id": "casper-guardrail-style-guide-build",
+    "category": "content",
+    "lessonSlug": "ai-contentops-workflows",
+    "lessonTitle": "AI Content Operations & Governance",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build Casper's AI Prompt Guardrail Doc",
+    "timeMinutes": 30,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Guardrails and brand safety"
+    ]
+  },
+  {
+    "id": "ai-content-quality-gate-audit",
+    "category": "content",
+    "lessonSlug": "content-velocity-with-ai",
+    "lessonTitle": "Scaling Content Velocity with AI: 10x Output, Not 10x Noise",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Gate Check: Auditing PolicyBazaar's AI Content Pipeline for Missing Quality Gates",
+    "timeMinutes": 25,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Fact verification before publish"
+    ]
+  },
+  {
+    "id": "content-repurposing-pipeline-build",
+    "category": "content",
+    "lessonSlug": "content-velocity-with-ai",
+    "lessonTitle": "Scaling Content Velocity with AI: 10x Output, Not 10x Noise",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "One Interview, Eight Assets: Building Adyen's Repurposing Pipeline",
+    "timeMinutes": 30,
+    "companyId": "adyen",
+    "conceptsCovered": [
+      "Content repurposing pipeline design"
+    ]
+  },
+  {
+    "id": "thought-leadership-pov-plan-build",
+    "category": "content",
+    "lessonSlug": "thought-leadership",
+    "lessonTitle": "Thought Leadership",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The One Sentence Test: Building a Thought-Leadership POV Plan for a Snowflake Exec",
+    "timeMinutes": 30,
+    "companyId": "snowflake",
+    "conceptsCovered": [
+      "Pick one defensible POV"
+    ]
+  },
+  {
+    "id": "thought-leadership-ai-critique",
+    "category": "content",
+    "lessonSlug": "thought-leadership",
+    "lessonTitle": "Thought Leadership",
+    "tier": "core",
+    "archetype": "ai-critique",
+    "mode": "diagnostic",
+    "title": "Ghostwritten or Ghost-Sounding? Critiquing an AI-Drafted Thought-Leadership Piece for Adyen",
+    "timeMinutes": 45,
+    "companyId": "adyen",
+    "conceptsCovered": [
+      "Hedging every claim",
+      "Ghostwriting that sounds like a press release"
+    ]
+  },
+  {
+    "id": "format-decision-head-to-head",
+    "category": "content",
+    "lessonSlug": "long-form-vs-short-form-strategy",
+    "lessonTitle": "Long-Form vs Short-Form Content Strategy: When Depth Wins",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "Long-Form or Short-Form: Four Briefs, One Framework",
+    "timeMinutes": 20,
+    "companyId": "mailchimp",
+    "conceptsCovered": [
+      "Matching format to goal and channel before word count",
+      "The three-question decision framework (goal, channel, buyer stage)"
+    ]
+  },
+  {
+    "id": "content-mix-forecast",
+    "category": "content",
+    "lessonSlug": "long-form-vs-short-form-strategy",
+    "lessonTitle": "Long-Form vs Short-Form Content Strategy: When Depth Wins",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Will This Content Calendar Hit Its Goal? Forecasting the Mix",
+    "timeMinutes": 25,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "The 2026 default content mix ratio (60% short-form, 30% long-form, 10% experimental)",
+      "Repurposing one long-form asset into many short-form distribution pieces"
+    ]
+  },
+  {
     "id": "copywriting-101-landing-copy-teardown",
     "category": "copywriting",
     "lessonSlug": "copywriting-101",
@@ -5396,6 +5614,39 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
       "Getting Your Brand Mentioned in High-Ranking Threads",
       "The AI Search Multiplier",
       "Beyond Reddit: Which Forums Actually Move the Needle"
+    ]
+  },
+  {
+    "id": "content-decay-search-console-triage",
+    "category": "seo",
+    "lessonSlug": "content-decay-refresh",
+    "lessonTitle": "Content Decay: Refreshing and Reclaiming Lost Rankings",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Triage Call: Auditing a Search Console Decay Report",
+    "timeMinutes": 30,
+    "companyId": "policybazaar",
+    "conceptsCovered": [
+      "Classifying decay patterns from Search Console deltas",
+      "Prioritizing by traffic value, decay severity, and competitive gap size"
+    ]
+  },
+  {
+    "id": "content-decay-refresh-brief-rewrite",
+    "category": "seo",
+    "lessonSlug": "content-decay-refresh",
+    "lessonTitle": "Content Decay: Refreshing and Reclaiming Lost Rankings",
+    "tier": "core",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "The Real Refresh: Rewriting a Decayed Page's Intro and Closing Its Gaps",
+    "timeMinutes": 50,
+    "companyId": "zendesk",
+    "conceptsCovered": [
+      "Diagnosing the decay pattern before choosing a fix",
+      "Rewriting the intro to answer the query directly, in plain language",
+      "Replacing stale stats and closing competitor content gaps"
     ]
   },
   {

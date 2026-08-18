@@ -1885,4 +1885,1187 @@ export const CONTENT_PROJECTS: Record<string, Project[]> = {
         "Add a third atom transformed for email newsletter and a fourth for a Twitter/X thread, then sequence all four onto a 4-week drip calendar.",
     },
   ],
+
+  "topic-clusters": [
+    {
+      id: "topic-clusters-link-gap-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Reciprocal Link Check: Auditing a Pillar's Cluster Map",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a real 12-page list (1 pillar plus 11 cluster candidates) with URL, page type, title, and whether it links back to the pillar, decide which pages are genuine cluster pages, which are missing the reciprocal link, and whether the pillar itself is scoped correctly.",
+      companyId: "lenskart",
+      scenario:
+        "You're the content strategist at Lenskart auditing the 'Eyeglasses Buying Guide' cluster before a Q4 content push. Someone published 11 articles under this pillar over the last year with no consistent linking discipline.",
+      brief:
+        "Sort the 12-page export by whether each cluster page links back to the pillar, flag every gap, and verdict whether the pillar topic itself is broad enough to justify 15-20 subtopics or is secretly a cluster page wearing a pillar's title.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Auditing reciprocal pillar-to-cluster linking",
+        "Checking whether a pillar topic is broad enough to be a pillar",
+      ],
+      steps: [
+        {
+          stepId: "step-1-link-gap-audit",
+          concept: "Auditing reciprocal pillar-to-cluster linking",
+          lessonAnchor: "mistake-2-no-internal-links-on-publication",
+          theoryRecap:
+            "The lesson's Mistake 2 says a cluster page without a reciprocal link to the pillar breaks the cluster structure, and Mistake 1 says a pillar page that's actually narrow enough to be a cluster page defeats the whole architecture before linking even matters.",
+          question:
+            "Of the 11 'cluster' pages under Lenskart's eyeglasses pillar, 4 don't link back to the pillar at all, and the pillar page itself is titled 'Best Eyeglasses for Round Faces Under 2000'. What's broken here, and in what order do you fix it?",
+          toolName: "Google Sheets",
+          where: "Import the 12-row page export, freeze the header row, and add a 'Verdict' column.",
+          procedure: [
+            "Import the export: URL, page type, title, word count, links-to-pillar (Y/N)",
+            "Filter links-to-pillar = N and list every gap with its page title",
+            "Read the pillar page's own title and scope; check whether it names one narrow attribute (face shape, price band) instead of the whole topic",
+            "Mark the pillar page's verdict separately from the individual link gaps, since fixing links can't fix a mis-scoped pillar",
+          ],
+          outputSample:
+            "PILLAR: 'Best Eyeglasses for Round Faces Under 2000' -> VERDICT: too narrow, this is a cluster topic wearing a pillar title\n\nMISSING RECIPROCAL LINK (4 of 11):\n  /blue-light-glasses-guide\n  /progressive-lens-guide\n  /kids-eyeglasses-guide\n  /eyeglasses-frame-material-guide",
+          healthy:
+            "The pillar covers the full topic (eyeglasses buying, broadly) and all 11 cluster pages link back to it; the 4 gaps get fixed before anything new is published.",
+          unhealthy:
+            "Treating the 4 missing links as the only problem and leaving the pillar's narrow scope untouched, so the 'fixed' cluster still can't hold topical authority for the broader keyword.",
+          interpret:
+            "A cluster with perfect linking but a mis-scoped pillar is still broken; the pillar's breadth has to be right before link hygiene can do its job.",
+          soWhat: [
+            {
+              symptom: "4 of 11 cluster pages don't link back to the pillar",
+              action: "Add the reciprocal link to each of the 4 pages this week; block any new cluster page from publishing without it",
+              effort: "30 min",
+            },
+            {
+              symptom: "The pillar page title names one narrow attribute instead of the whole topic",
+              action: "Rewrite the pillar as a broad 'Eyeglasses Buying Guide' and demote the narrow version to a cluster page under it",
+              effort: "half day",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Sort, filter, and flag the page export",
+            why: "Free, already open in every browser tab, no import friction for a one-time audit",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A link-gap audit sheet flagging every cluster page missing a reciprocal pillar link, plus a written verdict on whether the pillar itself is scoped correctly.",
+      sampleOutput:
+        "Warby Parker, 'Blue Light Glasses' cluster audit (excerpt)\n\nPILLAR: 'Blue Light Glasses: The Complete Guide' -> VERDICT: correctly scoped, 18 realistic subtopics\n\nMISSING RECIPROCAL LINK (2 of 9):\n  /blue-light-glasses-for-gaming\n  /blue-light-glasses-prescription-vs-non\n\nACTION: add 2 links this week, no pillar rewrite needed",
+      successCriteria: [
+        "Correctly identifies all pages missing a reciprocal link to the pillar",
+        "Correctly flags the pillar page as too narrow, citing the 15-25 subtopic breadth test",
+        "Separates the link-gap fix from the pillar-rescope fix as two different actions with two different effort levels",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "topic-clusters-pillar-plan-build",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "Build the Cluster: A Pillar and 15-Subtopic Plan for Warby Parker",
+      timeEstimate: "55 minutes",
+      timeMinutes: 55,
+      objective:
+        "Following the lesson's seven-step playbook, choose a correctly-scoped pillar topic, map 15 cluster subtopics tagged by funnel stage, and produce the interlink map that connects every page to the pillar and to at least one sibling cluster page.",
+      companyId: "warby-parker",
+      scenario:
+        "You're planning Q1 content for Warby Parker's eyewear blog. Leadership wants a defensible content architecture, not a random list of blog post ideas, before the team writes a single word.",
+      brief:
+        "Pick one pillar topic broad enough for 15-25 subtopics, map 15 cluster pages across Awareness, Consideration, and Decision stages, and build the link map showing pillar-to-cluster and cluster-to-cluster connections.",
+      mode: "build",
+      conceptsCovered: [
+        "Choosing a pillar topic broad enough for 15-25 subtopics",
+        "Segmenting cluster topics by funnel stage",
+      ],
+      steps: [
+        {
+          stepId: "step-1-pillar-scoping",
+          concept: "Choosing a pillar topic broad enough for 15-25 subtopics",
+          lessonAnchor: "step-1-choose-your-core-topics",
+          theoryRecap:
+            "Step 1 of the playbook says a good pillar topic is broad enough to spawn 15-25 subtopics but narrow enough that one site can realistically cover everything; 'marketing' is too broad, 'email marketing' is a pillar, 'email subject lines' is a cluster.",
+          question:
+            "Warby Parker sells prescription glasses, sunglasses, blue light glasses, and contacts. Is 'Eyewear' a workable pillar topic, or does it need to be split, and into what?",
+          toolName: "Google Docs",
+          where: "A shared doc: candidate pillar topics with a breadth gut-check for each.",
+          procedure: [
+            "List 3 candidate pillar topics: 'Eyewear' (too broad), 'Prescription Glasses Buying Guide' (right size), 'Blue Light Glasses' (right size)",
+            "For each candidate, sketch 5 example subtopics to gut-check whether it can plausibly reach 15-25",
+            "Pick the pillar topic for this plan and write a one-sentence scope statement defining what it does and does not cover",
+          ],
+          outputSample:
+            "CANDIDATE: 'Eyewear' -> REJECTED, too broad, would force competing sub-pillars\nCANDIDATE: 'Prescription Glasses Buying Guide' -> SELECTED\nScope: covers lens types, frame fit, prescriptions, insurance, and online ordering; excludes sunglasses and contacts (separate future pillars)",
+          healthy:
+            "The chosen pillar has a written scope boundary and can plausibly generate 15-25 distinct, non-overlapping subtopics.",
+          unhealthy:
+            "Picking 'Eyewear' as the pillar because it sounds impressive, then discovering halfway through subtopic mapping that sunglasses and contacts content don't fit under one page.",
+          interpret:
+            "A pillar's breadth test happens before any subtopic gets written, not after content already exists and needs to be forced into a structure.",
+          soWhat: [
+            {
+              symptom: "The pillar candidate is a whole product category, not a topic",
+              action: "Split it into 2-3 narrower pillars with non-overlapping scope statements",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-funnel-mapping",
+          concept: "Segmenting cluster topics by funnel stage",
+          lessonAnchor: "step-3-segment-by-funnel-stage",
+          theoryRecap:
+            "Step 3 says every cluster topic gets tagged Awareness, Consideration, or Decision, and a healthy cluster has content at all three stages; an Awareness-only cluster gets traffic but not conversions.",
+          question:
+            "You've brainstormed 15 subtopics for the Prescription Glasses pillar. 11 are Awareness ('what is a PD measurement'), 2 are Consideration, 2 are Decision. What does this distribution tell you before you write a single article?",
+          toolName: "Google Sheets",
+          where: "A tab with columns: Subtopic, Funnel Stage, Target Keyword.",
+          procedure: [
+            "List all 15 subtopics in rows and tag each with Awareness, Consideration, or Decision",
+            "Count the distribution per stage",
+            "Add or reassign subtopics until Consideration and Decision each have at least 3-4 entries, since 11 Awareness pages plus 2-2 leaves the bottom of the funnel starved",
+          ],
+          outputSample:
+            "Awareness: 8 (was 11, moved 3 to Consideration)\nConsideration: 4 (comparison + how-to: 'Progressive vs bifocal lenses', 'How to read your prescription')\nDecision: 3 ('Best prescription glasses for astigmatism', 'Warby Parker vs Zenni', 'Home try-on kit review')",
+          healthy:
+            "All three funnel stages have at least 3-4 subtopics each, so the cluster can both attract traffic and convert it.",
+          unhealthy:
+            "Shipping 11 Awareness posts and 4 Consideration/Decision posts, then wondering why the cluster drives traffic but not orders.",
+          interpret:
+            "Funnel-stage counting is a planning checkpoint, not a labeling exercise done after writing.",
+          soWhat: [
+            {
+              symptom: "Consideration and Decision subtopics combined are fewer than a third of the cluster",
+              action: "Reassign or add subtopics until each stage has a minimum viable count before publishing begins",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Draft the pillar scope statement and interlink map narrative",
+            why: "Free, easy to share with stakeholders for sign-off before writing begins",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Tag all 15 subtopics by funnel stage and track link targets",
+            why: "Free, sortable, the standard tool for this kind of tagging exercise",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A pillar scope statement plus a 15-row cluster plan (subtopic, funnel stage, target keyword, which sibling cluster pages it links to) ready to hand to writers.",
+      sampleOutput:
+        "Lenskart, 'Sunglasses Buying Guide' pillar plan (excerpt)\n\nPillar scope: sunglasses only, excludes prescription eyeglasses (separate pillar)\n\n1. What is UV400 protection? — Awareness — links to #7\n2. Polarized vs non-polarized lenses — Awareness — links to #9\n7. Best sunglasses for driving — Consideration — links to #1, #9\n9. Ray-Ban vs Lenskart sunglasses — Decision — links to #7",
+      successCriteria: [
+        "Pillar topic has a written scope statement and can plausibly reach 15-25 subtopics",
+        "All 15 subtopics are tagged by funnel stage with at least 3-4 per stage",
+        "Each subtopic lists at least one sibling cluster page it should link to, not just the pillar",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Draft the pillar page's H2 outline using the 15 subtopics as section headers, then check that no single H2 goes deep enough to compete with its own cluster page.",
+    },
+  ],
+  "editorial-calendar": [
+    {
+      id: "editorial-calendar-mistake-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Monday Review: Auditing a Stale Editorial Calendar",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a real 20-row calendar export, identify which rows are missing a named owner, which have gone stale (no status change in 2+ weeks), and which were planned by channel instead of by story.",
+      companyId: "duolingo",
+      scenario:
+        "You've just joined Duolingo's content team and inherited a 20-row calendar nobody has reviewed in three weeks. Your manager wants a status report before Monday's planning meeting.",
+      brief:
+        "Audit the export against the lesson's five required columns and flag every row with a missing owner, a stale status, or a channel-only entry with no story or theme attached.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Checking calendar rows for the five required columns",
+        "Detecting a stale calendar before it becomes a historical artifact",
+      ],
+      steps: [
+        {
+          stepId: "step-1-stale-row-audit",
+          concept: "Checking calendar rows for the five required columns",
+          lessonAnchor: "component-1-the-five-required-columns",
+          theoryRecap:
+            "Component 1 says every row needs a publish date, title, channel, owner, and status; 'the team' is not an owner, and a calendar untouched for over two weeks stops being a source of truth (per the Common Mistakes section).",
+          question:
+            "Of the 20 rows, 5 list 'Content Team' instead of a person's name, and 6 haven't had a status change since the last sprint, 18 days ago. Which of these 11 rows are the real risk going into Monday's meeting?",
+          toolName: "Google Sheets",
+          where: "Import the 20-row export, freeze row 1, add a 'Risk' column.",
+          procedure: [
+            "Filter Owner = 'Content Team' or blank; list all matches",
+            "Filter last-status-change date > 14 days ago; list all matches",
+            "Cross-reference the two lists: rows appearing in both are the highest risk, since no one is accountable AND nothing has moved",
+          ],
+          outputSample:
+            "NO NAMED OWNER (5 rows):\n  Nov 3, Blog, 'Q4 email audit'\n  Nov 10, LinkedIn, 'Streak feature launch'\n\nSTALE 14+ DAYS (6 rows):\n  Oct 20, Blog, 'Duolingo Max update' — stuck at Draft since Oct 22\n\nHIGH RISK (both): 2 rows",
+          healthy:
+            "Every row has a named owner, and no row has gone more than 14 days without a status update.",
+          unhealthy:
+            "Reporting '11 rows have an issue' as one flat list, without separating the 2 that are both unowned AND stale from the 9 with only one problem.",
+          interpret:
+            "An unowned row and a stale row are different failure modes; a row with both is the one that will actually miss its publish date.",
+          soWhat: [
+            {
+              symptom: "5 rows list 'Content Team' instead of a person",
+              action: "Assign a named owner to each in the Monday meeting before discussing anything else",
+              effort: "5 min",
+            },
+            {
+              symptom: "2 rows are both unowned and stale 14+ days",
+              action: "Escalate these 2 specifically as at-risk for their publish date, not just 'needs an owner'",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Filter and cross-reference the calendar export",
+            why: "Free, standard tool for a one-time audit of a spreadsheet export",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A risk-flagged version of the 20-row calendar, separating unowned rows, stale rows, and rows that are both, ready to drive Monday's 30-minute review.",
+      sampleOutput:
+        "Allbirds, calendar audit (excerpt)\n\nNO NAMED OWNER (3 of 18 rows):\n  Dec 1, Email, 'Holiday restock notice'\n\nSTALE 14+ DAYS (2 of 18 rows):\n  Nov 15, Blog, 'Wool runner sustainability update' — stuck at Review since Nov 18\n\nHIGH RISK (both): 1 row -> escalate first",
+      successCriteria: [
+        "Correctly identifies every row missing a named individual owner",
+        "Correctly identifies every row with no status change in 14+ days",
+        "Separates the overlap (both unowned and stale) as the highest-priority group",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "editorial-calendar-12-week-build",
+      tier: "mini",
+      archetype: "build-the-asset",
+      title: "Build It: A 12-Week Calendar with Reactive Buffer",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Following the lesson's setup sequence, build a 12-week editorial calendar for one campaign theme per month, with the first 4 weeks fully detailed, weeks 5-12 at the theme level, and 20-30% of slots left as reactive buffer.",
+      companyId: "allbirds",
+      scenario:
+        "Allbirds' content lead wants a Q1 calendar that won't collapse by week three the way the last 'five posts a week' plan did.",
+      brief:
+        "Build a 12-week calendar: 3 monthly campaign themes, weeks 1-4 fully detailed with owner and status, weeks 5-12 at theme level only, and a visible reactive buffer of 20-30% of total slots.",
+      mode: "build",
+      conceptsCovered: [
+        "Structuring a calendar in 12-week blocks with a detail/theme split",
+        "Reserving reactive buffer slots instead of pre-committing every slot",
+      ],
+      steps: [
+        {
+          stepId: "step-1-buffer-cadence-build",
+          concept: "Reserving reactive buffer slots instead of pre-committing every slot",
+          lessonAnchor: "component-3-a-sustainable-cadence",
+          theoryRecap:
+            "Component 3 says to set a cadence sustainable on your worst week, plan in 12-week blocks rather than 12-month plans, and reserve 20-30% of slots as reactive buffer for things like a trending topic or competitor announcement.",
+          question:
+            "At one long-form piece per week plus 2 social posts, a 12-week plan has 36 total slots. How many of those 36 do you leave open as reactive buffer, and which weeks get full detail versus theme-only, per the setup sequence?",
+          toolName: "Google Sheets",
+          where: "A 12-week grid: Week, Theme, Slot 1-3, Status, Buffer (Y/N).",
+          procedure: [
+            "Calculate the buffer: 36 slots x 20-30% = 7-11 slots reserved as 'Buffer - TBD'",
+            "Assign one campaign theme per month (3 themes across 12 weeks)",
+            "Fill weeks 1-4 with specific titles, owners, and draft-due dates per the setup sequence",
+            "Leave weeks 5-12 at the theme label only, per the setup sequence's Week 3 instruction",
+          ],
+          outputSample:
+            "Week 1: Theme 'Sustainable Materials 101' — Blog: 'What is regenerative wool?' (Owner: Priya, due Jan 8) + 2 social slots\nWeek 5: Theme 'Behind the Factory' (theme only, no titles yet)\nBuffer slots reserved: 8 of 36 (22%), unlabeled 'TBD - reactive'",
+          healthy:
+            "36 total slots, 8 marked as open buffer, weeks 1-4 fully detailed, weeks 5-12 showing only a theme label, not empty rows.",
+          unhealthy:
+            "Filling all 36 slots with specific titles for all 12 weeks upfront, leaving no room to respond to a real-world event in week 6.",
+          interpret:
+            "A calendar that is 100% pre-committed is not more organized, it's more brittle; buffer slots are a deliberate structural choice, not a gap in planning.",
+          soWhat: [
+            {
+              symptom: "All 36 slots already have specific titles assigned",
+              action: "Convert 7-11 of the weeks 5-12 slots to labeled 'Buffer - TBD' before the quarter starts",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the 12-week grid with theme, detail, and buffer columns",
+            why: "Free, shareable, the format most teams already have open daily",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A 12-week calendar grid: 3 campaign themes, weeks 1-4 fully detailed with owner and draft-due date, weeks 5-12 at theme level, and 20-30% of slots visibly reserved as reactive buffer.",
+      sampleOutput:
+        "Duolingo, Q1 calendar (excerpt)\n\nWeek 1: Theme 'Streaks and Habit Science' — Blog: 'Why streaks work, the psychology' (Owner: Marco, due Jan 6)\nWeek 6: Theme 'New Language Launches' (theme only)\nBuffer: 9 of 36 slots (25%) reserved as 'TBD - reactive'",
+      successCriteria: [
+        "Buffer slots total 20-30% of all planned slots and are visibly labeled, not just empty",
+        "Weeks 1-4 have specific titles, owners, and draft-due dates; weeks 5-12 have theme labels only",
+        "Exactly one campaign theme is assigned per month",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "content-moats": [
+    {
+      id: "content-moat-viability-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "Moat or Commodity? Auditing Squarespace's Q3 Content Backlog",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given six proposed content pieces, classify each as one of the four moat types or as commodity content using the lesson's framework, then decide which ones deserve budget.",
+      companyId: "squarespace",
+      scenario:
+        "You're a content strategist at Squarespace reviewing a proposed Q3 content calendar. The team pitched six ideas and you have budget to fund three.",
+      brief:
+        "Sort the six pitches by moat type, flag any that are commodity content wearing a research costume, and rank the three fundable ones.",
+      mode: "diagnostic",
+      conceptsCovered: ["The four moat types"],
+      steps: [
+        {
+          stepId: "step-1-classify-moat-type",
+          concept: "The four moat types",
+          lessonAnchor: "the-four-moat-types",
+          theoryRecap:
+            "The lesson splits moat-grade content into four inputs: product telemetry, original surveys, manual datasets, and operator expertise. Anything that isn't built on one of these is commodity content, no matter how well it's written.",
+          question:
+            "Given six pitch one-liners, which are real moats and which are commodity content mislabeled as research?",
+          toolName: "Google Sheets",
+          where: "Import the six pitch descriptions into a sheet with a 'moat type' column.",
+          procedure: [
+            "List the six pitches with their proposed data source",
+            "Tag each with one of: telemetry, survey, manual dataset, operator expertise, or 'none'",
+            "Flag any pitch tagged 'none' as commodity content regardless of topic quality",
+          ],
+          outputSample:
+            "1. 'State of Website Builder Speed' - aggregated Core Web Vitals data from Squarespace sites -> TELEMETRY\n2. '10 Website Design Trends for 2026' -> NONE (opinion roundup, no proprietary input)\n3. 'Survey: 600 small business owners on website costs' -> SURVEY\n4. 'How We Rebuilt Our Checkout Flow' (founder engineering post) -> OPERATOR EXPERTISE\n5. 'Best Website Builders Compared' -> NONE (comparison, no original data)\n6. 'Manual audit of 200 competitor pricing pages' -> MANUAL DATASET",
+          healthy:
+            "Three moat-type pitches get funded; the two 'NONE' pitches get reassigned to a lighter content track or killed.",
+          unhealthy:
+            "Funding 'Best Website Builders Compared' at the same budget tier as the telemetry report because it has a punchier headline.",
+          interpret:
+            "A moat type sorts a backlog into fundable versus not, independent of how interesting the topic sounds.",
+          soWhat: [
+            {
+              symptom: "Two of six approved pitches have no proprietary data source",
+              action: "Reassign them to the standard blog track instead of the quarterly flagship budget",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Tag and sort the six pitches by moat type",
+            why: "Free, fast enough for a 6-row classification pass",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A tagged content calendar showing which pitches are real moats, which are commodity content, and a ranked top-3 for Q3 budget.",
+      sampleOutput:
+        "Zomato Q3 backlog audit (excerpt)\n\nFUND\n  1. 'Delivery Time Index: 40 Indian Cities' - telemetry, own logistics data\n  2. 'Survey: 800 restaurant owners on discovery habits' - survey\n\nDO NOT FUND (commodity)\n  3. '15 Food Delivery Trends for 2026' - opinion roundup, no data source",
+      successCriteria: [
+        "Correctly tags all six pitches by moat type or 'none'",
+        "Ranks the three fundable pitches ahead of the three commodity ones",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "nykaa-branded-index-build",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "Build the Nykaa Beauty Discovery Index: From Raw Survey Data to Distribution Kit",
+      timeEstimate: "70 minutes",
+      timeMinutes: 70,
+      objective:
+        "Turn a raw 520-respondent survey export into a named, quotable branded index with a moat-grade analysis section and a methodology paragraph, following the lesson's publishing loop.",
+      companyId: "nykaa",
+      scenario:
+        "You're the content lead at Nykaa. Research just handed you a clean export from a 520-respondent survey of Indian beauty shoppers. Nobody has named it, written the analysis, or planned distribution yet.",
+      brief:
+        "Name the index, extract the one quotable stat, write the counter-intuitive analysis, and draft the methodology paragraph.",
+      mode: "build",
+      conceptsCovered: [
+        "Naming a branded institution and a quotable metric",
+        "What makes the analysis moat-grade",
+      ],
+      steps: [
+        {
+          stepId: "step-1-name-and-quote",
+          concept: "Naming a branded institution and a quotable metric",
+          lessonAnchor: "the-publishing-loop",
+          theoryRecap:
+            "The lesson's Publishing Loop says to name a metric only you can measure and assign a brand name to the dataset before publishing edition one; 'the Acme SaaS Spend Index' beats 'Our Q2 Data Report.'",
+          question:
+            "The survey found 61% of respondents now research a beauty product on social video before buying it, even in-store. What do you name the index, and what's the single quotable sentence?",
+          toolName: "Google Docs",
+          where: "Draft the index name and the pitch-ready quote at the top of a new doc.",
+          procedure: [
+            "Pull the single most surprising, specific stat from the export (61% pre-purchase video research)",
+            "Name the index: 'The Nykaa Beauty Discovery Index', not 'Nykaa Survey Report'",
+            "Write one quotable sentence a journalist could paste directly into an article",
+            "State the cadence: published every six months, starting now",
+          ],
+          outputSample:
+            "INDEX NAME: The Nykaa Beauty Discovery Index, Edition 1\nQUOTABLE STAT: '61% of Indian beauty shoppers now watch a video before buying, even when they purchase in-store.'\nCADENCE: Published every six months, next edition Q1 2027.",
+          healthy:
+            "A named, quotable index with a stated cadence that a journalist can cite as an ongoing source, not a one-off report.",
+          unhealthy:
+            "'Nykaa Q3 Beauty Survey Results' with no name, no cadence line, and three paragraphs before the actual number appears.",
+          interpret:
+            "The name and the single stat are what get quoted; a generic report title gets skimmed once and forgotten.",
+          soWhat: [
+            {
+              symptom: "The report draft opens with methodology instead of the number",
+              action: "Move the single quotable stat to the first sentence of the summary",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-moat-grade-analysis",
+          concept: "What makes the analysis moat-grade",
+          lessonAnchor: "what-makes-the-analysis-moat-grade",
+          theoryRecap:
+            "Moat-grade analysis needs a named trend with a number attached, a counter-intuitive finding, a practitioner quote, and a methodology note so journalists can verify the sample.",
+          question:
+            "The same export shows in-store shoppers now watch more pre-purchase video than online-only shoppers do. What's the counter-intuitive takeaway, and what does the methodology note need to say?",
+          toolName: "Google Docs",
+          where: "Add a 'Key Finding' and a 'Methodology' section below the quotable stat.",
+          procedure: [
+            "State the counter-intuitive finding: in-store shoppers, not online shoppers, are the heavier video researchers",
+            "Add one practitioner quote interpreting why (a category lead or founder, not the AI)",
+            "Write a methodology note: sample size 520, collection window, how respondents were recruited, any exclusions",
+          ],
+          outputSample:
+            "KEY FINDING: In-store shoppers watch 1.4x more pre-purchase videos than online-only shoppers, the opposite of what most retailers assume.\nMETHODOLOGY: 520 respondents, Indian metro beauty shoppers, surveyed June-July 2026 via Nykaa's owned panel, excludes respondents who had not purchased beauty products in 90 days.",
+          healthy:
+            "A finding a general-purpose AI could not have written without the dataset, backed by a verifiable methodology note.",
+          unhealthy:
+            "A takeaway that just restates the topline stat ('video matters for beauty shoppers') with no methodology section at all.",
+          interpret:
+            "The counter-intuitive angle plus a checkable methodology is what makes journalists trust and cite the number.",
+          soWhat: [
+            {
+              symptom: "The analysis section restates the stat instead of interpreting it",
+              action: "Add one sentence naming who is surprised by the finding and why",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Hold and filter the raw 520-row survey export",
+            why: "Free, sufficient for cross-tabbing a single survey wave",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Docs",
+            role: "Draft the index name, quotable stat, analysis, and methodology paragraph",
+            why: "Free, shareable with editors and PR for the distribution kit",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page branded index draft: name, quotable stat, counter-intuitive finding, and a verifiable methodology paragraph, ready to hand to a PR team.",
+      sampleOutput:
+        "Casper Sleep Recovery Index, Edition 1 (excerpt)\n\nQUOTABLE STAT: 'Side sleepers who switched mattress firmness reported 22% fewer overnight wake-ups.'\nMETHODOLOGY: 540 respondents, US mattress owners, surveyed via Casper's post-purchase panel, March 2026.",
+      successCriteria: [
+        "Index has a distinct brand name, not a generic report title",
+        "The quotable stat appears in the first sentence of the summary",
+        "The analysis section states a counter-intuitive finding, not a restatement of the topline number",
+        "A methodology paragraph states sample size, collection window, and recruitment method",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Draft the three-to-five pre-written quote paragraphs journalists could adapt directly, per the lesson's distribution-kit guidance.",
+    },
+  ],
+  "ai-contentops-workflows": [
+    {
+      id: "zomato-editorial-workflow-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "Find the Missing Guardrail: Auditing Zomato's AI Content Pipeline",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a described 3-stage AI content pipeline, identify which of the lesson's five required stages is missing and explain the risk that gap creates.",
+      companyId: "zomato",
+      scenario:
+        "You're auditing Zomato's new AI-assisted blog workflow before it scales to restaurant guides and delivery-time claims. The team describes their pipeline as: 'AI writes a draft, brand editor polishes it, we publish.'",
+      brief:
+        "Map the described pipeline against the lesson's five-stage editorial workflow and flag the missing stage.",
+      mode: "diagnostic",
+      conceptsCovered: ["Designing the editorial workflow"],
+      steps: [
+        {
+          stepId: "step-1-find-the-gap",
+          concept: "Designing the editorial workflow",
+          lessonAnchor: "designing-the-editorial-workflow",
+          theoryRecap:
+            "The lesson's pipeline runs: AI draft, automated guardrail check, subject matter expert (SME) fact review, brand editor tone polish, then a compliance gate before publish. Skipping the SME step means no one verifies the AI's factual claims.",
+          question:
+            "Zomato's described workflow is 'AI writes a draft, brand editor polishes it, we publish.' Which stage is missing, and what kind of error does that let through?",
+          toolName: "Google Docs",
+          where: "List the described pipeline stages in a doc next to the lesson's five required stages.",
+          procedure: [
+            "Write out Zomato's three described stages in order",
+            "Write out the lesson's five required stages in order",
+            "Mark which required stages have no equivalent in Zomato's pipeline",
+            "Name one factual-claim risk that gap creates for a food-delivery content team",
+          ],
+          outputSample:
+            "ZOMATO PIPELINE: AI draft -> Brand editor -> Publish\nREQUIRED: AI draft -> Guardrail check -> SME fact review -> Brand editor -> Compliance gate -> Publish\nMISSING: Guardrail check AND SME fact review\nRISK: A blog post claiming '30-minute average delivery in Mumbai' ships with no one verifying that number against real ops data.",
+          healthy:
+            "The gap is named specifically (SME fact review) and tied to a concrete claim type the AI could hallucinate.",
+          unhealthy:
+            "A vague answer like 'they should double-check things more' with no named stage and no specific claim-type risk.",
+          interpret:
+            "A brand editor polishes tone; only an SME can catch a wrong delivery-time number or an outdated restaurant policy.",
+          soWhat: [
+            {
+              symptom: "AI-drafted posts publish with unverified operational numbers",
+              action: "Insert an SME fact-review step before the brand editor stage, not after",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Map the described pipeline against the lesson's five required stages",
+            why: "Free, quick side-by-side list for a single workflow audit",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page gap analysis naming the missing pipeline stage(s) and the specific factual-claim risk they create.",
+      sampleOutput:
+        "Casper Sleep pipeline audit (excerpt)\n\nDESCRIBED: AI draft -> Publish\nMISSING: Guardrail check, SME fact review, brand editor, compliance gate\nRISK: A sleep-health claim ships with no medical fact-check, a compliance exposure for a health-adjacent product.",
+      successCriteria: [
+        "Correctly names every missing stage from the required five",
+        "Ties the gap to a specific, plausible factual-claim risk for the company's industry",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "casper-guardrail-style-guide-build",
+      tier: "mini",
+      archetype: "build-the-asset",
+      title: "Build Casper's AI Prompt Guardrail Doc",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given Casper's brand voice notes, build a short guardrail document listing banned AI-tell words and two prompt rules that keep AI drafts on-brand and legally safe.",
+      companyId: "casper-sleep",
+      scenario:
+        "Casper's content team just approved using AI for first drafts of blog posts. Nobody has written the guardrail doc that goes into every prompt yet.",
+      brief:
+        "Write a banned-words list and two guardrail rules the AI must follow, grounded in Casper's brand voice and health-product compliance needs.",
+      mode: "build",
+      conceptsCovered: ["Guardrails and brand safety"],
+      steps: [
+        {
+          stepId: "step-1-build-guardrail-doc",
+          concept: "Guardrails and brand safety",
+          lessonAnchor: "guardrails-and-brand-safety",
+          theoryRecap:
+            "The lesson recommends a digital style guide fed into every prompt, including a banned-words list for common AI-tell phrases like 'leverage,' 'game-changer,' and 'delve,' plus rules a gateway can enforce automatically.",
+          question:
+            "Casper sells a health-adjacent product (sleep). What banned words and what two guardrail rules go into the prompt style guide before any draft ships?",
+          toolName: "Google Docs",
+          where: "Create a 'Casper AI Prompt Guardrails' doc with a banned-words section and a rules section.",
+          procedure: [
+            "List five AI-tell words to ban outright ('leverage,' 'game-changer,' 'tapestry,' 'delve,' 'unlock')",
+            "Write Rule 1: no sleep-health claim ships without a cited study or an internal SME sign-off",
+            "Write Rule 2: no customer testimonial or statistic may be invented; only pull from an approved source doc",
+          ],
+          outputSample:
+            "BANNED WORDS: leverage, game-changer, tapestry, delve, unlock\n\nRULE 1: Any claim about sleep quality, health, or medical benefit requires a cited study or SME sign-off before publish.\nRULE 2: Never generate a customer quote, statistic, or testimonial. Pull only from the approved source doc provided in the prompt.",
+          healthy:
+            "A short, specific doc an editor can paste into every prompt, with rules a compliance reviewer could actually check against.",
+          unhealthy:
+            "A vague instruction like 'sound like Casper and don't lie,' which gives the AI and the editor nothing checkable.",
+          interpret:
+            "Specific, checkable rules are what a compliance gate or an automated guardrail can actually enforce; vague tone notes cannot.",
+          soWhat: [
+            {
+              symptom: "Editors keep finding invented statistics in AI drafts",
+              action: "Add Rule 2 to the prompt template so the AI is told explicitly not to generate stats",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Draft and store the reusable prompt guardrail document",
+            why: "Free, easy to paste into every future AI prompt as a shared reference",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A reusable 'AI Prompt Guardrails' doc with a banned-words list and two checkable brand/compliance rules.",
+      sampleOutput:
+        "Zomato AI Prompt Guardrails (excerpt)\n\nBANNED WORDS: leverage, revolutionize, delve, tapestry\nRULE 1: No delivery-time or pricing claim ships without a cited internal ops number.\nRULE 2: Never generate a restaurant rating or review quote; pull only from the verified reviews database.",
+      successCriteria: [
+        "Banned-words list has at least five real AI-tell words",
+        "Both rules are specific and checkable, not vague tone guidance",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "content-velocity-with-ai": [
+    {
+      id: "ai-content-quality-gate-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Gate Check: Auditing PolicyBazaar's AI Content Pipeline for Missing Quality Gates",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a real AI-assisted blog production log, identify which of the lesson's four quality gates are missing and what breaks without them.",
+      companyId: "policybazaar",
+      scenario:
+        "You're a content ops analyst on PolicyBazaar's insurance blog team. Leadership just doubled the AI drafting quota with no new hires, and one article got flagged for citing a lapsed premium cap.",
+      brief:
+        "Walk a 10-article production log and flag which quality gate would have caught each problem before publish.",
+      mode: "diagnostic",
+      conceptsCovered: ["Fact verification before publish"],
+      steps: [
+        {
+          stepId: "step-1-fact-verification-gate",
+          concept: "Fact verification before publish",
+          lessonAnchor: "quality-gates-what-gets-checked-before-publish",
+          theoryRecap:
+            "Gate 2 in the lesson requires every stat, date, and named example to have a source before a draft can move forward; an invented or outdated number gets cut, no exceptions.",
+          question:
+            "Given this production log of 10 AI-drafted articles, 3 shipped with stats that were never checked against a source. Which gate was skipped, and what's the fix?",
+          toolName: "Google Sheets",
+          where: "Import production-log.csv, add a 'Source Verified Y/N' column",
+          procedure: [
+            "Import the 10-row production log into Google Sheets",
+            "Add a 'Source Verified' column and mark each row Y/N based on whether a source URL is logged",
+            "Isolate the 3 rows marked N, these are the fact-verification gate failures",
+          ],
+          outputSample:
+            "Row 4: 'health insurance claim settlement ratio hit 99.9% in 2025' — Source Verified: N\nRow 7: 'premium up to Rs 5 lakh is tax-free under Section 80D' — Source Verified: N (cap is outdated, changed in the last budget)\nRow 9: 'more than 60% of Indians are now insured' — Source Verified: N",
+          healthy:
+            "Every published stat has a logged source URL and a check date before the article leaves the drafting stage.",
+          unhealthy:
+            "Three of ten articles publish with unverified or outdated numbers because no one owns the fact-check step.",
+          interpret:
+            "This isn't a writing-quality problem, it's a missing gate. The brief and voice checks passed; nobody was assigned to verify facts.",
+          soWhat: [
+            {
+              symptom: "AI drafts contain a specific stat with no source",
+              action: "Add a mandatory 'Source Verified' column to the production tracker and block publish until it's filled",
+              effort: "30 min",
+            },
+            {
+              symptom: "A regulatory or pricing number appears in a draft",
+              action: "Route the article to a subject-matter reviewer before the editor pass, not after",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Track and flag verification status per article",
+            why: "Free, no setup, easy to filter and sort a production log",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A gate-failure report flagging which of the 3 problem articles lacked fact verification, with a proposed tracker column to prevent recurrence.",
+      sampleOutput:
+        "Snowflake DevRel blog, Q2 gate audit (excerpt)\n\nGATE 2 FAILURE (1 of 8 articles)\n  'Data warehousing costs dropped 40% industry-wide in 2025' — no source logged, flagged before publish, corrected to a cited Snowflake benchmark stat",
+      successCriteria: [
+        "Correctly identifies all 3 gate-2 failures in the log",
+        "Proposes a concrete tracker fix, not just 'be more careful'",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "content-repurposing-pipeline-build",
+      tier: "mini",
+      archetype: "build-the-asset",
+      title: "One Interview, Eight Assets: Building Adyen's Repurposing Pipeline",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given one 40-minute executive interview transcript, build a repurposing plan that maps it into the lesson's 8-piece output model.",
+      companyId: "adyen",
+      scenario:
+        "Adyen's content team just recorded a 40-minute interview with a payments exec on embedded finance trends. You have one repurposing cycle to turn it into a distribution plan before the team drafts anything.",
+      brief:
+        "Map the transcript's 5 quotable moments into the formats the lesson's pipeline defines, and assign an owner and AI-vs-human split to each.",
+      mode: "build",
+      conceptsCovered: ["Content repurposing pipeline design"],
+      steps: [
+        {
+          stepId: "step-1-repurposing-map",
+          concept: "Content repurposing pipeline design",
+          lessonAnchor: "content-repurposing-pipelines",
+          theoryRecap:
+            "The lesson's pipeline turns one 40-minute interview into a blog post, a newsletter excerpt, three LinkedIn posts, five video clips, and a thread, eight pieces from one source conversation.",
+          question:
+            "Given this 5-quote transcript excerpt, which quote becomes the blog post's core argument, and which become standalone LinkedIn posts?",
+          toolName: "Google Docs",
+          where: "Paste the transcript excerpt, tag each quote with a target format",
+          procedure: [
+            "Paste the 5-quote transcript excerpt into a Google Doc",
+            "Tag each quote with its target format (blog, newsletter, LinkedIn x3, clip, thread)",
+            "Note who drafts each piece, AI first-pass or human first-pass, per the lesson's three-pass model",
+          ],
+          outputSample:
+            "QUOTE 2 (the strongest, most specific claim) -> Blog post core argument, human-drafted intro, AI-structured body\nQUOTE 4 (a sharp one-liner on fraud rates) -> Standalone LinkedIn post, AI first-draft, human edit pass\nQUOTE 5 (a customer anecdote) -> Newsletter excerpt, human-written, no AI pass",
+          healthy: "Each piece has an explicit AI-vs-human assignment and a target format before drafting starts.",
+          unhealthy:
+            "The team drafts all pieces from scratch instead of tagging and repurposing from the one source interview.",
+          interpret:
+            "Repurposing planning happens before drafting, not after. Skipping this step is why teams create more content without extracting more value from what they already have.",
+          soWhat: [
+            {
+              symptom: "The team is drafting each content piece from a blank page",
+              action: "Tag every quote in the source transcript with its target format before anyone opens a doc to draft",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Tag transcript quotes and assign owners and formats",
+            why: "Free, collaborative, easy to comment and tag inline",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A repurposing map assigning all 5 transcript quotes to their target format, owner, and AI-vs-human drafting split.",
+      sampleOutput:
+        "PolicyBazaar exec interview, repurposing map (excerpt)\n\nQUOTE 1 -> Blog core argument, human-drafted\nQUOTE 3 -> LinkedIn post #1, AI first-draft + human edit\nQUOTE 5 -> 45-second video clip, no AI pass, editor cuts directly from footage",
+      successCriteria: [
+        "Maps all 5 quotes to a specific format",
+        "Assigns a clear AI-vs-human split per piece, not a blanket 'AI does everything'",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "thought-leadership": [
+    {
+      id: "thought-leadership-pov-plan-build",
+      tier: "mini",
+      archetype: "build-the-asset",
+      title: "The One Sentence Test: Building a Thought-Leadership POV Plan for a Snowflake Exec",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given a real executive's background and three draft POV statements, apply the lesson's falsifiability test to pick and sharpen the one worth publishing.",
+      companyId: "snowflake",
+      scenario:
+        "You're supporting a VP of Data Strategy at Snowflake who wants to start publishing thought leadership. She's drafted three possible POVs and needs one sharpened into a real, publishable position.",
+      brief:
+        "Score all three draft POVs against the lesson's falsifiability test and rewrite the winner into a one-sentence, defensible claim.",
+      mode: "build",
+      conceptsCovered: ["Pick one defensible POV"],
+      steps: [
+        {
+          stepId: "step-1-pov-falsifiability-test",
+          concept: "Pick one defensible POV",
+          lessonAnchor: "step-1-pick-one-defensible-pov",
+          theoryRecap:
+            "A real POV is falsifiable, someone could disagree with it and make a case. 'AI is changing marketing' is a topic; a specific, arguable claim about what changes and by how much is a POV.",
+          question:
+            "Given these 3 draft POVs, which one is a topic wearing a POV's clothes, and which one could a named competitor actually argue against?",
+          toolName: "Google Docs",
+          where: "List the 3 drafts side by side, score each against the falsifiability test",
+          procedure: [
+            "List the 3 draft POVs in a Google Doc",
+            "For each, write one sentence a competitor could use to disagree",
+            "If no disagreeing sentence is possible, mark that POV as a topic, not a POV, and cut it",
+          ],
+          outputSample:
+            "DRAFT 1: 'Data governance matters more than ever' -> no one can disagree with this, CUT (topic, not POV)\nDRAFT 2: 'Most enterprise data teams over-invest in real-time pipelines they don't need' -> falsifiable, a competitor could argue real-time is essential, KEEP\nDRAFT 3: 'AI will replace data analysts' -> too vague on timeframe and scope, needs a number before it's usable",
+          healthy: "One POV survives the test with a clear, specific, arguable claim a named person could push back on.",
+          unhealthy: "All three drafts are safe enough that nobody would ever publicly disagree with them.",
+          interpret:
+            "If a competitor could republish the sentence with their logo on it, it isn't a POV yet, keep sharpening until it is.",
+          soWhat: [
+            {
+              symptom: "A draft POV reads as universally agreeable",
+              action: "Add a specific number, timeframe, or named counter-position until someone could argue against it",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Draft and score candidate POV statements",
+            why: "Free, easy to compare drafts side by side with comments",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "One sharpened, falsifiable POV statement selected from the three drafts, with the two rejected drafts and why they failed the test.",
+      sampleOutput:
+        "Adyen VP of Payments, POV selection (excerpt)\n\nSELECTED: 'Most mid-market merchants are paying for fraud tooling built for a scale of transaction volume they'll never reach.'\nREJECTED: 'Payments security is critical' (not falsifiable, a topic)",
+      successCriteria: [
+        "Correctly identifies which draft(s) fail the falsifiability test and why",
+        "Produces one final POV that a named competitor could actually argue against",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "thought-leadership-ai-critique",
+      tier: "core",
+      archetype: "ai-critique",
+      title: "Ghostwritten or Ghost-Sounding? Critiquing an AI-Drafted Thought-Leadership Piece for Adyen",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given an AI-drafted thought-leadership article for an Adyen exec, apply the lesson's common-mistakes checklist to find where it reads as generic brand content instead of a real POV.",
+      companyId: "adyen",
+      scenario:
+        "Adyen's comms team ghostwrote a thought-leadership draft with an AI tool for a payments exec's byline. Before it publishes, you need to catch every place it reads like a press release instead of a person.",
+      brief: "Score the draft against the lesson's common mistakes and rewrite the two worst-offending paragraphs.",
+      mode: "diagnostic",
+      conceptsCovered: ["Hedging every claim", "Ghostwriting that sounds like a press release"],
+      steps: [
+        {
+          stepId: "step-1-hedging-audit",
+          concept: "Hedging every claim",
+          lessonAnchor: "common-mistakes",
+          theoryRecap:
+            "A take qualified with 'it depends,' 'it varies,' and 'there are many factors' is not a take. A wrong but specific POV generates more useful conversation than a correct but vague one.",
+          question:
+            "Given this 4-paragraph AI draft, which sentences hedge instead of commit, and how would you rewrite the worst offender?",
+          toolName: "Google Docs",
+          where: "Highlight every hedging phrase in the draft, comment a specific rewrite",
+          procedure: [
+            "Read the 4-paragraph draft and highlight every hedge phrase ('it depends', 'in many cases', 'can vary')",
+            "Count hedges per paragraph",
+            "Rewrite the paragraph with the most hedges into one committed, specific claim",
+          ],
+          outputSample:
+            "Paragraph 2 (3 hedges): 'Fraud rates can vary significantly depending on many factors, and it often depends on the merchant's specific risk profile.'\nREWRITE: 'Mid-market merchants with under $2M in monthly volume are overpaying for enterprise-grade fraud tooling they don't need.'",
+          healthy: "The final draft has zero hedge phrases in its core argument paragraphs.",
+          unhealthy: "Every claim is qualified enough that no reader could quote it back as a position.",
+          interpret:
+            "AI drafts hedge by default because hedging reads as statistically 'safe' language. A human editing pass exists specifically to remove it.",
+          soWhat: [
+            {
+              symptom: "A draft paragraph contains 2+ hedge phrases",
+              action: "Rewrite it as one specific, falsifiable sentence before it goes to the named author for review",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-press-release-voice-check",
+          concept: "Ghostwriting that sounds like a press release",
+          lessonAnchor: "common-mistakes",
+          theoryRecap:
+            "If the named author would never say a phrase like 'in today's dynamic landscape' in a meeting, it doesn't belong in their byline. Readers detect inauthenticity faster than any algorithm.",
+          question:
+            "Given the exec's real speaking style (short sentences, no jargon, one specific example per point), which sentences in the draft don't sound like her?",
+          toolName: "Google Docs",
+          where: "Compare the draft against 3 real quotes from the exec's past interviews",
+          procedure: [
+            "Read 3 real quotes from the exec's past interviews or talks",
+            "Flag every sentence in the AI draft that uses corporate phrasing she wouldn't say out loud",
+            "Rewrite flagged sentences in her documented voice",
+          ],
+          outputSample:
+            "FLAGGED: 'In today's rapidly evolving payments landscape, merchants must leverage cutting-edge solutions.'\nREWRITE (matches her real voice): 'Most merchants are still buying fraud tools built for a problem they don't have.'",
+          healthy: "Every sentence in the final draft could plausibly be something the named exec would say in a meeting.",
+          unhealthy: "The draft is fluent and error-free but reads like it was written by the comms department, because it was.",
+          interpret:
+            "Voice-matching is a fact-check, not a style preference. A mismatched voice is the fastest way readers spot ghostwritten content.",
+          soWhat: [
+            {
+              symptom: "A sentence uses phrases like 'dynamic landscape' or 'leverage cutting-edge'",
+              action: "Cut the phrase and replace it with a sentence pulled from or modeled on the exec's real quotes",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Highlight, comment, and rewrite flagged sentences",
+            why: "Free, built-in commenting for collaborative editing",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A marked-up draft with every hedge phrase and press-release-voice sentence flagged, plus rewritten versions of the two worst paragraphs.",
+      sampleOutput:
+        "Snowflake VP thought-leadership draft, critique notes (excerpt)\n\nFLAGGED (hedge): 'Data strategy success can vary depending on many organizational factors.'\nREWRITE: 'Most data teams fail not because of tooling, but because no one owns the decision to kill a dead pipeline.'",
+      successCriteria: [
+        "Flags all hedge phrases and press-release phrasing in the sample draft",
+        "Produces two rewritten paragraphs that pass both checks",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Run the same critique on a real LinkedIn thought-leadership post from your own company and count how many of the 6 lesson mistakes it makes.",
+    },
+  ],
+
+  "long-form-vs-short-form-strategy": [
+    {
+      id: "format-decision-head-to-head",
+      tier: "mini",
+      archetype: "head-to-head",
+      title: "Long-Form or Short-Form: Four Briefs, One Framework",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Given four real content briefs with different goals and channels, apply the lesson's three-question decision framework to call long-form or short-form for each, and justify the call.",
+      companyId: "mailchimp",
+      scenario:
+        "You're a content strategist at Mailchimp. Four briefs landed in your queue this week, each pitched as 'urgent,' with no format specified.",
+      brief:
+        "Run each brief through the goal, channel, and buyer-stage questions before assigning a format, don't default to whatever the requester assumed.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Matching format to goal and channel before word count",
+        "The three-question decision framework (goal, channel, buyer stage)",
+      ],
+      steps: [
+        {
+          stepId: "step-1-run-the-framework",
+          concept: "The three-question decision framework (goal, channel, buyer stage)",
+          lessonAnchor: "a-practical-decision-framework",
+          theoryRecap:
+            "The lesson's framework asks three questions before any format gets chosen: what is the goal, what does the channel reward natively, and what stage is the buyer in.",
+          question:
+            "Brief 3 asks for content on 'email deliverability best practices,' targeted at readers actively comparing ESPs, meant to rank in search and get cited by AI answer engines. What format and why?",
+          toolName: "Google Sheets",
+          where: "A shared brief-triage sheet with columns for goal, channel, buyer stage, and format call.",
+          procedure: [
+            "List all four briefs in rows: topic, stated goal, target channel, buyer stage",
+            "For each row, answer the three framework questions before touching the format column",
+            "Assign long-form or short-form only after all three answers are filled in",
+            "Flag any brief where the requester's assumed format contradicts your framework answer",
+          ],
+          outputSample:
+            "Brief 3: Email deliverability best practices\n  Goal: rank + AI citation -> long-form signal\n  Channel: blog/owned -> rewards depth\n  Buyer stage: warm, actively comparing ESPs -> will read 2,000+ words\n  CALL: Long-form, 2,500-3,000 words, structured with H2 direct-answers and a comparison table",
+          healthy:
+            "The format call matches all three answers, a warm, research-stage buyer on an owned channel researching a comparison topic gets a long, structured guide.",
+          unhealthy:
+            "Defaulting to short-form because 'that's what performs on social' when the actual channel is the owned blog and the buyer is deep in research, not scrolling a feed.",
+          interpret:
+            "A format call that ignores channel or buyer stage optimizes for the wrong metric, reach instead of conversion, or vice versa.",
+          soWhat: [
+            {
+              symptom: "A requester's brief already specifies a format before answering the three questions",
+              action: "Push back and re-derive the format from goal, channel, and buyer stage first",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Triage the four briefs against the framework columns",
+            why: "Free, no setup, easy to share the format decisions with the requesting team",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A completed brief-triage sheet with all four briefs assigned a format, each with a one-line justification citing the goal/channel/buyer-stage answers.",
+      sampleOutput:
+        "Chewy content brief-triage sheet (excerpt)\n\nBrief: 'Is grain-free dog food actually better?'\n  Goal: rank + AI citation | Channel: blog | Buyer stage: warm, researching\n  CALL: Long-form, 2,200 words, direct answer in first 200 words, FAQ block\n\nBrief: 'New puppy checklist' teaser for Instagram Reels\n  Goal: reach, awareness | Channel: Instagram Reels | Buyer stage: cold, scrolling\n  CALL: Short-form, 30-second Reel, single idea, hook in 3 seconds",
+      successCriteria: [
+        "All four briefs are assigned a format only after the three framework questions are answered",
+        "At least one format call contradicts the original requester's assumption, with a written justification",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "content-mix-forecast",
+      tier: "mini",
+      archetype: "forecast",
+      title: "Will This Content Calendar Hit Its Goal? Forecasting the Mix",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a company's planned quarterly content calendar and its stated goal, forecast whether the long-form/short-form split will actually deliver that goal, using the lesson's 60/30/10 benchmark mix and real GA4 traffic-by-format data.",
+      companyId: "zendesk",
+      scenario:
+        "You're advising Zendesk's content team. Next quarter's calendar is already drafted, and leadership wants to know before it ships whether the mix will move the needle on their stated goal, more organic search traffic and AI citations.",
+      brief:
+        "Compare the drafted mix against the lesson's benchmark ratio, then forecast the likely outcome using GA4 data on how existing long-form and short-form pieces have actually performed.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "The 2026 default content mix ratio (60% short-form, 30% long-form, 10% experimental)",
+        "Repurposing one long-form asset into many short-form distribution pieces",
+      ],
+      steps: [
+        {
+          stepId: "step-1-compare-mix-to-benchmark",
+          concept: "The 2026 default content mix ratio (60% short-form, 30% long-form, 10% experimental)",
+          lessonAnchor: "the-repurposing-bridge-one-deep-asset-many-short-ones",
+          theoryRecap:
+            "The lesson's benchmark mix runs roughly 60% short-form for reach, 30% long-form for authority, 10% experimental, sequenced as a short-to-long funnel rather than picked in isolation.",
+          question:
+            "The drafted quarterly calendar is 8 long-form guides and 4 short-form social posts, no experimental slots. Against the 60/30/10 benchmark, and against a stated goal of 'more organic search traffic,' what does this forecast to produce?",
+          toolName: "Google Analytics 4",
+          where: "GA4 Reports > Engagement > Pages and screens, filtered by content format (via a UTM or content-type dimension) for the last two quarters.",
+          procedure: [
+            "Pull organic sessions and average engagement time for existing long-form vs short-form pages in GA4",
+            "Calculate the current calendar's actual long-form-to-short-form ratio (8:4 = 67% long-form, 33% short-form here)",
+            "Compare against the lesson's 60/30/10 benchmark and note the gap",
+            "Forecast the likely outcome: heavy long-form with no short-form discovery layer means fewer new visitors finding the guides at all",
+          ],
+          outputSample:
+            "Drafted calendar: 8 long-form (67%) / 4 short-form (33%) / 0 experimental\nBenchmark: 60% short-form / 30% long-form / 10% experimental\nGA4 last 2 quarters: short-form posts drove 3.1x the new-user sessions per piece vs long-form guides, long-form drove 2.4x the average engagement time per session\nFORECAST: the drafted mix over-indexes on long-form authority content with almost no short-form discovery layer to surface it, organic traffic growth will likely undershoot goal because fewer people ever find the guides",
+          healthy:
+            "The forecast flags the ratio mismatch before the quarter ships and recommends adding short-form distribution pieces per long-form guide.",
+          unhealthy:
+            "Approving the calendar as-is because every individual piece looks fine in isolation, missing that the mix itself won't hit the stated traffic goal.",
+          interpret:
+            "A content calendar can be full of good individual pieces and still forecast to miss its goal if the mix ratio is wrong for what the goal requires.",
+          soWhat: [
+            {
+              symptom: "A quarterly calendar is heavy on one format with no repurposing plan",
+              action: "Add short-form distribution assets per long-form piece to close the gap to the 60/30/10 benchmark",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Analytics 4",
+            role: "Pull actual organic sessions and engagement time by content format",
+            why: "Free, already installed on most sites, gives real performance data instead of guessing",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page forecast memo stating whether the drafted calendar's format mix will hit the stated traffic goal, with the ratio gap and a recommended fix.",
+      sampleOutput:
+        "Mailchimp Q3 content mix forecast (excerpt)\n\nDrafted: 70% long-form / 30% short-form / 0% experimental\nBenchmark: 60% short-form / 30% long-form / 10% experimental\nFORECAST: undershoots the awareness goal; recommend converting 3 of the 8 planned guides into 1 pillar guide plus 6 short-form repurposed pieces to close the reach gap",
+      successCriteria: [
+        "Compares the drafted calendar's actual ratio against the 60/30/10 benchmark",
+        "Forecast is grounded in real GA4 format-performance data, not assumption",
+        "Recommendation specifies a concrete fix, not just 'add more short-form'",
+      ],
+      portfolioReady: true,
+    },
+  ],
 };
