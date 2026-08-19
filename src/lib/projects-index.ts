@@ -5256,6 +5256,591 @@ export const PROJECTS_INDEX: ProjectCardData[] = [
     ]
   },
   {
+    "id": "native-advertising-sponsored-content-teardown",
+    "category": "paid-ads",
+    "lessonSlug": "native-advertising",
+    "lessonTitle": "Native Advertising",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Sponsored-Content Red Flag Audit",
+    "timeMinutes": 25,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "What It Is",
+      "Common Mistakes"
+    ]
+  },
+  {
+    "id": "native-advertising-performance-network-audit",
+    "category": "paid-ads",
+    "lessonSlug": "native-advertising",
+    "lessonTitle": "Native Advertising",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Network Performance Audit: Which Native Placements Are Actually Working",
+    "timeMinutes": 45,
+    "companyId": "hellofresh",
+    "conceptsCovered": [
+      "Benchmarking native CTR against the industry range instead of judging it in isolation",
+      "Cross-checking CTR against time on page and conversions to catch clickbait",
+      "Choosing a distribution channel based on content type and editorial control needs"
+    ]
+  },
+  {
+    "id": "mmm-vs-mta-attribution-model-bakeoff",
+    "category": "paid-ads",
+    "lessonSlug": "mmm-vs-mta",
+    "lessonTitle": "MMM vs. MTA",
+    "tier": "mini",
+    "archetype": "head-to-head",
+    "mode": "diagnostic",
+    "title": "The Attribution Model Bake-Off: Same Journeys, Five Different Verdicts",
+    "timeMinutes": 30,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "Attribution model choice changes which channel gets credited for the same conversion",
+      "Linear and time-decay models spreading credit change budget conclusions versus last-click"
+    ]
+  },
+  {
+    "id": "mmm-vs-mta-budget-reallocation-audit",
+    "category": "paid-ads",
+    "lessonSlug": "mmm-vs-mta",
+    "lessonTitle": "MMM vs. MTA",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Budget Reallocation Audit: When MMM and MTA Disagree",
+    "timeMinutes": 50,
+    "companyId": "instacart",
+    "conceptsCovered": [
+      "MTA systematically undercounts channels it can't track at the user level",
+      "MMM captures offline and brand-building channels that MTA is blind to",
+      "Geo-holdout incrementality experiments as the tie-breaker between MMM and MTA"
+    ]
+  },
+  {
+    "id": "apple-search-ads-campaign-structure-audit",
+    "category": "paid-ads",
+    "lessonSlug": "apple-search-ads",
+    "lessonTitle": "Apple Search Ads",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "One Campaign, Four Problems: Auditing a Real Apple Ads Account Structure",
+    "timeMinutes": 30,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "How the Campaign Structure Works"
+    ]
+  },
+  {
+    "id": "apple-search-ads-launch-week-simulation",
+    "category": "paid-ads",
+    "lessonSlug": "apple-search-ads",
+    "lessonTitle": "Apple Search Ads",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The First 14 Days: Running an Apple Ads Launch Without Blowing the Budget",
+    "timeMinutes": 45,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "Recognizing when a sample is too small to act on",
+      "CPP mismatch diagnosis via CVR by keyword",
+      "Cost of resetting the learning phase"
+    ]
+  },
+  {
+    "id": "ctv-ott-ads-buying-lane-forecast",
+    "category": "paid-ads",
+    "lessonSlug": "ctv-ott-ads",
+    "lessonTitle": "Connected TV & Streaming Ads",
+    "tier": "mini",
+    "archetype": "forecast",
+    "mode": "diagnostic",
+    "title": "Which Buying Lane, Modeling a $15K/Month CTV Budget Across Self-Serve, DSP, and FAST",
+    "timeMinutes": 35,
+    "companyId": "thredup",
+    "conceptsCovered": [
+      "Self-serve vs. programmatic DSP vs. FAST channel tradeoffs",
+      "Unified frequency capping across platforms"
+    ]
+  },
+  {
+    "id": "ctv-ott-ads-lift-study-simulation",
+    "category": "paid-ads",
+    "lessonSlug": "ctv-ott-ads",
+    "lessonTitle": "Connected TV & Streaming Ads",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "Prove It Without a Click: Running a CTV Lift Study Under Pressure",
+    "timeMinutes": 40,
+    "companyId": "peloton",
+    "conceptsCovered": [
+      "Last-click attribution undercounting CTV",
+      "Frequency cap and brand sentiment tradeoff"
+    ]
+  },
+  {
+    "id": "reddit-ads-campaign-export-audit",
+    "category": "paid-ads",
+    "lessonSlug": "reddit-ads",
+    "lessonTitle": "Reddit Ads",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Before You Scale: Auditing a Reddit Campaign Export",
+    "timeMinutes": 35,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "Picking 5-15 hand-picked subreddits over broad interest categories",
+      "Layering Contextual Keyword Targeting on top of subreddit targeting",
+      "Installing the Reddit Pixel before spending on conversions"
+    ]
+  },
+  {
+    "id": "reddit-ads-learning-phase-simulation",
+    "category": "paid-ads",
+    "lessonSlug": "reddit-ads",
+    "lessonTitle": "Reddit Ads",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The 14-Day Learning Phase: Reddit Budget Decisions",
+    "timeMinutes": 50,
+    "companyId": "instacart",
+    "conceptsCovered": [
+      "Manual CPC bidding through the learning phase before switching to oCPM",
+      "Treating the comment section as active campaign management, not a side channel",
+      "Switching to oCPM Conversions only after 50+ recorded conversions",
+      "Structuring retargeting as its own ad group with its own creative"
+    ]
+  },
+  {
+    "id": "retail-media-listing-teardown",
+    "category": "paid-ads",
+    "lessonSlug": "retail-media",
+    "lessonTitle": "Retail Media Networks",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Teardown: Why This Amazon Listing Wastes Ad Spend",
+    "timeMinutes": 30,
+    "companyId": "chewy",
+    "conceptsCovered": [
+      "Metrics That Actually Matter",
+      "The Practical Playbook"
+    ]
+  },
+  {
+    "id": "retail-media-tacos-budget-audit",
+    "category": "paid-ads",
+    "lessonSlug": "retail-media",
+    "lessonTitle": "Retail Media Networks",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Budget Call: Auditing a Quarter of Retail Media Spend",
+    "timeMinutes": 45,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "TACoS as a more honest metric than ROAS alone",
+      "Separating branded from non-branded keyword performance",
+      "Choosing where to allocate incremental budget by category fit"
+    ]
+  },
+  {
+    "id": "audio-ads-podcast-pitch-audit",
+    "category": "paid-ads",
+    "lessonSlug": "audio-ads",
+    "lessonTitle": "Audio Advertising",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Pitch Audit: Evaluating a Podcast Sponsorship Package",
+    "timeMinutes": 30,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Comparing podcast CPM against benchmark ranges",
+      "Talking points versus a word-for-word script"
+    ]
+  },
+  {
+    "id": "audio-ads-podcast-campaign-simulation",
+    "category": "paid-ads",
+    "lessonSlug": "audio-ads",
+    "lessonTitle": "Audio Advertising",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The 8-Week Podcast Sponsorship: A Live Decision Simulation",
+    "timeMinutes": 45,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "Reading promo-code redemption as the leading signal for podcast ROI",
+      "Recognizing creative fatigue before redemption drops"
+    ]
+  },
+  {
+    "id": "pmax-advantage-plus-feed-asset-group-audit",
+    "category": "paid-ads",
+    "lessonSlug": "pmax-advantage-plus",
+    "lessonTitle": "Performance Max & Meta Advantage+ Optimization",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Pre-Launch Audit: Catching Feed and Asset Group Problems Before They Cost You",
+    "timeMinutes": 35,
+    "companyId": "nykaa",
+    "conceptsCovered": [
+      "Feed hygiene as a PMax prerequisite, not an afterthought",
+      "Distinct asset groups per audience segment versus one asset group reused everywhere"
+    ]
+  },
+  {
+    "id": "pmax-advantage-plus-budget-pacing-simulation",
+    "category": "paid-ads",
+    "lessonSlug": "pmax-advantage-plus",
+    "lessonTitle": "Performance Max & Meta Advantage+ Optimization",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The Mid-Month Pacing Call: A Performance Max Budget Simulation",
+    "timeMinutes": 40,
+    "companyId": "hellofresh",
+    "conceptsCovered": [
+      "Using the end-of-month spend projection to catch pacing problems mid-month",
+      "Using first-party audience exclusions to stop re-selling existing customers"
+    ]
+  },
+  {
+    "id": "demand-gen-campaigns-asset-group-audit",
+    "category": "paid-ads",
+    "lessonSlug": "demand-gen-campaigns",
+    "lessonTitle": "Google Demand Gen Campaigns: The Mid-Funnel Performance Play",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Ready to Scale? Auditing a Demand Gen Asset Group Before Raising Budget",
+    "timeMinutes": 35,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "Creative format variety requirement",
+      "Customer Match seed list as lookalike foundation"
+    ]
+  },
+  {
+    "id": "demand-gen-campaigns-bidding-phase-simulation",
+    "category": "paid-ads",
+    "lessonSlug": "demand-gen-campaigns",
+    "lessonTitle": "Google Demand Gen Campaigns: The Mid-Funnel Performance Play",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The 8-Week Bidding Decision Log",
+    "timeMinutes": 45,
+    "companyId": "rxbar",
+    "conceptsCovered": [
+      "Maximize Conversions learning phase patience",
+      "Setting tCPA at 20-30% above observed CPA",
+      "View-through conversions signal creative is building intent"
+    ]
+  },
+  {
+    "id": "amazon-advertising-dashboard-audit",
+    "category": "paid-ads",
+    "lessonSlug": "amazon-advertising",
+    "lessonTitle": "Amazon Advertising: The Third Giant in Paid Ads",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Metric That Actually Matters: Auditing an Amazon Ads Dashboard Export",
+    "timeMinutes": 35,
+    "companyId": "mvmt-watches",
+    "conceptsCovered": [
+      "TACoS vs ACoS trend interpretation",
+      "Auto vs manual campaign structure completeness"
+    ]
+  },
+  {
+    "id": "amazon-advertising-harvest-cycle-simulation",
+    "category": "paid-ads",
+    "lessonSlug": "amazon-advertising",
+    "lessonTitle": "Amazon Advertising: The Third Giant in Paid Ads",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The 30-Day Flywheel: Auto Campaign to Manual Harvest",
+    "timeMinutes": 45,
+    "companyId": "firstcry-brainbees",
+    "conceptsCovered": [
+      "Harvesting converting search terms from auto campaigns",
+      "Defending your own brand name from competitor bidding"
+    ]
+  },
+  {
+    "id": "first-party-data-activation-hashing-pipeline-build",
+    "category": "paid-ads",
+    "lessonSlug": "first-party-data-activation",
+    "lessonTitle": "First-Party Data Activation: Customer Match, CAPI, and Enhanced Conversions",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Build a SHA-256 Hashing-Ready Customer Match Upload Sheet",
+    "timeMinutes": 30,
+    "companyId": "thredup",
+    "conceptsCovered": [
+      "Normalizing match keys before hashing"
+    ]
+  },
+  {
+    "id": "first-party-data-activation-capi-dedup-audit",
+    "category": "paid-ads",
+    "lessonSlug": "first-party-data-activation",
+    "lessonTitle": "First-Party Data Activation: Customer Match, CAPI, and Enhanced Conversions",
+    "tier": "core",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Deduplication Audit: Catching a Double-Counted Conversion Before It Skews Your CPA",
+    "timeMinutes": 45,
+    "companyId": "airbnb",
+    "conceptsCovered": [
+      "Diagnosing double-counted conversions from a missing event_id",
+      "Reading Enhanced Conversions match-rate impact on Smart Bidding"
+    ]
+  },
+  {
+    "id": "creator-ugc-ads-brief-build",
+    "category": "paid-ads",
+    "lessonSlug": "creator-ugc-ads",
+    "lessonTitle": "Creator-Led Ads and UGC Creative: Why Authentic Beats Polished",
+    "tier": "mini",
+    "archetype": "build-the-asset",
+    "mode": "build",
+    "title": "Write a UGC Creator Brief That Doesn't Sound Like a Script",
+    "timeMinutes": 30,
+    "companyId": "glossybox",
+    "conceptsCovered": [
+      "Writing a Hook-format brief without over-scripting"
+    ]
+  },
+  {
+    "id": "creator-ugc-ads-teardown-authenticity",
+    "category": "paid-ads",
+    "lessonSlug": "creator-ugc-ads",
+    "lessonTitle": "Creator-Led Ads and UGC Creative: Why Authentic Beats Polished",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The Authenticity Teardown: Spotting What Makes UGC Read as an Ad",
+    "timeMinutes": 40,
+    "companyId": "duolingo",
+    "conceptsCovered": [
+      "Scripted dialogue defeats the Hook format's authenticity",
+      "Brand-phrase language breaks Testimonial-format trust",
+      "Format-mismatch between Demo content and Testimonial framing"
+    ]
+  },
+  {
+    "id": "snapchat-pinterest-ads-platform-fit-audit",
+    "category": "paid-ads",
+    "lessonSlug": "snapchat-pinterest-ads",
+    "lessonTitle": "Advertising on Snapchat and Pinterest: The Visual Discovery Platforms",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "Which Platform Actually Fits: A Two-Brand Placement Audit",
+    "timeMinutes": 35,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "Matching platform to audience age and purchase-intent horizon",
+      "Pinterest keyword targeting as a search-intent signal, not an interest signal"
+    ]
+  },
+  {
+    "id": "snapchat-pinterest-ads-two-week-test-simulation",
+    "category": "paid-ads",
+    "lessonSlug": "snapchat-pinterest-ads",
+    "lessonTitle": "Advertising on Snapchat and Pinterest: The Visual Discovery Platforms",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The $20/Day Split Test: Running Two Weeks of Snapchat and Pinterest",
+    "timeMinutes": 50,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Reading Snapchat swipe rate as a creative-resonance signal",
+      "Reading Pinterest add-to-cart rate as the winner-selection metric"
+    ]
+  },
+  {
+    "id": "ai-max-broad-match-search-terms-waste-audit",
+    "category": "paid-ads",
+    "lessonSlug": "ai-max-broad-match",
+    "lessonTitle": "Google AI Max and the New Broad Match Era",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Search Terms Report: Finding Waste Before You Turn On AI Max",
+    "timeMinutes": 35,
+    "companyId": "robinhood",
+    "conceptsCovered": [
+      "The 30-conversion monthly threshold as a gate before enabling AI Max",
+      "Sorting a search terms report into negatives vs. Standard Search candidates"
+    ]
+  },
+  {
+    "id": "ai-max-broad-match-migration-simulation",
+    "category": "paid-ads",
+    "lessonSlug": "ai-max-broad-match",
+    "lessonTitle": "Google AI Max and the New Broad Match Era",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The AI Max Migration: 30 Days From Standard Search to Full Orchestration",
+    "timeMinutes": 55,
+    "companyId": "rent-the-runway",
+    "conceptsCovered": [
+      "Migrating to AI Max only after clearing the conversion baseline, with a controlled budget increase",
+      "Asset group segmentation preventing budget cannibalization between customer segments"
+    ]
+  },
+  {
+    "id": "ad-frequency-creative-fatigue-export-audit",
+    "category": "paid-ads",
+    "lessonSlug": "ad-frequency-creative-fatigue",
+    "lessonTitle": "Ad Frequency & Creative Fatigue Management",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Refresh Call: Auditing a Frequency and CTR Export",
+    "timeMinutes": 30,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Reading frequency and CTR trend together to catch fatigue before CPA rises",
+      "Matching the refresh trigger to a frequency threshold, not a fixed calendar date"
+    ]
+  },
+  {
+    "id": "ad-frequency-creative-fatigue-dashboard-teardown",
+    "category": "paid-ads",
+    "lessonSlug": "ad-frequency-creative-fatigue",
+    "lessonTitle": "Ad Frequency & Creative Fatigue Management",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Three Ad Sets, One Fatigue Dashboard: Spot the Real Defect",
+    "timeMinutes": 45,
+    "companyId": "allbirds",
+    "conceptsCovered": [
+      "Frequency crossing 3.0 with First-Time Impression Ratio collapsing below 20% together, not either alone",
+      "A starved creative rotation pool masquerading as a targeting problem",
+      "New-audience frequency looking artificially low right after an expansion, masking early fatigue in the original segment"
+    ]
+  },
+  {
+    "id": "landing-page-message-match-ad-page-teardown",
+    "category": "paid-ads",
+    "lessonSlug": "landing-page-message-match",
+    "lessonTitle": "Landing Page & Message Match for Paid Campaigns",
+    "tier": "mini",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "Ad Says One Thing, Page Says Another: Spot the Mismatch",
+    "timeMinutes": 25,
+    "companyId": "hellofresh",
+    "conceptsCovered": [
+      "Headline message match between ad and landing page",
+      "Offer-level message match, not just headline wording",
+      "A generic homepage substituting for a dedicated landing page"
+    ]
+  },
+  {
+    "id": "landing-page-message-match-rewrite-build",
+    "category": "paid-ads",
+    "lessonSlug": "landing-page-message-match",
+    "lessonTitle": "Landing Page & Message Match for Paid Campaigns",
+    "tier": "core",
+    "archetype": "rebuild",
+    "mode": "build",
+    "title": "Rebuild the Page: Rewrite a Mismatched Landing Page to Match Its Ad",
+    "timeMinutes": 50,
+    "companyId": "casper-sleep",
+    "conceptsCovered": [
+      "Rewriting a landing page headline to mirror the ad's exact promise",
+      "Matching the offer field-for-field between ad and CTA"
+    ]
+  },
+  {
+    "id": "budget-pacing-optimization-spend-export-audit",
+    "category": "paid-ads",
+    "lessonSlug": "budget-pacing-optimization",
+    "lessonTitle": "Budget Pacing & Mid-Flight Optimization",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Overspend Audit: Diagnosing a Restricted-Schedule Pacing Export",
+    "timeMinutes": 35,
+    "companyId": "warby-parker",
+    "conceptsCovered": [
+      "Diagnosing the June 2026 30.4x monthly-cap overspend pattern on a restricted ad schedule",
+      "Setting and reading 75%/90% pacing alert thresholds against actual cumulative spend"
+    ]
+  },
+  {
+    "id": "budget-pacing-optimization-learning-phase-scaling-sim",
+    "category": "paid-ads",
+    "lessonSlug": "budget-pacing-optimization",
+    "lessonTitle": "Budget Pacing & Mid-Flight Optimization",
+    "tier": "core",
+    "archetype": "simulation",
+    "mode": "simulation",
+    "title": "The Scaling Ladder: Live Budget Decisions Across a Learning Phase",
+    "timeMinutes": 45,
+    "companyId": "mvmt-watches",
+    "conceptsCovered": [
+      "Distinguishing learning-phase noise from real underperformance",
+      "Reading pacing trend against alert thresholds before deciding to scale",
+      "Spacing budget increases 3-4 days apart to preserve algorithmic learning while scaling"
+    ]
+  },
+  {
+    "id": "ai-creative-testing-at-scale-angle-diversity-audit",
+    "category": "paid-ads",
+    "lessonSlug": "ai-creative-testing-at-scale",
+    "lessonTitle": "AI-Generated Creative Testing at Scale",
+    "tier": "mini",
+    "archetype": "audit",
+    "mode": "diagnostic",
+    "title": "The Sameness Check: Auditing 24 AI Variants for Real Angle Diversity",
+    "timeMinutes": 30,
+    "companyId": "doordash",
+    "conceptsCovered": [
+      "Detecting sameness fatigue by grouping AI variants by underlying angle, not surface cosmetics",
+      "Scaling the winning angle's underlying idea, not just the single top-performing asset"
+    ]
+  },
+  {
+    "id": "ai-creative-testing-at-scale-qc-gate-teardown",
+    "category": "paid-ads",
+    "lessonSlug": "ai-creative-testing-at-scale",
+    "lessonTitle": "AI-Generated Creative Testing at Scale",
+    "tier": "core",
+    "archetype": "teardown",
+    "mode": "teardown",
+    "title": "The QC Gate Teardown: Catching What AI Creative Slips Past You",
+    "timeMinutes": 50,
+    "companyId": "firstcry-brainbees",
+    "conceptsCovered": [
+      "The Quality-Control Gate Before Anything Goes Live",
+      "Sameness Fatigue: The New Failure Mode"
+    ]
+  },
+  {
     "id": "digital-pr-link-building-pitch-teardown",
     "category": "pr-communications",
     "lessonSlug": "digital-pr-link-building",

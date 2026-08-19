@@ -857,3 +857,31 @@ node --import tsx -e "import { TOOLS } from './src/lib/tools-directory.ts'; cons
 ```
 
 Never copy a count from another line in the same doc (they disagree with each other, per above) and never assume last session's number is still right. When a rule like this one fixes a batch of stale counts, grep the fixed file for the OLD wrong numbers one more time afterward (`grep -n "108 \|116 \|216-term"`) to confirm no sibling copy was missed — a single sed pass over one phrasing does not catch every place the same stat was hand-written differently.
+
+### Rule 75 — A dropdown/mega-menu panel must be anchored to a container wide enough to hold it, never to its own small trigger button
+
+`Nav.tsx`'s Topics mega menu was originally `<div className="relative">{trigger}{panel}</div>`, with the panel `absolute left-0` relative to that same small wrapper div. The panel's `left: 0` is relative to the *trigger's own wrapper*, not the viewport or the page — so on a wide screen where Topics sits near the left edge of the nav (first item after the logo), a panel wider than the remaining space to the right of the trigger silently overflows off the right edge of the browser window. This isn't a visual crowding issue, it's real clipping: at a 1440px viewport with the trigger around x=503 and a 1040px-wide panel, the panel's right edge landed at x=1543, so the last column (`Career & Legal`) was rendered entirely outside the visible viewport with no scrollbar to reach it. `npx tsc --noEmit` and `eslint` both pass clean on this bug — it's a runtime layout defect, invisible without actually opening the menu in a browser.
+
+**Fixed** by decoupling the panel from the trigger: the panel now renders as a sibling of `<nav>`, absolutely positioned relative to the full header container (which has `relative` added), using `left-4 sm:left-6 lg:left-8` (matching the page's own left padding, so its edge lines up with the logo) and a width capped at `min(1040px, calc(100vw - 2rem))` instead of a viewport-relative-only clamp. The trigger button keeps its own small `relative` wrapper for its `aria-expanded` styling, but the panel is no longer inside it.
+
+```tsx
+// WRONG — panel anchored to the trigger's own small wrapper, overflows the viewport
+// when the trigger sits near an edge and the panel is wider than the remaining space
+<div className="relative">
+  {triggerButton}
+  {open && <div className="absolute left-0 top-full w-[1040px]">{panelContent}</div>}
+</div>
+
+// CORRECT — panel anchored to a container wide enough to hold it (here, the full
+// header), independent of exactly where the trigger sits inside that container
+<div className="relative" ref={headerRef}>
+  <nav>{triggerButton}</nav>
+  {open && (
+    <div className="absolute left-4 sm:left-6 lg:left-8 top-full w-[min(1040px,calc(100vw-2rem))]">
+      {panelContent}
+    </div>
+  )}
+</div>
+```
+
+Before shipping any dropdown/mega-menu wider than ~400px, open it in a real browser (or a Playwright screenshot) at a representative desktop width and confirm no part of the panel is clipped by the viewport edge — `tsc`/lint/build all pass on this class of bug regardless of whether it's actually visible.
