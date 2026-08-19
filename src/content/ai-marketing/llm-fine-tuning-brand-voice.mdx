@@ -12,6 +12,18 @@ Think of it this way: prompting is like handing a new employee a style guide eve
 
 ## Why Fine-Tuning Wins at Scale
 
+<InAction
+  concept="Fine-tuning AI on brand tone at scale"
+  companyName="Adore Me"
+  where="Adore Me's product description writing, stylist note personalization, and Mexico market localization workflows"
+  why="Manually writing on-brand product descriptions, stylist notes, and localized copy at catalog scale was slow and inconsistent across writers"
+  what="Built role-specific AI agents trained on brand tone and workflow context (via Writer's AI Studio) to draft SEO product descriptions, personalized stylist notes, and Spanish localization, with human review before publish"
+  benefit="Cut product description generation from 20 hours to 20 minutes per batch, reduced stylist note writing time by 36%, and compressed a localized market launch timeline from months to 10 days"
+  timeframe="Production rollout"
+  date="2025"
+  source="https://visme.co/blog/ai-marketing-case-studies/"
+/>
+
 If you're generating 10 marketing emails a month, a great prompt works fine. If you're generating 10,000 social posts a year, prompting breaks down. Humans drift, some outputs stay on-brand, others don't. Fine-tuning gives you consistency without that variance.
 
 When you fine-tune, the model's weights absorb your style. A fine-tuned model knows your tone intuitively and applies it across thousands of outputs without re-instructing. You also reduce context length usage (cheaper API calls) and latency because you're not sending 500-token system prompts to the API anymore.
@@ -47,6 +59,18 @@ Each pair teaches the model: "When you see this kind of prompt, respond with thi
 The tradeoff: OpenAI is easiest and produces excellent results; Mistral/Llama give you control and lower costs but require more engineering.
 
 ## LoRA: The Efficiency Behind Fine-Tuning
+
+<InAction
+  concept="LoRA adapters for cost-efficient fine-tuning at scale"
+  companyName="Convirza"
+  where="Convirza's call center analytics platform, scoring over 60 agent performance indicators across customer calls"
+  why="Running 60+ separate fine-tuned model instances against OpenAI's API for every performance indicator was too expensive and slow to scale across millions of call hours"
+  what="Trained a separate small LoRA adapter for each performance indicator on top of a single shared Meta Llama-3-8B base model, using Predibase's multi-LoRA serving infrastructure to swap adapters at inference time instead of running dozens of full model instances"
+  benefit="Cut inference costs 10x compared to the equivalent OpenAI API usage, improved F1 score by 8%, and increased throughput by 80%"
+  timeframe="Production deployment"
+  date="2024"
+  source="https://www.zenml.io/llmops-database/multi-lora-serving-for-agent-performance-analysis-at-scale"
+/>
 
 You don't actually retrain a 10-billion-parameter model from scratch. Instead, most fine-tuning today uses **LoRA (Low-Rank Adaptation)**, a technique that trains only a small set of adapter layers while freezing the base model weights. This keeps fine-tuning cheap, fast, and memory-efficient.
 

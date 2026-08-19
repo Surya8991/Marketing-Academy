@@ -85,6 +85,7 @@ function isActiveHref(pathname: string, href: string) {
 export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDrop, setOpenDrop] = useState<DropId>(null);
+  const [activeGroup, setActiveGroup] = useState<string>(TOPIC_GROUPS[0].label);
   const pathname = usePathname();
   const router = useRouter();
   const navRef = useRef<HTMLDivElement>(null);
@@ -242,68 +243,89 @@ export default function Nav() {
           </Link>
         </nav>
 
-        {/* Topics mega menu panel — anchored to the full header (not the small Topics
-            button) so its left edge always lines up with the page's left padding and
-            it never overflows the right edge of the viewport on wide screens. */}
+        {/* Topics mega menu panel — a two-pane flyout (sidebar of discipline tabs on
+            the left, that group's topics on the right), anchored to the full header
+            (not the small Topics button) so its left edge always lines up with the
+            page's left padding and it never overflows the viewport on wide screens. */}
         {openDrop === "topics" && (
-          <div className="absolute left-4 sm:left-6 lg:left-8 top-full mt-2 w-[min(1040px,calc(100vw-2rem))] rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-2xl overflow-hidden">
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 divide-x divide-y sm:divide-y-0 divide-[var(--border)]">
+          <div className="absolute left-4 sm:left-6 lg:left-8 top-full mt-2 w-[min(760px,calc(100vw-2rem))] rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-2xl overflow-hidden flex">
+            {/* Sidebar: discipline tabs */}
+            <div className="w-[180px] shrink-0 border-r border-[var(--border)] bg-[var(--muted)]/30 p-2">
+              <p className="px-2.5 pt-1.5 pb-2 text-[0.65rem] uppercase tracking-wider text-[var(--muted-foreground)] font-semibold">
+                Browse
+              </p>
               {TOPIC_GROUPS.map((group) => {
                 const GroupIcon = GROUP_ICONS[group.label] ?? Compass;
+                const active = group.label === activeGroup;
                 return (
-                  <div key={group.label} className="p-3.5 min-w-0">
-                    <div className="flex items-center gap-1.5 mb-2 px-1">
-                      <GroupIcon size={13} className="text-[var(--accent)] shrink-0" />
-                      <p className="text-[0.68rem] uppercase tracking-wider text-[var(--muted-foreground)] font-semibold truncate">
-                        {group.label}
-                      </p>
-                    </div>
-                    <div className="flex flex-col gap-0.5">
-                      {group.slugs.map((slug) => {
-                        const cat = CATEGORY_INDEX.find((c) => c.slug === slug);
-                        if (!cat) return null;
-                        const active = pathname.startsWith(`/learn/${slug}`);
-                        return (
-                          <Link
-                            key={slug}
-                            href={`/learn/${slug}`}
-                            className={cn(
-                              "flex items-start gap-2 px-2 py-1.5 rounded-lg transition-colors",
-                              active
-                                ? "bg-[var(--accent)]/10 text-[var(--foreground)]"
-                                : "hover:bg-[var(--muted)] text-[var(--foreground)]"
-                            )}
-                          >
-                            <span className="text-base shrink-0 leading-none mt-0.5">{cat.emoji}</span>
-                            <div className="min-w-0">
-                              <div className="text-sm font-medium leading-snug">{cat.title}</div>
-                              <div className="text-[0.7rem] text-[var(--muted-foreground)]">
-                                {cat.lessonCount} lessons
-                              </div>
-                            </div>
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  </div>
+                  <button
+                    key={group.label}
+                    onMouseEnter={() => setActiveGroup(group.label)}
+                    onFocus={() => setActiveGroup(group.label)}
+                    onClick={() => setActiveGroup(group.label)}
+                    className={cn(
+                      "w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-sm font-medium text-left transition-colors",
+                      active
+                        ? "bg-[var(--card)] text-[var(--foreground)] shadow-sm"
+                        : "text-[var(--muted-foreground)] hover:bg-[var(--card)]/60 hover:text-[var(--foreground)]"
+                    )}
+                  >
+                    <GroupIcon size={14} className={cn("shrink-0", active ? "text-[var(--accent)]" : "")} />
+                    <span className="truncate flex-1">{group.label}</span>
+                    <ChevronDown size={12} className="shrink-0 -rotate-90 opacity-50" />
+                  </button>
                 );
               })}
             </div>
-            <div className="p-3 pt-3 border-t border-[var(--border)] bg-[var(--muted)]/40 flex gap-2">
-              <Link
-                href="/learn"
-                className="flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--card)] text-sm font-medium hover:bg-[var(--muted)] transition-colors"
-              >
-                <LayoutGrid size={14} />
-                Browse all topics
-              </Link>
-              <Link
-                href="/skill-map"
-                className="flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--card)] text-sm font-medium hover:bg-[var(--muted)] transition-colors"
-              >
-                <Map size={14} />
-                My progress map
-              </Link>
+
+            {/* Content: active group's topics */}
+            <div className="flex-1 min-w-0 p-3.5">
+              <p className="px-1 pb-2 text-[0.65rem] uppercase tracking-wider text-[var(--muted-foreground)] font-semibold">
+                {activeGroup}
+              </p>
+              <div className="grid grid-cols-2 gap-x-2 gap-y-0.5">
+                {TOPIC_GROUPS.find((g) => g.label === activeGroup)?.slugs.map((slug) => {
+                  const cat = CATEGORY_INDEX.find((c) => c.slug === slug);
+                  if (!cat) return null;
+                  const active = pathname.startsWith(`/learn/${slug}`);
+                  return (
+                    <Link
+                      key={slug}
+                      href={`/learn/${slug}`}
+                      className={cn(
+                        "flex items-start gap-2 px-2 py-2 rounded-lg transition-colors",
+                        active
+                          ? "bg-[var(--accent)]/10 text-[var(--foreground)]"
+                          : "hover:bg-[var(--muted)] text-[var(--foreground)]"
+                      )}
+                    >
+                      <span className="text-base shrink-0 leading-none mt-0.5">{cat.emoji}</span>
+                      <div className="min-w-0">
+                        <div className="text-sm font-medium leading-snug">{cat.title}</div>
+                        <div className="text-[0.7rem] text-[var(--muted-foreground)]">
+                          {cat.lessonCount} lessons
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+              <div className="mt-2 pt-3 border-t border-[var(--border)] flex items-center justify-between">
+                <Link
+                  href="/learn"
+                  className="flex items-center gap-1.5 text-sm font-medium text-[var(--accent)] hover:opacity-80 transition-opacity"
+                >
+                  Browse all topics
+                  <ChevronDown size={13} className="-rotate-90" />
+                </Link>
+                <Link
+                  href="/skill-map"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[var(--border)] text-xs font-medium hover:bg-[var(--muted)] transition-colors"
+                >
+                  <Map size={13} />
+                  My progress map
+                </Link>
+              </div>
             </div>
           </div>
         )}

@@ -885,3 +885,15 @@ Never copy a count from another line in the same doc (they disagree with each ot
 ```
 
 Before shipping any dropdown/mega-menu wider than ~400px, open it in a real browser (or a Playwright screenshot) at a representative desktop width and confirm no part of the panel is clipped by the viewport edge — `tsc`/lint/build all pass on this class of bug regardless of whether it's actually visible.
+
+### Rule 76 — `scripts/get-category-batch-info.mjs` doesn't resolve `sourceCategory`, so it overcounts a category's remaining project-less lessons by however many cross-listed lessons it contains
+
+`fundamentals` reports "8 already have projects, 32 remaining" — but 13 of those 32 are the cross-listed `mental-models` lessons (Rule 31/43: `pattern-recognition`, `systems-thinking`, `decision-making-under-uncertainty`, `first-principles-thinking`, `opportunity-cost-thinking`, `writing-to-think`, `base-rates-forecasting`, `second-order-thinking`, `inversion-thinking`, `goodharts-law`, `deliberate-practice`, `pareto-and-constraints`, `bayesian-updating`). Their real MDX lives at `src/content/mental-models/{slug}.mdx` and their canonical projects already exist in `src/lib/projects/mental-models.ts` (authored in Session 85's `mental-models` track rollout, 13/13 done) — but `get-category-batch-info.mjs` reports their MDX path as `src/content/fundamentals/{slug}.mdx` and lists them as project-less anyway, because the script checks `fundamentals.ts` for a matching key, not `mental-models.ts` via `sourceCategory`. True remaining count for `fundamentals` was 19, not 32.
+
+Authoring a second, `fundamentals`-keyed project set for these 13 lessons would violate Rule 31 directly ("Quiz keys: live under the canonical `sourceCategory` … Do NOT create duplicate entries" — the same principle applies to project keys) and would silently orphan the new content, since the lesson page always resolves projects via `sourceCat = lessonRef?.sourceCategory ?? category`, so a `fundamentals.ts` entry for a cross-listed slug is never read by anything.
+
+**Before trusting any category's "remaining" batch list, cross-check it against `curriculum.ts`'s `sourceCategory` field**:
+```bash
+grep -n 'sourceCategory' src/lib/curriculum.ts
+```
+Any slug the batch tool lists that also appears with a `sourceCategory` in curriculum.ts is not actually remaining — check the real target category's `projects/*.ts` file for it before authoring. Do not fix this by teaching the script to skip cross-listed slugs without checking whether the target category's file already covers them; the script's counts of *other* categories are correct today only because no other category currently has this overlap.

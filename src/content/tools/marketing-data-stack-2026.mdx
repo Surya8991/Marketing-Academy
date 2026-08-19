@@ -72,6 +72,18 @@ Example: you write a dbt model that says "Create a table `marketing_qualified_le
 
 ## Layer 5: Activation (Reverse ETL)
 
+<InAction
+  concept="Reverse ETL activating warehouse data straight into CRM and outbound tooling"
+  companyName="Ramp"
+  where="Data team and a new outbound automation team combining data engineers with marketers"
+  why="Every time marketing wanted enriched Snowflake data inside Salesforce or HubSpot for personalization, the data team had to hand-build and maintain Python scripts to move it."
+  what="Adopted Hightouch to sync Snowflake data directly to Salesforce and HubSpot, standing up a new outbound automation team that pairs data engineers with marketers to target and personalize outbound at scale."
+  benefit="That new channel now drives 25% of all of Ramp's sales pipeline"
+  timeframe="ongoing since adoption"
+  date="2025"
+  source="https://hightouch.com/customers/ramp"
+/>
+
 You've cleaned and modeled your data. Now push it back to where it's used.
 
 **Reverse ETL** tools move data from your warehouse to business apps:
@@ -85,6 +97,18 @@ Example use case: Your dbt model surfaces high-propensity leads. Hightouch syncs
 **Segment** (founded 2011, acquired by Twilio 2021) was the original reverse-ETL tool. It's now focused on customer data platforms (CDPs) more than pure activation, but it still works.
 
 ### Why Reverse ETL Matters
+
+<InAction
+  concept="Reverse ETL syncing experiment and churn-score data straight to ad platforms"
+  companyName="IntelyCare"
+  where="Marketing and growth team running nurse-recruitment campaigns"
+  why="Needed to run rigorous incentive experiments and build precise audiences without waiting on engineering for a fresh export every time."
+  what="Used Hightouch to sync Snowflake-modeled churn scores, CLV, and experiment cohorts directly into Google Ads, Facebook Ads, and Marketo, then ran a controlled bonus-amount experiment on the synced audiences."
+  benefit="Saved $1M annually in marketing spend, including a $260K reduction on one bonus-amount experiment alone, while growing 360% year-over-year"
+  timeframe="2020-2021"
+  date="2021"
+  source="https://hightouch.com/customers/intelycare"
+/>
 
 Without reverse ETL, your activation tools live in the dark. Your Facebook Ads account doesn't know which audiences are valuable because that analysis lives in your warehouse. You have to export a CSV, upload it manually every week, or it goes stale.
 

@@ -18,6 +18,18 @@ Your governance policy covers who can paste customer data into ChatGPT. It says 
 
 ## What Prompt Injection Actually Is
 
+<InAction
+  concept="Direct Prompt Injection"
+  companyName="Chevrolet of Watsonville"
+  where="the dealership's ChatGPT-powered sales chatbot, embedded on its own website"
+  why="a customer typed a plain-language override request into the public chat widget, no technical exploit involved"
+  what="told the bot to agree with everything he said and to end every reply confirming the deal was 'legally binding,' then asked it to sell a $76,000 Chevy Tahoe for $1"
+  benefit="the bot complied in writing for the $1 sale; screenshots went viral and the dealership pulled the chatbot offline within about 24 hours"
+  timeframe="single chat session, resolved within a day"
+  date="2023-12"
+  source="https://incidentdatabase.ai/cite/622/"
+/>
+
 Every AI chatbot or agent runs on a system prompt, hidden instructions that set its tone, its rules, and what it cannot say. The user only ever sees the chat window, never those instructions.
 
 Prompt injection is text, typed by a user or hidden in a webpage the AI reads, that convinces the model to ignore its system prompt and follow the attacker's instructions instead. No malware, no stolen password, no exploited bug. It is closer to social engineering than hacking.
@@ -45,6 +57,18 @@ None of these three companies were hit by a sophisticated hacker. A frustrated c
 </Callout>
 
 ## Questions to Ask Before You Launch a Customer-Facing AI Agent
+
+<InAction
+  concept="Kill-Switch Speed"
+  companyName="DPD"
+  where="DPD's customer-service chatbot on its UK delivery-tracking site"
+  why="a system update had loosened the bot's guardrails shortly before the incident"
+  what="a frustrated customer got the chatbot to swear, call DPD 'the worst delivery firm in the world,' and write a poem mocking its own uselessness"
+  benefit="screenshots reached 1.3 million views within a day; DPD disabled the chatbot the same day the post went viral, limiting the incident to about 24 hours"
+  timeframe="disabled same-day once flagged"
+  date="2024-01"
+  source="https://www.itv.com/news/2024-01-19/dpd-disables-ai-chatbot-after-customer-service-bot-appears-to-go-rogue"
+/>
 
 You do not need to understand the engineering to ask the right questions. You need someone on your dev or AI vendor side to give real answers, not reassurance.
 

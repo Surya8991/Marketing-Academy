@@ -38,6 +38,18 @@ The gap that remains, even with dashboards everywhere, is narrative. Tools like 
 
 ## How the Pipeline Works
 
+<InAction
+  concept="AI narrative reporting step"
+  companyName="Layer"
+  where="Layer, a 25-person digital marketing agency in Norway, connected its marketing data into a conversational AI interface via Supermetrics for Claude, layered on top of its existing dashboard setup rather than replacing it."
+  why="Client data requests were taking hours of manual spreadsheet pulling every time an account manager needed an ad hoc answer, on top of the standing weekly report."
+  what="The agency wired Supermetrics' data connectors directly into Claude, so a client question could be answered in plain language against live data instead of a fresh manual export."
+  benefit="Client data requests that used to take 10 hours of manual spreadsheet work dropped to about 20 minutes, with the team confirming zero hallucinations or incorrect data points after extensive testing."
+  timeframe="Ongoing as of the case study's publication"
+  date="2026"
+  source="https://supermetrics.com/case-studies/layer"
+/>
+
 Think of the pipeline as four dominoes. Push the first one, and a finished report lands in Slack without anyone touching a spreadsheet.
 
 <Mermaid chart={`flowchart TD
@@ -54,6 +66,18 @@ Think of the pipeline as four dominoes. Push the first one, and a finished repor
 **Stage 4, Delivery.** A trigger fires the finished report into Slack, an email, or a live Looker Studio dashboard link, on the same day and time every week, with zero manual intervention.
 
 ## The Tools Involved
+
+<InAction
+  concept="Automated pull-and-delivery layer (n8n/Zapier)"
+  companyName="Zscaler"
+  where="Zscaler's global partner communications team streamlined its post-event content and reporting workflow using an automated recording-to-repurposing pipeline instead of manually assembling recaps after every webinar."
+  why="Manually turning each partner webinar into follow-up content and reporting assets was consuming staff time that scaled linearly with the number of events run across the global partner ecosystem."
+  what="The team automated the recording-to-output workflow end to end, replacing manual post-event assembly with a connected pipeline that produces the deliverables automatically."
+  benefit="Post-event content production became 10x faster, while the team maintained nearly 60% webinar attendance across its global partner ecosystem."
+  timeframe="As reported in the vendor's published customer story"
+  date="2026"
+  source="https://www.goldcast.io/customer-stories"
+/>
 
 You do not need to build this from scratch. Four categories of tool cover the whole pipeline.
 

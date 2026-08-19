@@ -16,6 +16,18 @@ That distinction matters more than it sounds. A rule can check 'does this field 
 
 ## What an LLM Node Actually Does
 
+<InAction
+  concept="Structured output from an LLM node routed automatically into a CRM"
+  companyName="Autotorino"
+  where="Autotorino, an Italian auto dealer group operating across 74 locations and 23 brands"
+  why="Inbound calls about after-sales requests were going unanswered because no rule-based system could read a raw phone transcript and decide what the caller actually wanted"
+  what="Built a Zapier workflow that transcribes calls with AssemblyAI, classifies the caller's intent against an internal framework using an OpenAI LLM node with structured output, then routes the result straight into Salesforce"
+  benefit="Captured roughly 1,500 client requests a month that used to go unanswered, an estimated €150,000 in net profit influenced, while a related lead-intake rebuild of 109 production Zaps returned 2,394 hours to the CRM team in 2025"
+  timeframe="2025"
+  date="2025"
+  source="https://zapier.com/blog/autotorino-lead-intake-inbound-call-automation/"
+/>
+
 Every LLM node in n8n, Zapier, or Make follows the same shape: take some text from earlier in the workflow, send it to an LLM API with a prompt, get a response back, and pass that response to the next step.
 
 The prompt inside the node needs to do three things well. **State the exact task**, not 'analyze this,' but 'classify this message into exactly one of these three categories.' **Show the input clearly**, usually by referencing the field from the trigger step (the form response, the email body, the Slack message). **Specify the output format**, because the next node in your workflow needs to parse whatever comes back.
@@ -59,6 +71,18 @@ Notice the pattern across all three: the LLM node makes a judgment or produces a
 ---
 
 ## Building This Without Breaking Things
+
+<InAction
+  concept="Keeping a human approval step in an automated workflow instead of letting it act unsupervised"
+  companyName="Delivery Hero"
+  where="Delivery Hero's internal IT team, handling account-lockout recovery requests"
+  why="Around 800 account-lockout requests landed on IT every month, each taking an average of 35 minutes to resolve manually, with IT as the bottleneck for every single request"
+  what="Built an n8n workflow where an employee requests a reset, a manager approves it with one click, and only after that approval does n8n automatically reset the account in Okta and Google Workspace"
+  benefit="Average lockout time dropped from 35 to 20 minutes, cutting total employee lockout time by roughly 200 hours per month, without removing the human approval step from the loop"
+  timeframe="ongoing, case published 2026"
+  date="2026"
+  source="https://n8n.io/case-studies/delivery-hero/"
+/>
 
 Adding an AI step to a workflow you already trust is safer than building an AI-heavy workflow from scratch. Follow this order.
 

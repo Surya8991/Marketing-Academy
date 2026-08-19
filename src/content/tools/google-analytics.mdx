@@ -133,6 +133,18 @@ Getting set up takes about 30 minutes. Here is what you must do.
 
 ### Step 2: Add the Tracking Code to Your Site
 
+<InAction
+  concept="Duplicate tracking code silently inflating GA4 numbers"
+  companyName="MyCardirect.com"
+  where="An online car dealership with both a gtag.js snippet and a separate Google Tag Manager container firing on every page"
+  why="Reported conversions and event counts looked implausibly high, and login/signup numbers didn't match what the business actually saw"
+  what="Removed the duplicate gtag.js and GTM installations and consolidated all conversion tracking into a single Google Tag Manager setup"
+  benefit="Eliminated 3x conversion overcounting and fixed the login/signup miscount, restoring accurate attribution"
+  timeframe="as part of a full tracking audit"
+  date="2026"
+  source="https://ga4experts.com/case-studies/"
+/>
+
 GA4 gives you a "Measurement ID" that looks like G-XXXXXXXXXX. You need to put this on every page of your site.
 
 - **WordPress**: Install the "Site Kit by Google" plugin, or use the "Insert Headers and Footers" plugin to paste the GA4 code snippet.
@@ -176,6 +188,18 @@ A landing page (the first page someone sees when they arrive) sets the tone for 
 This lets you watch individual user journeys. You can see: arrived from Google, viewed product page, added to cart, left without buying, came back the next day, purchased. This is gold for understanding why people do (or do not) convert.
 
 ### Funnel Exploration
+
+<InAction
+  concept="Building custom funnels instead of relying on default reports"
+  companyName="Printique"
+  where="Adorama's photo-printing e-commerce brand, which had gaps in its GA4 dataLayer and no purpose-built conversion funnels"
+  why="Default GA4 reports couldn't show step-by-step drop-off across their specific multi-step ordering flow, including mid-editor product switches"
+  what="Built 17 custom ecommerce conversion funnels in GA4 Explorations with step-level dataLayer specification, verified event-by-event with the dev team"
+  benefit="17 custom funnels live in GA4 Explorations with item-level dataLayer accuracy on every step, giving the team real step-by-step visibility into checkout behavior"
+  timeframe="as part of a full GA4 ecommerce tracking rebuild"
+  date="2026"
+  source="https://ga4experts.com/case-studies/"
+/>
 
 **Where**: Explore > Funnel exploration
 
