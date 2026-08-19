@@ -4,6 +4,8 @@ import { TRACKS } from "@/lib/tracks";
 import { classificationCode } from "@/lib/classificationCodes";
 import TrackCard from "@/components/TrackCard";
 import RecentlyViewed from "@/components/RecentlyViewed";
+import ReviewDueBadge from "@/components/ReviewDueBadge";
+import RecommendedNext from "@/components/RecommendedNext";
 import PageMasthead from "@/components/PageMasthead";
 import {
   ArrowRight,
@@ -216,6 +218,8 @@ export default function HomePage() {
       </section>
 
       <RecentlyViewed />
+      <RecommendedNext />
+      <ReviewDueBadge />
 
       {/* Featured / Start Here */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
