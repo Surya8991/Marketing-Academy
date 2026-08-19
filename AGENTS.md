@@ -432,13 +432,13 @@ const locked = !getQuizPassed(category, slug) && !done;
 
 Use `sourceCategory` for cross-listed lessons (Rule 31). Two components performing the same state change through two different gates is the bug class here, not a missing feature.
 
-**This is one of five interlocking integrity defects.** The others, all confirmed in code and documented in `PROJECTS_PLAN.md` 0.1b-0.1e:
-- `src/app/certificates/[slug]/page.tsx` computes `pct` and **never gates on it**, so anyone can print a certificate at 0% completion by visiting the URL.
-- `Quiz.tsx` reveals the correct answer and explanation per question, then offers unlimited retry, so 100% is reachable in ~30 seconds without knowledge.
-- `TrackQuizPageClient` passes at 80% of a *pooled* question set, so a learner can score 0% on two lessons and still have them marked complete.
-- `markIncomplete()` does not reverse XP, and `addXP` dedupes on a rolling 24h window, so completions are farmable.
+**This was one of five interlocking integrity defects, all now fixed (PROJECTS_PLAN.md Stage 1, decided options recorded in section 16).** Recorded here so the fix isn't undone by someone reading this rule's original problem statement and assuming it's still open:
+- ~~`src/app/certificates/[slug]/page.tsx` computes `pct` and never gates on it~~ — **Fixed.** `eligible = pct === 100 && trackQuizPassed` (16.6, decided option B); the certificate route shows a "not quite eligible yet" screen with a progress bar and a link to the track quiz until both conditions hold.
+- ~~`Quiz.tsx` reveals the correct answer and explanation per question, then offers unlimited retry~~ — **Fixed.** Correctness and explanations only render on the post-submit "finished" screen (Stage 1.2); options and question order are freshly Fisher-Yates-shuffled on every mount and retry (Stage 1.3, Rule 40).
+- ~~`TrackQuizPageClient` passes at 80% of a pooled question set~~ — **Fixed.** Passing the overall pool (≥80%) is necessary but not sufficient: a lesson is only marked complete if the learner also scored ≥50% (`PER_LESSON_MIN`) on that lesson's own questions within the pool (Stage 1.5); lessons that miss it are listed in a "need more review" panel instead of being silently certified.
+- ~~`markIncomplete()` does not reverse XP, and `addXP` dedupes on a rolling 24h window~~ — **Fixed.** `addXP("complete", id)` now dedupes **permanently** per lesson id via `EngagementState.completedXpIds` (uncapped, unlike the 200-entry `xpLog`), not the old 24h rolling window (Stage 1.7, `src/lib/engagement.ts`). `"quiz"` and `"bookmark"` intentionally keep the 24h window, that farming surface was never the concern.
 
-Fix them as one batch. Closing the track bypass alone just pushes everyone onto a quiz that shows its own answers, toward a certificate that was never gated.
+Verified 2026-08-19: re-read all four call sites end to end, no regressions found. `markProjectComplete()` (`src/lib/projects-progress.ts`, practice projects) is a **separate, deliberately ungated** function, projects don't feed certificates and are explicitly out of this rule's scope (see that file's docstring) — do not "fix" it into gated behavior without a real product decision first.
 
 ### Rule 37 — The projects layer is planned in `PROJECTS_PLAN.md`, read it before touching projects
 `PROJECTS_PLAN.md` (root) is the active high-priority roadmap for the hands-on projects layer, the `/projects` hub, and concept scenarios in lessons. Section 0 carries the execution order. Do not design any part of that feature without reading it; a four-agent survey of 454 lessons is already recorded there and re-deriving it wastes a lot of effort.
