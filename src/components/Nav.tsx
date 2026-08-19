@@ -7,7 +7,7 @@ import {
   GraduationCap, LayoutGrid, Brain, Map,
   BookMarked, FileText, Mic2, Wrench,
   SlidersHorizontal, Trophy, Settings, Library, Zap, ClipboardCheck, Briefcase,
-  Compass, Radio, TrendingUp, Megaphone, Scale,
+  Compass, Radio, TrendingUp, Megaphone,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CATEGORY_INDEX } from "@/lib/curriculum";
@@ -27,7 +27,8 @@ import { COMMAND_PALETTE_EVENT } from "@/lib/events";
  */
 const LEARN_SECTIONS = [
   {
-    label: null as string | null,
+    tabLabel: "Learn",
+    tabIcon: BookOpen,
     items: [
       { href: "/projects",     label: "Practice Projects", icon: ClipboardCheck, desc: "Hands-on work for real companies" },
       { href: "/tracks",       label: "Learning Tracks",   icon: Map,            desc: "Structured paths by goal" },
@@ -37,7 +38,8 @@ const LEARN_SECTIONS = [
     ],
   },
   {
-    label: "Your Progress" as string | null,
+    tabLabel: "Your Progress",
+    tabIcon: Trophy,
     items: [
       { href: "/portfolio",    label: "My Portfolio", icon: Briefcase,  desc: "Completed projects as evidence" },
       { href: "/skill-map",    label: "Skill Map",    icon: LayoutGrid, desc: "See your progress by category" },
@@ -48,7 +50,8 @@ const LEARN_SECTIONS = [
 
 const RESOURCE_SECTIONS = [
   {
-    label: "Reference" as string | null,
+    tabLabel: "Reference",
+    tabIcon: BookMarked,
     items: [
       { href: "/glossary",            label: "Glossary",          icon: BookMarked, desc: "Marketing terms A-Z" },
       { href: "/interview-questions", label: "Interview Prep",    icon: Mic2,       desc: "Ace your marketing interview" },
@@ -56,7 +59,8 @@ const RESOURCE_SECTIONS = [
     ],
   },
   {
-    label: "Tools" as string | null,
+    tabLabel: "Tools",
+    tabIcon: Wrench,
     items: [
       { href: "/tools",           label: "Tools Directory", icon: Wrench,            desc: "Best marketing tools" },
       { href: "/compare",         label: "Compare Tools",   icon: SlidersHorizontal, desc: "Side-by-side tool comparison" },
@@ -66,11 +70,10 @@ const RESOURCE_SECTIONS = [
 ];
 
 const GROUP_ICONS: Record<string, typeof Compass> = {
-  "Strategy": Compass,
+  "Foundations & Strategy": Compass,
   "Channels": Radio,
   "Growth & Data": TrendingUp,
-  "Outreach": Megaphone,
-  "Career & Legal": Scale,
+  "Outreach & Events": Megaphone,
 };
 
 type DropId = "topics" | "learn" | "resources" | null;
@@ -86,6 +89,8 @@ export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDrop, setOpenDrop] = useState<DropId>(null);
   const [activeGroup, setActiveGroup] = useState<string>(TOPIC_GROUPS[0].label);
+  const [activeLearnTab, setActiveLearnTab] = useState<string>(LEARN_SECTIONS[0].tabLabel);
+  const [activeResourceTab, setActiveResourceTab] = useState<string>(RESOURCE_SECTIONS[0].tabLabel);
   const pathname = usePathname();
   const router = useRouter();
   const navRef = useRef<HTMLDivElement>(null);
@@ -157,25 +162,55 @@ export default function Nav() {
     </button>
   );
 
-  const sectionDropdown = (sections: typeof LEARN_SECTIONS) => (
-    <div className="absolute left-0 top-full mt-2 w-64 rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-2xl p-2">
-      {sections.map((section, i) => (
-        <div key={section.label ?? i} className={i > 0 ? "mt-1 pt-1 border-t border-[var(--border)]" : ""}>
-          {section.label && (
-            <p className="px-3 pt-2 pb-1 text-[10px] font-semibold uppercase tracking-wider text-[var(--muted-foreground)]">
-              {section.label}
-            </p>
-          )}
-          {section.items.map((item) => {
+  // Two-pane flyout (sidebar of section tabs + that section's items), same pattern as
+  // the Topics mega menu below. Anchored to the full header via the caller, never to
+  // the trigger button, so it can't overflow the viewport (Rule 75).
+  const megaMenu = (
+    sections: typeof LEARN_SECTIONS,
+    activeTab: string,
+    setActiveTab: (label: string) => void
+  ) => {
+    const active = sections.find((s) => s.tabLabel === activeTab) ?? sections[0];
+    return (
+      <div className="absolute left-4 sm:left-6 lg:left-8 top-full mt-2 w-[min(560px,calc(100vw-2rem))] rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-2xl overflow-hidden flex">
+        {/* Sidebar: section tabs */}
+        <div className="w-[190px] shrink-0 border-r border-[var(--border)] bg-[var(--muted)]/30 p-2">
+          {sections.map((section) => {
+            const TabIcon = section.tabIcon;
+            const isActive = section.tabLabel === activeTab;
+            return (
+              <button
+                key={section.tabLabel}
+                onMouseEnter={() => setActiveTab(section.tabLabel)}
+                onFocus={() => setActiveTab(section.tabLabel)}
+                onClick={() => setActiveTab(section.tabLabel)}
+                className={cn(
+                  "w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-sm font-medium text-left transition-colors",
+                  isActive
+                    ? "bg-[var(--card)] text-[var(--foreground)] shadow-sm"
+                    : "text-[var(--muted-foreground)] hover:bg-[var(--card)]/60 hover:text-[var(--foreground)]"
+                )}
+              >
+                <TabIcon size={14} className={cn("shrink-0", isActive ? "text-[var(--accent)]" : "")} />
+                <span className="truncate flex-1">{section.tabLabel}</span>
+                <ChevronDown size={12} className="shrink-0 -rotate-90 opacity-50" />
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Content: active tab's items */}
+        <div className="flex-1 min-w-0 p-2">
+          {active.items.map((item) => {
             const Icon = item.icon;
-            const active = isActiveHref(pathname, item.href);
+            const itemActive = isActiveHref(pathname, item.href);
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
                   "flex items-start gap-3 px-3 py-2.5 rounded-lg transition-colors",
-                  active
+                  itemActive
                     ? "bg-[var(--accent)]/10 text-[var(--foreground)]"
                     : "hover:bg-[var(--muted)] text-[var(--foreground)]"
                 )}
@@ -189,9 +224,9 @@ export default function Nav() {
             );
           })}
         </div>
-      ))}
-    </div>
-  );
+      </div>
+    );
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-[var(--border)] bg-[var(--background)]/90 backdrop-blur-md">
@@ -217,16 +252,14 @@ export default function Nav() {
             {dropBtn("topics", "Topics", onLearn)}
           </div>
 
-          {/* Learn dropdown (content + your progress) */}
+          {/* Learn dropdown trigger (panel anchored to the full header below) */}
           <div className="relative">
             {dropBtn("learn", "Learn", learnActive)}
-            {openDrop === "learn" && sectionDropdown(LEARN_SECTIONS)}
           </div>
 
-          {/* Resources dropdown (reference + tools) */}
+          {/* Resources dropdown trigger (panel anchored to the full header below) */}
           <div className="relative">
             {dropBtn("resources", "Resources", resourceActive)}
-            {openDrop === "resources" && sectionDropdown(RESOURCE_SECTIONS)}
           </div>
 
           {/* About */}
@@ -248,9 +281,9 @@ export default function Nav() {
             (not the small Topics button) so its left edge always lines up with the
             page's left padding and it never overflows the viewport on wide screens. */}
         {openDrop === "topics" && (
-          <div className="absolute left-4 sm:left-6 lg:left-8 top-full mt-2 w-[min(760px,calc(100vw-2rem))] rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-2xl overflow-hidden flex">
+          <div className="absolute left-4 sm:left-6 lg:left-8 top-full mt-2 w-[min(780px,calc(100vw-2rem))] rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-2xl overflow-hidden flex">
             {/* Sidebar: discipline tabs */}
-            <div className="w-[180px] shrink-0 border-r border-[var(--border)] bg-[var(--muted)]/30 p-2">
+            <div className="w-[210px] shrink-0 border-r border-[var(--border)] bg-[var(--muted)]/30 p-2">
               <p className="px-2.5 pt-1.5 pb-2 text-[0.65rem] uppercase tracking-wider text-[var(--muted-foreground)] font-semibold">
                 Browse
               </p>
@@ -264,14 +297,14 @@ export default function Nav() {
                     onFocus={() => setActiveGroup(group.label)}
                     onClick={() => setActiveGroup(group.label)}
                     className={cn(
-                      "w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-sm font-medium text-left transition-colors",
+                      "w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-[13px] font-medium text-left transition-colors",
                       active
                         ? "bg-[var(--card)] text-[var(--foreground)] shadow-sm"
                         : "text-[var(--muted-foreground)] hover:bg-[var(--card)]/60 hover:text-[var(--foreground)]"
                     )}
                   >
                     <GroupIcon size={14} className={cn("shrink-0", active ? "text-[var(--accent)]" : "")} />
-                    <span className="truncate flex-1">{group.label}</span>
+                    <span className="flex-1 leading-tight">{group.label}</span>
                     <ChevronDown size={12} className="shrink-0 -rotate-90 opacity-50" />
                   </button>
                 );
@@ -329,6 +362,13 @@ export default function Nav() {
             </div>
           </div>
         )}
+
+        {/* Learn mega menu panel — same two-pane pattern as Topics, anchored to the
+            full header so it never overflows the viewport (Rule 75). */}
+        {openDrop === "learn" && megaMenu(LEARN_SECTIONS, activeLearnTab, setActiveLearnTab)}
+
+        {/* Resources mega menu panel — same two-pane pattern as Topics. */}
+        {openDrop === "resources" && megaMenu(RESOURCE_SECTIONS, activeResourceTab, setActiveResourceTab)}
 
         {/* Actions */}
         <div className="flex items-center gap-1">
@@ -429,10 +469,10 @@ export default function Nav() {
           </Link>
 
           {/* Learn (content + your progress) */}
-          {LEARN_SECTIONS.map((section, i) => (
-            <div key={section.label ?? i}>
+          {LEARN_SECTIONS.map((section) => (
+            <div key={section.tabLabel}>
               <p className="text-xs uppercase tracking-wider text-[var(--muted-foreground)] mb-2 px-1 font-semibold">
-                {section.label ?? "Learn"}
+                {section.tabLabel}
               </p>
               <div className="flex flex-col gap-1 mb-4">
                 {section.items.map((item) => {
@@ -459,10 +499,10 @@ export default function Nav() {
           ))}
 
           {/* Resources (reference + tools) */}
-          {RESOURCE_SECTIONS.map((section, i) => (
-            <div key={section.label ?? i}>
+          {RESOURCE_SECTIONS.map((section) => (
+            <div key={section.tabLabel}>
               <p className="text-xs uppercase tracking-wider text-[var(--muted-foreground)] mb-2 px-1 font-semibold">
-                {section.label ?? "Resources"}
+                {section.tabLabel}
               </p>
               <div className="flex flex-col gap-1 mb-4">
                 {section.items.map((item) => {

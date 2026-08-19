@@ -7,9 +7,8 @@
  * the reader a map instead of a wall of names.
  */
 export const TOPIC_GROUPS = [
-  { label: "Strategy", slugs: ["fundamentals", "psychology", "copywriting", "brand-strategy", "product-marketing", "mental-models"] },
-  { label: "Channels", slugs: ["seo", "paid-ads", "social", "content", "email"] },
+  { label: "Foundations & Strategy", slugs: ["fundamentals", "psychology", "copywriting", "brand-strategy", "product-marketing", "mental-models", "marketing-leadership", "legal-compliance"] },
+  { label: "Channels", slugs: ["seo", "paid-ads", "social", "content", "email", "affiliate-marketing"] },
   { label: "Growth & Data", slugs: ["growth", "analytics", "tools", "cro", "ai-marketing"] },
-  { label: "Outreach", slugs: ["pr-communications", "events-experiential", "affiliate-marketing"] },
-  { label: "Career & Legal", slugs: ["marketing-leadership", "legal-compliance"] },
+  { label: "Outreach & Events", slugs: ["pr-communications", "events-experiential"] },
 ];
