@@ -41,6 +41,18 @@ This single fact should drive most of your workflow decisions: which tool you pi
 
 ## The Frozen Style Block: The Single Biggest Consistency Lever
 
+<InAction
+  concept="Locked, verbatim style block reuse across a series"
+  companyName="Nearmap"
+  where="A company-wide global rebrand rolled out through Canva Enterprise's Brand Kit and Brand Templates"
+  why="A geospatial-imagery company needed every new design, from sales decks to social assets, to reflect an approved rebrand instantly instead of waiting on manual design review each time"
+  what="Centralized 25 Brand Templates and 150 brand assets in one Brand Kit so every team applied the same locked colors, fonts, and logos automatically at the moment of creation, the same 'freeze it once, reuse it verbatim' principle this lesson applies to AI image prompts"
+  benefit="Cut design feedback loops from up to 2 hours down to near-zero (a 95% reduction) while scaling to 2,000+ on-brand designs in 12 months"
+  timeframe="across a 12-month global rebrand"
+  date="2026"
+  source="https://www.canva.com/case-studies/nearmap/"
+/>
+
 The most reliable way to make a multi-image series look like one coherent brand rather than a set of one-off experiments is a locked, verbatim style block pasted into every single prompt, never paraphrased or "improved" between generations.
 
 A well-built style block specifies, in order: the overall visual style and mood, the exact color palette with hex codes and a specific role for each color, the typography approach, the icon style, and explicit constraints (no photography, no gradients, no drop shadows, whatever the brand's specific exclusions are). Copy-pasting this block verbatim, rather than re-describing it in slightly different words each time, is what actually holds a series together.
@@ -50,6 +62,18 @@ A well-built style block specifies, in order: the overall visual style and mood,
 </Callout>
 
 ## Prompt Anatomy: The Order That Works
+
+<InAction
+  concept="Quoting exact strings to control on-image text accuracy"
+  companyName="OpenAI"
+  where="The GPT Image 2 model release, positioned for text-heavy marketing graphics"
+  why="Earlier text-rendering models left marketers proofreading every headline and disclaimer line by hand, which is exactly the repair-pass tax this lesson's opening section describes"
+  what="Shipped a materially strengthened text-rendering pipeline for multi-line headlines, mixed-language layouts, and small disclaimer text, aimed squarely at the on-image-copy accuracy problem"
+  benefit="Roughly 95%+ first-attempt text accuracy on multi-line English headlines and disclaimer text on launch benchmarks, up from the 94-96% character-level baseline this lesson opens with"
+  timeframe="at model launch"
+  date="2026-04-21"
+  source="https://pixverse.ai/en/blog/gpt-image-2-review-and-prompt-guide"
+/>
 
 A prompt for a branded social graphic performs best in a consistent order: format and canvas size first, then the style block, then a layout skeleton describing zones as percentages of canvas height (not vague terms like "top area"), then the exact text strings in quotation marks, then a single icon specification sentence covering all icons at once, then any remaining constraints.
 

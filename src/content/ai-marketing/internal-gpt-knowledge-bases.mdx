@@ -37,6 +37,20 @@ This preparation ensures that the AI references only your best work. It prevents
     D --> E[Human Editor Approves Draft]`} />
 
 ## Automating the Creative Drafting Flow
+
+<InAction
+  concept="Automating the Creative Drafting Flow"
+  companyName="Experian"
+  companyId="experian"
+  where="corporate communications and PR team"
+  why="Reputation and stakeholder-response teams needed first-draft statements that matched approved company positions without waiting hours for manual review cycles."
+  what="Built a Stakeholder and Issues Management custom GPT trained on Experian's approved positions and internal knowledge base to auto-draft first responses to emerging issues."
+  benefit="Cut first-draft response time from hours to minutes while keeping tone, accuracy, and messaging consistent across every stakeholder-facing team."
+  timeframe="Ongoing program"
+  date="2025"
+  source="https://instituteforpr.org/case-study-how-experian-is-using-custom-gpts/"
+/>
+
 Once your knowledge base is ready, you can build custom GPT assistants for specific marketing roles. These assistants use system prompts that define their task and boundaries.
 
 For example, build a social media assistant trained on your top-performing LinkedIn posts. When you feed it a new blog link, it will automatically draft a post matching your established style.
@@ -50,6 +64,20 @@ Always review AI-generated copy for factual accuracy before publishing. While RA
 </Callout>
 
 ## Data Governance and Access Control
+
+<InAction
+  concept="Data Governance and Access Control"
+  companyName="Samsung Electronics"
+  companyId="samsung-electronics"
+  where="semiconductor engineering division"
+  why="Employees pasted confidential source code and meeting notes into public ChatGPT to speed up debugging and note-taking, with no retrieval or access controls on what left the company."
+  what="After discovering the leak, Samsung banned employee use of ChatGPT and other public generative AI tools company-wide and began building internal, access-controlled AI tools instead."
+  benefit="Company-wide ban enacted within days of discovery, becoming the reference incident that pushed LG and SK Hynix to restrict public generative AI the same month."
+  timeframe="April-May 2023"
+  date="2023-05-02"
+  source="https://www.forbes.com/sites/siladityaray/2023/05/02/samsung-bans-chatgpt-and-other-chatbots-for-employees-after-sensitive-code-leak/"
+/>
+
 A shared knowledge base is only as safe as its access rules. Not every employee querying the assistant should be able to retrieve unreleased pricing strategy, confidential contracts, or unannounced product roadmaps just because those documents live in the same vector database as public blog drafts.
 
 Set up role-based access control (RBAC) at the retrieval layer, not just the application layer, so the AI itself only searches documents a given user is cleared to see. This matters more than it sounds: 73% of enterprises cite data security as their primary barrier to broader AI adoption, and unrestricted retrieval is a common reason why ([Witness AI, 2025](https://witness.ai/blog/rag-security/)).

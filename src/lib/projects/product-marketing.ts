@@ -3688,4 +3688,2868 @@ export const PRODUCT_MARKETING_PROJECTS: Record<string, Project[]> = {
         "Apply both AI critique tests to a real category claim from a current tech press release and share the verdict.",
     },
   ],
+
+  "customer-advisory-board": [
+    {
+      id: "customer-advisory-board-roster-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Roster Check: Auditing a Draft CAB Against the 5-5-5 Framework",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given a draft candidate list of 14 customers, apply the 5-5-5 framework and the at-risk exclusion rule to land on a final 12-member Customer Advisory Board roster.",
+      companyId: "klaviyo",
+      scenario:
+        "You're the customer marketing lead at Klaviyo, standing up the company's first Customer Advisory Board ahead of a major pricing-model overhaul. Customer Success just sent over a shortlist of 14 candidates pulled from top accounts, with CRM flags attached.",
+      brief:
+        "Tag every candidate by tier, apply the exclusion rule to anyone with an active risk flag, and backfill to a balanced final 12.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Recruiting across the 5-5-5 tiers instead of defaulting to the loudest customers",
+        "Excluding at-risk or mid-dispute accounts from the CAB",
+      ],
+      steps: [
+        {
+          stepId: "step-1-tier-tagging",
+          concept: "Recruiting across the 5-5-5 tiers instead of defaulting to the loudest customers",
+          lessonAnchor: "step-2-recruit-with-the-5-5-5-framework",
+          theoryRecap:
+            "The lesson's 5-5-5 framework splits a 12-15 member CAB into three roughly equal tiers: Power Users, Strategic Buyers, and Adjacent Thinkers, recruited through Customer Success, not by picking the loudest fans or complainers.",
+          question:
+            "Of the 14 candidates, how many fall into each tier, and does the mix support a balanced board once you cut down to 12?",
+          toolName: "Google Sheets",
+          where: "Import the candidate list CSV from Customer Success, freeze the header row.",
+          procedure: [
+            "Import the 14-row candidate list with columns: name, role, usage frequency, CRM flag",
+            "Tag each row Power User, Strategic Buyer, or Adjacent Thinker based on role and usage frequency",
+            "Count the tier distribution and note any tier that's over- or under-represented",
+            "Flag rows where the tier tag is ambiguous for a second pass",
+          ],
+          outputSample:
+            "Klaviyo CAB Candidates, tier tags (14 rows)\n\nPOWER USERS (6 tagged)\n  1. R. Fontaine, Sr. Email Marketing Manager, daily login, flag: none\n  2. T. Okafor, Marketing Ops Lead, daily login, flag: none\n  ...4 more\n\nSTRATEGIC BUYERS (4 tagged)\n  7. M. Reyes, VP Growth, weekly login, flag: churn-risk 8/10\n  ...3 more\n\nADJACENT THINKERS (4 tagged)\n  11. S. Patel, Head of Lifecycle at an agency partner, weekly login, flag: none\n  ...3 more",
+          healthy: "A near-even split close to 5-5-5, with only 2 flagged rows needing review.",
+          unhealthy: "9 of 14 candidates tagged Power User because Customer Success defaulted to 'who talks to us most.'",
+          interpret:
+            "An uneven tier count means the recruiting source leaned on one relationship, usually CS's own favorites, not the strategic-question requirement from Step 1.",
+          soWhat: [
+            {
+              symptom: "One tier has more than 7 candidates, another has fewer than 3",
+              action: "Go back to Customer Success and ask specifically for names in the under-represented tier",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-exclusion-check",
+          concept: "Excluding at-risk or mid-dispute accounts from the CAB",
+          lessonAnchor: "step-2-recruit-with-the-5-5-5-framework",
+          theoryRecap:
+            "The lesson warns against recruiting customers who are mid-contract dispute or in active churn risk. A CAB is not the forum to save an at-risk account, and one such member poisons the dynamic for everyone else.",
+          question:
+            "Two of the 14 candidates carry CRM flags: one has a churn-risk score of 8/10, one is 45 days into an active contract dispute. What happens to them, and who backfills their seats?",
+          toolName: "Google Sheets",
+          where: "Same candidate sheet, filter the CRM flag column.",
+          procedure: [
+            "Filter the CRM flag column for churn-risk and dispute flags",
+            "Remove both flagged rows from the roster regardless of how well they fit a tier",
+            "Identify the next-best unflagged candidate in the same tier to backfill each removed seat",
+            "Log the removal reason next to each name for the recruiting record",
+          ],
+          outputSample:
+            "EXCLUDED (2)\n  7. M. Reyes, Strategic Buyer, churn-risk 8/10 -- excluded per CAB policy, not a support forum\n  12. D. Kwan, Adjacent Thinker, active contract dispute (day 45) -- excluded, revisit next cycle\n\nBACKFILLED\n  Strategic Buyer seat -> 8. L. Chen, VP RevOps, no flags\n  Adjacent Thinker seat -> 13. A. Bianchi, no flags\n\nFINAL ROSTER: 12 members, 4 Power Users, 4 Strategic Buyers, 4 Adjacent Thinkers",
+          healthy: "Both flagged accounts removed and backfilled from the same tier, final count still balanced.",
+          unhealthy: "Keeping the churn-risk VP on the roster because 'we need their seniority.'",
+          interpret:
+            "A flagged account's usefulness to the board is irrelevant once the flag is active; the lesson treats this as a hard exclusion, not a judgment call.",
+          soWhat: [
+            {
+              symptom: "A flagged account is still on the final roster",
+              action: "Remove it and backfill from the same tier before the kickoff invite goes out",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Import, tag, and filter the candidate list",
+            why: "Free, handles the whole audit without any account setup",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A finalized 12-member CAB roster with tier tags, plus an exclusion log naming who was cut, why, and who backfilled the seat.",
+      sampleOutput:
+        "Adyen, Q3 CAB Roster (excerpt)\n\nPOWER USERS (4)\n  1. Payments Ops Lead, EU enterprise merchant\n  2. Integrations Lead, marketplace platform\n\nSTRATEGIC BUYERS (4)\n  5. VP Finance, cross-border retailer\n\nADJACENT THINKERS (4)\n  9. Head of Risk, fintech partner (non-customer perspective)\n\nEXCLUDED\n  Merchant #14 -- active dispute over chargeback fees, excluded, backfilled from Power User waitlist",
+      successCriteria: [
+        "Correctly tags all 14 candidates into the three 5-5-5 tiers",
+        "Flags and removes both accounts that violate the at-risk exclusion rule",
+        "Backfills to a balanced final 12 with a documented removal reason for each cut",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "customer-advisory-board-feedback-loop-build",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "Closing the Loop: Drafting the Post-Meeting Feedback Summary",
+      timeEstimate: "50 minutes",
+      timeMinutes: 50,
+      objective:
+        "Given raw facilitator notes from a CAB meeting, build the three-part written follow-up the lesson requires within 5 business days, then flag which commitments are at risk under the 60-day rule.",
+      companyId: "wise",
+      scenario:
+        "You run customer marketing at Wise, six days after the company's first in-person CAB summit. You have raw facilitator notes from two strategic topics and the roadmap-reaction session, and 5 business days left to send a written summary before members start disengaging.",
+      brief:
+        "Turn messy notes into the heard / doing / not-doing summary the lesson prescribes, then attach ship dates and flag anything that risks the 60-day rule.",
+      mode: "build",
+      conceptsCovered: [
+        "Structuring a written follow-up as heard / doing / not doing",
+        "The 60-day rule as the biggest predictor of CAB attendance health",
+      ],
+      steps: [
+        {
+          stepId: "step-1-heard-doing-notdoing",
+          concept: "Structuring a written follow-up as heard / doing / not doing",
+          lessonAnchor: "step-4-close-the-feedback-loop-publicly",
+          theoryRecap:
+            "The lesson requires a written summary within 5 business days covering what you heard, what you're doing about it, and what you're explicitly not doing and why. The 'not doing' section is the one that proves the feedback was genuinely evaluated.",
+          question:
+            "The raw notes contain 6 distinct pieces of feedback. How do you sort them into the three sections without softening the 'not doing' items into vague language like 'we'll consider it'?",
+          toolName: "Google Docs",
+          where: "New doc, three headed sections matching the lesson's structure.",
+          procedure: [
+            "List all 6 raw feedback items from the facilitator notes as a working table",
+            "Sort each into Heard, Doing, or Not Doing based on what leadership actually committed to in the room",
+            "For every 'Not Doing' item, write one concrete, specific reason, no hedging language",
+            "Draft the summary in the lesson's three-section format",
+          ],
+          outputSample:
+            "WHAT WE HEARD\n- Multi-currency batch payouts are the #1 blocker for our marketplace-seller segment\n- API rate limits are too low for members processing 500+ transfers/day\n\nWHAT WE'RE DOING\n- Batch payouts: entering discovery this quarter, targeting Q1 next year\n\nWHAT WE'RE NOT DOING (AND WHY)\n- Raising default API rate limits for all users: the segment affected is under 3% of members; we're building a dedicated high-volume tier instead, details in 60 days",
+          healthy: "Each 'not doing' item names a specific, checkable reason.",
+          unhealthy: "'Not doing' items written as 'we'll keep this in mind for the future.'",
+          interpret:
+            "A vague 'not doing' reason reads as the feedback being ignored, which is exactly the outcome the section is meant to prevent.",
+          soWhat: [
+            {
+              symptom: "A 'not doing' item has no concrete reason attached",
+              action: "Go back to the decision-maker in the room and get the actual reason before sending",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-60-day-flag",
+          concept: "The 60-day rule as the biggest predictor of CAB attendance health",
+          lessonAnchor: "common-mistakes",
+          theoryRecap:
+            "The lesson's Common Mistakes section names the 60-day rule as the single biggest predictor of long-term CAB health: if members don't see visible movement on their input within 60 days, attendance starts dropping.",
+          question:
+            "Of the 3 items now in 'What We're Doing,' which ones have a ship date inside 60 days, and which need to be escalated to stay on the clock?",
+          toolName: "Google Sheets",
+          where: "A simple commitment tracker, one row per 'doing' item.",
+          procedure: [
+            "List each 'doing' commitment with its current target ship date",
+            "Calculate days remaining from the meeting date to each target date",
+            "Flag any commitment with no date, or a date past 60 days, in red",
+            "Escalate flagged items to the executive sponsor with a specific ask: a date, or a visible interim update",
+          ],
+          outputSample:
+            "COMMITMENT TRACKER\n1. Batch payouts discovery kickoff -- target: day 21 -- ON TRACK\n2. API rate-limit tier scoping doc -- target: day 58 -- ON TRACK, tight\n3. Mobile push notification prefs -- target: none set -- FLAGGED, escalate to exec sponsor today",
+          healthy: "Every 'doing' item has a date inside 60 days, or an escalation logged the same day.",
+          unhealthy: "A 'doing' commitment with no date sitting unescalated for two weeks.",
+          interpret:
+            "An undated commitment isn't a commitment; it's the exact gap that erodes trust before the next meeting.",
+          soWhat: [
+            {
+              symptom: "A 'doing' item has no ship date by the time the summary goes out",
+              action: "Escalate to the exec sponsor for a hard date before sending, don't send the summary without one",
+              effort: "30 min",
+            },
+          ],
+          owner: "either",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Docs", role: "Draft the three-part written summary", why: "Free, easy to share and comment on with the exec sponsor", required: true, lastVerified: "2026-08" },
+          { toolName: "Google Sheets", role: "Build the 60-day commitment tracker", why: "Free, sortable by date for the escalation check", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [
+          { toolName: "HubSpot CRM", role: "Log each commitment against the member's account record for the next meeting's prep", why: "Keeps the commitment history attached to the account instead of a standalone doc", required: false, lastVerified: "2026-08" },
+        ],
+        paidUpgradeNote: "The free Docs-and-Sheets path covers a single meeting cycle; a CRM log only starts paying off once you're tracking commitments across multiple CAB cycles.",
+      },
+      deliverable:
+        "A written CAB follow-up summary (heard / doing / not-doing) ready to send within 5 business days, plus a 60-day commitment tracker flagging any at-risk item.",
+      sampleOutput:
+        "Coinbase, CAB Follow-Up Summary -- Q2 2026 (excerpt)\n\nWHAT WE HEARD\n- Institutional members want sub-account permissioning before Q3\n\nWHAT WE'RE DOING\n- Sub-account permissioning: scoping doc due day 45, escalated to VP Product as owner\n\nWHAT WE'RE NOT DOING (AND WHY)\n- Custom API keys per sub-account: security review flagged this as a 2027 roadmap item, not deprioritized, genuinely sequenced behind a compliance dependency",
+      successCriteria: [
+        "Sorts all 6 raw feedback items into heard / doing / not-doing with no vague language in the not-doing section",
+        "Attaches a ship date to every 'doing' commitment",
+        "Flags and escalates any commitment that risks breaking the 60-day rule",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "category-creation-gtm": [
+    {
+      id: "category-creation-gtm-naming-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Name the Category: Teardown of Four Candidate Names",
+      timeEstimate: "35 minutes",
+      timeMinutes: 35,
+      objective:
+        "Given four candidate category names and a draft launch-narrative opening for a new Snowflake capability, identify which pass the lesson's naming test and which are generic hype or skip problem validation.",
+      companyId: "snowflake",
+      scenario:
+        "You're on the product marketing team at Snowflake, prepping the category narrative for a new cross-cloud data-sharing capability ahead of a launch event. Two drafts are on the table: a shortlist of candidate category names, and the opening paragraph of the launch brief.",
+      brief:
+        "Apply the naming criteria and the 'naming before validating' mistake check to both specimens before either goes to exec review.",
+      mode: "teardown",
+      conceptsCovered: ["Naming and Positioning the Space", "Common Mistakes in Category Creation", "Defining the New Problem"],
+      teardownItems: [
+        {
+          itemId: "item-1-candidate-names",
+          specimen:
+            "Candidate names pitched for the new capability (governed, zero-copy data replication across AWS, Azure, and GCP):\n1. \"Snowflake Data Cloud Extensions\"\n2. \"Next-Gen Data Fabric Platform\"\n3. \"Cross-Cloud Data Handshake\"\n4. \"AI-Powered Data Suite\"",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "Which of these four candidate names would actually function as a new category name per the lesson's naming test (simple, memorable, descriptive, combines familiar terms in a new way), and which are generic hype dressed up as a name?",
+          answerKey: [
+            {
+              defect: "\"Next-Gen Data Fabric Platform\" reuses the exact generic pattern the lesson names as a failure case",
+              severity: "critical",
+              whyItMatters: "The lesson explicitly warns against 'next-generation platform' language because it fails to define a distinct category and sounds like hype, not a new frame.",
+              lessonRef: "Naming and Positioning the Space",
+              owner: "you",
+            },
+            {
+              defect: "\"AI-Powered Data Suite\" is the lesson's other named example of generic hype language",
+              severity: "critical",
+              whyItMatters: "'AI-powered suite' is called out by name in the lesson as a phrase that fails to create a distinct category.",
+              lessonRef: "Naming and Positioning the Space",
+              owner: "you",
+            },
+            {
+              defect: "\"Snowflake Data Cloud Extensions\" is a feature name, not a category name",
+              severity: "moderate",
+              whyItMatters: "It inherits the existing product line's name instead of naming a new problem or space, so it can't stand alone as a category the way 'Conversational Marketing' or 'Revenue Intelligence' does.",
+              lessonRef: "Naming and Positioning the Space",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "\"Cross-Cloud Data Handshake\" sounds too casual for enterprise buyers",
+            "The names are too long to trademark cleanly",
+            "None of the names mention Snowflake's existing brand strongly enough",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-problem-narrative",
+          specimen:
+            "Draft opening paragraph for the launch brief:\n\"Our new Cross-Cloud Data Handshake capability lets you replicate governed data across every major cloud in under 10 minutes, with zero-copy architecture and built-in lineage tracking. Sign up for early access today.\"",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "What's wrong with this paragraph as the OPENING of a category-creation launch brief, and what would the lesson have you fix first?",
+          answerKey: [
+            {
+              defect: "Leads with the product and features, never names the systemic pain point first",
+              severity: "critical",
+              whyItMatters: "The lesson requires selling the idea that the status quo is unacceptable before selling any feature; a features-first open skips the problem the whole category is supposed to be named after.",
+              lessonRef: "Defining the New Problem",
+              owner: "you",
+            },
+            {
+              defect: "No contrast drawn between the old, painful way and the new category",
+              severity: "moderate",
+              whyItMatters: "Positioning is supposed to create a clear choice for the buyer between the past and the future; this paragraph never mentions what the old way costs a team.",
+              lessonRef: "Naming and Positioning the Space",
+              owner: "you",
+            },
+            {
+              defect: "No analyst or press validation step planned before the public launch",
+              severity: "moderate",
+              whyItMatters: "Skipping analyst and press validation misses the credibility layer that determines whether the market treats this as a real category or a rebrand.",
+              lessonRef: "Common Mistakes in Category Creation",
+              owner: "either",
+            },
+          ],
+          distractors: [
+            "Uses the phrase 'zero-copy architecture,' too technical for a launch brief",
+            "Mentions a specific time bound ('under 10 minutes'), which is too precise a claim to make this early",
+            "The call to action is placed at the end instead of the beginning",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Docs", role: "Write the teardown memo and the rewritten opening paragraph", why: "Free, easy to comment on with the PMM lead before exec review", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A written teardown memo naming which candidate passes the lesson's naming test, plus a rewritten launch-brief opening that leads with the problem, not the feature.",
+      sampleOutput:
+        "Robinhood, Category Naming Teardown Memo (excerpt)\n\nCANDIDATE: \"Guided Trading\" -- PASS, names a new relationship to the problem (decision fatigue), not just a feature\nCANDIDATE: \"Next-Gen Investing Suite\" -- FAIL, generic hype pattern, no distinct frame\n\nREWRITTEN OPENING\nMost new investors freeze at the moment of the trade, not before it. That hesitation costs the industry billions in abandoned first trades every year...",
+      successCriteria: [
+        "Correctly separates the two hype-language candidate names from the two that could function as a real category name",
+        "Identifies the problem-narrative paragraph's features-first structure as the core defect, not a surface wording issue",
+        "Rewrites the opening to lead with the pain point before any feature mention",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "category-creation-gtm-18-month-rollout-simulation",
+      tier: "core",
+      archetype: "simulation",
+      title: "The 18-Month Clock: Simulating a Category Creation GTM Rollout",
+      timeEstimate: "55 minutes",
+      timeMinutes: 55,
+      objective:
+        "Run a category-creation launch through three decision points spread over 18 months and see how each choice plays out against the lesson's named common mistakes.",
+      companyId: "coinbase",
+      scenario:
+        "You're the GTM lead at Coinbase, tasked with launching a new category around programmable, on-chain merchant settlement. Leadership wants press coverage fast; you have three decisions ahead of you over the next 18 months that will decide whether the category sticks or gets copied out from under you.",
+      brief:
+        "At each stage, pick the option that avoids the mistake the lesson warns about, not just the fastest-looking path.",
+      mode: "simulation",
+      conceptsCovered: [
+        "Naming before validating the problem",
+        "Sustained education content over years, not a quarter",
+        "Owning the narrative when a competitor adopts your category term",
+      ],
+      stages: [
+        {
+          stageId: "stage-1-name-before-validate",
+          label: "Pick the Launch Sequence",
+          elapsed: "Month 1-3",
+          concept: "Naming before validating the problem",
+          lessonAnchor: "common-mistakes-in-category-creation",
+          situation:
+            "Leadership wants a splashy category announcement at next month's industry conference. Nobody outside the company has confirmed the pain point ('settlement float costs merchants real money') actually resonates yet.",
+          dashboard: "0 customer interviews logged, 1 conference keynote slot booked in 5 weeks, comms team drafting a press release with the new category name already in the headline",
+          spendToDate: "$40,000",
+          budgetRemaining: "$460,000 of $500,000 annual GTM budget",
+          decision: {
+            prompt: "What do you do before that conference slot?",
+            options: [
+              {
+                id: "press-release-first",
+                label: "Let comms run the press release with the category name already in the headline",
+                verdict: "costly",
+                outcome: "The keynote gets modest coverage, but three trade reporters ask 'is this actually a new problem, or just Coinbase's new feature name?' and no one has a validated answer.",
+                why: "The lesson's Common Mistakes section names this exact failure: naming before validating leaves the problem story unproven when the first hard question lands.",
+                lessonRef: "Common Mistakes in Category Creation",
+                nextStageId: "stage-2-sustained-education",
+              },
+              {
+                id: "validate-then-name",
+                label: "Run 15 rapid customer interviews over the next 3 weeks to confirm the pain point before finalizing the name",
+                verdict: "optimal",
+                outcome: "The keynote slips two weeks but ships with three named merchant quotes describing the exact cost of settlement float, giving the press a concrete problem to write about instead of a new buzzword.",
+                why: "Validating first means the category name arrives already backed by evidence, which is what makes a name stick instead of sounding invented.",
+                lessonRef: "Common Mistakes in Category Creation",
+                nextStageId: "stage-2-sustained-education",
+              },
+              {
+                id: "analyst-briefing-first",
+                label: "Skip customer interviews, go straight to an analyst briefing instead",
+                verdict: "acceptable",
+                outcome: "One analyst firm agrees the problem sounds plausible but won't cite it publicly without customer evidence, so the keynote ships with credibility from one source instead of two.",
+                why: "Analyst input helps, but the lesson treats it as a second, not a replacement, validation layer; skipping direct customer proof leaves a gap the press will eventually probe.",
+                lessonRef: "Common Mistakes in Category Creation",
+                nextStageId: "stage-2-sustained-education",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "stage-2-sustained-education",
+          label: "Size the Education Investment",
+          elapsed: "Month 4-9",
+          concept: "Sustained education content over years, not a quarter",
+          lessonAnchor: "common-mistakes-in-category-creation",
+          situation:
+            "The category has a name and some initial coverage. Marketing needs to decide how much to invest in ongoing education content versus moving budget to demand-gen for the quarter.",
+          dashboard: "1 launch webinar delivered (400 registrants), no certification or academy content planned yet, sales asking for more collateral to answer prospect questions",
+          spendToDate: "$140,000",
+          budgetRemaining: "$360,000 of $500,000 annual GTM budget",
+          decision: {
+            prompt: "How do you allocate the next two quarters of budget?",
+            options: [
+              {
+                id: "one-webinar",
+                label: "Call the launch webinar 'done' and shift all remaining budget to demand-gen ads",
+                verdict: "costly",
+                outcome: "By month 9, prospects still ask sales 'so is this basically just faster settlement?' because nothing reinforced the category story after launch week.",
+                why: "The lesson is explicit that a single launch webinar is not category creation; the work requires sustained content over years, not a quarter.",
+                lessonRef: "Common Mistakes in Category Creation",
+                nextStageId: "stage-3-competitor-adopts-term",
+              },
+              {
+                id: "build-academy",
+                label: "Launch a lightweight certification track teaching merchants the category's underlying methodology",
+                verdict: "optimal",
+                outcome: "By month 9, 300 merchants have completed the certification and a handful start referencing the category name unprompted in support tickets and community posts.",
+                why: "Certifying users in the methodology, per the lesson's GTM playbook, builds a community of advocates who evangelize the category for you.",
+                lessonRef: "The GTM Playbook Execution",
+                nextStageId: "stage-3-competitor-adopts-term",
+              },
+              {
+                id: "two-quarter-cadence",
+                label: "Commit to a steady content cadence for two quarters, then reassess based on results",
+                verdict: "acceptable",
+                outcome: "The category gains modest recognition, but momentum stalls right as the reassessment period begins, since no clear owner is committed past the initial two quarters.",
+                why: "A time-boxed cadence is better than one webinar, but the lesson frames this as a multi-year investment; planning to stop and reassess this early risks losing the compounding effect.",
+                lessonRef: "Common Mistakes in Category Creation",
+                nextStageId: "stage-3-competitor-adopts-term",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "stage-3-competitor-adopts-term",
+          label: "Respond to a Fast Follower",
+          elapsed: "Month 10-18",
+          concept: "Owning the narrative when a competitor adopts your category term",
+          lessonAnchor: "common-mistakes-in-category-creation",
+          situation:
+            "A well-funded competitor just published a blog post using your exact category name to describe their own, older feature, and it's ranking above your own content for the term.",
+          dashboard: "Category name now returns 3 competitor mentions in the top 10 search results, sales reports 2 deals where a prospect asked 'aren't they all doing this now?'",
+          spendToDate: "$310,000",
+          budgetRemaining: "$190,000 of $500,000 annual GTM budget",
+          decision: {
+            prompt: "How do you respond?",
+            options: [
+              {
+                id: "ignore-it",
+                label: "Ignore it, the category is still associated with Coinbase in most people's minds",
+                verdict: "costly",
+                outcome: "Within 3 more months, two additional competitors adopt the term and Coinbase's own content is now outranked for the category name it invented.",
+                why: "The lesson warns that if you don't control the narrative early, a fast-following competitor can adopt your category name and out-market you inside the space you invented.",
+                lessonRef: "Common Mistakes in Category Creation",
+                nextStageId: "end",
+              },
+              {
+                id: "out-publish-and-cite-analysts",
+                label: "Publish a defining piece of content and get an analyst firm to formally cite Coinbase as the category's originator",
+                verdict: "optimal",
+                outcome: "The analyst citation becomes the reference every subsequent article links to, and Coinbase's own definitional content reclaims the top search position within a quarter.",
+                why: "A credible third-party citation is the strongest defense once a term escapes your control; it's the same mechanism the lesson describes as the sign a category effort has actually worked, rivals start speaking your vocabulary, but you can still own the definition of it.",
+                lessonRef: "Common Mistakes in Category Creation",
+                nextStageId: "end",
+              },
+              {
+                id: "rebrand-again",
+                label: "Abandon the term and rebrand to a new category name to differentiate",
+                verdict: "acceptable",
+                outcome: "The rebrand avoids direct comparison for now, but resets 9 months of accumulated recognition and forces the education content cycle to start over.",
+                why: "Switching names sidesteps the immediate confusion but throws away the compounding education investment from Stage 2 rather than defending it.",
+                lessonRef: "Common Mistakes in Category Creation",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Docs", role: "Log the rollout retro and decision rationale at each stage", why: "Free, shareable with the GTM team for the after-action review", required: true, lastVerified: "2026-08" },
+          { toolName: "Google Sheets", role: "Track budget spend and search-ranking checkpoints across the 18 months", why: "Free, sufficient for a quarterly checkpoint tracker", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [
+          { toolName: "HubSpot CRM", role: "Track which sales deals surfaced the 'aren't they all doing this now?' objection", why: "Ties the competitive-narrative risk directly to pipeline impact, not just search rankings", required: false, lastVerified: "2026-08" },
+        ],
+        paidUpgradeNote: "The free Docs-and-Sheets tracker is enough to run this exercise; a CRM link only matters once you're correlating category confusion with real deal outcomes.",
+      },
+      deliverable:
+        "A stage-by-stage rollout log documenting which option was chosen at each of the three decision points, the resulting outcome, and the lesson-referenced reasoning behind each choice.",
+      sampleOutput:
+        "Mailchimp, Category Rollout Retro -- 'Autonomous Marketing Ops' (excerpt)\n\nMONTH 1-3: Validated the pain point with 12 customer interviews (average of 6 hours/week lost to manual send-time optimization) before finalizing the category name.\n\nMONTH 4-9: Launched a certification track instead of a single webinar; 240 marketers certified by month 9.\n\nMONTH 10-18: A competitor adopted the category name in month 11; countered with an analyst-cited definitional report that reclaimed top search position by month 14.",
+      successCriteria: [
+        "Selects the optimal or acceptable option at each of the three stages, not the fastest-looking one",
+        "Correctly attributes each outcome to the specific common mistake the lesson names",
+        "Produces a rollout log that could be handed to a real GTM team as a decision record",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Re-run the simulation choosing the costly option at every stage and write a one-paragraph comparison of the 18-month outcome difference.",
+    },
+  ],
+
+  "gtm-engineering": [
+    {
+      id: "gtm-engineering-waterfall-enrichment-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Cut Call: Auditing a Clay Waterfall Enrichment Run",
+      timeEstimate: "35 minutes",
+      timeMinutes: 35,
+      objective:
+        "Given a real 5-provider Clay waterfall enrichment log (attempts, hits, cost per stage), compute blended coverage and cost-per-match, then decide which provider to cut from the chain.",
+      companyId: "mailchimp",
+      scenario:
+        "You're the growth marketing analyst at Mailchimp validating a new B2B outbound motion for its email/SMS suite. Before scaling the list, you need to know whether the 5-provider waterfall is actually worth its added complexity over a single vendor.",
+      brief:
+        "Import the waterfall log, compute cost-per-successful-match at each stage, calculate blended coverage, and recommend cutting or keeping the lowest-ROI provider with the number to back it up.",
+      mode: "diagnostic",
+      conceptsCovered: ["Waterfall enrichment provider sequencing"],
+      steps: [
+        {
+          stepId: "step-1-waterfall-audit",
+          concept: "Waterfall enrichment provider sequencing",
+          lessonAnchor: "clay-deep-dive-waterfall-enrichment",
+          theoryRecap:
+            "The lesson's waterfall deep-dive chains providers instead of relying on one: try Apollo first, then Hunter, then Clearbit, and so on, paying only on a successful hit, so coverage climbs from a typical single-provider 30% toward 80%+ without proportionally climbing cost.",
+          question:
+            "On a 2,500-contact list run through 5 providers in sequence, blended coverage lands at 72.8% but one provider is barely moving the needle at a steep price. Which provider gets cut, and what does keeping it actually cost?",
+          toolName: "Google Sheets",
+          where: "Import the waterfall run log, freeze the header row, and add a cost-per-match column for each provider stage.",
+          procedure: [
+            "Import the 5-stage log: Apollo (2,500 attempted, 780 hits, $200 spend), Hunter (1,720 attempted, 430 hits, $86 spend), Clearbit (1,290 attempted, 360 hits, $154.80 spend), People Data Labs (930 attempted, 210 hits, $27.90 spend), Crunchbase (720 attempted, 40 hits, $108 spend)",
+            "Add a formula column: cost-per-match = spend / hits for each stage",
+            "Sum hits across all 5 stages and divide by 2,500 to get blended coverage",
+            "Sum hits and spend for the 4 stages excluding Crunchbase, recompute blended coverage and cost without it",
+            "Compare the marginal coverage lift from Crunchbase against its cost-per-match versus the 4-provider blended average",
+          ],
+          outputSample:
+            "Provider      Attempted  Hits  Spend    Cost/Match\nApollo        2,500      780   $200.00  $0.256\nHunter         1,720      430    $86.00  $0.200\nClearbit       1,290      360   $154.80  $0.430\nPeopleDataLabs   930      210    $27.90  $0.133\nCrunchbase       720       40   $108.00  $2.700\n\n5-provider blended: 1,820/2,500 = 72.8% coverage, $0.314/match\n4-provider (no Crunchbase): 1,780/2,500 = 71.2% coverage, $0.263/match",
+          healthy: "Blended cost-per-match stays under roughly $0.40 while coverage clears 70%.",
+          unhealthy: "A provider's marginal cost-per-match spikes 5-10x above the blended average while contributing under 3% of total coverage.",
+          interpret:
+            "Order and count both matter — a 5th provider recovering only 40 more contacts at $2.70 apiece isn't paying for itself once you can see the marginal math.",
+          soWhat: [
+            {
+              symptom: "Crunchbase stage adds a 1.6-point coverage lift at roughly 10x the blended cost-per-match",
+              action: "Drop Crunchbase from the waterfall and redeploy its $108 budget toward raising the People Data Labs attempt cap",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+          },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Import the waterfall log and compute cost-per-match and blended coverage",
+            why: "Free, no account friction, handles the formula work for this audit without any paid tool",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A revised 4-provider waterfall order with blended coverage and cost-per-match projections, plus a one-line recommendation on Crunchbase backed by the marginal-cost number.",
+      sampleOutput:
+        "Klaviyo, Q3 waterfall audit (excerpt)\n\nProvider order: Apollo -> Hunter -> Clearbit -> People Data Labs\nBlended coverage: 71.2% (1,780 / 2,500)\nBlended cost-per-match: $0.263\n\nRecommendation: cut Crunchbase from the chain. It contributed 1.6 points of coverage at $2.70/match, roughly 10x the blended average. Redeploy its $108 budget toward a higher People Data Labs attempt cap instead.",
+      successCriteria: [
+        "Correctly computes cost-per-match for each of the 5 provider stages",
+        "Correctly computes blended coverage with and without the cut provider",
+        "Recommends cutting or keeping the lowest-ROI provider with the marginal cost-per-match number to back it up",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "gtm-engineering-signal-routing-build",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "Build the Signal-to-Routing Spec: Scoring, Decay, and AE Handoff",
+      timeEstimate: "70 minutes",
+      timeMinutes: 70,
+      objective:
+        "Given a raw signal feed for 5 accounts, build a weighted scoring formula, apply score decay for signal age, and assign each account to an AE, SDR, or nurture routing tier with the correct urgency flag.",
+      companyId: "snowflake",
+      scenario:
+        "You're the GTM engineer at Snowflake building the account scoring and routing spec that will decide who an AE calls today versus who sits in a nurture sequence, before it gets handed to an engineer to wire into Clay and Salesforce.",
+      brief:
+        "Design a weighted signal-scoring formula, apply a decay multiplier based on signal age, then route each of 5 sample accounts into an AE, SDR, or nurture tier, flagging any account that needs outreach inside 2 hours.",
+      mode: "build",
+      conceptsCovered: [
+        "Signal-triggered account scoring rubric",
+        "Score-decay-aware routing thresholds",
+      ],
+      steps: [
+        {
+          stepId: "step-1-scoring-rubric",
+          concept: "Signal-triggered account scoring rubric",
+          lessonAnchor: "account-scoring-automation",
+          theoryRecap:
+            "The lesson's automated scoring architecture joins intent data, firmographics, and web activity, then runs an AI column that weights and scores each account, replacing the stale quarterly spreadsheet exercise with a live signal.",
+          question:
+            "Given 5 accounts each with a mix of fired signals (VP+ job change, funding round, tech stack install, pricing page visit, G2 review spike), what weighted formula turns those raw signals into one comparable score per account?",
+          toolName: "Google Sheets",
+          where: "Build a weights table, then a per-account signal matrix that multiplies fired signals by their weight.",
+          procedure: [
+            "Set signal weights: VP+ job change = 30, funding round = 25, tech stack install = 20, pricing page visit = 15, G2 review spike = 10",
+            "Build a 5-account x 5-signal matrix marking which signals fired for each account",
+            "Sum weighted values per account to get a raw score out of 100",
+            "Rank the 5 accounts by raw score before applying any decay",
+          ],
+          outputSample:
+            "Account              Job Chg  Funding  TechStack  PricingVisit  G2Spike  Raw Score\nBridgepoint Retail      30       25        -          15           -        70\nNorthwind Logistics      -       25       20            -         10        55\nHarrow Manufacturing    30        -       20           15           -        65\nCedar Analytics          -        -        -           15         10        25\nVantage Health          30       25       20            -           -        75",
+          healthy: "Raw score spreads accounts across a usable range (roughly 20-80) instead of clustering everyone near the same number.",
+          unhealthy: "Two accounts with very different real urgency land on the identical raw score with no way to break the tie.",
+          interpret: "Raw score alone tells you relative interest, not urgency — that's what step 2's decay layer is for.",
+          soWhat: [
+            {
+              symptom: "Raw scoring ranks accounts but two are tied and one signal is 3 weeks stale",
+              action: "Carry raw scores into the decay step before finalizing any routing decision",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-decay-and-routing",
+          concept: "Score-decay-aware routing thresholds",
+          lessonAnchor: "signal-based-outbound-the-core-workflow",
+          theoryRecap:
+            "The lesson's routing logic sends a 70+ score directly to an AE's queue with a Slack alert, 40-69 triggers an automated SDR sequence, and below 40 goes to nurture — and time from signal to outreach under 2 hours consistently outperforms next-day sending by 3-4x in reply rate.",
+          question:
+            "Applying a 20%-per-week decay to each account's raw score and freshest signal age, which accounts move tiers, and which ones need a Slack alert for outreach inside 2 hours?",
+          toolName: "Google Sheets",
+          where: "Add a signal-age column and a decay formula next to the raw scores from step 1.",
+          procedure: [
+            "Record weeks since each account's freshest signal fired: Bridgepoint = 1 week, Northwind = 3 weeks, Harrow = 0 weeks (fired today), Cedar = 2 weeks, Vantage = 0 weeks (fired yesterday)",
+            "Apply decay: decayed score = raw score x (1 - 0.20 x weeks since freshest signal)",
+            "Assign routing tier from the decayed score: 70+ = AE queue, 40-69 = SDR sequence, under 40 = nurture",
+            "Flag any account whose freshest signal fired within the last 24 hours for a <2h AE Slack alert regardless of tier",
+          ],
+          outputSample:
+            "Account              Raw  Weeks Old  Decayed  Tier      <2h Flag\nBridgepoint Retail     70      1          56.0     SDR       no\nNorthwind Logistics    55      3          22.0     Nurture   no\nHarrow Manufacturing   65      0          65.0     SDR       yes\nCedar Analytics        25      2          15.0     Nurture   no\nVantage Health         75      0          75.0     AE        yes",
+          healthy: "A fresh, high-scoring account (Vantage) clears the AE threshold and gets the <2h flag on the same pass.",
+          unhealthy: "An account with a decent raw score but a 3-week-old signal (Northwind) still gets routed to an AE as if it were fresh.",
+          interpret: "Decay is what stops AEs from chasing ghosts — Bridgepoint's raw 70 would have hit the AE queue undecayed, but 1 week of staleness drops it to SDR.",
+          soWhat: [
+            {
+              symptom: "Northwind's raw score of 55 looks SDR-worthy but its freshest signal is 3 weeks old",
+              action: "Route by decayed score, not raw score, and confirm nurture is correct for anything decayed under 40",
+              effort: "30 min",
+            },
+          ],
+          owner: "either",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the weighted scoring matrix, apply decay, and assign routing tiers",
+            why: "Free and sufficient to design and validate the spec before an engineer wires it into Clay and Salesforce",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A scoring and routing spec: the weighted signal formula, the decay multiplier, and a threshold table (AE/SDR/nurture) validated against 5 sample accounts with urgency flags.",
+      sampleOutput:
+        "Adyen, signal scoring + routing spec (excerpt)\n\nWeights: VP+ job change 30, funding round 25, tech stack install 20, pricing page visit 15, G2 review spike 10\nDecay: -20% per week since freshest signal\n\nAccount: Northwind Logistics — raw 78, 1 week old -> decayed 62.4 -> SDR sequence\nAccount: Bridgepoint Retail — raw 85, fired yesterday -> decayed 85 -> AE queue + <2h Slack alert",
+      successCriteria: [
+        "Weighted formula correctly sums signal values per account",
+        "Decay is applied based on signal age before routing tier is assigned",
+        "Accounts whose freshest signal fired within 24 hours are flagged for <2h AE outreach regardless of score tier",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Add a 6th signal (competitor G2 review spike) and re-weight the formula to keep the total at 100 without simply shrinking every other weight proportionally.",
+    },
+  ],
+  "developer-marketing": [
+    {
+      id: "developer-marketing-docs-trust-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Trust Pyramid Teardown: Three Developer Touchpoints",
+      timeEstimate: "40 minutes",
+      timeMinutes: 40,
+      objective:
+        "Given 3 synthetic developer-facing specimens (a docs homepage, a quickstart page, and a Discord channel history), identify the trust-pyramid violations in each and correctly ignore the plausible-but-harmless distractors.",
+      companyId: "coinbase",
+      scenario:
+        "You're the developer marketing lead at Coinbase reviewing three touchpoints a prospective integrator hits before writing a line of code, checking each against the lesson's trust pyramid before a launch review.",
+      brief:
+        "Read each specimen, list the real defects with severity and why they matter, and correctly exclude the distractors that look suspicious but aren't actual trust violations.",
+      mode: "teardown",
+      conceptsCovered: [
+        "The Developer Trust Pyramid",
+        "Community Building That Doesn't Feel Like Marketing",
+      ],
+      teardownItems: [
+        {
+          itemId: "item-1-docs-homepage",
+          specimen:
+            "API docs homepage banner: 'Enterprise-Grade Payments API — Trusted by Fortune 500.' Below it, a 'View on GitHub' button links to a repo whose last commit was 14 months ago, with 340 open issues and 0 closed in the last 6 months. There is no CONTRIBUTING.md. The Community tab still reads 'Coming soon.'",
+          specimenSource: "synthetic-realistic",
+          prompt: "What in this homepage would make a developer stop evaluating before they ever open the quickstart?",
+          answerKey: [
+            {
+              defect: "The linked GitHub repo shows 14 months of inactivity with 340 open issues and 0 closed in the last 6 months",
+              severity: "critical",
+              whyItMatters:
+                "Developers check issue-close cadence before adopting an SDK — a dead-looking repo signals the integration will be unsupported, no matter what the banner claims",
+              lessonRef: "GitHub presence",
+              owner: "developer",
+            },
+            {
+              defect: "The Community tab reads 'Coming soon' with no actual channel behind it",
+              severity: "moderate",
+              whyItMatters: "No community layer means no peer troubleshooting, which reads as 'you're on your own if this breaks'",
+              lessonRef: "Community",
+              owner: "either",
+            },
+          ],
+          distractors: [
+            "The banner claims 'Trusted by Fortune 500' without naming any specific customer",
+            "The repo is published under a permissive open-source license",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-quickstart",
+          specimen:
+            "Quickstart page: 'Our API enables seamless integration with your payment stack. Simply authenticate and start making calls.' No code block appears anywhere on the page. A 'See full reference' link leads to a downloadable PDF.",
+          specimenSource: "synthetic-realistic",
+          prompt: "A developer lands on this quickstart intending to make their first API call in the next 10 minutes. What stops them?",
+          answerKey: [
+            {
+              defect: "The quickstart has zero working code samples, only prose describing what to do",
+              severity: "critical",
+              whyItMatters: "Developers copy-paste to learn; prose without a runnable code block kills time-to-first-call before it starts",
+              lessonRef: "Documentation quality",
+              owner: "developer",
+            },
+            {
+              defect: "The full reference is a static PDF instead of live, searchable docs",
+              severity: "moderate",
+              whyItMatters: "A PDF goes stale immediately and can't be indexed by the AI assistants developers now ask to integrate an API",
+              lessonRef: "The AI Era: LLM-Facing Developer Marketing",
+              owner: "developer",
+            },
+            {
+              defect: "The copy uses vague marketing language ('seamless integration') instead of concrete technical detail",
+              severity: "cosmetic",
+              whyItMatters: "Developers pattern-match vague marketing language as a signal that the docs weren't written by an engineer",
+              lessonRef: "Content That Actually Works With Developers",
+              owner: "developer",
+            },
+          ],
+          distractors: [
+            "The reference link is labeled 'See full reference' instead of 'API Reference'",
+            "The quickstart page has no visible page-load performance issues",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-3-discord-history",
+          specimen:
+            "Discord #announcements channel: 47 messages in the last 90 days, all authored by 'CommunityBot' or the marketing account, with zero replies from anyone carrying an 'Engineering' role tag. The pinned message reads 'v4.2 released! Read the changelog.' Twelve unanswered developer questions sit below it.",
+          specimenSource: "synthetic-realistic",
+          prompt: "Does this channel read as an active developer community, or as a broadcast feed nobody reads anymore?",
+          answerKey: [
+            {
+              defect: "Zero engineering-tagged replies across 90 days despite 12 open developer questions sitting unanswered",
+              severity: "critical",
+              whyItMatters:
+                "A community that never gets engineer engagement reads as abandoned, no matter how many messages get posted into it",
+              lessonRef: "Community Building That Doesn't Feel Like Marketing",
+              owner: "developer",
+            },
+            {
+              defect: "All channel activity is bot- or marketing-authored broadcast content, not conversation",
+              severity: "moderate",
+              whyItMatters: "Broadcast-only channels train developers to stop checking them, which quietly kills the community layer",
+              lessonRef: "Community Building That Doesn't Feel Like Marketing",
+              owner: "either",
+            },
+          ],
+          distractors: [
+            "The channel is named #announcements rather than #general",
+            "The pinned message links out to a changelog",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Draft the defect log with severity ratings for all 3 specimens",
+            why: "Free, shareable, and enough structure to log defects, severity, and lesson references before a launch review",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A defect log across all 3 specimens with severity ratings, why-it-matters notes, and distractors correctly excluded.",
+      sampleOutput:
+        "Wise developer docs teardown (excerpt)\n\nSpecimen 2 — Quickstart page\nDefects found: (1) zero working code samples — critical; (2) reference is a static PDF — moderate; (3) 'seamless integration' language — cosmetic\nDistractors correctly excluded: reference link label wording, page load speed",
+      successCriteria: [
+        "Identifies all real defects per specimen with a defensible severity rating",
+        "Does not flag either listed distractor as a defect",
+        "Ties each defect to the specific trust-pyramid layer it violates",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "developer-marketing-metrics-dashboard-audit",
+      tier: "core",
+      archetype: "audit",
+      title: "The QBR Slide Call: Revenue-Predictive Metrics vs Vanity Metrics",
+      timeEstimate: "55 minutes",
+      timeMinutes: 55,
+      objective:
+        "Given a synthetic monthly developer-platform dashboard and a synthetic onboarding funnel, decide which 2 metrics deserve the QBR headline slide and identify the single biggest onboarding-friction fix.",
+      companyId: "adyen",
+      scenario:
+        "You're the developer marketing manager at Adyen preparing the quarterly business review deck. Leadership wants a headline metrics slide, and the draft currently leads with GitHub star count.",
+      brief:
+        "Evaluate the current month's dashboard against the lesson's revenue-predictive metrics, replace the vanity headline, then use a synthetic onboarding funnel to find and fix the biggest single drop-off step.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Distinguishing revenue-predictive metrics from vanity metrics",
+        "Time-to-first-API-call as an onboarding friction proxy",
+      ],
+      steps: [
+        {
+          stepId: "step-1-metrics-triage",
+          concept: "Distinguishing revenue-predictive metrics from vanity metrics",
+          lessonAnchor: "metrics-that-predict-revenue-not-vanity",
+          theoryRecap:
+            "GitHub stars correlate weakly with revenue because they measure curiosity, not commitment; documentation NPS, SDK download growth rate, time-to-first-API-call, developer-to-paid conversion, and API call growth are what actually predict revenue.",
+          question:
+            "This month's dashboard shows GitHub stars +180 MoM, doc NPS 52, SDK downloads +3.1% WoW, TTFC 4m 20s, dev-to-paid conversion 2.8%, and API call growth +11% MoM. Which 2 metrics earn the QBR headline slide, and which one gets demoted to a footnote?",
+          toolName: "Google Sheets",
+          where: "List all 6 metrics with their current value and trend direction, then rank them by revenue-predictive strength.",
+          procedure: [
+            "List all 6 metrics with this month's value and month-over-month trend",
+            "Mark each metric as revenue-predictive or vanity based on the lesson's guidance",
+            "Rank the revenue-predictive metrics by trend strength: API call growth +11%, dev-to-paid conversion 2.8% (trending up), doc NPS 52, SDK downloads +3.1%",
+            "Select the top 2 for the QBR headline slide and demote GitHub stars to a context footnote",
+          ],
+          outputSample:
+            "Metric                     Value     Trend        Category\nGitHub stars               12,400    +180 MoM     Vanity\nDoc NPS                    52        flat         Predictive\nSDK downloads               -        +3.1% WoW    Predictive\nTime-to-first-API-call     4m 20s    -            Predictive (friction)\nDev-to-paid conversion     2.8%      +0.3pt QoQ   Predictive\nAPI call growth            -         +11% MoM     Predictive\n\nHeadline slide: dev-to-paid conversion, API call growth\nFootnote: GitHub stars",
+          healthy: "The QBR headline leads with dev-to-paid conversion and API call growth trends, not raw star count.",
+          unhealthy: "The deck opens with '12,400 GitHub stars, +180 this month' as the top-line win.",
+          interpret: "Stars measure curiosity, not commitment — swapping the headline metric for the conversion trend tells leadership something they can act on.",
+          soWhat: [
+            {
+              symptom: "QBR deck opens with GitHub star count as the top metric",
+              action: "Replace the headline slide with dev-to-paid conversion rate trend and API call growth, demote stars to a footnote",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-onboarding-funnel",
+          concept: "Time-to-first-API-call as an onboarding friction proxy",
+          lessonAnchor: "the-sandbox-strategy-try-before-you-register",
+          theoryRecap:
+            "The lesson's sandbox strategy treats friction as the enemy: the most effective developer funnel lets a developer send their first API call in under two minutes with no email form, sales call, or credit card in the way.",
+          question:
+            "Current TTFC is 4m 20s against a 2-minute target. Given a 4-step onboarding funnel with a drop-off at each step, which single step should be cut or delayed first?",
+          toolName: "Google Sheets",
+          where: "Build a 4-step funnel table with percent of signups continuing at each step.",
+          procedure: [
+            "Record the funnel: signup form (100% start) -> email verification (78% continue) -> API key generation (74% continue) -> first API call (61% continue)",
+            "Compute the percentage-point drop at each individual step",
+            "Identify the step with the single largest drop-off share",
+            "Propose a fix that removes or defers that step's friction without removing the gate entirely",
+          ],
+          outputSample:
+            "Step                    % Continuing  Drop from Prior Step\nSignup form             100%          -\nEmail verification       78%          22 pts\nAPI key generation       74%           4 pts\nFirst API call           61%          13 pts\n\nLargest single drop: email verification (22 pts)",
+          healthy: "No single onboarding step accounts for more than roughly 10 points of drop-off.",
+          unhealthy: "One step (here, email verification) accounts for more than double any other step's drop-off.",
+          interpret: "Email verification is the biggest single leak in the funnel, and it's also the step adding the most wait time before a developer can act.",
+          soWhat: [
+            {
+              symptom: "22% of signups abandon during the email verification wait",
+              action: "Issue a rate-limited sandbox key immediately at signup, and require verification only before a production key is issued",
+              effort: "dev ticket",
+            },
+          ],
+          owner: "either",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the metrics triage table and the onboarding funnel drop-off table",
+            why: "Free and sufficient to rank metrics and quantify funnel drop-off before handing a fix to engineering",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A revised QBR metrics slide (2 headline metrics, GitHub stars demoted to a footnote) plus one onboarding-funnel fix ranked by drop-off share.",
+      sampleOutput:
+        "Squarespace developer platform, Q2 dashboard review (excerpt)\n\nHeadline metrics: dev-to-paid conversion 3.4% (+0.3pt QoQ), API call growth +14% MoM\nDemoted: GitHub stars (context footnote only)\n\nFunnel fix: remove mandatory email verification before sandbox key issuance — recovers roughly 22% of signups per cohort",
+      successCriteria: [
+        "Correctly demotes GitHub stars from the headline slide based on the lesson's revenue-correlation guidance",
+        "Selects the 2 strongest revenue-predictive metrics for the headline slide",
+        "Identifies email verification as the largest single drop-off step and proposes a fix that keeps the gate before production access",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "partner-ecosystem-marketing": [
+    {
+      id: "partner-ecosystem-marketing-tier-scorecard-audit",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Spot the Broken Partner Tier: Auditing a Co-Marketing Scorecard",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective: "Given a draft partner tier and incentive one-pager for Wise's bank and API partners, identify the structural defects that will make the program impossible to run before it ever launches.",
+      companyId: "wise",
+      scenario: "You're the partner marketing lead at Wise, reviewing a draft partner tier and incentive one-pager written by a product manager before it goes to legal and the first cohort of bank partners.",
+      brief: "Read the one-pager. Flag every defect that would confuse a partner about what tier they're in, how they get paid, or how conflicts get resolved. Distinguish real defects from stylistic choices that are simply not your preference.",
+      mode: "teardown",
+      conceptsCovered: [
+        "Tiering with quantifiable thresholds, not subjective labels",
+        "Deal registration to prevent channel conflict",
+        "Distinguishing partner-sourced from partner-influenced revenue",
+      ],
+      teardownItems: [
+        {
+          itemId: "wise-partner-tier-onepager",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "WISE PARTNER PROGRAM — DRAFT ONE-PAGER (v0.3)\n\nTIERS\n- Bronze: new partners, still learning the API\n- Silver: good partners who are active\n- Gold: our best partners, high performers\n- Platinum: strategic, invite-only\n\nINCENTIVES\n- All partners earn a 15% commission on any customer that transacts through Wise after being referred, sourced, or simply mentioned in a partner's marketing.\n- Partners keep 100% of the commission with no cap, paid out monthly regardless of deal status.\n\nSUPPORT\n- Partner portal with API docs, brand assets, and a certification quiz.\n- Quarterly business reviews for Gold and Platinum tiers.\n- Partners can also list co-marketing wins directly on the Wise blog once approved by comms.\n\nMEASUREMENT\n- Dashboard shows total number of partners who completed certification this quarter.\n- Partner-of-the-quarter award goes to whoever posts the most on LinkedIn about Wise.",
+          prompt:
+            "Which parts of this one-pager will break the program once it's live, and which are just informal phrasing you'd tighten but wouldn't block launch over?",
+          answerKey: [
+            {
+              defect: "Tier definitions use subjective adjectives ('good', 'best', 'high performers') instead of a quantifiable threshold like annual partner-sourced pipeline.",
+              severity: "critical",
+              whyItMatters: "A partner moving from Silver to Gold needs to know exactly what they need to hit and what they get. Without a number, no partner can self-assess progress, and Wise has no defensible basis for a tier dispute.",
+              lessonRef: "building-your-first-partner-program",
+              owner: "you",
+            },
+            {
+              defect: "Commission is paid on any customer 'referred, sourced, or simply mentioned' with no deal registration process to establish which partner gets credit first.",
+              severity: "critical",
+              whyItMatters: "Without deal registration, two partners can both claim the same customer, and Wise has no record of who found the opportunity first. This is exactly the channel conflict deal registration exists to prevent.",
+              lessonRef: "building-your-first-partner-program",
+              owner: "developer",
+            },
+            {
+              defect: "The only tracked metric is certification completions, a leading-indicator vanity metric, with no partner-sourced pipeline or partner-influenced revenue tracked anywhere.",
+              severity: "moderate",
+              whyItMatters: "Certifications tell you partners are engaged, not that they're producing revenue. Wise can't coach underperformers or reward top performers without the pipeline number the program is actually meant to drive.",
+              lessonRef: "measuring-partner-performance",
+              owner: "you",
+            },
+            {
+              defect: "'Partner-of-the-quarter' is awarded for LinkedIn post volume rather than partner-sourced or partner-influenced revenue.",
+              severity: "cosmetic",
+              whyItMatters: "A visibility-based award sends the signal that social activity, not revenue, is what Wise rewards, which quietly retrains the partner base to optimize for the wrong behavior.",
+              lessonRef: "measuring-partner-performance",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The program includes a partner portal with API docs, brand assets, and a certification quiz.",
+            "Gold and Platinum tiers get quarterly business reviews.",
+            "Approved co-marketing wins can be featured on the Wise blog.",
+            "Commission is paid out monthly rather than quarterly.",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Docs", role: "Read the one-pager and leave inline comments on each defect found", why: "Free, comment threads make the audit trail visible", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable: "A commented copy of the one-pager with every structural defect flagged, each tagged critical, moderate, or cosmetic, with a one-line fix.",
+      sampleOutput:
+        "Adyen Partner Tier Audit — Findings (excerpt)\n\nCRITICAL: 'Preferred' tier has no revenue threshold. Fix: define as $250K annual partner-sourced pipeline, reviewed quarterly.\n\nCRITICAL: No deal registration window specified (partners assume 'first mention' wins, no timestamp system exists). Fix: 30-day registration window logged in the partner portal, first-registered wins the margin.\n\nMODERATE: Dashboard tracks integration installs, not pipeline. Fix: add partner-sourced and partner-influenced pipeline as the two headline metrics.",
+      successCriteria: [
+        "Identifies both critical defects (subjective tiers, missing deal registration) without prompting",
+        "Correctly separates real structural defects from stylistic details that aren't blockers",
+        "Proposes a concrete fix for each defect, not just a description of the problem",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "partner-ecosystem-marketing-tier-program-build",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "Build the First Tier and Incentive Structure for a Partner Network",
+      timeEstimate: "55 minutes",
+      timeMinutes: 55,
+      objective: "Design a complete tier structure, incentive plan, and measurement dashboard for Snowflake's ISV partner segment, which currently has ad hoc relationships and no formal program.",
+      companyId: "snowflake",
+      scenario: "You're the partner marketing lead at Snowflake. The Snowflake Partner Network has 40 ISV partners building on top of Snowflake's data cloud, but relationships have grown organically with no tiers, no clear incentives, and no shared metric for what a 'good' partner looks like.",
+      brief: "Design a tiering system with quantifiable thresholds, an incentive plan that avoids channel conflict, and a measurement plan that separates partner-sourced from partner-influenced revenue.",
+      mode: "build",
+      conceptsCovered: [
+        "Tiering with quantifiable thresholds, not subjective labels",
+        "Distinguishing partner-sourced from partner-influenced revenue",
+      ],
+      steps: [
+        {
+          stepId: "step-1-tier-thresholds",
+          concept: "Tiering with quantifiable thresholds, not subjective labels",
+          lessonAnchor: "building-your-first-partner-program",
+          theoryRecap: "The lesson's tiering section argues tiers only motivate partners when the threshold to move up is a specific number, not a subjective label, and each tier has a defined benefit attached.",
+          question: "You have 40 ISV partners at wildly different revenue levels, from $0 in partner-sourced pipeline to one partner at $1.8M. What's the tier structure?",
+          toolName: "Google Sheets",
+          where: "Build a 4-row table: tier name, annual partner-sourced pipeline threshold, benefit unlocked, number of current partners who qualify.",
+          procedure: [
+            "List all 40 partners with their trailing-12-month partner-sourced pipeline in one column",
+            "Sort descending and look for natural breakpoints in the distribution rather than picking round numbers arbitrarily",
+            "Define 4 tiers (Early, Active, Elite, Strategic) with a specific pipeline threshold for each",
+            "Attach one concrete benefit per tier (marketplace featuring, co-marketing budget, joint QBR, executive sponsor)",
+          ],
+          outputSample:
+            "Snowflake ISV Partner Tiers (draft)\n\nEarly Partner — $0-$50K annual partner-sourced pipeline (22 partners qualify)\n  Benefit: Partner portal access, certification track\n\nActive Partner — $50K-$250K (11 partners qualify)\n  Benefit: Marketplace listing featured placement, quarterly enablement webinar\n\nElite Partner — $250K-$750K (5 partners qualify)\n  Benefit: Joint QBR, $10K annual MDF\n\nStrategic Partner — $750K+ (2 partners qualify)\n  Benefit: Executive sponsor, joint go-to-market campaign, co-authored case study",
+          healthy: "Each tier has a specific pipeline number and every partner can see exactly which tier they're in today and what's required to move up.",
+          unhealthy: "Tiers are named Bronze/Silver/Gold with no threshold attached, so partners can't tell whether they're close to the next tier or not.",
+          interpret: "A threshold-based tier turns the program into a scoreboard partners can track themselves; a label-based tier turns it into a subjective judgment call Snowflake has to defend in every partner conversation.",
+          soWhat: [
+            { symptom: "Partners keep asking what tier they're in", action: "Publish the threshold table and refresh it monthly in the partner portal", effort: "30 min" },
+            { symptom: "One partner disputes their tier placement", action: "Point to the specific trailing-12-month number, not a subjective assessment", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-measurement-plan",
+          concept: "Distinguishing partner-sourced from partner-influenced revenue",
+          lessonAnchor: "measuring-partner-performance",
+          theoryRecap: "The lesson separates partner-sourced pipeline (the partner brought the opportunity) from partner-influenced revenue (the partner helped close a deal Snowflake already had), noting influenced revenue typically runs 3-5x larger.",
+          question: "Snowflake's sales team wants one number to report to the board. Do you report sourced, influenced, or both, and why does it matter which?",
+          toolName: "Google Sheets",
+          where: "Add two columns to the partner tracking sheet: sourced pipeline and influenced revenue, tagged by deal.",
+          procedure: [
+            "For each closed deal, tag it sourced (partner brought the lead) or influenced (partner contributed to an existing deal, e.g. required integration or reference call)",
+            "Sum both columns separately per partner and per quarter",
+            "Report both numbers to the board, sourced as the leading indicator of partner effort, influenced as the lagging proof of ecosystem value",
+            "Flag any partner with high influenced revenue but near-zero sourced pipeline as a candidate for a proactive co-selling conversation",
+          ],
+          outputSample:
+            "Q3 Partner Revenue Report (excerpt)\n\nPartner: DataRobot\n  Sourced: $180K (partner originated the opportunity)\n  Influenced: $640K (technical validation on 3 enterprise deals Snowflake already had)\n\nBoard summary: $2.1M sourced across all partners, $7.4M influenced. Influenced is 3.5x sourced, consistent with the lesson's expected ratio.",
+          healthy: "Both numbers are tracked and reported separately, so a partner with strong influenced revenue but weak sourcing gets coached toward proactive selling instead of being underrated.",
+          unhealthy: "Only one blended 'partner revenue' number exists, hiding whether partners are originating deals or just supporting deals Snowflake already had.",
+          interpret: "Sourced pipeline measures partner effort; influenced revenue measures partner value. A program that only tracks one is blind to half the picture.",
+          soWhat: [
+            { symptom: "A partner looks like a low performer on sourced pipeline alone", action: "Check their influenced revenue before deciding they're underperforming", effort: "30 min" },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Build the tier table and the sourced/influenced tracking sheet", why: "Free, sortable, easy to share with sales ops for validation", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [
+          { toolName: "PartnerStack", role: "Automate commission calculation and payout once the tier structure is finalized", why: "Removes manual spreadsheet chasing once deal registration volume grows past a handful of partners a month", required: false, lastVerified: "2026-08" },
+        ],
+      },
+      deliverable: "A 4-tier partner structure with quantifiable pipeline thresholds and attached benefits, plus a sourced-vs-influenced revenue tracking sheet ready to hand to sales ops.",
+      sampleOutput:
+        "Robinhood Institutional Partner Tiers (excerpt)\n\nActive Partner — $100K-$400K annual partner-sourced pipeline\n  Benefit: Featured API marketplace placement, quarterly enablement session\n\nQ2 Revenue Report: $890K sourced, $3.1M influenced (3.5x ratio) across 12 active partners.",
+      successCriteria: [
+        "Every tier has a specific, non-overlapping pipeline threshold",
+        "Sourced and influenced revenue are tracked as separate columns, never blended into one number",
+        "At least one concrete, non-generic benefit is attached to each tier",
+      ],
+      portfolioReady: true,
+      stretch: "Model what happens to the tier distribution if Snowflake's ISV program doubles from 40 to 80 partners next year, does the top tier's threshold need to move?",
+    },
+  ],
+  "ai-product-positioning": [
+    {
+      id: "ai-product-positioning-buzzword-audit",
+      tier: "mini",
+      archetype: "teardown",
+      title: "AI-Washing or Real Differentiation? Auditing a Positioning Statement",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective: "Given a draft AI feature positioning statement for a Robinhood market-insights feature, identify where it hides behind buzzwords instead of naming a real outcome, moat, or proof point.",
+      companyId: "robinhood",
+      scenario: "You're a product marketer at Robinhood, reviewing a draft positioning statement for a new AI-powered market insights feature before it goes into the app's feature announcement and sales enablement deck.",
+      brief: "Read the draft statement. Flag every line that's AI-washing (buzzwords standing in for a real claim) versus real differentiation grounded in outcome, moat, or evidence.",
+      mode: "teardown",
+      conceptsCovered: [
+        "Framing AI value through the Jobs-to-Be-Done lens, not the technology",
+        "Specific, methodology-backed accuracy claims over vague superlatives",
+        "Naming the real competitive alternative, not just other AI tools",
+      ],
+      teardownItems: [
+        {
+          itemId: "robinhood-ai-insights-positioning-draft",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "ROBINHOOD MARKET INSIGHTS AI — DRAFT POSITIONING (internal)\n\nHeadline: \"Powered by cutting-edge generative AI, our revolutionary market insights engine leverages advanced machine learning to deliver next-generation intelligence.\"\n\nSub-head: \"Our AI is smarter than any other AI on the market, built on a proprietary neural architecture that outperforms the competition.\"\n\nBody: \"Using state-of-the-art large language models, Market Insights AI analyzes vast amounts of data to surface highly accurate, real-time signals. Our AI-powered engine is trained on massive datasets and continuously learns to get even better. Investors who use Market Insights AI report feeling more confident in their decisions.\"\n\nCTA: \"Experience the future of investing with AI.\"",
+          prompt:
+            "Which claims in this draft are AI-washing that could be cut with no loss of meaning, and which, if any, are real differentiation worth keeping?",
+          answerKey: [
+            {
+              defect: "The headline and sub-head never name a job the AI does (e.g. flagging unusual options activity before a retail investor would notice it); every phrase is technology description, not outcome.",
+              severity: "critical",
+              whyItMatters: "The lesson's Jobs-to-Be-Done frame argues a feature is valuable because of the job it does, not because it uses AI. A retail investor reading this headline still can't say what the feature actually does for them.",
+              lessonRef: "the-jobs-to-be-done-frame-for-ai-features",
+              owner: "you",
+            },
+            {
+              defect: "'Highly accurate' and 'smarter than any other AI' are vague superlatives with no methodology, sample size, or comparison basis attached.",
+              severity: "critical",
+              whyItMatters: "The lesson's skepticism-handling section is explicit: 'highly accurate' signals you don't have data or are hiding something, while a specific claim like '92% precision, validated on 10,000 trades' signals rigor.",
+              lessonRef: "handling-skepticism",
+              owner: "you",
+            },
+            {
+              defect: "'Outperforms the competition' never says which competition, generic AI tools, or the real alternative most retail investors are actually using (checking a stock app manually or following a forum).",
+              severity: "moderate",
+              whyItMatters: "The lesson's April Dunford framing argues the real competitive alternative for an AI feature is often a human doing the job manually, not another AI vendor. Naming the real alternative makes the value concrete.",
+              lessonRef: "april-dunfords-framework-for-ai-positioning",
+              owner: "you",
+            },
+            {
+              defect: "'Investors report feeling more confident' is an unattributed, unquantified claim with no customer name, sample size, or metric.",
+              severity: "moderate",
+              whyItMatters: "The lesson's proof-over-promises point argues a named case study with a specific timeline and number beats a vague, anonymous sentiment claim every time.",
+              lessonRef: "handling-skepticism",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The CTA is short and action-oriented.",
+            "The body mentions the model continuously learns from new data.",
+            "The statement is written in second person, addressing the investor directly.",
+            "The headline is a single sentence rather than a multi-sentence paragraph.",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Docs", role: "Mark up the draft with inline comments per defect", why: "Free, comment threads double as the review record for the PMM lead", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable: "A commented copy of the draft with every AI-washing claim flagged and tagged critical, moderate, or cosmetic, plus a one-line rewrite direction for each.",
+      sampleOutput:
+        "Coinbase AI Fraud Alerts — Positioning Audit (excerpt)\n\nCRITICAL: 'Powered by advanced AI' names no job. Rewrite direction: lead with the job ('catches suspicious sign-ins before they become account takeovers').\n\nCRITICAL: 'Industry-leading accuracy' has no number. Rewrite direction: '99.2% precision on flagged sign-ins, validated across 2M logins in Q2 2026.'",
+      successCriteria: [
+        "Flags both critical defects (no named job, vague superlative) without prompting",
+        "Distinguishes AI-washing from stylistic choices that aren't real defects",
+        "Proposes a concrete rewrite direction for each flagged claim, not just a critique",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "ai-product-positioning-stance-rebuild",
+      tier: "core",
+      archetype: "rebuild",
+      title: "Rebuild the Positioning: Choosing the Right AI Stance for a Regulated Buyer",
+      timeEstimate: "50 minutes",
+      timeMinutes: 50,
+      objective: "Given Coinbase's institutional AI-powered transaction monitoring feature and a compliance-focused buyer, choose the correct positioning stance and rewrite the statement to fit it.",
+      companyId: "coinbase",
+      scenario: "You're a product marketer at Coinbase, positioning a new AI-powered transaction monitoring feature to institutional compliance teams at banks and exchanges evaluating Coinbase for custody. The current draft leads with model architecture, and it's not landing with buyers.",
+      brief: "Diagnose which of the three AI positioning stances fits a compliance buyer, then rebuild the statement around the Jobs-to-Be-Done frame with specific, methodology-backed proof.",
+      mode: "build",
+      conceptsCovered: [
+        "Choosing the right AI positioning stance for buyer sophistication and risk",
+        "Framing AI value through the Jobs-to-Be-Done lens, not the technology",
+      ],
+      steps: [
+        {
+          stepId: "step-1-choose-stance",
+          concept: "Choosing the right AI positioning stance for buyer sophistication and risk",
+          lessonAnchor: "the-three-ai-positioning-stances",
+          theoryRecap: "The lesson names three stances: lead with outcome (hide the AI), lead with magic (show the AI), or lead with trust (explain the AI), with trust reserved for buyers facing reputational or regulatory risk from the AI's decision.",
+          question: "The buyer is a bank's compliance team deciding whether to trust Coinbase's AI to flag suspicious institutional transactions. Which of the three stances fits, and why do the other two fail here?",
+          toolName: "Google Docs",
+          where: "Write a 3-sentence justification for the chosen stance before touching the positioning copy itself.",
+          procedure: [
+            "List the buyer's actual fear (approving a system that misses a suspicious transaction, or can't explain a flagged one to a regulator)",
+            "Rule out lead-with-outcome (compliance can't just trust a black-box result with regulatory exposure on the line)",
+            "Rule out lead-with-magic (model novelty doesn't reduce the buyer's regulatory risk, it can even increase suspicion)",
+            "Confirm lead-with-trust: the positioning must explain what the model was trained on, how it flags, and where a human reviews before any action is taken",
+          ],
+          outputSample:
+            "Stance justification: Lead with trust. The buyer's job isn't 'get faster flags', it's 'defend this decision to a regulator.' Outcome-only positioning ('40% faster flagging') doesn't address that fear. Magic-first positioning actively raises suspicion in a compliance context. Trust-first, explaining training data, flag logic, and human review, is the only stance that removes the actual blocker to adoption.",
+          healthy: "The stance decision is made explicitly, in writing, before any copy is drafted, and it's justified by the buyer's specific fear, not a general preference for one stance.",
+          unhealthy: "The team picks a stance by instinct or copies whatever a competitor did, without naming the buyer's actual fear first.",
+          interpret: "Stance follows buyer risk, not company preference. A compliance buyer's fear (explaining a decision to a regulator) determines the stance more than what the AI is technically capable of.",
+          soWhat: [
+            { symptom: "Sales says the AI pitch isn't landing with compliance teams", action: "Check whether the deck leads with model architecture instead of the buyer's regulatory fear", effort: "30 min" },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-rewrite-with-jtbd",
+          concept: "Framing AI value through the Jobs-to-Be-Done lens, not the technology",
+          lessonAnchor: "the-jobs-to-be-done-frame-for-ai-features",
+          theoryRecap: "The lesson argues a feature is valuable for the job it does, not the technology behind it, and that trust-first positioning for regulated buyers needs specific, methodology-backed proof, not vague claims.",
+          question: "The current draft opens with 'Built on a proprietary transformer model fine-tuned on blockchain transaction data.' What's the job-first, trust-backed rewrite?",
+          toolName: "Google Docs",
+          where: "Rewrite the opening two sentences of the positioning statement, then add one specific, sourced proof point.",
+          procedure: [
+            "Name the job first: helping a compliance team clear or escalate a flagged transaction faster and defensibly",
+            "State the outcome with a specific, methodology-backed number, not a superlative",
+            "Add one sentence on human oversight (a compliance analyst reviews every high-risk flag before action, the model never acts alone)",
+            "Cut every remaining mention of model architecture from the customer-facing statement, keep it in the technical appendix instead",
+          ],
+          outputSample:
+            "Rewrite: 'Coinbase's transaction monitoring flags suspicious institutional activity with 91% precision, validated on 500,000 transactions reviewed by our compliance team in Q1 2026, so your analysts spend less time chasing false positives and more time on real risk. Every high-risk flag is reviewed by a human compliance analyst before any account action is taken. Full model documentation is available for your audit team on request.'",
+          healthy: "The rewrite leads with the job and a specific number, then explains human oversight, with model architecture detail moved to a technical appendix for buyers who ask.",
+          unhealthy: "The rewrite still opens with 'proprietary transformer model' or a vague 'highly accurate' claim, which fails the same skepticism test the original draft did.",
+          interpret: "For a regulated buyer, the job is defensibility, so the proof point (sample size, review process) matters more than the phrase 'AI-powered' ever could.",
+          soWhat: [
+            { symptom: "Compliance buyers ask for more detail after reading the positioning", action: "Point them to the technical appendix instead of front-loading architecture into the main pitch", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Docs", role: "Draft the stance justification and rewrite the positioning statement", why: "Free, easy to share with compliance and legal for review before it ships", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable: "A one-paragraph stance justification plus a rewritten positioning statement that leads with the job, a specific methodology-backed proof point, and explicit human oversight language.",
+      sampleOutput:
+        "Wise AI Sanctions Screening — Rebuilt Positioning (excerpt)\n\n'Wise's sanctions screening flags high-risk cross-border transfers with 94% precision, validated on 1.2M transfers reviewed in Q4 2025, so your compliance team spends less time on false positives and more time on genuine risk. Every flag is reviewed by a licensed compliance analyst before a transfer is held. Full model documentation available on request.'",
+      successCriteria: [
+        "Explicitly justifies the trust-first stance based on the buyer's regulatory fear, not a generic preference",
+        "Rewritten statement leads with the job, not the model architecture",
+        "Includes one specific, methodology-backed proof point and one human-oversight sentence",
+      ],
+      portfolioReady: true,
+      stretch: "Write the alternate version of this positioning for a developer buyer instead of a compliance buyer, which stance changes and why?",
+    },
+  ],
+
+  "product-led-sales-pmm": [
+    {
+      id: "product-led-sales-pmm-pql-rubric-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The PQL Audit: Sorting Signal From Noise",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a mock 15-account usage export for free-trial users, apply the lesson's PQL criteria to decide which accounts are genuine product-qualified leads ready for a sales-assist conversation, and which are vanity activity that would waste a rep's time.",
+      companyId: "squarespace",
+      scenario:
+        "You're the PMM at Squarespace validating a proposed PQL definition before it gets wired into the sales team's queue. Sales is complaining that half of the 'qualified' leads they're getting are single-page hobby sites that will never upgrade.",
+      brief:
+        "Import the export, score each account against the lesson's PQL signals (feature depth, usage ceiling, team invites, active days), and split the list into route-to-sales, nurture-in-product, and not-yet.",
+      mode: "diagnostic",
+      conceptsCovered: ["PQLs: proving product-market fit through behavior, not form fills"],
+      steps: [
+        {
+          stepId: "step-1-score-the-export",
+          concept: "PQLs: proving product-market fit through behavior, not form fills",
+          lessonAnchor: "pqls-the-bridge-between-product-and-sales",
+          theoryRecap:
+            "The lesson defines a PQL as a free user whose in-product behavior already proves they need the paid tier, repeated feature use, an invited team, or a hit usage ceiling, not a lead score built from campaign clicks.",
+          question:
+            "Of 15 free-trial accounts, which ones have actually proven they need Squarespace's paid tier, versus accounts that are merely active but not commercially ready?",
+          toolName: "Google Sheets",
+          where: "Import the 15-row export, freeze the header row, add a verdict column.",
+          procedure: [
+            "Import the export: account, custom_domain_attempts, team_invites_sent, pages_published, days_active_14d, hit_storage_cap.",
+            "Flag any account with team_invites_sent >= 2 OR hit_storage_cap = TRUE as a strong PQL signal.",
+            "Flag accounts with pages_published = 1 and days_active_14d <= 2 as low-intent, regardless of custom_domain_attempts.",
+            "Cross-check custom_domain_attempts >= 1 as a commercial-intent signal only when paired with at least one other signal.",
+            "Sort into three buckets: route-to-sales, nurture-in-product, not-yet.",
+          ],
+          outputSample:
+            "ROUTE TO SALES (4 accounts)\n  acct_1044 - 3 team invites, hit storage cap, 9 active days\n  acct_1091 - 2 team invites, custom domain attempt, 11 active days\n  ...2 more\n\nNURTURE IN PRODUCT (6 accounts)\n  acct_1052 - 1 page, custom domain attempt, but 1 active day only\n  ...5 more\n\nNOT YET (5 accounts)\n  acct_1077 - 1 page, 0 invites, 1 active day, no domain attempt",
+          healthy:
+            "Route-to-sales bucket only contains accounts with a team-invite or storage-cap signal, the two hardest signals to fake.",
+          unhealthy:
+            "Treating a single custom-domain click as sufficient to route to sales, that's curiosity, not proof of need.",
+          interpret:
+            "A PQL definition has to survive the question 'could this signal happen by accident,' team invites and storage caps can't, a domain click alone can.",
+          soWhat: [
+            {
+              symptom: "Sales says half their 'PQLs' are hobby accounts",
+              action: "Require two independent signals, not one, before routing to sales",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Import the usage export and build the scoring/verdict columns",
+            why: "No account friction, filters and formulas are enough for a 15-row audit",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A scored 15-account list split into route-to-sales, nurture-in-product, and not-yet, with the specific signal combination that justified each verdict.",
+      sampleOutput:
+        "Coinbase free-trial PQL audit (excerpt)\n\nROUTE TO SALES\n  acct_2031 - invited 4 teammates, hit API rate cap, 12/14 active days -> strong PQL, route within 24h\n\nNURTURE IN PRODUCT\n  acct_2048 - tried custom webhook setup once, only 2 active days -> send in-product tips, re-check in 7 days\n\nNOT YET\n  acct_2059 - 0 invites, 1 active day, no advanced feature touched -> leave in trial nurture",
+      successCriteria: [
+        "Every route-to-sales account has at least two independent PQL signals, not one",
+        "Verdicts distinguish curiosity clicks (single signal) from proven intent (combined signals)",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "product-led-sales-pmm-champion-roi-one-pager",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "The Champion's ROI One-Pager: From Free Tier to Economic Buyer",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given a free-tier team's usage data and a real expansion trigger, build a champion enablement one-pager that a non-technical champion can forward to their economic buyer without you in the room, translating usage into an ROI argument.",
+      companyId: "coinbase",
+      scenario:
+        "You're the PMM at Coinbase supporting the Coinbase Business self-serve product. A five-person operations team has been using the free tier for three months and just hit the seat and API-call ceiling, their champion wants to go to their finance lead for budget but has no idea how to frame it.",
+      brief:
+        "Separate what the champion cares about from what the economic buyer cares about, then build a one-pager the champion can send upward on their own.",
+      mode: "build",
+      conceptsCovered: [
+        "Champions vs. economic buyers: different people, different questions",
+        "The expansion motion: selling the next step, not the original problem",
+      ],
+      steps: [
+        {
+          stepId: "step-1-separate-the-audiences",
+          concept: "Champions vs. economic buyers: different people, different questions",
+          lessonAnchor: "champions-vs-economic-buyers",
+          theoryRecap:
+            "The lesson splits PLS buyers into the champion, who already gets value and wants the team to keep using the product, and the economic buyer, who asks about total cost of ownership and payback, not day-to-day convenience.",
+          question:
+            "The champion's notes say 'this saves me hours every week.' What does the finance lead actually need to see instead?",
+          toolName: "Google Docs",
+          where: "Draft two short columns side by side: what the champion says, what the economic buyer needs.",
+          procedure: [
+            "List the champion's own language: time saved, fewer manual reconciliations, team already relies on it daily.",
+            "Reframe each item as a cost or risk the economic buyer tracks: hours saved x loaded hourly rate, cost of the manual error it prevents, cost of losing 3 months of team habit if they revert to the free tier's limits.",
+            "Drop any champion language that doesn't translate into a dollar or risk figure, it won't move a budget conversation.",
+          ],
+          outputSample:
+            "CHAMPION LANGUAGE -> ECONOMIC BUYER FRAME\n'Saves me 6 hrs/week on reconciliation' -> '6 hrs/week x 5 users x $45/hr loaded rate = $1,170/week in recovered ops time'\n'Team already lives in it' -> 'Reverting to the free tier's 2-seat cap forces 3 of 5 users back to manual spreadsheets'\n'It just works' -> (dropped, no dollar or risk translation)",
+          healthy: "Every line that survives into the one-pager has a number or a named risk attached to it.",
+          unhealthy: "Shipping 'the team loves it' as a bullet point on a document meant for a finance approver.",
+          interpret:
+            "Champion enablement fails when it's just the champion's enthusiasm typed up, it works when it does the economic buyer's math for them.",
+          soWhat: [
+            {
+              symptom: "Champion says the pitch 'didn't land' with finance",
+              action: "Check whether every bullet has a dollar figure or named risk, not just a feeling",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-build-the-expansion-case",
+          concept: "The expansion motion: selling the next step, not the original problem",
+          lessonAnchor: "the-expansion-motion",
+          theoryRecap:
+            "The lesson frames expansion messaging as selling the next step to a team that already knows the product works, not re-selling the original problem the free tier already solved.",
+          question:
+            "This team hit the 2-seat, 500-call API ceiling. What's the one-pager's actual ask, and how is it different from a new-customer pitch?",
+          toolName: "Google Docs",
+          where: "Build the final one-pager: trigger, cost of staying, cost of upgrading, payback period.",
+          procedure: [
+            "State the trigger plainly: 'Team hit the free tier's 2-seat / 500 API-call monthly ceiling in month 3.'",
+            "Show the cost of staying: 3 users blocked from the workflow, reverting to manual process at $1,170/week.",
+            "Show the cost of upgrading: paid tier at $X/seat/month for 5 seats, plus unlimited API calls.",
+            "Calculate payback period: upgrade cost vs. recovered ops time, expressed in weeks, not a vague 'ROI positive' claim.",
+            "Close with a single-sentence ask the champion can literally paste into a Slack message to their finance lead.",
+          ],
+          outputSample:
+            "COINBASE BUSINESS - UPGRADE CASE (1 page)\n\nTrigger: Ops team hit the 2-seat / 500-call ceiling in month 3.\nCost of staying: $1,170/week in manual reconciliation across 3 blocked users.\nCost of upgrading: $60/seat/month x 5 seats = $300/month.\nPayback: upgrade cost recovered in under 1 week of avoided manual work.\n\nAsk: 'Approve the 5-seat Business plan ($300/mo), it pays for itself in the first week.'",
+          healthy: "The one-pager's ask is one sentence a champion can paste into Slack without editing.",
+          unhealthy: "A one-pager that requires the champion to explain or defend the numbers themselves.",
+          interpret:
+            "Expansion messaging succeeds when the champion becomes an unpaid internal salesperson, that only happens if the document does all the persuading on its own.",
+          soWhat: [
+            {
+              symptom: "Deals stall after the champion goes quiet for two weeks",
+              action: "Check whether the one-pager gives them a literal sentence to send, not just data to interpret",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Draft and format the champion one-pager",
+            why: "Free, easy to share as a link the champion can forward directly",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Build the payback-period calculation before dropping numbers into the doc",
+            why: "Keeps the ROI math auditable and easy to update if pricing changes",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page champion enablement document with the expansion trigger, cost-of-staying vs. cost-of-upgrading math, payback period, and a one-sentence ask the champion can forward unedited.",
+      sampleOutput:
+        "Klaviyo - Growth Plan Upgrade Case (1 page)\n\nTrigger: Marketing team hit the Email tier's 1,500-contact send limit in month 2.\nCost of staying: campaigns paused mid-send twice this month, an estimated $4,200 in missed promotional revenue.\nCost of upgrading: Growth plan adds unlimited contacts at $150/month.\nPayback: recovered in the first paused campaign alone.\n\nAsk: 'Approve the Growth plan upgrade ($150/mo), one paused campaign already cost us 28x that.'",
+      successCriteria: [
+        "Every champion-language line is translated into a dollar figure or named risk before it appears in the deliverable",
+        "The one-pager ends with a single, forwardable sentence rather than a data dump",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "ai-tools-for-pmms": [
+    {
+      id: "ai-tools-for-pmms-positioning-draft-critique",
+      tier: "mini",
+      archetype: "ai-critique",
+      title: "Editing the Junior Analyst: Critiquing an AI Positioning Draft",
+      timeEstimate: "20 minutes",
+      timeMinutes: 20,
+      objective:
+        "Given a raw AI-generated positioning doc excerpt for Mailchimp's AI Growth Assistant, identify every place the draft is generic, contradicts known institutional memory, or needs a specific human-sourced detail before it's fit to ship.",
+      companyId: "mailchimp",
+      scenario:
+        "You're the PMM at Mailchimp reviewing a first-pass positioning doc that a teammate generated with an LLM for the AI Growth Assistant feature. It reads fine on a skim, but you know things the model doesn't.",
+      brief:
+        "Treat the draft like a junior analyst's first pass: mark what's generic filler, what contradicts what sales has told you, and what's missing a real proof point.",
+      mode: "diagnostic",
+      conceptsCovered: ["AI drafts positioning fast but has no institutional memory of what already failed"],
+      steps: [
+        {
+          stepId: "step-1-mark-the-gaps",
+          concept: "AI drafts positioning fast but has no institutional memory of what already failed",
+          lessonAnchor: "drafting-positioning-and-messaging-first-pass-not-final-cut",
+          theoryRecap:
+            "The lesson treats an LLM's first draft as useful structure and phrasing options with zero shipping authority, because it has no memory of which campaigns already flopped or which words your own sales team refuses to say out loud.",
+          question:
+            "This draft calls the AI Growth Assistant 'a seamless, all-in-one solution.' You know two things the model doesn't. What are they, and what should replace that line?",
+          toolName: "Google Docs",
+          where: "Read the draft excerpt, annotate every generic or unverified claim inline.",
+          procedure: [
+            "Read the full draft excerpt once without editing.",
+            "Flag any phrase that could describe literally any competitor's AI feature (generic filler).",
+            "Cross-check each specific claim against what you know: sales' actual objection language, past campaign angles that already failed.",
+            "Mark any claim with no source or number attached as 'needs a real proof point.'",
+            "Rewrite the flagged lines with the missing institutional detail.",
+          ],
+          outputSample:
+            "DRAFT: 'Mailchimp's AI Growth Assistant is a seamless, all-in-one solution that transforms your marketing.'\n\nFLAGS:\n  - 'seamless' -> sales has told you prospects roll their eyes at this exact word, drop it\n  - 'all-in-one solution' -> the 'all-in-one platform' angle already flopped in Q1 campaigns per the last debrief, don't reuse it\n  - 'transforms your marketing' -> no proof point attached, needs a real stat\n\nREWRITE: 'Mailchimp's AI Growth Assistant flags your highest-conversion customers automatically, so you stop guessing who to email first.'",
+          healthy: "Every generic phrase gets replaced with something only someone who talks to customers weekly would know.",
+          unhealthy: "Shipping the AI's draft with a light copyedit pass and no institutional-memory check at all.",
+          interpret:
+            "The gap between a usable AI draft and a shippable one is exactly the information the model was never given, what already failed and what your own team refuses to say.",
+          soWhat: [
+            {
+              symptom: "A positioning doc reads fine but sales won't use the language in it",
+              action: "Run it past sales and support before it ships, not after",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Read and annotate the draft with inline comments",
+            why: "Free, comment threads make the critique easy to hand back to the original drafter",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "ChatGPT",
+            role: "Regenerate the flagged lines once you've supplied the missing institutional detail",
+            why: "Free tier is enough to redraft a paragraph once you've told it what to fix",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "An annotated version of the draft with every generic or unverified line flagged, plus a rewritten version for at least three flagged lines.",
+      sampleOutput:
+        "Squarespace AI positioning critique (excerpt)\n\nDRAFT: 'Our AI website builder is the smartest way to launch your site.'\nFLAG: 'smartest way' has no proof point, and 'launch your site' ignores that most Squarespace users are redesigning an existing site, not launching a new one.\nREWRITE: 'Squarespace's AI design tools rebuild your existing site's layout in minutes, no template shopping required.'",
+      successCriteria: [
+        "Every generic, competitor-interchangeable phrase in the draft is flagged with a reason",
+        "At least three flagged lines are rewritten using a specific, sourced detail",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "ai-tools-for-pmms-battlecard-skeleton-build",
+      tier: "mini",
+      archetype: "build-the-asset",
+      title: "Battlecard in Minutes: Drafting With AI, Then Adding the One Thing AI Can't",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given raw competitor intel bullet points, use an AI tool to draft a battlecard skeleton, then add the single human-sourced customer quote or proof point that the lesson says is what actually makes reps use it.",
+      companyId: "klaviyo",
+      scenario:
+        "You're the PMM at Klaviyo and a competitor just shipped a pricing change. Reps need an updated battlecard before their next call, not next week.",
+      brief:
+        "Draft the battlecard skeleton with AI from the raw intel, then add the one real customer detail that makes it usable instead of generic.",
+      mode: "build",
+      conceptsCovered: ["Sales enablement content scales with AI, but a human-sourced detail is what makes reps trust it"],
+      steps: [
+        {
+          stepId: "step-1-draft-then-add-the-human-detail",
+          concept: "Sales enablement content scales with AI, but a human-sourced detail is what makes reps trust it",
+          lessonAnchor: "sales-enablement-content-scale-without-losing-voice",
+          theoryRecap:
+            "The lesson's example workflow is AI drafts the battlecard from competitive intel, then a PMM adds the one customer quote that killed that competitor in a real deal, that single human addition is what makes reps actually use it.",
+          question:
+            "The raw intel says the competitor just cut its entry-tier price by 20%. What does the AI-drafted skeleton get right, and what's missing before a rep can use it on a call?",
+          toolName: "Claude",
+          where: "Feed the raw intel bullets to Claude, generate a battlecard skeleton, then edit by hand.",
+          procedure: [
+            "Feed Claude the raw intel: competitor name, the pricing change, one known feature gap.",
+            "Prompt it to draft a battlecard skeleton: 'When they say X, you say Y' objection-response format.",
+            "Review the draft for generic filler, same risk as any AI first pass.",
+            "Add one real detail: an actual customer quote or deal outcome where this exact objection came up.",
+            "Confirm the final battlecard has at least one line no competitor's AI tool could have generated, because it's specific to a real Klaviyo deal.",
+          ],
+          outputSample:
+            "AI DRAFT SKELETON:\n'When they say: [Competitor] is 20% cheaper on entry tier.\nYou say: Klaviyo's entry tier includes SMS and advanced segmentation that [Competitor] charges extra for.'\n\nADDED HUMAN DETAIL:\n'Proof point: In the Nov 2025 Meridian Apparel deal, the prospect switched back to Klaviyo after 3 months on [Competitor]'s cheaper tier because their segmentation limits cost them an estimated $18K in missed Black Friday revenue.'",
+          healthy: "The final battlecard has at least one line that references a real, dated deal outcome.",
+          unhealthy: "Shipping the AI skeleton to reps with no edit pass, generic objection-handling language that could belong to any competitor.",
+          interpret:
+            "AI collapses the drafting time from hours to minutes, the one thing it can't do is remember what actually happened in your last deal, that's the PMM's job.",
+          soWhat: [
+            {
+              symptom: "Reps stop opening the battlecard after the first week",
+              action: "Check whether it has a real, specific proof point or just AI-generated objection templates",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Claude",
+            role: "Draft the initial battlecard skeleton from raw competitive intel",
+            why: "Free tier handles a single-document draft in one prompt",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Docs",
+            role: "Finalize and share the battlecard with the sales team",
+            why: "Free, easy to link from a shared sales enablement folder",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+        paidUpgradeNote:
+          "A dedicated competitive intelligence platform (see the lesson's Competitive Intel section) can auto-generate battlecard updates from a live monitoring feed once you're tracking more than a couple of competitors continuously, but it's an upgrade, not a requirement for this exercise.",
+      },
+      deliverable:
+        "A one-page battlecard skeleton drafted with AI, edited for generic language, with one real customer quote or deal outcome added by hand.",
+      sampleOutput:
+        "Coinbase battlecard update (excerpt)\n\nWhen they say: [Competitor] has zero trading fees.\nYou say: Coinbase's spread is transparent and built into the quoted price, no surprise fee at settlement.\nProof point: The Harrow Capital deal (Jan 2026) nearly went to [Competitor] until their finance team found $6K in hidden settlement spread over one quarter, they signed with Coinbase the same week.",
+      successCriteria: [
+        "The AI-drafted skeleton follows a clear 'when they say / you say' objection-response format",
+        "The final version includes at least one specific, dated, human-sourced proof point the AI could not have generated",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "vertical-saas-gtm": [
+    {
+      id: "vertical-saas-gtm-positioning-insider-test",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Insider Test: Auditing a Vertical Positioning Statement",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given two candidate homepage headlines for a B2B travel distribution SaaS product, apply the lesson's insider-language test to identify which reads as industry-fluent and rewrite the one that doesn't.",
+      companyId: "tbo-tek",
+      scenario:
+        "You're the marketing lead at TBO Tek, the Gurugram-founded B2B travel distribution platform serving travel agents and OTAs across 100+ countries, testing two draft homepage headlines before a relaunch.",
+      brief:
+        "Score each headline against the operator's actual vocabulary, not marketing vocabulary, then rewrite the weaker one so it passes the ninety-second insider test.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Writing headlines the way a buyer complains, not the way a SaaS category page reads",
+      ],
+      steps: [
+        {
+          stepId: "step-1-insider-language-audit",
+          concept:
+            "Writing headlines the way a buyer complains, not the way a SaaS category page reads",
+          lessonAnchor: "building-trust-an-outsider-cant-fake",
+          theoryRecap:
+            "The lesson's trust section argues jargon fluency is the tell: an operator clocks a vendor as an outsider within ninety seconds if the copy says 'streamline operations' instead of the exact complaint the operator already makes out loud.",
+          question:
+            "Headline A: 'AI-Powered Travel Distribution Optimization Platform.' Headline B: 'Stop Losing Bookings to Rate Mismatches Across 40 Suppliers.' Which one would a travel agency's ops manager actually recognize as written by someone who has worked a GDS terminal, and why?",
+          toolName: "Google Docs",
+          where:
+            "Open a shared doc, paste both headlines side by side with a scoring column for 'names the actual daily frustration' vs 'names a product category.'",
+          procedure: [
+            "Paste Headline A and Headline B into two columns",
+            "For each, write the one sentence a travel agent would say out loud that the headline is supposedly answering",
+            "Score 1-10 on how closely the headline matches that sentence, not how technically accurate it is",
+            "Flag every word that only appears in a SaaS category page, never in an operator's actual complaint",
+            "Rewrite the lower-scoring headline using the operator's own words",
+          ],
+          outputSample:
+            "HEADLINE A: 'AI-Powered Travel Distribution Optimization Platform.'\nOperator's real sentence: 'I keep losing bookings because our rates don't match across suppliers.'\nScore: 2/10 - names a category, not the complaint. 'Distribution optimization' appears in zero rate-desk conversations.\n\nHEADLINE B: 'Stop Losing Bookings to Rate Mismatches Across 40 Suppliers.'\nScore: 9/10 - names the exact frustration, in the words already used at the rate desk.\n\nREWRITE OF A: 'Stop Reconciling Rates by Hand Across 40 Different Suppliers.'",
+          healthy:
+            "The winning headline scores 8+ because it repeats a sentence an operator already says, not a phrase from a competitor's category page.",
+          unhealthy:
+            "Picking Headline A because it 'sounds more sophisticated' or 'covers more features' - that instinct is exactly the outsider tell the lesson warns about.",
+          interpret:
+            "A headline that could run on any SaaS category page, regardless of industry, has failed the insider test even if every word is technically true.",
+          soWhat: [
+            {
+              symptom: "Homepage headline uses category language ('optimization platform', 'streamline operations')",
+              action: "Replace it with the exact sentence a customer says when complaining about the problem to a coworker",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Score and rewrite the headlines side by side",
+            why: "Free, shareable, no account friction for a quick copy audit",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page headline audit memo scoring both candidates and delivering a rewritten version of the weaker one.",
+      sampleOutput:
+        "Headline Audit Memo, Travel Distribution Relaunch\n\nHEADLINE A: 'AI-Powered Travel Distribution Optimization Platform.'\nVerdict: Outsider (2/10). Reads like a category-page listing; no agent has ever said 'distribution optimization' at a rate desk.\n\nHEADLINE B: 'Stop Losing Bookings to Rate Mismatches Across 40 Suppliers.'\nVerdict: Insider (9/10). Names the exact daily frustration, a mismatched rate that costs a booking, in the words an ops manager already uses on a call.\n\nREWRITE OF A: 'Stop Reconciling Rates by Hand Across 40 Different Suppliers.'\n\nReference point: HubSpot's own homepage rewrite years ago made the same move, swapping a category noun for the operator's actual complaint, and it is the same test worth applying here before every relaunch.",
+      successCriteria: [
+        "Correctly identifies Headline B as insider language and explains why using the lesson's jargon-fluency test",
+        "Produces a rewrite of Headline A that removes category jargon and names a concrete operational pain",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "vertical-saas-gtm-trade-channel-distribution-plan",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "Building a Trade-Channel Distribution Plan for a Vertical Launch",
+      timeEstimate: "55 minutes",
+      timeMinutes: 55,
+      objective:
+        "Given a paid-search benchmark showing near-zero search volume for a new vertical sub-segment, rank five candidate trade channels by trust-transfer and cost, then draft a one-quarter distribution plan sequenced around the top two.",
+      companyId: "rategain-travel-technologies",
+      scenario:
+        "RateGain Travel Technologies, the Noida-founded hotel and OTA pricing-intelligence SaaS company, is launching a new module for independent boutique hotel chains, a sub-vertical whose paid-search data shows fewer than 80 monthly searches for the product's core terms.",
+      brief:
+        "Rank hotel-industry trade channels by trust-transfer per rupee, cut the one that doesn't belong, then sequence a quarter plan around the top two.",
+      mode: "build",
+      conceptsCovered: [
+        "Ranking trade channels by trust-transfer instead of reach when paid search volume is near zero",
+        "Sequencing a trade-channel plan so early trust compounds into later channels",
+      ],
+      steps: [
+        {
+          stepId: "step-1-rank-trade-channels",
+          concept:
+            "Ranking trade channels by trust-transfer instead of reach when paid search volume is near zero",
+          lessonAnchor: "distribution-trade-channels-beat-paid-channels",
+          theoryRecap:
+            "The lesson's distribution section argues paid search assumes the prospect is searching, and many vertical niches see fewer than 100 monthly searches for their core terms; trade shows, association sponsorships, peer referral, vertical media, and advisory boards work instead because they borrow trust the buyer already has.",
+          question:
+            "Given 5 candidate channels for the boutique-hotel launch, a regional hospitality trade show, a boutique-hotel association sponsorship, peer referral from existing RateGain hotel customers, a hospitality trade newsletter ad buy, and a generic LinkedIn ad campaign, with cost and an estimated trust-transfer score for each, rank them and cut the one that doesn't belong.",
+          toolName: "Google Sheets",
+          where:
+            "Import the 5-channel list into Sheets with cost and trust-transfer columns, sort descending by trust-transfer per rupee spent.",
+          procedure: [
+            "List all 5 channels with cost and a 1-10 trust-transfer estimate (does this channel borrow trust the buyer already has, or ask for trust from zero)",
+            "Compute trust-transfer per rupee for each",
+            "Sort descending",
+            "Identify the one channel that scores low on trust-transfer regardless of cost",
+            "Cut it from the quarter's plan and reallocate its budget to the top 2",
+          ],
+          outputSample:
+            "CHANNEL RANKING (trust-transfer per Rs spent)\n1. Peer referral from existing hotel customers - near-zero cost, 9/10 trust-transfer\n2. Boutique-hotel association sponsorship - Rs 4L, 8/10 trust-transfer\n3. Regional hospitality trade show booth - Rs 9L, 7/10 trust-transfer\n4. Hospitality trade newsletter ad buy - Rs 2L, 5/10 trust-transfer\n5. Generic LinkedIn ad campaign - Rs 6L, 2/10 trust-transfer - CUT\n\nReallocation: LinkedIn's Rs 6L moves into association sponsorship and referral incentives.",
+          healthy:
+            "The top 2 ranked channels are peer referral and association sponsorship, both of which borrow trust the association or the referring operator already spent years building.",
+          unhealthy:
+            "Leading with the LinkedIn ad buy because it is cheap and easy to launch this week; that repeats the horizontal-SaaS mistake at vertical prices.",
+          interpret:
+            "Cost efficiency without trust-transfer just buys reach nobody in this vertical believes yet.",
+          soWhat: [
+            {
+              symptom: "Team defaults to paid social because it is the fastest channel to set up",
+              action: "Cut paid social from the vertical launch budget entirely and reallocate to association sponsorship and referral incentives",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-sequence-quarter-plan",
+          concept: "Sequencing a trade-channel plan so early trust compounds into later channels",
+          lessonAnchor: "distribution-trade-channels-beat-paid-channels",
+          theoryRecap:
+            "The lesson closes its distribution section noting that once one channel is trusted, expansion inside the vertical gets cheaper, a compounding effect horizontal SaaS cannot access; that means the channels have to run in an order, not all at once.",
+          question:
+            "With association sponsorship (weeks 1-4) and peer referral (weeks 3-12) funded as the top 2 channels, what has to happen in weeks 1-4 before the referral channel can even start producing leads?",
+          toolName: "Notion",
+          where: "Build a two-row quarter timeline in Notion, one row per channel, columns for weeks 1-12.",
+          procedure: [
+            "Create rows for association sponsorship and peer referral",
+            "Mark weeks 1-4 as association-sponsorship-only: sponsor the newsletter, get the advisor seat, land the first 2-3 boutique-hotel customers",
+            "Mark weeks 3-12 as peer referral, starting only once at least 2 live boutique-hotel customers exist to refer from",
+            "Flag any week where referral activity is scheduled before a single customer exists in the new sub-segment",
+          ],
+          outputSample:
+            "WEEK 1-4: Association sponsorship live. Advisor seat secured. First 2 boutique-hotel customers signed via association intro.\nWEEK 3-12: Peer referral program opens once customer #2 is live, referral ask sent from those first 2 customers to their peer network.\nFLAG: Do not schedule referral outreach before week 3, there is nothing to refer yet.",
+          healthy:
+            "Association sponsorship visibly precedes referral, because referral needs live customers to act as advocates, and the association intro is what produces those first customers.",
+          unhealthy:
+            "Launching a referral ask in week 1 with zero customers yet signed in the sub-segment; the ask has nothing real behind it.",
+          interpret:
+            "Sequence channels by which prerequisite trust each one needs, not by an arbitrary calendar split.",
+          soWhat: [
+            {
+              symptom: "Referral campaign is requested before any customers exist in the new sub-vertical",
+              action: "Delay referral outreach until at least 2 boutique-hotel customers are live and willing to be named",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Score and rank the 5 candidate trade channels",
+            why: "Free, fast sorting and formula support for a small ranking table",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Notion",
+            role: "Build the 12-week sequenced distribution timeline",
+            why: "Free tier supports a simple timeline table shareable with the whole GTM team",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A ranked 5-channel trade-distribution scorecard plus a sequenced 12-week plan for the top 2 channels.",
+      sampleOutput:
+        "Boutique Hotels Launch, Distribution Plan (excerpt)\n\nRANKING: peer referral (1), association sponsorship (2), trade show (3), trade newsletter (4), LinkedIn ads (cut)\n\nWEEK 1-4: Sponsor the Boutique Hotel Alliance newsletter, secure an advisor seat, close first 2 customers via the association intro.\nWEEK 3-12: Open referral outreach once 2 customers are live and willing to be named.\n\nThe same sequencing shows up in Toast's early expansion into new restaurant sub-segments: trade-show presence and association ties came before any referral ask, never the reverse.",
+      successCriteria: [
+        "Correctly ranks the 5 channels by trust-transfer and cuts the generic paid-social option",
+        "Sequences the quarter plan so referral outreach starts only after real customers exist to refer from",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "expansion-cross-sell-messaging": [
+    {
+      id: "expansion-cross-sell-messaging-inbox-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "The Cash-Grab Test: Tearing Down Three Draft Expansion Emails",
+      timeEstimate: "35 minutes",
+      timeMinutes: 35,
+      objective:
+        "Given three draft expansion emails queued for send, apply the lesson's three-move framework (earned context, named constraint, reversible next step) to find which drafts read as a cash grab and specify the exact fix.",
+      companyId: "snowflake",
+      scenario:
+        "You're the lifecycle marketing manager at Snowflake, the cloud data-warehousing company, reviewing three draft expansion emails queued to send to existing customer accounts this week.",
+      brief: "Score each draft against the three-move framework and flag exactly which move is missing.",
+      mode: "teardown",
+      conceptsCovered: [
+        "Diagnosing missing earned context in an expansion message",
+        "Diagnosing a missing reversible next step",
+        "Diagnosing acquisition-tone mismatch in a message sent to an existing customer",
+      ],
+      teardownItems: [
+        {
+          itemId: "item-1-blanket-blast",
+          specimen:
+            "Subject: Unlock More With Snowflake Pro!\n\nHi there,\n\nDid you know Snowflake Pro gives you more of everything you love? Advanced governance, faster query performance, and premium support are all one click away.\n\nUpgrade Now\n\nThe Snowflake Team",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "This draft is queued to send to every customer account regardless of usage. Identify what's missing against the three-move framework.",
+          answerKey: [
+            {
+              defect: "No earned context - nothing in the copy references what this specific account actually does with the product",
+              severity: "critical",
+              whyItMatters:
+                "The lesson's whole argument is that expansion messaging answers 'is this worth it given what I already know about you'; a message with zero account-specific detail could have been sent to a stranger.",
+              lessonRef: "why-this-is-a-different-skill-than-acquisition",
+              owner: "you",
+            },
+            {
+              defect: "No named constraint - 'more of everything you love' names no actual limit the account is hitting",
+              severity: "critical",
+              whyItMatters:
+                "Vague urgency without a stated limit reads as pressure, not information the customer can act on.",
+              lessonRef: "a-framework-that-doesnt-feel-like-a-cash-grab",
+              owner: "you",
+            },
+            {
+              defect: "No reversible next step - the only CTA is a hard 'Upgrade Now' with no trial or opt-out",
+              severity: "moderate",
+              whyItMatters: "A reversible offer signals confidence in the value; a hard CTA alone reads as a close, not help.",
+              lessonRef: "a-framework-that-doesnt-feel-like-a-cash-grab",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The subject line uses an exclamation point",
+            "The email signs off as 'The Snowflake Team' instead of a named person",
+            "The email is shorter than 100 words",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-missing-reversible-step",
+          specimen:
+            "Subject: Your team hit 48 of 50 seats this week\n\nHi Priya,\n\nYour workspace added 6 new logins in the last 30 days and is now at 48 of your 50-seat cap. At this pace you'll hit the limit before your next billing cycle.\n\nUpgrade to the 100-seat plan.\n\nSnowflake Customer Success",
+          specimenSource: "synthetic-realistic",
+          prompt: "This draft is well-targeted but still has one gap against the framework. Find it.",
+          answerKey: [
+            {
+              defect: "No reversible next step - the only option offered is the upgrade itself, no trial period or no-penalty opt-out",
+              severity: "moderate",
+              whyItMatters:
+                "The named constraint and earned context are both done correctly here; skipping the reversible step is the one move that still keeps the ask from feeling fully like help rather than a close.",
+              lessonRef: "a-framework-that-doesnt-feel-like-a-cash-grab",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Referencing the exact seat count (48 of 50) is too specific and should be vaguer",
+            "Addressing the email to a named contact (Priya) instead of the whole team",
+            "Mentioning the billing cycle date",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-3-acquisition-tone-mismatch",
+          specimen:
+            "Subject: Welcome! Discover What's Possible with Snowflake\n\nHi there,\n\nThousands of companies trust Snowflake to power their data warehousing. See why leading teams are making the switch and discover what's possible for your business today.\n\nGet Started\n\nThe Snowflake Team",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "This draft was pulled from the acquisition drip sequence and queued to an account that has been paying for 2 years. What's wrong, beyond it just being off-brand?",
+          answerKey: [
+            {
+              defect:
+                "Acquisition-tone mismatch - the copy ('discover what's possible', 'leading teams are making the switch') is written for a stranger with zero context, not a 2-year customer",
+              severity: "critical",
+              whyItMatters:
+                "The lesson's warning is explicit: routing expansion messaging through the same cadence as acquisition drip campaigns is exactly what reads as a cash grab, because the tone mismatch signals the sender stopped paying attention to who the recipient actually is.",
+              lessonRef: "a-framework-that-doesnt-feel-like-a-cash-grab",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The subject line says 'Welcome' which is a minor wording issue, not the real defect",
+            "The email doesn't mention a specific product tier by name",
+            "The CTA button says 'Get Started' instead of 'Upgrade'",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Score each draft against the three-move framework side by side",
+            why: "Free, shareable, fast for a short copy review",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A scored teardown memo for all 3 drafts naming the specific missing move (or moves) in each, with a one-line fix per draft.",
+      sampleOutput:
+        "Expansion Email Teardown, Week of Send\n\nDRAFT 1 (blanket blast): FAIL, all 3 moves missing. Fix: kill this draft, replace with a usage-triggered version per account.\nDRAFT 2 (seat cap): 2 of 3 moves present. Fix: add a 14-day trial of the 100-seat plan before the hard upgrade CTA.\nDRAFT 3 (acquisition tone): FAIL on tone. Fix: never pull copy from the acquisition sequence tool for an existing account, write it fresh in the lifecycle tool instead.\n\nIntercom's own in-app upgrade prompts follow the same logic: the copy only fires from a usage event, never from a shared acquisition template.",
+      successCriteria: [
+        "Correctly identifies all 3 missing-move defects across the 3 drafts, not just the most obvious one",
+        "Does not flag any of the distractor items (subject line style, sign-off, specificity) as real defects",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "expansion-cross-sell-messaging-trigger-to-message-map",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "Building a Trigger-to-Message Map from Synthetic Usage Data",
+      timeEstimate: "50 minutes",
+      timeMinutes: 50,
+      objective:
+        "Given 6 rows of raw account usage data, classify each into a real upgrade trigger or noise, then build complete earned-context, named-constraint, reversible-step copy for each real trigger.",
+      companyId: "adyen",
+      scenario:
+        "You're on the lifecycle marketing team at Adyen, the Amsterdam-founded global payments platform for enterprise merchants, given a weekly usage export across 6 accounts to turn into an expansion messaging plan.",
+      brief: "Classify the usage rows first, then write the message only for the rows that are real triggers.",
+      mode: "build",
+      conceptsCovered: [
+        "Classifying raw usage events into the three real trigger signals versus noise",
+        "Building an expansion message with earned context, named constraint, and a reversible next step",
+      ],
+      steps: [
+        {
+          stepId: "step-1-classify-usage-signals",
+          concept: "Classifying raw usage events into the three real trigger signals versus noise",
+          lessonAnchor: "timing-the-ask-around-real-usage-signals",
+          theoryRecap:
+            "The lesson names three signals that do most of the work: hitting a hard limit, requesting a locked feature, and team growth via new unfamiliar logins; the signal, not the calendar, should trigger the message.",
+          question:
+            "Given 6 usage rows (a merchant nearing its transaction-volume cap, a merchant that clicked into a locked fraud-scoring setting, a merchant with 4 new team logins this month, a merchant that logged in once after 3 months idle, a merchant that opened the product changelog email, and a merchant that hit its API call limit), tag each as hard-limit / locked-feature / team-growth / noise.",
+          toolName: "Google Sheets",
+          where: "Import the 6-row usage export, add a 'trigger type' column, filter out anything tagged noise.",
+          procedure: [
+            "Read each row's raw event description",
+            "Tag hard-limit for transaction-volume or API-call caps being approached",
+            "Tag locked-feature for any click into a gated setting",
+            "Tag team-growth for a meaningful jump in unique logins",
+            "Tag noise for anything that isn't a self-evident signal (a single login, an email open) and exclude it from the message plan",
+          ],
+          outputSample:
+            "Merchant A, nearing transaction-volume cap -> hard-limit\nMerchant B, clicked locked fraud-scoring setting -> locked-feature\nMerchant C, 4 new team logins this month -> team-growth\nMerchant D, single login after 3 months idle -> noise, exclude\nMerchant E, opened changelog email -> noise, exclude\nMerchant F, hit API call limit -> hard-limit\n\n4 real triggers, 2 excluded as noise.",
+          healthy: "Only rows with a self-evident, account-specific signal make it into the message plan; the rest are excluded.",
+          unhealthy:
+            "Treating every row as a trigger, including a single login or an email open, because 'more messages can't hurt' - this is exactly the blast-in-disguise pattern the lesson warns against.",
+          interpret: "A trigger has to be something the account did that makes the upgrade argument for you; anything weaker is noise.",
+          soWhat: [
+            {
+              symptom: "Every usage uptick, however small, gets queued for an expansion email",
+              action: "Restrict the trigger list to hard-limit, locked-feature, and team-growth events only, exclude everything else",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-build-message-map",
+          concept: "Building an expansion message with earned context, named constraint, and a reversible next step",
+          lessonAnchor: "a-framework-that-doesnt-feel-like-a-cash-grab",
+          theoryRecap:
+            "The lesson's framework requires 3 moves in every expansion message: earned context (the specific thing the account did), a named constraint (what they'll hit if they don't act), and a reversible next step (a trial, downgrade path, or no-penalty opt-out).",
+          question:
+            "For the 4 real triggers classified in Step 1, write the earned-context opener, the named constraint, and the reversible CTA for each, in a single reference table.",
+          toolName: "HubSpot CRM",
+          where: "Build the trigger-to-message map as a workflow reference table inside HubSpot CRM's free tier so lifecycle sends can pull from it directly.",
+          procedure: [
+            "For each real trigger, write one sentence naming the specific account behavior (earned context)",
+            "Write one sentence naming the exact limit or gate the account is approaching (named constraint)",
+            "Write one CTA that offers a trial, downgrade path, or opt-out, never a hard upgrade-only button (reversible next step)",
+            "Load all 4 rows into the HubSpot workflow reference table, tagged by trigger type",
+          ],
+          outputSample:
+            "TRIGGER: hard-limit (transaction volume)\nEarned context: 'Your processed volume is on pace to cross your current plan's cap next month.'\nNamed constraint: 'At your current growth rate you'll hit the cap around the 20th.'\nReversible CTA: 'See a 14-day preview of the next tier, no commitment, cancel any time.'\n\nTRIGGER: locked-feature (fraud scoring)\nEarned context: 'Your team opened the advanced fraud-scoring settings last week.'\nNamed constraint: 'That control is available on the Enterprise plan only.'\nReversible CTA: 'Try it for 14 days on us, no charge until you confirm.'",
+          healthy: "Every one of the 4 real-trigger rows has all 3 moves present and specific to that account's actual behavior.",
+          unhealthy: "Reusing the same generic constraint sentence across all 4 rows just with the account name swapped in.",
+          interpret: "The map is only useful if each row could not be sent to any other account without editing it.",
+          soWhat: [
+            {
+              symptom: "Message map rows are identical except for the merchant name",
+              action: "Rewrite each row's earned-context sentence to name the exact behavior from that account's usage data",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Classify the 6 raw usage rows into trigger types",
+            why: "Free, fast filtering for a small usage export",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "HubSpot CRM",
+            role: "Store the trigger-to-message map as a reusable workflow reference table",
+            why: "Free tier supports custom properties and workflow tables without a paid seat",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A trigger-to-message map covering the 4 real usage signals, with complete earned-context, named-constraint, and reversible-step copy for each, ready to load into a lifecycle tool.",
+      sampleOutput:
+        "Adyen Merchant Expansion Map (excerpt)\n\nTRIGGER: team-growth (4 new logins)\nEarned context: 'Your workspace added 4 new teammates this month.'\nNamed constraint: 'Your current plan supports up to 6 seats before per-seat billing kicks in.'\nReversible CTA: 'Add the next 3 seats on a 30-day trial rate, downgrade any time.'\n\nThe same discipline shows up in how Intercom times its Pro-only publish prompts: the copy only fires the moment a team clicks into the gated setting, never on a fixed send date.",
+      successCriteria: [
+        "Correctly excludes the 2 noise rows from the message plan",
+        "All 4 real-trigger rows contain a distinct, account-specific earned context, named constraint, and reversible CTA",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "renewal-marketing": [
+    {
+      id: "renewal-marketing-risk-triage-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The 90-60-30 Triage: Auditing a Renewal-Risk Account List",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a synthetic 20-account renewal list with renewal dates and last-contact dates, apply the lesson's day-90/60/30 structure to flag which accounts are already overdue for a health check.",
+      companyId: "mailchimp",
+      scenario:
+        "You're on the retention marketing team at Mailchimp, reviewing renewal readiness across 20 mid-market accounts whose contracts end this quarter.",
+      brief:
+        "Compute days-to-renewal and days-since-last-contact for every account, then flag anyone inside the day-90 window with zero logged contact as an urgent health-check.",
+      mode: "diagnostic",
+      conceptsCovered: ["Timing renewal outreach to the 90/60/30-day structure"],
+      steps: [
+        {
+          stepId: "step-1-day-90-60-30-triage",
+          concept: "Timing renewal outreach to the 90/60/30-day structure",
+          lessonAnchor: "timing-the-renewal-conversation-around-budget-cycles",
+          theoryRecap:
+            "The lesson's structure is day-90 internal health check, day-60 value conversation (QBR), day-30 commercial close, and it has to flex around the customer's own budget-planning window, not just your contract date.",
+          question:
+            "Of the 20 accounts, 6 are inside 90 days of renewal with no logged contact since their last QBR. Which accounts get triaged first, and why does 'no contact' matter more than 'days remaining' alone?",
+          toolName: "Google Sheets",
+          where:
+            "Import the account export, freeze the header row, add computed columns for days-to-renewal and days-since-last-contact.",
+          procedure: [
+            "Import the 20-row export and freeze row 1",
+            "Add a days-to-renewal column: renewal_date minus today",
+            "Add a days-since-last-contact column: today minus last_contact_date",
+            "Filter to days-to-renewal <= 90 AND days-since-last-contact > 30",
+            "Sort the flagged rows by days-to-renewal ascending",
+          ],
+          outputSample:
+            "URGENT HEALTH CHECK (6 accounts, sample)\n  Acct-114 | renews in 42 days | last contact 61 days ago\n  Acct-108 | renews in 58 days | last contact 74 days ago\n  Acct-121 | renews in 71 days | last contact 55 days ago\n  ...3 more rows\n\nON TRACK (14 accounts)\n  Acct-101 | renews in 88 days | last contact 12 days ago\n  ...13 more rows",
+          healthy:
+            "Every account inside the day-90 window has a logged contact within the last 30 days.",
+          unhealthy:
+            "Acct-114 renews in 42 days, already inside the day-30 commercial-close window, with no contact logged in over two months.",
+          interpret:
+            "Days-to-renewal alone hides risk. An account with 90 days left but no recent contact is in worse shape than one with 60 days left and an active QBR on the calendar.",
+          soWhat: [
+            {
+              symptom: "Renewal list sorted only by days-to-renewal",
+              action: "Re-sort by days-since-last-contact within the 90-day window first",
+              effort: "5 min",
+            },
+            {
+              symptom: "Account inside day-30 window with zero prior contact",
+              action: "Escalate for an emergency health check today, not a scheduled QBR",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Compute days-to-renewal and days-since-last-contact, filter and sort the triage list",
+            why: "Free, no account friction, handles a 20-row export easily",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A triage sheet flagging every account inside the 90-day window with no recent contact, sorted by urgency.",
+      sampleOutput:
+        "Squarespace Renewal Triage, Q3 (excerpt)\n\nURGENT (renews < 90 days, no contact > 30 days)\n  1. Studio Plan accounts, agency tier, renews in 38 days, last touch 65 days ago\n  2. Enterprise storefront accounts, renews in 51 days, last touch 70 days ago\n\nON TRACK\n  3. accounts with a QBR logged in the last 30 days",
+      successCriteria: [
+        "Correctly computes both date columns for all 20 accounts",
+        "Flags every account meeting both conditions, not just the earliest renewal dates",
+        "Explains why days-since-last-contact matters more than days-to-renewal alone",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "renewal-marketing-value-realization-onepager",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "Building a Value-Realization One-Pager Before the Day-60 QBR",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given a synthetic account's usage log and support history, select 3-5 customer-relevant outcomes and build an exportable value-realization one-pager that ties every number to a decision the customer made.",
+      companyId: "klaviyo",
+      scenario:
+        "You're a customer marketing manager at Klaviyo preparing the day-60 QBR deck for a mid-market e-commerce account renewing in nine weeks.",
+      brief:
+        "Pick outcomes the account actually tracks internally, make each one exportable, and credit the account's own decisions, not just the product, so the report survives their internal budget conversation.",
+      mode: "build",
+      conceptsCovered: [
+        "Selecting 3-5 outcomes the customer already tracks",
+        "Tying every number to a decision the customer made",
+      ],
+      steps: [
+        {
+          stepId: "step-1-select-outcomes",
+          concept: "Selecting 3-5 outcomes the customer already tracks",
+          lessonAnchor: "proving-value-delivered-a-practical-framework",
+          theoryRecap:
+            "The lesson's first move is picking 3-5 outcomes that map to what the customer cares about internally, hours saved, revenue influenced, risk reduced, not vanity metrics from your own dashboard.",
+          question:
+            "The usage log has 14 trackable metrics (email opens, flows built, SMS sends, revenue attributed, list growth, support tickets, and more). Which 3-5 belong on the one-pager, and which 9 get cut?",
+          toolName: "Google Sheets",
+          where: "List all 14 candidate metrics, mark which ones map to a business outcome the account's own team reports upward.",
+          procedure: [
+            "List all 14 candidate metrics from the usage log",
+            "Mark each as 'internal metric they'd report to their boss' or 'vendor dashboard vanity stat'",
+            "Keep only metrics in the first group",
+            "Cut the list to the strongest 3-5",
+          ],
+          outputSample:
+            "KEPT (4 metrics)\n  Revenue attributed to flows: $142K this quarter\n  Abandoned-cart recovery rate: 18% (up from 9%)\n  Hours of manual segmentation saved: ~30/month\n  SMS-driven revenue: $22K this quarter\n\nCUT (10 metrics, sample)\n  Total email opens (vanity, no dollar tie)\n  Login frequency (vendor-side vanity stat)\n  ...8 more rows",
+          healthy: "Every kept metric is a number the account's own team would put in their own internal report.",
+          unhealthy: "The one-pager leads with 'total email opens: 340,000' with no dollar or time value attached.",
+          interpret:
+            "A metric only belongs on the report if the customer would already recognize it as something they track, not something only your dashboard shows.",
+          soWhat: [
+            {
+              symptom: "Draft report has 10+ metrics",
+              action: "Cut to the 3-5 that map to a business outcome, not a product action",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-tie-to-decision",
+          concept: "Tying every number to a decision the customer made",
+          lessonAnchor: "proving-value-delivered-a-practical-framework",
+          theoryRecap:
+            "The lesson's third move: '40 hours saved' is a fact, but '40 hours saved after your team adopted the automation workflow in March' credits the customer's choice, which makes the number easier for them to defend internally.",
+          question:
+            "The account adopted flow automation in March and expanded SMS in May. How do you rewrite the 4 kept metrics so each one names the account's own decision that produced it?",
+          toolName: "Google Docs",
+          where: "Draft the one-pager, one sentence per metric, each naming a dated decision.",
+          procedure: [
+            "For each kept metric, find the account decision (adoption date, feature turned on, workflow change) that produced it",
+            "Rewrite each metric as: [number] + [outcome] + 'after your team [decision] in [month]'",
+            "Add a one-click export button description (CSV or shareable link, not a screenshot)",
+            "Confirm the report was already shared quarterly, not introduced for the first time at this QBR",
+          ],
+          outputSample:
+            "1. $142K in flow-attributed revenue this quarter, after your team adopted flow automation in March\n2. Abandoned-cart recovery up to 18% (from 9%) since expanding SMS in May\n3. ~30 hours/month saved on manual segmentation since automating flows in March\n4. $22K in SMS-driven revenue since the May expansion",
+          healthy: "Every sentence names a specific account decision and a month.",
+          unhealthy: "'You saved 30 hours a month' with no decision or date attached, reads as a generic vendor claim.",
+          interpret:
+            "Crediting the customer's decision turns the report from marketing collateral into evidence the champion can use to defend their own choice internally.",
+          soWhat: [
+            {
+              symptom: "Metric sentence has a number but no decision or date",
+              action: "Add 'after your team [decision] in [month]' to every sentence before sending",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Sort and score the 14 candidate metrics down to the strongest 3-5",
+            why: "Free, fast filtering for a small metric list",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Docs",
+            role: "Draft the exportable one-pager",
+            why: "Free, shareable, exports cleanly to PDF for the champion to forward",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Databox",
+            role: "Live, always-on dashboard version of the same 3-5 metrics, shared quarterly instead of rebuilt each time",
+            why: "Removes the 'first time seeing this at renewal' risk the lesson warns against, since the account can check it anytime",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+      },
+      deliverable:
+        "A one-page, exportable value-realization report with 3-5 outcomes, each tied to a dated account decision.",
+      sampleOutput:
+        "Squarespace, Q3 Value Realization (excerpt)\n\n1. $88K in flow-attributed revenue this quarter, after enabling browse-abandonment flows in April\n2. Support ticket volume down 24% since the team adopted the self-serve help center integration in June\n3. ~18 hours/month saved on manual list segmentation since automating tags in April",
+      successCriteria: [
+        "Report contains 3-5 outcomes, not more",
+        "Every metric is one the account already tracks internally, not a vendor-dashboard vanity stat",
+        "Every sentence names a specific account decision and month",
+        "Report format is exportable (PDF/CSV/link), not a static screenshot",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Rewrite the same report for a scenario where the account made no adoption decisions this quarter, what evidence do you fall back on?",
+    },
+  ],
+  "pmm-metrics-scorecards": [
+    {
+      id: "pmm-metrics-scorecard-draft-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Grading a PMM Scorecard Draft Before It Reaches the VP of Sales",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given 3 synthetic draft scorecard slides, apply the lesson's tier framework and presentation rules to identify which metrics will fail in front of skeptical leadership and why.",
+      companyId: "squarespace",
+      scenario:
+        "You're a PMM analyst at Squarespace reviewing a colleague's draft scorecard slides the night before they present to the VP of Sales.",
+      brief:
+        "Spot metrics that are operational rather than commercial, snapshots instead of trends, or unanchored to a business outcome, before they go in front of leadership.",
+      mode: "teardown",
+      conceptsCovered: [
+        "A Scorecard Framework That Survives Executive Scrutiny",
+        "Presenting Impact to Skeptical Leadership",
+      ],
+      teardownItems: [
+        {
+          itemId: "item-1-operational-heavy-scorecard",
+          specimen:
+            "Q2 PMM Scorecard, Draft v1\n- 14 blog posts published\n- 6 case studies shipped\n- 3 competitor battlecards updated\n- 22 sales enablement decks created\n- 1 product launch executed\n- Website copy refreshed for 2 pages",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "This is the entire scorecard slide a colleague plans to bring to tomorrow's QBR with the VP of Sales. What's wrong with it before they present it?",
+          answerKey: [
+            {
+              defect:
+                "100% of the listed metrics are operational output counts; zero revenue or commercial-influence metrics appear anywhere on the slide",
+              severity: "critical",
+              whyItMatters:
+                "The lesson's tier framework and its own warning callout say a scorecard reading 80%+ operational gets leadership reading PMM as a production shop, not a strategic function.",
+              lessonRef: "a-scorecard-framework-that-survives-executive-scrutiny",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Six metric categories is too few, the scorecard should list closer to 8-10 items",
+            "Battlecard updates shouldn't appear on a PMM scorecard at all",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-no-trend-snapshot",
+          specimen: "Win rate on enabled deals: 47% (this quarter only)",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "This is the headline number on the second draft slide. Is this ready to present to a skeptical VP?",
+          answerKey: [
+            {
+              defect: "Single-quarter snapshot with no 4-6 quarter trend line",
+              severity: "moderate",
+              whyItMatters:
+                "The lesson says positioning changes take roughly two sales cycles to show up in win rate; a snapshot can't show direction and invites a 'so what' from leadership.",
+              lessonRef: "presenting-impact-to-skeptical-leadership",
+              owner: "you",
+            },
+            {
+              defect: "No business-outcome sentence anchoring the number to a dollar value",
+              severity: "moderate",
+              whyItMatters:
+                "The lesson's three-word test, revenue impact, timely delivery, retention, means a bare percentage with no anchoring sentence doesn't pass.",
+              lessonRef: "presenting-impact-to-skeptical-leadership",
+              owner: "you",
+            },
+          ],
+          distractors: ["47% is too low a win rate to present at all"],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-3-vanity-metric-no-counterfactual",
+          specimen: "Sales enablement asset downloads this month: 340",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "This is the headline commercial-influence metric on the third draft slide. Evaluate it against the lesson's framework.",
+          answerKey: [
+            {
+              defect:
+                "Raw download count used instead of the win-rate comparison between deals that used the asset and deals that didn't",
+              severity: "critical",
+              whyItMatters:
+                "The lesson's strongest evidence is the counterfactual, win rate on enabled deals versus non-enabled deals, not a consumption count that says nothing about outcomes.",
+              lessonRef: "a-scorecard-framework-that-survives-executive-scrutiny",
+              owner: "you",
+            },
+          ],
+          distractors: ["340 downloads is too small a number to be worth reporting"],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Write the critique memo listing each defect and its fix",
+            why: "Free, fast to draft and share",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page critique memo listing every scorecard defect found, its severity, and the corrected metric to replace it with.",
+      sampleOutput:
+        "Adyen PMM Scorecard Critique (excerpt)\n\nDraft slide 1: 9 of 9 metrics operational, zero tied to revenue or win rate. FIX: replace with win-rate-on-enabled-deals and pipeline-influenced.\n\nDraft slide 2: single-quarter win rate, no trend, no dollar anchor. FIX: show 5-quarter trend line, add 'worth ~$X in pipeline' sentence.",
+      successCriteria: [
+        "Correctly identifies the operational-heavy defect in item 1",
+        "Correctly identifies both the snapshot and unanchored-number defects in item 2",
+        "Correctly identifies the vanity-metric-over-counterfactual defect in item 3",
+        "Does not flag any of the 3 distractors as real defects",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "pmm-metrics-scorecard-build-tiered",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "Building an 8-Metric PMM Scorecard From a Messy 15-Metric Wishlist",
+      timeEstimate: "50 minutes",
+      timeMinutes: 50,
+      objective:
+        "Given a synthetic 15-metric KPI wishlist from a launch retro, sort it into the lesson's three tiers, cut it to 6-8 metrics, and write an outcome-anchoring sentence for each survivor.",
+      companyId: "coinbase",
+      scenario:
+        "You're the product marketing lead at Coinbase building next quarter's scorecard from a wishlist your team brainstormed after a chaotic feature launch.",
+      brief:
+        "Sort all 15 candidate metrics into board, commercial, or operational tiers, cut the list to 6-8, and anchor each surviving metric to a business-outcome sentence before it goes on the one-pager.",
+      mode: "build",
+      conceptsCovered: [
+        "Sorting a KPI wishlist into board/commercial/operational tiers",
+        "Anchoring each surviving metric to a business-outcome sentence before the chart",
+      ],
+      steps: [
+        {
+          stepId: "step-1-tier-sort",
+          concept: "Sorting a KPI wishlist into board/commercial/operational tiers",
+          lessonAnchor: "a-scorecard-framework-that-survives-executive-scrutiny",
+          theoryRecap:
+            "The lesson's fix is a fixed, small scorecard: Tier 1 board metrics (revenue attribution, pipeline by ICP, competitive displacement), Tier 2 commercial influence (win rate, enablement adoption, sales confidence), Tier 3 operational health (launch velocity, asset usage), kept internal.",
+          question:
+            "The 15-metric wishlist mixes all three tiers with no labels, and includes 4 pure vanity metrics with no tier at all. Which metrics go where, and which get cut outright?",
+          toolName: "Google Sheets",
+          where: "Paste the 15-metric wishlist, add a Tier column, filter and cut.",
+          procedure: [
+            "Paste all 15 metrics into a sheet with a blank Tier column",
+            "Label each as Tier 1, Tier 2, Tier 3, or 'cut, no tier fits'",
+            "Cut every metric labeled 'no tier fits'",
+            "From the remainder, keep the strongest 6-8 across all three tiers combined",
+          ],
+          outputSample:
+            "TIER 1 (kept)\n  Revenue attributed to PMM-influenced deals\n  Pipeline contribution by ICP segment\n\nTIER 2 (kept)\n  Win rate, enabled vs non-enabled deals\n  Asset utilization within 30 days\n\nTIER 3 (kept)\n  Launch velocity (days to public launch)\n\nCUT (no tier fits, sample)\n  Total social media impressions\n  Internal team NPS\n  ...2 more rows",
+          healthy: "6-8 metrics survive, spread across all three tiers, none of them pure vanity counts.",
+          unhealthy: "The final list keeps 12 metrics because nothing got cut, or keeps only Tier 3 operational counts.",
+          interpret:
+            "A scorecard with metrics in only one tier fails the same way an untiered wishlist does, it either buries the board-level story or loses the operational detail leadership needs as backup.",
+          soWhat: [
+            {
+              symptom: "Final scorecard has more than 8 metrics",
+              action: "Cut the weakest metric in whichever tier is most crowded until the count hits 6-8",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-anchor-sentences",
+          concept: "Anchoring each surviving metric to a business-outcome sentence before the chart",
+          lessonAnchor: "presenting-impact-to-skeptical-leadership",
+          theoryRecap:
+            "The lesson's presentation rule: anchor every metric to a business-outcome sentence before showing the chart, and cut anything that can't be tied to revenue impact, timely delivery, or retention.",
+          question:
+            "For the 3 Tier 1 and Tier 2 metrics kept in step 1, write the one-sentence anchor that would open the QBR slide for each.",
+          toolName: "Google Docs",
+          where: "Draft one anchor sentence per surviving Tier 1/2 metric, then run each through the three-word test.",
+          procedure: [
+            "For each Tier 1/2 metric, write: '[metric] is [direction] [amount] since [period], worth roughly [$ or business impact]'",
+            "Check each sentence against the three-word test: revenue impact, timely delivery, or retention",
+            "Cut or rewrite any sentence that fails all three",
+          ],
+          outputSample:
+            "1. Win rate on enabled deals is up 12 points since Q2, worth roughly $2M in incremental pipeline this quarter.\n2. Pipeline contribution from the enterprise ICP segment is up 18% since the March repositioning.\n3. Launch velocity dropped from 41 to 26 days since standardizing the launch checklist.",
+          healthy: "Every anchor sentence passes the revenue/timely-delivery/retention test.",
+          unhealthy: "'Asset utilization improved' with no percentage, no time period, and no tie to a business outcome.",
+          interpret:
+            "A chart without an anchor sentence forces the room to guess why the number matters, the sentence does the work the chart alone can't.",
+          soWhat: [
+            {
+              symptom: "Anchor sentence describes an activity, not an outcome",
+              action: "Rewrite it against the three-word test before it goes on the one-pager",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Sort and tier the 15-metric wishlist down to 6-8 survivors",
+            why: "Free, fast filtering for a small metric list",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Docs",
+            role: "Draft the outcome-anchor sentences and the final one-pager",
+            why: "Free, shareable, exports cleanly to PDF",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Looker Studio",
+            role: "Live trended dashboard version of the final 6-8 metrics, refreshed weekly",
+            why: "Matches the lesson's 'trend, not snapshot' rule without manually rebuilding the chart every quarter",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+      },
+      deliverable: "A finished 6-8 metric, three-tier PMM scorecard one-pager with an outcome sentence for each metric.",
+      sampleOutput:
+        "Snowflake PMM Scorecard, Q3 (excerpt)\n\nTIER 1: Pipeline attributed to PMM-influenced deals is up 14% since Q1, worth roughly $3.1M this quarter.\nTIER 2: Win rate on enabled deals is up 9 points since the new battlecard rollout in May.\nTIER 3: Launch velocity down from 38 to 24 days since Q2.",
+      successCriteria: [
+        "Final scorecard has 6-8 metrics, not more",
+        "Metrics span all three tiers, not just one",
+        "Every Tier 1/2 metric has an anchor sentence that passes the revenue/timely-delivery/retention test",
+        "No metric on the final list is a pure vanity count",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Rebuild the same scorecard for a quarter where 2 of your Tier 2 metrics moved in the wrong direction, how do you present that honestly without losing the room?",
+    },
+  ],
+
+  "beta-programs": [
+    {
+      id: "beta-programs-applicant-pool-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Cut List: Auditing a Beta Applicant Pool for Fit",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a real-style pool of 20 beta applicants with segment, usage intent, and engagement signals, select the strongest 8 for a wave-one cohort using the lesson's fit-over-enthusiasm framework.",
+      companyId: "go-digit-insurance",
+      scenario:
+        "You're the marketing analyst at Go Digit General Insurance, the Bengaluru-founded general insurer, validating a new usage-based motor insurance app feature before its public rollout. 340 people applied for the 50-person wave-one beta; you've been handed a 20-row sample to triage first.",
+      brief:
+        "Score each applicant on target-segment fit and real usage intent, not just enthusiasm, and flag the ones who dilute the cohort.",
+      mode: "diagnostic",
+      conceptsCovered: ["Qualifying beta applicants on fit over enthusiasm"],
+      steps: [
+        {
+          stepId: "step-1-fit-scoring",
+          concept: "Qualifying beta applicants on fit over enthusiasm",
+          lessonAnchor: "phase-1-define-goals-and-recruit",
+          theoryRecap:
+            "The lesson's Phase 1 warns that a power user in your target segment is worth ten curious people outside it, so qualification should filter on fit, not just enthusiasm.",
+          question:
+            "Of 20 applicants, 8 are daily commuters who already track mileage manually, 7 are insurance-curious hobbyists with no vehicle, and 5 are competitor-app power users just scouting features. Who makes wave one?",
+          toolName: "Google Sheets",
+          where: "Import the applicant export, add a fit-score column, sort descending.",
+          procedure: [
+            "Import the 20-row applicant export and freeze the header row",
+            "Tag each row's segment: daily commuter, insurance-curious hobbyist, or competitor-app scout",
+            "Score fit 1-3 based on whether the person has real, recurring usage today",
+            "Sort by fit score and select the top 8 for wave one",
+            "Flag the competitor-app scouts separately, useful for competitive intel, not cohort quality",
+          ],
+          outputSample:
+            "WAVE ONE (fit score 3, 8 selected)\n  1. R. Sharma - daily commute 42km, manual mileage log for 8 months\n  ... 7 more rows\n\nHOLD (fit score 2, informational only)\n  9. Insurance-curious hobbyist, no vehicle yet\n\nFLAG - COMPETITIVE INTEL (fit score 1)\n  15. Active user of a competitor's telematics app, applied to compare features",
+          healthy: "8 of 8 wave-one seats go to people already doing the target behavior manually.",
+          unhealthy: "Filling wave one with the 8 fastest form submissions regardless of segment.",
+          interpret:
+            "Enthusiasm to join is not the same signal as fit to test; sorting by fit first keeps a small cohort genuinely useful.",
+          soWhat: [
+            {
+              symptom: "Wave-one feedback reads generic ('cool app!') instead of specific",
+              action: "Re-screen for real recurring usage before the next wave, not just interest",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Score and sort the applicant pool",
+            why: "Free, familiar, sufficient for a 20-row triage",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A wave-one cohort list of 8 applicants scored and sorted by fit, with competitor scouts flagged separately.",
+      sampleOutput:
+        "Five-Star Business Finance wave-one beta shortlist (excerpt)\n\nFIT SCORE 3\n  1. Branch loan officer, processes 15+ MSME applications/month\n  2. Field collection agent, tracks repayments manually today\n  ... 6 more rows\n\nFLAGGED - COMPETITOR SCOUT\n  9. Active user of a rival lending-ops app, applied to compare dashboards",
+      successCriteria: [
+        "Correctly separates high-fit applicants from merely enthusiastic ones",
+        "Flags competitor scouts as a distinct category instead of excluding them silently",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "beta-programs-five-phase-rollout-plan",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "Ship the Cohort: Building a 5-Phase Beta Rollout Plan",
+      timeEstimate: "70 minutes",
+      timeMinutes: 70,
+      objective:
+        "Build a complete 5-phase beta program plan, stakeholder KPIs, recruitment target, and a dated beta-to-paid conversion offer, for a real B2B feature launch.",
+      companyId: "tbo-tek",
+      scenario:
+        "You're the product marketer at TBO Tek, the B2B travel distribution platform connecting travel agencies to hotel and airline inventory, launching a new dynamic-packaging API to a beta cohort of 60 travel agency partners before general release.",
+      brief:
+        "Turn the lesson's 5-phase playbook into a dated, owned plan: stakeholder KPIs and recruitment, plus a beta-to-paid conversion offer with a real deadline.",
+      mode: "build",
+      conceptsCovered: [
+        "Setting phase-specific KPIs for product, marketing, and sales",
+        "Structuring a beta-to-paid conversion offer before the beta opens",
+      ],
+      steps: [
+        {
+          stepId: "step-1-beta-charter",
+          concept: "Setting phase-specific KPIs for product, marketing, and sales",
+          lessonAnchor: "phase-1-define-goals-and-recruit",
+          theoryRecap:
+            "Phase 1 splits beta KPIs by stakeholder: product wants bug rate and adoption, marketing wants testimonials and advocates, sales wants named reference customers.",
+          question:
+            "TBO Tek's product team, marketing team, and sales team each want something different from this beta. What does each one actually need to walk away with?",
+          toolName: "Google Docs",
+          where: "A shared one-page beta charter doc.",
+          procedure: [
+            "List product's success metric (e.g. API error rate under 1%)",
+            "List marketing's deliverables (e.g. 8 testimonials, 2 case studies)",
+            "List sales's deliverable (e.g. 3 named reference customers for the sales deck)",
+            "Set a recruitment target: 60 agency partners across 3 waves of 20",
+            "Draft the landing page value proposition and qualification questions",
+          ],
+          outputSample:
+            "BETA CHARTER - Dynamic Packaging API\n\nPRODUCT: <1% error rate across 5,000+ test bookings\nMARKETING: 8 testimonials, 2 published case studies\nSALES: 3 named reference agencies for the enterprise deck\n\nRECRUITMENT: 60 partners, 3 waves of 20, application form live by [date]",
+          healthy: "All three stakeholders sign off on the same charter before recruitment opens.",
+          unhealthy: "Marketing finds out about the beta after product has already onboarded testers.",
+          interpret:
+            "A charter forces the tradeoffs (who gets access first, what counts as done) into the open before the program starts.",
+          soWhat: [
+            {
+              symptom: "Beta ends and nobody has agreed testimonials",
+              action: "Write the charter with all three stakeholders before recruiting a single tester",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-conversion-offer",
+          concept: "Structuring a beta-to-paid conversion offer before the beta opens",
+          lessonAnchor: "phase-5-convert-to-advocates",
+          theoryRecap:
+            "Phase 5 argues the beta's end is a conversion moment, not a finish line; a time-limited early-adopter rate converts at roughly 30% when the offer is exclusive and the relationship is strong.",
+          question:
+            "TBO Tek's 60 beta partners finish the program in 6 weeks. What's the specific offer, deadline, and ask that turns them into paying API customers?",
+          toolName: "Google Docs",
+          where: "The same beta charter doc, conversion section.",
+          procedure: [
+            "Set a time-limited early-adopter API pricing tier (e.g. 20% off year one)",
+            "Set a hard deadline: offer expires 2 weeks after beta close",
+            "Identify the top 10-15 most engaged partners for testimonial requests",
+            "Draft the referral incentive for partners who bring in another agency",
+            "Schedule the conversion email sequence: day 0, day 7, day 12 (deadline reminder)",
+          ],
+          outputSample:
+            "CONVERSION OFFER\n\n20% off Dynamic Packaging API, year one\nOffer window: 2 weeks post-beta, expires [date]\nAsk: signed API agreement + 1-sentence testimonial\nREFERRAL: 5% additional discount per referred agency that signs",
+          healthy: "A named offer with a deadline goes out to all 60 partners on beta-close day.",
+          unhealthy: "The beta quietly ends and partners wait for someone at TBO Tek to follow up.",
+          interpret:
+            "An exclusive, time-boxed offer converts warm beta relationships before they cool; an open-ended 'let us know if you want to buy' does not.",
+          soWhat: [
+            {
+              symptom: "Beta partners go quiet after the program ends",
+              action: "Send the dated conversion offer on beta-close day, not after",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Draft and share the beta charter and conversion plan",
+            why: "Free, collaborative, sufficient for a planning document",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A complete 5-phase beta charter document: KPIs by stakeholder, recruitment plan, and a dated conversion offer.",
+      sampleOutput:
+        "MapmyIndia beta charter (excerpt)\n\nPRODUCT: <2% map-rendering error rate across 10,000 test queries\nMARKETING: 6 testimonials, 1 case study\nSALES: 2 named enterprise reference accounts\n\nCONVERSION OFFER: 15% off enterprise API plan, valid 2 weeks post-beta",
+      successCriteria: [
+        "Charter names distinct KPIs for product, marketing, and sales",
+        "Conversion offer has a specific discount, deadline, and ask",
+      ],
+      portfolioReady: true,
+      stretch: "Add a wave-2 recruitment plan that uses wave-1 testimonials as social proof in the application landing page.",
+    },
+  ],
+  "pmm-org-models": [
+    {
+      id: "pmm-org-models-org-chart-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "Name That Model: Auditing a Real PMM Org Chart",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a supplied 6-person PMM org chart with reporting lines, correctly classify it as centralized, embedded, or hybrid, and name the single structural risk the lesson's framework predicts for that model.",
+      companyId: "mapmyindia",
+      scenario:
+        "You're advising MapmyIndia (CE Info Systems), the NSE-listed Indian digital mapping and geospatial technology company, on why its product marketing team keeps missing roadmap context on new product lines.",
+      brief:
+        "Classify the supplied org chart against the lesson's three models, then name the specific weakness that model predicts, not a generic complaint.",
+      mode: "diagnostic",
+      conceptsCovered: ["Classifying a PMM org chart against the centralized/embedded/hybrid framework"],
+      steps: [
+        {
+          stepId: "step-1-classify-org-chart",
+          concept: "Classifying a PMM org chart against the centralized/embedded/hybrid framework",
+          lessonAnchor: "model-1-centralized-pmm",
+          theoryRecap:
+            "The lesson's three-model framework: centralized (all PMMs report to one Head of PMM), embedded (PMMs report into product groups with no PMM manager), hybrid (a central team sets standards, embedded PMMs run day-to-day and dotted-line report centrally).",
+          question:
+            "MapmyIndia's org chart shows 6 PMMs reporting to 6 different Product VPs, with no PMM manager anywhere on the chart. Which of the three models is this, and what does the lesson predict will go wrong?",
+          toolName: "Google Docs",
+          where: "The supplied org chart doc, annotate reporting lines.",
+          procedure: [
+            "Trace each PMM's direct reporting line on the chart",
+            "Check for a central PMM head or dotted-line management layer",
+            "Classify: zero dotted lines to a PMM head means embedded, not hybrid",
+            "Match the model to its predicted weakness from the lesson",
+            "Write a 2-sentence diagnosis naming the specific risk",
+          ],
+          outputSample:
+            "CLASSIFICATION: Embedded (not hybrid)\n  Evidence: 6 PMMs, 6 different Product VP managers, zero PMM management layer\n\nPREDICTED RISK: career development gap, no PMM mentor or promotion advocate; embedded PMMs also duplicate templates and frameworks independently",
+          healthy: "The diagnosis names the specific predicted weakness (e.g. career development gap) instead of a vague 'communication issue.'",
+          unhealthy: "Labeling any team with product-side reporting lines as 'hybrid' just because a PMM occasionally talks to marketing.",
+          interpret:
+            "The presence or absence of a dotted-line PMM management layer is what separates embedded from hybrid, not how often PMMs talk to each other.",
+          soWhat: [
+            {
+              symptom: "PMMs on this team say they feel unsupported in career growth",
+              action: "Stand up a PMM guild with a senior lead, per the lesson's embedded-model fix, before adding a full management layer",
+              effort: "half day",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Annotate and classify the org chart",
+            why: "Free, sufficient for reading and marking up a chart",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-paragraph classification of the org chart (centralized/embedded/hybrid) plus the specific structural risk the lesson's framework predicts for it.",
+      sampleOutput:
+        "Utkarsh Small Finance Bank org-chart audit (excerpt)\n\nCLASSIFICATION: Centralized\n  Evidence: all 4 PMMs report to one Head of PMM under the CMO\n\nPREDICTED RISK: model breaks down past 3-4 product lines; Utkarsh has 5 loan products live, each PMM is already spread across more than one",
+      successCriteria: [
+        "Correctly classifies the org chart using reporting-line evidence, not vibes",
+        "Names the specific risk the framework predicts for that model, not a generic complaint",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "pmm-org-models-reorg-brief",
+      tier: "core",
+      archetype: "rebuild",
+      title: "The Reorg Brief: Moving From Embedded to Hybrid",
+      timeEstimate: "65 minutes",
+      timeMinutes: 65,
+      objective:
+        "Write a complete reorg brief that moves a 7-PMM embedded team to a hybrid model, applying the lesson's decision framework and naming the central team's exact scope.",
+      companyId: "rategain-travel-technologies",
+      scenario:
+        "You're the Head of Product Marketing at RateGain Travel Technologies, the Nasdaq-listed travel and hospitality SaaS company, where 7 PMMs are embedded across 4 product lines (Distribution, Data, Digital Payments, Demand Intelligence) with no central function, and brand messaging has started to drift between products.",
+      brief:
+        "Run the lesson's decision framework, then write the reorg brief: what moves to a small central team, what stays embedded, and how dotted-line reporting works.",
+      mode: "build",
+      conceptsCovered: [
+        "Running the centralized/embedded/hybrid decision framework",
+        "Defining central-team scope without creating an approval bottleneck",
+      ],
+      steps: [
+        {
+          stepId: "step-1-decision-framework-walkthrough",
+          concept: "Running the centralized/embedded/hybrid decision framework",
+          lessonAnchor: "decision-framework",
+          theoryRecap:
+            "The lesson's decision framework routes on product-line count, then whether brand consistency or launch speed matters more, then headcount and management layer.",
+          question:
+            "RateGain has 4 product lines, 7 PMMs, brand consistency is the stated problem, and there's no PMM manager today. Where does the framework land?",
+          toolName: "Google Docs",
+          where: "A framework worksheet, one row per decision node.",
+          procedure: [
+            "Confirm product line count: 4, above the 1-2 threshold for centralized",
+            "Confirm the stated priority: brand consistency over launch speed",
+            "Confirm PMM headcount: 7, above the 3+ threshold for hybrid",
+            "Conclude: hybrid model, since brand consistency plus 3 or more PMMs routes to hybrid",
+            "Note the one missing piece: no PMM management layer exists yet, so it must be built, not assumed",
+          ],
+          outputSample:
+            "DECISION FRAMEWORK WALKTHROUGH\n\n1. Product lines: 4 (>= 3) -> continue\n2. Priority: brand consistency -> check headcount\n3. Headcount: 7 PMMs (>= 3) -> HYBRID\n\nGAP: no PMM management layer exists today, must be created as part of the reorg, not assumed to already work",
+          healthy: "The recommendation follows directly from the framework's decision nodes, evidence-first.",
+          unhealthy: "Recommending hybrid because it 'sounds like the best of both worlds' without running the framework.",
+          interpret:
+            "The framework exists specifically so the model choice isn't a preference, it's a conclusion from product-line count, priority, and headcount.",
+          soWhat: [
+            {
+              symptom: "Leadership resists the reorg as 'more org complexity'",
+              action: "Show the framework walkthrough, not just the recommendation, so the logic is visible",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-central-team-scope",
+          concept: "Defining central-team scope without creating an approval bottleneck",
+          lessonAnchor: "model-3-hybrid-pmm",
+          theoryRecap:
+            "Model 3's weaknesses list warns that hybrid's central team can become a bottleneck if it tries to approve every launch artifact; scope must be narrow and explicit.",
+          question: "What exactly does RateGain's new 3-person central PMM team own, and what stays with the 7 embedded PMMs?",
+          toolName: "Google Docs",
+          where: "The reorg brief, scope section.",
+          procedure: [
+            "List central team's 3 owned functions: positioning standards, competitive intelligence, launch playbook",
+            "List what stays embedded: day-to-day GTM execution, sales enablement, sprint participation",
+            "Explicitly state the central team does NOT approve individual launch decks",
+            "Define the dotted-line reporting: embedded PMMs report to product leads day-to-day, to the central Head of PMM for career development",
+            "Set the quarterly messaging-sync cadence to catch brand drift early",
+          ],
+          outputSample:
+            "CENTRAL TEAM OWNS: positioning standards, competitive intel, launch playbook\nEMBEDDED PMMs OWN: day-to-day GTM, sales enablement, sprint participation\nCENTRAL DOES NOT: approve individual launch decks or one-pagers\nREPORTING: dotted-line to central Head of PMM for career development only\nCADENCE: quarterly messaging sync, all 7 embedded PMMs present current positioning",
+          healthy: "The scope list has an explicit 'does not' line preventing central overreach.",
+          unhealthy: "Central team scope is left vague ('central handles strategy'), which invites approval-bottleneck creep within a quarter.",
+          interpret:
+            "Hybrid failing in execution comes from unscoped central authority, not the model itself; an explicit boundary is what makes hybrid work operationally.",
+          soWhat: [
+            {
+              symptom: "Embedded PMMs start routing every deck through the central team 'just in case'",
+              action: "Republish the explicit scope doc and the does-not list at the next quarterly sync",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Draft the decision-framework walkthrough and reorg brief",
+            why: "Free, collaborative, sufficient for a planning document",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A reorg brief: the decision-framework walkthrough, the recommended model, explicit central-team scope with a 'does not' boundary, and the dotted-line reporting structure.",
+      sampleOutput:
+        "Five-Star Business Finance reorg brief (excerpt)\n\nFRAMEWORK RESULT: Hybrid (3 product lines, brand priority, 4 PMMs)\nCENTRAL TEAM OWNS: positioning standards, competitive intel\nCENTRAL DOES NOT: approve regional sales one-pagers\nREPORTING: dotted-line to Head of PMM for career development only",
+      successCriteria: [
+        "Model recommendation follows explicitly from the framework's decision nodes",
+        "Central team scope includes an explicit 'does not' boundary to prevent bottleneck creep",
+      ],
+      portfolioReady: true,
+      stretch: "Draft the first quarterly messaging-sync agenda for the new hybrid structure.",
+    },
+  ],
 };

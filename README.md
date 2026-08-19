@@ -54,10 +54,10 @@ A free, structured marketing education site, from absolute beginner to advanced 
 - **Onboarding**, First-visit goal selector: pick a goal (including "totally new to marketing"), get routed to the right learning track. Suppressed on lesson pages so direct-link visitors aren't interrupted
 
 **Discovery**
-- **Command Palette**, Cmd/Ctrl+K fuzzy search across all 642 lessons, 24 learning tracks, 158 glossary terms, 141 tools, and nav pages
+- **Command Palette**, Cmd/Ctrl+K fuzzy search across all 642 lessons, 24 learning tracks, 158 glossary terms, 157 tools, and nav pages
 - **Search**, Client-side fuzzy search (Fuse.js) across lessons and tracks, with category and level filter chips (chips apply to lessons only, a track spans multiple categories/levels by design)
 - **Glossary**, 158 marketing terms with A-Z index and individual term pages at `/glossary`
-- **Tools directory**, 141 marketing tools across 11 categories with search, category, and pricing filters at `/tools`
+- **Tools directory**, 157 marketing tools across 11 categories with search, category, and pricing filters at `/tools`
 - **Cheat sheets**, Printable per-category quick reference cards at `/cheat-sheets/[category]`
 
 **Interview Prep**
@@ -148,7 +148,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/tracks.ts` | 24 learning track definitions |
 | `src/lib/glossary.ts` | 158 marketing term definitions |
 | `src/lib/quizzes.ts` | Quiz questions (5 per lesson since Stage 10.1, all 642 lessons covered) |
-| `src/lib/tools-directory.ts` | 141 marketing tools with category/pricing data |
+| `src/lib/tools-directory.ts` | 157 marketing tools with category/pricing data |
 | `PROJECTS_PLAN.md` | **High-priority roadmap.** Stages 0-8 (all 24 tracks' practice projects), 9.1/9.4, 10 (quiz expansion to 5 questions/lesson), and 11 (Skill Map/Achievements/Resources UX pass) are all complete as of Session 85. **Stage 9.3** (non-track lesson project authoring) is queued to run LAST, narrowed to 8 categories by owner directive: `fundamentals`, `seo`, `paid-ads`, `growth`, `social`, `product-marketing`, `ai-marketing`, `tools`. Use `PROJECTS_AUTHORING_GUIDE.md` to execute |
 | `src/components/InAction.tsx` | Global MDX component rendering one cited "concept scenario" inline after a lesson heading (PROJECTS_PLAN.md section 10 / Stage 8.4). Embedded directly in lesson MDX, not build-time-injected — see AGENTS.md Rule 54 |
 | `PROJECTS_AUTHORING_GUIDE.md` | Operational playbook for authoring a new track's Stage 8.3/8.4 batch: fill-in agent prompt template + condensed reference pack + the scripts below, in order. Next two tracks are pre-scoped in PROJECTS_PLAN.md 8.3b |
@@ -208,7 +208,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/glossary` | 158-term A-Z marketing glossary |
 | `/glossary/[slug]` | Individual term page |
 | `/bookmarks` | Saved lessons (localStorage) |
-| `/tools` | 141 marketing tools with search + category + pricing filters |
+| `/tools` | 157 marketing tools with search + category + pricing filters |
 | `/cheat-sheets` | Printable cheat sheet index (21 categories) |
 | `/cheat-sheets/[category]` | Printable per-category cheat sheet |
 | `/interview-prep` | Interview prep hub with category Q&A links |
@@ -221,7 +221,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/about` | About page: mission, builder profile, stats, tech stack, links |
 | `/certificates` | Track completion certificate index |
 | `/certificates/[slug]` | Printable track completion certificate |
-| `/projects` | Practice projects hub: search, tier/archetype/mode/category filters (493 projects across the library — Stage 8.3a is fully complete, all 24 tracks, plus 8/28 `events-experiential` lessons from Stage 9.3's non-track backlog). "View details" opens the project's own dedicated page in a new tab (Session 78, replaces the old slide-over drawer) |
+| `/projects` | Practice projects hub: search, tier/archetype/mode/category filters (803 projects across the library — Stage 8.3a is fully complete, all 24 tracks, plus Stage 9.3's fully-completed 8-category non-track scope: `fundamentals`, `seo`, `paid-ads`, `growth`, `social`, `product-marketing`, `ai-marketing`, `tools`, plus 8/28 `events-experiential` lessons left out of scope). "View details" opens the project's own dedicated page in a new tab (Session 78, replaces the old slide-over drawer) |
 | `/projects/[category]/[slug]` | Dedicated single-project page (Session 78) — the full project (steps/stages/teardown items, tool stack, success criteria) always expanded, no inline toggle. Statically generated for all projects. Opened in a new tab from both the lesson page's Project List and the `/projects` hub, so a project always opens in its own page + tab regardless of entry point |
 | `/feed.xml` | RSS feed |
 | `/sitemap.xml` | Auto-generated sitemap (lessons with MDX only) |

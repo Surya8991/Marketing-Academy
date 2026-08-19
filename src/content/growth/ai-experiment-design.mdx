@@ -22,6 +22,19 @@ Similarly, when a feature ships and early data rolls in, LLMs can be prompted to
 
 ### Sample Size and Duration Calculation
 
+<InAction
+  concept="Sample Size and Duration Calculation"
+  companyName="Whatnot"
+  companyId="whatnot"
+  where="Whatnot's Product Engineering team"
+  why="Testing new features in production on a real-time livestream shopping platform was slow and risky, and the team had no consistent way to know how much traffic or time a test actually needed before calling a winner."
+  what="Adopted warehouse-native experimentation with CUPED variance reduction, letting the team reach statistical significance with less traffic and iterate on sample-size decisions faster instead of guessing at test duration."
+  benefit="Scaled to a run rate of roughly 400 experiments per year in its second year on the platform, up from ad hoc, engineering-bottlenecked testing the year before."
+  timeframe="Year two of adoption, following a Year 1 rollout of feature flagging"
+  date="2023"
+  source="https://www.statsig.com/customers/whatnot"
+/>
+
 Running an experiment too short and claiming victory is a classic A/B testing mistake. Running it too long wastes engineering cycles.
 
 Tools like Optimizely offer AI-powered sample size calculators that factor in expected baseline conversion rate, minimum detectable effect size, and false discovery controls. They answer the question, 'How many users and days do we need to detect a 10% improvement with 95% confidence?' instantly.
@@ -53,6 +66,19 @@ Optimizely and Statsig now embed AI analysis: they auto-generate summaries of te
 The critical distinction: AI can interpret statistical significance instantly, but cannot replace domain expertise. An LLM doesn't know that your product has a 2-week novelty period or that your enterprise segment behaves differently than your SMB segment.
 
 ### Automated Experiment Prioritisation
+
+<InAction
+  concept="Automated Experiment Prioritisation"
+  companyName="Ancestry"
+  companyId="ancestry"
+  where="Ancestry's Growth team"
+  why="Manual SQL queries and an aging in-house dynamic-configuration tool meant the team could only stand up a handful of experiments per year, so most growth ideas never got tested at all."
+  what="Moved onto a modern experimentation platform (Statsig) that let the team run and prioritize far more concurrent tests instead of hand-queuing them through engineering."
+  benefit="Experiment volume grew from 70 per year to 600 per year, an 8.5x increase, as the Growth team scaled from 4 to 25 people across engineering, product, and data science."
+  timeframe="Proof of concept in early 2022, live in May 2022, results reported in a 2023 case study"
+  date="2023"
+  source="https://www.statsig.com/customers/ancestry"
+/>
 
 A PM has 15 experiment ideas. Which 3 should we run this sprint?
 

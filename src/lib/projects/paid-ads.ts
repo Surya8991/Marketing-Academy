@@ -5479,4 +5479,4553 @@ export const PAID_ADS_PROJECTS: Record<string, Project[]> = {
         "Draft the message you'd send to Network C's account manager requesting a refund, citing the specific report rows as evidence.",
     },
   ],
+
+  "native-advertising": [
+    {
+      id: "native-advertising-sponsored-content-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      mode: "teardown",
+      title: "The Sponsored-Content Red Flag Audit",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given three short native ad specimens drafted for a DTC eyewear brand, identify which pieces would pass a native-advertising quality bar and which would break reader trust or violate disclosure rules, using the lesson's own criteria.",
+      companyId: "warby-parker",
+      scenario:
+        "You're a content reviewer on Warby Parker's brand team. Three draft native ad pieces are queued for a Taboola distribution buy this week, and you have final sign-off before they go live.",
+      brief:
+        "Score each piece against the lesson's two hard rules: does it read like a genuinely useful article and not a pitch, and is the sponsored relationship disclosed clearly.",
+      conceptsCovered: ["What It Is", "Common Mistakes"],
+      teardownItems: [
+        {
+          itemId: "specimen-1-eye-exam-piece",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "5 Ways to Tell If Your Glasses Prescription Is Outdated\n\n" +
+            "Blurry street signs. A headache after two hours at your laptop. Squinting at restaurant menus in dim light. These are the quiet signs your prescription has drifted out of date, something that happens to most people every 1-2 years without them noticing.\n\n" +
+            "An eye exam takes about 20 minutes and settles it either way. If your prescription has changed, ordering new glasses online now takes about as long as the exam itself, most virtual try-on tools let you compare five frames side by side before you commit.",
+          prompt: "Would this piece pass as a native ad, or does it need a fix before it runs?",
+          answerKey: [
+            {
+              defect: "No 'Sponsored' or 'Paid Content' label anywhere in the piece",
+              severity: "critical",
+              whyItMatters:
+                "Hiding the commercial relationship is a trust violation and, in many markets, an advertising-regulation violation, not a style choice.",
+              lessonRef: "Common Mistakes: 'always include a clear Sponsored or Paid Content label'",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Mentions ordering glasses online only in the last two sentences",
+            "Uses second-person 'you' throughout the piece",
+            "Never names Warby Parker directly in the body text",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "specimen-2-best-frames-pitch",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "Why Warby Parker Frames Are the Best Glasses You'll Ever Own\n\n" +
+            "Our bestselling frames start at $95, a fraction of what department-store opticians charge for the same quality. Every pair ships with a 30-day satisfaction guarantee, and our Home Try-On program lets you test five frames free before buying.\n\n" +
+            "Shop the full collection now and see why over 200,000 five-star reviews call us the best online eyewear brand.\n\nSponsored content in partnership with Warby Parker.",
+          prompt: "Would this piece pass as a native ad, or does it need a fix before it runs?",
+          answerKey: [
+            {
+              defect:
+                "Reads as a straight product pitch (price, guarantee, shop-now CTA) with no informational content for the reader",
+              severity: "critical",
+              whyItMatters:
+                "Readers came expecting an article; a sales brochure disguised as one breaks trust and kills performance once they notice the deception.",
+              lessonRef:
+                "Common Mistakes: 'the biggest mistake in native advertising is making the ad too promotional'",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Names Warby Parker directly by brand name",
+            "Includes a specific price ($95)",
+            "Has a 'Sponsored content' disclosure line at the end",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "specimen-3-eye-exam-research-piece",
+          specimenSource: "synthetic-realistic",
+          specimen:
+            "The Hidden Cost of Skipping Your Annual Eye Exam\n\n" +
+            "Uncorrected vision problems are linked to a measurable rise in workplace errors and reduced productivity. Untreated astigmatism alone can cause persistent headaches that many people misattribute to stress or screen time.\n\n" +
+            "Warby Parker partners with independent doctors in over 160 of its stores, so booking an exam and picking up new frames can happen in the same visit if your prescription needs an update.\n\nSponsored content in partnership with Warby Parker.",
+          prompt: "Would this piece pass as a native ad, or does it need a fix before it runs?",
+          answerKey: [],
+          distractors: [
+            "Discloses the brand partnership in a closing line rather than a headline badge",
+            "Doesn't cite a named source for the workplace-error claim inline",
+            "Mentions the brand's own stores rather than staying fully neutral",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Track the pass/fail scorecard across the three specimens",
+            why: "Free, no account friction, enough for a three-row audit",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A three-row scorecard, one row per specimen, marking pass/fail against the disclosure rule and the promotional-tone rule, with the specific defect quoted for any fail.",
+      sampleOutput:
+        "Nykaa native content review, Q3 batch (excerpt)\n\n" +
+        "Piece 1, 'Why Your Foundation Oxidizes by Noon': PASS. Informational, cites a dermatologist by name, sponsorship disclosed in a top badge.\n" +
+        "Piece 2, 'Nykaa's Top 10 Bestselling Lipsticks, Ranked': FAIL. Straight product ranking with buy links, no disclosure label anywhere in the piece.\n" +
+        "Piece 3, 'The Skincare Routine Dermatologists Actually Recommend': FAIL. Genuinely useful content, but the sponsorship line was cut during editing, needs it restored before publish.",
+      successCriteria: [
+        "Correctly flags the missing disclosure label in specimen 1",
+        "Correctly flags the promotional-pitch problem in specimen 2",
+        "Correctly passes specimen 3 without inventing a defect that isn't there",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "native-advertising-performance-network-audit",
+      tier: "core",
+      archetype: "audit",
+      mode: "diagnostic",
+      title: "The Network Performance Audit: Which Native Placements Are Actually Working",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given a 30-row native ad performance export split across two networks with CTR, time on page, and conversions, apply the lesson's CTR benchmark and Stage 4 measurement framework to separate genuinely effective placements from clickbait traps, and recommend which channel and content type to scale.",
+      companyId: "hellofresh",
+      scenario:
+        "You're the acquisition marketer at HelloFresh reviewing last month's native ad spend split across Taboola and Outbrain before locking next quarter's channel budget.",
+      brief:
+        "Benchmark CTR against the lesson's 0.2%-0.4% range, cross-check the outliers against time-on-page and conversions to catch clickbait traps, then recommend a channel and content-type mix.",
+      conceptsCovered: [
+        "Benchmarking native CTR against the industry range instead of judging it in isolation",
+        "Cross-checking CTR against time on page and conversions to catch clickbait",
+        "Choosing a distribution channel based on content type and editorial control needs",
+      ],
+      steps: [
+        {
+          stepId: "step-1-ctr-benchmark",
+          concept: "Benchmarking native CTR against the industry range instead of judging it in isolation",
+          lessonAnchor: "how-it-works",
+          theoryRecap:
+            "The lesson notes native ad CTRs typically run 0.2% to 0.4% on content networks, lower than search ads, because the audience is cold and the content is doing the persuading.",
+          question:
+            "Sorted by CTR, 4 of the 30 rows sit above 0.6%, more than double the lesson's benchmark range. Are these automatically your best-performing placements?",
+          toolName: "Google Sheets",
+          where: "Import native-performance-export.csv, freeze the header row, sort by the CTR column descending.",
+          procedure: [
+            "Import the export and freeze row 1",
+            "Sort descending by CTR, isolate the 4 rows above 0.6%",
+            "Do not conclude anything yet, flag them for a second pass",
+            "Note the network (Taboola/Outbrain) and headline style for each flagged row",
+          ],
+          outputSample:
+            "HIGH CTR ROWS (4 of 30)\n  'You Won't Believe This Weeknight Dinner Hack'   Taboola   CTR 0.71%\n  'This 15-Minute Recipe Broke the Internet'       Taboola   CTR 0.68%\n  '5-Star Recipe Box Review, Week 12'              Outbrain  CTR 0.64%\n  'The Meal Kit Even Chefs Are Obsessed With'      Taboola   CTR 0.61%",
+          healthy: "A high CTR paired with above-average time on page and conversions, the content earned the click and delivered on it.",
+          unhealthy: "A high CTR driven by a curiosity-gap headline that doesn't match what the article actually delivers.",
+          interpret: "CTR alone can't tell you which, it's a headline-quality signal, not a value signal, on its own.",
+          soWhat: [
+            { symptom: "4 rows sit far above the benchmark CTR range", action: "Hold them for a time-on-page and conversion cross-check before scaling budget", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-clickbait-cross-check",
+          concept: "Cross-checking CTR against time on page and conversions to catch clickbait",
+          lessonAnchor: "how-it-works",
+          theoryRecap:
+            "The lesson's Stage 4 says to track CTR for awareness and form fills, sign-ups, or purchases after the click for conversion, not CTR alone.",
+          question:
+            "Cross-referenced against time on page and conversions, 3 of the 4 high-CTR rows average 9 seconds on page and 0 conversions. What does that combination mean?",
+          toolName: "Google Sheets",
+          where: "Add time-on-page and conversions columns next to the 4 flagged rows from Step 1, using VLOOKUP against the full export.",
+          procedure: [
+            "Pull time-on-page and conversions for the 4 flagged rows",
+            "Compare against the export's overall average (52 seconds, 1.8% conversion rate)",
+            "Separate rows that hold up under the cross-check from rows that don't",
+          ],
+          outputSample:
+            "CROSS-CHECK RESULTS\n  'You Won't Believe...'      9s on page   0 conversions   CLICKBAIT TRAP\n  '15-Minute Recipe...'       11s on page  0 conversions   CLICKBAIT TRAP\n  '5-Star Recipe Box Review'  61s on page  2.4% conv        GENUINE WINNER\n  'Meal Kit Even Chefs...'    8s on page   0 conversions   CLICKBAIT TRAP",
+          healthy: "High CTR, above-average time on page, above-average conversion, the headline set accurate expectations.",
+          unhealthy: "High CTR, single-digit seconds on page, zero conversions, readers clicked and immediately bounced.",
+          interpret: "3 of the 4 'best performers' from Step 1 were curiosity-gap headlines wasting budget, the network is charging per click regardless of what happens after.",
+          soWhat: [
+            { symptom: "High CTR rows show near-zero time on page and zero conversions", action: "Pause those creatives and reallocate their budget to the one row that held up under the cross-check", effort: "30 min" },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-channel-choice",
+          concept: "Choosing a distribution channel based on content type and editorial control needs",
+          lessonAnchor: "how-it-works",
+          theoryRecap:
+            "The lesson's Stage 2 notes Taboola and Outbrain distribute broadly across thousands of sites, while direct publisher deals give more editorial control, the right choice depends on the content type.",
+          question:
+            "The one genuine winner, the recipe-box review, ran on Outbrain and reads like real editorial content. The clickbait losers all ran on Taboola with curiosity-gap headlines. Do you conclude Outbrain beats Taboola?",
+          toolName: "Google Sheets",
+          where: "Pivot the full 30-row export by network to compare average CTR, time on page, and conversion rate per network, not just the 4 flagged rows.",
+          procedure: [
+            "Build a pivot table: network as rows, average CTR / time on page / conversion rate as values",
+            "Compare the network-level averages, not just the 4 outlier rows",
+            "Check whether the pattern holds across all rows or was a coincidence of headline style",
+          ],
+          outputSample:
+            "NETWORK AVERAGES (all 30 rows)\n  Taboola   avg CTR 0.34%   avg time 44s   avg conv 1.6%\n  Outbrain  avg CTR 0.29%   avg time 58s   avg conv 2.1%",
+          healthy: "Network averages are close once the outlier rows are removed, the real driver was headline honesty, not the network itself.",
+          unhealthy: "Concluding one network is universally better from 4 rows out of 30 without checking the full pivot.",
+          interpret: "Once the clickbait rows are excluded, Taboola and Outbrain perform similarly, the actual lever is writing headlines that match the content, on either network.",
+          soWhat: [
+            { symptom: "Team is about to shift 100% of budget to Outbrain based on 4 rows", action: "Show the full-network pivot and recommend a headline-quality rewrite instead of a network switch", effort: "30 min" },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Import, sort, cross-check, and pivot the 30-row performance export",
+            why: "Free, handles VLOOKUP and pivot tables for a dataset this size with no account friction",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A written recommendation memo: which of the 4 high-CTR placements are genuine winners vs. clickbait traps, a network-level pivot showing the pattern holds across both networks, and a headline-quality fix rather than a network-switch recommendation.",
+      sampleOutput:
+        "Nykaa, native ad quarterly review (excerpt)\n\n" +
+        "Flagged rows: 5 of 28 rows exceeded 0.6% CTR.\n" +
+        "Cross-check: 4 of 5 averaged 12 seconds on page, 0 conversions, curiosity-gap headlines ('The Skincare Mistake Everyone Makes').\n" +
+        "1 of 5 held up: 'Winter Skincare Routine, Dermatologist Reviewed', 64s on page, 2.8% conversion.\n" +
+        "Network pivot: Taboola and Outbrain within 0.05 points of each other once outliers removed.\n" +
+        "Recommendation: pause the 4 clickbait creatives, rewrite headlines to match content, keep budget split across both networks.",
+      successCriteria: [
+        "Correctly separates the genuine winner from the 3 clickbait rows using time-on-page and conversion data",
+        "Builds the full-network pivot instead of generalizing from the 4 flagged rows alone",
+        "Recommends a headline fix over a network switch, with the pivot data to back it up",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "mmm-vs-mta": [
+    {
+      id: "mmm-vs-mta-attribution-model-bakeoff",
+      tier: "mini",
+      archetype: "head-to-head",
+      mode: "diagnostic",
+      title: "The Attribution Model Bake-Off: Same Journeys, Five Different Verdicts",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given the same 10 synthetic user journeys, each with 2-4 tracked digital touchpoints and a conversion, apply last-click, first-click, and linear attribution by hand to see how differently they credit the same underlying data, then identify which channel is most at risk of being defunded by the model currently in use.",
+      companyId: "robinhood",
+      scenario:
+        "You're a growth analyst at Robinhood reviewing a 10-journey sample pulled from GA4 before recommending which attribution model the team should default to for weekly bid decisions.",
+      brief:
+        "Apply three MTA models to the same touchpoint data, tabulate which channel wins credit under each, and flag which channel is most at risk of being defunded by the wrong model choice.",
+      conceptsCovered: [
+        "Attribution model choice changes which channel gets credited for the same conversion",
+        "Linear and time-decay models spreading credit change budget conclusions versus last-click",
+      ],
+      steps: [
+        {
+          stepId: "step-1-model-crediting",
+          concept: "Attribution model choice changes which channel gets credited for the same conversion",
+          lessonAnchor: "multi-touch-attribution-mta",
+          theoryRecap:
+            "The lesson lists five ways to assign credit: last-click gives 100% to the final touchpoint, first-click gives 100% to the first, linear splits evenly, time-decay weights recent touchpoints more, and data-driven uses machine learning.",
+          question:
+            "Journey 7 is: paid social impression (no click) -> search ad click -> retargeting display click -> direct visit and purchase. Under last-click, which channel gets 100% credit? Under first-click?",
+          toolName: "Google Sheets",
+          where: "Import journeys.csv, one row per journey with a semicolon-separated touchpoints column.",
+          procedure: [
+            "Import journeys.csv and split the touchpoints column by semicolon",
+            "For each journey, add a 'last-click winner' and 'first-click winner' column",
+            "Fill both columns for all 10 journeys before moving on",
+          ],
+          outputSample:
+            "JOURNEY 7\n  Touchpoints: paid social (no click) -> search click -> display click -> direct + purchase\n  Last-click winner: Direct\n  First-click winner: Paid Social",
+          healthy: "A journey where last-click and first-click agree, the model choice doesn't change the budget conclusion.",
+          unhealthy: "A journey where last-click credits 'Direct' (an unpaid channel) while the paid channels that actually built awareness get zero credit.",
+          interpret: "Last-click systematically overcredits the final touchpoint, in journey 7 that's Direct traffic, which isn't a channel you can optimize spend against at all.",
+          soWhat: [
+            { symptom: "Last-click keeps crediting 'Direct' for conversions that started with a paid touchpoint", action: "Flag Direct-heavy journeys for a linear or time-decay re-run before trusting the last-click report", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-aggregate-comparison",
+          concept: "Linear and time-decay models spreading credit change budget conclusions versus last-click",
+          lessonAnchor: "multi-touch-attribution-mta",
+          theoryRecap:
+            "Linear credit splits evenly across every touchpoint in a journey; time-decay weights touchpoints closer to conversion more heavily. Both differ from last-click's winner-take-all approach.",
+          question:
+            "Aggregated across all 10 journeys, last-click credits Paid Search with 60% of conversions and Paid Social with 5%. Under linear, Paid Social's share rises to 22%. Which model would a Paid Social manager prefer, and which one is closer to the truth?",
+          toolName: "Google Sheets",
+          where: "Sum the last-click and linear credit columns across all 10 journeys, group by channel.",
+          procedure: [
+            "Sum last-click winners by channel across all 10 journeys",
+            "Sum linear credit (1 / number of touchpoints per journey) by channel across all 10 journeys",
+            "Compare the two channel-share totals side by side",
+          ],
+          outputSample:
+            "CHANNEL SHARE OF CONVERSIONS\n  Channel        Last-click   Linear\n  Paid Search    60%          38%\n  Paid Social    5%           22%\n  Display        5%           18%\n  Direct         30%          22%",
+          healthy: "A model choice that's disclosed and consistent, so everyone knows Paid Social's real number is 'X% under model Y'.",
+          unhealthy: "Defaulting to last-click because it favors the channel already getting the most budget, without disclosing the model choice to stakeholders.",
+          interpret: "Neither model is 'correct' in isolation, but a 17-point swing in Paid Social's credited share means the model you pick directly decides whether that channel's budget grows or gets cut.",
+          soWhat: [
+            { symptom: "Paid Social shows only 5% credit under the team's default last-click report", action: "Re-run the same data under linear and time-decay before recommending a budget cut, and disclose which model the recommendation used", effort: "30 min" },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Split touchpoints, tabulate credit under each model, and compare channel-level totals",
+            why: "Free, handles a 10-row synthetic dataset with simple formulas, no attribution software needed to see the pattern",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Analytics 4",
+            role: "The real-world source of the touchpoint-level data this exercise simulates",
+            why: "Free tier gives any team the raw event data multi-touch attribution is built from",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A model-comparison table showing each channel's share of conversions under last-click vs. linear, with a written flag naming the channel most at risk of being defunded by staying on last-click.",
+      sampleOutput:
+        "Casper Sleep, MTA model comparison (excerpt)\n\n" +
+        "  Channel         Last-click   Linear\n" +
+        "  Paid Search     55%          41%\n" +
+        "  Podcast (tracked promo codes) 3%   14%\n" +
+        "  Paid Social     12%          19%\n" +
+        "  Direct          30%          26%\n\n" +
+        "Flag: Podcast is credited with only 3% of conversions under last-click but 14% under linear. It is the channel most likely to get cut next budget cycle if last-click stays the default.",
+      successCriteria: [
+        "Correctly identifies the last-click and first-click winner for journey 7",
+        "Correctly computes linear credit shares that sum to 100% per journey",
+        "Names the specific channel most at risk of being defunded by the last-click default, with the percentage swing as evidence",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "mmm-vs-mta-budget-reallocation-audit",
+      tier: "core",
+      archetype: "audit",
+      mode: "diagnostic",
+      title: "The Budget Reallocation Audit: When MMM and MTA Disagree",
+      timeEstimate: "50 minutes",
+      timeMinutes: 50,
+      objective:
+        "Given a channel-level spreadsheet showing MTA-attributed revenue, a simplified MMM-style contribution estimate, and geo-holdout incrementality test results for the same 6 channels, apply the lesson's triangulation method to decide which model to trust per channel and draft a reallocated budget.",
+      companyId: "instacart",
+      scenario:
+        "You're the paid media lead at Instacart. MTA says TV and podcast sponsorships contribute almost nothing; a first-pass MMM says they're carrying real weight. Finance wants one answer before next quarter's budget is locked.",
+      brief:
+        "Use the lesson's geo-holdout triangulation method to see which model each channel's real-world test result agrees with, then draft the reallocation.",
+      conceptsCovered: [
+        "MTA systematically undercounts channels it can't track at the user level",
+        "MMM captures offline and brand-building channels that MTA is blind to",
+        "Geo-holdout incrementality experiments as the tie-breaker between MMM and MTA",
+      ],
+      steps: [
+        {
+          stepId: "step-1-mta-blind-spots",
+          concept: "MTA systematically undercounts channels it can't track at the user level",
+          lessonAnchor: "multi-touch-attribution-mta",
+          theoryRecap:
+            "The lesson states MTA only sees what it can track, so it systematically undercounts TV, podcasts, organic social, and any touch where the user can't be identified.",
+          question:
+            "MTA attributes 2% of revenue to TV and 1% to podcast sponsorships, both channels Instacart has spent steadily on for two years. Is 3% combined a reliable read on their true contribution?",
+          toolName: "Google Sheets",
+          where: "Open channel-attribution-export.csv, sort the MTA-revenue column, note which channels sit near zero.",
+          procedure: [
+            "Sort the export by MTA-attributed revenue share, ascending",
+            "Flag any channel below 3% that has meaningful, sustained spend behind it",
+            "Note that TV and podcast are both untrackable at the user level, this is a structural gap, not a performance signal",
+          ],
+          outputSample:
+            "MTA REVENUE SHARE (6 channels)\n  Paid Search    52%\n  Paid Social    28%\n  Display        14%\n  Retargeting     3%\n  TV              2%\n  Podcast         1%",
+          healthy: "A near-zero MTA share for a channel with little to no spend behind it, the low number matches the low investment.",
+          unhealthy: "A near-zero MTA share for a channel with two years of steady, meaningful spend, that's a measurement gap, not a performance verdict.",
+          interpret: "TV and podcast can't be near-zero in reality given the spend levels, MTA's near-zero number reflects what it can see, not what's actually happening.",
+          soWhat: [
+            { symptom: "Finance is proposing to cut TV and podcast based on the 2%/1% MTA numbers", action: "Flag both as structurally undercounted before any cut decision, and pull the MMM estimate for a second opinion", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-mmm-comparison",
+          concept: "MMM captures offline and brand-building channels that MTA is blind to",
+          lessonAnchor: "marketing-mix-modeling-mmm",
+          theoryRecap:
+            "The lesson notes MMM can measure TV, radio, out-of-home, organic word of mouth, and long-term brand-building effects, precisely the things MTA can't see.",
+          question:
+            "The same export includes an MMM-style contribution column: TV at 11%, podcast at 6%. That's a 9-point and 5-point swing from the MTA numbers. Which set do you trust so far?",
+          toolName: "Google Sheets",
+          where: "Add the MMM-contribution column next to the MTA column for all 6 channels, compute the point-difference per channel.",
+          procedure: [
+            "Add MMM contribution % next to MTA share % for each channel",
+            "Compute the absolute point-difference per channel",
+            "Rank channels by the size of the disagreement between the two models",
+          ],
+          outputSample:
+            "MODEL COMPARISON\n  Channel     MTA   MMM   Difference\n  Paid Search 52%   44%   8 pts\n  Paid Social 28%   24%   4 pts\n  Display     14%   9%    5 pts\n  Retargeting 3%    6%    3 pts\n  TV          2%    11%   9 pts\n  Podcast     1%    6%    5 pts",
+          healthy: "A small point-difference between MTA and MMM for a fully-trackable digital channel, the two methods roughly agree.",
+          unhealthy: "A large point-difference concentrated exactly on the untrackable channels (TV, podcast), matching the structural gap identified in Step 1.",
+          interpret: "The disagreement isn't random, it's concentrated on the two channels MTA structurally can't see, which is exactly what the lesson predicts, but a model disagreement alone still isn't proof, it needs a real-world tie-breaker.",
+          soWhat: [
+            { symptom: "MTA and MMM disagree by 9 points on TV's contribution", action: "Don't average the two numbers or pick one by preference, pull the geo-holdout test result for TV specifically", effort: "5 min" },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-geo-holdout-tiebreaker",
+          concept: "Geo-holdout incrementality experiments as the tie-breaker between MMM and MTA",
+          lessonAnchor: "common-mistakes",
+          theoryRecap:
+            "The lesson's pro tip: run a spend-up or spend-down test in a subset of regions, measure the actual sales lift, then compare it against what MMM and MTA each predicted. This triangulation reveals which model is closer to ground truth.",
+          question:
+            "Instacart paused TV entirely in 4 test regions for 6 weeks. Sales in those regions dropped 9.5% versus matched control regions. MMM predicted an 11% contribution; MTA predicted 2%. Which model does the real-world test support, and what's the reallocation call?",
+          toolName: "Google Sheets",
+          where: "Add the geo-holdout result to the comparison table from Step 2, next to the MTA and MMM columns for TV.",
+          procedure: [
+            "Record the geo-holdout sales-lift result (9.5%) next to the MTA (2%) and MMM (11%) numbers for TV",
+            "Note which model's estimate the real-world test result sits closer to",
+            "Draft a one-line reallocation recommendation for TV based on the test, not either model alone",
+          ],
+          outputSample:
+            "TV, MODEL VS. REALITY\n  MTA estimate:        2%\n  MMM estimate:        11%\n  Geo-holdout result:  9.5% sales lift when TV is on\n  Verdict: MMM was close, MTA was structurally wrong, keep TV funded",
+          healthy: "A geo-holdout result close to MMM's estimate, confirming the aggregate model over the user-level model for this specific channel.",
+          unhealthy: "Splitting the difference between MTA and MMM without running the test, or trusting whichever number supports the budget you already wanted.",
+          interpret: "The geo-holdout, not either model, is the actual ground truth here, and it confirms TV should stay funded near MMM's estimate, not MTA's.",
+          soWhat: [
+            { symptom: "Finance wants to cut TV to zero based on the 2% MTA number", action: "Present the geo-holdout result as the deciding evidence and recommend keeping TV near its current budget", effort: "30 min" },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the MTA-vs-MMM comparison table and layer in the geo-holdout result",
+            why: "Free, sufficient for a 6-channel comparison table with no modeling software required",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Analytics 4",
+            role: "Source of the underlying MTA-attributed revenue by channel",
+            why: "Free tier provides the touchpoint-level data MTA numbers are built from",
+            required: false,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Looker Studio",
+            role: "Visualize the MTA-vs-MMM-vs-geo-holdout comparison for a finance-facing readout",
+            why: "Free, connects directly to Sheets for a presentable chart without a paid BI tool",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A 6-channel comparison table (MTA share, MMM contribution, geo-holdout result where available) with a written reallocation recommendation per channel, explicitly citing the geo-holdout as the tie-breaker for TV and podcast.",
+      sampleOutput:
+        "DoorDash, Q3 channel reallocation memo (excerpt)\n\n" +
+        "  Channel      MTA   MMM   Geo-holdout   Verdict\n" +
+        "  Paid Search  48%   41%   n/a            Trust MTA, fully trackable\n" +
+        "  Display      6%    13%   +10% lift      Trust MMM, geo-holdout confirms\n" +
+        "  Radio        1%    8%    +6.5% lift     Trust MMM, keep funded\n\n" +
+        "Recommendation: shift 8% of Paid Search budget into Display, which the geo-holdout confirms is underfunded relative to its real contribution.",
+      successCriteria: [
+        "Correctly identifies TV and podcast as MTA's structural blind spots, not genuine underperformers",
+        "Computes the point-difference between MTA and MMM per channel without conflating disagreement with proof",
+        "Uses the geo-holdout result, not model preference, as the deciding evidence in the final reallocation recommendation",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "apple-search-ads": [
+    {
+      id: "apple-search-ads-campaign-structure-audit",
+      tier: "mini",
+      archetype: "teardown",
+      title: "One Campaign, Four Problems: Auditing a Real Apple Ads Account Structure",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective: "Given a screenshot-style export of a single-campaign Apple Search Ads account, diagnose which search terms are silently wasting spend and explain how splitting into Brand/Competitor/Generic/Discovery would fix each defect.",
+      companyId: "duolingo",
+      scenario: "You're a freelance ASO consultant. A new client, a language-learning app competing with Duolingo, hands you an export of their only Apple Ads campaign, three months old, never restructured, and asks why CPA keeps climbing.",
+      brief: "Read the search-term report, flag every defect using the lesson's four-campaign framework, and rank fixes by expected budget recovery.",
+      mode: "teardown",
+      conceptsCovered: ["How the Campaign Structure Works"],
+      teardownItems: [
+        {
+          itemId: "single-campaign-search-term-report",
+          specimen:
+            "Campaign: \"App Growth - All Keywords\" (Search Match ON, broad match, no negatives)\nLast 30 days, 40,200 impressions, 2,150 taps, $4,988 spend\n\nSearch term            Taps   Installs   Spend    CPT\n\"babbel\"                 210      38      $588    $2.80\n\"duolingo\"                 4       0       $11    $2.75\n\"learn spanish app\"      340      61      $850    $2.50\n\"free language app\"      280      12      $644    $2.30\n\"language learning app\"  190      29      $437    $2.30\n\"our app name\" (own brand) 6       5       $ 9    $1.50\n\"kids coding games\"       95       1      $228    $2.40\n\"spanish for travel\"     140      22      $308    $2.20",
+          specimenSource: "synthetic-realistic",
+          prompt: "This single campaign mixes brand, competitor, generic, and irrelevant terms under one Search Match/broad-match setup with zero negatives. Identify every defect and name which of the four campaign types each search term belongs in.",
+          answerKey: [
+            {
+              defect: "\"babbel\" (a named competitor) is bidding at nearly the account's highest CPT ($2.80) inside a broad campaign with no strategy behind it",
+              severity: "critical",
+              whyItMatters: "Competitor terms are supposed to be a deliberate, budgeted bet on intercepting rival-brand searchers, not an accident of broad match. Left here, spend on it can't be capped or evaluated separately from everything else.",
+              lessonRef: "Campaign Structure: Competitor Campaign",
+              owner: "you",
+            },
+            {
+              defect: "The account's own brand term (\"our app name\") gets only 6 taps and $9 of spend in 30 days despite the cheapest CPT in the whole report ($1.50)",
+              severity: "critical",
+              whyItMatters: "Brand defense is described as the highest-ROI spend in the account, and it's starving here because Search Match buries it under generic terms competing for the same budget.",
+              lessonRef: "Campaign Structure: Brand Campaign",
+              owner: "you",
+            },
+            {
+              defect: "\"kids coding games\" spent $228 for a single install, a term with zero topical relevance to a language app",
+              severity: "moderate",
+              whyItMatters: "This is exactly what Search Match without a Discovery-campaign negative list produces, an irrelevant term burning budget nobody is watching.",
+              lessonRef: "Campaign Structure: Discovery Campaign",
+              owner: "you",
+            },
+            {
+              defect: "\"learn spanish app\" and \"language learning app\" (both generic/category terms) are converting at a reasonable ~18% install rate but are lumped in with everything else instead of being isolated into an exact-match Generic campaign",
+              severity: "moderate",
+              whyItMatters: "These are the terms that should be harvested into exact match now that they've proven themselves, per the lesson's rule that any term converting twice or more gets moved out of broad discovery.",
+              lessonRef: "Campaign Structure: Discovery Campaign harvesting rule",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The overall $2.32 average CPT is too high for the category",
+            "40,200 impressions is too low a volume to draw any conclusions",
+            "The campaign needs a bigger daily budget to fix the CPA problem",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Sort and tag the search-term export by intent bucket", why: "Free, no account needed to practice the audit", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [
+          { toolName: "AppsFlyer", role: "Verify which taps are converting to real post-install events, not just installs", why: "Confirms whether the harvested Discovery terms are worth the exact-match move on LTV, not just CPA", required: false, lastVerified: "2026-08" },
+        ],
+      },
+      deliverable: "A defect list mapping each search term to its correct campaign type, with the brand term's starved spend flagged as the first fix.",
+      sampleOutput:
+        "Robinhood ASA restructure notes (excerpt)\n\n" +
+        "BRAND (move now): \"robinhood app\" — was getting 4% of budget at the cheapest CPT on the sheet, raise daily cap immediately\n" +
+        "COMPETITOR (new campaign, capped budget): \"webull\", \"acorns\" — currently unbudgeted inside broad match\n" +
+        "GENERIC, harvest to exact match: \"stock trading app\", \"investing app for beginners\" — both above 2x conversion threshold\n" +
+        "DISCOVERY, add as negative: \"free games\", \"budget planner\" — zero relevance, cut immediately",
+      successCriteria: [
+        "Correctly sorts all 8 search terms into Brand/Competitor/Generic/Discovery-irrelevant",
+        "Flags the starved brand term as the highest-priority fix, not the highest-spend term",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "apple-search-ads-launch-week-simulation",
+      tier: "core",
+      archetype: "simulation",
+      title: "The First 14 Days: Running an Apple Ads Launch Without Blowing the Budget",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective: "Make the weekly optimization calls a real Apple Search Ads Advanced launch requires, deciding when data is trustworthy enough to act on and when patience is the correct move, across a 4-stage simulated 30-day launch.",
+      companyId: "robinhood",
+      scenario: "You're running Apple Search Ads Advanced for a Robinhood-style trading app's first-ever App Store campaign, a $3,000 monthly test budget split across four campaign types, launched this week.",
+      brief: "At each weekly checkpoint, read the dashboard and decide whether to wait, adjust, or restructure, knowing that finance-category CPTs and CPAs run well above average.",
+      mode: "simulation",
+      conceptsCovered: ["Recognizing when a sample is too small to act on", "CPP mismatch diagnosis via CVR by keyword", "Cost of resetting the learning phase"],
+      stages: [
+        {
+          stageId: "day3-early-panic",
+          label: "Day 3 of 30",
+          elapsed: "Day 3",
+          concept: "Recognizing when a sample is too small to act on",
+          lessonAnchor: "how-the-campaign-structure-works",
+          situation: "Three days in. Your Generic campaign (\"stock trading app\", \"investing app for beginners\") has spent $310 with zero installs. Your CFO Slacks you asking if this was a mistake.",
+          dashboard:
+            "Generic Campaign, Day 3 of 30\n\n  Impressions       2,140\n  Taps                124      CTR 5.8%\n  Installs               0      CVR 0.0%\n  Spend               $310 of $3,000 monthly",
+          spendToDate: "$310 of $3,000",
+          budgetRemaining: "$2,690",
+          decision: {
+            prompt: "Zero installs after 3 days and 124 taps. What do you do?",
+            options: [
+              {
+                id: "wait-day3",
+                label: "Reply that 124 taps is too small a sample, hold the campaign unchanged, check back day 7",
+                verdict: "optimal",
+                outcome: "You wait. By day 7 the Generic campaign has its first 6 installs at a $54 CPA, in line with finance-category norms, and the CFO stands down.",
+                why: "The lesson's timeline explicitly reserves days 1-7 for data collection, not optimization, and finance-category CPAs (well above the $2.90 blended average) mean a slow start is expected, not a failure signal.",
+                lessonRef: "Advanced Optimization: Timeline for new campaigns, Days 1-7",
+                nextStageId: "day9-diagnosis",
+              },
+              {
+                id: "pause-day3",
+                label: "Pause the Generic campaign immediately to stop the bleeding",
+                verdict: "costly",
+                outcome: "Pausing resets Apple's learning algorithm. When you relaunch on day 10, the campaign starts its data-collection clock over from zero, costing you a full extra week versus just waiting it out.",
+                why: "Apple's auction needs a continuous data stream to calibrate; pausing and restarting is treated as a fresh campaign, not a resumed one.",
+                lessonRef: "Advanced Optimization: Timeline for new campaigns, Days 1-7",
+                nextStageId: "day9-reset-penalty",
+              },
+              {
+                id: "raise-bid-day3",
+                label: "Double the max CPT bid to force more volume and \"prove it faster\"",
+                verdict: "costly",
+                outcome: "Doubling the bid burns through $900 more by day 7 chasing the same low-intent taps, installs barely move because the underlying keyword-to-CPP match was never the problem, volume was.",
+                why: "More spend on an under-3-day sample doesn't fix a data problem, it just makes the eventual real signal more expensive to reach.",
+                lessonRef: "Advanced Optimization: Timeline for new campaigns, Days 1-7",
+                nextStageId: "day9-reset-penalty",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "day9-diagnosis",
+          label: "Day 9 of 30",
+          elapsed: "Day 9",
+          concept: "CPP mismatch diagnosis via CVR by keyword",
+          lessonAnchor: "custom-product-pages-the-hidden-multiplier",
+          situation: "Nine days in. The Generic campaign now has real volume. One keyword theme is converting far below the rest.",
+          dashboard:
+            "Generic Campaign, Day 9 of 30\n\n" +
+            "\"stock trading app\"            410 taps   CVR 9.0%   CPA $28\n" +
+            "\"investing app for beginners\"  260 taps   CVR 8.5%   CPA $29\n" +
+            "\"crypto trading app\"           190 taps   CVR 1.6%   CPA $172\n\n" +
+            "All three route to the same default product page, which leads with stock-charting screenshots.",
+          spendToDate: "$2,240 of $3,000",
+          budgetRemaining: "$760",
+          decision: {
+            prompt: "\"crypto trading app\" is converting 5x worse than the other two generic terms on the same product page. What's the move?",
+            options: [
+              {
+                id: "cpp-fix",
+                label: "Build a Custom Product Page leading with crypto screenshots and route the crypto keyword to it",
+                verdict: "optimal",
+                outcome: "CVR on \"crypto trading app\" climbs to 7.1% within a week once the page matches the search intent, CPA drops from $172 to roughly $39, in line with the other terms.",
+                why: "A keyword promising crypto trading but landing on stock-chart screenshots is exactly the mismatch the lesson warns costs 15-30% of conversion, here it was closer to 80%.",
+                lessonRef: "Custom Product Pages: The Hidden Multiplier",
+                nextStageId: "end",
+              },
+              {
+                id: "cut-keyword",
+                label: "Cut the \"crypto trading app\" keyword entirely, it's clearly a weak term",
+                verdict: "acceptable",
+                outcome: "Spend stabilizes but you never learn whether crypto searchers were a real opportunity, competitors keep bidding on that term uncontested.",
+                why: "Cutting removes the symptom without testing the actual fix; it's not wrong, but it forfeits a segment the other two keywords prove is reachable.",
+                lessonRef: "Custom Product Pages: The Hidden Multiplier",
+                nextStageId: "end",
+              },
+              {
+                id: "ignore-cpp",
+                label: "Leave it running, $172 CPA is still under the finance-category benchmark ceiling",
+                verdict: "costly",
+                outcome: "By day 20, the crypto keyword alone has burned $860 more at the same broken CVR, money a one-time CPP build would have saved by day 12.",
+                why: "Being under a category benchmark doesn't mean a specific keyword isn't broken; the same-page mismatch is a fixable, diagnosable cause sitting in the data already.",
+                lessonRef: "Custom Product Pages: The Hidden Multiplier",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "day9-reset-penalty",
+          label: "Day 9 of 30 (after a day-3 restart)",
+          elapsed: "Day 9",
+          concept: "Cost of resetting the learning phase",
+          lessonAnchor: "advanced-optimization-bid-strategy-and-share-of-voice",
+          situation: "Because the campaign was paused or over-bid on day 3, you're only two days into a second learning phase with the monthly budget half gone.",
+          dashboard:
+            "Generic Campaign, Day 9 of 30 (restarted day 7)\n\n  Spend to date        $2,180 of $3,000\n  Installs so far           14\n  Blended CPA             $156\n  Days of budget left        6 (at current burn rate)",
+          spendToDate: "$2,180 of $3,000",
+          budgetRemaining: "$820",
+          decision: {
+            prompt: "You're burning budget fast with only 6 days of runway left and a blended CPA nearly 3x the finance-category norm. What now?",
+            options: [
+              {
+                id: "cut-losses",
+                label: "Cut daily budget in half immediately to stretch the remaining runway to month-end",
+                verdict: "acceptable",
+                outcome: "You avoid running out of budget before day 30, but the campaign never accumulates enough volume this month to properly diagnose the CPP mismatch that caused the original slow start.",
+                why: "It contains the damage from the earlier mistake, but the underlying lesson, don't reset a live learning phase, is now a sunk cost for this month's data.",
+                lessonRef: "Advanced Optimization: Timeline for new campaigns",
+                nextStageId: "end",
+              },
+              {
+                id: "keep-going",
+                label: "Leave the budget as-is and hope it recovers before month-end",
+                verdict: "costly",
+                outcome: "The campaign fully exhausts its $3,000 by day 24 without ever stabilizing, leaving 6 days with zero App Store presence and no usable data to plan month two.",
+                why: "The lesson's timeline treats days 30-60 as the restructuring point precisely because a single month rarely recovers from a reset this early without intervention.",
+                lessonRef: "Advanced Optimization: Timeline for new campaigns",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+      ],
+      liveTrack: {
+        minSpend: "$500 minimum monthly budget (Advanced mode has no cap, but under $500 rarely clears the learning phase)",
+        minDurationDays: 14,
+        setupSteps: [
+          "Enroll in Apple Search Ads Advanced with an App Store Connect account",
+          "Build the four-campaign structure (Brand, Competitor, Generic, Discovery) from day one",
+          "Set Search Match ON only in Discovery, with every other campaign's keywords added as negatives",
+        ],
+        checkInSchedule: "Check the dashboard on day 3 (observe only), day 7 (first adjustments), day 14 (structural review)",
+      },
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Log weekly CPT/CPA/CVR by campaign to spot the trend, not just the daily snapshot", why: "Free, and daily dashboard noise is exactly what causes premature day-3 panic", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [
+          { toolName: "AppsFlyer", role: "Attribute post-install revenue events (funded account, first trade) back to the keyword", why: "CPA alone can't tell you if the crypto-keyword traffic is high-LTV; a paid MMP closes that loop", required: false, lastVerified: "2026-08" },
+        ],
+      },
+      deliverable: "A day-by-day decision log across the 30-day launch explaining what was waited on, what was fixed, and why.",
+      sampleOutput:
+        "Nykaa ASA launch log (excerpt)\n\n" +
+        "Day 3: 2 installs on 96 taps. Holding, sample too small per the 7-day rule.\n" +
+        "Day 7: CVR stabilized at 6.8% on Generic. First bid adjustment: raised \"lipstick shades for indian skin tone\" by 15%.\n" +
+        "Day 9: \"skincare routine app\" keyword converting 4x worse than \"makeup try on app\" on the same default CPP. Built a skincare-led CPP, routed the keyword to it.\n" +
+        "Day 14: Skincare CPP live for 5 days, CVR up from 1.9% to 6.4% on that keyword. Structural review scheduled day 30.",
+      successCriteria: [
+        "Waits through the day-3 checkpoint rather than acting on an under-powered sample",
+        "Diagnoses the day-9 CVR gap as a CPP/keyword mismatch, not a bidding problem",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "ctv-ott-ads": [
+    {
+      id: "ctv-ott-ads-buying-lane-forecast",
+      tier: "mini",
+      archetype: "forecast",
+      title: "Which Buying Lane, Modeling a $15K/Month CTV Budget Across Self-Serve, DSP, and FAST",
+      timeEstimate: "35 minutes",
+      timeMinutes: 35,
+      objective: "Given a fixed monthly CTV budget and a reach/frequency goal, forecast realistic impression volume and blended CPM across the three buying lanes (self-serve, programmatic DSP, FAST channels) to recommend a split.",
+      companyId: "thredup",
+      scenario: "You're the growth marketer at a ThredUp-style online resale marketplace with a new $15,000/month test budget to move off saturated Meta prospecting and into CTV for the first time.",
+      brief: "Model expected impressions and blended CPM for three allocation scenarios, then recommend a split that balances reach against premium-streamer brand lift.",
+      mode: "diagnostic",
+      conceptsCovered: ["Self-serve vs. programmatic DSP vs. FAST channel tradeoffs", "Unified frequency capping across platforms"],
+      steps: [
+        {
+          stepId: "step-1-lane-selection",
+          concept: "Self-serve vs. programmatic DSP vs. FAST channel tradeoffs",
+          lessonAnchor: "how-the-buying-system-works",
+          theoryRecap: "The lesson splits CTV buying into three lanes by budget size: self-serve managed platforms ($1K-$250K/month), programmatic DSPs (cross-platform unified buys), and FAST channels ($12-20 CPM vs. $25-65 on premium streamers).",
+          question: "At $15,000/month, is this budget better spent entirely on a premium self-serve platform like Roku Ads Manager, split across FAST channels, or blended?",
+          toolName: "Google Sheets",
+          where: "Build a 3-row model: Premium-only, FAST-only, and a 60/40 blended scenario.",
+          procedure: [
+            "Row 1: $15,000 at a $35 blended premium CPM (Netflix/Hulu range) = ~428,500 impressions",
+            "Row 2: $15,000 at a $16 blended FAST CPM (Tubi/Pluto/Roku Channel range) = ~937,500 impressions",
+            "Row 3: 60% ($9,000) to FAST at $16 CPM + 40% ($6,000) to premium at $35 CPM = 562,500 + 171,400 = ~733,900 impressions",
+            "Compare completion rates: 88-94% on FAST vs. ~95% on premium, both well above social video",
+          ],
+          outputSample:
+            "Scenario          Impressions   Blended CPM   Completion Rate\nPremium-only         428,500        $35.00           ~95%\nFAST-only             937,500        $16.00         88-94%\n60/40 Blend            733,900        $20.44         90-94%",
+          healthy: "The blended scenario delivers 71% more reach than premium-only at a completion rate within a few points of it, using FAST volume to fund a smaller premium presence for brand-safe placements.",
+          unhealthy: "Spending the entire $15,000 on premium streamers because they \"sound better,\" delivering under half the reach for a completion-rate difference of only a few points.",
+          interpret: "At this budget size, reach efficiency from FAST channels usually outweighs the marginal completion-rate edge of premium streamers, the lesson's own guidance for advertisers under $20,000/month.",
+          soWhat: [
+            { symptom: "Budget under $20K/month is being allocated 100% to premium streamers", action: "Shift the majority to FAST channels and use premium only for high-value creative moments", effort: "30 min" },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-frequency-cap",
+          concept: "Unified frequency capping across platforms",
+          lessonAnchor: "step-3-set-frequency-caps",
+          theoryRecap: "The lesson warns that a 3-per-week cap set separately on 3 different DSPs becomes a 9-per-week cap for any household reachable across all three, unless the cap is unified.",
+          question: "The blended plan above runs across 2 self-serve platforms (Roku Ads Manager for FAST, MNTN for premium) with no shared frequency cap set yet. What's the risk and the fix?",
+          toolName: "Google Sheets",
+          where: "Add a frequency-cap column to the buying-lane model built in step 1.",
+          procedure: [
+            "Set a 3-per-week cap inside Roku Ads Manager",
+            "Set a separate 3-per-week cap inside MNTN",
+            "Recognize any household reachable on both platforms can see up to 6 ads/week instead of the intended 3",
+            "Either lower each platform's individual cap to 1-2/week, or move to a single DSP that can enforce one cap across both lanes",
+          ],
+          outputSample: "Household overlap check: 34% of the FAST-reachable audience is also reachable on MNTN's premium inventory -> uncapped combined frequency could hit 6/week for over a third of the target audience.",
+          healthy: "Each platform's cap is set to roughly half the target (1-2/week) to keep the combined ceiling near the intended 3/week for overlapping households.",
+          unhealthy: "Both platforms run their own full 3/week cap independently, quietly doubling frequency for the highest-overlap third of the audience.",
+          interpret: "A frequency cap set at the platform level, not the household level, is not really a cap once you're buying across more than one platform.",
+          soWhat: [
+            { symptom: "Two or more CTV platforms are live with the same nominal frequency cap", action: "Halve each platform's individual cap or consolidate into a single DSP that unifies it", effort: "30 min" },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Model impression volume and blended CPM across buying-lane scenarios", why: "No CTV spend required to test the allocation math before committing budget", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [
+          { toolName: "Google Ads", role: "Run the YouTube CTV portion of the blended buy once the allocation is decided", why: "The lesson names YouTube via Google Ads as a real CTV buying lane, and it's the one cataloged tool that actually reaches living-room TV screens", required: false, lastVerified: "2026-08" },
+        ],
+      },
+      deliverable: "A 3-scenario impression/CPM forecast model with a recommended budget split and a frequency-cap plan across platforms.",
+      sampleOutput:
+        "Grab CTV test budget model (excerpt)\n\n" +
+        "Premium-only ($20K):     571,400 impressions at $35 CPM\n" +
+        "FAST-only ($20K):      1,250,000 impressions at $16 CPM\n" +
+        "Recommended 65/35 blend: 1,043,600 impressions, blended CPM $19.16\n\n" +
+        "Frequency cap: Roku Channel capped at 2/week, premium DSP capped at 1/week, combined ceiling ~3/week for overlapping households.",
+      successCriteria: [
+        "Correctly calculates impression volume from budget divided by CPM for all three scenarios",
+        "Identifies the frequency-cap overlap risk and proposes a specific fix",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "ctv-ott-ads-lift-study-simulation",
+      tier: "core",
+      archetype: "simulation",
+      title: "Prove It Without a Click: Running a CTV Lift Study Under Pressure",
+      timeEstimate: "40 minutes",
+      timeMinutes: 40,
+      objective: "Navigate a simulated 6-week CTV campaign where last-click attribution shows almost nothing, deciding when to trust an incrementality lift study over the CFO's instinct to pull the budget.",
+      companyId: "peloton",
+      scenario: "You're the performance marketing lead at a Peloton-style connected fitness brand running your first CTV campaign, $40,000 over 6 weeks on Hulu and Roku, with a geo-lift test structured from day one.",
+      brief: "Defend the channel through the weeks where last-click attribution looks broken, using the lift-study design correctly instead of reverting to last-click to make the CFO comfortable.",
+      mode: "simulation",
+      conceptsCovered: ["Last-click attribution undercounting CTV", "Frequency cap and brand sentiment tradeoff"],
+      stages: [
+        {
+          stageId: "week2-last-click-panic",
+          label: "Week 2 of 6",
+          elapsed: "Week 2",
+          concept: "Last-click attribution undercounting CTV",
+          lessonAnchor: "step-4-measure-the-right-way",
+          situation: "Two weeks in. Google Analytics last-click reports show only 12 conversions attributed to \"CTV\" out of $13,300 spent so far. The CFO asks why you're not pulling the plug.",
+          dashboard:
+            "Last-click view, Weeks 1-2\n  CTV-attributed conversions: 12\n  Cost per last-click conversion: $1,108\n\nGeo-lift test (test markets vs. holdout markets), Weeks 1-2\n  Test market trial signups: 640\n  Holdout market trial signups: 512\n  Lift so far: +25% (early, not yet significant)",
+          spendToDate: "$13,300 of $40,000",
+          budgetRemaining: "$26,700",
+          decision: {
+            prompt: "Last-click says CTV is nearly worthless. The geo-lift test, the actual measurement method the campaign was designed around, shows an early +25% signal. What do you tell the CFO?",
+            options: [
+              {
+                id: "trust-liftstudy",
+                label: "Show the geo-lift comparison, explain last-click structurally cannot see CTV, and hold the plan through week 4 when the test reaches significance",
+                verdict: "optimal",
+                outcome: "By week 4 the lift test reaches statistical significance at +21% incremental trial signups in test markets, the CFO approves the remaining budget.",
+                why: "The lesson is explicit that CTV ads have no clickable link and last-click will make the channel look worthless by design, the geo-lift test is the instrument that was actually built to measure this.",
+                lessonRef: "Step 4: Measure the Right Way, Incrementality lift studies",
+                nextStageId: "week5-frequency-check",
+              },
+              {
+                id: "switch-to-lastclick",
+                label: "Agree the numbers look bad and reallocate half the remaining budget back to Meta retargeting",
+                verdict: "costly",
+                outcome: "Cutting the CTV budget mid-test breaks the geo-lift design (test markets now get inconsistent exposure), the study becomes unreadable, and you can never actually prove or disprove the channel's value from this flight.",
+                why: "A lift study needs a clean, consistent test-vs-holdout split for its full duration; changing spend mid-flight in the test markets invalidates the comparison the CFO would need to see anyway.",
+                lessonRef: "Step 4: Measure the Right Way, Incrementality lift studies",
+                nextStageId: "end",
+              },
+              {
+                id: "add-tracking-pixel",
+                label: "Add a view-through pixel this week and report those numbers instead of waiting for the lift test",
+                verdict: "acceptable",
+                outcome: "View-through data gives a slightly better story (34 tagged visits) but the lesson is clear this is directional, not rigorous, the CFO remains skeptical and you still need the lift test to close the argument.",
+                why: "View-through attribution is a real, useful signal, but the lesson ranks it below lift studies as the gold standard specifically because it doesn't isolate causation the way a holdout comparison does.",
+                lessonRef: "Step 4: Measure the Right Way, View-through attribution",
+                nextStageId: "week5-frequency-check",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "week5-frequency-check",
+          label: "Week 5 of 6",
+          elapsed: "Week 5",
+          concept: "Frequency cap and brand sentiment tradeoff",
+          lessonAnchor: "step-3-set-frequency-caps",
+          situation: "The lift study is reading positive and the CFO wants to double down. Someone on the team suggests raising the frequency cap from 3/week to 6/week on Hulu to accelerate results before the flight ends.",
+          dashboard:
+            "Current: 3 impressions/household/week, Hulu only (single platform, cap already unified)\nBrand sentiment survey (mid-flight): neutral-to-positive\nProposed: raise cap to 6/week for the final week",
+          spendToDate: "$34,600 of $40,000",
+          budgetRemaining: "$5,400",
+          decision: {
+            prompt: "Doubling the frequency cap for the final week to squeeze more results before the flight ends, good idea?",
+            options: [
+              {
+                id: "hold-cap",
+                label: "Keep the 3/week cap; the remaining budget is better spent extending reach to new households, not repeating exposure",
+                verdict: "optimal",
+                outcome: "The final week's lift result holds at +19%, and post-flight brand sentiment stays neutral-to-positive with no measurable fatigue.",
+                why: "The lesson states more than 3 impressions/week damages brand sentiment without additional conversion benefit, there is no upside being traded away here.",
+                lessonRef: "Step 3: Set Frequency Caps",
+                nextStageId: "end",
+              },
+              {
+                id: "raise-cap",
+                label: "Raise the cap to 6/week to try to close stronger before the deadline",
+                verdict: "costly",
+                outcome: "The post-flight brand sentiment survey dips into negative territory for the over-exposed household segment, and the final week's incremental lift barely moves, the extra frequency bought fatigue, not results.",
+                why: "The lesson names this exact failure mode: frequency beyond 3/week has a well-documented sentiment cost with no corresponding conversion upside.",
+                lessonRef: "Step 3: Set Frequency Caps",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+      ],
+      liveTrack: {
+        minSpend: "$5,000 minimum to structure a readable geo-lift split across at least 2 test and 2 holdout markets",
+        minDurationDays: 28,
+        setupSteps: [
+          "Pick matched test and holdout DMAs of similar size and baseline conversion rate",
+          "Confirm the chosen self-serve platform or DSP supports geo-level exclusion targeting",
+          "Set the frequency cap once at the DSP level before launch, not per-platform",
+        ],
+        checkInSchedule: "Check test-vs-holdout delta weekly; do not change spend levels in test markets mid-flight",
+      },
+      toolStack: {
+        free: [
+          { toolName: "Google Analytics 4", role: "Track view-through visits and site conversions as a directional secondary signal alongside the lift study", why: "Free, already instrumented on most sites, useful context even though it's not the primary measurement method", required: true, lastVerified: "2026-08" },
+          { toolName: "Looker Studio", role: "Build the weekly test-vs-holdout geo-lift comparison the CFO conversation actually depends on", why: "Free, pulls straight from GA4 and Sheets, and produces the comparison chart described in the lesson's Step 4", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [],
+        paidUpgradeNote: "No dedicated CTV DSP or lift-measurement tool (e.g. The Trade Desk, MNTN) is currently in this site's tool directory, see final report; the free GA4 + Looker Studio path above is a real, complete way to build the geo-lift comparison by hand, a paid platform's native lift tooling would only remove manual market-matching effort, not add a capability this path lacks.",
+      },
+      deliverable: "A week-by-week defense log showing what last-click said, what the geo-lift test said, and which decision was made at each pressure point.",
+      sampleOutput:
+        "FirstCry CTV flight log (excerpt)\n\n" +
+        "Week 2: Last-click shows 8 conversions on ₹9.4L spend. Geo-lift early read: +18% trial signups, test vs. holdout, not yet significant. Holding the plan.\n" +
+        "Week 4: Lift reaches significance at +23%. CFO approves remaining spend.\n" +
+        "Week 5: Held frequency cap at 3/week despite a request to raise it; final lift held at +20% with stable brand sentiment.",
+      successCriteria: [
+        "Chooses the geo-lift study over last-click or a mid-flight budget cut at the week-2 pressure point",
+        "Holds the frequency cap at week 5 rather than trading sentiment for a rushed final push",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "reddit-ads": [
+    {
+      id: "reddit-ads-campaign-export-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "Before You Scale: Auditing a Reddit Campaign Export",
+      timeEstimate: "35 minutes",
+      timeMinutes: 35,
+      objective:
+        "Given a real Reddit Ads campaign export (12 subreddits, keyword layer, and Pixel status), decide which subreddits to cut, whether the keyword layer is doing its job, and whether the campaign is even allowed to prove ROI yet.",
+      companyId: "nykaa",
+      scenario:
+        "You're a paid social analyst at Nykaa, India's largest beauty and fashion ecommerce platform, reviewing a Reddit Ads campaign a junior teammate launched two weeks ago for a new clean-beauty skincare line, before the team commits another month of budget to it.",
+      brief:
+        "Sort the 12 targeted subreddits by real intent fit, check whether Contextual Keyword Targeting is layered correctly, and confirm the Pixel is actually installed before anyone talks about scaling spend.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Picking 5-15 hand-picked subreddits over broad interest categories",
+        "Layering Contextual Keyword Targeting on top of subreddit targeting",
+        "Installing the Reddit Pixel before spending on conversions",
+      ],
+      steps: [
+        {
+          stepId: "step-1-subreddit-fit",
+          concept: "Picking 5-15 hand-picked subreddits over broad interest categories",
+          lessonAnchor: "step-1-pick-5-15-subreddits-not-50",
+          theoryRecap:
+            "The lesson's Step 1 says to hand-pick 5-15 subreddits confirmed to have 10,000+ weekly active users, and to avoid mega-subreddits like r/funny that eat budget with zero purchase intent.",
+          question:
+            "The export lists 12 targeted subreddits. Two of them are r/BeautyTricks (2.1M members, general beauty meme community) and r/AskIndia (1.8M members, general Q&A). Both have huge reach. Should they stay in the campaign?",
+          toolName: "Google Sheets",
+          where: "Import the campaign export CSV, freeze the header row, sort by the subreddit column.",
+          procedure: [
+            "Import reddit-campaign-export.csv and freeze row 1",
+            "List all 12 targeted subreddits with member count and weekly active users",
+            "Flag any subreddit with fewer than 10,000 weekly active users as too small",
+            "Flag any subreddit whose primary content is memes, general Q&A, or unrelated topics as too broad",
+          ],
+          outputSample:
+            "Subreddit           Members   WAU      Topic fit\n" +
+            "r/SkincareAddiction  3.2M      410K     high, active ingredient debates\n" +
+            "r/IndianSkincareAddicts  180K  38K      high, India-specific routines\n" +
+            "r/30PlusSkinCare     420K      61K      high, anti-aging focus\n" +
+            "r/BeautyTricks       2.1M      290K     low, general meme content\n" +
+            "r/AskIndia           1.8M      210K     low, unrelated general Q&A\n" +
+            "...7 more rows, mix of niche skincare and beauty-adjacent subs",
+          healthy:
+            "r/SkincareAddiction, r/IndianSkincareAddicts, and r/30PlusSkinCare stay because their entire feed is people debating skincare products, exactly the conversation this product belongs in.",
+          unhealthy:
+            "r/BeautyTricks and r/AskIndia stay in the campaign because their raw member counts look impressive, even though almost none of that traffic is discussing skincare purchase decisions.",
+          interpret:
+            "Reach numbers lie. A 2.1M-member meme subreddit delivers worse buying intent than a 180K-member subreddit where every third post is 'what serum should I buy.'",
+          soWhat: [
+            {
+              symptom: "Two of twelve targeted subreddits have low topic fit despite high member counts",
+              action: "Pause r/BeautyTricks and r/AskIndia, reallocate their budget to the three high-fit subreddits",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-keyword-layer-check",
+          concept: "Layering Contextual Keyword Targeting on top of subreddit targeting",
+          lessonAnchor: "step-2-layer-contextual-keyword-targeting",
+          theoryRecap:
+            "The lesson's Step 2 says Contextual Keyword Targeting restricts impressions to threads containing specific phrases, and should be layered on top of subreddit targeting, not used instead of it.",
+          question:
+            "The export shows the campaign has subreddit targeting set up correctly, but the Contextual Keyword Targeting field is empty across all ad groups. What does that mean for the ads currently running?",
+          toolName: "Google Sheets",
+          where: "Check the keyword_targeting column in the campaign export against the ad group settings sheet.",
+          procedure: [
+            "Filter the export to the keyword_targeting column",
+            "Confirm the column is blank for all 3 ad groups",
+            "Cross-reference against the lesson's list of high-intent phrases for this category",
+            "Draft the keyword list: 'switching from', 'best serum for', 'is this worth it', 'dupe for'",
+          ],
+          outputSample:
+            "Ad group            Subreddit targeting   Keyword targeting\n" +
+            "AG1 - Core Skincare  Set (3 subs)           BLANK\n" +
+            "AG2 - Anti-Aging     Set (2 subs)            BLANK\n" +
+            "AG3 - Retargeting    Set (1 sub)              BLANK",
+          healthy:
+            "Every ad group has both subreddit targeting and a keyword layer, so impressions fire only when the conversation is actually about switching products or picking one.",
+          unhealthy:
+            "The ad shows on every single post in the subreddit, including unrelated meme posts, jokes, and off-topic discussion threads, because there is no keyword filter narrowing it further.",
+          interpret:
+            "Subreddit targeting alone gets you into the right neighborhood. Keyword targeting gets you into the right conversation inside that neighborhood, and skipping it wastes impressions on irrelevant threads.",
+          soWhat: [
+            {
+              symptom: "Keyword targeting field is empty on all ad groups despite correct subreddit setup",
+              action: "Add the drafted keyword list to Contextual Keyword Targeting on all 3 ad groups before the next budget review",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-pixel-readiness",
+          concept: "Installing the Reddit Pixel before spending on conversions",
+          lessonAnchor: "step-4-install-the-reddit-pixel-on-day-one",
+          theoryRecap:
+            "The lesson's Step 4 says the Reddit Pixel is non-negotiable: without it you cannot retarget visitors, cannot run Conversions-objective campaigns, and cannot prove ROI.",
+          question:
+            "The campaign has been live for two weeks and the objective is set to 'Conversions,' but the Pixel status column shows 'Not Detected.' What does this mean for every metric the team has reported so far?",
+          toolName: "Reddit Ads Manager",
+          where: "Events Manager tab inside Reddit Ads Manager, Pixel status indicator.",
+          procedure: [
+            "Open Events Manager and check the Pixel status indicator",
+            "Confirm 'Not Detected' status against the site's actual page source (search for the Reddit Pixel script tag)",
+            "Check whether any Conversions-objective optimization has been running blind",
+            "Flag the two weeks of 'Conversions' data as unreliable until the Pixel fires correctly",
+          ],
+          outputSample:
+            "Events Manager\n" +
+            "  Pixel status: Not Detected\n" +
+            "  PageVisit events (last 14 days): 0\n" +
+            "  Purchase events (last 14 days): 0\n" +
+            "  Campaign objective: Conversions\n" +
+            "  Reported conversions in dashboard: 14 (self-reported by landing page tool, not Pixel-verified)",
+          healthy:
+            "The Pixel fires PageVisit and Purchase events, the Conversions objective has real signal to optimize against, and every reported number can be trusted.",
+          unhealthy:
+            "A Conversions-objective campaign runs for two weeks with zero Pixel events, meaning Reddit's algorithm has been optimizing blind and the '14 conversions' in the dashboard came from an unrelated tool, not verified purchases.",
+          interpret:
+            "A Conversions campaign without a working Pixel is not measuring conversions at all. Every decision made from that data for the past two weeks needs to be treated as unverified.",
+          soWhat: [
+            {
+              symptom: "Pixel shows 'Not Detected' on a live Conversions-objective campaign",
+              action: "Escalate to the developer to install the Pixel base code plus Purchase event immediately, pause budget scaling until it's confirmed firing",
+              effort: "dev ticket",
+            },
+          ],
+          owner: "developer",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Sort and audit the campaign export", why: "No account friction, works with any CSV export", required: true, lastVerified: "2026-08" },
+          { toolName: "Reddit Ads Manager", role: "Check live Pixel status and ad group settings", why: "Free self-serve platform, required to verify what's actually configured", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page audit memo listing which subreddits to cut, the missing keyword list to add, and a flagged Pixel issue blocking accurate reporting.",
+      sampleOutput:
+        "Grammarly, Reddit campaign audit (excerpt)\n\n" +
+        "CUT (low topic fit despite high reach)\n" +
+        "  r/InternetIsBeautiful, r/todayilearned\n\n" +
+        "KEEP + ADD KEYWORDS\n" +
+        "  r/college, r/writing -> add: 'switching from', 'grammar checker for', 'is this worth it'\n\n" +
+        "BLOCKER\n" +
+        "  Pixel status: Not Detected on 3 of 4 landing pages, escalate before scaling spend further",
+      successCriteria: [
+        "Correctly flags both low-fit subreddits despite their high member counts",
+        "Identifies the missing keyword layer across all ad groups",
+        "Catches the Pixel-not-detected issue and flags it as blocking, not cosmetic",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "reddit-ads-learning-phase-simulation",
+      tier: "core",
+      archetype: "simulation",
+      title: "The 14-Day Learning Phase: Reddit Budget Decisions",
+      timeEstimate: "50 minutes",
+      timeMinutes: 50,
+      objective:
+        "Run a simulated 14-day Reddit Ads launch for a new product, making the bidding, comment-moderation, and scaling decisions a real campaign manager faces, with each choice routing to a realistically better or worse outcome.",
+      companyId: "instacart",
+      scenario:
+        "You're testing Reddit as a new acquisition channel for Instacart+, the membership program, running a Conversation Ads campaign in r/MealPrepSunday, r/EatCheapAndHealthy, and r/instantpot with a $2,000 flight budget.",
+      brief:
+        "Manage manual CPC bidding through the learning phase, handle a hostile comment thread, decide when to switch to oCPM, and structure retargeting correctly at the end of the flight.",
+      mode: "simulation",
+      conceptsCovered: [
+        "Manual CPC bidding through the learning phase before switching to oCPM",
+        "Treating the comment section as active campaign management, not a side channel",
+        "Switching to oCPM Conversions only after 50+ recorded conversions",
+        "Structuring retargeting as its own ad group with its own creative",
+      ],
+      stages: [
+        {
+          stageId: "day2-early-check",
+          label: "Day 2, first dashboard check",
+          elapsed: "Day 2 of 14",
+          concept: "Manual CPC bidding through the learning phase before switching to oCPM",
+          lessonAnchor: "step-5-use-manual-cpc-bidding-first-then-switch",
+          situation:
+            "The campaign launched 48 hours ago on manual CPC. You open the dashboard for the first time since launch.",
+          dashboard:
+            "Conversation Ads campaign - Instacart+ Trial\n" +
+            "  Impressions        18,400\n" +
+            "  Clicks                 92     CTR 0.5%\n" +
+            "  Conversions              2     CVR 2.2%\n" +
+            "  Cost per conversion  $41.00\n" +
+            "  Spend to date        $82.00",
+          spendToDate: "$82.00 of $2,000",
+          budgetRemaining: "$1,918.00",
+          decision: {
+            prompt: "Two conversions in two days on manual CPC. What's the move?",
+            options: [
+              {
+                id: "switch-auto-early",
+                label: "Switch to oCPM Conversions now, the algorithm can optimize faster with automation",
+                verdict: "costly",
+                outcome:
+                  "The algorithm has almost no conversion data to learn from. It spends the next several days chasing a weak signal and CPA climbs instead of falling.",
+                why: "oCPM needs a real signal to optimize against. Two conversions is not a pattern, it's noise, and switching this early throws away the manual-bid data you'd need to know if the campaign even works.",
+                lessonRef: "Step 5: Use Manual CPC Bidding First, Then Switch",
+                nextStageId: "day5-comment-crisis-behind",
+              },
+              {
+                id: "keep-manual",
+                label: "Leave it on manual CPC, keep the bid where it is, check back in a few days",
+                verdict: "optimal",
+                outcome:
+                  "You let the campaign run undisturbed. Two days of data is nowhere near the 50-conversion threshold the lesson sets for switching bid strategies.",
+                why: "Manual CPC through the early days protects you from an algorithm optimizing on noise, and gives you real signal to judge the campaign by later.",
+                lessonRef: "Step 5: Use Manual CPC Bidding First, Then Switch",
+                nextStageId: "day5-comment-crisis",
+              },
+              {
+                id: "raise-bid",
+                label: "Raise the manual bid 50% to speed up impression volume",
+                verdict: "acceptable",
+                outcome:
+                  "Impressions increase and so does spend, but the underlying CTR and conversion pattern don't actually change, you've just bought the same signal faster and more expensively.",
+                why: "This isn't wrong, but it's not the highest-leverage move at day 2, patience costs nothing here and a bid increase does.",
+                lessonRef: "Step 5: Use Manual CPC Bidding First, Then Switch",
+                nextStageId: "day5-comment-crisis",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "day5-comment-crisis",
+          label: "Day 5, a comment thread turns hostile",
+          elapsed: "Day 5 of 14",
+          concept: "Treating the comment section as active campaign management, not a side channel",
+          lessonAnchor: "common-mistakes-that-kill-campaigns",
+          situation:
+            "A Conversation Ad in r/EatCheapAndHealthy has a top comment reading 'another company trying to make meal prep a subscription, no thanks' with 340 upvotes, posted 90 minutes ago.",
+          dashboard:
+            "Ad group: r/EatCheapAndHealthy Conversation Ad\n" +
+            "  CTR before comment      0.6%\n" +
+            "  CTR last 90 min         0.2% (declining)\n" +
+            "  Comment upvotes         340\n" +
+            "  Comment age              90 minutes",
+          spendToDate: "$310.00 of $2,000",
+          budgetRemaining: "$1,690.00",
+          decision: {
+            prompt: "A sarcastic top comment with 340 upvotes is dragging your CTR down in real time. What do you do?",
+            options: [
+              {
+                id: "ignore-comment",
+                label: "Ignore it, comments are noise, focus on the dashboard metrics",
+                verdict: "costly",
+                outcome:
+                  "CTR keeps sliding over the next 24 hours as the comment stays pinned at the top of the thread with no response. The ad flight underperforms its own first-week benchmark by the time you check again.",
+                why: "A single unanswered sarcastic top comment can tank CTR for the entire flight, engagement is part of campaign management on Reddit, not a separate job.",
+                lessonRef: "Common Mistakes That Kill Campaigns, Mistake 3",
+                nextStageId: "day9-diagnosis",
+              },
+              {
+                id: "respond-helpfully",
+                label: "Post a genuine, specific reply addressing the subscription concern directly",
+                verdict: "optimal",
+                outcome:
+                  "The reply gets several upvotes of its own, the thread tone shifts, and CTR recovers within a few hours as the top comment stops being purely negative.",
+                why: "Responding within 2 hours with something that sounds human, not corporate, is exactly what the lesson calls out as required Reddit campaign management.",
+                lessonRef: "Common Mistakes That Kill Campaigns, Mistake 3",
+                nextStageId: "day9-scaling-decision",
+              },
+              {
+                id: "delete-report",
+                label: "Report the comment to Reddit as it violates no rules, and hope it gets removed",
+                verdict: "costly",
+                outcome:
+                  "The comment doesn't violate any rules, so nothing happens, and the delay costs you the response window while CTR keeps declining.",
+                why: "You can't moderate away a legitimate opinion, and trying to wastes the 2-hour response window the lesson specifically calls out.",
+                lessonRef: "Common Mistakes That Kill Campaigns, Mistake 3",
+                nextStageId: "day9-diagnosis",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "day9-scaling-decision",
+          label: "Day 9, conversions cross the threshold",
+          elapsed: "Day 9 of 14",
+          concept: "Switching to oCPM Conversions only after 50+ recorded conversions",
+          lessonAnchor: "step-5-use-manual-cpc-bidding-first-then-switch",
+          situation:
+            "The campaign recovered after your comment response. You now have 54 recorded conversions on manual CPC, comfortably past the lesson's 50-conversion threshold.",
+          dashboard:
+            "Campaign totals, day 9\n" +
+            "  Conversions            54\n" +
+            "  Cost per conversion   $19.40\n" +
+            "  Spend to date        $1,047.60\n" +
+            "  Bid strategy          Manual CPC",
+          spendToDate: "$1,047.60 of $2,000",
+          budgetRemaining: "$952.40",
+          decision: {
+            prompt: "You've crossed 50 conversions on manual CPC. What now?",
+            options: [
+              {
+                id: "switch-ocpm-now",
+                label: "Switch to oCPM Conversions now that there's a real signal to optimize against",
+                verdict: "optimal",
+                outcome:
+                  "The algorithm now has enough data to find people similar to your 54 converters. Cost per conversion trends down over the remaining flight.",
+                why: "This is exactly the threshold the lesson sets for switching, waiting further just delays letting the algorithm do what manual bidding can't.",
+                lessonRef: "Step 5: Use Manual CPC Bidding First, Then Switch",
+                nextStageId: "day14-retargeting-structure",
+              },
+              {
+                id: "stay-manual-longer",
+                label: "Keep manual CPC running for the rest of the flight to be safe",
+                verdict: "acceptable",
+                outcome:
+                  "The campaign keeps performing steadily, but you leave efficiency on the table, oCPM's algorithm could have found cheaper converters with the data already in hand.",
+                why: "Not wrong, but overly cautious once you've already cleared the threshold the lesson names for switching.",
+                lessonRef: "Step 5: Use Manual CPC Bidding First, Then Switch",
+                nextStageId: "day14-retargeting-structure",
+              },
+              {
+                id: "double-budget",
+                label: "Double the remaining budget and keep manual CPC to chase volume fast",
+                verdict: "costly",
+                outcome:
+                  "Spend accelerates but the manual bid can't adapt to who's converting, so cost per conversion creeps up instead of down over the final days.",
+                why: "More budget without switching to an optimization strategy that can use your conversion data just buys more of the same inefficiency, faster.",
+                lessonRef: "Step 5: Use Manual CPC Bidding First, Then Switch",
+                nextStageId: "day14-retargeting-structure",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "day5-comment-crisis-behind",
+          label: "Day 5, recovering from an early oCPM switch",
+          elapsed: "Day 5 of 14",
+          concept: "Switching to oCPM Conversions only after 50+ recorded conversions",
+          lessonAnchor: "step-5-use-manual-cpc-bidding-first-then-switch",
+          situation:
+            "Having switched to oCPM at day 2 with almost no signal, cost per conversion has climbed to $58, well above the manual-CPC baseline. You now also have a hostile top comment forming in r/EatCheapAndHealthy.",
+          dashboard:
+            "Campaign totals, day 5\n" +
+            "  Bid strategy           oCPM Conversions (switched day 2)\n" +
+            "  Cost per conversion   $58.00 (up from $41 baseline)\n" +
+            "  Spend to date         $610.00\n" +
+            "  Top comment            340 upvotes, unanswered, 90 min old",
+          spendToDate: "$610.00 of $2,000",
+          budgetRemaining: "$1,390.00",
+          decision: {
+            prompt: "The early oCPM switch is costing you efficiency, and now a hostile comment needs a response too. Which do you fix first?",
+            options: [
+              {
+                id: "revert-and-respond",
+                label: "Switch back to manual CPC to stop the bleeding, and respond to the comment in the same sitting",
+                verdict: "acceptable",
+                outcome:
+                  "Cost per conversion stabilizes back toward baseline over the next few days, and the comment response prevents further CTR decline. You've recovered, but you're behind where an undisturbed campaign would be.",
+                why: "This is damage control done right, but the original early switch already cost real budget that a patient manual-CPC period would have saved.",
+                lessonRef: "Step 5: Use Manual CPC Bidding First, Then Switch",
+                nextStageId: "day9-diagnosis",
+              },
+              {
+                id: "stay-ocpm",
+                label: "Stay on oCPM and hope it self-corrects as more data comes in",
+                verdict: "costly",
+                outcome:
+                  "Cost per conversion keeps climbing for several more days before the algorithm has enough signal to correct itself, and the unanswered comment compounds the CTR damage.",
+                why: "An algorithm optimizing on thin data doesn't self-correct quickly, and ignoring the comment on top of it stacks two of the lesson's named mistakes at once.",
+                lessonRef: "Step 5: Use Manual CPC Bidding First, Then Switch",
+                nextStageId: "day9-diagnosis",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "day9-diagnosis",
+          label: "Day 9, assessing the damage",
+          elapsed: "Day 9 of 14",
+          concept: "Treating the comment section as active campaign management, not a side channel",
+          lessonAnchor: "common-mistakes-that-kill-campaigns",
+          situation:
+            "Whichever path led here, the campaign is now behind its efficient-path benchmark. You have 5 days and a shrinking budget left to close the gap before the flight ends.",
+          dashboard:
+            "Campaign totals, day 9 (recovery path)\n" +
+            "  Conversions             31\n" +
+            "  Cost per conversion    $34.80\n" +
+            "  Spend to date         $1,079.00\n" +
+            "  Budget remaining        $921.00",
+          spendToDate: "$1,079.00 of $2,000",
+          budgetRemaining: "$921.00",
+          decision: {
+            prompt: "With 31 conversions, you're short of the 50-conversion oCPM threshold and the flight ends in 5 days. What's the realistic move?",
+            options: [
+              {
+                id: "finish-manual",
+                label: "Finish the flight on manual CPC and treat this as a learning-phase report, not a scaling campaign",
+                verdict: "optimal",
+                outcome:
+                  "The campaign closes with honest, usable data on subreddit and creative performance, even though it never reached the volume needed to justify switching bid strategies.",
+                why: "Forcing an oCPM switch below the threshold just to say you did it repeats the exact mistake that put the campaign behind in the first place.",
+                lessonRef: "Step 5: Use Manual CPC Bidding First, Then Switch",
+                nextStageId: "end",
+              },
+              {
+                id: "force-switch-late",
+                label: "Switch to oCPM anyway with 5 days left, hoping volume picks up before the flight ends",
+                verdict: "costly",
+                outcome:
+                  "The algorithm barely has time to calibrate before the flight ends, so the switch adds cost without adding the efficiency it's meant to deliver.",
+                why: "The 50-conversion threshold exists because oCPM needs real signal, switching late with an even smaller sample repeats the original mistake in miniature.",
+                lessonRef: "Step 5: Use Manual CPC Bidding First, Then Switch",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "day14-retargeting-structure",
+          label: "Day 14, flight ending, planning the follow-up",
+          elapsed: "Day 14 of 14",
+          concept: "Structuring retargeting as its own ad group with its own creative",
+          lessonAnchor: "campaign-structure-that-works",
+          situation:
+            "The flight ends today with 89 total conversions at $17.20 cost per conversion. The Pixel has built a retargeting pool of 4,200 site visitors who didn't convert. You're planning the next flight.",
+          dashboard:
+            "Final flight totals\n" +
+            "  Conversions              89\n" +
+            "  Cost per conversion    $17.20\n" +
+            "  Pixel retargeting pool  4,200 visitors\n" +
+            "  Budget remaining          $0",
+          spendToDate: "$2,000.00 of $2,000",
+          budgetRemaining: "$0.00",
+          decision: {
+            prompt: "Planning the next flight with a 4,200-person retargeting pool. How do you structure it?",
+            options: [
+              {
+                id: "separate-ad-group",
+                label: "Create a dedicated retargeting ad group with its own warmer, more direct creative",
+                verdict: "optimal",
+                outcome:
+                  "The retargeting ad group converts at a noticeably higher rate than cold subreddit targeting, because the creative speaks to people who already know the product.",
+                why: "Retargeting is a warmer audience and deserves a different message, folding it into the cold campaign structure wastes that advantage.",
+                lessonRef: "Campaign Structure That Works",
+                nextStageId: "end",
+              },
+              {
+                id: "add-to-cold-group",
+                label: "Add the retargeting audience into the existing cold ad groups to keep things simple",
+                verdict: "costly",
+                outcome:
+                  "The same cold-audience creative shown to warm, already-interested visitors underperforms what a tailored retargeting message would have delivered, and you can't isolate which audience is driving results.",
+                why: "Mixing a warm retargeting pool into cold ad groups hides the retargeting pool's real performance and wastes its higher intent on generic creative.",
+                lessonRef: "Campaign Structure That Works",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Reddit Ads Manager", role: "Run the campaign, monitor dashboard, respond to comments", why: "Free self-serve platform, no minimum spend to access", required: true, lastVerified: "2026-08" },
+          { toolName: "Google Sheets", role: "Log daily metrics and decisions across the 14-day flight", why: "Free tracking log outside the ad platform's own reporting", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [
+          { toolName: "Triple Whale", role: "Blend Reddit spend with other channel ROAS for a full-funnel view", why: "Useful once running Reddit alongside other paid channels, not needed for a single-platform flight", required: false, fallback: "Blend CPA numbers manually in the Google Sheets tracking log", lastVerified: "2026-08" },
+        ],
+      },
+      deliverable:
+        "A day-by-day decision log for the 14-day flight plus a retargeting-ready ad group structure for the next campaign.",
+      sampleOutput:
+        "Hims and Hers, learning-phase decision log (excerpt)\n\n" +
+        "Day 2: 2 conversions, held manual CPC, no action taken\n" +
+        "Day 5: hostile top comment (290 upvotes) in r/tressless, responded within 90 min, CTR recovered by day 6\n" +
+        "Day 9: 52 conversions reached, switched to oCPM Conversions\n" +
+        "Day 14: 94 total conversions at $16.80 CPA, retargeting pool of 3,800 moved into its own ad group with warmer creative for next flight",
+      successCriteria: [
+        "Holds manual CPC through the early low-signal days instead of switching prematurely",
+        "Responds to the hostile comment within the window instead of ignoring or mis-escalating it",
+        "Switches to oCPM only after crossing the 50-conversion threshold",
+        "Structures retargeting as a separate ad group with distinct creative at the end",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "retail-media": [
+    {
+      id: "retail-media-listing-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Teardown: Why This Amazon Listing Wastes Ad Spend",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given a real product listing page and a search-term performance report, identify the specific defects suppressing conversion rate and metric-reading habits that are wasting ad budget, separate from cosmetic non-issues.",
+      companyId: "chewy",
+      scenario:
+        "You're a marketplace analyst at Chewy running a competitive gap analysis on rival pet-brand Amazon listings and campaign reports, to advise your own team's multichannel retail media strategy before the next planning cycle.",
+      brief:
+        "Two specimens: one competitor product listing page, one competitor search-term report. Find what's actually suppressing performance in each, and don't flag things that only look wrong.",
+      mode: "teardown",
+      conceptsCovered: ["Metrics That Actually Matter", "The Practical Playbook"],
+      teardownItems: [
+        {
+          itemId: "listing-page-probiotic",
+          specimen:
+            "PRODUCT: DailyBoost Dog Probiotic Chews, 90 Count\n" +
+            "TITLE: DailyBoost Dog Chews\n" +
+            "PRICE: $28.99 (category average: $24.50)\n" +
+            "IMAGES: 4 total - main product shot on white, ingredient label closeup, package back, size chart\n" +
+            "BULLET POINTS:\n" +
+            "  - Great for your dog's health\n" +
+            "  - Made with quality ingredients\n" +
+            "  - Dogs love the taste\n" +
+            "  - Trusted by pet owners everywhere\n" +
+            "REVIEWS: 12 reviews, 3.8 average rating\n" +
+            "A+ CONTENT: Yes, includes a brand story module\n" +
+            "CAMPAIGN DATA: Sponsored Products, $2.10 avg CPC, 3.1% conversion rate (category avg: 11%)",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "This listing is getting real clicks from Sponsored Products at a reasonable $2.10 CPC, but converting at less than a third of the category average. Before recommending more ad spend, find what's suppressing conversion on the page itself.",
+          answerKey: [
+            {
+              defect: "Title omits the primary keyword and any specific benefit, just brand plus generic product type",
+              severity: "critical",
+              whyItMatters: "Shoppers scanning search results skim titles first, a title with no keyword match and no differentiator gets scrolled past even when the ad placement is strong",
+              lessonRef: "Metrics That Actually Matter: your product listing page IS your landing page",
+              owner: "you",
+            },
+            {
+              defect: "Bullet points are generic marketing language with zero specifics, no ingredient names, no dosage, no strain count, nothing a comparison-shopping buyer needs",
+              severity: "critical",
+              whyItMatters: "Probiotic buyers specifically compare CFU counts and strain diversity, bullets with no specifics lose every side-by-side comparison against a competitor listing that has them",
+              lessonRef: "Metrics That Actually Matter: your product listing page IS your landing page",
+              owner: "you",
+            },
+            {
+              defect: "12 reviews at 3.8 stars against a category norm of 2,000+ reviews at 4.5 stars",
+              severity: "critical",
+              whyItMatters: "Low review count and below-average rating are the single strongest conversion-rate signals on a marketplace listing, no ad spend fixes a trust deficit this large",
+              lessonRef: "Metrics That Actually Matter: your product listing page IS your landing page",
+              owner: "either",
+            },
+            {
+              defect: "No lifestyle or infographic imagery, only a plain white-background shot and label closeups",
+              severity: "moderate",
+              whyItMatters: "Buyers can't picture the product in use or quickly scan dosage/benefit info without reading dense label text, both slow the decision and cost conversions",
+              lessonRef: "Metrics That Actually Matter: your product listing page IS your landing page",
+              owner: "either",
+            },
+          ],
+          distractors: [
+            "Price is $4.49 above category average, this small a premium doesn't meaningfully suppress conversion when trust and clarity signals are otherwise strong",
+            "The listing includes A+ Content with a brand story module, this is a genuine strength, not a defect",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "search-term-report-mismanagement",
+          specimen:
+            "SEARCH TERM PERFORMANCE REPORT, 6-week campaign, Sponsored Products\n" +
+            "Total spend: $4,200\n" +
+            "Reported ROAS: 8.2x (dashboard headline metric, tracked weekly)\n\n" +
+            "TOP 5 'CONVERTING' SEARCH TERMS:\n" +
+            "  1. dailyboost dog probiotic          412 clicks   9.1% CVR\n" +
+            "  2. dailyboost                         298 clicks   11.4% CVR\n" +
+            "  3. daily boost dog chews              203 clicks   8.7% CVR\n" +
+            "  4. dog probiotic chews                 88 clicks   2.1% CVR\n" +
+            "  5. probiotic for dogs                  71 clicks   1.8% CVR\n\n" +
+            "NEGATIVE KEYWORDS ADDED IN 6 WEEKS: 0\n" +
+            "'free dog treats' search term spend: $340, 0 conversions\n" +
+            "Budget allocation: 100% on this one SKU, brand has 40 total SKUs live",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "The dashboard shows a healthy 8.2x ROAS on this campaign. The account manager wants to double the budget next month. Before signing off, find what the headline ROAS number is hiding.",
+          answerKey: [
+            {
+              defect: "3 of the top 5 'converting' search terms are branded (the product's own name), which inflates the blended ROAS because those shoppers were already looking for this exact product",
+              severity: "critical",
+              whyItMatters: "Branded-term ROAS looks like ad performance but is really just the ad capturing demand that likely existed anyway, non-branded conversion is the true measure of the ad's incremental value",
+              lessonRef: "The Practical Playbook: separate branded from non-branded before judging performance",
+              owner: "you",
+            },
+            {
+              defect: "Zero negative keywords added across 6 full weeks despite $340 spent on a clearly irrelevant term ('free dog treats') with zero conversions",
+              severity: "moderate",
+              whyItMatters: "This is a basic weekly hygiene task the lesson calls out explicitly, skipping it for 6 straight weeks means budget bled to junk terms the whole time",
+              lessonRef: "The Practical Playbook: negative match weekly",
+              owner: "you",
+            },
+            {
+              defect: "100% of budget concentrated on one SKU while the brand has 40 live products, with no share-of-voice strategy across the rest of the catalog",
+              severity: "moderate",
+              whyItMatters: "Doubling budget on an already-saturated single SKU has diminishing returns, the same dollars spread to a second strong-converting SKU would likely return more",
+              lessonRef: "The Practical Playbook: win share of voice on your top 5 SKUs, not just one",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The report only shows Sponsored Products, not Sponsored Brands or Display, this is a reasonable single-format campaign choice, not itself a defect",
+            "Non-branded term CVRs (1.8%-2.1%) look low compared to branded terms, but that gap alone is expected and normal, not a red flag on its own",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Log defects, severity, and recommendations per specimen", why: "Free, no account needed, works for any exported report", required: true, lastVerified: "2026-08" },
+          { toolName: "Amazon Ads", role: "Cross-check real search-term report formatting and negative keyword tools", why: "Free to view for any active advertiser account, confirms the specimen matches real report structure", required: false, fallback: "Use the specimen data as-is, the report format is representative of what Amazon Ads exports", lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A defect log for both specimens, each defect tagged by severity, with a one-line recommendation per defect.",
+      sampleOutput:
+        "Liquid Death, competitor listing teardown (excerpt)\n\n" +
+        "LISTING DEFECTS\n" +
+        "  [CRITICAL] Title has no differentiator beyond brand name, add flavor + size + key claim\n" +
+        "  [MODERATE] Only 3 images, none lifestyle, add at least 2 in-use shots\n\n" +
+        "NOT A DEFECT\n" +
+        "  Price sits $2 above category average, negligible at this price tier\n\n" +
+        "SEARCH TERM REPORT\n" +
+        "  [CRITICAL] 60% of 'top converting' terms are branded, true non-branded ROAS is 2.1x, not the 6.4x headline",
+      successCriteria: [
+        "Flags all critical defects in the listing specimen (title, bullets, reviews)",
+        "Correctly identifies the branded-term ROAS inflation in the search-term specimen",
+        "Does not flag either distractor as a real defect",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "retail-media-tacos-budget-audit",
+      tier: "core",
+      archetype: "audit",
+      title: "The Budget Call: Auditing a Quarter of Retail Media Spend",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given a quarter of sponsored ads performance data across two retail media networks, apply TACoS over ROAS, separate branded from non-branded performance, and decide where next quarter's budget should actually go.",
+      companyId: "nykaa",
+      scenario:
+        "You're the retail media manager at Nykaa, evaluating a quarter of Sponsored Products performance across Amazon and a grocery-style RMN before proposing next quarter's budget split to leadership.",
+      brief:
+        "Recompute the real picture using TACoS instead of the headline ROAS number, split branded from non-branded performance, and recommend which platform gets the incremental budget.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "TACoS as a more honest metric than ROAS alone",
+        "Separating branded from non-branded keyword performance",
+        "Choosing where to allocate incremental budget by category fit",
+      ],
+      steps: [
+        {
+          stepId: "step-1-tacos-recompute",
+          concept: "TACoS as a more honest metric than ROAS alone",
+          lessonAnchor: "metrics-that-actually-matter",
+          theoryRecap:
+            "The lesson explains TACoS divides total ad spend by total revenue (ad-driven plus organic), capturing the organic sales lift that ROAS alone misses.",
+          question:
+            "Leadership's slide says 'Amazon Sponsored Products: 7.8x ROAS, best channel this quarter.' The same product line's organic Amazon revenue also grew 40% this quarter. Is 7.8x ROAS the number to lead the recommendation with?",
+          toolName: "Google Sheets",
+          where: "Import ad spend and total revenue by platform, build a TACoS column next to the existing ROAS column.",
+          procedure: [
+            "Pull total ad spend and ad-attributed revenue per platform from the quarterly export",
+            "Pull total revenue (ad-attributed plus organic) per platform for the same period",
+            "Calculate TACoS = total ad spend / total revenue for each platform",
+            "Compare TACoS trend across the quarter's three months, not just the single headline ROAS figure",
+          ],
+          outputSample:
+            "Platform         Ad spend   Ad revenue   ROAS   Total revenue   TACoS\n" +
+            "Amazon           $42,000    $327,600     7.8x   $890,000        4.7%\n" +
+            "Grocery-style RMN $18,500    $96,200      5.2x   $210,000        8.8%",
+          healthy:
+            "TACoS on Amazon sits at 4.7%, well inside the 5-15% healthy band, meaning ad spend is compounding into organic rank rather than being the only thing carrying sales.",
+          unhealthy:
+            "Leading the budget recommendation with the 7.8x ROAS headline alone, without the TACoS context, makes it look like Amazon is simply 'better,' when the grocery-style RMN's 8.8% TACoS is also healthy and reaching a different, less Amazon-saturated shopper.",
+          interpret:
+            "A high ROAS with a healthy TACoS means the platform is compounding well. Don't let one number override the other; both are needed for a real budget call.",
+          soWhat: [
+            {
+              symptom: "Leadership slide leads with ROAS only, no TACoS context",
+              action: "Add the TACoS column to the recommendation slide before it goes to leadership",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-branded-split",
+          concept: "Separating branded from non-branded keyword performance",
+          lessonAnchor: "the-practical-playbook",
+          theoryRecap:
+            "The lesson's Practical Playbook, Step 2 says branded keyword ROAS is misleadingly high because those shoppers were already looking for the brand, and incrementality should be measured on non-branded keywords.",
+          question:
+            "Within Amazon's 7.8x ROAS, the search-term report shows 61% of ad-attributed revenue came from searches containing 'Nykaa.' What does the incremental picture look like once branded terms are set aside?",
+          toolName: "Amazon Ads",
+          where: "Search Term Report inside Amazon Ads Console, filtered to branded vs. non-branded terms.",
+          procedure: [
+            "Export the Search Term Report for the quarter",
+            "Tag each search term as branded (contains 'nykaa') or non-branded",
+            "Recalculate ROAS separately for the branded and non-branded segments",
+            "Flag the non-branded ROAS as the real measure of incremental customer acquisition",
+          ],
+          outputSample:
+            "Segment        Ad-attributed revenue   Spend    ROAS\n" +
+            "Branded (61%)  $199,836                 $15,750  12.7x\n" +
+            "Non-branded    $127,764                 $26,250  4.9x",
+          healthy:
+            "Non-branded ROAS of 4.9x is still solidly profitable, meaning the campaign is winning real new customers away from competitors, not just capturing brand-search demand that existed anyway.",
+          unhealthy:
+            "Reporting the blended 7.8x ROAS as 'the number' overstates how much new customer acquisition the campaign is actually driving, since branded searches were mostly going to convert regardless of the ad.",
+          interpret:
+            "Blended ROAS answers 'did the campaign make money.' Non-branded ROAS answers the more important question: 'is the campaign winning customers we wouldn't have gotten otherwise.'",
+          soWhat: [
+            {
+              symptom: "61% of ad-attributed revenue is coming from branded search terms",
+              action: "Report branded and non-branded ROAS as two separate lines going forward, not one blended figure",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-platform-allocation",
+          concept: "Choosing where to allocate incremental budget by category fit",
+          lessonAnchor: "which-platform-to-start-on",
+          theoryRecap:
+            "The lesson recommends starting on Amazon for high-search-volume categories like beauty, then adding a grocery-style RMN like Instacart for CPG-adjacent categories with genuine reach beyond Amazon shoppers.",
+          question:
+            "Given Amazon's healthy but branded-heavy 4.9x non-branded ROAS and 4.7% TACoS, and the grocery-style RMN's 8.8% TACoS reaching a largely non-Amazon audience, where should the next $10,000 in incremental budget go?",
+          toolName: "Looker Studio",
+          where: "Build a simple side-by-side dashboard comparing non-branded ROAS and TACoS trend by platform.",
+          procedure: [
+            "Chart non-branded ROAS trend by platform across the quarter's three months",
+            "Chart TACoS trend by platform across the same period",
+            "Check whether either platform's TACoS is trending up (a warning sign) or flat/down (healthy)",
+            "Recommend the split based on both trend direction and audience overlap, not the single highest ROAS number",
+          ],
+          outputSample:
+            "Platform          Non-branded ROAS trend   TACoS trend      Audience overlap with other platform\n" +
+            "Amazon            4.6x -> 4.9x -> 4.9x      5.1% -> 4.9% -> 4.7%    High-intent search demand\n" +
+            "Grocery-style RMN  4.1x -> 4.6x -> 5.0x      9.4% -> 9.0% -> 8.8%    Largely distinct shopper base",
+          healthy:
+            "Both platforms show flat-to-improving TACoS and rising non-branded ROAS, meaning incremental budget on either platform is currently compounding well rather than just buying more of the same demand.",
+          unhealthy:
+            "Putting all incremental budget on Amazon alone, since it already has the highest single ROAS number, while the grocery-style RMN's improving trend and distinct audience get starved of budget to test further.",
+          interpret:
+            "When both platforms show healthy trends and one reaches a meaningfully different audience, the incremental dollar usually belongs on the platform with room to grow its audience overlap, not just the platform with the biggest existing number.",
+          soWhat: [
+            {
+              symptom: "Both platforms trending healthy but budget concentrated entirely on the higher-ROAS platform",
+              action: "Recommend splitting the next $10,000 roughly 60/40 toward Amazon, with a meaningful test allocation to the grocery-style RMN to keep growing the distinct audience",
+              effort: "half day",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Amazon Ads", role: "Pull search-term reports and spend/revenue data", why: "Native reporting for any active advertiser, no extra cost", required: true, lastVerified: "2026-08" },
+          { toolName: "Google Sheets", role: "Calculate TACoS and branded/non-branded splits", why: "Free, flexible enough for custom formula columns not in native dashboards", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [
+          { toolName: "Triple Whale", role: "Automate TACoS and cross-platform blended reporting", why: "Saves manual recalculation once running budget across 3+ platforms regularly", required: false, fallback: "Build the same TACoS formula manually in Google Sheets each quarter", lastVerified: "2026-08" },
+        ],
+        paidUpgradeNote: "The free path (Amazon Ads native reports plus Google Sheets formulas) is a complete quarterly workflow. A paid dashboarding tool like Triple Whale only saves time once you're doing this recalculation across more than two or three platforms every month.",
+      },
+      deliverable:
+        "A budget recommendation memo with TACoS and non-branded ROAS by platform, and a specific dollar split for next quarter's incremental spend.",
+      sampleOutput:
+        "Chewy, quarterly retail media budget memo (excerpt)\n\n" +
+        "HEADLINE METRIC LEADERSHIP SAW\n" +
+        "  Amazon Sponsored Products: 6.9x ROAS\n\n" +
+        "REAL PICTURE\n" +
+        "  TACoS: 5.3% (healthy)\n" +
+        "  Non-branded ROAS: 4.2x (the real acquisition number, branded search was 58% of attributed revenue)\n\n" +
+        "RECOMMENDATION\n" +
+        "  Split next quarter's incremental $15,000 as 65% Amazon / 35% grocery-style RMN test, both platforms show flat-to-improving TACoS",
+      successCriteria: [
+        "Recomputes TACoS instead of relying on the headline ROAS figure alone",
+        "Correctly separates branded from non-branded ROAS and flags the branded inflation",
+        "Recommends a specific budget split backed by trend data, not just the single highest number",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "audio-ads": [
+    {
+      id: "audio-ads-podcast-pitch-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Pitch Audit: Evaluating a Podcast Sponsorship Package",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given a supplied podcast sponsorship pitch (CPM, format, ad script draft) for a mid-size business show, decide whether the deal represents good value and catch the two most common rollout mistakes before signing.",
+      companyId: "casper-sleep",
+      scenario:
+        "You're the media buyer at Casper Sleep fielding a sponsorship pitch from a 200k-download business podcast that wants a 12-week mid-roll deal.",
+      brief:
+        "Score the quoted CPM against podcast benchmarks, confirm the placement matches best practice, and rewrite any part of the draft script that reads like copy instead of a conversation.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Comparing podcast CPM against benchmark ranges",
+        "Talking points versus a word-for-word script",
+      ],
+      steps: [
+        {
+          stepId: "step-1-cpm-benchmark",
+          concept: "Comparing podcast CPM against benchmark ranges",
+          lessonAnchor: "how-it-works",
+          theoryRecap:
+            "The lesson's Step 2 states podcast ads run $18-$50 CPM against Spotify programmatic's $10-$25, and Step 3 flags mid-roll placements as outperforming pre-roll and post-roll in recall.",
+          question:
+            "The pitch quotes $42 CPM for a 60-second mid-roll spot, delivered to a podcast averaging 200,000 downloads/episode across 12 episodes. Is that CPM defensible, and does the placement match best practice?",
+          toolName: "Google Sheets",
+          where:
+            "Build a comparison sheet: quoted CPM vs. the lesson's benchmark range, quoted placement vs. mid-roll/pre-roll/post-roll.",
+          procedure: [
+            "List the quoted CPM ($42) next to the podcast benchmark range ($18-$50)",
+            "Confirm the placement is mid-roll, not pre-roll or post-roll",
+            "Multiply CPM x (impressions/1000) to get total cost: $42 x (2,400,000/1000) = $100,800",
+            "Compare total cost against the quarterly awareness budget before approving",
+          ],
+          outputSample:
+            "CPM check\n  Quoted: $42 CPM, mid-roll, 12 episodes x 200,000 downloads = 2,400,000 impressions\n  Benchmark: $18-$50 CPM (host-read podcast)\n  Verdict: within range, mid-roll confirmed\n  Total cost: $100,800",
+          healthy:
+            "$42 sits inside the $18-$50 host-read benchmark and the placement is confirmed mid-roll, the deal is worth negotiating rather than rejecting outright.",
+          unhealthy:
+            "A quote above $50 CPM for pre-roll placement, that combination is both overpriced and in the weaker placement slot, a clear renegotiate-or-walk signal.",
+          interpret:
+            "CPM alone doesn't tell you if a deal is good, CPM plus placement together do. A benchmark-range CPM on a bad placement is still a bad deal.",
+          soWhat: [
+            {
+              symptom: "Sponsorship pitch quotes CPM without specifying placement",
+              action: "Get placement confirmed in writing before comparing price",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-script-check",
+          concept: "Talking points versus a word-for-word script",
+          lessonAnchor: "common-mistakes",
+          theoryRecap:
+            "The lesson's Common Mistakes callout warns that a scripted, legal-copy-style read kills performance, hosts should get talking points, not a word-for-word script, and creative should rotate at least every six weeks.",
+          question:
+            "The draft ad copy reads: 'Casper Sleep offers a 100-night trial period and free shipping on all mattress orders. Visit casper.com today.' Does this pass the conversational bar, and what's missing?",
+          toolName: "Google Sheets",
+          where:
+            "Mark up the draft script line by line in a shared sheet, flag any sentence that reads like ad copy rather than a host's own words.",
+          procedure: [
+            "Read the draft aloud, flag any sentence that wouldn't survive being said out loud casually",
+            "Rewrite flagged lines as talking points ('mention the 100-night trial, mention free shipping') instead of a fixed script",
+            "Check for a single clear call to action, not three competing ones",
+            "Confirm the plan includes a second creative version to rotate in before week 6",
+          ],
+          outputSample:
+            "Script audit\n  Flagged: 'offers a 100-night trial period and free shipping on all mattress orders' — reads like a website bullet, not speech\n  Rewrite direction: talking points only — trial length, shipping, one promo code\n  CTA count: 1 (promo code) — passes\n  Rotation plan: missing, add before week 6",
+          healthy:
+            "The brief hands the host 3-4 talking points and a promo code, then lets them say it in their own words.",
+          unhealthy:
+            "A fixed script with three different CTAs and no rotation plan past episode 6, fatigue and confusion baked in before launch.",
+          interpret:
+            "A script that reads fine on a page can still fail on air. The test is whether it survives being read aloud casually, not whether it's grammatically correct.",
+          soWhat: [
+            {
+              symptom: "Draft ad copy sounds like a website product description",
+              action: "Convert it to a bulleted talking-points brief and send it back to the host",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the CPM/placement comparison and script markup",
+            why: "Free, no account friction",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page go/no-go recommendation on the sponsorship pitch, with the CPM benchmark comparison and a revised talking-points brief attached.",
+      sampleOutput:
+        "HelloFresh, mid-roll podcast pitch review (excerpt)\n\nCPM: $38 quoted vs $18-$50 benchmark — PASS\nPlacement: mid-roll confirmed — PASS\nScript: 3 competing CTAs found — FAIL, revise to 1 CTA before signing\nRotation: no second creative planned — FAIL, add before week 6\n\nRecommendation: approve pending script revision and rotation plan",
+      successCriteria: [
+        "Correctly benchmarks the quoted CPM against the $18-$50 host-read range",
+        "Flags any scripted (non-conversational) line and any missing rotation plan",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "audio-ads-podcast-campaign-simulation",
+      tier: "core",
+      archetype: "simulation",
+      title: "The 8-Week Podcast Sponsorship: A Live Decision Simulation",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Run an 8-week podcast + Spotify programmatic sponsorship as a series of weekly checkpoints, deciding when to hold, cut, or rotate creative based on promo-code redemption data, without spending a dollar of real budget.",
+      companyId: "allbirds",
+      scenario:
+        "You're running audio acquisition for Allbirds: a $24,000 quarterly budget split across 3 host-read podcast deals and a Spotify programmatic layer, with a unique promo code per show.",
+      brief:
+        "Read each week's redemption dashboard, decide whether to hold, cut, or rotate creative, and land the quarter within budget with defensible calls.",
+      mode: "simulation",
+      conceptsCovered: [
+        "Reading promo-code redemption as the leading signal for podcast ROI",
+        "Recognizing creative fatigue before redemption drops",
+      ],
+      stages: [
+        {
+          stageId: "week2-early-read",
+          label: "Week 2, first redemption check",
+          elapsed: "Week 2 of 8",
+          concept: "Reading promo-code redemption as the leading signal for podcast ROI",
+          lessonAnchor: "how-it-works",
+          situation:
+            "Three shows launched two weeks ago: a 400k-download business show, a 90k-download design show, and Spotify programmatic running in parallel. This is the first dashboard pull.",
+          dashboard:
+            "Week 2 redemption by promo code\n  ALLBIRDS-BIZ (business show):    340k impressions, 1,150 code uses (0.34% redemption)\n  ALLBIRDS-DSGN (design show):      78k impressions,   410 code uses (0.53% redemption)\n  Spotify programmatic:            1.2M impressions,  890 code uses (0.07% redemption, $10-25 CPM tier)",
+          spendToDate: "$6,000 of $24,000",
+          budgetRemaining: "$18,000",
+          decision: {
+            prompt:
+              "Two weeks in, redemption looks decent across all three lines. What's the right call?",
+            options: [
+              {
+                id: "hold-and-wait",
+                label: "Log the numbers, make no changes, check again at week 4",
+                verdict: "optimal",
+                outcome:
+                  "You let the campaign run its natural course. The lesson's own guidance is to optimize after 4-6 weeks, not 2, two weeks of host-read data on a monthly-release show may only cover one or two episodes.",
+                why: "Cutting or rotating this early risks killing a show that just needed more episodes to build trust with its audience.",
+                lessonRef: "How It Works, Step 5: after 4-6 weeks, cut shows with low redemption",
+                nextStageId: "week5-fatigue-check",
+              },
+              {
+                id: "cut-programmatic-now",
+                label: "Cut Spotify programmatic immediately, its redemption is lowest",
+                verdict: "costly",
+                outcome:
+                  "You kill the format two weeks in, before it had time to build the awareness half of a two-step funnel; programmatic audio is priced and expected to convert slower than a trusted host's personal endorsement.",
+                why: "Programmatic's lower redemption at two weeks is expected, not a failure signal, it's a broader-reach, lower-trust format by design.",
+                lessonRef: "Why It Matters: programmatic trades listener trust for scale and precision targeting",
+                nextStageId: "end",
+              },
+              {
+                id: "double-budget-biz-show",
+                label: "Immediately double the business show's budget based on its lead",
+                verdict: "acceptable",
+                outcome:
+                  "The business show is ahead, but doubling budget on a two-week sample locks in a decision before week 3-4 confirms whether it sustains, a defensible instinct, not the optimal one.",
+                why: "A stronger early read is worth watching, not immediately over-committing budget to, especially with 6 weeks of runway left to confirm the trend.",
+                lessonRef: "How It Works, Step 5: optimize after 4-6 weeks of data",
+                nextStageId: "week5-fatigue-check",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "week5-fatigue-check",
+          label: "Week 5, redemption plateau",
+          elapsed: "Week 5 of 8",
+          concept: "Recognizing creative fatigue before redemption drops",
+          lessonAnchor: "common-mistakes",
+          situation:
+            "The business show has run the same 60-second host-read spot since week 1. Redemption climbed through week 3, then flattened.",
+          dashboard:
+            "Week 5 cumulative, ALLBIRDS-BIZ\n  Week 1-2 redemption rate: 0.34%\n  Week 3 redemption rate:   0.61%\n  Week 4 redemption rate:   0.58%\n  Week 5 redemption rate:   0.31% (dropping)\n  Same 60-second script running since week 1 (5 weeks, no rotation)",
+          spendToDate: "$14,500 of $24,000",
+          budgetRemaining: "$9,500",
+          decision: {
+            prompt:
+              "Redemption peaked at week 3 and is now sliding back toward the week-1 baseline. The script hasn't changed. What do you do?",
+            options: [
+              {
+                id: "rotate-creative",
+                label: "Brief the host on a second talking-points version, rotate in next episode",
+                verdict: "optimal",
+                outcome:
+                  "You catch fatigue right at the point the lesson warns about: running the same creative past six weeks causes fatigue, and this show is at week 5 with a visible decline already showing.",
+                why: "A second creative version resets listener attention without abandoning a show that already proved it converts.",
+                lessonRef:
+                  "Common Mistakes: running the same creative for more than six weeks causes fatigue, rotate at least two versions",
+                nextStageId: "end",
+              },
+              {
+                id: "cut-the-show",
+                label: "Cut the business show, the trend is declining",
+                verdict: "costly",
+                outcome:
+                  "You cut a show that peaked at 0.61% redemption, nearly double its opening week, over a single week's dip that has an obvious, fixable cause: stale creative, not audience fit.",
+                why: "The data points to a creative-fatigue problem, not an audience-fit problem, cutting the show throws away a proven-working relationship over the wrong fix.",
+                lessonRef: "Common Mistakes: rotate creative, don't abandon a working show",
+                nextStageId: "end",
+              },
+              {
+                id: "wait-one-more-week",
+                label: "Wait one more week to confirm the decline is real before acting",
+                verdict: "acceptable",
+                outcome:
+                  "One more week of data would confirm the trend, but you've already burned $14,500 of $24,000 with only 3 weeks left, waiting costs runway you don't have to spare.",
+                why: "The signal is already clear enough to act on: two consecutive weeks of decline after a peak is not noise at this sample size.",
+                lessonRef: "How It Works, Step 5: optimize based on the trend, not a single data point",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Track weekly redemption, impressions, and spend against budget",
+            why: "Free, no ad account or spend required to run this simulation",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Spotify for Podcasters",
+            role: "Reference for real show download/listener analytics when running this live",
+            why: "Free podcaster dashboard, useful once a real sponsorship deal is signed",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "An 8-week decision log recording each checkpoint's dashboard reading, the call made, and the reasoning.",
+      sampleOutput:
+        "HelloFresh, 8-week podcast sponsorship log (excerpt)\n\nWeek 2: All 3 lines within expected range, hold\nWeek 5: Business show redemption dropped 2 weeks running, creative rotated\nWeek 8: Rotated creative recovered redemption to 0.52%, campaign renewed",
+      successCriteria: [
+        "Chooses 'hold' at week 2 rather than reacting to a two-week sample",
+        "Chooses creative rotation over cutting the show at week 5",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "pmax-advantage-plus": [
+    {
+      id: "pmax-advantage-plus-feed-asset-group-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Pre-Launch Audit: Catching Feed and Asset Group Problems Before They Cost You",
+      timeEstimate: "35 minutes",
+      timeMinutes: 35,
+      objective:
+        "Given a supplied product feed export and an asset group screenshot for a new Performance Max campaign, catch the two failure patterns the lesson warns about before launch: feed hygiene gaps and undifferentiated creative across audiences.",
+      companyId: "nykaa",
+      scenario:
+        "You're the paid media analyst at Nykaa (FSN E-Commerce Ventures) reviewing a new PMax campaign for a skincare sub-brand before it goes live.",
+      brief:
+        "Check the feed for the specific hygiene gaps the lesson names, missing GTINs and thin titles, then check whether the asset groups are actually differentiated by audience or just copy-pasted.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Feed hygiene as a PMax prerequisite, not an afterthought",
+        "Distinct asset groups per audience segment versus one asset group reused everywhere",
+      ],
+      steps: [
+        {
+          stepId: "step-1-feed-hygiene",
+          concept: "Feed hygiene as a PMax prerequisite, not an afterthought",
+          lessonAnchor: "the-2026-steering-and-reporting-overhaul",
+          theoryRecap:
+            "The lesson's Common Mistakes callout names turning on PMax before the product feed is cleaned, missing GTINs, thin titles, then blaming the algorithm for weak results.",
+          question:
+            "The export has 40 SKUs. 6 rows have a blank GTIN column, and 11 titles read as just the product name with no attributes ('Vitamin C Serum' instead of 'Nykaa Vitamin C Serum 30ml, Brightening'). Is this feed launch-ready?",
+          toolName: "Google Merchant Center",
+          where:
+            "Open the feed diagnostics tab, filter for missing GTIN and item-level disapprovals, cross-check flagged rows against the raw export.",
+          procedure: [
+            "Filter the export for blank GTIN values, count them (6 of 40)",
+            "Filter for titles under 5 words with no attribute (11 of 40)",
+            "Flag both sets as blockers, not warnings, before enabling the campaign",
+            "Draft the required title fix pattern: Brand + Product + Size + Key Attribute",
+          ],
+          outputSample:
+            "Feed hygiene check, 40 SKUs\n  Missing GTIN: 6 rows (15%)\n  Thin titles (<5 words, no attribute): 11 rows (27.5%)\n  Launch-ready: NO — 17 of 40 SKUs (42.5%) need fixes first",
+          healthy:
+            "0 missing GTINs, every title follows Brand + Product + Size + Attribute, feed passes Merchant Center diagnostics with zero item-level disapprovals.",
+          unhealthy:
+            "Launching with 42.5% of SKUs carrying a hygiene gap, then reading a weak PMax result three weeks later as an algorithm problem instead of a feed problem.",
+          interpret:
+            "PMax can only advertise what the feed accurately describes. A gap in GTIN or title data doesn't just risk disapproval, it starves the algorithm of the attributes it needs to match the right shopper.",
+          soWhat: [
+            {
+              symptom: "New PMax campaign underperforms in week 1",
+              action: "Check feed diagnostics before touching bids or budget",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-asset-group-differentiation",
+          concept: "Distinct asset groups per audience segment versus one asset group reused everywhere",
+          lessonAnchor: "creative-as-the-new-targeting-mechanism",
+          theoryRecap:
+            "The lesson states creative has replaced manual targeting, the algorithm learns who to reach from who engages with each asset group, and warns against uploading the same three assets to every asset group.",
+          question:
+            "This campaign has 3 asset groups (Skincare Starters, Anti-Aging, Gift Sets) but all three use the identical 5 product images and 1 generic headline. Is this set up correctly?",
+          toolName: "Google Sheets",
+          where:
+            "List each asset group's headlines, descriptions, and images in a comparison sheet to check for actual differentiation, not just group names.",
+          procedure: [
+            "List all assets currently assigned to each of the 3 asset groups",
+            "Mark any asset reused across 2+ groups",
+            "Identify which group needs UGC-style creative (Skincare Starters, price-sensitive) vs. which needs before/after proof (Anti-Aging)",
+            "Recommend at least 2 unique assets per group before launch",
+          ],
+          outputSample:
+            "Asset group audit\n  Skincare Starters: 5 images, 1 headline — all 5 shared with the other 2 groups\n  Anti-Aging: same 5 images, same headline\n  Gift Sets: same 5 images, same headline\n  Unique assets per group: 0 of 3 groups pass",
+          healthy:
+            "Each asset group has at least 2 unique images and a headline written for that segment's motivation.",
+          unhealthy:
+            "Three asset groups that are functionally one asset group with three names, the algorithm has no differentiated signal to learn from.",
+          interpret:
+            "Naming asset groups differently does nothing if the assets inside them are identical. Differentiation has to live in the actual creative, not the label.",
+          soWhat: [
+            {
+              symptom: "PMax asset groups all show similar audience overlap in reporting",
+              action: "Audit for shared assets across groups and replace duplicates",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Merchant Center",
+            role: "Run feed diagnostics and check GTIN/title completeness",
+            why: "Free, required for any Shopping/PMax feed",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Build the asset-group differentiation comparison",
+            why: "Free, no account friction",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A pre-launch audit memo listing every feed hygiene gap and every asset group differentiation gap, with fixes required before the campaign goes live.",
+      sampleOutput:
+        "Allbirds, PMax pre-launch audit (excerpt)\n\nFeed: 2 of 35 SKUs missing GTIN (fixed before launch)\nAsset groups: Everyday Wool vs. Trail Runners now use distinct hero images and segment-specific headlines\nStatus: launch-ready",
+      successCriteria: [
+        "Correctly counts and flags every missing-GTIN and thin-title row",
+        "Correctly identifies that all 3 asset groups share identical creative",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "pmax-advantage-plus-budget-pacing-simulation",
+      tier: "core",
+      archetype: "simulation",
+      title: "The Mid-Month Pacing Call: A Performance Max Budget Simulation",
+      timeEstimate: "40 minutes",
+      timeMinutes: 40,
+      objective:
+        "Run a month of a live Performance Max campaign as weekly dashboard checkpoints, using the 2026 budget report and audience-exclusion tools to decide when to intervene and when to let the algorithm keep learning.",
+      companyId: "hellofresh",
+      scenario:
+        "You're running acquisition PMax for HelloFresh's new plant-based box line, with a $30,000 monthly budget and a target ROAS of 4.0.",
+      brief:
+        "Read the budget pacing report and placement data each week, decide whether to adjust exclusions or hold, and land the month within target ROAS without shutting off spend prematurely.",
+      mode: "simulation",
+      conceptsCovered: [
+        "Using the end-of-month spend projection to catch pacing problems mid-month",
+        "Using first-party audience exclusions to stop re-selling existing customers",
+      ],
+      stages: [
+        {
+          stageId: "week1-pacing-report",
+          label: "Week 1, first budget projection",
+          elapsed: "Week 1 of 4",
+          concept: "Using the end-of-month spend projection to catch pacing problems mid-month",
+          lessonAnchor: "the-2026-steering-and-reporting-overhaul",
+          situation:
+            "The campaign launched a week ago. You open the new 2026 budget report for the first time.",
+          dashboard:
+            "Week 1 budget report\n  Spend to date: $10,200 of $30,000 monthly budget\n  Projected end-of-month spend: $43,600 (145% of budget)\n  ROAS to date: 3.4 (target: 4.0)",
+          spendToDate: "$10,200 of $30,000",
+          budgetRemaining: "$19,800",
+          decision: {
+            prompt:
+              "The projection shows you're on track to overspend the monthly budget by 45% if nothing changes. What do you do?",
+            options: [
+              {
+                id: "lower-daily-cap",
+                label: "Lower the daily budget cap now so the projection lands near $30,000",
+                verdict: "optimal",
+                outcome:
+                  "You catch the pacing problem the report exists to surface, mid-month instead of after the invoice, and correct it with the least disruptive lever: the daily cap, not bids or targeting.",
+                why: "The 2026 budget report's whole purpose is catching exactly this kind of overspend early enough to act on.",
+                lessonRef:
+                  "The 2026 Steering and Reporting Overhaul: the budget report projects end-of-month spend so pacing problems surface mid-month",
+                nextStageId: "week3-exclusion-check",
+              },
+              {
+                id: "do-nothing",
+                label: "Let it run, PMax's algorithm will self-correct as it learns more",
+                verdict: "costly",
+                outcome:
+                  "You let a projected 45% budget overrun run unaddressed. PMax optimizes toward the budget and targets you give it, it does not know your monthly cap is a hard constraint unless the daily budget reflects it.",
+                why: "A budget report showing a clear overrun is a signal to act on, not a data point to wait out.",
+                lessonRef: "The 2026 Steering and Reporting Overhaul",
+                nextStageId: "end",
+              },
+              {
+                id: "cut-roas-target",
+                label: "Lower the target ROAS to 3.0 to match current performance",
+                verdict: "acceptable",
+                outcome:
+                  "This would slow the overspend by loosening the bidding constraint, but it also permanently accepts weaker unit economics instead of fixing the pacing problem directly, a bigger lever than the situation calls for.",
+                why: "The problem here is budget pacing, not bid strategy, changing the ROAS target treats the wrong variable.",
+                lessonRef: "The 2026 Steering and Reporting Overhaul: PMax still sets bids itself",
+                nextStageId: "week3-exclusion-check",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "week3-exclusion-check",
+          label: "Week 3, placement and audience review",
+          elapsed: "Week 3 of 4",
+          concept: "Using first-party audience exclusions to stop re-selling existing customers",
+          lessonAnchor: "the-2026-steering-and-reporting-overhaul",
+          situation:
+            "Pacing is now on track. You open the placement report to check where conversions are actually coming from.",
+          dashboard:
+            "Week 3 placement + audience report\n  ROAS: 3.9 (target 4.0)\n  Conversions from Search: 61%\n  Conversions from Display/YouTube placements: 24%\n  Of those Display/YouTube conversions: 68% matched against the existing-customer list (not yet excluded)",
+          spendToDate: "$21,000 of $30,000",
+          budgetRemaining: "$9,000",
+          decision: {
+            prompt:
+              "Over two-thirds of the Display/YouTube conversions are existing customers the campaign is re-selling to, not new acquisition. What do you do?",
+            options: [
+              {
+                id: "add-exclusion-list",
+                label: "Upload the existing-customer list as a first-party audience exclusion",
+                verdict: "optimal",
+                outcome:
+                  "You redirect that spend toward net-new acquisition, exactly the lever the lesson names for this problem, and the remaining $9,000 now has a real chance to hit the 4.0 ROAS target on genuinely new customers.",
+                why: "First-party audience exclusions are built for exactly this: stopping PMax from re-selling to people who already bought.",
+                lessonRef:
+                  "The 2026 Steering and Reporting Overhaul: audience exclusions redirect spend toward net-new acquisition",
+                nextStageId: "end",
+              },
+              {
+                id: "ignore-it",
+                label: "Leave it, ROAS is close to target so the mix doesn't matter",
+                verdict: "costly",
+                outcome:
+                  "The 3.9 ROAS is propped up by cheap existing-customer conversions that would have converted anyway, the acquisition goal the budget was set for is being quietly under-delivered.",
+                why: "A campaign built for acquisition that's actually re-selling to current customers is hitting the wrong goal, even if the top-line ROAS number looks fine.",
+                lessonRef: "The 2026 Steering and Reporting Overhaul",
+                nextStageId: "end",
+              },
+              {
+                id: "pause-display",
+                label: "Pause Display/YouTube placements entirely for the rest of the month",
+                verdict: "acceptable",
+                outcome:
+                  "This stops the re-selling problem but also cuts off the 24% of conversions coming from that placement entirely, including the genuinely new customers mixed in, a blunter fix than excluding just the existing-customer list.",
+                why: "The exclusion list solves the actual problem, existing-customer overlap, without discarding a placement that's also generating real new conversions.",
+                lessonRef:
+                  "The 2026 Steering and Reporting Overhaul: placement reporting exists for channel-mix understanding, exclusions for acquisition targeting",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Ads",
+            role: "Run the campaign, read the budget report, and upload audience exclusions",
+            why: "Free platform access, cost is media spend only",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Looker Studio",
+            role: "Build a standing weekly pacing dashboard across the month",
+            why: "Free, connects directly to Google Ads reporting data",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Triple Whale",
+            role: "Cross-channel ecommerce dashboard for teams already running multiple ad platforms",
+            why: "Useful once PMax sits alongside Meta and email in one attribution view, not required for this simulation",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+      },
+      deliverable:
+        "A 4-week pacing and exclusion decision log, with each week's budget-report reading and the resulting action.",
+      sampleOutput:
+        "Nykaa, PMax pacing log (excerpt)\n\nWeek 1: Projected overspend 38%, daily cap lowered\nWeek 2: Pacing back on track, ROAS 3.6\nWeek 3: 71% of Display conversions matched existing customers, exclusion list uploaded\nWeek 4: ROAS 4.1, ahead of target",
+      successCriteria: [
+        "Correctly identifies the week 1 pacing overrun and the correct lever (daily cap, not ROAS target)",
+        "Correctly identifies the audience-exclusion opportunity in week 3",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "demand-gen-campaigns": [
+    {
+      id: "demand-gen-campaigns-asset-group-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "Ready to Scale? Auditing a Demand Gen Asset Group Before Raising Budget",
+      timeEstimate: "35 minutes",
+      timeMinutes: 35,
+      objective:
+        "Given a real Demand Gen asset group export, diagnose whether the creative-variety and audience-seeding minimums from the lesson are actually met before recommending a budget increase.",
+      companyId: "allbirds",
+      scenario:
+        "You're the paid media analyst at Allbirds, the sustainable footwear brand, reviewing a Demand Gen campaign that's been live for three weeks. The brand team wants to double the daily budget next week; your job is to confirm the campaign is actually ready for more spend, not just tolerating it.",
+      brief:
+        "Pull the asset group export and the audience settings panel, check both against the lesson's minimum requirements, and write a go/no-go recommendation.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Creative format variety requirement",
+        "Customer Match seed list as lookalike foundation",
+      ],
+      steps: [
+        {
+          stepId: "step-1-creative-variety",
+          concept: "Creative format variety requirement",
+          lessonAnchor: "creative-requirements",
+          theoryRecap:
+            "The lesson's Creative Requirements section says the algorithm needs contrast to test effectively: at least two videos in different aspect ratios plus three to four image variants. One video and two images is not enough.",
+          question:
+            "The asset group export shows 1 landscape (16:9) video, 2 square (1:1) images, and nothing else. Is this campaign ready for more budget?",
+          toolName: "Google Ads",
+          where: "Campaign > Asset groups > the live Demand Gen campaign's asset list.",
+          procedure: [
+            "Open the asset group and list every asset by format and aspect ratio",
+            "Count video formats separately from image formats",
+            "Compare the count against the lesson's minimum (2+ videos, different ratios; 3-4 images)",
+            "Flag any missing format as a blocker before budget changes",
+          ],
+          outputSample:
+            "Asset group: Allbirds — Wool Runners Prospecting\n  VIDEO\n    1x Landscape 16:9, 22s\n  IMAGE\n    2x Square 1200x1200\n  MISSING: Portrait 9:16 video, second landscape/square video variant, portrait 960x1200 image",
+          healthy:
+            "At least 2 videos in different aspect ratios and 3-4 image variants, giving the algorithm real contrast to test.",
+          unhealthy:
+            "1 video and 2 images total, the exact under-supplied combination the lesson calls out as insufficient.",
+          interpret:
+            "This asset group is under-supplied. More budget on the same thin creative set just spends faster into the same ceiling, it does not fix the ceiling.",
+          soWhat: [
+            {
+              symptom: "Only one video and two images in the asset group",
+              action: "Hold the budget increase and brief in a Shorts-format 9:16 video plus 2 more image variants before scaling spend",
+              effort: "half day",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-audience-seed-size",
+          concept: "Customer Match seed list as lookalike foundation",
+          lessonAnchor: "campaign-setup-audiences-that-matter",
+          theoryRecap:
+            "The lesson recommends starting with a Customer Match list of 5,000+ matched emails before building a lookalike, and warns Optimised Targeting is only safe for accounts with 50+ conversions a month.",
+          question:
+            "The audience panel shows a Customer Match seed list of 1,200 matched emails, a lookalike built from it, and Optimised Targeting switched on. The account has averaged 12 conversions/month. What's the risk?",
+          toolName: "Google Ads",
+          where: "Campaign > Audiences > audience segment settings.",
+          procedure: [
+            "Check the Customer Match seed list size against the 5,000+ recommendation",
+            "Check whether Optimised Targeting is enabled",
+            "Check trailing 30-day conversion volume against the 50+ conversions/month threshold for safely running Optimised Targeting",
+          ],
+          outputSample:
+            "Customer Match seed: 1,200 matched emails (recommended: 5,000+)\nLookalike: built from seed, size = narrow\nOptimised Targeting: ON\nTrailing 30-day conversions: 12",
+          healthy:
+            "A seed list of 5,000+ emails feeding the lookalike, with Optimised Targeting reserved for accounts already converting 50+ times a month.",
+          unhealthy:
+            "A 1,200-email seed list (too thin for a reliable lookalike) with Optimised Targeting on at only 12 conversions/month, letting Google expand reach on almost no signal.",
+          interpret:
+            "Optimised Targeting on a sparse-data account lets Google guess at scale instead of learning from real signal. It should be disabled until conversion volume, or the seed list, is materially larger.",
+          soWhat: [
+            {
+              symptom: "Optimised Targeting is enabled with fewer than 50 conversions/month",
+              action: "Turn off Optimised Targeting and grow the Customer Match list toward 5,000+ before re-enabling it",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Ads",
+            role: "Pull the asset group export and audience settings",
+            why: "Native reporting inside the ad account, no export tooling needed",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Log the asset and audience audit checklist",
+            why: "Free, shareable with the brand team",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page audit memo recommending scale-now, fix-creative-first, or fix-audience-first, with the specific line-item fix for each flagged gap.",
+      sampleOutput:
+        "Warby Parker, Demand Gen readiness audit (excerpt)\n\n" +
+        "CREATIVE: PASS\n  3 videos (16:9, 9:16, 1:1), 4 image variants — meets minimum contrast requirement\n\n" +
+        "AUDIENCE: FAIL\n  Customer Match seed: 2,100 emails (below 5,000 recommendation)\n  Optimised Targeting: ON at 31 conversions/month (below 50 threshold)\n\n" +
+        "RECOMMENDATION: Hold budget increase. Turn off Optimised Targeting and grow the seed list before scaling spend.",
+      successCriteria: [
+        "Correctly identifies whether the creative set meets the 2-video/3-4-image minimum",
+        "Correctly identifies whether the audience seed size and Optimised Targeting setting match the account's conversion volume",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "demand-gen-campaigns-bidding-phase-simulation",
+      tier: "core",
+      archetype: "simulation",
+      title: "The 8-Week Bidding Decision Log",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Walk an 8-week Demand Gen campaign through its learning phase, the Maximize Conversions to tCPA switch, and the view-through conversion signal, making the same timing decisions a live account manager would face.",
+      companyId: "rxbar",
+      scenario:
+        "You manage paid media for RXBAR, the protein bar brand, and just launched a Demand Gen campaign to warm shoppers who've been engaging with fitness and meal-prep content but haven't searched for a protein bar yet.",
+      brief:
+        "Decide when to leave Maximize Conversions alone, when to switch to tCPA and at what target, and how to read view-through conversions once tCPA is running.",
+      mode: "simulation",
+      conceptsCovered: [
+        "Maximize Conversions learning phase patience",
+        "Setting tCPA at 20-30% above observed CPA",
+        "View-through conversions signal creative is building intent",
+      ],
+      stages: [
+        {
+          stageId: "week1-learning-phase-check",
+          label: "Week 1, first dashboard check",
+          elapsed: "Day 5 of 56",
+          concept: "Maximize Conversions learning phase patience",
+          lessonAnchor: "bidding-two-modes-different-jobs",
+          situation:
+            "You launched the campaign on Maximize Conversions 5 days ago and are opening the dashboard for the first time.",
+          dashboard:
+            "Demand Gen · RXBAR Fitness Content Prospecting · Day 5 of 56\n\n" +
+            "  Impressions        142,000\n" +
+            "  CTR                   0.9%\n" +
+            "  Conversions              6\n" +
+            "  Cost per conv        $31.40",
+          spendToDate: "$188.40 of $2,800 (4-week phase 1 budget)",
+          budgetRemaining: "$2,611.60",
+          decision: {
+            prompt: "Five days in, CPA looks high and volume looks thin. What do you do?",
+            options: [
+              {
+                id: "wait-out-learning",
+                label: "Leave it on Maximize Conversions, check back in 3 weeks",
+                verdict: "optimal",
+                outcome:
+                  "You let the campaign accumulate real data. The lesson's guidance is to run Maximize Conversions for 3-4 weeks before judging CPA, five days is not a sample.",
+                why: "Switching strategy mid-learning-phase restarts the algorithm's calibration, wasting the data already collected.",
+                lessonRef: "Bidding: launch with Maximize Conversions, let it run 3-4 weeks before reviewing CPA",
+                nextStageId: "week4-tcpa-decision",
+              },
+              {
+                id: "switch-tcpa-now",
+                label: "Switch to Target CPA immediately at $20 to force efficiency",
+                verdict: "costly",
+                outcome:
+                  "Delivery collapses. A tCPA target set before the account has real conversion data, and set below the observed $31 CPA, causes the campaign to under-deliver almost entirely.",
+                why: "The lesson explicitly warns tCPA needs 50+ conversions in the last 30 days as a baseline, and setting the target too low too early causes under-delivery.",
+                lessonRef: "Bidding: switch to tCPA once you have 50+ conversions in the last 30 days",
+                nextStageId: "end",
+              },
+              {
+                id: "pause-campaign",
+                label: "Pause the campaign, the CPA already looks too high to continue",
+                verdict: "costly",
+                outcome:
+                  "You throw away 5 days of learning-phase data on a sample of 6 conversions. There's no basis yet to know if $31.40 is high or normal for this audience.",
+                why: "Judging CPA on day 5 of a stated 3-4 week learning window is judging a campaign before it's had a chance to calibrate.",
+                lessonRef: "Bidding: use Maximize Conversions during the learning phase (first 2-4 weeks) when CPA data is thin",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "week4-tcpa-decision",
+          label: "Week 4, setting the tCPA target",
+          elapsed: "Day 28 of 56",
+          concept: "Setting tCPA at 20-30% above observed CPA",
+          lessonAnchor: "bidding-two-modes-different-jobs",
+          situation:
+            "Four weeks of Maximize Conversions data is in. The account has 58 conversions in the trailing 30 days at an observed CPA of $22.10.",
+          dashboard:
+            "Demand Gen · RXBAR Fitness Content Prospecting · Day 28 of 56\n\n" +
+            "  Trailing 30-day conversions        58\n" +
+            "  Observed CPA                   $22.10\n" +
+            "  CTR                               1.4%",
+          spendToDate: "$1,281.80 of $2,800",
+          budgetRemaining: "$1,518.20",
+          decision: {
+            prompt: "You have enough conversions to safely switch to tCPA. Where do you set the target?",
+            options: [
+              {
+                id: "tcpa-25-percent-above",
+                label: "Set tCPA at $27.50, about 25% above the observed $22.10 CPA",
+                verdict: "optimal",
+                outcome:
+                  "Delivery stays stable and CPA holds close to the observed baseline while the algorithm optimizes toward the target over the following weeks.",
+                why: "The lesson's practical rule is to set tCPA at 20-30% above the observed CPA, giving the algorithm room to bid without starving delivery.",
+                lessonRef: "Bidding: set tCPA at 20-30% above the observed CPA, then tighten over the next 4-6 weeks",
+                nextStageId: "week8-viewthrough-signal",
+              },
+              {
+                id: "tcpa-match-observed",
+                label: "Set tCPA at exactly $22.10, the observed CPA, to lock in current performance",
+                verdict: "costly",
+                outcome:
+                  "Delivery volume drops sharply. A target with no buffer leaves the algorithm no room to bid competitively for the next conversion, so it simply serves fewer ads.",
+                why: "Matching the target to the observed CPA exactly removes the buffer the lesson says the algorithm needs to keep delivering at volume.",
+                lessonRef: "Bidding: setting tCPA too low too early causes under-delivery",
+                nextStageId: "end",
+              },
+              {
+                id: "stay-max-conversions",
+                label: "Stay on Maximize Conversions indefinitely, it's already working",
+                verdict: "acceptable",
+                outcome:
+                  "The campaign keeps spending its full budget with no CPA ceiling. It performs fine but leaves cost efficiency on the table once the account clearly has enough data to set a target.",
+                why: "Maximize Conversions is the right mode for the learning phase, but the lesson frames tCPA as the next deliberate step once you cross the 50-conversion threshold, not something to skip indefinitely.",
+                lessonRef: "Bidding: switch to tCPA once you have at least 50 conversions in the last 30 days",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "week8-viewthrough-signal",
+          label: "Week 8, direct conversions flat, view-through climbing",
+          elapsed: "Day 56 of 56",
+          concept: "View-through conversions signal creative is building intent",
+          lessonAnchor: "what-to-watch-in-your-dashboard",
+          situation:
+            "tCPA has run for 4 weeks and stabilized. Direct conversions have plateaued, but view-through conversions have climbed steadily, and assisted conversions in the Search conversion path report are up too.",
+          dashboard:
+            "Demand Gen · RXBAR Fitness Content Prospecting · Day 56 of 56\n\n" +
+            "  Direct conversions (last 2 weeks)     41, 43 (flat)\n" +
+            "  View-through conversions              18, 34 (up 89%)\n" +
+            "  Assisted conversions (Search path)     22, 39 (up 77%)",
+          spendToDate: "$2,690 of $2,800",
+          budgetRemaining: "$110",
+          decision: {
+            prompt: "Direct conversions look stalled but view-through and assisted conversions are climbing fast. What's your read?",
+            options: [
+              {
+                id: "read-mid-funnel-success",
+                label: "Recognize this as the mid-funnel thesis working, keep the campaign running and feed Search",
+                verdict: "optimal",
+                outcome:
+                  "You correctly read the pattern: Demand Gen is warming people who convert later via Search, exactly the assisted-conversion role the lesson describes for a mid-funnel channel.",
+                why: "Rising view-through and assisted conversions with flat direct conversions is the exact signature of Demand Gen doing its job as a Search feeder, not a sign it's failing.",
+                lessonRef: "What to Watch in Your Dashboard: high assisted conversion numbers confirm the mid-funnel thesis is working",
+                nextStageId: "end",
+              },
+              {
+                id: "pause-flat-conversions",
+                label: "Pause the campaign, direct conversions have stopped growing",
+                verdict: "costly",
+                outcome:
+                  "You cut a campaign that was quietly generating most of its value through view-through and assisted conversions, the two metrics that actually confirm mid-funnel impact.",
+                why: "Direct conversions alone undercounts a mid-funnel channel's real contribution, which is exactly why the lesson calls out view-through and assisted conversions as the metrics that matter here.",
+                lessonRef: "What to Watch in Your Dashboard: view-through conversions and assisted conversions",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Ads",
+            role: "Set bidding strategy, monitor CPA and conversion volume",
+            why: "Native to the campaign, no export needed for weekly checks",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Analytics 4",
+            role: "Pull view-through and assisted conversion data via the linked account",
+            why: "Free once linked to the Google Ads account, no separate license",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A week-by-week bidding decision log across the 8-week campaign, documenting when to hold, when to switch to tCPA and at what target, and how the view-through signal was interpreted.",
+      sampleOutput:
+        "Instacart, Demand Gen bidding log (excerpt)\n\n" +
+        "Week 1: Maximize Conversions, CPA $34.80 on 4 conversions. Held, sample too small.\n" +
+        "Week 4: 61 trailing-30-day conversions, observed CPA $24.60. Set tCPA at $31 (26% above observed).\n" +
+        "Week 8: Direct conversions flat at ~50/week, view-through up 72%, assisted conversions up 64%. Read as mid-funnel success, kept running as a Search feeder.",
+      successCriteria: [
+        "Does not switch bidding strategy before the learning phase completes",
+        "Sets tCPA within the 20-30% above observed CPA band",
+        "Correctly interprets rising view-through/assisted conversions as a positive mid-funnel signal, not a failure",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "amazon-advertising": [
+    {
+      id: "amazon-advertising-dashboard-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Metric That Actually Matters: Auditing an Amazon Ads Dashboard Export",
+      timeEstimate: "35 minutes",
+      timeMinutes: 35,
+      objective:
+        "Given a real Amazon Ads dashboard export with ACoS, TACoS, and campaign structure, diagnose whether the account's trend is healthy and whether the campaign structure has a coverage gap.",
+      companyId: "mvmt-watches",
+      scenario:
+        "You're the paid media analyst at MVMT, the DTC watch and accessories brand, reviewing six months of Amazon Ads performance ahead of a quarterly budget review.",
+      brief:
+        "Read the ACoS/TACoS trend correctly, then check the campaign structure against the lesson's three-layer framework for coverage gaps.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "TACoS vs ACoS trend interpretation",
+        "Auto vs manual campaign structure completeness",
+      ],
+      steps: [
+        {
+          stepId: "step-1-tacos-trend",
+          concept: "TACoS vs ACoS trend interpretation",
+          lessonAnchor: "acos-and-tacos-amazons-core-metrics",
+          theoryRecap:
+            "The lesson explains TACoS reveals business health because it includes organic sales: if TACoS is declining while ACoS stays flat or rises, it means ads are building organic rank, which is a good sign, not a problem.",
+          question:
+            "Over 6 months, ACoS rose from 22% to 27% while TACoS fell from 9% to 7%. Is this a problem?",
+          toolName: "Amazon Ads",
+          where: "Campaign Manager > Advertising reports, plus Seller Central Business Reports for total revenue.",
+          procedure: [
+            "Pull ad spend and ad-attributed revenue by month to calculate ACoS",
+            "Pull total revenue (ad-attributed plus organic) by month to calculate TACoS",
+            "Plot both trends side by side over the 6-month window",
+            "Compare the direction of each line, not just the latest month's number",
+          ],
+          outputSample:
+            "MVMT, 6-month trend\n  Month 1: ACoS 22%, TACoS 9%\n  Month 3: ACoS 24%, TACoS 8%\n  Month 6: ACoS 27%, TACoS 7%",
+          healthy:
+            "TACoS declining over time while ACoS holds flat or even rises slightly, meaning organic sales are growing faster than ad-attributed sales.",
+          unhealthy:
+            "TACoS rising alongside ACoS, meaning the business is becoming more dependent on paid spend, not less.",
+          interpret:
+            "This is the healthy pattern the lesson describes. Rising ACoS with falling TACoS means the ads are functioning as a rank-building investment, not a growing cost problem.",
+          soWhat: [
+            {
+              symptom: "ACoS trending up month over month",
+              action: "Before cutting ad spend to lower ACoS, check the TACoS trend first, cutting spend here would slow the organic growth ACoS rising is currently funding",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-structure-gap",
+          concept: "Auto vs manual campaign structure completeness",
+          lessonAnchor: "campaign-structure-best-practices",
+          theoryRecap:
+            "The lesson's three-layer framework is Discovery (auto/broad), Performance (exact-match manual on proven keywords), and Defense (campaigns on your own brand terms to stop competitors stealing page visitors).",
+          question:
+            "The campaign list shows one auto campaign running for 6 months and one broad-match manual campaign. There is no exact-match harvest campaign and no campaign targeting the brand's own name. What's missing?",
+          toolName: "Amazon Ads",
+          where: "Campaign Manager > campaign list, filtered by targeting type.",
+          procedure: [
+            "List every live campaign and tag it Discovery, Performance, or Defense",
+            "Check whether any campaign is exact-match on proven converting terms (Performance layer)",
+            "Check whether any campaign targets the brand's own name (Defense layer)",
+            "Flag any missing layer",
+          ],
+          outputSample:
+            "MVMT campaign list\n  MVMT-Auto-Discovery: auto targeting, live 6 months\n  MVMT-Broad-Manual: broad/phrase match, live 6 months\n  MISSING: exact-match Performance campaign, brand-defense campaign",
+          healthy:
+            "All three layers present: Discovery finding new terms, Performance running exact-match on proven winners, Defense protecting the brand name.",
+          unhealthy:
+            "Only Discovery-layer campaigns after 6 months, with no harvest into exact-match and no brand-defense campaign at all.",
+          interpret:
+            "Six months of auto/broad data with nothing harvested into exact-match means proven winning terms are still paying broad-match rates instead of controlled bids, and the brand name is sitting undefended.",
+          soWhat: [
+            {
+              symptom: "No campaign targets the brand's own name after 6 months live",
+              action: "Launch an exact-match campaign bidding on the brand's own name at a low floor bid immediately",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Amazon Ads",
+            role: "Pull the campaign list and ACoS/TACoS reporting",
+            why: "Native Campaign Manager reporting, no third-party tool required",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Chart the ACoS/TACoS trend and log the campaign structure audit",
+            why: "Free and fast for a 6-month trend comparison",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page audit memo stating whether the ACoS/TACoS trend is healthy, and listing the specific campaign-structure gaps to fix before the next quarter.",
+      sampleOutput:
+        "RXBAR, Amazon Ads audit (excerpt)\n\n" +
+        "TREND: HEALTHY\n  ACoS 19% -> 23% (up), TACoS 11% -> 8% (down) — organic rank is absorbing more of total sales\n\n" +
+        "STRUCTURE: GAP FOUND\n  Discovery: present (auto campaign, 4 months live)\n  Performance: MISSING — no exact-match harvest campaign\n  Defense: present (brand-name campaign live)\n\n" +
+        "RECOMMENDATION: Pull the search term report and harvest top 10 converting terms into a new exact-match campaign this week.",
+      successCriteria: [
+        "Correctly reads a rising-ACoS/falling-TACoS trend as healthy, not a problem",
+        "Correctly identifies which of the three campaign-structure layers is missing",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "amazon-advertising-harvest-cycle-simulation",
+      tier: "core",
+      archetype: "simulation",
+      title: "The 30-Day Flywheel: Auto Campaign to Manual Harvest",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Run a new Amazon Sponsored Products launch through the lesson's 30-day playbook, making the same harvest-timing and brand-defense decisions a live account manager would face.",
+      companyId: "firstcry-brainbees",
+      scenario:
+        "You manage Amazon India advertising for FirstCry (Brainbees Solutions), launching a new baby-monitor SKU with a fresh auto Sponsored Products campaign.",
+      brief:
+        "Decide when to harvest converting search terms into a manual campaign, and how to respond when a competitor starts bidding on the brand's own name.",
+      mode: "simulation",
+      conceptsCovered: [
+        "Harvesting converting search terms from auto campaigns",
+        "Defending your own brand name from competitor bidding",
+      ],
+      stages: [
+        {
+          stageId: "day14-first-harvest",
+          label: "Day 14, first search term pull",
+          elapsed: "Day 14 of 30",
+          concept: "Harvesting converting search terms from auto campaigns",
+          lessonAnchor: "getting-started-the-30-day-playbook",
+          situation:
+            "The auto campaign has run untouched for two weeks as the lesson recommends. You pull the search term report for the first time.",
+          dashboard:
+            "FirstCry Auto-Discovery, Baby Monitor SKU · Day 14 of 30\n\n" +
+            "  Total spend                 Rs 18,400\n" +
+            "  ACoS                             38%\n" +
+            "  Top converting terms       12 terms, 3+ conversions each, ACoS 14-22%\n" +
+            "  Zero-conversion terms      31 terms, Rs 6,100 spent, 0 conversions",
+          spendToDate: "Rs 18,400 of Rs 40,000 (30-day budget)",
+          budgetRemaining: "Rs 21,600",
+          decision: {
+            prompt: "The search term report is in front of you. What's the move?",
+            options: [
+              {
+                id: "harvest-and-negative",
+                label: "Harvest the 12 top-converting terms into a new exact-match manual campaign, and add them as negatives in the auto campaign",
+                verdict: "optimal",
+                outcome:
+                  "The manual campaign takes over spend on the proven terms at controlled bids, while the auto campaign keeps discovering new terms instead of competing against your own manual bids.",
+                why: "This is the exact harvest-and-negative loop the lesson's 30-day playbook describes: mine the auto campaign's winners, move them to manual, let auto keep discovering.",
+                lessonRef: "Getting Started: pull the search term report, move top converting terms into a manual exact match campaign with controlled bids",
+                nextStageId: "day30-brand-defense",
+              },
+              {
+                id: "wait-longer",
+                label: "Let the auto campaign run untouched for another two weeks before doing anything",
+                verdict: "acceptable",
+                outcome:
+                  "You collect more data, but you also keep paying auto-match rates on 12 already-proven terms and keep bleeding spend on the 31 zero-conversion terms for two more weeks.",
+                why: "The lesson's playbook specifically times the first harvest at two weeks, waiting longer isn't wrong, it's just leaving money on the table the playbook says is already ready to move.",
+                lessonRef: "Getting Started: let it run for two weeks without touching it, you need data",
+                nextStageId: "day30-brand-defense",
+              },
+              {
+                id: "raise-auto-bid",
+                label: "Raise the auto campaign's overall bid to capture more volume across all terms",
+                verdict: "costly",
+                outcome:
+                  "Spend accelerates on both the 12 winning terms and the 31 zero-conversion terms equally, since a blanket bid increase can't tell them apart. ACoS gets worse, not better.",
+                why: "A campaign-wide bid increase spends more on exactly the terms that were already burning budget with zero conversions, the opposite of what harvesting is meant to fix.",
+                lessonRef: "Getting Started: harvest winning terms, pause or lower bids on irrelevant terms in the auto campaign",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "day30-brand-defense",
+          label: "Day 30, a competitor bids on the brand name",
+          elapsed: "Day 30 of 30",
+          concept: "Defending your own brand name from competitor bidding",
+          lessonAnchor: "campaign-structure-best-practices",
+          situation:
+            "The harvest cycle is working, the manual campaign now drives most conversions at a controlled ACoS. A competitor's ad has started appearing when shoppers search \"FirstCry baby monitor\" directly.",
+          dashboard:
+            "FirstCry, Day 30 of 30\n\n" +
+            "  Manual campaign share of conversions     71%\n" +
+            "  Manual campaign ACoS                     19%\n" +
+            "  Brand-name search results                Competitor ad now appears above organic listing",
+          spendToDate: "Rs 39,100 of Rs 40,000",
+          budgetRemaining: "Rs 900",
+          decision: {
+            prompt: "A competitor is now bidding on your own brand name in Amazon search results. What do you do?",
+            options: [
+              {
+                id: "defend-brand-name",
+                label: "Launch an exact-match campaign bidding on the brand's own name at a low floor bid",
+                verdict: "optimal",
+                outcome:
+                  "The floor bid is enough to keep FirstCry's own ad above the competitor's, protecting page visitors for a low incremental spend since the organic listing already ranks first.",
+                why: "The lesson is direct on this: competitors will bid on your brand name, and losing your own brand keywords to a rival on your own page is an easy, cheap loss to prevent.",
+                lessonRef: "Campaign Structure Best Practices: bid on your own brand name, competitors absolutely will",
+                nextStageId: "end",
+              },
+              {
+                id: "ignore-organic-rank",
+                label: "Ignore it, the organic listing still ranks first anyway",
+                verdict: "costly",
+                outcome:
+                  "Over the following weeks, a measurable share of brand-name search clicks go to the competitor's ad instead, page visitors that were previously free are now being paid for by someone else.",
+                why: "Ranking first organically doesn't stop a paid ad from appearing above it, the lesson calls this exact scenario an easy loss to prevent, not one to tolerate.",
+                lessonRef: "Campaign Structure Best Practices: losing your brand keywords to a rival on your own Amazon page is an easy loss to prevent",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Amazon Ads",
+            role: "Run the auto and manual campaigns, pull the search term report",
+            why: "Native Campaign Manager tooling covers the full harvest cycle",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Track harvested terms and their move from auto to manual over time",
+            why: "Free and sufficient for a weekly harvest log",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A 30-day campaign log documenting the harvest decision at day 14 and the brand-defense decision at day 30, with the reasoning for each.",
+      sampleOutput:
+        "Allbirds, Amazon Ads 30-day flywheel log (excerpt)\n\n" +
+        "Day 14: Search term report showed 9 converting terms at ACoS 12-19%. Harvested into a new exact-match campaign, added as negatives in auto.\n" +
+        "Day 21: Manual campaign driving 58% of conversions, overall ACoS down from 41% to 26%.\n" +
+        "Day 28: Competitor ad appeared on brand-name search. Launched a brand-defense exact-match campaign at a Rs 3 floor bid same day.",
+      successCriteria: [
+        "Harvests converting search terms into a manual campaign rather than raising auto bids broadly",
+        "Launches a brand-defense campaign rather than relying on organic rank alone",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "first-party-data-activation": [
+    {
+      id: "first-party-data-activation-hashing-pipeline-build",
+      tier: "mini",
+      archetype: "build-the-asset",
+      title: "Build a SHA-256 Hashing-Ready Customer Match Upload Sheet",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective: "Given a raw, messy 20-row customer export (mixed casing, extra whitespace, non-E.164 phone formats), normalize it into a Customer Match-ready format and correctly identify which rows must be dropped before hashing rather than uploaded as-is.",
+      companyId: "thredup",
+      scenario: "You're a growth marketer at ThredUp, the online secondhand-apparel marketplace, prepping a lapsed-buyer segment for a Google Customer Match re-engagement campaign ahead of the resale season.",
+      brief: "Normalize the export to Google's match-key requirements (lowercase, trimmed emails; E.164 phones) and flag any row that can't be hashed safely as-is.",
+      mode: "build",
+      conceptsCovered: ["Normalizing match keys before hashing"],
+      steps: [
+        {
+          stepId: "step-1-normalize-match-keys",
+          concept: "Normalizing match keys before hashing",
+          lessonAnchor: "data-requirements-and-hashing",
+          theoryRecap: "The lesson's Data Requirements and Hashing section requires emails normalized to lowercase and trimmed, and phone numbers in E.164 format, before SHA-256 hashing, because a hash of ` User@Example.com ` will never match Google's hash of `user@example.com`.",
+          question: "Given 20 raw rows including ' Sara.K@Gmail.com', '(415) 555-2671', and a row with a blank email and no phone, which rows are upload-ready and which must be fixed or dropped?",
+          toolName: "Google Sheets",
+          where: "Import customer-export.csv, add helper columns for normalized email and E.164 phone.",
+          procedure: [
+            "Import customer-export.csv and freeze the header row",
+            "Add a normalized-email column: =LOWER(TRIM(A2)) applied down the column",
+            "Add an E.164-phone column converting formats like '(415) 555-2671' to '+14155552671'",
+            "Flag any row with neither a usable email nor phone as DROP, it has no match key to hash",
+          ],
+          outputSample: "row 3: raw ' Sara.K@Gmail.com' -> normalized 'sara.k@gmail.com'   READY\nrow 7: raw '(415) 555-2671'    -> E.164 '+14155552671'      READY\nrow 12: raw email blank, phone blank                    DROP, no match key\nrow 15: raw 'MIKE@BIZ.CO ' (trailing space)              READY after trim+lowercase",
+          healthy: "18 of 20 rows normalized and upload-ready; 2 rows explicitly dropped with a reason logged.",
+          unhealthy: "Uploading all 20 rows as-is, including the 2 with no match key, or hashing ' User@Example.com' without trimming first.",
+          interpret: "A hash is only useful if it matches Google's hash of the same value in the same format. Normalization has to happen before hashing, not after, because hashing is one-way, you can't fix a bad hash after the fact.",
+          soWhat: [{ symptom: "Customer Match audience uploads but match rate is unexpectedly low", action: "Check normalization (case, whitespace, phone format) before assuming the audience is just small", effort: "30 min" }],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [{ toolName: "Google Sheets", role: "Normalize raw export fields before hashing", why: "Free, no account friction, formulas handle case/whitespace/phone-format fixes", required: true, lastVerified: "2026-08" }],
+        paid: [],
+      },
+      deliverable: "A cleaned, normalized customer list with a DROP flag column, ready to be hashed and uploaded to Google's Data Manager API.",
+      sampleOutput:
+        "Glossybox, lapsed-subscriber re-engagement list (excerpt)\n\n" +
+        "email_normalized          phone_e164        status\n" +
+        "priya.n@gmail.com         +919845012345     READY\n" +
+        "sam.oconnor@yahoo.com     +14155552671      READY\n" +
+        "(blank)                   (blank)           DROP, no match key\n" +
+        "j.lee@biz.co              +442071234567     READY\n\n" +
+        "Summary: 47 of 50 rows ready, 3 dropped for missing match keys",
+      successCriteria: ["Every ready row has lowercase, trimmed email or valid E.164 phone", "Rows with no usable match key are explicitly flagged, not silently uploaded"],
+      portfolioReady: true,
+    },
+    {
+      id: "first-party-data-activation-capi-dedup-audit",
+      tier: "core",
+      archetype: "audit",
+      title: "The Deduplication Audit: Catching a Double-Counted Conversion Before It Skews Your CPA",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective: "Given a set of paired browser-Pixel and server-CAPI event logs for the same purchases, identify which events are missing a matching event_id (and will double-count) versus which are correctly deduplicated, and quantify the CPA distortion caused by the gap.",
+      companyId: "airbnb",
+      scenario: "You're auditing tracking health for a mid-market DTC brand's Meta ad account after a developer rolled out server-side CAPI last month, and CPA has mysteriously dropped 35% in the dashboard with no change in spend or targeting.",
+      brief: "Pair every Pixel event against its CAPI counterpart by order ID, check for matching event_id, and calculate the real (deduplicated) purchase count versus the dashboard's reported count.",
+      mode: "diagnostic",
+      conceptsCovered: ["Diagnosing double-counted conversions from a missing event_id", "Reading Enhanced Conversions match-rate impact on Smart Bidding"],
+      steps: [
+        {
+          stepId: "step-1-event-id-pairing",
+          concept: "Diagnosing double-counted conversions from a missing event_id",
+          lessonAnchor: "meta-capi-pixel-server-not-eitheror",
+          theoryRecap: "The lesson's Meta CAPI section explains that running Pixel and CAPI in parallel requires an identical event_id on both payloads for the same event, or Meta counts it twice, artificially lowering apparent CPA and causing Smart Bidding to over-spend chasing a target that isn't real.",
+          question: "Of 15 purchase events logged this week, 15 fired from the Pixel and 15 fired from CAPI. Pairing them by order ID, 4 pairs share no matching event_id. What does the dashboard report versus what actually happened?",
+          toolName: "Google Sheets",
+          where: "Import pixel-events.csv and capi-events.csv, join on order_id, compare event_id columns.",
+          procedure: [
+            "Import both event logs and match rows on order_id using VLOOKUP or a join",
+            "Compare the event_id value on each matched pair",
+            "Flag pairs where event_id differs or is blank on one side, these count as 2 conversions instead of 1",
+            "Recalculate true purchase count and the resulting real CPA",
+          ],
+          outputSample: "order #4471: pixel event_id 'evt_a1'  | capi event_id 'evt_a1'   MATCHED, counts once\norder #4472: pixel event_id 'evt_b2'  | capi event_id (blank)    NOT MATCHED, counts twice\norder #4473: pixel event_id 'evt_c3'  | capi event_id 'evt_c9'   MISMATCHED, counts twice\n...\nDashboard-reported purchases: 19   Actual deduplicated purchases: 15   Inflation: +26.7%",
+          healthy: "Deduplicated purchase count matches order volume exactly; dashboard CPA and real CPA are the same number.",
+          unhealthy: "Dashboard shows 19 purchases against 15 real orders because 4 CAPI events fired without the Pixel's event_id, so Meta's bid strategy is optimizing toward a CPA that's 27% too optimistic.",
+          interpret: "A missing or mismatched event_id isn't a tracking inconvenience, it directly corrupts the number Smart Bidding optimizes against, which means the algorithm will keep spending as if it's hitting a target CPA it's actually missing.",
+          soWhat: [{ symptom: "CPA drops sharply right after a CAPI rollout with no other change", action: "Audit event_id pairing before trusting the new lower CPA, don't just celebrate it", effort: "30 min" }],
+          owner: "developer",
+        },
+        {
+          stepId: "step-2-enhanced-conversions-lift-read",
+          concept: "Reading Enhanced Conversions match-rate impact on Smart Bidding",
+          lessonAnchor: "enhanced-conversions-setup-and-expected-lift",
+          theoryRecap: "The lesson cites Workshop Digital's case studies: 4 of 5 client accounts saw a lift in tracked conversion volume after enabling Enhanced Conversions, averaging 6-10% recovery, because hashed first-party data gives Google a second matching attempt when cookies fail.",
+          question: "After enabling Enhanced Conversions, weekly tracked conversions rose from 210 to 226 with no change in spend or creative. Is this a real recovery signal or noise?",
+          toolName: "Google Sheets",
+          where: "Compare a 4-week pre-launch average against a 4-week post-launch average for tracked conversions, holding spend constant.",
+          procedure: [
+            "Pull weekly tracked conversions for the 4 weeks before and after enabling Enhanced Conversions",
+            "Confirm spend and campaign structure didn't change in the same window",
+            "Calculate percent lift: (post-avg minus pre-avg) / pre-avg",
+            "Compare the lift against the lesson's 6-10% benchmark range",
+          ],
+          outputSample: "Pre-launch 4-week avg: 210 conversions/week\nPost-launch 4-week avg: 226 conversions/week\nLift: +7.6%, within the 6-10% typical recovery range cited in the case studies",
+          healthy: "A 6-10% lift with stable spend, consistent with previously-unmatched cookieless conversions now being recovered via hashed data.",
+          unhealthy: "Treating any conversion increase as proof of a random creative or targeting change when spend and creative were both held constant.",
+          interpret: "A lift in this specific range, with everything else held constant, is the expected signature of Enhanced Conversions recovering matches Google previously missed, not a coincidence worth re-attributing to something else.",
+          soWhat: [{ symptom: "Conversions rise right after enabling Enhanced Conversions", action: "Check the lift against the 6-10% benchmark before crediting an unrelated campaign change", effort: "5 min" }],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [{ toolName: "Google Sheets", role: "Join and compare Pixel vs CAPI event logs by order ID", why: "Free, handles VLOOKUP-based pairing without a paid analytics tool", required: true, lastVerified: "2026-08" }],
+        paid: [],
+      },
+      deliverable: "A deduplication audit spreadsheet showing true purchase count vs. dashboard-reported count, plus an Enhanced Conversions lift calculation with a verdict on whether it matches the expected benchmark range.",
+      sampleOutput:
+        "Duolingo Plus, Meta Ads tracking audit (excerpt)\n\n" +
+        "DEDUPLICATION CHECK\n" +
+        "  Dashboard purchases (7 days): 142\n" +
+        "  Deduplicated purchases: 131\n" +
+        "  Inflation: +8.4%, 11 events missing matched event_id\n\n" +
+        "ENHANCED CONVERSIONS LIFT\n" +
+        "  Pre-launch avg: 580/week   Post-launch avg: 621/week\n" +
+        "  Lift: +7.1%, within expected 6-10% recovery range",
+      successCriteria: ["Correctly identifies every mismatched/missing event_id pair", "Calculates a real deduplicated CPA distinct from the dashboard number", "Correctly judges whether the Enhanced Conversions lift falls inside the benchmark range"],
+      portfolioReady: true,
+    },
+  ],
+  "creator-ugc-ads": [
+    {
+      id: "creator-ugc-ads-brief-build",
+      tier: "mini",
+      archetype: "build-the-asset",
+      title: "Write a UGC Creator Brief That Doesn't Sound Like a Script",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective: "Write a Hook-format UGC creator brief for a real product that gives a creator enough direction to produce on-brand content without dictating word-for-word dialogue, the single most common way brands accidentally make UGC look scripted.",
+      companyId: "glossybox",
+      scenario: "You're the paid social lead at Glossybox, the beauty subscription box company, briefing a UGC platform creator for a Hook-format ad testing a new limited-edition box.",
+      brief: "Write a brief with a problem/surprise hook, 3 required talking points (not scripted lines), and explicit creative freedom notes, then check it against a scripted-sounding version to see the difference.",
+      mode: "build",
+      conceptsCovered: ["Writing a Hook-format brief without over-scripting"],
+      steps: [
+        {
+          stepId: "step-1-hook-brief",
+          concept: "Writing a Hook-format brief without over-scripting",
+          lessonAnchor: "the-three-ugc-content-formats-and-when-to-use-each",
+          theoryRecap: "The lesson's Hook Format section describes opening with a problem or surprise ('I spent $3,000 on productivity tools and wasted it all') before revealing the product, used for cold traffic, and notes that UGC only reads as authentic when it isn't scripted word-for-word.",
+          question: "Given the product (a $42/month beauty subscription box) and format (Hook), what belongs in the brief as a required talking point versus what should be left to the creator's own words?",
+          toolName: "Google Docs",
+          where: "Draft the brief in a shared doc the creator can comment on directly.",
+          procedure: [
+            "Write a 1-sentence problem/surprise hook prompt, not a scripted line",
+            "List 3 required talking points (what the box costs, what's inside, the cancel-anytime policy) as bullet facts, not dialogue",
+            "Add an explicit 'in your own words' note next to each talking point",
+            "Specify format constraints only (length, vertical video, first 3 seconds must show a reaction) without directing exact phrasing",
+          ],
+          outputSample: "HOOK PROMPT (creator's own words): Something that surprised you about your first box\nREQUIRED FACTS: $42/month, 5-7 full-size products, cancel anytime\nFORMAT: 15-30 sec, vertical, reaction visible in first 3 seconds\nNOT INCLUDED: no scripted lines, no required brand phrases",
+          healthy: "A brief a creator can read in 2 minutes and immediately understand what facts must appear, while everything else stays in their own voice.",
+          unhealthy: "A brief with a full word-for-word script the creator is asked to read on camera, which is the single fastest way to make UGC look like a studio ad.",
+          interpret: "The lesson's core claim is that authenticity beats polish because people trust a peer, not a brand message; a scripted brief undoes that trust before the creator even films.",
+          soWhat: [{ symptom: "UGC videos come back sounding stiff or brand-scripted", action: "Check the brief for dialogue lines instead of talking-point facts", effort: "5 min" }],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [{ toolName: "Google Docs", role: "Draft and share the creator brief", why: "Free, comment threads let the creator ask clarifying questions directly on the brief", required: true, lastVerified: "2026-08" }],
+        paid: [],
+      },
+      deliverable: "A one-page Hook-format creator brief with required facts separated from open creative direction.",
+      sampleOutput:
+        "ThredUp, UGC Hook brief (excerpt)\n\n" +
+        "HOOK PROMPT: Something that shocked you the first time you thrifted online\n" +
+        "REQUIRED FACTS: up to 90% off retail, free shipping over $79, Clean Out Kit for selling\n" +
+        "FORMAT: 20-30 sec vertical, unboxing moment required\n" +
+        "NOT SCRIPTED: creator's own words throughout, no required brand phrases",
+      successCriteria: ["Required facts are listed separately from any suggested phrasing", "No line in the brief reads as a word-for-word script"],
+      portfolioReady: true,
+    },
+    {
+      id: "creator-ugc-ads-teardown-authenticity",
+      tier: "core",
+      archetype: "teardown",
+      title: "The Authenticity Teardown: Spotting What Makes UGC Read as an Ad",
+      timeEstimate: "40 minutes",
+      timeMinutes: 40,
+      objective: "Given 3 synthetic UGC ad scripts (one Hook, one Product Demo, one Testimonial), identify the specific lines and structural choices that break the authenticity illusion, versus surface-level flags (a phone camera, a plain background) that don't actually matter.",
+      companyId: "duolingo",
+      scenario: "You're reviewing a batch of 3 UGC ad scripts submitted by a creator platform for Duolingo's language-learning app before greenlighting production, checking each against the lesson's authenticity criteria.",
+      brief: "Score each script's defects by severity, distinguish real red flags from things that merely look unpolished but aren't actually the problem.",
+      mode: "teardown",
+      conceptsCovered: ["Scripted dialogue defeats the Hook format's authenticity", "Brand-phrase language breaks Testimonial-format trust", "Format-mismatch between Demo content and Testimonial framing"],
+      teardownItems: [
+        {
+          itemId: "item-1-hook-script",
+          specimen: "SCRIPT A (Hook format, submitted for cold-traffic testing):\n[Creator on camera, holding phone] \"Hey guys! I'm SO excited to share Duolingo with you today, it's a language-learning app that has completely transformed the way I study! With Duolingo, you can learn over 40 languages using bite-sized, gamified lessons that fit into your busy schedule. I've used the app to learn Spanish for 3 months and I've seen incredible results! Duolingo makes learning fun and effective, unlike boring textbooks!\"\n[Cut to app screen recording]",
+          specimenSource: "synthetic-realistic",
+          prompt: "This is a Hook-format script meant for cold traffic. Identify what breaks the authenticity illusion, and note anything that looks unpolished but isn't actually a defect.",
+          answerKey: [
+            { defect: "Opens with brand enthusiasm ('I'm SO excited to share Duolingo with you today') instead of a problem or surprise, the lesson's Hook format specifically requires opening with a problem or surprise, not a product introduction", severity: "critical", whyItMatters: "A Hook that leads with the product name and brand excitement reads exactly like a scripted ad, the opposite of the format's purpose of stopping cold-traffic scroll with a relatable moment", lessonRef: "The Three UGC Content Formats, And When to Use Each", owner: "you" },
+            { defect: "Marketing-copy phrasing ('bite-sized, gamified lessons that fit into your busy schedule', 'unlike boring textbooks') reads as lifted from an app store listing, not something a real person says out loud", severity: "critical", whyItMatters: "This is the exact scripted-dialogue failure the lesson warns kills the peer-recommendation feel that makes UGC outperform studio ads", lessonRef: "The Performance Gap", owner: "you" },
+            { defect: "No specific, concrete detail (which language beyond naming Spanish, what the '3 months' result actually was) to anchor the claim as a real experience", severity: "moderate", whyItMatters: "Vague claims read as generic testimonial filler rather than a specific, believable moment, weakening trust even if the delivery improves", lessonRef: "The Performance Gap", owner: "you" },
+          ],
+          distractors: ["The creator is holding a phone instead of using a tripod", "The script cuts to a screen recording of the app"],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-testimonial-script",
+          specimen: "SCRIPT B (Testimonial format, submitted for bottom-funnel retargeting):\n[Creator sitting casually at home] \"Okay so I have to talk about this. I was honestly skeptical about language apps, I'd tried like 3 before and gave up on all of them within a week. But Duolingo's streak thing genuinely got me, I'm on day 94 now and I actually understand basic conversations in French, which felt impossible six months ago. It's not perfect, some of the later lessons feel repetitive, but for actually sticking with it? Nothing else worked for me like this did.\"",
+          specimenSource: "synthetic-realistic",
+          prompt: "This is a Testimonial-format script for bottom-funnel retargeting. Identify any real defects versus things that might look like defects but actually support the format's goal.",
+          answerKey: [
+            { defect: "No defect: including a mild criticism ('some of the later lessons feel repetitive') alongside the praise, this is a strength, not a flaw", severity: "cosmetic", whyItMatters: "A testimonial with zero criticism reads as scripted; a specific, minor gripe alongside genuine praise is exactly what makes the format read as a real peer opinion rather than an ad", lessonRef: "The Three UGC Content Formats, And When to Use Each", owner: "you" },
+          ],
+          distractors: ["The creator mentions trying 3 competitor apps by name, which could be a legal/comparative-claims risk depending on how it's phrased", "The specific streak number (day 94) makes the claim feel dated once the real campaign launches"],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [{ toolName: "Google Docs", role: "Score and annotate each submitted script before greenlighting production", why: "Free, comment threads track defect notes creator-facing feedback can reference directly", required: true, lastVerified: "2026-08" }],
+        paid: [],
+      },
+      deliverable: "A scored teardown of all 3 submitted scripts with defects ranked by severity and a go/no-go/revise verdict per script.",
+      sampleOutput:
+        "ThredUp, UGC script review (excerpt)\n\n" +
+        "SCRIPT A (Hook): REVISE, critical, opens with product name instead of a relatable problem\n" +
+        "SCRIPT B (Testimonial): APPROVE, mild built-in criticism reads as authentic, no scripted-language flags\n" +
+        "SCRIPT C (Demo): REVISE, moderate, framed as an opinion piece instead of a step-by-step walkthrough",
+      successCriteria: ["Correctly separates real authenticity defects from cosmetic non-issues", "Flags scripted/marketing-copy language specifically, not just general tone", "Does not penalize legitimate testimonial criticism as a defect"],
+      portfolioReady: true,
+    },
+  ],
+
+  "snapchat-pinterest-ads": [
+    {
+      id: "snapchat-pinterest-ads-platform-fit-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "Which Platform Actually Fits: A Two-Brand Placement Audit",
+      timeEstimate: "35 minutes",
+      timeMinutes: 35,
+      objective: "Given two supplied brand briefs and a shared $20/day test budget, apply the lesson's platform-fit framework and Pinterest keyword-targeting logic to decide which platform each brand should lead with, and which Pinterest keywords each should bid on.",
+      companyId: "allbirds",
+      scenario: "You're a freelance paid-media consultant. Two prospective clients have asked which platform, Snapchat or Pinterest, deserves their first $20/day test: Allbirds (sustainable footwear, core buyer 22-35) and a fictional home-décor brand, Warmly Home (ceramic planters and linen throws, core buyer 28-45, average 4-month purchase-planning cycle).",
+      brief: "Score each brand against the lesson's audience/intent criteria for both platforms, then write 5 Pinterest keywords for whichever brand fits Pinterest, sized against realistic search intent.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Matching platform to audience age and purchase-intent horizon",
+        "Pinterest keyword targeting as a search-intent signal, not an interest signal",
+      ],
+      steps: [
+        {
+          stepId: "step-1-platform-fit",
+          concept: "Matching platform to audience age and purchase-intent horizon",
+          lessonAnchor: "which-platform-for-which-brand",
+          theoryRecap: "The lesson splits fit by two variables: audience age (Snapchat skews under-25, 90%+ of US/UK/Australian users daily active) and purchase-planning horizon (Pinterest users plan 3-6 months out; someone pinning wedding dresses is 90% more likely to be actively planning a wedding).",
+          question: "Allbirds' buyer is 22-35 buying shoes on a short cycle. Warmly Home's buyer is 28-45 planning a room refresh over months. Which platform leads for each, and why does Warmly Home NOT default to Snapchat just because CPMs are lower there?",
+          toolName: "Google Sheets",
+          where: "Build a 2-column scoring sheet: platform fit criteria as rows, each brand as a column.",
+          procedure: [
+            "List the lesson's fit criteria as rows: audience age, purchase-planning horizon, category (CPG/fashion vs. home/wedding/DIY)",
+            "Score Allbirds against Snapchat and Pinterest fit criteria",
+            "Score Warmly Home against Snapchat and Pinterest fit criteria",
+            "Write the platform recommendation for each brand with one sentence citing the deciding criterion",
+          ],
+          outputSample: "Allbirds -> Snapchat lead (fashion/apparel chasing a younger, faster-cycle buyer; short consideration window fits Snap's impulse-driven Story format)\nWarmly Home -> Pinterest lead (home decor, 3-6 month planning cycle, buyer actively searching room-refresh ideas, not scrolling Stories)",
+          healthy: "Warmly Home gets recommended to Pinterest even though Snapchat CPMs are cheaper, because cheap reach to the wrong intent is still wasted spend.",
+          unhealthy: "Recommending Snapchat for Warmly Home purely because the CPM number looks better on a spreadsheet.",
+          interpret: "Platform fit is decided by audience age and purchase-intent horizon first; CPM is a tiebreaker only after fit is established, never the primary filter.",
+          soWhat: [{ symptom: "A client asks 'why not just run the cheaper platform for both brands'", action: "Show the fit-criteria table, not the CPM comparison, to justify the split", effort: "5 min" }],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-keyword-targeting",
+          concept: "Pinterest keyword targeting as a search-intent signal, not an interest signal",
+          lessonAnchor: "pinterest-targeting-keywords-like-search",
+          theoryRecap: "The lesson positions Pinterest keyword targeting as closer to search than social: keywords like 'sustainable wedding dress' or 'coastal interior design' target people already primed to convert, not people who merely share an interest category.",
+          question: "For Warmly Home, which 5 keywords belong in the first Pinterest campaign, and which of the following should be rejected as too broad: 'home decor', 'ceramic planter for windowsill', 'living room ideas', 'linen throw blanket neutral', 'interior design', 'cozy reading nook decor'?",
+          toolName: "Pinterest Ads Manager",
+          where: "Pinterest Ads Manager, campaign creation, Keywords targeting tab.",
+          procedure: [
+            "Discard 'home decor' and 'interior design': category-level terms with no specific buying signal, matches the lesson's warning against broad interest terms",
+            "Keep 'ceramic planter for windowsill', 'linen throw blanket neutral', 'cozy reading nook decor': specific enough to signal an active shopper, not a browser",
+            "Keep 'living room ideas' as a secondary informational-adjacent term feeding the top of funnel, flagged lower priority",
+            "Submit the 5-keyword list ranked by specificity",
+          ],
+          outputSample: "PRIMARY (high specificity)\n  1. ceramic planter for windowsill\n  2. linen throw blanket neutral\n  3. cozy reading nook decor\nSECONDARY (top-of-funnel)\n  4. living room ideas\nREJECTED (too broad)\n  home decor, interior design",
+          healthy: "The keyword list favors specific, buying-stage phrases over category umbrellas.",
+          unhealthy: "Bidding on 'home decor' because it has the highest search volume, without checking whether volume means buying intent.",
+          interpret: "On Pinterest, keyword specificity is a proxy for purchase stage; broad category terms pull browsers, specific product-context terms pull buyers.",
+          soWhat: [{ symptom: "Pinterest CTR is fine but conversion rate is flat", action: "Audit the keyword list for category-level terms and replace them with specific product-context phrases", effort: "30 min" }],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Score platform fit for each brand", why: "Free, no account needed", required: true, lastVerified: "2026-08" },
+          { toolName: "Pinterest Ads Manager", role: "Build and validate the keyword list", why: "Free account creation, keyword targeting tab available without spend", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable: "A one-page platform recommendation for each brand plus a ranked 5-keyword Pinterest targeting list for the brand that fits Pinterest.",
+      sampleOutput:
+        "Warmly Home, Pinterest keyword targeting brief\n\n" +
+        "RECOMMENDATION: Pinterest lead, Snapchat skip for now\n" +
+        "Reasoning: buyer plans 3-6 months out and actively searches room-refresh ideas; matches Casper Sleep's own finding that intent-stage keyword targeting outperforms interest-stage targeting for considered-purchase categories.\n\n" +
+        "KEYWORD LIST (ranked)\n" +
+        "1. ceramic planter for windowsill   -- primary, high specificity\n" +
+        "2. linen throw blanket neutral      -- primary, high specificity\n" +
+        "3. cozy reading nook decor          -- primary, high specificity\n" +
+        "4. living room ideas                -- secondary, top-of-funnel\n" +
+        "REJECTED: home decor, interior design (category-level, no buying signal)",
+      successCriteria: [
+        "Correctly recommends Snapchat for Allbirds and Pinterest for Warmly Home with the deciding criterion named",
+        "Keeps the 3 specific keywords, demotes the 1 informational term, and rejects both category-level terms",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "snapchat-pinterest-ads-two-week-test-simulation",
+      tier: "core",
+      archetype: "simulation",
+      title: "The $20/Day Split Test: Running Two Weeks of Snapchat and Pinterest",
+      timeEstimate: "50 minutes",
+      timeMinutes: 50,
+      objective: "Practice the lesson's 14-day, $20/day split-test workflow across Snapchat and Pinterest, reacting to swipe-rate, CTR, and add-to-cart signals at three checkpoints without an ad account or real spend.",
+      companyId: "casper-sleep",
+      scenario: "You're running paid social for Casper Sleep's new travel pillow line. You've allocated $20/day for 14 days, split $10 Snapchat / $10 Pinterest, to find which platform earns the next quarter's budget.",
+      brief: "Read each checkpoint's dashboard, apply the lesson's swipe-rate and add-to-cart benchmarks, and decide whether to hold, adjust, or reallocate budget.",
+      mode: "simulation",
+      conceptsCovered: [
+        "Reading Snapchat swipe rate as a creative-resonance signal",
+        "Reading Pinterest add-to-cart rate as the winner-selection metric",
+      ],
+      stages: [
+        {
+          stageId: "day3-checkpoint",
+          label: "Day 3, first look",
+          elapsed: "Day 3 of 14",
+          concept: "Reading Snapchat swipe rate as a creative-resonance signal",
+          lessonAnchor: "testing-both-platforms-without-overspending",
+          situation: "Both campaigns have been live for three days with the single Snap Ad creative and the 3 Pinterest lifestyle images running untouched.",
+          dashboard:
+            "Snapchat, 'Travel Pillow Launch'\n" +
+            "  Spend            $30.00\n" +
+            "  Impressions       9,400\n" +
+            "  Swipe rate         84%   (lesson benchmark: above 80% = creative isn't resonating)\n" +
+            "  CPC               $0.71\n\n" +
+            "Pinterest, 3 lifestyle images\n" +
+            "  Spend             $30.00\n" +
+            "  Clicks              210\n" +
+            "  Add-to-cart          4",
+          spendToDate: "$60.00 of $280",
+          budgetRemaining: "$220.00",
+          decision: {
+            prompt: "Snapchat's swipe rate is 84%, above the lesson's 80% ceiling for 'creative isn't resonating.' What do you do on day 3?",
+            options: [
+              {
+                id: "swap-creative-day3",
+                label: "Swap the Snap Ad for a rawer, phone-shot cut with the hook in the first second",
+                verdict: "optimal",
+                outcome: "The lesson is explicit: above 80% swipe rate means the creative isn't resonating, and Snapchat rewards native, unpolished content over TV-style production. Swapping early, on day 3 of 14, still leaves 11 days to gather real signal on the replacement.",
+                why: "An 84% swipe rate this early is a creative problem, not a targeting problem; waiting burns budget on a format the audience is already rejecting.",
+                lessonRef: "Creative Principles for Snapchat: feel native to the platform, not like a TV commercial",
+                nextStageId: "day9-checkpoint",
+              },
+              {
+                id: "wait-it-out-day3",
+                label: "Leave both campaigns untouched and check again in a week",
+                verdict: "costly",
+                outcome: "By day 9 the swipe rate is still 83% and $90 more has been spent reaching an audience that keeps skipping. The delay cost a full week of the 14-day test on a creative the lesson's own benchmark already flagged.",
+                why: "The 80% swipe-rate threshold exists specifically so you don't need a week of extra data to know a creative is failing.",
+                lessonRef: "On Snapchat, focus on one vertical video creative. Measure swipe rate and cost per click.",
+                nextStageId: "end",
+              },
+              {
+                id: "kill-snapchat-day3",
+                label: "Pull all remaining Snapchat budget and move it to Pinterest immediately",
+                verdict: "acceptable",
+                outcome: "Pinterest gets more budget and Snapchat stops bleeding on a bad creative, but this skips the lesson's actual fix, swapping creative, and abandons a channel that fits Casper's under-35 travel-pillow buyer well before giving it a fair second attempt.",
+                why: "A high swipe rate on day 3 is a creative signal, not proof the platform is wrong for this brand.",
+                lessonRef: "Which Platform for Which Brand?",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "day9-checkpoint",
+          label: "Day 9, mid-test read",
+          elapsed: "Day 9 of 14",
+          concept: "Reading Pinterest add-to-cart rate as the winner-selection metric",
+          lessonAnchor: "testing-both-platforms-without-overspending",
+          situation: "The swapped Snap Ad is now at a healthy 41% swipe rate. Pinterest has run all 3 lifestyle images against the 5 target keywords for 9 days.",
+          dashboard:
+            "Snapchat, new creative\n" +
+            "  Spend            $60.00 (since swap)\n" +
+            "  Swipe rate          41%\n" +
+            "  CPC               $0.52\n\n" +
+            "Pinterest, per-image breakdown\n" +
+            "  Image A (product on shelf)         Clicks 140   Add-to-cart 2\n" +
+            "  Image B (pillow in airport lounge)  Clicks 165   Add-to-cart 11\n" +
+            "  Image C (pillow + neck, close-up)   Clicks 120   Add-to-cart 3",
+          spendToDate: "$210.00 of $280",
+          budgetRemaining: "$70.00",
+          decision: {
+            prompt: "Pinterest Image B is clearly outperforming on add-to-cart rate. With 5 days and $70 left, what's the right move?",
+            options: [
+              {
+                id: "shift-to-winner-image",
+                label: "Pause Images A and C, put the remaining Pinterest budget behind Image B",
+                verdict: "optimal",
+                outcome: "Image B converts to add-to-cart at roughly 6.7% versus A's 1.4% and C's 2.5%, a clear lifestyle-context winner (the airport-lounge scene, not the plain product shot). Concentrating the last $70 there maximizes learnings and cart adds before the test ends.",
+                why: "The lesson's own workflow is to identify the top performer after one week, then increase budget to that winner, exactly this decision at exactly this point in the test.",
+                lessonRef: "On Pinterest, test 3 different lifestyle images with keyword targeting... Identify the top performer after one week, then increase budget to that winner.",
+                nextStageId: "end",
+              },
+              {
+                id: "keep-all-three-running",
+                label: "Keep all 3 images running evenly through day 14 for a 'clean' final comparison",
+                verdict: "costly",
+                outcome: "The final report shows the same pattern, Image B wins, but $30-40 that could have compounded the winner's data instead diluted spend across two images already proven weaker.",
+                why: "Once a clear winner emerges mid-test, continuing to split budget evenly is testing a question you've already answered.",
+                lessonRef: "Identify the top performer after one week, then increase budget to that winner.",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Snapchat Ads Manager", role: "Monitor swipe rate and CPC, swap creative", why: "Free account, dashboard-only monitoring needed for this simulation", required: true, lastVerified: "2026-08" },
+          { toolName: "Pinterest Ads Manager", role: "Monitor per-image clicks and add-to-cart, reallocate budget", why: "Free account, no spend required to read the reporting UI", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable: "A day-by-day decision log across the 14-day test explaining what was changed at each checkpoint and why, plus a final budget-allocation recommendation for next quarter.",
+      sampleOutput:
+        "Peloton, travel-accessory line, 14-day split test log (excerpt)\n\n" +
+        "Day 3: Snap Ad swipe rate hit 82% (above 80% ceiling). Swapped to a phone-shot cut with a first-second hook.\n" +
+        "Day 9: New Snap creative recovered to 38% swipe rate. Pinterest Image B (lifestyle-context) hit 5.9% add-to-cart vs. 1.1% and 2.8% for the other two; reallocated remaining Pinterest budget to Image B.\n" +
+        "Day 14 result: Pinterest CPC $0.61 lower cost-per-add-to-cart than Snapchat's cost-per-swipe-through; recommend 70% of Q2 budget to Pinterest, 30% to Snapchat for retargeting.",
+      successCriteria: [
+        "Swaps the Snapchat creative at day 3 rather than waiting out a swipe rate above the 80% ceiling",
+        "Reallocates Pinterest budget to the clear add-to-cart winner at the day 9 checkpoint",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "ai-max-broad-match": [
+    {
+      id: "ai-max-broad-match-search-terms-waste-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Search Terms Report: Finding Waste Before You Turn On AI Max",
+      timeEstimate: "35 minutes",
+      timeMinutes: 35,
+      objective: "Given a 25-row search terms export from a broad-match campaign, apply the lesson's negative-keyword and conversion-threshold framework to decide which terms to cut, which to promote, and whether the account has enough conversion volume to safely launch AI Max.",
+      companyId: "robinhood",
+      scenario: "You're a PPC analyst for Robinhood's brokerage app marketing team, reviewing a 30-day search terms export from a broad-match Search campaign before deciding whether to migrate it to AI Max.",
+      brief: "Sort the export by conversions, flag low-intent terms as negatives, flag high-converting patterns for a future Standard Search brand campaign, and check the account against the 30-conversion monthly threshold.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "The 30-conversion monthly threshold as a gate before enabling AI Max",
+        "Sorting a search terms report into negatives vs. Standard Search candidates",
+      ],
+      steps: [
+        {
+          stepId: "step-1-conversion-threshold",
+          concept: "The 30-conversion monthly threshold as a gate before enabling AI Max",
+          lessonAnchor: "the-minimum-conversion-threshold",
+          theoryRecap: "The lesson sets a hard floor: don't launch AI Max without at least 30 conversions/month baseline, because below that the algorithm is under-trained and defaults to bidding high and broad, wasting budget.",
+          question: "The 30-day export totals 22 conversions across the account. Does this account clear the threshold to launch AI Max this month?",
+          toolName: "Google Sheets",
+          where: "Sum the conversions column of the exported search terms report.",
+          procedure: [
+            "Import the 30-day search terms export into Sheets",
+            "Sum the conversions column across all 25 rows",
+            "Compare the total (22) against the lesson's 30-conversion floor",
+            "Write the go/no-go recommendation with the gap to close",
+          ],
+          outputSample: "Total 30-day conversions: 22\nThreshold: 30\nGap: 8 conversions short\nRecommendation: hold on AI Max, run Standard Search for another 2-3 weeks to close the gap",
+          healthy: "The account waits until it clears 30 conversions/month before migrating, even though it's tempting to switch now.",
+          unhealthy: "Launching AI Max at 22 conversions/month because 'it's close enough.'",
+          interpret: "The threshold is not a soft guideline; 8 conversions short means the algorithm is still under-trained and will default to broad, expensive bidding.",
+          soWhat: [{ symptom: "An account is 5-10 conversions short of 30/month", action: "Hold on AI Max, extend Standard Search 2-3 more weeks, recheck the total", effort: "5 min" }],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-search-term-sort",
+          concept: "Sorting a search terms report into negatives vs. Standard Search candidates",
+          lessonAnchor: "search-term-reporting-monitoring-adding-negatives",
+          theoryRecap: "The lesson's workflow: export search terms, sort by conversions, add low-relevance bottom performers as negatives, and identify high-converting patterns as candidates for their own Standard Search brand campaign.",
+          question: "Two rows stand out: 'robinhood app free download' (340 clicks, 0 conversions) and 'robinhood options trading fees explained' (85 clicks, 9 conversions). What does each become?",
+          toolName: "Google Ads",
+          where: "Google Ads, Search Terms report, exact-match negative list.",
+          procedure: [
+            "Sort the 25-row export by conversions ascending to surface zero-conversion, high-click terms first",
+            "Add 'robinhood app free download' as an exact-match negative: high clicks, zero conversions, low-intent 'free' modifier",
+            "Flag 'robinhood options trading fees explained' as a Standard Search candidate: high conversion rate on a specific, high-intent query",
+            "Repeat the sort weekly per the lesson's monitoring cadence",
+          ],
+          outputSample: "NEGATIVE (exact match): robinhood app free download -- 340 clicks, 0 conv\nSTANDARD SEARCH CANDIDATE: robinhood options trading fees explained -- 85 clicks, 9 conv (10.6% CVR)",
+          healthy: "The zero-conversion, high-click term gets excluded before more budget flows to it; the high-converting specific query gets promoted to its own tightly controlled campaign.",
+          unhealthy: "Leaving 'free download' unaddressed because it's still technically driving clicks and impressions.",
+          interpret: "A search terms report isn't just a negatives source, it's also a discovery tool for queries specific enough to deserve dedicated, tightly-controlled campaigns.",
+          soWhat: [{ symptom: "A high-click term has zero conversions after 2+ weeks", action: "Add it as an exact-match negative this week, don't wait for a full month of data", effort: "5 min" }],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Sum conversions, sort the export", why: "Free, works on any exported CSV", required: true, lastVerified: "2026-08" },
+          { toolName: "Google Ads", role: "Read the native Search Terms report, add negatives", why: "Free with any active Google Ads account", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable: "A go/no-go recommendation on launching AI Max plus a sorted negatives list and a Standard Search candidate list from the search terms export.",
+      sampleOutput:
+        "Peloton, connected fitness app, search terms audit (excerpt)\n\n" +
+        "CONVERSION THRESHOLD: 34 conversions in the last 30 days -- clears the 30-conversion floor, AI Max migration approved\n\n" +
+        "NEGATIVES ADDED (exact match)\n" +
+        "  peloton bike free trial cancel      210 clicks   0 conv\n" +
+        "  peloton jobs remote                  95 clicks   0 conv\n\n" +
+        "STANDARD SEARCH CANDIDATES\n" +
+        "  peloton bike vs tread monthly cost   60 clicks   7 conv  (11.7% CVR)",
+      successCriteria: [
+        "Correctly totals conversions and recommends holding at 22/month against the 30 threshold",
+        "Correctly separates the zero-conversion high-click term as a negative from the high-converting specific term as a Standard Search candidate",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "ai-max-broad-match-migration-simulation",
+      tier: "core",
+      archetype: "simulation",
+      title: "The AI Max Migration: 30 Days From Standard Search to Full Orchestration",
+      timeEstimate: "55 minutes",
+      timeMinutes: 55,
+      objective: "Practice the lesson's staged migration workflow, from hitting the conversion baseline through launching AI Max with multiple asset groups to protecting brand with Standard Search, reacting to a live-feeling dashboard at each checkpoint.",
+      companyId: "rent-the-runway",
+      scenario: "You manage paid search for Rent the Runway's new 'Try Before You Buy' subscription tier. Standard Search has been running for 6 weeks and just crossed the conversion baseline.",
+      brief: "Decide when to migrate, how many asset groups to launch with, and how to react to a mid-flight overspend signal, following the lesson's staged workflow.",
+      mode: "simulation",
+      conceptsCovered: [
+        "Migrating to AI Max only after clearing the conversion baseline, with a controlled budget increase",
+        "Asset group segmentation preventing budget cannibalization between customer segments",
+      ],
+      stages: [
+        {
+          stageId: "week6-migration-decision",
+          label: "Week 6, migration checkpoint",
+          elapsed: "Week 6 of Standard Search",
+          concept: "Migrating to AI Max only after clearing the conversion baseline, with a controlled budget increase",
+          lessonAnchor: "the-new-workflow-for-2026",
+          situation: "Standard Search has run for 6 weeks on core non-brand keywords. This morning's dashboard shows the trailing-30-day conversion count just crossed 30 for the first time.",
+          dashboard:
+            "Standard Search, 'Try Before You Buy', trailing 30 days\n" +
+            "  Conversions              32\n" +
+            "  Spend                $4,100\n" +
+            "  CPA                  $128.10\n" +
+            "  Current daily budget     $140",
+          spendToDate: "$4,100 over 6 weeks",
+          budgetRemaining: "N/A, monthly budget cycle",
+          decision: {
+            prompt: "Conversions just crossed 30 for the first time this month. What's the right migration move?",
+            options: [
+              {
+                id: "migrate-with-20pct-increase",
+                label: "Migrate to AI Max now, with a budget set 20% higher than current spend",
+                verdict: "optimal",
+                outcome: "The lesson's workflow calls for exactly this: once you hit 30+ conversions, launch AI Max with a monthly budget 20% higher than current spend, then monitor daily for the first two weeks.",
+                why: "32 conversions clears the floor, and the 20% increase (not a 2x or 3x jump) gives the algorithm room to find incremental volume without a budget shock.",
+                lessonRef: "Launch AI Max: Set a monthly budget 20% higher than you currently spend. Let it run for 14 days.",
+                nextStageId: "week8-overspend-check",
+              },
+              {
+                id: "wait-another-month",
+                label: "Wait one more month to confirm 30+ conversions is a stable pattern, not a one-time spike",
+                verdict: "acceptable",
+                outcome: "This is defensible caution, but it costs a full month of AI Max's likely incremental performance for confirmation the lesson's threshold doesn't actually require, 30 is the floor to act on, not a number to double-check first.",
+                why: "The lesson treats 30 conversions/month as the action threshold itself, not a signal to wait for a second confirming month.",
+                lessonRef: "Once you hit 30+ conversions, increase spend.",
+                nextStageId: "end",
+              },
+              {
+                id: "migrate-with-3x-budget",
+                label: "Migrate to AI Max and triple the budget immediately to accelerate learning",
+                verdict: "costly",
+                outcome: "A 3x budget jump on a freshly-migrated, still-calibrating algorithm burns through spend on low-confidence placements exactly like Mistake 1 in the lesson: launching without a controlled, gradual increase.",
+                why: "The lesson is specific that the increase should be 20%, gradual, with daily monitoring for overspend, not an aggressive multiple.",
+                lessonRef: "Mistake 1: Launching AI Max without conversion data... Let it optimize gradually.",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "week8-overspend-check",
+          label: "Week 8, day 10 of AI Max",
+          elapsed: "10 days into AI Max",
+          concept: "Asset group segmentation preventing budget cannibalization between customer segments",
+          lessonAnchor: "the-correct-ai-max-campaign-structure",
+          situation: "AI Max launched 10 days ago with a single asset group covering all messaging: budget-conscious renters and premium subscribers mixed into one set of headlines and images.",
+          dashboard:
+            "AI Max, 'Try Before You Buy', single asset group, day 10\n" +
+            "  Spend               $2,850 of $4,920 monthly budget\n" +
+            "  Conversions              14\n" +
+            "  CPA                  $203.57  (up from $128.10 pre-migration)\n" +
+            "  Budget-tier ad share      68%\n" +
+            "  Premium-tier ad share     32% (underserved despite similar audience size)",
+          spendToDate: "$2,850 of $4,920",
+          budgetRemaining: "$2,070",
+          decision: {
+            prompt: "CPA rose 59% and the single asset group is favoring budget-tier messaging over premium, even though both segments are similar in size. What's the fix?",
+            options: [
+              {
+                id: "split-into-segments",
+                label: "Split into 2-3 asset groups by customer segment (budget, premium, first-time-renter) and let each compete for its own budget",
+                verdict: "optimal",
+                outcome: "Within the next reporting cycle, CPA begins correcting as the algorithm can now allocate budget within each segment instead of collapsing everyone into whichever messaging tested marginally better first.",
+                why: "The lesson is direct: one asset group forces Google to pick between customer types and defaults to high CPCs; 2-3 segment-specific groups let the algorithm allocate intelligently.",
+                lessonRef: "Mistake 2: Only one asset group... Create 2-3 asset groups per campaign, each targeting a distinct customer segment.",
+                nextStageId: "end",
+              },
+              {
+                id: "pause-and-revert",
+                label: "Pause AI Max entirely and revert to Standard Search",
+                verdict: "costly",
+                outcome: "Reverting abandons 10 days of algorithm learning and the underlying diagnosis, a structural asset-group problem, never gets fixed, so a second attempt later would hit the same issue.",
+                why: "The dashboard shows a fixable structural mistake (one asset group), not evidence that AI Max itself is wrong for this account.",
+                lessonRef: "Mistake 2: Only one asset group.",
+                nextStageId: "end",
+              },
+              {
+                id: "just-cut-budget",
+                label: "Cut the daily budget in half to control the CPA rise",
+                verdict: "acceptable",
+                outcome: "CPA growth slows because less is spent overall, but the root cause, budget/premium cannibalization inside one asset group, is untouched, so the same distortion reappears at any budget level.",
+                why: "Cutting budget treats the symptom (spend) without addressing the cause (a single asset group forcing the algorithm to pick a winner between two real segments).",
+                lessonRef: "If you only have one asset group, you're forcing Google to pick between cannibalizing the budget-buyer and the premium-buyer.",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Ads", role: "Monitor conversions, CPA, and asset-group performance share", why: "Free with any active account, dashboard read is sufficient for this simulation", required: true, lastVerified: "2026-08" },
+          { toolName: "Google Sheets", role: "Log the week-over-week CPA and conversion trend", why: "Free tracking companion to the Ads dashboard", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [
+          { toolName: "Triple Whale", role: "Cross-channel attribution once AI Max is stable and spend scales past a single-platform view", why: "Useful once orchestrating AI Max + Standard Search + PMax together, not needed for this single-campaign migration", required: false, lastVerified: "2026-08" },
+        ],
+      },
+      deliverable: "A migration decision log covering the week-6 launch call and the week-8 asset-group fix, with the CPA trend and reasoning at each checkpoint.",
+      sampleOutput:
+        "Allbirds, 'Wool Runners Restock' campaign, AI Max migration log (excerpt)\n\n" +
+        "Week 5: Conversions crossed 31/month. Migrated to AI Max with a 20% budget increase ($3,200 -> $3,840/month).\n" +
+        "Week 7, day 9: CPA up 44% vs. pre-migration, single asset group favoring one shoe colorway. Split into 3 asset groups (everyday, trail, limited colorway).\n" +
+        "Week 9: CPA recovered to 12% above pre-migration baseline, conversions up 38% -- net positive once segmented.",
+      successCriteria: [
+        "Migrates at the week-6 checkpoint with a 20% budget increase, not a wait-and-confirm delay or an aggressive multiple",
+        "Diagnoses the week-8 CPA rise as a single-asset-group cannibalization problem and fixes it by segmenting, not by pausing or cutting budget",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "ad-frequency-creative-fatigue": [
+    {
+      id: "ad-frequency-creative-fatigue-export-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Refresh Call: Auditing a Frequency and CTR Export",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective: "Given a 21-day Meta ad set export with daily frequency, CTR, and CPA, identify the day fatigue actually set in and decide whether the fix is a refresh, a frequency cap, or a broader audience.",
+      companyId: "warby-parker",
+      scenario: "You're the paid social analyst at Warby Parker, running a Meta campaign for a new frame collection launch. Week one crushed it. By week three, the media buyer wants to know why CPA has climbed and whether to kill the campaign or fix it.",
+      brief: "Read frequency and CTR together, not separately, find the exact day the curve broke, and recommend the specific fix the data supports.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Reading frequency and CTR trend together to catch fatigue before CPA rises",
+        "Matching the refresh trigger to a frequency threshold, not a fixed calendar date",
+      ],
+      steps: [
+        {
+          stepId: "step-1-read-the-curve",
+          concept: "Reading frequency and CTR trend together to catch fatigue before CPA rises",
+          lessonAnchor: "what-creative-fatigue-actually-looks-like",
+          theoryRecap: "The lesson's fatigue curve shows peak CTR days 1-3, a 15-20% CTR drift days 4-7, and a 30-50% CTR drop by days 8-10 on Meta, with frequency crossing 3.0 as the signal that First-Time Impression Ratio has fallen below 20%.",
+          question: "The export shows frequency crossing 3.0 on day 9, and CTR has already dropped 24% from its day-2 peak by day 9. Is this campaign still in the 'watch it' zone or the 'act now' zone?",
+          toolName: "Google Sheets",
+          where: "Import frequency-ctr-export.csv, freeze the header row, add a column charting CTR against frequency by day.",
+          procedure: [
+            "Import the 21-day export and freeze row 1",
+            "Plot frequency and CTR on the same day axis to see where the lines cross",
+            "Mark the day frequency first exceeds 3.0",
+            "Compare CTR on that day against the day-2 peak to size the drop",
+          ],
+          outputSample: "Day 2 (peak): freq 1.4, CTR 2.1%, CPA $18\nDay 9: freq 3.1, CTR 1.6% (-24% vs peak), CPA $27\nDay 14: freq 4.3, CTR 1.1% (-48% vs peak), CPA $39",
+          healthy: "Frequency stays under 3.0 through day 10 while CTR holds within 10-15% of its peak.",
+          unhealthy: "Frequency crosses 3.0 by day 9 with CTR already down 24% and CPA up 50%, the fatigue curve has already broken.",
+          interpret: "Frequency crossing 3.0 is the trigger, not CPA. By the time CPA visibly moves, the campaign has already been re-showing the same faces for days.",
+          soWhat: [
+            { symptom: "Frequency crosses 3.0 while CTR is still within 15% of peak", action: "Schedule a refresh within the week, not urgent yet", effort: "5 min" },
+            { symptom: "Frequency crosses 3.0 and CTR has already dropped over 20%", action: "Refresh creative or cap frequency immediately, the window already closed", effort: "30 min" },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-pick-the-fix",
+          concept: "Matching the refresh trigger to a frequency threshold, not a fixed calendar date",
+          lessonAnchor: "a-practical-creative-refresh-cadence-framework",
+          theoryRecap: "2026 benchmarks put Meta's refresh window at 7-10 days once frequency exceeds 2.5, with a rotation pool of 6-8 active creatives keeping delivery from concentrating on one asset.",
+          question: "The export shows only 2 creatives running in this ad set the whole 21 days. Given the fatigue already measured in step 1, what's the actual fix, a hard frequency cap, a new audience, or more creative variants?",
+          toolName: "Meta Ads Manager",
+          where: "Ads Manager > Ad Set > Frequency & Reach column, cross-referenced with the Ads tab creative count.",
+          procedure: [
+            "Check how many distinct creatives are live in the ad set",
+            "Compare that count against the 6-8 creative benchmark",
+            "If creative count is below benchmark, recommend adding variants before touching audience size",
+            "If creative count already meets benchmark, recommend an audience expansion or hard frequency cap instead",
+          ],
+          outputSample: "Ad set 'Frame Launch - Lookalike 1%': 2 active creatives, 21 days live, frequency 4.3 on day 14.\nBenchmark: 6-8 active creatives.\nGap: 4-6 creatives short of pool minimum.",
+          healthy: "An ad set fatiguing fast still has 6+ creatives in rotation, so the fix is audience expansion or a hard cap.",
+          unhealthy: "An ad set fatiguing fast has only 2 creatives, the fatigue is a starved rotation pool, not a targeting problem.",
+          interpret: "Do not reach for a bigger audience as the first fix if the creative pool itself is underfed, adding reach just exposes more people to the same two tired assets faster.",
+          soWhat: [
+            { symptom: "Fewer than 6 active creatives in a fatiguing ad set", action: "Add 4-6 new creative variants before touching audience or budget", effort: "half day" },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Chart frequency against CTR to find the break point", why: "Free, no account friction, sufficient for a single ad set export", required: true, lastVerified: "2026-08" },
+          { toolName: "Meta Ads Manager", role: "Check live creative count and frequency stats directly", why: "Source of truth for what's actually running, free with any ad account", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable: "A one-page diagnosis naming the day fatigue set in, the frequency threshold that triggered it, and whether the fix is more creative, a frequency cap, or a wider audience.",
+      sampleOutput:
+        "Casper Sleep, Frame Launch Ad Set Diagnosis (excerpt)\n\n" +
+        "FATIGUE ONSET: Day 9 (frequency 3.1, CTR down 24% vs. peak)\n" +
+        "ROOT CAUSE: Only 2 active creatives against a 6-8 benchmark\n" +
+        "RECOMMENDED FIX: Add 4 new creative variants this week, do not expand audience yet\n" +
+        "EXPECTED IMPACT: CTR recovery toward peak within 5-7 days of new creative going live",
+      successCriteria: [
+        "Correctly identifies the day frequency crosses 3.0 and the associated CTR drop",
+        "Diagnoses whether the fatigue is a creative-pool problem or an audience problem before recommending a fix",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "ad-frequency-creative-fatigue-dashboard-teardown",
+      tier: "core",
+      archetype: "teardown",
+      title: "Three Ad Sets, One Fatigue Dashboard: Spot the Real Defect",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective: "Given three supplied Meta ad set dashboard snapshots (frequency, First-Time Impression Ratio, CTR trend, days live, active creative count), correctly identify which ad sets show genuine fatigue defects versus which show a metric that looks alarming but is not actually a problem.",
+      companyId: "allbirds",
+      scenario: "You're auditing the Meta account for Allbirds ahead of a budget review. Three ad sets are flagged for review. The media buyer wants to know which ones are actually fatigued and which are just noisy metrics.",
+      brief: "Read each dashboard snapshot fully, tell real fatigue apart from a metric that looks bad but isn't, and cite the specific number that proves your call.",
+      mode: "teardown",
+      conceptsCovered: [
+        "Frequency crossing 3.0 with First-Time Impression Ratio collapsing below 20% together, not either alone",
+        "A starved creative rotation pool masquerading as a targeting problem",
+        "New-audience frequency looking artificially low right after an expansion, masking early fatigue in the original segment",
+      ],
+      teardownItems: [
+        {
+          itemId: "item-1-classic-fatigue",
+          specimen: "Ad Set A, 'Wool Runners - Broad US', Day 16 of 16\nFrequency (7-day rolling): 3.8\nFirst-Time Impression Ratio: 14%\nCTR trend: Day 3 peak 1.9% -> Day 16 current 0.9% (-53%)\nCPA trend: Day 3 $22 -> Day 16 $41\nActive creatives: 3\nAudience size: 1.2M",
+          specimenSource: "synthetic-realistic",
+          prompt: "Is this ad set genuinely fatigued? What's the evidence and what's the fix?",
+          answerKey: [
+            {
+              defect: "Frequency at 3.8 with First-Time Impression Ratio collapsed to 14% means the ad set is almost entirely re-showing the same 1.2M-person audience, not finding new people",
+              severity: "critical",
+              whyItMatters: "CTR has already dropped 53% and CPA nearly doubled, this is the textbook Meta fatigue curve past day 10, not a transient dip",
+              lessonRef: "What Creative Fatigue Actually Looks Like",
+              owner: "you",
+            },
+            {
+              defect: "Only 3 active creatives against the 6-8 rotation-pool benchmark starved the ad set of fresh material to absorb repeat impressions",
+              severity: "moderate",
+              whyItMatters: "Even a well-targeted 1.2M audience fatigues fast when only 3 assets are absorbing all the delivery",
+              lessonRef: "A Practical Creative-Refresh Cadence Framework",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The audience size of 1.2M is too small for this budget level",
+            "CPA rising from $22 to $41 means the bidding strategy needs to change from lowest-cost to a bid cap",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-false-alarm",
+          specimen: "Ad Set B, 'Tree Dashers - Lookalike 3%', Day 5 of 5\nFrequency (7-day rolling): 1.6\nFirst-Time Impression Ratio: 71%\nCTR trend: Day 1 1.5% -> Day 5 1.4% (-7%)\nCPA trend: Day 1 $19 -> Day 5 $20\nActive creatives: 2\nAudience size: 4.8M",
+          specimenSource: "synthetic-realistic",
+          prompt: "The media buyer flagged this ad set because it only has 2 active creatives, below the 6-8 benchmark. Does that mean it's fatigued?",
+          answerKey: [
+            {
+              defect: "No real defect: frequency is 1.6, well under the 3.0 threshold, First-Time Impression Ratio is a healthy 71%, and CTR has drifted only 7% over 5 days",
+              severity: "cosmetic",
+              whyItMatters: "A low creative count only matters once frequency starts climbing and the pool can't absorb repeat exposure, at day 5 with a 4.8M audience this ad set isn't there yet",
+              lessonRef: "What Creative Fatigue Actually Looks Like",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "2 active creatives is below the 6-8 benchmark, so this ad set needs more creative variants added immediately",
+            "A 4.8M audience is too broad to be efficient at this budget",
+            "CPA rising from $19 to $20 is an early fatigue signal worth acting on now",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-3-masked-fatigue",
+          specimen: "Ad Set C, 'Wool Runners - Expanded Lookalike 5% (audience widened Day 11)', Day 18 of 18\nFrequency (7-day rolling): 1.9\nFirst-Time Impression Ratio: 58%\nCTR trend: Day 3 peak 2.0% -> Day 10 (pre-expansion) 1.1% (-45%) -> Day 18 (post-expansion) 1.3%\nCPA trend: Day 3 $20 -> Day 10 $34 -> Day 18 $29\nActive creatives: 4",
+          specimenSource: "synthetic-realistic",
+          prompt: "Frequency looks fine today at 1.9. Does that mean this ad set is healthy?",
+          answerKey: [
+            {
+              defect: "The current 1.9 frequency is diluted by a Day 11 audience expansion, it masks that CTR had already dropped 45% and CPA had climbed 70% in the original segment before the expansion happened",
+              severity: "critical",
+              whyItMatters: "Reading only the current-day frequency hides that the underlying creative was fatigued and never actually refreshed, the audience expansion is treating a symptom, not the cause",
+              lessonRef: "What Creative Fatigue Actually Looks Like",
+              owner: "you",
+            },
+            {
+              defect: "Active creative count of 4 is still below the 6-8 benchmark, so the expansion bought time but the root creative shortage was never fixed",
+              severity: "moderate",
+              whyItMatters: "Without adding new creative, this ad set will re-fatigue in the expanded audience on the same curve, just delayed",
+              lessonRef: "A Practical Creative-Refresh Cadence Framework",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "First-Time Impression Ratio at 58% proves this ad set is currently healthy and needs no action",
+            "The audience expansion on Day 11 was the wrong fix and should be reversed immediately",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Meta Ads Manager", role: "Source the frequency, First-Time Impression Ratio, and creative count fields directly", why: "Free with any ad account, the source of truth for all three snapshots", required: true, lastVerified: "2026-08" },
+          { toolName: "Google Sheets", role: "Line up the three ad sets' metrics side by side for comparison", why: "Free, sufficient for a 3-row comparison table", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [
+          { toolName: "Triple Whale", role: "Automated creative-level fatigue alerts across many ad sets at once", why: "Useful once an account runs more than a handful of ad sets and manual dashboard checks don't scale", required: false, lastVerified: "2026-08" },
+        ],
+      },
+      deliverable: "A verdict on all three ad sets (fatigued / healthy / masked) with the specific metric cited as evidence for each call, plus the recommended fix for the two that need one.",
+      sampleOutput:
+        "HelloFresh, Ad Set Fatigue Review (excerpt)\n\n" +
+        "Ad Set A: FATIGUED. Frequency 3.8, FTIR 14%, CTR -53%. Fix: pause and refresh creative, add 3+ variants before relaunching.\n" +
+        "Ad Set B: HEALTHY. Frequency 1.6, FTIR 71%. No action needed, low creative count is not yet a problem at this frequency.\n" +
+        "Ad Set C: MASKED FATIGUE. Current frequency 1.9 hides a pre-expansion CTR drop of 45%. Fix: add creative variants now, the expansion only bought time.",
+      successCriteria: [
+        "Correctly separates the one genuinely healthy ad set from the two with real defects",
+        "Cites frequency AND First-Time Impression Ratio together, not frequency alone, as evidence",
+        "Catches that Ad Set C's current-day frequency is misleading due to the mid-flight audience expansion",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "landing-page-message-match": [
+    {
+      id: "landing-page-message-match-ad-page-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Ad Says One Thing, Page Says Another: Spot the Mismatch",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective: "Given three supplied ad-plus-landing-page pairs, identify exactly where message match breaks (headline, offer, or audience language) and distinguish a real defect from a cosmetic difference that doesn't hurt relevance.",
+      companyId: "hellofresh",
+      scenario: "You're reviewing paid search creative for HelloFresh ahead of a Quality Score audit. Three ad-to-landing-page pairs are queued for review before the account team scales spend.",
+      brief: "Read each ad and its landing page as a visitor would in the first two seconds, and name the specific words that do or don't carry through.",
+      mode: "teardown",
+      conceptsCovered: [
+        "Headline message match between ad and landing page",
+        "Offer-level message match, not just headline wording",
+        "A generic homepage substituting for a dedicated landing page",
+      ],
+      teardownItems: [
+        {
+          itemId: "item-1-offer-mismatch",
+          specimen: "AD:\nHeadline: 'HelloFresh: 16 Free Meals + Free Shipping'\nDescription: 'New customers only. Offer applies to your first 4 boxes.'\n\nLANDING PAGE (clicked through):\nH1: 'Get Started With HelloFresh'\nSubhead: 'Delicious meals delivered weekly.'\nCTA button: 'Sign Up'\nNo mention of '16 free meals,' 'free shipping,' or the 4-box window anywhere above the fold.",
+          specimenSource: "synthetic-realistic",
+          prompt: "Does this landing page match its ad? What specifically is missing?",
+          answerKey: [
+            {
+              defect: "The ad's specific, quantified offer, 16 free meals, free shipping, first 4 boxes, is completely absent from the landing page headline and subhead",
+              severity: "critical",
+              whyItMatters: "A visitor who clicked for a specific discount sees a generic sign-up page with no confirmation the deal exists, this is the exact 'wait, is this the right page?' hesitation that costs conversions",
+              lessonRef: "What Message Match Actually Means",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The CTA button text 'Sign Up' is too short and should be longer",
+            "The page doesn't mention a specific number of servings per meal",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-good-match",
+          specimen: "AD:\nHeadline: 'HelloFresh: 16 Free Meals + Free Shipping'\nDescription: 'New customers only. Offer applies to your first 4 boxes.'\n\nLANDING PAGE (clicked through):\nH1: '16 Free Meals + Free Shipping On Your First 4 Boxes'\nSubhead: 'New HelloFresh customers only, no code needed.'\nCTA button: 'Claim My 16 Free Meals'",
+          specimenSource: "synthetic-realistic",
+          prompt: "Compare this pair to item 1. What changed, and is anything still missing?",
+          answerKey: [
+            {
+              defect: "No real defect: the headline, offer terms (16 meals, free shipping, 4-box window, new-customer restriction), and CTA all mirror the ad's exact language",
+              severity: "cosmetic",
+              whyItMatters: "This is the target state, the visitor sees the identical promise they clicked for, with zero gap to interpret or doubt",
+              lessonRef: "What Message Match Actually Means",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The CTA should say 'Sign Up' instead of 'Claim My 16 Free Meals' to sound less salesy",
+            "The subhead is too long and should be shortened to improve load time",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-3-homepage-redirect",
+          specimen: "AD (Search, keyword 'vegetarian meal kit delivery'):\nHeadline: 'Vegetarian Meal Kits, Delivered Weekly'\nDescription: '25+ vegetarian recipes. Skip or cancel anytime.'\n\nLANDING PAGE (clicked through, is the site's main homepage):\nH1: 'HelloFresh: America's #1 Meal Kit'\nNav bar: Meals, Family, Veggie, Pescatarian, Gift Cards, About\nHero image rotates between a beef dish, a pasta dish, and a salmon dish\nNo mention of 'vegetarian' anywhere above the fold",
+          specimenSource: "synthetic-realistic",
+          prompt: "This ad targets a vegetarian-specific search. What's wrong with sending that click here?",
+          answerKey: [
+            {
+              defect: "The click lands on the general homepage instead of a dedicated vegetarian-specific page, and the rotating hero image actively contradicts the search intent by showing a beef dish first",
+              severity: "critical",
+              whyItMatters: "A visitor who searched specifically for 'vegetarian' meal kits sees meat in the hero image within the first two seconds, the architectural failure (homepage, not a themed page) is worse than any headline wording issue",
+              lessonRef: "Structuring Landing Pages Around Ad Groups, Not a Homepage",
+              owner: "you",
+            },
+            {
+              defect: "The six-item navigation bar gives an already-uncertain visitor five ways to wander off before converting",
+              severity: "moderate",
+              whyItMatters: "A dedicated landing page should strip navigation to keep the one job, converting the click already paid for, intact",
+              lessonRef: "Structuring Landing Pages Around Ad Groups, Not a Homepage",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The headline 'America's #1 Meal Kit' is an unsubstantiated claim and should be removed for legal reasons",
+            "The page loads too many product categories, which will slow down page speed",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Log each ad/page pair's headline, offer, and CTA side by side for comparison", why: "Free, sufficient for a small teardown set", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable: "A verdict (match / mismatch / architectural failure) for all three pairs, citing the exact words or elements that broke or held the match.",
+      sampleOutput:
+        "Nykaa, Ad-to-Page Message Match Review (excerpt)\n\n" +
+        "Pair 1: MISMATCH. Ad promises '30% off first order,' page headline says 'Shop Beauty Online' with no offer mentioned. Fix: put the exact discount in the H1.\n" +
+        "Pair 2: MATCH. Offer, headline, and CTA language are identical between ad and page.\n" +
+        "Pair 3: ARCHITECTURAL FAILURE. Search ad for 'lipstick' sends traffic to the full-catalog homepage, not a lipstick category page.",
+      successCriteria: [
+        "Correctly identifies the one pair with no real defect",
+        "Distinguishes a headline-wording mismatch from an architectural homepage-redirect failure",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "landing-page-message-match-rewrite-build",
+      tier: "core",
+      archetype: "rebuild",
+      title: "Rebuild the Page: Rewrite a Mismatched Landing Page to Match Its Ad",
+      timeEstimate: "50 minutes",
+      timeMinutes: 50,
+      objective: "Given a real ad's exact headline, description, and offer, rewrite a generic landing page's headline, subhead, and CTA so every visitor sees language that mirrors the ad they clicked, without changing the underlying product.",
+      companyId: "casper-sleep",
+      scenario: "You're the growth marketer at Casper Sleep. A Google Search campaign for 'mattress for back pain' is driving clicks to the general homepage, and the account's Quality Score is stuck at Below Average on Landing Page Experience.",
+      brief: "Take the ad's exact promise and rebuild the page copy so a visitor feels zero doubt they landed in the right place, then justify each change against the ad's language.",
+      mode: "build",
+      conceptsCovered: [
+        "Rewriting a landing page headline to mirror the ad's exact promise",
+        "Matching the offer field-for-field between ad and CTA",
+      ],
+      steps: [
+        {
+          stepId: "step-1-extract-the-promise",
+          concept: "Rewriting a landing page headline to mirror the ad's exact promise",
+          lessonAnchor: "what-message-match-actually-means",
+          theoryRecap: "Message match is a literal test, not a vibe: the visitor's landing page headline should say the same thing as the ad headline they clicked, because a mismatch fires a 'wait, is this the right page?' hesitation in the first two seconds.",
+          question: "The ad headline is 'Mattress for Back Pain, 100-Night Trial' and the current page H1 is 'Casper: Sleep Better Tonight.' What exact words from the ad need to appear in the new H1?",
+          toolName: "Google Sheets",
+          where: "A simple two-column sheet: ad copy in column A, current page copy in column B, to spot every gap at once.",
+          procedure: [
+            "List the ad's headline, description, and offer terms word for word in column A",
+            "List the current page's H1, subhead, and CTA in column B",
+            "Circle every ad term missing from the page copy",
+            "Draft a new H1 that contains the ad's specific claim, 'back pain' and '100-night trial', not a paraphrase",
+          ],
+          outputSample: "Ad terms: 'Mattress for Back Pain', '100-Night Trial'\nCurrent page: 'Sleep Better Tonight' (0 of 2 terms present)\nDraft new H1: 'The Mattress Built for Back Pain Relief, Try It 100 Nights Free'",
+          healthy: "The new H1 contains both specific terms from the ad, not a generic rewording.",
+          unhealthy: "The new H1 says something adjacent like 'Better Sleep, Better Life' that still doesn't confirm the back-pain promise.",
+          interpret: "A near-match still fails the two-second test. The visitor needs to see their exact search intent confirmed, not a related idea.",
+          soWhat: [{ symptom: "New headline draft doesn't contain the ad's specific claim word for word", action: "Rewrite until the exact term appears, don't settle for a close paraphrase", effort: "5 min" }],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-align-the-offer-and-cta",
+          concept: "Matching the offer field-for-field between ad and CTA",
+          lessonAnchor: "structuring-landing-pages-around-ad-groups-not-a-homepage",
+          theoryRecap: "The fix is architectural: build the page around the ad group's specific theme and offer, strip distracting navigation, and make the CTA button restate the offer rather than a generic 'Get Started.'",
+          question: "The ad's offer is a '100-Night Trial,' but the current CTA button just says 'Shop Now.' What should the new CTA say, and what else on the page needs to change to support a back-pain-specific visitor?",
+          toolName: "Unbounce",
+          where: "Build a dedicated page variant off the existing template, swapping only the H1, subhead, CTA text, and top testimonial.",
+          procedure: [
+            "Change the CTA button text from 'Shop Now' to restate the offer, e.g. 'Start My 100-Night Trial'",
+            "Add a subhead naming the specific pain point (back pain, spinal alignment) instead of generic sleep language",
+            "Swap the top testimonial for one that mentions back pain specifically, if available",
+            "Strip the full six-item site navigation down to just the CTA, so there's one path forward",
+          ],
+          outputSample: "Old CTA: 'Shop Now'\nNew CTA: 'Start My 100-Night Trial'\nNew subhead: 'Engineered for spinal alignment. Real back-pain relief, or your 100 nights are free.'\nNav: reduced from 6 links to 0 (CTA only)",
+          healthy: "The CTA restates the specific offer and the page has one clear path to convert, no competing nav links.",
+          unhealthy: "The CTA still says something generic like 'Learn More' while the rest of the page is rewritten, undermining the match at the exact moment of decision.",
+          interpret: "The CTA is the last thing a visitor reads before converting or leaving, a mismatched CTA can undo an otherwise perfect headline rewrite.",
+          soWhat: [{ symptom: "Headline matches but CTA button still says generic text", action: "Rewrite the CTA to restate the specific offer before shipping the page", effort: "5 min" }],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Map ad copy against current page copy to find every gap before drafting", why: "Free, fast enough for a single-page rewrite", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [
+          { toolName: "Unbounce", role: "Build and publish the dedicated landing page variant without engineering time", why: "Purpose-built for spinning up ad-group-specific pages from a template, faster than a CMS ticket", required: false, fallback: "A developer can hand-edit the existing page template's headline, subhead, CTA, and nav if no landing-page builder is available", lastVerified: "2026-08" },
+        ],
+      },
+      deliverable: "A before/after rewrite of the landing page's H1, subhead, and CTA, with each change justified against the specific ad language it now mirrors.",
+      sampleOutput:
+        "Allbirds, 'Machine Washable Wool Shoes' Ad Group Rewrite (excerpt)\n\n" +
+        "AD: 'Machine Washable Wool Sneakers, Free Shipping'\n" +
+        "OLD H1: 'Allbirds: Shoes For Better Days'\n" +
+        "NEW H1: 'Machine Washable Wool Sneakers, Free Shipping Both Ways'\n" +
+        "OLD CTA: 'Shop Now' -> NEW CTA: 'Get My Machine Washable Pair'\n" +
+        "NAV: reduced from 5 links to 0 (CTA only)",
+      successCriteria: [
+        "New H1 contains the ad's specific, quantified claim word for word",
+        "New CTA restates the offer rather than using a generic verb",
+        "Justifies each change by pointing to the exact ad phrase it now mirrors",
+      ],
+      portfolioReady: true,
+      stretch: "Run the old and new page as an A/B test and report the conversion-rate delta after 2 weeks of traffic.",
+    },
+  ],
+
+  "budget-pacing-optimization": [
+    {
+      id: "budget-pacing-optimization-spend-export-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Overspend Audit: Diagnosing a Restricted-Schedule Pacing Export",
+      timeEstimate: "35 minutes",
+      timeMinutes: 35,
+      objective:
+        "Given a 14-day daily-spend export for a business-hours-only Google Search campaign, diagnose whether the account has drifted into the June 2026 30.4x monthly-cap pacing pattern, identify the exact day the trend broke from flat to accelerating, and recommend an alert-threshold fix instead of a panic budget cut.",
+      companyId: "warby-parker",
+      scenario:
+        "You're the paid media analyst at Warby Parker, reviewing a Google Search campaign restricted to weekday business hours (9am-6pm) after the June 2026 pacing change rolled out across the account.",
+      brief:
+        "Read a daily-spend table, calculate the 7-day rolling average and projected monthly spend, and flag the day pacing broke from flat to accelerating relative to the 75%/90% alert thresholds.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Diagnosing the June 2026 30.4x monthly-cap overspend pattern on a restricted ad schedule",
+        "Setting and reading 75%/90% pacing alert thresholds against actual cumulative spend",
+      ],
+      steps: [
+        {
+          stepId: "step-1-detect-cap-drift",
+          concept: "Diagnosing the June 2026 30.4x monthly-cap overspend pattern on a restricted ad schedule",
+          lessonAnchor: "why-pacing-matters-and-why-accelerated-delivery-is-mostly-gone",
+          theoryRecap:
+            "Since June 1, 2026, Google paces scheduled campaigns toward a full monthly cap of 30.4x the daily budget, even when the ad schedule only allows a fraction of the week, so restricted-schedule accounts can see 2-3x higher effective daily spend on active days than planned.",
+          question:
+            "With a $150 daily budget (monthly cap: $150 x 30.4 = $4,560), this 14-day export shows spend holding flat for the first 8 business days, then rising sharply. Which day did pacing break, and what's the projected monthly overage if it continues?",
+          toolName: "Google Sheets",
+          where: "Import daily-spend-export.csv, add a 7-day rolling average column, and a projected-monthly column (avg x 30.4).",
+          procedure: [
+            "Import daily-spend-export.csv and freeze the header row",
+            "Add a rolling 7-day average spend column",
+            "Add a projected-monthly column: rolling average x 30.4",
+            "Scan the projected-monthly column for the first day it exceeds the $4,560 cap by more than 10%",
+          ],
+          outputSample:
+            "Warby Parker Search - Frame Finder (Mon-Fri only), $150 daily budget, cap $4,560\n\n" +
+            "Date          Spend   7-day avg   Projected monthly\n" +
+            "Aug 3 (Mon)   $148     $150         $4,560\n" +
+            "Aug 4 (Tue)   $151     $150         $4,560\n" +
+            "Aug 5 (Wed)   $149     $150         $4,560\n" +
+            "Aug 6 (Thu)   $152     $150         $4,560\n" +
+            "Aug 7 (Fri)   $150     $150         $4,560\n" +
+            "Aug 10 (Mon)  $152     $150         $4,560\n" +
+            "Aug 11 (Tue)  $287     $179         $5,442\n" +
+            "Aug 12 (Wed)  $301     $198         $6,019\n" +
+            "Aug 13 (Thu)  $294     $217         $6,597\n" +
+            "Aug 14 (Fri)  $309     $236         $7,174",
+          healthy: "Spend holds near $150/day and the projected-monthly column stays close to the $4,560 cap.",
+          unhealthy:
+            "Starting Aug 11, daily spend jumps roughly 90% and the projected-monthly figure blows past the cap toward $7,174, a 57% overshoot.",
+          interpret:
+            "The break lines up with the restricted-schedule pacing behavior the lesson describes: with only 45 active hours a week, Google compresses more of the monthly target into those hours once its pacing curve recalculates mid-flight.",
+          soWhat: [
+            {
+              symptom: "Projected-monthly column exceeds the cap by more than 10%",
+              action: "Set 75%/90% pacing alerts immediately and flag the account for a schedule review, not an emergency budget cut",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-alert-threshold-check",
+          concept: "Setting and reading 75%/90% pacing alert thresholds against actual cumulative spend",
+          lessonAnchor: "a-practical-mid-flight-optimization-checklist",
+          theoryRecap:
+            "The lesson's checklist recommends re-checking pacing alerts weekly, confirming the actual monthly spend trend against the cap rather than reacting to a single day's number, and changing one lever at a time.",
+          question:
+            "Using the projected-monthly figures from Step 1, at what point should a 75%/90% alert have fired, and what's the safe next action per the checklist's 'one lever at a time' rule?",
+          toolName: "Google Sheets",
+          where: "Same sheet, add columns for cumulative spend-to-date and percent of monthly cap.",
+          procedure: [
+            "Add a cumulative-spend-to-date column",
+            "Add a percent-of-cap column: cumulative spend / $4,560",
+            "Mark the first day percent-of-cap trend crosses 75%, then 90%, on the projected trajectory",
+            "Write a one-sentence recommendation: what changes, and what does not",
+          ],
+          outputSample:
+            "Day        Cumulative spend   % of $4,560 cap (projected trajectory)\n" +
+            "Aug 7        $750                16%\n" +
+            "Aug 11      $1,187               75% (projected trajectory crosses threshold)\n" +
+            "Aug 13      $1,775               90% (projected trajectory crosses threshold)\n" +
+            "Aug 14      $2,084               94%",
+          healthy: "Alert fires at the 75% projected-trajectory crossing on Aug 11, giving a full week of warning before month-end.",
+          unhealthy: "No alert configured, so the first signal anyone sees is the finance team asking about an invoice that's 57% over plan.",
+          interpret:
+            "A pacing alert exists to catch the trend, not the total, checking only today's absolute spend misses the accelerating slope entirely.",
+          soWhat: [
+            {
+              symptom: "No alert thresholds configured on a restricted-schedule campaign",
+              action: "Enable 75%/90% alerts in Campaign settings > Budget, and review the ad schedule itself before touching the daily budget number",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the rolling-average and projected-monthly pacing calculations",
+            why: "Free, no account setup, and sufficient for a 14-day export",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A dated diagnosis memo identifying the exact day pacing broke from flat to accelerating, the projected monthly overage, and a recommended alert-threshold fix rather than a budget cut.",
+      sampleOutput:
+        "ThredUp, Search - Resale Marketplace, pacing diagnosis memo (excerpt)\n\n" +
+        "FINDING: Pacing broke on Day 9 (Tue), 6 business days into the flight.\n" +
+        "  7-day avg spend jumped from $210/day flat to $340/day.\n" +
+        "  Projected monthly spend: $6,384 against a $3,952 cap (30.4x $130/day), a 62% overshoot.\n\n" +
+        "RECOMMENDATION: Do not cut the daily budget. Enable 75%/90% pacing alerts today,\n" +
+        "review whether the ad schedule can be widened, and revisit in 3-4 days once the trend is confirmed.",
+      successCriteria: [
+        "Correctly identifies the day pacing shifted from flat to accelerating using the rolling-average column",
+        "Recommends alert thresholds and a schedule review rather than an immediate budget cut",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "budget-pacing-optimization-learning-phase-scaling-sim",
+      tier: "core",
+      archetype: "simulation",
+      title: "The Scaling Ladder: Live Budget Decisions Across a Learning Phase",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Make a sequence of live-feeling budget decisions across a simulated 14-day Meta Andromeda learning phase, distinguishing real underperformance from learning-phase noise, and scaling budget in the lesson's 20%-per-step, days-apart pattern instead of a single aggressive jump.",
+      companyId: "mvmt-watches",
+      scenario:
+        "You manage paid social for MVMT, the DTC watch brand now owned by Movado Group, and just launched a new Meta prospecting campaign at $50/day.",
+      brief:
+        "Navigate four dashboard checkpoints across a simulated 14-day flight. At each one, decide whether to touch budget, and if so, by how much and how soon after the last change.",
+      mode: "simulation",
+      conceptsCovered: [
+        "Distinguishing learning-phase noise from real underperformance",
+        "Reading pacing trend against alert thresholds before deciding to scale",
+        "Spacing budget increases 3-4 days apart to preserve algorithmic learning while scaling",
+      ],
+      stages: [
+        {
+          stageId: "day3-early-dip",
+          label: "Day 3, CPA looks rough",
+          elapsed: "Day 3 of 14",
+          concept: "Distinguishing learning-phase noise from real underperformance",
+          lessonAnchor: "the-learning-phase-reset-risk-the-mistake-that-costs-you-twice",
+          situation:
+            "CPA sits at $58 against a $35 target after just 3 days. You're tempted to fix it now, before it gets worse.",
+          dashboard:
+            "MVMT Prospecting - Meta Ads Manager, Day 3 of 14\n\n" +
+            "  Spend               $150\n" +
+            "  Purchases              3     CPA $50\n" +
+            "  Learning phase     Active (12 of ~50 events needed)",
+          spendToDate: "$150 of $700 (14-day flight)",
+          budgetRemaining: "$550",
+          decision: {
+            prompt: "CPA is running 43% over target on day 3. What do you do?",
+            options: [
+              {
+                id: "cut-budget-30",
+                label: "Cut daily budget 30% to control spend while it's rough",
+                verdict: "costly",
+                outcome:
+                  "The 30% cut exceeds Meta's roughly 20% reset threshold. Andromeda discards the 12 accumulated events and restarts the learning clock, adding another 7-14 days before you get a real read.",
+                why: "Post-Andromeda, budget changes above roughly 20% in a single edit are treated as a new configuration and reset accumulated signal.",
+                lessonRef: "The Learning-Phase-Reset Risk, the Mistake That Costs You Twice",
+                nextStageId: "day9-still-rough",
+              },
+              {
+                id: "wait-3-days",
+                label: "Hold budget, keep watching, wait for closer to 50 events before judging",
+                verdict: "optimal",
+                outcome:
+                  "You let the learning phase run undisturbed. Three purchases in three days is a small sample, not a trend, and the phase runs on an event count, not a day count.",
+                why: "The lesson's checklist says: confirm whether an issue is genuine underperformance or normal learning-phase noise by looking at the trend across the full window, not a single day.",
+                lessonRef: "A Practical Mid-Flight Optimization Checklist",
+                nextStageId: "day9-diagnosis",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "day9-still-rough",
+          label: "Day 9, still recovering from the reset",
+          elapsed: "Day 9 of 14 (post-reset)",
+          concept: "Distinguishing learning-phase noise from real underperformance",
+          lessonAnchor: "the-learning-phase-reset-risk-the-mistake-that-costs-you-twice",
+          situation:
+            "Six days after the 30% cut, the campaign is still in a fresh learning phase with CPA at $61, worse than where you started.",
+          dashboard:
+            "MVMT Prospecting - Meta Ads Manager, Day 9 of 14 (learning restarted Day 3)\n\n" +
+            "  Spend               $315\n" +
+            "  Purchases              5     CPA $63\n" +
+            "  Learning phase     Active again (18 of ~50 events needed)",
+          spendToDate: "$465 of $700",
+          budgetRemaining: "$235",
+          decision: {
+            prompt: "The flight is more than half over and the campaign has effectively lost a full week to a self-inflicted reset. What now?",
+            options: [
+              {
+                id: "accept-and-hold",
+                label: "Hold the current budget for the remaining days, let it finish learning, and log the mistake for next time",
+                verdict: "acceptable",
+                outcome:
+                  "The flight ends without exiting learning, so you never get a clean read on true CPA, but you don't compound the mistake with a second reset inside a shrinking window.",
+                why: "The lesson's log-every-change habit exists exactly for this: knowing the Day 3 cut caused the Day 9 numbers prevents repeating it on the next flight.",
+                lessonRef: "A Practical Mid-Flight Optimization Checklist",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "day9-diagnosis",
+          label: "Day 9, learning phase nearly done",
+          elapsed: "Day 9 of 14",
+          concept: "Reading pacing trend against alert thresholds before deciding to scale",
+          lessonAnchor: "why-pacing-matters-and-why-accelerated-delivery-is-mostly-gone",
+          situation:
+            "CPA has settled to $38, close to target, with 52 of the roughly 50 needed events logged. The campaign is about to exit learning.",
+          dashboard:
+            "MVMT Prospecting - Meta Ads Manager, Day 9 of 14\n\n" +
+            "  Spend               $450\n" +
+            "  Purchases             12     CPA $38\n" +
+            "  Learning phase     Exiting (52 of ~50 events needed)",
+          spendToDate: "$450 of $700",
+          budgetRemaining: "$250",
+          decision: {
+            prompt: "The campaign is exiting learning with CPA close to target and 5 days of flight left. Do you scale, and if so, how?",
+            options: [
+              {
+                id: "scale-20-percent",
+                label: "Increase daily budget 20%, then hold and watch for 3-4 days",
+                verdict: "optimal",
+                outcome:
+                  "The increase stays under the reset threshold. Performance holds through the remaining flight because Andromeda treats it as a minor adjustment, not a new configuration.",
+                why: "The lesson's safe-scaling pattern: increase in roughly 20% increments, wait 3-4 days between each step.",
+                lessonRef: "The Learning-Phase-Reset Risk, the Mistake That Costs You Twice",
+                nextStageId: "day13-scaling-check",
+              },
+              {
+                id: "scale-60-percent",
+                label: "Increase daily budget 60% now to capture more volume before the flight ends",
+                verdict: "costly",
+                outcome:
+                  "The 60% jump resets learning again with only 5 days left in the flight, the campaign never has time to re-exit before the flight ends.",
+                why: "Budget changes above roughly 20% in one edit risk a full learning-phase reset, and a 5-day window isn't enough runway to absorb another 7-14 day recovery.",
+                lessonRef: "The Learning-Phase-Reset Risk, the Mistake That Costs You Twice",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "day13-scaling-check",
+          label: "Day 13, results holding after the first step",
+          elapsed: "Day 13 of 14",
+          concept: "Spacing budget increases 3-4 days apart to preserve algorithmic learning while scaling",
+          lessonAnchor: "a-practical-mid-flight-optimization-checklist",
+          situation:
+            "It's been 4 days since the 20% bump and CPA is still at $37. It's tempting to bump again immediately since it's clearly working.",
+          dashboard:
+            "MVMT Prospecting - Meta Ads Manager, Day 13 of 14\n\n" +
+            "  Spend               $610\n" +
+            "  Purchases             16     CPA $37\n" +
+            "  Learning phase     Stable",
+          spendToDate: "$610 of $700",
+          budgetRemaining: "$90",
+          decision: {
+            prompt: "Only 1 day is left in this flight. Do you push another 20% increase now?",
+            options: [
+              {
+                id: "wait-for-next-flight",
+                label: "Hold budget for the final day and plan the next 20% step for the start of the next flight",
+                verdict: "optimal",
+                outcome:
+                  "The campaign finishes the flight with stable, trustworthy CPA data, and the next flight starts already outside learning, ready for the next scaling step on schedule.",
+                why: "The checklist calls for one lever at a time and spacing changes several days apart, not stacking another edit one day after the last.",
+                lessonRef: "A Practical Mid-Flight Optimization Checklist",
+                nextStageId: "end",
+              },
+              {
+                id: "stack-another-20",
+                label: "Stack another 20% increase now, only 4 days after the last one, to end strong",
+                verdict: "acceptable",
+                outcome:
+                  "This lands right at the edge of the lesson's 3-4 day spacing guidance rather than clearly inside it, so results are noisier than the previous step but don't trigger a full reset.",
+                why: "The 3-4 day spacing rule is a guideline for re-stabilization, not a hard reset trigger like the 20% single-edit size, but cutting it this close removes your margin for error.",
+                lessonRef: "A Practical Mid-Flight Optimization Checklist",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Meta Ads Manager",
+            role: "Where the actual budget edits and learning-phase status live",
+            why: "Free with any ad account, no additional cost to observe learning-phase status",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Log every change with a date, per the lesson's checklist",
+            why: "Free and sufficient for a simple dated change log",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A dated change log documenting each budget decision made across the 14-day simulated flight, spend levels at each checkpoint, and the reasoning behind each move or deliberate non-move.",
+      sampleOutput:
+        "Warby Parker, Meta Prospecting - New Frames, change log (excerpt)\n\n" +
+        "Day 3: CPA $52 vs $30 target, 9 of ~50 events. Held budget, noted as noise not signal.\n" +
+        "Day 8: 48 events logged, CPA settled to $31. Learning phase exiting.\n" +
+        "Day 8: Increased daily budget 20% ($40 to $48). Held, no further changes.\n" +
+        "Day 12: CPA stable at $29 after 4 days. Logged for next flight's scaling step, no same-flight second increase.",
+      successCriteria: [
+        "Never touches budget during the first learning-phase window without a genuine, justified reason",
+        "When scaling, keeps each single edit at or under 20% and spaces edits at least 3-4 days apart",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "ai-creative-testing-at-scale": [
+    {
+      id: "ai-creative-testing-at-scale-angle-diversity-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Sameness Check: Auditing 24 AI Variants for Real Angle Diversity",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given a 24-variant AI creative performance export tagged by angle, determine whether the test set actually covered distinct psychological angles or just cosmetic variations of one angle, and recommend which angle to scale.",
+      companyId: "doordash",
+      scenario:
+        "You're the paid social analyst at DoorDash reviewing a Meta Advantage+ Creative test that generated 24 image variants for a new promo, and leadership wants to know which angle to scale before the next order cycle.",
+      brief:
+        "Group variants by underlying angle rather than by surface cosmetics, calculate performance per angle group, and flag whether the test had enough real diversity to trust the result.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Detecting sameness fatigue by grouping AI variants by underlying angle, not surface cosmetics",
+        "Scaling the winning angle's underlying idea, not just the single top-performing asset",
+      ],
+      steps: [
+        {
+          stepId: "step-1-group-by-angle",
+          concept: "Detecting sameness fatigue by grouping AI variants by underlying angle, not surface cosmetics",
+          lessonAnchor: "sameness-fatigue-the-new-failure-mode",
+          theoryRecap:
+            "Testing 20 AI variants that all share the same core angle, hook, and visual structure tells you which shade of blue converts slightly better, not which underlying idea resonates, spending a testing budget while learning almost nothing transferable.",
+          question:
+            "This export has 24 variants tagged with an 'angle' column, but the tags only cover 3 distinct underlying angles. Is this a valid angle test, or a sameness-fatigue trap?",
+          toolName: "Google Sheets",
+          where: "Import the 24-row export, build a pivot table on the angle column, count executions per angle.",
+          procedure: [
+            "Import the creative-performance export and pivot on the angle column",
+            "Count how many of the 24 variants fall into each distinct angle",
+            "Calculate average CPA per angle group, not per individual asset",
+            "Flag any angle with fewer than 3 executions as too thin to judge confidently",
+          ],
+          outputSample:
+            "DoorDash Promo Test, 24 variants by tagged angle\n\n" +
+            "Angle             Variants   Avg CPA\n" +
+            "Product Hero          18       $4.20\n" +
+            "Social Proof           4       $3.95\n" +
+            "Pain Point             2       $3.40",
+          healthy: "8-12 genuinely distinct angles, each represented by a handful of executions (3-5).",
+          unhealthy: "18 of 24 variants tagged 'Product Hero,' only 3 total underlying angles present despite 24 total assets generated.",
+          interpret:
+            "This is sameness fatigue: 'Product Hero' looks like the strongest performer partly because it had 18 shots on goal versus 2-4 for everything else, not because the angle itself is proven best.",
+          soWhat: [
+            {
+              symptom: "One angle dominates the variant count in a creative test export",
+              action: "Rebrief the next test with 8-12 explicitly distinct angles and cap executions at 3-5 per angle before generating",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-angle-level-scale-call",
+          concept: "Scaling the winning angle's underlying idea, not just the single top-performing asset",
+          lessonAnchor: "why-ai-changes-the-testing-math",
+          theoryRecap:
+            "When a winning angle emerges, the lesson says to scale the underlying idea across new executions, not just the single winning asset, that is where the compounding insight lives.",
+          question:
+            "Pain Point had only 2 variants but the lowest CPA per variant. Product Hero had 18 variants and the lowest CPA of any single asset. Which do you recommend leadership scale?",
+          toolName: "Google Sheets",
+          where: "Same pivot table, add a confidence flag column based on sample size per angle.",
+          procedure: [
+            "Compare average CPA per angle group, not the single best individual asset",
+            "Flag Pain Point as promising but under-sampled (only 2 executions)",
+            "Recommend a follow-up brief of 3-5 more Pain Point executions before crowning a winner",
+            "Recommend scaling Product Hero cautiously, since its lead may partly reflect volume, not angle strength",
+          ],
+          outputSample:
+            "Recommendation memo (excerpt)\n\n" +
+            "Do not scale the single best 'Product Hero' asset as the definitive winner, its angle had 9x\n" +
+            "the sample size of Pain Point. Rebrief Pain Point with 3-5 more executions next cycle before\n" +
+            "declaring a winning angle. Continue running Product Hero and Social Proof at current volume\n" +
+            "in the meantime, neither is disqualified, but neither is confirmed either.",
+          healthy: "A scale recommendation names the angle with a note on sample-size confidence for each group.",
+          unhealthy: "Declaring 'Product Hero' the winner and scaling the single top asset without accounting for its 9x sample advantage.",
+          interpret: "Raw asset-count wins are not the same as angle-level wins, the lesson's whole point about testing ideas, not pixels.",
+          soWhat: [
+            {
+              symptom: "A recommendation names a single winning asset instead of a winning angle",
+              action: "Re-run the comparison at the angle level and flag any angle below 3 executions as needing more data first",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Pivot the export by angle and calculate angle-level performance",
+            why: "Free, no account friction, sufficient for a 24-row export",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "An angle-grouped performance summary with a scale recommendation and a note on which angle needs more data before a confident call.",
+      sampleOutput:
+        "ThredUp, Meta Advantage+ Creative test, angle summary (excerpt)\n\n" +
+        "Angle             Variants   Avg CPA   Confidence\n" +
+        "Nostalgia/Resale      15      $2.80     Low, oversampled vs other angles\n" +
+        "UGC Unboxing           5      $2.55     Medium\n" +
+        "Sustainability         4      $2.30     Medium, promising, needs 2-3 more reps\n\n" +
+        "RECOMMENDATION: Do not scale Nostalgia/Resale as the confirmed winner on raw CPA alone.\n" +
+        "Rebrief Sustainability with 3 more executions before the next scaling decision.",
+      successCriteria: [
+        "Groups variants by underlying angle rather than counting raw asset-level wins",
+        "Flags angles with too few executions to trust before recommending a scale decision",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "ai-creative-testing-at-scale-qc-gate-teardown",
+      tier: "core",
+      archetype: "teardown",
+      title: "The QC Gate Teardown: Catching What AI Creative Slips Past You",
+      timeEstimate: "50 minutes",
+      timeMinutes: 50,
+      objective:
+        "Review 5 specimen AI-generated ad concepts for a monsoon sale against the lesson's five-point QC checklist, correctly identifying which contain a genuine launch-blocking defect and which are clean, without over-flagging plausible-looking but acceptable choices.",
+      companyId: "firstcry-brainbees",
+      scenario:
+        "You're the QC reviewer at FirstCry (Brainbees Solutions) ahead of a monsoon baby-gear sale, and the performance marketing team has handed you 5 AI-generated ad concepts from Advantage+ Creative to sign off before spend goes live.",
+      brief:
+        "Apply the five-point QC checklist, factual accuracy, brand safety, representation, legal/regulatory compliance, and landing-page match, to each specimen and mark launch-ready vs blocked.",
+      mode: "teardown",
+      conceptsCovered: [
+        "The Quality-Control Gate Before Anything Goes Live",
+        "Sameness Fatigue: The New Failure Mode",
+      ],
+      teardownItems: [
+        {
+          itemId: "specimen-1-medical-claim",
+          specimen:
+            "AI-generated carousel ad. Image: baby in a monsoon-themed onesie under an umbrella graphic. Headline: 'Skin Clears Up in Days with Our Baby Lotion.' Body: 'Doctor-approved formula for sensitive skin.' CTA: Shop Now.",
+          specimenSource: "synthetic-realistic",
+          prompt: "Review this specimen against the QC checklist. What, if anything, blocks launch?",
+          answerKey: [
+            {
+              defect: "Unapproved medical/efficacy claim ('Clears Up in Days')",
+              severity: "critical",
+              whyItMatters:
+                "Implies a therapeutic guarantee no dermatology claim was cleared for, the same failure mode the lesson describes in its DTC skincare example, risking a platform policy strike and regulatory exposure on a baby-care product.",
+              lessonRef: "The Quality-Control Gate Before Anything Goes Live, factual accuracy and legal/regulatory compliance",
+              owner: "you",
+            },
+            {
+              defect: "'Doctor-approved' claim with no citation or approval on file",
+              severity: "critical",
+              whyItMatters:
+                "Regulated-category products need the same compliance bar as human-written copy, an unverifiable endorsement claim is a legal liability, not a minor QC nitpick.",
+              lessonRef: "The Quality-Control Gate Before Anything Goes Live, legal and regulatory compliance",
+              owner: "either",
+            },
+          ],
+          distractors: [
+            "Umbrella graphic tied to the monsoon-sale theme (on-brand seasonal creative, not a defect)",
+            "'Shop Now' CTA (a standard call to action, not a compliance issue)",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "specimen-2-clean-pass",
+          specimen:
+            "AI-generated single-image ad. Image: toddler splashing in rain boots, a raincoat product shot inset bottom-right with the FirstCry logo correctly placed. Headline: 'Monsoon-Ready Gear, Up to 40% Off.' Body: 'Rain boots, raincoats and umbrellas for every age, starting at Rs 299.' CTA: Shop the Sale.",
+          specimenSource: "synthetic-realistic",
+          prompt: "Review this specimen against the QC checklist. What, if anything, blocks launch?",
+          answerKey: [],
+          distractors: [
+            "Price stated as 'starting at Rs 299' in the body copy (verify this matches the landing page's actual entry price, if it matches, it's a legitimate, disclosed price point, not a defect)",
+            "Logo placement in the bottom-right corner (unconventional but within accepted layout variance, not a brand-safety violation)",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "specimen-3-context-mismatch",
+          specimen:
+            "AI-generated video storyboard. Scene: a family in a Western-style living room with snow visible through the window, toddler in mittens. Headline: 'Beat the Monsoon, Stock Up Now.' CTA: Shop Monsoon Essentials.",
+          specimenSource: "synthetic-realistic",
+          prompt: "Review this specimen against the QC checklist. What, if anything, blocks launch?",
+          answerKey: [
+            {
+              defect: "Imagery contradicts the campaign's own stated context (a snow and mittens scene paired with a monsoon-sale headline)",
+              severity: "moderate",
+              whyItMatters:
+                "Generative image tools trained on global stock data default to generic 'cozy family' visuals that don't match an India-specific monsoon campaign, undermining relevance and trust even though nothing in the ad is factually false.",
+              lessonRef: "The Quality-Control Gate Before Anything Goes Live, brand safety and representation review",
+              owner: "you",
+            },
+          ],
+          distractors: ["Headline 'Beat the Monsoon, Stock Up Now' (accurate seasonal messaging, not itself the defect)"],
+          partialCredit: true,
+        },
+        {
+          itemId: "specimen-4-landing-page-mismatch",
+          specimen:
+            "AI-generated ad promoting 'Buy 2 Get 1 Free on all raincoats,' CTA linking to the general FirstCry monsoon category page, which is actually running a flat 30%-off promotion instead.",
+          specimenSource: "synthetic-realistic",
+          prompt: "Review this specimen against the QC checklist. What, if anything, blocks launch?",
+          answerKey: [
+            {
+              defect: "Ad promise ('Buy 2 Get 1 Free') does not match the live landing page offer (flat 30% off)",
+              severity: "critical",
+              whyItMatters:
+                "Landing-page mismatches tank conversion rate and can trigger platform policy violations for misleading offers, the lesson's fifth checklist point.",
+              lessonRef: "The Quality-Control Gate Before Anything Goes Live, landing page match",
+              owner: "either",
+            },
+          ],
+          distractors: ["Raincoats as the featured product category (on-strategy for a monsoon push, not a defect)"],
+          partialCredit: true,
+        },
+        {
+          itemId: "specimen-5-representation",
+          specimen:
+            "AI-generated ad featuring a generated image of a caregiver figure depicted in a stereotyped, exaggerated domestic-servant pose, visually distinct from how any other adult figure in the brand's existing ad library is depicted, positioned next to a baby product.",
+          specimenSource: "synthetic-realistic",
+          prompt: "Review this specimen against the QC checklist. What, if anything, blocks launch?",
+          answerKey: [
+            {
+              defect: "Stereotyped depiction of a caregiver figure",
+              severity: "moderate",
+              whyItMatters:
+                "Representation and sensitivity review is a manual human check the generation tool does not self-police, per the lesson, shipping this risks brand reputation harm even though no claim is factually false.",
+              lessonRef: "The Quality-Control Gate Before Anything Goes Live, representation and sensitivity review",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Presence of a caregiver figure in the ad at all (a caregiver-focused angle is a legitimate creative choice, the depiction style is the actual issue)",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Track the QC scorecard across all 5 specimens",
+            why: "Free and sufficient for a simple pass/block tracking sheet",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A completed QC scorecard for all 5 specimens marking launch-ready vs blocked, with the specific defect, severity, and checklist category cited for each block.",
+      sampleOutput:
+        "Warby Parker, AI creative QC scorecard (excerpt)\n\n" +
+        "Specimen 1 (frame-fit claim): BLOCKED, critical, unverified 'zero pressure points' efficacy claim, factual accuracy.\n" +
+        "Specimen 2 (lifestyle shot, city street): PASS, no defect found.\n" +
+        "Specimen 3 (price mismatch): BLOCKED, critical, landing page match.\n" +
+        "Specimen 4 (seasonal imagery, off-region): BLOCKED, moderate, brand safety/representation.\n" +
+        "Specimen 5 (clean variant): PASS, no defect found.",
+      successCriteria: [
+        "Correctly identifies all 3 launch-blocking specimens and their specific checklist violation",
+        "Does not flag the clean specimen or the on-strategy raincoat/CTA/logo-placement choices as defects",
+      ],
+      portfolioReady: true,
+    },
+  ],
 };

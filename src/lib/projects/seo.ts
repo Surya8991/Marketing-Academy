@@ -12953,4 +12953,899 @@ export const SEO_PROJECTS: Record<string, Project[]> = {
         "Track this page's position and clicks for 60 days after the real refresh ships, and compare recovery against the lesson's 40-60% benchmark.",
     },
   ],
+
+  "programmatic-seo": [
+    {
+      id: "programmatic-seo-thin-page-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "The Thin-Page Teardown: Auditing a Programmatic Directory Before It Gets Penalized",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given three synthetic-realistic specimens pulled from a proposed 'Restaurants in [City]' and '[Job Title] Salary in [City]' programmatic directory, correctly separate the pages that will trigger Google's scaled-content-abuse enforcement from the ones that are genuinely fine, without over-flagging cosmetic non-issues as defects.",
+      companyId: "zomato",
+      scenario:
+        "You're the SEO analyst at Zomato reviewing a batch of programmatic city-directory pages an agency built before they go live. Your quarterly traffic depends on getting this launch right, one bad batch can wipe out the whole subdomain in a core update.",
+      brief:
+        "Read each specimen, decide what's actually wrong with it (if anything), rate severity, and don't flag things that just look unusual but aren't real defects.",
+      mode: "teardown",
+      conceptsCovered: [
+        "The Google Line You Cannot Cross",
+        "Building a Quality Gate",
+        "Step 2: Build Your Dataset",
+        "Step 5: Index Infrastructure",
+      ],
+      teardownItems: [
+        {
+          itemId: "item-1-swapped-city-name",
+          specimen:
+            "URL: /restaurants/best-restaurants-in-coimbatore\nH1: Best Restaurants in Coimbatore\nBody (first 80 words): \"Coimbatore is a wonderful city with many great dining options. Whether you're looking for fine dining, casual eats, or quick bites, Coimbatore has something for everyone. Our team has curated the best restaurants in Coimbatore based on quality, service, and value. Browse our list below to find your next favorite spot in Coimbatore.\"\nListed data: none, no restaurant names, addresses, ratings, or hours are shown on the page.\nNote: this exact 80-word paragraph, with only the city name swapped, also appears verbatim on the /best-restaurants-in-chennai and /best-restaurants-in-pune pages.",
+          specimenSource: "synthetic-realistic",
+          prompt: "What's wrong with this page, and how severe is it?",
+          answerKey: [
+            {
+              defect: "Zero unique data points, the copy is identical across the Chennai and Pune versions with only the city name swapped",
+              severity: "critical",
+              whyItMatters:
+                "This is exactly the 'scaled content abuse' pattern the March 2024 core update targets, pages where the only difference is one swapped word with no real data get bulk-deindexed, and the damage spreads to the rest of the domain.",
+              lessonRef: "The Google Line You Cannot Cross",
+              owner: "you",
+            },
+            {
+              defect: "No 'last updated' freshness signal despite restaurant listings, hours, and prices changing constantly",
+              severity: "moderate",
+              whyItMatters:
+                "Without a freshness signal, Google has no way to distinguish a page that's actively maintained from one abandoned after launch, and stale-looking pages get deprioritized in crawl budget.",
+              lessonRef: "Building a Quality Gate",
+              owner: "either",
+            },
+          ],
+          distractors: [
+            "The H1 uses title case instead of sentence case",
+            "The URL contains the word 'best' before the city name",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-fabricated-salary-data",
+          specimen:
+            "URL: /salaries/software-engineer-salary-in-nagpur\nH1: Software Engineer Salary in Nagpur\nData table shown:\n  Average salary: ₹8,20,000/year\n  Entry-level: ₹5,10,000/year\n  Senior-level: ₹14,30,000/year\nFooter note: 'Based on national data.'\nCross-check: the exact same three figures (₹8,20,000 / ₹5,10,000 / ₹14,30,000) appear on the Nagpur, Kanpur, Coimbatore, and 46 other city pages in the export, all unchanged.",
+          specimenSource: "synthetic-realistic",
+          prompt: "What's wrong with this page, and how severe is it?",
+          answerKey: [
+            {
+              defect: "The dataset has no real per-city variation, one national salary figure was copy-pasted across 49 city pages and relabeled as if it were local data",
+              severity: "critical",
+              whyItMatters:
+                "This fails Step 2's core rule that every row needs a genuinely unique data point. A learner or auditor who only checks 'does the page have a data table' misses that the numbers themselves are fabricated variation, not real data.",
+              lessonRef: "Step 2: Build Your Dataset",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The salary figures are shown in rupees instead of a range",
+            "The footer note discloses the data source",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-3-orphaned-good-page",
+          specimen:
+            "URL: /restaurants/best-restaurants-in-kochi\nH1: Best Restaurants in Kochi\nListed data: 12 real restaurants with names, addresses, live rating counts, price range, and a 'menu last synced 3 days ago' timestamp.\nInbound links: 0. The page is not linked from the /restaurants hub page, any city-cluster page, or any other page on the site, it was only ever submitted via the XML sitemap.",
+          specimenSource: "synthetic-realistic",
+          prompt: "What's wrong with this page, and how severe is it?",
+          answerKey: [
+            {
+              defect: "No internal link from the city hub page (or any other page) to this URL, it's orphaned from normal crawl paths",
+              severity: "moderate",
+              whyItMatters:
+                "A sitemap submission alone doesn't pass link equity or guarantee regular re-crawling. Step 5's hub-page architecture exists specifically so genuinely good pages like this one still get found and re-crawled.",
+              lessonRef: "Step 5: Index Infrastructure",
+              owner: "developer",
+            },
+          ],
+          distractors: [
+            "The page has real per-restaurant data instead of a single paragraph",
+            "The menu-sync timestamp is only 3 days old",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Screaming Frog SEO Spider", role: "Crawl the batch and flag near-duplicate body content across city pages", why: "Free up to 500 URLs, enough for a pre-launch batch audit", required: true, lastVerified: "2026-08" },
+          { toolName: "Google Search Console", role: "Check indexing status and crawl stats once a batch goes live", why: "Confirms whether orphaned or thin pages are actually getting crawled", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [
+          { toolName: "Ahrefs", role: "Content similarity scoring across large batches", why: "Faster than manual diffing once you're auditing thousands of rows instead of dozens", required: false, lastVerified: "2026-08" },
+        ],
+      },
+      deliverable: "A defect log for all three specimens with severity ratings, a noindex/fix/ship decision for each, and a one-line justification citing the specific lesson rule violated.",
+      sampleOutput:
+        "DoorDash city-directory pre-launch audit (excerpt)\n\n" +
+        "SPECIMEN: /cities/best-delivery-restaurants-in-fresno\n" +
+        "VERDICT: NOINDEX until fixed\n" +
+        "  - Critical: body copy identical to 6 other city pages, only city name swapped\n" +
+        "  - Moderate: no 'last updated' field despite restaurant list changing weekly\n\n" +
+        "SPECIMEN: /cities/best-delivery-restaurants-in-tulsa\n" +
+        "VERDICT: SHIP, add internal link\n" +
+        "  - Moderate: 14 real restaurants with live data, but zero inbound internal links, orphaned page\n" +
+        "  - Fix: add to the /cities hub page's link list before next crawl",
+      successCriteria: [
+        "Correctly identifies all 4 real defects across the 3 specimens with matching severity",
+        "Does not flag any of the 5 distractors as defects",
+        "Cites the correct lesson section for each defect found",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "programmatic-seo-quality-gate-audit",
+      tier: "core",
+      archetype: "audit",
+      title: "Setting the Bar: Auditing a Template's Data Fields Against a Quality Gate",
+      timeEstimate: "50 minutes",
+      timeMinutes: 50,
+      objective:
+        "Given a 40-row export of proposed brand-category combination pages with a field-count column, real search-volume data, and a link-equity note, apply a minimum-viable-page quality gate to decide index vs noindex for each row, filter out combos with no real search demand, and flag which live pages are missing crawl-budget infrastructure.",
+      companyId: "flipkart",
+      scenario:
+        "You're the SEO analyst at Flipkart auditing a proposed template for brand-plus-category pages (e.g. 'Samsung Refrigerators Online', 'Nike Running Shoes Online') before the dev team renders all 40 combinations from the marketing catalog.",
+      brief: "Set a field-count threshold, apply it to the export, cross-check against search volume, and flag the sitemap-chunking plan for the batch that passes.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Minimum viable page quality gate",
+        "Fractal keyword pattern selection",
+        "Step 5: Index Infrastructure",
+      ],
+      steps: [
+        {
+          stepId: "step-1-quality-gate-threshold",
+          concept: "Minimum viable page quality gate",
+          lessonAnchor: "building-a-quality-gate",
+          theoryRecap:
+            "The lesson's quality-gate section sets an example threshold of 5 populated fields out of 8 (reviews, price, stock status, rating count, spec sheet, image count, delivery estimate, last-restocked date), citing Aleyda Solis's 'minimum viable page' filter as the standard sites use to survive core updates.",
+          question:
+            "Of the 40 brand-category rows, 24 have 5 or more of the 8 fields populated, 11 have 3-4, and 5 have 0-2. Which rows pass the gate?",
+          toolName: "Google Sheets",
+          where: "Import field-count-export.csv, freeze the header row, add a PASS/FAIL formula column.",
+          procedure: [
+            "Import field-count-export.csv and freeze row 1",
+            "Add a formula column: PASS if fields_populated >= 5, else FAIL",
+            "Filter to the 24 PASS rows as index candidates",
+            "Route the 16 FAIL rows to noindex, not deletion, in case fields get backfilled later",
+          ],
+          outputSample:
+            "PASS (24 rows, sample)\n  Samsung Refrigerators Online   7/8 fields   index\n  Nike Running Shoes Online     6/8 fields   index\nFAIL (16 rows, sample)\n  LG Toasters Online            2/8 fields   noindex\n  Puma Socks Online             1/8 fields   noindex",
+          healthy: "24 of 40 rows clear the gate and move to the search-volume check; the other 16 stay noindexed, not deleted.",
+          unhealthy: "Indexing all 40 rows because the template rendered successfully, without checking what data actually populated each one.",
+          interpret: "A rendered page and a quality page are different things. The gate has to run on the data, not on whether the template compiled.",
+          soWhat: [{ symptom: "A batch of pages ships with no field-count check", action: "Add the PASS/FAIL formula column before the batch goes live, not after a traffic drop", effort: "30 min" }],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-volume-filter",
+          concept: "Fractal keyword pattern selection",
+          lessonAnchor: "choosing-the-right-keyword-pattern",
+          theoryRecap:
+            "The lesson's pattern-evaluation flowchart says a pattern only gets built if a dataset exists AND combined volume is worth the effort AND each page can be genuinely unique, skip it if any one of the three fails.",
+          question: "Of the 24 rows that passed the quality gate, 3 have under 50 monthly searches combined across all keyword variants. Do they still get built?",
+          toolName: "Google Keyword Planner",
+          where: "Look up monthly search volume for each of the 24 passing brand-category combinations.",
+          procedure: [
+            "Pull monthly search volume for each of the 24 passing combinations",
+            "Flag any row under 50 combined monthly searches",
+            "Cut the 3 flagged rows even though they passed the data-quality gate",
+          ],
+          outputSample: "CUT (fails volume, despite passing quality gate)\n  Reebok Yoga Blocks Online   6/8 fields   14 searches/mo\n  Puma Water Bottles Online   6/8 fields   31 searches/mo",
+          healthy: "A page only ships if it clears BOTH the data-quality gate and the volume bar, one passing check doesn't excuse the other failing.",
+          unhealthy: "Shipping a page because it has great data, even though almost nobody searches for it.",
+          interpret: "Quality data justifies a page existing; search volume justifies spending crawl budget and dev time to build it. Both gates have to pass.",
+          soWhat: [{ symptom: "A high-quality page gets almost no traffic", action: "Check volume before build, not after launch, cut anything under your minimum threshold", effort: "30 min" }],
+          owner: "you",
+        },
+        {
+          stepId: "step-3-sitemap-chunking",
+          concept: "Step 5: Index Infrastructure",
+          lessonAnchor: "step-5-index-infrastructure",
+          theoryRecap:
+            "The lesson's Step 5 requires XML sitemaps chunked to Google's 10,000-URL-per-file limit, hub pages linking to groups of programmatic pages, and sitemap submission through Google Search Console with crawl-error monitoring.",
+          question: "The final 21-row batch is small enough for one sitemap file, but is there still a hub-page requirement?",
+          toolName: "Google Search Console",
+          where: "Submit the new sitemap and monitor the Coverage report for the first two weeks.",
+          procedure: [
+            "Add all 21 approved URLs to a single sitemap file (well under the 10,000-URL cap)",
+            "Confirm each URL is linked from the /brands category hub page before submission",
+            "Submit the sitemap in Search Console",
+            "Check the Coverage report weekly for 'Discovered, not indexed' errors on any of the 21 URLs",
+          ],
+          outputSample: "Coverage report, week 2\n  Submitted: 21\n  Indexed: 19\n  Discovered, not indexed: 2 (both missing a hub-page link, fixed and resubmitted)",
+          healthy: "19 of 21 index within two weeks; the 2 stragglers get diagnosed and fixed, not just left alone.",
+          unhealthy: "Submitting the sitemap and never checking Coverage again, assuming submission equals indexing.",
+          interpret: "Sitemap submission is a request, not a guarantee. The hub-page link is what actually gets a page crawled and re-crawled.",
+          soWhat: [{ symptom: "Pages sit in 'Discovered, not indexed' for weeks", action: "Check for a missing hub-page link first, that's the most common cause", effort: "5 min" }],
+          owner: "either",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Run the field-count PASS/FAIL formula across all 40 rows", why: "Free, no setup, the whole audit fits in one spreadsheet", required: true, lastVerified: "2026-08" },
+          { toolName: "Google Keyword Planner", role: "Check combined search volume per brand-category combination", why: "Free with a Google Ads account, sufficient for a volume cutoff decision", required: true, lastVerified: "2026-08" },
+          { toolName: "Google Search Console", role: "Submit the sitemap and monitor indexing coverage", why: "The only tool that shows real indexing status, not an estimate", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [
+          { toolName: "SEMrush", role: "Cross-check Keyword Planner's volume estimates on ambiguous rows", why: "Keyword Planner rounds low-volume numbers into broad buckets; a second source resolves close calls", required: false, lastVerified: "2026-08" },
+        ],
+      },
+      deliverable: "A 40-row decision sheet marking index/noindex/cut for every brand-category combination, plus a submitted sitemap and a two-week Coverage report follow-up note.",
+      sampleOutput:
+        "Instacart brand-category batch, decision sheet (excerpt)\n\n" +
+        "INDEX (cleared both gates)\n" +
+        "  Organic Bananas Delivery      7/8 fields   1,900 searches/mo\n" +
+        "  Trader Joe's Delivery Near Me 6/8 fields   3,400 searches/mo\n\n" +
+        "NOINDEX (failed quality gate)\n" +
+        "  Store-Brand Napkins Delivery  2/8 fields   —\n\n" +
+        "CUT (passed quality gate, failed volume)\n" +
+        "  Specialty Vinegar Delivery    6/8 fields   22 searches/mo",
+      successCriteria: [
+        "Correctly applies the 5-of-8 field threshold to all 40 rows",
+        "Cuts low-volume rows even when they passed the quality gate",
+        "Verifies hub-page linking before considering the sitemap submission complete",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "saas-seo-strategy": [
+    {
+      id: "saas-seo-strategy-comparison-page-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "The Bias Audit: Tearing Down a Rigged Comparison Page",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given three synthetic-realistic excerpts from an agency-drafted 'Snowflake vs Databricks' comparison page draft, identify the trust-destroying defects (fabricated wins, stale competitor data, missing structured data) before publish, without flagging harmless stylistic choices as problems.",
+      companyId: "snowflake",
+      scenario:
+        "You're the content strategist at Snowflake reviewing an agency's first draft of a 'Snowflake vs Databricks' comparison page before it goes live to a technical, skeptical B2B buyer audience.",
+      brief: "Read each excerpt, decide what's a real defect versus a harmless stylistic choice, and rate severity for anything real.",
+      mode: "teardown",
+      conceptsCovered: [
+        "Trust-Building through Honest Comparison",
+        "Common Mistakes in Comparison Page SEO",
+      ],
+      teardownItems: [
+        {
+          itemId: "item-1-all-green-scorecard",
+          specimen:
+            "Feature comparison table (12 rows shown):\n  Ease of Setup:            Snowflake ✅   Databricks ❌\n  Query Performance:        Snowflake ✅   Databricks ❌\n  Open-Source Flexibility:  Snowflake ✅   Databricks ❌\n  ML/AI Native Tooling:     Snowflake ✅   Databricks ❌\n  ...8 more rows, all Snowflake ✅ / Databricks ❌, no exceptions.",
+          specimenSource: "synthetic-realistic",
+          prompt: "What's wrong with this table, and how severe is it?",
+          answerKey: [
+            {
+              defect: "Every single row is marked in Snowflake's favor, including 'Open-Source Flexibility' and 'ML/AI Native Tooling,' categories Databricks (built on open-source Spark/Delta Lake, with deep native ML tooling) is widely recognized to lead in",
+              severity: "critical",
+              whyItMatters:
+                "The lesson's Trust-Building section is explicit: sophisticated B2B buyers who spot even one dishonest row stop trusting every other row on the page, destroying the credibility the whole page exists to build.",
+              lessonRef: "Trust-Building through Honest Comparison",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The table uses checkmark and X icons instead of written 'Yes'/'No'",
+            "Snowflake is listed in the left column and Databricks in the right",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-stale-competitor-pricing",
+          specimen:
+            "Pricing section:\n  Snowflake: Starting at $2/credit (2026 pricing, linked to current pricing page)\n  Databricks: Starting at $0.07/DBU (cited from a 2023 third-party blog post, no link to Databricks' own pricing page, no year noted in the text)",
+          specimenSource: "synthetic-realistic",
+          prompt: "What's wrong with this pricing comparison, and how severe is it?",
+          answerKey: [
+            {
+              defect: "Competitor pricing is three years stale and sourced from a secondhand blog post instead of Databricks' own current pricing page, presented next to Snowflake's own up-to-date figure with no year disclosed",
+              severity: "critical",
+              whyItMatters:
+                "The lesson names this exact failure mode: a comparison page with last year's pricing does more damage than no page at all, once a prospect catches one stale number, they distrust everything else on the page.",
+              lessonRef: "Common Mistakes in Comparison Page SEO",
+              owner: "either",
+            },
+          ],
+          distractors: [
+            "Snowflake's pricing is shown per credit instead of per hour",
+            "The pricing section appears before the feature comparison table",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-3-missing-structured-data",
+          specimen:
+            "Page has a fully built comparison table (12 rows) and a 6-question FAQ section written in prose paragraphs. View-source check: no JSON-LD script tags anywhere on the page, no Product schema, no FAQPage schema.",
+          specimenSource: "synthetic-realistic",
+          prompt: "What's wrong with this page's technical setup, and how severe is it?",
+          answerKey: [
+            {
+              defect: "No Product or FAQPage structured data despite having exactly the tabular and Q&A content those schema types are built for",
+              severity: "moderate",
+              whyItMatters:
+                "The lesson flags skipping structured data as a common mistake: without it, both traditional search engines and AI crawlers have to guess what the table and FAQ mean instead of parsing it directly.",
+              lessonRef: "Common Mistakes in Comparison Page SEO",
+              owner: "developer",
+            },
+          ],
+          distractors: [
+            "The FAQ section is written in prose paragraphs instead of a bulleted list",
+            "The FAQ has 6 questions instead of 10",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Log each defect found with severity and lesson citation", why: "Free, sufficient for a 3-item defect log", required: true, lastVerified: "2026-08" },
+          { toolName: "Google Search Console", role: "Confirm via URL Inspection whether structured data is detected once schema is added", why: "Shows exactly what Google's parser sees, not just what's in the HTML", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable: "A defect log for all three excerpts with severity ratings and a publish/hold decision for the draft page.",
+      sampleOutput:
+        "Klaviyo comparison-page pre-publish audit (excerpt)\n\n" +
+        "EXCERPT: Feature table, 'Klaviyo vs Mailchimp'\n" +
+        "VERDICT: HOLD\n" +
+        "  - Critical: all 10 rows favor Klaviyo, including 'Ease of Setup' where G2's Summer 2025 report actually favors Mailchimp\n\n" +
+        "EXCERPT: Structured data check\n" +
+        "  - Moderate: no FAQPage schema despite a 5-question FAQ block\n" +
+        "  - Fix before publish: add FAQPage JSON-LD",
+      successCriteria: [
+        "Correctly identifies all 3 real defects with matching severity",
+        "Does not flag either distractor per item as a defect",
+        "Cites the correct lesson section for each defect found",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "saas-seo-strategy-comparison-brief-build",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "Building the Brief: Drafting an Honest Comparison Page and Schema Spec",
+      timeEstimate: "55 minutes",
+      timeMinutes: 55,
+      objective:
+        "Given a raw feature-diff spreadsheet and a hub-page inventory for Mailchimp vs Klaviyo, produce a comparison-page content brief that maps features to bottom-of-funnel intent, plans hub-and-spoke internal linking, and specifies AI-citation-ready structured sentences and schema.",
+      companyId: "mailchimp",
+      scenario:
+        "You're a content strategist at Mailchimp assigned to brief a new 'Mailchimp vs Klaviyo' comparison page, working from a raw feature-diff export and the existing comparison-hub's internal link map.",
+      brief: "Decide which features earn a table row, plan where the new spoke page slots into the hub, and write the declarative, AI-extractable sentences the page needs.",
+      mode: "build",
+      conceptsCovered: [
+        "Capturing Bottom-of-Funnel Search Intent",
+        "Strategic Architecture for Comparison Pages",
+        "Optimizing for the Generative Search Era",
+      ],
+      steps: [
+        {
+          stepId: "step-1-intent-mapping",
+          concept: "Capturing Bottom-of-Funnel Search Intent",
+          lessonAnchor: "capturing-bottom-of-funnel-search-intent",
+          theoryRecap:
+            "The lesson defines bottom-of-funnel queries as searches from buyers who already understand their pain point and are actively evaluating specific tools, someone searching 'Klaviyo alternatives' wants a replacement now, not education.",
+          question: "The feature-diff export has 34 rows. Which ones belong in a BoFu comparison table versus a separate blog post?",
+          toolName: "Google Sheets",
+          where: "Import feature-diff-export.csv, tag each row by whether it answers a 'which tool should I pick' decision.",
+          procedure: [
+            "Import feature-diff-export.csv and tag each row: decision-relevant or background-only",
+            "Keep the 19 decision-relevant rows (pricing tiers, SMS support, ecommerce integrations, automation branching) for the comparison table",
+            "Move the 15 background-only rows (company history, funding, founding year) out, they don't help a buyer decide",
+          ],
+          outputSample: "KEEP for table (19 rows, sample)\n  SMS + email in one flow: Mailchimp partial / Klaviyo native\n  Free tier contact cap: Mailchimp 500 / Klaviyo 250\nCUT from table (15 rows, sample)\n  Founded: Mailchimp 2001 / Klaviyo 2012",
+          healthy: "The table only has rows a buyer would actually weigh before choosing; background facts move to a separate 'About' aside if they're kept at all.",
+          unhealthy: "Including all 34 rows because the export had them, padding the table with facts nobody's deciding on.",
+          interpret: "A comparison table is a decision tool, not a data dump. Every row should answer 'does this change which tool I pick.'",
+          soWhat: [{ symptom: "A comparison table runs 30+ rows and buyers bounce before finishing it", action: "Cut every row that doesn't change the decision", effort: "30 min" }],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-hub-spoke-linking",
+          concept: "Strategic Architecture for Comparison Pages",
+          lessonAnchor: "strategic-architecture-for-comparison-pages",
+          theoryRecap:
+            "The lesson's hub-and-spoke model has a comparison overview hub linking out to individual comparison pages, passing internal link equity across the cluster and signaling topical authority.",
+          question: "Mailchimp's existing hub links to 6 comparison pages. Where does the new Klaviyo spoke slot in, and what needs to link to it?",
+          toolName: "Screaming Frog SEO Spider",
+          where: "Crawl the existing /compare hub and its 6 spoke pages to map current internal links before adding the new page.",
+          procedure: [
+            "Crawl the /compare hub page and its 6 existing spoke pages",
+            "Confirm the hub page's link list template can add a 7th entry without a manual code change",
+            "Plan a link from the new Klaviyo spoke back to the hub, plus a link from Mailchimp's pricing page to the new spoke",
+          ],
+          outputSample: "Current hub links: 6 spokes, template-driven list\nPlanned addition: 7th spoke (vs Klaviyo), auto-added via CMS entry\nNew inbound link: pricing page → vs-klaviyo spoke (added manually)",
+          healthy: "The new page is linked from the hub on day one and gets at least one additional inbound link from a high-traffic page, not left to rely on the sitemap alone.",
+          unhealthy: "Publishing the new spoke page without adding it to the hub's link list, leaving it to be discovered only through search.",
+          interpret: "Internal links are what pass authority through the cluster. A spoke page with no hub link is competing on its own, not with the cluster's combined authority.",
+          soWhat: [{ symptom: "A new comparison page ranks slowly despite good content", action: "Check it's linked from the hub and at least one other high-traffic page", effort: "5 min" }],
+          owner: "either",
+        },
+        {
+          stepId: "step-3-ai-citation-structure",
+          concept: "Optimizing for the Generative Search Era",
+          lessonAnchor: "optimizing-for-the-generative-search-era",
+          theoryRecap:
+            "The lesson says AI models cite clear semantic headers, structured tables, and direct declarative sentences like 'Product X costs $49/month, Product Y costs $79/month,' not marketing language that requires interpretation.",
+          question: "The draft currently says 'Klaviyo's pricing can add up fast for growing lists.' How should that sentence be rewritten for AI extraction?",
+          toolName: "Clearscope",
+          where: "Score the draft's structural clarity and flag vague sentences that lack a concrete, citable claim.",
+          procedure: [
+            "Run the draft through a content-structure check for vague, non-declarative claims",
+            "Rewrite each flagged sentence into a direct comparison with real numbers",
+            "Confirm the page includes a semantic H2 per comparison dimension and a comparison table, not just prose",
+          ],
+          outputSample: "BEFORE: \"Klaviyo's pricing can add up fast for growing lists.\"\nAFTER: \"Klaviyo's paid plans start at $20/month for 500 contacts and scale with list size; Mailchimp's paid plans start at $13/month for 500 contacts.\"",
+          healthy: "Every claim in the comparison table and body copy is a specific, checkable statement an AI model could lift verbatim into an answer.",
+          unhealthy: "Leaving vague qualitative claims ('can add up fast,' 'more flexible') that require a human to interpret before they're useful as a citation.",
+          interpret: "AI Overviews and chat answers extract sentences, not sentiment. A claim that needs interpretation gets skipped in favor of a competitor's page that states the number directly.",
+          soWhat: [{ symptom: "A comparison page ranks well but gets zero AI citations", action: "Rewrite vague claims into direct, numbered statements", effort: "30 min" }],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Tag and filter the feature-diff export into table-worthy vs background rows", why: "Free, handles the row-tagging workflow entirely", required: true, lastVerified: "2026-08" },
+          { toolName: "Screaming Frog SEO Spider", role: "Map existing hub-and-spoke internal links before adding the new page", why: "Free up to 500 URLs, enough for one comparison hub cluster", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [
+          { toolName: "Clearscope", role: "Score the draft for structural clarity and flag vague, non-declarative claims", why: "Purpose-built for checking whether content reads as extractable, structured information", required: false, lastVerified: "2026-08" },
+        ],
+        paidUpgradeNote: "The free path (Sheets + Screaming Frog) covers the full brief; Clearscope just speeds up finding vague sentences in a long draft rather than reading it line by line.",
+      },
+      deliverable: "A comparison-page content brief: a 19-row feature table spec, a hub-and-spoke linking plan naming exact source/target pages, and a rewritten set of AI-citation-ready declarative sentences with an FAQPage schema outline.",
+      sampleOutput:
+        "Squarespace vs Wix, comparison-page brief (excerpt)\n\n" +
+        "TABLE ROWS (decision-relevant, 4 of 19 shown)\n" +
+        "  Free custom domain: Squarespace no / Wix yes (1 year)\n" +
+        "  Built-in booking system: Squarespace yes / Wix add-on\n\n" +
+        "LINKING PLAN\n" +
+        "  Hub: /compare (add 7th spoke entry via CMS)\n" +
+        "  Inbound: /pricing page → new spoke (manual link)\n\n" +
+        "AI-CITATION SENTENCE\n" +
+        "  \"Squarespace's Business plan costs $23/month billed annually; Wix's comparable Core plan costs $17/month billed annually.\"",
+      successCriteria: [
+        "Feature table only includes decision-relevant rows, background rows are excluded",
+        "Linking plan names both the hub-to-spoke and at least one additional inbound link",
+        "At least 3 vague claims are rewritten into specific, numbered declarative sentences",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "agentic-commerce-seo": [
+    {
+      id: "agentic-commerce-seo-feed-readiness-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "Machine-Readable or Invisible: Auditing a Product Feed for AI Shopping Agents",
+      timeEstimate: "35 minutes",
+      timeMinutes: 35,
+      objective: "Given a real product page and its structured data, decide whether an AI shopping agent (ChatGPT, Perplexity, or Google's agent stack) can actually read, compare, and recommend it, or whether it silently drops out of consideration before a human ever sees the recommendation.",
+      companyId: "allbirds",
+      scenario: "You're the ecommerce SEO analyst at Allbirds, the sustainable footwear and apparel brand, checking whether the current sneaker product pages meet the baseline an AI shopping agent needs before it will even consider recommending them.",
+      brief: "Crawl a product page's structured data, score it against the five agent-readiness inputs from the lesson, and flag the single gap most likely to disqualify the listing.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Identifying missing Product/Offer schema and GTIN identifiers via a structured-data crawl",
+        "Scoring review volume and price/stock freshness as agent-ranking inputs",
+      ],
+      steps: [
+        {
+          stepId: "step-1-schema-identifier-crawl",
+          concept: "Identifying missing Product/Offer schema and GTIN identifiers via a structured-data crawl",
+          lessonAnchor: "the-feed-and-schema-requirements-agents-actually-read",
+          theoryRecap: "The lesson's feed-and-schema section lists Product/Offer schema.org markup and GTIN/MPN identifiers as the baseline inputs Perplexity's merchant program and the Agentic Commerce Protocol both require before an agent will parse a listing at all.",
+          question: "A crawl of 12 Allbirds product URLs returns Product schema present on all 12, but the `gtin` field is empty on 5 of them (all in the new Tree Runner colorways). What happens to those 5 pages in an agent's comparison, and what's the fix?",
+          toolName: "Screaming Frog SEO Spider",
+          where: "Configuration > Custom > Structured Data, run against the product URL list, export the schema validation report.",
+          procedure: [
+            "Load the 12 product URLs into Screaming Frog's list mode",
+            "Enable structured data extraction and crawl",
+            "Export the Structured Data tab, filter for Product schema entries",
+            "Check the `gtin13`/`mpn` property column for blank cells",
+            "Cross-reference blank rows against the CMS to find where the identifier was never backfilled",
+          ],
+          outputSample: "12 URLs crawled, Product schema found: 12/12\nGTIN present: 7/12\nGTIN missing: 5/12 (all Tree Runner colorways, launched this quarter)\nMPN present as fallback: 0/5 missing rows",
+          healthy: "Every product URL has either a valid GTIN or, when no GTIN exists (a private-label first-party item), a documented MPN plus brand name as the fallback identifier.",
+          unhealthy: "A product page ships with Product schema but an empty identifier field, which is functionally invisible to any system that matches products by universal ID rather than by title text.",
+          interpret: "Schema presence alone is not the pass condition. An agent built around GTIN matching cannot place an identifier-less product next to a competitor's, so it gets excluded from the comparison before quality or price ever matter.",
+          soWhat: [
+            { symptom: "New colorways/SKUs launch without a GTIN backfilled", action: "Add GTIN assignment as a launch-checklist item alongside the product page itself, not a follow-up task", effort: "30 min" },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-review-and-freshness-score",
+          concept: "Scoring review volume and price/stock freshness as agent-ranking inputs",
+          lessonAnchor: "what-this-means-for-a-merchant-concretely",
+          theoryRecap: "The lesson's merchant-checklist section treats review volume and real-time price/stock accuracy as direct inputs to an agent's recommendation, not passive trust signals, and warns that a stale price creates a failed or unwanted transaction.",
+          question: "The same 12 URLs show review counts ranging from 3 to 890, and one page's price in the feed (checked against Merchant Center) is 11 days stale after a markdown. Which of these two problems disqualifies a listing outright, and which just weakens it?",
+          toolName: "Google Sheets",
+          where: "Combine the Screaming Frog export with a manual feed-vs-live-price check, score each URL.",
+          procedure: [
+            "Paste the 12-URL crawl export into Google Sheets",
+            "Add a review-count column pulled from each product page",
+            "Add a feed-price-vs-live-price column by comparing the Merchant Center feed export to the current live price",
+            "Flag any row where feed price != live price as 'checkout risk', regardless of review count",
+            "Flag any row under 10 reviews as 'weak recommendation signal', not a hard block",
+          ],
+          outputSample: "URL: /tree-runner-go-mizzle   Reviews: 890   Feed price: $98   Live price: $98   Status: OK\nURL: /tree-runner-caramel   Reviews: 4   Feed price: $110   Live price: $85 (11 days stale)   Status: CHECKOUT RISK",
+          healthy: "Feed price matches live price within the same day, and review count is high enough that the agent has real sentiment data to summarize.",
+          unhealthy: "A stale feed price that would complete a transaction at the wrong amount, which the lesson calls worse than not appearing at all.",
+          interpret: "Low review count weakens a recommendation; a stale price actively breaks the transaction agents are built to complete, so it gets fixed first regardless of how strong the rest of the listing is.",
+          soWhat: [
+            { symptom: "Feed price drifts from live price after a markdown or promo", action: "Set the feed sync job to run at least daily, hourly during sale periods", effort: "dev ticket" },
+          ],
+          owner: "either",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Screaming Frog SEO Spider", role: "Crawl product URLs and extract structured data", why: "Free up to 500 URLs, covers a single-category audit", required: true, lastVerified: "2026-08" },
+          { toolName: "Google Sheets", role: "Score identifier, review, and price-freshness gaps", why: "No account friction, easy to share with the merchandising team", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable: "A 12-row agent-readiness audit sheet flagging every product missing a GTIN/MPN and every product with a stale feed price, ranked by which fix unblocks the most revenue.",
+      sampleOutput:
+        "Warby Parker, agent-readiness audit (excerpt)\n\n" +
+        "BLOCKING (fix first)\n" +
+        "  Hayes Sunglasses, Rye Tortoise   GTIN: missing   Feed price: matches live   -> backfill GTIN this week\n\n" +
+        "CHECKOUT RISK\n" +
+        "  Percey Optical, Elderflower Crystal   GTIN: present   Feed price: $145, live $125 (9 days stale)   -> resync feed job\n\n" +
+        "WEAK SIGNAL, not blocking\n" +
+        "  Durand Sun, Whiskey Tortoise   Reviews: 6   GTIN: present   Feed: current   -> request review outreach, no urgent fix",
+      successCriteria: [
+        "Correctly separates hard-blocking gaps (missing identifier, stale price) from weakening-but-not-blocking gaps (low review count)",
+        "Produces a ranked fix list, not just a flat list of issues",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "agentic-commerce-seo-listing-teardown",
+      tier: "core",
+      archetype: "teardown",
+      title: "Four Listings, One Agent: Teardown of AI-Shopping-Ready Product Pages",
+      timeEstimate: "50 minutes",
+      timeMinutes: 50,
+      objective: "Given four synthetic-but-realistic product listing specimens as an AI shopping agent would ingest them, identify which defects would cause an agent to exclude, down-rank, or mis-transact on each one, and separate real defects from plausible-looking non-issues.",
+      companyId: "chewy",
+      scenario: "You're auditing Chewy's pet-supplies feed ahead of onboarding to a second agentic commerce channel, reviewing four representative listing specimens pulled straight from the product data an agent would actually receive.",
+      brief: "For each specimen, identify the defects that would actually break agent discovery or checkout, cite the defects, and don't get distracted by details that look wrong but aren't.",
+      mode: "teardown",
+      conceptsCovered: [
+        "Missing or malformed Offer schema breaking price/availability parsing",
+        "Identifier mismatch between feed and schema.org markup",
+        "Thin review profile weakening agent recommendation confidence",
+        "Stale stock status creating a failed agentic checkout",
+      ],
+      teardownItems: [
+        {
+          itemId: "item-1-offer-schema-missing-price",
+          specimen:
+            "Product page JSON-LD for 'Blue Buffalo Life Protection Adult Dog Food, 30 lb':\n" +
+            "{\n  \"@type\": \"Product\",\n  \"name\": \"Blue Buffalo Life Protection Adult Dog Food, 30 lb\",\n  \"gtin13\": \"0840243101234\",\n  \"brand\": { \"@type\": \"Brand\", \"name\": \"Blue Buffalo\" },\n  \"aggregateRating\": { \"@type\": \"AggregateRating\", \"ratingValue\": \"4.6\", \"reviewCount\": \"3120\" }\n  // no Offer object present anywhere in the markup\n}",
+          specimenSource: "synthetic-realistic",
+          prompt: "This listing has strong schema in most respects. What's actually wrong with it, and what happens to it in an agent comparison?",
+          answerKey: [
+            {
+              defect: "No `Offer` object at all, so price, currency, and availability are undeclared",
+              severity: "critical",
+              whyItMatters: "The lesson is explicit that agents read Product AND Offer schema together; without a price and availability an agent cannot include this listing in a price comparison or complete a checkout, regardless of how strong the rating data is.",
+              lessonRef: "The Feed and Schema Requirements Agents Actually Read: Product and Offer schema.org markup on every product page",
+              owner: "developer",
+            },
+          ],
+          distractors: [
+            "The reviewCount is formatted as a string instead of a number (schema.org accepts both; not a real defect)",
+            "The GTIN starts with a leading zero (valid GTIN-13 formatting; not a real defect)",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-identifier-mismatch",
+          specimen:
+            "Feed row: SKU 'CHW-88213', GTIN '0186547203391', title 'Kong Classic Dog Toy, Large'.\n" +
+            "Page schema.org markup: gtin13 '0186547203319' (transposed digits from the feed's GTIN).",
+          specimenSource: "synthetic-realistic",
+          prompt: "The feed and the on-page schema both have a GTIN. Is that enough?",
+          answerKey: [
+            {
+              defect: "The GTIN in the page schema doesn't match the GTIN in the product feed (transposed digits)",
+              severity: "critical",
+              whyItMatters: "An agent that cross-references a feed against on-page schema to verify a listing is legitimate will see two different products, or fail the match entirely, since GTIN is the universal key the lesson says agents use to compare listings across merchants.",
+              lessonRef: "The Feed and Schema Requirements Agents Actually Read: GTIN or MPN identifiers, the key an agent uses to match your listing against competitors",
+              owner: "developer",
+            },
+          ],
+          distractors: [
+            "The SKU format 'CHW-88213' looks internal/non-standard (SKUs are internal by design; not a real defect)",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-3-thin-reviews",
+          specimen:
+            "Newly-added listing, 'Chewy Exclusive Salmon & Sweet Potato Recipe, 24 lb'. Schema: Product + Offer both complete, GTIN present, price and stock current. aggregateRating: reviewCount '2', ratingValue '5.0'.",
+          specimenSource: "synthetic-realistic",
+          prompt: "Everything technical checks out. Would this listing win a recommendation slot against an established competitor?",
+          answerKey: [
+            {
+              defect: "Only 2 reviews backing a 5.0 rating, a thin evidence base for the sentiment summary an agent builds into its recommendation",
+              severity: "moderate",
+              whyItMatters: "The lesson states a product with 4 reviews loses to a near-identical competitor with 400 regardless of actual quality, since agents summarize review sentiment into the pitch they give the shopper.",
+              lessonRef: "What This Means for a Merchant, Concretely: treat reviews as acquisition infrastructure, not just trust signal",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The product is described as 'Chewy Exclusive' (a private-label designation is not itself a defect)",
+            "The rating is a perfect 5.0 (a genuinely small, genuinely positive sample is not fraud, just thin)",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-4-stale-stock-status",
+          specimen:
+            "Offer schema on a bestselling item: availability 'https://schema.org/InStock', price '$42.99'. Merchant Center feed sync log shows the last successful sync was 6 days ago; the item sold out on the warehouse system 2 days ago.",
+          specimenSource: "synthetic-realistic",
+          prompt: "The schema says InStock. Is that trustworthy?",
+          answerKey: [
+            {
+              defect: "Stock status in the schema is stale by at least 2 days relative to the actual warehouse system, because the feed sync hasn't run in 6 days",
+              severity: "critical",
+              whyItMatters: "The lesson calls a checkout on stale data worse than not appearing at all, since an agent that completes a transaction on out-of-stock inventory creates an unwanted transaction and a support ticket, not just a bad impression.",
+              lessonRef: "What This Means for a Merchant, Concretely: keep price and stock feeds synced in near-real time",
+              owner: "developer",
+            },
+          ],
+          distractors: [
+            "The price is listed to two decimal places ($42.99 is standard currency formatting, not a defect)",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Log each specimen's defects and severity", why: "Simple structured tracking, no setup", required: true, lastVerified: "2026-08" },
+          { toolName: "Google Search Console", role: "Cross-check indexed product URLs when validating a real (non-synthetic) feed at your own company", why: "Free, confirms which product pages Google has actually crawled and can compare against a feed export", required: false, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable: "A defect log across all four specimens, each defect tagged critical/moderate/cosmetic with a one-line fix owner (you vs. developer).",
+      sampleOutput:
+        "HelloFresh, agentic-commerce teardown log (excerpt)\n\n" +
+        "Specimen 2, Family Box protein swap SKU\n" +
+        "  CRITICAL, developer: feed GTIN and page-schema GTIN mismatch on last digit, blocks cross-merchant matching\n\n" +
+        "Specimen 4, weekly special listing\n" +
+        "  CRITICAL, developer: stock schema says InStock, warehouse system shows sold out 3 days prior\n\n" +
+        "Specimen 1, new box variant\n" +
+        "  MODERATE, you: 5 reviews on a 4.9 rating, needs review-outreach campaign before agent visibility push",
+      successCriteria: [
+        "Correctly identifies all 4 planted critical/moderate defects across the specimens",
+        "Does not flag any of the 5 distractors as real defects",
+        "Assigns a plausible owner (you vs. developer) to each real defect",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "multi-location-franchise-seo": [
+    {
+      id: "multi-location-franchise-seo-export-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "40 Locations, One Spreadsheet: Auditing a Location Export for Duplication and NAP Risk",
+      timeEstimate: "35 minutes",
+      timeMinutes: 35,
+      objective: "Given a supplied 10-location export (page content summaries plus NAP data), decide which location pages are dangerously templated near-duplicates and which listings carry NAP inconsistencies that would confuse Google about which address is real.",
+      companyId: "firstcry-brainbees",
+      scenario: "You're auditing 10 FirstCry store location pages ahead of a national expansion, checking whether the existing template is safe to reuse at scale or is already cannibalizing itself.",
+      brief: "Score each location page's genuinely-unique word count and check NAP fields for consistency, then flag the pages most at risk before the network triples in size.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Detecting near-duplicate location page content via a unique-content word count",
+        "Auditing NAP consistency and duplicate GBP listings at scale",
+      ],
+      steps: [
+        {
+          stepId: "step-1-unique-content-score",
+          concept: "Detecting near-duplicate location page content via a unique-content word count",
+          lessonAnchor: "the-duplicate-content-trap",
+          theoryRecap: "The lesson's duplicate-content section says a business with 40 nearly-identical pages isn't publishing 40 ranking opportunities, it's publishing 40 thin pages that cannibalize each other, and sets a 150-200 word bar for content that literally cannot be copy-pasted onto another location's page.",
+          question: "Across the 10-location export, 7 pages only vary the city name and address in an otherwise identical paragraph. The other 3 include a named store manager, specific service notes, and a local FAQ. Which pages are the cannibalization risk?",
+          toolName: "Google Sheets",
+          where: "Paste each location page's body copy into one row per location, run a manual unique-phrase comparison.",
+          procedure: [
+            "Paste all 10 location pages' body text into Sheets, one row per location",
+            "Strip the city name/address, compare what remains across rows",
+            "Count words that survive the strip and are not boilerplate ('Welcome to', 'Visit us today')",
+            "Flag any location under 150 genuinely unique words as high cannibalization risk",
+          ],
+          outputSample: "Location: Koramangala   Unique words after strip: 22   Risk: HIGH\nLocation: Indiranagar   Unique words after strip: 24   Risk: HIGH\nLocation: Andheri West   Unique words after strip: 210 (named manager, service notes, local FAQ)   Risk: LOW",
+          healthy: "Every location clears roughly 150-200 words of content that could not be copy-pasted onto another location's page without literally being wrong.",
+          unhealthy: "7 of 10 pages differ only in the city name token, everything else is boilerplate.",
+          interpret: "A low unique-word count isn't a style problem, it's the exact pattern the lesson says makes Google choose between your own pages and often suppress both, since a competitor with one genuinely useful page beats 7 near-identical ones.",
+          soWhat: [
+            { symptom: "Most locations score under 150 unique words", action: "Prioritize adding local team bios and local FAQs to the 7 flagged pages before adding any new locations", effort: "half day" },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-nap-and-duplicate-listing-check",
+          concept: "Auditing NAP consistency and duplicate GBP listings at scale",
+          lessonAnchor: "managing-google-business-profiles-at-scale",
+          theoryRecap: "The lesson's GBP-at-scale section flags duplicate and fake listing monitoring as a required task once a network grows, since competitors or confused customers create duplicate listings that steal ranking signal from the real one.",
+          question: "The export shows 2 of the 10 locations have a second, older Google Business Profile still live under a slightly different phone number. What's the actual risk, separate from just looking untidy?",
+          toolName: "Google Business Profile",
+          where: "Search each location's name + city in Google Maps, note every listing that appears, not just the one you manage.",
+          procedure: [
+            "Search each of the 10 location names + city directly in Google Maps",
+            "Note any second listing at the same or a nearby address",
+            "Compare phone number and hours between the duplicate and the real listing",
+            "Flag mismatched phone numbers as a NAP inconsistency, not just a duplicate",
+          ],
+          outputSample: "Koramangala: 2 listings found. Real (managed): +91-80-XXXX-1122. Duplicate (unmanaged, stale): +91-80-XXXX-0099, hours show 'Permanently Closed' incorrectly.",
+          healthy: "One listing per physical location, phone number and hours identical everywhere the business is cited.",
+          unhealthy: "A stale duplicate listing showing 'Permanently Closed' next to a real, open store, actively telling searchers the wrong thing.",
+          interpret: "A duplicate isn't just clutter, it splits the review count and ranking signal that should belong to one listing, and a stale 'closed' status can actively turn away searchers from a store that's open.",
+          soWhat: [
+            { symptom: "A duplicate or stale listing shows up for a managed location", action: "File a duplicate-merge request through Google Business Profile support for each flagged pair", effort: "30 min" },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Score unique content and log NAP findings", why: "No setup, easy to hand off to the content team", required: true, lastVerified: "2026-08" },
+          { toolName: "Google Business Profile", role: "Search for and identify duplicate listings per location", why: "Free, the direct source of truth for what's actually live", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable: "A 10-row audit sheet scoring each location's unique-content word count and flagging any duplicate GBP listing found, ranked by risk.",
+      sampleOutput:
+        "Lenskart, location export audit (excerpt)\n\n" +
+        "HIGH RISK, template-only content\n" +
+        "  MG Road store: 19 unique words after city-name strip, no duplicate listing found\n\n" +
+        "HIGH RISK, duplicate listing\n" +
+        "  Whitefield store: 31 unique words, PLUS a second unmanaged GBP listing showing wrong hours\n\n" +
+        "LOW RISK\n" +
+        "  Indiranagar store: 187 unique words (named optometrist, local FAQ), single clean listing",
+      successCriteria: [
+        "Correctly ranks all 10 locations by unique-content risk",
+        "Identifies both duplicate-listing cases in the sample export",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "multi-location-franchise-seo-page-teardown",
+      tier: "core",
+      archetype: "teardown",
+      title: "Same Template, Different Store: Teardown of Four Location Pages",
+      timeEstimate: "50 minutes",
+      timeMinutes: 50,
+      objective: "Given four synthetic location page specimens built on the same template, decide which pages differentiate enough to survive Google's duplicate-content detection and which are cannibalization risks, citing the specific defect, not a vague impression.",
+      companyId: "lenskart",
+      scenario: "You're reviewing four Lenskart store page drafts ahead of a 60-store rollout, deciding whether the shared template's variable content slots are actually being filled with location-specific substance.",
+      brief: "For each page, identify what's genuinely unique versus what's a city-name swap dressed up as local content, and don't get distracted by cosmetic differences that don't actually help.",
+      mode: "teardown",
+      conceptsCovered: [
+        "City-name-only differentiation disguised as local content",
+        "Missing self-referencing canonical tag on a near-duplicate template",
+        "LocalBusiness schema with a shared @id across locations",
+        "Genuine local differentiation via named staff and location-specific service notes",
+      ],
+      teardownItems: [
+        {
+          itemId: "item-1-city-swap-disguise",
+          specimen:
+            "Koramangala store page excerpt: 'Our Koramangala eyewear store brings expert eye tests and the latest frames to Koramangala residents. Visit our Koramangala store today for a free eye checkup and browse premium frames at prices Koramangala shoppers love.'",
+          specimenSource: "synthetic-realistic",
+          prompt: "This paragraph mentions the neighborhood five times. Is that real local differentiation?",
+          answerKey: [
+            {
+              defect: "The word 'Koramangala' is inserted repeatedly into an otherwise generic template sentence; nothing here is actually true only of this store",
+              severity: "critical",
+              whyItMatters: "The lesson explicitly warns against this exact pattern: swapping the city name into an identical template reads as differentiation to a human skim but not to Google's near-duplicate detection, which looks at what remains after the location token is removed.",
+              lessonRef: "The Duplicate Content Trap: Welcome to [Business Name] in [City], every other sentence is identical across all 40 pages",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The copy mentions 'free eye checkup' as a specific offer (a real, if generic, service claim, not itself the defect)",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-missing-canonical",
+          specimen:
+            "Page <head> for the Indiranagar store: contains a meta description and Open Graph tags, but no `<link rel=\"canonical\">` tag anywhere in the source.",
+          specimenSource: "synthetic-realistic",
+          prompt: "The page has solid metadata otherwise. What's missing that matters specifically because this is one of many near-identical templates?",
+          answerKey: [
+            {
+              defect: "No self-referencing canonical tag on the page",
+              severity: "critical",
+              whyItMatters: "The lesson calls a self-referencing canonical the confirmation to Google that a page is not a duplicate of another location, even when the template looks similar; without it, Google has to guess which of the near-identical pages is authoritative.",
+              lessonRef: "Technical Foundations for Location Pages at Scale: self-referencing canonical tags on each location page",
+              owner: "developer",
+            },
+          ],
+          distractors: [
+            "Open Graph tags are present but Twitter Card tags are absent (a real gap, but not the one the lesson calls out as scale-critical)",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-3-shared-schema-id",
+          specimen:
+            "LocalBusiness schema on both the Whitefield and HSR Layout store pages uses the identical `@id`: `https://lenskart.com/#business`.",
+          specimenSource: "synthetic-realistic",
+          prompt: "Both pages have valid LocalBusiness schema with real addresses filled in correctly. What's still wrong?",
+          answerKey: [
+            {
+              defect: "Both location pages share the exact same schema `@id` instead of a unique identifier per physical address",
+              severity: "critical",
+              whyItMatters: "The lesson requires the correct `@id` unique to that location specifically to prevent Google from confusing which schema belongs to which physical address; a shared @id tells Google's parser these are the same entity, undermining every other correct field on the page.",
+              lessonRef: "Technical Foundations for Location Pages at Scale: LocalBusiness schema on every page, with the correct @id unique to that location",
+              owner: "developer",
+            },
+          ],
+          distractors: [
+            "The address field uses 'HSR Layout, Bengaluru' rather than a full postal address with PIN code (a real formatting improvement, not the planted defect here since the schema still validates)",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-4-genuine-differentiation",
+          specimen:
+            "Andheri West store page excerpt: 'Our Andheri West optometrist, Priya Deshmukh, has fitted over 4,000 pairs of glasses since the store opened in 2021. We're one of two Lenskart stores in Mumbai offering same-day contact lens fitting, next to the Andheri metro station, parking available at the adjacent D-Mart lot.'",
+          specimenSource: "synthetic-realistic",
+          prompt: "Compare this to item 1. What makes this one actually pass?",
+          answerKey: [
+            {
+              defect: "No defect; this page includes a named staff member with a specific tenure detail, a location-specific service (same-day fitting, stated as unusual, not standard), and genuine neighborhood context (metro station, specific parking lot)",
+              severity: "cosmetic",
+              whyItMatters: "This is the control specimen: it demonstrates what 'genuinely unique, not just city-name-swapped' actually looks like per the lesson's own bullet list, none of this content could be copy-pasted onto another store's page without being false.",
+              lessonRef: "Building a Location Page Template That Actually Differentiates: what makes a slot genuinely unique, not just city name swapped",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The optometrist's name is given without a professional credential listed (a possible trust-signal addition, not a defect in this specimen)",
+            "The store claims to be 'one of two' offering same-day fitting, an unverifiable-sounding claim (this is exactly the kind of specific, checkable local claim the lesson asks for, not a red flag)",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Log defects per specimen with severity and owner", why: "Simple structured tracking", required: true, lastVerified: "2026-08" },
+          { toolName: "Screaming Frog SEO Spider", role: "Cross-check canonical tags and schema @id values across a real location-page set", why: "Free up to 500 URLs, surfaces exactly these two defects at scale via its Canonicals and Structured Data tabs", required: false, lastVerified: "2026-08" },
+        ],
+        paid: [],
+      },
+      deliverable: "A defect log across all four specimens, each tagged with severity, a fix owner, and, for the one clean specimen, an explicit note on why it passes.",
+      sampleOutput:
+        "Chewy retail-partner locations, page teardown log (excerpt)\n\n" +
+        "Specimen 2, Naperville store\n" +
+        "  CRITICAL, developer: no self-referencing canonical tag found in <head>\n\n" +
+        "Specimen 3, Schaumburg store\n" +
+        "  CRITICAL, developer: LocalBusiness @id identical to the Naperville store's schema\n\n" +
+        "Specimen 4, Oak Park store\n" +
+        "  PASS: named store lead, service note specific to this location, real neighborhood detail",
+      successCriteria: [
+        "Correctly identifies all 3 planted critical defects across specimens 1-3",
+        "Correctly identifies specimen 4 as the clean control and explains why",
+        "Does not flag any of the 3 distractors as real defects",
+      ],
+      portfolioReady: true,
+    },
+  ],
 };

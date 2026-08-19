@@ -28,6 +28,18 @@ A useful mental model: cohort analysis is the autopsy, predictive churn signals 
 
 ## The Three Signal Families
 
+<InAction
+  concept="Acting on a usage-pattern signal instead of just tracking it"
+  companyName="Bolt"
+  where="Bolt, the European ride-hailing and delivery super-app, inside its own product analytics practice"
+  why="Traditional BI tools left gaps in understanding rider behavior, so the team needed a live usage signal to find where friction was actually costing rides"
+  what="Bolt's analytics team used event-level usage data to isolate a specific behavioral segment (riders on outdated Android OS versions) and prioritized reducing ride cancellations as the metric to act on"
+  benefit="Ride cancellations dropped 3% after acting on the usage-pattern insight, and 15% of Android engineering capacity was freed up by retiring unnecessary legacy support"
+  timeframe="the release cycle following the analysis"
+  date="2026"
+  source="https://mixpanel.com/blog/mixpanel-analytics-use-cases-customer-stories/"
+/>
+
 **Usage-decline patterns.** Product usage typically declines by an average of 41% in the quarter immediately before a customer cancels. Login frequency decline is often the earliest tell, providing roughly 60 days of lead time, while feature-level usage tracking spots at-risk accounts 3-6 weeks earlier than teams relying on billing data alone, according to [2026 leading-indicator research](https://www.buildmvpfast.com/blog/leading-indicators-churn-b2b-saas-2026).
 
 **Support-ticket sentiment.** A spike in support tickets correlates with roughly 3x higher churn risk. It is not just volume that matters, the tone shifts too: repeated frustration language, escalation requests, and questions about cancellation or 'how do I export my data' are stronger signals than ticket count alone.
@@ -43,6 +55,18 @@ A useful mental model: cohort analysis is the autopsy, predictive churn signals 
   E -- No --> G[Continue Monitoring]`} />
 
 ## Turning Signals Into a Save Campaign
+
+<InAction
+  concept="Routing at-risk accounts to a dedicated save motion"
+  companyName="Checkr"
+  where="Checkr's customer success team, background-check platform serving employers"
+  why="The team needed to stop spreading save-motion effort evenly across the whole book of accounts and instead concentrate it where it would change the outcome"
+  what="Checkr identified the 10% of accounts most likely to churn, then dedicated 30% of the customer success team's time specifically to engaging that at-risk segment with a targeted save motion"
+  benefit="Churn dropped 15% in under a year, and upsell opportunities on the same accounts increased 20% once they were being actively engaged instead of ignored"
+  timeframe="under 12 months"
+  date="2025"
+  source="https://www.thinkific.com/blog/customer-churn-prediction/"
+/>
 
 A signal without a workflow is just a dashboard nobody acts on. The teams that actually move the churn number combine the three signal families into a single composite risk score per account, then route accounts above a threshold to a defined save motion, not an ad hoc email.
 

@@ -3143,4 +3143,3173 @@ export const GROWTH_PROJECTS: Record<string, Project[]> = {
         "Add a Readout tab (Gear 5) with a template for hypothesis, result, primary metric movement, guardrail status, and searchable tags.",
     },
   ],
+
+  "activation-rate": [
+    {
+      id: "activation-rate-host-cohort-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "Finding the Aha Behavior: A Host Cohort Audit",
+      timeEstimate: "35 minutes",
+      timeMinutes: 35,
+      objective:
+        "Given a synthetic export of 30 Airbnb hosts' first-14-day behaviors and whether each host was still active at day 90, apply the lesson's cohort-comparison method to identify which single behavior is the real activation event, and set the time window that captures it.",
+      companyId: "airbnb",
+      scenario:
+        "You're a growth analyst on Airbnb's host-growth team. Leadership wants one activation metric for new hosts instead of five loosely tracked onboarding steps. You've pulled a 30-host synthetic export with first-14-day behaviors and each host's day-90 status.",
+      brief:
+        "Compare the retained-at-day-90 cohort against the churned cohort, find the earliest behavior that actually separates them, and write a one-line activation definition an engineer could instrument tomorrow.",
+      mode: "diagnostic",
+      conceptsCovered: ["Finding the aha behavior via cohort comparison"],
+      steps: [
+        {
+          stepId: "step-1-find-aha-behavior",
+          concept: "Finding the aha behavior via cohort comparison",
+          lessonAnchor: "how-it-works-the-playbook",
+          theoryRecap:
+            "The lesson's Step 1 says: pull the retained-past-day-30 cohort and the churned-before-day-30 cohort, then look for the earliest behavior that separates them. The activation event is not the behavior most hosts do, it is the behavior that correlates with sticking around.",
+          question:
+            "22 of 30 hosts synced their calendar in week 1, but only 11 hosts uploaded 5+ photos in week 1. Which behavior actually separates the day-90-retained hosts from the churned ones, and why does the more 'popular' behavior lose?",
+          toolName: "Google Sheets",
+          where:
+            "Import the 30-row export, freeze the header row, then build a pivot table with `day_90_active` as rows and each behavior column as values.",
+          procedure: [
+            "Import the export and freeze row 1.",
+            "Split hosts into two groups: day_90_active = TRUE (18 hosts) and FALSE (12 hosts).",
+            "For each behavior column (calendar_synced, photos_5plus, first_booking_accepted, pricing_tool_used, messaged_guest_first), compute the % TRUE within each group.",
+            "Rank behaviors by the gap between the two group percentages, largest gap first.",
+            "Confirm the winning behavior happens early enough (within 14 days) to be useful as a leading indicator, not a lagging one.",
+          ],
+          outputSample:
+            "Behavior gap analysis (n=30 hosts)\n\ncalendar_synced: 73% (active) vs 67% (churned) -> 6pt gap\nphotos_5plus: 61% (active) vs 58% (churned) -> 3pt gap\nfirst_booking_accepted: 89% (active) vs 25% (churned) -> 64pt gap\npricing_tool_used: 44% (active) vs 33% (churned) -> 11pt gap\nmessaged_guest_first: 39% (active) vs 17% (churned) -> 22pt gap\n\nWinner: first_booking_accepted, 64-point gap, occurs at a median of day 9.",
+          healthy:
+            "One behavior shows a gap of 40+ points between the retained and churned cohorts, and it happens inside the target window.",
+          unhealthy:
+            "The 'busiest' behavior (calendar_synced, done by almost everyone) shows only a 6-point gap. Building onboarding around it would optimize for attendance, not value.",
+          interpret:
+            "Accepting a first booking, not syncing a calendar, is the aha moment: it's the point where a host experiences real income, which is what makes them stick. Calendar sync is a setup step everyone does regardless of outcome.",
+          soWhat: [
+            {
+              symptom: "Onboarding funnel currently celebrates 'calendar synced' as the activation milestone",
+              action: "Re-point the activation event to first_booking_accepted, and redesign onboarding to accelerate getting a first booking (better default pricing, instant-book nudges)",
+              effort: "half day",
+            },
+            {
+              symptom: "No single frozen definition exists, each team cites a different onboarding step",
+              action: "Write the definition down: 'Activated = accepted first booking within 14 days of listing published' and circulate it as the one number every team reports against",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Pivot the export and compute the retained-vs-churned behavior gaps",
+            why: "No account friction, pivot tables handle a 30-row cohort split easily",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-line activation definition (event + threshold + window), backed by the cohort gap analysis, ready to hand to engineering for instrumentation as a single `activated` event.",
+      sampleOutput:
+        "HelloFresh, new-subscriber activation definition (excerpt)\n\nCandidate behaviors tested against day-30 retention (n=45 synthetic subscribers):\n  box_customized: 8pt gap\n  delivery_rescheduled: 4pt gap\n  second_box_ordered: 71pt gap  <- winner\n\nFrozen definition: 'Activated = ordered a second box within 21 days of first delivery.'\nOwner: Retention pod. Reviewed quarterly against fresh cohort data.",
+      successCriteria: [
+        "Correctly computes the retained-vs-churned percentage gap for all 5 candidate behaviors",
+        "Selects the behavior with the largest gap, not the most frequent behavior",
+        "Writes a frozen definition with an explicit event name, threshold, and time window",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "activation-rate-definition-teardown",
+      tier: "core",
+      archetype: "teardown",
+      title: "Teardown: Four Activation Definitions Submitted by Feature Teams",
+      timeEstimate: "55 minutes",
+      timeMinutes: 55,
+      objective:
+        "Given four real-style activation metric definitions submitted by different feature teams at DoorDash, apply the lesson's Common Mistakes framework to find the specific defect in each (vanity threshold, oversized window, ad-hoc derived logic, or a definition that looks fine but is missing channel segmentation).",
+      companyId: "doordash",
+      scenario:
+        "You're the analytics lead reviewing activation-metric proposals ahead of a quarterly OKR planning cycle at DoorDash. Four feature teams (New Customer, Dasher, Merchant, DashPass) each submitted a written definition. You have one meeting to approve, reject, or send each back for rework.",
+      brief:
+        "Read each submitted definition as written, decide whether it has a real defect or is sound, and if it's flawed, name the specific failure mode from the lesson (not just 'this seems off').",
+      mode: "teardown",
+      conceptsCovered: ["Common Mistakes", "How It Works / The Playbook"],
+      teardownItems: [
+        {
+          itemId: "item-1-new-customer",
+          specimen:
+            "New Customer team's submitted definition: 'Activated = logged in 3+ times within 30 days of signup.'",
+          specimenSource: "synthetic-realistic",
+          prompt: "Approve, reject, or send back for rework? Name the defect if any.",
+          answerKey: [
+            {
+              defect: "Vanity threshold, not a value-revealing action",
+              severity: "critical",
+              whyItMatters:
+                "'Logged in 3 times' measures attendance, not whether the user experienced value. A user can open the app three times and never place an order.",
+              lessonRef: "Common Mistakes: Picking a vanity threshold",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The 30-day window is the real problem here, not the login threshold",
+            "This definition is fine because 3+ logins is a common industry benchmark",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-dasher",
+          specimen:
+            "Dasher team's submitted definition: 'Activated = completed onboarding checklist (background check, bank info, first availability set) within 30 days of application approval.'",
+          specimenSource: "synthetic-realistic",
+          prompt: "Approve, reject, or send back for rework? Name the defect if any.",
+          answerKey: [
+            {
+              defect: "30-day window is too long to run weekly experiments",
+              severity: "moderate",
+              whyItMatters:
+                "A 30-day window produces roughly one usable data point per month. Most meaningful onboarding behavior for a Dasher happens in the first few days; if it genuinely takes 30 days, that's a time-to-value problem, not just a measurement one.",
+              lessonRef: "Common Mistakes: Setting a 30-day activation window",
+              owner: "either",
+            },
+          ],
+          distractors: [
+            "Requiring a background check as part of the definition is the actual defect",
+            "Bank info collection should not be part of onboarding at all",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-3-merchant",
+          specimen:
+            "Merchant team's submitted definition: 'Activated = (menu_items_uploaded > 10 AND store_hours_set) OR first_order_received, recomputed weekly from the events warehouse.'",
+          specimenSource: "synthetic-realistic",
+          prompt: "Approve, reject, or send back for rework? Name the defect if any.",
+          answerKey: [
+            {
+              defect: "Derived on the fly from multiple events instead of a single fired event",
+              severity: "critical",
+              whyItMatters:
+                "A compound OR/AND expression recomputed from the warehouse gets reinterpreted differently every quarter as analysts tweak the logic, which is exactly the ambiguity the lesson warns causes teams to argue about methodology instead of acting on data.",
+              lessonRef: "How It Works / The Playbook: Instrument a single event",
+              owner: "developer",
+            },
+          ],
+          distractors: [
+            "Weekly recomputation frequency is the actual problem, it should run daily",
+            "first_order_received should not be part of the definition at all",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-4-dashpass",
+          specimen:
+            "DashPass team's submitted definition: 'Activated = placed a DashPass order within 7 days of subscribing, single frozen event, fires once per user.' Reported as one blended number across all acquisition channels.",
+          specimenSource: "synthetic-realistic",
+          prompt: "Approve, reject, or send back for rework? Name the defect if any.",
+          answerKey: [
+            {
+              defect: "Missing channel segmentation before the number is trusted",
+              severity: "moderate",
+              whyItMatters:
+                "The event, threshold, and window are all sound, but reporting one blended rate hides that paid-acquired subscribers likely activate 30-60 points below organic referrals. An average here can mask a channel burning CAC for nothing.",
+              lessonRef: "How It Works / The Playbook: Segment by acquisition channel",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "The 7-day window is too short for a subscription product",
+            "The event should fire more than once per user to capture repeat activation",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Track each submission, your verdict, and the cited lesson concept in one review sheet",
+            why: "A simple review log is all four write-ups need, no analytics tool required",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page review memo: one verdict (approve / reject / rework) per submission, the named defect, and the one-sentence fix each team should apply before resubmitting.",
+      sampleOutput:
+        "Flipkart Seller Hub, activation definition review memo (excerpt)\n\nSeller Onboarding team: REWORK. Definition uses 'catalog_viewed 2+ times,' a vanity threshold. Recommend re-deriving from cohort data against 90-day seller retention instead.\n\nAds team: APPROVE. 'first_campaign_launched within 10 days,' single frozen event, correct window, already segmented by seller tier.",
+      successCriteria: [
+        "Correctly identifies the specific defect in items 1, 2, and 3 (not just 'something is wrong')",
+        "Correctly recognizes item 4's event/threshold/window is sound and the real gap is missing segmentation",
+        "Does not flag a distractor as the primary defect",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "freemium-vs-free-trial": [
+    {
+      id: "freemium-trial-seller-tool-economics",
+      tier: "mini",
+      archetype: "head-to-head",
+      title: "Freemium vs. Opt-In vs. Opt-Out: Modeling the Same Launch Three Ways",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given the lesson's real visitor-to-signup and signup-to-paid benchmarks, calculate how many paying customers each of the three acquisition models produces from the same 50,000 monthly visitors, and recommend a model for a new seller-analytics add-on.",
+      companyId: "flipkart",
+      scenario:
+        "Flipkart's Seller Hub team wants to launch a paid analytics add-on for third-party sellers and is deciding between freemium, an opt-in trial, and an opt-out (card-required) trial. You have 50,000 monthly seller-portal visitors and the industry benchmarks from this lesson.",
+      brief:
+        "Apply the lesson's visitor-signup rates and signup-to-paid conversion rates to each model, calculate paying customers per month, and recommend a model with the tradeoff stated explicitly.",
+      mode: "diagnostic",
+      conceptsCovered: ["Choosing between freemium and free trial using real conversion benchmarks"],
+      steps: [
+        {
+          stepId: "step-1-model-three-funnels",
+          concept: "Choosing between freemium and free trial using real conversion benchmarks",
+          lessonAnchor: "why-it-matters-with-data",
+          theoryRecap:
+            "The lesson cites: opt-in trials convert 8.9% of trial signups to paid but only 7.8% of visitors sign up. Opt-out trials convert 49.9% of signups but only 2.4% of visitors sign up (card requirement filters hard at the door). Freemium converts 3-5% of a much larger signup pool to paid over time.",
+          question:
+            "From 50,000 monthly visitors, which of the three models produces the most paying customers this month, and which produces the most total signed-up users (future upgrade candidates)?",
+          toolName: "Google Sheets",
+          where: "Build a 3-row table: model, visitor-to-signup rate, signup-to-paid rate, then multiply through.",
+          procedure: [
+            "Freemium: assume a 10% visitor-to-signup rate (low friction, no card) x 50,000 = 5,000 signups; apply 3% freemium-to-paid = 150 paying customers this month.",
+            "Opt-in trial: 7.8% visitor-to-signup x 50,000 = 3,900 signups; apply 8.9% trial-to-paid = ~347 paying customers.",
+            "Opt-out trial: 2.4% visitor-to-signup x 50,000 = 1,200 signups; apply 49.9% trial-to-paid = ~599 paying customers.",
+            "Compare total signed-up users too: freemium leaves 4,850 unconverted-but-active free users; opt-out leaves only ~601 non-converters, most of whom never signed up at all.",
+            "Weigh cost-to-serve: an analytics add-on with real compute cost per seller favors the model with fewer non-paying users on the infrastructure bill.",
+          ],
+          outputSample:
+            "50,000 visitors, three models compared\n\nFreemium: 5,000 signups x 3% = 150 paying/mo. 4,850 free users still on infra.\nOpt-in trial: 3,900 signups x 8.9% = ~347 paying/mo. 3,553 lapsed trials, off infra after 14 days.\nOpt-out trial: 1,200 signups x 49.9% = ~599 paying/mo. Smallest funnel, highest yield per signup.",
+          healthy:
+            "The opt-out trial produces the most paying customers per visitor this month, and the fewest non-paying users sitting on infrastructure.",
+          unhealthy:
+            "Picking freemium by default because 'more signups feels safer,' without running the actual math on paying-customer yield.",
+          interpret:
+            "For a seller tool with real per-seller compute cost (analytics queries against live order data), the opt-out trial's card-required filter produces more revenue per visitor and less unpaid infrastructure load than freemium.",
+          soWhat: [
+            {
+              symptom: "Team defaults to freemium because it 'feels more generous' to sellers",
+              action: "Run the visitor-to-paying math before choosing; recommend opt-out trial given the compute cost per active seller",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Model the three funnels side by side and compute paying-customer yield",
+            why: "A funnel comparison is a handful of multiplications, no paid tool needed",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-page recommendation memo: paying-customer count per model, non-paying-user infrastructure load per model, and a stated recommendation with the tradeoff named explicitly.",
+      sampleOutput:
+        "Sea Limited, Shopee seller-tools launch memo (excerpt)\n\nModel comparison at 80,000 monthly visitors:\nFreemium: 480 paying/mo, 7,600 free users on infra.\nOpt-out trial: 940 paying/mo, 900 total signups.\nRecommendation: opt-out trial. Real-time inventory sync has non-trivial compute cost per active seller; the smaller, higher-intent funnel wins on unit economics.",
+      successCriteria: [
+        "Correctly applies both the visitor-to-signup and signup-to-paid rates for all three models",
+        "States a recommendation with an explicit tradeoff, not just the model with the highest paying-customer count",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "freemium-trial-12-month-forecast",
+      tier: "core",
+      archetype: "forecast",
+      title: "12-Month Forecast: When Does a Freemium-Only Launch Need to Add a Trial?",
+      timeEstimate: "55 minutes",
+      timeMinutes: 55,
+      objective:
+        "Given a 12-month signup and conversion trajectory for a freemium-only launch, forecast when paid-customer growth plateaus, and calculate whether layering an opt-out trial on top (a hybrid model) meaningfully changes the 12-month outcome.",
+      companyId: "sea-limited",
+      scenario:
+        "Sea Limited is piloting a freemium seller-analytics tool inside Shopee's merchant app. Six months of real usage data shows freemium signups growing but paid conversion flattening. Leadership wants a 12-month forecast before deciding whether to add a premium trial on top.",
+      brief:
+        "Project month 7-12 paying customers under 'freemium stays freemium-only' versus 'freemium adds a hybrid opt-out trial in month 7,' using the lesson's benchmark rates, and recommend a path.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Forecasting freemium-only growth against a hybrid model transition",
+        "The hybrid model layers a trial on top of a freemium base",
+      ],
+      steps: [
+        {
+          stepId: "step-1-baseline-freemium-forecast",
+          concept: "Forecasting freemium-only growth against a hybrid model transition",
+          lessonAnchor: "why-it-matters-with-data",
+          theoryRecap:
+            "Freemium-to-paid conversion in this lesson's benchmark sits at 3-5%, and it compounds slowly because it depends on users hitting a usage ceiling over time, not a fixed deadline. Month-over-month paid growth from a flat signup base plateaus once the addressable pool of 'about to hit the ceiling' users is exhausted.",
+          question:
+            "Months 1-6 show 4,000 new freemium signups/month and a steady 3.5% eventual conversion rate, but months 5 and 6 both added only ~40 net new paying customers versus ~140 in month 2. What's happening, and what does months 7-12 look like if nothing changes?",
+          toolName: "Google Sheets",
+          where: "Build a 12-row month-by-month table: new signups, cumulative free base, new paying customers, cumulative paying customers.",
+          procedure: [
+            "Extend the 6-month actuals at the same 4,000 signups/month and 3.5% eventual conversion rate for months 7-12.",
+            "Note that new paying customers per month depend on how many freemium users are newly hitting the usage ceiling, not the whole free base, so growth flattens once early cohorts have already converted or plateaued as non-converters.",
+            "Forecast: months 7-12 continue near the ~40-50/month plateau seen in months 5-6, absent any change to the funnel.",
+            "Total 12-month paying customers under freemium-only: roughly 700-750.",
+          ],
+          outputSample:
+            "Freemium-only forecast, months 1-12\n\nMonth 1: 4,000 signups, 140 new paying (early high-intent cohort converts fast)\nMonth 2: 4,000 signups, 140 new paying\n...\nMonth 5: 4,000 signups, 42 new paying (ceiling pool shrinking)\nMonth 6: 4,000 signups, 39 new paying\nMonth 7-12 (forecast): ~40/month flat -> ~240 more\n12-month cumulative paying: ~730",
+          healthy:
+            "Forecast is built from the observed plateau in months 5-6, not extrapolated from the strong early months.",
+          unhealthy:
+            "Assuming months 7-12 will keep adding 140 paying customers/month because that's what months 1-2 did, ignoring the visible plateau.",
+          interpret:
+            "A freemium-only model's paid growth is bounded by how fast users hit the usage ceiling, not by signup volume. Once the early high-intent cohort converts, growth flattens even with steady signups.",
+          soWhat: [
+            {
+              symptom: "New paying customers per month dropped from 140 to ~40 by month 5, with signups holding flat",
+              action: "Flag the plateau to leadership before month 7 planning, don't wait for a full quarter of flat growth to notice",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-hybrid-transition-forecast",
+          concept: "The hybrid model layers a trial on top of a freemium base",
+          lessonAnchor: "the-hybrid-model-increasingly-the-default",
+          theoryRecap:
+            "The lesson describes the hybrid model (Canva, Loom, Webflow): a freemium base handles distribution, and a time-boxed premium trial layered on top handles conversion urgency, converting users who already built a habit on the free tier.",
+          question:
+            "If month 7 adds a 14-day premium trial for freemium users who've hit the usage ceiling (targeting the plateaued ~3,650 free users from the first 6 months, not new signups), and that trial converts at the opt-out benchmark of 49.9% among the ~15% who actually start a trial, what does that add to the 12-month total?",
+          toolName: "Google Sheets",
+          where: "Add a one-time cohort row for the existing plateaued free base, separate from the ongoing new-signup rows.",
+          procedure: [
+            "Identify the plateaued pool: ~3,650 free users from months 1-6 who never converted under freemium alone.",
+            "Apply a 15% trial-start rate (users who've already built a habit are the most likely to try a premium trial) = ~548 trial starts.",
+            "Apply the 49.9% opt-out conversion benchmark to those trial starts = ~273 additional paying customers, one-time, in month 7.",
+            "Add this to the freemium-only forecast: ~730 (freemium-only) + ~273 (hybrid trial layer) = ~1,003 paying customers by month 12.",
+            "Note the caveat: this is a one-time unlock of the existing plateaued pool, not a new steady-state rate, month 8-12 still needs its own hybrid cohort math for a real model.",
+          ],
+          outputSample:
+            "Hybrid transition, month 7 one-time cohort\n\nPlateaued free base: 3,650 users\nTrial starts (15%): 548\nConverted at 49.9%: ~273 new paying customers\n\n12-month total: 730 (freemium-only baseline) + 273 (hybrid unlock) = ~1,003",
+          healthy:
+            "The hybrid layer is modeled as a one-time unlock of the existing stuck cohort, with an explicit caveat that it isn't a repeatable monthly rate.",
+          unhealthy:
+            "Treating the +273 hybrid bump as a new permanent monthly run-rate and extrapolating it forward without re-deriving month 8-12 separately.",
+          interpret:
+            "A hybrid model's biggest lift often comes from finally converting users who already built a habit but had no urgency mechanism, exactly the population freemium alone structurally can't monetize.",
+          soWhat: [
+            {
+              symptom: "Freemium-only forecast plateaus at ~730 paying customers by month 12",
+              action: "Recommend layering an opt-out trial for the plateaued cohort in month 7, expected one-time lift of ~273 paying customers",
+              effort: "dev ticket",
+            },
+          ],
+          owner: "either",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the 12-month cohort forecast table for both scenarios",
+            why: "A month-by-month cohort table is a spreadsheet exercise, no forecasting software required",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Amplitude",
+            role: "Pull the real month 1-6 signup and conversion cohort data this forecast is built on",
+            why: "Cohort-based conversion analysis over time is Amplitude's core use case once you have real usage events, not a synthetic export",
+            required: false,
+            fallback: "Export raw signup/conversion event timestamps from any analytics tool and build the cohort table in Google Sheets manually",
+            lastVerified: "2026-08",
+          },
+        ],
+      },
+      deliverable:
+        "A 12-month forecast comparing freemium-only versus a month-7 hybrid trial layer, with the one-time-unlock caveat stated explicitly, and a recommendation.",
+      sampleOutput:
+        "Peloton digital-only tier, 12-month hybrid forecast (excerpt)\n\nFreemium-only baseline: ~610 paying by month 12 (plateau visible from month 4)\nHybrid trial layer (month 7, targeting 5,200 plateaued free users): +389 one-time\nRevised 12-month total: ~999\nCaveat: month 8-12 requires a fresh cohort model, this is not a new run-rate.",
+      successCriteria: [
+        "Correctly identifies the freemium plateau from the observed month 5-6 data rather than extrapolating early months",
+        "Models the hybrid trial layer as a one-time cohort unlock, not a permanent new monthly rate",
+        "States the caveat about needing a fresh cohort model for months 8-12 explicitly in the deliverable",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Re-run the hybrid forecast assuming only a 20% opt-out conversion rate (a more conservative estimate for a less habit-formed cohort) and see how much the recommendation changes.",
+    },
+  ],
+
+  "onboarding": [
+    {
+      id: "onboarding-friction-audit-tac-security",
+      tier: "mini",
+      archetype: "audit",
+      title: "Friction Audit: Auditing TAC Security's Trial Signup Flow",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given a real 8-step free-trial signup-and-setup funnel with per-step drop-off percentages, correctly identify which steps sit before the activation event (a completed vulnerability scan) and calculate how many signups are lost to non-value fields.",
+      companyId: "tac-security",
+      scenario:
+        "You're the growth analyst at TAC Security (TAC Infosec), a vulnerability-and-risk-management SaaS platform, reviewing why free-trial signups aren't reaching their first completed scan.",
+      brief:
+        "Apply the lesson's Step 1 (define one activation event) and Step 3 (defer everything that is not value) to a supplied step-by-step funnel with drop-off data, then flag every pre-activation step as a friction cost.",
+      mode: "diagnostic",
+      conceptsCovered: ["Defer everything that is not value"],
+      steps: [
+        {
+          stepId: "step-1-classify-pre-activation-steps",
+          concept: "Defer everything that is not value",
+          lessonAnchor: "step-3-defer-everything-that-is-not-value",
+          theoryRecap:
+            "The lesson's Step 3 says every field required before the aha moment costs roughly 10% of remaining signups, and the fix is deferring billing, profile setup, and tours until after activation.",
+          question:
+            "Given TAC Security's 8-step funnel below, which steps happen before the activation event (first completed vulnerability scan), and what percentage of signups are lost to those pre-activation steps combined?",
+          toolName: "Google Sheets",
+          where: "Import the 8-row funnel export, add a column flagging each step pre- or post-activation.",
+          procedure: [
+            "Import the funnel: signup(1,000) -> email verify(870) -> company profile(690) -> team size dropdown(610) -> integration picker(540) -> asset upload(430) -> first scan configured(410) -> first scan completed(365)",
+            "Mark 'first scan completed' as the single activation event per the lesson's Step 1 rule",
+            "Flag every step before it (verify, profile, team size, integration picker, asset upload, scan configured) as pre-activation",
+            "Sum the drop from signup (1,000) to the first post-activation-adjacent step (asset upload, 430) to quantify pre-activation loss",
+            "Separate the two required-but-not-value fields (company profile, team size dropdown) from the two setup fields the product genuinely needs (integration picker, asset upload) before a scan can run",
+          ],
+          outputSample:
+            "TAC Security trial funnel (n=1,000)\nsignup 1,000 -> verify 870 (-13.0%) -> profile 690 (-20.7%) -> team size 610 (-11.6%) -> integration 540 (-11.5%) -> asset upload 430 (-20.4%) -> scan configured 410 (-4.7%) -> SCAN COMPLETE 365 (-11.0%)\n\nPre-activation loss: 1,000 -> 365 = 63.5% never reach activation\nRemovable-now fields (not required to run a scan): company profile, team size dropdown -> combined loss 300 signups (30% of the starting cohort)",
+          healthy: "Every step before the activation event is either strictly required to configure the scan, or removed.",
+          unhealthy: "Company profile and team size dropdown sit between signup and the first scan with no technical reason to gate the scan behind them.",
+          interpret:
+            "63.5% of signups never complete a scan, and two of the six pre-activation steps (profile, team size) don't need to exist before that scan runs at all, they're collected value the product wants, not value the user came for.",
+          soWhat: [
+            { symptom: "Company profile and team size dropdown sit before the first scan", action: "Move both fields to a post-scan settings prompt", effort: "dev ticket" },
+            { symptom: "63.5% pre-activation drop with no per-step ownership", action: "Assign a single owner to instrument and review this funnel weekly per Step 6", effort: "30 min" },
+          ],
+          owner: "either",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Import the funnel export, flag steps, compute drop-off", why: "No account friction, handles an 8-row funnel easily", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [
+          { toolName: "Amplitude", role: "Instrument the real funnel with actual timestamped events instead of a static export", why: "Turns this one-time audit into the weekly funnel review the lesson's Step 6 calls for", required: false, lastVerified: "2026-08" },
+        ],
+      },
+      deliverable: "A funnel table with every step flagged pre- or post-activation, plus a ranked list of which pre-activation fields to remove or defer first.",
+      sampleOutput:
+        "Yatra Online, trial signup teardown (excerpt)\n\nActivation event: first completed itinerary saved\nPre-activation steps: 5 of 7\nRemovable now: travel-preference survey (no scan/save dependency) -> 18% of remaining signups lost here alone\nRecommendation: move preference survey to post-first-save, matches Step 3's defer principle",
+      successCriteria: [
+        "Correctly identifies 'first scan completed' as the single activation event, not scan configured or asset upload",
+        "Correctly separates the two non-essential pre-activation fields from the two functionally required ones",
+        "Computes the 63.5% pre-activation loss figure from the supplied numbers",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "onboarding-rebuild-care-com-workspace",
+      tier: "core",
+      archetype: "rebuild",
+      title: "Rebuild the Flow: From a 12-Field Form to a Seeded Care Match",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given Care.com's current 12-field caregiver-search onboarding form, rebuild the first-run experience using a two-question intent picker and pre-seeded sample matches, applying the lesson's Step 4 and Step 5 directly to a real information architecture problem.",
+      companyId: "care-com",
+      scenario:
+        "You're the growth PM at Care.com, the online marketplace for finding child, senior, and pet care. New users currently fill out 12 profile fields before seeing a single caregiver match.",
+      brief:
+        "Replace the 12-field intake form's blocking position with a 2-question intent picker that routes to a pre-seeded results screen, keeping the detailed fields but moving them after the first match is shown.",
+      mode: "build",
+      conceptsCovered: ["Personalize the first run", "Seed empty states"],
+      steps: [
+        {
+          stepId: "step-1-build-intent-picker",
+          concept: "Personalize the first run",
+          lessonAnchor: "step-4-personalize-the-first-run",
+          theoryRecap:
+            "The lesson's Step 4 says a two-question intent picker lets you route users to completely different first experiences, since a solo user and an enterprise admin don't need the same first three screens.",
+          question:
+            "Care.com serves parents needing childcare, adults needing senior care, and pet owners needing pet sitters, three audiences with almost no field overlap. What two questions replace the first 6 of the 12 fields?",
+          toolName: "Google Sheets",
+          where: "Draft the picker as a two-row spec: question text, answer options, and which downstream fields each answer makes irrelevant.",
+          procedure: [
+            "Question 1: 'What kind of care are you looking for?' -> Child / Senior / Pet (replaces 3 category-specific fields collected identically today regardless of answer)",
+            "Question 2: 'When do you need this care?' -> Right away / Within a month / Just researching (replaces urgency and scheduling fields, and determines whether to show live availability first)",
+            "Map each of the remaining 10 original fields to whether it's still needed pre-match (schedule, location) or can move post-match (payment details, background-check preference, backup care needs)",
+            "Result: 2 questions replace 6 fields pre-match, the other 6 move to a post-match profile step",
+          ],
+          outputSample:
+            "BEFORE: 12 fields, 0 matches shown until form complete\nAFTER: 2 questions (care type, urgency) -> matches shown -> 4 remaining pre-match fields (zip code, schedule) -> matches refresh -> 6 fields deferred to post-match profile completion",
+          healthy: "A user sees real caregiver cards within 2 questions and a zip code.",
+          unhealthy: "A user fills 12 fields before seeing whether any caregivers are even available in their area.",
+          interpret: "Most of the original form was collecting profile-completeness data the business wants, not data the match algorithm needs before showing a first result.",
+          soWhat: [
+            { symptom: "Zero caregiver cards shown until form completion", action: "Query available caregivers after question 2 + zip code only", effort: "dev ticket" },
+          ],
+          owner: "either",
+        },
+        {
+          stepId: "step-2-seed-empty-state",
+          concept: "Seed empty states",
+          lessonAnchor: "step-5-seed-empty-states",
+          theoryRecap:
+            "The lesson's Step 5 says a pre-filled workspace demonstrates value while a blank canvas demands work; pre-populating with sample content shifts the user's job from 'figure out how to start' to 'see if this works for me.'",
+          question:
+            "Once the intent picker routes a parent needing childcare in a given zip code, what should the very first results screen show if the real-time caregiver query is still loading or returns zero exact matches?",
+          toolName: "Google Sheets",
+          where: "Spec the fallback content for the results screen's three states: loading, zero-match, and populated.",
+          procedure: [
+            "Loading state: show 3 anonymized sample caregiver cards from the nearest metro area, labeled 'Example matches while we search your area', never a blank spinner",
+            "Zero-match state: show the same 3 sample cards with a 'expand your radius' prompt instead of a dead end",
+            "Populated state: real matches replace the samples within 2 seconds in the common case",
+            "Every sample card links to 'How matching works' instead of a real profile, so it can never be mistaken for an actual available caregiver",
+          ],
+          outputSample: "RESULTS SCREEN (loading, 0-2s)\nExample matches while we search your area:\n  - Maria G. -- 4.9 stars, 6 yrs experience, CPR certified (sample)\n  - James T. -- 4.8 stars, background-checked (sample)\n  - Priya K. -- 4.9 stars, infant care specialist (sample)\n[Expanding your search...]",
+          healthy: "New users see what a good match looks like within 2 seconds, real or sample.",
+          unhealthy: "New users stare at a loading spinner or a 'no caregivers found' dead end as their first post-signup experience.",
+          interpret: "Seeding the empty state removes the single highest-risk moment in the new flow, the gap between finishing the intent picker and seeing real value.",
+          soWhat: [
+            { symptom: "Zero-match zip codes show a dead-end empty state today", action: "Ship the 3-sample-card fallback before removing any of the 12 original fields", effort: "dev ticket" },
+          ],
+          owner: "developer",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Draft the field-reduction map and fallback-state spec", why: "Enough to plan the rebuild before any engineering ticket is written", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [
+          { toolName: "Hotjar", role: "Record real sessions on the current 12-field form to confirm exactly where users abandon before shipping the rebuild", why: "Validates the rebuild plan against real behavior instead of assumption alone", required: false, lastVerified: "2026-08" },
+        ],
+      },
+      deliverable: "A field-reduction map (12 fields -> 2 questions + 4 pre-match fields + 6 deferred fields) plus a 3-state fallback spec for the results screen.",
+      sampleOutput:
+        "Duolingo, first-lesson-before-signup rebuild (excerpt)\n\nBEFORE: email + password required before lesson 1\nAFTER: lesson 1 playable immediately, account creation deferred until user tries to save progress\nResult: 47% reduction in first-week churn (UserGuiding, 2024 case study)",
+      successCriteria: [
+        "Reduces pre-match fields from 12 to 2 questions + zip code only",
+        "Specifies a non-blank fallback for both loading and zero-match states",
+        "Correctly defers the 6 non-essential fields to a post-match step rather than deleting them",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Design the two-question picker's routing logic for a fourth, unstated segment: a user who selects more than one care type (e.g. both child and senior care) in the same session.",
+    },
+  ],
+  "reverse-trials": [
+    {
+      id: "reverse-trials-forecast-stoneco",
+      tier: "mini",
+      archetype: "forecast",
+      title: "The Economics Call: Forecasting a Reverse Trial's Payoff",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given StoneCo's current freemium conversion rate and monthly signup volume for a merchant-analytics add-on, forecast a conservative incremental-revenue range from switching to a reverse trial, using the lesson's cited conversion benchmarks.",
+      companyId: "stoneco",
+      scenario:
+        "You're the growth analyst at StoneCo, the Brazilian merchant-payments and fintech platform for SMBs, forecasting whether switching a payments-analytics add-on from standard freemium to a 30-day reverse trial is worth the engineering cost.",
+      brief:
+        "Apply the lesson's conversion-rate ranges (2-5% freemium vs. 15-30% reverse trial) conservatively, not optimistically, to a real signup volume and current conversion rate.",
+      mode: "diagnostic",
+      conceptsCovered: ["Reverse trial conversion economics"],
+      steps: [
+        {
+          stepId: "step-1-forecast-conservative-lift",
+          concept: "Reverse trial conversion economics",
+          lessonAnchor: "measuring-success",
+          theoryRecap:
+            "The lesson's Measuring Success section sets a 15-30% trial-to-paid target for B2B SaaS reverse trials versus the 2-5% freemium baseline, and warns to track time-to-convert and 90-day retention, not just headline conversion.",
+          question:
+            "StoneCo's add-on gets 4,000 free signups a month and currently converts at 3.2% under freemium. Using the low end of the reverse-trial range as the conservative case, how many incremental paid customers per month does the switch forecast, and what's the one metric that could make this forecast wrong?",
+          toolName: "Google Sheets",
+          where: "Build a 3-row scenario table: current freemium, conservative reverse trial (15%), and optimistic reverse trial (30%).",
+          procedure: [
+            "Row 1, current: 4,000 signups x 3.2% = 128 paid customers/month",
+            "Row 2, conservative reverse trial: 4,000 x 15% = 600 paid customers/month, a 472-customer lift",
+            "Row 3, optimistic reverse trial: 4,000 x 30% = 1,200 paid customers/month, a 1,072-customer lift",
+            "Flag that the forecast assumes 90-day retention holds steady; the lesson warns reverse-trial converts can churn faster if they converted from loss aversion rather than genuine fit",
+            "Recommend using Row 2 (conservative) for any resourcing decision, and instrumenting 90-day retention from week one of rollout",
+          ],
+          outputSample:
+            "StoneCo add-on forecast (n=4,000 signups/mo)\nCurrent (freemium, 3.2%): 128 paid/mo\nConservative (reverse trial, 15%): 600 paid/mo (+472)\nOptimistic (reverse trial, 30%): 1,200 paid/mo (+1,072)\nRisk flag: forecast is invalid if 90-day retention for reverse-trial converts drops below the freemium baseline",
+          healthy: "The forecast used for a resourcing decision is the conservative 15% case, not the optimistic 30% case.",
+          unhealthy: "A team greenlights engineering spend based on the 30% optimistic scenario without a retention caveat attached.",
+          interpret: "A 472-customer conservative lift already justifies most reverse-trial engineering costs; the real open question is whether those converts stay, not whether they convert.",
+          soWhat: [
+            { symptom: "Forecast built on the 30% optimistic case alone", action: "Rebuild the business case using the 15% conservative case as the floor", effort: "30 min" },
+            { symptom: "No retention instrumentation planned for the rollout", action: "Add a 90-day retention cohort comparison to the launch checklist before shipping", effort: "dev ticket" },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Build the 3-row conversion-scenario forecast", why: "A simple multiplication table needs nothing more", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [
+          { toolName: "Mixpanel", role: "Track the actual reverse-trial cohort's conversion and 90-day retention once live, against this forecast", why: "Confirms whether the conservative forecast held once real data replaces the estimate", required: false, lastVerified: "2026-08" },
+        ],
+      },
+      deliverable: "A 3-row conversion-scenario forecast table (current, conservative reverse trial, optimistic reverse trial) with a stated retention risk flag.",
+      sampleOutput:
+        "Trade Desk, self-serve tool forecast (excerpt)\n\nCurrent (freemium, 2.8%): 84 paid/mo (n=3,000 signups)\nConservative (reverse trial, 15%): 450 paid/mo (+366)\nRisk flag: enterprise buyers in this segment have a 6-month sales cycle, reverse trials may not apply to that portion of signups",
+      successCriteria: [
+        "Correctly computes all three rows of the scenario table from the given inputs",
+        "Recommends the conservative (15%) case for resourcing decisions, not the optimistic case",
+        "States the retention risk that could invalidate the forecast",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "reverse-trials-head-to-head-trade-desk",
+      tier: "core",
+      archetype: "head-to-head",
+      title: "Reverse Trial vs. Freemium: Reading Two Cohort Reports",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given two real cohort performance tables (a reverse-trial cohort and a standard-freemium cohort for the same self-serve tool) and two downgrade-email variants, correctly diagnose which model is healthier on more than conversion rate alone, and which email variant follows the lesson's messaging guidance.",
+      companyId: "trade-desk",
+      scenario:
+        "You're the growth PM at The Trade Desk, the programmatic advertising DSP, deciding whether to keep a self-serve campaign-optimization tool on standard freemium or move it to a reverse trial ahead of a broader rollout.",
+      brief:
+        "Compare two cohort tables across conversion rate, time-to-convert, and 90-day retention (not conversion rate alone), then evaluate two downgrade-notice email drafts against the lesson's loss-framing guidance.",
+      mode: "diagnostic",
+      conceptsCovered: ["Measuring reverse trial success beyond conversion rate", "Downgrade communication timing and framing"],
+      steps: [
+        {
+          stepId: "step-1-compare-cohort-health",
+          concept: "Measuring reverse trial success beyond conversion rate",
+          lessonAnchor: "measuring-success",
+          theoryRecap:
+            "The lesson's Measuring Success section says to track trial-to-paid conversion, time-to-convert, and post-conversion 90-day retention together, since reverse trials can convert faster but churn faster too.",
+          question:
+            "Cohort A (reverse trial): 22% conversion, 68% convert before downgrade, 71% 90-day retention. Cohort B (freemium): 4% conversion, no downgrade event, 89% 90-day retention. Which cohort is actually healthier for the business?",
+          toolName: "Google Sheets",
+          where: "Build a 2-row, 3-column comparison table and compute the net retained-paid-customer rate for each cohort.",
+          procedure: [
+            "Cohort A: 22% conversion x 71% 90-day retention = 15.6% of original signups are still paying at day 90",
+            "Cohort B: 4% conversion x 89% 90-day retention = 3.6% of original signups are still paying at day 90",
+            "Cohort A still wins on net retained customers despite the lower retention rate, because the conversion gap (22% vs 4%) outweighs the retention gap (71% vs 89%)",
+            "Flag the retention gap itself as the actionable finding: an 18-point retention drop suggests some Cohort A converts are loss-averse rather than genuinely activated",
+          ],
+          outputSample:
+            "Cohort comparison (n=1,000 each)\nA (reverse trial): 220 convert, 156 still paying day 90 (15.6% net)\nB (freemium): 40 convert, 36 still paying day 90 (3.6% net)\nGap to investigate: A's 71% 90-day retention vs B's 89%, why do reverse-trial converts churn more?",
+          healthy: "The comparison weighs conversion x retention together, and treats the retention gap as a finding to investigate, not a reason to reject the reverse trial outright.",
+          unhealthy: "Picking Cohort B because 89% looks like a better number than 71%, without multiplying through to net retained customers.",
+          interpret: "Cohort A delivers over 4x the net retained-paying customers of Cohort B, but the retention gap says the reverse trial's post-conversion nurture and product fit still need work.",
+          soWhat: [
+            { symptom: "Retention comparison stops at the headline 71% vs 89% numbers", action: "Segment Cohort A's day-90 churners by time-to-convert to see if fast converters churn more than slow ones", effort: "30 min" },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-evaluate-downgrade-emails",
+          concept: "Downgrade communication timing and framing",
+          lessonAnchor: "3-downgrade-communication",
+          theoryRecap:
+            "The lesson says the downgrade notice should arrive at least 3 days before the actual downgrade and should frame what the user will lose, not what they need to pay, citing 'Your dashboard will become read-only on June 17' as the model.",
+          question:
+            "Draft 1 arrives on the downgrade day and reads 'Upgrade now to keep your plan active!' Draft 2 arrives 4 days before downgrade and reads 'Your campaign-bid-optimization automations pause on August 24 unless you upgrade.' Which draft follows the lesson's guidance, and on which two dimensions does the other one fail?",
+          toolName: "Google Sheets",
+          where: "Score both drafts against a 2-column checklist: timing (3+ days advance) and framing (loss-specific vs. generic upsell).",
+          procedure: [
+            "Draft 1 fails timing (arrives on the downgrade day itself, giving zero advance warning) and fails framing (generic 'upgrade to keep your plan' instead of naming the specific lost feature and date)",
+            "Draft 2 passes timing (4 days advance, exceeds the 3-day minimum) and passes framing (names the specific feature, 'campaign-bid-optimization automations', and the exact date)",
+            "Flag that Draft 1 is a Mistake 3 case study from the lesson's Common Mistakes section, weak downgrade messaging",
+          ],
+          outputSample: "Draft 1: FAILS timing (0 days advance), FAILS framing (generic)\nDraft 2: PASSES timing (4 days advance), PASSES framing (names feature + date)\nVerdict: Draft 2 matches the lesson's model example",
+          healthy: "The winning draft names the specific feature and exact date, sent with 3+ days of advance notice.",
+          unhealthy: "A same-day, generic 'upgrade now' email with no reference to what is actually being lost.",
+          interpret: "Draft 1 is the exact failure pattern the lesson's Mistake 3 warns underperforms, timing and framing are both correctable without touching the trial mechanic itself.",
+          soWhat: [
+            { symptom: "Downgrade emails are generic and same-day", action: "Rewrite using Draft 2's pattern: name the specific feature, exact date, 4+ days advance", effort: "30 min" },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          { toolName: "Google Sheets", role: "Build the cohort comparison table and the email-draft scoring checklist", why: "Both comparisons are simple enough not to need a specialized tool", required: true, lastVerified: "2026-08" },
+        ],
+        paid: [
+          { toolName: "Amplitude", role: "Pull the real cohort conversion, time-to-convert, and 90-day retention data instead of a supplied table", why: "Replaces the static comparison with a live, ongoing cohort dashboard", required: false, lastVerified: "2026-08" },
+        ],
+      },
+      deliverable: "A cohort comparison table with the net-retained-customer calculation for both models, plus a scored evaluation of the two downgrade-email drafts.",
+      sampleOutput:
+        "Canva, downgrade notice evaluation (excerpt)\n\nDraft sent day 27 of 30-day trial: 'Your background remover and brand kit tools return to standard on day 30.'\nTiming: PASSES (3 days advance)\nFraming: PASSES (names specific tools and the exact day)",
+      successCriteria: [
+        "Correctly computes net retained-paid-customer rate for both cohorts (15.6% vs 3.6%) and recommends Cohort A despite its lower retention percentage",
+        "Identifies the 18-point retention gap as a finding to investigate, not a reason to reject the reverse trial",
+        "Correctly scores Draft 1 as failing both timing and framing, and Draft 2 as passing both",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "network-effects": [
+    {
+      id: "network-effects-yelp-liquidity-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "Real Network Effect or Just Growth? Auditing Yelp's City-Level Liquidity",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given a 3-city export of Yelp business-listing counts, monthly active reviewers, and reviews-per-business, classify which cities have crossed the 'can users reliably find what they need' liquidity threshold and which are still in cold start.",
+      companyId: "yelp",
+      scenario:
+        "You're a growth analyst at Yelp assessing whether three newer metro markets are ready for a local ad-sales push, or whether the review density is still too thin to support it.",
+      brief:
+        "Compute reviews-per-active-business for each city, apply the lesson's marketplace liquidity definition, and flag which city is cold-start, which is tipping, and which has compounded past critical mass.",
+      mode: "diagnostic",
+      conceptsCovered: ["Classifying critical mass by liquidity, not raw user count"],
+      steps: [
+        {
+          stepId: "step-1-liquidity-classification",
+          concept: "Classifying critical mass by liquidity, not raw user count",
+          lessonAnchor: "stage-2-critical-mass",
+          theoryRecap:
+            "The lesson defines a marketplace's critical mass threshold by liquidity: can a user reliably find what they need, not by total signups.",
+          question:
+            "City A has 40,000 listed businesses and 2,000 reviews. City B has 6,000 listed businesses and 18,000 reviews. Which city is actually closer to critical mass?",
+          toolName: "Google Sheets",
+          where: "Import the 3-city export, add a computed reviews-per-business column, sort descending.",
+          procedure: [
+            "Import the export with columns: city, businesses_listed, monthly_active_reviewers, total_reviews",
+            "Add a formula column: =total_reviews/businesses_listed",
+            "Sort by that ratio descending, not by raw business count",
+            "Flag any city under a 0.5 reviews-per-business ratio as cold-start",
+          ],
+          outputSample:
+            "City, Businesses, Reviews, Reviews/Business\nCity B, 6,000, 18,000, 3.00 -> LIQUID\nCity C, 15,000, 9,000, 0.60 -> TIPPING\nCity A, 40,000, 2,000, 0.05 -> COLD START",
+          healthy: "A smaller city with a high reviews-per-business ratio, users can reliably find a reviewed business.",
+          unhealthy: "A large city with thousands of listings but almost no reviews per business, raw scale masking cold start.",
+          interpret:
+            "Total listings measure reach, not liquidity. A city with fewer, well-reviewed businesses is closer to critical mass than a sparsely-reviewed sprawl.",
+          soWhat: [
+            {
+              symptom: "Sales team wants to launch paid ads in the largest city by listing count",
+              action: "Redirect ad-sales launch to the city with the highest reviews-per-business ratio first",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Compute and sort the reviews-per-business ratio across cities",
+            why: "Free, no account friction, sufficient for a 3-row comparison",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A 3-city liquidity ranking with a cold-start / tipping / liquid classification and one launch recommendation.",
+      sampleOutput:
+        "Zillow market-readiness memo (excerpt)\n\nLIQUID: Austin (3.1 reviews/listing) -> greenlight local ad-sales outreach\nTIPPING: Raleigh (0.6 reviews/listing) -> hold 1 quarter, reassess\nCOLD START: Boise (0.08 reviews/listing) -> needs manual seller-review seeding before any paid push",
+      successCriteria: [
+        "Correctly computes reviews-per-business for all 3 cities",
+        "Classifies each city as cold-start, tipping, or liquid using the ratio, not raw counts",
+        "Recommends the ad-sales launch city based on liquidity, not listing volume",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "network-effects-goto-city-expansion-simulation",
+      tier: "core",
+      archetype: "forecast",
+      title: "City-by-City Cold Start: Simulating GoTo's Ride-Hailing Expansion",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Play a 3-stage city-launch simulation for a GoTo ride-hailing expansion: decide where to subsidize, when to declare density sufficient, and how to react once the network tips, tracking spend and driver density at each decision point.",
+      companyId: "goto-gojek-tokopedia",
+      scenario:
+        "You're the city launch lead for GoTo's ride-hailing vertical, opening a new secondary Indonesian city with a fixed 90-day subsidy budget.",
+      brief:
+        "At each stage, pick the tactic that matches the lesson's cold-start and critical-mass playbook. Wrong calls burn budget without building density; right calls hit the driver-density threshold and let organic growth take over.",
+      mode: "simulation",
+      conceptsCovered: [
+        "Subsidizing the scarce side during cold start",
+        "Geographic concentration to hit a density threshold",
+        "Recognizing the critical-mass tipping point",
+      ],
+      stages: [
+        {
+          stageId: "stage-1-launch-decision",
+          label: "Week 1: Where does the subsidy budget go?",
+          elapsed: "Day 1",
+          concept: "Subsidizing the scarce side during cold start",
+          lessonAnchor: "stage-1-cold-start",
+          situation:
+            "Riders open the app and see almost no available drivers nearby. Drivers who sign up see almost no ride requests. Both sides are near-empty.",
+          dashboard: "12 drivers online city-wide, 4 completed rides in week 1, average rider wait time 22 minutes",
+          spendToDate: "Rp0 of Rp450M budget",
+          budgetRemaining: "Rp450M",
+          decision: {
+            prompt: "Where should the first month's subsidy budget go?",
+            options: [
+              {
+                id: "subsidize-drivers",
+                label: "Guarantee drivers a minimum hourly rate to build supply first",
+                verdict: "optimal",
+                outcome: "Driver count triples within 2 weeks; wait times start dropping as supply builds.",
+                why: "Riders have no product without drivers online, so supply is the scarce, harder-to-recruit side here, exactly the tactic the lesson attributes to Uber's early playbook.",
+                lessonRef: "stage-1-cold-start",
+                nextStageId: "stage-2-density-check",
+              },
+              {
+                id: "subsidize-riders",
+                label: "Offer riders free first rides to drive demand",
+                verdict: "costly",
+                outcome: "Ride requests spike but most go unfulfilled, riders churn after one bad experience.",
+                why: "Demand without supply just burns budget on frustrated riders. The lesson's Mistake 3 warns against subsidizing the abundant, or in this case irrelevant, side.",
+                lessonRef: "common-mistakes",
+                nextStageId: "stage-2-density-check",
+              },
+              {
+                id: "split-budget-evenly",
+                label: "Split the subsidy 50/50 across both sides",
+                verdict: "acceptable",
+                outcome: "Driver growth is slower than the supply-first path, but the city avoids a full stall.",
+                why: "Not wrong, but diluting a scarce subsidy budget across both sides moves neither one fast enough to hit density quickly.",
+                lessonRef: "stage-1-cold-start",
+                nextStageId: "stage-2-density-check",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "stage-2-density-check",
+          label: "Day 30: Do you expand to a second neighborhood or stay concentrated?",
+          elapsed: "Day 30",
+          concept: "Geographic concentration to hit a density threshold",
+          lessonAnchor: "stage-1-cold-start",
+          situation:
+            "Driver count is climbing in the launch district, but growth has slowed and the team is under pressure to show city-wide coverage.",
+          dashboard: "18 drivers online concurrently in the launch district (target: 15-20), wait time down to 6 minutes",
+          spendToDate: "Rp180M of Rp450M budget",
+          budgetRemaining: "Rp270M",
+          decision: {
+            prompt: "The launch district is close to the 15-20 concurrent-driver density target. What next?",
+            options: [
+              {
+                id: "hold-and-confirm",
+                label: "Hold subsidies in the launch district until density is confirmed stable for 2 weeks",
+                verdict: "optimal",
+                outcome: "District crosses the density threshold and wait times stabilize under 5 minutes without added spend.",
+                why: "The lesson's tactic is geographic concentration first: 15-20 concurrent cars was the density GM William Barnes identified before expanding further.",
+                lessonRef: "stage-1-cold-start",
+                nextStageId: "stage-3-critical-mass-tip",
+              },
+              {
+                id: "expand-second-district",
+                label: "Split the remaining budget to open a second neighborhood immediately",
+                verdict: "costly",
+                outcome: "Both districts now sit below the density threshold; wait times rise city-wide.",
+                why: "Spreading a still-forming network thin resets the cold-start clock in a second area before the first has tipped, exactly Mistake 2 in the lesson.",
+                lessonRef: "common-mistakes",
+                nextStageId: "stage-3-critical-mass-tip",
+              },
+              {
+                id: "cut-subsidy-early",
+                label: "Cut driver subsidies now to save budget since density looks close",
+                verdict: "acceptable",
+                outcome: "Some drivers log off without the guarantee; density dips just under threshold, needing a top-up later.",
+                why: "Cutting the subsidy before density is confirmed stable is premature, the lesson's Subsidy Trap warns that pulling support too early can undo the density you just built.",
+                lessonRef: "the-subsidy-trap",
+                nextStageId: "stage-3-critical-mass-tip",
+              },
+            ],
+          },
+        },
+        {
+          stageId: "stage-3-critical-mass-tip",
+          label: "Day 75: The network has tipped, what now?",
+          elapsed: "Day 75",
+          concept: "Recognizing the critical-mass tipping point",
+          lessonAnchor: "stage-2-critical-mass",
+          situation:
+            "Ride requests are growing faster than the marketing team is spending, word-of-mouth referrals now outnumber paid signups.",
+          dashboard: "210 drivers online city-wide, average wait time 4 minutes, 61% of new riders arriving via referral, not ads",
+          spendToDate: "Rp300M of Rp450M budget",
+          budgetRemaining: "Rp150M",
+          decision: {
+            prompt: "Referrals now outpace paid acquisition. What should the remaining Rp150M budget do?",
+            options: [
+              {
+                id: "shift-to-retention",
+                label: "Redirect remaining budget from acquisition to retention loops and reliability",
+                verdict: "optimal",
+                outcome: "Repeat ride frequency climbs, the network's compounding growth becomes self-reinforcing.",
+                why: "The lesson is explicit: reaching critical mass means users can stay, not that they will, engagement and reliability convert reach into stickiness.",
+                lessonRef: "stage-2-critical-mass",
+                nextStageId: "end",
+              },
+              {
+                id: "keep-spending-acquisition",
+                label: "Keep the full budget on paid rider acquisition since it's working",
+                verdict: "costly",
+                outcome: "CAC creeps up while organic referral growth was already covering new demand for free.",
+                why: "Once compounding growth is self-reinforcing, continued heavy paid spend is redundant, the lesson notes the incumbent's job past this point is mostly to avoid self-inflicted damage, not keep force-feeding growth.",
+                lessonRef: "stage-3-compounding-dominance",
+                nextStageId: "end",
+              },
+              {
+                id: "bank-the-budget",
+                label: "Bank the remaining budget unspent and declare the launch complete",
+                verdict: "acceptable",
+                outcome: "City stabilizes, but a chance to lock in retention loops before a competitor enters is missed.",
+                why: "Not harmful, but passive. The lesson frames this stage as needing active reinforcement of retention, not just coasting on momentum.",
+                lessonRef: "stage-2-critical-mass",
+                nextStageId: "end",
+              },
+            ],
+          },
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Track spend-to-date, driver density, and wait-time trend across the 3 decision points",
+            why: "Free, sufficient for logging a 3-stage decision trail",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A completed 3-stage decision log with the chosen tactic, outcome, and remaining budget at each stage.",
+      sampleOutput:
+        "Zillow city-launch decision log (excerpt, different market)\n\nStage 1: Subsidized supply side first -> driver count tripled in 2 weeks\nStage 2: Held subsidy, confirmed density stable -> crossed 15-20 concurrent threshold\nStage 3: Shifted budget to retention -> repeat-ride frequency up, CAC flat",
+      successCriteria: [
+        "Chooses the supply-side subsidy at Stage 1",
+        "Chooses to hold and confirm density before expanding at Stage 2",
+        "Chooses to shift budget to retention once referrals overtake paid acquisition at Stage 3",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Re-run the simulation choosing 'costly' at every stage and total the wasted budget versus the optimal path.",
+    },
+  ],
+  "two-sided-marketplaces": [
+    {
+      id: "two-sided-marketplaces-cold-start-strategy-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "Which Side Do You Seed First? Auditing a Marketplace Launch Plan",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given a scenario describing a new fashion-rental marketplace's supply (designer inventory) and demand (renters) constraints, apply the lesson's seed-first decision table to choose which side to seed and justify it.",
+      companyId: "rent-the-runway",
+      scenario:
+        "You're a marketplace strategist at Rent the Runway, planning the launch of a new city market where designer brand partnerships are hard to close but renter sign-ups are cheap to acquire via paid social.",
+      brief:
+        "Use the lesson's seed-first decision table to determine which side is the actual bottleneck, then write a one-paragraph justification a designer-partnerships lead could act on.",
+      mode: "diagnostic",
+      conceptsCovered: ["Choosing which side to seed first based on scarcity"],
+      steps: [
+        {
+          stepId: "step-1-seed-first-decision",
+          concept: "Choosing which side to seed first based on scarcity",
+          lessonAnchor: "which-side-should-you-seed-first",
+          theoryRecap:
+            "The lesson's decision table says: if supply is scarce or hard to recruit, seed supply first, because demand won't show up if there's nothing to rent.",
+          question:
+            "Designer brand partnerships take 6-10 weeks to close and require inventory commitments. Renter sign-ups convert in days via paid social. Which side is the real launch bottleneck?",
+          toolName: "Google Sheets",
+          where: "Build a 2-row comparison: time-to-acquire, cost-to-acquire, and 'does the other side show up without this one' for each side.",
+          procedure: [
+            "List supply (designer inventory) and demand (renters) as two rows",
+            "Fill in time-to-acquire and acquisition cost for each",
+            "Answer: would renters sign up with an empty closet of inventory? Would designers commit inventory with zero renters?",
+            "Apply the decision table: seed the scarce, slow-to-recruit side first",
+          ],
+          outputSample:
+            "Side, Time to Acquire, Cost, Shows up without the other?\nSupply (designers), 6-10 weeks, High (inventory commitment), No, renters need selection\nDemand (renters), Days, Low (paid social), No, but cheap and fast to refill",
+          healthy: "Recognizing that fast, cheap acquisition on one side doesn't matter if the slow side is what actually gates launch.",
+          unhealthy: "Launching a renter acquisition campaign before enough designer inventory exists to fill it.",
+          interpret:
+            "Supply is the scarce, slow-to-recruit side here, exactly the pattern the lesson flags as 'one side is also the product' since designer inventory IS what Rent the Runway sells.",
+          soWhat: [
+            {
+              symptom: "Marketing wants to run a renter acquisition campaign before launch",
+              action: "Delay the demand campaign until a minimum viable designer catalog is locked in for the city",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the two-row seed-first comparison",
+            why: "Free, fast enough for a 2-row structured decision",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A one-paragraph seed-first recommendation with the comparison table backing it.",
+      sampleOutput:
+        "ThredUp new-market launch memo (excerpt)\n\nSeed supply first. Seller onboarding (Clean Out Kits) takes 2-3 weeks to convert into listable inventory, while buyer acquisition converts same-day via paid social. Hold buyer-acquisition spend until the market has enough listed inventory to support first-session conversion.",
+      successCriteria: [
+        "Correctly identifies designer supply as the scarce, slow-to-recruit side",
+        "Recommends delaying demand-side spend until a minimum inventory threshold exists",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "two-sided-marketplaces-thredup-launch-plan-teardown",
+      tier: "core",
+      archetype: "teardown",
+      title: "Spot the Trap: Teardown of Two Marketplace Launch Plans",
+      timeEstimate: "40 minutes",
+      timeMinutes: 40,
+      objective:
+        "Review two synthetic marketplace launch plans for a resale-apparel platform, find the cold-start and monetization defects each one hides, and separate real defects from plausible-sounding but acceptable choices.",
+      companyId: "thredup",
+      scenario:
+        "You're reviewing two draft city-launch plans for ThredUp's resale marketplace before either gets approved for budget.",
+      brief:
+        "Read each plan, identify the defects using the lesson's Cold-Start Problem and Monetization Models sections, and don't flag every unconventional-sounding choice as a mistake, some are legitimate tradeoffs.",
+      mode: "teardown",
+      conceptsCovered: ["The Cold-Start Problem", "Monetization Models"],
+      teardownItems: [
+        {
+          itemId: "teardown-item-1-subsidy-trap",
+          specimen:
+            "PLAN A: Seller Growth Sprint\n\nWeek 1-4: Offer sellers a guaranteed $15 payout per Clean Out Kit regardless of what sells, to maximize inventory volume fast.\nWeek 5: Launch a buyer discount code (40% off first order) to clear the new inventory quickly.\nWeek 6: Take a 5% platform fee on all transactions starting immediately to fund the next city's launch.\nSuccess metric: total items listed by week 6.",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "Identify the defects in Plan A. Not every unusual choice below is wrong, at least one line is a reasonable early-stage tactic, not a mistake.",
+          answerKey: [
+            {
+              defect: "Turning on a 5% platform fee in week 6, before either side has seen sustained value",
+              severity: "critical",
+              whyItMatters:
+                "The lesson's Mistake 3 warns that taking a cut before either side sees real value kills growth; most successful marketplaces wait for liquidity before monetizing.",
+              lessonRef: "common-mistakes",
+              owner: "you",
+            },
+            {
+              defect: "Success metric is total items listed, not items sold or matched to a buyer",
+              severity: "moderate",
+              whyItMatters:
+                "Optimizing for listing volume over quality is the lesson's Mistake 2, more supply isn't better if it doesn't convert into satisfied buyers.",
+              lessonRef: "common-mistakes",
+              owner: "you",
+            },
+            {
+              defect: "The guaranteed flat payout regardless of what sells, paired with immediate deep discounting, risks masking whether the underlying unit economics work once the discount ends",
+              severity: "moderate",
+              whyItMatters:
+                "The lesson's Subsidy Trap callout warns that subsidizing one side can mask a broken model if no one models what happens when subsidies stop.",
+              lessonRef: "the-cold-start-problem",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Guaranteeing sellers a flat payout during the first 4 weeks (this is a legitimate supply-first subsidy tactic, the defect is not modeling what happens after subsidies end, not the subsidy itself)",
+            "Launching a buyer discount code (a reasonable single-tactic move; the defect is the fee change in week 6, not the discount)",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "teardown-item-2-single-side-value",
+          specimen:
+            "PLAN B: Single-Player Seller Tools First\n\nMonth 1: Launch free listing photography and pricing-suggestion tools for sellers, no fee, no buyer marketing yet.\nMonth 2: Once 500+ quality listings exist in the city, launch buyer acquisition via paid social and SEO content.\nMonth 3: Introduce a 4.5% seller-side transaction fee, positioned as covering payout processing and buyer trust guarantees.\nSuccess metric: listing-to-sale conversion rate by month 3, not raw listing count.",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "Identify any defects in Plan B. This plan is deliberately close to the lesson's recommended playbook, look carefully for what, if anything, is actually wrong versus what just looks unconventional.",
+          answerKey: [
+            {
+              defect: "No defects rise to critical; the plan matches the lesson's single-side value and seed-supply-first sequencing",
+              severity: "cosmetic",
+              whyItMatters:
+                "The lesson's Single-Player Mode Test asks whether the product delivers value to one side before both exist; free seller tools do exactly that, and monetization is delayed until after a 500-listing liquidity threshold, matching the lesson's sequencing guidance.",
+              lessonRef: "the-cold-start-problem",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Delaying buyer marketing until month 2 (this is the correct seed-supply-first sequence, not a defect)",
+            "Using listing-to-sale conversion rather than raw listing count as the success metric (this is the correct quality-over-quantity metric per the lesson, not a defect)",
+            "Charging a 4.5% seller-side fee in month 3 (this comes after the 500-listing liquidity threshold is met, consistent with the lesson's 'monetize after liquidity' guidance, not before it, so it is not the same mistake as Plan A)",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Log each identified defect against its severity and lesson reference for the writeup",
+            why: "Free, sufficient for a structured 2-plan review log",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A defect log for both plans with severity ratings, plus a one-line approve/hold recommendation for each.",
+      sampleOutput:
+        "Rent the Runway plan-review log (excerpt, different plan)\n\nPlan X: HOLD, critical defect, monetization turned on before liquidity confirmed.\nPlan Y: APPROVE, sequencing matches seed-supply-first playbook, no critical defects found.",
+      successCriteria: [
+        "Flags Plan A's early monetization as the critical defect",
+        "Correctly identifies Plan B as matching the lesson's playbook rather than inventing a defect for it",
+        "Does not flag the week 1-4 seller subsidy in Plan A as itself the defect",
+      ],
+      portfolioReady: true,
+    },
+  ],
+
+  "community-led-growth": [
+    {
+      id: "community-led-growth-cql-scoring-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Routing Call: Scoring a Community Export for CQLs",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a real 20-row community engagement export, apply the lesson's three-tier CQL model to decide which members get a direct sales handoff, which get nurture content, and which are just lurkers, without over-notifying sales.",
+      companyId: "awfis-space-solutions",
+      scenario:
+        "You're the community operations lead at Awfis Space Solutions, India's first listed coworking company (NSE: AWFIS), running a private member Slack for enterprise account admins across its 200+ centres. You've pulled a 20-row engagement export for this week and have one sales team to protect from noise.",
+      brief:
+        "Sort every row into high, mid, or low intent using the lesson's signal tiers, flag only the true high-intent rows for a direct sales handoff, and justify why the rest stay in nurture.",
+      mode: "diagnostic",
+      conceptsCovered: ["Scoring community engagement signals into CQL intent tiers"],
+      steps: [
+        {
+          stepId: "step-1-intent-tier-scoring",
+          concept: "Scoring community engagement signals into CQL intent tiers",
+          lessonAnchor: "community-qualified-leads-cqls-scoring-intent-from-behavior",
+          theoryRecap:
+            "The lesson's CQL model sorts members into high, mid, or low intent tiers based on specific behavioral signals, not raw engagement volume, and only the top tier gets a direct sales outreach.",
+          question:
+            "Of 20 rows (pricing-thread visits, 'what does enterprise include' questions, event RSVPs, and bio-only signups), which rows justify pulling a rep off their queue today?",
+          toolName: "Google Sheets",
+          where: "Import the Slack engagement export, freeze the header row, filter the `signal_type` and `signal_detail` columns.",
+          procedure: [
+            "Import and freeze row 1",
+            "Filter signal_type for direct questions ('enterprise plan', 'migration from [competitor]') and mark as high-intent",
+            "Filter for repeated pricing-thread visits and event-application activity, mark as mid-intent",
+            "Mark bio-only joins and single-visit rows as low-intent",
+            "Count each tier and compare against the sales team's weekly capacity",
+          ],
+          outputSample:
+            "Awfis Community Engagement Export, Week 12 (20 rows)\n\nHIGH-INTENT (2 rows)\n  1. admin_0142 -- asked 'what's included in the enterprise seat plan for 40+ desks' in #pricing\n  2. admin_0289 -- asked 'how do we migrate our WeWork lease mid-term' in #general\n\nMID-INTENT (6 rows, sample)\n  3. admin_0311 -- visited #pricing thread 4x this week, no post\n  4. admin_0367 -- applied to the quarterly Champion cohort\n  ...4 more rows\n\nLOW-INTENT (12 rows, sample)\n  9. admin_0402 -- joined, added bio, saved 1 resource\n  ...11 more rows",
+          healthy: "2 high-intent rows go to sales today; the 6 mid-intent rows go into a nurture sequence, not a cold call.",
+          unhealthy: "All 20 rows get forwarded to sales because 'they're all engaged.'",
+          interpret:
+            "Intent tier, not engagement count, decides who gets a rep's time; a member who visited a thread 10 times but never asked a buying question still isn't high-intent.",
+          soWhat: [
+            {
+              symptom: "Sales complains the community team is flooding their queue with cold leads",
+              action: "Re-score the export by direct-question signals only before forwarding anything",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Import, filter, and tier the engagement export",
+            why: "Free, no account friction, sortable in minutes",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A 20-row export re-sorted into high/mid/low intent tiers with only the high-intent rows flagged for a sales handoff.",
+      sampleOutput:
+        "dbt Labs Community Slack, Week 9 export (excerpt)\n\nHIGH-INTENT (1 row)\n  1. admin_2201 -- asked 'does the enterprise tier support SSO for 200+ seats' in #general\n\nMID-INTENT (4 rows, sample)\n  2. admin_2255 -- visited #pricing 3x, applied to the ambassador cohort\n\nLOW-INTENT (9 rows, sample)\n  6. admin_2299 -- joined, added bio, no further activity",
+      successCriteria: [
+        "Correctly separates direct-question signals (high) from repeated-visit signals (mid)",
+        "Flags only the genuinely high-intent rows for sales, not the whole engaged segment",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "community-led-growth-flywheel-dashboard-build",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "Building the CLG Dashboard and the Dark-Funnel Case for Budget",
+      timeEstimate: "55 minutes",
+      timeMinutes: 55,
+      objective:
+        "Build a one-view CLG metrics dashboard from the lesson's seven metrics using a real activity export, then calculate a dark-funnel attribution offset ratio to make the investment case to finance.",
+      companyId: "sula-vineyards",
+      scenario:
+        "You're the growth marketer at Sula Vineyards, India's largest listed wine company (NSE: SULA), building a formal member community around SulaFest and its wine club. Finance wants to see the community's real pipeline contribution before renewing next year's budget.",
+      brief:
+        "Turn a raw activity export into the lesson's seven-metric dashboard, then use a self-reported attribution survey gap to calculate and defend an undercount ratio for community-sourced pipeline.",
+      mode: "build",
+      conceptsCovered: [
+        "Building the seven-metric CLG dashboard",
+        "Calculating the dark-funnel attribution offset ratio",
+      ],
+      steps: [
+        {
+          stepId: "step-1-clg-dashboard-build",
+          concept: "Building the seven-metric CLG dashboard",
+          lessonAnchor: "the-clg-metrics-dashboard",
+          theoryRecap:
+            "The lesson's dashboard tracks MAU, activation rate, NPS by tier, community-sourced pipeline %, champion retention, CQL-to-opportunity conversion, and UGC SEO impact in one view so leading and lagging indicators show causality together.",
+          question:
+            "Given raw monthly activity numbers (2,400 total members, 540 posted or reacted, 310 new members, 74 took a meaningful action in 30 days), what does the dashboard say about flywheel health before you even look at pipeline?",
+          toolName: "Google Sheets",
+          where: "Build a single tab with one row per metric, one column per month, and a target column pulled from the lesson's benchmarks.",
+          procedure: [
+            "Calculate MAU% (540/2,400 = 22.5%) against the 20% floor",
+            "Calculate activation rate (74/310 = 23.9%) against the 20-30% target band",
+            "Add placeholder rows for NPS-by-tier, champion retention, and CQL-to-opportunity, sourced from CRM exports",
+            "Color-code each metric red/yellow/green against its benchmark",
+            "Write one sentence per red metric explaining the likely cause",
+          ],
+          outputSample:
+            "Sula Wine Club Community Dashboard, Month 4\n\nMAU%: 22.5% (target 20%+) -- GREEN\nActivation rate: 23.9% (target 20-30%) -- GREEN\nCommunity-sourced pipeline %: 9% (target 15-25%) -- RED, likely undercounted, see attribution step\nChampion retention (6mo): 71% (target 60%+) -- GREEN\nUGC SEO sessions: 1,140/mo, up from 620 last quarter -- trending up",
+          healthy: "Five of seven metrics sit at or above benchmark, and the one red metric has a written hypothesis, not just a red cell.",
+          unhealthy: "A dashboard with all seven metrics reported in separate decks so no one can see that low pipeline % and high MAU% are the same story.",
+          interpret:
+            "A single red metric next to six green ones is a specific, fixable problem (attribution), not evidence the whole program is failing.",
+          soWhat: [
+            {
+              symptom: "Community-sourced pipeline % sits below benchmark despite healthy MAU and activation",
+              action: "Run the dark-funnel attribution survey in step 2 before concluding the community isn't driving pipeline",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-dark-funnel-offset",
+          concept: "Calculating the dark-funnel attribution offset ratio",
+          lessonAnchor: "the-dark-funnel-problem-measuring-what-you-cannot-track",
+          theoryRecap:
+            "The lesson's fix for undercounted community influence is a self-reported attribution survey compared against CRM source data, with the resulting gap applied as a multiplier to the CRM pipeline number.",
+          question:
+            "Your CRM attributes ₹42L in wine-club pipeline to 'community.' Your signup survey shows 27% of new members cite the community as how they first heard of Sula's wine club, against total quarterly pipeline of ₹4.2Cr. What's your undercount ratio, and what do you present to finance?",
+          toolName: "Google Sheets",
+          where: "Two-column comparison: CRM-attributed community pipeline vs. survey-implied community pipeline.",
+          procedure: [
+            "Calculate survey-implied community pipeline: 27% x ₹4.2Cr = ₹1.134Cr",
+            "Calculate the undercount ratio: ₹1.134Cr / ₹42L = 2.7x",
+            "Present both the conservative CRM figure and the survey-adjusted figure side by side",
+            "Recommend the CRM number for forecasting, the adjusted number for the budget case",
+          ],
+          outputSample:
+            "Sula Wine Club, Q3 Community Pipeline\n\nCRM-attributed: Rs 42,00,000\nSurvey-implied: Rs 1,13,40,000 (27% of Rs 4.2Cr total pipeline)\nUndercount ratio: 2.7x\n\nRecommendation: forecast on Rs 42L, justify next year's community budget on the Rs 1.13Cr adjusted figure.",
+          healthy: "Both figures presented together, with the CRM number explicitly kept for forecasting.",
+          unhealthy: "Presenting only the survey-adjusted number to finance as if it were the CRM-verified figure.",
+          interpret:
+            "The gap is a measurement problem to disclose, not a number to inflate confidence with.",
+          soWhat: [
+            {
+              symptom: "Finance is skeptical of the community budget renewal",
+              action: "Bring both the conservative and adjusted pipeline figures, with the survey methodology shown",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the dashboard and run the attribution offset calculation",
+            why: "Free, handles both the metrics table and the ratio math without extra setup",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Notion",
+            role: "Host the survey questions and write up the budget case as a shareable doc",
+            why: "Free tier covers a single survey doc and a linked dashboard summary",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Mixpanel",
+            role: "Automate MAU, activation rate, and UGC session tracking instead of manual monthly exports",
+            why: "Useful once the community crosses a few thousand members and manual exports become a weekly time sink",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paidUpgradeNote:
+          "The free Google Sheets path works fine at this scale; upgrade to Mixpanel only once manual monthly exports start eating more than an hour a week.",
+      },
+      deliverable: "A seven-metric CLG dashboard with color-coded benchmarks, plus a dark-funnel attribution offset calculation ready for a finance conversation.",
+      sampleOutput:
+        "Figma Community Dashboard, Month 6 (excerpt)\n\nMAU%: 26% (target 20%+) -- GREEN\nCommunity-sourced pipeline %: 11% CRM-attributed vs. 24% survey-implied -- undercount ratio 2.2x\n\nRecommendation: forecast on the 11% CRM figure, justify headcount on the 24% adjusted figure.",
+      successCriteria: [
+        "All seven dashboard metrics calculated correctly against their benchmark bands",
+        "Attribution offset ratio calculated correctly and presented alongside, not instead of, the CRM figure",
+      ],
+      portfolioReady: true,
+      stretch: "Re-run the offset calculation with a 15% and a 35% survey-response scenario to show finance a sensitivity range instead of one fixed number.",
+    },
+  ],
+  "product-led-sales": [
+    {
+      id: "product-led-sales-pql-signal-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The First Cut: Auditing a Usage Export for PQL Signals",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a real 15-row product usage export, identify which free-trial accounts show genuine PQL trigger signals versus which are just active free users who aren't sales-ready.",
+      companyId: "mapmyindia",
+      scenario:
+        "You're the growth analyst at MapmyIndia (CE Info Systems), India's listed digital mapping and geospatial API provider (NSE: MAPMYINDIA), reviewing this week's self-serve API trial signups before your one weekly sync with sales.",
+      brief:
+        "Apply the lesson's PQL trigger criteria to a 15-row export of trial accounts and separate real PQLs from accounts that are just exploring the free tier.",
+      mode: "diagnostic",
+      conceptsCovered: ["Identifying PQL trigger signals from raw product usage data"],
+      steps: [
+        {
+          stepId: "step-1-pql-signal-audit",
+          concept: "Identifying PQL trigger signals from raw product usage data",
+          lessonAnchor: "the-product-qualified-lead-pql",
+          theoryRecap:
+            "The lesson defines a PQL by specific behavioral thresholds, three or more teammates invited, a power feature used five or more times in two weeks, a seat count near the plan limit, or API usage suggesting an integration is already underway, not just general activity.",
+          question:
+            "Of 15 trial accounts, which ones cross an actual PQL trigger threshold, and which are just a single developer poking at the API sandbox?",
+          toolName: "Google Sheets",
+          where: "Import the trial usage export, freeze the header row, filter on `teammates_invited`, `api_calls_14d`, and `seats_used`.",
+          procedure: [
+            "Import and freeze row 1",
+            "Filter for accounts with 3+ teammates invited",
+            "Filter for accounts with sustained API calls across multiple days (not a single burst-test)",
+            "Filter for accounts nearing their free-tier seat or call-volume limit",
+            "Flag rows matching two or more criteria as PQL-ready",
+          ],
+          outputSample:
+            "MapmyIndia Trial Export, Week 6 (15 rows)\n\nPQL-READY (3 rows)\n  1. acct_0091 -- 4 teammates invited, API calls on 11 of 14 days, 88% of free call quota used\n  2. acct_0114 -- 6 teammates invited, geocoding endpoint called daily for 2 weeks\n  3. acct_0138 -- 5 teammates invited, 95% of free quota used in week 2\n\nNOT YET (12 rows, sample)\n  4. acct_0102 -- 1 teammate, 40 API calls total, single burst on day 1\n  ...11 more rows",
+          healthy: "3 of 15 accounts flagged as PQL-ready based on two or more matching criteria.",
+          unhealthy: "Flagging any account with high total API call count, including a single-day load test from one developer.",
+          interpret: "Sustained, multi-day usage with team growth is a PQL signal; a one-off spike from a single tester is not.",
+          soWhat: [
+            {
+              symptom: "Sales is calling trial accounts that ghost immediately",
+              action: "Re-filter for sustained multi-day usage plus team growth before forwarding any account",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Filter and flag the trial usage export",
+            why: "Free, no account friction, handles a weekly 15-row export easily",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A 15-row trial export re-sorted with PQL-ready accounts flagged and the matching trigger criteria noted for each.",
+      sampleOutput:
+        "Calendly Trial Export, Week 3 (excerpt)\n\nPQL-READY (2 rows)\n  1. acct_5521 -- scheduled 11 meetings via booking link in 9 days, 3 teammates invited\n\nNOT YET (8 rows, sample)\n  2. acct_5544 -- 1 meeting scheduled, no teammates invited",
+      successCriteria: [
+        "Correctly distinguishes sustained multi-signal usage from a single burst of activity",
+        "Flags only accounts matching two or more real trigger criteria, not just high raw activity",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "product-led-sales-scoring-rubric-build",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "Building the PQL Rubric and the CRM Handoff Brief",
+      timeEstimate: "50 minutes",
+      timeMinutes: 50,
+      objective:
+        "Build a weighted PQL scoring rubric across engagement, fit, and intent, apply it to route a batch of trial accounts into the lesson's three sales tiers, then write the CRM enrichment brief a rep needs before calling.",
+      companyId: "mapmyindia",
+      scenario:
+        "Same MapmyIndia trial pipeline, one sprint later. Sales has asked for a real scoring model instead of a manual weekly flag, and reps say they're calling PQLs blind, with no usage context in the CRM record.",
+      brief:
+        "Build a 100-point rubric across engagement, fit, and intent, score a batch of accounts against it, route each into nurture, SDR-touch, or AE-touch, then define the exact fields a rep needs to see before dialing.",
+      mode: "build",
+      conceptsCovered: [
+        "Weighting engagement, fit, and intent signals into a 100-point PQL rubric",
+        "Defining the CRM fields a sales rep needs to see before calling a PQL",
+      ],
+      steps: [
+        {
+          stepId: "step-1-pql-rubric-build",
+          concept: "Weighting engagement, fit, and intent signals into a 100-point PQL rubric",
+          lessonAnchor: "building-a-pql-scoring-model",
+          theoryRecap:
+            "The lesson's rubric splits signals into engagement, fit, and intent buckets, assigns point values, and sets three routing thresholds: 0-40 nurture, 41-70 SDR-touch, 71-100 AE-touch.",
+          question:
+            "Given engagement, fit, and intent signals for 6 accounts, how do you weight them into a single 100-point score without letting one loud signal (like a single high-usage day) dominate the total?",
+          toolName: "Google Sheets",
+          where: "Build a scoring tab with three signal columns, a point-weight row, and a formula summing each account's total.",
+          procedure: [
+            "Assign engagement points: teammates invited (0-30), sustained API usage (0-20)",
+            "Assign fit points: company size and industry match to ICP (0-25)",
+            "Assign intent points: quota-limit proximity, pricing-page visits (0-25)",
+            "Sum each account's score and map it to a routing tier",
+            "Re-check the two highest-scoring accounts by hand to confirm no single signal is inflating the total alone",
+          ],
+          outputSample:
+            "MapmyIndia PQL Rubric, Sprint 7\n\nacct_0091: engagement 28, fit 20, intent 22 = 70 -- SDR-touch\nacct_0114: engagement 30, fit 25, intent 20 = 75 -- AE-touch\nacct_0138: engagement 22, fit 10, intent 8 = 40 -- nurture (fit score too low despite high engagement)\n...3 more rows",
+          healthy: "Scores spread across all three tiers, with at least one high-engagement account correctly routed to nurture because fit was weak.",
+          unhealthy: "Every account with high API call volume auto-routes to AE-touch regardless of fit score.",
+          interpret: "A rubric that lets engagement alone override fit and intent isn't a rubric, it's a single-metric filter with extra steps.",
+          soWhat: [
+            {
+              symptom: "AEs are getting routed accounts with high usage but no budget authority",
+              action: "Re-weight fit points so a poor ICP match caps the total score below the AE-touch threshold",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-crm-handoff-brief",
+          concept: "Defining the CRM fields a sales rep needs to see before calling a PQL",
+          lessonAnchor: "crm-integration-feeding-context-into-reps",
+          theoryRecap:
+            "The lesson's integration pattern feeds product events into a scoring engine that enriches CRM records with last active date, top features used, seat count, plan tier, and the calculated PQL score, so reps open with specifics instead of a cold script.",
+          question:
+            "For the two accounts routed to AE-touch and SDR-touch in step 1, what exact five fields does a rep need visible on the CRM record before their first call?",
+          toolName: "Notion",
+          where: "Write a one-page CRM enrichment brief listing the required fields and a sample opening line per account.",
+          procedure: [
+            "List the five required fields: last active date, top feature used, seat count, plan tier, PQL score",
+            "Pull the actual values for acct_0091 and acct_0114 from step 1's data",
+            "Draft one specific opening line per account referencing real usage, not a generic script",
+            "Hand the brief to the rep alongside the routed account list",
+          ],
+          outputSample:
+            "CRM Enrichment Brief: acct_0114 (AE-touch, score 75)\n\nLast active: 2 days ago\nTop feature: geocoding endpoint (daily use, 14 days straight)\nSeats: 6 of 6 free-tier seats used\nPlan tier: Free API sandbox\nPQL score: 75\n\nOpening line: 'I saw your team's been hitting the geocoding endpoint daily for two weeks and just filled your last free seat, wanted to walk through what the enterprise plan unlocks for that kind of volume.'",
+          healthy: "Every routed account has a specific, usage-referencing opening line ready before the first call.",
+          unhealthy: "Reps calling from a generic script because the CRM record only shows company name and signup date.",
+          interpret: "Specificity in the opener is only possible because the enrichment fields exist on the record before the call, not because the rep is naturally better at cold calls.",
+          soWhat: [
+            {
+              symptom: "PQL-to-opportunity conversion is flat despite a working scoring rubric",
+              action: "Check whether the CRM record actually surfaces the five enrichment fields, or just the PQL score alone",
+              effort: "30 min",
+            },
+          ],
+          owner: "either",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build and calculate the weighted PQL rubric",
+            why: "Free, formula-driven scoring works fine for a rubric this size",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Notion",
+            role: "Write and share the CRM enrichment brief with the sales team",
+            why: "Free tier covers a single shareable brief doc",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Amplitude",
+            role: "Automate the engagement and intent signal feed into the scoring rubric instead of manual weekly exports",
+            why: "Worth adopting once trial volume outgrows a manually refreshed spreadsheet",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paidUpgradeNote:
+          "Google Sheets and Notion cover the full free path at this volume; move signal collection to Amplitude only once manual exports can't keep up with trial volume.",
+      },
+      deliverable: "A weighted 100-point PQL rubric applied to 6 accounts, plus a CRM enrichment brief with usage-specific opening lines for the two routed accounts.",
+      sampleOutput:
+        "Linear PQL Rubric + CRM Brief (excerpt)\n\nworkspace_4471: engagement 27, fit 24, intent 21 = 72 -- AE-touch\nCRM brief: last active yesterday, 5 engineers active, issue throughput up 40% in 2 weeks, 0 enterprise features enabled\nOpening line: 'Saw your team's issue throughput jumped 40% this month, wanted to show you what the org plan adds once you're at this pace.'",
+      successCriteria: [
+        "Rubric correctly weights engagement, fit, and intent so no single signal dominates routing",
+        "CRM brief includes all five required fields and a usage-specific opening line per routed account",
+      ],
+      portfolioReady: true,
+      stretch: "Recalibrate the routing thresholds against a hypothetical quarter of actual win-rate data, per the lesson's note that thresholds need re-tuning as the company matures.",
+    },
+  ],
+
+  "reverse-trials-monetization": [
+    {
+      id: "reverse-trials-monetization-conversion-forecast",
+      tier: "mini",
+      archetype: "forecast",
+      title: "The Downgrade Cliff: Forecasting RateGain's Reverse Trial Revenue Swing",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given a synthetic 90-day reverse trial cohort export (signups, premium feature touches, trial-end outcome), forecast the paid-conversion range and quarterly revenue delta a reverse trial produces versus RateGain's existing freemium baseline.",
+      companyId: "rategain-travel-technologies",
+      scenario:
+        "You're a growth analyst at RateGain Travel Technologies, the Noida-founded, NSE-listed travel-tech SaaS company, evaluating whether to convert 'RevGain Insights,' a premium demand-forecasting add-on for hotel revenue managers, from freemium to a 21-day reverse trial.",
+      brief:
+        "Use the trial cohort's feature-touch data to separate genuine forecast conversion from noise, then project the revenue delta against the freemium baseline.",
+      mode: "diagnostic",
+      conceptsCovered: ["Forecasting reverse trial conversion from feature-touch data, not access alone"],
+      steps: [
+        {
+          stepId: "step-1-forecast-conversion-swing",
+          concept: "Forecasting reverse trial conversion from feature-touch data, not access alone",
+          lessonAnchor: "understanding-the-monetization-spectrum",
+          theoryRecap:
+            "The lesson's monetization-spectrum comparison shows freemium's core weakness is that users must pay before ever touching the premium value, which caps free-to-paid conversion far below what a reverse trial can reach once the same premium features are already integrated into a workflow.",
+          question:
+            "Of 180 hotels on a 21-day RevGain Insights reverse trial, 62 used the demand-forecast export at least 3 times and 118 opened it once or never. Given the lesson's benchmark that repeated-touch trial users convert far above single-touch users, what paid-conversion range should you forecast for each group, and what does that imply for the freemium baseline RateGain already runs?",
+          toolName: "Google Sheets",
+          where: "Import the 180-row trial cohort export, split into two segments by feature-touch count.",
+          procedure: [
+            "Import the cohort export and freeze the header row",
+            "Segment rows into '3+ touches' (62 hotels) and '0-1 touches' (118 hotels)",
+            "Apply the lesson's engaged-vs-unengaged conversion spread to each segment",
+            "Multiply by RevGain Insights' ₹18,000/month list price to project quarterly revenue",
+            "Compare the projected total against RateGain's existing freemium conversion baseline for the same 180 hotels",
+          ],
+          outputSample:
+            "RevGain Insights, 21-day reverse trial cohort forecast\n\n3+ TOUCHES (62 hotels)\n  Forecast paid conversion: 30-34%\n  Projected payers: ~19-21 hotels\n\n0-1 TOUCHES (118 hotels)\n  Forecast paid conversion: 5-7%\n  Projected payers: ~6-8 hotels\n\nTOTAL PROJECTED PAYERS: ~25-29 of 180 (14-16%)\nFREEMIUM BASELINE (same 180 hotels, historical): 4%\nQUARTERLY REVENUE DELTA: +₹1.4M to +₹1.7M vs. freemium run rate",
+          healthy:
+            "Forecast conversion tracks feature-touch depth, with the 3+ touch segment projected several multiples above the freemium baseline.",
+          unhealthy:
+            "Treating all 180 trial hotels as one undifferentiated group and forecasting a single blended conversion rate off total signups.",
+          interpret:
+            "Trial access alone doesn't predict conversion, repeated engagement with the specific premium feature during the trial does, so the forecast has to be built segment by segment.",
+          soWhat: [
+            {
+              symptom: "Blended forecast undercounts the true opportunity from engaged trial users",
+              action: "Segment every reverse-trial forecast by in-trial feature-touch count before projecting revenue",
+              effort: "30 min",
+            },
+            {
+              symptom: "0-1 touch segment still shows some conversion, diluting the model",
+              action: "Trigger a mid-trial nudge campaign at day 7 for hotels with zero feature touches",
+              effort: "half day",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Segment the cohort export and build the forecast model",
+            why: "Free, no account friction, sufficient for a 180-row segmentation and projection",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A segmented conversion forecast (by feature-touch depth) with a projected quarterly revenue delta versus the freemium baseline.",
+      sampleOutput:
+        "Five-Star Business Finance, Q2 reverse trial forecast (excerpt)\n\n3+ TOUCHES (41 branches)\n  Forecast paid conversion: 28-32%\n  Projected payers: ~11-13 branches\n\n0-1 TOUCHES (76 branches)\n  Forecast paid conversion: 4-6%\n  Projected payers: ~3-5 branches\n\nQUARTERLY REVENUE DELTA: +₹8.6L to +₹10.2L vs. freemium run rate",
+      successCriteria: [
+        "Correctly segments the cohort by feature-touch depth before forecasting",
+        "Produces a quarterly revenue delta grounded in the segment-level conversion forecast, not a single blended rate",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "reverse-trials-monetization-downgrade-teardown",
+      tier: "core",
+      archetype: "teardown",
+      title: "Teardown: Five-Star's Reverse Trial Downgrade Flow",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given a synthetic downgrade-flow specimen (in-app messaging plus an email sequence) for a branch loan-officer app's premium AI underwriting assistant, identify which parts follow reverse trial best practice and which recreate the lesson's four common mistakes.",
+      companyId: "five-star-business-finance",
+      scenario:
+        "You're auditing UX copy at Five-Star Business Finance, the Chennai-headquartered, NSE-listed MSME lender, ahead of rolling a 30-day reverse trial of 'Star AI Underwriter' out to its full branch network.",
+      brief:
+        "Read the specimen downgrade sequence end to end, flag every defect against the lesson's common-mistakes list, and don't get fooled by messaging that sounds reassuring but still commits a mistake.",
+      mode: "teardown",
+      conceptsCovered: ["Auditing a downgrade UX sequence against the reverse trial common-mistakes checklist"],
+      teardownItems: [
+        {
+          itemId: "item-1-downgrade-sequence",
+          specimen:
+            "STAR AI UNDERWRITER — 30-DAY TRIAL DOWNGRADE SEQUENCE (synthetic, branch loan-officer app)\n\nDay 28 in-app banner: 'Your Star AI Underwriter trial is ending soon. Upgrade to keep instant risk scoring.'\n\nDay 30, 11:58 PM: trial access silently removed. No further notice sent.\n\nDay 31 email: 'Your Star AI Underwriter trial has ended. Upgrade now to restore instant risk scoring.' (Underwriting notes and risk-score history created during the trial are deleted from the branch dashboard as part of the downgrade, per the engineering ticket linked in the email.)\n\nFree-tier dashboard: no visual indicator distinguishes which loan files were scored with AI assistance versus manually, and no upgrade prompt appears anywhere in the free tier after day 31.",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "Identify every defect in this downgrade sequence, rate its severity, and explain why it undermines the reverse trial's loss-aversion mechanic.",
+          answerKey: [
+            {
+              defect:
+                "Trial access is removed at exactly midnight on day 30 with no day-30 warning, only a day-28 banner three days earlier",
+              severity: "moderate",
+              whyItMatters:
+                "The lesson's common-mistakes list flags abrupt downgrades without warning as feeling 'tricked, not motivated'; a single banner two days before cutoff isn't a signal, it's an afterthought",
+              lessonRef: "common-mistakes-in-reverse-trial-design",
+              owner: "developer",
+            },
+            {
+              defect: "Underwriting notes and risk-score history created during the trial are deleted on downgrade",
+              severity: "critical",
+              whyItMatters:
+                "Deleting trial-created data is the lesson's most damaging mistake, it causes users to churn completely instead of sticking around to consider a later upgrade, and here it also destroys real underwriting records",
+              lessonRef: "common-mistakes-in-reverse-trial-design",
+              owner: "developer",
+            },
+            {
+              defect: "No visual tag distinguishes AI-scored loan files from manually-scored ones on the free tier",
+              severity: "moderate",
+              whyItMatters:
+                "The lesson requires tagging premium assets clearly so users know what they will lose upon downgrade; without it, branch staff can't even see what the trial gave them",
+              lessonRef: "managing-downstream-churn-and-retention",
+              owner: "developer",
+            },
+            {
+              defect: "No upgrade prompt anywhere in the free tier after day 31",
+              severity: "critical",
+              whyItMatters:
+                "The lesson calls for contextual upgrade triggers when a free user hits a gated feature; a dead-end free tier wastes the acquisition investment already made in every branch that touched the trial",
+              lessonRef: "managing-downstream-churn-and-retention",
+              owner: "either",
+            },
+          ],
+          distractors: [
+            "The day-31 email uses the phrase 'has ended' instead of 'is ending' (this is a tense choice, not a defect the lesson flags)",
+            "The trial ran for 30 days instead of 21 or 14 (30 days is within the lesson's normal range for reverse trials and is not itself a mistake)",
+            "The in-app banner appeared on day 28 rather than day 25 (the lesson never specifies an exact warning lead time, only that warning must exist at all)",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Log each identified defect with severity and lesson reference",
+            why: "Free, sufficient for a structured defect log",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A defect log rating each downgrade-flow issue by severity, mapped to the specific common-mistake it recreates.",
+      sampleOutput:
+        "Utkarsh Small Finance Bank, downgrade flow defect log (excerpt)\n\nCRITICAL: Trial-created customer notes deleted on downgrade\n  Ref: managing-downstream-churn-and-retention\n\nMODERATE: Single day-28 warning banner only, no day-30 notice\n  Ref: common-mistakes-in-reverse-trial-design",
+      successCriteria: [
+        "Correctly identifies all 4 planted defects with matching severity",
+        "Does not flag any of the 3 distractors as defects",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "b2b-growth-loops": [
+    {
+      id: "b2b-growth-loops-integration-loop-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "Diagnosing Go Digit's Embedded-Insurance Integration Loop",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given a synthetic month-2 partner funnel export, apply the lesson's integration-loop KPI (percent of active partners with 3+ API integrations) to diagnose whether Go Digit's embedded-insurance loop is compounding or stalling.",
+      companyId: "go-digit-insurance",
+      scenario:
+        "You're a growth analyst at Go Digit General Insurance, the Bengaluru-headquartered, NSE-listed general insurer, reviewing how its API partner ecosystem (travel apps, fintech apps, and OEM dealerships embedding Go Digit's insurance APIs) is compounding.",
+      brief:
+        "Segment partners by how many Go Digit API products they've integrated, benchmark against the lesson's Slack-derived 3+ integration target, and diagnose where the loop is stalling.",
+      mode: "diagnostic",
+      conceptsCovered: ["Diagnosing an integration ecosystem loop against a 3+ integration KPI benchmark"],
+      steps: [
+        {
+          stepId: "step-1-integration-depth-audit",
+          concept: "Diagnosing an integration ecosystem loop against a 3+ integration KPI benchmark",
+          lessonAnchor: "measuring-b2b-loop-efficiency",
+          theoryRecap:
+            "The lesson's efficiency framework benchmarks the integration ecosystem loop by the percent of month-2 active users who've installed 3+ integrations, using Slack's >50% target as the bar for a loop that's genuinely compounding.",
+          question:
+            "Of Go Digit's 210 month-2 active API partners, 74 have integrated 3+ insurance products (motor, travel, health) into their app, 91 have integrated exactly 1, and 45 have integrated 2. Against the lesson's 3+ integration benchmark, is this loop compounding or stalling, and which segment do you target first?",
+          toolName: "Google Sheets",
+          where: "Import the 210-row partner export, group by integration count.",
+          procedure: [
+            "Import and freeze the header row",
+            "Group partners into 1, 2, and 3+ integration buckets",
+            "Calculate the percent of month-2 actives at 3+ integrations",
+            "Compare against the lesson's >50% Slack-derived benchmark",
+            "Flag the 2-integration bucket as the highest-leverage nudge target (closest to the compounding threshold)",
+          ],
+          outputSample:
+            "Go Digit API partner ecosystem, month-2 integration depth\n\n1 INTEGRATION: 91 partners (43%)\n2 INTEGRATIONS: 45 partners (21%)\n3+ INTEGRATIONS: 74 partners (35%)\n\nBENCHMARK (lesson, Slack-derived): >50% at 3+ integrations\nGAP TO BENCHMARK: -15 points\nHIGHEST-LEVERAGE SEGMENT: 45 partners at exactly 2 integrations",
+          healthy: "35%+ of month-2 actives sit at 3+ integrations and trending upward month over month.",
+          unhealthy: "The majority of partners plateau at exactly 1 integration and never add a second.",
+          interpret:
+            "At 35% against a >50% benchmark, the loop is under-compounding, the 2-integration bucket is the fastest path to close the gap since those partners have already cleared the harder first-integration hurdle.",
+          soWhat: [
+            {
+              symptom: "35% at 3+ integrations, 15 points under benchmark",
+              action: "Build a targeted 'add your second integration' campaign for the 45 partners stuck at 2",
+              effort: "half day",
+            },
+            {
+              symptom: "91 partners stuck at exactly 1 integration",
+              action: "Audit onboarding for why partners stop after the first API call",
+              effort: "dev ticket",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Group and benchmark the partner export",
+            why: "Free, sufficient for a 210-row grouping and benchmark comparison",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "An integration-depth funnel benchmarked against the lesson's 3+ integration KPI, with the highest-leverage segment flagged.",
+      sampleOutput:
+        "RateGain partner ecosystem, month-2 integration depth (excerpt)\n\n1 INTEGRATION: 58 partners (31%)\n2 INTEGRATIONS: 39 partners (21%)\n3+ INTEGRATIONS: 89 partners (48%)\n\nGAP TO BENCHMARK: -2 points",
+      successCriteria: [
+        "Correctly groups partners into the three integration-depth buckets",
+        "Benchmarks against the lesson's >50% target and identifies the highest-leverage segment to nudge",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "b2b-growth-loops-champion-expansion-map",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "Building RateGain's Champion-Led Expansion Loop Map",
+      timeEstimate: "50 minutes",
+      timeMinutes: 50,
+      objective:
+        "Using the lesson's Inputs/Actions/Outputs/Feedback framework, build a champion-led expansion loop map for RateGain's RevGain Insights add-on, from a single hotel revenue manager's adoption to a multi-department contract expansion.",
+      companyId: "rategain-travel-technologies",
+      scenario:
+        "You're on the growth team at RateGain Travel Technologies, mapping how a single hotel revenue manager's use of RevGain Insights could expand into a property-wide, then group-wide, RateGain contract.",
+      brief:
+        "Fill in each stage of the Inputs/Actions/Outputs/Feedback framework with RateGain-specific detail, then write the one-sentence business case a champion would need to justify expansion to procurement.",
+      mode: "build",
+      conceptsCovered: [
+        "Mapping a champion-led expansion loop using the Inputs/Actions/Outputs/Feedback framework",
+        "Writing a champion's expansion business case in ROI terms, not feature terms",
+      ],
+      steps: [
+        {
+          stepId: "step-1-map-the-loop",
+          concept: "Mapping a champion-led expansion loop using the Inputs/Actions/Outputs/Feedback framework",
+          lessonAnchor: "mapping-your-own-b2b-growth-loop",
+          theoryRecap:
+            "The lesson's mapping framework breaks any B2B loop into Inputs (what brings a customer in), Actions (the smallest step to a moment of truth), Outputs (what changes after that moment), and Feedback (what compels repeating the action).",
+          question:
+            "A single hotel revenue manager starts using RevGain Insights for demand forecasting. Map what input brought her in, what action created her moment of truth, what output resulted, and what feedback mechanism would pull in the GM and then the ownership group.",
+          toolName: "Google Sheets",
+          where: "Build a 4-row template, one row per framework stage, filled with RateGain-specific detail.",
+          procedure: [
+            "Row 1, Input: what search or referral brought the revenue manager to RevGain Insights",
+            "Row 2, Action: the smallest action that produces her moment of truth (a forecast that changes a real pricing decision)",
+            "Row 3, Output: what changes in her world after that moment (a documented revenue lift she can show her GM)",
+            "Row 4, Feedback: what compels the GM, then ownership, to expand the contract",
+          ],
+          outputSample:
+            "RevGain Insights champion-expansion map\n\nINPUT: Revenue manager finds RevGain Insights via a RateGain webinar on 2026 demand forecasting\nACTION: Runs a 7-day demand forecast against an upcoming low-occupancy week, adjusts room rates accordingly\nOUTPUT: Documented 6% RevPAR lift for that week, screenshotted into her monthly GM report\nFEEDBACK: GM asks for property-wide access; group ownership sees the RevPAR lift across 3 properties and asks procurement to add group-wide seats",
+          healthy:
+            "Each stage produces a concrete, RateGain-specific artifact (a webinar name, a documented RevPAR number, a named stakeholder) rather than a generic restatement of the framework.",
+          unhealthy:
+            "Filling in the four rows with abstract statements like 'user finds value' and 'company expands' with no specific input, action, or number.",
+          interpret:
+            "A loop map is only useful if it's specific enough to design an actual campaign around, a vague map can't tell you which webinar to fund or which GM report template to build.",
+          soWhat: [
+            {
+              symptom: "Output row has no documented number the champion can show upward",
+              action: "Build a one-click 'RevPAR impact' export inside RevGain Insights the champion can screenshot",
+              effort: "dev ticket",
+            },
+          ],
+          owner: "either",
+        },
+        {
+          stepId: "step-2-write-the-business-case",
+          concept: "Writing a champion's expansion business case in ROI terms, not feature terms",
+          lessonAnchor: "the-four-core-b2b-growth-loops",
+          theoryRecap:
+            "The lesson's Salesforce example shows a champion's expansion succeeds because she 'creates a business case, demonstrates ROI to procurement' rather than asking for a feature; the lesson's four loops all monetize on business value, not on excitement.",
+          question:
+            "Using the documented 6% RevPAR lift from Step 1, write the one-paragraph business case the revenue manager would actually bring to her GM to justify expanding RevGain Insights property-wide.",
+          toolName: "Google Sheets",
+          where: "Write the business case paragraph in a new sheet row, then check it against the ROI-vs-feature test.",
+          procedure: [
+            "State the documented result first (the 6% RevPAR lift), not the tool's features",
+            "Translate the percentage into a rupee figure the GM can defend to ownership",
+            "Name the specific expansion ask (property-wide seats, then group-wide)",
+            "Check: does the paragraph mention a feature name before it mentions the ROI number? If yes, rewrite",
+          ],
+          outputSample:
+            "Business case draft:\n'RevGain Insights produced a 6% RevPAR lift on one low-occupancy week, worth an estimated ₹4.2L in incremental revenue at this property alone. Rolling it out to all 40 rooms and all revenue-managed rate categories property-wide would let us apply the same forecasting discipline to every low-occupancy week this quarter, not just the one we tested.'\n\nROI-before-feature check: PASS, first sentence is the number, not the tool.",
+          healthy:
+            "The business case leads with a rupee-denominated result and only mentions the product name in service of that result.",
+          unhealthy:
+            "A business case that opens with 'RevGain Insights has powerful AI forecasting features' before ever stating a number.",
+          interpret:
+            "Procurement funds ROI, not features, a champion who leads with the number gets approved faster than one who leads with a feature list.",
+          soWhat: [
+            {
+              symptom: "Business case opens with a feature description instead of a number",
+              action: "Rewrite so the first sentence is always the documented result",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the loop map and draft the business case",
+            why: "Free, sufficient for a 4-row framework map and a short paragraph draft",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A completed Inputs/Actions/Outputs/Feedback loop map plus a one-paragraph, ROI-led expansion business case.",
+      sampleOutput:
+        "Utkarsh Small Finance Bank champion-expansion map (excerpt)\n\nINPUT: Branch manager finds the Utkarsh digital lending dashboard via an internal training session\nACTION: Approves 15 MSME loans in a week using the dashboard's faster risk-scoring flow\nOUTPUT: Documented 3-day reduction in average approval time, reported to the regional head\nFEEDBACK: Regional head requests the dashboard for 8 more branches in the cluster",
+      successCriteria: [
+        "All four framework stages contain RateGain-specific, non-generic detail",
+        "The business case leads with a documented ROI number before mentioning any feature name",
+      ],
+      portfolioReady: true,
+      stretch: "Repeat the map for a second RateGain product line and compare which loop compounds faster.",
+    },
+  ],
+
+  "ai-experiment-design": [
+    {
+      id: "ai-experiment-design-hypothesis-sanity-check",
+      tier: "mini",
+      archetype: "ai-critique",
+      title: "AI Hypothesis Audit: Separating Real Signal from Plausible Guesses",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given 8 AI-generated growth hypotheses and 3 known business constraints, apply a domain-context sanity check to flag which hypotheses address a real, evidenced user problem versus which are plausible-sounding guesses an LLM produced without knowing your business.",
+      companyId: "rxbar",
+      scenario:
+        "You're the growth analyst at RXBAR, the Chicago-founded protein bar brand ATT (acquired by Kellanova/Kellogg for $600M in 2017). Claude read your checkout session recordings and produced 8 hypotheses. Sprint planning is in an hour.",
+      brief:
+        "Score each hypothesis against 3 constraints you know and Claude doesn't: subscription customers already get free shipping, the mobile checkout was rebuilt last quarter, and first-time buyers are price-anchored by a 12-bar variety pack, not single flavors.",
+      mode: "diagnostic",
+      conceptsCovered: ["Sanity-checking AI hypotheses against domain knowledge"],
+      steps: [
+        {
+          stepId: "step-1-sanity-check-hypotheses",
+          concept: "Sanity-checking AI hypotheses against domain knowledge",
+          lessonAnchor: "over-reliance-on-ai-conclusions-without-domain-context",
+          theoryRecap:
+            "The lesson's pitfall section warns that LLMs generate plausible hypotheses, not ground-truth ones, and that a PM who runs all 10 AI-generated ideas in parallel without a domain filter watches most of them fail.",
+          question:
+            "Claude's 8 hypotheses include 'add free shipping threshold banner', 'redesign mobile checkout button', and 'bundle flavors at a discount for first-time buyers'. Which of these survive contact with what you already know?",
+          toolName: "Claude",
+          where: "Paste the 8 hypotheses plus your 3 known constraints into a Claude conversation.",
+          procedure: [
+            "List the 8 AI-generated hypotheses in one column",
+            "List your 3 known constraints in a second reference block",
+            "For each hypothesis, ask: does this conflict with a constraint I already know is true?",
+            "Kill any hypothesis that targets an already-solved problem (free shipping banner, mobile checkout)",
+            "Keep hypotheses that target an unaddressed, evidenced friction point (flavor bundling for anchoring)",
+          ],
+          outputSample:
+            "HYPOTHESIS AUDIT\n\n1. Add free shipping threshold banner -- KILL. Subscription customers already get free shipping; banner targets a solved problem.\n2. Redesign mobile checkout button -- KILL. Checkout was rebuilt last quarter; re-testing the same surface wastes a cycle.\n3. Bundle flavors at a discount for first-time buyers -- KEEP. First-time buyers are anchored to the 12-bar variety pack; a flavor bundle addresses real anchoring friction Claude correctly inferred from session data.\n...5 more rows",
+          healthy: "3 of 8 hypotheses survive the constraint check and go into the sprint.",
+          unhealthy: "All 8 hypotheses get greenlit because the AI confidence scores looked high.",
+          interpret:
+            "An LLM's hypothesis list is a starting menu, not a ranked verdict; only a human who knows what's already shipped can tell which items are real.",
+          soWhat: [
+            {
+              symptom: "Sprint burns a cycle re-testing an already-solved checkout problem",
+              action: "Keep a running list of 'already shipped or already known' constraints and paste it alongside every AI hypothesis prompt",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Claude",
+            role: "Generate the initial hypothesis batch and hold the sanity-check conversation",
+            why: "Free tier handles an 8-item hypothesis list and a short back-and-forth without hitting usage limits",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A 3-hypothesis shortlist for this sprint, plus the 5 killed hypotheses each paired with the specific constraint that killed it.",
+      sampleOutput:
+        "Halo Top hypothesis audit (excerpt)\n\nKEEP: 'Show calorie count above the fold on the pint PDP' -- addresses a real, unaddressed comparison-shopping friction seen in session recordings.\nKILL: 'Add a countdown timer to the flavor drop' -- Halo Top already ran and killed this exact test last quarter; re-testing wastes the cycle.\nKILL: 'Simplify the newsletter signup form' -- newsletter conversion isn't a business goal this quarter; hypothesis is plausible but off-target.",
+      successCriteria: [
+        "Correctly kills every hypothesis that conflicts with a stated constraint",
+        "Keeps only hypotheses that target a real, unaddressed friction point",
+        "States the specific conflicting constraint for each killed hypothesis, not just 'not a priority'",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "ai-experiment-design-brief-build",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "Build an AI-Assisted Experiment Brief: Hypothesis to RICE Score",
+      timeEstimate: "50 minutes",
+      timeMinutes: 50,
+      objective:
+        "Given real funnel data, use AI at two stages of the workflow, hypothesis generation from session data and RICE prioritisation scoring, to produce a complete, ready-to-review experiment brief for one growth idea.",
+      companyId: "mvmt-watches",
+      scenario:
+        "You're the growth marketer at MVMT, the DTC watch brand that sold to Movado Group for a reported $100M in 2018. Checkout abandonment is up 6 points this month and you have 12 candidate ideas competing for one dev sprint.",
+      brief:
+        "Use an LLM to turn raw session notes into ranked hypotheses, then use RICE scoring (also AI-assisted) to defend which one idea gets the sprint, and write the one-page brief a developer can build from.",
+      mode: "build",
+      conceptsCovered: [
+        "Hypothesis generation from qualitative session data",
+        "Automated experiment prioritisation with RICE",
+      ],
+      steps: [
+        {
+          stepId: "step-1-generate-hypotheses",
+          concept: "Hypothesis generation from qualitative session data",
+          lessonAnchor: "hypothesis-generation-from-data",
+          theoryRecap:
+            "The lesson contrasts traditional hypothesis generation (a PM eyeballs a heatmap) with AI-assisted generation: paste session recordings and support tickets into an LLM and ask for the top friction points, compressing 10 hours of manual review into seconds.",
+          question:
+            "You have 40 session-recording notes and 15 support tickets mentioning checkout. What are the top 3 friction points worth turning into hypotheses?",
+          toolName: "Claude",
+          where: "Paste the session notes and ticket excerpts into Claude in one message.",
+          procedure: [
+            "Compile session notes and support-ticket excerpts into one text block",
+            "Prompt: 'What are the top 5 friction points in this checkout flow, ranked by how many sessions show the pattern?'",
+            "Review Claude's output against the raw notes for at least the top 2 patterns",
+            "Convert the top pattern into a testable hypothesis with a clear metric",
+          ],
+          outputSample:
+            "TOP FRICTION PATTERNS (from 40 sessions + 15 tickets)\n1. Re-entering shipping address after a failed promo code (14 sessions) -- HYPOTHESIS: preserving form state across a failed promo-code submit will reduce checkout abandonment.\n2. Watch band size chart opens in a new tab and loses cart context (9 sessions)\n3. Order confirmation email delayed 20+ minutes, driving repeat-purchase attempts (6 tickets)",
+          healthy: "One hypothesis is grounded in 14 of 40 sessions showing the same pattern.",
+          unhealthy: "A hypothesis invented from a single anecdotal ticket with no session-data pattern behind it.",
+          interpret:
+            "A hypothesis is only as strong as the number of independent sessions that show the same friction; AI's job is surfacing the pattern fast, not deciding it matters.",
+          soWhat: [
+            {
+              symptom: "Team debates which of 12 ideas to run without evidence",
+              action: "Require every hypothesis to cite a session or ticket count before it enters the prioritisation step",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-rice-score-and-brief",
+          concept: "Automated experiment prioritisation with RICE",
+          lessonAnchor: "automated-experiment-prioritisation",
+          theoryRecap:
+            "The lesson notes RICE (Reach x Impact x Confidence / Effort) is where AI excels because it multiplies across dimensions fast and surfaces ideas that look average on one metric but exceptional on others.",
+          question:
+            "Your form-state hypothesis competes against 11 other ideas. Reach is high (checkout touches 100% of buyers), but is it the highest-RICE idea, or does a lower-reach idea with near-zero effort win?",
+          toolName: "Claude",
+          where: "Feed Claude your 12-idea list with reach/impact/confidence/effort estimates for each.",
+          procedure: [
+            "List all 12 ideas with your best-guess reach, impact, confidence, and effort estimates",
+            "Prompt Claude to compute RICE score per idea and rank the list",
+            "Sanity-check the top-ranked idea against what you know the dev team can ship this sprint",
+            "Write the one-page brief: hypothesis, RICE score and reasoning, success metric, sample size",
+          ],
+          outputSample:
+            "RICE RANKING (top 3 of 12)\n1. Preserve form state on failed promo code -- Reach 100% x Impact 2 x Confidence 80% / Effort 1 = 160. Ships in 2 days, touches every checkout session.\n2. Fix band-size-chart tab context loss -- Reach 22% x Impact 1 x Confidence 60% / Effort 2 = 6.6\n3. Speed up confirmation email -- Reach 15% x Impact 1 x Confidence 50% / Effort 3 = 2.5\n\nBRIEF: Ship the form-state fix this sprint; RICE score is 24x the next idea and effort is a 2-day dev ticket.",
+          healthy: "The top RICE idea also matches the dev team's actual sprint capacity.",
+          unhealthy: "Picking the highest-reach idea without checking whether effort makes it undeliverable this sprint.",
+          interpret:
+            "RICE surfaces the idea, but a human still checks that the winning score is buildable in the time available.",
+          soWhat: [
+            {
+              symptom: "Team ships the loudest idea instead of the highest-RICE idea",
+              action: "Require a RICE table with all 12 ideas visible before any single idea gets greenlit",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Claude",
+            role: "Generate hypotheses from session data and compute RICE scores",
+            why: "Free tier handles a 40-session text block and a 12-row scoring table in one conversation",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Hold the 12-idea RICE table and the final brief draft",
+            why: "Free, shareable with the dev team without export friction",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Optimizely",
+            role: "Calculate the required sample size and run the experiment once it ships",
+            why: "Built-in sample size calculator and Stats Engine for early significance detection",
+            required: false,
+            fallback: "Google Sheets with a manual sample-size formula",
+            lastVerified: "2026-08",
+          },
+        ],
+      },
+      deliverable:
+        "A one-page experiment brief: the top hypothesis, its RICE score and reasoning against the other 11 ideas, the success metric, and the required sample size.",
+      sampleOutput:
+        "Chewy checkout brief (excerpt)\n\nHYPOTHESIS: Preserving cart contents when a shipping-zip lookup fails will reduce cart abandonment.\nEVIDENCE: 11 of 30 reviewed sessions show a zip-lookup failure immediately preceding exit.\nRICE: Reach 100% x Impact 2 x Confidence 75% / Effort 1 = 150 (highest of 9 candidate ideas).\nMETRIC: checkout completion rate.\nSAMPLE SIZE: ~18,000 sessions per arm at 95% confidence for a 2pp lift.",
+      successCriteria: [
+        "Hypothesis cites a specific session or ticket count as evidence",
+        "RICE table shows all competing ideas, not just the winner",
+        "Brief includes a stated success metric and sample size",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Ask Claude to draft 3 confounding variables the eventual A/B test result should be checked against before declaring a winner.",
+    },
+  ],
+  "growth-hacking-ethics-dark-patterns": [
+    {
+      id: "growth-hacking-ethics-dark-patterns-flow-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Signup Flow Teardown: Spot the Dark Patterns Before Legal Does",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given 3 screens from a synthetic subscription signup and cancellation flow, identify which UI decisions are dark patterns under the FTC's 2022 framework versus which are legitimate, aggressive-but-fair growth tactics.",
+      companyId: "halo-top",
+      scenario:
+        "You're the growth lead reviewing a proposed redesign of Halo Top's DTC subscription box signup and cancel flow before it ships, three weeks after the design team optimized it for conversion.",
+      brief:
+        "Walk each of the 3 screens through the lesson's fake-scarcity, referral-mechanics, and asymmetric-effort traps, and flag real defects versus legitimate urgency.",
+      mode: "teardown",
+      conceptsCovered: ["Fake scarcity counters", "Deceptive referral mechanics", "Asymmetric signup and cancellation effort"],
+      teardownItems: [
+        {
+          itemId: "item-1-scarcity-banner",
+          specimen:
+            "Screen 1, product page banner: 'Only 3 subscription boxes left at this price!' The counter is hardcoded in the page template and resets to 3 on every page refresh, regardless of actual inventory or subscriber count.",
+          specimenSource: "synthetic-realistic",
+          prompt: "Is this banner a legitimate scarcity lever or a dark pattern? Cite the specific fact being asserted.",
+          answerKey: [
+            {
+              defect: "Countdown/inventory counter is hardcoded and resets on refresh, disconnected from real stock or subscriber count",
+              severity: "critical",
+              whyItMatters:
+                "The FTC's 2022 'Bringing Dark Patterns to Light' report names exactly this pattern; the tactic asserts a fact (only 3 left) that is not true or current, which is the textbook definition of deceptive under Section 5",
+              lessonRef: "The Regulatory Context: Dark Patterns Are Not a Gray Area Anymore",
+              owner: "developer",
+            },
+          ],
+          distractors: ["The banner uses urgent language ('Only 3 left!')", "The banner is positioned above the fold"],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-referral-mechanic",
+          specimen:
+            "Screen 2, referral share modal: headline reads 'Give $20, Get $20' but the fine print (a 9pt gray link below the button) reveals the referred friend receives store credit that expires in 14 days, not the $20 cash-value discount implied by the headline.",
+          specimenSource: "synthetic-realistic",
+          prompt: "Does this referral mechanic cross the line, and if so, on what specific claim?",
+          answerKey: [
+            {
+              defect: "Headline implies a $20 cash-equivalent reward; fine print delivers a time-limited store credit, a materially different reward",
+              severity: "critical",
+              whyItMatters:
+                "The lesson's framework calls this 'deceptive referral mechanics': the mechanic itself is legitimate, but misrepresenting what the reward actually is converts a growth channel into a liability channel",
+              lessonRef: "Common Growth-Tactic Ethical Traps",
+              owner: "you",
+            },
+          ],
+          distractors: ["The referral program requires the friend to make a purchase before the reward unlocks", "The share modal uses a bright CTA button color"],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-3-cancel-flow",
+          specimen:
+            "Screen 3, account settings: signup is a single 'Start my box' button. Cancellation requires clicking 'Manage Subscription', then 'Account Settings', then calling a phone number only staffed weekdays 9-5, where a retention agent must approve the cancellation before it takes effect.",
+          specimenSource: "synthetic-realistic",
+          prompt: "Apply the lesson's second ethics question to this flow: is the cost of reversing the action equal to the cost of taking it?",
+          answerKey: [
+            {
+              defect: "Signup is one click; cancellation requires 2 in-app steps plus a phone call during limited hours with agent approval",
+              severity: "critical",
+              whyItMatters:
+                "This is the exact asymmetry the FTC's Amazon and Vonage settlements were built on; regulators look for asymmetric effort between joining and leaving first",
+              lessonRef: "A Practical Framework: Aggressive-But-Fair vs. Deceptive",
+              owner: "developer",
+            },
+          ],
+          distractors: ["Cancellation requires logging into the account first", "The phone number is listed in the footer, not the main settings page"],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Log each screen, the defect found, its severity, and the lesson framework question it fails",
+            why: "Free, easy to share with legal or compliance for a real pre-launch review",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A 3-row defect log: screen, defect, severity, which of the 3 framework questions it fails, and the fix.",
+      sampleOutput:
+        "MVMT pre-launch flow review (excerpt)\n\nSCREEN: watch-band size guide upsell modal\nDEFECT: 'Add protective case, only 12 in stock' counter is static across all sessions, never decrements\nSEVERITY: critical\nFAILS QUESTION: 'Is the underlying fact true?'\nFIX: Wire the counter to real inventory or remove the number entirely and keep the upsell copy without a fabricated count.",
+      successCriteria: [
+        "Flags all 3 real defects, not just the most obvious one",
+        "Cites the specific fact or asymmetry each defect violates, not a generic 'feels sketchy'",
+        "Does not flag either distractor as a defect",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "growth-hacking-ethics-dark-patterns-three-question-filter",
+      tier: "core",
+      archetype: "audit",
+      title: "The Three-Question Filter: Auditing a Referral Program Before It Ships",
+      timeEstimate: "40 minutes",
+      timeMinutes: 40,
+      objective:
+        "Given a real referral program design brief, apply the lesson's three-question ethics filter (is the fact true, is reversal cost equal to action cost, would it survive being explained out loud) to decide what ships as-is, what needs a fix, and what needs a legal review before launch.",
+      companyId: "walker-and-company",
+      scenario:
+        "You're the growth marketer at Walker & Company Brands, the grooming company (Bevel) that Procter & Gamble acquired in 2018. Product is proposing a referral program for a Q4 launch and wants your sign-off by Friday.",
+      brief:
+        "Run all 5 elements of the proposed program through the three-question filter and write a go/no-go memo with specific fixes for anything that fails.",
+      mode: "diagnostic",
+      conceptsCovered: ["The three-question ethics filter", "Asymmetric signup and cancellation effort"],
+      steps: [
+        {
+          stepId: "step-1-fact-check-and-symmetry-audit",
+          concept: "The three-question ethics filter",
+          lessonAnchor: "a-practical-framework-aggressive-but-fair-vs-deceptive",
+          theoryRecap:
+            "The lesson's practical framework runs three checks in order: is the underlying fact true, is the cost of reversing the action equal to the cost of taking it, and would the tactic survive being explained out loud to the user it targets.",
+          question:
+            "The brief proposes: (1) a 'limited spots' referral cap that isn't actually limited, (2) a reward that pays out only after the referred friend's 3rd purchase with no disclosure of that condition, (3) an opt-out link buried in a footer FAQ. Which of these ship, which get fixed, which get killed?",
+          toolName: "Google Sheets",
+          where: "Build a 5-row table: program element, question 1 answer, question 2 answer, question 3 answer, verdict.",
+          procedure: [
+            "List every element of the referral program brief in its own row",
+            "For each, answer question 1: is the asserted fact (cap, reward, deadline) actually true?",
+            "Answer question 2: is opting out or reversing as easy as opting in?",
+            "Answer question 3: would this survive being explained in plain language to the user?",
+            "Any element failing one or more questions gets a specific fix, not a vague 'make it clearer'",
+          ],
+          outputSample:
+            "REFERRAL PROGRAM AUDIT\n\n1. 'Limited spots' cap -- Q1 FAIL (no real cap exists) -- VERDICT: fix, remove fabricated scarcity or implement a real cap\n2. Reward requires friend's 3rd purchase, undisclosed -- Q1 FAIL (headline implies immediate reward) -- VERDICT: fix, disclose the condition in the same font size as the headline\n3. Opt-out buried in footer FAQ -- Q2 FAIL (signup is 1-click, opt-out requires finding a footer link then reading an FAQ) -- VERDICT: fix, add opt-out to the same settings screen as signup\n...2 more rows",
+          healthy: "Every failing element gets a specific, shippable fix, not a blanket 'run it by legal'.",
+          unhealthy: "The whole program gets killed because one of 5 elements failed, wasting a legitimate growth mechanic.",
+          interpret:
+            "The filter isolates which specific claim or asymmetry is the problem, so the fix is surgical instead of scrapping the entire program.",
+          soWhat: [
+            {
+              symptom: "Team debates whether the whole referral program is 'too risky' without pinpointing which element",
+              action: "Run every program element through all 3 questions individually before any go/no-go decision",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build the 5-element audit table and the final go/no-go memo",
+            why: "Free, shareable directly with product and legal for sign-off",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A go/no-go memo: each program element, its verdict (ship, fix, kill), and the specific one-line fix for anything that failed a question.",
+      sampleOutput:
+        "Drunk Elephant referral audit (excerpt)\n\nELEMENT: 'Give $15, Get $15' headline paying out as store credit\nQ1: FAIL, headline implies cash-value discount, actual reward is time-limited store credit\nVERDICT: fix, headline must read 'Give $15 credit, Get $15 credit' or the reward must become cash-equivalent\nELEMENT: cancel-anytime subscription toggle in account settings\nQ2: PASS, toggle is one click, same surface as the original signup CTA\nVERDICT: ship as-is",
+      successCriteria: [
+        "Every program element gets an answer to all 3 questions, not just an overall verdict",
+        "Fixes are specific and shippable, not generic",
+        "Memo distinguishes 'fix and ship' from 'kill entirely'",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Draft the one paragraph you'd say out loud to a user explaining the reward mechanic, per the lesson's third question, and check it against the actual program copy.",
+    },
+  ],
+
+  "growth-team-operating-cadence": [
+    {
+      id: "growth-team-operating-cadence-friday-review-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "Status Theater or Real Review? Auditing a Friday Growth Meeting",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given two transcript excerpts from a Friday experiment review, identify which one is a status-update trap and which one follows the learnings-focused format the lesson describes, and name the specific defects.",
+      companyId: "mapmyindia",
+      scenario:
+        "You're a growth analyst at MapmyIndia (CE Info Systems), the NSE-listed New Delhi geospatial company, sitting in on two versions of the same team's Friday review, recorded two months apart, to diagnose why shipped-experiment velocity hasn't moved despite the meeting still happening every week.",
+      brief:
+        "Read both transcript excerpts. For each, flag whether it matches the status-update trap or the learnings-focused format, and cite the specific lines that prove it.",
+      mode: "teardown",
+      conceptsCovered: ["Distinguishing a learnings-focused review from a status-update trap"],
+      teardownItems: [
+        {
+          itemId: "item-1-transcript-pair",
+          specimen:
+            "TRANSCRIPT A (Week 6)\nFacilitator: 'Okay, quick round-robin, what's running?'\nOwner 1: 'Pricing page test is still live, no update yet.'\nOwner 2: 'Onboarding email variant launched Tuesday, too early to call.'\nOwner 3: 'Checkout test is paused, engineering bandwidth.'\nFacilitator: 'Great, same time next week.'\n[Meeting length: 9 minutes]\n\nTRANSCRIPT B (Week 14)\nFacilitator: 'Priya, you're up, one learning in under 5 minutes.'\nPriya: 'The urgency banner on the pricing page lost. CTR was flat but refund requests rose 1.4x in the treatment. My read: the banner attracted price-sensitive users who weren't a fit.'\nFacilitator: 'Is that a valid result, sample size?'\nOwner 2: '3,200 per arm, powered for a 5% lift, we're confident in the read.'\nFacilitator: 'What else might it tell us?'\nPriya: 'Maybe urgency framing works for renewal, not new signup, worth a second test scoped to renewals.'\nFacilitator: 'Where else should we apply it? Anyone else running urgency copy?'\nOwner 3: 'The trial-expiry email uses similar language, we should hold off shipping that until we test the renewal angle.'\n[Meeting length: 42 minutes, 3 experiments reviewed]",
+          specimenSource: "synthetic-realistic",
+          prompt:
+            "For each transcript, decide: status-update trap or learnings-focused review? Cite the specific evidence.",
+          answerKey: [
+            {
+              defect: "Transcript A is a status-update trap: it reports what is running, not what was learned",
+              severity: "critical",
+              whyItMatters:
+                "No decision gets made and no learning transfers to the next experiment; the meeting could be replaced by a dashboard link, exactly the failure mode the lesson names.",
+              lessonRef: "common-cadence-failure-modes",
+              owner: "you",
+            },
+            {
+              defect: "Transcript A's 9-minute length for 3 experiments signals no real interrogation happened",
+              severity: "moderate",
+              whyItMatters:
+                "Balfour's format allocates most of the meeting to interrogating learnings; a 3-minute-per-experiment pace cannot fit the 'is this valid, what else, where else' sequence.",
+              lessonRef: "a-practical-weekly-rhythm-template",
+              owner: "you",
+            },
+            {
+              defect:
+                "Transcript B correctly runs the three-question sequence: is this valid, what else might it tell us, where else should we apply it",
+              severity: "cosmetic",
+              whyItMatters:
+                "This is the healthy pattern, flagging it correctly matters for calibrating what 'good' looks like, not for fixing a defect.",
+              lessonRef: "a-practical-weekly-rhythm-template",
+              owner: "you",
+            },
+            {
+              defect:
+                "Transcript B's finding changed a decision outside the original experiment (holding the trial-expiry email)",
+              severity: "moderate",
+              whyItMatters:
+                "A review that only closes out the experiment being discussed, without asking where else the learning applies, wastes the highest-leverage part of the meeting.",
+              lessonRef: "a-practical-weekly-rhythm-template",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Transcript A's meeting length (9 minutes) is itself the problem",
+            "Transcript B is too long at 42 minutes and should be shortened",
+            "Owner 3 pausing the checkout test in Transcript A is a defect",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Annotate the transcript excerpts and write up the defect list",
+            why: "Free, no account friction, comment threads work well for citing specific lines",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A short write-up naming which transcript is which failure mode, with line-level citations for each defect found.",
+      sampleOutput:
+        "MapmyIndia Growth Review Audit\n\nTranscript A: STATUS-UPDATE TRAP\n- No experiment reaches a decision (running/paused/too early, all deferred)\n- 9 minutes for 3 experiments leaves no room for the 3-question sequence\n- Meeting could be replaced by a dashboard link\n\nTranscript B: LEARNINGS-FOCUSED REVIEW\n- Each owner presents one learning, not a status\n- Facilitator runs is-it-valid / what-else / where-else on every item\n- Finding on the pricing banner changes a decision on a separate email campaign\n\nRecommendation: replace the round-robin format with Priya's structure starting next Friday.",
+      successCriteria: [
+        "Correctly labels each transcript's failure mode or healthy pattern",
+        "Cites specific lines as evidence, not just a general impression",
+        "Identifies at least 3 of the 4 answer-key defects/patterns",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "growth-team-operating-cadence-build-the-rhythm",
+      tier: "core",
+      archetype: "build-the-asset",
+      title: "Build a Four-Touchpoint Weekly Rhythm From a Messy Backlog",
+      timeEstimate: "50 minutes",
+      timeMinutes: 50,
+      objective:
+        "Given a disorganized 12-item experiment backlog with no owners or scores, build the actual weekly rhythm artifact: an async-scored backlog doc, a Friday review agenda template, and a portfolio-rebalance checklist, following the lesson's four-touchpoint structure.",
+      companyId: "awfis-space-solutions",
+      scenario:
+        "You've joined the growth team at Awfis Space Solutions, the NSE-listed Indian flexible-workspace company, three weeks after a reorg. The old team ran no fixed cadence; experiments got discussed 'whenever someone had time.' Your first task is standing up the four-touchpoint rhythm from the lesson before the team's next planning cycle.",
+      brief:
+        "Score the 12-item backlog with ICE, build the Monday async doc, the Friday review agenda, and the biweekly portfolio-rebalance checklist.",
+      mode: "build",
+      conceptsCovered: [
+        "Scoring a backlog asynchronously before the meeting, not during it",
+        "Structuring a Friday review around learnings, not status",
+        "Building a periodic portfolio-rebalance checklist to catch zombie initiatives",
+      ],
+      steps: [
+        {
+          stepId: "step-1-async-backlog",
+          concept: "Scoring a backlog asynchronously before the meeting, not during it",
+          lessonAnchor: "why-cadence-beats-headcount",
+          theoryRecap:
+            "The lesson's live-prioritization failure mode wastes meeting time on math one person could do alone; scoring happens before Monday's 10-minute confirmation, not during it.",
+          question:
+            "Given 12 unscored backlog items (headline, funnel stage, rough effort), which 3 to 5 make this week's cut once ICE-scored?",
+          toolName: "Google Sheets",
+          where: "Import the 12-item backlog, add Impact/Confidence/Ease columns (1-10 each), sort by the product.",
+          procedure: [
+            "Import the 12 items with a blank ICE score column each",
+            "Score Impact, Confidence, Ease for each row (1-10), most teams score independently then average",
+            "Sort descending by ICE product, top 5 become Monday's confirmed list",
+            "Flag the bottom 3 as 'parking lot', explicitly deferred, not silently dropped",
+          ],
+          outputSample:
+            "Awfis Growth Backlog, Week of Aug 24 (ICE-scored, top 5)\n1. Onboarding tour skip-rate fix, ICE 486 (I8 C9 E6.75)\n2. Coworking-plan comparison page, ICE 420\n3. Referral incentive reminder email, ICE 392\n4. Day-pass checkout autofill, ICE 336\n5. Meeting-room search filters, ICE 315\n\nParking lot (deferred, not dropped): virtual tour embed, pricing FAQ redesign, Slack integration prompt",
+          healthy: "5 items enter Monday's meeting pre-scored, discussion takes 10 minutes confirming, not debating math",
+          unhealthy: "12 unscored items get argued over live, the meeting runs 40 minutes and nothing ships that week",
+          interpret:
+            "Async scoring turns the Monday meeting into a confirmation, not a negotiation, freeing the room's attention for the one or two genuinely ambiguous calls.",
+          soWhat: [
+            {
+              symptom: "Monday meetings run long and re-litigate scores every week",
+              action: "Move ICE scoring to an async doc with a Sunday-night deadline",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-friday-agenda",
+          concept: "Structuring a Friday review around learnings, not status",
+          lessonAnchor: "a-practical-weekly-rhythm-template",
+          theoryRecap:
+            "Balfour's format spends roughly 40 of 45 minutes interrogating what experiments taught the team, each owner presents one learning in under 5 minutes.",
+          question:
+            "Given 3 experiments finishing this week (onboarding tour, referral email, day-pass checkout), what does the Friday agenda look like?",
+          toolName: "Google Docs",
+          where: "Create a shared doc, sent 24 hours before the meeting, each owner fills their section before showing up.",
+          procedure: [
+            "Create one section per finishing experiment: hypothesis, result, is-it-valid check, learning",
+            "Send the doc Thursday afternoon, 24 hours before Friday's meeting",
+            "Require owners to fill their section before the meeting starts",
+            "Reserve meeting time for the 3-question sequence per experiment, not for reading the doc aloud",
+          ],
+          outputSample:
+            "Friday Review Agenda, Aug 28 (45 min)\n\n1. Onboarding tour skip-rate fix (owner: Rahul, 5 min + 10 min discussion)\n2. Referral incentive reminder email (owner: Divya, 5 min + 10 min discussion)\n3. Day-pass checkout autofill (owner: Karan, 5 min + 10 min discussion)\n4. 5-min buffer for a cross-cutting theme if one emerges",
+          healthy: "Every owner arrives having already written their section, discussion time exceeds presentation time",
+          unhealthy: "The doc gets opened for the first time in the room, presentation eats the whole 45 minutes",
+          interpret:
+            "The pre-read requirement is what converts a status meeting into a decision meeting; skipping it collapses the format back into round-robin updates.",
+          soWhat: [
+            {
+              symptom: "Owners read their section out loud instead of discussing it",
+              action: "Enforce the 24-hour pre-read deadline, open with discussion, not presentation",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Score and sort the backlog with ICE",
+            why: "Free, familiar, sorting and formulas handle ICE math without extra tooling",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Docs",
+            role: "Build the Friday review agenda and portfolio-rebalance checklist",
+            why: "Free, shareable, comment threads support async pre-reads",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "Three artifacts: an ICE-scored backlog doc, a Friday review agenda template, and a biweekly portfolio-rebalance checklist with at least 3 questions.",
+      sampleOutput:
+        "Portfolio Rebalance Checklist, Awfis Growth (biweekly)\n\n1. Which funnel stage got the most experiments the last 2 weeks? Is that intentional or just where it's easy to test?\n2. Any experiment still 'in progress' after 3 review cycles? Kill or timebox it.\n3. Has a past 'sure thing' win stopped moving its metric? Re-test or retire the claim.\n4. What's the one funnel leak nobody has proposed an experiment against yet?",
+      successCriteria: [
+        "Backlog is scored and sorted, top 5 clearly separated from the parking lot",
+        "Friday agenda follows the learning-per-owner, 3-question-discussion structure",
+        "Portfolio checklist includes a zombie-initiative check and a funnel-coverage check",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Add a lightweight owner-rotation rule so the same person doesn't facilitate every Friday review, sustaining the cadence past one enthusiastic owner leaving.",
+    },
+  ],
+  "localization-for-growth": [
+    {
+      id: "localization-for-growth-market-scorecard-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "Score Three Candidate Markets Before a Launch Date Gets Set",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given raw signals for 3 candidate markets, score each on the lesson's four factors (demand signal, unit economics fit, channel availability, regulatory/payment friction) and rank them to pick the lowest-friction beachhead.",
+      companyId: "sula-vineyards",
+      scenario:
+        "You're on the growth team at Sula Vineyards, the Nashik-based, NSE-listed wine company, evaluating a direct-to-consumer export push. Leadership wants a market picked by next week's board update, and the CEO's early favorite is the biggest market on the list, not necessarily the best-scoring one.",
+      brief:
+        "Score UK, Singapore, and Germany on the four factors using the data given, rank them, and explain why the top-ranked market is not the biggest one.",
+      mode: "diagnostic",
+      conceptsCovered: ["Scoring candidate markets on demand signal, unit economics, channel availability, and regulatory friction"],
+      steps: [
+        {
+          stepId: "step-1-score-markets",
+          concept: "Scoring candidate markets on demand signal, unit economics, channel availability, and regulatory friction",
+          lessonAnchor: "how-growth-teams-pick-a-market",
+          theoryRecap:
+            "The lesson's four-factor framework scores demand signal, unit economics fit, channel availability, and regulatory/payment friction, then ranks; the highest score is rarely the biggest market.",
+          question:
+            "UK: high organic demand, strong purchasing power, mature wine e-commerce channels, straightforward alcohol-import licensing. Singapore: moderate demand, high purchasing power, thin direct-to-consumer wine e-commerce, complex alcohol duty structure. Germany: highest raw market size, but low organic demand signal and a strict alcohol-advertising regulatory regime. Which market ranks first?",
+          toolName: "Google Sheets",
+          where: "Build a 3-market by 4-factor grid, score each cell 1-5, sum for a total, sort descending.",
+          procedure: [
+            "List UK, Singapore, Germany as rows, the 4 factors as columns",
+            "Score each cell 1-5 using the scenario data (5 = strongest fit)",
+            "Sum each row for a total score",
+            "Sort descending, the top row is the recommended beachhead",
+          ],
+          outputSample:
+            "Sula Export Market Scorecard\n\n         Demand  UnitEcon  Channel  Regulatory  Total\nUK          5        4         5         4         18\nSingapore   3        5         2         3         13\nGermany     2        4         3         2         11\n\nRecommendation: UK, despite Germany having the larger raw market size.",
+          healthy: "UK wins on total score despite not being the biggest market, exactly the pattern the lesson describes",
+          unhealthy: "Picking Germany because it's the biggest wine market in Europe, ignoring the low demand signal and regulatory friction",
+          interpret:
+            "Raw market size is not on the scorecard for a reason, it doesn't predict how many things have to be invented from scratch to launch there.",
+          soWhat: [
+            {
+              symptom: "Leadership wants to pick the biggest market by default",
+              action: "Present the scorecard total alongside market size, so the tradeoff is explicit, not hidden",
+              effort: "30 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Build and sort the market scorecard",
+            why: "Free, sorting and SUM formulas are all the math this needs",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A completed 3-market scorecard with a one-paragraph recommendation memo for the board update.",
+      sampleOutput:
+        "Sula Export Recommendation Memo\n\nWe scored UK, Singapore, and Germany on demand signal, unit economics fit, channel availability, and regulatory friction. UK ranks first (18/20) despite Germany having the larger addressable wine market, because Germany's low organic demand signal and strict alcohol-advertising rules mean more has to be built from scratch before we can launch. Singapore's thin direct-to-consumer wine channel is the main drag on its score. Recommend UK as the beachhead market, revisit Germany once we have UK operating cash flow to fund the regulatory lift.",
+      successCriteria: [
+        "All 3 markets scored on all 4 factors with a justified number, not a guess",
+        "Ranking is explicit and matches the summed scores",
+        "Memo explains why the top-ranked market isn't the biggest one",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "localization-for-growth-what-breaks-silently-forecast",
+      tier: "core",
+      archetype: "forecast",
+      title: "The What-Breaks-Silently Audit and Revenue-at-Risk Forecast",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given a launch plan that only budgeted for translation, run the lesson's 'what breaks silently' audit across payments, pricing, channels, and trust signals, then forecast the revenue-at-risk if each gap ships unaddressed.",
+      companyId: "mapmyindia",
+      scenario:
+        "MapmyIndia (CE Info Systems) is preparing to launch its mapping SDK in Indonesia. The go-to-market plan currently budgets only for translating the developer docs and marketing site into Bahasa Indonesia. You've been asked to stress-test that plan before it's signed off.",
+      brief:
+        "Audit payments, pricing, channel fit, and trust signals against the translation-only plan, then estimate revenue-at-risk for each gap using the given adoption assumptions.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Auditing payment methods, purchasing-power pricing, channel fit, and trust signals beyond translation",
+        "Forecasting revenue-at-risk from an unaddressed localization gap",
+      ],
+      steps: [
+        {
+          stepId: "step-1-breaks-silently-audit",
+          concept: "Auditing payment methods, purchasing-power pricing, channel fit, and trust signals beyond translation",
+          lessonAnchor: "what-actually-needs-localizing-it-is-not-the-copy",
+          theoryRecap:
+            "The lesson's 'what breaks silently' audit lists every system that assumes home-market defaults, payment processor, pricing, channels, trust signals, anything not explicitly rebuilt fails without warning once growth starts working.",
+          question:
+            "The plan budgets for translation only. Checkout accepts card only (Indonesia's e-wallet share is large), pricing is a flat INR-to-IDR conversion, the only acquisition channel planned is the same LinkedIn ad strategy used in India, and the case-study page features only Indian customers. Which of these is the audit's job to flag?",
+          toolName: "Google Docs",
+          where: "Build a 4-row audit table: system, home-market default, what's actually needed locally, risk if unaddressed.",
+          procedure: [
+            "List the 4 systems: payments, pricing, channels, trust signals",
+            "For each, state the home-market default currently planned",
+            "State what the local market actually requires",
+            "Rate the risk if it ships unaddressed: high, medium, low",
+          ],
+          outputSample:
+            "MapmyIndia Indonesia Launch, What-Breaks-Silently Audit\n\nPAYMENTS: plan is card-only. Indonesia's e-wallet (GoPay, OVO) share is large among developer/startup buyers. Risk: HIGH\nPRICING: plan is flat INR-to-IDR conversion. No purchasing-power adjustment. Risk: HIGH\nCHANNELS: plan reuses the India LinkedIn strategy unchanged. Indonesian developer discovery skews more toward local dev communities and WhatsApp groups. Risk: MEDIUM\nTRUST SIGNALS: case-study page shows only Indian customers. No local proof. Risk: MEDIUM",
+          healthy: "Every system gets an explicit local-requirement check before launch, gaps are named and risk-rated",
+          unhealthy: "Only the docs and marketing copy get localized, payments/pricing/channels/trust ship on home-market defaults",
+          interpret:
+            "None of these four gaps show up in a translation budget line, which is exactly why they fail silently instead of blocking launch outright.",
+          soWhat: [
+            {
+              symptom: "Launch plan only line-items translation cost",
+              action: "Add payment integration, PPP pricing review, and a local trust-signal asset to the launch checklist before sign-off",
+              effort: "half day",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-revenue-at-risk-forecast",
+          concept: "Forecasting revenue-at-risk from an unaddressed localization gap",
+          lessonAnchor: "expansion-wins-and-failures-side-by-side",
+          theoryRecap:
+            "Uber's China exit shows that solving the visible localization problem (offering a local payment option) without solving the actual friction (making it as easy as the incumbent's) still loses the market; the audit needs to translate into a forecast leadership will act on, not just a list.",
+          question:
+            "If e-wallet-only buyers are 45% of the addressable developer market and a card-only checkout converts them at roughly one-third the rate of card buyers, what's the rough revenue-at-risk on a projected $200K year-one Indonesia revenue?",
+          toolName: "Google Sheets",
+          where: "Build a simple weighted-loss estimate: segment share x conversion gap x projected revenue.",
+          procedure: [
+            "Segment addressable revenue by payment preference (45% e-wallet, 55% card)",
+            "Apply the conversion-rate gap for the underserved segment (roughly two-thirds lost)",
+            "Multiply the loss rate by that segment's share of projected revenue",
+            "State the result as a range, not a false-precision single number",
+          ],
+          outputSample:
+            "Revenue-at-Risk Estimate, Payments Gap Only\n\nProjected year-one Indonesia revenue: $200K\nE-wallet-preferring segment: 45% = $90K addressable\nEstimated conversion loss if card-only: ~65% of that segment\nRevenue-at-risk: ~$58K (29% of total year-one projection), from payments alone, before pricing/channel/trust gaps are added",
+          healthy: "The forecast gives leadership a number attached to inaction, not just a checklist item",
+          unhealthy: "The audit stays a qualitative list, leadership deprioritizes it against harder deadlines",
+          interpret:
+            "A dollar figure moves a launch checklist item from 'nice to have' to 'blocking', which is the whole point of pairing the audit with a forecast.",
+          soWhat: [
+            {
+              symptom: "Localization fixes keep losing prioritization fights to feature work",
+              action: "Attach a revenue-at-risk estimate to every unaddressed audit line before the launch review",
+              effort: "half day",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Docs",
+            role: "Build the what-breaks-silently audit table",
+            why: "Free, easy to share with the launch team for sign-off",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Build the revenue-at-risk weighted estimate",
+            why: "Free, handles the segment-share x conversion-gap math without extra tooling",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A 4-row what-breaks-silently audit table plus a revenue-at-risk estimate for the highest-risk gap, formatted for a launch sign-off review.",
+      sampleOutput:
+        "Uber China, Retrospective What-Breaks-Silently Audit (for comparison)\n\nPAYMENTS: Alipay linking was offered but unreliable; Didi's password-free agreement was near-frictionless. Risk realized: lost share despite 'having' local payments.\nLesson: offering a local payment method is not the same as making it as frictionless as the incumbent's.",
+      successCriteria: [
+        "Audit covers all 4 systems (payments, pricing, channels, trust) with a risk rating each",
+        "Revenue-at-risk estimate shows the calculation, not just a final number",
+        "Deliverable is formatted for a real sign-off review, not just raw notes",
+      ],
+      portfolioReady: true,
+      stretch:
+        "Repeat the revenue-at-risk estimate for the pricing gap (flat INR-to-IDR conversion) using a purchasing-power-adjusted price point instead, and compare the two risk sizes.",
+    },
+  ],
+
+  "churn-prediction-early-warning": [
+    {
+      id: "churn-prediction-early-warning-health-score-audit",
+      tier: "mini",
+      archetype: "audit",
+      title: "The Health-Score Triage: Auditing an At-Risk Account Export",
+      timeEstimate: "30 minutes",
+      timeMinutes: 30,
+      objective:
+        "Given a synthetic 25-account health-score export (login trend, support sentiment, feature-adoption %, current MRR), sort accounts into the three churn signal families, build a composite risk tier, and route each flagged account to the correct save motion.",
+      companyId: "zendesk",
+      scenario:
+        "You're the retention analyst at Zendesk, the customer service and support-ticketing SaaS platform, reviewing this month's account health export before the save-campaign meeting.",
+      brief:
+        "Score each account against usage-decline, support-sentiment, and feature-adoption-stall signals, flag accounts showing 2+ active signals as highest priority, and route each risk trigger to the save motion the lesson prescribes for it.",
+      mode: "diagnostic",
+      conceptsCovered: [
+        "Sorting accounts into the three churn signal families",
+        "Routing each risk trigger to a matching save motion",
+      ],
+      steps: [
+        {
+          stepId: "step-1-signal-triage",
+          concept: "Sorting accounts into the three churn signal families",
+          lessonAnchor: "the-three-signal-families",
+          theoryRecap:
+            "The lesson splits churn risk into three signal families: usage-decline (product usage drops ~41% the quarter before cancellation, login-frequency decline gives ~60 days of lead time), support-ticket sentiment (a sentiment spike correlates with ~3x higher churn risk), and feature-adoption stalling (accounts using <30% of core features show ~80% first-year churn).",
+          question:
+            "Of the 25 accounts in this export, which ones show 2 or more of the three signal families active at the same time, and which show only one?",
+          toolName: "Google Sheets",
+          where: "Import the export, freeze the header row, and add three helper columns that flag each signal family.",
+          procedure: [
+            "Import the export and freeze row 1",
+            "Add a USAGE_FLAG column: TRUE if 30-day login count dropped 40%+ vs. the prior 30 days",
+            "Add a SENTIMENT_FLAG column: TRUE if 2+ support tickets in 30 days scored negative",
+            "Add an ADOPTION_FLAG column: TRUE if core-feature usage is below 30% for 3+ consecutive weeks",
+            "Add a SIGNAL_COUNT column summing the three flags, sort descending",
+          ],
+          outputSample:
+            "SIGNAL_COUNT = 3 (2 accounts)\n  Acct #114 — login -52%, 3 negative tickets, adoption 18%\n  Acct #209 — login -61%, 2 negative tickets, adoption 22%\n\nSIGNAL_COUNT = 2 (4 accounts)\n  Acct #087 — login -44%, adoption 26% (no sentiment flag)\n  Acct #133 — 3 negative tickets, adoption 12% (no usage flag)\n  ...2 more rows\n\nSIGNAL_COUNT = 1 (9 accounts)\n  ...9 rows, single-signal only\n\nSIGNAL_COUNT = 0 (10 accounts)\n  Healthy, no action",
+          healthy:
+            "2 accounts at SIGNAL_COUNT = 3 move to the top of the save-campaign queue, single-signal accounts stay on watch.",
+          unhealthy:
+            "Treating a SIGNAL_COUNT = 1 account (say, adoption-only) the same as a SIGNAL_COUNT = 3 account, or closing the file after only checking usage decline.",
+          interpret:
+            "Multiple active signal families is the strongest predictor in the lesson, a composite view catches accounts a single metric would miss.",
+          soWhat: [
+            {
+              symptom: "An account is flagged on sentiment alone but shows healthy login and adoption",
+              action: "Keep it on watch, don't auto-route to the highest-priority save tier yet",
+              effort: "5 min",
+            },
+            {
+              symptom: "Two or more signal families are active on the same account",
+              action: "Move it to the top of this week's save-campaign queue",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-save-motion-routing",
+          concept: "Routing each risk trigger to a matching save motion",
+          lessonAnchor: "turning-signals-into-a-save-campaign",
+          theoryRecap:
+            "The lesson routes each trigger to a specific motion: a usage-decline trigger gets a lifecycle email nudge, a support-sentiment trigger gets a human CSM call (not an automated sequence), and a feature-adoption stall gets a targeted onboarding walkthrough of the specific unused feature most correlated with retention.",
+          question:
+            "For the 6 accounts flagged with SIGNAL_COUNT ≥ 2, what is each account's dominant trigger, and which save motion does that trigger require?",
+          toolName: "Google Sheets",
+          where: "Add a DOMINANT_TRIGGER and SAVE_MOTION column next to the flagged accounts.",
+          procedure: [
+            "For each flagged account, identify which flag is most severe (biggest % deviation from healthy)",
+            "Mark DOMINANT_TRIGGER as usage, sentiment, or adoption",
+            "Map usage → lifecycle email nudge, sentiment → human CSM call, adoption → targeted onboarding walkthrough",
+            "Flag any account where sentiment is the dominant trigger for same-day human follow-up, not a queued task",
+          ],
+          outputSample:
+            "Acct #114 — dominant: sentiment → HUMAN CSM CALL (same-day)\nAcct #209 — dominant: usage → lifecycle email nudge\nAcct #087 — dominant: usage → lifecycle email nudge\nAcct #133 — dominant: adoption → onboarding walkthrough (unused: bulk-export feature)\n...2 more rows",
+          healthy: "Every sentiment-dominant account gets a human call this week, not an automated email.",
+          unhealthy: "Enrolling a sentiment-dominant account in the same automated sequence as a usage-decline account.",
+          interpret:
+            "The save motion has to match the trigger, a mismatched motion (automated email for a frustrated, ticket-heavy account) wastes the lead time the signal bought you.",
+          soWhat: [
+            {
+              symptom: "A sentiment-dominant account is sitting in an automated email queue",
+              action: "Pull it out and assign it directly to a CSM for a same-day call",
+              effort: "5 min",
+            },
+            {
+              symptom: "An adoption-stall account has no specific feature named in its outreach",
+              action: "Look up its lowest-adoption core feature and name it in the walkthrough invite",
+              effort: "30 min",
+            },
+          ],
+          owner: "either",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Score, flag, and route the account export",
+            why: "Free, handles the filter/pivot workflow this audit needs with no setup",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [
+          {
+            toolName: "Mixpanel",
+            role: "Pull live login-frequency and feature-adoption trend data instead of a static monthly export",
+            why: "Turns this into a continuous monitoring workflow rather than a once-a-month manual pull",
+            required: false,
+            lastVerified: "2026-08",
+          },
+        ],
+        paidUpgradeNote:
+          "The free path works fine from a manual monthly export; Mixpanel or Amplitude automate the usage-decline signal continuously instead of requiring someone to remember to pull a new export.",
+      },
+      deliverable:
+        "A routed save-campaign worklist: account name, composite signal count, dominant trigger, and assigned save motion for every flagged account.",
+      sampleOutput:
+        "Care.com, retention worklist (excerpt)\n\nSIGNAL_COUNT = 3\n  Family Plus Care Group — sentiment dominant → CSM call scheduled Thu\n  Bright Horizons Local — usage dominant → lifecycle email sent\n\nSIGNAL_COUNT = 2\n  Sunrise Senior Partners — adoption dominant → onboarding walkthrough (background-check feature) booked\n  ...3 more rows\n\nWATCH LIST (SIGNAL_COUNT = 1): 9 accounts, no action this cycle",
+      successCriteria: [
+        "Correctly tags all accounts by dominant signal family (usage-decline, support-sentiment, feature-adoption-stall)",
+        "Flags every account showing 2+ active signal families as highest-priority tier",
+        "Assigns each flagged account the save motion that matches its dominant trigger, never a generic email for a sentiment-dominant account",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "churn-prediction-early-warning-save-campaign-teardown",
+      tier: "core",
+      archetype: "teardown",
+      title: "The Routing Review: Teardown of a Save-Campaign Rule Set",
+      timeEstimate: "45 minutes",
+      timeMinutes: 45,
+      objective:
+        "Given 4 synthetic save-campaign automation rules (the trigger-to-workflow logic that fires when a risk signal crosses threshold), identify which ones route the signal to the wrong save motion and explain why the mismatch costs the account.",
+      companyId: "snowflake",
+      scenario:
+        "You're auditing Snowflake's, the cloud data-warehousing company, retention-ops rule set ahead of a quarterly review of save-campaign intervention success rates.",
+      brief:
+        "Review each rule against the lesson's signal-to-motion mapping and composite-scoring principle, flag defects like a sentiment trigger routed to an automated sequence or a flat queue with no priority tiering.",
+      mode: "teardown",
+      conceptsCovered: ["Turning Signals Into a Save Campaign", "The Three Signal Families"],
+      teardownItems: [
+        {
+          itemId: "item-1-usage-decline-trigger",
+          specimen:
+            "RULE: IF login_frequency drops more than 40% over 14 days THEN send a single automated 're-engagement' email from the marketing team and close the alert.",
+          specimenSource: "synthetic-realistic",
+          prompt: "Is this the correct save motion for a usage-decline trigger? If not, what's wrong?",
+          answerKey: [
+            {
+              defect:
+                "Closing the alert after one automated email ignores that the same account could also be stalling on feature adoption or accumulating negative tickets at the same time.",
+              severity: "moderate",
+              whyItMatters:
+                "The lesson calls out waiting on a single signal and closing the loop as a cause of false negatives, since some accounts churn from a second signal family the first rule never checks again.",
+              lessonRef: "turning-signals-into-a-save-campaign",
+              owner: "either",
+            },
+          ],
+          distractors: [
+            "Using an automated email for a usage-decline trigger (this part is correct per the lesson's routing table)",
+            "Using a 14-day window to measure the login-frequency drop (a reasonable operationalization of the ~60-day lead-time signal)",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-sentiment-trigger",
+          specimen:
+            "RULE: IF support-ticket sentiment score crosses the negative threshold twice in 30 days THEN enroll the account in the standard 4-email automated win-back sequence.",
+          specimenSource: "synthetic-realistic",
+          prompt: "Does this routing match the lesson's signal-to-motion mapping?",
+          answerKey: [
+            {
+              defect: "A support-sentiment spike is routed to an automated email sequence instead of a human CSM call.",
+              severity: "critical",
+              whyItMatters:
+                "The lesson is explicit that a support-sentiment trigger should route to a human CSM call, not an automated sequence, because a frustrated, ticket-heavy account needs a real conversation.",
+              lessonRef: "turning-signals-into-a-save-campaign",
+              owner: "developer",
+            },
+          ],
+          distractors: [
+            "Using a 30-day window to measure repeated sentiment dips (a reasonable noise filter, not the defect)",
+            "Requiring two negative-sentiment tickets rather than one (also a reasonable filter, not the defect)",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-3-adoption-stall-trigger",
+          specimen:
+            "RULE: IF an account uses fewer than 30% of core features for 3 consecutive weeks THEN route to a targeted onboarding walkthrough of the specific unused feature most correlated with retention.",
+          specimenSource: "synthetic-realistic",
+          prompt: "Is this routing correct as written, or does it have a defect?",
+          answerKey: [],
+          distractors: [
+            "Using a 3-consecutive-week window instead of a single week (this matches the lesson's 'stuck for multiple consecutive weeks' language, not a defect)",
+            "Targeting the specific unused feature most correlated with retention (this matches the lesson's stall-routing recommendation exactly)",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-4-composite-score-trigger",
+          specimen:
+            "RULE: IF login_frequency drops more than 40% OR support sentiment crosses negative OR feature adoption falls below 30% THEN treat all three cases identically: assign the account to the CSM's general outreach queue with no priority tier.",
+          specimenSource: "synthetic-realistic",
+          prompt: "Does this composite-scoring setup match the lesson's framework?",
+          answerKey: [
+            {
+              defect:
+                "Every trigger lands in the same generic queue with no priority tier and no distinction of which save motion fits which signal.",
+              severity: "critical",
+              whyItMatters:
+                "The lesson names treating every risk signal the same way as the most common failure, a flat queue with no tiering or motion-matching is exactly that mistake.",
+              lessonRef: "turning-signals-into-a-save-campaign",
+              owner: "developer",
+            },
+            {
+              defect:
+                "Using OR logic without ever checking for overlapping signals means an account hitting two or three triggers at once gets no extra priority.",
+              severity: "moderate",
+              whyItMatters:
+                "Accounts showing multiple active signal families are the highest-confidence churn risk in the lesson's framework and should be prioritized above single-signal accounts.",
+              lessonRef: "the-three-signal-families",
+              owner: "either",
+            },
+          ],
+          distractors: [
+            "Checking all three signal families in the same rule (this part is correct, the lesson wants a composite view)",
+            "Using OR logic to catch any single signal (a reasonable first filter before scoring, not itself the defect)",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Google Sheets",
+            role: "Log each rule reviewed, its defect status, and the fix",
+            why: "Free, sufficient for a structured review checklist across 4 rules",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A defect log across all 4 save-campaign rules: which route correctly, which don't, and the specific fix for each defective one.",
+      sampleOutput:
+        "Freshworks, save-campaign rule audit (excerpt)\n\nRULE 1 (usage-decline): PASS with note — add a recheck for other signals before auto-closing\nRULE 2 (sentiment): FAIL — routed to automated sequence, must route to human CSM call\nRULE 3 (adoption-stall): PASS — matches lesson framework\nRULE 4 (composite): FAIL — flat queue, no tiering, no motion-matching by dominant signal",
+      successCriteria: [
+        "Correctly identifies the sentiment-to-automated-email misrouting as the critical defect",
+        "Recognizes the flat no-tier queue as violating the composite-score requirement",
+        "Does not flag the two correctly-routed rules (usage-decline, adoption-stall) as defective",
+      ],
+      portfolioReady: true,
+    },
+  ],
+  "building-in-public": [
+    {
+      id: "building-in-public-cadence-plan-build",
+      tier: "mini",
+      archetype: "build-the-asset",
+      title: "The Pilot Plan: Building a One-Quarter Build-in-Public Cadence",
+      timeEstimate: "35 minutes",
+      timeMinutes: 35,
+      objective:
+        "Build a one-quarter build-in-public plan for a real product beta: pick a sustainable cadence, sort a set of draft post ideas into safe-to-publish vs. hold, and lay out the first month's post calendar.",
+      companyId: "zendesk",
+      scenario:
+        "You're the growth marketer piloting a build-in-public cadence for a new Zendesk AI feature currently in private beta, ahead of general availability.",
+      brief:
+        "Choose a cadence (weekly, monthly, or milestone-based) that fits a small team and a pre-GA product, apply the share/keep-private framework to 6 draft post ideas, and fill in the first month's calendar.",
+      mode: "build",
+      conceptsCovered: [
+        "Choosing what to share without leaking the moat",
+        "Picking a sustainable posting cadence",
+      ],
+      steps: [
+        {
+          stepId: "step-1-share-filter",
+          concept: "Choosing what to share without leaking the moat",
+          lessonAnchor: "what-to-keep-private",
+          theoryRecap:
+            "The lesson's share list is revenue/growth numbers, in-progress product decisions, real mistakes, and roadmap tradeoffs. Its keep-private list is anything that hands a competitor a working playbook (exact channel spend, the specific edge-dependent trick), individual customer/employee details, unverified numbers, and anything under active negotiation.",
+          question:
+            "Here are 6 draft post ideas for the beta launch. Which are safe to publish as-is, and which need to be held or rewritten?",
+          toolName: "Notion",
+          where: "Set up a simple table: draft idea, share/hold decision, cited rule if held.",
+          procedure: [
+            "List all 6 draft post ideas in one Notion table",
+            "For each, check it against the share list and the keep-private list",
+            "Mark SAFE for anything with a real, checkable number or an in-progress decision with no leaked specifics",
+            "Mark HOLD for anything revealing exact spend/targeting, an unverified projection, or a live negotiation, and cite which rule it breaks",
+          ],
+          outputSample:
+            "1. 'Beta hit 500 signups this week, up from 310 last week' — SAFE\n2. 'In talks with 2 potential launch partners, more soon' — HOLD (active negotiation)\n3. 'We're spending $9K/mo on LinkedIn ads at this exact targeting combo...' — HOLD (channel spend + moat)\n4. 'Reversed our pricing tier decision after beta feedback, here's why' — SAFE (real mistake/decision)\n5. 'Might hit 10K users by Q3 (unconfirmed estimate)' — HOLD (unverified number)\n6. 'Beta users complained about setup time, we're cutting it from 12 min to 4' — SAFE",
+          healthy: "3 of 6 drafts pass through untouched, 3 are held with a specific rule cited for each.",
+          unhealthy: "Publishing the exact ad-spend draft because it 'shows momentum,' or holding the pricing-reversal post because it feels like bad news.",
+          interpret:
+            "The share/hold line isn't about good news vs. bad news, it's about whether a competitor could clone the post or whether the number is actually verified.",
+          soWhat: [
+            {
+              symptom: "A draft names an exact channel spend or targeting combo",
+              action: "Hold it, or rewrite it to name the channel without the specific numbers that make it cloneable",
+              effort: "5 min",
+            },
+            {
+              symptom: "A draft states a projected number as if it already happened",
+              action: "Hold until the number is actual, or clearly label it as a projection",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+        {
+          stepId: "step-2-cadence-pick",
+          concept: "Picking a sustainable posting cadence",
+          lessonAnchor: "a-cadence-framework-that-holds-up",
+          theoryRecap:
+            "The lesson's cadence framework: weekly (one small update, early-stage/pre-revenue), monthly (full metrics recap, post-revenue steady growth), or milestone-based (only at real thresholds, later-stage/lower audience appetite). Most solo founders and small teams do best with monthly.",
+          question:
+            "Given a 2-person growth team supporting a pre-GA beta with no revenue yet, which cadence fits, and what does the first month's calendar look like?",
+          toolName: "Notion",
+          where: "Build a 4-week calendar table mapped to the 3 SAFE drafts plus new updates as the beta progresses.",
+          procedure: [
+            "Pick weekly cadence, since the product is pre-revenue and early-stage, matching the lesson's guidance for that stage",
+            "Slot the 3 already-approved SAFE drafts into weeks 1, 2, and 4",
+            "Leave week 3 open for whatever real update happens that week, not a filler post",
+            "Note the commitment: hold this cadence for at least two quarters before judging results",
+          ],
+          outputSample:
+            "Week 1: 'Beta hit 500 signups, up from 310 last week'\nWeek 2: 'Reversed our pricing tier decision after beta feedback, here's why'\nWeek 3: [reserved for the week's real update]\nWeek 4: 'Cut setup time from 12 min to 4 min based on beta complaints'",
+          healthy: "Every scheduled week has a real, specific update or is explicitly reserved rather than padded with a vague filler post.",
+          unhealthy: "Committing to weekly, then posting a vague 'great progress!' update in week 3 just to hit the schedule.",
+          interpret:
+            "The cadence only works if held for two quarters; a plan that looks right for one month but has no room for real content by month two isn't actually sustainable.",
+          soWhat: [
+            {
+              symptom: "A scheduled week has no real update available",
+              action: "Leave it reserved rather than posting a vague filler, or shift to a milestone-based post that week",
+              effort: "5 min",
+            },
+          ],
+          owner: "you",
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Notion",
+            role: "Draft and organize the post calendar and the share/keep-private checklist",
+            why: "Free tier handles a running content calendar and a review table with no setup cost",
+            required: true,
+            lastVerified: "2026-08",
+          },
+          {
+            toolName: "Google Sheets",
+            role: "Log which numbers have been verified before they're posted",
+            why: "A simple verification log catches an unconfirmed number before it goes out, per the lesson's 'numbers you have not verified' rule",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable:
+        "A one-quarter build-in-public plan: chosen cadence with reasoning, 6 draft post ideas sorted into safe-to-publish vs. hold with rules cited, and a filled-in first-month post calendar.",
+      sampleOutput:
+        "Freshworks beta cadence plan (excerpt)\n\nCADENCE: Weekly (pre-revenue, early-stage, per the lesson's framework)\n\nWeek 1: 'AI ticket-routing beta hit 500 signups this week, up from 310'\nWeek 2: 'We reversed our pricing tier after beta feedback, here's the full reasoning'\nWeek 3: [reserved for that week's real update]\nWeek 4: 'Cut setup time from 12 minutes to 4 based on what beta users told us'\n\nHELD: 2 drafts (exact ad-spend/targeting detail, unconfirmed Q3 user projection)",
+      successCriteria: [
+        "Picks one cadence (weekly, monthly, or milestone-based) and justifies it against the team's actual stage",
+        "Correctly holds any draft revealing exact channel spend, an unverified projection, or details under negotiation",
+        "First-month calendar has no filler post standing in for a week with no real update",
+      ],
+      portfolioReady: true,
+    },
+    {
+      id: "building-in-public-post-draft-teardown",
+      tier: "mini",
+      archetype: "teardown",
+      title: "The Pre-Publish Review: Teardown of Four Post Drafts",
+      timeEstimate: "25 minutes",
+      timeMinutes: 25,
+      objective:
+        "Given four synthetic build-in-public post drafts queued for the week, apply the share/keep-private framework to catch the ones that would leak competitive intel, post an unverified number, or fail to say anything specific.",
+      companyId: "care-com",
+      scenario:
+        "You're the growth marketer at Care.com, the online marketplace for family, child, senior, and pet care services, doing the Friday pre-publish review of next week's build-in-public queue.",
+      brief: "Read each draft, decide whether it's safe to publish as written, and cite the specific rule it breaks if not.",
+      mode: "teardown",
+      conceptsCovered: ["What to Actually Share", "What to Keep Private"],
+      teardownItems: [
+        {
+          itemId: "item-1-negotiation-leak",
+          specimen:
+            "Draft post: 'Huge news brewing — we're deep in talks with a major daycare chain about a co-marketing partnership, terms are looking great and we might announce pricing details next week!'",
+          specimenSource: "synthetic-realistic",
+          prompt: "Safe to publish as written?",
+          answerKey: [
+            {
+              defect: "Publishes details of a partnership still under active negotiation, including a hint at pricing terms.",
+              severity: "critical",
+              whyItMatters:
+                "The lesson lists 'anything under active negotiation: funding terms, an acquisition conversation, a partnership before signatures' as something that should almost never go public, posting it early can derail the deal.",
+              lessonRef: "what-to-keep-private",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Expressing enthusiasm about the partnership (tone isn't the issue)",
+            "Not naming the daycare chain directly (the post still leaks enough specifics to be a problem)",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-2-vague-momentum",
+          specimen: "Draft post: 'Such a great month for the team, momentum is really building and we're excited about where things are headed!'",
+          specimenSource: "synthetic-realistic",
+          prompt: "Safe to publish as written?",
+          answerKey: [
+            {
+              defect: "No specific, checkable number or decision anywhere in the post.",
+              severity: "moderate",
+              whyItMatters:
+                "The lesson is explicit that a vague 'great momentum this month' post gets scrolled past, while a specific, true number gets replies because it reads as evidence, not marketing copy.",
+              lessonRef: "what-to-actually-share",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Sounding overly positive (tone isn't the defect, missing specificity is)",
+            "Being short (length isn't the issue, a short post with a real number would be fine)",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-3-channel-spend-leak",
+          specimen:
+            "Draft post: 'Sharing our full growth playbook: we're spending $18K/month on TikTok ads targeting new-parent lookalike audiences at a $6.40 CPA, up 40% MoM since we found this exact targeting combo.'",
+          specimenSource: "synthetic-realistic",
+          prompt: "Safe to publish as written?",
+          answerKey: [
+            {
+              defect: "Reveals exact ad spend by channel and the specific targeting combination currently driving results.",
+              severity: "critical",
+              whyItMatters:
+                "The lesson flags 'exact ad spend by channel, the specific integration or growth trick your edge depends on' as content a competitor could clone in a weekend, this draft is exactly that case.",
+              lessonRef: "what-to-keep-private",
+              owner: "you",
+            },
+          ],
+          distractors: [
+            "Naming TikTok as a growth channel at all (naming the channel alone is a smaller risk than the exact spend + targeting combo)",
+            "Including a MoM percentage change (a specific number is generally good, the issue is which specific number)",
+          ],
+          partialCredit: true,
+        },
+        {
+          itemId: "item-4-verified-milestone",
+          specimen:
+            "Draft post: 'We crossed 50,000 active families on the platform this week, up from 41,000 three months ago. That's the number, pulled straight from this morning's dashboard.'",
+          specimenSource: "synthetic-realistic",
+          prompt: "Safe to publish as written?",
+          answerKey: [],
+          distractors: [
+            "Posting a specific, dashboard-verified number (this matches the lesson's core requirement exactly)",
+            "Including a comparison to three months ago (adds useful, checkable context, not a risk)",
+          ],
+          partialCredit: true,
+        },
+      ],
+      toolStack: {
+        free: [
+          {
+            toolName: "Notion",
+            role: "Run the pre-publish checklist against the lesson's share/keep-private rules",
+            why: "Free, works as a lightweight review doc before anything goes out",
+            required: true,
+            lastVerified: "2026-08",
+          },
+        ],
+        paid: [],
+      },
+      deliverable: "A hold/publish decision for each of the 4 drafts, with the specific rule cited for every hold.",
+      sampleOutput:
+        "Zendesk, pre-publish queue review (excerpt)\n\nDRAFT 1 (partnership talks): HOLD — active negotiation\nDRAFT 2 ('great momentum'): HOLD — no specific number, rewrite before it goes out\nDRAFT 3 (exact TikTok spend/targeting): HOLD — channel spend + moat leak\nDRAFT 4 (verified user count): PUBLISH — specific, dashboard-checked number",
+      successCriteria: [
+        "Holds the negotiation-leak and channel-spend-leak drafts with the correct cited rule",
+        "Flags the vague-momentum draft for lacking specificity rather than approving it",
+        "Approves the verified-milestone draft without flagging a false defect",
+      ],
+      portfolioReady: true,
+    },
+  ],
 };
