@@ -289,7 +289,7 @@ export default async function LessonPage({ params }: Props) {
                     />
                   </summary>
                   <div className="px-5 pb-5 pt-1 border-t border-[var(--border)]">
-                    <Quiz questions={quizQuestions!} category={sourceCat} slug={lesson} />
+                    <Quiz questions={quizQuestions!} category={sourceCat} slug={lesson} lessonTitle={lessonMeta?.title ?? lesson} />
                   </div>
                 </details>
               )}

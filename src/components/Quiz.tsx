@@ -60,13 +60,19 @@ import type { Quiz } from "@/lib/quizzes";
 import { getQuizPassed, setQuizPassed, QUIZ_PASSED_EVENT, quizStorageKey } from "@/lib/quizzes";
 import { addXP, ENGAGEMENT_EVENT } from "@/lib/engagement";
 import { checkAchievements } from "@/lib/achievements";
+import { recordHit, recordMiss, reviewItemId } from "@/lib/spaced-review";
 import { CheckCircle2, XCircle, RotateCcw, Trophy } from "lucide-react";
 
 type Props = {
   questions: Quiz[];
   category: string;
   slug: string;
+  lessonTitle: string;
 };
+
+/** A quiz question carrying its original (pre-shuffle) position, the stable
+ *  handle spaced-review uses so an id survives Quiz.tsx's per-mount shuffle. */
+type PreparedQuiz = Quiz & { origIndex: number };
 
 /** 4 of 5 correct required to pass, see the threshold note in the file docstring. */
 const PASS_THRESHOLD = 0.8;
@@ -83,10 +89,13 @@ function shuffle<T>(arr: T[]): T[] {
   return out;
 }
 
-/** Shuffles question order, and within each question shuffles option order
- *  while recomputing `correct` (a positional index) so grading stays correct. */
-function prepareQuestions(questions: Quiz[]): Quiz[] {
-  return shuffle(questions).map((q) => {
+/** Shuffles question order (tagging each with its origIndex so spaced-review
+ *  ids stay stable across shuffles, see @/lib/spaced-review), and within each
+ *  question shuffles option order while recomputing `correct` (a positional
+ *  index) so grading stays correct. */
+function prepareQuestions(questions: Quiz[]): PreparedQuiz[] {
+  const withIndex = questions.map((q, i) => ({ ...q, origIndex: i }));
+  return shuffle(withIndex).map((q) => {
     const paired = q.options.map((text, i) => ({ text, wasCorrect: i === q.correct }));
     const shuffledPairs = shuffle(paired);
     return {
@@ -97,9 +106,9 @@ function prepareQuestions(questions: Quiz[]): Quiz[] {
   });
 }
 
-export default function Quiz({ questions, category, slug }: Props) {
+export default function Quiz({ questions, category, slug, lessonTitle }: Props) {
   const pathname = usePathname();
-  const [shuffled, setShuffled] = useState<Quiz[]>([]);
+  const [shuffled, setShuffled] = useState<PreparedQuiz[]>([]);
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   // selections[i] = the option index the user picked for question i (or -1 if
@@ -158,6 +167,29 @@ export default function Quiz({ questions, category, slug }: Props) {
       } catch { /* storage full or unavailable */ }
 
       const finalScore = newSelections.filter((sel, i) => sel === shuffled[i].correct).length;
+
+      // Spaced review (independent of pass/fail): every answered question
+      // either lapses a missed one back to rung 0 or advances an already-
+      // tracked one, questions that have never been missed are never tracked.
+      newSelections.forEach((sel, i) => {
+        const q = shuffled[i];
+        const id = reviewItemId(category, slug, q.origIndex);
+        if (sel === q.correct) {
+          recordHit(id);
+        } else {
+          recordMiss({
+            id,
+            category,
+            slug,
+            lessonTitle,
+            question: q.question,
+            options: q.options,
+            correct: q.correct,
+            explanation: q.explanation,
+          });
+        }
+      });
+
       const passed = finalScore / totalQuestions >= PASS_THRESHOLD;
       if (passed) {
         setQuizPassed(category, slug);

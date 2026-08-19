@@ -73,3 +73,11 @@ export const PROJECTS_PROGRESS_KEY = "ma_projects_progress";
  * silently dropping data while the user sees confetti.
  */
 export const STORAGE_WRITE_FAILED = "ma_storage_write_failed";
+
+/**
+ * localStorage key: spaced-repetition review queue, see src/lib/spaced-review.ts.
+ * Format: JSON array of ReviewItem. Only questions the learner has ever
+ * answered wrong enter this queue, questions answered correctly on the first
+ * try are never tracked.
+ */
+export const REVIEW_QUEUE_KEY = "ma_review_queue";
