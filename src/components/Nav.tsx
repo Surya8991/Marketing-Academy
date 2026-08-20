@@ -87,7 +87,15 @@ function isActiveHref(pathname: string, href: string) {
   return pathname.startsWith(href);
 }
 
-export default function Nav() {
+/**
+ * `authConfigured` is computed by the root layout (a server component) via
+ * @/lib/env's authConfigured() and threaded down as a prop — this file is
+ * "use client" and can't read server-only env vars itself. Without it the
+ * sign-in button rendered on deployments with zero auth env vars set, calling
+ * signIn("google") against an empty providers array and dumping the visitor
+ * on a NextAuth error page. Mirrors /login/page.tsx's existing check.
+ */
+export default function Nav({ authConfigured = false }: { authConfigured?: boolean }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDrop, setOpenDrop] = useState<DropId>(null);
   const [activeGroup, setActiveGroup] = useState<string>(TOPIC_GROUPS[0].label);
@@ -453,7 +461,7 @@ export default function Nav() {
                 </div>
               )}
             </div>
-          ) : status !== "loading" ? (
+          ) : status !== "loading" && authConfigured ? (
             <button
               onClick={() => void signIn("google")}
               className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors border border-[var(--border)]"
@@ -599,6 +607,41 @@ export default function Nav() {
               <Settings size={16} className="text-[var(--muted-foreground)]" />
               Settings
             </Link>
+            {/* Mobile account entry point — the desktop sign-in button is
+                `hidden md:flex`, so without this a phone visitor had no way
+                to sign in or reach account settings at all. */}
+            {status === "authenticated" && session?.user ? (
+              <>
+                <Link
+                  href="/account"
+                  onClick={() => setMobileOpen(false)}
+                  className={cn(
+                    "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                    pathname.startsWith("/account")
+                      ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
+                      : "text-[var(--foreground)] hover:bg-[var(--muted)]"
+                  )}
+                >
+                  <User size={16} className="text-[var(--muted-foreground)]" />
+                  Account &amp; sync
+                </Link>
+                <button
+                  onClick={() => { setMobileOpen(false); void signOut(); }}
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors text-left"
+                >
+                  <LogOut size={16} className="text-[var(--muted-foreground)]" />
+                  Sign out
+                </button>
+              </>
+            ) : status !== "loading" && authConfigured ? (
+              <button
+                onClick={() => { setMobileOpen(false); void signIn("google"); }}
+                className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors text-left"
+              >
+                <LogIn size={16} className="text-[var(--muted-foreground)]" />
+                Sign in
+              </button>
+            ) : null}
             <Link
               href="/learn/fundamentals/what-is-marketing"
               className="flex items-center justify-center gap-1.5 w-full px-4 py-2.5 rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] text-sm font-medium"

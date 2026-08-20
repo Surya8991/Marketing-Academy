@@ -10,7 +10,10 @@ import { BOOKMARK_KEY } from "@/lib/bookmarks";
 import { COMPLETED_KEY } from "@/lib/progress";
 import { ENGAGEMENT_KEY } from "@/lib/engagement";
 import { ONBOARDED_KEY, GATE_NOTICE_KEY, PROJECTS_PROGRESS_KEY, REVIEW_QUEUE_KEY } from "@/lib/events";
-import { QUIZ_PASS_KEY_PREFIX, TRACK_QUIZ_PASS_PREFIX, QUIZ_STORAGE_PREFIX } from "@/lib/quizzes";
+// From @/lib/quiz-keys, NOT @/lib/quizzes: this module is in the root-layout
+// client graph via SyncProvider, and quizzes.ts is ~2.4 MB of quiz data
+// (AGENTS.md Rule 41). quiz-keys.ts is dependency-free string constants.
+import { QUIZ_PASS_KEY_PREFIX, TRACK_QUIZ_PASS_PREFIX, QUIZ_STORAGE_PREFIX } from "@/lib/quiz-keys";
 import { NOTE_KEY_PREFIX } from "@/lib/notes";
 import { RECENT_KEY } from "@/lib/recentlyViewed";
 

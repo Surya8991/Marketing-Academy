@@ -5,8 +5,7 @@ import { auth } from "@/auth";
 import { db } from "@/server/db/client";
 import { sessions } from "@/server/db/schema";
 import { rateLimit } from "@/lib/rate-limit";
-
-const SESSION_COOKIE = "authjs.session-token";
+import { currentSessionToken } from "@/lib/session-cookie";
 
 function maskToken(token: string): string {
   if (token.length <= 12) return "••••••••";
@@ -17,9 +16,12 @@ export async function GET() {
   const session = await auth();
   const userId = (session?.user as { id?: string } | undefined)?.id;
   if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (!rateLimit(`list-sessions:${userId}`, 30, 60_000)) {
+    return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+  }
 
   const jar = await cookies();
-  const currentToken = jar.get(SESSION_COOKIE)?.value ?? "";
+  const currentToken = currentSessionToken(jar);
   const rows = await db
     .select()
     .from(sessions)
@@ -50,7 +52,7 @@ export async function DELETE(req: NextRequest) {
   if (!tokenPreview) return NextResponse.json({ error: "tokenPreview required" }, { status: 400 });
 
   const jar = await cookies();
-  const currentToken = jar.get(SESSION_COOKIE)?.value ?? "";
+  const currentToken = currentSessionToken(jar);
   const rows = await db.select().from(sessions).where(eq(sessions.userId, userId));
   const target = rows.find((r) => maskToken(r.sessionToken) === tokenPreview);
   if (!target) return NextResponse.json({ error: "Session not found" }, { status: 404 });

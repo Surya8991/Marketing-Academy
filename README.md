@@ -105,7 +105,7 @@ npm run dev
 # Type check
 npx tsc --noEmit
 
-# Tests (30 tests: data validation, projects data, quiz shuffle property, integrity regression)
+# Tests (65 tests: data validation, projects data, quiz shuffle property, integrity regression)
 npm test
 
 # Build
@@ -185,7 +185,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `vercel.json` | Security headers (CSP, HSTS, X-Frame-Options, etc.) |
 | `src/lib/storage-utils.ts` | Safe `localStorage` wrapper with try/catch, corrupt-value backup, and `StorageWarning` trigger |
 | `src/components/StorageWarning.tsx` | Client banner shown when localStorage is blocked (corporate/Android) |
-| `tests/*.test.ts` | 30 tests (Node.js built-in runner + tsx): data validation, **projects data (Rule 57, the gate for project referential integrity)**, quiz shuffle, integrity regression |
+| `tests/*.test.ts` | 65 tests (Node.js built-in runner + tsx): data validation, **projects data (Rule 57, the gate for project referential integrity)**, quiz shuffle, integrity regression |
 | `AGENTS.md` | 77 non-negotiable build rules for AI agents (incl. Rule 23: pre-push doc checklist) |
 | `src/lib/notes.ts` | Shared note storage (NOTE_KEY_PREFIX, getNoteKey, getNote, saveNote) |
 | `src/auth.ts` | NextAuth v5 config (Google sign-in via `DrizzleAdapter`), `requireUser()`/`requireAdmin()`/`isAdminUser()` |
@@ -243,7 +243,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 
 Auto-deploys to Vercel on every push to `main`. No environment variables are required for the core site.
 
-**Accounts + sync (all optional)** — sign-in is hidden and `/api/sync` returns 503 until every one of these is set (see `.env.example`):
+**Accounts + sync (all optional)** — the sign-in button is hidden (`Nav` receives `authConfigured` from the root layout, matching `/login`) and `/api/sync` returns `401 Unauthorized` for anyone not signed in, until every one of these is set (see `.env.example`):
 
 | Var | Purpose |
 |---|---|

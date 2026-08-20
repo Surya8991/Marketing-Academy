@@ -115,7 +115,12 @@ describe("PROGRESS_CHANGED_EVENT fires from every progress-writing function", ()
     assert.equal(fired, 2, "recordHit should NOT fire on its no-op branch");
   });
 
-  test("recentlyViewed.ts trackLesson() fires the event", async () => {
+  // Deliberately inverted (final-review finding #9): trackLesson() fires on
+  // EVERY lesson page view, so dispatching PROGRESS_CHANGED_EVENT here meant a
+  // debounced full-snapshot POST per navigation, blowing through
+  // rateLimit("sync:post", 20, 60_000) during ordinary browsing. RECENT_KEY is
+  // still in the snapshot, so it rides along on any real progress write.
+  test("recentlyViewed.ts trackLesson() does NOT fire the event (rate-limit guard)", async () => {
     const { trackLesson } = await import("../src/lib/recentlyViewed.js");
     let fired = 0;
     window.addEventListener(PROGRESS_CHANGED_EVENT, () => { fired++; });
@@ -125,7 +130,7 @@ describe("PROGRESS_CHANGED_EVENT fires from every progress-writing function", ()
       title: "Keyword Research",
       categoryTitle: "SEO",
     });
-    assert.equal(fired, 1);
+    assert.equal(fired, 0);
   });
 });
 

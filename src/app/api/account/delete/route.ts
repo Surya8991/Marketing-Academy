@@ -5,8 +5,7 @@ import { auth, isAdminUser } from "@/auth";
 import { db } from "@/server/db/client";
 import { users } from "@/server/db/schema";
 import { rateLimit } from "@/lib/rate-limit";
-
-const SESSION_COOKIE = "authjs.session-token";
+import { clearSessionCookie } from "@/lib/session-cookie";
 
 export async function POST() {
   const session = await auth();
@@ -24,7 +23,7 @@ export async function POST() {
   await db.delete(users).where(eq(users.id, user.id));
 
   const jar = await cookies();
-  jar.delete(SESSION_COOKIE);
+  clearSessionCookie(jar);
 
   return NextResponse.json({ ok: true });
 }
