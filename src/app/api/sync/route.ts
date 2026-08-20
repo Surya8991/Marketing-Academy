@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
   }
 
   const bodyStr = JSON.stringify(body);
-  // Same 512KB guard the old sync-proxy had — a realistic snapshot is a few KB.
+  // Same 512KB guard the old proxy-based sync endpoint (Task 8) had — a realistic snapshot is a few KB.
   if (bodyStr.length > 512 * 1024) {
     return NextResponse.json({ error: "Payload too large (max 512KB)" }, { status: 413 });
   }

@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { ENGAGEMENT_EVENT } from "@/lib/engagement";
 import { EXPORT_KEYS, ALLOWED_KEY_PREFIXES, collectAllKeys, restoreAllKeys } from "@/lib/progress-snapshot";
+import { pushNow, pullAndMerge } from "@/lib/sync-client";
 
 type Status = { type: "success" | "error"; message: string } | null;
 
@@ -80,59 +81,26 @@ export default function SettingsClient() {
   const [resetStatus, setResetStatus] = useState<Status>(null);
   const [syncStatus, setSyncStatus] = useState<Status>(null);
   const [syncing, setSyncing] = useState(false);
-  const [syncEnabled, setSyncEnabled] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    fetch("/api/sync/status")
-      .then((r) => r.json())
-      .then((d: { enabled: boolean }) => setSyncEnabled(d.enabled))
-      .catch(() => setSyncEnabled(false));
-  }, []);
 
   async function handlePush() {
     setSyncing(true);
     setSyncStatus(null);
-    try {
-      const data = collectAllKeys();
-      const res = await fetch("/api/sync-proxy", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-sync-secret": process.env.NEXT_PUBLIC_SYNC_SECRET ?? "",
-        },
-        body: JSON.stringify(data),
-      });
-      if (!res.ok) throw new Error();
-      const time = new Date().toLocaleTimeString();
-      setSyncStatus({ type: "success", message: `Saved to cloud at ${time}.` });
-    } catch {
-      setSyncStatus({ type: "error", message: "Push failed. Check your CF KV env vars." });
-    } finally {
-      setSyncing(false);
-    }
+    const ok = await pushNow();
+    setSyncStatus(
+      ok
+        ? { type: "success", message: `Saved to cloud at ${new Date().toLocaleTimeString()}.` }
+        : { type: "error", message: "Push failed. Make sure you're signed in." }
+    );
+    setSyncing(false);
   }
 
   async function handlePull() {
     setSyncing(true);
     setSyncStatus(null);
-    try {
-      const res = await fetch("/api/sync-proxy", {
-        headers: { "x-sync-secret": process.env.NEXT_PUBLIC_SYNC_SECRET ?? "" },
-      });
-      if (!res.ok) throw new Error();
-      const { data } = (await res.json()) as { data: Record<string, unknown> | null };
-      if (!data) {
-        setSyncStatus({ type: "error", message: "No cloud save found. Push from your main device first." });
-        return;
-      }
-      restoreAllKeys(data);
-      setSyncStatus({ type: "success", message: "Pulled from cloud. Refreshing…" });
-      setTimeout(() => window.location.reload(), 1200);
-    } catch {
-      setSyncStatus({ type: "error", message: "Pull failed. Check your CF KV env vars." });
-    } finally {
-      setSyncing(false);
-    }
+    await pullAndMerge();
+    setSyncStatus({ type: "success", message: "Pulled and merged from cloud. Refreshing…" });
+    setTimeout(() => window.location.reload(), 1200);
+    setSyncing(false);
   }
 
   function handleExport() {
@@ -287,14 +255,14 @@ export default function SettingsClient() {
         <StatusBanner status={importStatus} />
       </section>
 
-      {/* Cloud Sync — Stage 5.2: hidden entirely unless the server reports it as enabled.
-          Sync is disabled (Stage 0) due to a security vulnerability (single shared KV key).
-          Showing a permanently-disabled section with env-var instructions confuses learners. */}
-      {syncEnabled === true && (
+      {/* Cloud Sync — account-backed sync via /api/sync (Task 9). Push/Pull
+          work for anyone signed in; an unauthenticated request just fails
+          with a 401, surfaced below as the "Make sure you're signed in"
+          error. See src/lib/sync-client.ts for the pull-merge-push logic. */}
       <section style={cardStyle}>
         <h2 style={headingStyle}>Cloud Sync</h2>
         <p style={descStyle}>
-          Sync your progress across devices. Push saves your data to the cloud; Pull restores it here.
+          Sync your progress across devices. Push saves your data to the cloud; Pull restores it here. Sign in from the account menu first.
         </p>
         <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
           <button
@@ -314,7 +282,6 @@ export default function SettingsClient() {
         </div>
         <StatusBanner status={syncStatus} />
       </section>
-      )}
 
       {/* Reset */}
       <section style={cardStyle}>
