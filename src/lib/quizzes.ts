@@ -1,3 +1,5 @@
+import { PROGRESS_CHANGED_EVENT } from "@/lib/events";
+
 export type Quiz = {
   question: string;
   options: string[];
@@ -24,6 +26,9 @@ export function getQuizPassed(category: string, slug: string): boolean {
 export function setQuizPassed(category: string, slug: string): void {
   try {
     localStorage.setItem(quizPassKey(category, slug), "1");
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent(PROGRESS_CHANGED_EVENT));
+    }
   } catch {
     // storage unavailable
   }
@@ -54,6 +59,9 @@ export function getTrackQuizPassed(trackSlug: string): boolean {
 export function setTrackQuizPassed(trackSlug: string): void {
   try {
     localStorage.setItem(trackQuizPassKey(trackSlug), "1");
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent(PROGRESS_CHANGED_EVENT));
+    }
   } catch {
     // storage unavailable
   }

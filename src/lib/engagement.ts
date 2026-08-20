@@ -23,7 +23,7 @@
  */
 
 import { preserveCorruptValue } from "@/lib/storage-utils";
-import { STORAGE_WRITE_FAILED } from "@/lib/events";
+import { STORAGE_WRITE_FAILED, PROGRESS_CHANGED_EVENT } from "@/lib/events";
 
 export const ENGAGEMENT_KEY = "ma_engagement";
 const KEY = ENGAGEMENT_KEY;
@@ -190,6 +190,9 @@ export function addXP(action: XPAction, id: string): EngagementState {
     ];
 
     saveEngagement(state);
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent(PROGRESS_CHANGED_EVENT));
+    }
     return state;
   } catch {
     // Stage 2.3: never let a shape error in addXP crash the calling component.

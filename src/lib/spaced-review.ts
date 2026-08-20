@@ -26,7 +26,7 @@
  */
 
 import { preserveCorruptValue } from "@/lib/storage-utils";
-import { REVIEW_QUEUE_KEY } from "@/lib/events";
+import { REVIEW_QUEUE_KEY, PROGRESS_CHANGED_EVENT } from "@/lib/events";
 
 const KEY = REVIEW_QUEUE_KEY;
 
@@ -77,6 +77,7 @@ function saveReviewQueue(items: ReviewItem[]): void {
   if (typeof window === "undefined") return;
   try {
     localStorage.setItem(KEY, JSON.stringify(items));
+    window.dispatchEvent(new CustomEvent(PROGRESS_CHANGED_EVENT));
   } catch {
     // storage full or unavailable, silently drop like the rest of the storage modules
   }

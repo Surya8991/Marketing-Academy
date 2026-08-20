@@ -81,3 +81,12 @@ export const STORAGE_WRITE_FAILED = "ma_storage_write_failed";
  * try are never tracked.
  */
 export const REVIEW_QUEUE_KEY = "ma_review_queue";
+
+/**
+ * Fired by every function that writes a key covered by
+ * src/lib/progress-snapshot.ts's EXPORT_KEYS/ALLOWED_KEY_PREFIXES — the
+ * signal src/lib/sync-client.ts listens for to debounce-push to /api/sync
+ * when signed in. No payload: consumers re-read whatever they need via
+ * collectAllKeys(), they don't need to know which key changed.
+ */
+export const PROGRESS_CHANGED_EVENT = "ma_progress_changed";
