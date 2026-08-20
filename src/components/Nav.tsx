@@ -78,7 +78,7 @@ const GROUP_ICONS: Record<string, typeof Compass> = {
   "Outreach & Events": Megaphone,
 };
 
-type DropId = "topics" | "learn" | "resources" | null;
+type DropId = "topics" | "learn" | "resources" | "account" | null;
 
 function isActiveHref(pathname: string, href: string) {
   if (href === "/cheat-sheets") {
@@ -93,7 +93,6 @@ export default function Nav() {
   const [activeGroup, setActiveGroup] = useState<string>(TOPIC_GROUPS[0].label);
   const [activeLearnTab, setActiveLearnTab] = useState<string>(LEARN_SECTIONS[0].tabLabel);
   const [activeResourceTab, setActiveResourceTab] = useState<string>(RESOURCE_SECTIONS[0].tabLabel);
-  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const { data: session, status } = useSession();
   const pathname = usePathname();
   const router = useRouter();
@@ -423,8 +422,8 @@ export default function Nav() {
           {status === "authenticated" && session?.user ? (
             <div className="relative">
               <button
-                onClick={() => setUserMenuOpen((v) => !v)}
-                aria-expanded={userMenuOpen}
+                onClick={() => toggle("account")}
+                aria-expanded={openDrop === "account"}
                 aria-label="Account menu"
                 className="flex items-center justify-center w-8 h-8 rounded-full overflow-hidden border border-[var(--border)] hover:border-[var(--accent)] transition-colors"
               >
@@ -435,17 +434,17 @@ export default function Nav() {
                   <User size={16} className="text-[var(--muted-foreground)]" />
                 )}
               </button>
-              {userMenuOpen && (
+              {openDrop === "account" && (
                 <div className="absolute right-0 top-full mt-2 w-48 rounded-xl border border-[var(--border)] bg-[var(--card)] shadow-2xl overflow-hidden">
                   <Link
                     href="/account"
-                    onClick={() => setUserMenuOpen(false)}
+                    onClick={() => setOpenDrop(null)}
                     className="block px-4 py-2.5 text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors"
                   >
                     Account &amp; sync
                   </Link>
                   <button
-                    onClick={() => { setUserMenuOpen(false); void signOut(); }}
+                    onClick={() => { setOpenDrop(null); void signOut(); }}
                     className="flex items-center gap-2 w-full text-left px-4 py-2.5 text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors border-t border-[var(--border)]"
                   >
                     <LogOut size={14} />
