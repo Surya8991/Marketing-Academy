@@ -10,7 +10,7 @@
  */
 
 import { preserveCorruptValue } from "@/lib/storage-utils";
-import { STORAGE_WRITE_FAILED } from "@/lib/events";
+import { STORAGE_WRITE_FAILED, PROGRESS_CHANGED_EVENT } from "@/lib/events";
 
 export const COMPLETED_KEY = "ma-completed";
 const KEY = COMPLETED_KEY;
@@ -55,6 +55,7 @@ export function markComplete(id: string): void {
   completed.add(id);
   try {
     localStorage.setItem(KEY, JSON.stringify([...completed]));
+    window.dispatchEvent(new CustomEvent(PROGRESS_CHANGED_EVENT));
   } catch {
     window.dispatchEvent(new CustomEvent(STORAGE_WRITE_FAILED, { detail: { key: KEY } }));
   }
@@ -68,6 +69,7 @@ export function markIncomplete(id: string): void {
   completed.delete(id);
   try {
     localStorage.setItem(KEY, JSON.stringify([...completed]));
+    window.dispatchEvent(new CustomEvent(PROGRESS_CHANGED_EVENT));
   } catch {
     window.dispatchEvent(new CustomEvent(STORAGE_WRITE_FAILED, { detail: { key: KEY } }));
   }

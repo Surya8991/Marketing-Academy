@@ -1,52 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { BOOKMARK_KEY } from "@/lib/bookmarks";
-import { COMPLETED_KEY } from "@/lib/progress";
-import { ENGAGEMENT_KEY, ENGAGEMENT_EVENT } from "@/lib/engagement";
-import { ONBOARDED_KEY, GATE_NOTICE_KEY } from "@/lib/events";
-import { QUIZ_PASS_KEY_PREFIX, TRACK_QUIZ_PASS_PREFIX, QUIZ_STORAGE_PREFIX } from "@/lib/quizzes";
-import { NOTE_KEY_PREFIX } from "@/lib/notes";
-import { RECENT_KEY } from "@/lib/recentlyViewed";
-
-/** Fixed-name keys that get exported/imported/reset verbatim */
-const EXPORT_KEYS = [COMPLETED_KEY, BOOKMARK_KEY, ENGAGEMENT_KEY, ONBOARDED_KEY, RECENT_KEY, GATE_NOTICE_KEY];
-/** Prefixed keys that are swept during export/import/reset (Stage 2.7: was missing
- *  TRACK_QUIZ_PASS_PREFIX and QUIZ_STORAGE_PREFIX — reset left quiz state behind) */
-const ALLOWED_KEY_PREFIXES = [QUIZ_PASS_KEY_PREFIX, TRACK_QUIZ_PASS_PREFIX, QUIZ_STORAGE_PREFIX, NOTE_KEY_PREFIX];
-
-function collectAllKeys(): Record<string, unknown> {
-  const data: Record<string, unknown> = {};
-  for (const key of EXPORT_KEYS) {
-    const raw = localStorage.getItem(key);
-    data[key] = raw ? JSON.parse(raw) : null;
-  }
-  // Snapshot all keys first to avoid length-changes mid-iteration
-  const allKeys = Array.from({ length: localStorage.length }, (_, i) => localStorage.key(i)).filter(Boolean) as string[];
-  for (const key of allKeys) {
-    if (ALLOWED_KEY_PREFIXES.some((p) => key.startsWith(p))) {
-      data[key] = localStorage.getItem(key);
-    }
-  }
-  return data;
-}
-
-function isAllowedKey(key: string): boolean {
-  if (EXPORT_KEYS.includes(key as typeof EXPORT_KEYS[number])) return true;
-  return ALLOWED_KEY_PREFIXES.some((p) => key.startsWith(p));
-}
-
-function restoreAllKeys(data: Record<string, unknown>) {
-  for (const [key, value] of Object.entries(data)) {
-    if (!isAllowedKey(key)) continue;
-    if (value === null || value === undefined) continue;
-    if (typeof value === "string") {
-      localStorage.setItem(key, value);
-    } else {
-      localStorage.setItem(key, JSON.stringify(value));
-    }
-  }
-}
+import { useRef, useState } from "react";
+import { useSession } from "next-auth/react";
+import { ENGAGEMENT_EVENT } from "@/lib/engagement";
+import { EXPORT_KEYS, ALLOWED_KEY_PREFIXES, collectAllKeys, restoreAllKeys } from "@/lib/progress-snapshot";
+import { pushNow, pullAndMerge } from "@/lib/sync-client";
 
 type Status = { type: "success" | "error"; message: string } | null;
 
@@ -118,65 +76,44 @@ const dangerBtn: React.CSSProperties = {
 };
 
 export default function SettingsClient() {
+  const { data: session } = useSession();
+  const userId = (session?.user as { id?: string } | undefined)?.id;
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [importStatus, setImportStatus] = useState<Status>(null);
   const [exportStatus, setExportStatus] = useState<Status>(null);
   const [resetStatus, setResetStatus] = useState<Status>(null);
   const [syncStatus, setSyncStatus] = useState<Status>(null);
   const [syncing, setSyncing] = useState(false);
-  const [syncEnabled, setSyncEnabled] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    fetch("/api/sync/status")
-      .then((r) => r.json())
-      .then((d: { enabled: boolean }) => setSyncEnabled(d.enabled))
-      .catch(() => setSyncEnabled(false));
-  }, []);
 
   async function handlePush() {
     setSyncing(true);
     setSyncStatus(null);
-    try {
-      const data = collectAllKeys();
-      const res = await fetch("/api/sync-proxy", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-sync-secret": process.env.NEXT_PUBLIC_SYNC_SECRET ?? "",
-        },
-        body: JSON.stringify(data),
-      });
-      if (!res.ok) throw new Error();
-      const time = new Date().toLocaleTimeString();
-      setSyncStatus({ type: "success", message: `Saved to cloud at ${time}.` });
-    } catch {
-      setSyncStatus({ type: "error", message: "Push failed. Check your CF KV env vars." });
-    } finally {
-      setSyncing(false);
-    }
+    const ok = await pushNow();
+    setSyncStatus(
+      ok
+        ? { type: "success", message: `Saved to cloud at ${new Date().toLocaleTimeString()}.` }
+        : { type: "error", message: "Push failed. Make sure you're signed in." }
+    );
+    setSyncing(false);
   }
 
   async function handlePull() {
     setSyncing(true);
     setSyncStatus(null);
-    try {
-      const res = await fetch("/api/sync-proxy", {
-        headers: { "x-sync-secret": process.env.NEXT_PUBLIC_SYNC_SECRET ?? "" },
-      });
-      if (!res.ok) throw new Error();
-      const { data } = (await res.json()) as { data: Record<string, unknown> | null };
-      if (!data) {
-        setSyncStatus({ type: "error", message: "No cloud save found. Push from your main device first." });
-        return;
-      }
-      restoreAllKeys(data);
-      setSyncStatus({ type: "success", message: "Pulled from cloud. Refreshing…" });
-      setTimeout(() => window.location.reload(), 1200);
-    } catch {
-      setSyncStatus({ type: "error", message: "Pull failed. Check your CF KV env vars." });
-    } finally {
+    if (!userId) {
+      setSyncStatus({ type: "error", message: "Pull failed. Make sure you're signed in." });
       setSyncing(false);
+      return;
     }
+    const ok = await pullAndMerge(userId);
+    if (!ok) {
+      setSyncStatus({ type: "error", message: "Pull failed. Check your connection and that you're signed in." });
+      setSyncing(false);
+      return;
+    }
+    setSyncStatus({ type: "success", message: "Pulled and merged from cloud. Refreshing…" });
+    setTimeout(() => window.location.reload(), 1200);
+    setSyncing(false);
   }
 
   function handleExport() {
@@ -331,14 +268,14 @@ export default function SettingsClient() {
         <StatusBanner status={importStatus} />
       </section>
 
-      {/* Cloud Sync — Stage 5.2: hidden entirely unless the server reports it as enabled.
-          Sync is disabled (Stage 0) due to a security vulnerability (single shared KV key).
-          Showing a permanently-disabled section with env-var instructions confuses learners. */}
-      {syncEnabled === true && (
+      {/* Cloud Sync — account-backed sync via /api/sync (Task 9). Push/Pull
+          work for anyone signed in; an unauthenticated request just fails
+          with a 401, surfaced below as the "Make sure you're signed in"
+          error. See src/lib/sync-client.ts for the pull-merge-push logic. */}
       <section style={cardStyle}>
         <h2 style={headingStyle}>Cloud Sync</h2>
         <p style={descStyle}>
-          Sync your progress across devices. Push saves your data to the cloud; Pull restores it here.
+          Sync your progress across devices. Push saves your data to the cloud; Pull restores it here. Sign in from the account menu first.
         </p>
         <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
           <button
@@ -358,7 +295,6 @@ export default function SettingsClient() {
         </div>
         <StatusBanner status={syncStatus} />
       </section>
-      )}
 
       {/* Reset */}
       <section style={cardStyle}>

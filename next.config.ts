@@ -40,8 +40,6 @@ const nextConfig: NextConfig = {
    *   - 'unsafe-inline' + 'unsafe-eval' are required by Next.js App Router (inline
    *     hydration scripts) and Mermaid (runtime code generation). Cannot be removed.
    *   - PostHog domains are whitelisted for analytics (script-src + connect-src).
-   *   - api.cloudflare.com is whitelisted for the KV sync proxy's server-side fetch.
-   *     This header applies to the BROWSER, not server routes, but it's kept consistent.
    *   - frame-ancestors 'none' prevents clickjacking (equivalent to X-Frame-Options DENY,
    *     but CSP takes precedence in modern browsers; both are set for compatibility).
    *
@@ -71,8 +69,8 @@ const nextConfig: NextConfig = {
               // data: for base64 images, blob: for Mermaid SVG blobs, https: for any CDN image
               "img-src 'self' data: blob: https:",
               "font-src 'self'",
-              // PostHog analytics + CF KV API (server-side only, but kept for consistency)
-              "connect-src 'self' https://us.i.posthog.com https://us-assets.i.posthog.com https://api.cloudflare.com",
+              // PostHog analytics
+              "connect-src 'self' https://us.i.posthog.com https://us-assets.i.posthog.com",
               // Service worker scope
               "worker-src 'self'",
               // Stronger clickjacking block (CSP version of X-Frame-Options DENY)

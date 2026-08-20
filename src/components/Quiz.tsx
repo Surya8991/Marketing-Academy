@@ -61,6 +61,7 @@ import { getQuizPassed, setQuizPassed, QUIZ_PASSED_EVENT, quizStorageKey } from 
 import { addXP, ENGAGEMENT_EVENT } from "@/lib/engagement";
 import { checkAchievements } from "@/lib/achievements";
 import { recordHit, recordMiss, reviewItemId } from "@/lib/spaced-review";
+import { PROGRESS_CHANGED_EVENT } from "@/lib/events";
 import { CheckCircle2, XCircle, RotateCcw, Trophy } from "lucide-react";
 
 type Props = {
@@ -164,6 +165,7 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
           quizStorageKey(pathname),
           JSON.stringify({ selections: newSelections, total: totalQuestions })
         );
+        window.dispatchEvent(new CustomEvent(PROGRESS_CHANGED_EVENT));
       } catch { /* storage full or unavailable */ }
 
       const finalScore = newSelections.filter((sel, i) => sel === shuffled[i].correct).length;

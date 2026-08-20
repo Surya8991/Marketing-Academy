@@ -1,3 +1,6 @@
+import { PROGRESS_CHANGED_EVENT } from "@/lib/events";
+import { QUIZ_STORAGE_PREFIX, TRACK_QUIZ_PASS_PREFIX } from "@/lib/quiz-keys";
+
 export type Quiz = {
   question: string;
   options: string[];
@@ -24,6 +27,9 @@ export function getQuizPassed(category: string, slug: string): boolean {
 export function setQuizPassed(category: string, slug: string): void {
   try {
     localStorage.setItem(quizPassKey(category, slug), "1");
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent(PROGRESS_CHANGED_EVENT));
+    }
   } catch {
     // storage unavailable
   }
@@ -36,7 +42,7 @@ export function setQuizPassed(category: string, slug: string): void {
  * via per-lesson quizzes alone (never visiting /tracks/[slug]/quiz) does not
  * by itself earn a certificate.
  */
-export const TRACK_QUIZ_PASS_PREFIX = "ma_track_quiz_pass_";
+export { TRACK_QUIZ_PASS_PREFIX } from "@/lib/quiz-keys";
 
 export function trackQuizPassKey(trackSlug: string): string {
   return `${TRACK_QUIZ_PASS_PREFIX}${trackSlug}`;
@@ -54,6 +60,9 @@ export function getTrackQuizPassed(trackSlug: string): boolean {
 export function setTrackQuizPassed(trackSlug: string): void {
   try {
     localStorage.setItem(trackQuizPassKey(trackSlug), "1");
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent(PROGRESS_CHANGED_EVENT));
+    }
   } catch {
     // storage unavailable
   }
@@ -62,11 +71,10 @@ export function setTrackQuizPassed(trackSlug: string): void {
 /** CustomEvent name dispatched by Quiz when user passes, canonical source: @/lib/events */
 export { QUIZ_PASSED_EVENT } from "@/lib/events";
 
-/** Prefix for in-progress quiz state keys: ma_quiz_{path} */
-export const QUIZ_STORAGE_PREFIX = "ma_quiz_";
-
-/** Prefix for quiz pass flag keys: ma_quiz_pass_{category}_{slug} */
-export const QUIZ_PASS_KEY_PREFIX = "ma_quiz_pass_";
+/** Key prefixes: canonical definitions live in the dependency-free
+ *  @/lib/quiz-keys so consumers (progress-snapshot.ts) can import them
+ *  without pulling this ~2.4 MB data module. Re-exported for back-compat. */
+export { QUIZ_STORAGE_PREFIX, QUIZ_PASS_KEY_PREFIX } from "@/lib/quiz-keys";
 
 /** localStorage key for in-progress quiz state */
 export function quizStorageKey(path: string): string {

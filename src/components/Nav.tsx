@@ -2,12 +2,13 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { useSession, signIn, signOut } from "next-auth/react";
 import {
   Menu, X, Search, BookOpen, ChevronDown, Bookmark,
   GraduationCap, LayoutGrid, Brain, Map,
   BookMarked, FileText, Mic2, Wrench,
   SlidersHorizontal, Trophy, Settings, Library, Zap, ClipboardCheck, Briefcase,
-  Compass, Radio, TrendingUp, Megaphone, RotateCcw,
+  Compass, Radio, TrendingUp, Megaphone, RotateCcw, LogIn, LogOut, User,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CATEGORY_INDEX } from "@/lib/curriculum";
@@ -77,7 +78,7 @@ const GROUP_ICONS: Record<string, typeof Compass> = {
   "Outreach & Events": Megaphone,
 };
 
-type DropId = "topics" | "learn" | "resources" | null;
+type DropId = "topics" | "learn" | "resources" | "account" | null;
 
 function isActiveHref(pathname: string, href: string) {
   if (href === "/cheat-sheets") {
@@ -86,12 +87,21 @@ function isActiveHref(pathname: string, href: string) {
   return pathname.startsWith(href);
 }
 
-export default function Nav() {
+/**
+ * `authConfigured` is computed by the root layout (a server component) via
+ * @/lib/env's authConfigured() and threaded down as a prop — this file is
+ * "use client" and can't read server-only env vars itself. Without it the
+ * sign-in button rendered on deployments with zero auth env vars set, calling
+ * signIn("google") against an empty providers array and dumping the visitor
+ * on a NextAuth error page. Mirrors /login/page.tsx's existing check.
+ */
+export default function Nav({ authConfigured = false }: { authConfigured?: boolean }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDrop, setOpenDrop] = useState<DropId>(null);
   const [activeGroup, setActiveGroup] = useState<string>(TOPIC_GROUPS[0].label);
   const [activeLearnTab, setActiveLearnTab] = useState<string>(LEARN_SECTIONS[0].tabLabel);
   const [activeResourceTab, setActiveResourceTab] = useState<string>(RESOURCE_SECTIONS[0].tabLabel);
+  const { data: session, status } = useSession();
   const pathname = usePathname();
   const router = useRouter();
   const navRef = useRef<HTMLDivElement>(null);
@@ -417,6 +427,49 @@ export default function Nav() {
             <BookOpen size={14} />
             Start Learning
           </Link>
+          {status === "authenticated" && session?.user ? (
+            <div className="relative">
+              <button
+                onClick={() => toggle("account")}
+                aria-expanded={openDrop === "account"}
+                aria-label="Account menu"
+                className="flex items-center justify-center w-8 h-8 rounded-full overflow-hidden border border-[var(--border)] hover:border-[var(--accent)] transition-colors"
+              >
+                {session.user.image ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={session.user.image} alt="" className="w-full h-full object-cover" />
+                ) : (
+                  <User size={16} className="text-[var(--muted-foreground)]" />
+                )}
+              </button>
+              {openDrop === "account" && (
+                <div className="absolute right-0 top-full mt-2 w-48 rounded-xl border border-[var(--border)] bg-[var(--card)] shadow-2xl overflow-hidden">
+                  <Link
+                    href="/account"
+                    onClick={() => setOpenDrop(null)}
+                    className="block px-4 py-2.5 text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors"
+                  >
+                    Account &amp; sync
+                  </Link>
+                  <button
+                    onClick={() => { setOpenDrop(null); void signOut(); }}
+                    className="flex items-center gap-2 w-full text-left px-4 py-2.5 text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors border-t border-[var(--border)]"
+                  >
+                    <LogOut size={14} />
+                    Sign out
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : status !== "loading" && authConfigured ? (
+            <button
+              onClick={() => void signIn("google")}
+              className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors border border-[var(--border)]"
+            >
+              <LogIn size={13} />
+              Sign in
+            </button>
+          ) : null}
           <button
             onClick={() => setMobileOpen((v) => !v)}
             className="md:hidden p-2 rounded-md text-[var(--muted-foreground)] hover:bg-[var(--muted)] transition-colors"
@@ -554,6 +607,41 @@ export default function Nav() {
               <Settings size={16} className="text-[var(--muted-foreground)]" />
               Settings
             </Link>
+            {/* Mobile account entry point — the desktop sign-in button is
+                `hidden md:flex`, so without this a phone visitor had no way
+                to sign in or reach account settings at all. */}
+            {status === "authenticated" && session?.user ? (
+              <>
+                <Link
+                  href="/account"
+                  onClick={() => setMobileOpen(false)}
+                  className={cn(
+                    "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                    pathname.startsWith("/account")
+                      ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
+                      : "text-[var(--foreground)] hover:bg-[var(--muted)]"
+                  )}
+                >
+                  <User size={16} className="text-[var(--muted-foreground)]" />
+                  Account &amp; sync
+                </Link>
+                <button
+                  onClick={() => { setMobileOpen(false); void signOut(); }}
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors text-left"
+                >
+                  <LogOut size={16} className="text-[var(--muted-foreground)]" />
+                  Sign out
+                </button>
+              </>
+            ) : status !== "loading" && authConfigured ? (
+              <button
+                onClick={() => { setMobileOpen(false); void signIn("google"); }}
+                className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors text-left"
+              >
+                <LogIn size={16} className="text-[var(--muted-foreground)]" />
+                Sign in
+              </button>
+            ) : null}
             <Link
               href="/learn/fundamentals/what-is-marketing"
               className="flex items-center justify-center gap-1.5 w-full px-4 py-2.5 rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] text-sm font-medium"

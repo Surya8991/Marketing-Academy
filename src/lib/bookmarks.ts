@@ -6,7 +6,7 @@
  * Both import from here to guarantee they use the same key and serialization format.
  * (Rule 18: shared localStorage logic lives in src/lib/, never duplicated in components.)
  */
-import { STORAGE_WRITE_FAILED } from "@/lib/events";
+import { STORAGE_WRITE_FAILED, PROGRESS_CHANGED_EVENT } from "@/lib/events";
 
 export type BookmarkEntry = {
   category: string;
@@ -43,6 +43,7 @@ export function saveBookmarks(entries: BookmarkEntry[]): void {
   if (typeof window === "undefined") return;
   try {
     localStorage.setItem(BOOKMARK_KEY, JSON.stringify(entries));
+    window.dispatchEvent(new CustomEvent(PROGRESS_CHANGED_EVENT));
   } catch {
     window.dispatchEvent(new CustomEvent(STORAGE_WRITE_FAILED, { detail: { key: BOOKMARK_KEY } }));
   }

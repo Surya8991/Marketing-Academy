@@ -1,14 +1,17 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Fraunces, Public_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import { SessionProvider } from "next-auth/react";
 import Nav from "@/components/Nav";
 import { PostHogProvider } from "@/components/PostHogProvider";
+import SyncProvider from "@/components/SyncProvider";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import AchievementToast from "@/components/AchievementToast";
 import OnboardingModal from "@/components/OnboardingModal";
 import CommandPaletteLoader from "@/components/CommandPaletteLoader";
 import StorageWarning from "@/components/StorageWarning";
+import { authConfigured } from "@/lib/env";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -87,22 +90,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="alternate" type="application/rss+xml" title="Marketing Academy" href={`${BASE}/feed.xml`} />
       </head>
       <body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)]">
-        <PostHogProvider>
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-[var(--accent)] focus:text-[var(--accent-foreground)] focus:font-medium focus:text-sm"
-          >
-            Skip to content
-          </a>
-          <Nav />
-          <main id="main-content" className="pt-16 flex-1">{children}</main>
-          <Footer />
-          <ScrollToTop />
-          <AchievementToast />
-          <OnboardingModal />
-          <CommandPaletteLoader />
-          <StorageWarning />
-        </PostHogProvider>
+        <SessionProvider>
+          <SyncProvider>
+            <PostHogProvider>
+              <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-[var(--accent)] focus:text-[var(--accent-foreground)] focus:font-medium focus:text-sm"
+              >
+                Skip to content
+              </a>
+              <Nav authConfigured={authConfigured()} />
+              <main id="main-content" className="pt-16 flex-1">{children}</main>
+              <Footer />
+              <ScrollToTop />
+              <AchievementToast />
+              <OnboardingModal />
+              <CommandPaletteLoader />
+              <StorageWarning />
+            </PostHogProvider>
+          </SyncProvider>
+        </SessionProvider>
         {/* Service worker registration, PRODUCTION ONLY (AGENTS.md Rule 50/59): the
             SW caches JS/CSS bundles per-origin regardless of localhost vs prod, so a
             dev tab that registers it starts silently serving stale chunks after every

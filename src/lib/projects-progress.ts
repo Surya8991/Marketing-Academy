@@ -24,7 +24,7 @@
  */
 
 import { preserveCorruptValue } from "@/lib/storage-utils";
-import { STORAGE_WRITE_FAILED, PROJECTS_PROGRESS_KEY } from "@/lib/events";
+import { STORAGE_WRITE_FAILED, PROJECTS_PROGRESS_KEY, PROGRESS_CHANGED_EVENT } from "@/lib/events";
 
 export { PROJECTS_PROGRESS_KEY };
 const KEY = PROJECTS_PROGRESS_KEY;
@@ -70,6 +70,7 @@ function saveProjectProgress(state: ProjectProgress): void {
   if (typeof window === "undefined") return;
   try {
     localStorage.setItem(KEY, JSON.stringify(state));
+    window.dispatchEvent(new CustomEvent(PROGRESS_CHANGED_EVENT));
   } catch {
     window.dispatchEvent(new CustomEvent(STORAGE_WRITE_FAILED, { detail: { key: KEY } }));
   }

@@ -12,6 +12,8 @@
  * start with NOTE_KEY_PREFIX, so the prefix must stay stable.
  */
 
+import { PROGRESS_CHANGED_EVENT } from "@/lib/events";
+
 export const NOTE_KEY_PREFIX = "ma_note_";
 
 /** Builds the localStorage key for a specific lesson's note */
@@ -40,6 +42,9 @@ export function saveNote(category: string, slug: string, text: string): void {
       localStorage.setItem(key, text);
     } else {
       localStorage.removeItem(key);
+    }
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent(PROGRESS_CHANGED_EVENT));
     }
   } catch {
     // storage unavailable (private mode, quota exceeded)

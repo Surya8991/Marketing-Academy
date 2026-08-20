@@ -43,3 +43,7 @@ next-env.d.ts
 
 # agentmaster
 .agentmaster/
+
+# local sqlite db
+data/*.db
+data/*.db-*
