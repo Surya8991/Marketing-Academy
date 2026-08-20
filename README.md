@@ -186,7 +186,9 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/storage-utils.ts` | Safe `localStorage` wrapper with try/catch, corrupt-value backup, and `StorageWarning` trigger |
 | `src/components/StorageWarning.tsx` | Client banner shown when localStorage is blocked (corporate/Android) |
 | `tests/*.test.ts` | 65 tests (Node.js built-in runner + tsx): data validation, **projects data (Rule 57, the gate for project referential integrity)**, quiz shuffle, integrity regression |
-| `AGENTS.md` | 77 non-negotiable build rules for AI agents (incl. Rule 23: pre-push doc checklist) |
+| `AGENTS.md` | 78 non-negotiable build rules for AI agents (incl. Rule 23: pre-push doc checklist) |
+| `src/lib/session-cookie.ts` | Shared Auth.js session-cookie-name lookup (checks both `__Secure-authjs.session-token` and `authjs.session-token`), used by both `/api/account` routes |
+| `src/lib/quiz-keys.ts` | `QUIZ_STORAGE_PREFIX`/`QUIZ_PASS_KEY_PREFIX`/`TRACK_QUIZ_PASS_PREFIX`, split out of the 2.4MB `quizzes.ts` so `progress-snapshot.ts` (now client-bundled via `SyncProvider`) doesn't pull it in |
 | `src/lib/notes.ts` | Shared note storage (NOTE_KEY_PREFIX, getNoteKey, getNote, saveNote) |
 | `src/auth.ts` | NextAuth v5 config (Google sign-in via `DrizzleAdapter`), `requireUser()`/`requireAdmin()`/`isAdminUser()` |
 | `src/server/db/` | `schema.ts` (users/accounts/sessions/verificationTokens), `client.ts`, Drizzle `migrations/` |
