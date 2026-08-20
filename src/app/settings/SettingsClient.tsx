@@ -1,52 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { BOOKMARK_KEY } from "@/lib/bookmarks";
-import { COMPLETED_KEY } from "@/lib/progress";
-import { ENGAGEMENT_KEY, ENGAGEMENT_EVENT } from "@/lib/engagement";
-import { ONBOARDED_KEY, GATE_NOTICE_KEY } from "@/lib/events";
-import { QUIZ_PASS_KEY_PREFIX, TRACK_QUIZ_PASS_PREFIX, QUIZ_STORAGE_PREFIX } from "@/lib/quizzes";
-import { NOTE_KEY_PREFIX } from "@/lib/notes";
-import { RECENT_KEY } from "@/lib/recentlyViewed";
-
-/** Fixed-name keys that get exported/imported/reset verbatim */
-const EXPORT_KEYS = [COMPLETED_KEY, BOOKMARK_KEY, ENGAGEMENT_KEY, ONBOARDED_KEY, RECENT_KEY, GATE_NOTICE_KEY];
-/** Prefixed keys that are swept during export/import/reset (Stage 2.7: was missing
- *  TRACK_QUIZ_PASS_PREFIX and QUIZ_STORAGE_PREFIX — reset left quiz state behind) */
-const ALLOWED_KEY_PREFIXES = [QUIZ_PASS_KEY_PREFIX, TRACK_QUIZ_PASS_PREFIX, QUIZ_STORAGE_PREFIX, NOTE_KEY_PREFIX];
-
-function collectAllKeys(): Record<string, unknown> {
-  const data: Record<string, unknown> = {};
-  for (const key of EXPORT_KEYS) {
-    const raw = localStorage.getItem(key);
-    data[key] = raw ? JSON.parse(raw) : null;
-  }
-  // Snapshot all keys first to avoid length-changes mid-iteration
-  const allKeys = Array.from({ length: localStorage.length }, (_, i) => localStorage.key(i)).filter(Boolean) as string[];
-  for (const key of allKeys) {
-    if (ALLOWED_KEY_PREFIXES.some((p) => key.startsWith(p))) {
-      data[key] = localStorage.getItem(key);
-    }
-  }
-  return data;
-}
-
-function isAllowedKey(key: string): boolean {
-  if (EXPORT_KEYS.includes(key as typeof EXPORT_KEYS[number])) return true;
-  return ALLOWED_KEY_PREFIXES.some((p) => key.startsWith(p));
-}
-
-function restoreAllKeys(data: Record<string, unknown>) {
-  for (const [key, value] of Object.entries(data)) {
-    if (!isAllowedKey(key)) continue;
-    if (value === null || value === undefined) continue;
-    if (typeof value === "string") {
-      localStorage.setItem(key, value);
-    } else {
-      localStorage.setItem(key, JSON.stringify(value));
-    }
-  }
-}
+import { ENGAGEMENT_EVENT } from "@/lib/engagement";
+import { EXPORT_KEYS, ALLOWED_KEY_PREFIXES, collectAllKeys, restoreAllKeys } from "@/lib/progress-snapshot";
 
 type Status = { type: "success" | "error"; message: string } | null;
 
