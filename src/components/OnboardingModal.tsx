@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import { ONBOARDED_KEY as STORAGE_KEY } from "@/lib/events";
+import { ONBOARDED_KEY as STORAGE_KEY, PROGRESS_CHANGED_EVENT } from "@/lib/events";
 import { useFocusTrap } from "@/lib/useFocusTrap";
 
 const GOALS = [
@@ -60,6 +60,7 @@ export default function OnboardingModal() {
   function handleGoal(href: string) {
     try {
       localStorage.setItem(STORAGE_KEY, "1");
+      window.dispatchEvent(new CustomEvent(PROGRESS_CHANGED_EVENT));
     } catch {
       /* localStorage blocked, modal will just reappear next visit */
     }
@@ -70,6 +71,7 @@ export default function OnboardingModal() {
   function handleSkip() {
     try {
       localStorage.setItem(STORAGE_KEY, "1");
+      window.dispatchEvent(new CustomEvent(PROGRESS_CHANGED_EVENT));
     } catch {
       /* localStorage blocked, modal will just reappear next visit */
     }

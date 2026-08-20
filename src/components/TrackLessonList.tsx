@@ -8,7 +8,7 @@ import { getCompleted, markComplete, markIncomplete, lessonId } from "@/lib/prog
 import { getQuizPassed } from "@/lib/quizzes";
 import { addXP, ENGAGEMENT_EVENT } from "@/lib/engagement";
 import { checkAchievements } from "@/lib/achievements";
-import { GATE_NOTICE_KEY } from "@/lib/events";
+import { GATE_NOTICE_KEY, PROGRESS_CHANGED_EVENT } from "@/lib/events";
 import type { Track } from "@/lib/tracks";
 
 /**
@@ -43,6 +43,7 @@ export default function TrackLessonList({ track }: { track: Track }) {
     setShowNotice(false);
     try {
       localStorage.setItem(GATE_NOTICE_KEY, "1");
+      window.dispatchEvent(new CustomEvent(PROGRESS_CHANGED_EVENT));
     } catch {
       /* localStorage blocked, notice will just reappear next visit */
     }

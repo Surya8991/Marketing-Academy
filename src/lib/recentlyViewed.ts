@@ -1,3 +1,5 @@
+import { PROGRESS_CHANGED_EVENT } from "@/lib/events";
+
 export type RecentLesson = {
   categorySlug: string;
   slug: string;
@@ -24,6 +26,9 @@ export function trackLesson(entry: RecentLesson): void {
       (l) => !(l.categorySlug === entry.categorySlug && l.slug === entry.slug)
     );
     localStorage.setItem(KEY, JSON.stringify([entry, ...current].slice(0, MAX)));
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent(PROGRESS_CHANGED_EVENT));
+    }
   } catch {
     // localStorage unavailable - silently ignore
   }
