@@ -109,6 +109,29 @@ since sync depends on it being correct.
     newer wins as a whole snapshot (not per-field; keeps the first version
     simple). Write the merged result back to both `localStorage` and the
     server.
+
+    **Corrected during final review (2026-08-20).** The above assumed a local
+    `updatedAt` always exists and always belongs to the person signing in.
+    Neither holds: it is never written for a guest, and sign-out deliberately
+    leaves `localStorage` intact, so on a shared browser it can belong to the
+    *previous* user. Left as written, user A's leftover timestamp could beat
+    user B's server row and push A's completions, bookmarks and private notes
+    into B's account.
+
+    The shipped policy therefore stores the timestamp **scoped to the user id
+    that wrote it** (`ma_sync_local_updated_at` = `{ userId, at }`) and treats
+    a timestamp owned by anyone else — or absent entirely — as *no* timestamp:
+      - server row exists → **remote wins**;
+      - no server row either → **do nothing at all** (no restore, no push).
+        Blindly pushing here would upload a guest's or a previous user's
+        leftover `localStorage`. The user's own next real edit fires
+        `PROGRESS_CHANGED_EVENT`, which re-stamps under their id and pushes.
+
+    Consequence worth stating plainly: a long-time guest signing in for the
+    first time on a device where their account already has a server row will
+    have that server row win. Rescuing guest progress in that case is what
+    `/settings`'s export/import is for; silently preferring unowned local data
+    is the strictly worse failure (it is the cross-user leak above).
   - **On write**: every existing `*_EVENT` dispatch (`ENGAGEMENT_EVENT`,
     `LESSON_TOGGLE_EVENT`, `QUIZ_PASSED_EVENT`, `PROJECT_TOGGLE_EVENT`,
     `STORAGE_WRITE_FAILED`, etc.) is the trigger for a single new listener

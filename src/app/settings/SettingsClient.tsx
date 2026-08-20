@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { useSession } from "next-auth/react";
 import { ENGAGEMENT_EVENT } from "@/lib/engagement";
 import { EXPORT_KEYS, ALLOWED_KEY_PREFIXES, collectAllKeys, restoreAllKeys } from "@/lib/progress-snapshot";
 import { pushNow, pullAndMerge } from "@/lib/sync-client";
@@ -75,6 +76,8 @@ const dangerBtn: React.CSSProperties = {
 };
 
 export default function SettingsClient() {
+  const { data: session } = useSession();
+  const userId = (session?.user as { id?: string } | undefined)?.id;
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [importStatus, setImportStatus] = useState<Status>(null);
   const [exportStatus, setExportStatus] = useState<Status>(null);
@@ -97,7 +100,17 @@ export default function SettingsClient() {
   async function handlePull() {
     setSyncing(true);
     setSyncStatus(null);
-    await pullAndMerge();
+    if (!userId) {
+      setSyncStatus({ type: "error", message: "Pull failed. Make sure you're signed in." });
+      setSyncing(false);
+      return;
+    }
+    const ok = await pullAndMerge(userId);
+    if (!ok) {
+      setSyncStatus({ type: "error", message: "Pull failed. Check your connection and that you're signed in." });
+      setSyncing(false);
+      return;
+    }
     setSyncStatus({ type: "success", message: "Pulled and merged from cloud. Refreshing…" });
     setTimeout(() => window.location.reload(), 1200);
     setSyncing(false);
