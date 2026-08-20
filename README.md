@@ -186,10 +186,13 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/storage-utils.ts` | Safe `localStorage` wrapper with try/catch, corrupt-value backup, and `StorageWarning` trigger |
 | `src/components/StorageWarning.tsx` | Client banner shown when localStorage is blocked (corporate/Android) |
 | `tests/*.test.ts` | 30 tests (Node.js built-in runner + tsx): data validation, **projects data (Rule 57, the gate for project referential integrity)**, quiz shuffle, integrity regression |
-| `AGENTS.md` | 53 non-negotiable build rules for AI agents (incl. Rule 23: pre-push doc checklist) |
+| `AGENTS.md` | 77 non-negotiable build rules for AI agents (incl. Rule 23: pre-push doc checklist) |
 | `src/lib/notes.ts` | Shared note storage (NOTE_KEY_PREFIX, getNoteKey, getNote, saveNote) |
-| `src/app/api/sync-proxy/route.ts` | Server-side CF KV proxy, secret never exposed to client |
-| `src/app/api/sync/status/route.ts` | Returns `{ enabled: boolean }` so client knows if sync is configured |
+| `src/auth.ts` | NextAuth v5 config (Google sign-in via `DrizzleAdapter`), `requireUser()`/`requireAdmin()`/`isAdminUser()` |
+| `src/server/db/` | `schema.ts` (users/accounts/sessions/verificationTokens), `client.ts`, Drizzle `migrations/` |
+| `src/app/api/sync/route.ts` | Per-user progress sync, gated by `requireUser()`'s database session. Replaces the deleted `/api/sync-proxy` shared-secret design (AGENTS.md Rule 26/44, Rule 77) |
+| `src/lib/sync-client.ts` | Client auto-sync: `mergeSnapshots`/`pullAndMerge`/`pushNow`/`startAutoSync`, debounce-pushes on `PROGRESS_CHANGED_EVENT` |
+| `src/lib/progress-snapshot.ts` | Single source of truth for "the user's progress data" (`EXPORT_KEYS`/`ALLOWED_KEY_PREFIXES`/`collectAllKeys`/`restoreAllKeys`), shared by `/settings` and sync |
 | `PROJECT_LOG.md` | Full session history, gotchas, file inventory, pending tasks |
 
 ---
@@ -218,6 +221,8 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/achievements` | XP level, streak, and 12 unlockable achievement badges |
 | `/portfolio` | Session 85, Stage 9.1 — your completed practice projects as portfolio-ready interview evidence: company, tier, archetype, concepts, "Export as JSON," cross-linked with `/interview-prep`. `noindex` (personal, per-browser data) |
 | `/settings` | Export / import / reset all learning progress as JSON |
+| `/login` | Google sign-in (only rendered when auth env vars are configured) |
+| `/account` | Signed-in profile: session list, delete account |
 | `/about` | About page: mission, builder profile, stats, tech stack, links |
 | `/certificates` | Track completion certificate index |
 | `/certificates/[slug]` | Printable track completion certificate |
@@ -227,11 +232,25 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/sitemap.xml` | Auto-generated sitemap (lessons with MDX only) |
 | `/api/og` | Dynamic OG image endpoint |
 | `/api/newsletter` | Newsletter signup (connect to your email service) |
+| `/api/auth/[...nextauth]` | NextAuth v5 handler (Google sign-in) |
+| `/api/sync` | Per-user progress push/pull, requires a signed-in session |
+| `/api/account/sessions` | List/revoke the signed-in user's active sessions |
+| `/api/account/delete` | Delete the signed-in user's account and data |
 
 ---
 
 ## Deploy
 
-Auto-deploys to Vercel on every push to `main`. No environment variables needed.
+Auto-deploys to Vercel on every push to `main`. No environment variables are required for the core site.
+
+**Accounts + sync (all optional)** — sign-in is hidden and `/api/sync` returns 503 until every one of these is set (see `.env.example`):
+
+| Var | Purpose |
+|---|---|
+| `AUTH_SECRET` | NextAuth session encryption (`openssl rand -base64 32`) |
+| `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | Google OAuth credentials for sign-in |
+| `DATABASE_URL` | SQLite file path for local dev, or a `libsql://...` Turso URL in production |
+| `TURSO_AUTH_TOKEN` | Auth token for a remote Turso database (unused for local SQLite) |
+| `ADMIN_EMAILS` | Comma-separated addresses auto-promoted to `role: "admin"` on sign-in (bootstrap/failsafe, mirrors the Email-Automator sister project's pattern — AGENTS.md Rule 77) |
 
 To connect newsletter to an email service, edit `src/app/api/newsletter/route.ts`, it has a `// TODO` comment marking the integration point.
