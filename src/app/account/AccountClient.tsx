@@ -13,9 +13,19 @@ export default function AccountClient({ email, isAdmin }: { email: string; isAdm
 
   function loadSessions() {
     fetch("/api/account/sessions")
-      .then((r) => r.json())
-      .then((d: { sessions: SessionRow[] }) => setSessions(d.sessions))
-      .catch(() => setSessions([]));
+      .then(async (r) => {
+        const d = (await r.json().catch(() => ({}))) as { sessions?: SessionRow[]; error?: string };
+        if (!r.ok) {
+          setErr(d.error ?? "Failed to load sessions");
+          setSessions([]);
+          return;
+        }
+        setSessions(d.sessions ?? []);
+      })
+      .catch(() => {
+        setErr("Failed to load sessions");
+        setSessions([]);
+      });
   }
 
   useEffect(() => { loadSessions(); }, []);
