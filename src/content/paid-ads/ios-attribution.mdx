@@ -39,6 +39,19 @@ What replaced it is three different workarounds running at the same time: SKAdNe
 
 ### 1. SKAdNetwork (SKAN): Apple's Own Solution
 
+<InAction
+  concept="SKAdNetwork (SKAN) Optimization"
+  companyName="Getir"
+  where="Across high-volume iOS on-demand grocery acquisition campaigns in Europe."
+  why="Following Apple's ATT rollout, iOS install attribution collapsed, making paid campaign ROI invisible."
+  what="They implemented an automated SKAN measurement workflow with AppsFlyer and Google Integrated Conversion Measurement (ICM) to aggregate postbacks and map early conversion values."
+  benefit="Achieved a 4.1x increase in attributed iOS installs and a 69% reduction in Cost Per Install (CPI)"
+  timeframe="6 months"
+  date="2023"
+  source="https://www.appsflyer.com/customers/getir/"
+  counterExample="Relying on unconfigured SKAN postbacks left over 60% of conversion values null, obscuring paid channel incrementality."
+/>
+
 SKAdNetwork is Apple's official privacy-safe measurement framework. Here is how it works in plain terms:
 
 1. A user sees your ad on their iPhone.
@@ -56,14 +69,15 @@ The current version, SKAdNetwork 4.0 (SKAN 4), is a significant improvement. It 
 
 <InAction
   concept="Meta Conversions API (CAPI)"
-  companyName="Club Med"
-  where="Meta (Facebook/Instagram) paid campaigns for vacation bookings"
-  why="Post-iOS 14.5 pixel-only tracking was undercounting real bookings and inflating cost per conversion"
-  what="Club Med implemented Meta's Conversions API to send booking events server-to-server alongside its existing browser pixel"
-  benefit="10% more conversion events were registered and cost per acquisition dropped 26% compared to pixel-only tracking"
-  timeframe="After rollout of the CAPI integration, measured against pixel-only campaigns"
-  date="2024"
-  source="https://www.accuracast.com/case-study/clubmed-capi-gateway/"
+  companyName="Samsung UK"
+  where="In their cross-channel digital marketing and retail performance campaigns across the UK."
+  why="Browser pixel restrictions post-iOS 14.5 obscured customer touchpoints across web and mobile storefronts."
+  what="Implemented server-side Conversions API alongside pixel event deduplication to transmit verified first-party purchase events directly to Meta."
+  benefit="Captured and measured 2.3x more customer purchases while improving algorithmic targeting accuracy"
+  timeframe="3 months"
+  date="2022"
+  source="https://www.facebook.com/business/success/samsung-uk"
+  counterExample="Running client-side browser pixels alone dropped match quality below 40% and inflated reported CPAs by over 35%."
 />
 
 Meta's Conversions API works from your side, not the user's device. Instead of relying on a browser pixel (which gets blocked), your own server sends purchase data directly to Meta: "someone with this hashed email address bought $89 worth of product at 2:04 PM." Meta matches that event to one of its users using hashed identifiers like email or phone number.

@@ -47,3 +47,10 @@ next-env.d.ts
 # local sqlite db
 data/*.db
 data/*.db-*
+
+# AI/editor scratch + tool dirs
+.augment/
+.clinerules/
+.cursor/
+.windsurf/
+scratch/
