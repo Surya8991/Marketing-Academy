@@ -19,6 +19,22 @@ const nextConfig: NextConfig = {
   // Treat .md and .mdx files as page routes / importable components
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
 
+  // Trim serverless Function bundle size: stop Next's file tracer from pulling
+  // build-only toolchain packages into every function bundle. None are needed at
+  // runtime, so excluding them lowers Vercel Functions Storage. Safe list only —
+  // do NOT add "@swc/helpers" here (that IS a runtime dependency).
+  outputFileTracingExcludes: {
+    "*": [
+      "node_modules/typescript/**",
+      "node_modules/@swc/core/**",
+      "node_modules/@swc/core-*/**",
+      "node_modules/esbuild/**",
+      "node_modules/@esbuild/**",
+      "node_modules/terser/**",
+      "node_modules/@next/bundle-analyzer/**",
+    ],
+  },
+
   // Vercel's free plan caps Image Optimization Transformations at 5,000/month; this site's
   // only next/image usage is YouTube thumbnails in LessonResourcesClient.tsx, and unique
   // videos x responsive size/quality variants exceeded that cap. `unoptimized: true` makes
