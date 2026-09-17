@@ -10,10 +10,18 @@ import ProjectCard from "@/components/ProjectCard";
 
 type Props = { params: Promise<{ category: string; slug: string }> };
 
-export const dynamicParams = false;
+// ISR: project detail pages render on demand and cache at the edge instead of
+// being pre-rendered into every deployment. This keeps ~800 project pages
+// (~142 MB of .rsc + .html) out of the build artifact, which is the single
+// biggest contributor to this project's Vercel Deployment Storage. Pages still
+// self-canonicalize (see generateMetadata) and stay in the sitemap, so SEO is
+// unchanged; the first request to a cold page renders server-side, then caches.
+// An unknown slug still 404s via notFound() in the page body below.
+export const dynamicParams = true;
+export const revalidate = 86400; // re-generate a page at most once per day
 
 export async function generateStaticParams() {
-  return PROJECTS_INDEX.map((p) => ({ category: p.category, slug: p.id }));
+  return []; // prerender none at build; each page is generated on first request
 }
 
 const BASE = "https://marketing-academy-roan.vercel.app";
