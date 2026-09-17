@@ -21,8 +21,12 @@ export default function Callout({ type = "info", title, children }: CalloutProps
   const s = STYLES[type];
   return (
     <div className={cn("not-prose my-6 rounded-lg border-l-4 px-4 py-3 text-[var(--foreground)]", s.ring, s.tint)}>
-      <div className={cn("flex items-center gap-1.5 font-semibold text-sm mb-1.5", s.iconColor)}>
-        {s.icon}
+      {/* Icon stays brand-colored (visual type coding); label uses --foreground
+          so it always meets WCAG AA — the -500 tints failed contrast on the
+          light /10 background (Rule 19 / a11y). Type is still conveyed by the
+          coloured icon + border + the text label itself, never colour alone. */}
+      <div className="flex items-center gap-1.5 font-semibold text-sm mb-1.5 text-[var(--foreground)]">
+        <span className={s.iconColor}>{s.icon}</span>
         <span>{title ?? s.label}</span>
       </div>
       <div className="text-sm leading-relaxed text-[var(--foreground)]">{children}</div>
