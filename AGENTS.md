@@ -660,7 +660,9 @@ Fix for the user: unregister the service worker and clear Cache Storage in that 
 
 ### Rule 60 — A practice project's own detail page, and the "always open in a new tab + own page" convention
 
-Every practice project has its own statically-generated page at `/projects/[category]/[id]` (`src/app/projects/[category]/[slug]/page.tsx`, `generateStaticParams` from `PROJECTS_INDEX`). `src/lib/projects/lookup.ts`'s `getProjectByCategoryAndId()` does the server-side lookup — same dynamic-import + `<CATEGORY>_PROJECTS`-export-name-with-fallback logic the old `ProjectDrawer.tsx` used client-side (that file is deleted; this is its server-side replacement).
+Every practice project has its own page at `/projects/[category]/[id]` (`src/app/projects/[category]/[slug]/page.tsx`).
+
+> **Updated 2026-09-17 (storage optimization):** this page is now **on-demand ISR**, not build-time SSG. `dynamicParams = true`, `revalidate = 86400`, and `generateStaticParams` returns `[]` — so the ~800 project pages (~142 MB of `.rsc` + `.html`) are NO longer baked into every deployment's build artifact (that was this project's single biggest Vercel Deployment Storage cost). Each page still resolves at its URL (rendered on first request, then edge-cached), stays in the sitemap, and self-canonicalizes, so nothing changed for users or SEO. An unknown slug still 404s via `notFound()`. Do not revert to full SSG (a non-empty `generateStaticParams` + `dynamicParams = false`) without a storage reason. `src/lib/projects/lookup.ts`'s `getProjectByCategoryAndId()` does the server-side lookup — same dynamic-import + `<CATEGORY>_PROJECTS`-export-name-with-fallback logic the old `ProjectDrawer.tsx` used client-side (that file is deleted; this is its server-side replacement).
 
 `ProjectCard.tsx` now takes a `variant: "preview" | "full"` prop (default `"preview"`):
 - `"preview"` (used by `ProjectList.tsx` on the lesson page): renders the header/summary only, with an "Open project" link to `/projects/{category}/{id}` — requires a `category` prop, threaded down from the lesson page's `sourceCat`. Never expands inline anymore.
