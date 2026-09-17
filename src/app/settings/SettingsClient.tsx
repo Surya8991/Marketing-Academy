@@ -105,6 +105,13 @@ const EXPERIENCE_OPTIONS: { value: ExperienceLevel | ""; label: string }[] = [
   { value: "advanced", label: "Advanced" },
 ];
 
+type EmailPrefs = { emailStreakReminder: boolean; emailResumeLearning: boolean; emailWeeklyDigest: boolean };
+const DEFAULT_EMAIL_PREFS: EmailPrefs = {
+  emailStreakReminder: false,
+  emailResumeLearning: false,
+  emailWeeklyDigest: false,
+};
+
 export default function SettingsClient({ authConfigured = false }: { authConfigured?: boolean }) {
   const { data: session, status } = useSession();
   const userId = (session?.user as { id?: string } | undefined)?.id;
@@ -119,10 +126,42 @@ export default function SettingsClient({ authConfigured = false }: { authConfigu
   const [profile, setProfileState] = useState<Profile>({ role: "", experienceLevel: "", primaryGoal: "" });
   const [profileStatus, setProfileStatus] = useState<Status>(null);
 
+  const [emailPrefs, setEmailPrefs] = useState<EmailPrefs>(DEFAULT_EMAIL_PREFS);
+  const [emailPrefsLoaded, setEmailPrefsLoaded] = useState(false);
+  const [emailPrefsStatus, setEmailPrefsStatus] = useState<Status>(null);
+
   useEffect(() => {
     setName(getCertName());
     setProfileState(getProfile());
   }, []);
+
+  useEffect(() => {
+    if (status !== "authenticated") return;
+    fetch("/api/account/email-prefs")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data: EmailPrefs | null) => {
+        if (data) setEmailPrefs(data);
+        setEmailPrefsLoaded(true);
+      })
+      .catch(() => setEmailPrefsLoaded(true));
+  }, [status]);
+
+  async function toggleEmailPref(key: keyof EmailPrefs) {
+    const next = { ...emailPrefs, [key]: !emailPrefs[key] };
+    setEmailPrefs(next);
+    setEmailPrefsStatus(null);
+    try {
+      const res = await fetch("/api/account/email-prefs", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ [key]: next[key] }),
+      });
+      if (!res.ok) throw new Error();
+    } catch {
+      setEmailPrefs(emailPrefs); // revert on failure
+      setEmailPrefsStatus({ type: "error", message: "Couldn't save that. Try again." });
+    }
+  }
 
   function handleSaveProfile(e: React.FormEvent) {
     e.preventDefault();
@@ -379,6 +418,66 @@ export default function SettingsClient({ authConfigured = false }: { authConfigu
           </>
         )}
       </section>
+
+      {/* Email notifications — signed-in only (guests have no email on file).
+          All opt-in, default OFF (IMPROVEMENT_PLAN §D2/#28). */}
+      {status === "authenticated" && session?.user && (
+        <section style={cardStyle}>
+          <h2 style={headingStyle}>Email Notifications</h2>
+          <p style={descStyle}>
+            Opt-in only — off by default. Every email includes a one-click unsubscribe.
+          </p>
+          {emailPrefsLoaded ? (
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+              <label style={{ display: "flex", alignItems: "flex-start", gap: "0.6rem", cursor: "pointer" }}>
+                <input
+                  type="checkbox"
+                  checked={emailPrefs.emailStreakReminder}
+                  onChange={() => toggleEmailPref("emailStreakReminder")}
+                  style={{ marginTop: "0.2rem" }}
+                />
+                <span>
+                  <strong style={{ display: "block", fontSize: "0.9rem" }}>Streak reminder</strong>
+                  <span style={{ fontSize: "0.8rem", color: "var(--muted-foreground)" }}>
+                    A nudge when your streak is about to lapse.
+                  </span>
+                </span>
+              </label>
+              <label style={{ display: "flex", alignItems: "flex-start", gap: "0.6rem", cursor: "pointer" }}>
+                <input
+                  type="checkbox"
+                  checked={emailPrefs.emailResumeLearning}
+                  onChange={() => toggleEmailPref("emailResumeLearning")}
+                  style={{ marginTop: "0.2rem" }}
+                />
+                <span>
+                  <strong style={{ display: "block", fontSize: "0.9rem" }}>Resume learning</strong>
+                  <span style={{ fontSize: "0.8rem", color: "var(--muted-foreground)" }}>
+                    A reminder with your last lesson after a few inactive days.
+                  </span>
+                </span>
+              </label>
+              <label style={{ display: "flex", alignItems: "flex-start", gap: "0.6rem", cursor: "pointer" }}>
+                <input
+                  type="checkbox"
+                  checked={emailPrefs.emailWeeklyDigest}
+                  onChange={() => toggleEmailPref("emailWeeklyDigest")}
+                  style={{ marginTop: "0.2rem" }}
+                />
+                <span>
+                  <strong style={{ display: "block", fontSize: "0.9rem" }}>Weekly digest</strong>
+                  <span style={{ fontSize: "0.8rem", color: "var(--muted-foreground)" }}>
+                    Lessons completed, XP earned, and your streak, once a week.
+                  </span>
+                </span>
+              </label>
+            </div>
+          ) : (
+            <p style={{ ...descStyle, marginBottom: 0 }}>Loading…</p>
+          )}
+          <StatusBanner status={emailPrefsStatus} />
+        </section>
+      )}
 
       {/* Preferences */}
       <section style={cardStyle}>

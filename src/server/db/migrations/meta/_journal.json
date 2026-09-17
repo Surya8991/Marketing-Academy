@@ -15,6 +15,13 @@
       "when": 1789636872493,
       "tag": "0001_overrated_dagger",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1789637549172,
+      "tag": "0002_married_lockheed",
+      "breakpoints": true
     }
   ]
 }

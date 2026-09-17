@@ -17,6 +17,15 @@ export const users = sqliteTable("users", {
   // requireUser()) — existing sessions/tokens are deliberately left alone,
   // since auth() is re-evaluated fresh on every request, not cached.
   suspended: integer("suspended", { mode: "boolean" }).notNull().default(false),
+  // Opt-in engagement email prefs (#28), all default OFF — a signed-in user
+  // turns these on individually in Settings. Server-side (not localStorage)
+  // because the cron routes that send these run with no browser attached.
+  // Each maps to one email/lib/templates/*.ts template + one /api/cron/*
+  // route; the one-click unsubscribe link in every send flips its own
+  // column via /api/email/unsubscribe (token-verified, no sign-in needed).
+  emailStreakReminder: integer("emailStreakReminder", { mode: "boolean" }).notNull().default(false),
+  emailResumeLearning: integer("emailResumeLearning", { mode: "boolean" }).notNull().default(false),
+  emailWeeklyDigest: integer("emailWeeklyDigest", { mode: "boolean" }).notNull().default(false),
 });
 
 // Append-only log of every superadmin mutation (#30) — the accountability

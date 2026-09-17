@@ -20,6 +20,11 @@ const envSchema = z.object({
   // uses a Gmail App Password (2FA required), never a real account password.
   EMAIL_SERVER: z.string().optional(),
   EMAIL_FROM: z.string().optional(),
+  // IMPROVEMENT_PLAN #28 — shared secret Vercel Cron sends as
+  // `Authorization: Bearer <CRON_SECRET>`. Every /api/cron/* route checks
+  // this instead of a user session (there is no user attached to a cron
+  // invocation) — see that header check in each route for the exact pattern.
+  CRON_SECRET: z.string().optional(),
 });
 
 // Drop empty-string env values before validating — an env var present but

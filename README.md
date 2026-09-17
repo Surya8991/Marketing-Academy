@@ -185,7 +185,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `vercel.json` | Security headers (CSP, HSTS, X-Frame-Options, etc.) |
 | `src/lib/storage-utils.ts` | Safe `localStorage` wrapper with try/catch, corrupt-value backup, and `StorageWarning` trigger |
 | `src/components/StorageWarning.tsx` | Client banner shown when localStorage is blocked (corporate/Android) |
-| `tests/*.test.ts` | 70 tests (Node.js built-in runner + tsx): data validation, **projects data (Rule 57, the gate for project referential integrity)**, quiz shuffle, integrity regression, API auth coverage |
+| `tests/*.test.ts` | 75 tests (Node.js built-in runner + tsx): data validation, **projects data (Rule 57, the gate for project referential integrity)**, quiz shuffle, integrity regression, API auth coverage |
 | `AGENTS.md` | 79 non-negotiable build rules for AI agents (incl. Rule 23: pre-push doc checklist) |
 | `src/lib/session-cookie.ts` | Shared Auth.js session-cookie-name lookup (checks both `__Secure-authjs.session-token` and `authjs.session-token`), used by both `/api/account` routes |
 | `src/lib/quiz-keys.ts` | `QUIZ_STORAGE_PREFIX`/`QUIZ_PASS_KEY_PREFIX`/`TRACK_QUIZ_PASS_PREFIX`, split out of the 2.4MB `quizzes.ts` so `progress-snapshot.ts` (now client-bundled via `SyncProvider`) doesn't pull it in |
@@ -199,8 +199,10 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/profile.ts` | Persona fields (`ma_profile`: role/experienceLevel/primaryGoal), editable on Settings + captured (optionally) at onboarding |
 | `src/lib/profile-stats.ts` | `getProfileStats()` — the one aggregator for `/profile`, replacing 4x duplicated stat derivations across Achievements/SkillMap/Portfolio/certificates |
 | `src/components/StatsRow.tsx` / `ActivityHeatmap.tsx` / `AutosaveIndicator.tsx` | Shared components: the `code/value/label` stat-tile grid, an 18-week GitHub-style contribution heatmap (fed by `xpByDay`), and the "Saved · synced Xm ago" indicator |
-| `src/lib/email/` | Shared branded HTML+text email layout + nodemailer transport wrapper + templates (`magic-link`, `welcome`, `account-deleted`) — table-based markup, hex-inlined (no CSS vars in email clients) |
+| `src/lib/email/` | Shared branded HTML+text email layout + nodemailer transport wrapper + templates (`magic-link`, `welcome`, `account-deleted`, and — #28 — `streak-reminder`, `resume-learning`, `weekly-digest`) + `unsubscribe-token.ts` (HMAC-signed one-click unsubscribe, no session needed) — table-based markup, hex-inlined (no CSS vars in email clients) |
 | `src/lib/admin-stats.ts` / `admin-audit.ts` | `getAdminStats()` (shared by `/admin` and its API route) and `logAdminAction()` — the append-only audit-log writer every `/api/admin/users/[id]` mutation calls |
+| `src/lib/cron-auth.ts` / `cron-dates.ts` | `isCronAuthorized()` (verifies Vercel's `Authorization: Bearer $CRON_SECRET` header) and `todayKey()`/`daysAgoKey()` (mirrors `engagement.ts`'s local-date format) — shared by the 3 `/api/cron/*` routes (#28) |
+| `src/app/api/cron/*` | 3 scheduled routes (`vercel.json`'s `crons`): `streak-reminder` (daily), `resume-learning` (daily), `weekly-digest` (weekly) — each queries opted-in signed-in users' synced `progress` rows server-side (email prefs are DB columns, not localStorage, since a cron job has no browser attached) |
 | `PROJECT_LOG.md` | Full session history, gotchas, file inventory, pending tasks |
 
 ---
@@ -233,7 +235,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/achievements` | XP level, streak, and 12 unlockable achievement badges |
 | `/portfolio` | Session 85, Stage 9.1 — your completed practice projects as portfolio-ready interview evidence: company, tier, archetype, concepts, "Export as JSON," cross-linked with `/interview-prep`. `noindex` (personal, per-browser data) |
 | `/profile` | Personal dashboard hub: XP/level, streak, 18-week activity heatmap, recent activity, per-category progress, badges/certificates/portfolio/bookmarks/review-due — aggregates links to their dedicated pages. Guest + signed-in. `noindex` |
-| `/settings` | Export / import / reset all learning progress as JSON; Profile Details, Account, Preferences (theme), Autosave status cards |
+| `/settings` | Export / import / reset all learning progress as JSON; Profile Details, Account, Email Notifications (signed-in only, opt-in), Preferences (theme), Autosave status cards |
 | `/login` | Gmail-SMTP magic-link sign-in (single email form, only rendered when `EMAIL_SERVER`/`EMAIL_FROM` are configured — Google OAuth stays wired but unpromoted) |
 | `/account` | Signed-in profile: session list, delete account |
 | `/admin` | Account/usage dashboard (lessons/users overview) — any admin (`role`/`ADMIN_EMAILS`), read-only unless also superadmin. `noindex` |
@@ -270,3 +272,4 @@ Auto-deploys to Vercel on every push to `main`. No environment variables are req
 | `TURSO_AUTH_TOKEN` | Auth token for a remote Turso database (unused for local SQLite) |
 | `ADMIN_EMAILS` | Comma-separated addresses auto-promoted to `role: "admin"` on sign-in (bootstrap/failsafe, mirrors the Email-Automator sister project's pattern — AGENTS.md Rule 77) |
 | `SUPERADMIN_EMAILS` | Comma-separated addresses with `/admin/users` (full user management) access — **never persisted to the database anywhere**, checked fresh against this env var on every request, so it can't be escalated from inside the app (IMPROVEMENT_PLAN #30) |
+| `CRON_SECRET` | Enables the 3 `/api/cron/*` engagement-email routes (#28) — Vercel automatically sends it as `Authorization: Bearer $CRON_SECRET` on scheduled-function requests once set; with no value, cron sending stays off entirely |
