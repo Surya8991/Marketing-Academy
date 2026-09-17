@@ -1,19 +1,19 @@
 /**
- * Slim category index — a STANDALONE literal, intentionally NOT derived from
+ * Slim category index, a STANDALONE literal, intentionally NOT derived from
  * `CATEGORIES` (Rule 41 / IMPROVEMENT_PLAN #5).
  *
  * Why a hand-written literal instead of `CATEGORIES.map(...)`: the old
  * `CATEGORY_INDEX` in curriculum.ts was `CATEGORIES.map(...)`, which references
  * the full ~148 KB `CATEGORIES` array at init. Because `Nav.tsx` (mounted in the
  * root layout, so on EVERY route) imports the slim index, the bundler could not
- * tree-shake `CATEGORIES` out — the entire curriculum (all 655 lesson summaries)
+ * tree-shake `CATEGORIES` out, the entire curriculum (all 655 lesson summaries)
  * shipped to the client on every page. Materializing the slim data here, with no
  * import of the big module, keeps it out of the client bundle.
  *
  * Drift is prevented by `tests/category-index.test.ts`, which asserts this array
  * matches the values derived from `CATEGORIES` exactly. If you add/rename a
  * category or its lesson count changes, update this literal and the test will
- * confirm it's back in sync. Never change this to `CATEGORIES.map(...)` — that
+ * confirm it's back in sync. Never change this to `CATEGORIES.map(...)`, that
  * reintroduces the bundle regression.
  */
 export type CategoryIndex = { slug: string; title: string; emoji: string; lessonCount: number };

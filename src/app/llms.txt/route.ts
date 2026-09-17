@@ -2,7 +2,7 @@ import { CATEGORIES, uniqueLessonCount } from "@/lib/curriculum";
 import { TRACKS } from "@/lib/tracks";
 
 /**
- * /llms.txt — the emerging AI-crawler manifest (llmstxt.org). A concise,
+ * /llms.txt: the emerging AI-crawler manifest (llmstxt.org). A concise,
  * link-first index that helps LLM answer engines (ChatGPT, Claude, Perplexity,
  * Gemini, Google AI Overviews) understand the site and cite the right pages.
  *

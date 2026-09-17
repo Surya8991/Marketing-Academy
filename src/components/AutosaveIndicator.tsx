@@ -3,13 +3,13 @@
 /**
  * Surfaces IMPROVEMENT_PLAN #27's "is my data safe?" question. Autosave was
  * always present (instant local write, 2s debounced cloud push when signed
- * in — sync-client.ts's startAutoSync()) but had zero visible indicator
+ * in, sync-client.ts's startAutoSync()) but had zero visible indicator
  * anywhere in the app. Used on /profile and /settings.
  *
- * Guests have no persisted "last saved at" timestamp to read on mount —
+ * Guests have no persisted "last saved at" timestamp to read on mount,
  * sync-client's LOCAL_UPDATED_AT_KEY is deliberately scoped to a signed-in
  * userId (see that file's docblock: an unowned timestamp is a cross-user
- * data-leak risk on a shared browser) — so a guest only gets a specific
+ * data-leak risk on a shared browser), so a guest only gets a specific
  * relative time once a PROGRESS_CHANGED_EVENT fires during this session.
  * Before that, if they already have real local data, it just says "Saved
  * locally" with no timestamp, rather than fabricating one.

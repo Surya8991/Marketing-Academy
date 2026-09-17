@@ -22,6 +22,6 @@ export function setCertName(name: string): void {
     localStorage.setItem(CERT_NAME_KEY, name);
     window.dispatchEvent(new CustomEvent(PROGRESS_CHANGED_EVENT));
   } catch {
-    /* private mode / storage full — non-fatal */
+    /* private mode / storage full, non-fatal */
   }
 }

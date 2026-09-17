@@ -27,7 +27,7 @@ export async function POST() {
   const jar = await cookies();
   clearSessionCookie(jar);
 
-  // Confirmation email (IMPROVEMENT_PLAN §D2) — best-effort, sent after the
+  // Confirmation email (IMPROVEMENT_PLAN §D2), best-effort, sent after the
   // delete succeeds so a mail failure can never block account deletion.
   if (user.email) void sendMail({ to: user.email, ...accountDeletedEmail() });
 

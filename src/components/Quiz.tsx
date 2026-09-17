@@ -134,7 +134,7 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
   const [selections, setSelections] = useState<number[]>([]);
   const [mode, setMode] = useState<"question" | "review">("question");
   // True while editing a single question that was reopened from the review
-  // screen — changes the primary button to return to review instead of
+  // screen, changes the primary button to return to review instead of
   // advancing linearly to the next question.
   const [editingFromReview, setEditingFromReview] = useState(false);
   const [finished, setFinished] = useState(false);
@@ -279,7 +279,7 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
     // success screen" flag so the new attempt shows its own real score and
     // per-question review. The persisted pass flag (getQuizPassed) is left
     // untouched, so "Mark as Complete" stays unlocked no matter how the
-    // retake goes — a retake can never re-lock a lesson already earned.
+    // retake goes, a retake can never re-lock a lesson already earned.
     setAlreadyPassed(false);
   }
 
@@ -446,7 +446,7 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
         <div className="mb-5">
           <h3 className="text-lg font-semibold mb-1">Review your answers</h3>
           <p className="text-sm text-[var(--muted-foreground)]">
-            Check each answer before submitting — you can still go back and change any of them.
+            Check each answer before submitting, you can still go back and change any of them.
           </p>
         </div>
 

@@ -3,7 +3,7 @@ import { env } from "@/lib/env";
 
 /**
  * One shared SMTP transport for every outbound email (auth magic-links,
- * transactional, and — once #28 ships — engagement/milestone mail). Built
+ * transactional, and, once #28 ships, engagement/milestone mail). Built
  * lazily so importing this module never throws when EMAIL_SERVER isn't set
  * (mirrors the lazyProxy pattern in src/server/db/client.ts for the same
  * "must not crash on a fresh checkout with no env vars" reason).
@@ -12,7 +12,7 @@ let cached: ReturnType<typeof nodemailer.createTransport> | null = null;
 
 function getTransport() {
   if (!env.EMAIL_SERVER) {
-    throw new Error("EMAIL_SERVER is not set — email sending is not configured.");
+    throw new Error("EMAIL_SERVER is not set, email sending is not configured.");
   }
   if (!cached) {
     cached = nodemailer.createTransport(env.EMAIL_SERVER);
@@ -27,7 +27,7 @@ export type SendMailInput = {
   text: string;
 };
 
-/** Returns true on success, false on any failure — email is always a
+/** Returns true on success, false on any failure, email is always a
  *  best-effort side channel, never something that should break the caller's
  *  actual request (account creation, a sign-in, etc). */
 export async function sendMail(input: SendMailInput): Promise<boolean> {

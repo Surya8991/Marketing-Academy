@@ -1,12 +1,12 @@
 "use client";
 
 /**
- * /profile — the personal learning dashboard hub (IMPROVEMENT_PLAN #25).
+ * /profile: the personal learning dashboard hub (IMPROVEMENT_PLAN #25).
  * Aggregates-and-links: every stat here is computed once via
  * getProfileStats() (Rule 18), every section links out to the existing
  * dedicated page (/achievements, /skill-map, /portfolio, /certificates,
  * /bookmarks, /review) rather than re-implementing it. Works for guests
- * and signed-in users alike — nothing here requires an account.
+ * and signed-in users alike, nothing here requires an account.
  */
 import Link from "next/link";
 import { useEffect, useState, useCallback } from "react";
@@ -61,6 +61,7 @@ export default function ProfileClient({
   const [stats, setStats] = useState<ProfileStats | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [certName, setCertNameState] = useState("");
+  const [showAllActivity, setShowAllActivity] = useState(false);
 
   const refresh = useCallback(() => {
     setStats(getProfileStats(projectsIndex));
@@ -175,13 +176,23 @@ export default function ProfileClient({
               Recent activity
             </p>
             <ul className="divide-y divide-[var(--border)] border-t border-b border-[var(--border)] font-ui-sans text-sm">
-              {stats.recentActivity.map((a, i) => (
+              {(showAllActivity ? stats.recentActivity : stats.recentActivity.slice(0, 5)).map((a, i) => (
                 <li key={`${a.id}-${a.ts}-${i}`} className="py-2.5 flex items-center justify-between gap-4">
                   <span className="text-[var(--foreground)]">{activityLabel(a.action)}</span>
                   <span className="text-[var(--muted-foreground)] text-xs whitespace-nowrap">+{a.xp} XP</span>
                 </li>
               ))}
             </ul>
+            {stats.recentActivity.length > 5 && (
+              <button
+                onClick={() => setShowAllActivity((v) => !v)}
+                className="mt-3 text-xs font-medium text-[var(--accent)] hover:opacity-80 transition-opacity font-ui-sans"
+              >
+                {showAllActivity
+                  ? "Show less"
+                  : `Show ${stats.recentActivity.length - 5} more`}
+              </button>
+            )}
           </section>
         )}
 

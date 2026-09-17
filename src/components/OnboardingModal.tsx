@@ -61,7 +61,7 @@ export default function OnboardingModal() {
   if (!mounted || !visible) return null;
 
   // Captures the light "name + goal" persona (IMPROVEMENT_PLAN #24) at the
-  // moment the learner commits to a path, rather than a separate step —
+  // moment the learner commits to a path, rather than a separate step,
   // keeps onboarding to the one screen it's always been. Name rides
   // cert-name.ts (already syncs/auto-fills the certificate, Rule 18: one
   // key, one owner); goal is stored as profile.primaryGoal.

@@ -5,7 +5,7 @@ import { db } from "@/server/db/client";
 import { users } from "@/server/db/schema";
 import { rateLimit } from "@/lib/rate-limit";
 
-// auth() directly, not requireUser() — same reasoning as /api/sync/route.ts's
+// auth() directly, not requireUser(), same reasoning as /api/sync/route.ts's
 // own comment: this is a fetch()-based API client, a redirect would confuse it.
 async function getUserId(): Promise<string | null> {
   const session = await auth();

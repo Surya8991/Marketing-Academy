@@ -10,7 +10,7 @@ import { useMemo } from "react";
  * this behind a `mounted` flag, same as every other localStorage-backed
  * client component in this codebase).
  */
-const WEEKS = 18; // ~126 days — enough real history to be meaningful, compact on mobile
+const WEEKS = 18; // ~126 days, enough real history to be meaningful, compact on mobile
 
 function localDateKey(d: Date): string {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
@@ -60,17 +60,17 @@ export default function ActivityHeatmap({ xpByDay }: { xpByDay: Record<string, n
 
   return (
     <div className="overflow-x-auto">
-      <div className="flex gap-[3px] w-max">
+      <div className="flex gap-[4px] sm:gap-[5px] w-max">
         {weeks.map((week, wi) => (
-          <div key={wi} className="flex flex-col gap-[3px]">
+          <div key={wi} className="flex flex-col gap-[4px] sm:gap-[5px]">
             {week.map((day) =>
               day.future ? (
-                <div key={day.key} className="w-[11px] h-[11px]" />
+                <div key={day.key} className="w-[15px] h-[15px] sm:w-[20px] sm:h-[20px]" />
               ) : (
                 <div
                   key={day.key}
-                  title={`${day.key} — ${day.xp} XP`}
-                  className="w-[11px] h-[11px] rounded-[2px]"
+                  title={`${day.key}, ${day.xp} XP`}
+                  className="w-[15px] h-[15px] sm:w-[20px] sm:h-[20px] rounded-[3px]"
                   style={{ background: LEVEL_COLORS[levelFor(day.xp)] }}
                 />
               )

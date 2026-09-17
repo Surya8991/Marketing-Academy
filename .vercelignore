@@ -1,4 +1,4 @@
-# Files not part of the build — keep them out of Vercel deployments.
+# Files not part of the build: keep them out of Vercel deployments.
 # Nothing under src/ is excluded, so lesson .md/.mdx content stays included.
 
 # Agent / editor tooling
@@ -12,8 +12,8 @@
 /test/
 /e2e/
 
-# Dev docs & long-form planning / logs — all now under docs/ (moved from
+# Dev docs & long-form planning / logs: all now under docs/ (moved from
 # the repo root), so this one rule covers PROJECT_LOG.md, PROJECTS_PLAN.md,
 # PROJECTS_AUTHORING_GUIDE.md, BACKLOG.md, and IMPROVEMENT_PLAN.md (which
-# was previously NOT excluded here — this also fixes that gap).
+# was previously NOT excluded here: this also fixes that gap).
 /docs/

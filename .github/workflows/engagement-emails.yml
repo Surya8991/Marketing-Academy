@@ -1,7 +1,7 @@
 name: Engagement emails
 
 # Drives the three /api/cron/* engagement-email routes (IMPROVEMENT_PLAN #28)
-# from GitHub Actions instead of Vercel Cron — Vercel's Hobby plan caps cron
+# from GitHub Actions instead of Vercel Cron: Vercel's Hobby plan caps cron
 # jobs at 2 (run once/day at Vercel's chosen time), and this project runs
 # three on distinct schedules. GitHub Actions cron is free, unlimited, and
 # honours the exact cron expressions.
@@ -13,14 +13,14 @@ name: Engagement emails
 # GitHub Actions repository secret (this workflow sends it).
 #
 # Note: GitHub-scheduled workflows can be delayed by several minutes under
-# load, and are disabled automatically after 60 days of repo inactivity —
+# load, and are disabled automatically after 60 days of repo inactivity,
 # neither matters for a best-effort daily/weekly reminder.
 
 on:
   schedule:
-    - cron: "0 18 * * *"   # daily 18:00 UTC — streak reminder ("ends tonight")
-    - cron: "0 14 * * *"   # daily 14:00 UTC — resume learning (3 days inactive)
-    - cron: "0 9 * * 1"    # Mondays 09:00 UTC — weekly digest
+    - cron: "0 18 * * *"   # daily 18:00 UTC, streak reminder ("ends tonight")
+    - cron: "0 14 * * *"   # daily 14:00 UTC, resume learning (3 days inactive)
+    - cron: "0 9 * * 1"    # Mondays 09:00 UTC, weekly digest
   workflow_dispatch:
     inputs:
       route:

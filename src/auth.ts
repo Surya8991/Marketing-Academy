@@ -19,7 +19,7 @@ export function isAdminUser(u: { email: string | null; role?: string | null }): 
 }
 
 /**
- * True only via SUPERADMIN_EMAILS (IMPROVEMENT_PLAN #30) — deliberately no
+ * True only via SUPERADMIN_EMAILS (IMPROVEMENT_PLAN #30), deliberately no
  * DB-backed path, unlike isAdminUser() above. Checked fresh against env on
  * every call; nothing in this codebase ever persists a "superadmin" value
  * anywhere, so this tier can only be granted or revoked by editing Vercel
@@ -48,7 +48,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     ...(env.GOOGLE_CLIENT_ID && env.GOOGLE_CLIENT_SECRET
       ? [Google({ clientId: env.GOOGLE_CLIENT_ID, clientSecret: env.GOOGLE_CLIENT_SECRET })]
       : []),
-    // Gmail SMTP magic-link (IMPROVEMENT_PLAN #26) — the enabled sign-in path.
+    // Gmail SMTP magic-link (IMPROVEMENT_PLAN #26), the enabled sign-in path.
     // Google above stays wired in code but is not promoted anywhere in the UI
     // (Nav/login both point here). Custom sendVerificationRequest sends our
     // own branded template (src/lib/email/) instead of Auth.js's plain default.
@@ -68,7 +68,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   ],
   callbacks: {
     // Hard block at sign-in time (#30): a suspended user gets no NEW session
-    // at all — Auth.js redirects to /login?error=AccessDenied, handled by
+    // at all, Auth.js redirects to /login?error=AccessDenied, handled by
     // login/page.tsx with a clear message. This only stops future sign-ins;
     // an already-active session (created before suspension) is cut off
     // separately below via isSuspended + requireUser().
@@ -93,10 +93,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           name: session.user?.name ?? user.name ?? null,
           email: session.user?.email ?? user.email ?? null,
           image: session.user?.image ?? user.image ?? null,
-          isAdmin: isAdminUser(u),
+          // Superadmin is a strict superset of admin: a SUPERADMIN_EMAILS
+          // address that isn't also in ADMIN_EMAILS still needs isAdmin=true
+          // so the Nav admin link shows and requireAdmin()/`/admin` let it in
+          // (isSuperAdmin below then unlocks the superadmin-only surfaces).
+          isAdmin: isAdminUser(u) || isSuperAdminEmail(u.email),
           isSuperAdmin: isSuperAdminEmail(u.email),
           // Defense in depth for a session created BEFORE the user was
-          // suspended (database sessions live up to 7 days) — requireUser()
+          // suspended (database sessions live up to 7 days), requireUser()
           // and the 3 API routes that call auth() directly both check this.
           isSuspended: Boolean(u.suspended),
         },
@@ -118,12 +122,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         try {
           await db.update(users).set({ role: "admin" }).where(eq(users.id, user.id));
         } catch {
-          // Non-fatal — isAdminUser()'s env fallback still grants admin
+          // Non-fatal, isAdminUser()'s env fallback still grants admin
           // access this session even if the persist failed.
         }
       }
       // Welcome email (IMPROVEMENT_PLAN §D2), transactional, first sign-in
-      // only. Best-effort — sendMail() never throws, so a mail failure can't
+      // only. Best-effort, sendMail() never throws, so a mail failure can't
       // break sign-in itself.
       if (isNewUser) {
         void sendMail({ to: user.email, ...welcomeEmail({ name: user.name }) });
@@ -147,7 +151,7 @@ export async function requireUser() {
     isSuspended?: boolean;
   };
   // Cuts off an already-active session immediately once suspended, rather
-  // than waiting for it to naturally expire (#30) — see the signIn callback
+  // than waiting for it to naturally expire (#30), see the signIn callback
   // above for the future-sign-in-time block.
   if (user.isSuspended) redirect("/login?suspended=1");
   return user;

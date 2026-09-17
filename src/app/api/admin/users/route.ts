@@ -8,7 +8,7 @@ import { rateLimit } from "@/lib/rate-limit";
 const PAGE_SIZE = 25;
 
 // Read-only for both admin and superadmin (mutations live in [id]/route.ts,
-// gated requireSuperAdmin) — see IMPROVEMENT_PLAN #30's access model.
+// gated requireSuperAdmin), see IMPROVEMENT_PLAN #30's access model.
 export async function GET(req: NextRequest) {
   const admin = await requireAdmin();
   if (!rateLimit(`admin:users:list:${admin.id}`, 60, 60_000)) {

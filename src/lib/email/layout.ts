@@ -2,7 +2,7 @@
  * One branded HTML shell every transactional/engagement email renders
  * through (IMPROVEMENT_PLAN §D2). Email clients don't support CSS
  * variables or external stylesheets, so the site's light-mode tokens
- * (globals.css) are inlined as static hex — dark-mode email rendering is
+ * (globals.css) are inlined as static hex, dark-mode email rendering is
  * unreliable across clients, so every email intentionally renders in the
  * site's light theme regardless of the recipient's site preference.
  *

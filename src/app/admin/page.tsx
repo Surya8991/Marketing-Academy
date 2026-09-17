@@ -37,7 +37,7 @@ export default async function AdminPage() {
         {!admin.isSuperAdmin && (
           <div className="border border-[var(--border)] rounded-xl p-4 mb-8 font-ui-sans text-sm">
             You have <strong>read-only</strong> access. User management (roles, suspending, deleting accounts)
-            requires superadmin, which is granted only via Vercel environment variables — not from inside the app.
+            requires superadmin, which is granted only via Vercel environment variables, not from inside the app.
           </div>
         )}
 

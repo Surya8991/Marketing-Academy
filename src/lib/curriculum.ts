@@ -915,7 +915,7 @@ export const CATEGORIES: Category[] = [
 
 /**
  * The slim category index for "use client" components (Nav, CommandPalette) now
- * lives as a STANDALONE literal in `@/lib/category-index` — importing it here as
+ * lives as a STANDALONE literal in `@/lib/category-index`, importing it here as
  * `CATEGORIES.map(...)` looked correct but kept the full `CATEGORIES` array in
  * any client bundle that imported the slim index (Rule 41 regression, see
  * IMPROVEMENT_PLAN #5). Import `CATEGORY_INDEX` / `CategoryIndex` from

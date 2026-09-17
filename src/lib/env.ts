@@ -8,22 +8,22 @@ const envSchema = z.object({
   DATABASE_URL: z.string().default("file:./data/marketing-academy.db"),
   TURSO_AUTH_TOKEN: z.string().optional(),
   ADMIN_EMAILS: z.string().default(""),
-  // IMPROVEMENT_PLAN #30 — a tier ABOVE the DB-persisted `role`/ADMIN_EMAILS
+  // IMPROVEMENT_PLAN #30, a tier ABOVE the DB-persisted `role`/ADMIN_EMAILS
   // admin. Deliberately never written to the database anywhere in this
   // codebase: the only source of truth is this env var, read fresh on every
   // check (see isSuperAdmin() in src/auth.ts), so it can't be escalated by
-  // compromising the DB or an admin session — only by editing Vercel env.
+  // compromising the DB or an admin session, only by editing Vercel env.
   SUPERADMIN_EMAILS: z.string().default(""),
   // Gmail SMTP magic-link auth (IMPROVEMENT_PLAN #26). EMAIL_SERVER is a
   // full smtp:// connection string, e.g.
-  // smtp://you%40gmail.com:APP_PASSWORD@smtp.gmail.com:587 — the value
+  // smtp://you%40gmail.com:APP_PASSWORD@smtp.gmail.com:587, the value
   // uses a Gmail App Password (2FA required), never a real account password.
   EMAIL_SERVER: z.string().optional(),
   EMAIL_FROM: z.string().optional(),
-  // IMPROVEMENT_PLAN #28 — shared secret Vercel Cron sends as
+  // IMPROVEMENT_PLAN #28, shared secret Vercel Cron sends as
   // `Authorization: Bearer <CRON_SECRET>`. Every /api/cron/* route checks
   // this instead of a user session (there is no user attached to a cron
-  // invocation) — see that header check in each route for the exact pattern.
+  // invocation), see that header check in each route for the exact pattern.
   CRON_SECRET: z.string().optional(),
 });
 
@@ -50,7 +50,7 @@ export function authConfigured(): boolean {
 
 /**
  * True only when Gmail-SMTP magic-link sign-in is fully configured
- * (IMPROVEMENT_PLAN #26). This — not authConfigured()/Google — is the gate
+ * (IMPROVEMENT_PLAN #26). This, not authConfigured()/Google, is the gate
  * that drives whether sign-in UI shows: Google OAuth stays wired in
  * src/auth.ts as a provider but is deliberately not the enabled path.
  */

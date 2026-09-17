@@ -14,7 +14,7 @@ export default async function LoginPage({ searchParams }: Props) {
 
   const session = await auth();
   // A suspended user's own session still resolves truthy (isSuspended just
-  // marks it) — only redirect away a genuinely active, non-suspended session,
+  // marks it), only redirect away a genuinely active, non-suspended session,
   // or this page can never show the "your account was suspended" message.
   const user = session?.user as { isSuspended?: boolean } | undefined;
   if (session?.user && !user?.isSuspended) redirect("/");
@@ -31,8 +31,8 @@ export default async function LoginPage({ searchParams }: Props) {
         </p>
       ) : (
         <p className="text-[var(--muted-foreground)] mb-8 leading-relaxed">
-          Optional — everything on Marketing Academy already works without an
-          account. Enter your email and we&apos;ll send a one-time link — no
+          Optional, everything on Marketing Academy already works without an
+          account. Enter your email and we&apos;ll send a one-time link, no
           password to set or remember.
         </p>
       )}

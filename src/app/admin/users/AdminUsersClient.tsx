@@ -90,7 +90,7 @@ export default function AdminUsersClient() {
       const data = (await res.json()) as { entries: AuditEntry[] };
       setAudit(data.entries);
     } catch {
-      /* non-critical — the log panel just stays empty */
+      /* non-critical, the log panel just stays empty */
     }
   }, []);
 
