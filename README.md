@@ -1,277 +1,68 @@
 # Marketing Academy
 
-A free, structured marketing education site, from absolute beginner to advanced practitioner across every major discipline.
+A free, structured marketing education site — from complete beginner to advanced practitioner across every major discipline. No paywalls, no sign-up, no email required.
 
-**Live:** [marketing-academy-roan.vercel.app](https://marketing-academy-roan.vercel.app)
-**Repo:** [github.com/Surya8991/Marketing-Academy](https://github.com/Surya8991/Marketing-Academy)
-**Dev:** `npm run dev` then open http://localhost:3000
+**Live:** https://marketing-academy-roan.vercel.app
 
----
+## Quick start
 
-## What This Is
+```bash
+npm install
+npm run dev     # http://localhost:3000
+```
 
-642 lessons across 21 disciplines. No paywalls, no drip sequences, no email required. Every lesson includes real research, company examples with specific numbers, Mermaid diagrams, interview Q&A, and curated free resources in English, Hindi, Tamil, and Telugu.
+## What's inside
 
-| # | Category | Slug | MDX Files |
-|---|---|---|---|
-| 1 | Marketing Fundamentals | `fundamentals` | 40 |
-| 2 | SEO | `seo` | 38 |
-| 3 | Paid Ads | `paid-ads` | 33 |
-| 4 | Growth Marketing | `growth` | 30 |
-| 5 | Social Media | `social` | 31 |
-| 6 | Content Marketing | `content` | 29 |
-| 7 | Email & Lifecycle | `email` | 33 |
-| 8 | Analytics & Attribution | `analytics` | 36 |
-| 9 | Marketing Tools | `tools` | 39 |
-| 10 | Human Psychology | `psychology` | 29 |
-| 11 | Copywriting | `copywriting` | 28 |
-| 12 | Conversion Rate Optimization | `cro` | 28 |
-| 13 | Brand Strategy | `brand-strategy` | 28 |
-| 14 | Product Marketing | `product-marketing` | 28 |
-| 15 | AI in Marketing | `ai-marketing` | 36 |
-| 16 | Mental Models | `mental-models` | 29 |
-| 17 | PR & Communications | `pr-communications` | 28 |
-| 18 | Events & Experiential Marketing | `events-experiential` | 28 |
-| 19 | Affiliate & Partner Marketing | `affiliate-marketing` | 28 |
-| 20 | Marketing Leadership & Career | `marketing-leadership` | 28 |
-| 21 | Legal & Compliance for Marketers | `legal-compliance` | 28 |
-| | **TOTAL** | | **642** |
+642 lessons across 21 disciplines. Every lesson has real research with cited stats, company examples with real numbers, diagrams, a short quiz, and curated free resources (including Hindi, Tamil, and Telugu).
 
----
+Disciplines: Fundamentals, SEO, Paid Ads, Growth, Social Media, Content, Email & Lifecycle, Analytics, Tools, Psychology, Copywriting, CRO, Brand Strategy, Product Marketing, AI in Marketing, Mental Models, PR & Communications, Events, Affiliate Marketing, Leadership & Career, and Legal & Compliance.
 
 ## Features
 
-**Learning**
-- **Lesson reader**, Left-side table of contents, reading progress bar, reading time estimate, prev/next navigation, practice projects (collapsed behind a one-line summary by default)
-- **Related lessons**, "You might also like" section at the bottom of every lesson
-- **Lesson quizzes**, 5 questions at the bottom of 642 lessons (Session 85, Stage 10.1); quiz must be passed (80%, 4 of 5) to unlock Mark Complete. Questions and options are Fisher-Yates shuffled on every attempt. Answers revealed only after full submission, with a full per-question review shown on both the pass and fail screens. A "Retake quiz" button is available on every finished screen (pass, fail, or already-passed) so a learner can re-attempt any time without resetting progress
-- **Progress tracking**, Mark lessons complete, per-category progress bar, bookmarks (all localStorage)
-- **Learning tracks**, 24 curated paths: B2B Marketer, E-commerce Growth, Solo Founder, AI-First Marketer, Content Creator, Social Media Manager, Data-Driven Marketer, Freelancer & Agency, Marketing Mental Models, Technical SEO Mastery, AI Search Optimization, Content Strategy Mastery, On-Page SEO Mastery, Off-Page SEO Mastery, Paid Ads Mastery, Email & Lifecycle Mastery, CRO & Conversion Mastery, Analytics & Measurement Mastery, Copywriting Mastery, Brand Strategy Mastery, Psychology of Marketing, PR & Communications Mastery, Growth Marketing Mastery, Product Marketing Mastery
-- **Progress certificates**, Printable completion certificate per track at `/certificates/[slug]` (requires 100% lesson completion + track quiz pass)
-- **XP + Streak system**, Earn XP for completing lessons (30), passing quizzes (20), bookmarking (5). Daily streak. 7 levels (Marketing Newcomer → Certified Polymath). Live badge in nav.
-- **Achievements**, 12 unlockable badges (grouped into Getting Started/Streaks/Practice Projects/Milestones since Stage 11) with toast notification on unlock. Full gallery at `/achievements`
-- **Skill Map**, `/skill-map`: category cards grouped by discipline (Strategy/Channels/Growth & Data/Outreach/Career & Legal, same taxonomy as the nav's Topics dropdown, since Stage 11), sorted by % complete within each group, with animated progress bars
-- **Onboarding**, First-visit goal selector: pick a goal (including "totally new to marketing"), get routed to the right learning track. Suppressed on lesson pages so direct-link visitors aren't interrupted
+- **Lessons** — table of contents, reading progress, a quiz you pass to mark complete, and related-lesson suggestions
+- **24 learning tracks** — curated paths like Solo Founder, B2B Marketer, AI-First Marketer, and Technical SEO
+- **800+ practice projects** — hands-on exercises tied to lessons, each on its own page
+- **Progress** — completion tracking, bookmarks, XP, daily streaks, achievements, and printable track certificates (saved in your browser)
+- **Search** — Cmd/Ctrl+K command palette and fuzzy search across lessons, tracks, glossary, and tools
+- **Reference** — a marketing glossary, a tools directory, printable cheat sheets, and interview Q&A
+- **Optional accounts** — sign in to sync progress across devices (the site works fully without one)
+- Dark mode, installable as a mobile app (PWA), RSS feed, and per-lesson social share
 
-**Discovery**
-- **Command Palette**, Cmd/Ctrl+K fuzzy search across all 642 lessons, 24 learning tracks, 158 glossary terms, 159 tools, and nav pages
-- **Search**, Client-side fuzzy search (Fuse.js) across lessons and tracks, with category and level filter chips (chips apply to lessons only, a track spans multiple categories/levels by design)
-- **Glossary**, 158 marketing terms with A-Z index and individual term pages at `/glossary`
-- **Tools directory**, 159 marketing tools across 11 categories with search, category, and pricing filters at `/tools`
-- **Cheat sheets**, Printable per-category quick reference cards at `/cheat-sheets/[category]`
+## Tech stack
 
-**Interview Prep**
-- **Interview prep hub**, `/interview-prep` aggregates all categories with sample Q&A
-- **Interview questions (2026)**, `/interview-questions`: 151 Q&As across 16 disciplines with scenario-based questions, updated for 2026. Covers behavioral, SEO, paid ads, content, analytics, email, growth, AI marketing, social, copywriting, CRO, brand strategy, product marketing, psychology, tools, and general/behavioral interview skills
-- **SEO landing pages**, `/interview-questions` and `/digital-marketing-cheat-sheet` for organic search
-
-**Sharing**
-- **Share buttons**, LinkedIn and Twitter/X share on every lesson
-- **Bookmarks**, Save lessons to `/bookmarks` (localStorage)
-- **RSS feed**, `/feed.xml` with auto-discovery `<link>` in layout
-- **OG images**, Dynamic per-lesson Open Graph images via edge function at `/api/og`
-
-**Technical**
-- **Dark mode**, Manual toggle (Sun/Moon) with localStorage persistence and no flash on load
-- **Reduced motion**, Respects OS-level `prefers-reduced-motion`, neutralizes animations/transitions/smooth-scroll site-wide
-- **PWA**, Installable on mobile: `public/manifest.json` + `public/sw.js` service worker
-- **Multilingual resources**, Every lesson links to Hindi (WsCube Tech), Tamil, and Telugu YouTube channels
-- **Sitemap**, Auto-generated, includes every lesson/category/track/glossary/interview/project page, `lastmod` = build date
-- **`llms.txt`**, AI-crawler manifest at `/llms.txt` (llmstxt.org format) generated live from the curriculum for answer engines (ChatGPT, Perplexity, Gemini)
-
----
-
-## Tech Stack
-
-| Layer | Choice |
-|---|---|
-| Framework | Next.js 16.2.9 (App Router) |
-| Language | TypeScript 5 (strict) |
-| Styling | Tailwind CSS v4 + CSS variables for theming |
-| Content | MDX via `@next/mdx`, lessons are `.mdx` files in `src/content/` |
-| Search | Fuse.js (client-side fuzzy search) |
-| Diagrams | Mermaid (client-side, dark-mode aware, fullscreen button) |
-| Icons | Lucide React v1.18 |
-| Deploy | Vercel (auto-deploy on push to main) |
-
----
+- **Next.js** (App Router) + **TypeScript**
+- **Tailwind CSS v4** with CSS-variable theming
+- **MDX** for lesson content
+- **Fuse.js** search, **Mermaid** diagrams
+- Deployed on **Vercel** (auto-deploys on push to `main`)
 
 ## Development
 
 ```bash
-# Dev server (node_modules already installed, skip npm install)
-npm run dev
-
-# Type check
-npx tsc --noEmit
-
-# Tests (65 tests: data validation, projects data, quiz shuffle property, integrity regression)
-npm test
-
-# Build
-npm run build
+npm run dev          # dev server
+npx tsc --noEmit     # type check
+npm test             # test suite
+npm run build        # production build
 ```
 
----
+## Adding a lesson
 
-## Content Structure
+1. Create `src/content/[category]/[lesson-slug].mdx`
+2. Add an entry for it to that category in `src/lib/curriculum.ts`
 
-Each lesson is an MDX file at `src/content/[category-slug]/[lesson-slug].mdx`.
+Lessons use `export const lessonMeta` (title, level, summary) and can use global components — `<Callout>`, `<Mermaid>`, `<ResourceList>`, `<Quiz>`, `<DiagramBlock>` — without importing them.
 
-Lessons use `export const lessonMeta` (not YAML frontmatter) and have access to five global components without any imports:
+## Project structure
 
-```mdx
-export const lessonMeta = {
-  title: "Lesson Title",
-  level: "Beginner",   // "Beginner" | "Intermediate" | "Advanced"
-  summary: "One sentence. Use single quotes for any inner quotes.",
-};
-
-<Callout type="info">Works without importing.</Callout>
-<Mermaid chart={`graph TD; A-->B`} />
-<ResourceList resources={[...]} />
-<Quiz questions={[...]} category="seo" slug="keyword-research" />
-<DiagramBlock type="funnel" title="AIDA Model" items={["Awareness","Interest","Desire","Action"]} />
 ```
-
-The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
-1. Create the `.mdx` file in `src/content/[category]/`
-2. Add an entry to the category's `lessons` array in `curriculum.ts`
-
----
-
-## Key Files
-
-| File | Purpose |
-|---|---|
-| `src/lib/curriculum.ts` | Single source of truth, all lesson slugs, titles, levels |
-| `src/lib/tracks.ts` | 24 learning track definitions |
-| `src/lib/glossary.ts` | 158 marketing term definitions |
-| `src/lib/quizzes.ts` | Quiz questions (5 per lesson since Stage 10.1, all 642 lessons covered) |
-| `src/lib/tools-directory.ts` | 159 marketing tools with category/pricing data |
-| `docs/PROJECTS_PLAN.md` | **High-priority roadmap.** Stages 0-8 (all 24 tracks' practice projects), 9.1/9.4, 10 (quiz expansion to 5 questions/lesson), and 11 (Skill Map/Achievements/Resources UX pass) are all complete as of Session 85. **Stage 9.3** (non-track lesson project authoring) is queued to run LAST, narrowed to 8 categories by owner directive: `fundamentals`, `seo`, `paid-ads`, `growth`, `social`, `product-marketing`, `ai-marketing`, `tools`. Use `PROJECTS_AUTHORING_GUIDE.md` to execute |
-| `src/components/InAction.tsx` | Global MDX component rendering one cited "concept scenario" inline after a lesson heading (PROJECTS_PLAN.md section 10 / Stage 8.4). Embedded directly in lesson MDX, not build-time-injected — see AGENTS.md Rule 54 |
-| `docs/PROJECTS_AUTHORING_GUIDE.md` | Operational playbook for authoring a new track's Stage 8.3/8.4 batch: fill-in agent prompt template + condensed reference pack + the scripts below, in order. Next two tracks are pre-scoped in PROJECTS_PLAN.md 8.3b |
-| `scripts/get-track-batch-info.mjs` | Given a track slug, lists which lessons still need projects and their tier (reads `tracks.ts` + `projects-assignment.ts`), pre-split into batches |
-| `scripts/merge-projects-batch.mjs` | Safely merges subagents' scratch project output into `src/lib/projects/{category}.ts` (refuses duplicate keys, verifies key count) |
-| `scripts/audit-projects.mjs` | Structural check on a category's projects: real `lessonAnchor`s, real `companyId`s, real `toolName`s, runbook completeness |
-| `src/lib/projects-assignment.ts` | **Generated**, PROJECTS_PLAN.md 17's centrality band + tier-pair computation for all 642 lessons — regenerate with `node --import tsx scripts/compute-project-assignment.mjs` |
-| `src/components/PageMasthead.tsx` | Shared "journal masthead" info-strip component used at the top of Home/Learn/Tracks/Projects/Tools/About |
-| `src/lib/classificationCodes.ts` | 2-4 letter discipline codes (SEO/ADS/PSY/AI/...) used as specimen-card eyebrows on redesigned pages |
-| `src/components/RelatedConcepts.tsx` | Renders `lessonMeta.relatedConcepts` (written into ~65 lessons' MDX, unused until Session 75) as cards on the lesson page, sourced from real `curriculum.ts` data |
-| `.github/workflows/ci.yml` | GitHub Actions CI: lint + test + build on push/PR to main |
-| `src/lib/projects/types.ts` | Practice-projects type system: `Project`, `ProjectStep`, `SimulationStage`, `TeardownItem`, `CaseCompany`, 6 modes + no-project verdict, 9 archetypes |
-| `src/lib/case-companies.ts` | 77 verified case companies with cited exits, backdrop for practice projects |
-| `src/lib/projects/*.ts` | Per-category practice project modules (dynamically imported, never one shared file — AGENTS.md Rule 37) |
-| `src/lib/projects-index.ts` | **Generated** slim card index for the `/projects` hub — regenerate with `node --import tsx scripts/build-projects-index.mjs` |
-| `src/lib/projects-progress.ts` | Practice-project completion + XP lib (localStorage, mirrors progress.ts/engagement.ts patterns) |
-| `src/lib/projects/lookup.ts` | Server-safe `getProjectByCategoryAndId()` — dynamically imports one category module and finds a project by its `id`, used by the dedicated `/projects/[category]/[slug]` page |
-| `src/components/DecisionBox.tsx` | Renders a `Project.decision` multiple-choice checkpoint on the project detail page, answer hidden until picked (same reveal timing as `Quiz.tsx`, AGENTS.md Rule 25) — see Rules 63-65 for the full "Learn vs Do" content architecture (9 new optional `Project` fields). `seo.ts` fully migrated (60/60) as of Session 81; the other 8 category files (53 projects) not yet migrated |
-| `src/lib/bookmarks.ts` | Shared bookmark storage (BOOKMARK_KEY, getBookmarks, saveBookmarks) |
-| `src/lib/progress.ts` | Lesson completion helpers (COMPLETED_KEY exported, getCompleted, markComplete) |
-| `src/lib/engagement.ts` | XP/streak system (addXP, getEngagement, getCurrentLevel, ENGAGEMENT_EVENT) |
-| `src/lib/achievements.ts` | 12 declarative badges (ACHIEVEMENTS array, checkAchievements) — includes `first-project`/`ten-projects` (Session 85) |
-| `src/components/PortfolioClient.tsx` | Session 85 — `/portfolio` page's interactive body: completed projects as evidence, JSON export |
-| `src/lib/commandIndex.ts` | Fuse.js index builder for Cmd+K palette — lessons, tracks, glossary, tools, nav (tracks added Session 85) |
-| `src/lib/topic-groups.ts` | Session 85 — shared `TOPIC_GROUPS` discipline taxonomy (Strategy/Channels/Growth & Data/Outreach/Career & Legal), used by both Nav.tsx's Topics dropdown and `/skill-map` so they can't drift apart |
-| `src/lib/events.ts` | Shared CustomEvent name constants (COMMAND_PALETTE_EVENT) |
-| `mdx-components.tsx` | Global MDX component registry at project root: Callout, Mermaid, ResourceList, Quiz, DiagramBlock |
-| `src/app/globals.css` | Tailwind v4 + CSS variable design system. Colors are the original white/near-black/indigo palette (deliberately unchanged in the 2026-08-12 redesign); `--font-display`/`--font-ui-sans`/`--font-data` (Fraunces/Public Sans/IBM Plex Mono, registered in layout.tsx) are the new type system used on Home/Learn/Tracks/Projects/Tools/About — lesson prose stays on Geist Sans |
-| `src/components/ThemeToggle.tsx` | Dark/light/system toggle with no-flash inline script |
-| `src/app/api/og/route.tsx` | Edge function for dynamic OG images |
-| `src/app/feed.xml/route.ts` | RSS feed |
-| `public/manifest.json` | PWA Web App Manifest |
-| `public/sw.js` | Service worker: network-first for HTML, cache-first for hashed static assets |
-| `vercel.json` | Security headers (CSP, HSTS, X-Frame-Options, etc.) |
-| `src/lib/storage-utils.ts` | Safe `localStorage` wrapper with try/catch, corrupt-value backup, and `StorageWarning` trigger |
-| `src/components/StorageWarning.tsx` | Client banner shown when localStorage is blocked (corporate/Android) |
-| `tests/*.test.ts` | 75 tests (Node.js built-in runner + tsx): data validation, **projects data (Rule 57, the gate for project referential integrity)**, quiz shuffle, integrity regression, API auth coverage |
-| `AGENTS.md` | 79 non-negotiable build rules for AI agents (incl. Rule 23: pre-push doc checklist) |
-| `src/lib/session-cookie.ts` | Shared Auth.js session-cookie-name lookup (checks both `__Secure-authjs.session-token` and `authjs.session-token`), used by both `/api/account` routes |
-| `src/lib/quiz-keys.ts` | `QUIZ_STORAGE_PREFIX`/`QUIZ_PASS_KEY_PREFIX`/`TRACK_QUIZ_PASS_PREFIX`, split out of the 2.4MB `quizzes.ts` so `progress-snapshot.ts` (now client-bundled via `SyncProvider`) doesn't pull it in |
-| `src/lib/notes.ts` | Shared note storage (NOTE_KEY_PREFIX, getNoteKey, getNote, saveNote) |
-| `src/auth.ts` | NextAuth v5 config (Gmail-SMTP magic-link via `Nodemailer` + Google via `DrizzleAdapter`), `requireUser()`/`requireAdmin()`/`requireSuperAdmin()`/`isAdminUser()`/`isSuperAdminEmail()` |
-| `src/server/db/` | `schema.ts` (users incl. `role`/`suspended`, accounts, sessions, verificationTokens, `adminAuditLog`), `client.ts`, Drizzle `migrations/` |
-| `src/app/api/sync/route.ts` | Per-user progress sync, gated by `requireUser()`'s database session (rejects a suspended user same as unauthenticated). Replaces the deleted `/api/sync-proxy` shared-secret design (AGENTS.md Rule 26/44, Rule 77) |
-| `src/lib/sync-client.ts` | Client auto-sync: `mergeSnapshots`/`pullAndMerge`/`pushNow`/`startAutoSync`, debounce-pushes on `PROGRESS_CHANGED_EVENT` |
-| `src/lib/progress-snapshot.ts` | Single source of truth for "the user's progress data" (`EXPORT_KEYS`/`ALLOWED_KEY_PREFIXES`/`collectAllKeys`/`restoreAllKeys`), shared by `/settings` and sync |
-| `src/lib/cert-name.ts` | Learner's display name for track certificates (`ma_cert_name`); syncs/exports via `progress-snapshot` |
-| `src/lib/profile.ts` | Persona fields (`ma_profile`: role/experienceLevel/primaryGoal), editable on Settings + captured (optionally) at onboarding |
-| `src/lib/profile-stats.ts` | `getProfileStats()`, the one aggregator for `/profile`, replacing 4x duplicated stat derivations across Achievements/SkillMap/Portfolio/certificates |
-| `src/components/StatsRow.tsx` / `ActivityHeatmap.tsx` / `AutosaveIndicator.tsx` | Shared components: the `code/value/label` stat-tile grid, an 18-week GitHub-style contribution heatmap (fed by `xpByDay`), and the "Saved · synced Xm ago" indicator |
-| `src/lib/email/` | Shared branded HTML+text email layout + nodemailer transport wrapper + templates (`magic-link`, `welcome`, `account-deleted`, and, #28, `streak-reminder`, `resume-learning`, `weekly-digest`) + `unsubscribe-token.ts` (HMAC-signed one-click unsubscribe, no session needed), table-based markup, hex-inlined (no CSS vars in email clients) |
-| `src/lib/admin-stats.ts` / `admin-audit.ts` | `getAdminStats()` (shared by `/admin` and its API route) and `logAdminAction()`, the append-only audit-log writer every `/api/admin/users/[id]` mutation calls |
-| `src/lib/cron-auth.ts` / `cron-dates.ts` | `isCronAuthorized()` (verifies the `Authorization: Bearer $CRON_SECRET` header) and `todayKey()`/`daysAgoKey()` (mirrors `engagement.ts`'s local-date format), shared by the 3 `/api/cron/*` routes (#28) |
-| `src/app/api/cron/*` | 3 scheduled routes: `streak-reminder` (daily), `resume-learning` (daily), `weekly-digest` (weekly), each queries opted-in signed-in users' synced `progress` rows server-side (email prefs are DB columns, not localStorage, since a cron job has no browser attached). Triggered by `.github/workflows/engagement-emails.yml` (GitHub Actions cron, not Vercel Cron, see that file) |
-| `.github/workflows/engagement-emails.yml` | GitHub Actions cron that fires the 3 `/api/cron/*` routes on their schedules, replaces Vercel Cron (Hobby plan caps at 2 jobs). Sends `secrets.CRON_SECRET` as the bearer token |
-| `docs/PROJECT_LOG.md` | Full session history, gotchas, file inventory, pending tasks |
-| `PRE_PUSH_CHECKLIST.md` | The gate to work through before every push: verify chain (`tsc`/`eslint`/`test`/`build`), `npm ci` lock-file sanity, DB migration, access control, email, secrets, docs |
-
----
-
-## Routes
-
-| Route | What |
-|---|---|
-| `/` | Homepage: hero, category grid, 24 learning tracks, featured lessons |
-| `/learn` | All lessons browsable by category |
-| `/learn/[category]` | Category page: Beginner/Intermediate/Advanced grouping + progress |
-| `/learn/[category]/[lesson]` | Lesson reader (docs-style, Session 75): left scroll-spy ToC, Quiz/Projects/Notes as an accordion group, Related Concepts cards, prev/next, bottom action bar (Mark Complete/Bookmark/Share). Every outbound link to another lesson (prev/next, Related Concepts, Related Lessons, Continue CTA) opens in a new tab (Session 78) |
-| `/search` | Fuzzy search across lessons and tracks, with category + level filters (lessons only) |
-| `/tracks` | 24 learning tracks overview |
-| `/tracks/[slug]` | Track detail with ordered lesson list |
-| `/glossary` | 158-term A-Z marketing glossary |
-| `/glossary/[slug]` | Individual term page |
-| `/bookmarks` | Saved lessons (localStorage) |
-| `/tools` | 159 marketing tools with search + category + pricing filters |
-| `/tools/geo-audit` | GEO Auditor: scores any URL for AI-answer-engine citability (6 signals) |
-| `/compare` (+`/[slug]`) | Tool comparison hub + per-pair "X vs Y" pages (BreadcrumbList JSON-LD) |
-| `/quizzes` | Quiz hub across lessons |
-| `/review` | Spaced-repetition queue of previously-missed quiz questions (noindex) |
-| `/cheat-sheets` | Printable cheat sheet index (21 categories) |
-| `/cheat-sheets/[category]` | Printable per-category cheat sheet |
-| `/interview-prep` | Interview prep hub with category Q&A links |
-| `/interview-questions` | SEO landing: digital marketing interview Q&A |
-| `/digital-marketing-cheat-sheet` | SEO landing: key metrics, frameworks, glossary |
-| `/skill-map` | Category cards grouped by discipline, sorted by % complete within each group, progress overview (Stage 11) |
-| `/achievements` | XP level, streak, and 12 unlockable achievement badges |
-| `/portfolio` | Session 85, Stage 9.1 — your completed practice projects as portfolio-ready interview evidence: company, tier, archetype, concepts, "Export as JSON," cross-linked with `/interview-prep`. `noindex` (personal, per-browser data) |
-| `/profile` | Personal dashboard hub: XP/level, streak, 18-week activity heatmap, recent activity, per-category progress, badges/certificates/portfolio/bookmarks/review-due, aggregates links to their dedicated pages. Guest + signed-in. `noindex` |
-| `/settings` | Export / import / reset all learning progress as JSON; Profile Details, Account, Email Notifications (signed-in only, opt-in), Preferences (theme), Autosave status cards |
-| `/login` | Gmail-SMTP magic-link sign-in (single email form, only rendered when `EMAIL_SERVER`/`EMAIL_FROM` are configured, Google OAuth stays wired but unpromoted) |
-| `/account` | Signed-in profile: session list, delete account |
-| `/admin` | Account/usage dashboard (lessons/users overview), any admin (`role`/`ADMIN_EMAILS`), read-only unless also superadmin. `noindex` |
-| `/admin/users` | Search/promote/demote/suspend/delete any user + append-only audit log, `SUPERADMIN_EMAILS`-only (env-only tier, never DB-persisted). `noindex` |
-| `/about` | About page: mission, builder profile, stats, tech stack, links |
-| `/certificates` | Track completion certificate index |
-| `/certificates/[slug]` | Printable track completion certificate |
-| `/projects` | Practice projects hub: search, tier/archetype/mode/category filters (803 projects across the library — Stage 8.3a is fully complete, all 24 tracks, plus Stage 9.3's fully-completed 8-category non-track scope: `fundamentals`, `seo`, `paid-ads`, `growth`, `social`, `product-marketing`, `ai-marketing`, `tools`, plus 8/28 `events-experiential` lessons left out of scope). "View details" opens the project's own dedicated page in a new tab (Session 78, replaces the old slide-over drawer) |
-| `/projects/[category]/[slug]` | Dedicated single-project page (Session 78) — the full project (steps/stages/teardown items, tool stack, success criteria) always expanded, no inline toggle. Statically generated for all projects. Opened in a new tab from both the lesson page's Project List and the `/projects` hub, so a project always opens in its own page + tab regardless of entry point |
-| `/feed.xml` | RSS feed |
-| `/sitemap.xml` | Auto-generated sitemap (all lesson/category/track/glossary/interview/project pages) |
-| `/llms.txt` | AI-crawler manifest (llmstxt.org format), generated from the curriculum |
-| `/robots.txt` | Allows content crawl; disallows `/api/` + per-user routes |
-| `/api/og` | Dynamic OG image endpoint |
-| `/api/auth/[...nextauth]` | NextAuth v5 handler (Google sign-in) |
-| `/api/sync` | Per-user progress push/pull, requires a signed-in session |
-| `/api/account/sessions` | List/revoke the signed-in user's active sessions |
-| `/api/account/delete` | Delete the signed-in user's account and data |
-
----
+src/
+  app/         Routes (App Router)
+  content/     Lesson MDX files, grouped by category
+  components/  UI components
+  lib/         Curriculum, tracks, glossary, tools, quizzes, progress
+public/        Static assets, PWA manifest, service worker
+```
 
 ## Deploy
 
-Auto-deploys to Vercel on every push to `main`. No environment variables are required for the core site.
-
-**Accounts + sync (all optional)** — the sign-in button is hidden (`Nav` receives `authConfigured` from the root layout, matching `/login`) and `/api/sync` returns `401 Unauthorized` for anyone not signed in, until every one of these is set (see `.env.example`):
-
-| Var | Purpose |
-|---|---|
-| `AUTH_SECRET` | NextAuth session encryption (`openssl rand -base64 32`) |
-| `EMAIL_SERVER` / `EMAIL_FROM` | Gmail-SMTP magic-link sign-in (`emailAuthConfigured()`), the enabled path. `EMAIL_SERVER` is a full `smtp://user%40gmail.com:APP_PASSWORD@smtp.gmail.com:587` string using a Gmail **App Password** (2FA required), never a real account password |
-| `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | Google OAuth credentials, stays wired in `src/auth.ts` but is not the promoted sign-in path (owner decision, IMPROVEMENT_PLAN #26) |
-| `DATABASE_URL` | SQLite file path for local dev, or a `libsql://...` Turso URL in production |
-| `TURSO_AUTH_TOKEN` | Auth token for a remote Turso database (unused for local SQLite) |
-| `ADMIN_EMAILS` | Comma-separated addresses auto-promoted to `role: "admin"` on sign-in (bootstrap/failsafe, mirrors the Email-Automator sister project's pattern — AGENTS.md Rule 77) |
-| `SUPERADMIN_EMAILS` | Comma-separated addresses with `/admin/users` (full user management) access, **never persisted to the database anywhere**, checked fresh against this env var on every request, so it can't be escalated from inside the app (IMPROVEMENT_PLAN #30) |
-| `CRON_SECRET` | Enables the 3 `/api/cron/*` engagement-email routes (#28). Set the **same value in two places**: as a Vercel env var (the route validates it) AND as a GitHub Actions repository secret (`.github/workflows/engagement-emails.yml` sends it as the bearer token). With no value, cron sending stays off entirely |
+Pushes to `main` auto-deploy to Vercel. The core site needs no environment variables. Optional accounts and cross-device sync add a few — see `.env.example`.
