@@ -1,0 +1,73 @@
+name: Engagement emails
+
+# Drives the three /api/cron/* engagement-email routes (IMPROVEMENT_PLAN #28)
+# from GitHub Actions instead of Vercel Cron — Vercel's Hobby plan caps cron
+# jobs at 2 (run once/day at Vercel's chosen time), and this project runs
+# three on distinct schedules. GitHub Actions cron is free, unlimited, and
+# honours the exact cron expressions.
+#
+# Each scheduled run POSTs to one route with the shared secret. The route
+# itself checks `Authorization: Bearer $CRON_SECRET` via isCronAuthorized()
+# (src/lib/cron-auth.ts), so CRON_SECRET must be set in BOTH places with the
+# SAME value: as a Vercel env var (the server compares against it) AND as a
+# GitHub Actions repository secret (this workflow sends it).
+#
+# Note: GitHub-scheduled workflows can be delayed by several minutes under
+# load, and are disabled automatically after 60 days of repo inactivity —
+# neither matters for a best-effort daily/weekly reminder.
+
+on:
+  schedule:
+    - cron: "0 18 * * *"   # daily 18:00 UTC — streak reminder ("ends tonight")
+    - cron: "0 14 * * *"   # daily 14:00 UTC — resume learning (3 days inactive)
+    - cron: "0 9 * * 1"    # Mondays 09:00 UTC — weekly digest
+  workflow_dispatch:
+    inputs:
+      route:
+        description: "Which route to fire manually"
+        required: true
+        default: streak-reminder
+        type: choice
+        options:
+          - streak-reminder
+          - resume-learning
+          - weekly-digest
+
+# The production origin. Overridable via an APP_URL repo variable if the
+# deployment URL ever changes; falls back to the current Vercel URL.
+env:
+  APP_URL: ${{ vars.APP_URL || 'https://marketing-academy-roan.vercel.app' }}
+
+jobs:
+  fire:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pick route from the schedule (or the manual input)
+        id: pick
+        run: |
+          case "${{ github.event.schedule }}" in
+            "0 18 * * *") route="streak-reminder" ;;
+            "0 14 * * *") route="resume-learning" ;;
+            "0 9 * * 1")  route="weekly-digest" ;;
+            *)            route="${{ github.event.inputs.route }}" ;;
+          esac
+          if [ -z "$route" ]; then
+            echo "No route resolved (unexpected trigger)"; exit 1
+          fi
+          echo "route=$route" >> "$GITHUB_OUTPUT"
+          echo "Firing route: $route"
+
+      - name: Call the cron endpoint
+        run: |
+          status=$(curl -sS -o /tmp/body.txt -w "%{http_code}" \
+            -X GET \
+            -H "Authorization: Bearer $CRON_SECRET" \
+            "$APP_URL/api/cron/${{ steps.pick.outputs.route }}")
+          echo "HTTP $status"
+          cat /tmp/body.txt
+          if [ "$status" -lt 200 ] || [ "$status" -ge 300 ]; then
+            echo "::error::cron route returned HTTP $status"
+            exit 1
+          fi
+        env:
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
