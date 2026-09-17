@@ -4,7 +4,8 @@ import CompareSelector from "./CompareSelector";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Tool Comparisons | Marketing Academy",
+  title: "Tool Comparisons",
+  alternates: { canonical: "/compare" },
   description:
     "Compare top marketing tools side-by-side. Get structured, data-driven comparisons for SEO, paid advertising, email marketing, analytics, social media, and testing tools.",
 };

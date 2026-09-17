@@ -4,7 +4,8 @@ import { RESOURCES, BOOKS, COMMUNITIES } from "@/lib/resources";
 import PageMasthead from "@/components/PageMasthead";
 
 export const metadata: Metadata = {
-  title: "Curated Resources | Marketing Academy",
+  title: "Curated Resources",
+  alternates: { canonical: "/resources" },
   description:
     "Every newsletter, course, channel, and community worth your time. Curated picks for marketers - no noise.",
 };

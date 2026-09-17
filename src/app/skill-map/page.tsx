@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import SkillMapClient from "./SkillMapClient";
 
 export const metadata: Metadata = {
-  title: "Skill Map | Marketing Academy",
+  title: "Skill Map",
   description: "Track your progress across all 21 marketing disciplines.",
 };
 

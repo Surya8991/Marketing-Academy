@@ -38,6 +38,7 @@ const sectionHeadingStyle: React.CSSProperties = {
 };
 
 export const metadata = {
+  alternates: { canonical: "/digital-marketing-cheat-sheet" },
   title: "Digital Marketing Cheat Sheet 2025: Key Metrics, Formulas & Benchmarks",
   description:
     "Quick-reference cheat sheet: marketing metrics, funnel stages, SEO, paid ads, email benchmarks, AI/GEO tactics, and social media stats for 2025.",

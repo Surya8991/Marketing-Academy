@@ -15,8 +15,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const cat = getCategory(category);
   if (!cat) return {};
   return {
-    title: `${cat.title} Cheat Sheet | Marketing Academy`,
+    title: `${cat.title} Cheat Sheet`,
     description: `Printable quick reference for all ${cat.lessons.length} ${cat.title} lessons. Key concepts, frameworks, and tactics on one page.`,
+    alternates: { canonical: `/cheat-sheets/${category}` },
   };
 }
 

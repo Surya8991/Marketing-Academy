@@ -4,7 +4,7 @@ import PortfolioClient from "@/components/PortfolioClient";
 import PageMasthead from "@/components/PageMasthead";
 
 export const metadata: Metadata = {
-  title: "My Portfolio | Marketing Academy",
+  title: "My Portfolio",
   description:
     "Your completed practice projects, turned into portfolio-ready evidence for interviews: real deliverables, real companies, real concepts applied.",
   openGraph: {

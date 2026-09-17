@@ -2,7 +2,7 @@ import Link from "next/link";
 import { TRACKS } from "@/lib/tracks";
 
 export const metadata = {
-  title: "Certificates | Marketing Academy",
+  title: "Certificates",
   description: "View and print your learning track certificates.",
 };
 

@@ -31,12 +31,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!toolA || !toolB) {
     return {
-      title: "Comparison Not Found | Marketing Academy",
+      title: "Comparison Not Found",
     };
   }
 
   return {
-    title: `${toolA.name} vs ${toolB.name} Comparison | Marketing Academy`,
+    title: `${toolA.name} vs ${toolB.name} Comparison`,
     description: `Compare ${toolA.name} vs ${toolB.name} side-by-side. Read structured features, pros & cons, pricing tiers, and expert software recommendations.`,
     alternates: {
       // Alias slugs (e.g. ga4-vs-mixpanel) render the same content; point them at the full slug

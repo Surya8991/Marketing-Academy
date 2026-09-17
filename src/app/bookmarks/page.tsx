@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BookmarksList from "./BookmarksList";
 
 export const metadata: Metadata = {
-  title: "My Bookmarks | Marketing Academy",
+  title: "My Bookmarks",
   robots: {
     index: false,
     follow: true,

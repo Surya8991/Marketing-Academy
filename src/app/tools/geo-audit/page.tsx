@@ -2,7 +2,8 @@ import GeoAuditClient from "./GeoAuditClient";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "GEO Auditor - Score Any Page for AI Citability | Marketing Academy",
+  alternates: { canonical: "/tools/geo-audit" },
+  title: "GEO Auditor - Score Any Page for AI Citability",
   description:
     "Paste any URL and get an instant GEO (Generative Engine Optimization) score. See how likely ChatGPT, Claude, Perplexity and Gemini are to cite that page in their answers.",
   openGraph: {

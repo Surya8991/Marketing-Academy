@@ -4,7 +4,7 @@ import ProjectsClient from "./ProjectsClient";
 import PageMasthead from "@/components/PageMasthead";
 
 export const metadata: Metadata = {
-  title: "Practice Projects | Marketing Academy",
+  title: "Practice Projects",
   description:
     `Hands-on practice projects tied to real lessons: ${PROJECTS_INDEX.length}+ diagnostics, simulations, teardowns, and builds set against real, cited company case studies. Free-tool path on every one.`,
   openGraph: {

@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const track = getTrack(slug);
   if (!track) return {};
   return {
-    title: `${track.title} | Marketing Academy`,
+    title: `${track.title}`,
     description: track.description,
     alternates: { canonical: `${BASE}/tracks/${slug}` },
     openGraph: {

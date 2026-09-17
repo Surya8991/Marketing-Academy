@@ -11,7 +11,7 @@ const roleTrackCount = TRACKS.filter((t) => t.kind === "role").length;
 const masteryTrackCount = TRACKS.filter((t) => t.kind === "mastery").length;
 
 export const metadata: Metadata = {
-  title: "Learning Tracks | Marketing Academy",
+  title: "Learning Tracks",
   description:
     `${TRACKS.length} curated learning paths: ${roleTrackCount} role-based tracks built for your job title, plus ${masteryTrackCount} skill mastery tracks that go deep on one discipline. Pick the path that matches how you learn.`,
 };

@@ -5,7 +5,8 @@ import { QUIZZES } from "@/lib/quizzes";
 import { INTERVIEW_SECTIONS } from "@/lib/interview-questions";
 
 export const metadata: Metadata = {
-  title: "Marketing Interview Questions 2026 | Marketing Academy",
+  alternates: { canonical: "/interview-prep" },
+  title: "Marketing Interview Questions 2026",
   description:
     "Comprehensive marketing interview questions and answers covering SEO, paid ads, content marketing, analytics, brand strategy, and all 16 marketing disciplines.",
   openGraph: {

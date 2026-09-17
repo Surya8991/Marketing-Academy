@@ -5,7 +5,8 @@ import PageMasthead from "@/components/PageMasthead";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Marketing Tools Directory 2026 | Marketing Academy",
+  alternates: { canonical: "/tools" },
+  title: "Marketing Tools Directory 2026",
   description:
     `Browse ${TOOLS.length} marketing tools for SEO, paid ads, email, analytics, AI, social media and more. Filter by category and pricing to find the right tool for your stack.`,
   openGraph: {

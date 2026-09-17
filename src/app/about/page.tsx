@@ -8,7 +8,8 @@ import { TRACKS } from "@/lib/tracks";
 import PageMasthead from "@/components/PageMasthead";
 
 export const metadata: Metadata = {
-  title: "About | Marketing Academy",
+  title: "About",
+  alternates: { canonical: "/about" },
   description:
     // uniqueLessonCount() (642), not flatLessons().length (655, double-counts
     // the 13 cross-listed lessons), per AGENTS.md Rule 43 (Stage 2.1).

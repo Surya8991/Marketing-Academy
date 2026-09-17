@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import AchievementsClient from "./AchievementsClient";
 
 export const metadata: Metadata = {
-  title: "Achievements | Marketing Academy",
+  title: "Achievements",
   description: "Your earned badges, XP, and learning streak.",
 };
 

@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const track = getTrack(slug);
   if (!track) return {};
   return {
-    title: `${track.title} Quiz | Marketing Academy`,
+    title: `${track.title} Quiz`,
     description: `Test your knowledge across all ${track.lessons.length} lessons in the ${track.title}.`,
   };
 }
