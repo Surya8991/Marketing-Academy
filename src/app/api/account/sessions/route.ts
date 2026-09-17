@@ -33,10 +33,8 @@ export async function GET() {
         tokenPreview: maskToken(r.sessionToken),
         expires: r.expires.toISOString(),
         isCurrent: r.sessionToken === currentToken,
-        _sort: r.expires.getTime(),
       }))
-      .sort((a, b) => b._sort - a._sort)
-      .map(({ _sort: _unused, ...rest }) => rest),
+      .sort((a, b) => new Date(b.expires).getTime() - new Date(a.expires).getTime()),
   });
 }
 
