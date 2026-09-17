@@ -84,7 +84,7 @@ Interlink map (#22) is deliberately **LAST** (largest task). Owner-requested fea
 - [ ] **23. Quiz: revisable answers + full review before submit** — let a learner **change a selection before the final submit** and **review all their answers** on a summary step before grading. Nuance to reconcile: the current quiz locks each answer on click and reveals correctness only on the finished screen (anti-farming, Rule 25/40) — so "reselect" must mean *revise your pick before submitting* (no mid-quiz correctness reveal), and a "Review your answers" step before "See Results" lets them confirm/change each one. Do NOT reintroduce per-question correctness reveal mid-quiz. Touches `Quiz.tsx` (add editable selections + a pre-submit review screen).
 - [ ] **24. New-user profile capture** — on first visit, ask the learner for their **name + a few light personal details** (name, role/goal — extend `OnboardingModal`, which today only asks a goal and stores nothing but `ma_onboarded`), persisted to a profile viewable/editable on **`/settings`** and the new **`/profile`** hub. Reuse `cert-name.ts`'s `ma_cert_name` for the name (already syncs) and add `src/lib/profile.ts` (role, experience level, goals) via `progress-snapshot` EXPORT_KEYS (Rules 18/77). Auto-fills the certificate name field (#4). Skippable — the "no sign-up wall" promise holds (local, optional). **See "Profile, Settings & Accounts design" below.**
 - [ ] **25. `/profile` — Personal Profile hub** `⭐ owner-requested` — one dashboard aggregating everything currently scattered across `/achievements`, `/skill-map`, `/portfolio`, `/certificates`, `/account`. Analytics (level/XP/streak/heatmap/timeline, completion %, quizzes/projects/bookmarks/notes/review-due), badges (12), certificates earned, profile identity. Needs a shared `src/lib/profile-stats.ts` aggregator + `<StatsRow>` component to kill 3× duplicated stat derivations. `noindex`. **See design below.**
-- [ ] **26. Auth / login: Google (exists) + email magic-link (SMTP)** `⭐ owner-requested` — Google OAuth **already exists** (NextAuth v5, `src/auth.ts`, env-gated); just needs `AUTH_SECRET`+`GOOGLE_CLIENT_ID`/`SECRET` set to activate. ADD an **email magic-link** provider (works with Google/Gmail SMTP or a transactional provider). The `verificationTokens` DB table already exists (zero schema change). **See design below.**
+- [ ] **26. Auth / login: Gmail SMTP magic-link ONLY (for now)** `⭐ owner-requested` — owner decision (2026-09-17): enable **only** the email magic-link via **Gmail/Google SMTP** for now. The Google OAuth provider stays in code but is NOT the enabled path; login UI becomes a single email form (no provider picker). The `verificationTokens` DB table already exists (zero schema change). **See design + email-templates spec below.**
 - [ ] **27. Autosave trust + guest data-loss nudge** — autosave IS present (local instant; cloud auto-push 2s when signed in) but invisible + guests have no cloud backup. Add a subtle "Saved • synced" indicator and a gentle "sign in to save across devices" prompt after a milestone (e.g. first lesson complete). Pairs with #25/#26.
 - [ ] **28. Re-engagement email** `depends on #26` — the newsletter was removed (#20), so there's no channel to bring learners back. Once email auth (#26) exists, add opt-in transactional emails: streak-about-to-break reminder, "resume {last lesson}", weekly progress digest. Uses the same mailer as #26 (Gmail SMTP for low volume; a transactional provider is the upgrade path). Strictly opt-in + one-click unsubscribe (respect the no-spam ethos). *(Optional sibling, not building now: a shareable public profile / "share my achievements" — adds real privacy scope; flag before pursuing.)*
 
@@ -270,17 +270,44 @@ Add cards, keep the existing four:
 4. **Autosave/status line** — surfaces #27's "Saved • synced" state so Settings answers "is my data safe?".
 Also migrate SettingsClient off inline styles toward the app's token classes where cheap (consistency).
 
-### D. Auth: Google (exists) + Gmail SMTP magic-link (#26)
-- **Google OAuth already works** — `src/auth.ts` conditionally includes it; activate by setting `AUTH_SECRET` + `GOOGLE_CLIENT_ID`/`SECRET`. No build needed, just env + Google Cloud OAuth client + redirect URIs.
-- **Add email magic-link** (passwordless — no password storage):
-  - Dep: `nodemailer` (NextAuth Email provider transport). Not currently installed.
-  - `env.ts`: add `EMAIL_SERVER` (e.g. `smtp://you%40gmail.com:APP_PASSWORD@smtp.gmail.com:587`) + `EMAIL_FROM`; add an `emailAuthConfigured()` gate separate from Google's `authConfigured()`.
-  - `auth.ts`: conditionally add `Email({ server, from })` to `providers`.
-  - `login/page.tsx` + `SignInButton.tsx`: add an email-input form → `signIn("email", { email })`; show a provider picker when both Google + email are configured.
-  - `Nav.tsx`: the two hardcoded `signIn("google")` calls → route to the `/login` picker when email is also enabled.
-  - **DB: zero schema change** — `verificationTokens` already exists and is exactly what the Email provider needs.
-  - **Gmail SMTP specifics**: needs 2FA + a Gmail **App Password** (never a real password, never committed), `smtp.gmail.com:587`, ~500 emails/day cap, deliverability can be flagged at volume → a transactional provider (Resend/Postmark) is the documented upgrade path if re-engagement emails ship.
-- Unlocks later **re-engagement emails** (streak reminders, "resume learning").
+### D. Auth: Gmail SMTP magic-link ONLY, for now (#26)
+Owner decision: enable **only** the passwordless email magic-link via Gmail SMTP. Google OAuth stays in `auth.ts` but is not the enabled path.
+- Dep: `nodemailer` (NextAuth Email provider transport). Not currently installed.
+- `env.ts`: add `EMAIL_SERVER` (e.g. `smtp://you%40gmail.com:APP_PASSWORD@smtp.gmail.com:587`) + `EMAIL_FROM`; add an `emailAuthConfigured()` gate (true when `AUTH_SECRET` + `EMAIL_SERVER` + `EMAIL_FROM` set). This gate — not `authConfigured()` (Google) — drives whether sign-in UI shows.
+- `auth.ts`: conditionally add `Email({ server, from, maxAge: 10*60 })` to `providers` (10-min link expiry).
+- `login/page.tsx` + `SignInButton.tsx`: a **single email-input form** → `signIn("email", { email })` → "check your inbox" confirmation screen. No provider picker (only one method now).
+- `Nav.tsx`: the two hardcoded `signIn("google")` calls → route to `/login` (the email form).
+- **DB: zero schema change** — `verificationTokens` already exists and is exactly what the Email provider needs.
+- **Gmail SMTP specifics**: needs 2FA + a Gmail **App Password** (never a real password, never committed, env only), `smtp.gmail.com:587`, ~500 emails/day cap; deliverability can be flagged at volume → a transactional provider (Resend/Postmark) is the documented upgrade path once volume grows. Set `AUTH_SECRET` too (magic links are signed).
+- Verify: a real sign-in round-trip (request link → email arrives → click → session created) before calling it done.
+
+### D2. Email templates & notifications (owner-requested full set)
+All emails share one branded, responsive HTML layout (logo, `--foreground/--muted` tokens rendered as inline styles since email has no CSS vars, plain-text fallback, footer with unsubscribe + physical-sender line for CAN-SPAM/GDPR). Build a small `src/lib/email/` with `renderEmail(template, data)` + a `sendEmail()` wrapper over the same nodemailer transport as auth. Store per-category email prefs in `profile.ts`/a `ma_email_prefs` (opt-in by default OFF for marketing, ON for security/transactional); one-click unsubscribe token per category.
+
+**Transactional (event-triggered, always sent, no opt-out):**
+| Template | Trigger | Core content |
+|---|---|---|
+| `magic-link` | sign-in request | "Sign in to Marketing Academy" + one-time button/link (10-min expiry), "ignore if not you" |
+| `welcome` | first successful sign-in | greet by name, what the account unlocks (cross-device sync, profile), CTA → `/profile` / resume |
+| `account-deleted` | `POST /api/account/delete` success | confirm account + data deleted, no further emails, re-signup link |
+
+**Engagement (opt-in, #28 — need a scheduled job / Vercel Cron):**
+| Template | Trigger | Core content |
+|---|---|---|
+| `streak-reminder` | daily cron: `lastActiveDay == yesterday` & nothing today | "Your {n}-day streak ends tonight" + one-tap resume link |
+| `resume-learning` | cron: inactive 3–7 days | "Pick up where you left off: {last lesson}" + 1–2 recommended next lessons |
+| `weekly-digest` | weekly cron (opt-in) | lessons completed this week, XP gained, current streak, badges unlocked, next recommended lesson, overall % |
+
+**Milestone (opt-in, event-triggered):**
+| Template | Trigger | Core content |
+|---|---|---|
+| `achievement-unlocked` | new badge unlocked (`checkAchievements` delta) | badge art + name + how they earned it, progress to next |
+| `certificate-earned` | track becomes `eligible` (100% + track quiz) | "You earned the {track} certificate" + link to view/share/print |
+| `level-up` (optional) | crossing a level threshold | new level title, XP to next |
+
+**In-app notifications (mostly EXIST — audit, don't rebuild):** `AchievementToast` (unlock), `StreakBadge`, `ReviewDueBadge` all already render. Gap: no persistent **notification center** and no cross-device notification (they're localStorage/event-driven). Decide whether a lightweight bell/inbox is in scope, or whether email covers cross-device. **Recommendation: skip a notification center for now** — the existing in-app toasts + the new emails cover it; revisit only if users ask.
+
+**Infra notes:** event-triggered emails send inline from the action's server route/handler; the three cron emails need a scheduler — **Vercel Cron** (`vercel.json` `crons` → a `/api/cron/*` route gated by a `CRON_SECRET`) iterating signed-in users' server-side progress rows (`progress` table) to compute streak/inactivity. Guests (no account/email) never receive email — another reason the guest→sign-in nudge (#27) matters. Every marketing/engagement email carries a working unsubscribe; transactional ones don't need one but still identify the sender.
 
 ### E. #27 — Autosave trust + guest nudge
 - **"Saved" indicator**: autosave is already instant locally + 2s cloud-push when signed in (`sync-client.ts`), but invisible. Add a subtle "Saved • synced {relative time}" (reads last `PROGRESS_CHANGED_EVENT` / sync state). Place on `/profile` + `/settings`, optional tiny nav dot.
@@ -305,4 +332,5 @@ Privacy: profile fields (name/role/etc.) are localStorage for guests; for signed
 - **Still open:** #9 (author/date — now folded into the blog for fresh content), #12 (route-scoped bundle trims), #13 loading skeletons, #14 IA dedup, #16 `bigProject` XP `⚠️`, blog BUILD.
 - 2026-09-17 — **#22 interlink map STARTED then PAUSED for review.** Inline approach confirmed; `rehype-external-links` added; **9 SEO lessons done + committed** (pilot + 8-lesson validation batch, all verified pure-linkification via link-stripping diff, on Sonnet). Remaining 29 SEO + other categories NOT done (interrupted batches reverted to a clean state). Resume when the profile/settings work is reviewed.
 - 2026-09-17 — **Owner: use Sonnet (not Opus) for all subagents** (cost) — saved to memory; applied to the interlink fan-out.
-- 2026-09-17 — **Research + design pass for Profile/Settings/Accounts** (owner-requested, review-then-build). Full personal-data inventory taken. Design written above (#24 extended, #25 `/profile` hub, #26 Google+Gmail-SMTP auth, #27 autosave trust + guest nudge). Confirmed **autosave is present** (local instant + cloud 2s when signed in); the gap is guest cloud backup + no visible indicator. **No implementation yet — awaiting owner review.**
+- 2026-09-17 — **Research + design pass for Profile/Settings/Accounts** (owner-requested, review-then-build). Full personal-data inventory taken. Design written above (#24 extended, #25 `/profile` hub, #26 auth, #27 autosave trust + guest nudge). Confirmed **autosave is present** (local instant + cloud 2s when signed in); the gap is guest cloud backup + no visible indicator. **No implementation yet — awaiting owner review.**
+- 2026-09-17 — Owner refinements: **auth = Gmail SMTP magic-link ONLY for now** (no Google-OAuth path, no provider picker); added a **full email-templates & notifications spec** (§D2): 3 transactional + 3 engagement (cron) + 3 milestone templates, shared branded layout + prefs/unsubscribe, Vercel-Cron for scheduled sends; in-app toasts already exist (no notification center for now). Added prioritized order (interlink map last) + #28 re-engagement email.
