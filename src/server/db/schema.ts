@@ -9,9 +9,27 @@ export const users = sqliteTable("users", {
   emailVerified: integer("emailVerified", { mode: "timestamp_ms" }),
   createdAt: integer("createdAt", { mode: "timestamp_ms" }).notNull().$defaultFn(() => new Date()),
   // 'user' | 'admin'. Persisted, bootstrapped from ADMIN_EMAILS on sign-in
-  // (see src/auth.ts's events.signIn hook). No admin UI reads/writes this
-  // beyond requireAdmin() — see the design doc's Non-Goals.
+  // (see src/auth.ts's events.signIn hook). Editable by a superadmin via
+  // /admin/users (IMPROVEMENT_PLAN #30) — NOT self-service anywhere else.
   role: text("role").notNull().default("user"),
+  // Set only via /admin/users by a superadmin (#30). A suspended user's next
+  // request is treated as signed-out (src/auth.ts's session() callback +
+  // requireUser()) — existing sessions/tokens are deliberately left alone,
+  // since auth() is re-evaluated fresh on every request, not cached.
+  suspended: integer("suspended", { mode: "boolean" }).notNull().default(false),
+});
+
+// Append-only log of every superadmin mutation (#30) — the accountability
+// record for a dashboard that can change roles, suspend, or delete accounts.
+// No update/delete path is ever exposed for this table.
+export const adminAuditLog = sqliteTable("adminAuditLog", {
+  id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+  actorUserId: text("actorUserId").notNull(),
+  actorEmail: text("actorEmail").notNull(),
+  action: text("action").notNull(), // "promote" | "demote" | "suspend" | "unsuspend" | "delete"
+  targetUserId: text("targetUserId").notNull(),
+  targetEmail: text("targetEmail").notNull(),
+  at: integer("at", { mode: "timestamp_ms" }).notNull().$defaultFn(() => new Date()),
 });
 
 export const accounts = sqliteTable("accounts", {

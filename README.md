@@ -185,17 +185,22 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `vercel.json` | Security headers (CSP, HSTS, X-Frame-Options, etc.) |
 | `src/lib/storage-utils.ts` | Safe `localStorage` wrapper with try/catch, corrupt-value backup, and `StorageWarning` trigger |
 | `src/components/StorageWarning.tsx` | Client banner shown when localStorage is blocked (corporate/Android) |
-| `tests/*.test.ts` | 65 tests (Node.js built-in runner + tsx): data validation, **projects data (Rule 57, the gate for project referential integrity)**, quiz shuffle, integrity regression |
-| `AGENTS.md` | 78 non-negotiable build rules for AI agents (incl. Rule 23: pre-push doc checklist) |
+| `tests/*.test.ts` | 70 tests (Node.js built-in runner + tsx): data validation, **projects data (Rule 57, the gate for project referential integrity)**, quiz shuffle, integrity regression, API auth coverage |
+| `AGENTS.md` | 79 non-negotiable build rules for AI agents (incl. Rule 23: pre-push doc checklist) |
 | `src/lib/session-cookie.ts` | Shared Auth.js session-cookie-name lookup (checks both `__Secure-authjs.session-token` and `authjs.session-token`), used by both `/api/account` routes |
 | `src/lib/quiz-keys.ts` | `QUIZ_STORAGE_PREFIX`/`QUIZ_PASS_KEY_PREFIX`/`TRACK_QUIZ_PASS_PREFIX`, split out of the 2.4MB `quizzes.ts` so `progress-snapshot.ts` (now client-bundled via `SyncProvider`) doesn't pull it in |
 | `src/lib/notes.ts` | Shared note storage (NOTE_KEY_PREFIX, getNoteKey, getNote, saveNote) |
-| `src/auth.ts` | NextAuth v5 config (Google sign-in via `DrizzleAdapter`), `requireUser()`/`requireAdmin()`/`isAdminUser()` |
-| `src/server/db/` | `schema.ts` (users/accounts/sessions/verificationTokens), `client.ts`, Drizzle `migrations/` |
-| `src/app/api/sync/route.ts` | Per-user progress sync, gated by `requireUser()`'s database session. Replaces the deleted `/api/sync-proxy` shared-secret design (AGENTS.md Rule 26/44, Rule 77) |
+| `src/auth.ts` | NextAuth v5 config (Gmail-SMTP magic-link via `Nodemailer` + Google via `DrizzleAdapter`), `requireUser()`/`requireAdmin()`/`requireSuperAdmin()`/`isAdminUser()`/`isSuperAdminEmail()` |
+| `src/server/db/` | `schema.ts` (users incl. `role`/`suspended`, accounts, sessions, verificationTokens, `adminAuditLog`), `client.ts`, Drizzle `migrations/` |
+| `src/app/api/sync/route.ts` | Per-user progress sync, gated by `requireUser()`'s database session (rejects a suspended user same as unauthenticated). Replaces the deleted `/api/sync-proxy` shared-secret design (AGENTS.md Rule 26/44, Rule 77) |
 | `src/lib/sync-client.ts` | Client auto-sync: `mergeSnapshots`/`pullAndMerge`/`pushNow`/`startAutoSync`, debounce-pushes on `PROGRESS_CHANGED_EVENT` |
 | `src/lib/progress-snapshot.ts` | Single source of truth for "the user's progress data" (`EXPORT_KEYS`/`ALLOWED_KEY_PREFIXES`/`collectAllKeys`/`restoreAllKeys`), shared by `/settings` and sync |
 | `src/lib/cert-name.ts` | Learner's display name for track certificates (`ma_cert_name`); syncs/exports via `progress-snapshot` |
+| `src/lib/profile.ts` | Persona fields (`ma_profile`: role/experienceLevel/primaryGoal), editable on Settings + captured (optionally) at onboarding |
+| `src/lib/profile-stats.ts` | `getProfileStats()` — the one aggregator for `/profile`, replacing 4x duplicated stat derivations across Achievements/SkillMap/Portfolio/certificates |
+| `src/components/StatsRow.tsx` / `ActivityHeatmap.tsx` / `AutosaveIndicator.tsx` | Shared components: the `code/value/label` stat-tile grid, an 18-week GitHub-style contribution heatmap (fed by `xpByDay`), and the "Saved · synced Xm ago" indicator |
+| `src/lib/email/` | Shared branded HTML+text email layout + nodemailer transport wrapper + templates (`magic-link`, `welcome`, `account-deleted`) — table-based markup, hex-inlined (no CSS vars in email clients) |
+| `src/lib/admin-stats.ts` / `admin-audit.ts` | `getAdminStats()` (shared by `/admin` and its API route) and `logAdminAction()` — the append-only audit-log writer every `/api/admin/users/[id]` mutation calls |
 | `PROJECT_LOG.md` | Full session history, gotchas, file inventory, pending tasks |
 
 ---
@@ -227,9 +232,12 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/skill-map` | Category cards grouped by discipline, sorted by % complete within each group, progress overview (Stage 11) |
 | `/achievements` | XP level, streak, and 12 unlockable achievement badges |
 | `/portfolio` | Session 85, Stage 9.1 — your completed practice projects as portfolio-ready interview evidence: company, tier, archetype, concepts, "Export as JSON," cross-linked with `/interview-prep`. `noindex` (personal, per-browser data) |
-| `/settings` | Export / import / reset all learning progress as JSON |
-| `/login` | Google sign-in (only rendered when auth env vars are configured) |
+| `/profile` | Personal dashboard hub: XP/level, streak, 18-week activity heatmap, recent activity, per-category progress, badges/certificates/portfolio/bookmarks/review-due — aggregates links to their dedicated pages. Guest + signed-in. `noindex` |
+| `/settings` | Export / import / reset all learning progress as JSON; Profile Details, Account, Preferences (theme), Autosave status cards |
+| `/login` | Gmail-SMTP magic-link sign-in (single email form, only rendered when `EMAIL_SERVER`/`EMAIL_FROM` are configured — Google OAuth stays wired but unpromoted) |
 | `/account` | Signed-in profile: session list, delete account |
+| `/admin` | Account/usage dashboard (lessons/users overview) — any admin (`role`/`ADMIN_EMAILS`), read-only unless also superadmin. `noindex` |
+| `/admin/users` | Search/promote/demote/suspend/delete any user + append-only audit log — `SUPERADMIN_EMAILS`-only (env-only tier, never DB-persisted). `noindex` |
 | `/about` | About page: mission, builder profile, stats, tech stack, links |
 | `/certificates` | Track completion certificate index |
 | `/certificates/[slug]` | Printable track completion certificate |
@@ -256,7 +264,9 @@ Auto-deploys to Vercel on every push to `main`. No environment variables are req
 | Var | Purpose |
 |---|---|
 | `AUTH_SECRET` | NextAuth session encryption (`openssl rand -base64 32`) |
-| `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | Google OAuth credentials for sign-in |
+| `EMAIL_SERVER` / `EMAIL_FROM` | Gmail-SMTP magic-link sign-in (`emailAuthConfigured()`) — the enabled path. `EMAIL_SERVER` is a full `smtp://user%40gmail.com:APP_PASSWORD@smtp.gmail.com:587` string using a Gmail **App Password** (2FA required), never a real account password |
+| `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | Google OAuth credentials — stays wired in `src/auth.ts` but is not the promoted sign-in path (owner decision, IMPROVEMENT_PLAN #26) |
 | `DATABASE_URL` | SQLite file path for local dev, or a `libsql://...` Turso URL in production |
 | `TURSO_AUTH_TOKEN` | Auth token for a remote Turso database (unused for local SQLite) |
 | `ADMIN_EMAILS` | Comma-separated addresses auto-promoted to `role: "admin"` on sign-in (bootstrap/failsafe, mirrors the Email-Automator sister project's pattern — AGENTS.md Rule 77) |
+| `SUPERADMIN_EMAILS` | Comma-separated addresses with `/admin/users` (full user management) access — **never persisted to the database anywhere**, checked fresh against this env var on every request, so it can't be escalated from inside the app (IMPROVEMENT_PLAN #30) |

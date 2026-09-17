@@ -8,7 +8,7 @@ import {
   GraduationCap, LayoutGrid, Brain, Map,
   BookMarked, FileText, Mic2, Wrench,
   SlidersHorizontal, Trophy, Settings, Library, Zap, ClipboardCheck, Briefcase,
-  Compass, Radio, TrendingUp, Megaphone, RotateCcw, LogIn, LogOut, User,
+  Compass, Radio, TrendingUp, Megaphone, RotateCcw, LogIn, LogOut, User, ShieldCheck,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CATEGORY_INDEX } from "@/lib/category-index";
@@ -472,6 +472,16 @@ export default function Nav({ authConfigured = false }: { authConfigured?: boole
                   >
                     Account &amp; sync
                   </Link>
+                  {(session.user as { isAdmin?: boolean }).isAdmin && (
+                    <Link
+                      href="/admin"
+                      onClick={() => setOpenDrop(null)}
+                      className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors border-t border-[var(--border)]"
+                    >
+                      <ShieldCheck size={14} />
+                      Admin
+                    </Link>
+                  )}
                   <button
                     onClick={() => { setOpenDrop(null); void signOut(); }}
                     className="flex items-center gap-2 w-full text-left px-4 py-2.5 text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors border-t border-[var(--border)]"
@@ -659,6 +669,21 @@ export default function Nav({ authConfigured = false }: { authConfigured?: boole
                   <User size={16} className="text-[var(--muted-foreground)]" />
                   Account &amp; sync
                 </Link>
+                {(session.user as { isAdmin?: boolean }).isAdmin && (
+                  <Link
+                    href="/admin"
+                    onClick={() => setMobileOpen(false)}
+                    className={cn(
+                      "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                      pathname.startsWith("/admin")
+                        ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
+                        : "text-[var(--foreground)] hover:bg-[var(--muted)]"
+                    )}
+                  >
+                    <ShieldCheck size={16} className="text-[var(--muted-foreground)]" />
+                    Admin
+                  </Link>
+                )}
                 <button
                   onClick={() => { setMobileOpen(false); void signOut(); }}
                   className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors text-left"

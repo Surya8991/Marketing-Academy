@@ -24,6 +24,7 @@ export default function robots(): MetadataRoute.Robots {
         "/skill-map",
         "/achievements",
         "/profile",
+        "/admin",
       ],
     },
     sitemap: `${BASE}/sitemap.xml`,

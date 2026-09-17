@@ -14,8 +14,9 @@ function maskToken(token: string): string {
 
 export async function GET() {
   const session = await auth();
-  const userId = (session?.user as { id?: string } | undefined)?.id;
-  if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  const user = session?.user as { id?: string; isSuspended?: boolean } | undefined;
+  if (!user?.id || user.isSuspended) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  const userId = user.id;
   if (!rateLimit(`list-sessions:${userId}`, 30, 60_000)) {
     return NextResponse.json({ error: "Too many requests" }, { status: 429 });
   }
@@ -40,8 +41,9 @@ export async function GET() {
 
 export async function DELETE(req: NextRequest) {
   const session = await auth();
-  const userId = (session?.user as { id?: string } | undefined)?.id;
-  if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  const user = session?.user as { id?: string; isSuspended?: boolean } | undefined;
+  if (!user?.id || user.isSuspended) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  const userId = user.id;
   if (!rateLimit(`revoke-session:${userId}`, 20, 60_000)) {
     return NextResponse.json({ error: "Too many requests" }, { status: 429 });
   }

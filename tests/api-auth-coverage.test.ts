@@ -25,7 +25,7 @@ const EXEMPT: Record<string, string> = {
   "og/route.tsx": "Renders an OG image via next/og's ImageResponse from three length-capped query params (title/category/level) reflected directly into JSX — React auto-escapes them, and the output is an image, not HTML. No user data read/written, no database access, no auth needed.",
 };
 
-const AUTH_MARKERS = [/\brequireUser\s*\(/, /\brequireAdmin\s*\(/, /\bawait\s+auth\s*\(\s*\)/];
+const AUTH_MARKERS = [/\brequireUser\s*\(/, /\brequireAdmin\s*\(/, /\brequireSuperAdmin\s*\(/, /\bawait\s+auth\s*\(\s*\)/];
 
 function findRouteFiles(dir: string): string[] {
   const out: string[] = [];

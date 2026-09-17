@@ -7,7 +7,7 @@ import { eq } from "drizzle-orm";
 import type { Adapter } from "next-auth/adapters";
 import { db, getDb, lazyProxy } from "@/server/db/client";
 import { accounts, sessions, users, verificationTokens } from "@/server/db/schema";
-import { env, adminEmails } from "@/lib/env";
+import { env, adminEmails, superAdminEmails } from "@/lib/env";
 import { sendMail } from "@/lib/email/transport";
 import { magicLinkEmail } from "@/lib/email/templates/magic-link";
 import { welcomeEmail } from "@/lib/email/templates/welcome";
@@ -16,6 +16,17 @@ import { welcomeEmail } from "@/lib/email/templates/welcome";
  *  ADMIN_EMAILS env var (bootstrap + failsafe — see events.signIn below). */
 export function isAdminUser(u: { email: string | null; role?: string | null }): boolean {
   return u.role === "admin" || adminEmails.includes((u.email ?? "").toLowerCase());
+}
+
+/**
+ * True only via SUPERADMIN_EMAILS (IMPROVEMENT_PLAN #30) — deliberately no
+ * DB-backed path, unlike isAdminUser() above. Checked fresh against env on
+ * every call; nothing in this codebase ever persists a "superadmin" value
+ * anywhere, so this tier can only be granted or revoked by editing Vercel
+ * env and redeploying, never from inside the app.
+ */
+export function isSuperAdminEmail(email: string | null | undefined): boolean {
+  return superAdminEmails.includes((email ?? "").toLowerCase());
 }
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
@@ -56,6 +67,15 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       : []),
   ],
   callbacks: {
+    // Hard block at sign-in time (#30): a suspended user gets no NEW session
+    // at all — Auth.js redirects to /login?error=AccessDenied, handled by
+    // login/page.tsx with a clear message. This only stops future sign-ins;
+    // an already-active session (created before suspension) is cut off
+    // separately below via isSuspended + requireUser().
+    async signIn({ user }) {
+      if ((user as { suspended?: boolean } | undefined)?.suspended) return false;
+      return true;
+    },
     // Built explicitly from an allow-list rather than by mutating/deleting
     // fields on the adapter's session row. The database strategy spreads the
     // whole row — including the raw `sessionToken` — into what
@@ -65,6 +85,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     // Auth.js version adding another adapter-internal field can't silently
     // leak it either.
     session({ session, user }) {
+      const u = user as { email: string | null; role?: string | null; suspended?: boolean };
       return {
         expires: session.expires,
         user: {
@@ -72,7 +93,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           name: session.user?.name ?? user.name ?? null,
           email: session.user?.email ?? user.email ?? null,
           image: session.user?.image ?? user.image ?? null,
-          isAdmin: isAdminUser(user as { email: string | null; role?: string | null }),
+          isAdmin: isAdminUser(u),
+          isSuperAdmin: isSuperAdminEmail(u.email),
+          // Defense in depth for a session created BEFORE the user was
+          // suspended (database sessions live up to 7 days) — requireUser()
+          // and the 3 API routes that call auth() directly both check this.
+          isSuspended: Boolean(u.suspended),
         },
         // Double assertion on purpose: the declared callback return type is
         // `AdapterSession & Session`, i.e. it INCLUDES the adapter-internal
@@ -111,11 +137,30 @@ export async function requireUser() {
   const session = await auth();
   const id = (session?.user as { id?: string } | undefined)?.id;
   if (!session?.user || !id) redirect("/login");
-  return session.user as { id: string; email: string; name?: string; image?: string; isAdmin?: boolean };
+  const user = session.user as {
+    id: string;
+    email: string;
+    name?: string;
+    image?: string;
+    isAdmin?: boolean;
+    isSuperAdmin?: boolean;
+    isSuspended?: boolean;
+  };
+  // Cuts off an already-active session immediately once suspended, rather
+  // than waiting for it to naturally expire (#30) — see the signIn callback
+  // above for the future-sign-in-time block.
+  if (user.isSuspended) redirect("/login?suspended=1");
+  return user;
 }
 
 export async function requireAdmin() {
   const u = await requireUser();
   if (!u.isAdmin) redirect("/");
+  return u;
+}
+
+export async function requireSuperAdmin() {
+  const u = await requireUser();
+  if (!u.isSuperAdmin) redirect(u.isAdmin ? "/admin" : "/");
   return u;
 }
