@@ -78,8 +78,20 @@ export default async function CategoryCheatSheetPage({ params }: Props) {
   const cat = getCategory(category);
   if (!cat) notFound();
 
+  const CS_BASE = "https://marketing-academy-roan.vercel.app";
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: CS_BASE },
+      { "@type": "ListItem", position: 2, name: "Cheat Sheets", item: `${CS_BASE}/cheat-sheets` },
+      { "@type": "ListItem", position: 3, name: `${cat.title} Cheat Sheet`, item: `${CS_BASE}/cheat-sheets/${category}` },
+    ],
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <style dangerouslySetInnerHTML={{ __html: printCSS }} />
 
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "2rem 1.5rem" }}>

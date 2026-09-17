@@ -82,8 +82,20 @@ export default async function ComparisonDetailPage({ params }: Props) {
   const lookupKey = `${slugify(toolA.name)}-vs-${slugify(toolB.name)}`;
   const customData = CUSTOM_COMPARISONS[lookupKey];
 
+  const COMPARE_BASE = "https://marketing-academy-roan.vercel.app";
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: COMPARE_BASE },
+      { "@type": "ListItem", position: 2, name: "Tool Comparisons", item: `${COMPARE_BASE}/compare` },
+      { "@type": "ListItem", position: 3, name: `${toolA.name} vs ${toolB.name}`, item: `${COMPARE_BASE}/compare/${lookupKey}` },
+    ],
+  };
+
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <style dangerouslySetInnerHTML={{ __html: hoverCSS }} />
 
       {/* Back button */}

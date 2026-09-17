@@ -21,7 +21,7 @@ the `CATEGORY_INDEX` bundle regression, no `llms.txt`, no monetization/lead-capt
 - [ ] **5. `CATEGORY_INDEX` true slim module** — currently derived from full `CATEGORIES`, so ~148 KB of curriculum ships on every route (Rule 41 fix defeated).
 
 ### P1 — Real gaps, moderate effort
-- [ ] **6. Structured data gaps** — `compare/[slug]`, `cheat-sheets/[category]`, `digital-marketing-cheat-sheet`, `projects/[category]/[slug]`, glossary list emit no JSON-LD/breadcrumbs.
+- [x] **6. Structured data gaps** — ✅ DONE (2026-09-17). Added `BreadcrumbList` JSON-LD to `compare/[slug]`, `cheat-sheets/[category]`, `digital-marketing-cheat-sheet`, and `projects/[category]/[slug]` (+ a `LearningResource` schema on project pages). Verified in browser. *(Glossary-list `ItemList`/`DefinedTermSet` — minor, deferred; individual terms already carry `DefinedTerm`.)*
 - [x] **6b. Title double-suffix bug (~30 pages)** — ✅ DONE (2026-09-17). Stripped `| Marketing Academy` from the **document** title on 30 pages (left `openGraph.title` branded, since the template doesn't apply there). Verified in browser: `/about` → "About | Marketing Academy" (was doubled). `tsc`/lint clean. *(See Perspective 9.)*
 - [ ] **6c. Meta description quality** — `glossary/[slug]` description is a hard `slice(0,155)` (cuts mid-word); interior pages (glossary term, interview category, cheat-sheet category, compare) set no page-specific `openGraph`/image → generic social cards.
 - [ ] **6d. Blog / articles / "What's New" hub** `⚠️ DECISION` — no `/blog`, `/news`, `/changelog`, or `/guides` route exists. A content-education site has no fresh-article surface — the most linkable, AI-citable, keyword-targetable content shape. Biggest topical-authority + freshness gap. *(See Perspective 9.)*

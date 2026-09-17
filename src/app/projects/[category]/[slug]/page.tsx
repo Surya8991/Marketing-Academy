@@ -45,8 +45,34 @@ export default async function ProjectDetailPage({ params }: Props) {
 
   const categoryTitle = getCategory(category)?.title ?? category;
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+      { "@type": "ListItem", position: 2, name: "Practice Projects", item: `${BASE}/projects` },
+      { "@type": "ListItem", position: 3, name: row.title, item: `${BASE}/projects/${category}/${slug}` },
+    ],
+  };
+
+  const projectLd = {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    name: row.title,
+    description: `A hands-on ${row.archetype} project (~${row.timeMinutes} min) for the "${row.lessonTitle}" lesson.`,
+    url: `${BASE}/projects/${category}/${slug}`,
+    learningResourceType: "Project",
+    educationalUse: "practice",
+    timeRequired: `PT${row.timeMinutes}M`,
+    isAccessibleForFree: true,
+    inLanguage: "en",
+    provider: { "@type": "Organization", name: "Marketing Academy", url: BASE },
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(projectLd) }} />
       <PageMasthead left="Marketing Academy · Field Work" right={categoryTitle} />
 
       <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col gap-5">
