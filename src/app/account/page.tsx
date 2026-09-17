@@ -1,7 +1,7 @@
 import { requireUser } from "@/auth";
 import AccountClient from "./AccountClient";
 
-export const metadata = { title: "Account" };
+export const metadata = { title: "Account", robots: { index: false, follow: false } };
 
 export default async function AccountPage() {
   const user = await requireUser();

@@ -5,6 +5,7 @@ import { uniqueLessonCount } from "@/lib/curriculum";
 export const metadata: Metadata = {
   alternates: { canonical: "/search" },
   title: "Search Lessons",
+  robots: { index: false, follow: true },
   description:
     // uniqueLessonCount() (642), not flatLessons().length (655), per Rule 43.
     `Search across ${uniqueLessonCount()} marketing lessons. Filter by category and level, SEO, paid ads, growth, social, email, analytics, AI, and more.`,

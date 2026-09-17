@@ -30,7 +30,7 @@ the `CATEGORY_INDEX` bundle regression, no `llms.txt`, no monetization/lead-capt
 - [ ] **8. Accessibility fixes** — `error.tsx` dark-mode red box; unlabeled search + notes inputs; `aria-live` on newsletter messages; low-contrast `Callout` label colors.
 - [ ] **9. Author/citability signals (AEO)** — Article `datePublished` + named `Person` author (E-E-A-T); render `lessonMeta.summary` as an extractable TL;DR/direct-answer block.
 - [ ] **10. Global search scope** — add glossary (158), tools (157), projects (803) to `/search` + ⌘K (currently lessons + tracks only).
-- [ ] **11. `robots.ts`** — `disallow` `/api/` + personal routes; `noindex` on achievements/settings/account/login/certificates.
+- [x] **11. `robots.ts`** — ✅ DONE (2026-09-17). `disallow` `/api/` + 8 personal routes; added `robots: { index: false }` metadata to achievements/settings/account/login/skill-map/certificates(+[slug] via a new server layout)/search. Verified: robots.txt + `/settings` `noindex, nofollow`.
 - [ ] **12. `CASE_COMPANIES` / `PROJECTS_INDEX` / `TOOLS` client-bundle trimming** — pass minimal props instead of importing full data modules into `"use client"` files.
 
 ### P2 — Polish / cleanup / decisions
@@ -40,8 +40,8 @@ the `CATEGORY_INDEX` bundle regression, no `llms.txt`, no monetization/lead-capt
 - [ ] **16. `bigProject` XP tier (100 XP) unreachable** — wire capstone projects to it or drop the tier.
 - [ ] **17. Dead newsletter code** — orphaned component + 501 endpoint. Finish or delete. *(see #20)*
 - [ ] **18. Doc drift** — README routes table missing `/review`, `/compare`, `/tools/geo-audit`; AGENTS.md Rule 41 documents a fix that no longer holds.
-- [ ] **19. `⚠️ DECISION` — PostHog consent** — autocapture on, no consent banner/DNT. GDPR exposure. Needs a privacy decision (consent banner vs disable autocapture vs remove).
-- [ ] **20. `⚠️ DECISION` — Monetization / audience capture** — no revenue or list-building mechanism. Needs a product decision (working newsletter? sponsor slot? donations?).
+- [x] **19. PostHog consent** — ✅ DONE (2026-09-17, owner: disable autocapture). `layout.tsx` init now sets `autocapture:false, disable_session_recording:true, respect_dnt:true` (keeps only the PII-free explicit `capture()` events + pageleave). No banner needed.
+- [x] **20. Monetization / newsletter** — ✅ DONE (2026-09-17, owner: remove dead code). Deleted orphaned `NewsletterSignup.tsx` + `/api/newsletter` (501 stub). README updated. *(Broader monetization/audience-capture strategy remains an open owner decision — no code path today.)*
 - [ ] **21. `⚠️ DECISION` — `/api/geo-audit` abuse vector** — unauthenticated, in-memory rate limit, proxies paid Groq. Needs a decision (auth-gate, shared-store limit, or usage cap).
 
 ### 🏁 LAST — largest task (run after everything above)

@@ -3,6 +3,7 @@ import { TRACKS } from "@/lib/tracks";
 
 export const metadata = {
   title: "Certificates",
+  robots: { index: false, follow: true },
   description: "View and print your learning track certificates.",
 };
 

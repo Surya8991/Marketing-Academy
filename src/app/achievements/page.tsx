@@ -3,6 +3,7 @@ import AchievementsClient from "./AchievementsClient";
 
 export const metadata: Metadata = {
   title: "Achievements",
+  robots: { index: false, follow: true },
   description: "Your earned badges, XP, and learning streak.",
 };
 

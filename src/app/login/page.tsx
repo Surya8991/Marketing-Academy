@@ -4,7 +4,7 @@ import { auth } from "@/auth";
 import { authConfigured } from "@/lib/env";
 import SignInButton from "./SignInButton";
 
-export const metadata = { title: "Sign in" };
+export const metadata = { title: "Sign in", robots: { index: false, follow: true } };
 
 export default async function LoginPage() {
   const session = await auth();
