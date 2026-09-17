@@ -8,7 +8,7 @@
  * Known approximation (#28, no per-user timezone stored anywhere in this
  * app): this runs in the CRON JOB'S timezone (UTC on Vercel), not the
  * individual user's. A user near the UTC dateline can see their streak
- * reminder land a few hours off from their own local "today" — acceptable
+ * reminder land a few hours off from their own local "today", acceptable
  * for a best-effort reminder, not worth a timezone-storage feature to fix.
  */
 function dateKey(d: Date): string {

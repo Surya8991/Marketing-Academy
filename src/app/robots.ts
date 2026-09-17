@@ -12,7 +12,7 @@ export default function robots(): MetadataRoute.Robots {
       // own metadata (belt-and-braces, since disallow only blocks crawling, not
       // indexing of already-known URLs). AI answer-engine crawlers (GPTBot,
       // ClaudeBot, PerplexityBot, Google-Extended, …) are intentionally allowed
-      // on everything else — see /llms.txt for the crawl guide.
+      // on everything else, see /llms.txt for the crawl guide.
       disallow: [
         "/api/",
         "/account",

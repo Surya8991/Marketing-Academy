@@ -34,5 +34,5 @@ export function weeklyDigestEmail(input: {
     ctaUrl: `${BASE_URL}/profile`,
     unsubscribeUrl: input.unsubscribeUrl,
   });
-  return { subject: "Your week in review — Marketing Academy", html, text };
+  return { subject: "Your week in review: Marketing Academy", html, text };
 }

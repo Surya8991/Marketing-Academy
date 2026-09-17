@@ -10,6 +10,7 @@ const LEARN_LINKS = [
   { href: "/skill-map",     label: "Skill Map" },
   { href: "/certificates",  label: "Certificates" },
   { href: "/portfolio",     label: "My Portfolio" },
+  { href: "/profile",       label: "My Profile" },
 ];
 
 const RESOURCE_LINKS = [

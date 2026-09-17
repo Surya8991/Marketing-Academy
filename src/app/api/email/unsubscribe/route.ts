@@ -28,7 +28,7 @@ function page(title: string, body: string): NextResponse {
   );
 }
 
-// Public and intentionally so — a one-click unsubscribe from an email client
+// Public and intentionally so, a one-click unsubscribe from an email client
 // has no session to check. Token-verified instead (see unsubscribe-token.ts).
 // No auth() call here is a deliberate design choice, not an oversight.
 export async function GET(req: NextRequest) {

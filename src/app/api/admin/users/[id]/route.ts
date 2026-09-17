@@ -17,7 +17,7 @@ async function loadTarget(id: string) {
   return row ?? null;
 }
 
-// Mutations only — gated requireSuperAdmin() (IMPROVEMENT_PLAN #30's access
+// Mutations only, gated requireSuperAdmin() (IMPROVEMENT_PLAN #30's access
 // model: plain `admin` gets read-only /api/admin/users, never this route).
 export async function PATCH(req: NextRequest, { params }: Props) {
   const actor = await requireSuperAdmin();
@@ -37,7 +37,7 @@ export async function PATCH(req: NextRequest, { params }: Props) {
   if (target.id === actor.id) {
     return NextResponse.json({ error: "Can't perform admin actions on your own account" }, { status: 400 });
   }
-  // Env-tier accounts are equals — none of them can be demoted, suspended,
+  // Env-tier accounts are equals, none of them can be demoted, suspended,
   // or (see DELETE below) deleted from inside the app, only via Vercel env.
   if (isSuperAdminEmail(target.email)) {
     return NextResponse.json({ error: "Superadmin accounts can only be changed via Vercel env" }, { status: 400 });

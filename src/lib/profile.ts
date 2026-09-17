@@ -3,7 +3,7 @@ import { PROGRESS_CHANGED_EVENT, STORAGE_WRITE_FAILED } from "@/lib/events";
 /**
  * Persona fields captured on first visit (onboarding) or edited later in
  * Settings. Kept separate from cert-name.ts's `ma_cert_name` (Rule 18: one
- * key, one owner) — profile.ts never duplicates the name field, it only
+ * key, one owner), profile.ts never duplicates the name field, it only
  * references it via getCertName() where a display name is needed.
  */
 export type ExperienceLevel = "beginner" | "intermediate" | "advanced";

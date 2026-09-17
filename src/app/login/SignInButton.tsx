@@ -4,7 +4,7 @@ import { signIn } from "next-auth/react";
 import { Mail } from "lucide-react";
 
 /**
- * Single email-input magic-link form (IMPROVEMENT_PLAN #26) — no provider
+ * Single email-input magic-link form (IMPROVEMENT_PLAN #26), no provider
  * picker, Gmail SMTP is the only enabled sign-in path. The Nodemailer
  * provider's id is literally "nodemailer" (@auth/core/providers/nodemailer.js).
  */

@@ -1,5 +1,5 @@
 /**
- * Single aggregator for "what does this learner's progress look like" —
+ * Single aggregator for "what does this learner's progress look like",
  * consolidates stat derivations that were previously hand-duplicated across
  * AchievementsClient, SkillMapClient, PortfolioClient, and the certificate
  * page (Rule 18: shared derivation logic belongs in src/lib/, not per-component).
@@ -13,7 +13,7 @@
  *    lives in projects-index.ts's ProjectCardData. Rather than import that
  *    module's ~436 KB PROJECTS_INDEX array here (and therefore into every
  *    consumer of this file), getProfileStats() takes an OPTIONAL slim project
- *    list as a parameter — only callers that already pay that cost (e.g. the
+ *    list as a parameter, only callers that already pay that cost (e.g. the
  *    /profile page, which mirrors /portfolio's existing precedent of passing
  *    PROJECTS_INDEX from a server component) need to supply it. Callers that
  *    don't (e.g. a Nav badge) still get projectsDone, just projectMinutes: 0.
@@ -94,7 +94,7 @@ function countKeysWithPrefix(prefix: string): number {
 }
 
 // Mirrors quizzes.ts's getTrackQuizPassed() exactly, without importing that
-// 2.4 MB module — see file header.
+// 2.4 MB module, see file header.
 function isTrackQuizPassed(trackSlug: string): boolean {
   try {
     return localStorage.getItem(`${TRACK_QUIZ_PASS_PREFIX}${trackSlug}`) === "1";

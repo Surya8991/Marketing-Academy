@@ -108,7 +108,7 @@ const withMDX = createMDX({
       ["rehype-slug", {}],                                    // adds id="" to headings
       ["rehype-autolink-headings", { behavior: "wrap" }],    // wraps headings in anchor tags
       // Rule 10 tuple format. Only matches links with a protocol/host (external),
-      // never the relative /learn/ /glossary/ internal links — so external links
+      // never the relative /learn/ /glossary/ internal links, so external links
       // open in a new tab with rel=noopener noreferrer sitewide (IMPROVEMENT_PLAN
       // #22). No `nofollow`: outbound links to authoritative sources are an
       // editorial E-E-A-T signal we want to pass, not suppress.

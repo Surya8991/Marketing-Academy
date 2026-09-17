@@ -9,7 +9,7 @@ import path from "path";
 
 const BASE = "https://marketing-academy-roan.vercel.app";
 // The site doesn't track per-page content-modification dates, so use the build
-// (deploy) date rather than a hardcoded constant — a frozen date told crawlers
+// (deploy) date rather than a hardcoded constant, a frozen date told crawlers
 // every URL was stale. This refreshes lastmod on every deploy. If per-lesson
 // dates are ever tracked, prefer those over this build-wide fallback.
 const BUILD_DATE = new Date();

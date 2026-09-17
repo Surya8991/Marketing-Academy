@@ -13,7 +13,7 @@ const BASE_URL = "https://marketing-academy-roan.vercel.app";
 
 /**
  * IMPROVEMENT_PLAN #28. Fires once per lapsing streak: `lastActiveDay` in
- * the user's synced snapshot equals yesterday (naturally self-limiting — the
+ * the user's synced snapshot equals yesterday (naturally self-limiting, the
  * day after, "yesterday" advances but lastActiveDay doesn't move until they
  * act again, so this condition is only ever true for one day per lapse).
  * Scheduled daily, evening UTC (see vercel.json) so "tonight" reads true for

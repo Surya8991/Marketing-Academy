@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   },
   // NOTE: no site-wide `alternates.canonical` here on purpose. Next.js shallow-merges
   // metadata parent→child, so a canonical set on the root layout is INHERITED by every
-  // page that doesn't override it — which previously pointed every glossary term, hub,
+  // page that doesn't override it, which previously pointed every glossary term, hub,
   // and reference page at the homepage, a mass duplicate-content / de-index signal.
   // Each route now declares its own self-canonical (the homepage does so in page.tsx).
 };

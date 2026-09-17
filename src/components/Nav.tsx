@@ -4,7 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useSession, signOut } from "next-auth/react";
 import {
-  Menu, X, Search, BookOpen, ChevronDown, Bookmark,
+  Menu, X, Search, BookOpen, ChevronDown, ChevronRight, Bookmark,
   GraduationCap, LayoutGrid, Brain, Map,
   BookMarked, FileText, Mic2, Wrench,
   SlidersHorizontal, Trophy, Settings, Library, Zap, ClipboardCheck, Briefcase,
@@ -89,8 +89,8 @@ function isActiveHref(pathname: string, href: string) {
 
 /**
  * `authConfigured` is computed by the root layout (a server component) via
- * @/lib/env's emailAuthConfigured() (IMPROVEMENT_PLAN #26 — Gmail-SMTP
- * magic-link is the enabled path, not Google) and threaded down as a prop —
+ * @/lib/env's emailAuthConfigured() (IMPROVEMENT_PLAN #26, Gmail-SMTP
+ * magic-link is the enabled path, not Google) and threaded down as a prop,
  * this file is "use client" and can't read server-only env vars itself.
  * Without it the sign-in link rendered on deployments with no email-auth env
  * vars set, sending the visitor to /login only to find sign-in unavailable
@@ -151,6 +151,23 @@ export default function Nav({ authConfigured = false }: { authConfigured?: boole
   }
 
   const onLearn = pathname.startsWith("/learn");
+
+  const signedIn = status === "authenticated" && Boolean(session?.user);
+  const sessionUser = session?.user as { isAdmin?: boolean; isSuperAdmin?: boolean } | undefined;
+  const canSeeAdmin = Boolean(sessionUser?.isAdmin || sessionUser?.isSuperAdmin);
+  // One shared row style for every item in the unified user menu.
+  const menuItemCls =
+    "flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors";
+  // Mobile menu: Topics/Learn/Resources are native <details> accordions, collapsed
+  // by default, so the phone menu opens short instead of dumping all 21 topics.
+  const mobileAccordionCls = "group border-b border-[var(--border)]";
+  const mobileSummaryCls =
+    "flex items-center justify-between gap-2 px-1 py-3 cursor-pointer list-none [&::-webkit-details-marker]:hidden text-sm font-semibold text-[var(--foreground)]";
+  const mobileLinkCls = (active: boolean) =>
+    cn(
+      "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
+      active ? "bg-[var(--accent)]/15 text-[var(--foreground)]" : "text-[var(--foreground)] hover:bg-[var(--muted)]"
+    );
 
   const learnActive = LEARN_SECTIONS.some((s) => s.items.some((i) => isActiveHref(pathname, i.href)));
   const resourceActive = RESOURCE_SECTIONS.some((s) => s.items.some((i) => isActiveHref(pathname, i.href)));
@@ -396,111 +413,80 @@ export default function Nav({ authConfigured = false }: { authConfigured?: boole
           </button>
           <ThemeToggle />
           <Link
-            href="/profile"
-            className={cn(
-              "p-2 rounded-md transition-colors",
-              pathname.startsWith("/profile")
-                ? "text-[var(--foreground)] bg-[var(--muted)]"
-                : "text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)]"
-            )}
-            aria-label="Profile"
-            title="Profile"
-          >
-            <User size={18} />
-          </Link>
-          <Link
-            href="/bookmarks"
-            className={cn(
-              "p-2 rounded-md transition-colors",
-              pathname.startsWith("/bookmarks")
-                ? "text-[var(--foreground)] bg-[var(--muted)]"
-                : "text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)]"
-            )}
-            aria-label="Bookmarks"
-            title="Bookmarks"
-          >
-            <Bookmark size={18} />
-          </Link>
-          <Link
-            href="/settings"
-            className={cn(
-              "p-2 rounded-md transition-colors",
-              pathname.startsWith("/settings")
-                ? "text-[var(--foreground)] bg-[var(--muted)]"
-                : "text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)]"
-            )}
-            aria-label="Settings"
-            title="Settings"
-          >
-            <Settings size={18} />
-          </Link>
-          <Link
             href="/learn/fundamentals/what-is-marketing"
             className="hidden sm:flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] text-sm font-medium hover:opacity-90 transition-opacity ml-1"
           >
             <BookOpen size={14} />
             Start Learning
           </Link>
-          {status === "authenticated" && session?.user ? (
-            <div className="relative">
-              <button
-                onClick={() => toggle("account")}
-                aria-expanded={openDrop === "account"}
-                aria-label="Account menu"
-                className="flex items-center justify-center w-8 h-8 rounded-full overflow-hidden border border-[var(--border)] hover:border-[var(--accent)] transition-colors"
-              >
-                {session.user.image ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={session.user.image} alt="" className="w-full h-full object-cover" />
-                ) : (
-                  <User size={16} className="text-[var(--muted-foreground)]" />
-                )}
-              </button>
-              {openDrop === "account" && (
-                <div className="absolute right-0 top-full mt-2 w-48 rounded-xl border border-[var(--border)] bg-[var(--card)] shadow-2xl overflow-hidden">
-                  <Link
-                    href="/profile"
-                    onClick={() => setOpenDrop(null)}
-                    className="block px-4 py-2.5 text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors border-b border-[var(--border)]"
-                  >
-                    Profile
-                  </Link>
-                  <Link
-                    href="/account"
-                    onClick={() => setOpenDrop(null)}
-                    className="block px-4 py-2.5 text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors"
-                  >
-                    Account &amp; sync
-                  </Link>
-                  {(session.user as { isAdmin?: boolean }).isAdmin && (
-                    <Link
-                      href="/admin"
-                      onClick={() => setOpenDrop(null)}
-                      className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors border-t border-[var(--border)]"
-                    >
-                      <ShieldCheck size={14} />
-                      Admin
-                    </Link>
-                  )}
-                  <button
-                    onClick={() => { setOpenDrop(null); void signOut(); }}
-                    className="flex items-center gap-2 w-full text-left px-4 py-2.5 text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors border-t border-[var(--border)]"
-                  >
-                    <LogOut size={14} />
-                    Sign out
-                  </button>
-                </div>
-              )}
-            </div>
-          ) : status !== "loading" && authConfigured ? (
-            <Link
-              href="/login"
-              className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors border border-[var(--border)]"
+          {/* Unified user menu, Profile, Bookmarks, Settings, account, admin and
+              auth all live in one control so the actions bar stays a single icon
+              instead of four. /profile, /bookmarks and /settings work for guests
+              too; the account/sign-in rows adapt to auth state. Desktop only, on
+              mobile the hamburger menu below already carries all of these. */}
+          <div className="relative hidden md:block">
+            <button
+              onClick={() => toggle("account")}
+              aria-expanded={openDrop === "account"}
+              aria-label="Account menu"
+              className="flex items-center justify-center w-8 h-8 rounded-full overflow-hidden border border-[var(--border)] hover:border-[var(--accent)] transition-colors"
             >
-              <LogIn size={13} />
-              Sign in
-            </Link>
-          ) : null}
+              {signedIn && session?.user?.image ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={session.user.image} alt="" className="w-full h-full object-cover" />
+              ) : (
+                <User size={16} className="text-[var(--muted-foreground)]" />
+              )}
+            </button>
+            {openDrop === "account" && (
+              <div className="absolute right-0 top-full mt-2 w-56 rounded-xl border border-[var(--border)] bg-[var(--card)] shadow-2xl overflow-hidden py-1">
+                {signedIn && (
+                  <div className="px-4 pt-2 pb-2.5 border-b border-[var(--border)] mb-1">
+                    <p className="text-[0.7rem] uppercase tracking-wider text-[var(--muted-foreground)]">Signed in as</p>
+                    <p className="text-sm font-medium truncate">{session?.user?.email}</p>
+                  </div>
+                )}
+                <Link href="/profile" onClick={() => setOpenDrop(null)} className={menuItemCls}>
+                  <User size={15} className="text-[var(--muted-foreground)]" />
+                  Profile
+                </Link>
+                <Link href="/bookmarks" onClick={() => setOpenDrop(null)} className={menuItemCls}>
+                  <Bookmark size={15} className="text-[var(--muted-foreground)]" />
+                  Bookmarks
+                </Link>
+                <Link href="/settings" onClick={() => setOpenDrop(null)} className={menuItemCls}>
+                  <Settings size={15} className="text-[var(--muted-foreground)]" />
+                  Settings
+                </Link>
+                {signedIn ? (
+                  <>
+                    <Link href="/account" onClick={() => setOpenDrop(null)} className={cn(menuItemCls, "border-t border-[var(--border)] mt-1")}>
+                      <RotateCcw size={15} className="text-[var(--muted-foreground)]" />
+                      Account &amp; sync
+                    </Link>
+                    {canSeeAdmin && (
+                      <Link href="/admin" onClick={() => setOpenDrop(null)} className={menuItemCls}>
+                        <ShieldCheck size={15} className="text-[var(--muted-foreground)]" />
+                        Admin
+                      </Link>
+                    )}
+                    <button
+                      onClick={() => { setOpenDrop(null); void signOut(); }}
+                      className={cn(menuItemCls, "w-full text-left")}
+                    >
+                      <LogOut size={15} className="text-[var(--muted-foreground)]" />
+                      Sign out
+                    </button>
+                  </>
+                ) : status !== "loading" && authConfigured ? (
+                  <Link href="/login" onClick={() => setOpenDrop(null)} className={cn(menuItemCls, "border-t border-[var(--border)] mt-1")}>
+                    <LogIn size={15} className="text-[var(--muted-foreground)]" />
+                    Sign in
+                  </Link>
+                ) : null}
+              </div>
+            )}
+          </div>
           <button
             onClick={() => setMobileOpen((v) => !v)}
             className="md:hidden p-2 rounded-md text-[var(--muted-foreground)] hover:bg-[var(--muted)] transition-colors"
@@ -513,202 +499,165 @@ export default function Nav({ authConfigured = false }: { authConfigured?: boole
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-[var(--border)] bg-[var(--background)] px-4 pt-3 pb-5 max-h-[calc(100vh-4rem)] overflow-y-auto">
+        <div className="md:hidden border-t border-[var(--border)] bg-[var(--background)] px-4 pt-3 pb-6 max-h-[calc(100vh-4rem)] overflow-y-auto">
 
-          {/* Topics grouped */}
-          {TOPIC_GROUPS.map((group) => (
-            <div key={group.label} className="mb-3">
-              <p className="text-xs uppercase tracking-wider text-[var(--muted-foreground)] mb-1.5 px-1 font-semibold">
-                {group.label}
-              </p>
-              <div className="grid grid-cols-2 gap-1">
-                {group.slugs.map((slug) => {
-                  const cat = CATEGORY_INDEX.find((c) => c.slug === slug);
-                  if (!cat) return null;
-                  const active = pathname.startsWith(`/learn/${slug}`);
-                  return (
-                    <Link
-                      key={slug}
-                      href={`/learn/${slug}`}
-                      className={cn(
-                        "flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-colors",
-                        active
-                          ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
-                          : "text-[var(--foreground)] hover:bg-[var(--muted)]"
-                      )}
-                    >
-                      <span className="text-base">{cat.emoji}</span>
-                      <span className="font-medium text-xs truncate">{cat.title}</span>
-                    </Link>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
+          {/* Primary CTA first */}
           <Link
-            href="/learn"
-            className="flex items-center justify-center gap-2 px-3 py-2 mb-4 rounded-lg border border-[var(--border)] text-sm font-medium hover:bg-[var(--muted)] transition-colors"
+            href="/learn/fundamentals/what-is-marketing"
+            className="flex items-center justify-center gap-1.5 w-full px-4 py-2.5 mb-3 rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] text-sm font-medium"
           >
-            <LayoutGrid size={14} />
-            All Topics
+            <BookOpen size={14} />
+            Start Learning
           </Link>
 
-          {/* Learn (content + your progress) */}
-          {LEARN_SECTIONS.map((section) => (
-            <div key={section.tabLabel}>
-              <p className="text-xs uppercase tracking-wider text-[var(--muted-foreground)] mb-2 px-1 font-semibold">
-                {section.tabLabel}
-              </p>
-              <div className="flex flex-col gap-1 mb-4">
-                {section.items.map((item) => {
-                  const Icon = item.icon;
-                  const active = isActiveHref(pathname, item.href);
-                  return (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className={cn(
-                        "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
-                        active
-                          ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
-                          : "text-[var(--foreground)] hover:bg-[var(--muted)]"
-                      )}
-                    >
-                      <Icon size={16} className="text-[var(--accent)]" />
-                      {item.label}
-                    </Link>
-                  );
-                })}
-              </div>
+          {/* Topics, Learn, Resources are collapsed accordions so the menu opens
+              short (all 21 topics behind one tap instead of a long inline dump). */}
+          <details className={mobileAccordionCls}>
+            <summary className={mobileSummaryCls}>
+              <span className="flex items-center gap-2"><LayoutGrid size={16} className="text-[var(--accent)]" /> Topics</span>
+              <ChevronRight size={16} className="details-chevron text-[var(--muted-foreground)] transition-transform" />
+            </summary>
+            <div className="pb-3">
+              {TOPIC_GROUPS.map((group) => (
+                <div key={group.label} className="mb-3">
+                  <p className="text-[0.7rem] uppercase tracking-wider text-[var(--muted-foreground)] mb-1.5 px-1 font-semibold">
+                    {group.label}
+                  </p>
+                  <div className="grid grid-cols-2 gap-1">
+                    {group.slugs.map((slug) => {
+                      const cat = CATEGORY_INDEX.find((c) => c.slug === slug);
+                      if (!cat) return null;
+                      const active = pathname.startsWith(`/learn/${slug}`);
+                      return (
+                        <Link
+                          key={slug}
+                          href={`/learn/${slug}`}
+                          className={cn(
+                            "flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-colors",
+                            active
+                              ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
+                              : "text-[var(--foreground)] hover:bg-[var(--muted)]"
+                          )}
+                        >
+                          <span className="text-base">{cat.emoji}</span>
+                          <span className="font-medium text-xs truncate">{cat.title}</span>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+              <Link
+                href="/learn"
+                className="flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-[var(--border)] text-sm font-medium hover:bg-[var(--muted)] transition-colors"
+              >
+                <LayoutGrid size={14} />
+                All Topics
+              </Link>
             </div>
-          ))}
+          </details>
 
-          {/* Resources (reference + tools) */}
-          {RESOURCE_SECTIONS.map((section) => (
-            <div key={section.tabLabel}>
-              <p className="text-xs uppercase tracking-wider text-[var(--muted-foreground)] mb-2 px-1 font-semibold">
-                {section.tabLabel}
-              </p>
-              <div className="flex flex-col gap-1 mb-4">
-                {section.items.map((item) => {
-                  const Icon = item.icon;
-                  const active = isActiveHref(pathname, item.href);
-                  return (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className={cn(
-                        "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
-                        active
-                          ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
-                          : "text-[var(--foreground)] hover:bg-[var(--muted)]"
-                      )}
-                    >
-                      <Icon size={16} className="text-[var(--accent)]" />
-                      {item.label}
-                    </Link>
-                  );
-                })}
-              </div>
+          <details className={mobileAccordionCls}>
+            <summary className={mobileSummaryCls}>
+              <span className="flex items-center gap-2"><BookOpen size={16} className="text-[var(--accent)]" /> Learn</span>
+              <ChevronRight size={16} className="details-chevron text-[var(--muted-foreground)] transition-transform" />
+            </summary>
+            <div className="pb-2">
+              {LEARN_SECTIONS.map((section) => (
+                <div key={section.tabLabel} className="mb-2">
+                  <p className="text-[0.7rem] uppercase tracking-wider text-[var(--muted-foreground)] mb-1 px-1 font-semibold">
+                    {section.tabLabel}
+                  </p>
+                  <div className="flex flex-col gap-0.5">
+                    {section.items.map((item) => {
+                      const Icon = item.icon;
+                      return (
+                        <Link key={item.href} href={item.href} className={mobileLinkCls(isActiveHref(pathname, item.href))}>
+                          <Icon size={16} className="text-[var(--accent)]" />
+                          {item.label}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </details>
 
-          {/* Footer links */}
-          <div className="flex flex-col gap-2 pt-3 border-t border-[var(--border)]">
-            <Link
-              href="/profile"
-              onClick={() => setMobileOpen(false)}
-              className={cn(
-                "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
-                pathname.startsWith("/profile")
-                  ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
-                  : "text-[var(--foreground)] hover:bg-[var(--muted)]"
-              )}
-            >
+          <details className={mobileAccordionCls}>
+            <summary className={mobileSummaryCls}>
+              <span className="flex items-center gap-2"><Wrench size={16} className="text-[var(--accent)]" /> Resources</span>
+              <ChevronRight size={16} className="details-chevron text-[var(--muted-foreground)] transition-transform" />
+            </summary>
+            <div className="pb-2">
+              {RESOURCE_SECTIONS.map((section) => (
+                <div key={section.tabLabel} className="mb-2">
+                  <p className="text-[0.7rem] uppercase tracking-wider text-[var(--muted-foreground)] mb-1 px-1 font-semibold">
+                    {section.tabLabel}
+                  </p>
+                  <div className="flex flex-col gap-0.5">
+                    {section.items.map((item) => {
+                      const Icon = item.icon;
+                      return (
+                        <Link key={item.href} href={item.href} className={mobileLinkCls(isActiveHref(pathname, item.href))}>
+                          <Icon size={16} className="text-[var(--accent)]" />
+                          {item.label}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </details>
+
+          {/* Personal + account (direct, not collapsed, the primary reason to
+              open the menu on your own dashboard) */}
+          <div className="flex flex-col gap-1 pt-3">
+            <Link href="/profile" onClick={() => setMobileOpen(false)} className={mobileLinkCls(pathname.startsWith("/profile"))}>
               <User size={16} className="text-[var(--muted-foreground)]" />
               Profile
             </Link>
-            <Link
-              href="/about"
-              className={cn(
-                "px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
-                pathname.startsWith("/about")
-                  ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
-                  : "text-[var(--foreground)] hover:bg-[var(--muted)]"
-              )}
-            >
-              About
+            <Link href="/bookmarks" onClick={() => setMobileOpen(false)} className={mobileLinkCls(pathname.startsWith("/bookmarks"))}>
+              <Bookmark size={16} className="text-[var(--muted-foreground)]" />
+              Bookmarks
             </Link>
-            <Link
-              href="/settings"
-              className={cn(
-                "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
-                pathname.startsWith("/settings")
-                  ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
-                  : "text-[var(--foreground)] hover:bg-[var(--muted)]"
-              )}
-            >
+            <Link href="/settings" onClick={() => setMobileOpen(false)} className={mobileLinkCls(pathname.startsWith("/settings"))}>
               <Settings size={16} className="text-[var(--muted-foreground)]" />
               Settings
             </Link>
-            {/* Mobile account entry point — the desktop sign-in button is
-                `hidden md:flex`, so without this a phone visitor had no way
-                to sign in or reach account settings at all. */}
+            <Link href="/about" onClick={() => setMobileOpen(false)} className={mobileLinkCls(pathname.startsWith("/about"))}>
+              <FileText size={16} className="text-[var(--muted-foreground)]" />
+              About
+            </Link>
+            {/* Auth: the desktop sign-in lives in the user menu (hidden on mobile),
+                so this is the only phone path to sign in / account / admin. */}
             {status === "authenticated" && session?.user ? (
               <>
-                <Link
-                  href="/account"
-                  onClick={() => setMobileOpen(false)}
-                  className={cn(
-                    "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
-                    pathname.startsWith("/account")
-                      ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
-                      : "text-[var(--foreground)] hover:bg-[var(--muted)]"
-                  )}
-                >
-                  <User size={16} className="text-[var(--muted-foreground)]" />
+                <Link href="/account" onClick={() => setMobileOpen(false)} className={mobileLinkCls(pathname.startsWith("/account"))}>
+                  <RotateCcw size={16} className="text-[var(--muted-foreground)]" />
                   Account &amp; sync
                 </Link>
-                {(session.user as { isAdmin?: boolean }).isAdmin && (
-                  <Link
-                    href="/admin"
-                    onClick={() => setMobileOpen(false)}
-                    className={cn(
-                      "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
-                      pathname.startsWith("/admin")
-                        ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
-                        : "text-[var(--foreground)] hover:bg-[var(--muted)]"
-                    )}
-                  >
+                {canSeeAdmin && (
+                  <Link href="/admin" onClick={() => setMobileOpen(false)} className={mobileLinkCls(pathname.startsWith("/admin"))}>
                     <ShieldCheck size={16} className="text-[var(--muted-foreground)]" />
                     Admin
                   </Link>
                 )}
                 <button
                   onClick={() => { setMobileOpen(false); void signOut(); }}
-                  className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors text-left"
+                  className={cn(mobileLinkCls(false), "w-full text-left")}
                 >
                   <LogOut size={16} className="text-[var(--muted-foreground)]" />
                   Sign out
                 </button>
               </>
             ) : status !== "loading" && authConfigured ? (
-              <Link
-                href="/login"
-                onClick={() => setMobileOpen(false)}
-                className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors text-left"
-              >
+              <Link href="/login" onClick={() => setMobileOpen(false)} className={cn(mobileLinkCls(false), "w-full text-left")}>
                 <LogIn size={16} className="text-[var(--muted-foreground)]" />
                 Sign in
               </Link>
             ) : null}
-            <Link
-              href="/learn/fundamentals/what-is-marketing"
-              className="flex items-center justify-center gap-1.5 w-full px-4 py-2.5 rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] text-sm font-medium"
-            >
-              <BookOpen size={14} />
-              Start Learning
-            </Link>
           </div>
         </div>
       )}

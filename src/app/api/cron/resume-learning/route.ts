@@ -13,7 +13,7 @@ import type { EngagementState } from "@/lib/engagement";
 /**
  * IMPROVEMENT_PLAN #28. Fires once, exactly 3 days after `lastActiveDay`
  * (same self-limiting date-equality trick as streak-reminder, not a 3-7 day
- * range — a range would re-send once per day for 5 days, which is the
+ * range, a range would re-send once per day for 5 days, which is the
  * nagging behavior the design explicitly wants to avoid).
  */
 export async function GET(req: NextRequest) {

@@ -10,6 +10,7 @@ import { getProfile, saveProfile, type Profile, type ExperienceLevel } from "@/l
 import { getCertName, setCertName } from "@/lib/cert-name";
 import AutosaveIndicator from "@/components/AutosaveIndicator";
 import ThemeToggle from "@/components/ThemeToggle";
+import PageMasthead from "@/components/PageMasthead";
 
 type Status = { type: "success" | "error"; message: string } | null;
 
@@ -286,22 +287,20 @@ export default function SettingsClient({ authConfigured = false }: { authConfigu
   }
 
   return (
-    <div
-      style={{
-        maxWidth: "640px",
-        margin: "0 auto",
-        padding: "2.5rem 1.25rem",
-        color: "var(--foreground)",
-      }}
-    >
-      <h1
+    <>
+      <PageMasthead
+        left="Marketing Academy · Settings"
+        right={status === "authenticated" ? "Signed in" : "Guest"}
+      />
+      <div
         style={{
-          fontSize: "1.75rem",
-          fontWeight: 700,
-          marginBottom: "0.375rem",
+          maxWidth: "640px",
+          margin: "0 auto",
+          padding: "3.5rem 1.25rem 4rem",
           color: "var(--foreground)",
         }}
       >
+      <h1 className="font-display font-semibold text-2xl sm:text-3xl" style={{ marginBottom: "0.375rem" }}>
         Settings
       </h1>
       <p style={{ color: "var(--muted-foreground)", marginBottom: "0.75rem", fontSize: "0.95rem" }}>
@@ -403,7 +402,7 @@ export default function SettingsClient({ authConfigured = false }: { authConfigu
         ) : (
           <>
             <p style={descStyle}>
-              You&apos;re not signed in. Your progress stays on this device only — sign in to back it up and
+              You&apos;re not signed in. Your progress stays on this device only, sign in to back it up and
               sync it across devices.
             </p>
             {authConfigured ? (
@@ -419,13 +418,13 @@ export default function SettingsClient({ authConfigured = false }: { authConfigu
         )}
       </section>
 
-      {/* Email notifications — signed-in only (guests have no email on file).
+      {/* Email notifications, signed-in only (guests have no email on file).
           All opt-in, default OFF (IMPROVEMENT_PLAN §D2/#28). */}
       {status === "authenticated" && session?.user && (
         <section style={cardStyle}>
           <h2 style={headingStyle}>Email Notifications</h2>
           <p style={descStyle}>
-            Opt-in only — off by default. Every email includes a one-click unsubscribe.
+            Opt-in only, off by default. Every email includes a one-click unsubscribe.
           </p>
           {emailPrefsLoaded ? (
             <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
@@ -569,6 +568,7 @@ export default function SettingsClient({ authConfigured = false }: { authConfigu
         </button>
         <StatusBanner status={resetStatus} />
       </section>
-    </div>
+      </div>
+    </>
   );
 }

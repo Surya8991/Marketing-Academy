@@ -12,7 +12,7 @@ import { auth } from "@/auth";
 async function getUserId(): Promise<string | null> {
   const session = await auth();
   const user = session?.user as { id?: string; isSuspended?: boolean } | undefined;
-  // A suspended user (#30) gets treated as unauthenticated here too — sync
+  // A suspended user (#30) gets treated as unauthenticated here too, sync
   // is exactly the kind of write access suspension is meant to cut off.
   if (user?.isSuspended) return null;
   return user?.id ?? null;

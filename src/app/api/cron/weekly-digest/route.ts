@@ -11,7 +11,7 @@ import { uniqueLessonCount } from "@/lib/curriculum";
 import { COMPLETED_KEY } from "@/lib/progress";
 import type { EngagementState } from "@/lib/engagement";
 
-/** IMPROVEMENT_PLAN #28. Runs weekly (vercel.json) — no date-equality gate
+/** IMPROVEMENT_PLAN #28. Runs weekly (vercel.json), no date-equality gate
  *  needed, every opted-in user gets one every run regardless of activity
  *  level (a quiet week is still worth a digest, unlike the two daily
  *  reminders above which only fire on a specific trigger day). */

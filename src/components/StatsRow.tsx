@@ -1,5 +1,5 @@
 /**
- * Shared "specimen-row" stat tile grid — the code/value/label pattern used on
+ * Shared "specimen-row" stat tile grid, the code/value/label pattern used on
  * /achievements, /skill-map, and /tools, previously hand-duplicated inline in
  * each page (Rule 18). Server-safe (no hooks, no "use client"): pass already-
  * computed values in, it just renders them.
