@@ -1,0 +1,20 @@
+# Files not part of the build — keep them out of Vercel deployments.
+# Nothing under src/ is excluded, so lesson .md/.mdx content stays included.
+
+# Agent / editor tooling
+.agentmaster/
+.claude/
+.superpowers/
+.github/
+
+# Tests (not part of the production build)
+/tests/
+/test/
+/e2e/
+
+# Dev docs & long-form planning / logs at the repo root
+/docs/
+/PROJECT_LOG.md
+/PROJECTS_PLAN.md
+/PROJECTS_AUTHORING_GUIDE.md
+/BACKLOG.md
