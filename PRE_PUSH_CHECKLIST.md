@@ -199,8 +199,12 @@ drive the feature.
 - [ ] A new cron-triggered email fires on an exact date-equality condition,
       not a range (AGENTS.md Rule 81) — a range re-sends once per day for
       the whole window with no tracking column to prevent it
-- [ ] `vercel.json`'s `crons` array is updated if a new scheduled route was
-      added, and the schedule is sane (UTC, no accidental every-minute cron)
+- [ ] A new scheduled route is wired into `.github/workflows/engagement-emails.yml`
+      (GitHub Actions cron, NOT `vercel.json` — Vercel's Hobby plan caps crons
+      at 2; `vercel.json` deliberately has no `crons` key, don't re-add one or
+      routes double-fire), the schedule is sane (UTC, no accidental every-minute
+      cron), and `CRON_SECRET` exists as both a Vercel env var and a GitHub
+      Actions repository secret with the same value
 
 ## 6. Secrets
 
