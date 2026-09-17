@@ -11,6 +11,35 @@ the `CATEGORY_INDEX` bundle regression, no `llms.txt`, no monetization/lead-capt
 
 ---
 
+## ⭐ Recommended priority — remaining open work (2026-09-17)
+
+Interlink map (#22) is deliberately **LAST** (largest task). Owner-requested features first.
+
+**Tier 1 — Owner-requested features (do next)**
+1. **#23 Quiz: revisable answers + review-before-submit** — small, self-contained, high UX.
+2. **#24 + #25 + #27 Profile cluster** — build in the design's A→B→C order: shared foundation (`profile-stats.ts`, `profile.ts`, `<StatsRow>`) → `/profile` hub → Settings cards + onboarding capture + autosave indicator/guest nudge.
+3. **#26 Email magic-link auth (Gmail SMTP)** — pairs with the profile/account work; can run in parallel with #25.
+4. **#28 Re-engagement email** — after #26.
+
+**Tier 2 — SEO/AEO + growth**
+5. **#10 Global search** covers glossary/tools/projects (not just lessons+tracks).
+6. **#6d Blog build** (design ready; also lands #9 author/date signals on fresh content).
+7. **#2 remaining freshness** — lesson byline + Article `dateModified`/`datePublished`; `digital-marketing-cheat-sheet` 2026 data refresh.
+8. **#6c / #6 remaining** — meta-description quality; glossary-list `ItemList`/`DefinedTermSet`.
+
+**Tier 3 — Perf / polish / decisions**
+9. **#12 Client-bundle trims** — `CASE_COMPANIES`/`TOOLS`/`PROJECTS_INDEX` off the client.
+10. **#13 Route loading skeletons.**
+11. **#14 IA dedup** — `/interview-prep` vs `/interview-questions`, cheat-sheet routes.
+12. **#16 `bigProject` XP** `⚠️ decision` — wire capstone or drop the tier.
+
+**Tier 4 — LAST (large batch)**
+13. **#22 Per-lesson interlink map** (642 lessons; 9 SEO done, resume category-by-category on Sonnet).
+
+*(Done this session: #1, #3, #4, #5, #6, #6b, #8, #11, #15, #18, #19, #20, #2 sitemap half.)*
+
+---
+
 ## Execution order (master checklist)
 
 ### P0 — High impact, self-contained, clearly correct
@@ -57,6 +86,7 @@ the `CATEGORY_INDEX` bundle regression, no `llms.txt`, no monetization/lead-capt
 - [ ] **25. `/profile` — Personal Profile hub** `⭐ owner-requested` — one dashboard aggregating everything currently scattered across `/achievements`, `/skill-map`, `/portfolio`, `/certificates`, `/account`. Analytics (level/XP/streak/heatmap/timeline, completion %, quizzes/projects/bookmarks/notes/review-due), badges (12), certificates earned, profile identity. Needs a shared `src/lib/profile-stats.ts` aggregator + `<StatsRow>` component to kill 3× duplicated stat derivations. `noindex`. **See design below.**
 - [ ] **26. Auth / login: Google (exists) + email magic-link (SMTP)** `⭐ owner-requested` — Google OAuth **already exists** (NextAuth v5, `src/auth.ts`, env-gated); just needs `AUTH_SECRET`+`GOOGLE_CLIENT_ID`/`SECRET` set to activate. ADD an **email magic-link** provider (works with Google/Gmail SMTP or a transactional provider). The `verificationTokens` DB table already exists (zero schema change). **See design below.**
 - [ ] **27. Autosave trust + guest data-loss nudge** — autosave IS present (local instant; cloud auto-push 2s when signed in) but invisible + guests have no cloud backup. Add a subtle "Saved • synced" indicator and a gentle "sign in to save across devices" prompt after a milestone (e.g. first lesson complete). Pairs with #25/#26.
+- [ ] **28. Re-engagement email** `depends on #26` — the newsletter was removed (#20), so there's no channel to bring learners back. Once email auth (#26) exists, add opt-in transactional emails: streak-about-to-break reminder, "resume {last lesson}", weekly progress digest. Uses the same mailer as #26 (Gmail SMTP for low volume; a transactional provider is the upgrade path). Strictly opt-in + one-click unsubscribe (respect the no-spam ethos). *(Optional sibling, not building now: a shareable public profile / "share my achievements" — adds real privacy scope; flag before pursuing.)*
 
 ---
 
