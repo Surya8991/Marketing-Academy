@@ -7,7 +7,7 @@ export const lessonMeta = {
   relatedConcepts: ["core-web-vitals", "schema-structured-data", "ecommerce-product-page-seo"],
 };
 
-Google Lens now handles roughly 20 billion visual searches a month, with about 4 billion of those tied to shopping. Pinterest Lens processes 1.5 billion queries a month, up 40% year over year. People aren't just typing 'blue running shoes' anymore, they're pointing a phone at a pair they saw on the street.
+[Google Lens](https://developers.google.com/lens) now handles roughly 20 billion visual searches a month, with about 4 billion of those tied to shopping. [Pinterest Lens](https://business.pinterest.com/blog/the-future-of-search-is-visual/) processes 1.5 billion queries a month, up 40% year over year. People aren't just typing 'blue running shoes' anymore, they're pointing a phone at a pair they saw on the street.
 
 This lesson covers two things that work together: the image SEO basics that still drive Google Images traffic, and what visual search engines actually need from your images to find and understand them.
 
@@ -15,7 +15,7 @@ This lesson covers two things that work together: the image SEO basics that stil
 
 - Alt text, descriptive filenames, and compression are still the highest-leverage image SEO wins, roughly 80% of the traffic lift comes from getting these three right.
 - WebP is the 2026 baseline format; AVIF compresses further but needs a fallback for older browsers.
-- Visual search engines (Google Lens, Pinterest Lens) match on objects and shapes, not filenames, so product angle, background, and image quality matter more than keywords.
+- Visual search engines (Google Lens, Pinterest Lens) match on objects and shapes, not filenames, so product angle, background, and image quality matter more than [keywords](/learn/seo/keyword-research).
 - 60% of Gen Z say they prefer visual search over typing a query, this is a discovery channel, not a novelty.
 - Structured data (ImageObject, Product) helps Google attach licensing, pricing, and authorship to your images in results.
 
@@ -29,7 +29,7 @@ For purely decorative images (a background texture, a divider), use `alt=""`. An
 
 **Filenames are a small but real ranking signal.** `IMG_0238.jpg` tells Google nothing. `blue-suede-loafers-side-view.jpg` tells it exactly what's in the frame before it even opens the file. Rename every image before upload, use hyphens between words, and skip filler words like 'photo' or 'image'.
 
-**Compression and format choice affect Core Web Vitals directly.** WebP is now the safe default, about 25-35% smaller than JPEG at equivalent quality, with full transparency support to replace PNG. AVIF pushes further, often 50% smaller than JPEG, but encoding is CPU-heavy and a few older Safari versions still choke on it. Serve AVIF inside a `<picture>` element with WebP and JPEG fallbacks so nothing breaks.
+**Compression and format choice affect [Core Web Vitals](/learn/seo/core-web-vitals) directly.** WebP is now the safe default, about 25-35% smaller than JPEG at equivalent quality, with full transparency support to replace PNG. AVIF pushes further, often 50% smaller than JPEG, but encoding is CPU-heavy and a few older Safari versions still choke on it. Serve AVIF inside a `<picture>` element with WebP and JPEG fallbacks so nothing breaks.
 
 Heavy, unoptimized images are one of the most common Largest Contentful Paint (LCP) killers, and LCP is a ranking factor. An image that looks identical but loads in 200ms instead of 2 seconds is a win nobody sees, except the algorithm.
 
@@ -95,7 +95,7 @@ Run every new image (and a batch of your top pages' existing images) through thi
 4. **Compress without visible quality loss**, aim for the smallest file size where a side-by-side comparison still looks sharp.
 5. **Add `width` and `height` attributes** (or CSS aspect-ratio) so the browser reserves space and avoids layout shift.
 6. **Submit an image sitemap** for catalog or CDN-hosted images that Google's normal crawl might miss.
-7. **Add ImageObject or Product structured data** with `contentUrl`, `name`, `description`, and `license` where relevant, this is what lets Google attach pricing, authorship, and licensing badges in image results.
+7. **Add ImageObject or Product [structured data](/learn/seo/schema-structured-data)** with `contentUrl`, `name`, `description`, and `license` where relevant, this is what lets Google attach pricing, authorship, and licensing badges in image results.
 
 <Callout type="tip">
 Visual search rewards clean, well-lit, single-subject photography the same way voice search rewards clear pronunciation. You can't caption your way out of a blurry, cluttered product shot, fix the photo first, then optimize the metadata around it.
