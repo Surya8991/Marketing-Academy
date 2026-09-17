@@ -3,7 +3,8 @@ import Link from "next/link";
 import { CATEGORIES } from "@/lib/curriculum";
 
 export const metadata: Metadata = {
-  title: "Marketing Cheat Sheets | Marketing Academy",
+  title: "Marketing Cheat Sheets",
+  alternates: { canonical: "/cheat-sheets" },
   description:
     "Printable quick reference cards for every marketing category. Get the key concepts, frameworks, and tactics for SEO, paid ads, email, analytics, and more, one page per topic.",
 };

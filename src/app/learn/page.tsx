@@ -9,7 +9,8 @@ import type { Metadata } from "next";
 
 // Stage 5.3: was hardcoded "393+ ... 15 disciplines"
 export const metadata: Metadata = {
-  title: "All Marketing Lessons | Marketing Academy",
+  title: "All Marketing Lessons",
+  alternates: { canonical: "/learn" },
   description:
     `Browse all ${uniqueLessonCount()}+ marketing lessons across ${CATEGORIES.length} disciplines: SEO, paid ads, growth, email, analytics, AI marketing, copywriting, CRO, and more. Free, structured Beginner to Advanced.`,
 };

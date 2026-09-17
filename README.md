@@ -76,8 +76,8 @@ A free, structured marketing education site, from absolute beginner to advanced 
 - **Reduced motion**, Respects OS-level `prefers-reduced-motion`, neutralizes animations/transitions/smooth-scroll site-wide
 - **PWA**, Installable on mobile: `public/manifest.json` + `public/sw.js` service worker
 - **Multilingual resources**, Every lesson links to Hindi (WsCube Tech), Tamil, and Telugu YouTube channels
-- **Newsletter signup**, Footer form with `/api/newsletter` endpoint (connect to your email service)
-- **Sitemap**, Auto-generated, only includes lessons that have MDX files
+- **Sitemap**, Auto-generated, includes every lesson/category/track/glossary/interview/project page, `lastmod` = build date
+- **`llms.txt`**, AI-crawler manifest at `/llms.txt` (llmstxt.org format) generated live from the curriculum for answer engines (ChatGPT, Perplexity, Gemini)
 
 ---
 
@@ -195,6 +195,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/app/api/sync/route.ts` | Per-user progress sync, gated by `requireUser()`'s database session. Replaces the deleted `/api/sync-proxy` shared-secret design (AGENTS.md Rule 26/44, Rule 77) |
 | `src/lib/sync-client.ts` | Client auto-sync: `mergeSnapshots`/`pullAndMerge`/`pushNow`/`startAutoSync`, debounce-pushes on `PROGRESS_CHANGED_EVENT` |
 | `src/lib/progress-snapshot.ts` | Single source of truth for "the user's progress data" (`EXPORT_KEYS`/`ALLOWED_KEY_PREFIXES`/`collectAllKeys`/`restoreAllKeys`), shared by `/settings` and sync |
+| `src/lib/cert-name.ts` | Learner's display name for track certificates (`ma_cert_name`); syncs/exports via `progress-snapshot` |
 | `PROJECT_LOG.md` | Full session history, gotchas, file inventory, pending tasks |
 
 ---
@@ -214,6 +215,10 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/glossary/[slug]` | Individual term page |
 | `/bookmarks` | Saved lessons (localStorage) |
 | `/tools` | 157 marketing tools with search + category + pricing filters |
+| `/tools/geo-audit` | GEO Auditor: scores any URL for AI-answer-engine citability (6 signals) |
+| `/compare` (+`/[slug]`) | Tool comparison hub + per-pair "X vs Y" pages (BreadcrumbList JSON-LD) |
+| `/quizzes` | Quiz hub across lessons |
+| `/review` | Spaced-repetition queue of previously-missed quiz questions (noindex) |
 | `/cheat-sheets` | Printable cheat sheet index (21 categories) |
 | `/cheat-sheets/[category]` | Printable per-category cheat sheet |
 | `/interview-prep` | Interview prep hub with category Q&A links |
@@ -231,9 +236,10 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/projects` | Practice projects hub: search, tier/archetype/mode/category filters (803 projects across the library — Stage 8.3a is fully complete, all 24 tracks, plus Stage 9.3's fully-completed 8-category non-track scope: `fundamentals`, `seo`, `paid-ads`, `growth`, `social`, `product-marketing`, `ai-marketing`, `tools`, plus 8/28 `events-experiential` lessons left out of scope). "View details" opens the project's own dedicated page in a new tab (Session 78, replaces the old slide-over drawer) |
 | `/projects/[category]/[slug]` | Dedicated single-project page (Session 78) — the full project (steps/stages/teardown items, tool stack, success criteria) always expanded, no inline toggle. Statically generated for all projects. Opened in a new tab from both the lesson page's Project List and the `/projects` hub, so a project always opens in its own page + tab regardless of entry point |
 | `/feed.xml` | RSS feed |
-| `/sitemap.xml` | Auto-generated sitemap (lessons with MDX only) |
+| `/sitemap.xml` | Auto-generated sitemap (all lesson/category/track/glossary/interview/project pages) |
+| `/llms.txt` | AI-crawler manifest (llmstxt.org format), generated from the curriculum |
+| `/robots.txt` | Allows content crawl; disallows `/api/` + per-user routes |
 | `/api/og` | Dynamic OG image endpoint |
-| `/api/newsletter` | Newsletter signup (connect to your email service) |
 | `/api/auth/[...nextauth]` | NextAuth v5 handler (Google sign-in) |
 | `/api/sync` | Per-user progress push/pull, requires a signed-in session |
 | `/api/account/sessions` | List/revoke the signed-in user's active sessions |
@@ -254,5 +260,3 @@ Auto-deploys to Vercel on every push to `main`. No environment variables are req
 | `DATABASE_URL` | SQLite file path for local dev, or a `libsql://...` Turso URL in production |
 | `TURSO_AUTH_TOKEN` | Auth token for a remote Turso database (unused for local SQLite) |
 | `ADMIN_EMAILS` | Comma-separated addresses auto-promoted to `role: "admin"` on sign-in (bootstrap/failsafe, mirrors the Email-Automator sister project's pattern — AGENTS.md Rule 77) |
-
-To connect newsletter to an email service, edit `src/app/api/newsletter/route.ts`, it has a `// TODO` comment marking the integration point.

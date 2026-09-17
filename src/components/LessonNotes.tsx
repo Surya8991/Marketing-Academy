@@ -109,6 +109,7 @@ export default function LessonNotes({ category, slug }: { category: string; slug
             value={text}
             onChange={handleChange}
             placeholder="Jot down anything: key takeaways, questions, ideas to try…"
+            aria-label="Lesson notes"
             rows={5}
             style={{
               width: "100%",

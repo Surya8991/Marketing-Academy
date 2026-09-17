@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import { ChevronRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Marketing Quizzes | Test Your Knowledge | Marketing Academy",
+  title: "Marketing Quizzes | Test Your Knowledge",
   description:
     "Test your marketing knowledge with 1,000+ quiz questions across 15 categories: SEO, Paid Ads, Growth, Email, Analytics, AI Marketing and more. Free interactive quizzes.",
   alternates: {

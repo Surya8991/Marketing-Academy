@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { CATEGORIES, uniqueLessonCount } from "@/lib/curriculum";
 import { TRACKS } from "@/lib/tracks";
@@ -21,6 +22,12 @@ const FEATURED = [
 ];
 
 const BASE = "https://marketing-academy-roan.vercel.app";
+
+// Self-canonical for the homepage. The root layout no longer sets a site-wide
+// canonical (it wrongly propagated to every page); each route declares its own.
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const organizationLd = {
   "@context": "https://schema.org",

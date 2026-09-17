@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { BookOpen, Search, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Page Not Found | Marketing Academy",
+  title: "Page Not Found",
 };
 
 const QUICK_LINKS = [

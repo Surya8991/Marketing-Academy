@@ -11,7 +11,7 @@ import {
   Compass, Radio, TrendingUp, Megaphone, RotateCcw, LogIn, LogOut, User,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { CATEGORY_INDEX } from "@/lib/curriculum";
+import { CATEGORY_INDEX } from "@/lib/category-index";
 import { TOPIC_GROUPS } from "@/lib/topic-groups";
 import ThemeToggle from "@/components/ThemeToggle";
 import StreakBadge from "@/components/StreakBadge";

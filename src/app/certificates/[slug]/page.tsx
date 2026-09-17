@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { TRACKS } from "@/lib/tracks";
 import { getCompleted } from "@/lib/progress";
 import { getTrackQuizPassed } from "@/lib/quizzes";
+import { getCertName, setCertName } from "@/lib/cert-name";
 
 export default function CertificatePage() {
   const params = useParams();
@@ -16,6 +17,7 @@ export default function CertificatePage() {
   const [today, setToday] = useState("");
   const [checked, setChecked] = useState(false);
   const [trackQuizPassed, setTrackQuizPassedState] = useState(false);
+  const [name, setName] = useState("");
 
   useEffect(() => {
     let completed = new Set<string>();
@@ -36,6 +38,7 @@ export default function CertificatePage() {
         setTrackQuizPassedState(false);
       }
     }
+    setName(getCertName());
     setChecked(true);
 
     const d = new Date();
@@ -247,6 +250,20 @@ export default function CertificatePage() {
           height: 2rem;
         }
 
+        .cert-name {
+          font-family: Georgia, 'Times New Roman', serif;
+          font-size: 1.7rem;
+          font-weight: 600;
+          color: #1a1a2e;
+          display: inline-block;
+          min-width: 280px;
+          max-width: 90%;
+          padding: 0 1rem 0.35rem;
+          border-bottom: 2px solid #1a1a2e;
+          margin: 0 auto 2rem;
+          word-break: break-word;
+        }
+
         .cert-divider {
           border: none;
           border-top: 1px solid #ccc;
@@ -310,6 +327,38 @@ export default function CertificatePage() {
           &larr; Back to Tracks
         </Link>
         <span style={{ flex: 1 }} />
+        <label
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            fontSize: "0.85rem",
+            color: "var(--muted-foreground)",
+          }}
+        >
+          Name on certificate:
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+              setCertName(e.target.value);
+            }}
+            placeholder="Your full name"
+            aria-label="Name on certificate"
+            maxLength={60}
+            style={{
+              padding: "0.4rem 0.65rem",
+              borderRadius: "6px",
+              border: "1px solid var(--border)",
+              background: "var(--background)",
+              color: "var(--foreground)",
+              fontSize: "0.9rem",
+              width: 200,
+            }}
+          />
+        </label>
+        <span style={{ flex: 1 }} />
         <button
           onClick={() => window.print()}
           style={{
@@ -359,7 +408,11 @@ export default function CertificatePage() {
         <div className="cert-track-name">{track.title}</div>
 
         <div className="cert-awarded">Awarded to:</div>
-        <span className="cert-name-line" aria-label="Learner name line" />
+        {name.trim() ? (
+          <div className="cert-name">{name.trim()}</div>
+        ) : (
+          <span className="cert-name-line" aria-label="Learner name line" />
+        )}
 
         <hr className="cert-divider" />
 

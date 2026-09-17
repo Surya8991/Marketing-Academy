@@ -17,6 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${term.term}: Marketing Glossary`,
     description: term.definition.slice(0, 155),
+    alternates: { canonical: `/glossary/${slug}` },
   };
 }
 

@@ -210,11 +210,13 @@ describe("PROGRESS_CHANGED_EVENT: component write sites dispatch alongside their
 
   test("Quiz.tsx: the finished-quiz localStorage.setItem(quizStorageKey(...)) block dispatches PROGRESS_CHANGED_EVENT", () => {
     const src = readSrc("src/components/Quiz.tsx");
-    const body = extractFunctionBody(src, "handleNext");
-    assert.match(body, /localStorage\.setItem\(\s*quizStorageKey\(pathname\)/, "handleNext should still persist the finished quiz result under quizStorageKey(pathname)");
+    // IMPROVEMENT_PLAN.md #23 moved final grading from handleNext (fired per-
+    // question) to handleSubmit (fired once, from the review screen).
+    const body = extractFunctionBody(src, "handleSubmit");
+    assert.match(body, /localStorage\.setItem\(\s*quizStorageKey\(pathname\)/, "handleSubmit should still persist the finished quiz result under quizStorageKey(pathname)");
     assert.match(
       body,
-      /JSON\.stringify\(\{ selections: newSelections, total: totalQuestions \}\)\s*\);\s*window\.dispatchEvent\(new CustomEvent\(PROGRESS_CHANGED_EVENT\)\)/,
+      /JSON\.stringify\(\{ selections: finalSelections, total: totalQuestions \}\)\s*\);\s*window\.dispatchEvent\(new CustomEvent\(PROGRESS_CHANGED_EVENT\)\)/,
       "the quizStorageKey write should dispatch PROGRESS_CHANGED_EVENT immediately after the successful setItem"
     );
   });

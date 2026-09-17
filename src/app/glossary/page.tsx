@@ -4,6 +4,7 @@ import { GLOSSARY_TERMS } from "@/lib/glossary";
 
 export const metadata: Metadata = {
   title: "Marketing Glossary",
+  alternates: { canonical: "/glossary" },
   description:
     `Plain-English definitions for ${GLOSSARY_TERMS.length} essential marketing terms: CTR, CAC, LTV, ROAS, CRO, SEO, brand, copywriting, social media, and more. The reference every marketer needs.`,
 };

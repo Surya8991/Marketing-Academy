@@ -18,8 +18,13 @@ export default function GlobalError({
   return (
     <div className="min-h-[60vh] flex items-center justify-center px-4">
       <div className="max-w-md w-full rounded-xl border border-[var(--border)] bg-[var(--muted)] p-8 text-center">
-        <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-red-50 border border-red-200 mb-4">
-          <AlertTriangle size={22} className="text-red-500" />
+        {/* Theme-aware tint (Rule 19): rgba overlay works in light + dark, unlike
+            bg-red-50 which renders a near-white box on a dark background. */}
+        <div
+          className="inline-flex items-center justify-center w-12 h-12 rounded-full border mb-4"
+          style={{ background: "rgba(239,68,68,0.12)", borderColor: "rgba(239,68,68,0.35)" }}
+        >
+          <AlertTriangle size={22} style={{ color: "#ef4444" }} />
         </div>
         <h2 className="font-semibold text-xl mb-2 text-[var(--foreground)]">Something went wrong</h2>
         <p className="text-sm text-[var(--muted-foreground)] mb-6 leading-relaxed">

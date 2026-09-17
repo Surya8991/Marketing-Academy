@@ -3,11 +3,16 @@ import { CATEGORIES } from "@/lib/curriculum";
 import { GLOSSARY_TERMS } from "@/lib/glossary";
 import { TRACKS } from "@/lib/tracks";
 import { INTERVIEW_SECTIONS } from "@/lib/interview-questions";
+import { PROJECTS_INDEX } from "@/lib/projects-index";
 import fs from "fs";
 import path from "path";
 
 const BASE = "https://marketing-academy-roan.vercel.app";
-const BUILD_DATE = new Date("2026-07-04");
+// The site doesn't track per-page content-modification dates, so use the build
+// (deploy) date rather than a hardcoded constant — a frozen date told crawlers
+// every URL was stale. This refreshes lastmod on every deploy. If per-lesson
+// dates are ever tracked, prefer those over this build-wide fallback.
+const BUILD_DATE = new Date();
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -27,7 +32,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/quizzes`, priority: 0.7, changeFrequency: "monthly", lastModified: BUILD_DATE },
     { url: `${BASE}/resources`, priority: 0.7, changeFrequency: "monthly", lastModified: BUILD_DATE },
     { url: `${BASE}/skill-map`, priority: 0.6, changeFrequency: "monthly", lastModified: BUILD_DATE },
+    { url: `${BASE}/projects`, priority: 0.8, changeFrequency: "weekly", lastModified: BUILD_DATE },
+    { url: `${BASE}/tools/geo-audit`, priority: 0.6, changeFrequency: "monthly", lastModified: BUILD_DATE },
   ];
+
+  // Every practice project has its own statically-generated, indexable page.
+  const projectRoutes: MetadataRoute.Sitemap = PROJECTS_INDEX.map((p) => ({
+    url: `${BASE}/projects/${p.category}/${p.id}`,
+    priority: 0.6,
+    changeFrequency: "monthly" as const,
+    lastModified: BUILD_DATE,
+  }));
 
   const categoryRoutes: MetadataRoute.Sitemap = CATEGORIES.map((cat) => ({
     url: `${BASE}/learn/${cat.slug}`,
@@ -114,5 +129,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...interviewCategoryRoutes,
     ...lessonRoutes,
     ...comparisonRoutes,
+    ...projectRoutes,
   ];
 }

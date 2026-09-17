@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import { INTERVIEW_SECTIONS } from "@/lib/interview-questions";
 
 export const metadata: Metadata = {
-  title: "Digital Marketing Interview Questions 2026 | Marketing Academy",
+  alternates: { canonical: "/interview-questions" },
+  title: "Digital Marketing Interview Questions 2026",
   description:
     "Ace your next marketing job interview with 150+ real digital marketing interview questions and answers across 16 categories: behavioral, SEO, paid ads, content, analytics, email, growth, AI marketing, social, copywriting, CRO, brand strategy, product marketing, psychology, and tools.",
   keywords: [
