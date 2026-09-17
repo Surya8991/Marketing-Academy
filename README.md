@@ -149,9 +149,9 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/glossary.ts` | 158 marketing term definitions |
 | `src/lib/quizzes.ts` | Quiz questions (5 per lesson since Stage 10.1, all 642 lessons covered) |
 | `src/lib/tools-directory.ts` | 157 marketing tools with category/pricing data |
-| `PROJECTS_PLAN.md` | **High-priority roadmap.** Stages 0-8 (all 24 tracks' practice projects), 9.1/9.4, 10 (quiz expansion to 5 questions/lesson), and 11 (Skill Map/Achievements/Resources UX pass) are all complete as of Session 85. **Stage 9.3** (non-track lesson project authoring) is queued to run LAST, narrowed to 8 categories by owner directive: `fundamentals`, `seo`, `paid-ads`, `growth`, `social`, `product-marketing`, `ai-marketing`, `tools`. Use `PROJECTS_AUTHORING_GUIDE.md` to execute |
+| `docs/PROJECTS_PLAN.md` | **High-priority roadmap.** Stages 0-8 (all 24 tracks' practice projects), 9.1/9.4, 10 (quiz expansion to 5 questions/lesson), and 11 (Skill Map/Achievements/Resources UX pass) are all complete as of Session 85. **Stage 9.3** (non-track lesson project authoring) is queued to run LAST, narrowed to 8 categories by owner directive: `fundamentals`, `seo`, `paid-ads`, `growth`, `social`, `product-marketing`, `ai-marketing`, `tools`. Use `PROJECTS_AUTHORING_GUIDE.md` to execute |
 | `src/components/InAction.tsx` | Global MDX component rendering one cited "concept scenario" inline after a lesson heading (PROJECTS_PLAN.md section 10 / Stage 8.4). Embedded directly in lesson MDX, not build-time-injected — see AGENTS.md Rule 54 |
-| `PROJECTS_AUTHORING_GUIDE.md` | Operational playbook for authoring a new track's Stage 8.3/8.4 batch: fill-in agent prompt template + condensed reference pack + the scripts below, in order. Next two tracks are pre-scoped in PROJECTS_PLAN.md 8.3b |
+| `docs/PROJECTS_AUTHORING_GUIDE.md` | Operational playbook for authoring a new track's Stage 8.3/8.4 batch: fill-in agent prompt template + condensed reference pack + the scripts below, in order. Next two tracks are pre-scoped in PROJECTS_PLAN.md 8.3b |
 | `scripts/get-track-batch-info.mjs` | Given a track slug, lists which lessons still need projects and their tier (reads `tracks.ts` + `projects-assignment.ts`), pre-split into batches |
 | `scripts/merge-projects-batch.mjs` | Safely merges subagents' scratch project output into `src/lib/projects/{category}.ts` (refuses duplicate keys, verifies key count) |
 | `scripts/audit-projects.mjs` | Structural check on a category's projects: real `lessonAnchor`s, real `companyId`s, real `toolName`s, runbook completeness |
@@ -203,7 +203,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/admin-stats.ts` / `admin-audit.ts` | `getAdminStats()` (shared by `/admin` and its API route) and `logAdminAction()` — the append-only audit-log writer every `/api/admin/users/[id]` mutation calls |
 | `src/lib/cron-auth.ts` / `cron-dates.ts` | `isCronAuthorized()` (verifies Vercel's `Authorization: Bearer $CRON_SECRET` header) and `todayKey()`/`daysAgoKey()` (mirrors `engagement.ts`'s local-date format) — shared by the 3 `/api/cron/*` routes (#28) |
 | `src/app/api/cron/*` | 3 scheduled routes (`vercel.json`'s `crons`): `streak-reminder` (daily), `resume-learning` (daily), `weekly-digest` (weekly) — each queries opted-in signed-in users' synced `progress` rows server-side (email prefs are DB columns, not localStorage, since a cron job has no browser attached) |
-| `PROJECT_LOG.md` | Full session history, gotchas, file inventory, pending tasks |
+| `docs/PROJECT_LOG.md` | Full session history, gotchas, file inventory, pending tasks |
 
 ---
 

@@ -291,7 +291,9 @@ Never export event constants from component files. Components re-export from `@/
 ### Rule 23, Update docs before every push
 Before any `git push`, update ALL of the following that are affected by the changes:
 
-**`PROJECT_LOG.md`**
+> `PROJECT_LOG.md`, `PROJECTS_PLAN.md`, `PROJECTS_AUTHORING_GUIDE.md`, `IMPROVEMENT_PLAN.md`, and `BACKLOG.md` live under `docs/` (moved from the repo root this session, "organize the project folder files"). Every bare mention of these filenames throughout this file and elsewhere in the codebase — hundreds of them, mostly one-line `// PROJECTS_PLAN.md Stage N`-style code comments — was deliberately left as a bare filename rather than swept to `docs/PROJECTS_PLAN.md` everywhere: the name alone still uniquely identifies the one file in the repo, a repo-wide search finds it instantly regardless of folder, and rewriting 50+ files' comments for path-cosmetic accuracy wasn't worth the diff noise. `AGENTS.md`, `CLAUDE.md`, `README.md`, and `mdx-components.tsx` stay at the repo root — `CLAUDE.md`'s `@AGENTS.md` import resolves relative to `CLAUDE.md`'s own location, so `AGENTS.md` moving would break it; the other two have no reason to move.
+
+**`docs/PROJECT_LOG.md`**
 - "Last audited" session number at the top
 - 60-Second Resume counts (lesson total, any changed stat)
 - "Current State" table, per-category lesson counts if curriculum.ts changed
@@ -445,7 +447,7 @@ Use `sourceCategory` for cross-listed lessons (Rule 31). Two components performi
 Verified 2026-08-19: re-read all four call sites end to end, no regressions found. `markProjectComplete()` (`src/lib/projects-progress.ts`, practice projects) is a **separate, deliberately ungated** function, projects don't feed certificates and are explicitly out of this rule's scope (see that file's docstring) — do not "fix" it into gated behavior without a real product decision first.
 
 ### Rule 37 — The projects layer is planned in `PROJECTS_PLAN.md`, read it before touching projects
-`PROJECTS_PLAN.md` (root) is the active high-priority roadmap for the hands-on projects layer, the `/projects` hub, and concept scenarios in lessons. Section 0 carries the execution order. Do not design any part of that feature without reading it; a four-agent survey of 454 lessons is already recorded there and re-deriving it wastes a lot of effort.
+`docs/PROJECTS_PLAN.md` is the active high-priority roadmap for the hands-on projects layer, the `/projects` hub, and concept scenarios in lessons. Section 0 carries the execution order. Do not design any part of that feature without reading it; a four-agent survey of 454 lessons is already recorded there and re-deriving it wastes a lot of effort.
 
 Key constraints it establishes, so they are not accidentally violated:
 - Projects ship as **per-category modules**, dynamically imported. Never one file (`quizzes.ts` at 1.91 MB is the precedent to avoid).

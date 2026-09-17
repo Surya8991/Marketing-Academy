@@ -97,7 +97,7 @@ Same pattern as before (audit existing lessons first, per Rule 34).
 - Add a synthesis quiz for each. Likely zero new lessons needed (per the saturation pattern already confirmed).
 
 ### Phase 2 — Copy-Over Audit: HTML Guide -> Site
-Cross-check every section of `resources/seo-aeo-geo-master-guide.html` against the live site:
+Cross-check every section of `docs/seo-aeo-geo-master-guide.html` (moved from `resources/` when the project root was reorganized) against the live site:
 - A-Z Glossary (28 terms) vs. `src/lib/glossary.ts` (216 terms) -> add any missing terms.
 - Comparison table, 10 Scenarios, FAQ -> check if equivalent content/examples exist in lessons; port anything valuable as `Callout type="example"` additions to relevant lessons, or confirm intentionally HTML-only.
 - Metrics section already ported (`ai-search-visibility-metrics.mdx`) -> verify no other section was missed.
