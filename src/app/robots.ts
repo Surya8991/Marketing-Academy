@@ -23,6 +23,8 @@ export default function robots(): MetadataRoute.Robots {
         "/review",
         "/skill-map",
         "/achievements",
+        "/profile",
+        "/admin",
       ],
     },
     sitemap: `${BASE}/sitemap.xml`,

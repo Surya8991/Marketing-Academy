@@ -23,9 +23,20 @@ const EXEMPT: Record<string, string> = {
   "auth/[...nextauth]/route.ts": "This IS the auth system — nothing to gate.",
   "geo-audit/route.ts": "Public utility tool (SSRF-hardened URL fetch + scoring), no per-user data — verify this is still accurate by reading the file before trusting this entry.",
   "og/route.tsx": "Renders an OG image via next/og's ImageResponse from three length-capped query params (title/category/level) reflected directly into JSX — React auto-escapes them, and the output is an image, not HTML. No user data read/written, no database access, no auth needed.",
+  "email/unsubscribe/route.ts": "Public and intentionally so (#28) — a one-click unsubscribe link clicked from an email client has no session. Gated instead by an HMAC-signed token (src/lib/email/unsubscribe-token.ts) verified inside the handler, which this regex-based test can't see. Only flips one of the caller's own opt-in email-preference booleans, nothing else.",
 };
 
-const AUTH_MARKERS = [/\brequireUser\s*\(/, /\brequireAdmin\s*\(/, /\bawait\s+auth\s*\(\s*\)/];
+// isCronAuthorized (src/lib/cron-auth.ts) checks a shared secret Vercel sends
+// as an Authorization header on scheduled-function requests — a real gate,
+// just not a user session, so it belongs alongside the require*()/auth()
+// markers rather than in EXEMPT (which implies "no gating at all").
+const AUTH_MARKERS = [
+  /\brequireUser\s*\(/,
+  /\brequireAdmin\s*\(/,
+  /\brequireSuperAdmin\s*\(/,
+  /\bawait\s+auth\s*\(\s*\)/,
+  /\bisCronAuthorized\s*\(/,
+];
 
 function findRouteFiles(dir: string): string[] {
   const out: string[] = [];

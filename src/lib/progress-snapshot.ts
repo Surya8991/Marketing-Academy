@@ -17,6 +17,7 @@ import { QUIZ_PASS_KEY_PREFIX, TRACK_QUIZ_PASS_PREFIX, QUIZ_STORAGE_PREFIX } fro
 import { NOTE_KEY_PREFIX } from "@/lib/notes";
 import { RECENT_KEY } from "@/lib/recentlyViewed";
 import { CERT_NAME_KEY } from "@/lib/cert-name";
+import { PROFILE_KEY } from "@/lib/profile";
 
 /** Fixed-name keys that get exported/imported/reset/synced verbatim. */
 export const EXPORT_KEYS = [
@@ -29,6 +30,7 @@ export const EXPORT_KEYS = [
   PROJECTS_PROGRESS_KEY,
   REVIEW_QUEUE_KEY,
   CERT_NAME_KEY,
+  PROFILE_KEY,
 ] as const;
 
 /** Prefixed keys that are swept during export/import/reset/sync. */

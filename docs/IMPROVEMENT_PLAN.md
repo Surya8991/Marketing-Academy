@@ -15,28 +15,30 @@ the `CATEGORY_INDEX` bundle regression, no `llms.txt`, no monetization/lead-capt
 
 Interlink map (#22) is deliberately **LAST** (largest task). Owner-requested features first.
 
-**Tier 1 — Owner-requested features (do next)**
-1. ~~**#23 Quiz: revisable answers + review-before-submit**~~ — ✅ DONE (2026-09-17).
-2. **#24 + #25 + #27 Profile cluster** — build in the design's A→B→C order: shared foundation (`profile-stats.ts`, `profile.ts`, `<StatsRow>`) → `/profile` hub → Settings cards + onboarding capture + autosave indicator/guest nudge.
-3. **#26 Email magic-link auth (Gmail SMTP)** — pairs with the profile/account work; can run in parallel with #25.
-4. **#28 Re-engagement email** — after #26.
+**Tier 1 — Owner-requested features**
+1. ~~**#23 Quiz: revisable answers + review-before-submit**~~ — ✅ DONE.
+2. ~~**#24 + #25 + #27 Profile cluster**~~ — ✅ DONE (2026-09-17): shared foundation (`profile-stats.ts`, `profile.ts`, `<StatsRow>`, `<ActivityHeatmap>`) → `/profile` hub → Settings cards + onboarding capture + autosave indicator/guest nudge.
+3. ~~**#26 Email magic-link auth (Gmail SMTP)**~~ — ✅ code-complete (2026-09-17); needs a real Gmail App Password on Vercel to verify the actual send-and-click round trip.
+4. ~~**#28 Re-engagement email**~~ — ✅ code-complete (2026-09-17).
+5. ~~**#30 Superadmin dashboard + user management**~~ — ✅ code-complete (2026-09-17). Owner asked to build it directly instead of waiting for review.
 
 **Tier 2 — SEO/AEO + growth**
-5. **#10 Global search** covers glossary/tools/projects (not just lessons+tracks).
-6. **#6d Blog build** (design ready; also lands #9 author/date signals on fresh content).
-7. **#2 remaining freshness** — lesson byline + Article `dateModified`/`datePublished`; `digital-marketing-cheat-sheet` 2026 data refresh.
-8. **#6c / #6 remaining** — meta-description quality; glossary-list `ItemList`/`DefinedTermSet`.
+6. **#10 Global search** covers glossary/tools/projects (not just lessons+tracks).
+7. **#6d Blog build** (design ready; also lands #9 author/date signals on fresh content).
+8. **#2 remaining freshness** — lesson byline + Article `dateModified`/`datePublished`; `digital-marketing-cheat-sheet` 2026 data refresh.
+9. **#6c / #6 remaining** — meta-description quality; glossary-list `ItemList`/`DefinedTermSet`.
 
 **Tier 3 — Perf / polish / decisions**
-9. **#12 Client-bundle trims** — `CASE_COMPANIES`/`TOOLS`/`PROJECTS_INDEX` off the client.
-10. **#13 Route loading skeletons.**
-11. **#14 IA dedup** — `/interview-prep` vs `/interview-questions`, cheat-sheet routes.
-12. **#16 `bigProject` XP** `⚠️ decision` — wire capstone or drop the tier.
+10. **#29 Lesson-page "related" clutter** `⭐ owner-flagged` — dedupe the 3 stacked related/nav blocks into one row (quick, high visual payoff).
+11. **#12 Client-bundle trims** — `CASE_COMPANIES`/`TOOLS`/`PROJECTS_INDEX` off the client.
+12. **#13 Route loading skeletons.**
+13. **#14 IA dedup** — `/interview-prep` vs `/interview-questions`, cheat-sheet routes.
+14. **#16 `bigProject` XP** `⚠️ decision` — wire capstone or drop the tier.
 
 **Tier 4 — LAST (large batch)**
-13. **#22 Per-lesson interlink map** (642 lessons; 9 SEO done, resume category-by-category on Sonnet).
+15. **#22 Per-lesson interlink map** (642 lessons; 9 SEO done, resume category-by-category on Sonnet). **Owner note (2026-09-17): paused, owner will resume this personally.**
 
-*(Done this session: #1, #3, #4, #5, #6, #6b, #8, #11, #15, #18, #19, #20, #2 sitemap half.)*
+*(Done this session: #1, #3, #4, #5, #6, #6b, #8, #11, #15, #18, #19, #20, #2 sitemap half, #23, #24, #25, #27, #26 code, #30 code, #28 code.)*
 
 ---
 
@@ -65,6 +67,7 @@ Interlink map (#22) is deliberately **LAST** (largest task). Owner-requested fea
 ### P2 — Polish / cleanup / decisions
 - [ ] **13. Route `loading.tsx` skeletons** — client pages flash blank divs.
 - [ ] **14. IA de-duplication** — `/interview-prep` vs `/interview-questions`; `/cheat-sheets` vs `/digital-marketing-cheat-sheet`. Pick canonical + cross-link.
+- [ ] **29. Lesson-page "related" clutter — dedupe the stacked blocks** `⭐ owner-flagged (2026-09-17, screenshot)` — the bottom of every lesson stacks **THREE** near-identical navigation blocks: **RELATED CONCEPTS** (`RelatedConcepts.tsx`, curated from `lessonMeta.relatedConcepts`) + **You Might Also Like** (`RelatedLessons.tsx`, auto first-3-same-category) + **Prev/Next**. They overlap heavily (e.g. "Search Intent" appeared 3×, "On-Page SEO" 2× in one screenshot) → 6–9 redundant cards. This is the duplication AGENTS.md Rule 51/53 already flagged. **Fix (preferred): show only ONE related-cards row** — when a lesson has curated `relatedConcepts`, render those and **hide "You Might Also Like"** (or filter out lessons already shown above); fall back to the auto "You Might Also Like" only when no curated concepts exist. Result: `[3 Related cards] → [Prev/Next]`. Touches the lesson page (`learn/[category]/[lesson]/page.tsx`) + `RelatedLessons.tsx`/`RelatedConcepts.tsx`. Low risk, high visual payoff.
 - [x] **15. `/compare/[slug]` "coming soon" copy** — ✅ DONE (2026-09-17). Replaced the "coming soon" promise with an honest label + a cross-link to the comparisons hub.
 - [ ] **16. `bigProject` XP tier (100 XP) unreachable** `⚠️ DECISION` — defined in `engagement.ts` but no project awards it. Needs a product call: designate capstone projects to grant it, or drop the tier. Left open.
 - [ ] **17. Dead newsletter code** — orphaned component + 501 endpoint. Finish or delete. *(see #20)*
@@ -82,11 +85,12 @@ Interlink map (#22) is deliberately **LAST** (largest task). Owner-requested fea
 
 ### After the interlink map (owner-added 2026-09-17)
 - [x] **23. Quiz: revisable answers + full review before submit** — ✅ DONE (2026-09-17). `Quiz.tsx`: `selections` is now a fixed-length, freely-revisable array (any option can be re-picked before moving on); after the last question, a new "review" screen lists every question with the picked answer (no correctness shown) and a per-question "Edit" button that jumps back and returns to review afterward; only "Submit Quiz" from the review screen grades the attempt. Mid-quiz correctness reveal was NOT reintroduced (Rule 25/40 anti-farming intact). `tsc`/lint clean, 66/66 tests pass (updated the Rule-47-style regression test for the renamed `handleSubmit`/`finalSelections`).
-- [ ] **24. New-user profile capture** — on first visit, ask the learner for their **name + a few light personal details** (name, role/goal — extend `OnboardingModal`, which today only asks a goal and stores nothing but `ma_onboarded`), persisted to a profile viewable/editable on **`/settings`** and the new **`/profile`** hub. Reuse `cert-name.ts`'s `ma_cert_name` for the name (already syncs) and add `src/lib/profile.ts` (role, experience level, goals) via `progress-snapshot` EXPORT_KEYS (Rules 18/77). Auto-fills the certificate name field (#4). Skippable — the "no sign-up wall" promise holds (local, optional). **See "Profile, Settings & Accounts design" below.**
-- [ ] **25. `/profile` — Personal Profile hub** `⭐ owner-requested` — one dashboard aggregating everything currently scattered across `/achievements`, `/skill-map`, `/portfolio`, `/certificates`, `/account`. Analytics (level/XP/streak/heatmap/timeline, completion %, quizzes/projects/bookmarks/notes/review-due), badges (12), certificates earned, profile identity. Needs a shared `src/lib/profile-stats.ts` aggregator + `<StatsRow>` component to kill 3× duplicated stat derivations. `noindex`. **See design below.**
-- [ ] **26. Auth / login: Gmail SMTP magic-link ONLY (for now)** `⭐ owner-requested` — owner decision (2026-09-17): enable **only** the email magic-link via **Gmail/Google SMTP** for now. The Google OAuth provider stays in code but is NOT the enabled path; login UI becomes a single email form (no provider picker). The `verificationTokens` DB table already exists (zero schema change). **See design + email-templates spec below.**
-- [ ] **27. Autosave trust + guest data-loss nudge** — autosave IS present (local instant; cloud auto-push 2s when signed in) but invisible + guests have no cloud backup. Add a subtle "Saved • synced" indicator and a gentle "sign in to save across devices" prompt after a milestone (e.g. first lesson complete). Pairs with #25/#26.
-- [ ] **28. Re-engagement email** `depends on #26` — the newsletter was removed (#20), so there's no channel to bring learners back. Once email auth (#26) exists, add opt-in transactional emails: streak-about-to-break reminder, "resume {last lesson}", weekly progress digest. Uses the same mailer as #26 (Gmail SMTP for low volume; a transactional provider is the upgrade path). Strictly opt-in + one-click unsubscribe (respect the no-spam ethos). *(Optional sibling, not building now: a shareable public profile / "share my achievements" — adds real privacy scope; flag before pursuing.)*
+- [x] **24. New-user profile capture** — ✅ DONE (2026-09-17). `OnboardingModal` now has an optional name field (rides `cert-name.ts`'s `ma_cert_name`) and stores the picked goal as `profile.primaryGoal`; role/experience-level are editable on the new Settings "Profile Details" card. New `src/lib/profile.ts` (`ma_profile` key, registered in `progress-snapshot` EXPORT_KEYS per Rules 18/77). Still fully skippable — no sign-up wall.
+- [x] **25. `/profile` — Personal Profile hub** — ✅ DONE (2026-09-17). New `src/lib/profile-stats.ts` (`getProfileStats()`, one aggregator replacing 4× duplicated derivations across Achievements/SkillMap/Portfolio/certificates), `<StatsRow>`, `<ActivityHeatmap>` (fed by `xpByDay`, existed but was never rendered). `/profile` aggregates identity, XP/level bar, 8 analytics tiles, 18-week heatmap, recent activity, top disciplines, badges/certificates/portfolio/bookmarks/review-due — all linking to their existing dedicated pages. Guest + signed-in both work. `noindex`. Nav gets a persistent Profile entry point (icon, account-menu item, mobile link).
+- [x] **26. Auth / login: Gmail SMTP magic-link ONLY** — ✅ DONE (2026-09-17, code-complete). New `emailAuthConfigured()` gate drives every sign-in entry point; NextAuth `Nodemailer` provider added to `src/auth.ts` with a custom `sendVerificationRequest` using the new branded email layer (`src/lib/email/`). `/login` is a single email-input form (`SignInButton.tsx` → `signIn("nodemailer", ...)`). Google OAuth stays wired but unpromoted. Zero schema change. `nodemailer@^7` added. **Not yet verified end-to-end** — needs a real Gmail App Password in `EMAIL_SERVER`/`EMAIL_FROM` on Vercel to confirm an actual send-and-click round trip; that's an owner deployment-env step, see the design section below.
+- [x] **27. Autosave trust + guest data-loss nudge** — ✅ DONE (2026-09-17). New shared `<AutosaveIndicator>` ("Saved · synced Xm ago") on `/profile` and a new Settings "Autosave" card. Guest nudge ("Sign in to save your progress across devices") renders on `/profile` when not signed in and email auth is configured.
+- [x] **28. Re-engagement email** — ✅ code-complete (2026-09-17). 3 opt-in templates (streak-reminder, resume-learning, weekly-digest) + 3 `/api/cron/*` routes wired to `vercel.json`'s `crons`, gated by `CRON_SECRET` (Vercel's own auto-injected `Authorization: Bearer` header). Prefs are new `users` columns (not localStorage — a cron job has no browser to read from), toggled in a new Settings "Email Notifications" card, signed-in only, all default OFF. One-click unsubscribe via an HMAC-signed token (`src/lib/email/unsubscribe-token.ts`, no sign-in required to use it). `tsc`/lint clean, 75/75 tests, build passes, every DB query + the token sign/verify round-trip hand-verified against real data. **Not verified**: an actual cron-triggered send (needs `CRON_SECRET` + real email credentials on the live Vercel deployment). *(Optional sibling, not building now: a shareable public profile / "share my achievements" — adds real privacy scope; flag before pursuing.)*
+- [x] **30. Superadmin dashboard + user management** — ✅ code-complete (2026-09-17). `SUPERADMIN_EMAILS` env-only tier (never DB-persisted). `/admin` (any admin, read-only stats) + `/admin/users` (superadmin: search/promote/demote/suspend/delete + audit log). `users.suspended` + `adminAuditLog` schema added, migration applied to local dev DB and verified. Suspension enforced in 3 places (signIn callback, session payload, direct-`auth()` routes) per AGENTS.md Rule 80. `tsc`/lint clean, 70/70 tests, build passes. **Not verified**: a real signed-in admin/superadmin browser session (needs #26's real email credentials + a `SUPERADMIN_EMAILS` value on the actual deployment — not available in this environment). **See "Superadmin dashboard design" below** for the full design (still accurate to what shipped).
 
 ---
 
@@ -322,6 +326,76 @@ All emails share one branded, responsive HTML layout (logo, `--foreground/--mute
 
 Privacy: profile fields (name/role/etc.) are localStorage for guests; for signed-in users they ride the existing per-user, auth-gated sync (same as notes). `noindex` on `/profile`.
 
+## Superadmin dashboard design (#30, owner-requested 2026-09-17)
+
+**Built (2026-09-17)** — the owner asked to build directly rather than wait for review. This is the biggest access-control surface in the app so far; the implementation follows the conservative design below as written, section by section.
+
+### A. Access model — two tiers, one new env-only tier above the existing one
+
+The app already has a `role` column (`'user' | 'admin'`, DB-persisted) bootstrapped from `ADMIN_EMAILS` (Rule 78). That tier is **not** enough for "set at Vercel": once an email is promoted, `role='admin'` is a normal database row — anyone with database write access (a compromised admin session that can reach a future admin API, a DB migration mistake) could grant it to another account. The owner's ask is a tier that **cannot** be granted through the app at all.
+
+- **`SUPERADMIN_EMAILS`** — new env var, Vercel-only, comma-separated, parsed exactly like `ADMIN_EMAILS` (`src/lib/env.ts`). **Deliberately never persisted to the `users` table** — no `role: 'superadmin'` value, no bootstrap-on-sign-in write. The only source of truth is the env var read fresh on every check. This means superadmin status can be added or revoked by editing Vercel env and redeploying, and — critically — **cannot be self-granted or escalated from inside the app**, unlike `role`.
+- `isSuperAdmin(email)` — new helper in `src/auth.ts`, checks `SUPERADMIN_EMAILS` only (mirrors `isAdminUser()`'s shape but with no DB fallback to check).
+- `requireSuperAdmin()` — new server helper alongside `requireUser()`/`requireAdmin()`, redirects non-superadmins to `/` (or to `/admin` with a "not authorized" message if they're a regular `admin`, so an admin isn't confused into thinking the whole dashboard is broken).
+- **Existing `role`/`ADMIN_EMAILS` admin tier is unchanged** and gets read-only dashboard access (see below) — this adds a tier on top, it doesn't replace what Rule 78 already ships.
+
+### B. `/admin` — dashboard (gate: `requireAdmin()`, read-only for plain admins)
+
+1. **Overview stats** — total users, new users (7d/30d, from `users.createdAt`), role breakdown (user/admin/superadmin-by-env), users with a `progress` row (proxy for "ever synced/signed in and used the app") vs. accounts with none.
+2. **Growth chart** — signups per day/week from `createdAt`, reusing the `<ActivityHeatmap>`-adjacent charting approach already established for `/profile`, or a simple bar list (no new charting dependency needed for this volume).
+3. A visible **"You have read-only access — user management requires superadmin"** notice for plain admins, so the boundary is never silently confusing.
+
+### C. `/admin/users` — user management (gate: `requireSuperAdmin()`, mutations only)
+
+1. **Search + paginated list** — email, name, role, `createdAt`, has-progress-row y/n. Search by email substring (server-side, parameterized query — no raw SQL string interpolation).
+2. **Actions per row**:
+   - **Promote/demote admin** (`role` toggle) — a superadmin action, not exposed to plain admins even for viewing other admins' rows if that ever felt sensitive (default: plain admins CAN see the list read-only, just can't act — simpler mental model, revisit only if the owner wants stricter row-level hiding).
+   - **Suspend/unsuspend** — needs a new `users.suspended` boolean column (schema migration). A suspended user's session is rejected: `requireUser()` (and the `auth()` session callback) checks the flag and treats a suspended account as signed-out, with a clear message rather than a silent redirect loop.
+   - **Delete** — reuses the exact cascade-delete already proven in `/api/account/delete/route.ts` (FKs already cascade `accounts`/`sessions`/`progress`), just callable against an arbitrary `userId` instead of only `session.user.id`, and gated `requireSuperAdmin()` instead of self-only. Sends the same `account-deleted` email (§D2) as a courtesy, same as self-delete does.
+   - **Never**: bulk actions (bulk-delete, bulk-email) and "impersonate / login as this user" are explicitly **out of scope for v1** — both are real security/privacy footguns (impersonation in particular needs its own consent-and-audit model) and neither was asked for. Flag before building either.
+3. **A superadmin can never suspend or delete another superadmin** (env-tier accounts are equals; demoting one from the app would defeat the "only Vercel can grant/revoke this" property) — the mutation routes check `isSuperAdmin()` on the TARGET user and refuse if true, mirroring the existing self-delete admin guard's shape in `/api/account/delete/route.ts`.
+
+### D. Audit log — new `adminAuditLog` table, append-only
+
+Every mutating admin action (`role` change, suspend/unsuspend, delete) writes a row: `{ id, actorUserId, actorEmail, action, targetUserId, targetEmail, at }`. Rendered as a simple reverse-chronological list at the bottom of `/admin/users` (superadmin-only). This is the accountability mechanism for a dashboard that can delete or suspend accounts — without it, "who suspended this user and why" is unanswerable after the fact. No edit/delete UI for the log itself (append-only by design).
+
+### E. API surface + Rule 44 compliance
+
+New routes, all under `/api/admin/`:
+- `GET /api/admin/stats` — `requireAdmin()`.
+- `GET /api/admin/users` — `requireAdmin()` (list/search, read-only).
+- `PATCH /api/admin/users/[id]` — `requireSuperAdmin()`, body `{ role? | suspended? }`, writes an audit-log row.
+- `DELETE /api/admin/users/[id]` — `requireSuperAdmin()`, same cascade as self-delete, writes an audit-log row.
+
+All mutating routes get `rateLimit()` (matching the existing self-delete pattern in `/api/account/delete/route.ts`) — same disclosed in-memory-per-lambda-instance caveat as Rule 44 already documents elsewhere, not a new gap this feature introduces. `tests/api-auth-coverage.test.ts` will need these four routes added (they'll auto-pass since all four call `requireAdmin()`/`requireSuperAdmin()`, which are `auth()`-based).
+
+### F. Schema change required
+
+```ts
+// src/server/db/schema.ts — users table
+suspended: integer("suspended", { mode: "boolean" }).notNull().default(false),
+
+// new table
+export const adminAuditLog = sqliteTable("adminAuditLog", {
+  id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+  actorUserId: text("actorUserId").notNull(),
+  actorEmail: text("actorEmail").notNull(),
+  action: text("action").notNull(), // "role_change" | "suspend" | "unsuspend" | "delete"
+  targetUserId: text("targetUserId").notNull(),
+  targetEmail: text("targetEmail").notNull(),
+  at: integer("at", { mode: "timestamp_ms" }).notNull().$defaultFn(() => new Date()),
+});
+```
+Needs a real Drizzle migration run against the Turso/libsql database (not just a local `file:` dev DB) — a deployment step the owner needs to run, same class of step as setting `EMAIL_SERVER` for #26.
+
+### G. Nav / discoverability
+
+A small "Admin" link in the account dropdown, visible only when `session.user.isAdmin` (already computed server-side into the session payload per Rule 78) — same visibility rule for both admin and superadmin, since plain admins get real (read-only) value from `/admin` too.
+
+### Defaults shipped (owner didn't answer before asking to build — revisit any of these on request)
+1. Plain `admin` (not just `superadmin`) gets read-only `/admin` dashboard access. `/admin/users` stays superadmin-only. Easy to tighten to superadmin-only if that turns out to be the wrong default.
+2. Scope shipped as designed: stats + user-management + audit-log only. No content moderation, feature flags, or email-delivery health panel — flag if any of those are wanted, they're straightforward additions to the same `/admin` shell.
+
 ## Status log
 - 2026-09-17 — Plan compiled (8 perspectives). Beginning execution at P0 #1.
 - 2026-09-17 — **P0 #1 (canonical) DONE + verified.** `tsc` clean. Added Perspective 9 (meta tags / blog / layouts / interlinking) + items 6b–6e per owner request.
@@ -335,3 +409,8 @@ Privacy: profile fields (name/role/etc.) are localStorage for guests; for signed
 - 2026-09-17 — **Research + design pass for Profile/Settings/Accounts** (owner-requested, review-then-build). Full personal-data inventory taken. Design written above (#24 extended, #25 `/profile` hub, #26 auth, #27 autosave trust + guest nudge). Confirmed **autosave is present** (local instant + cloud 2s when signed in); the gap is guest cloud backup + no visible indicator. **No implementation yet — awaiting owner review.**
 - 2026-09-17 — **#23 (quiz revisable answers + review-before-submit) DONE + verified.** `Quiz.tsx` reworked: selections are freely revisable, a new pre-submit "review your answers" screen lists picks (no correctness) with per-question Edit; only "Submit Quiz" grades. `tsc`/lint clean, 66/66 tests (regression test updated for `handleSubmit`/`finalSelections`). Build succeeds (1,734+ static paths). Next up: #24/#25/#27 profile cluster.
 - 2026-09-17 — Owner refinements: **auth = Gmail SMTP magic-link ONLY for now** (no Google-OAuth path, no provider picker); added a **full email-templates & notifications spec** (§D2): 3 transactional + 3 engagement (cron) + 3 milestone templates, shared branded layout + prefs/unsubscribe, Vercel-Cron for scheduled sends; in-app toasts already exist (no notification center for now). Added prioritized order (interlink map last) + #28 re-engagement email.
+- 2026-09-17 — **Owner: "start working on the plan, leave interlink map for later."** Executed Tier 1 in full: **#24/#25/#27 Profile cluster DONE** (`profile.ts`, `profile-stats.ts` aggregator, `<StatsRow>`, `<ActivityHeatmap>`, `/profile` hub, Settings Profile/Account/Preferences/Autosave cards, onboarding name+goal capture, Nav profile entry point) — verified live in browser, reactive updates confirmed via `PROGRESS_CHANGED_EVENT`. **#26 email auth code-complete**: Nodemailer provider + branded `src/lib/email/` layer (magic-link/welcome/account-deleted templates), `/login` single-email-form, Google unpromoted everywhere. `tsc`/lint clean, 66/66 tests, full production build passes. **Not yet verified**: an actual Gmail-App-Password send-and-click round trip (needs owner's real `EMAIL_SERVER`/`EMAIL_FROM` on Vercel). 3 commits on `development-branch`.
+- 2026-09-17 — **Owner: "Create superadmin dashboard, user management... add these in the plan too."** Added **#30 Superadmin dashboard + user management** as a new owner-requested `⚠️ DECISION` item — full design written above (env-only `SUPERADMIN_EMAILS` tier above the existing DB-persisted `role`/`ADMIN_EMAILS` admin tier, `/admin` overview + `/admin/users` management + append-only audit log, `users.suspended` schema addition, Rule 44-compliant API surface). **Design only, not built** — access-control changes and a schema migration go through review first, same as Profile/Settings/Auth did. Two open questions flagged for owner sign-off before implementation.
+- 2026-09-17 — **Owner: "go ahead and start building #30 superadmin dashboard."** Built per the design above, unchanged. `SUPERADMIN_EMAILS` (`src/lib/env.ts`), `isSuperAdminEmail()`/`requireSuperAdmin()` (`src/auth.ts`), `users.suspended` + `adminAuditLog` schema (migration `0001_overrated_dagger.sql`, applied to local dev DB, every query hand-verified against the real SQLite dialect via a scratch script). Suspension enforced in 3 places (signIn callback denies new sign-in; session payload carries `isSuspended` for an already-active session; the 3 routes calling `auth()` directly each check it) — documented as **AGENTS.md Rule 80**. `/admin` (read-only for any admin) + `/admin/users` (superadmin: search/promote/demote/suspend/delete, a superadmin can never target another superadmin or themselves) + audit log UI, 4 new rate-limited `/api/admin/*` routes. `tests/api-auth-coverage.test.ts`'s `AUTH_MARKERS` updated (`requireSuperAdmin` wasn't recognized, 2 routes failed until fixed). Verified: `tsc`/lint clean, **70/70 tests**, full `npm run build` succeeds, `/admin`+`/admin/users` correctly redirect unauthenticated visitors to `/login`. **Two open design questions defaulted rather than blocking** (see "Defaults shipped" under the design section) — flag either to change. **Not verified**: a real signed-in admin/superadmin browser session, which needs #26's real email credentials plus a real `SUPERADMIN_EMAILS` value on the actual Vercel deployment, neither available in this environment. Docs updated: README (routes/key-files/env-vars/.env.example), AGENTS.md Rule 80, PROJECT_LOG.md. 1 commit on `development-branch`, not pushed.
+- 2026-09-17 — **Owner: "continue building #28 re-engagement email."** Built per §D2's engagement-template spec (streak-reminder, resume-learning, weekly-digest), with one design refinement made during implementation: prefs moved from the originally-sketched localStorage pattern to new `users.emailStreakReminder`/`emailResumeLearning`/`emailWeeklyDigest` DB columns, since a cron job has no browser to read localStorage from — this wasn't spelled out in the original §D2 sketch and only became obvious once actually wiring the cron routes. New Settings "Email Notifications" card (signed-in only, all opt-in default OFF, `/api/account/email-prefs` GET/PATCH). 3 new `/api/cron/*` routes wired into `vercel.json`'s `crons`, gated by `isCronAuthorized()` checking Vercel's auto-injected `CRON_SECRET` bearer header. `streak-reminder`/`resume-learning` both trigger on an EXACT date-string equality (not a range) so each fires exactly once per lapse — a range would re-send daily for the whole window, which is the nagging behavior §D2 explicitly didn't want; documented as the load-bearing reason in **AGENTS.md Rule 81**. One-click unsubscribe via a new HMAC-signed token (`src/lib/email/unsubscribe-token.ts`, keyed on the existing `AUTH_SECRET`, no new secret) — `/api/email/unsubscribe` is intentionally public (a click from an email client has no session), added to `tests/api-auth-coverage.test.ts`'s `EXEMPT` with a verified reason; `isCronAuthorized(` added to that same test's `AUTH_MARKERS` (a real gate, just not a user session). Migration `0002_married_lockheed.sql` applied to local dev DB. Verified: `tsc`/lint clean, **75/75 tests**, full `npm run build` succeeds, the unsubscribe-token sign/verify round trip (including tamper + garbage rejection) and all three cron routes' query + trigger-condition logic hand-verified against real seeded data via a scratch script, and the 401/401/200 response-code split confirmed live (`/api/account/email-prefs` and `/api/cron/streak-reminder` correctly reject unauthenticated/unsigned requests; `/api/email/unsubscribe` correctly serves a public "invalid link" page for a garbage token). **Not verified**: an actual cron-triggered send with a real recipient — needs `CRON_SECRET` set and Vercel's scheduler actually invoking the route on the live deployment, plus #26's real email credentials, neither available in this environment. Docs updated: README (key files, env vars, `.env.example`, Settings/routes description, test count), AGENTS.md Rule 81. 1 commit on `development-branch`, not pushed.
+- 2026-09-17 — **Owner: "organize the project folder files."** This file (and `PROJECT_LOG.md`/`PROJECTS_PLAN.md`/`PROJECTS_AUTHORING_GUIDE.md`/`BACKLOG.md`) moved from the repo root into `docs/` — this doc is now `docs/IMPROVEMENT_PLAN.md`. Also moved: `resources/seo-aeo-geo-master-guide.html` → `docs/seo-aeo-geo-master-guide.html` (and the now-empty `resources/` removed), `docs/superpowers/` (dead planning docs from the shipped accounts+sync feature) renamed to `docs/archive-superpowers-accounts-sync-2026-08-20/` to signal it's historical. Verified via repo-wide grep before moving: zero programmatic references to any of the 5 moved `.md` files anywhere (no `readFileSync`, no `import()`, no markdown links, nothing in `package.json`/CI) — only prose citations, which still read fine as plain text. `.vercelignore` simplified (its specific per-file lines were redundant under the existing broader `/docs/` rule, and that same rule now also correctly excludes this file from the Vercel bundle, which it never had before). `AGENTS.md`/`CLAUDE.md`/`README.md` stay at root (`CLAUDE.md`'s `@AGENTS.md` import is location-relative). `tsc`/lint clean, 75/75 tests, build passes. Nothing else in this document changed.

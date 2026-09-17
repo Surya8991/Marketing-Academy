@@ -6,6 +6,8 @@ import { db } from "@/server/db/client";
 import { users } from "@/server/db/schema";
 import { rateLimit } from "@/lib/rate-limit";
 import { clearSessionCookie } from "@/lib/session-cookie";
+import { sendMail } from "@/lib/email/transport";
+import { accountDeletedEmail } from "@/lib/email/templates/account-deleted";
 
 export async function POST() {
   const session = await auth();
@@ -24,6 +26,10 @@ export async function POST() {
 
   const jar = await cookies();
   clearSessionCookie(jar);
+
+  // Confirmation email (IMPROVEMENT_PLAN §D2) — best-effort, sent after the
+  // delete succeeds so a mail failure can never block account deletion.
+  if (user.email) void sendMail({ to: user.email, ...accountDeletedEmail() });
 
   return NextResponse.json({ ok: true });
 }

@@ -11,7 +11,7 @@ import AchievementToast from "@/components/AchievementToast";
 import OnboardingModal from "@/components/OnboardingModal";
 import CommandPaletteLoader from "@/components/CommandPaletteLoader";
 import StorageWarning from "@/components/StorageWarning";
-import { authConfigured } from "@/lib/env";
+import { emailAuthConfigured } from "@/lib/env";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -101,7 +101,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               >
                 Skip to content
               </a>
-              <Nav authConfigured={authConfigured()} />
+              <Nav authConfigured={emailAuthConfigured()} />
               <main id="main-content" className="pt-16 flex-1">{children}</main>
               <Footer />
               <ScrollToTop />

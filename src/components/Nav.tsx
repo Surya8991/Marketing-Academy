@@ -2,13 +2,13 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import {
   Menu, X, Search, BookOpen, ChevronDown, Bookmark,
   GraduationCap, LayoutGrid, Brain, Map,
   BookMarked, FileText, Mic2, Wrench,
   SlidersHorizontal, Trophy, Settings, Library, Zap, ClipboardCheck, Briefcase,
-  Compass, Radio, TrendingUp, Megaphone, RotateCcw, LogIn, LogOut, User,
+  Compass, Radio, TrendingUp, Megaphone, RotateCcw, LogIn, LogOut, User, ShieldCheck,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CATEGORY_INDEX } from "@/lib/category-index";
@@ -89,11 +89,12 @@ function isActiveHref(pathname: string, href: string) {
 
 /**
  * `authConfigured` is computed by the root layout (a server component) via
- * @/lib/env's authConfigured() and threaded down as a prop — this file is
- * "use client" and can't read server-only env vars itself. Without it the
- * sign-in button rendered on deployments with zero auth env vars set, calling
- * signIn("google") against an empty providers array and dumping the visitor
- * on a NextAuth error page. Mirrors /login/page.tsx's existing check.
+ * @/lib/env's emailAuthConfigured() (IMPROVEMENT_PLAN #26 — Gmail-SMTP
+ * magic-link is the enabled path, not Google) and threaded down as a prop —
+ * this file is "use client" and can't read server-only env vars itself.
+ * Without it the sign-in link rendered on deployments with no email-auth env
+ * vars set, sending the visitor to /login only to find sign-in unavailable
+ * there too. Mirrors /login/page.tsx's own emailAuthConfigured() check.
  */
 export default function Nav({ authConfigured = false }: { authConfigured?: boolean }) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -395,6 +396,19 @@ export default function Nav({ authConfigured = false }: { authConfigured?: boole
           </button>
           <ThemeToggle />
           <Link
+            href="/profile"
+            className={cn(
+              "p-2 rounded-md transition-colors",
+              pathname.startsWith("/profile")
+                ? "text-[var(--foreground)] bg-[var(--muted)]"
+                : "text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)]"
+            )}
+            aria-label="Profile"
+            title="Profile"
+          >
+            <User size={18} />
+          </Link>
+          <Link
             href="/bookmarks"
             className={cn(
               "p-2 rounded-md transition-colors",
@@ -445,12 +459,29 @@ export default function Nav({ authConfigured = false }: { authConfigured?: boole
               {openDrop === "account" && (
                 <div className="absolute right-0 top-full mt-2 w-48 rounded-xl border border-[var(--border)] bg-[var(--card)] shadow-2xl overflow-hidden">
                   <Link
+                    href="/profile"
+                    onClick={() => setOpenDrop(null)}
+                    className="block px-4 py-2.5 text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors border-b border-[var(--border)]"
+                  >
+                    Profile
+                  </Link>
+                  <Link
                     href="/account"
                     onClick={() => setOpenDrop(null)}
                     className="block px-4 py-2.5 text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors"
                   >
                     Account &amp; sync
                   </Link>
+                  {(session.user as { isAdmin?: boolean }).isAdmin && (
+                    <Link
+                      href="/admin"
+                      onClick={() => setOpenDrop(null)}
+                      className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors border-t border-[var(--border)]"
+                    >
+                      <ShieldCheck size={14} />
+                      Admin
+                    </Link>
+                  )}
                   <button
                     onClick={() => { setOpenDrop(null); void signOut(); }}
                     className="flex items-center gap-2 w-full text-left px-4 py-2.5 text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors border-t border-[var(--border)]"
@@ -462,13 +493,13 @@ export default function Nav({ authConfigured = false }: { authConfigured?: boole
               )}
             </div>
           ) : status !== "loading" && authConfigured ? (
-            <button
-              onClick={() => void signIn("google")}
+            <Link
+              href="/login"
               className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors border border-[var(--border)]"
             >
               <LogIn size={13} />
               Sign in
-            </button>
+            </Link>
           ) : null}
           <button
             onClick={() => setMobileOpen((v) => !v)}
@@ -585,6 +616,19 @@ export default function Nav({ authConfigured = false }: { authConfigured?: boole
           {/* Footer links */}
           <div className="flex flex-col gap-2 pt-3 border-t border-[var(--border)]">
             <Link
+              href="/profile"
+              onClick={() => setMobileOpen(false)}
+              className={cn(
+                "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                pathname.startsWith("/profile")
+                  ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
+                  : "text-[var(--foreground)] hover:bg-[var(--muted)]"
+              )}
+            >
+              <User size={16} className="text-[var(--muted-foreground)]" />
+              Profile
+            </Link>
+            <Link
               href="/about"
               className={cn(
                 "px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
@@ -625,6 +669,21 @@ export default function Nav({ authConfigured = false }: { authConfigured?: boole
                   <User size={16} className="text-[var(--muted-foreground)]" />
                   Account &amp; sync
                 </Link>
+                {(session.user as { isAdmin?: boolean }).isAdmin && (
+                  <Link
+                    href="/admin"
+                    onClick={() => setMobileOpen(false)}
+                    className={cn(
+                      "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                      pathname.startsWith("/admin")
+                        ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
+                        : "text-[var(--foreground)] hover:bg-[var(--muted)]"
+                    )}
+                  >
+                    <ShieldCheck size={16} className="text-[var(--muted-foreground)]" />
+                    Admin
+                  </Link>
+                )}
                 <button
                   onClick={() => { setMobileOpen(false); void signOut(); }}
                   className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors text-left"
@@ -634,13 +693,14 @@ export default function Nav({ authConfigured = false }: { authConfigured?: boole
                 </button>
               </>
             ) : status !== "loading" && authConfigured ? (
-              <button
-                onClick={() => { setMobileOpen(false); void signIn("google"); }}
+              <Link
+                href="/login"
+                onClick={() => setMobileOpen(false)}
                 className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors text-left"
               >
                 <LogIn size={16} className="text-[var(--muted-foreground)]" />
                 Sign in
-              </button>
+              </Link>
             ) : null}
             <Link
               href="/learn/fundamentals/what-is-marketing"
