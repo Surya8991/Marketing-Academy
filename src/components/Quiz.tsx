@@ -6,19 +6,28 @@
  * MUST be rendered inside a <section id="quiz-section">: MarkComplete.tsx
  * calls `document.getElementById("quiz-section")?.scrollIntoView()` when locked.
  * The id="quiz-section" wrapper is present in EVERY render branch below
- * (loading, in-progress, and finished) so that scroll target always resolves,
- * even for a learner who already attempted and failed the quiz once.
+ * (loading, in-progress, review, and finished) so that scroll target always
+ * resolves, even for a learner who already attempted and failed the quiz once.
  *
  * Pass/fail (PROJECTS_PLAN.md Stage 1.6 + Stage 10.2, see AGENTS.md note):
  *   - Requires 4 of 5 correct (80%) to dispatch QUIZ_PASSED_EVENT, now that
  *     every lesson has 5 questions (Stage 10.1, completed Session 85).
- *   - Before Stage 10.1, quizzes had only 4 questions, where the plan's
- *     literal "80%" was unreachable (only 0/25/50/75/100% were possible
- *     scores), so 75% (3 of 4) was used as the threshold that delivered
- *     "one missed question shouldn't force a retry." With 5 questions, 80%
- *     (4 of 5) delivers the identical forgiveness behavior exactly, so the
- *     threshold moved from 0.75 to 0.8, not the semantics.
  *   - Below 80%, a fail screen shows with a "Try Again" button.
+ *
+ * Revisable answers + review-before-submit (IMPROVEMENT_PLAN.md #23):
+ *   - An answer is never locked while the quiz is in progress: clicking a
+ *     different option on the current question simply changes the pick.
+ *   - `selections` is a FIXED-LENGTH array (one slot per question, -1 =
+ *     unanswered), not a push-only list, so any question's pick can be
+ *     revised at any point before the final submit without reshaping state.
+ *   - After the last question is answered, the learner lands on a "review"
+ *     screen listing every question with the option they picked (no
+ *     correctness shown) and an "Edit" button per question that jumps back
+ *     to it; editing returns to the review screen instead of advancing
+ *     linearly. Only "Submit Quiz" from the review screen actually grades
+ *     the attempt.
+ *   - This does NOT reintroduce mid-quiz correctness reveal (Stage 1.2): the
+ *     review screen shows only what was picked, never whether it was right.
  *
  * Retake / review after finishing:
  *   - A "Retake quiz" button is shown on EVERY finished screen (pass, fail, or
@@ -34,12 +43,8 @@
  *
  * Answer reveal timing (PROJECTS_PLAN.md Stage 1.2, decided):
  *   - Correctness and explanations are shown ONLY after the whole quiz is
- *     submitted (the finished screen), never per-question while in progress.
- *   - Previously this revealed the correct answer + explanation immediately
- *     after each question, which let someone read all 4 answers on a first
- *     (intentionally wrong) attempt and then spam the correct positions on
- *     retry in under 30 seconds. Combined with Stage 1.3's shuffle, neither
- *     memorizing positions nor reading ahead works anymore.
+ *     submitted (the finished screen), never per-question while in progress
+ *     or on the pre-submit review screen.
  *
  * Shuffling (PROJECTS_PLAN.md Stage 1.3, decided, AGENTS.md Rule 40):
  *   - Question order and each question's option order are freshly shuffled
@@ -58,9 +63,9 @@
  *   ENGAGEMENT_EVENT: awards 20 XP and triggers achievement checks
  *
  * Progress persistence:
- *   - Only the FINISHED result is persisted (there was never mid-quiz resume,
- *     progress is only saved once all 5 questions are answered), under
- *     quizStorageKey(pathname), so the same result shows after a reload.
+ *   - Only the FINISHED result is persisted (there was never mid-quiz resume;
+ *     the review step is still in-memory only), under quizStorageKey(pathname),
+ *     so the same result shows after a reload.
  *   - Quiz pass flag is saved under ma_quiz_pass_{category}_{slug}.
  *   - On mount, if the quiz is already passed, the finished screen shows
  *     immediately without needing to reshuffle or re-answer.
@@ -74,7 +79,7 @@ import { addXP, ENGAGEMENT_EVENT } from "@/lib/engagement";
 import { checkAchievements } from "@/lib/achievements";
 import { recordHit, recordMiss, reviewItemId } from "@/lib/spaced-review";
 import { PROGRESS_CHANGED_EVENT } from "@/lib/events";
-import { CheckCircle2, XCircle, RotateCcw, Trophy } from "lucide-react";
+import { CheckCircle2, XCircle, RotateCcw, Trophy, Pencil } from "lucide-react";
 
 type Props = {
   questions: Quiz[];
@@ -123,16 +128,24 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
   const pathname = usePathname();
   const [shuffled, setShuffled] = useState<PreparedQuiz[]>([]);
   const [current, setCurrent] = useState(0);
-  const [selected, setSelected] = useState<number | null>(null);
-  // selections[i] = the option index the user picked for question i (or -1 if
-  // restored from a saved result predating this field, see the restore branch).
+  // selections[i] = the option index picked for question i, or -1 if
+  // unanswered. Fixed length (== questions.length) so any question's pick
+  // can be revised in place, at any time before the final submit.
   const [selections, setSelections] = useState<number[]>([]);
+  const [mode, setMode] = useState<"question" | "review">("question");
+  // True while editing a single question that was reopened from the review
+  // screen — changes the primary button to return to review instead of
+  // advancing linearly to the next question.
+  const [editingFromReview, setEditingFromReview] = useState(false);
   const [finished, setFinished] = useState(false);
   const [alreadyPassed, setAlreadyPassed] = useState(false);
 
-  // Shuffle once on mount, client-only (avoids SSR/hydration mismatch).
+  // Shuffle once on mount, client-only (avoids SSR/hydration mismatch), and
+  // seed a fresh, all-unanswered selections array sized to match.
   useEffect(() => {
-    setShuffled(prepareQuestions(questions));
+    const prepared = prepareQuestions(questions);
+    setShuffled(prepared);
+    setSelections(new Array(prepared.length).fill(-1));
   }, [questions]);
 
   // Restore saved progress on mount. If quiz was already passed, jump straight
@@ -160,67 +173,94 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
   }, [pathname, category, slug, questions.length]);
 
   const totalQuestions = questions.length;
-  const answered = selected !== null; // true after the user picks an option for the current question
 
   function handleSelect(index: number) {
-    if (answered) return; // prevent changing answer after selection
-    setSelected(index);
+    // Always revisable: picking a different option before final submit just
+    // updates that question's slot, no lock (IMPROVEMENT_PLAN.md #23).
+    setSelections((prev) => {
+      const next = [...prev];
+      next[current] = index;
+      return next;
+    });
   }
 
-  function handleNext() {
-    if (selected === null || shuffled.length === 0) return;
-    const newSelections = [...selections, selected];
-
-    if (current + 1 >= totalQuestions) {
-      try {
-        localStorage.setItem(
-          quizStorageKey(pathname),
-          JSON.stringify({ selections: newSelections, total: totalQuestions })
-        );
-        window.dispatchEvent(new CustomEvent(PROGRESS_CHANGED_EVENT));
-      } catch { /* storage full or unavailable */ }
-
-      const finalScore = newSelections.filter((sel, i) => sel === shuffled[i].correct).length;
-
-      // Spaced review (independent of pass/fail): every answered question
-      // either lapses a missed one back to rung 0 or advances an already-
-      // tracked one, questions that have never been missed are never tracked.
-      newSelections.forEach((sel, i) => {
-        const q = shuffled[i];
-        const id = reviewItemId(category, slug, q.origIndex);
-        if (sel === q.correct) {
-          recordHit(id);
-        } else {
-          recordMiss({
-            id,
-            category,
-            slug,
-            lessonTitle,
-            question: q.question,
-            options: q.options,
-            correct: q.correct,
-            explanation: q.explanation,
-          });
-        }
-      });
-
-      const passed = finalScore / totalQuestions >= PASS_THRESHOLD;
-      if (passed) {
-        setQuizPassed(category, slug);
-        window.dispatchEvent(
-          new CustomEvent(QUIZ_PASSED_EVENT, { detail: { id: `${category}/${slug}` } })
-        );
-        const newState = addXP("quiz", `${category}/${slug}`);
-        const unlocked = checkAchievements(newState);
-        window.dispatchEvent(new CustomEvent(ENGAGEMENT_EVENT, { detail: { state: newState, unlocked } }));
-      }
-      setSelections(newSelections);
-      setFinished(true);
-    } else {
-      setSelections(newSelections);
-      setCurrent((c) => c + 1);
-      setSelected(null);
+  function goBack() {
+    if (editingFromReview) {
+      setEditingFromReview(false);
+      setMode("review");
+      return;
     }
+    if (current === 0) return;
+    setCurrent((c) => c - 1);
+  }
+
+  function goNext() {
+    if (shuffled.length === 0 || selections[current] === -1) return;
+    if (editingFromReview) {
+      setEditingFromReview(false);
+      setMode("review");
+      return;
+    }
+    if (current + 1 >= totalQuestions) {
+      setMode("review");
+    } else {
+      setCurrent((c) => c + 1);
+    }
+  }
+
+  function editQuestion(index: number) {
+    setCurrent(index);
+    setEditingFromReview(true);
+    setMode("question");
+  }
+
+  function handleSubmit() {
+    if (shuffled.length === 0) return;
+    const finalSelections = selections;
+
+    try {
+      localStorage.setItem(
+        quizStorageKey(pathname),
+        JSON.stringify({ selections: finalSelections, total: totalQuestions })
+      );
+      window.dispatchEvent(new CustomEvent(PROGRESS_CHANGED_EVENT));
+    } catch { /* storage full or unavailable */ }
+
+    const finalScore = finalSelections.filter((sel, i) => sel === shuffled[i].correct).length;
+
+    // Spaced review (independent of pass/fail): every answered question
+    // either lapses a missed one back to rung 0 or advances an already-
+    // tracked one, questions that have never been missed are never tracked.
+    finalSelections.forEach((sel, i) => {
+      const q = shuffled[i];
+      const id = reviewItemId(category, slug, q.origIndex);
+      if (sel === q.correct) {
+        recordHit(id);
+      } else {
+        recordMiss({
+          id,
+          category,
+          slug,
+          lessonTitle,
+          question: q.question,
+          options: q.options,
+          correct: q.correct,
+          explanation: q.explanation,
+        });
+      }
+    });
+
+    const passed = finalScore / totalQuestions >= PASS_THRESHOLD;
+    if (passed) {
+      setQuizPassed(category, slug);
+      window.dispatchEvent(
+        new CustomEvent(QUIZ_PASSED_EVENT, { detail: { id: `${category}/${slug}` } })
+      );
+      const newState = addXP("quiz", `${category}/${slug}`);
+      const unlocked = checkAchievements(newState);
+      window.dispatchEvent(new CustomEvent(ENGAGEMENT_EVENT, { detail: { state: newState, unlocked } }));
+    }
+    setFinished(true);
   }
 
   function handleRetry() {
@@ -228,10 +268,12 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
     // Reshuffle both question order and each question's options on retry,
     // never mid-session (saved answers are indexed positionally against the
     // question order they were recorded under).
-    setShuffled(prepareQuestions(questions));
+    const prepared = prepareQuestions(questions);
+    setShuffled(prepared);
+    setSelections(new Array(prepared.length).fill(-1));
     setCurrent(0);
-    setSelected(null);
-    setSelections([]);
+    setMode("question");
+    setEditingFromReview(false);
     setFinished(false);
     // A retake is a genuine fresh attempt: drop the "jumped straight to the
     // success screen" flag so the new attempt shows its own real score and
@@ -263,11 +305,11 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
     const pct = totalQuestions > 0 ? Math.round((score / totalQuestions) * 100) : 0;
     const passed = alreadyPassed || (totalQuestions > 0 && score / totalQuestions >= PASS_THRESHOLD);
     // A per-question review needs the actual answers from this attempt. It's
-    // available whenever a fresh attempt just completed (selections filled),
-    // but NOT when we jumped straight to the success screen on mount from a
-    // stored pass flag (alreadyPassed, selections empty). Shown for both a
-    // pass and a fail now, so a learner who aces the quiz still sees exactly
-    // which answers were right and can read every explanation.
+    // available whenever a fresh attempt just completed, but NOT when we
+    // jumped straight to the success screen on mount from a stored pass flag
+    // (alreadyPassed, selections never filled from a real attempt). Shown for
+    // both a pass and a fail now, so a learner who aces the quiz still sees
+    // exactly which answers were right and can read every explanation.
     const showReview = !alreadyPassed && selections.length === totalQuestions;
 
     // Shared review list, used by both the pass and fail branches below.
@@ -393,7 +435,76 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
     );
   }
 
+  if (mode === "review") {
+    return (
+      <div
+        id="quiz-section"
+        className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-6"
+        role="region"
+        aria-label="Review your answers before submitting"
+      >
+        <div className="mb-5">
+          <h3 className="text-lg font-semibold mb-1">Review your answers</h3>
+          <p className="text-sm text-[var(--muted-foreground)]">
+            Check each answer before submitting — you can still go back and change any of them.
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-3 mb-6">
+          {shuffled.map((q, qi) => {
+            const pick = selections[qi];
+            return (
+              <div
+                key={qi}
+                className="rounded-lg bg-[var(--muted)] border border-[var(--border)] p-4 flex items-start justify-between gap-4"
+              >
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold mb-1 leading-snug">
+                    {qi + 1}. {q.question}
+                  </p>
+                  <p className="text-sm text-[var(--muted-foreground)]">
+                    Your answer:{" "}
+                    <span className="font-medium text-[var(--foreground)]">
+                      {pick !== -1 ? `${String.fromCharCode(65 + pick)}. ${q.options[pick]}` : "Not answered"}
+                    </span>
+                  </p>
+                </div>
+                <button
+                  onClick={() => editQuestion(qi)}
+                  className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border border-[var(--border)] hover:border-[var(--accent)] transition-colors"
+                >
+                  <Pencil size={12} aria-hidden="true" />
+                  Edit
+                </button>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => {
+              setCurrent(totalQuestions - 1);
+              setMode("question");
+            }}
+            className="px-4 py-2.5 rounded-lg text-sm border border-[var(--border)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+          >
+            Back
+          </button>
+          <button
+            onClick={handleSubmit}
+            className="px-5 py-2.5 rounded-lg text-sm font-medium"
+            style={{ background: "var(--accent)", color: "var(--accent-foreground)" }}
+          >
+            Submit Quiz
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   const question = shuffled[current];
+  const pickedForCurrent = selections[current] ?? -1;
 
   return (
     <div
@@ -417,12 +528,12 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
               className="h-2.5 min-w-5 flex-1 max-w-8 sm:max-w-7 rounded-full transition-colors"
               style={{
                 background:
-                  i < selections.length
+                  selections[i] !== -1
                     ? "var(--accent)"
                     : i === current
                     ? "var(--accent)"
                     : "var(--border)",
-                opacity: i < selections.length ? 0.5 : 1,
+                opacity: selections[i] !== -1 ? 0.5 : 1,
               }}
               aria-hidden="true"
             />
@@ -435,20 +546,18 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
       <div className="flex flex-col gap-2.5 mb-5">
         {question.options.map((option, i) => {
           // No correctness colour while in progress (Stage 1.2), only a
-          // neutral highlight on the user's own selection.
-          const isPicked = selected === i;
+          // neutral highlight on the user's own selection. Always clickable,
+          // so an earlier pick can be changed at any time before submit.
+          const isPicked = pickedForCurrent === i;
           return (
             <button
               key={i}
               onClick={() => handleSelect(i)}
-              aria-disabled={answered}
               aria-pressed={isPicked}
-              className="w-full text-left px-4 py-3 rounded-lg border text-sm transition-all"
+              className="w-full text-left px-4 py-3 rounded-lg border text-sm transition-all cursor-pointer"
               style={{
                 borderColor: isPicked ? "var(--accent)" : "var(--border)",
                 background: isPicked ? "color-mix(in srgb, var(--accent) 10%, transparent)" : "transparent",
-                opacity: answered && !isPicked ? 0.6 : 1,
-                cursor: answered ? "default" : "pointer",
               }}
             >
               <span className="font-medium mr-2 text-[var(--muted-foreground)]">
@@ -460,18 +569,32 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
         })}
       </div>
 
-      {answered && (
-        <button
-          onClick={handleNext}
-          className="px-5 py-2.5 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
-          style={{
-            background: "var(--accent)",
-            color: "var(--accent-foreground)",
-          }}
-        >
-          {current + 1 >= totalQuestions ? "See Results" : "Next Question"}
-        </button>
-      )}
+      <div className="flex items-center gap-3">
+        {!editingFromReview && current > 0 && (
+          <button
+            onClick={goBack}
+            className="px-4 py-2.5 rounded-lg text-sm border border-[var(--border)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+          >
+            Back
+          </button>
+        )}
+        {pickedForCurrent !== -1 && (
+          <button
+            onClick={goNext}
+            className="px-5 py-2.5 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
+            style={{
+              background: "var(--accent)",
+              color: "var(--accent-foreground)",
+            }}
+          >
+            {editingFromReview
+              ? "Back to Review"
+              : current + 1 >= totalQuestions
+              ? "Review Answers"
+              : "Next Question"}
+          </button>
+        )}
+      </div>
     </div>
   );
 }
