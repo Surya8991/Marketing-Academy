@@ -204,6 +204,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/lib/cron-auth.ts` / `cron-dates.ts` | `isCronAuthorized()` (verifies Vercel's `Authorization: Bearer $CRON_SECRET` header) and `todayKey()`/`daysAgoKey()` (mirrors `engagement.ts`'s local-date format) — shared by the 3 `/api/cron/*` routes (#28) |
 | `src/app/api/cron/*` | 3 scheduled routes (`vercel.json`'s `crons`): `streak-reminder` (daily), `resume-learning` (daily), `weekly-digest` (weekly) — each queries opted-in signed-in users' synced `progress` rows server-side (email prefs are DB columns, not localStorage, since a cron job has no browser attached) |
 | `docs/PROJECT_LOG.md` | Full session history, gotchas, file inventory, pending tasks |
+| `PRE_PUSH_CHECKLIST.md` | The gate to work through before every push: verify chain (`tsc`/`eslint`/`test`/`build`), `npm ci` lock-file sanity, DB migration, access control, email, secrets, docs |
 
 ---
 
