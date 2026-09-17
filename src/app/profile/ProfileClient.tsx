@@ -15,6 +15,7 @@ import { ArrowUpRight } from "lucide-react";
 import PageMasthead from "@/components/PageMasthead";
 import StatsRow, { type StatTileData } from "@/components/StatsRow";
 import ActivityHeatmap from "@/components/ActivityHeatmap";
+import AutosaveIndicator from "@/components/AutosaveIndicator";
 import { getProfileStats, type ProfileStats } from "@/lib/profile-stats";
 import { getProfile, type Profile } from "@/lib/profile";
 import { getCertName } from "@/lib/cert-name";
@@ -134,12 +135,15 @@ export default function ProfileClient({
               </p>
             </div>
           </div>
-          <Link
-            href="/settings"
-            className="text-xs font-medium border border-[var(--border)] rounded-full px-3.5 py-1.5 hover:border-[var(--accent)] transition-colors font-ui-sans"
-          >
-            Edit profile
-          </Link>
+          <div className="flex flex-col items-end gap-2">
+            <Link
+              href="/settings"
+              className="text-xs font-medium border border-[var(--border)] rounded-full px-3.5 py-1.5 hover:border-[var(--accent)] transition-colors font-ui-sans"
+            >
+              Edit profile
+            </Link>
+            <AutosaveIndicator />
+          </div>
         </div>
 
         {stats.nextAt !== Infinity && (

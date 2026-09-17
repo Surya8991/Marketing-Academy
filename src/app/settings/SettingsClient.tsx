@@ -1,10 +1,15 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { useSession } from "next-auth/react";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { useSession, signIn } from "next-auth/react";
 import { ENGAGEMENT_EVENT } from "@/lib/engagement";
 import { EXPORT_KEYS, ALLOWED_KEY_PREFIXES, collectAllKeys, restoreAllKeys } from "@/lib/progress-snapshot";
 import { pushNow, pullAndMerge } from "@/lib/sync-client";
+import { getProfile, saveProfile, type Profile, type ExperienceLevel } from "@/lib/profile";
+import { getCertName, setCertName } from "@/lib/cert-name";
+import AutosaveIndicator from "@/components/AutosaveIndicator";
+import ThemeToggle from "@/components/ThemeToggle";
 
 type Status = { type: "success" | "error"; message: string } | null;
 
@@ -75,8 +80,33 @@ const dangerBtn: React.CSSProperties = {
   border: "1px solid rgba(220,38,38,0.3)",
 };
 
-export default function SettingsClient() {
-  const { data: session } = useSession();
+const fieldLabel: React.CSSProperties = {
+  display: "block",
+  fontSize: "0.8rem",
+  fontWeight: 500,
+  color: "var(--foreground)",
+  marginBottom: "0.375rem",
+};
+
+const inputStyle: React.CSSProperties = {
+  width: "100%",
+  padding: "0.5rem 0.75rem",
+  borderRadius: "0.5rem",
+  border: "1px solid var(--border)",
+  background: "var(--background)",
+  color: "var(--foreground)",
+  fontSize: "0.9rem",
+};
+
+const EXPERIENCE_OPTIONS: { value: ExperienceLevel | ""; label: string }[] = [
+  { value: "", label: "Not set" },
+  { value: "beginner", label: "Beginner" },
+  { value: "intermediate", label: "Intermediate" },
+  { value: "advanced", label: "Advanced" },
+];
+
+export default function SettingsClient({ authConfigured = false }: { authConfigured?: boolean }) {
+  const { data: session, status } = useSession();
   const userId = (session?.user as { id?: string } | undefined)?.id;
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [importStatus, setImportStatus] = useState<Status>(null);
@@ -84,6 +114,22 @@ export default function SettingsClient() {
   const [resetStatus, setResetStatus] = useState<Status>(null);
   const [syncStatus, setSyncStatus] = useState<Status>(null);
   const [syncing, setSyncing] = useState(false);
+
+  const [name, setName] = useState("");
+  const [profile, setProfileState] = useState<Profile>({ role: "", experienceLevel: "", primaryGoal: "" });
+  const [profileStatus, setProfileStatus] = useState<Status>(null);
+
+  useEffect(() => {
+    setName(getCertName());
+    setProfileState(getProfile());
+  }, []);
+
+  function handleSaveProfile(e: React.FormEvent) {
+    e.preventDefault();
+    setCertName(name.trim());
+    saveProfile(profile);
+    setProfileStatus({ type: "success", message: "Profile saved." });
+  }
 
   async function handlePush() {
     setSyncing(true);
@@ -236,6 +282,123 @@ export default function SettingsClient() {
         ⚠️ Your progress is stored in this browser only. Clearing site data or switching browsers will lose it.
         Use <strong>Export</strong> below to save a backup you can import later.
       </p>
+
+      {/* Profile Details */}
+      <section style={cardStyle}>
+        <h2 style={headingStyle}>Profile Details</h2>
+        <p style={descStyle}>
+          Your name appears on certificates. Role, experience, and goal help personalize suggestions
+          across the site.
+        </p>
+        <form onSubmit={handleSaveProfile} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+          <div>
+            <label style={fieldLabel} htmlFor="settings-name">Name</label>
+            <input
+              id="settings-name"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Your name"
+              style={inputStyle}
+              maxLength={80}
+            />
+          </div>
+          <div>
+            <label style={fieldLabel} htmlFor="settings-role">Role</label>
+            <input
+              id="settings-role"
+              type="text"
+              value={profile.role}
+              onChange={(e) => setProfileState((p) => ({ ...p, role: e.target.value }))}
+              placeholder="e.g. Founder, Marketing Manager, Student"
+              style={inputStyle}
+              maxLength={80}
+            />
+          </div>
+          <div>
+            <label style={fieldLabel} htmlFor="settings-experience">Experience level</label>
+            <select
+              id="settings-experience"
+              value={profile.experienceLevel}
+              onChange={(e) =>
+                setProfileState((p) => ({ ...p, experienceLevel: e.target.value as ExperienceLevel | "" }))
+              }
+              style={inputStyle}
+            >
+              {EXPERIENCE_OPTIONS.map((o) => (
+                <option key={o.value} value={o.value}>{o.label}</option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label style={fieldLabel} htmlFor="settings-goal">Primary goal</label>
+            <input
+              id="settings-goal"
+              type="text"
+              value={profile.primaryGoal}
+              onChange={(e) => setProfileState((p) => ({ ...p, primaryGoal: e.target.value }))}
+              placeholder="e.g. Grow a B2B startup"
+              style={inputStyle}
+              maxLength={120}
+            />
+          </div>
+          <button type="submit" style={{ ...primaryBtn, alignSelf: "flex-start" }}>
+            Save Profile
+          </button>
+        </form>
+        <StatusBanner status={profileStatus} />
+      </section>
+
+      {/* Account */}
+      <section style={cardStyle}>
+        <h2 style={headingStyle}>Account</h2>
+        {status === "authenticated" && session?.user ? (
+          <>
+            <p style={descStyle}>
+              Signed in as <strong style={{ color: "var(--foreground)" }}>{session.user.email}</strong>.
+            </p>
+            <Link href="/account" style={{ ...primaryBtn, textDecoration: "none", display: "inline-flex" }}>
+              Manage account &amp; sessions
+            </Link>
+          </>
+        ) : (
+          <>
+            <p style={descStyle}>
+              You&apos;re not signed in. Your progress stays on this device only — sign in to back it up and
+              sync it across devices.
+            </p>
+            {authConfigured ? (
+              <button style={primaryBtn} onClick={() => void signIn("google")}>
+                Sign in
+              </button>
+            ) : (
+              <p style={{ ...descStyle, marginBottom: 0, fontSize: "0.8rem" }}>
+                Sign-in isn&apos;t enabled on this deployment yet.
+              </p>
+            )}
+          </>
+        )}
+      </section>
+
+      {/* Preferences */}
+      <section style={cardStyle}>
+        <h2 style={headingStyle}>Preferences</h2>
+        <p style={descStyle}>Choose light or dark mode.</p>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <ThemeToggle />
+          <span style={{ fontSize: "0.85rem", color: "var(--muted-foreground)" }}>Toggle theme</span>
+        </div>
+      </section>
+
+      {/* Autosave status */}
+      <section style={cardStyle}>
+        <h2 style={headingStyle}>Autosave</h2>
+        <p style={descStyle}>
+          Every lesson, quiz, and note saves instantly to this browser. When signed in, it also syncs to the
+          cloud a couple of seconds after each change.
+        </p>
+        <AutosaveIndicator />
+      </section>
 
       {/* Export */}
       <section style={cardStyle}>

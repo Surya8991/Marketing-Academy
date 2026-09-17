@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { ONBOARDED_KEY as STORAGE_KEY, PROGRESS_CHANGED_EVENT } from "@/lib/events";
 import { useFocusTrap } from "@/lib/useFocusTrap";
+import { setCertName } from "@/lib/cert-name";
+import { getProfile, saveProfile } from "@/lib/profile";
 
 const GOALS = [
   { emoji: "🌱", label: "Totally new to marketing", href: "/learn" },
@@ -20,6 +22,7 @@ export default function OnboardingModal() {
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [name, setName] = useState("");
   const dialogRef = useRef<HTMLDivElement>(null);
 
   // Suppress on lesson pages — a learner who arrived via a direct link
@@ -57,7 +60,19 @@ export default function OnboardingModal() {
 
   if (!mounted || !visible) return null;
 
-  function handleGoal(href: string) {
+  // Captures the light "name + goal" persona (IMPROVEMENT_PLAN #24) at the
+  // moment the learner commits to a path, rather than a separate step —
+  // keeps onboarding to the one screen it's always been. Name rides
+  // cert-name.ts (already syncs/auto-fills the certificate, Rule 18: one
+  // key, one owner); goal is stored as profile.primaryGoal.
+  function saveLightProfile(goalLabel?: string) {
+    const trimmed = name.trim();
+    if (trimmed) setCertName(trimmed);
+    if (goalLabel) saveProfile({ ...getProfile(), primaryGoal: goalLabel });
+  }
+
+  function handleGoal(href: string, label: string) {
+    saveLightProfile(label);
     try {
       localStorage.setItem(STORAGE_KEY, "1");
       window.dispatchEvent(new CustomEvent(PROGRESS_CHANGED_EVENT));
@@ -69,6 +84,7 @@ export default function OnboardingModal() {
   }
 
   function handleSkip() {
+    saveLightProfile();
     try {
       localStorage.setItem(STORAGE_KEY, "1");
       window.dispatchEvent(new CustomEvent(PROGRESS_CHANGED_EVENT));
@@ -122,13 +138,32 @@ export default function OnboardingModal() {
         </h2>
         <p
           style={{
-            margin: "0 0 1.5rem",
+            margin: "0 0 1.25rem",
             fontSize: "0.95rem",
             color: "var(--muted-foreground)",
           }}
         >
           We&apos;ll suggest the best starting path.
         </p>
+
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Your name (optional)"
+          aria-label="Your name (optional)"
+          maxLength={80}
+          style={{
+            width: "100%",
+            padding: "0.625rem 0.875rem",
+            borderRadius: "0.625rem",
+            border: "1px solid var(--border)",
+            background: "var(--background)",
+            color: "var(--foreground)",
+            fontSize: "0.9rem",
+            marginBottom: "1rem",
+          }}
+        />
 
         <div
           style={{
@@ -140,7 +175,7 @@ export default function OnboardingModal() {
           {GOALS.map(({ emoji, label, href }) => (
             <button
               key={href}
-              onClick={() => handleGoal(href)}
+              onClick={() => handleGoal(href, label)}
               style={{
                 display: "flex",
                 flexDirection: "column",

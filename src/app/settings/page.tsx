@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { authConfigured } from "@/lib/env";
 import SettingsClient from "./SettingsClient";
 
 export const metadata: Metadata = {
@@ -8,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function SettingsPage() {
-  return <SettingsClient />;
+  return <SettingsClient authConfigured={authConfigured()} />;
 }
