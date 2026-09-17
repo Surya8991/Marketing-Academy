@@ -195,6 +195,7 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `src/app/api/sync/route.ts` | Per-user progress sync, gated by `requireUser()`'s database session. Replaces the deleted `/api/sync-proxy` shared-secret design (AGENTS.md Rule 26/44, Rule 77) |
 | `src/lib/sync-client.ts` | Client auto-sync: `mergeSnapshots`/`pullAndMerge`/`pushNow`/`startAutoSync`, debounce-pushes on `PROGRESS_CHANGED_EVENT` |
 | `src/lib/progress-snapshot.ts` | Single source of truth for "the user's progress data" (`EXPORT_KEYS`/`ALLOWED_KEY_PREFIXES`/`collectAllKeys`/`restoreAllKeys`), shared by `/settings` and sync |
+| `src/lib/cert-name.ts` | Learner's display name for track certificates (`ma_cert_name`); syncs/exports via `progress-snapshot` |
 | `PROJECT_LOG.md` | Full session history, gotchas, file inventory, pending tasks |
 
 ---
