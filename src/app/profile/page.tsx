@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PROJECTS_INDEX } from "@/lib/projects-index";
-import { authConfigured } from "@/lib/env";
+import { emailAuthConfigured } from "@/lib/env";
 import ProfileClient from "./ProfileClient";
 
 export const metadata: Metadata = {
@@ -15,5 +15,5 @@ export default function ProfilePage() {
   // header comment on why it doesn't import projects-index.ts itself).
   const projectsIndex = PROJECTS_INDEX.map((p) => ({ id: p.id, timeMinutes: p.timeMinutes }));
 
-  return <ProfileClient authConfigured={authConfigured()} projectsIndex={projectsIndex} />;
+  return <ProfileClient authConfigured={emailAuthConfigured()} projectsIndex={projectsIndex} />;
 }

@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { auth } from "@/auth";
-import { authConfigured } from "@/lib/env";
+import { emailAuthConfigured } from "@/lib/env";
 import SignInButton from "./SignInButton";
 
 export const metadata = { title: "Sign in", robots: { index: false, follow: true } };
@@ -15,10 +15,10 @@ export default async function LoginPage() {
       <h1 className="font-display font-semibold text-3xl mb-3">Sign in</h1>
       <p className="text-[var(--muted-foreground)] mb-8 leading-relaxed">
         Optional — everything on Marketing Academy already works without an
-        account. Signing in just lets your progress follow you across
-        devices.
+        account. Enter your email and we&apos;ll send a one-time link — no
+        password to set or remember.
       </p>
-      {authConfigured() ? (
+      {emailAuthConfigured() ? (
         <SignInButton />
       ) : (
         <p className="text-sm text-[var(--muted-foreground)] border border-[var(--border)] rounded-lg p-4">

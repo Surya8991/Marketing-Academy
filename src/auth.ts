@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
+import Nodemailer from "next-auth/providers/nodemailer";
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import { redirect } from "next/navigation";
 import { eq } from "drizzle-orm";
@@ -7,6 +8,9 @@ import type { Adapter } from "next-auth/adapters";
 import { db, getDb, lazyProxy } from "@/server/db/client";
 import { accounts, sessions, users, verificationTokens } from "@/server/db/schema";
 import { env, adminEmails } from "@/lib/env";
+import { sendMail } from "@/lib/email/transport";
+import { magicLinkEmail } from "@/lib/email/templates/magic-link";
+import { welcomeEmail } from "@/lib/email/templates/welcome";
 
 /** True if a user counts as an admin via the persisted `role` column or the
  *  ADMIN_EMAILS env var (bootstrap + failsafe — see events.signIn below). */
@@ -32,6 +36,23 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
     ...(env.GOOGLE_CLIENT_ID && env.GOOGLE_CLIENT_SECRET
       ? [Google({ clientId: env.GOOGLE_CLIENT_ID, clientSecret: env.GOOGLE_CLIENT_SECRET })]
+      : []),
+    // Gmail SMTP magic-link (IMPROVEMENT_PLAN #26) — the enabled sign-in path.
+    // Google above stays wired in code but is not promoted anywhere in the UI
+    // (Nav/login both point here). Custom sendVerificationRequest sends our
+    // own branded template (src/lib/email/) instead of Auth.js's plain default.
+    ...(env.EMAIL_SERVER && env.EMAIL_FROM
+      ? [
+          Nodemailer({
+            server: env.EMAIL_SERVER,
+            from: env.EMAIL_FROM,
+            maxAge: 10 * 60, // 10-minute link expiry
+            async sendVerificationRequest({ identifier, url }) {
+              const { subject, html, text } = magicLinkEmail({ url });
+              await sendMail({ to: identifier, subject, html, text });
+            },
+          }),
+        ]
       : []),
   ],
   callbacks: {
@@ -65,14 +86,21 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     // its next real sign-in. Same pattern as the Email-Automator sister
     // project — ADMIN_EMAILS is a bootstrap mechanism, `role` is the
     // primary source (checked by isAdminUser() above).
-    async signIn({ user }) {
+    async signIn({ user, isNewUser }) {
       if (!user?.id || !user.email) return;
-      if (!adminEmails.includes(user.email.toLowerCase())) return;
-      try {
-        await db.update(users).set({ role: "admin" }).where(eq(users.id, user.id));
-      } catch {
-        // Non-fatal — isAdminUser()'s env fallback still grants admin
-        // access this session even if the persist failed.
+      if (adminEmails.includes(user.email.toLowerCase())) {
+        try {
+          await db.update(users).set({ role: "admin" }).where(eq(users.id, user.id));
+        } catch {
+          // Non-fatal — isAdminUser()'s env fallback still grants admin
+          // access this session even if the persist failed.
+        }
+      }
+      // Welcome email (IMPROVEMENT_PLAN §D2), transactional, first sign-in
+      // only. Best-effort — sendMail() never throws, so a mail failure can't
+      // break sign-in itself.
+      if (isNewUser) {
+        void sendMail({ to: user.email, ...welcomeEmail({ name: user.name }) });
       }
     },
   },

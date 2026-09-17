@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import {
   Menu, X, Search, BookOpen, ChevronDown, Bookmark,
   GraduationCap, LayoutGrid, Brain, Map,
@@ -89,11 +89,12 @@ function isActiveHref(pathname: string, href: string) {
 
 /**
  * `authConfigured` is computed by the root layout (a server component) via
- * @/lib/env's authConfigured() and threaded down as a prop — this file is
- * "use client" and can't read server-only env vars itself. Without it the
- * sign-in button rendered on deployments with zero auth env vars set, calling
- * signIn("google") against an empty providers array and dumping the visitor
- * on a NextAuth error page. Mirrors /login/page.tsx's existing check.
+ * @/lib/env's emailAuthConfigured() (IMPROVEMENT_PLAN #26 — Gmail-SMTP
+ * magic-link is the enabled path, not Google) and threaded down as a prop —
+ * this file is "use client" and can't read server-only env vars itself.
+ * Without it the sign-in link rendered on deployments with no email-auth env
+ * vars set, sending the visitor to /login only to find sign-in unavailable
+ * there too. Mirrors /login/page.tsx's own emailAuthConfigured() check.
  */
 export default function Nav({ authConfigured = false }: { authConfigured?: boolean }) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -482,13 +483,13 @@ export default function Nav({ authConfigured = false }: { authConfigured?: boole
               )}
             </div>
           ) : status !== "loading" && authConfigured ? (
-            <button
-              onClick={() => void signIn("google")}
+            <Link
+              href="/login"
               className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors border border-[var(--border)]"
             >
               <LogIn size={13} />
               Sign in
-            </button>
+            </Link>
           ) : null}
           <button
             onClick={() => setMobileOpen((v) => !v)}
@@ -667,13 +668,14 @@ export default function Nav({ authConfigured = false }: { authConfigured?: boole
                 </button>
               </>
             ) : status !== "loading" && authConfigured ? (
-              <button
-                onClick={() => { setMobileOpen(false); void signIn("google"); }}
+              <Link
+                href="/login"
+                onClick={() => setMobileOpen(false)}
                 className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors text-left"
               >
                 <LogIn size={16} className="text-[var(--muted-foreground)]" />
                 Sign in
-              </button>
+              </Link>
             ) : null}
             <Link
               href="/learn/fundamentals/what-is-marketing"

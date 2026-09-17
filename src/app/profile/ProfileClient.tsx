@@ -10,7 +10,7 @@
  */
 import Link from "next/link";
 import { useEffect, useState, useCallback } from "react";
-import { useSession, signIn } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { ArrowUpRight } from "lucide-react";
 import PageMasthead from "@/components/PageMasthead";
 import StatsRow, { type StatTileData } from "@/components/StatsRow";
@@ -288,12 +288,12 @@ export default function ProfileClient({
             <p className="text-sm text-[var(--muted-foreground)] mb-3">
               Your progress is already saved on this device. Signing in backs it up and syncs it anywhere you log in.
             </p>
-            <button
-              onClick={() => void signIn("google")}
-              className="text-sm font-medium bg-[var(--foreground)] text-[var(--background)] rounded-full px-4 py-2"
+            <Link
+              href="/login"
+              className="inline-block text-sm font-medium bg-[var(--foreground)] text-[var(--background)] rounded-full px-4 py-2"
             >
               Sign in
-            </button>
+            </Link>
           </div>
         )}
       </div>

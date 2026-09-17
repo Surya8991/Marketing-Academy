@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { useSession, signIn } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { ENGAGEMENT_EVENT } from "@/lib/engagement";
 import { EXPORT_KEYS, ALLOWED_KEY_PREFIXES, collectAllKeys, restoreAllKeys } from "@/lib/progress-snapshot";
 import { pushNow, pullAndMerge } from "@/lib/sync-client";
@@ -368,9 +368,9 @@ export default function SettingsClient({ authConfigured = false }: { authConfigu
               sync it across devices.
             </p>
             {authConfigured ? (
-              <button style={primaryBtn} onClick={() => void signIn("google")}>
+              <Link href="/login" style={{ ...primaryBtn, textDecoration: "none", display: "inline-flex" }}>
                 Sign in
-              </button>
+              </Link>
             ) : (
               <p style={{ ...descStyle, marginBottom: 0, fontSize: "0.8rem" }}>
                 Sign-in isn&apos;t enabled on this deployment yet.
