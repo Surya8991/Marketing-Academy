@@ -15,8 +15,8 @@ the `CATEGORY_INDEX` bundle regression, no `llms.txt`, no monetization/lead-capt
 
 ### P0 — High impact, self-contained, clearly correct
 - [x] **1. SEO canonical bug** — ✅ DONE (2026-09-17). Removed blanket `canonical: BASE` from `layout.tsx`; added self-canonicals to homepage + 15 content pages (glossary list/[slug], interview-questions list/[category], interview-prep, cheat-sheets list/[category], digital-marketing-cheat-sheet, tools, tools/geo-audit, about, resources, compare, learn, search). Verified in browser: `/`→`/`, `/about`→`/about`, `/glossary`→`/glossary`. *(Also the #1 AEO/GEO citability fix.)*
-- [ ] **2. Sitemap completeness + freshness** — add project pages; unfreeze `lastModified`; drop the hardcoded `2026-07-04` / "UPDATED JUN 2026" / "2025" staleness.
-- [ ] **3. `llms.txt`** — ship one (the site teaches `llms-txt-ai-crawler-management` but has none). Dogfood the GEO curriculum.
+- [x] **2. Sitemap completeness + freshness** — ✅ DONE (2026-09-17). Added 803 project pages + `/projects` + `/tools/geo-audit`; `lastModified` now uses the build date (was frozen `2026-07-04`). Verified: sitemap.xml = 1,734 URLs, lastmod = today. **Still open (separate freshness signals):** the hardcoded lesson byline "UPDATED JUN 2026" + Article `dateModified`, and the `digital-marketing-cheat-sheet` 2025 data refresh — tracked in Perspective 9.
+- [x] **3. `llms.txt`** — ✅ DONE (2026-09-17). `src/app/llms.txt/route.ts` serves an llmstxt.org-format manifest generated live from the curriculum (disciplines, tracks, reference hubs). Verified at `/llms.txt`. Dogfoods the `llms-txt-ai-crawler-management` lesson.
 - [ ] **4. Certificate name field** — the "Awarded to:" line is a blank `<span>`; the flagship shareable cert ships with no name. Add a persisted name input.
 - [ ] **5. `CATEGORY_INDEX` true slim module** — currently derived from full `CATEGORIES`, so ~148 KB of curriculum ships on every route (Rule 41 fix defeated).
 
@@ -173,4 +173,5 @@ Added 2026-09-17 per owner request. Some overlaps with SEO/AEO above; collected 
 ## Status log
 - 2026-09-17 — Plan compiled (8 perspectives). Beginning execution at P0 #1.
 - 2026-09-17 — **P0 #1 (canonical) DONE + verified.** `tsc` clean. Added Perspective 9 (meta tags / blog / layouts / interlinking) + items 6b–6e per owner request.
-- 2026-09-17 — **#6b (title double-suffix) DONE + verified** on 30 pages. `tsc`/lint clean. Next: commit #1 + #6b, then #2 (sitemap/freshness) / #3 (llms.txt).
+- 2026-09-17 — **#6b (title double-suffix) DONE + verified** on 30 pages. `tsc`/lint clean. Committed #1 + #6b (`c74c19d`).
+- 2026-09-17 — **#3 (llms.txt) + #2 (sitemap completeness/freshness) DONE + verified.** sitemap 931→1,734 URLs (803 project pages), lastmod unfrozen; `/llms.txt` live. Owner added a **642-lesson interlink map** as the explicit FINAL task (#22).
