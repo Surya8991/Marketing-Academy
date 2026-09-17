@@ -395,6 +395,19 @@ export default function Nav({ authConfigured = false }: { authConfigured?: boole
           </button>
           <ThemeToggle />
           <Link
+            href="/profile"
+            className={cn(
+              "p-2 rounded-md transition-colors",
+              pathname.startsWith("/profile")
+                ? "text-[var(--foreground)] bg-[var(--muted)]"
+                : "text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)]"
+            )}
+            aria-label="Profile"
+            title="Profile"
+          >
+            <User size={18} />
+          </Link>
+          <Link
             href="/bookmarks"
             className={cn(
               "p-2 rounded-md transition-colors",
@@ -444,6 +457,13 @@ export default function Nav({ authConfigured = false }: { authConfigured?: boole
               </button>
               {openDrop === "account" && (
                 <div className="absolute right-0 top-full mt-2 w-48 rounded-xl border border-[var(--border)] bg-[var(--card)] shadow-2xl overflow-hidden">
+                  <Link
+                    href="/profile"
+                    onClick={() => setOpenDrop(null)}
+                    className="block px-4 py-2.5 text-sm font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors border-b border-[var(--border)]"
+                  >
+                    Profile
+                  </Link>
                   <Link
                     href="/account"
                     onClick={() => setOpenDrop(null)}
@@ -584,6 +604,19 @@ export default function Nav({ authConfigured = false }: { authConfigured?: boole
 
           {/* Footer links */}
           <div className="flex flex-col gap-2 pt-3 border-t border-[var(--border)]">
+            <Link
+              href="/profile"
+              onClick={() => setMobileOpen(false)}
+              className={cn(
+                "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                pathname.startsWith("/profile")
+                  ? "bg-[var(--accent)]/15 text-[var(--foreground)]"
+                  : "text-[var(--foreground)] hover:bg-[var(--muted)]"
+              )}
+            >
+              <User size={16} className="text-[var(--muted-foreground)]" />
+              Profile
+            </Link>
             <Link
               href="/about"
               className={cn(

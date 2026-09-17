@@ -6,6 +6,7 @@ import { getEngagement, getCurrentLevel, ENGAGEMENT_EVENT } from "@/lib/engageme
 import { ACHIEVEMENTS } from "@/lib/achievements";
 import type { EngagementState } from "@/lib/engagement";
 import PageMasthead from "@/components/PageMasthead";
+import StatsRow from "@/components/StatsRow";
 
 // Groups badges for display only — ACHIEVEMENTS itself stays a flat array
 // (achievements.ts owns unlock logic, this is presentation grouping only,
@@ -77,16 +78,7 @@ export default function AchievementsClient() {
           far: <span className="text-[var(--foreground)] font-medium">{longestStreak} day{longestStreak !== 1 ? "s" : ""}</span>.
         </p>
 
-        {/* Stats — specimen-row pattern, consistent with /skill-map and /tools */}
-        <div className="border border-[var(--border)] grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-[var(--border)] max-w-2xl mb-8">
-          {stats.map((s) => (
-            <div key={s.label} className="p-4 font-ui-sans">
-              <p className="font-data text-[0.65rem] text-[var(--muted-foreground)] mb-1.5">{s.code}</p>
-              <p className="font-display font-semibold text-2xl text-[var(--foreground)]">{s.value}</p>
-              <p className="text-xs text-[var(--muted-foreground)] mt-0.5">{s.label}</p>
-            </div>
-          ))}
-        </div>
+        <StatsRow stats={stats} className="max-w-2xl mb-8" />
 
         {/* XP Progress bar */}
         {nextAt !== Infinity && (

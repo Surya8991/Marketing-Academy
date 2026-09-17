@@ -28,13 +28,14 @@ Interlink map (#22) is deliberately **LAST** (largest task). Owner-requested fea
 8. **#6c / #6 remaining** — meta-description quality; glossary-list `ItemList`/`DefinedTermSet`.
 
 **Tier 3 — Perf / polish / decisions**
-9. **#12 Client-bundle trims** — `CASE_COMPANIES`/`TOOLS`/`PROJECTS_INDEX` off the client.
-10. **#13 Route loading skeletons.**
-11. **#14 IA dedup** — `/interview-prep` vs `/interview-questions`, cheat-sheet routes.
-12. **#16 `bigProject` XP** `⚠️ decision` — wire capstone or drop the tier.
+9. **#29 Lesson-page "related" clutter** `⭐ owner-flagged` — dedupe the 3 stacked related/nav blocks into one row (quick, high visual payoff).
+10. **#12 Client-bundle trims** — `CASE_COMPANIES`/`TOOLS`/`PROJECTS_INDEX` off the client.
+11. **#13 Route loading skeletons.**
+12. **#14 IA dedup** — `/interview-prep` vs `/interview-questions`, cheat-sheet routes.
+13. **#16 `bigProject` XP** `⚠️ decision` — wire capstone or drop the tier.
 
 **Tier 4 — LAST (large batch)**
-13. **#22 Per-lesson interlink map** (642 lessons; 9 SEO done, resume category-by-category on Sonnet).
+14. **#22 Per-lesson interlink map** (642 lessons; 9 SEO done, resume category-by-category on Sonnet).
 
 *(Done this session: #1, #3, #4, #5, #6, #6b, #8, #11, #15, #18, #19, #20, #2 sitemap half.)*
 
@@ -65,6 +66,7 @@ Interlink map (#22) is deliberately **LAST** (largest task). Owner-requested fea
 ### P2 — Polish / cleanup / decisions
 - [ ] **13. Route `loading.tsx` skeletons** — client pages flash blank divs.
 - [ ] **14. IA de-duplication** — `/interview-prep` vs `/interview-questions`; `/cheat-sheets` vs `/digital-marketing-cheat-sheet`. Pick canonical + cross-link.
+- [ ] **29. Lesson-page "related" clutter — dedupe the stacked blocks** `⭐ owner-flagged (2026-09-17, screenshot)` — the bottom of every lesson stacks **THREE** near-identical navigation blocks: **RELATED CONCEPTS** (`RelatedConcepts.tsx`, curated from `lessonMeta.relatedConcepts`) + **You Might Also Like** (`RelatedLessons.tsx`, auto first-3-same-category) + **Prev/Next**. They overlap heavily (e.g. "Search Intent" appeared 3×, "On-Page SEO" 2× in one screenshot) → 6–9 redundant cards. This is the duplication AGENTS.md Rule 51/53 already flagged. **Fix (preferred): show only ONE related-cards row** — when a lesson has curated `relatedConcepts`, render those and **hide "You Might Also Like"** (or filter out lessons already shown above); fall back to the auto "You Might Also Like" only when no curated concepts exist. Result: `[3 Related cards] → [Prev/Next]`. Touches the lesson page (`learn/[category]/[lesson]/page.tsx`) + `RelatedLessons.tsx`/`RelatedConcepts.tsx`. Low risk, high visual payoff.
 - [x] **15. `/compare/[slug]` "coming soon" copy** — ✅ DONE (2026-09-17). Replaced the "coming soon" promise with an honest label + a cross-link to the comparisons hub.
 - [ ] **16. `bigProject` XP tier (100 XP) unreachable** `⚠️ DECISION` — defined in `engagement.ts` but no project awards it. Needs a product call: designate capstone projects to grant it, or drop the tier. Left open.
 - [ ] **17. Dead newsletter code** — orphaned component + 501 endpoint. Finish or delete. *(see #20)*
