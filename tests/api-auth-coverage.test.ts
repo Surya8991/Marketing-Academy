@@ -21,7 +21,6 @@ const API_ROOT = path.resolve(__dirname, "../src/app/api");
  */
 const EXEMPT: Record<string, string> = {
   "auth/[...nextauth]/route.ts": "This IS the auth system — nothing to gate.",
-  "newsletter/route.ts": "Stub route, always returns 501, not wired to any real service.",
   "geo-audit/route.ts": "Public utility tool (SSRF-hardened URL fetch + scoring), no per-user data — verify this is still accurate by reading the file before trusting this entry.",
   "og/route.tsx": "Renders an OG image via next/og's ImageResponse from three length-capped query params (title/category/level) reflected directly into JSX — React auto-escapes them, and the output is an image, not HTML. No user data read/written, no database access, no auth needed.",
 };
