@@ -20,6 +20,18 @@
  *     threshold moved from 0.75 to 0.8, not the semantics.
  *   - Below 80%, a fail screen shows with a "Try Again" button.
  *
+ * Retake / review after finishing:
+ *   - A "Retake quiz" button is shown on EVERY finished screen (pass, fail, or
+ *     the "Already Passed!" screen restored from a stored pass flag), so a
+ *     learner can re-attempt any time without resetting their progress.
+ *   - handleRetry never clears the persisted pass flag, so a retake can never
+ *     re-lock a lesson already earned; it only reshuffles for a fresh attempt.
+ *   - The full per-question review (which option was correct + every
+ *     explanation) renders on BOTH the pass and fail screens whenever a fresh
+ *     attempt just completed, so acing the quiz still shows the answers. It is
+ *     omitted only on the mount-restored "Already Passed!" screen, which has
+ *     no per-question answers to show.
+ *
  * Answer reveal timing (PROJECTS_PLAN.md Stage 1.2, decided):
  *   - Correctness and explanations are shown ONLY after the whole quiz is
  *     submitted (the finished screen), never per-question while in progress.
@@ -221,6 +233,12 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
     setSelected(null);
     setSelections([]);
     setFinished(false);
+    // A retake is a genuine fresh attempt: drop the "jumped straight to the
+    // success screen" flag so the new attempt shows its own real score and
+    // per-question review. The persisted pass flag (getQuizPassed) is left
+    // untouched, so "Mark as Complete" stays unlocked no matter how the
+    // retake goes — a retake can never re-lock a lesson already earned.
+    setAlreadyPassed(false);
   }
 
   const score = shuffled.length > 0
@@ -244,6 +262,56 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
   if (finished) {
     const pct = totalQuestions > 0 ? Math.round((score / totalQuestions) * 100) : 0;
     const passed = alreadyPassed || (totalQuestions > 0 && score / totalQuestions >= PASS_THRESHOLD);
+    // A per-question review needs the actual answers from this attempt. It's
+    // available whenever a fresh attempt just completed (selections filled),
+    // but NOT when we jumped straight to the success screen on mount from a
+    // stored pass flag (alreadyPassed, selections empty). Shown for both a
+    // pass and a fail now, so a learner who aces the quiz still sees exactly
+    // which answers were right and can read every explanation.
+    const showReview = !alreadyPassed && selections.length === totalQuestions;
+
+    // Shared review list, used by both the pass and fail branches below.
+    const reviewList = showReview ? (
+      <div className="flex flex-col gap-4 mb-6 text-left">
+        {shuffled.map((q, qi) => {
+          const userAnswer = selections[qi];
+          return (
+            <div
+              key={`review-${qi}`}
+              className="rounded-lg bg-[var(--muted)] border border-[var(--border)] p-4"
+            >
+              <p className="text-sm font-semibold mb-2 leading-snug">
+                {qi + 1}. {q.question}
+              </p>
+              <div className="flex flex-col gap-1.5 mb-2">
+                {q.options.map((opt, oi) => {
+                  const isCorrectOpt = oi === q.correct;
+                  const isUserPick = oi === userAnswer;
+                  let color = "var(--muted-foreground)";
+                  if (isCorrectOpt) color = "#16a34a";
+                  else if (isUserPick) color = "#ef4444";
+                  return (
+                    <div key={oi} className="flex items-center gap-1.5 text-sm" style={{ color }}>
+                      <span className="font-medium">{String.fromCharCode(65 + oi)}.</span>
+                      {opt}
+                      {/* Stage 6.3: icon + text, not colour alone */}
+                      {isCorrectOpt && <><CheckCircle2 size={13} className="shrink-0" aria-hidden="true" /> <span className="text-xs font-semibold">(correct)</span></>}
+                      {isUserPick && !isCorrectOpt && <><XCircle size={13} className="shrink-0" aria-hidden="true" /> <span className="text-xs font-semibold">(your answer)</span></>}
+                    </div>
+                  );
+                })}
+              </div>
+              <p className="text-xs text-[var(--foreground)] leading-relaxed">
+                <span className="font-semibold">
+                  {userAnswer === q.correct ? "Correct. " : "Not quite. "}
+                </span>
+                {q.explanation}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+    ) : null;
 
     return (
       <div id="quiz-section">
@@ -273,15 +341,14 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
             <p className="font-medium mb-5 text-[var(--foreground)]">
               You&apos;ve unlocked &ldquo;Mark as Complete&rdquo; for this lesson.
             </p>
-            {!alreadyPassed && (
-              <button
-                onClick={handleRetry}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm border border-[var(--border)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
-              >
-                <RotateCcw size={14} />
-                Retake quiz
-              </button>
-            )}
+            {reviewList}
+            <button
+              onClick={handleRetry}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm border border-[var(--border)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+            >
+              <RotateCcw size={14} />
+              Retake quiz
+            </button>
           </div>
         ) : (
           <div
@@ -305,45 +372,7 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
             </div>
 
             {/* Full review, only shown now that the quiz is submitted */}
-            <div className="flex flex-col gap-4 mb-6">
-              {shuffled.map((q, qi) => {
-                const userAnswer = selections[qi];
-                return (
-                  <div
-                    key={`review-${qi}`}
-                    className="rounded-lg bg-[var(--muted)] border border-[var(--border)] p-4"
-                  >
-                    <p className="text-sm font-semibold mb-2 leading-snug">
-                      {qi + 1}. {q.question}
-                    </p>
-                    <div className="flex flex-col gap-1.5 mb-2">
-                      {q.options.map((opt, oi) => {
-                        const isCorrectOpt = oi === q.correct;
-                        const isUserPick = oi === userAnswer;
-                        let color = "var(--muted-foreground)";
-                        if (isCorrectOpt) color = "#16a34a";
-                        else if (isUserPick) color = "#ef4444";
-                        return (
-                          <div key={oi} className="flex items-center gap-1.5 text-sm" style={{ color }}>
-                            <span className="font-medium">{String.fromCharCode(65 + oi)}.</span>
-                            {opt}
-                            {/* Stage 6.3: icon + text, not colour alone */}
-                            {isCorrectOpt && <><CheckCircle2 size={13} className="shrink-0" aria-hidden="true" /> <span className="text-xs font-semibold">(correct)</span></>}
-                            {isUserPick && !isCorrectOpt && <><XCircle size={13} className="shrink-0" aria-hidden="true" /> <span className="text-xs font-semibold">(your answer)</span></>}
-                          </div>
-                        );
-                      })}
-                    </div>
-                    <p className="text-xs text-[var(--foreground)] leading-relaxed">
-                      <span className="font-semibold">
-                        {userAnswer === q.correct ? "Correct. " : "Not quite. "}
-                      </span>
-                      {q.explanation}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
+            {reviewList}
 
             <div className="text-center">
               <button
