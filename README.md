@@ -215,6 +215,10 @@ The full lesson registry is in `src/lib/curriculum.ts`. To add a lesson:
 | `/glossary/[slug]` | Individual term page |
 | `/bookmarks` | Saved lessons (localStorage) |
 | `/tools` | 157 marketing tools with search + category + pricing filters |
+| `/tools/geo-audit` | GEO Auditor: scores any URL for AI-answer-engine citability (6 signals) |
+| `/compare` (+`/[slug]`) | Tool comparison hub + per-pair "X vs Y" pages (BreadcrumbList JSON-LD) |
+| `/quizzes` | Quiz hub across lessons |
+| `/review` | Spaced-repetition queue of previously-missed quiz questions (noindex) |
 | `/cheat-sheets` | Printable cheat sheet index (21 categories) |
 | `/cheat-sheets/[category]` | Printable per-category cheat sheet |
 | `/interview-prep` | Interview prep hub with category Q&A links |

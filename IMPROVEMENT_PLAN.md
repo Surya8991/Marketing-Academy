@@ -24,7 +24,7 @@ the `CATEGORY_INDEX` bundle regression, no `llms.txt`, no monetization/lead-capt
 - [x] **6. Structured data gaps** — ✅ DONE (2026-09-17). Added `BreadcrumbList` JSON-LD to `compare/[slug]`, `cheat-sheets/[category]`, `digital-marketing-cheat-sheet`, and `projects/[category]/[slug]` (+ a `LearningResource` schema on project pages). Verified in browser. *(Glossary-list `ItemList`/`DefinedTermSet` — minor, deferred; individual terms already carry `DefinedTerm`.)*
 - [x] **6b. Title double-suffix bug (~30 pages)** — ✅ DONE (2026-09-17). Stripped `| Marketing Academy` from the **document** title on 30 pages (left `openGraph.title` branded, since the template doesn't apply there). Verified in browser: `/about` → "About | Marketing Academy" (was doubled). `tsc`/lint clean. *(See Perspective 9.)*
 - [ ] **6c. Meta description quality** — `glossary/[slug]` description is a hard `slice(0,155)` (cuts mid-word); interior pages (glossary term, interview category, cheat-sheet category, compare) set no page-specific `openGraph`/image → generic social cards.
-- [ ] **6d. Blog / articles / "What's New" hub** `⚠️ DECISION` — no `/blog`, `/news`, `/changelog`, or `/guides` route exists. A content-education site has no fresh-article surface — the most linkable, AI-citable, keyword-targetable content shape. Biggest topical-authority + freshness gap. *(See Perspective 9.)*
+- [ ] **6d. Blog / articles hub** — ✅ APPROVED by owner (2026-09-17), design below; build queued as a future task. A content-education site has no fresh-article surface — the most linkable, AI-citable, keyword-targetable content shape. See **"Blog design"** section below.
 - [ ] **6e. Interlinking depth** — `/learn` index links only 5 lessons/category (`PREVIEW_COUNT`), so 642 lessons sit 3 clicks deep with no master index; no topical-cluster hubs; contextual in-body cross-links between related lessons are sparse (only the structured RelatedLessons/RelatedConcepts blocks). *(See Perspective 9.)*
 - [ ] **7. In-place core navigation** — make lesson Prev/Next + "Continue where you left off" navigate in the same tab (keep cross-references new-tab).
 - [x] **8. Accessibility fixes** — ✅ DONE (2026-09-17). `error.tsx` red box → theme-aware rgba; search input `type=search` + `aria-label`; notes textarea `aria-label`; `Callout` label text → `--foreground` (was failing-AA `-500` on tint, icon stays brand-coloured). Newsletter `aria-live` moot (component deleted). Verified in browser. `tsc`/lint clean.
@@ -36,10 +36,10 @@ the `CATEGORY_INDEX` bundle regression, no `llms.txt`, no monetization/lead-capt
 ### P2 — Polish / cleanup / decisions
 - [ ] **13. Route `loading.tsx` skeletons** — client pages flash blank divs.
 - [ ] **14. IA de-duplication** — `/interview-prep` vs `/interview-questions`; `/cheat-sheets` vs `/digital-marketing-cheat-sheet`. Pick canonical + cross-link.
-- [ ] **15. `/compare/[slug]` "coming soon" copy** — remove or replace.
-- [ ] **16. `bigProject` XP tier (100 XP) unreachable** — wire capstone projects to it or drop the tier.
+- [x] **15. `/compare/[slug]` "coming soon" copy** — ✅ DONE (2026-09-17). Replaced the "coming soon" promise with an honest label + a cross-link to the comparisons hub.
+- [ ] **16. `bigProject` XP tier (100 XP) unreachable** `⚠️ DECISION` — defined in `engagement.ts` but no project awards it. Needs a product call: designate capstone projects to grant it, or drop the tier. Left open.
 - [ ] **17. Dead newsletter code** — orphaned component + 501 endpoint. Finish or delete. *(see #20)*
-- [ ] **18. Doc drift** — README routes table missing `/review`, `/compare`, `/tools/geo-audit`; AGENTS.md Rule 41 documents a fix that no longer holds.
+- [x] **18. Doc drift** — ✅ DONE (2026-09-17). README routes table: added `/review`, `/compare`(+`/[slug]`), `/tools/geo-audit`, `/quizzes`, `/llms.txt`, `/robots.txt`. AGENTS.md Rule 41's now-false claim is corrected by the new `category-index.ts` module + Rule 79/#5 note. *(A dedicated Rule 41 amendment is optional follow-up.)*
 - [x] **19. PostHog consent** — ✅ DONE (2026-09-17, owner: disable autocapture). `layout.tsx` init now sets `autocapture:false, disable_session_recording:true, respect_dnt:true` (keeps only the PII-free explicit `capture()` events + pageleave). No banner needed.
 - [x] **20. Monetization / newsletter** — ✅ DONE (2026-09-17, owner: remove dead code). Deleted orphaned `NewsletterSignup.tsx` + `/api/newsletter` (501 stub). README updated. *(Broader monetization/audience-capture strategy remains an open owner decision — no code path today.)*
 - [ ] **21. `⚠️ DECISION` — `/api/geo-audit` abuse vector** — unauthenticated, in-memory rate limit, proxies paid Groq. Needs a decision (auth-gate, shared-store limit, or usage cap).
@@ -170,8 +170,41 @@ Added 2026-09-17 per owner request. Some overlaps with SEO/AEO above; collected 
 
 ---
 
+## Blog design (#6d — approved 2026-09-17, build queued)
+
+A lightweight MDX articles hub that reuses the existing lesson/MDX pipeline (no new CMS). Goal: a fresh, dated, keyword-targeted, AI-citable content surface that feeds organic + AEO growth (the gap in Perspective 6/8/9).
+
+**Routes**
+- `/blog` — index: reverse-chronological article cards (title, date, reading time, tag, excerpt). Paginated at ~12/page.
+- `/blog/[slug]` — article reader: reuses the lesson prose system (`Callout`/`Mermaid`/`ResourceList`), plus a visible **author byline + published/updated dates** (this is where #9's E-E-A-T author/date signals land first, on new content, rather than retrofitting 642 lessons).
+- `/blog/tag/[tag]` — optional tag archives (topical clustering).
+
+**Content model** (`src/content/blog/*.mdx`, mirroring lessons)
+```ts
+export const postMeta = {
+  title: "…",
+  description: "…",            // single quotes for inner quotes (Rule 1)
+  publishedAt: "2026-09-20",   // REAL per-post date — drives sitemap lastmod + Article dates
+  updatedAt: "2026-09-20",
+  author: "…",                 // named Person → Article.author (E-E-A-T)
+  tags: ["seo", "ai-search"],
+  hero?: "…",
+};
+```
+
+**Wiring**
+- `src/lib/blog.ts`: read `postMeta` + reading time (mirror the lesson loader); `getAllPosts()` / `getPostBySlug()`.
+- **SEO**: `Article` JSON-LD with a real `datePublished`/`dateModified` + `author` Person; `BreadcrumbList`; self-canonical; add posts to `sitemap.ts` with their real `publishedAt` lastmod; add a `/blog` section to `llms.txt`.
+- **Feed**: extend the existing `/feed.xml` to include blog posts.
+- **Interlinking**: each post links out to 2–3 related lessons (feeds the pillar→cluster model in #6e / #22); the homepage gets a "Latest from the blog" strip.
+
+**Guardrails**: same content-quality rules as lessons (Rule 11 real research, Rule 1 MDX quoting). Start with 3–5 seed posts on high-intent 2026 topics (e.g. AI Overviews, GEO, zero-click search) drawn from `BACKLOG.md`. This also becomes the natural home for the #9 author/date signals on fresh content instead of a mass 642-lesson retrofit.
+
 ## Status log
 - 2026-09-17 — Plan compiled (8 perspectives). Beginning execution at P0 #1.
 - 2026-09-17 — **P0 #1 (canonical) DONE + verified.** `tsc` clean. Added Perspective 9 (meta tags / blog / layouts / interlinking) + items 6b–6e per owner request.
 - 2026-09-17 — **#6b (title double-suffix) DONE + verified** on 30 pages. `tsc`/lint clean. Committed #1 + #6b (`c74c19d`).
 - 2026-09-17 — **#3 (llms.txt) + #2 (sitemap completeness/freshness) DONE + verified.** sitemap 931→1,734 URLs (803 project pages), lastmod unfrozen; `/llms.txt` live. Owner added a **642-lesson interlink map** as the explicit FINAL task (#22).
+- 2026-09-17 — Owner directives: keep auto-executing technical fixes; batch on `development-branch`; PostHog→disable autocapture, newsletter→remove, blog→approved (design added).
+- 2026-09-17 — **DONE this session:** #11 robots/noindex, #19 PostHog autocapture off, #20 newsletter removed, #8 a11y, #4 certificate name field, #6 structured data, #5 CATEGORY_INDEX bundle fix (+drift test), #15 compare copy, #18 doc drift, #6d blog design. **66/66 tests, tsc clean, 10 commits on `development-branch`.**
+- **Still open:** #9 (author/date — now folded into the blog for fresh content), #12 (route-scoped bundle trims), #13 loading skeletons, #14 IA dedup, #16 `bigProject` XP `⚠️`, blog BUILD, and **#22 interlink map (FINAL/huge)**.

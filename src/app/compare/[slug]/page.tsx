@@ -339,7 +339,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
         <div className="space-y-8">
           {/* Stage 5.6: label auto-generated comparisons honestly */}
           <p className="text-sm text-[var(--muted-foreground)] px-1 py-2 rounded-lg bg-[var(--muted)] text-center">
-            ℹ️ This comparison is auto-generated from our tools directory. Hand-written, in-depth comparisons are coming soon.
+            ℹ️ This side-by-side is compiled from our tools directory. For a hand-written deep dive, see our featured comparisons on the <a href="/compare" style={{ color: "var(--accent)", textDecoration: "underline" }}>comparisons hub</a>.
           </p>
           <div>
             <h3 className="text-xl font-bold mb-4">Feature Comparison</h3>
