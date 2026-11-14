@@ -31,8 +31,16 @@ export default function StreakBadge() {
       title="Your achievements"
     >
       {streak >= 1 && (
-        <span className="text-sm font-semibold flex items-center gap-0.5">
+        <span className="text-sm font-semibold flex items-center gap-0.5" title={`${streak} day streak`}>
           🔥<span className="text-xs">{streak}</span>
+        </span>
+      )}
+      {(state.streakFreezes ?? 0) > 0 && streak >= 1 && (
+        <span
+          className="text-xs text-[var(--accent)] flex items-center"
+          title={`${state.streakFreezes} Streak Freeze equipped — your streak is protected`}
+        >
+          🛡️
         </span>
       )}
       <span className="text-xs font-medium">

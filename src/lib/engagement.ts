@@ -53,6 +53,11 @@ export type EngagementState = {
    * old entry must never allow the same lesson to re-earn +30 XP.
    */
   completedXpIds: string[];
+  /**
+   * Number of streak freezes available (0-2). When a user misses a day,
+   * a freeze is consumed automatically to protect their streak.
+   */
+  streakFreezes?: number;
 };
 
 /** Returns a local "YYYY-MM-DD" string, avoids UTC/local timezone mismatch for streak tracking */
@@ -88,12 +93,18 @@ export function getEngagement(): EngagementState {
     if (typeof parsed.streak !== "number") parsed.streak = d.streak;
     if (typeof parsed.longestStreak !== "number") parsed.longestStreak = d.longestStreak;
     if (typeof parsed.xpByDay !== "object" || parsed.xpByDay === null) parsed.xpByDay = d.xpByDay;
+    if (typeof parsed.streakFreezes !== "number") parsed.streakFreezes = 1;
 
-    // Stage 2.6: decay streak on read. If lastActiveDay is not today or
-    // yesterday, the streak is dead — reset to 0 so the 🔥 badge doesn't
-    // show "7-day streak" months after the user stopped visiting.
+    // Stage 2.6 / Phase 2: loss aversion with Streak Freeze.
+    // If lastActiveDay is older than yesterday, check if a streak freeze protects it!
     if (parsed.lastActiveDay && parsed.lastActiveDay !== today() && parsed.lastActiveDay !== yesterday()) {
-      parsed.streak = 0;
+      if ((parsed.streakFreezes ?? 0) > 0 && parsed.streak > 0) {
+        parsed.streakFreezes = (parsed.streakFreezes ?? 1) - 1;
+        parsed.lastActiveDay = yesterday();
+        saveEngagement(parsed);
+      } else {
+        parsed.streak = 0;
+      }
     }
 
     return parsed;
@@ -117,6 +128,7 @@ function defaultState(): EngagementState {
     achievements: [],
     xpLog: [],
     completedXpIds: [],
+    streakFreezes: 1,
   };
 }
 
@@ -176,6 +188,10 @@ export function addXP(action: XPAction, id: string): EngagementState {
       state.lastActiveDay = t;
       if (state.streak > state.longestStreak) {
         state.longestStreak = state.streak;
+      }
+      // Milestone reward: Every 7 consecutive days awards +1 Streak Freeze (cap 2)
+      if (state.streak % 7 === 0) {
+        state.streakFreezes = Math.min(2, (state.streakFreezes ?? 0) + 1);
       }
     }
 

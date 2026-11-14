@@ -6,6 +6,8 @@ import ResourceList from "@/components/ResourceList";
 import Quiz from "@/components/Quiz";
 import DiagramBlock from "@/components/DiagramBlock";
 import InAction from "@/components/InAction";
+import RoasCalculator from "@/components/interactive/RoasCalculator";
+import HeadlineTester from "@/components/interactive/HeadlineTester";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -16,6 +18,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Quiz,
     DiagramBlock,
     InAction,
+    RoasCalculator,
+    HeadlineTester,
     table: (props: ComponentPropsWithoutRef<"table">) => (
       <div className="overflow-x-auto my-6 rounded-lg border border-[var(--border)]">
         <table {...props} className="my-0 border-0 rounded-lg" />

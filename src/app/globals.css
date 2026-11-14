@@ -1,25 +1,39 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap');
 
 /**
- * Colors: UNCHANGED from the original site (explicit user decision, 2026-08-12
- * redesign pass: keep the existing indigo accent + white/near-black neutrals
- * exactly as they were). The redesign work is layout/typography/structure
- * only — see layout.tsx for the new --font-display/--font-ui-sans/--font-data
- * type system, used on Home/Learn/Tracks/Projects/Tools/About + Nav/Footer
- * chrome. Lesson-reading prose stays on Geist Sans, out of scope.
+ * Colors & Theme Tokens
+ * Harmonized with the Paper White (#fafaf8) & Deep Ink (#191927) editorial design.
  */
 :root {
-  --background: #ffffff;
-  --foreground: #0a0a0a;
-  --muted: #f5f5f5;
-  --muted-foreground: #525866;
-  --border: #e5e7eb;
-  --accent: #6366f1;
+  --background: #fafaf8;
+  --foreground: #191927;
+  --muted: #f4f4f0;
+  --muted-foreground: #747486;
+  --border: #e9e8e4;
+  --accent: #4f46e5;
   --accent-foreground: #ffffff;
   --card: #ffffff;
   --code-bg: #f4f4f5;
   --code-fg: #1f1f23;
+
+  /* Editorial Lab Design Tokens */
+  --bg: #fafaf8;
+  --paper: #ffffff;
+  --ink: #191927;
+  --line: #e9e8e4;
+  --indigo: #4f46e5;
+  --indigo-dark: #3930c5;
+  --lav: #eeedff;
+  --blue: #e9f3ff;
+  --mint: #e8f5ed;
+  --amber: #fff1d9;
+  --shadow: 0 18px 55px rgba(31, 29, 74, 0.08);
+
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-sans: "DM Sans", Arial, sans-serif;
+  --font-mono: "DM Mono", monospace;
 }
 
 @theme inline {
