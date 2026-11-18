@@ -1,0 +1,19 @@
+#!/bin/sh
+# Marketing-Academy pre-push gate. Guards (main-branch, identity, secrets) come from
+# lib/guards.sh; the checks below are specific to this project (Next.js 16, 1,700+ static pages).
+# Enable once per clone: git config core.hooksPath .githooks   (see README.md)
+HOOK_DIR=$(cd "$(dirname "$0")" && pwd)
+. "$HOOK_DIR/lib/guards.sh"
+pp_init "$@"
+pp_run_guards || exit 1
+pp_should_check || exit 0
+
+# Mirrors PRE_PUSH_CHECKLIST.md step 1 (tsc -> eslint -> test -> build).
+# The build prerenders 1,700+ pages, so it only runs with PREPUSH_FULL=1;
+# run it before any PR into main: PREPUSH_FULL=1 git push
+pp_require_node_modules
+pp_step "typecheck"   npx --no -- tsc --noEmit
+pp_step "lint"        npm run --silent lint
+pp_step "unit tests"  npm test --silent
+pp_full_step "production build" npm run build
+pp_done
