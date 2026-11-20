@@ -9,13 +9,17 @@
   --background: #fafaf8;
   --foreground: #191927;
   --muted: #f4f4f0;
-  --muted-foreground: #747486;
+  --muted-foreground: #6a6a7c;
   --border: #e9e8e4;
   --accent: #4f46e5;
   --accent-foreground: #ffffff;
   --card: #ffffff;
   --code-bg: #f4f4f5;
   --code-fg: #1f1f23;
+  /* Status text colours: theme-aware so they pass contrast on light and dark cards */
+  --success: #15803d;
+  --warning: #b45309;
+  --danger: #b91c1c;
 
   /* Editorial Lab Design Tokens */
   --bg: #fafaf8;
@@ -63,6 +67,9 @@
     --card: #131316;
     --code-bg: #1c1c20;
     --code-fg: #e4e4e7;
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --danger: #f87171;
     /* Editorial tokens: dark tints so pastel sections keep readable text */
     --bg: #0a0a0b;
     --paper: #131316;
@@ -86,6 +93,9 @@
   --card: #131316;
   --code-bg: #1c1c20;
   --code-fg: #e4e4e7;
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --danger: #f87171;
   /* Editorial tokens: dark tints so pastel sections keep readable text */
   --bg: #0a0a0b;
   --paper: #131316;

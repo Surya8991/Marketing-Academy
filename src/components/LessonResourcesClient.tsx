@@ -21,7 +21,7 @@ function ytId(url: string): string | null {
 
 function Badge({ n }: { n: number }) {
   return (
-    <span className="ml-1.5 inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full text-[10px] font-bold bg-[var(--surface-2)] text-[var(--muted-foreground)]">
+    <span className="ml-1.5 inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full text-[10px] font-bold bg-[var(--muted)] text-[var(--muted-foreground)]">
       {n}
     </span>
   );
@@ -37,7 +37,7 @@ function VideoCard({ v }: { v: VideoLink }) {
       className="flex gap-3 p-3 rounded-lg border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)] transition-colors group"
     >
       {id ? (
-        <div className="shrink-0 relative w-20 h-14 rounded overflow-hidden bg-[var(--surface-2)]">
+        <div className="shrink-0 relative w-20 h-14 rounded overflow-hidden bg-[var(--muted)]">
           <Image
             src={`https://img.youtube.com/vi/${id}/mqdefault.jpg`}
             alt=""
@@ -51,7 +51,7 @@ function VideoCard({ v }: { v: VideoLink }) {
           </div>
         </div>
       ) : (
-        <div className="shrink-0 w-20 h-14 rounded bg-[var(--surface-2)] flex items-center justify-center">
+        <div className="shrink-0 w-20 h-14 rounded bg-[var(--muted)] flex items-center justify-center">
           <Play size={16} className="text-[var(--muted-foreground)]" />
         </div>
       )}

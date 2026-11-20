@@ -148,6 +148,8 @@ type Props = {
 };
 
 export default function ProjectCard({ project, id, category, variant = "preview" }: Props) {
+  // The dedicated project page has no other h1, so the full variant's title is the page heading.
+  const TitleTag = variant === "full" ? "h1" : "h3";
   // Initial false matches SSR output exactly (localStorage is client-only),
   // so no mount-guard is needed here, only the read is deferred to an effect.
   const [done, setDone] = useState(false);
@@ -230,9 +232,9 @@ export default function ProjectCard({ project, id, category, variant = "preview"
           </button>
         </div>
 
-        <h3 className="font-display font-semibold text-xl sm:text-2xl leading-tight text-[var(--foreground)] m-0">
+        <TitleTag className="font-display font-semibold text-xl sm:text-2xl leading-tight text-[var(--foreground)] m-0">
           {project.title}
-        </h3>
+        </TitleTag>
 
         {company && (
           <div className="flex items-center gap-2">
@@ -341,7 +343,7 @@ export default function ProjectCard({ project, id, category, variant = "preview"
           )}
 
           {project.teardownItems && project.teardownItems.length > 0 && (
-            <Section eyebrow="The process" title="Specimens to review">
+            <Section eyebrow="The process" title="Examples to review">
               {project.teardownItems.map((item) => (
                 <TeardownItemCard key={item.itemId} item={item} />
               ))}

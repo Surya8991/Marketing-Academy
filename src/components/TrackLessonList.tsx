@@ -161,7 +161,7 @@ export default function TrackLessonList({ track }: { track: Track }) {
                 title={locked ? "Take this lesson's quiz to unlock" : undefined}
                 className={`shrink-0 transition-colors ${
                   done
-                    ? "text-emerald-500"
+                    ? "text-[var(--success)]"
                     : "text-[var(--muted-foreground)] hover:text-[var(--accent)]"
                 }`}
               >

@@ -43,7 +43,7 @@ export default function FinalCtaSection() {
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border border-white/20 text-white font-medium text-sm hover:bg-white/10 transition-colors"
             >
               <Compass size={16} />
-              <span>Browse 24 Tracks</span>
+              <span>Browse all tracks</span>
             </Link>
           </div>
         </div>

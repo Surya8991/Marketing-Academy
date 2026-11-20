@@ -30,7 +30,7 @@ const WORLDS = [
       border: "border-[var(--border)]",
       hoverBorder: "hover:border-[#b8daff]",
       orbGradient: "linear-gradient(145deg, #b7dcff, #448ee9)",
-      accentText: "text-[#2563eb]",
+      accentText: "text-[var(--accent)]",
     },
   },
   {
@@ -44,7 +44,7 @@ const WORLDS = [
       border: "border-[var(--border)]",
       hoverBorder: "hover:border-[#bee3c9]",
       orbGradient: "linear-gradient(145deg, #b6e9c8, #4aa978)",
-      accentText: "text-[#16a34a]",
+      accentText: "text-[var(--success)]",
     },
   },
   {
@@ -58,7 +58,7 @@ const WORLDS = [
       border: "border-[var(--border)]",
       hoverBorder: "hover:border-[#f4d4a3]",
       orbGradient: "linear-gradient(145deg, #ffdb9b, #ee9a3f)",
-      accentText: "text-[#d97706]",
+      accentText: "text-[var(--warning)]",
     },
   },
 ];

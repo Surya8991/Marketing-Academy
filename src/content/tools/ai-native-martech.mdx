@@ -20,7 +20,11 @@ export const lessonMeta = {
 
 The difference between AI-native and AI-added tools is not subtle, it changes how they work, what they can do, and how much you trust them.
 
-AI-added tools are legacy platforms that got a new feature. HubSpot added an AI copilot to its CRM. Salesforce grafted Einstein into its core product. These tools have decades of non-AI logic underneath. They're adding AI to existing workflows, which means the AI is in a box, it helps with email drafts and lead scoring, but it doesn't rethink how the entire product works.
+AI-added tools are legacy platforms that got a new feature. HubSpot added an AI copilot to its CRM.
+
+Salesforce grafted Einstein into its core product. These tools have decades of non-AI logic underneath.
+
+They're adding AI to existing workflows, which means the AI is in a box, it helps with email drafts and lead scoring, but it doesn't rethink how the entire product works.
 
 AI-native tools are built from the ground up assuming AI does the heavy lifting. Jasper assumes you describe what you want, and AI generates the first draft. Obviously AI assumes your data already exists and AI extracts insights from it without you building queries. The entire product architecture is different, input, processing, output, because AI is the engine, not the helper.
 
@@ -42,25 +46,51 @@ Three questions will save you from wasted spend and broken projects.
 
 First: **Does it improve output quality or just speed?** If a tool only saves time but output quality is the same or worse, you're trading hours for risk. Jasper saves hours on email copy, but does the email convert better than what your team writes? Obviously AI finds patterns, but do those patterns tell you something you didn't know? Run a pilot where you measure output quality (conversions, engagement, accuracy) before you measure time saved.
 
-Second: **How much human oversight does it need?** Some AI tools need zero review, an analytics tool finds a trend, you act on it. Other tools need someone to review every output before it ships. Midjourney images usually need tweaking. AI-generated cold emails need legal/compliance review. If your tool requires 80% human review effort after AI generates, you haven't really freed up capacity, you've just shifted the bottleneck.
+Second: **How much human oversight does it need?** Some AI tools need zero review, an analytics tool finds a trend, you act on it. Other tools need someone to review every output before it ships.
 
-Third: **How does it handle data privacy?** Where does your data go? Does the tool train on it? Is it encrypted in transit and at rest? Many AI-native startups default to cloud training, they use your data to improve their models. That's a non-starter for regulated industries (healthcare, finance, legal) or companies with IP-sensitive data. Ask for their data policy in writing before piloting.
+Midjourney images usually need tweaking. AI-generated cold emails need legal/compliance review.
+
+If your tool requires 80% human review effort after AI generates, you haven't really freed up capacity, you've just shifted the bottleneck.
+
+Third: **How does it handle data privacy?** Where does your data go? Does the tool train on it?
+
+Is it encrypted in transit and at rest? Many AI-native startups default to cloud training, they use your data to improve their models.
+
+That's a non-starter for regulated industries (healthcare, finance, legal) or companies with IP-sensitive data. Ask for their data policy in writing before piloting.
 
 ## The Consolidation Problem
 
 Using six point-solution AI tools creates its own headache: integration hell, data silos, and a bill that adds up.
 
-You have Jasper for content, Obviously AI for analytics, Midjourney for images, Mutiny for personalization, a vendor for AI customer service, and another for AI lead scoring. Now your data lives in six places. When lead scoring flags a buyer, does content generation know? When Mutiny optimizes for time-on-site, does customer service know? Probably not. You've traded vendor risk for integration risk.
+You have Jasper for content, Obviously AI for analytics, Midjourney for images, Mutiny for personalization, a vendor for AI customer service, and another for AI lead scoring. Now your data lives in six places.
 
-This is why HubSpot and Salesforce added AI. One platform, one data model, less orchestration. The tradeoff: their AI probably won't beat the best point solution. HubSpot's copy generation won't beat Jasper. But 85% of Jasper's quality, in-system, with data flowing between tools? That's often the right choice for mid-market companies. For enterprises, best-of-breed AI natives still win because they're willing to build custom integrations.
+When lead scoring flags a buyer, does content generation know? When Mutiny optimizes for time-on-site, does customer service know?
+
+Probably not. You've traded vendor risk for integration risk.
+
+This is why HubSpot and Salesforce added AI. One platform, one data model, less orchestration.
+
+The tradeoff: their AI probably won't beat the best point solution. HubSpot's copy generation won't beat Jasper.
+
+But 85% of Jasper's quality, in-system, with data flowing between tools? That's often the right choice for mid-market companies.
+
+For enterprises, best-of-breed AI natives still win because they're willing to build custom integrations.
 
 ## The Human-in-the-Loop Consideration
 
 Not all AI tools are created equal on automation. Some require human hands at every stage. Others can run unsupervised.
 
-Typeface, a copy tool, is designed for AI to generate, humans to review, then publish. Zero risk of garbage shipping. But it's slower, every piece goes through edit. Mutiny, the personalization tool, runs experiments and publishes winners automatically. Fast, but if the AI is wrong, it changes your site without you noticing.
+Typeface, a copy tool, is designed for AI to generate, humans to review, then publish. Zero risk of garbage shipping.
 
-The rule: higher automation = higher brand risk. You have to trust the AI, the training data, and the feedback loop. For customer-facing content, most teams want humans in the loop. For internal analytics, you can go fully automated. Where you draw that line depends on your risk tolerance, not the tool's capabilities.
+But it's slower, every piece goes through edit. Mutiny, the personalization tool, runs experiments and publishes winners automatically.
+
+Fast, but if the AI is wrong, it changes your site without you noticing.
+
+The rule: higher automation = higher brand risk. You have to trust the AI, the training data, and the feedback loop.
+
+For customer-facing content, most teams want humans in the loop. For internal analytics, you can go fully automated.
+
+Where you draw that line depends on your risk tolerance, not the tool's capabilities.
 
 ## Building Your Evaluation Framework
 

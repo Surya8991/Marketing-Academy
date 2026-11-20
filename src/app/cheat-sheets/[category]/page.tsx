@@ -62,9 +62,9 @@ const printCSS = `
 `;
 
 const levelColor: Record<string, string> = {
-  Beginner: "#16a34a",
-  Intermediate: "#d97706",
-  Advanced: "#dc2626",
+  Beginner: "var(--success)",
+  Intermediate: "var(--warning)",
+  Advanced: "var(--danger)",
 };
 
 const levelBg: Record<string, string> = {

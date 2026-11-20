@@ -113,7 +113,10 @@ export default function GlossaryClient() {
       {/* Grouped terms */}
       {grouped.length === 0 ? (
         <div className="text-center py-16 text-[var(--muted-foreground)]">
-          No terms match your search.
+          <p>No terms match your search.</p>
+          <button type="button" onClick={() => { setQuery(""); setActiveCategory("All"); }} className="mt-3 text-sm font-medium text-[var(--accent)] hover:underline">
+            Clear search and show all terms
+          </button>
         </div>
       ) : (
         <div className="space-y-10">

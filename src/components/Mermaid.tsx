@@ -351,7 +351,7 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
 
   if (error) {
     return (
-      <div className="not-prose my-6 rounded-lg border border-[var(--border)] bg-[var(--muted)] p-4 text-sm text-red-600">
+      <div className="not-prose my-6 rounded-lg border border-[var(--border)] bg-[var(--muted)] p-4 text-sm text-[var(--danger)]">
         <p className="font-medium">Diagram error</p>
         <pre className="mt-1 text-xs overflow-auto whitespace-pre-wrap">{error}</pre>
       </div>

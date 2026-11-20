@@ -57,9 +57,9 @@ export default function HeadlineTester() {
     }
   };
 
-  let grade = { label: "Needs Polish", color: "text-amber-500 bg-amber-500/10 border-amber-500/30" };
+  let grade = { label: "Needs Polish", color: "text-[var(--warning)] bg-amber-500/10 border-amber-500/30" };
   if (score >= 80) {
-    grade = { label: "High-Converting Hook", color: "text-emerald-500 bg-emerald-500/10 border-emerald-500/30" };
+    grade = { label: "High-Converting Hook", color: "text-[var(--success)] bg-emerald-500/10 border-emerald-500/30" };
   } else if (score >= 60) {
     grade = { label: "Solid Foundation", color: "text-blue-500 bg-blue-500/10 border-blue-500/30" };
   }
@@ -147,7 +147,7 @@ export default function HeadlineTester() {
 
         <div className="p-3 rounded-xl border border-[var(--border)] bg-[var(--muted)]/20">
           <div className="text-[0.68rem] text-[var(--muted-foreground)] uppercase">Curiosity Gap</div>
-          <div className={`text-lg font-bold font-mono ${hasCuriosity ? "text-emerald-500" : "text-[var(--muted-foreground)]"}`}>
+          <div className={`text-lg font-bold font-mono ${hasCuriosity ? "text-[var(--success)]" : "text-[var(--muted-foreground)]"}`}>
             {hasCuriosity ? "High" : "Low"}
           </div>
           <div className="text-[0.65rem] text-[var(--muted-foreground)]">
@@ -157,7 +157,7 @@ export default function HeadlineTester() {
 
         <div className="p-3 rounded-xl border border-[var(--border)] bg-[var(--muted)]/20">
           <div className="text-[0.68rem] text-[var(--muted-foreground)] uppercase">Specificity</div>
-          <div className={`text-lg font-bold font-mono ${hasNumbers ? "text-emerald-500" : "text-[var(--muted-foreground)]"}`}>
+          <div className={`text-lg font-bold font-mono ${hasNumbers ? "text-[var(--success)]" : "text-[var(--muted-foreground)]"}`}>
             {hasNumbers ? "Specific" : "Vague"}
           </div>
           <div className="text-[0.65rem] text-[var(--muted-foreground)]">
@@ -174,30 +174,30 @@ export default function HeadlineTester() {
         <ul className="space-y-1.5 text-[var(--muted-foreground)]">
           {!hasNumbers && (
             <li className="flex items-start gap-1.5">
-              <span className="text-amber-500">•</span>
+              <span className="text-[var(--warning)]">•</span>
               <span>Inject a specific number or timeframe (e.g. <em>&ldquo;in 14 days&rdquo;</em> or <em>&ldquo;+42%&rdquo;</em>) to build trust.</span>
             </li>
           )}
           {matchedPowerWords.length === 0 && (
             <li className="flex items-start gap-1.5">
-              <span className="text-amber-500">•</span>
+              <span className="text-[var(--warning)]">•</span>
               <span>Add an emotional power word like <em>&ldquo;proven&rdquo;</em>, <em>&ldquo;deadly&rdquo;</em>, <em>&ldquo;effortless&rdquo;</em>, or <em>&ldquo;secret&rdquo;</em>.</span>
             </li>
           )}
           {wordCount < 6 && (
             <li className="flex items-start gap-1.5">
-              <span className="text-amber-500">•</span>
+              <span className="text-[var(--warning)]">•</span>
               <span>Too short: clarify who the product is for or the specific problem it eliminates.</span>
             </li>
           )}
           {wordCount > 14 && (
             <li className="flex items-start gap-1.5">
-              <span className="text-amber-500">•</span>
+              <span className="text-[var(--warning)]">•</span>
               <span>Trim words for punchier scannability: readers skip headlines longer than 13 words.</span>
             </li>
           )}
           {hasNumbers && hasCuriosity && matchedPowerWords.length >= 1 && (
-            <li className="flex items-start gap-1.5 text-emerald-500 font-medium">
+            <li className="flex items-start gap-1.5 text-[var(--success)] font-medium">
               <CheckCircle size={13} className="shrink-0 mt-0.5" />
               <span>Excellent balance! You have combined emotional tension, clear specificity, and an optimal reading length.</span>
             </li>

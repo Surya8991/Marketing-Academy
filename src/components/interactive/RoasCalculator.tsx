@@ -25,13 +25,13 @@ export default function RoasCalculator() {
   const roasNum = parseFloat(roas);
   let statusBadge = {
     label: "Unprofitable / Burning Cash",
-    color: "text-red-500 bg-red-500/10 border-red-500/30",
+    color: "text-[var(--danger)] bg-red-500/10 border-red-500/30",
     icon: AlertTriangle,
   };
   if (roasNum >= 3.0) {
     statusBadge = {
       label: "Highly Profitable / Ready to Scale",
-      color: "text-emerald-500 bg-emerald-500/10 border-emerald-500/30",
+      color: "text-[var(--success)] bg-emerald-500/10 border-emerald-500/30",
       icon: CheckCircle,
     };
   } else if (roasNum >= 1.5) {
@@ -43,7 +43,7 @@ export default function RoasCalculator() {
   } else if (roasNum >= 1.0) {
     statusBadge = {
       label: "Break-even / High Churn Risk",
-      color: "text-amber-500 bg-amber-500/10 border-amber-500/30",
+      color: "text-[var(--warning)] bg-amber-500/10 border-amber-500/30",
       icon: AlertTriangle,
     };
   }
@@ -175,7 +175,7 @@ export default function RoasCalculator() {
           <div className="text-[0.7rem] text-[var(--muted-foreground)] uppercase">Net Ad Margin</div>
           <div
             className={`text-xl sm:text-2xl font-bold font-mono ${
-              profit >= 0 ? "text-emerald-500" : "text-red-500"
+              profit >= 0 ? "text-[var(--success)]" : "text-[var(--danger)]"
             }`}
           >
             {profit >= 0 ? `+$${profit.toLocaleString()}` : `-$${Math.abs(profit).toLocaleString()}`}
@@ -187,7 +187,7 @@ export default function RoasCalculator() {
       {/* Tactile Insight / Sensitivity Takeaway */}
       <div className="p-3.5 rounded-xl bg-[var(--accent)]/10 border border-[var(--accent)]/20 text-xs flex items-center gap-3">
         <div className="shrink-0 font-semibold text-[var(--accent)] flex items-center gap-1">
-          <Percent size={14} /> Leverage Insight:
+          <Percent size={14} /> What this means:
         </div>
         <div className="text-[var(--muted-foreground)] leading-relaxed">
           Increasing landing page conversion from <strong>{cvr.toFixed(1)}%</strong> to{" "}

@@ -95,9 +95,16 @@ export default function TracksPageClient({ tracks }: { tracks: Track[] }) {
       {/* Results count */}
       {(search.trim() || filter !== "all") && (
         <p className="text-sm text-[var(--muted-foreground)] mb-4 font-ui-sans">
-          {filtered.length === 0
-            ? "No tracks match your search."
-            : `Showing ${filtered.length} of ${tracks.length} tracks`}
+          {filtered.length === 0 ? (
+            <>
+              No tracks match your search.{" "}
+              <button type="button" onClick={() => { setSearch(""); setFilter("all"); }} className="font-medium text-[var(--accent)] hover:underline">
+                Show all tracks
+              </button>
+            </>
+          ) : (
+            `Showing ${filtered.length} of ${tracks.length} tracks`
+          )}
         </p>
       )}
 

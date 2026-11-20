@@ -114,13 +114,13 @@ export default function CertificatePage() {
         }}
       >
         <span style={{ fontSize: "2.5rem" }}>{track.emoji}</span>
-        <p style={{ fontSize: "1.25rem", fontWeight: 700, margin: 0 }}>
+        <h1 style={{ fontSize: "1.25rem", fontWeight: 700, margin: 0 }}>
           Not quite eligible yet
-        </p>
+        </h1>
         <p style={{ color: "var(--muted-foreground)", margin: 0, maxWidth: 420 }}>
           {pct === 100 && !trackQuizPassed
-            ? <>You&apos;ve completed all {totalLessons} lessons. Pass the track&apos;s knowledge check to unlock this certificate.</>
-            : <>Complete all {totalLessons} lessons in {track.title} and pass the track&apos;s knowledge check to unlock this certificate.
+            ? <>You&apos;ve completed all {totalLessons} lessons. Pass the track&apos;s knowledge check to earn this certificate.</>
+            : <>Complete all {totalLessons} lessons in {track.title} and pass the track&apos;s knowledge check to earn this certificate.
                 You&apos;ve completed {completedCount} of {totalLessons} ({pct}%).</>}
         </p>
         {pct === 100 && !trackQuizPassed && (
@@ -402,7 +402,7 @@ export default function CertificatePage() {
         <div className="cert-logo">📈</div>
         <div className="cert-brand">Marketing Academy</div>
 
-        <div className="cert-title">Certificate of Completion</div>
+        <h1 className="cert-title">Certificate of Completion</h1>
 
         <span className="cert-track-emoji">{track.emoji}</span>
         <div className="cert-track-name">{track.title}</div>

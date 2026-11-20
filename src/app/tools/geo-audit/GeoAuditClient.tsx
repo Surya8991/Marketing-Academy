@@ -48,25 +48,25 @@ const SCORE_TIPS: Record<keyof ScoreMap, string> = {
 };
 
 function gradeColor(grade: string) {
-  if (grade === "A") return "#10b981";
+  if (grade === "A") return "var(--success)";
   if (grade === "B") return "#3b82f6";
-  if (grade === "C") return "#f59e0b";
-  return "#ef4444";
+  if (grade === "C") return "var(--warning)";
+  return "var(--danger)";
 }
 
 function scoreColor(s: number) {
-  if (s >= 75) return "#10b981";
-  if (s >= 50) return "#f59e0b";
-  return "#ef4444";
+  if (s >= 75) return "var(--success)";
+  if (s >= 50) return "var(--warning)";
+  return "var(--danger)";
 }
 
 // rgba overlays instead of Tailwind color/dark: classes: `dark:` is a no-op in this
 // project's theme system (AGENTS.md Rule 5/19).
 function impactBadge(level: string): CSSProperties {
   const styles: Record<string, CSSProperties> = {
-    high: { backgroundColor: "rgba(22,163,74,0.15)", color: "#16a34a" },
-    medium: { backgroundColor: "rgba(217,119,6,0.15)", color: "#d97706" },
-    low: { backgroundColor: "rgba(220,38,38,0.15)", color: "#dc2626" },
+    high: { backgroundColor: "rgba(22,163,74,0.15)", color: "var(--success)" },
+    medium: { backgroundColor: "rgba(217,119,6,0.15)", color: "var(--warning)" },
+    low: { backgroundColor: "rgba(220,38,38,0.15)", color: "var(--danger)" },
   };
   return styles[level] ?? styles.low;
 }
@@ -152,7 +152,7 @@ export default function GeoAuditClient() {
           </p>
 
           <div className="flex gap-3">
-            <div className="flex-1 flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--background)] px-4 py-3 focus-within:border-[var(--accent)] transition-colors">
+            <div className="flex-1 flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--background)] px-4 py-3 focus-within:border-[var(--accent)] focus-within:ring-2 focus-within:ring-[var(--accent)] transition-colors">
               <Search size={16} className="text-[var(--muted-foreground)] shrink-0" />
               <input
                 type="url"
@@ -181,7 +181,7 @@ export default function GeoAuditClient() {
           {error && (
             <div
               className="mt-4 flex items-start gap-2 rounded-lg px-4 py-3 text-sm"
-              style={{ border: "1px solid rgba(220,38,38,0.3)", background: "rgba(220,38,38,0.08)", color: "#dc2626" }}
+              style={{ border: "1px solid rgba(220,38,38,0.3)", background: "rgba(220,38,38,0.08)", color: "var(--danger)" }}
             >
               <AlertTriangle size={16} className="shrink-0 mt-0.5" />
               <span>{error}</span>
@@ -266,28 +266,28 @@ export default function GeoAuditClient() {
           {/* Wins + Gaps */}
           <div className="grid sm:grid-cols-2 gap-6">
             <div className="rounded-xl border border-[var(--border)] bg-[var(--muted)] p-5">
-              <h3 className="font-semibold text-sm mb-4 flex items-center gap-2" style={{ color: "#16a34a" }}>
+              <h3 className="font-semibold text-sm mb-4 flex items-center gap-2" style={{ color: "var(--success)" }}>
                 <CheckCircle size={15} />
                 What&apos;s working
               </h3>
               <ul className="space-y-2">
                 {result.wins.map((w, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm">
-                    <span className="mt-0.5 shrink-0" style={{ color: "#22c55e" }}>+</span>
+                    <span className="mt-0.5 shrink-0" style={{ color: "var(--success)" }}>+</span>
                     <span className="text-[var(--muted-foreground)]">{w}</span>
                   </li>
                 ))}
               </ul>
             </div>
             <div className="rounded-xl border border-[var(--border)] bg-[var(--muted)] p-5">
-              <h3 className="font-semibold text-sm mb-4 flex items-center gap-2" style={{ color: "#d97706" }}>
+              <h3 className="font-semibold text-sm mb-4 flex items-center gap-2" style={{ color: "var(--warning)" }}>
                 <Info size={15} />
                 Gaps to fix
               </h3>
               <ul className="space-y-2">
                 {result.gaps.map((g, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm">
-                    <span className="mt-0.5 shrink-0" style={{ color: "#eab308" }}>-</span>
+                    <span className="mt-0.5 shrink-0" style={{ color: "var(--warning)" }}>-</span>
                     <span className="text-[var(--muted-foreground)]">{g}</span>
                   </li>
                 ))}

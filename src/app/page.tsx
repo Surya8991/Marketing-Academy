@@ -81,13 +81,13 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
 
-      {/* 1. Hero: S-Tier GSAP Animated Editorial Orbit */}
+      {/* 1. Hero */}
       <HeroModern totalLessons={totalLessons} totalCategories={CATEGORIES.length} />
 
-      {/* 2. Proof Strip: 4 Pillars of Excellence */}
+      {/* 2. Proof strip */}
       <ProofStrip />
 
-      {/* 3. Explore the Universe: 4 Worlds with 3D Orbs */}
+      {/* 3. Topic areas */}
       <WorldGrid />
 
       {/* 4. Structured Learning Paths */}
@@ -177,7 +177,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Categories: Complete Specimen Index */}
+      {/* All topics */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 border-t border-[var(--border)]">
         <div className="mb-10">
           <h2 className="font-serif font-bold text-3xl sm:text-5xl mb-3 text-[var(--foreground)]">All topics</h2>

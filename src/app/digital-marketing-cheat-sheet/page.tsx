@@ -151,6 +151,7 @@ export default function CheatSheetPage() {
       {/* Section 1: Key Marketing Metrics */}
       <section id="metrics">
         <h2 style={sectionHeadingStyle}>1. Key Marketing Metrics</h2>
+        <div style={{ overflowX: "auto" }}>
         <table style={tableStyle}>
           <thead>
             <tr>
@@ -243,11 +244,13 @@ export default function CheatSheetPage() {
             ))}
           </tbody>
         </table>
+        </div>
       </section>
 
       {/* Section 2: Marketing Funnel Stages */}
       <section id="funnel">
         <h2 style={sectionHeadingStyle}>2. Marketing Funnel Stages (TOFU / MOFU / BOFU)</h2>
+        <div style={{ overflowX: "auto" }}>
         <table style={tableStyle}>
           <thead>
             <tr>
@@ -303,11 +306,13 @@ export default function CheatSheetPage() {
             ))}
           </tbody>
         </table>
+        </div>
       </section>
 
       {/* Section 3: SEO Quick Reference */}
       <section id="seo">
         <h2 style={sectionHeadingStyle}>3. SEO Quick Reference (2025)</h2>
+        <div style={{ overflowX: "auto" }}>
         <table style={tableStyle}>
           <thead>
             <tr>
@@ -369,11 +374,13 @@ export default function CheatSheetPage() {
             ))}
           </tbody>
         </table>
+        </div>
       </section>
 
       {/* Section 4: Paid Ads Glossary */}
       <section id="paid-ads">
         <h2 style={sectionHeadingStyle}>4. Paid Ads Reference (2025)</h2>
+        <div style={{ overflowX: "auto" }}>
         <table style={tableStyle}>
           <thead>
             <tr>
@@ -438,6 +445,7 @@ export default function CheatSheetPage() {
             ))}
           </tbody>
         </table>
+        </div>
       </section>
 
       {/* Section 5: Email Marketing Benchmarks */}
@@ -452,6 +460,7 @@ export default function CheatSheetPage() {
         >
           Source: Mailchimp, Klaviyo, Litmus, and Campaign Monitor benchmarks (2024-2025). Note: Apple Mail Privacy Protection (MPP) inflates open rates by ~10-15% for lists with heavy Apple Mail usage. Click rate remains the more reliable engagement signal.
         </p>
+        <div style={{ overflowX: "auto" }}>
         <table style={tableStyle}>
           <thead>
             <tr>
@@ -533,6 +542,7 @@ export default function CheatSheetPage() {
             ))}
           </tbody>
         </table>
+        </div>
 
         <div
           style={{
@@ -565,6 +575,7 @@ export default function CheatSheetPage() {
         >
           AI reshaped search, content, and ad buying in 2024-2025. These are the concepts and benchmarks you need to know.
         </p>
+        <div style={{ overflowX: "auto" }}>
         <table style={tableStyle}>
           <thead>
             <tr>
@@ -626,6 +637,7 @@ export default function CheatSheetPage() {
             ))}
           </tbody>
         </table>
+        </div>
       </section>
 
       {/* Section 7: Social Media Benchmarks */}
@@ -640,6 +652,7 @@ export default function CheatSheetPage() {
         >
           Source: Hootsuite, Sprout Social, Rival IQ 2024-2025 benchmarks. Engagement rate = (likes + comments + shares) / reach. All figures are median; top-quartile performers are typically 2-4x higher.
         </p>
+        <div style={{ overflowX: "auto" }}>
         <table style={tableStyle}>
           <thead>
             <tr>
@@ -716,6 +729,7 @@ export default function CheatSheetPage() {
             ))}
           </tbody>
         </table>
+        </div>
       </section>
 
       {/* CTA */}

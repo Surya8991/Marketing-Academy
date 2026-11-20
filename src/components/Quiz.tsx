@@ -330,8 +330,8 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
                   const isCorrectOpt = oi === q.correct;
                   const isUserPick = oi === userAnswer;
                   let color = "var(--muted-foreground)";
-                  if (isCorrectOpt) color = "#16a34a";
-                  else if (isUserPick) color = "#ef4444";
+                  if (isCorrectOpt) color = "var(--success)";
+                  else if (isUserPick) color = "var(--danger)";
                   return (
                     <div key={oi} className="flex items-center gap-1.5 text-sm" style={{ color }}>
                       <span className="font-medium">{String.fromCharCode(65 + oi)}.</span>
@@ -370,9 +370,9 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
             aria-live="polite"
           >
             <div className="flex justify-center mb-3">
-              <Trophy size={40} style={{ color: "#16a34a" }} />
+              <Trophy size={40} style={{ color: "var(--success)" }} />
             </div>
-            <div className="text-3xl font-bold mb-1" style={{ color: "#16a34a" }}>
+            <div className="text-3xl font-bold mb-1" style={{ color: "var(--success)" }}>
               {alreadyPassed ? "Already Passed!" : "Quiz Passed!"}
             </div>
             {!alreadyPassed && (

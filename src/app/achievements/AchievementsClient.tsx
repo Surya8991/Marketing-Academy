@@ -106,7 +106,7 @@ export default function AchievementsClient() {
         {xp === 0 && achievements.length === 0 && (
           <div className="p-6 rounded-xl bg-[var(--muted)] border border-[var(--border)] mb-10 text-center">
             <p className="text-2xl mb-2">🚀</p>
-            <p className="font-semibold text-[var(--foreground)] mb-1">Your journey starts here</p>
+            <p className="font-semibold text-[var(--foreground)] mb-1">No badges yet</p>
             <p className="text-sm text-[var(--muted-foreground)]">
               Complete lessons and pass quizzes to earn XP and unlock badges.{" "}
               <Link href="/learn" className="text-[var(--accent)] underline">

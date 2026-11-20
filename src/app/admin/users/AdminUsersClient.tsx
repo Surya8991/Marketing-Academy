@@ -165,7 +165,7 @@ export default function AdminUsersClient() {
         </p>
       )}
 
-      <div className="border border-[var(--border)] rounded-xl overflow-hidden mb-4">
+      <div className="border border-[var(--border)] rounded-xl overflow-x-auto mb-4">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-[var(--border)] text-left text-[var(--muted-foreground)]">

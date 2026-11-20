@@ -31,15 +31,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const row = PROJECTS_INDEX.find((p) => p.category === category && p.id === slug);
   if (!row) return {};
 
-  const title = `${row.title} | Marketing Academy Projects`;
+  // Document title gets "| Marketing Academy" from the layout template (Rule 79); OG/Twitter don't.
+  const title = `${row.title} (Project)`;
+  const socialTitle = `${row.title} | Marketing Academy Projects`;
   const description = `A hands-on ${row.archetype} project (~${row.timeMinutes} min) for the "${row.lessonTitle}" lesson.`;
 
   return {
     title,
     description,
     alternates: { canonical: `${BASE}/projects/${category}/${slug}` },
-    openGraph: { title, description, type: "article" },
-    twitter: { card: "summary", title, description },
+    openGraph: { title: socialTitle, description, type: "article" },
+    twitter: { card: "summary", title: socialTitle, description },
   };
 }
 

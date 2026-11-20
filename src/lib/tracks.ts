@@ -374,7 +374,7 @@ export const TRACKS: Track[] = [
       { category: "copywriting", slug: "voice-and-tone", title: "Voice and Tone: Building a Brand Communication Style" },
       { category: "copywriting", slug: "landing-page-copy", title: "Landing Page Copy" },
       { category: "copywriting", slug: "cta-copy", title: "CTA Copy That Converts" },
-      { category: "copywriting", slug: "email-copy", title: "Email Copywriting" },
+      { category: "copywriting", slug: "email-copy", title: "Email Copy That Converts" },
       { category: "copywriting", slug: "storytelling-copy", title: "Storytelling in Copy" },
       { category: "copywriting", slug: "value-prop-copy", title: "Writing Value Proposition Copy That Converts" },
       { category: "copywriting", slug: "storybrand", title: "StoryBrand Framework" },

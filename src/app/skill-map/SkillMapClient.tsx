@@ -70,14 +70,14 @@ export default function SkillMapClient() {
     { code: "01", value: `${overallPct}%`, label: "Overall complete" },
     { code: "02", value: `${totalDone} / ${totalLessons}`, label: "Lessons done" },
     { code: "03", value: String(categoriesComplete), label: "Categories cleared" },
-    { code: "04", value: String(CATEGORIES.length), label: "Total disciplines" },
+    { code: "04", value: String(CATEGORIES.length), label: "Total topics" },
   ];
 
   return (
     <>
       <PageMasthead
         left="Marketing Academy · Progress"
-        right={`${CATEGORIES.length} disciplines`}
+        right={`${CATEGORIES.length} topics`}
       />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10">
@@ -88,7 +88,7 @@ export default function SkillMapClient() {
           Skill Map
         </h1>
         <p className="text-lg text-[var(--muted-foreground)] max-w-2xl mb-8 font-ui-sans leading-relaxed">
-          Your progress across every discipline, grouped the same way the nav
+          Your progress across every topic, grouped the same way the nav
           groups them, so you can see the shape of what you know.
         </p>
 
@@ -112,7 +112,7 @@ export default function SkillMapClient() {
           <div className="p-6 rounded-xl bg-[var(--muted)] border border-[var(--border)] mb-10 text-center">
             <p className="text-2xl mb-2">🗺️</p>
             <p className="font-semibold text-[var(--foreground)] mb-1">
-              All {CATEGORIES.length} disciplines at 0% — pick one to start!
+              All {CATEGORIES.length} topics at 0%. Pick one to start.
             </p>
             <p className="text-sm text-[var(--muted-foreground)]">
               Progress bars fill as you complete lessons.{" "}

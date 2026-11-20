@@ -226,9 +226,9 @@ export default function DailyChallenge() {
               <div className="mt-0.5 shrink-0">
                 {submitted ? (
                   opt.isWinner ? (
-                    <CheckCircle2 size={18} className="text-emerald-500" />
+                    <CheckCircle2 size={18} className="text-[var(--success)]" />
                   ) : isSelected ? (
-                    <XCircle size={18} className="text-red-500" />
+                    <XCircle size={18} className="text-[var(--danger)]" />
                   ) : (
                     <div className="w-4 h-4 rounded-full border border-[var(--border)]" />
                   )
@@ -260,11 +260,11 @@ export default function DailyChallenge() {
         <div className="p-4 rounded-xl bg-[var(--muted)]/40 border border-[var(--border)] text-sm space-y-2 animate-in fade-in slide-in-from-bottom-2 duration-300">
           <div className="flex items-center gap-2 font-semibold">
             {won ? (
-              <span className="text-emerald-500 flex items-center gap-1.5">
+              <span className="text-[var(--success)] flex items-center gap-1.5">
                 <CheckCircle2 size={16} /> Great instinct! You scored +25 XP
               </span>
             ) : (
-              <span className="text-amber-500 flex items-center gap-1.5">
+              <span className="text-[var(--warning)] flex items-center gap-1.5">
                 <HelpCircle size={16} /> Counter-intuitive result! +20 XP
               </span>
             )}

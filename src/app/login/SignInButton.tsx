@@ -57,7 +57,7 @@ export default function SignInButton() {
         {status === "sending" ? "Sending…" : "Send sign-in link"}
       </button>
       {status === "error" && (
-        <p className="text-sm" style={{ color: "rgba(220,38,38,0.9)" }}>
+        <p className="text-sm" style={{ color: "var(--danger)" }}>
           Something went wrong sending that link. Try again.
         </p>
       )}
