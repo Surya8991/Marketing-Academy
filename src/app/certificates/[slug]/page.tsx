@@ -374,9 +374,10 @@ export default function CertificatePage() {
         >
           Print Certificate
         </button>
+        {/* Shares the track page: a certificate URL renders the *viewer's* own progress, so a recruiter saw "not eligible". */}
         <a
           id="linkedin-share-cert-btn"
-          href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent("https://marketing-academy-roan.vercel.app/certificates/" + slug)}&title=${encodeURIComponent("I completed the " + track.title + " track on Marketing Academy!")}`}
+          href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent("https://marketing-academy-roan.vercel.app/tracks/" + slug)}&title=${encodeURIComponent("I completed the " + track.title + " track on Marketing Academy!")}`}
           target="_blank"
           rel="noopener noreferrer"
           style={{

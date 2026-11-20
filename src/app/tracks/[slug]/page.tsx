@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { TRACKS, getTrack } from "@/lib/tracks";
@@ -87,6 +88,11 @@ export default async function TrackDetailPage({ params }: Props) {
           <p className="text-[var(--muted-foreground)] text-base leading-relaxed max-w-xl">
             {track.description}
           </p>
+          {slug === "first-marketing-job" && (
+            <Link href="/interview-questions" className="inline-block mt-3 text-sm font-semibold text-[var(--accent)] hover:underline">
+              Practice with the interview questions bank →
+            </Link>
+          )}
         </div>
 
         {/* Lesson list with client-side progress */}

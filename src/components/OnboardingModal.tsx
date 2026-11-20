@@ -8,7 +8,8 @@ import { setCertName } from "@/lib/cert-name";
 import { getProfile, saveProfile } from "@/lib/profile";
 
 const GOALS = [
-  { emoji: "🌱", label: "Totally new to marketing", href: "/learn" },
+  { emoji: "🌱", label: "Totally new to marketing", href: "/tracks/marketing-foundations" },
+  { emoji: "💼", label: "Get my first marketing job", href: "/tracks/first-marketing-job" },
   { emoji: "🚀", label: "Grow a B2B startup", href: "/tracks/b2b-marketer" },
   { emoji: "🛒", label: "Scale an e-commerce store", href: "/tracks/ecommerce-growth" },
   { emoji: "👤", label: "Market my own product/service", href: "/tracks/solo-founder" },
