@@ -20,7 +20,7 @@ Disciplines: Fundamentals, SEO, Paid Ads, Growth, Social Media, Content, Email &
 ## Features
 
 - **Lessons** — table of contents, reading progress, a quiz you pass to mark complete, and related-lesson suggestions
-- **24 learning tracks** — curated paths like Solo Founder, B2B Marketer, AI-First Marketer, and Technical SEO
+- **26 learning tracks** — curated paths like Marketing Foundations (for complete beginners), Your First Marketing Job, Solo Founder, B2B Marketer, AI-First Marketer, and Technical SEO
 - **800+ practice projects** — hands-on exercises tied to lessons, each on its own page
 - **Interactive labs** — live workbench for testing conversion rates (CAC/ROAS sensitivity), headline NLP scoring, and behavioral dilemma choice architecture
 - **Progress** — completion tracking, bookmarks, XP, daily streaks, achievements, and printable track certificates (saved in your browser)

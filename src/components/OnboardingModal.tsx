@@ -120,6 +120,8 @@ export default function OnboardingModal() {
           color: "var(--foreground)",
           maxWidth: 480,
           width: "100%",
+          maxHeight: "100%",
+          overflowY: "auto",
           borderRadius: "1rem",
           padding: "2rem",
           border: "1px solid var(--border)",
