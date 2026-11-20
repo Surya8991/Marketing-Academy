@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap');
 
 /**
  * Colors & Theme Tokens
@@ -31,9 +30,9 @@
   --amber: #fff1d9;
   --shadow: 0 18px 55px rgba(31, 29, 74, 0.08);
 
-  --font-serif: "Instrument Serif", Georgia, serif;
-  --font-sans: "DM Sans", Arial, sans-serif;
-  --font-mono: "DM Mono", monospace;
+  /* `font-serif` headings use the already-loaded Fraunces (real bold weights;
+     Instrument Serif shipped only 400, so `font-bold` rendered faux-bold). */
+  --font-serif: var(--font-display), Georgia, serif;
 }
 
 @theme inline {
@@ -64,6 +63,15 @@
     --card: #131316;
     --code-bg: #1c1c20;
     --code-fg: #e4e4e7;
+    /* Editorial tokens: dark tints so pastel sections keep readable text */
+    --bg: #0a0a0b;
+    --paper: #131316;
+    --ink: #f4f4f5;
+    --line: #2a2a30;
+    --lav: #1d1c35;
+    --blue: #142131;
+    --mint: #14261c;
+    --amber: #2b2214;
   }
 }
 
@@ -78,6 +86,15 @@
   --card: #131316;
   --code-bg: #1c1c20;
   --code-fg: #e4e4e7;
+  /* Editorial tokens: dark tints so pastel sections keep readable text */
+  --bg: #0a0a0b;
+  --paper: #131316;
+  --ink: #f4f4f5;
+  --line: #2a2a30;
+  --lav: #1d1c35;
+  --blue: #142131;
+  --mint: #14261c;
+  --amber: #2b2214;
 }
 
 html {

@@ -83,23 +83,13 @@ export default function InteractiveLab() {
           {/* Lab Header */}
           <div className="relative z-10 flex flex-col md:flex-row md:items-start justify-between gap-6 mb-10 pb-8 border-b border-white/10">
             <div>
-              <div className="font-mono text-xs uppercase tracking-widest text-[#aaa5ff] mb-2">
-                Learn by doing
-              </div>
               <h2 className="text-3xl sm:text-5xl font-bold tracking-tight font-serif text-white">
-                Theory is a start.<br />
-                <span className="font-normal italic text-[#c4bfff]">
-                  Experimentation is the edge.
-                </span>
+                Try the ideas yourself
               </h2>
               <p className="mt-3 max-w-xl text-sm sm:text-base text-[#b9b8c9] font-ui-sans leading-relaxed">
-                Step inside the Marketing Lab. Change assumptions, test hypotheses, and see how
-                acquisition math and behavioral psychology affect real business outcomes.
+                Drag a slider to see when an ad campaign stops paying for itself, score a headline,
+                or pick between two button labels.
               </p>
-            </div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#4c8d6d]/60 bg-[#153424]/40 text-[#b6f0cf] font-mono text-xs">
-              <span className="h-2 w-2 rounded-full bg-[#36a66c] animate-pulse" />
-              <span>INTERACTIVE SANDBOX</span>
             </div>
           </div>
 
@@ -313,7 +303,7 @@ export default function InteractiveLab() {
                     </strong>
                   </div>
                   <Link
-                    href="/learn/growth/cac-ltv-ratio"
+                    href="/learn/analytics/ltv-cac"
                     className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-xs text-white font-medium transition-colors"
                   >
                     <span>Deep dive</span>
