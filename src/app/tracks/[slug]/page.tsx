@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { TRACKS, getTrack } from "@/lib/tracks";
 import TrackLessonList from "@/components/TrackLessonList";
 import TrackShareButton from "@/components/TrackShareButton";
+import { fitTitle, clip, shareImage, SITE_URL } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -11,22 +12,26 @@ export async function generateStaticParams() {
   return TRACKS.map((t) => ({ slug: t.slug }));
 }
 
-const BASE = "https://marketing-academy-roan.vercel.app";
+const BASE = SITE_URL;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const track = getTrack(slug);
   if (!track) return {};
+  const description = clip(track.description);
+  const { images, twitter } = shareImage(track.title, "Learning track", `${track.lessons.length} lessons`);
   return {
-    title: `${track.title}`,
-    description: track.description,
+    title: fitTitle(track.title),
+    description,
     alternates: { canonical: `${BASE}/tracks/${slug}` },
     openGraph: {
       title: `${track.title} | Marketing Academy`,
-      description: track.description,
+      description,
       url: `${BASE}/tracks/${slug}`,
       type: "website",
+      images,
     },
+    twitter: { ...twitter, title: `${track.title} | Marketing Academy`, description },
   };
 }
 

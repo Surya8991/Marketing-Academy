@@ -4,6 +4,7 @@ import { db } from "@/server/db/client";
 import { users } from "@/server/db/schema";
 import { verifyUnsubscribeToken } from "@/lib/email/unsubscribe-token";
 import { rateLimit } from "@/lib/rate-limit";
+import { SITE_URL } from "@/lib/site";
 
 const CATEGORY_LABELS: Record<string, string> = {
   streakReminder: "streak reminder",
@@ -23,7 +24,7 @@ function page(title: string, body: string): NextResponse {
       <style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:80px auto;padding:0 20px;text-align:center;color:#0a0a0a;}
       a{color:#6366f1;}</style></head>
       <body><h1 style="font-size:1.5rem;">${title}</h1><p>${body}</p>
-      <p><a href="https://marketing-academy-roan.vercel.app">&larr; Back to Marketing Academy</a></p></body></html>`,
+      <p><a href="${SITE_URL}">&larr; Back to Marketing Academy</a></p></body></html>`,
     { status: 200, headers: { "Content-Type": "text/html; charset=utf-8" } }
   );
 }

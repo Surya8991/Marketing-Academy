@@ -1,3 +1,4 @@
+import { shareImage } from "@/lib/site";
 import type { Metadata } from "next";
 import { TOOLS, TOOL_CATEGORIES, PRICING_TIERS } from "@/lib/tools-directory";
 import ToolsClient from "./ToolsClient";
@@ -14,7 +15,9 @@ export const metadata: Metadata = {
     description:
       `Browse ${TOOLS.length} marketing tools for SEO, paid ads, email, analytics, AI, social media and more. Filter by category and pricing to find the right tool for your stack.`,
     type: "website",
+    images: shareImage("Marketing Tools Directory").images,
   },
+  twitter: shareImage("Marketing Tools Directory").twitter,
 };
 
 export default function ToolsPage() {

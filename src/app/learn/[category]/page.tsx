@@ -7,6 +7,8 @@ import LevelBadge from "@/components/LevelBadge";
 import CategoryProgress from "@/components/CategoryProgress";
 import { ArrowRight, ChevronLeft, Clock } from "lucide-react";
 import type { Metadata } from "next";
+import { fitTitle, clip, shareImage, SITE_URL } from "@/lib/site";
+import { TRACKS } from "@/lib/tracks";
 
 function lessonReadTime(categorySlug: string, lessonSlug: string): number {
   try {
@@ -31,23 +33,27 @@ export async function generateStaticParams() {
   return CATEGORIES.map((c) => ({ category: c.slug }));
 }
 
-const BASE = "https://marketing-academy-roan.vercel.app";
+const BASE = SITE_URL;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category } = await params;
   const cat = getCategory(category);
   if (!cat) return {};
-  const description = cat.description ?? `Free ${cat.title} lessons from beginner to advanced. ${cat.lessons.length} structured lessons, no account required.`;
+  const description = clip(cat.description ?? `Free ${cat.title} lessons from beginner to advanced. ${cat.lessons.length} structured lessons, no account required.`);
+  const title = `${cat.title} Course: ${cat.lessons.length} Free Lessons`;
+  const { images, twitter } = shareImage(title, "Course");
   return {
-    title: cat.title,
+    title: fitTitle(title),
     description,
     alternates: { canonical: `${BASE}/learn/${category}` },
     openGraph: {
-      title: `${cat.title}`,
+      title,
       description,
       url: `${BASE}/learn/${category}`,
       type: "website",
+      images,
     },
+    twitter: { ...twitter, title, description },
   };
 }
 
@@ -76,6 +82,13 @@ export default async function CategoryPage({ params }: Props) {
     totalMinutes >= 60
       ? `~${Math.round(totalMinutes / 60)} hr read`
       : `~${totalMinutes} min read`;
+
+  // Tracks that draw most on this category, for internal links (each track page otherwise has one inlink).
+  const relatedTracks = TRACKS.map((t) => ({ t, n: t.lessons.filter((l) => l.category === cat.slug).length }))
+    .filter((x) => x.n > 0)
+    .sort((a, b) => b.n - a.n)
+    .slice(0, 3)
+    .map((x) => x.t);
 
   const courseLd = {
     "@context": "https://schema.org",
@@ -150,6 +163,16 @@ export default async function CategoryPage({ params }: Props) {
         <CategoryProgress
           lessonIds={cat.lessons.map((l) => canonicalLessonId(cat.slug, l))}
         />
+        <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+          <Link href={`/cheat-sheets/${cat.slug}`} className="text-[var(--accent)] hover:underline">
+            {cat.title} cheat sheet
+          </Link>
+          {relatedTracks.map((t) => (
+            <Link key={t.slug} href={`/tracks/${t.slug}`} className="text-[var(--accent)] hover:underline">
+              {t.title} track
+            </Link>
+          ))}
+        </div>
       </div>
 
       {/* Lessons by level */}

@@ -1,3 +1,4 @@
+import { fitTitle, SITE_URL } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -36,11 +37,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${toolA.name} vs ${toolB.name} Comparison`,
+    title: fitTitle(`${toolA.name} vs ${toolB.name} Comparison`),
     description: `Compare ${toolA.name} vs ${toolB.name} side-by-side. Read structured features, pros & cons, pricing tiers, and expert software recommendations.`,
     alternates: {
       // Alias slugs (e.g. ga4-vs-mixpanel) render the same content; point them at the full slug
-      canonical: `https://marketing-academy-roan.vercel.app/compare/${slugify(toolA.name)}-vs-${slugify(toolB.name)}`,
+      canonical: `${SITE_URL}/compare/${slugify(toolA.name)}-vs-${slugify(toolB.name)}`,
     },
   };
 }
@@ -82,7 +83,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
   const lookupKey = `${slugify(toolA.name)}-vs-${slugify(toolB.name)}`;
   const customData = CUSTOM_COMPARISONS[lookupKey];
 
-  const COMPARE_BASE = "https://marketing-academy-roan.vercel.app";
+  const COMPARE_BASE = SITE_URL;
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",

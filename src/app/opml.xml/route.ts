@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
+import { SITE_URL } from "@/lib/site";
 
-const BASE = "https://marketing-academy-roan.vercel.app";
+const BASE = SITE_URL;
 
 export function GET() {
   const opml = `<?xml version="1.0" encoding="UTF-8"?>

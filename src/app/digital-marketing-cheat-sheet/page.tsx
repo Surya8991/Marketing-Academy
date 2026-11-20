@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PrintButton from "./PrintButton";
+import { SITE_URL } from "@/lib/site";
 
 const tableStyle: React.CSSProperties = {
   width: "100%",
@@ -62,8 +63,8 @@ export default function CheatSheetPage() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://marketing-academy-roan.vercel.app" },
-              { "@type": "ListItem", position: 2, name: "Digital Marketing Cheat Sheet", item: "https://marketing-academy-roan.vercel.app/digital-marketing-cheat-sheet" },
+              { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+              { "@type": "ListItem", position: 2, name: "Digital Marketing Cheat Sheet", item: `${SITE_URL}/digital-marketing-cheat-sheet` },
             ],
           }),
         }}

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { fitTitle, SITE_URL } from "@/lib/site";
 import type { Metadata } from "next";
 import { INTERVIEW_SECTIONS } from "@/lib/interview-questions";
 import CopyQuestionsButton from "./CopyQuestionsButton";
@@ -16,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!section) return {};
   const total = section.conceptualQAs.length + section.scenarioQAs.length;
   return {
-    title: `${section.title} 2026`,
+    title: fitTitle(`${section.title} 2026`),
     description: `${total} real ${section.categoryLabel} interview questions with detailed answers, ${section.conceptualQAs.length} conceptual and ${section.scenarioQAs.length} scenario-based questions for 2026.`,
     alternates: { canonical: `/interview-questions/${category}` },
   };
@@ -34,7 +35,7 @@ details:not([open]) summary .iq-minus { display: none; }
 }
 `;
 
-const BASE = "https://marketing-academy-roan.vercel.app";
+const BASE = SITE_URL;
 
 export default async function InterviewCategoryPage({ params }: Props) {
   const { category } = await params;

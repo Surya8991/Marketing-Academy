@@ -13,6 +13,7 @@ import InteractiveLab from "@/components/home/InteractiveLab";
 import CaseStudiesSection from "@/components/home/CaseStudiesSection";
 import FinalCtaSection from "@/components/home/FinalCtaSection";
 import { ArrowRight } from "lucide-react";
+import { SITE_URL } from "@/lib/site";
 
 const FEATURED = [
   { category: "ai-marketing", slug: "ai-marketing-101", emoji: "🤖", reason: "Hot in 2026" },
@@ -21,9 +22,10 @@ const FEATURED = [
   { category: "fundamentals", slug: "brand-vs-performance", emoji: "⚡", reason: "Advanced" },
 ];
 
-const BASE = "https://marketing-academy-roan.vercel.app";
+const BASE = SITE_URL;
 
 export const metadata: Metadata = {
+  title: { absolute: "Marketing Academy: Free Marketing Courses and Lessons" },
   alternates: { canonical: "/" },
 };
 
@@ -32,7 +34,7 @@ const organizationLd = {
   "@type": "Organization",
   name: "Marketing Academy",
   url: BASE,
-  logo: { "@type": "ImageObject", url: `${BASE}/favicon.ico`, width: 32, height: 32 },
+  logo: { "@type": "ImageObject", url: `${BASE}/logo.png`, width: 512, height: 512 },
   description: "Free marketing education: SEO, paid ads, growth, social, email, analytics, and AI in plain English.",
   sameAs: ["https://github.com/Surya8991/Marketing-Academy", "https://twitter.com/SURYA_L1998"],
 };

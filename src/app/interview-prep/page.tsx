@@ -1,3 +1,4 @@
+import { shareImage } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CATEGORIES } from "@/lib/curriculum";
@@ -14,7 +15,9 @@ export const metadata: Metadata = {
     description:
       `Marketing interview questions and answers covering SEO, paid ads, content marketing, analytics, brand strategy, and ${INTERVIEW_SECTIONS.length} topics in all.`,
     type: "website",
+    images: shareImage("Marketing Interview Questions").images,
   },
+  twitter: shareImage("Marketing Interview Questions").twitter,
 };
 
 const FAQS = [

@@ -19,6 +19,10 @@ const RESOURCE_LINKS = [
   { href: "/cheat-sheets",         label: "Cheat Sheets" },
   { href: "/tools",                label: "Tools Directory" },
   { href: "/compare",              label: "Compare Tools" },
+  { href: "/tools/geo-audit",      label: "GEO Auditor" },
+  { href: "/interview-prep",       label: "Interview Prep" },
+  { href: "/resources",            label: "Resources" },
+  { href: "/search",               label: "Search" },
   { href: "/about",                label: "About" },
 ];
 

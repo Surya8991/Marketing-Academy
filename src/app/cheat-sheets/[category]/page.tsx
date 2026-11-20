@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CATEGORIES, getCategory } from "@/lib/curriculum";
 import PrintButton from "./PrintButton";
+import { fitTitle, SITE_URL } from "@/lib/site";
 import type { Metadata } from "next";
 
 type Props = { params: Promise<{ category: string }> };
@@ -15,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const cat = getCategory(category);
   if (!cat) return {};
   return {
-    title: `${cat.title} Cheat Sheet`,
+    title: fitTitle(`${cat.title} Cheat Sheet`),
     description: `Printable quick reference for all ${cat.lessons.length} ${cat.title} lessons. Key concepts, frameworks, and tactics on one page.`,
     alternates: { canonical: `/cheat-sheets/${category}` },
   };
@@ -78,7 +79,7 @@ export default async function CategoryCheatSheetPage({ params }: Props) {
   const cat = getCategory(category);
   if (!cat) notFound();
 
-  const CS_BASE = "https://marketing-academy-roan.vercel.app";
+  const CS_BASE = SITE_URL;
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",

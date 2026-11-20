@@ -9,6 +9,7 @@ import { resumeLearningEmail } from "@/lib/email/templates/resume-learning";
 import { buildUnsubscribeToken } from "@/lib/email/unsubscribe-token";
 import { getLesson } from "@/lib/curriculum";
 import type { EngagementState } from "@/lib/engagement";
+import { SITE_URL } from "@/lib/site";
 
 /**
  * IMPROVEMENT_PLAN #28. Fires once, exactly 3 days after `lastActiveDay`
@@ -44,7 +45,7 @@ export async function GET(req: NextRequest) {
     const lesson = getLesson(category, slug);
     if (!lesson) continue;
 
-    const unsubscribeUrl = `https://marketing-academy-roan.vercel.app/api/email/unsubscribe?token=${buildUnsubscribeToken(row.id, "resumeLearning")}`;
+    const unsubscribeUrl = `${SITE_URL}/api/email/unsubscribe?token=${buildUnsubscribeToken(row.id, "resumeLearning")}`;
     const { subject, html, text } = resumeLearningEmail({
       lessonTitle: lesson.title,
       lessonUrl: `/learn/${category}/${slug}`,

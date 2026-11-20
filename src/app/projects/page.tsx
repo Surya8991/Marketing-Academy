@@ -1,3 +1,4 @@
+import { shareImage } from "@/lib/site";
 import type { Metadata } from "next";
 import { PROJECTS_INDEX } from "@/lib/projects-index";
 import ProjectsClient from "./ProjectsClient";
@@ -13,7 +14,9 @@ export const metadata: Metadata = {
     description:
       `Hands-on practice projects tied to real lessons: ${PROJECTS_INDEX.length}+ diagnostics, simulations, teardowns, and builds set against real, cited company case studies.`,
     type: "website",
+    images: shareImage("Practice Projects").images,
   },
+  twitter: shareImage("Practice Projects").twitter,
 };
 
 export default function ProjectsPage() {

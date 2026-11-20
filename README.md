@@ -66,4 +66,6 @@ public/        Static assets, PWA manifest, service worker
 
 ## Deploy
 
-Pushes to `main` auto-deploy to Vercel. The core site needs no environment variables. Optional accounts and cross-device sync add a few — see `.env.example`.
+Pushes to `main` auto-deploy to Vercel. The core site needs no environment variables. Optional accounts and cross-device sync add a few — see `.env.example`. To serve the site from a custom domain, set `NEXT_PUBLIC_SITE_URL`: canonicals, the sitemap, structured data and email links all read it from `src/lib/site.ts`.
+
+After committing lesson edits, run `node scripts/lesson-dates.mjs` and commit the regenerated `src/lib/lesson-dates.ts`, so each lesson's published/updated dates stay real (Vercel's shallow clone can't compute them at build time).

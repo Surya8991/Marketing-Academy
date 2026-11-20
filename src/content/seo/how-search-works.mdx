@@ -168,6 +168,24 @@ flowchart TD
 
 **Before Google can rank your page, it must first find it and file it, and either step can silently fail without you ever knowing.**
 
+## Frequently Asked Questions
+
+### How do search engines work?
+
+Search engines do three jobs: crawling, indexing and ranking. Crawlers follow links to discover pages, Google stores the pages that pass its quality filters in an index, and ranking happens in real time against 200+ signals when someone searches.
+
+### What is the difference between crawling and indexing?
+
+Crawling is when Googlebot discovers and reads a page by following links. Indexing is when Google decides to file that page in its database, and not every crawled page gets indexed, since duplicate, thin and noindex pages are skipped.
+
+### Why is my new page not showing up in Google?
+
+It is likely a crawl or indexing problem, not a ranking problem. Check that no noindex tag or robots.txt block is in place, link to the page from somewhere already indexed, and use the URL Inspection tool in Google Search Console to request indexing.
+
+### What is crawl budget?
+
+Crawl budget is a rough limit on how many pages Googlebot will crawl on your site per day. Sites with thousands of low-quality or duplicate pages can find that important pages get crawled rarely or skipped, so keeping the site lean and well linked matters.
+
 <ResourceList resources={[
   {
     title: "How Search Works, Google Search Central",
