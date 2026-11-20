@@ -1,6 +1,7 @@
 import { renderEmailLayout } from "@/lib/email/layout";
+import { SITE_URL } from "@/lib/site";
 
-const BASE_URL = "https://marketing-academy-roan.vercel.app";
+const BASE_URL = SITE_URL;
 
 export function welcomeEmail(input: { name?: string | null }) {
   const greeting = input.name ? `Hi ${input.name},` : "Hi there,";

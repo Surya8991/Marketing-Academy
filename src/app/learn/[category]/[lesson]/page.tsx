@@ -17,6 +17,9 @@ import LessonResources from "@/components/LessonResources";
 import LessonViewTracker from "@/components/LessonViewTracker";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { Metadata } from "next";
+import { LESSON_DATES } from "@/lib/lesson-dates";
+import { parseFaq } from "@/lib/faq";
+import { fitTitle, clip, SITE_URL } from "@/lib/site";
 import fs from "fs";
 import path from "path";
 
@@ -30,7 +33,7 @@ export async function generateStaticParams() {
   );
 }
 
-const BASE = "https://marketing-academy-roan.vercel.app";
+const BASE = SITE_URL;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category, lesson } = await params;
@@ -40,11 +43,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const sourceCat = lessonRef?.sourceCategory ?? category;
     const mod = await import(`@/content/${sourceCat}/${lesson}.mdx`);
     const title = mod.lessonMeta?.title ?? lesson;
-    const description = mod.lessonMeta?.summary;
     const level = mod.lessonMeta?.level ?? "";
+    const summary: string = mod.lessonMeta?.summary ?? "";
+    // Short summaries make thin snippets: add the level and topic.
+    const description = clip(summary.length < 70 ? `${summary} A free ${level ? level.toLowerCase() + " " : ""}lesson in ${cat?.title ?? "marketing"}.` : summary);
     const ogUrl = `${BASE}/api/og?title=${encodeURIComponent(title)}&category=${encodeURIComponent(cat?.title ?? "")}&level=${encodeURIComponent(level)}`;
     return {
-      title,
+      title: fitTitle(title),
       description,
       alternates: {
         // Cross-listed lessons canonicalize to their source category to avoid duplicate content
@@ -87,8 +92,9 @@ export default async function LessonPage({ params }: Props) {
     notFound();
   }
 
-  // Estimate reading time from raw MDX source
+  // Estimate reading time, and pull the FAQ for FAQPage JSON-LD, from the raw MDX source
   let readTime = 5;
+  let faq: { q: string; a: string }[] = [];
   try {
     const raw = fs.readFileSync(
       path.join(process.cwd(), "src", "content", sourceCat, `${lesson}.mdx`),
@@ -100,6 +106,7 @@ export default async function LessonPage({ params }: Props) {
       .replace(/<[^>]+>/g, " ");
     const words = text.split(/\s+/).filter(Boolean).length;
     readTime = Math.max(1, Math.ceil(words / 200));
+    faq = parseFaq(raw);
   } catch {
     // fallback to default
   }
@@ -132,6 +139,7 @@ export default async function LessonPage({ params }: Props) {
   // a cross-listed URL. The visible HTML breadcrumb still reflects the user's
   // actual navigation path (current category).
   const sourceCatTitle = getCategory(sourceCat)?.title ?? cat.title;
+  const [datePublished, dateModified] = LESSON_DATES[`${sourceCat}/${lesson}`] ?? [];
   const articleLd = {
     "@context": "https://schema.org",
     "@type": ["Article", "LearningResource"],
@@ -144,7 +152,7 @@ export default async function LessonPage({ params }: Props) {
       "@type": "Organization",
       name: "Marketing Academy",
       url: BASE,
-      logo: { "@type": "ImageObject", url: `${BASE}/favicon.ico` },
+      logo: { "@type": "ImageObject", url: `${BASE}/logo.png`, width: 512, height: 512 },
     },
     educationalLevel: lessonMeta?.level ?? "Beginner",
     learningResourceType: "lesson",
@@ -154,7 +162,8 @@ export default async function LessonPage({ params }: Props) {
     timeRequired: `PT${readTime}M`,
     isPartOf: { "@type": "Course", name: sourceCatTitle, url: `${BASE}/learn/${sourceCat}` },
     image: `${BASE}/api/og?title=${encodeURIComponent(lessonMeta?.title ?? lesson)}&category=${encodeURIComponent(sourceCatTitle)}&level=${encodeURIComponent(lessonMeta?.level ?? "")}`,
-    dateModified: "2026-07-04",
+    datePublished,
+    dateModified,
     isAccessibleForFree: true,
   };
 
@@ -169,9 +178,16 @@ export default async function LessonPage({ params }: Props) {
     ],
   };
 
+  const faqLd = faq.length >= 2 && {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map(({ q, a }) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
+      {faqLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <ReadingProgress />
       <LessonViewTracker
@@ -237,8 +253,14 @@ export default async function LessonPage({ params }: Props) {
                 )}
                 <span>&middot;</span>
                 <span>{cat.title.toUpperCase()}</span>
-                <span>&middot;</span>
-                <span>UPDATED JUN 2026</span>
+                {dateModified && (
+                  <>
+                    <span>&middot;</span>
+                    <time dateTime={dateModified}>
+                      UPDATED {new Date(dateModified).toLocaleDateString("en-US", { month: "short", year: "numeric", timeZone: "UTC" }).toUpperCase()}
+                    </time>
+                  </>
+                )}
               </div>
               <div className="mt-5 flex flex-wrap items-center gap-3">
                 <MarkComplete
@@ -261,7 +283,7 @@ export default async function LessonPage({ params }: Props) {
             />
 
             {/* MDX content */}
-            <article className="prose prose-slate max-w-none [&>h1:first-of-type]:hidden">
+            <article className="prose prose-slate max-w-none">
               <LessonContent />
             </article>
 

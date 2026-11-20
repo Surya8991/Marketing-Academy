@@ -64,13 +64,13 @@ export default function ProjectList({ projects, category }: { projects: Project[
         )}
       </button>
 
-      {open && (
-        <div className="flex flex-col gap-4 mt-4">
-          {projects.map((p) => (
-            <ProjectCard project={p} category={category} key={p.id} id={`project-${p.id}`} />
-          ))}
-        </div>
-      )}
+      {/* Always rendered (hidden while collapsed) so each project's link is in the server HTML:
+          this list is the only internal link most project pages get. */}
+      <div className="flex flex-col gap-4 mt-4" hidden={!open}>
+        {projects.map((p) => (
+          <ProjectCard project={p} category={category} key={p.id} id={`project-${p.id}`} />
+        ))}
+      </div>
     </section>
   );
 }

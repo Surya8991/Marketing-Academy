@@ -7,6 +7,7 @@ import { TRACKS } from "@/lib/tracks";
 import { getCompleted } from "@/lib/progress";
 import { getTrackQuizPassed } from "@/lib/quizzes";
 import { getCertName, setCertName } from "@/lib/cert-name";
+import { SITE_URL } from "@/lib/site";
 
 export default function CertificatePage() {
   const params = useParams();
@@ -377,7 +378,7 @@ export default function CertificatePage() {
         {/* Shares the track page: a certificate URL renders the *viewer's* own progress, so a recruiter saw "not eligible". */}
         <a
           id="linkedin-share-cert-btn"
-          href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent("https://marketing-academy-roan.vercel.app/tracks/" + slug)}&title=${encodeURIComponent("I completed the " + track.title + " track on Marketing Academy!")}`}
+          href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(SITE_URL + "/tracks/" + slug)}&title=${encodeURIComponent("I completed the " + track.title + " track on Marketing Academy!")}`}
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -433,7 +434,7 @@ export default function CertificatePage() {
         </div>
 
         <div className="cert-footer">
-          Marketing Academy &nbsp;&bull;&nbsp; marketing-academy-roan.vercel.app
+          Marketing Academy &nbsp;&bull;&nbsp; {new URL(SITE_URL).host}
         </div>
       </div>
     </>

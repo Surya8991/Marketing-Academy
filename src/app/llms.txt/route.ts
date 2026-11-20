@@ -1,5 +1,6 @@
 import { CATEGORIES, uniqueLessonCount } from "@/lib/curriculum";
 import { TRACKS } from "@/lib/tracks";
+import { SITE_URL } from "@/lib/site";
 
 /**
  * /llms.txt: the emerging AI-crawler manifest (llmstxt.org). A concise,
@@ -12,7 +13,7 @@ import { TRACKS } from "@/lib/tracks";
  */
 export const dynamic = "force-static";
 
-const BASE = "https://marketing-academy-roan.vercel.app";
+const BASE = SITE_URL;
 
 export function GET() {
   const lessonCount = uniqueLessonCount();

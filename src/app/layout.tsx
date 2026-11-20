@@ -12,6 +12,7 @@ import OnboardingModal from "@/components/OnboardingModal";
 import CommandPaletteLoader from "@/components/CommandPaletteLoader";
 import StorageWarning from "@/components/StorageWarning";
 import { emailAuthConfigured } from "@/lib/env";
+import { SITE_URL } from "@/lib/site";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -29,7 +30,7 @@ const fraunces = Fraunces({
 const publicSans = Public_Sans({ variable: "--font-ui-sans", subsets: ["latin"] });
 const plexMono = IBM_Plex_Mono({ variable: "--font-data", subsets: ["latin"], weight: ["400", "500", "600"] });
 
-const BASE = "https://marketing-academy-roan.vercel.app";
+const BASE = SITE_URL;
 
 export const metadata: Metadata = {
   title: { template: "%s | Marketing Academy", default: "Marketing Academy" },

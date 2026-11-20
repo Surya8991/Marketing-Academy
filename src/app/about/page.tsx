@@ -6,6 +6,7 @@ import { GLOSSARY_TERMS } from "@/lib/glossary";
 import { TOOLS } from "@/lib/tools-directory";
 import { TRACKS } from "@/lib/tracks";
 import PageMasthead from "@/components/PageMasthead";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -64,8 +65,26 @@ export default function AboutPage() {
     { code: "06", value: "$0", label: "Cost forever" },
   ];
 
+  // Mirrors what this page already says in prose: who built the site and what it covers.
+  const aboutLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    url: `${SITE_URL}/about`,
+    name: "About Marketing Academy",
+    mainEntity: {
+      "@type": "Organization",
+      name: "Marketing Academy",
+      url: SITE_URL,
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.png`, width: 512, height: 512 },
+      description: metadata.description,
+      founder: { "@type": "Person", name: "Surya L", address: { "@type": "PostalAddress", addressLocality: "Bangalore", addressCountry: "IN" } },
+      sameAs: ["https://github.com/Surya8991/Marketing-Academy", "https://twitter.com/SURYA_L1998"],
+    },
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutLd) }} />
       <style dangerouslySetInnerHTML={{ __html: hoverCSS }} />
       <PageMasthead left="Marketing Academy · Masthead" right="Built solo, open source" />
 

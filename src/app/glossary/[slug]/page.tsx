@@ -1,3 +1,5 @@
+import { fitTitle, clip, SITE_URL } from "@/lib/site";
+import { getCategory } from "@/lib/curriculum";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -15,8 +17,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const term = getTermBySlug(slug);
   if (!term) return {};
   return {
-    title: `${term.term}: Marketing Glossary`,
-    description: term.definition.slice(0, 155),
+    title: fitTitle(`${term.term}: Marketing Glossary`),
+    description: clip(term.definition),
     alternates: { canonical: `/glossary/${slug}` },
   };
 }
@@ -37,7 +39,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   "Social Media": "from-fuchsia-500/15 to-purple-500/10",
 };
 
-const BASE = "https://marketing-academy-roan.vercel.app";
+const BASE = SITE_URL;
 
 export default async function GlossaryTermPage({ params }: Props) {
   const { slug } = await params;
@@ -45,6 +47,11 @@ export default async function GlossaryTermPage({ params }: Props) {
   if (!term) notFound();
 
   const related = getRelatedTermObjects(term.relatedTerms);
+  const lessons = (term.lessons ?? []).flatMap((id) => {
+    const [cat, lessonSlug] = id.split("/");
+    const lesson = getCategory(cat)?.lessons.find((l) => l.slug === lessonSlug);
+    return lesson ? [{ href: `/learn/${id}`, title: lesson.title }] : [];
+  });
   const color = CATEGORY_COLORS[term.category] ?? "from-gray-500/15 to-slate-500/10";
 
   // Find prev / next in sorted order
@@ -97,6 +104,33 @@ export default async function GlossaryTermPage({ params }: Props) {
           </p>
         </div>
       </div>
+
+      {term.whyItMatters && (
+        <section className="mb-8">
+          <h2 className="text-lg font-semibold mb-2">Why {term.term} matters</h2>
+          <p className="leading-relaxed text-[var(--foreground)]">{term.whyItMatters}</p>
+        </section>
+      )}
+      {term.example && (
+        <section className="mb-8">
+          <h2 className="text-lg font-semibold mb-2">Example</h2>
+          <p className="leading-relaxed text-[var(--foreground)]">{term.example}</p>
+        </section>
+      )}
+      {lessons.length > 0 && (
+        <section className="mb-10">
+          <h2 className="text-lg font-semibold mb-3">Learn it in a lesson</h2>
+          <ul className="space-y-2">
+            {lessons.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href} target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] hover:underline">
+                  {l.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {/* Related terms */}
       {related.length > 0 && (
